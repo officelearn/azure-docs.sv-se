@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: c6fa4df1fb2fc7559f706d81621ea198f5ca7cdc
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 59e5bbaf8deccdd8218e9c5590266070ed3b5ebb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881433"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624340"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Hantera loggdata och arbets ytor i Azure Monitor
 
@@ -44,12 +44,12 @@ Du kan visa åtkomst kontrol läget som kon figurer ATS på en arbets yta från 
 
 ### <a name="configure-from-the-azure-portal"></a>Konfigurera från Azure Portal
 
-Du kan visa den aktuella arbets ytans åtkomst kontrol läge på sidan **Översikt** för arbets ytan på menyn **Log Analytics arbets yta** . 
+Du kan visa den aktuella arbets ytans åtkomst kontrol läge på sidan **Översikt** för arbets ytan på menyn **Log Analytics arbets yta** .
 
 ![Visa åtkomst kontrol läge för arbets yta](media/manage-access/view-access-control-mode.png)
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-1. I Azure Portal väljer du Log Analytics arbets ytor > din arbets yta.  
+1. I Azure Portal väljer du Log Analytics arbets ytor > din arbets yta.
 
 Du kan ändra den här inställningen från sidan **Egenskaper** i arbets ytan. Att ändra inställningen kommer att inaktive ras om du inte har behörighet att konfigurera arbets ytan.
 
@@ -60,7 +60,7 @@ Du kan ändra den här inställningen från sidan **Egenskaper** i arbets ytan. 
 Använd följande kommando för att kontrol lera åtkomst kontrol läget för alla arbets ytor i prenumerationen:
 
 ```powershell
-Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions}
 ```
 
 Utdata bör likna följande:
@@ -70,10 +70,10 @@ DefaultWorkspace38917: True
 DefaultWorkspace21532: False
 ```
 
-Värdet `False` innebär att arbets ytan konfigureras med arbets ytans kontext åtkomst läge.  Värdet `True` innebär att arbets ytan konfigureras med resurs kontextens åtkomst läge. 
+Värdet `False` innebär att arbets ytan konfigureras med arbets ytans kontext åtkomst läge.  Värdet `True` innebär att arbets ytan konfigureras med resurs kontextens åtkomst läge.
 
->[!NOTE]
->Om en arbets yta returneras utan ett booleskt värde och är tom, matchar detta även resultatet av ett `False` värde.
+> [!NOTE]
+> Om en arbets yta returneras utan ett booleskt värde och är tom, matchar detta även resultatet av ett `False` värde.
 >
 
 Använd följande skript för att ange åtkomst kontrol läget för en speciell arbets yta till resurs kontext behörighet:
@@ -81,9 +81,9 @@ Använd följande skript för att ange åtkomst kontrol läget för en speciell 
 ```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
-if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null)
     { $Workspace.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
-else 
+else
     { $Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
 ```
@@ -92,9 +92,9 @@ Använd följande skript för att ställa in åtkomst kontrol läget för alla a
 
 ```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
-if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null)
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
-else 
+else
     { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
@@ -159,10 +159,10 @@ Medlemmar av *Log Analytics Contributor*-rollen kan:
 * Lägga till och ta bort hanteringslösningar
 
     > [!NOTE]
-    > För att kunna genomföra de sista två åtgärderna, måste den här behörigheten beviljas resource group eller på prenumerationsnivån.  
+    > För att kunna genomföra de sista två åtgärderna, måste den här behörigheten beviljas resource group eller på prenumerationsnivån.
 
 * Läsa lagringskontonycklar
-* Konfigurera loggsamlingar från Azure Storage  
+* Konfigurera loggsamlingar från Azure Storage
 * Redigera övervakningsinställningar för Azure-resurser, bland annat
   * Lägga till tillägg för virtuell dator i virtuella datorer
   * Konfigurera Azure-diagnostik på alla Azure-resurser
@@ -202,7 +202,7 @@ När användarna frågar efter loggar från en arbets yta med resurs kontext åt
 | Behörighet | Beskrivning |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exempel:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Möjlighet att visa alla logg data för resursen.  |
-| `Microsoft.Insights/diagnosticSettings/write ` | Möjlighet att konfigurera diagnostikinställningar för att tillåta konfiguration av loggar för den här resursen. |
+| `Microsoft.Insights/diagnosticSettings/write` | Möjlighet att konfigurera diagnostikinställningar för att tillåta konfiguration av loggar för den här resursen. |
 
 `/read`behörighet beviljas vanligt vis från en roll som innehåller  _\*/Read eller_ _\*_ behörigheter som de inbyggda rollerna [läsare](../../role-based-access-control/built-in-roles.md#reader) och [deltagare](../../role-based-access-control/built-in-roles.md#contributor) . Observera att anpassade roller som innehåller särskilda åtgärder eller dedikerade inbyggda roller kanske inte innehåller den här behörigheten.
 

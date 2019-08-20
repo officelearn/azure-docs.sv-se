@@ -1,116 +1,116 @@
 ---
-title: Graph-datamodeller för Azure Cosmos DB Gremlin-API
-description: Lär dig mer om att utforma en grafdatabas med Cosmos DB Gremlin-API.
+title: Diagram data modellering för Azure Cosmos DB Gremlin-API
+description: Lär dig att modellera en diagram databas med Cosmos DB Gremlin API.
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: c6ae23efa90874bbefc2aff35f8798aa6c0da791
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 94df90db4a715d2540dfc5ec0aa521d76d22f757
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503422"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624220"
 ---
-# <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Graph-datamodeller för Azure Cosmos DB Gremlin-API
+# <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Diagram data modellering för Azure Cosmos DB Gremlin-API
 
-Följande dokument är utformad att ge rekommendationer för graph-datamodeller. Det här steget är viktigt för att säkerställa skalbarhet och prestanda för ett system för graph-databasen som data utvecklas. En effektiv datamodellen är särskilt viktigt med storskaliga diagram.
+Följande dokument är utformat för att ge rekommendationer för diagram data modellering. Det här steget är viktigt för att säkerställa skalbarheten och prestandan i ett diagram system som data utvecklas. En effektiv data modell är särskilt viktig med storskaliga diagram.
 
 ## <a name="requirements"></a>Krav
 
 Den process som beskrivs i den här guiden baseras på följande antaganden:
- * Den **entiteter** identifieras i området problem. De här entiteterna är avsedda att användas _atomiskt_ för varje begäran. Med andra ord är inte databassystemet avsedd att hämta en enda entitet data i flera frågebegäranden.
- * Det finns en förståelse för **läsa och skriva krav** för databassystem. Dessa krav hjälper optimeringar som behövs för graph-datamodellen.
- * Principerna för den [Apache Tinkerpop egenskapen graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) är väl förstådda.
+ * **Entiteterna** i problem området identifieras. Dessa entiteter är avsedda att förbrukas _atomict_ för varje begäran. Med andra ord är databas systemet inte utformat för att hämta en enskild entitets data i flera fråge förfrågningar.
+ * Det finns en förståelse för **Läs-och skriv krav** för databas systemet. Dessa krav vägleder de optimeringar som krävs för diagram data modellen.
+ * Principerna för [Apache Tinkerpop-egenskapen Graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) är väl förstå.
 
-## <a name="when-do-i-need-a-graph-database"></a>När behöver jag en grafdatabas?
+## <a name="when-do-i-need-a-graph-database"></a>När behöver jag en graf-databas?
 
-Graph-databaslösning kan tillämpas optimalt om enheter och relationer i en data-domän har något av följande egenskaper: 
+En diagram databas lösning kan tillämpas optimalt om entiteterna och relationerna i en data domän har någon av följande egenskaper: 
 
-* Entiteterna är **mycket anslutna** via beskrivande relationer. Fördelen med det här scenariot är det faktum att relationerna är sparas i minnet.
-* Det finns **cykliskt relationer** eller **lokal refererar till entiteter**. Det här mönstret är ofta en utmaning när med relationella eller dokumentera databaser.
-* Det finns **utvecklas dynamiskt relationer** mellan entiteter. Det här mönstret gäller särskilt för hierarkisk eller trädstruktur data med många nivåer.
+* Entiteterna är **mycket anslutna** via beskrivande relationer. Fördelen med det här scenariot är att relationerna är bestående av lagring.
+* Det finns **cykliska relationer** eller självrefererade **entiteter**. Det här mönstret är ofta en utmaning när du använder Relations-eller dokument databaser.
+* Det finns **dynamiskt växande relationer** mellan entiteter. Det här mönstret gäller särskilt för hierarkiska eller träd strukturerade data med många nivåer.
 * Det finns **många-till-många-relationer** mellan entiteter.
-* Det finns **skriva och läsa kraven på både enheter och relationer**. 
+* Det finns **Skriv-och Läs krav för både entiteter och relationer**. 
 
-Om ovanstående villkor uppfylls, är det troligt att en metod för graph-databas ger fördelar för **fråga komplexiteten**, **datamodelldata skalbarhet**, och **frågeprestandan**.
+Om ovanstående villkor är uppfyllt är det troligt att en diagram databas metod ger fördelar för att **fråga komplexitet**, **skalbarhet för data modeller**och **fråga om prestanda**.
 
-Nästa steg är att avgöra om diagrammet ska användas i analytiska eller transaktionella åtgärder. Om diagrammet är avsedd att användas för tung beräkning och bearbetning av arbetsbelastningar, det kan vara värt att utforska den [Cosmos DB Spark-anslutningsappen](https://docs.microsoft.com/azure/cosmos-db/spark-connector) och användning av den [GraphX biblioteket](https://spark.apache.org/graphx/). 
+Nästa steg är att avgöra om grafen ska användas för analys-eller transaktions syfte. Om grafen är avsedd att användas för tung beräkning och data bearbetnings arbets belastningar, skulle det vara värt att utforska [Cosmos DB Spark-anslutaren](https://docs.microsoft.com/azure/cosmos-db/spark-connector) och användningen av [Graphx-biblioteket](https://spark.apache.org/graphx/). 
 
-## <a name="how-to-use-graph-objects"></a>Hur du använder graph-objekt
+## <a name="how-to-use-graph-objects"></a>Använda diagram objekt
 
-Den [Apache Tinkerpop egenskapen graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) definierar två typer av objekt **hörn** och **kanter**. 
+[Apache Tinkerpop-egenskapen Graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) definierar två typer av objekt **hörn** och **kanter**. 
 
-Här följer de rekommenderade säkerhetsmetoderna för egenskaperna i graph-objekt:
+Här följer de rekommenderade metoderna för egenskaperna i graf-objekten:
 
-| Object | Egenskap | Typ | Anteckningar |
+| Object | Egenskap | type | Anteckningar |
 | --- | --- | --- |  --- |
-| Vertex | id | String | Unikt tillämpas per partition. Om ett värde inte är angivna vid infogning, automatiskt genererade lagras GUID. |
-| Vertex | label | String | Den här egenskapen används för att definiera vilken typ av enhet som representerar hörnet. Om ett värde inte anges, används standardvärdet ”hörn”. |
-| Vertex | properties | Sträng, booleskt värde, numeriskt | En lista över olika egenskaper lagras som nyckel / värde-par i varje hörn. |
-| Vertex | Partitionsnyckel | Sträng, booleskt värde, numeriskt | Den här egenskapen definierar var hörnet och kanterna utgående ska lagras. Läs mer om [grafpartitionering](graph-partitioning.md). |
-| Edge | id | String | Unikt tillämpas per partition. Automatiskt genererade som standard. Kanter har vanligtvis inte behov unikt kan hämtas av ett ID. |
-| Edge | label | String | Den här egenskapen används för att definiera typ av relation som har två hörn. |
-| Edge | properties | Sträng, booleskt värde, numeriskt | En lista över olika egenskaper lagras som nyckel / värde-par i varje edge. |
+| Vertex | id | Sträng | Används unikt per partition. Om ett värde inte anges vid infogning och automatiskt genererat GUID kommer att lagras. |
+| Vertex | label | Sträng | Den här egenskapen används för att definiera den typ av entitet som hörnen representerar. Om ett värde inte anges används ett standardvärde "hörn". |
+| Vertex | properties | Sträng, boolesk, numerisk | En lista med separata egenskaper som lagras som nyckel/värde-par i varje hörn. |
+| Vertex | partitionsnyckel | Sträng, boolesk, numerisk | Den här egenskapen definierar var form hörnet och dess utgående kanter ska lagras. Läs mer om [diagram partitionering](graph-partitioning.md). |
+| Gräns | id | Sträng | Används unikt per partition. Automatiskt genererad som standard. Kanterna har vanligt vis inte behov av att hämtas unikt av ett ID. |
+| Gräns | label | Sträng | Den här egenskapen används för att definiera typen av relation som två hörn har. |
+| Gräns | properties | Sträng, boolesk, numerisk | En lista med separata egenskaper som lagras som nyckel/värde-par i varje gräns. |
 
 > [!NOTE]
-> Kanter kräver ett partitionsnyckelvärde eftersom dess värde tilldelas automatiskt baserat på deras källvertex. Läs mer i den [grafpartitionering](graph-partitioning.md) artikeln.
+> Kanter kräver ingen partitionsnyckel, eftersom värdet tilldelas automatiskt baserat på deras käll-hörn. Läs mer i artikeln [diagram partitionering](graph-partitioning.md) .
 
-## <a name="entity-and-relationship-modeling-guidelines"></a>Entitets- och relation modellering riktlinjer
+## <a name="entity-and-relationship-modeling-guidelines"></a>Rikt linjer för entitet och Relations modellering
 
-Följande är en uppsättning riktlinjer för att metoden datamodellering för en API för Azure Cosmos DB Gremlin graph-databas. Dessa riktlinjer förutsätter att det finns en befintlig definition av en domän för data och frågor för den.
-
-> [!NOTE]
-> Stegen som beskrivs nedan visas som rekommendationer. Den slutliga modellen ska utvärderas och testas innan dess beräkningen som produktionsklar. Dessutom är rekommendationerna nedan specifika för Azure Cosmos DB Gremlin-API-implementering. 
-
-### <a name="modeling-vertices-and-properties"></a>Modellering hörn och egenskaper 
-
-Det första steget för en grafikdatamodell är att mappa varje identifierad entitet till en **hörn objektet**. En en-till-en-mappning av alla enheter ska hörn ska vara ett första steg och komma att ändras.
-
-En gemensam eftersom operativsystemet använder principbaserad är att egenskaper från en enda entitet som separata hörn. Studera exemplet nedan, där samma entitet representeras i två olika sätt:
-
-* **Vertex-baserade egenskaper**: Med den här metoden använder entiteten tre separata hörn och kanter för att beskriva dess egenskaper. Även om den här metoden kan minska redundans, ökar komplexiteten i modellen. En ökning av modellen komplexiteten kan medföra extra svarstid, frågekomplexitet och kostnaden för beräkning. Den här modellen kan också vara ett problem vid partitionering.
-
-![Entiteten modell med hörn för egenskaper.](./media/graph-modeling/graph-modeling-1.png)
-
-* **Egenskapen-inbäddad hörn**: Den här metoden använder listan nyckel / värde-par som representerar alla egenskaper för entiteten i ett hörn. Den här metoden ger minskade modellen komplexitet, vilket leder till enklare frågor och bläddringar med mer kostnadseffektiv.
-
-![Entiteten modell med hörn för egenskaper.](./media/graph-modeling/graph-modeling-2.png)
+Följande är en uppsättning rikt linjer för att använda data modellering för en Azure Cosmos DB Gremlin API-graf. Dessa rikt linjer förutsätter att det finns en befintlig definition av en data domän och frågor för den.
 
 > [!NOTE]
-> Ovanstående exempel visar en förenklad graph-modell till att bara visa en jämförelse mellan de två sätt att dela upp entitetsegenskaper.
+> Stegen som beskrivs nedan visas som rekommendationer. Den slutliga modellen bör utvärderas och testas innan den anses vara produktions klar. Rekommendationerna nedan är dessutom speciella för Azure Cosmos DB API-implementeringen Gremlin. 
 
-Den **egenskapen-inbäddad hörn** mönster har vanligtvis ett mer effektivt och skalbart sätt. Standard-metod för att en ny grafikdatamodell bör gravitate för det här mönstret.
+### <a name="modeling-vertices-and-properties"></a>Modellerings hörn och egenskaper 
 
-Det finns dock scenarier där refererar till en egenskap kan ge fördelar. Till exempel: om egenskapen refererade uppdateras ofta. Med hjälp av ett separat hörn som representerar en egenskap som ändras hela tiden kan minska mängden skrivåtgärder som uppdateringen kräver.
+Det första steget för en diagram data modell är att mappa varje identifierad entitet till ett **hörn objekt**. En en-till-en-mappning av alla entiteter till hörn måste vara ett inledande steg och komma att ändras.
 
-### <a name="relationship-modeling-with-edge-directions"></a>Relation modellering med edge riktningar
+En gemensam Pitfall är att mappa egenskaper för en enskild entitet som separata hörn. Tänk på exemplet nedan, där samma entitet representeras på två olika sätt:
 
-När hörn modelleras kan kanter läggas till anger relationerna mellan dem. Den första delen som måste utvärderas är den **riktningen i relationen**. 
+* **Hörnbaserade egenskaper**: I den här metoden använder entiteten tre separata hörn och två kanter för att beskriva dess egenskaper. Även om den här metoden kan minska redundansen ökar modell komplexiteten. En ökning av modell komplexiteten kan leda till ökad latens, fråga om komplexitet och beräknings kostnader. Den här modellen kan också presentera utmaningar vid partitionering.
 
-Edge-objekt har en Standardriktning som följs av en genomgång av när du använder den `out()` eller `outE()` funktion. Med den här naturlig riktning resulterar i en effektiv åtgärd, eftersom alla hörn lagras med sina utgående kanter. 
+![Enhets modell med hörn för egenskaper.](./media/graph-modeling/graph-modeling-1.png)
 
-Dock gå igenom i motsatt riktning för en gräns, med hjälp av den `in()` fungera, leder alltid en fråga över partitioner. Läs mer om [grafpartitionering](graph-partitioning.md). Om du behöver en ständigt bläddra med hjälp av den `in()` funktion, rekommenderar vi att lägga till kanter i båda riktningarna.
+* **Egenskap – inbäddade hörn**: Den här metoden drar nytta av listan med nyckel värde par för att representera alla egenskaper för entiteten i ett hörn. Den här metoden ger minskad modell komplexitet, vilket leder till enklare frågor och kostnads effektiva bläddringskontroll.
 
-Du kan fastställa edge-riktning genom att använda den `.to()` eller `.from()` predikat till den `.addE()` Gremlin-steg. Eller genom att använda den [BulkExecutor-biblioteket för Gremlin-API](bulk-executor-graph-dotnet.md).
+![Enhets modell med hörn för egenskaper.](./media/graph-modeling/graph-modeling-2.png)
 
 > [!NOTE]
-> Edge-objekt har en riktning som standard.
+> I exemplen ovan visas en förenklad diagram modell som bara visar jämförelsen mellan de två sätten att dela egenskaper för entiteten.
 
-### <a name="relationship-labeling"></a>Relation märkning
+Mönstret **-inbäddade hörn** mönster ger vanligt vis en mer bra och skalbar metod. Standard metoden för en ny diagram data modell ska gravitate mot det här mönstret.
 
-Använda beskrivande relationsetiketter kan förbättra effektiviteten i edge upplösning verksamhet. Det här mönstret kan tillämpas på följande sätt:
-* Använd icke-generisk termer för att märka en relation.
-* Associera etiketten för källvertex till etiketten för mål-hörn med relationsnamnet.
+Det finns dock scenarier där referenser till en egenskap kan ge fördelar. Exempel: om den refererade egenskapen uppdateras ofta. Om du använder ett separat hörn för att representera en egenskap som ändras ständigt minimeras mängden Skriv åtgärder som uppdateringen kräver.
 
-![Relationen märkning exempel.](./media/graph-modeling/graph-modeling-3.png)
+### <a name="relationship-modeling-with-edge-directions"></a>Relations modellering med kant riktningar
 
-Ju mer specifika etiketten som traverser använder för att filtrera kanter, desto bättre. Det här beslutet kan ha en betydande inverkan på samt kostnaden för frågan. Du kan utvärdera kostnaden frågan när som helst [med hjälp av steget executionProfile](graph-execution-profile.md).
+När hörnen har modeller ATS kan kanterna läggas till för att beteckna relationerna mellan dem. Den första aspekt som måste utvärderas är **riktningen på relationen**. 
+
+Kant objekt har en standard riktning som följs av en genom gång när funktionen `out()` eller `outE()` används. Att använda den här naturliga riktningen resulterar i en effektiv åtgärd, eftersom alla formhörn lagras med sina utgående kanter. 
+
+Att gå i motsatt riktning i en kant, med hjälp `in()` av funktionen, kommer dock alltid att resultera i en fråga över partitioner. Lär dig mer om [diagram partitionering](graph-partitioning.md). Om det finns ett behov av att kontinuerligt förflytta dig med `in()` hjälp av funktionen rekommenderar vi att du lägger till kanter i båda riktningarna.
+
+Du kan bestämma kant riktningen genom att använda `.to()` -eller `.from()` -predikat i `.addE()` Gremlin-steget. Eller med hjälp av [bulk utförar-biblioteket för Gremlin-API](bulk-executor-graph-dotnet.md).
+
+> [!NOTE]
+> Kant objekt har en riktning som standard.
+
+### <a name="relationship-labeling"></a>Relations etiketter
+
+Om du använder beskrivande Relations etiketter kan du förbättra effektiviteten för gräns åtgärder. Det här mönstret kan tillämpas på följande sätt:
+* Använd icke-generiska villkor för att namnge en relation.
+* Koppla etiketten till käll Bryt punkten till etiketten för mål Bryt punkten med relations namnet.
+
+![Exempel på Relations etiketter.](./media/graph-modeling/graph-modeling-3.png)
+
+Den mer detaljerade etiketten som används för att filtrera kanterna, desto bättre. Det här beslutet kan också ha en betydande inverkan på frågans kostnad. Du kan när som helst utvärdera kostnad för frågan [med hjälp av executionProfile-steget](graph-execution-profile.md).
 
 
 ## <a name="next-steps"></a>Nästa steg: 
-* Kolla in listan över stöds [Gremlin-steg](gremlin-support.md).
-* Lär dig mer om [graph Databaspartitionering](graph-partitioning.md) utan storskaliga diagram.
-* Utvärdera dina Gremlin-frågor med hjälp av den [körning profil steg](graph-execution-profile.md).
+* Kolla in listan över Gremlin- [steg](gremlin-support.md)som stöds.
+* Lär dig mer om [diagram databas partitionering](graph-partitioning.md) för att hantera storskaliga diagram.
+* Utvärdera dina Gremlin-frågor med hjälp av [steget kör profil](graph-execution-profile.md).

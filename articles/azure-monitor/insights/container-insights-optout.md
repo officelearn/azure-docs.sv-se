@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2018
+ms.date: 08/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 0e4268cb3a8d6ac62da12f689560338eee7e6935
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 376259686d1668d62cc79f340e2161ef11be5e12
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071799"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624370"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Hur du stoppar övervakningen Azure Kubernetes Service (AKS) med Azure Monitor för behållare
 
@@ -26,7 +26,8 @@ När du aktiverar övervakning av AKS-klustret måste stoppa du övervakningen k
 
 
 ## <a name="azure-cli"></a>Azure CLI
-Använd den [az aks disable-tillägg](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) kommando för att inaktivera Azure Monitor för behållare. Kommandot tar bort agenten från noder i klustret, den tar inte bort lösningen eller data som redan samlats in och lagrats i din Azure Monitor-resurs.  
+
+Använd den [az aks disable-tillägg](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) kommando för att inaktivera Azure Monitor för behållare. Kommandot tar bort agenten från klusternoderna, den tar inte bort lösningen eller de data som redan har samlats in och lagrats i Azure Monitor resursen.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -35,14 +36,15 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 Om du vill återaktivera övervakning för ditt kluster, se [aktivera övervakning med hjälp av Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
-Tillhandahållna är två Azure Resource Manager-mall för ta bort lösningsresurser konsekvent och upprepade gånger i resursgruppen. En är en JSON-mall som anger hur du stoppar övervakningen och den andra innehåller parametervärden som du konfigurerar för att ange AKS-kluster-ID och resurs resursgruppen som klustret distribueras i. 
+
+Tillhandahållna är två Azure Resource Manager-mall för ta bort lösningsresurser konsekvent och upprepade gånger i resursgruppen. Det ena är en JSON-mall som anger konfigurationen för att stoppa övervakningen och den andra innehåller parameter värden som du konfigurerar för att ange AKS-kluster resurs-ID och resurs grupp som klustret har distribuerats i. 
 
 Om du inte är bekant med begreppet att distribuera resurser med hjälp av en mall, se:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->Mallen måste distribueras i samma resursgrupp som klustret. Om du utelämnar andra egenskaper eller tillägg när du använder den här mallen kan det resultera i sina tas bort från klustret. Till exempel *enableRBAC*.  
+>Mallen måste distribueras i samma resurs grupp i klustret. Om du utelämnar andra egenskaper eller tillägg när du använder den här mallen kan det leda till att de tas bort från klustret. Till exempel *enableRBAC* för RBAC-principer som implementeras i klustret eller *aksResourceTagValues* IF-Taggar har angetts för AKS-klustret.  
 >
 
 Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
@@ -68,12 +70,19 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
            "description": "Location of the AKS resource e.g. \"East US\""
          }
        }
+       },
+    "aksResourceTagValues": {
+      "type": "object",
+      "metadata": {
+        "description": "Existing all tags on AKS Cluster Resource"
+      }
     },
     "resources": [
       {
         "name": "[split(parameters('aksResourceId'),'/')[8]]",
         "type": "Microsoft.ContainerService/managedClusters",
         "location": "[parameters('aksResourceLocation')]",
+        "tags": "[parameters('aksResourceTagValues')]"
         "apiVersion": "2018-03-31",
         "properties": {
           "mode": "Incremental",
@@ -91,18 +100,26 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     ```
 
 2. Spara filen som **OptOutTemplate.json** till en lokal mapp.
+
 3. Klistra in följande JSON-syntax i filen:
 
     ```json
     {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-       "aksResourceId": {
-         "value": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
-      },
-      "aksResourceLocation": {
-        "value": "<aksClusterRegion>"
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "aksResourceId": {
+          "value": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+        },
+        "aksResourceLocation": {
+          "value": "<aksClusterRegion>"
+        },
+        "aksResourceTagValues": {
+          "value": {
+            "<existing-tag-name1>": "<existing-tag-value1>",
+            "<existing-tag-name2>": "<existing-tag-value2>",
+            "<existing-tag-nameN>": "<existing-tag-valueN>"
+          }
         }
       }
     }
@@ -114,10 +131,14 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
 
     När du är på den **egenskaper** kan också kopiera den **Arbetssyteresurs-ID**. Det här värdet krävs om du vill att ta bort Log Analytics-arbetsytan senare. Ta bort Log Analytics-arbetsytan utförs inte som en del av den här processen. 
 
+    Redigera värdena för **aksResourceTagValues** så att de matchar de befintliga taggvärde som angetts för AKS-klustret.
+
 5. Spara filen som **OptOutParam.json** till en lokal mapp.
+
 6. Nu är det dags att distribuera den här mallen. 
 
 ### <a name="remove-the-solution-using-azure-cli"></a>Ta bort lösningen med hjälp av Azure CLI
+
 Kör du följande kommando med Azure CLI på Linux för att ta bort lösningen och rensa konfigurationen på AKS-klustret.
 
 ```azurecli

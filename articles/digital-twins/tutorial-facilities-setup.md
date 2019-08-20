@@ -6,18 +6,18 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 06/26/2019
+ms.date: 08/16/2019
 ms.author: alinast
-ms.openlocfilehash: 15a152d6941a8c77cae2ef7771be93db4ddceae4
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a107f7dba7f28b41303727ad37b7c50f2e215c4f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "67484696"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623000"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Självstudier: Distribuera digitala Twins förhandsversion av Azure och konfigurera ett spatial diagram
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Självstudier: Distribuera Azure Digitals förhands granskning och konfigurera ett spatial diagram
 
-Du kan använda Azure Digital Twins förhandsversionen av tjänsten samla personer, platser och enheter i ett sammanhängande spatial system. Den här serien med självstudier visar hur du använder Azure Digital Twins för att identifiera rumsbeläggning med optimala förhållanden för temperatur och luftkvalitet. 
+Du kan använda Azure Digital-förhands gransknings tjänsten för att samla ihop människor, platser och enheter i ett sammanhängande avstånds system. Den här serien med självstudier visar hur du använder Azure Digital Twins för att identifiera rumsbeläggning med optimala förhållanden för temperatur och luftkvalitet. 
 
 Dessa självstudier går igenom ett .NET-konsolprogram för att skapa ett scenario för en kontorsbyggnad. Den här byggnaden har flera våningar och rum på varje våning. Rummen innehåller enheter med kopplade sensorer som identifierar rörelse, omgivningstemperatur och luftkvalitet. 
 

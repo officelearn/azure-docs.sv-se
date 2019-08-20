@@ -1,26 +1,33 @@
 ---
-title: Använda äldre AAD-appregistreringen för Azure Digital Twins | Microsoft Docs
-description: Den här artikeln visar hur du använder den äldre metoden för att skapa appregistrering med Azure Active Directory för din Azure Digital Twins-konfiguration.
+title: Använd äldre AAD app-registrering för Azure Digital-dubbla | Microsoft Docs
+description: Den här artikeln visar hur du använder den äldre metoden för att skapa registrering av appar med Azure Active Directory för din Azure Digital-installation.
 author: alinamstanciu
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 08/16/2019
 ms.author: alinast
-ms.openlocfilehash: ed6c540cedd21bb5154f8746050d5eaa9444b818
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e9689c71c881c7f5f29ac05fea53bb2c27f75591
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484729"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624743"
 ---
-# <a name="register-your-azure-digital-twins-app-with-azure-active-directory-legacy"></a>Registrera din Azure Digital Twins-app med Azure Active Directory äldre
+# <a name="register-your-azure-digital-twins-app-with-azure-active-directory-legacy"></a>Registrera din Azure Digital-app med Azure Active Directory äldre
 
-Den här artikeln visar att du kan använda det gamla eller äldre sättet att registrera ditt exempelprogram till Azure Active Directory (Azure AD) så att den kan komma åt din digitala Twins-instans. Du kanske vill prova den här metoden om den nya Azure AD-appregistrering fungerar inte för din konfiguration.
+Den här artikeln beskriver hur du använder bladet föråldrade **Appregistreringar (bakåtkompatibelt)** för att registrera exempel programmet.
+
+> [!IMPORTANT]
+> * Bladet ny **Azure Active Directory** > **Appregistreringar** ersätter bladet äldre **Azure Active Directory** > **Appregistreringar (bakåtkompatibelt)** 2019.
+> * Appregistreringar som skapas eller visas på bladet äldre visas automatiskt på det nya bladet.
+> * Omfattande information om hur du migrerar till den nya Azure App registrerings upplevelsen finns i [utbildnings guiden för Azure App-registrering](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide) och [Azure Active Directory snabb start](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 [!INCLUDE [Digital Twins legacy AAD](../../includes/digital-twins-permissions-legacy.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-När din app har registrerats med AAD, kan den sedan ansluta med dina digitala Twins instans och hjälp med att du gå vidare i ditt scenario. Finns i antingen den [snabbstarten](quickstart-view-occupancy-dotnet.md#build-application) eller [självstudien](tutorial-facilities-setup.md#configure-the-digital-twins-sample) mer information om nästa steg. 
+Fortsätt [snabb](quickstart-view-occupancy-dotnet.md#build-application) starten eller [](tutorial-facilities-setup.md#configure-the-digital-twins-sample)självstudien.
+
+Lär dig [hur du registrerar din app med hjälp av bladet ny **Appregistreringar** ](tutorial-facilities-setup.md#grant-permissions-to-your-app).

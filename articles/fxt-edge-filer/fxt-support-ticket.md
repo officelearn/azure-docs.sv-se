@@ -1,38 +1,38 @@
 ---
-title: Öppna ett supportärende för Microsoft Azure FXT Edge Filer
-description: Procedurer för nystartade företag och säker nedstängning av en Azure FXT Edge Filer-nod
+title: Öppna ett support ärende för Microsoft Azure FXT Edge-filer
+description: Procedur för att öppna en biljett för att få hjälp med ditt Azure FXT Edge-filprogram
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: v-erkell
-ms.openlocfilehash: 82b6477b42d627baff10d9bde46452bf43900ffd
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 04bc7c4d2ff96ef8b403449cf58d131bdc22a101
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67828202"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624117"
 ---
-# <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Öppna ett supportärende för Azure FXT Edge-Filer
+# <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Öppna ett support ärende för Azure FXT Edge-filer
 
-Den här artikeln förklarar hur du får hjälp med ditt Azure FXT Edge Filer system.
+I den här artikeln förklaras hur du får hjälp med ditt Azure FXT Edge-program.
 
-Använda Azure-portalen för att öppna ett supportärende med Microsofts kundservice och Support.
+Använd Azure Portal för att öppna ett support ärende med Microsofts kund service och support.
 
-1. Öppna den [Azure-portalen](https://portal.azure.com/) och logga in.
-1. Bläddra längst ned i den vänstra rutan och klicka på **hjälp + support**.
+1. Öppna [Azure Portal](https://portal.azure.com/) och logga in.
+1. Rulla längst ned i den vänstra panelen och klicka på **Hjälp + Support**.
 1. Klicka på **ny supportbegäran**. 
 
-   ![Skärmbild av formulär för tom support](media/fxt-support-blank.png)
+   ![Skärm bild av tomt support ärende formulär](media/fxt-support-blank.png)
 
 1. Fyll i formuläret för begäran.  
-    1. I den **grunderna** fliken den **typ av problem** ``Technical``. 
+    1. På fliken **grundläggande** väljer du **typ** ``Technical``av problem. 
     1. Välj din prenumeration. 
-    1. Under **Service**väljer **Azure FXT Edge Filer**. Du kan behöva klicka på den **alla tjänster** filterkontroll att hitta den. 
-    1. Ange en **sammanfattning** och välj den **problemtyp**. 
-    ![Skärmbild av formulär för tom support](media/fxt-support-populated.png) 
-    1. Klicka på **nästa** att fortsätta. 
-1. I den **information** fliken, lägga till mer information om problemet och hur du kontaktar du. Du kan överföra en fil som är relaterade till problemet. 
-1. I **granska + skapa**, läser du informationen och klicka på den **skapa** knappen Skicka din begäran.
+    1. Under **tjänst**väljer du **Azure FXT Edge**-filer. Du kan behöva klicka på filter kontrollen **alla tjänster** för att hitta den. 
+    1. Ange en **Sammanfattning** och välj **problem typen**. 
+    ![Skärm bild av tomt support ärende formulär](media/fxt-support-populated.png) 
+    1. Fortsätt genom att klicka på **Nästa** . 
+1. På fliken **information** lägger du till mer information om problemet och hur du kontaktar dig. Du kan ladda upp en fil som är relaterad till problemet. 
+1. I **Granska + skapa**, kontrol lera informationen och klicka på knappen **skapa** för att skicka in din begäran.
 
-När du skickar din begäran får du ett bekräftelsemejl med en Biljettnummer. En medlem i personalen support kommer att kontakta dig om förfrågningen.
+När du har skickat in begäran får du ett bekräftelse meddelande med ett biljett nummer. En support personal medlem kommer att kontakta dig om begäran.

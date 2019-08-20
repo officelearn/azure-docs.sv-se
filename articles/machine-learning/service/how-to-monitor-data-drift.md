@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: b9593a5802300da8baa1e518f14885637db2068f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 41e357ee53d4c2fbc6683be3446ba2527dd9253f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036185"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623984"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
 
@@ -40,7 +40,7 @@ Med Azure Machine Learning tjänsten kan du övervaka indata till en modell som 
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Så här övervakas data driften i Azure Machine Learnings tjänsten
 
-Med hjälp av Azure Machine Learning tjänsten övervakas data drift genom data uppsättningar eller distributioner. För att övervaka data, en bas linje uppsättning – vanligt vis är inlärnings data uppsättningen för en modell-angiven. En andra data uppsättning – vanligt vis modell indata som samlas in från en distribution, testas mot bas linje data uppsättningen. Båda data uppsättningarna [](how-to-explore-prepare-data.md#explore-with-summary-statistics) är profilerade och indata för data tjänst övervaknings tjänsten. En maskin inlärnings modell är utbildad för att identifiera skillnader mellan de två data uppsättningarna. Modellens prestanda konverteras till drivgarn, som mäter storleken på driften mellan de två data uppsättningarna. Med [modell tolkning](machine-learning-interpretability-explainability.md)kan de funktioner som bidrar till drifts koefficienten beräknas. Statistisk information om varje funktion spåras från data uppsättnings profilen. 
+Med hjälp av Azure Machine Learning tjänsten övervakas data drift genom data uppsättningar eller distributioner. För att övervaka data, en bas linje uppsättning – vanligt vis är inlärnings data uppsättningen för en modell-angiven. En andra data uppsättning – vanligt vis modell indata som samlas in från en distribution, testas mot bas linje data uppsättningen. Båda data uppsättningarna är profilerade och indata för data tjänst övervaknings tjänsten. En maskin inlärnings modell är utbildad för att identifiera skillnader mellan de två data uppsättningarna. Modellens prestanda konverteras till drivgarn, som mäter storleken på driften mellan de två data uppsättningarna. Med [modell tolkning](machine-learning-interpretability-explainability.md)kan de funktioner som bidrar till drifts koefficienten beräknas. Statistisk information om varje funktion spåras från data uppsättnings profilen. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 

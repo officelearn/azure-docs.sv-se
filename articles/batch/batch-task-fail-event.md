@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
+ms.date: 08/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 68c57fbf510d923c4c87bc180a935965a511dc26
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: aa56b0ead8edc17efe74547f6374a3f8888970b5
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322902"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624199"
 ---
 # <a name="task-fail-event"></a>Händelse för misslyckad uppgift
 
@@ -87,7 +87,7 @@ ms.locfileid: "68322902"
 
 |Elementnamn|type|Anteckningar|
 |------------------|----------|-----------|
-|startTime|DateTime|Tiden då uppgiften startade. "Körs" motsvarar körnings tillstånd  , så om aktiviteten anger resursfiler eller programpaket, visar start tiden tiden då uppgiften startade nedladdningen eller distributionen av dessa.  Om aktiviteten har startats om eller gjorts om, är det här den senaste tiden då uppgiften startades.|
+|startTime|DateTime|Tiden då uppgiften startade. "Körs" motsvarar körnings tillstånd , så om aktiviteten anger resursfiler eller programpaket, visar start tiden tiden då uppgiften startade nedladdningen eller distributionen av dessa.  Om aktiviteten har startats om eller gjorts om, är det här den senaste tiden då uppgiften startades.|
 |endTime|DateTime|Tiden då uppgiften slutfördes.|
 |exitCode|Int32|Avslutnings koden för aktiviteten.|
 |retryCount|Int32|Antalet gånger som aktiviteten har fått nytt försök av batch-tjänsten. Aktiviteten provas igen om den avslutas med en slutkod som inte är noll, upp till den angivna MaxTaskRetryCount.|

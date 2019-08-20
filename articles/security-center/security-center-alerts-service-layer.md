@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f795822d76def4a6695a4746fba7e8566041cb2b
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 70b43c65703316e5dee8e9cf2cf86fe982a49592
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295558"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624771"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Hot identifiering för Azure Service Layer i Azure Security Center
 
@@ -47,6 +47,7 @@ Security Center Network Layer Analytics baseras på [IPFIX data](https://en.wiki
 |**Misstänkt inkommande SSH-nätverks aktivitet**|Analys av exempel på nätverks trafik upptäckte avvikande inkommande SSH-kommunikation till en resurs i distributionen. Relativt högt antal inkommande anslutningar till din resurs betraktas som onormalt för den här miljön. Den här aktiviteten kan indikera ett försök att bryta gällande SSH-gränssnitt.
 |**Misstänkt inkommande RDP-nätverks aktivitet från flera källor**|Analys av exempel på nätverks trafik upptäckte avvikande inkommande RDP-kommunikation från flera källor till en resurs i distributionen. Olika unika IP-adresser som ansluter till din resurs betraktas som onormala för den här miljön. Den här aktiviteten kan indikera ett försök att bryta mot RDP-gränssnittet från flera värdar (botnät).|
 |**Misstänkt inkommande RDP-nätverks aktivitet**|Analys av exempel på nätverks trafik upptäckte avvikande inkommande RDP-kommunikation till en resurs i distributionen. Relativt högt antal inkommande anslutningar till din resurs betraktas som onormalt för den här miljön. Den här aktiviteten kan indikera ett försök att bryta gällande SSH-gränssnitt.|
+|**Nätverkskommunikationen med en skadlig adress har upptäckts**|Analys av exempel på nätverks trafik har identifierat kommunikation från en resurs i distributionen med en möjlig kommando-och kontroll (C & C)-Server. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|
 
 Information om hur Security Center kan använda nätverksrelaterade signaler för att använda hot skydd finns [i heuristisk DNS-identifieringar i Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 ## Azure Management Layer (Azure Resource Manager) (för hands version)<a name ="management-layer"></a>
@@ -77,4 +78,4 @@ Security Center erbjuder ett extra skydds lager genom att använda Azure Resourc
 > 3. Under **Aktivera integreringar**avmarkerar **du Tillåt Microsoft Cloud App Security åtkomst till mina data**och klickar på **Spara**.
 
 >[!NOTE]
->Azure Security Center lagrar säkerhetsrelaterad kund information i samma geo som dess resurs. Om Microsoft ännu inte har distribuerat Azure Security Center i resursens geografiska område, lagrar data i USA. När Microsoft Cloud App Security (MCAS) är aktive rad lagras informationen i enlighet med reglerna för geo-platsen för MCAS. [Mer information finns i data lagring för icke-regionala tjänster](http://azuredatacentermap.azurewebsites.net/).
+>Azure Security Center lagrar säkerhetsrelaterad kund information i samma geo som dess resurs. Om Microsoft ännu inte har distribuerat Azure Security Center i resursens geografiska område, lagrar data i USA. När Microsoft Cloud App Security (MCAS) är aktive rad lagras informationen i enlighet med reglerna för geo-platsen för MCAS. [Mer information finns i data lagring för icke-regionala tjänster](https://azuredatacentermap.azurewebsites.net/).

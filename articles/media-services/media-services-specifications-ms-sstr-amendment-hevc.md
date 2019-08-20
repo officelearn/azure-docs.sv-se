@@ -3,7 +3,7 @@ title: MS-SSTR-ändring (Azure Media Services-Smooth Streaming protokoll) för H
 description: I den här specifikationen beskrivs protokoll och format för fragmenterad MP4-baserad direkt uppspelning med HEVC i Azure Media Services. Detta är en ändring i dokumentationen för Smooth Streaming protokoll (MS-SSTR) som innehåller stöd för HEVC-inmatning och strömning. Endast de ändringar som krävs för att leverera HEVC anges i den här artikeln, förutom "(ingen ändring)" anger att texten bara kopieras för klargörande.
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: johndeu
 manager: femila
 editor: ''
 ms.assetid: f27d85de-2cb8-4269-8eed-2efb566ca2c6
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: dfd6de1ab2e4530afb56d1c6c67e6d78eb9ee474
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: e0637b2a015a610f9c3f92809f63a442980b63b1
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015684"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624805"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Smooth Streaming protokoll (MS-SSTR) ändring för HEVC 
 
@@ -27,7 +27,7 @@ ms.locfileid: "69015684"
 
 Den här artikeln innehåller detaljerade ändringar som ska tillämpas på Smooth Streaming protokoll specifikationen [MS-SSTR] för att aktivera Smooth Streaming av HEVC-kodad video. I den här specifikationen disponerar vi bara de ändringar som krävs för att leverera HEVC video-codec. Artikeln följer samma nummer schema som [MS-SSTR]-specifikationen. De tomma rubrikerna som presenteras i artikeln finns för att orientera läsaren till deras position i [MS-SSTR]-specifikationen.  "(Ingen ändring)" anger att texten bara kopieras för klargörande syfte.
 
-Artikeln innehåller tekniska implementerings krav för signalering av HEVC video-codec i en Smooth Streaming manifest-och normativa referenser som hänvisar till aktuella MPEG-standarder som omfattar HEVC, Common Encryption för HEVC och Box namnen på ISO Base-filformatet har uppdaterats för att överensstämma med de senaste specifikationerna. 
+Artikeln innehåller tekniska implementerings krav för signalering av HEVC video-codec (med antingen "hev1"-eller "hvc1"-format spår) i ett Smooth Streaming manifest och normativa referenser uppdateras för att referera till aktuella MPEG-standarder som inkludera HEVC, Common Encryption av HEVC och Box-namn för ISO-mediets fil format har uppdaterats så att de överensstämmer med de senaste specifikationerna. 
 
 Den refererade Smooth Streaming protokoll specifikationen [MS-SSTR] beskriver det kabel format som används för att leverera direktsända digitala media på begäran, till exempel ljud och video på följande sätt: från en kodare till en webb server, från en server till en annan server, och från en Server till en HTTP-klient.
 Användning av en MPEG-4-baserad ([[MPEG4-ra])](https://go.microsoft.com/fwlink/?LinkId=327787)-baserad data struktur leverans via http möjliggör sömlös växling i nära real tid mellan olika kvalitets nivåer för komprimerat medie innehåll. Resultatet är en konstant uppspelnings upplevelse för HTTP-klientens slutanvändare, även om villkoren för nätverks-och video åter givning har ändrats för klient datorn eller enheten.
@@ -148,10 +148,12 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 >   **FourCC (variabel):** En kod med fyra tecken som identifierar vilket Media format som används för varje exempel. Följande värde intervall är reserverat med följande semantiska betydelser:
 > 
 > * "hev1": Video exempel för den här spårningen använder HEVC video med formatet "hev1" som anges i [ISO/IEC-14496-15].
+>
+> * "hvc1": Video exempel för den här spårningen använder HEVC video med formatet "hvc1" som anges i [ISO/IEC-14496-15].
 > 
 >   **CodecPrivateData (variabel):** Data som anger parametrar som är unika för medie formatet och som är gemensamma för alla exempel i spåret, som visas som en sträng med hex-kodade byte. Format och semantisk innebörd i byte ordningen varierar med värdet för **FourCC** -fältet enligt följande:
 > 
->   * När en TrackElement beskriver HEVC video, är **FourCC** -fältet lika med **"hev1"** och;
+>   * När en TrackElement beskriver HEVC video, är **FourCC** -fältet lika med **"hev1"** eller **"hvc1"**
 > 
 >   Fältet **CodecPrivateData** måste innehålla en hex-kodad sträng representation av följande byte-sekvens, som anges i ABNF [[RFC5234]:](https://go.microsoft.com/fwlink/?LinkId=123096) (ingen ändring från MS-SSTR)
 > 
@@ -161,7 +163,7 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 > 
 >   * PPSField innehåller en sektor parameter uppsättning (PPS).
 > 
->   Anteckning: VPS (video parameter set) finns inte i CodecPrivateData, men ska finnas i fil huvudet för lagrade filer i rutan hvcC. System som använder Smooth Streaming protokoll måste signalera ytterligare avkodnings parametrar (till exempel HEVC-nivå) med hjälp av det anpassade attributet "codec".
+>   Obs! VPS (video parameter set) finns inte i CodecPrivateData, men ska finnas i fil huvudet för lagrade filer i rutan hvcC. System som använder Smooth Streaming protokoll måste signalera ytterligare avkodnings parametrar (till exempel HEVC-nivå) med hjälp av det anpassade attributet "codec".
 
 ##### <a name="22251-customattributeselement"></a>2.2.2.5.1 CustomAttributesElement 
 
@@ -173,7 +175,7 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 
 ### <a name="223-fragment-request"></a>2.2.3-fragment förfrågan 
 
->   **Obs!** Standard medie formatet som krävs för **MinorVersion** 2 och "hev1" är "iso8" varumärkes ISO-basadress som anges i [ISO/IEC 14496-12] ISO Base Media-filformat fjärde upplagan och [ISO/IEC 23001-7] common Encryption andra utgåvan.
+>   **Obs!** Standard medie formatet som krävs för **MinorVersion** 2 och ' hev1 ' eller ' hvc1 ' är ' iso8 ' varumärke ISO Base Media-filformat som anges i [ISO/IEC 14496-12] ISO Base Media-filformat, fjärde utgåvan, och [ISO/IEC 23001-7] common Encryption andra utgåvan.
 
 ### <a name="224-fragment-response"></a>2.2.4 fragment-svar 
 
@@ -211,7 +213,7 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 > 
 >   enligt definitionen i [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 > 
->   Anteckning: På så sätt undviker du ett videosynkroniseringsfel som orsakas av video som avbildar ljud som är lika med den största avkodade bildbuffertens borttagnings fördröjning och bibehåller visnings tiderna mellan alternativa fragment som kan ha olika borttagnings fördröjningar.
+>   Obs! På så sätt undviker du ett videosynkroniseringsfel som orsakas av video som avbildar ljud som är lika med den största avkodade bildbuffertens borttagnings fördröjning och bibehåller visnings tiderna mellan alternativa fragment som kan ha olika borttagnings fördröjningar.
 > 
 >   Syntaxen för fälten som definieras i det här avsnittet, som anges i ABNF [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) förblir samma, förutom följande:
 > 

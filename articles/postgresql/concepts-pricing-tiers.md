@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 2f6be256801983924cc794d6c8b8fa31e39959e1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: f65bc0a9969ac713c2fb9f8629b97fbe522e9fe0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967861"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624853"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Pris nivåer i Azure Database for PostgreSQL-enskild server
 
@@ -67,7 +67,7 @@ Vi ökar lagrings gränserna i våra Generell användning-och Minnesoptimerade n
 |              | **Generell användning** | **Minnesoptimerade** |
 |:-------------|:--------------------|:---------------------|
 | Lagringstyp | Azure Premium Storage | Azure Premium Storage |
-| Lagringsstorlek | 32 GB till 16 TB| 32 till 16 TB |
+| Lagringsstorlek | 32 GB till 16 TB| 32 GB till 16 TB |
 | Öknings storlek för lagring | 1 GB | 1 GB |
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS |
 

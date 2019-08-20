@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/18/2018
+ms.date: 08/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 64921a2ab69306df0b7c3d968055e698dd6995e7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8f95b802e51b942421bc580d9c3d5704092f5b1d
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323947"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624025"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
@@ -81,11 +81,10 @@ Mer information om hur du registrerar ett program med Azure AD finns i [autentis
 Klient-ID: t identifierar den Azure AD-klient som tillhandahåller Authentication Services för ditt program. Följ dessa steg om du vill hämta klient-ID:
 
 1. Välj din Active Directory i Azure-portalen.
-2. Klicka på **Egenskaper**.
-3. Kopiera GUID-värdet som angetts för den **katalog-ID**. Det här värdet kallas även för klient-ID.
+1. Välj **egenskaper**.
+1. Kopiera GUID-värdet som angetts för den **katalog-ID**. Det här värdet kallas även för klient-ID.
 
 ![Kopiera katalog-ID](./media/batch-aad-auth/aad-directory-id.png)
-
 
 ## <a name="use-integrated-authentication"></a>Använd integrerad autentisering
 
@@ -93,58 +92,56 @@ Om du vill autentisera med integrerad autentisering måste du ge dina program be
 
 När du har registrerat ditt program följer du de här stegen i Azure Portal för att ge åtkomst till batch-tjänsten:
 
-1. I det vänstra navigerings fönstret i Azure Portal väljer du **alla tjänster**. Klicka på **app**-registreringar.
-2. Sök efter namnet på ditt program i listan med app-registreringar:
+1. I det vänstra navigerings fönstret i Azure Portal väljer du **alla tjänster**. Välj **app**-registreringar.
+1. Sök efter namnet på ditt program i listan med app-registreringar:
 
     ![Sök efter ditt program namn](./media/batch-aad-auth/search-app-registration.png)
 
-3. Klicka på programmet och sedan på **Inställningar**. I den **API-åtkomst** väljer **behörigheter som krävs för**.
-4. I den **nödvändiga behörigheter** bladet klickar du på den **Lägg till** knappen.
-5. I **Välj ett API**söker du efter batch-API: et. Sök efter var och en av de här strängarna tills du hittar API:t:
-    1. **MicrosoftAzureBatch**.
-    2. **Microsoft Azure Batch**. Nyare Azure AD-klientorganisationer kan använda det här namnet.
-    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** är id:t för API:t. 
-6. När du har hittat batch-API: t markerar du det och klickar på **Välj**.
-7. Markera kryss rutan bredvid **åtkomst Azure Batch tjänst** i **Välj behörigheter**och klicka på **Välj**.
-8. Klicka på **Klar**.
+1. Välj programmet och välj **API-behörigheter**.
+1. I avsnittet **API-behörigheter** väljer du **Lägg till en behörighet**.
+1. I **Välj ett API**söker du efter batch-API: et. Sök efter var och en av de här strängarna tills du hittar API:t:
+    1. **Microsoft Azure Batch**
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** är id:t för API:t.
+1. När du har hittat batch-API: t väljer du den och väljer **Välj**.
+1. Markera kryss rutan bredvid **åtkomst Azure Batch tjänst** i **Välj behörigheter**och välj sedan **Lägg till behörigheter**.
 
-De **behörigheter som krävs** för Windows visar nu att Azure AD-programmet har åtkomst till både ADAL och batch-tjänstens API. Behörigheter beviljas till ADAL automatiskt när du först registrerar din app med Azure AD.
+Avsnittet **API-behörigheter** visar nu att Azure AD-programmet har åtkomst till både Microsoft Graph och batch-tjänstens API. Behörigheter beviljas till Microsoft Graph automatiskt när du först registrerar din app med Azure AD.
 
 ![Bevilja API-behörigheter](./media/batch-aad-auth/required-permissions-data-plane.png)
 
-## <a name="use-a-service-principal"></a>Använd ett huvud namn för tjänsten 
+## <a name="use-a-service-principal"></a>Använd ett huvud namn för tjänsten
 
 Om du vill autentisera ett program som körs obevakat använder du ett huvud namn för tjänsten. När du har registrerat ditt program följer du dessa steg i Azure Portal för att konfigurera ett huvud namn för tjänsten:
 
-1. Begär en hemlig nyckel för ditt program.
-2. Tilldela en RBAC-roll till ditt program.
+1. Begär en hemlighet för ditt program.
+1. Tilldela rollbaserad åtkomst kontroll (RBAC) till ditt program.
 
-### <a name="request-a-secret-key-for-your-application"></a>Begär en hemlig nyckel för ditt program
+### <a name="request-a-secret-for-your-application"></a>Begär en hemlighet för ditt program
 
-När ditt program autentiserar med ett huvud namn för tjänsten skickas både program-ID och en hemlig nyckel till Azure AD. Du måste skapa och kopiera den hemliga nyckeln för att använda från din kod.
+När ditt program autentiserar med ett huvud namn för tjänsten, skickar det både program-ID och en hemlighet till Azure AD. Du måste skapa och kopiera den hemliga nyckeln för att använda från din kod.
 
 Följ de här stegen i Azure Portal:
 
-1. I det vänstra navigerings fönstret i Azure Portal väljer du **alla tjänster**. Klicka på **app**-registreringar.
-2. Sök efter namnet på ditt program i listan med app-registreringar.
-3. Klicka på programmet och sedan på **Inställningar**. I avsnittet **API-åtkomst** väljer du **nycklar**.
-4. Ange en beskrivning av nyckeln för att skapa en nyckel. Välj sedan en varaktighet för nyckeln för antingen en eller två år. 
-5. Klicka på knappen **Spara** för att skapa och Visa nyckeln. Kopiera nyckelvärdet till en säker plats, eftersom du inte kan komma åt det igen när du lämnar bladet. 
+1. I det vänstra navigerings fönstret i Azure Portal väljer du **alla tjänster**. Välj **app**-registreringar.
+1. Välj ditt program i listan med app-registreringar.
+1. Välj programmet och välj sedan **certifikat & hemligheter**. I avsnittet **klient hemligheter** väljer du **ny klient hemlighet**.
+1. Ange en beskrivning av hemligheten om du vill skapa en hemlighet. Välj sedan ett förfallo datum för hemligheten för ett år, två år eller inget förfallo datum.
+1. Välj **Lägg till** för att skapa och Visa hemligheten. Kopiera det hemliga värdet till en säker plats, eftersom du inte kan komma åt det igen när du har lämnat sidan.
 
     ![Skapa en hemlig nyckel](./media/batch-aad-auth/secret-key.png)
 
-### <a name="assign-an-rbac-role-to-your-application"></a>Tilldela en RBAC-roll till ditt program
+### <a name="assign-rbac-to-your-application"></a>Tilldela RBAC till ditt program
 
-Om du vill autentisera med ett huvud namn för tjänsten måste du tilldela en RBAC-roll till ditt program. Följ de här stegen:
+Om du vill autentisera med ett huvud namn för tjänsten måste du tilldela RBAC till ditt program. Följ de här stegen:
 
 1. I Azure Portal navigerar du till det batch-konto som används av ditt program.
-2. I bladet **Inställningar** för batch-kontot väljer du **Access Control (IAM)** .
-3. Klicka på fliken **roller tilldelningar** .
-4. Klicka på knappen **Lägg till roll tilldelning** . 
-5. I list rutan **roll** väljer du rollen _deltagare_ eller _läsare_ för ditt program. Mer information om dessa roller finns i [Kom igång med rollbaserad Access Control i Azure Portal](../role-based-access-control/overview.md).  
-6. Ange namnet på ditt program i fältet **Välj** . Välj ditt program i listan och klicka på **Spara**.
+1. I avsnittet **Inställningar** i batch-kontot väljer du **Access Control (IAM)** .
+1. Välj fliken **roll tilldelningar** .
+1. Välj **Lägg till rolltilldelning**.
+1. I list rutan **roll** väljer du rollen *deltagare* eller *läsare* för ditt program. Mer information om dessa roller finns i [Kom igång med rollbaserad Access Control i Azure Portal](../role-based-access-control/overview.md).  
+1. Ange namnet på ditt program i fältet **Välj** . Välj ditt program i listan och välj sedan **Spara**.
 
-Ditt program bör nu visas i inställningarna för åtkomst kontroll med en RBAC-roll tilldelad. 
+Ditt program bör nu visas i inställningarna för åtkomst kontroll med en RBAC-roll tilldelad.
 
 ![Tilldela en RBAC-roll till ditt program](./media/batch-aad-auth/app-rbac-role.png)
 
@@ -153,11 +150,10 @@ Ditt program bör nu visas i inställningarna för åtkomst kontroll med en RBAC
 Klient-ID: t identifierar den Azure AD-klient som tillhandahåller Authentication Services för ditt program. Följ dessa steg om du vill hämta klient-ID:
 
 1. Välj din Active Directory i Azure-portalen.
-2. Klicka på **Egenskaper**.
-3. Kopiera GUID-värdet som angetts för den **katalog-ID**. Det här värdet kallas även för klient-ID.
+1. Välj **egenskaper**.
+1. Kopiera GUID-värdet som angetts för den **katalog-ID**. Det här värdet kallas även för klient-ID.
 
 ![Kopiera katalog-ID](./media/batch-aad-auth/aad-directory-id.png)
-
 
 ## <a name="code-examples"></a>Kod exempel
 
@@ -171,7 +167,7 @@ I kod exemplen i det här avsnittet visas hur du autentiserar med Azure AD med i
 >
 >
 
-### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Kod exempel: Använda Azure AD Integrated Authentication med batch .NET
+### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Kodexempel: Använda Azure AD Integrated Authentication med batch .NET
 
 Om du vill autentisera med integrerad autentisering från batch .NET refererar du till [Azure Batch .net](https://www.nuget.org/packages/Microsoft.Azure.Batch/) -paketet och [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) -paketet.
 
@@ -244,7 +240,7 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Kod exempel: Använda ett Azure AD-tjänstens huvud namn med batch .NET
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Kodexempel: Använda ett Azure AD-tjänstens huvud namn med batch .NET
 
 Om du vill autentisera med ett huvud namn för tjänsten från batch .NET refererar du till [Azure Batch .net](https://www.nuget.org/packages/Azure.Batch/) -paketet och [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) -paketet.
 
@@ -311,10 +307,10 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Kod exempel: Använda ett Azure AD-tjänstens huvud namn med batch python
+
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Kodexempel: Använda ett Azure AD-tjänstens huvud namn med batch python
 
 Om du vill autentisera med ett huvud namn för tjänsten från batch python installerar du och refererar till modulerna [Azure-Batch](https://pypi.org/project/azure-batch/) och [Azure-common](https://pypi.org/project/azure-common/) .
-
 
 ```python
 from azure.batch import BatchServiceClient
@@ -373,13 +369,13 @@ Använd autentiseringsuppgifterna för tjänstens huvud namn för att öppna ett
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Azure AD finns i Azure Active Directory- [dokumentationen](https://docs.microsoft.com/azure/active-directory/). Djupgående exempel som visar hur du använder ADAL finns i [Azure kod exempel](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteket.
+- Mer information om Azure AD finns i Azure Active Directory- [dokumentationen](https://docs.microsoft.com/azure/active-directory/). Djupgående exempel som visar hur du använder ADAL finns i [Azure kod exempel](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteket.
 
-* Mer information om tjänstens huvud namn finns i [program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Om du vill skapa ett huvud namn för tjänsten med hjälp av Azure Portal, se [använda Portal för att skapa Active Directory program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md). Du kan också skapa ett huvud namn för tjänsten med PowerShell eller Azure CLI.
+- Mer information om tjänstens huvud namn finns i [program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Om du vill skapa ett huvud namn för tjänsten med hjälp av Azure Portal, se [använda Portal för att skapa Active Directory program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md). Du kan också skapa ett huvud namn för tjänsten med PowerShell eller Azure CLI.
 
-* Information om hur du autentiserar batch Management-program med hjälp av Azure AD finns i [autentisera batch Management-lösningar med Active Directory](batch-aad-auth-management.md).
+- Information om hur du autentiserar batch Management-program med hjälp av Azure AD finns i [autentisera batch Management-lösningar med Active Directory](batch-aad-auth-management.md).
 
-* Ett python-exempel på hur du skapar en batch-klient autentiserad med hjälp av en Azure AD-token finns i avsnittet [distribuera Azure Batch anpassad avbildning med ett Python-skript](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) exempel.
+- Ett python-exempel på hur du skapar en batch-klient autentiserad med hjälp av en Azure AD-token finns i avsnittet [distribuera Azure Batch anpassad avbildning med ett Python-skript](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) exempel.
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Vad är Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

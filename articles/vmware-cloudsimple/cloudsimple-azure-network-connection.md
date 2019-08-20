@@ -8,20 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eca3e316d866814f6727dd8ef2c3fa490a551383
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 90e3121c3f036d1abc8ca372ee349aef3485d07b
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563161"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69625046"
 ---
 # <a name="azure-network-connections-overview"></a>Översikt över Azure nätverks anslutningar
 
-När du skapar en CloudSimple-tjänst i en region:
+När du skapar en CloudSimple-tjänst i en region och skapar noder kan du:
 
-* Skapar en Azure ExpressRoute-krets och kopplar den till tjänsten i den regionen.
-* Ansluter ditt CloudSimple regions nätverk till ditt virtuella Azure-nätverk eller ditt lokala nätverk med Azure ExpressRoute.
-* Ger åtkomst till tjänster som körs i din Azure-prenumeration eller ditt lokala nätverk från din privata moln miljö.
+* Begär en Azure ExpressRoute-krets och koppla den till CloudSimple-nätverket i den regionen.
+* Anslut ditt CloudSimple region nätverk till ditt virtuella Azure-nätverk eller ditt lokala nätverk med Azure ExpressRoute.
+* Ge åtkomst till tjänster som körs i din Azure-prenumeration eller ditt lokala nätverk från din privata moln miljö.
 
 ExpressRoute-anslutningen har hög bandbredd med låg latens.
 
@@ -35,15 +35,32 @@ Med Azure nätverks anslutning kan du:
 
 ## <a name="azure-virtual-network-connection"></a>Azure Virtual Network-anslutning
 
-Privata moln kan anslutas till dina Azure-resurser med hjälp av ExpressRoute.  Med ExpressRoute-anslutningen kan du komma åt resurser som körs i din Azure-prenumeration från ditt privata moln.  Med den här anslutningen kan du utöka ditt privata moln nätverk till ditt virtuella Azure-nätverk.
+Privata moln kan anslutas till dina Azure-resurser med hjälp av ExpressRoute.  Med ExpressRoute-anslutningen kan du komma åt resurser som körs i din Azure-prenumeration från ditt privata moln.  Med den här anslutningen kan du utöka ditt privata moln nätverk till ditt virtuella Azure-nätverk.  Vägar från CloudSimple nätverk kommer att bytas ut mot ditt virtuella Azure-nätverk via BGP.  Om du har konfigurerat det virtuella nätverkets peering kan alla peer-kopplade virtuella nätverk nås från CloudSimple-nätverket.
 
-[![Azure ExpressRoute-anslutning till virtuellt nätverk](media/cloudsimple-azure-network-connection.png)
+![Azure ExpressRoute-anslutning till virtuellt nätverk](media/cloudsimple-azure-network-connection.png)
 
 ## <a name="expressroute-connection-to-on-premises-network"></a>ExpressRoute anslutning till lokalt nätverk
 
-Du kan ansluta din befintliga Azure ExpressRoute-krets till din CloudSimple-region. ExpressRoute-funktionen Global Reach används för att ansluta de två kretsarna med varandra.  En anslutning upprättas mellan lokala och CloudSimple ExpressRoute-kretsar.  Med den här anslutningen kan du utöka ditt lokala nätverk till ett privat moln nätverk.
+Du kan ansluta din befintliga Azure ExpressRoute-krets till din CloudSimple-region. ExpressRoute-funktionen Global Reach används för att ansluta de två kretsarna med varandra.  En anslutning upprättas mellan lokala och CloudSimple ExpressRoute-kretsar.  Med den här anslutningen kan du utöka ditt lokala nätverk till ett privat moln nätverk. Vägar från ditt CloudSimple-nätverk kommer att bytas via BGP med ditt lokala nätverk.
 
 ![Anslutning till lokalt ExpressRoute – Global Reach](media/cloudsimple-global-reach-connection.png)
+
+
+## <a name="connection-to-on-premises-network-and-azure-virtual-network"></a>Anslutning till lokalt nätverk och Azure Virtual Network
+
+Anslutningar till det lokala nätverket och det virtuella Azure-nätverket kan samverka från CloudSimple-nätverket.  Anslutningen använder BGP för att utväxla vägar mellan lokala nätverk, Azure Virtual Network och CloudSimple Network.  När du ansluter ditt CloudSimple-nätverk till ditt virtuella Azure-nätverk i närvaro av Global Reach anslutning, kommer Azures virtuella nätverks vägar att synas i ditt lokala nätverk.  Route Exchange sker i Azure mellan de yttre routrarna.
+
+![Lokal ExpressRoute-anslutning med Azure Virtual Network-anslutning](media/cloudsimple-global-reach-and-vnet-connection.png)
+
+### <a name="important-considerations"></a>Viktiga överväganden
+
+Genom att ansluta till CloudSimple-nätverk från det lokala nätverket och från Azure Virtual Network kan du dirigera Exchange mellan alla nätverk.
+
+* Det virtuella Azure-nätverket kommer att synas från både det lokala nätverket och CloudSimple-nätverket.
+* Om du har anslutit till ditt virtuella Azure-nätverk från det lokala nätverket kan anslutningen till CloudSimple-nätverket med Global Reach ge åtkomst till virtuella nätverk från CloudSimple-nätverket.
+* Under näts adresserna **får inte** överlappa något av nätverken som är anslutna.
+* CloudSimple meddelar **inte** standard vägen till ExpressRoute-anslutningarna
+* Om din lokala router annonserar standard vägen, kommer trafiken från CloudSimple-nätverket och det virtuella Azure-nätverket använda den annonserade standard vägen.  Därför går det inte att komma åt virtuella datorer på Azure med offentliga IP-adresser.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 44b98b55bfa2d0424831f6cf612f66dbcdc8a6d9
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 5e9972c5fea7aaa2e6b5270aff87343437b1963e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543690"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624009"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database hanterade instans T-SQL-skillnader från SQL Server
 
@@ -62,6 +62,7 @@ Hanterade instanser har automatiska säkerhets kopieringar, så användare kan `
 Begränsningar: 
 
 - Med en hanterad instans kan du säkerhetskopiera en instans databas till en säkerhets kopia med upp till 32 Stripes, vilket är tillräckligt för databaser upp till 4 TB om komprimering av säkerhets kopia används.
+- Det går inte `BACKUP DATABASE ... WITH COPY_ONLY` att köra på en databas som är krypterad med service-hanterad Transparent datakryptering (TDE). Service-Managed TDE tvingar säkerhets kopieringarna att krypteras med en intern TDE-nyckel. Det går inte att exportera nyckeln, så du kan inte återställa säkerhets kopian. Använd automatisk säkerhets kopiering och återställning av tidpunkter, eller Använd kundhanterad [(BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) i stället. Du kan också inaktivera kryptering på databasen.
 - Den största storleken för säkerhets kopierings stripe `BACKUP` med kommandot i en hanterad instans är 195 GB, vilket är den maximala BLOB-storleken. Öka antalet ränder i säkerhets kopierings kommandot för att minska storleken på enskilda stripe-volymer och håll dig inom den här gränsen.
 
     > [!TIP]
@@ -512,6 +513,10 @@ Service Broker för överinstans stöds inte:
 - När en hanterad instans har skapats går det inte att flytta den hanterade instansen eller det virtuella nätverket till en annan resurs grupp eller prenumeration.
 - Vissa tjänster, till exempel App Service miljöer, Logic Apps och hanterade instanser (som används för geo-replikering, Transaktionsreplikering eller via länkade servrar) kan inte komma åt hanterade instanser i olika regioner om deras virtuella nätverk är anslutna med [Global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
 
+### <a name="tempdb-size"></a>TEMPDB-storlek
+
+Den maximala fil storleken på `tempdb` får inte vara större än 24 GB per kärna på en generell användning nivå. Den maximala `tempdb` storleken på en affärskritisk nivå begränsas av instans lagrings storleken. `Tempdb`logg filens storlek är begränsad till 120 GB både på Generell användning och Affärskritisk nivåer. Vissa frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb` eller om de producerar mer än 120 GB loggdata.
+
 ## <a name="Changes"></a>Beteende ändringar
 
 Följande variabler, funktioner och vyer returnerar olika resultat:
@@ -526,13 +531,39 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 
 ## <a name="Issues"></a>Kända problem och begränsningar
 
-### <a name="tempdb-size"></a>TEMPDB-storlek
+### <a name="cross-database-service-broker-dialogs-dont-work-after-service-tier-upgrade"></a>Service Broker dialog rutor mellan databaser fungerar inte efter uppgradering av tjänst nivå
 
-Den maximala fil storleken på `tempdb` får inte vara större än 24 GB per kärna på en generell användning nivå. Den maximala `tempdb` storleken på en affärskritisk nivå begränsas av instans lagrings storleken. `Tempdb`logg filens storlek är begränsad till 120 GB både på Generell användning och Affärskritisk nivåer. `tempdb` Databasen delas alltid upp i 12 datafiler. Den här maximala storleken per fil kan inte ändras och nya filer kan inte läggas till `tempdb`i. Vissa frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb` eller om de producerar mer än 120 GB loggdata. `Tempdb`återskapas alltid som en tom databas när instansen startar eller växlar över och eventuella ändringar som görs i `tempdb` bevaras inte. 
+**Ikraftträdande** Aug 2019
 
-### <a name="cant-restore-contained-database"></a>Det går inte att återställa den inneslutna databasen
+Service Broker dialog rutor i flera databaser kan inte leverera meddelanden efter åtgärden ändra tjänst nivå. Om du ändrar virtuella kärnor eller instans lagrings storlek i den hanterade instansen kommer `service_broke_guid` värdet i [sys. Databass](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) -vyn att ändras för alla databaser. Alla `DIALOG` skapade med [dialog](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) instruktionen BEGIN som refererar till tjänst utjämnare i andra databaser med GUID, kommer inte att kunna leverera meddelanden.
 
-Den hanterade instansen kan inte återställa [inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Tidpunkts återställning av befintliga inneslutna databaser fungerar inte på en hanterad instans. Under tiden rekommenderar vi att du tar bort inne slutnings alternativet från dina databaser som är placerade på en hanterad instans. Använd inte inne slutnings alternativet för produktions databaserna. 
+**Korrigera** Stoppa alla aktiviteter som använder Service Broker dialog samtal över flera databaser innan du uppdaterar tjänst nivån och återinitierar dem igen.
+
+### <a name="some-aad-login-types-cannot-be-impersonated"></a>Vissa inloggnings typer för AAD kan inte personifieras
+
+**Ikraftträdande** Juli 2019
+
+Personifiering med `EXECUTE AS USER` eller `EXECUTE AS LOGIN` av följande AAD-huvudobjekt stöds inte:
+-   AAD-användare med alias. Följande fel returneras i det här fallet `15517`.
+- AAD-inloggningar och användare baserat på AAD-program eller tjänstens huvud namn. Följande fel returneras i det här fallet `15517` och. `15406`
+
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparametern stöds inte i sp_send_db_mail
+
+**Ikraftträdande** April 2019
+
+Parametern i sp_send_db_mail-proceduren fungerar inte. [](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) `@query`
+
+### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>AAD-inloggningar och användare stöds inte i verktyg
+
+**Ikraftträdande** Jan 2019
+
+SQL Server Management Studio och SQL Server Data Tools inte fuly stöd för Azures konto inloggningar och användare.
+- Att använda Azure AD server-Huvudkonton (inloggningar) och användare (offentlig för hands version) med SQL Server Data Tools stöds inte för närvarande.
+- Skript för Azure AD server-Huvudkonton (inloggningar) och användare (offentlig för hands version) stöds inte i SQL Server Management Studio.
+
+### <a name="tempdb-structure-and-content-is-re-created"></a>TEMPDB-strukturen och innehållet har skapats på nytt
+
+`tempdb` Databasen delas alltid upp i 12 datafiler och fil strukturen kan inte ändras. Den maximala storleken per fil kan inte ändras och nya filer kan inte läggas till i `tempdb`. `Tempdb`återskapas alltid som en tom databas när instansen startar eller växlar över och eventuella ändringar som görs i `tempdb` bevaras inte.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överskrida lagrings utrymme med små databasfiler
 
@@ -551,24 +582,9 @@ I det här exemplet fortsätter befintliga databaser att fungera och kan växa u
 
 Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med hjälp av systemvyer. Om du når den här gränsen kan du försöka att [tömma och ta bort några av de mindre filerna med hjälp av DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) -instruktionen eller växla till [Affärskritisks nivån, som inte har den här gränsen](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
-### <a name="tooling"></a>Verktyg
-
-SQL Server Management Studio och SQL Server Data Tools kan ha problem när de får åtkomst till en hanterad instans.
-
-- Att använda Azure AD server-Huvudkonton (inloggningar) och användare (offentlig för hands version) med SQL Server Data Tools stöds inte för närvarande.
-- Skript för Azure AD server-Huvudkonton (inloggningar) och användare (offentlig för hands version) stöds inte i SQL Server Management Studio.
-
-### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Felaktiga databas namn i vissa vyer, loggar och meddelanden
+### <a name="guid-values-shown-instead-of-database-names"></a>GUID-värden som visas i stället för databas namn
 
 Flera systemvyer, prestanda räknare, fel meddelanden, XEvents och fel logg poster visar GUID-databas identifierare i stället för de faktiska databas namnen. Använd inte dessa GUID-identifierare eftersom de ersätts med faktiska databas namn i framtiden.
-
-### <a name="database-mail"></a>Database-mail
-
-Parametern i sp_send_db_mail-proceduren fungerar inte. [](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) `@query`
-
-### <a name="database-mail-profile"></a>Database Mail profil
-
-Den Database Mail profil som används av SQL Server Agent måste anropas `AzureManagedInstance_dbmail_profile`. Det finns inga begränsningar för andra Database Mail profil namn.
 
 ### <a name="error-logs-arent-persisted"></a>Fel loggarna är inte beständiga
 
@@ -616,12 +632,6 @@ using (var scope = new TransactionScope())
 CLR-moduler placerade i en hanterad instans och länkade servrar eller distribuerade frågor som refererar till en aktuell instans kan ibland inte matcha IP-adressen för en lokal instans. Det här felet är ett tillfälligt problem.
 
 **Korrigera** Använd kontext anslutningar i en CLR-modul om möjligt.
-
-### <a name="tde-encrypted-databases-with-a-service-managed-key-dont-support-user-initiated-backups"></a>TDE-krypterade databaser med en tjänst-hanterad nyckel stöder inte användarinitierad säkerhets kopieringar
-
-Det går inte `BACKUP DATABASE ... WITH COPY_ONLY` att köra på en databas som är krypterad med service-hanterad Transparent datakryptering (TDE). Service-Managed TDE tvingar säkerhets kopieringarna att krypteras med en intern TDE-nyckel. Det går inte att exportera nyckeln, så du kan inte återställa säkerhets kopian.
-
-**Korrigera** Använd automatisk säkerhets kopiering och återställning av tidpunkter, eller Använd kundhanterad [(BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) i stället. Du kan också inaktivera kryptering på databasen.
 
 ## <a name="next-steps"></a>Nästa steg
 

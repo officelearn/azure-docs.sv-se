@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/08/2019
-ms.openlocfilehash: b24efe52d0ab24659c4278c6be59c4262023b26f
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b1771d7940a12d0cc818c223c28dcad87acd8a0c
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541833"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624730"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Snabbstart: Använd Java för att ansluta till och fråga efter data i Azure Database for MySQL
 
@@ -34,8 +34,8 @@ Den här snabb starten visar hur du ansluter till en Azure Database for MySQL me
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver**).
-3. Klicka på servernamnet.
+2. På den vänstra menyn i Azure Portal väljer du **alla resurser**och söker sedan efter den server som du har skapat (till exempel **mydemoserver**).
+3. Välj servernamnet.
 4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
  ![Azure Database för MySQL-servernamn](./media/connect-java/1_server-overview-name-login.png)
 

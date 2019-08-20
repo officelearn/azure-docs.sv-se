@@ -8,16 +8,19 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 74e36d944450e1ce2c61481b2cb7e345860212af
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6f51d2907738f49ace559f1b127458eda71de287
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326888"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624089"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
 Förutom att granska och [Reparera](../how-to/remediate-resources.md) Azure-resurser kan Azure policy granska inställningarna i en virtuell dator. Verifieringen utförs av gäst-konfiguration-tillägget och klienten. Tillägget med klienten, verifierar inställningar, till exempel konfigurationen av operativsystemet, programkonfigurationen eller närvaro, miljöinställningar och mer.
+
+För tillfället utför Azure Policy-gäst konfigurationen bara en granskning av inställningarna i datorn.
+Det går inte att använda konfigurationer än.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -115,9 +118,9 @@ Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus**
 
 > [!NOTE]
 > **DeployIfNotExists** -principen krävs för att **gransknings** principen ska returnera resultat.
-> Utan **DeployIfNotExists**visar gransknings  principen "0 av 0" resurser som status.
+> Utan **DeployIfNotExists**visar gransknings principen "0 av 0" resurser som status.
 
-Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet *[för hands version]: Granska säkerhets inställningar för lösen ord i virtuella Linux-* och Windows-datorer innehåller 18 principer. Det finns sex **DeployIfNotExists** -  och gransknings par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
+Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet *[för hands version]: Granska säkerhets inställningar för lösen ord i virtuella Linux-* och Windows-datorer innehåller 18 principer. Det finns sex **DeployIfNotExists** - och gransknings par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
 
 ## <a name="multiple-assignments"></a>Flera tilldelningar
 

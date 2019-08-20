@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: vijetaj
-ms.openlocfilehash: df05b2605f3553ce26447a4f8e2440002b75ec3a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d128a7af60a1504d05fb5316969fccc49c397f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68557364"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574963"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux virtuell dator för datavetenskap på Azure
 Den här genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella datorn datavetenskap för Linux. Linux Data Science Virtual Machine (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en uppsättning verktyg som ofta används för dataanalys och maskininlärning. Viktiga programkomponenterna är uppdelat i den [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång datavetenskap på några minuter, utan att behöva installera och konfigurera var och en av verktyg individuellt. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den när den inte används. Den här resursen är därför både elastisk och kostnadseffektiv.
@@ -229,6 +229,20 @@ Prova på först 10 raderna i testet ange:
 
     consume(ep, smallTestSet[1:10, ])
 
+<a name="deep-learning"></a>
+
+## <a name="deep-learning-tutorials-and-walkthroughs"></a>Deep Learning självstudier och genomgångar
+
+Förutom framework-baserad-exemplen finns också en uppsättning heltäckande genomgångar som har verifierats på DLVM. Dessa genomgångar dig rivstarta din utvecklingen av deep learning-program i domäner som bild och text/språkförståelse. Fler självstudier för slutpunkt till slutpunkt i olika domäner och teknik fortsätter som ska läggas till.   
+
+
+- [Köra neurala-nätverk över olika ramverk](https://github.com/ilkarman/DeepLearningFrameworks): En omfattande genom gång som visar hur du migrerar kod från ett ramverk till ett annat. Den visar även hur du jämför modellen och köra tar över ramverk. 
+
+- [En instruktions guide för att bygga en lösning från slut punkt till slut punkt för att identifiera produkter i avbildningar](https://github.com/Azure/cortana-intelligence-product-detection-from-images): Bild identifiering är en teknik som kan användas för att hitta och klassificera objekt i bilder. Den här tekniken finns risken för att ge enorma fördelar i många verkliga livet är vanligtvis affärsdomäner. Återförsäljare kan till exempel använda den här tekniken för att avgöra vilken produkt en kund har hämtas från hyllan. Den här informationen hjälper i sin tur butiker hantera produktlager. 
+
+- [Djupinlärning för ljud](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) den här kursen visar hur du tränar en modell för djupinlärning för ljud händelse på den [urban ljud datauppsättning](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) och ger en översikt över hur du arbetar med ljuddata.
+
+- [Klassificering av text dokument](https://github.com/anargyri/lstm_han): Den här genom gången visar hur du skapar och tränar två olika neurala-nätverks arkitekturer: Hierarkiskt Attention-nätverk och LSTM-nätverk (Long Shortest Memory). Dessa neurala nätverk använder Keras-API för djupinlärning för att klassificera textdokument. Keras är en klient del till tre av de mest populära djup inlärnings ramverken: Microsoft Cognitive Toolkit, TensorFlow och Theano.
 
 ## <a name="use-other-tools-available"></a>Använda andra verktyg som är tillgängliga
 De återstående avsnitten visar hur du använder några av verktygen som installeras på den virtuella datorn datavetenskap för Linux. Här är listan över verktyg som beskrivs:

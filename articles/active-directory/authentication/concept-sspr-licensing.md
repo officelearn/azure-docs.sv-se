@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 08/19/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7463b86ea20a712937b8ccba7997c2551aae5be6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4d7a23ed0a84ebd671c69744dfec145763ef6897
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879114"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622720"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensierings krav för återställning av lösen ord för självbetjäning i Azure AD
 
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) ingår i flera versioner: Kostnads fri, Premiu
 * Självbetjäning för återställning av lösenord för molnanvändare
    * Jag är **endast en molnbaserad användare** och har glömt mitt lösen ord.
       * Jag vill **återställa** mitt lösen ord till något som jag känner till.
-   * Den här funktionen ingår i Azure AD Premium P1 eller P2, eller Microsoft 365 Business.
+   * Den här funktionen ingår i Azure AD Premium P1 eller P2, Microsoft 365 Business eller Office 365.
 
 * Lösen ords återställning via självbetjäning/ändra/Lås upp **med lokal tillbakaskrivning**
    * Jag är en **Hybrid användare** som mitt lokalt Active Directory användar kontot är synkroniserat med mitt Azure AD-konto med hjälp av Azure AD Connect. Jag vill ändra mitt lösen ord, ha glömt mitt lösen ord eller vara utelåst.

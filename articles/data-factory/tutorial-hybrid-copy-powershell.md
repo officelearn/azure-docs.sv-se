@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
-ms.openlocfilehash: 49d9be9f10f0e840cfa3d027901a297de8cbf750
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87b32fdef449945b1e8facac2ac5a51b4ef67972
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328297"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617558"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Självstudier: Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet. 
@@ -82,8 +82,6 @@ Du använder namnet och nyckeln för Azure Storage-kontot i den här självstudi
 
 1. I fönstret **Lagringskonto** väljer du **Åtkomstnycklar**.
 
-    ![Hämta lagringskontots namn och nyckel](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
-
 1. I rutorna **Lagringskontonamn** och **key1** kopierar du värdena och klistrar sedan in dem i Anteckningar eller annat redigeringsprogram så att du har dem när du behöver dem senare i självstudien. 
 
 #### <a name="create-the-adftutorial-container"></a>Skapa containern adftutorial 
@@ -99,7 +97,7 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azu
 
 1. I fönstret **Ny container**, i rutan **Namn**, anger du **adftutorial** och väljer **OK**. 
 
-    ![Ange namn på container](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+    ![Ange containernamnet](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
 1. Välj **adftutorial** i listan över containrar.  
 
@@ -107,7 +105,6 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azu
 
 1. Låt **containerfönstret** för **adftutorial** vara öppet. Du kommer att använda den för att bekräfta utdata i slutet av självstudien. Data Factory skapar automatiskt utdatamappen i den här containern, så du behöver inte skapa en.
 
-    ![Containerfönster](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
@@ -415,7 +412,7 @@ I det här steget länkar du din lokala SQL Server-instans till datafabriken.
     > [!IMPORTANT]
     > - Välj avsnitt baserat på vilken autentisering du använder när du ansluter till din SQL Server-instans.
     > - Ersätt  **\<integration runtime name>** med namnet på din Integration Runtime.
-    > - Ersätt **\<servername>**, **\<databasename>**, **\<username>** och **\<password>** med värdena för din SQL Server-instans innan du sparar filen.
+    > - Ersätt **\<servername>** , **\<databasename>** , **\<username>** och **\<password>** med värdena för din SQL Server-instans innan du sparar filen.
     > - Om du behöver använda ett omvänt snedstreck (\\) i ditt användarkonto eller servernamn infogar du escape-tecknet framför det (\\). Använd till exempel *mydomain\\\\myuser*. 
 
 1. Kör `New-AzDataFactoryV2LinkedServiceEncryptedCredential`-cmdlet för att kryptera känsliga data (användarnamn, lösenord och så vidare).  

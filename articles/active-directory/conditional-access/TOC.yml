@@ -19,6 +19,10 @@
 - name: Begrepp
   expanded: false
   items:
+    - name: Använda villkorsstyrd åtkomst
+      href: howto-conditional-access-adoption-kit.md
+    - name: Vanliga principer för villkorlig åtkomst
+      href: concept-conditional-access-policy-common.md
     - name: Villkor
       href: conditions.md
     - name: Platsvillkor
@@ -38,6 +42,22 @@
       href: plan-conditional-access.md
     - name: Bästa praxis
       href: best-practices.md
+    - name: Vanliga principmallar
+      items:
+        - name: Kräv MFA för administratörer
+          href: howto-conditional-access-policy-admin-mfa.md
+        - name: Kräv MFA för Azure-hantering
+          href: howto-conditional-access-policy-azure-management.md
+        - name: Blockera äldre autentisering
+          href: howto-conditional-access-policy-block-legacy.md
+        - name: Risk- och villkorsbaserad åtkomst
+          href: howto-conditional-access-policy-risk.md
+        - name: Kräv betrodd plats för MFA-registrering
+          href: howto-conditional-access-policy-registration.md
+        - name: Blockera åtkomst efter plats
+          href: howto-conditional-access-policy-location.md
+        - name: Kräv kompatibla enheter
+          href: howto-conditional-access-policy-compliant-device.md
     - name: Blockera äldre autentisering
       href: block-legacy-authentication.md
     - name: Villkorlig åtkomst för MFA-registrering

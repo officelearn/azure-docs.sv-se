@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: c8cab3c723b7e507b0f3b05b933cca9e2c24fb39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 626015e2aac5eb09dfd271a139dbc5eb49a088fc
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767330"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616422"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Ansluta till Cosmos DB med hjälp av Mongoose
 
@@ -34,7 +34,7 @@ I den här delen av självstudien får du göra följande:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Innan du börjar med den här självstudien bör du slutföra stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md).
 
@@ -238,7 +238,7 @@ Kör sedan appen med hjälp av följande steg:
 
     ![Nytt Azure Cosmos DB-konto på Azure-portalen](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
-Det finns ännu inga heroes-komponenter lagrade i appen. I nästa del av den här självstudien lägger vi till funktioner put, push och delete. Sedan kan vi lägga till, uppdatera och ta bort heroes-komponenter från användargränssnittet genom att använda Mongoose-anslutningar till vår Azure Cosmos DB-databas. 
+Det finns ännu inga heroes-komponenter lagrade i appen. I nästa del av den här självstudien lägger vi till funktioner put, push och delete. Sedan kan vi lägga till, uppdatera och ta bort hjältar från användar gränssnittet genom att använda Mongoose-anslutningar till vår Azure Cosmos-databas. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

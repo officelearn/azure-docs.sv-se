@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 4ea6f04dbfd18a6e561a255988ba0465b9e017be
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: da88c6d0195236a6f93f81d3296e4624228125f2
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967615"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624267"
 ---
 # <a name="what-are-the-speech-services"></a>Vad är Speech Services?
 
@@ -42,7 +42,8 @@ Dessa funktioner utgör Azures tal tjänster. Använd länkarna i den här tabel
 Lär dig vad som är nytt med Azure Speech Services.
 
 * 2019 augusti
-  * **Ny självstudie**: [Röst möjliggör din robot med talet SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+  * **Ny självstudie**: [Röstaktivera din robot med Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+  * Har lagt till en ny tal [`chat`](speech-synthesis-markup.md#adjust-speaking-styles)format, `en-US-JessaNeural` för rösten. 
 * 2019 juni
   * Utgivna tal SDK-1.6.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
 * Maj 2019 – dokumentationen är nu tillgänglig för [konversations](conversation-transcription-service.md)avskrifter, avskriftering av [samtals Center](call-center-transcription.md)och [röst-och första virtuella assistenter](voice-first-virtual-assistants.md).

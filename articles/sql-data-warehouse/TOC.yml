@@ -273,6 +273,8 @@
       items:
         - name: Uppgradera till Gen2
           href: upgrade-to-latest-generation.md
+        - name: Hantera beräkning
+          href: manage-compute-with-azure-functions.md
         - name: Övervaka din arbetsbelastning – portalen
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: 'Övervaka din arbetsbelastning – DVM:er'

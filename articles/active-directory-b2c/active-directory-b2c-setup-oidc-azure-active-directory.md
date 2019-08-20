@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 46755cb8d0383d166b10d50854eb476b676a6ee4
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 477b4e51c49a558aed0e5623a3821fa9b8d9eabd
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509745"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622369"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurera inloggning för en speciell Azure Active Directory organisation i Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Om du vill använda en Azure Active Directory (Azure AD) som [identitets leveran
 Om du vill aktivera inloggning för användare från en specifik Azure AD-organisation måste du registrera ett program i Azure AD-klienten, som inte är samma som din Azure AD B2C klient organisation.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient. Välj **katalog-och prenumerations filter** på den översta menyn och välj den katalog som innehåller din Azure AD-klient. Detta är inte samma klient som din Azure AD B2C klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din Azure AD-klient. Detta är inte samma klient som din Azure AD B2C klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 4. Välj **ny registrering**.
 5. Ange ett namn för ditt program. Till exempel `Azure AD B2C App`.
@@ -47,27 +47,28 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Konfigurera Azure AD som en identitets leverantör
 
-1. Kontrol lera att du använder den katalog som innehåller Azure AD B2C klient. Välj **katalog-och prenumerations filter** på den översta menyn och välj den katalog som innehåller Azure AD B2C klient.
-2. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-3. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
-4. Ange ett **namn**. Ange till exempel `Contoso Azure AD`.
-5. Välj **typ av identitets leverantör**, Välj **OpenID Anslut**och klicka sedan på **OK**.
-6. Välj **Konfigurera den här identitets leverantören**
-7. För **metadata-URL**anger du följande URL som `your-AD-tenant-domain` ersätter med domän namnet för din Azure AD-klient. Exempel `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
+1. Kontrol lera att du använder den katalog som innehåller Azure AD B2C klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller Azure AD B2C klienten.
+1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+1. Välj **identitets leverantörer**och välj sedan **ny OpenID Connect-Provider**.
+1. Ange ett **namn**. Ange till exempel *contoso Azure AD*.
+1. För **metadata-URL**anger du följande URL som `your-AD-tenant-domain` ersätter med domän namnet för din Azure AD-klient:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-8. För **klient-ID**anger du det program-ID som du tidigare har spelat in och för **klient hemlighet**anger du den klient hemlighet som du tidigare har registrerat.
-9. Du kan också ange ett värde för **Domain_hint**. Till exempel `ContosoAD`. Detta är det värde som ska användas för att referera till den här identitets leverantören med *domain_hint* i begäran.
-10. Klicka på **OK**.
-11. Välj **mappa den här identitets leverantörens anspråk** och ange följande anspråk:
+    Till exempel `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
-    - För **användar-ID**anger `oid`du.
-    - I **visnings namn**anger `name`du.
-    - För **angivet namn**anger `given_name`du.
-    - För efter **namn**anger `family_name`du.
-    - För **e-post**anger `unique_name`du.
+1. För **klient-ID**anger du det program-ID som du tidigare har registrerat.
+1. För **klient hemlighet**anger du den klient hemlighet som du tidigare har registrerat.
+1. Lämna standardvärdena för **omfång**, **svars typ**och **svars läge**.
+1. Valfritt Ange ett värde för **Domain_hint**. Till exempel *ContosoAD*. Detta är det värde som ska användas för att referera till den här identitets leverantören med *domain_hint* i begäran.
+1. Under **anspråks mappning för identitetsprovider**anger du följande anspråks mappnings värden:
 
-12. Klicka på **OK**och sedan på **skapa** för att spara konfigurationen.
+    * **Användar-ID**: *OID*
+    * **Visnings namn**: *namn*
+    * **Angivet namn**: *given_name*
+    * Efter **namn**: *family_name*
+    * **E-post**: *unique_name*
+
+1. Välj **Spara**.

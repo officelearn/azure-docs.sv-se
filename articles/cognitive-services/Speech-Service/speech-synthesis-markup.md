@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 12d556fd9c37b83a919b830d155250e9eaa64128
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855108"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624243"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -31,6 +31,10 @@ SSML-implementeringen för tal tjänster är baserad på World Wide Web Consorti
 Välj mellan standard-och neurala röster eller skapa en egen anpassad röst som är unik för din produkt eller ditt varumärke. 75 + standard röster är tillgängliga på över 45 språk och nationella inställningar och 5 neurala-röster är tillgängliga på 4 språk och nationella inställningar. En fullständig lista över språk som stöds, nationella inställningar och röster (neurala och standard) finns i [språk stöd](language-support.md).
 
 Mer information om standard-, neurala-och anpassade röster finns i [text till tal-översikt](text-to-speech.md).
+
+## <a name="special-characters"></a>Specialtecken
+
+När du använder SSML för att konvertera text till syntetiskt tal bör du tänka på att det är precis som med XML, specialtecken, t. ex. citat tecken, apostrofer och hakparenteser, måste vara undantagna. Mer information finns i [Extensible Markup Language (XML) 1,0: Bilaga D](https://www.w3.org/TR/xml/#sec-entexpand).
 
 ## <a name="supported-ssml-elements"></a>SSML-element som stöds
 
@@ -142,6 +146,7 @@ Använd den här tabellen för att avgöra vilka tal format som stöds för varj
 |-------|------|-------------|
 | `en-US-JessaNeural` | typ =`cheerful` | Uttrycker en känslo som är positiv och glad |
 | | typ =`empathy` | Uttrycker en uppfattning om Caring och förståelse |
+| | typ =`chat` | Tala i en vardaglig, avslappnad ton |
 | `zh-CN-XiaoxiaoNeural` | typ =`newscast` | Uttrycker en formell ton som liknar nyhets sändningar |
 | | typ =`sentiment` | Förmedlar ett touch-meddelande eller en berättelse |
 

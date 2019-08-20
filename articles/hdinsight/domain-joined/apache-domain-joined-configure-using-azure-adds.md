@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 1ad3c446df2f2ce62024dfdda589669653f65ef4
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 300fd31632a6b3c9043c19dd9b47f40258080261
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488712"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614218"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security-paket med hjälp av Azure Active Directory Domain Services
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig hur du konfigurerar ett HDInsight-kluster 
 >
 > Om kluster lagringen är Azure Blob Storage (WASB) ska du inte inaktivera MFA.
 
-Aktivering av AzureAD-DS är en förutsättning innan du kan skapa ett HDInsight-kluster med ESP. Mer information finns i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../../active-directory-domain-services/create-instance.md). 
+Aktivering av AzureAD-DS är en förutsättning innan du kan skapa ett HDInsight-kluster med ESP. Mer information finns i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../../active-directory-domain-services/tutorial-create-instance.md). 
 
 När Azure AD-DS är aktive rad börjar alla användare och objekt att synkronisera från Azure Active Directory (AAD) till Azure AD-DS som standard. Längden på synkroniseringsåtgärden beror på antalet objekt i Azure AD. Synkroniseringen kan ta några dagar i hundratals tusentals objekt. 
 
@@ -39,7 +39,7 @@ Domän namnet som du använder med Azure AD-DS måste vara 39 tecken eller mindr
 
 Du kan välja att bara synkronisera de grupper som behöver åtkomst till HDInsight-kluster. Det här alternativet för att synkronisera endast vissa grupper kallas *omsynkronisering av omfång*. Instruktioner finns i [Konfigurera Omfångst synkronisering från Azure AD till din hanterade domän](../../active-directory-domain-services/scoped-synchronization.md) .
 
-När du aktiverar säker LDAP ska du lägga till domän namnet i ämnes namnet och det alternativa ämnes namnet i certifikatet. Om ditt domän namn till exempel är *contoso100.onmicrosoft.com*, se till att det exakta namnet finns i certifikat mottagar namnet och alternativt namn för certifikat mottagare. Mer information finns i [Konfigurera säker LDAP för en Azure AD-DS-hanterad domän](../../active-directory-domain-services/configure-ldaps.md). Nedan visas ett exempel på hur du skapar ett självsignerat certifikat och har domän namnet (*contoso100.onmicrosoft.com*) i både ämnes namn och DnsName (alternativt ämnes namn):
+När du aktiverar säker LDAP ska du lägga till domän namnet i ämnes namnet och det alternativa ämnes namnet i certifikatet. Om ditt domän namn till exempel är *contoso100.onmicrosoft.com*, se till att det exakta namnet finns i certifikat mottagar namnet och alternativt namn för certifikat mottagare. Mer information finns i [Konfigurera säker LDAP för en Azure AD-DS-hanterad domän](../../active-directory-domain-services/tutorial-configure-ldaps.md). Nedan visas ett exempel på hur du skapar ett självsignerat certifikat och har domän namnet (*contoso100.onmicrosoft.com*) i både ämnes namn och DnsName (alternativt ämnes namn):
 
 ```powershell
 $lifetime=Get-Date
@@ -70,7 +70,7 @@ När den hanterade identiteten har skapats och fått rätt roll kan AAD-DS-admin
 ## <a name="networking-considerations"></a>Nätverksöverväganden
 
 > [!NOTE]  
-> Azure AD-DS måste distribueras i ett Azure Resource Manager (ARM)-baserat vNET. Klassiska virtuella nätverk stöds inte för Azure AD-DS. Mer information finns i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../../active-directory-domain-services/active-directory-ds-getting-started-network.md) .
+> Azure AD-DS måste distribueras i ett Azure Resource Manager-baserat vNET. Klassiska virtuella nätverk stöds inte för Azure AD-DS. Mer information finns i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../../active-directory-domain-services/tutorial-create-instance.md#create-and-configure-the-virtual-network) .
 
 När du har aktiverat Azure AD-DS körs en lokal Domain Name Service (DNS)-server på AD-Virtual Machines (VM). Konfigurera Azure AD-DS-Virtual Network (VNET) så att de använder dessa anpassade DNS-servrar. Om du vill hitta rätt IP-adresser väljer du **Egenskaper** under kategorin **Hantera** och tittar på IP-adresserna under **IP-adressen på Virtual Network**.
 

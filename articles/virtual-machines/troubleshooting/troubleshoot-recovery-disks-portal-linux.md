@@ -1,6 +1,6 @@
 ---
-title: Använda en Linux felsöknings-VM i Azure portal | Microsoft Docs
-description: Lär dig hur du felsöker problem med Linux virtuell dator genom att ansluta operativsystemdisken till en virtuell dator med Azure-portalen för återställning
+title: Använd en Linux-felsökning av virtuella datorer i Azure Portal | Microsoft Docs
+description: Lär dig hur du felsöker problem med virtuella Linux-datorer genom att ansluta OS-disken till en virtuell återställnings dator med hjälp av Azure Portal
 services: virtual-machines-linux
 documentationCenter: ''
 author: genlin
@@ -13,95 +13,102 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: genli
-ms.openlocfilehash: 160e45ad5bf83f44bed2314ee5103825e265467c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6a848717e4796e0bb35cbcf045bb50fabf543c1b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709377"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617663"
 ---
-# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en Linux-VM genom att koppla OS-disken till en virtuell dator med Azure-portalen för återställning
-Om din Linux-dator (VM) påträffar ett fel vid start- eller disk, kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är ett ogiltigt värde i `/etc/fstab` som förhindrar den virtuella datorn från att kunna starta. Den här artikeln beskriver hur du använder Azure-portalen för att ansluta den virtuella hårddisken till en annan Linux VM att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
+# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal
+Om din virtuella Linux-dator (VM) påträffar ett start-eller diskfel kan du behöva utföra fel söknings stegen på den virtuella hård disken. Ett vanligt exempel är en ogiltig post i `/etc/fstab` som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder Azure Portal för att ansluta den virtuella hård disken till en annan virtuell Linux-dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
 
 ## <a name="recovery-process-overview"></a>Översikt över återställningsprocessen
 Så här ser felsökningsprocessen ut:
 
-1. Ta bort den virtuella datorn uppstår några problem, som de virtuella hårddiskarna.
-2. Anslut och montera den virtuella hårddisken till en annan Linux-VM i felsökningssyfte.
-3. Anslut till den virtuella felsökningsdatorn. Redigera filer eller köra några verktyg för att åtgärda problem på den ursprungliga virtuella hårddisken.
-4. Demontera och koppla från den virtuella hårddisken från den virtuella felsökningsdatorn.
-5. Skapa en virtuell dator med den ursprungliga virtuella hårddisken.
-
-För den virtuella datorn som använder hanterade diskar, se [felsöka en hanterad Disk i virtuell dator genom att koppla en ny OS-disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
-
-## <a name="determine-boot-issues"></a>Fastställa startproblem
-Granska startdiagnostik och VM-skärmbild att avgöra varför den virtuella datorn är inte kan starta korrekt. Ett vanligt exempel är ett ogiltigt värde i `/etc/fstab`, eller en underliggande virtuell hårddisk som tagits bort eller flyttats.
-
-Välj den virtuella datorn i portalen och rullar ned till den **stöd + felsökning** avsnittet. Klicka på **Startdiagnostik** att visa konsolmeddelanden som strömmas direkt från den virtuella datorn. Granska loggarna för konsolen för att se om du kan fastställa varför den virtuella datorn har uppstått ett problem. I följande exempel visas en virtuell dator som har fastnat i underhållsläge som kräver manuell interaktion:
-
-![Visa VM datorloggar startdiagnostik](./media/troubleshoot-recovery-disks-portal-linux/boot-diagnostics-error.png)
-
-Du kan också klicka på **skärmbild** överst på Start-diagnostikloggen för att hämta en avbildning av VM-skärmbild.
-
-
-## <a name="view-existing-virtual-hard-disk-details"></a>Se information om en befintlig virtuell hårddisk
-Innan du kan koppla den virtuella hårddisken till en annan virtuell dator, måste du identifiera namnet på den virtuella hårddisken (VHD). 
-
-Välj en resursgrupp från portalen och välj sedan ditt lagringskonto. Klicka på **Blobar**, som i följande exempel:
-
-![Välj storage-blobbar](./media/troubleshoot-recovery-disks-portal-linux/storage-account-overview.png)
-
-Du har vanligtvis en behållare med namnet **virtuella hårddiskar** som lagrar virtuella hårddiskar. Välj behållaren för att visa en lista över virtuella hårddiskar. Anteckna namnet på en virtuell Hårddisk (prefixet är vanligtvis namnet på den virtuella datorn):
-
-![Identifiera virtuella Hårddisken i storage-behållare](./media/troubleshoot-recovery-disks-portal-linux/storage-container.png)
-
-Välj din befintliga virtuella hårddisk i listan och kopiera URL: en för användning i följande steg:
-
-![Kopiera URL: en befintlig virtuell hårddisk](./media/troubleshoot-recovery-disks-portal-linux/copy-vhd-url.png)
-
-
-## <a name="delete-existing-vm"></a>Ta bort befintlig virtuell dator
-Virtuella hårddiskar och virtuella datorer är två separata resurser i Azure. En virtuell hårddisk är där själva operativsystemet, program och konfigurationer lagras. Virtuellt datorn är bara metadata som definierar storleken eller platsen och refererar till resurser, till exempel en virtuell hårddisk eller virtuella nätverkskort (NIC). Varje virtuell hårddisk har ett lån när ansluten till en virtuell dator. Datadiskar kan anslutas och kopplas från när den virtuella datorn körs, men operativsystemdisken kan inte kopplas från om inte den virtuella datorresursen tagits bort. Lånet fortsätter att associera operativsystemdisken med en virtuell dator, även om den virtuella datorn är i stoppat eller frigjort läge.
-
-Det första steget att återställa den virtuella datorn är att ta bort den Virtuella datorresursen. När du tar bort den virtuella datorn hamnar de virtuella hårddiskarna på ditt lagringskonto. När den virtuella datorn har tagits bort, kan du koppla den virtuella hårddisken till en annan virtuell dator för att felsöka och lösa problemen.
-
-Välj den virtuella datorn i portalen och klicka sedan på **ta bort**:
-
-![VM boot diagnostics skärmbild som visar fel vid start](./media/troubleshoot-recovery-disks-portal-linux/stop-delete-vm.png)
-
-Vänta tills den virtuella datorn har tagits bort innan du kopplar den virtuella hårddisken till en annan virtuell dator. Lånet på den virtuella hårddisken som associeras med den virtuella datorn måste frigöras innan du kan koppla den virtuella hårddisken till en annan virtuell dator.
-
-
-## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Bifoga befintlig virtuell hårddisk till en annan virtuell dator
-De efterföljande stegen använder du en annan virtuell dator för felsökning. Du kan koppla den befintliga virtuella hårddisken till den här virtuella datorn för felsökning kan bläddra och redigera dess innehåll. Den här processen kan du korrigera eventuella konfigurationsfel eller granska ytterligare program eller systemloggfilerna, till exempel. Välj eller skapa en annan virtuell dator för felsökning.
-
-1. Välj en resursgrupp från portalen och välj sedan Virtuellt felsökningsdatorn. Välj **diskar** och klicka sedan på **bifoga befintlig**:
-
-    ![Bifoga befintlig disk i portalen](./media/troubleshoot-recovery-disks-portal-linux/attach-existing-disk.png)
-
-2. Välj din befintliga virtuella hårddisk genom att klicka på **VHD-fil**:
-
-    ![Bläddra till den befintliga virtuella hårddisken](./media/troubleshoot-recovery-disks-portal-linux/select-vhd-location.png)
-
-3. Välj ditt lagringskonto och en behållare och sedan på en befintlig virtuell Hårddisk. Klicka på den **Välj** för att bekräfta ditt val:
-
-    ![Välj din befintliga virtuella hårddisk](./media/troubleshoot-recovery-disks-portal-linux/select-vhd.png)
-
-4. Med en virtuell Hårddisk nu markerade, klickar du på **OK** att bifoga den befintliga virtuella hårddisken:
-
-    ![Bekräfta att koppla en befintlig virtuell hårddisk](./media/troubleshoot-recovery-disks-portal-linux/attach-disk-confirm.png)
-
-5. Efter några sekunder i **diskar** fönstret för den virtuella datorn visas din befintliga virtuella hårddisk ansluten som en datadisk:
-
-    ![Befintlig virtuell hårddisk ansluten som en datadisk](./media/troubleshoot-recovery-disks-portal-linux/attached-disk.png)
-
-
-## <a name="mount-the-attached-data-disk"></a>Montera ansluten datadisk
+1. Stoppa den virtuella datorn som påverkas.
+1. Skapa en ögonblicks bild för den virtuella datorns OS-disk.
+1. Skapa en virtuell hård disk från ögonblicks bilden.
+1. Anslut och montera den virtuella hård disken till en annan virtuell Windows-dator i fel söknings syfte.
+1. Anslut till den virtuella felsökningsdatorn. Redigera filer eller kör eventuella verktyg för att åtgärda problem på den ursprungliga virtuella hård disken.
+1. Demontera och koppla från den virtuella hårddisken från den virtuella felsökningsdatorn.
+1. Byt OS-disk för den virtuella datorn.
 
 > [!NOTE]
-> I följande exempel förklarar vi de steg som krävs på en Ubuntu-VM. Om du använder en annan Linux-distribution, till exempel Red Hat Enterprise Linux- eller SUSE, loggen filplatser och `mount` kommandon kan vara lite annorlunda. I dokumentationen för din distribution som är specifika för ändringarna som behövs i kommandon.
+> Den här artikeln gäller inte för den virtuella datorn med en ohanterad disk.
 
-1. SSH till den felsökning virtuella datorn med rätt autentiseringsuppgifter. Om den här disken är den första disken kopplade till Virtuellt felsökningsdatorn, det sannolikt är anslutet till `/dev/sdc`. Använd `dmseg` visa en lista över anslutna diskar:
+## <a name="determine-boot-issues"></a>Fastställa start problem
+Granska skärm bilden startdiagnostik och VM för att avgöra varför den virtuella datorn inte kan starta korrekt. Ett vanligt exempel är en ogiltig post i `/etc/fstab`eller en underliggande virtuell hård disk som tas bort eller flyttas.
+
+Välj din virtuella dator i portalen och rulla ned till avsnittet **support och fel sökning** . Klicka på **Starta diagnostik** för att Visa konsol meddelanden som strömmas från din virtuella dator. Granska konsol loggarna för att se om du kan avgöra varför den virtuella datorn påträffar ett problem. I följande exempel visas en virtuell dator som fastnat i underhålls läge och som kräver manuell interaktion:
+
+![Visa loggfiler för VM Boot Diagnostic-konsolen](./media/troubleshoot-recovery-disks-portal-linux/boot-diagnostics-error.png)
+
+Du kan också klicka på **skärm bild** överst i Start-diagnostikloggar för att ladda ned en bild av skärm bilden för den virtuella datorn.
+
+## <a name="take-a-snapshot-of-the-os-disk"></a>Ta en ögonblicks bild av OS-disken
+En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård disk (VHD). Vi rekommenderar att du stänger den virtuella datorn i klartext innan du tar en ögonblicks bild, för att ta bort alla processer som pågår. Följ dessa steg om du vill ta en ögonblicks bild av en OS-disk:
+
+1. Gå till [Azure Portal](https://portal.azure.com). Välj **virtuella datorer** på sid panelen och välj sedan den virtuella dator som har problem.
+1. Välj **diskar**i den vänstra rutan och välj sedan namnet på operativ system disken.
+    ![Bild om namnet på OS-disken](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
+1. På sidan **Översikt** på OS-disken och välj sedan **skapa ögonblicks bild**.
+1. Skapa en ögonblicks bild på samma plats som OS-disken.
+
+## <a name="create-a-disk-from-the-snapshot"></a>Skapa en disk från ögonblicks bilden
+Följ dessa steg om du vill skapa en disk från ögonblicks bilden:
+
+1. Välj **Cloud Shell** från Azure Portal.
+
+    ![Bild om öppen Cloud Shell](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
+1. Kör följande PowerShell-kommandon för att skapa en hanterad disk från ögonblicks bilden. Du bör ersätta dessa exempel namn med lämpliga namn.
+
+    ```powershell
+    #Provide the name of your resource group
+    $resourceGroupName ='myResourceGroup'
+    
+    #Provide the name of the snapshot that will be used to create Managed Disks
+    $snapshotName = 'mySnapshot' 
+    
+    #Provide the name of theManaged Disk
+    $diskName = 'newOSDisk'
+    
+    #Provide the size of the disks in GB. It should be greater than the VHD file size. In this sample, the size of the snapshot is 127 GB. So we set the disk size to 128 GB.
+    $diskSize = '128'
+    
+    #Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
+    $storageType = 'StandardLRS'
+    
+    #Provide the Azure region (e.g. westus) where Managed Disks will be located.
+    #This location should be same as the snapshot location
+    #Get all the Azure location using command below:
+    #Get-AzLocation
+    $location = 'westus'
+    
+    $snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
+     
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+     
+    New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
+    ```
+3. Om kommandona körs utan problem visas den nya disken i den resurs grupp som du har angett.
+
+## <a name="attach-disk-to-another-vm"></a>Koppla disk till en annan virtuell dator
+För kommande steg använder du en annan virtuell dator i fel söknings syfte. När du har kopplat disken till fel söknings datorn kan du bläddra och redigera diskens innehåll. Med den här processen kan du korrigera eventuella konfigurations fel eller granska ytterligare program-eller systemloggfiler. Följ dessa steg om du vill koppla disken till en annan virtuell dator:
+
+1. Välj din resurs grupp i portalen och välj sedan din fel söknings dator. Välj **diskar**, Välj **Redigera**och klicka sedan på **Lägg till data disk**:
+
+    ![Bifoga befintlig disk i portalen](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
+
+2. I listan **data diskar** väljer du OS-disken för den virtuella dator som du har identifierat. Om du inte ser OS-disken måste du kontrol lera att den virtuella datorn felsöks och att operativ system disken finns i samma region (plats). 
+3. Välj **Spara** för att tillämpa ändringarna.
+
+## <a name="mount-the-attached-data-disk"></a>Montera den anslutna data disken
+
+> [!NOTE]
+> Följande exempel beskriver stegen som krävs på en virtuell Ubuntu-dator. Om du använder en annan Linux-distribution, till exempel Red Hat Enterprise Linux eller SUSE, kan logg filens platser `mount` och kommandon vara lite annorlunda. Se dokumentationen för din speciella distribution för lämpliga ändringar i kommandon.
+
+1. SSH till din felsöka virtuella dator med hjälp av lämpliga autentiseringsuppgifter. Om den här disken är den första datadisk som är ansluten till den virtuella fel söknings datorn `/dev/sdc`är den förmodligen ansluten till. Använd `dmseg` för att lista anslutna diskar:
 
     ```bash
     dmesg | grep SCSI
@@ -116,71 +123,72 @@ De efterföljande stegen använder du en annan virtuell dator för felsökning. 
     [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
     ```
 
-    I föregående exempel är OS-disken på `/dev/sda` och den temporära disken som angetts för varje virtuell dator är på `/dev/sdb`. Om du har flera datadiskar, de ska vara på `/dev/sdd`, `/dev/sde`och så vidare.
+    I föregående exempel är OS-disken på `/dev/sda` och den temporära disken som anges för varje virtuell dator finns på. `/dev/sdb` Om du hade flera data diskar bör de vara på `/dev/sdd`, `/dev/sde`och så vidare.
 
-2. Skapa en katalog för att montera den befintliga virtuella hårddisken. I följande exempel skapas en katalog med namnet `troubleshootingdisk`:
+2. Skapa en katalog för att montera din befintliga virtuella hård disk. I följande exempel skapas en katalog med `troubleshootingdisk`namnet:
 
     ```bash
     sudo mkdir /mnt/troubleshootingdisk
     ```
 
-3. Om du har flera partitioner på dina befintliga virtuella hårddisken kan du montera nödvändiga partitionen. I följande exempel monterar den första primära partitionen på `/dev/sdc1`:
+3. Om du har flera partitioner på din befintliga virtuella hård disk monterar du den nödvändiga partitionen. I följande exempel monteras den första primära partitionen på `/dev/sdc1`:
 
     ```bash
     sudo mount /dev/sdc1 /mnt/troubleshootingdisk
     ```
 
     > [!NOTE]
-    > Det är bra att montera datadiskar på virtuella datorer i Azure med hjälp av universell unik identifierare (UUID) för den virtuella hårddisken. För den här korta felsöknings är montera den virtuella hårddisken med hjälp av UUID inte nödvändigt. Men under normal användning, redigering `/etc/fstab` för att montera virtuella hårddiskar med hjälp av enhetens namn i stället för UUID kanske inte kan starta den virtuella datorn.
+    > Bästa praxis är att montera data diskar på virtuella datorer i Azure med hjälp av den virtuella hård diskens UUID (Universal Unique Identifier). För det här korta fel söknings scenariot är det inte nödvändigt att montera den virtuella hård disken med UUID. Men under normal användning kan redigering `/etc/fstab` av virtuella hård diskar med enhets namn i stället för UUID leda till att den virtuella datorn inte kan starta.
 
 
-## <a name="fix-issues-on-original-virtual-hard-disk"></a>Åtgärda problem på den ursprungliga virtuella hårddisken
-Med den befintliga virtuella hårddisken monteras, kan du nu utföra underhålls- och felsökningssteg efter behov. När du har åtgärdat problemen fortsätter du med följande steg.
+## <a name="fix-issues-on-original-virtual-hard-disk"></a>Åtgärda problem på den ursprungliga virtuella hård disken
+Med den befintliga virtuella hård disken monterad kan du nu utföra eventuella underhålls-och fel söknings steg efter behov. När du har åtgärdat problemen fortsätter du med följande steg.
 
-## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Demontera och koppla från den ursprungliga virtuella hårddisken
-Koppla bort den befintliga virtuella hårddisken från Virtuellt felsökningsdatorn när din fel har åtgärdats. Du kan inte använda den virtuella hårddisken med andra virtuella datorer tills frigörs lånet som kopplar den virtuella hårddisken till Virtuellt felsökningsdatorn.
+## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Demontera och koppla från den ursprungliga virtuella hård disken
+När dina fel har åtgärd ATS kopplar du från den befintliga virtuella hård disken från den virtuella fel söknings datorn. Du kan inte använda den virtuella hård disken med någon annan virtuell dator förrän lånet som ansluter till den virtuella hård disken till den virtuella fel söknings datorn har släppts.
 
-1. Demontera den befintliga virtuella hårddisken från SSH-sessionen till Virtuellt felsökningsdatorn. Byta ut från den överordnade katalogen för din monteringspunkt börjar:
+1. Från SSH-sessionen till din felsöka virtuella hård disk avmonterar du den befintliga virtuella hård disken. Ändra från den överordnade katalogen för monterings punkten först:
 
     ```bash
     cd /
     ```
 
-    Nu demontera den befintliga virtuella hårddisken. I följande exempel demonteras enheten på `/dev/sdc1`:
+    Demontera nu den befintliga virtuella hård disken. I följande exempel demonterar du enheten på `/dev/sdc1`:
 
     ```bash
     sudo umount /dev/sdc1
     ```
 
-2. Nu ska du koppla från den virtuella hårddisken från den virtuella datorn. Välj den virtuella datorn i portalen och klicka på **diskar**. Välj den befintliga virtuella hårddisken och klicka sedan på **Detach**:
+2. Koppla nu från den virtuella hård disken från den virtuella datorn. Välj den virtuella datorn i portalen och klicka på **diskar**. Välj din befintliga virtuella hård disk och klicka sedan på **Koppla från**:
 
-    ![Koppla från en befintlig virtuell hårddisk](./media/troubleshoot-recovery-disks-portal-linux/detach-disk.png)
+    ![Koppla från befintlig virtuell hård disk](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
-    Vänta tills den virtuella datorn har har kopplats bort datadisken innan du fortsätter.
+    Vänta tills den virtuella datorn har kopplats från data disken innan du fortsätter.
 
-## <a name="create-vm-from-original-hard-disk"></a>Skapa virtuell dator från den ursprungliga hårddisken
-Du kan skapa en virtuell dator från den ursprungliga virtuella hårddisken med [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). Mallen distribuerar en virtuell dator i ett befintligt virtuellt nätverk med hjälp av VHD-URL: en från det tidigare kommandot. Klicka på den **distribuera till Azure** knappen på följande sätt:
+## <a name="swap-the-os-disk-for-the-vm"></a>Byt OS-disk för den virtuella datorn
 
-![Distribuera virtuell dator från mall från GitHub](./media/troubleshoot-recovery-disks-portal-linux/deploy-template-from-github.png)
+Azure Portal har nu stöd för att ändra den virtuella datorns OS-disk. Det gör du genom att följa dessa steg:
 
-Mallen läses in i Azure-portalen för distribution. Ange namn för din nya virtuella datorn och befintliga Azure-resurser och klistra in Webbadressen till din befintliga virtuella hårddisk. Du börjar distributionen genom att klicka på **köp**:
+1. Gå till [Azure Portal](https://portal.azure.com). Välj **virtuella datorer** på sid panelen och välj sedan den virtuella dator som har problem.
+1. I det vänstra fönstret väljer du **diskar**och sedan **Växla OS-disk**.
+        ![Avbildningen om växling av OS-disk i Azure Portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
-![Distribuera virtuell dator från mall](./media/troubleshoot-recovery-disks-portal-linux/deploy-from-image.png)
+1. Välj den nya disken som du reparerat och skriv sedan namnet på den virtuella datorn för att bekräfta ändringen. Om du inte ser disken i listan väntar du 10 ~ 15 minuter efter att du kopplar bort disken från den virtuella fel söknings datorn. Kontrol lera också att disken finns på samma plats som den virtuella datorn.
+1. Välj OK.
 
-
-## <a name="re-enable-boot-diagnostics"></a>Återaktivera startdiagnostiken
-När du skapar den virtuella datorn från den befintliga virtuella hårddisken kan startdiagnostik inte automatiskt att aktivera. För att kontrollera status för startdiagnostik och aktivera vid behov, väljer du den virtuella datorn i portalen. Under **övervakning**, klickar du på **diagnostikinställningar**. Kontrollera statusen är **på**, och bock bredvid **Startdiagnostik** har valts. Om du gör några ändringar klickar du på **spara**:
+## <a name="re-enable-boot-diagnostics"></a>Återaktivera startdiagnostik
+När du skapar en virtuell dator från den befintliga virtuella hård disken aktive ras kanske inte startdiagnostik automatiskt. Om du vill kontrol lera statusen för startdiagnostiken och aktivera vid behov väljer du den virtuella datorn i portalen. Under **övervakning**klickar du på **Inställningar för diagnostik**. Se till att statusen är **på**och att bock markeringen bredvid startdiagnostik är markerad. Om du gör några ändringar klickar du på **Spara**:
 
 ![Uppdatera inställningarna för startdiagnostik](./media/troubleshoot-recovery-disks-portal-linux/reenable-boot-diagnostics.png)
 
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Felsöka en hanterad Disk i virtuell dator genom att koppla en ny OS-disk
-1. Stoppa den berörda virtuella datorn.
-2. [Skapa en hanterad disk ögonblicksbild](../windows/snapshot-copy-managed-disk.md) av OS-disken för den hanterade disken i virtuella datorn.
-3. [Skapa en hanterad disk från ögonblicksbilden](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Koppla hanterad disk som en datadisk på den virtuella datorn](../windows/attach-disk-ps.md).
-5. [Ändra datadisken från steg 4 till OS-disken](../windows/os-disk-swap.md).
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Felsöka en virtuell dator med hanterade diskar genom att koppla en ny OS-disk
+1. Stoppa den virtuella datorn som påverkas.
+2. [Skapa en ögonblicks bild av en hanterad disk](../windows/snapshot-copy-managed-disk.md) av OS-disken för den hanterade virtuella hård disken.
+3. [Skapa en hanterad disk från ögonblicks bilden](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Anslut den hanterade disken som en data disk på den virtuella datorn](../windows/attach-disk-ps.md).
+5. [Ändra data disken från steg 4 till OS-disk](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Om du har problem med att ansluta till den virtuella datorn kan du läsa [Felsök SSH-anslutningar till en Azure VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Problem med att komma åt program som körs på den virtuella datorn finns [felsöka problem med programanslutningar på en Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Om du har problem med att ansluta till din virtuella dator kan du läsa [FELSÖK SSH-anslutningar till en virtuell Azure-dator](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Problem med att komma åt program som körs på den virtuella datorn finns i [Felsöka problem med program anslutningen på en virtuell Linux-dator](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Mer information om hur du använder Resource Manager finns i [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Mer information om hur du använder Resource Manager finns i [Azure Resource Manager översikt](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/13/2019
+ms.date: 08/19/2019
 ms.author: dalek
-ms.openlocfilehash: 4029a9e46b9c9bb7cbd677deff4a172d8fc982f8
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: c3da37d89da8c70f6acdfb1b5ab9c5b10edb86f0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534586"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624411"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -103,7 +103,7 @@ Du kan använda den dagliga volym begränsningen för att begränsa de data som 
 
 I stället för att använda den dagliga volym gränsen använder du [sampling](../../azure-monitor/app/sampling.md) för att justera data volymen till önskad nivå. Använd sedan den dagliga begränsningen endast som "sista utväg" om ditt program inte börjar att skicka mycket större telemetri.
 
-Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera** i Application Insights-resursen och väljer **dagligt tak**i fönstret **användning och uppskattade kostnader** .
+Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera** i Application Insights resurs, på sidan **användning och uppskattade kostnader** och väljer **dagligt tak**.
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-003.png)
 
@@ -135,11 +135,13 @@ I varje kvarhållen post `itemCount` anger antalet ursprungliga poster som den r
 
 ## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
-Application Insights har nu registrerat ett begränsat antal Application Insights kunder till vår för hands version av variabel kvarhållning. Information om hur du deltar i det här för hands versions programmet finns [här](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031).
+Standard kvarhållning av Application Insights resurser är 90 dagar. Olika bevarande perioder kan väljas för varje Application Insights resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. 
 
-Standard kvarhållning av Application Insights resurser är 90 dagar. Olika bevarande perioder kan väljas för varje Application Insights resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 120, 180, 270, 365, 550 eller 730 dagar. 
+Om du vill ändra kvarhållning går du till sidan **användning och uppskattade kostnader** från Application Insights resursen och väljer alternativet **data kvarhållning** :
 
-När faktureringen är aktive rad för längre kvarhållning debiteras data som är längre än 90 dagar som samma pris som för närvarande faktureras för Azure Log Analytics data kvarhållning. Läs mer på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/).  Håll dig uppdaterad om varierande behållnings förlopp genom [röstning för det här förslaget](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-005.png)
+
+När faktureringen är aktive rad för längre kvarhållning debiteras data som är längre än 90 dagar som samma pris som för närvarande faktureras för Azure Log Analytics data kvarhållning. Läs mer på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Håll dig uppdaterad om varierande behållnings förlopp genom [röstning för det här förslaget](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## <a name="limits-summary"></a>Sammanfattning av gränser
 

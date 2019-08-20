@@ -1,31 +1,31 @@
 ---
-title: SQL-frågekörning i Azure Cosmos DB
-description: Lär dig mer om SQL-frågekörning i Azure Cosmos DB
+title: Körning av SQL-fråga i Azure Cosmos DB
+description: Lär dig mer om SQL-frågekörningen i Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: e4e26b658bd29e4589be40e4d29935059836c909
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 0eca458c344e5c44ad62121db14e6b286dc19a86
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342488"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614434"
 ---
-# <a name="azure-cosmos-db-sql-query-execution"></a>Azure Cosmos DB SQL-frågekörning
+# <a name="azure-cosmos-db-sql-query-execution"></a>Azure Cosmos DB SQL-frågekörningen
 
-Alla språk som stöder HTTP/HTTPS-förfrågningar kan anropa REST-API i Cosmos DB. Cosmos DB erbjuder också programmeringsbibliotek för .NET, Node.js, JavaScript och Python programmeringsspråk. REST API och bibliotek alla stöd för frågor via SQL och .NET SDK stöder också [LINQ-frågor](sql-query-linq-to-sql.md).
+Alla språk som kan göra HTTP/HTTPS-begäranden kan anropa Cosmos DB REST API. Cosmos DB erbjuder också programmerings bibliotek för programmeringsspråk för .NET, Node. js, Java Script och python. REST API och bibliotek som alla stöder frågor via SQL och .NET SDK har även stöd för [LINQ-frågor](sql-query-linq-to-sql.md).
 
-I följande exempel visas hur du skapar en fråga och skickar den mot ett Cosmos DB-databaskonto.
+I följande exempel visas hur du skapar en fråga och skickar den mot ett Cosmos-databas konto.
 
 ## <a id="REST-API"></a>REST API
 
-Cosmos DB erbjuder en öppen RESTful-programmeringsmodell via HTTP. Vilken resursmodell som består av en uppsättning resurser under ett databaskonto som etablerar en Azure-prenumeration. Kontot som består av en uppsättning *databaser*, som kan innehålla flera *behållare*, vilket i sin tur innehåller *objekt*, användardefinierade funktioner och andra typer av resurser. Varje Cosmos DB-resurs är adresserbara via en logisk och stabil URI. En uppsättning resurser kallas en *feed*. 
+Cosmos DB erbjuder en öppen RESTful-programmeringsmodell via HTTP. Resurs modellen består av en uppsättning resurser under ett databas konto, som en Azure-prenumeration tillhandahåller. Databas kontot består av en uppsättning *databaser*, som var och en kan innehålla flera *behållare*, vilket i sin tur innehåller *objekt*, UDF: er och andra resurs typer. Varje Cosmos DB resurs kan adresseras med hjälp av en logisk och stabil URI. En uppsättning resurser kallas för en *feed*. 
 
-Grundläggande interaction modellen med dessa resurser är via HTTP-verb `GET`, `PUT`, `POST`, och `DELETE`, med sina standard tolkningar. Använd `POST` för att skapa en ny resurs, kör en lagrad procedur eller utfärda en Cosmos DB-fråga. Frågor är alltid skrivskyddade åtgärder utan bieffekter.
+Den grundläggande interaktions modellen med dessa `GET`resurser är via HTTP-verben `PUT` `POST`,, och `DELETE`, med sina standard tolkningar. Använd `POST` för att skapa en ny resurs, köra en lagrad procedur eller utfärda en Cosmos DB fråga. Frågor är alltid skrivskyddade åtgärder utan bieffekter.
 
-Följande exempel visar en `POST` för en SQL API-frågor mot en exempelobjekt. Frågan har en enkel filter på JSON- `name` egenskapen. Den `x-ms-documentdb-isquery` och Content-Type: `application/query+json` rubriker anger att åtgärden är en fråga. Ersätt `mysqlapicosmosdb.documents.azure.com:443` med URI: N för Cosmos DB-kontot.
+I följande exempel visas en `POST` for SQL API-fråga mot exempel objekten. Frågan har ett enkelt filter i JSON `name` -egenskapen. Contents-Type: `application/query+json` -huvudena anger att åtgärden är en fråga. `x-ms-documentdb-isquery` Ersätt `mysqlapicosmosdb.documents.azure.com:443` med URI: n för ditt Cosmos DB-konto.
 
 ```json
     POST https://mysqlapicosmosdb.documents.azure.com:443/docs HTTP/1.1
@@ -41,7 +41,7 @@ Följande exempel visar en `POST` för en SQL API-frågor mot en exempelobjekt. 
     }
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     HTTP/1.1 200 Ok
@@ -91,7 +91,7 @@ Resultatet är:
     }
 ```
 
-Nästa och mer komplexa frågan returnerar flera resultat från en koppling:
+Nästa, mer komplex fråga returnerar flera resultat från en koppling:
 
 ```json
     POST https://https://mysqlapicosmosdb.documents.azure.com:443/docs HTTP/1.1
@@ -112,7 +112,7 @@ Nästa och mer komplexa frågan returnerar flera resultat från en koppling:
     }
 ```
 
-Resultatet är: 
+Resultaten är: 
 
 ```json
     HTTP/1.1 200 Ok
@@ -143,19 +143,19 @@ Resultatet är:
     }
 ```
 
-Om en frågas resultat inte får plats på en enda sida, REST-API: et returnerar ett fortsättningstoken via den `x-ms-continuation-token` svarshuvudet. Klienter kan sidbryta resultat genom att inkludera rubriken i efterföljande resultaten. Du kan också styra hur många resultat per sida via den `x-ms-max-item-count` nummer rubrik.
+Om resultatet av en fråga inte får plats på en sida, returnerar REST API en fortsättnings-token `x-ms-continuation-token` via svars huvudet. Klienter kan infoga sid brytningar genom att inkludera rubriken i de efterföljande resultaten. Du kan också styra antalet resultat per sida genom `x-ms-max-item-count` nummer rubriken.
 
-Om en fråga har en Aggregeringsfunktion som antal, kan sidan returnera en delvis aggregerat värde endast en resultatsida. Klienter måste utföra en andra nivån aggregering över dessa resultat för att skapa de slutliga resultaten. Till exempel summera över antal returneras i de enskilda sidorna att returnera det totala antalet.
+Om en fråga har en agg regerings funktion som COUNT kan sidan fråga returnera ett delvis sammanställt värde över bara en resultat sida. Klienterna måste utföra en andra nivå agg regering över dessa resultat för att producera de slutliga resultaten. Till exempel sum över antalet som returneras på de enskilda sidorna för att returnera det totala antalet.
 
-Hantera Datapolicy för konsekvens för frågor med den `x-ms-consistency-level` rubrik som i alla REST API-begäranden. Sessionskonsekvens kräver också eko senast `x-ms-session-token` cookiehuvud i query-fråga. Den befrågade containerns indexeringsprincip kan också påverka konsekvensen för frågeresultatet. Med standardvärdet indexering principinställningar för behållare, indexet är alltid uppdaterad med objekt-innehållet och frågeresultat matcha konsekvens som valts för data. Mer information finns i [Azure Cosmos DB-konsekvensnivåer] [konsekvensnivåer].
+Om du vill hantera principen för data konsekvens för frågor använder `x-ms-consistency-level` du rubriken som i alla REST API begär Anden. Konsekvensen i sessionen kräver också att det `x-ms-session-token` senaste cookie-huvudet i förfrågan skickas. Den befrågade containerns indexeringsprincip kan också påverka konsekvensen för frågeresultatet. Med standard indexerings princip inställningarna för behållare är indexet alltid aktuellt med objekt innehållet, och frågeresultaten matchar den konsekvens som valts för data. Mer information finns i [Azure Cosmos DB konsekvens nivåer] [konsekvens-nivåer].
 
-Om den konfigurera indexprincip för behållaren inte stöder den angivna frågan, returnerar 400 ”Felaktig begäran” i Azure Cosmos DB-servern. Det här felmeddelandet returnerar för frågor med sökvägar som uttryckligen är undantagen från indexering. Du kan ange den `x-ms-documentdb-query-enable-scan` rubrik så att frågan för att utföra en genomsökning när ett index är inte tillgänglig.
+Om den konfigurerade index principen i behållaren inte stöder den angivna frågan returnerar Azure Cosmos DB server 400 "felaktig begäran". Det här fel meddelandet returnerar för frågor med sökvägar som uttryckligen utesluts från indexering. Du kan ange `x-ms-documentdb-query-enable-scan` rubriken för att tillåta att frågan utför en sökning när ett index inte är tillgängligt.
 
-Du kan få detaljerade mätvärden om frågekörning genom att ange den `x-ms-documentdb-populatequerymetrics` sidhuvud till `true`. Mer information finns i avsnittet om [SQL-frågemått för Azure Cosmos DB](sql-api-query-metrics.md).
+Du kan få detaljerade mått på frågekörningen genom att ange `x-ms-documentdb-populatequerymetrics` rubriken till. `true` Mer information finns i avsnittet om [SQL-frågemått för Azure Cosmos DB](sql-api-query-metrics.md).
 
 ## <a name="c-net-sdk"></a>C# (.NET SDK)
 
-.NET SDK stöder både LINQ- och SQL-frågor. I följande exempel visas hur du utför den föregående filtreringsfrågan med .NET:
+.NET SDK stöder både LINQ- och SQL-frågor. I följande exempel visas hur du utför föregående filter fråga med .NET:
 
 ```csharp
     foreach (var family in client.CreateDocumentQuery(containerLink,
@@ -189,7 +189,7 @@ Du kan få detaljerade mätvärden om frågekörning genom att ange den `x-ms-do
     }
 ```
 
-I följande exempel Jämför två egenskaper sinsemellan i varje objekt och använder anonym projektioner.
+I följande exempel jämförs två egenskaper för jämställdhet inom varje objekt, och anonyma projektioner används.
 
 ```csharp
     foreach (var family in client.CreateDocumentQuery(containerLink,
@@ -217,7 +217,7 @@ I följande exempel Jämför två egenskaper sinsemellan i varje objekt och anv�
     }
 ```
 
-I nästa exempel visas kopplingar, uttryckt genom LINQ `SelectMany`.
+I nästa exempel visas kopplingar, som uttrycks `SelectMany`via LINQ.
 
 ```csharp
     foreach (var pet in client.CreateDocumentQuery(containerLink,
@@ -241,17 +241,17 @@ I nästa exempel visas kopplingar, uttryckt genom LINQ `SelectMany`.
     }
 ```
 
-.NET-klienten automatiskt går igenom alla sidor i frågeresultaten i den `foreach` blockerar, som visas i föregående exempel. Frågealternativ introducerades i den [REST API](#REST-API) avsnittet är också tillgängliga i .NET-SDK med hjälp av den `FeedOptions` och `FeedResponse` klasser i den `CreateDocumentQuery` metoden. Du kan styra hur många sidor med hjälp av den `MaxItemCount` inställningen.
+.Net-klienten itererar automatiskt genom alla sidor i frågeresultaten i `foreach` blocken, som du ser i föregående exempel. Frågealternativen som introducerades i [REST API](#REST-API) avsnittet är också tillgängliga i .NET SDK, med hjälp av `FeedOptions` klasserna `FeedResponse` `CreateDocumentQuery` och i-metoden. Du kan styra antalet sidor med `MaxItemCount` inställningen.
 
-Du kan också uttryckligen styra sidindelning genom att skapa `IDocumentQueryable` med hjälp av den `IQueryable` objekt sedan genom att läsa den `ResponseContinuationToken` värden och skicka dem tillbaka som `RequestContinuationToken` i `FeedOptions`. Du kan ange `EnableScanInQuery` aktivera sökningar när frågan inte stöds av den konfigurera indexprincip. Du kan använda för partitionerad behållare `PartitionKey` att köra frågan mot en enskild partition, även om Azure Cosmos DB automatiskt extrahera detta från frågetexten. Du kan använda `EnableCrossPartitionQuery` att köra frågor mot flera partitioner.
+Du kan också uttryckligen styra växling genom att `IDocumentQueryable` `IQueryable` skapa med hjälp av objektet och sedan läsa `ResponseContinuationToken` värdena och skicka tillbaka dem som `RequestContinuationToken` i `FeedOptions`. Du kan ställa `EnableScanInQuery` in för att aktivera genomsökningar när frågan inte stöds av den konfigurerade indexerings principen. För partitionerade behållare kan du använda `PartitionKey` för att köra frågan mot en enda partition, även om Azure Cosmos DB kan extrahera detta automatiskt från frågetexten. Du kan använda `EnableCrossPartitionQuery` för att köra frågor mot flera partitioner.
 
-Mer .NET-exempel med frågor finns i [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet) i GitHub.
+Fler .NET-exempel med frågor finns i [Azure Cosmos dB .net-exempel](https://github.com/Azure/azure-cosmosdb-dotnet) i GitHub.
 
 ## <a id="JavaScript-server-side-API"></a>JavaScript-API på serversidan
 
-Azure Cosmos DB är en programmeringsmodell för [körning av JavaScript-baserat program](stored-procedures-triggers-udfs.md) logik direkt på behållare, med hjälp av lagrade procedurer och utlösare. JavaScript-logik som registrerats på behållarenivån kan sedan utfärda databasåtgärder i objekt av den angivna behållaren, och är inneslutna i omgivande ACID-transaktioner.
+Azure Cosmos DB tillhandahåller en programmerings modell för att [köra JavaScript-baserad program](stored-procedures-triggers-udfs.md) logik direkt på behållare med hjälp av lagrade procedurer och utlösare. Den JavaScript-logik som registrerats på behållar nivån kan sedan utfärda databas åtgärder för objekten i den aktuella behållaren, omslutna i aktiviteter med omgivande syra.
 
-I följande exempel visas hur du använder `queryDocuments` i JavaScript-server API att göra förfrågningar från insidan lagrade procedurer och utlösare:
+I följande exempel visas hur du använder `queryDocuments` i Java Script Server API för att skapa frågor från lagrade procedurer och utlösare:
 
 ```javascript
     function findName(givenName, familyName) {
@@ -289,4 +289,4 @@ I följande exempel visas hur du använder `queryDocuments` i JavaScript-server 
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Azure Cosmos DB-konsekvensnivåer](consistency-levels.md)
+- [Azure Cosmos DB konsekvens nivåer](consistency-levels.md)

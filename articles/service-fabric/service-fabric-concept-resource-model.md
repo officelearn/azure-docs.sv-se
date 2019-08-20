@@ -7,15 +7,15 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7795612d8aa4974bc640571d49ad1520e2a0f94c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8e39318dcaa31a111908c6be1ae7a51d73eb7478
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963848"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623819"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Vad är Service Fabric-programmets resurs modell?
-Vi rekommenderar att Service Fabric-program distribueras till ditt Service Fabric-kluster via Azure Resource Manager. Den här metoden gör det möjligt att beskriva program och tjänster i JSON och distribuera dem i samma Resource Manager-mall som klustret. I stället för att distribuera och hantera program via PowerShell eller Azure CLI behöver du inte vänta tills klustret är klart. Processen för program registrering, etablering och distribution kan alla ske i ett enda steg. Detta är den bästa metoden för att hantera programmets livs cykel i klustret. Mer information finns i [metod tips](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
+Vi rekommenderar att Service Fabric-program distribueras till ditt Service Fabric-kluster via Azure Resource Manager. Den här metoden gör det möjligt att beskriva program och tjänster i JSON och distribuera dem i samma Resource Manager-mall som klustret. I stället för att distribuera och hantera program via PowerShell eller Azure CLI behöver du inte vänta tills klustret är klart. Programregistrering, etablering och distribution sker i ett enda steg. Detta är den bästa metoden för att hantera programmets livscykel i ditt kluster. Mer information finns i [metod tips](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
 
 Vid behov hanterar du dina program som Resource Manager-resurser för att förbättra:
 * Gransknings logg: Resource Manager granskar varje åtgärd och bevarar en detaljerad *aktivitets logg* som kan hjälpa dig att spåra ändringar som gjorts i dessa program och klustret.
@@ -33,7 +33,7 @@ I det här dokumentet får du lära dig att:
 ## <a name="deploy-application-resources-using-azure-resource-manager"></a>Distribuera program resurser med Azure Resource Manager  
 Om du vill distribuera ett program och dess tjänster med hjälp av Azure Resource Manager-programmets resurs modell måste du paketera program kod, ladda upp paketet och sedan referera till paketets placering i en Azure Resource Manager mall som ett program klusterresursen. Om du vill ha mer information kan du Visa [Paketera ett program](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
           
-Skapa sedan en Azure Resource Manager mall, uppdatera parameter filen med programinformation och distribuera den på Service Fabric klustret. Referera till exempel här
+Skapa sedan en Azure Resource Manager mall, uppdatera parameter filen med programinformation och distribuera den på Service Fabric klustret. Se exemplen [här](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
 ### <a name="create-a-storage-account"></a>Skapa ett Storage-konto 
 Distribution av ett program från en Resource Manager-mall kräver ett lagrings konto för att mellanlagra program avbildningen. Du kan använda ett befintligt lagrings konto på nytt eller skapa ett nytt lagrings konto för att mellanlagra dina program. Om du vill använda ett befintligt lagrings konto kan du hoppa över det här steget. 

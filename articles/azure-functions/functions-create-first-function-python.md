@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 47de61db96b0f8f9b338f135d4f32eecc4a64efe
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 5b90702f89af260a67b69bf96c2e079a45298723
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562953"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575440"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Skapa en HTTP-utlöst funktion i Azure
 
@@ -30,7 +30,7 @@ Innan du börjar måste du ha följande:
 
 + Installera [Python 3.6](https://www.python.org/downloads/).
 
-+ Installera [Azure Functions Core tools](./functions-run-local.md#v2) version 2.6.1071 eller en senare version.
++ Installera [Azure Functions Core tools](./functions-run-local.md#v2) version 2.7.1575 eller en senare version.
 
 + Installera [Azure CLI](/cli/azure/install-azure-cli) version 2. x eller en senare version.
 
@@ -79,8 +79,6 @@ Navigera till den nya mappen MyFunctionProj:
 ```console
 cd MyFunctionProj
 ```
-
-Sedan uppdaterar du Host. JSON-filen för att aktivera tilläggs paket.  
 
 ## <a name="create-a-function"></a>Skapa en funktion
 

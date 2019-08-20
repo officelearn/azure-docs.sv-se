@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: SQL Python API, SDK och resurser'
-description: Lär dig allt om SQL Python API och SDK, inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version av Python SDK för Azure Cosmos DB.
+title: 'Azure Cosmos DB: SQL python API, SDK &-resurser'
+description: Lär dig allt om SQL python API och SDK, inklusive versions datum, indragnings datum och ändringar som gjorts mellan varje version av Azure Cosmos DB python SDK.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,14 +8,14 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ed90c22fa8c5b94567a9886ca71c9b35fbb103f0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626799"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624632"
 ---
-# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK för SQL-API: Viktig information och resurser
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB python SDK för SQL API: Viktig information och resurser
 > [!div class="op_single_selector"]
 > * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
@@ -27,55 +27,55 @@ ms.locfileid: "60626799"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor – .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor – Java](sql-api-sdk-bulk-executor-java.md)
+> * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**Hämta SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API-dokumentation**|[Python API-referensdokumentation](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
-|**Installationsinstruktioner för SDK**|[Instruktioner för installation av Python SDK](https://github.com/Azure/azure-cosmos-python)|
+|**API-dokumentation**|[Dokumentation om python API-referens](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**Instruktioner för SDK-installation**|[Installations anvisningar för python SDK](https://github.com/Azure/azure-cosmos-python)|
 |**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
-|**Kom igång**|[Kom igång med Python SDK](sql-api-python-application.md)|
-|**Aktuella plattformar som stöds**|[Python 2.7](https://www.python.org/downloads/) och [Python 3.5](https://www.python.org/downloads/)|
+|**Kom igång**|[Kom igång med python SDK](sql-api-python-application.md)|
+|**Aktuell plattform som stöds**|[Python 2,7](https://www.python.org/downloads/) och [python 3,5](https://www.python.org/downloads/)|
 
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="a-name302302"></a><a name="3.0.2"/>3.0.2
-* Stöd har lagts till för MultiPolygon datatyp
-* Felkorrigering i sessionen läsa återförsöksprincip
-* Felkorrigering för felaktig utfyllnad problem vid avkodning base 64 strängar
+* Stöd har lagts till för data typen multipolygon
+* Fel korrigering i arbets princip för att försöka läsa
+* Fel korrigering för felaktiga utfyllnads problem vid avkodning av bas 64-strängar
 
 ### <a name="a-name301301"></a><a name="3.0.1"/>3.0.1
-* Felkorrigering i LocationCache
-* Felkorrigering logik för omprövning av slutpunkt
+* Fel korrigering i LocationCache
+* Bugg åtgärds fel vid slut punkts omprövning
 * Fast dokumentation
 
 ### <a name="a-name300300"></a><a name="3.0.0"/>3.0.0
-* Stöd för flera regioner skrivningar.
-* Namespace ändras till azure.cosmos.
-* Samling och dokument begrepp som bytt namn till behållare och objekt, document_client bytt namn till cosmos_client. 
+* Stöd för skrivningar i flera regioner.
+* Namn området ändrades till Azure. Cosmos.
+* Samlings-och dokument koncepten har bytt namn till behållare och objekt, document_client har bytt namn till cosmos_client. 
 
 ### <a name="a-name233233"></a><a name="2.3.3"/>2.3.3
 * Stöd har lagts till för proxy
-* Stöd har lagts till för att läsa ändringsfeed
-* Stöd har lagts till för samlingen kvot rubriker
-* Bugfix för stora sessionen tokens problemet
-* Bugfix för ReadMedia API
-* Bugfix i partitionen nyckelintervall cache
+* Stöd för läsning av ändrings flöde har lagts till
+* Stöd har lagts till för samlings kvot rubriker
+* Problem med Bugfix för stora sessioner
+* Bugfix för ReadMedia-API
+* Cache för Bugfix i partitionsnyckel
 
 ### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
-* Stöd har lagts till för standard återförsök på problem med anslutningen.
+* Stöd har lagts till för standard återförsök vid anslutnings problem.
 
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
-* Uppdaterad dokumentation-referensen Azure Cosmos DB i stället för Azure DocumentDB.
+* Uppdaterad dokumentation till referens Azure Cosmos DB i stället för Azure-DocumentDB.
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 * Den SDK-versionen kräver att den senaste versionen av Azure Cosmos DB-emulatorn tillgänglig för nedladdning från https://aka.ms/cosmosdb-emulator.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
-* Buggfix för sammanställd ordlista.
-* Buggfix för trimma snedstreck i resurslänken.
+* Fel korrigering för samlings ord lista.
+* Fel korrigering för trimning av snedstreck i resurs länken.
 * Tester har lagts till för Unicode-kodning.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
@@ -84,34 +84,34 @@ ms.locfileid: "60626799"
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Stöd har lagts till för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig).
-* Lägga till ett alternativ för att inaktivera verifiering av SSL när du kör mot Cosmos DB-emulatorn.
-* Ta bort begränsningen av beroende begäranden modulen ska vara exakt 2.10.0.
+* Ett alternativ har lagts till för att inaktivera SSL-verifiering när den körs mot Cosmos DB emulator.
+* Tog bort begränsningen för modulen för beroende begär Anden så att den är exakt 2.10.0.
 * Sänkte lägsta dataflöde på partitionerade samlingar från 10,100 RU/s till 2500 RU/s.
-* Stöd har lagts till för att aktivera loggning för skriptet vid körningen av lagrad procedur.
-* REST API-version stötar till ' 2017-01-19' med den här versionen.
+* Stöd har lagts till för att aktivera skript loggning under körning av lagrad procedur.
+* REST API-versionen har blivit 2017-01-19 med den här versionen.
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
-* Ändrat språkliga dokumentation kommentarer.
+* Gjort redaktionella ändringar i dokumentations kommentarer.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
-* Tillagt stöd för Python 3.5.
-* Stöd har lagts till för anslutningspoolning med hjälp av modulen för begäranden.
-* Stöd har lagts till för sessionskonsekvens.
-* Stöd har lagts till för TOP/ORDERBY frågor partitionerade samlingar.
+* Stöd har lagts till för python 3,5.
+* Stöd har lagts till för anslutningspoolen med hjälp av en begär ande modul.
+* Stöd har lagts till för konsekvens av sessioner.
+* Stöd har lagts till för TOP-/ORDERBY-frågor för partitionerade samlingar.
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-* Har lagts till återförsök princip stöd för begränsade begäranden. (Begränsade begäranden ta emot en begäran om frekvensen för stor undantag, felkod 429.) Som standard Azure Cosmos DB återförsök nio gånger för varje begäran när felkod 429 påträffas, respekterar retryAfter tiden i svarshuvudet. En fast återförsöksintervallet kan nu ställas in som en del av egenskapen RetryOptions på ConnectionPolicy objektet om du vill ignorera retryAfter tiden mellan återförsöken som returneras av servern. Azure Cosmos DB väntar nu upp till 30 sekunder för varje begäran som har begränsats (oavsett antal nya försök) och returnerar svaret med felkod 429. Nu kan åsidosättas i egenskapen RetryOptions ConnectionPolicy-objektet.
-* Cosmos DB Returnerar nu x-ms-begränsning--antalet återförsök och x-ms-throttle-retry-wait-time-ms som svarshuvuden i varje begäran att ange begränsningen försök antal och den kumulativ väntetid begäran mellan återförsöken.
-* Bort klassen RetryPolicy och motsvarande egenskap (retry_policy) visas på klassen document_client och i stället introducerades en RetryOptions klass exponera egenskapen RetryOptions ConnectionPolicy klass som kan användas för att åsidosätta en del av den standardalternativen för återförsök.
+* Princip stöd för återförsök har lagts till för begränsade begär Anden. (Begränsade begär Anden tar emot en begäran om för stort undantag, felkod 429.) Som standard försöker Azure Cosmos DB nio gånger för varje begäran när felkod 429 påträffas, vilket följer retryAfter-tiden i svars huvudet. Du kan nu ange ett intervall med fasta återförsöksintervall som en del av egenskapen RetryOptions i ConnectionPolicy-objektet om du vill ignorera retryAfter-tiden som returnerades av servern mellan Återförsöken. Azure Cosmos DB väntar nu i högst 30 sekunder för varje begäran som begränsas (oavsett antal försök) och returnerar svaret med felkoden 429. Den här tiden kan också åsidosättas i egenskapen RetryOptions på ConnectionPolicy-objektet.
+* Cosmos DB Returnerar nu x-MS-begränsning-försök-antal och x-MS-begränsning-försök-wait-Time-MS som svars rubriker i varje begäran om att ange begränsningen för antal försök och den ackumulerade tiden som begäran väntar mellan Återförsöken.
+* Borttagning av klassen RetryPolicy och motsvarande egenskap (retry_policy) som exponerats i klassen document_client och i stället introducerade en RetryOptions-klass som visar RetryOptions-egenskapen i ConnectionPolicy-klassen som kan användas för att åsidosätta vissa av standard alternativ för återförsök.
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Lagt till stöd för flera regioner.
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
-* Lagt till stöd för tid Live(TTL) funktion för dokument.
+* Har lagt till stöd för TTL-funktionen (Time to Live) för dokument.
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
-* Felkorrigeringar rör serversidan partitionering för att tillåta specialtecken i partitionen Nyckelsökväg.
+* Fel korrigeringar relaterade till partitionering på Server sidan för att tillåta specialtecken i partitionsnyckel Sök vägs nyckel.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Implementerat [partitionerade samlingar](partition-data.md) och [användardefinierade prestandanivåer](performance-levels.md). 
@@ -120,32 +120,32 @@ ms.locfileid: "60626799"
 * Lägg till Hash & intervall partitions-matchare som hjälper till med horisontell partitionering program över flera partitioner.
 
 ### <a name="a-name142142"></a><a name="1.4.2"/>1.4.2
-* Implementera Upsert. Nya UpsertXXX-metoder som lagts till stöd för Upsert-funktionen.
+* Implementera Upsert. Nya UpsertXXX-metoder har lagts till som stöd för upsert-funktionen.
 * Implementera ID-baserad routning. Inga offentliga API-ändringar, alla ändringar som är interna.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Har stöd för geospatiala index.
+* Har stöd för GeoSpatialt index.
 * Verifierar id-egenskapen för alla resurser. ID: n för resurser får inte innehålla?, /, #, \, tecken eller sluta med ett blanksteg.
 * Lägger till ny rubrik ”index omvandling status” ResourceResponse.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Implementerar V2 indexeringsprincip.
+* Implementerar v2-indexerings princip.
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
-* Stöd för proxyanslutning.
+* Stöder proxy-anslutning.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA SDK.
 
-## <a name="release--retirement-dates"></a>Fri & Släpp dras tillbaka datum
-Microsoft meddelar minst **12 månader** förväg dra tillbaka en SDK för att utjämna övergången till en nyare/stöds version.
+## <a name="release--retirement-dates"></a>Frisläpp & indragnings datum
+Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds.
 
-Nya funktioner och funktionalitet och optimeringar läggs endast till den aktuella SDK, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt. 
+Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, eftersom det rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt. 
 
-Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjänsten.
+Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas av tjänsten.
 
 > [!WARNING]
-> Alla versioner av Azure SQL-SDK för Python före version **1.0.0** drogs tillbaka **29 februari 2016**. 
+> Alla versioner av Azure SQL SDK för python före version **1.0.0** drogs tillbaka den **29 februari 2016**. 
 > 
 > 
 
@@ -154,33 +154,33 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
 | [3.0.2](#3.0.2) |Den 15 november 2018 |--- |
-| [3.0.1](#3.0.1) |04 oktober 2018 |--- |
-| [2.3.3](#2.3.3) |08 september 2018 |--- |
-| [2.3.2](#2.3.2) |08 maj 2018 |--- |
-| [2.3.1](#2.3.1) |Den 21 december 2017 |--- |
+| [3.0.1](#3.0.1) |Okt 04, 2018 |--- |
+| [2.3.3](#2.3.3) |Sept 08, 2018 |--- |
+| [2.3.2](#2.3.2) |08 maj, 2018 |--- |
+| [2.3.1](#2.3.1) |21 december 2017 |--- |
 | [2.3.0](#2.3.0) |Den 10 november 2017 |--- |
 | [2.2.1](#2.2.1) |Sep 29, 2017 |--- |
 | [2.2.0](#2.2.0) |10 maj 2017 |--- |
-| [2.1.0](#2.1.0) |Maj 01, 2017 |--- |
+| [2.1.0](#2.1.0) |01 maj, 2017 |--- |
 | [2.0.1](#2.0.1) |Den 30 oktober 2016 |--- |
-| [2.0.0](#2.0.0) |Den 29 september 2016 |--- |
-| [1.9.0](#1.9.0) |07 juli 2016 |--- |
+| [2.0.0](#2.0.0) |29 september 2016 |--- |
+| [1.9.0](#1.9.0) |Den 07 juli 2016 |--- |
 | [1.8.0](#1.8.0) |Den 14 juni 2016 |--- |
 | [1.7.0](#1.7.0) |26 april 2016 |--- |
-| [1.6.1](#1.6.1) |08 april 2016 |--- |
+| [1.6.1](#1.6.1) |08, 2016 |--- |
 | [1.6.0](#1.6.0) |Den 29 mars 2016 |--- |
 | [1.5.0](#1.5.0) |03 januari 2016 |--- |
 | [1.4.2](#1.4.2) |06 oktober 2015 |--- |
 | 1.4.1 |06 oktober 2015 |--- |
 | [1.2.0](#1.2.0) |06 augusti 2015 |--- |
 | [1.1.0](#1.1.0) |09 juli 2015 |--- |
-| [1.0.1](#1.0.1) |Den 25 maj 2015 |--- |
+| [1.0.1](#1.0.1) |25 maj 2015 |--- |
 | [1.0.0](#1.0.0) |07 april 2015 |--- |
 | 0.9.4-prelease |14 januari 2015 |Den 29 februari 2016 |
-| 0.9.3-prelease |09 december 2014 |Den 29 februari 2016 |
-| 0.9.2-prelease |Den 25 november 2014 |Den 29 februari 2016 |
-| 0.9.1-prelease |Den 23 september 2014 |Den 29 februari 2016 |
-| 0.9.0-prelease |Den 21 augusti 2014 |Den 29 februari 2016 |
+| 0.9.3-prelease |Den 9 december 2014 |Den 29 februari 2016 |
+| 0.9.2-prelease |25 november 2014 |Den 29 februari 2016 |
+| 0.9.1-prelease |23 september 2014 |Den 29 februari 2016 |
+| 0.9.0-prelease |21 augusti 2014 |Den 29 februari 2016 |
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

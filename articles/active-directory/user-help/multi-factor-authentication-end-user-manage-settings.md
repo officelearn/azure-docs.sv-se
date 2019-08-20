@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acfa31434534eb3618b8a279ea6cff543fae076
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949814"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616151"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>Hantera dina inställningar för verifierings metoden med två faktorer
 
@@ -135,6 +135,10 @@ Beroende på dina organisations inställningar kan en kryss ruta visas som säge
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Få fel söknings tips och hjälp [med att ha problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md)
+När du har lagt till eller uppdaterat dina inställningar för tvåstegsverifiering kan du hantera dina applösenord, logga in eller få hjälp med några vanliga problem som rör verifiering av två faktorer.
 
 - [Hantera applösenord för tvåstegsverifiering](multi-factor-authentication-end-user-app-passwords.md) för alla appar som inte stöder tvåstegsverifiering.
+
+- [Logga in med tvåstegsverifiering](multi-factor-authentication-end-user-signin.md)
+
+- [Få hjälp med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md)

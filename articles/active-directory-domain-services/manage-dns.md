@@ -1,108 +1,94 @@
 ---
 title: Hantera DNS för Azure AD Domain Services | Microsoft Docs
-description: Hantera DNS för Azure AD Domain Services
-services: active-directory-ds
-documentationcenter: ''
+description: Lär dig hur du installerar DNS-serverns verktyg för att hantera DNS för en Azure Active Directory Domain Services hanterad domän.
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 08/07/2019
 ms.author: iainfou
-ms.openlocfilehash: 6753c26a99bb38e92613a6bad753e7dd101ba68e
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9279f97d5260eae698d5dbee10e077b71ab01992
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473130"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612327"
 ---
-# <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Administrera DNS på en Azure AD Domain Services-hanterad domän
-Azure Active Directory Domain Services innehåller en DNS (Domain Name Resolution)-server som tillhandahåller DNS-matchning för den hanterade domänen. Ibland kan behöva du konfigurera DNS på den hanterade domänen. Du kan behöva skapa DNS-poster för datorer som inte är anslutna till domänen, konfigurera den virtuella IP-adresser för belastningsutjämnare eller konfigurera externa DNS-vidarebefordrare. Därför måste beviljas användare som tillhör gruppen ”AAD DC-administratörer” DNS administratörsbehörighet för den hanterade domänen.
+# <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Administrera DNS i en Azure AD Domain Services hanterad domän
+
+I Azure Active Directory Domain Services (Azure AD DS) är en nyckel komponent DNS (domän namns matchning). Azure AD DS innehåller en DNS-server som tillhandahåller namn matchning för den hanterade domänen. Den här DNS-servern innehåller inbyggda DNS-poster och uppdateringar för de viktiga komponenter som gör att tjänsten kan köras.
+
+När du kör dina egna program och tjänster kan du behöva skapa DNS-poster för datorer som inte är anslutna till domänen, konfigurera virtuella IP-adresser för belastningsutjämnare eller konfigurera externa DNS-vidarebefordrare. Användare som tillhör gruppen *AAD DC-administratörer* beviljas behörighet för DNS-administration på den hanterade domänen i Azure AD DS och kan skapa och redigera anpassade DNS-poster.
+
+Den här artikeln visar hur du installerar verktyg för DNS-server och sedan använder DNS-konsolen för att hantera poster.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Du behöver följande för att slutföra de uppgifter som anges i den här artikeln:
 
-1. En giltig **Azure-prenumeration**.
-2. En **Azure AD-katalog** -antingen synkroniseras med en lokal katalog eller en molnbaserad katalog.
-3. **Azure AD Domain Services** måste aktiveras för Azure AD-katalog. Om du inte gjort det, följer du alla uppgifter som beskrivs i den [komma igång-guiden](create-instance.md).
-4. En **domänansluten VM** varifrån du administrerar den hanterade domänen i Azure AD Domain Services. Om du inte har sådan en virtuell dator, följer du alla uppgifter som beskrivs i artikeln [ansluta en Windows-dator till en hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md).
-5. Du måste ha autentiseringsuppgifter för en **användarkonto som hör till gruppen ”AAD DC-administratörer”** i katalogen för att administrera DNS för din hanterade domän.
+För att slutföra den här artikeln behöver du följande resurser och behörigheter:
 
-<br>
+* En aktiv Azure-prenumeration.
+    * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
+* En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
+    * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
+* En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
+    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+* En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
+    * Om det behövs, slutför du själv studie kursen för att [skapa en virtuell Windows Server-dator och koppla den till en hanterad domän][create-join-windows-vm].
+* Ett användar konto som är medlem i administratörs gruppen för *Azure AD DC* i din Azure AD-klient.
 
-## <a name="task-1---create-a-domain-joined-virtual-machine-to-remotely-administer-dns-for-the-managed-domain"></a>Uppgift 1 – skapa en virtuell dator ingår i domänen för att fjärradministrera DNS för den hanterade domänen
-Azure AD Domain Services-hanterade domäner kan hanteras via en fjärranslutning med hjälp av välbekanta Active Directory-administrationsverktyg, till exempel Active Directory administrativa Center (ADAC) eller AD PowerShell. På samma sätt kan DNS för den hanterade domänen fjärradministreras med administrationsverktygen för DNS-Server.
+## <a name="install-dns-server-tools"></a>Installera verktyg för DNS-Server
 
-Administratörer i Azure AD-katalogen har inte behörighet för att ansluta till domänkontrollanter i den hanterade domänen via fjärrskrivbord. Medlemmar i gruppen ”AAD DC-administratörer” kan administrera DNS för hanterade domäner via en fjärranslutning med hjälp av DNS-Server-verktyg från en Windows Server/klientdator som är ansluten till den hanterade domänen. DNS-Server-verktyg är en del av funktionen för valfria Remote verktyg för fjärrserveradministration (RSAT).
+Om du vill skapa och ändra DNS måste du installera verktyg för DNS-server. Dessa verktyg kan installeras som en funktion i Windows Server. Mer information om hur du installerar administrations verktyg på en Windows-klient finns i installera [verktyg för fjärrserveradministration (RSAT)][install-rsat].
 
-Den första uppgiften är att skapa en Windows Server-dator som är ansluten till den hanterade domänen. Mer information finns i artikeln [ansluta en Windows Server-dator till en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md).
+1. Logga in på den virtuella hanterings datorn. Anvisningar om hur du ansluter med hjälp av Azure Portal finns i [ansluta till en virtuell Windows Server-dator][connect-windows-server-vm].
+1. **Serverhanteraren** bör öppnas som standard när du loggar in på den virtuella datorn. Annars väljer du **Serverhanteraren**på **Start** -menyn.
+1. I fönstret *instrument panel* i fönstret **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
+1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner*väljer du **Nästa**.
+1. För *installations typen*låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
+1. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen, till exempel *myvm.contoso.com*, och väljer sedan **Nästa**.
+1. På sidan **Server roller** klickar du på **Nästa**.
+1. På sidan **funktioner** expanderar du noden **verktyg för fjärrserveradministration** och expandera sedan noden **roll administrations verktyg** . Välj funktionen **verktyg för DNS-Server** från listan över roll administrations verktyg.
 
-## <a name="task-2---install-dns-server-tools-on-the-virtual-machine"></a>Uppgift 2 – installera DNS-serververktyg på den virtuella datorn
-Utför följande steg för att installera administrationsverktygen för DNS på den domänanslutna virtuella datorn. Mer information om [installera och använda Administrationsverktyg för fjärrserver](https://technet.microsoft.com/library/hh831501.aspx), finns på Technet.
+    ![Välj att installera verktyg för DNS-server från listan över tillgängliga roll administrations verktyg](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
 
-1. Gå till Azure-portalen. Klicka på **alla resurser** på den vänstra panelen. Leta upp och klicka på den virtuella datorn som du skapade i uppgift 1.
-2. Klicka på den **Connect** på fliken Översikt. En Remote Desktop Protocol (RDP)-fil skapas och hämtas.
+1. På sidan **bekräftelse** väljer du **Installera**. Det kan ta en minut eller två att installera grupprincip hanterings verktyg.
+1. När funktions installationen är klar väljer du **Stäng** för att avsluta guiden **Lägg till roller och funktioner** .
 
-    ![Ansluta till Windows-dator](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn. Om du uppmanas till detta klickar du på **Anslut**. Använd autentiseringsuppgifterna för en användare som tillhör gruppen ”AAD DC-administratörer”. Till exempel ”bob@domainservicespreview.onmicrosoft.com”. Du kan få en certifikatvarning under inloggningen. Klicka på Ja eller fortsätta att ansluta.
+## <a name="open-the-dns-management-console-to-administer-dns"></a>Öppna DNS-hanteringskonsolen för att administrera DNS
 
-4. Från startskärmen öppnar **Serverhanteraren**. Klicka på **Lägg till roller och funktioner** i fönstret i mitten av Serverhanteraren.
-
-    ![Starta Serverhanteraren på den virtuella datorn](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
-5. På den **innan du börjar** för den **guiden Lägg till roller och funktioner**, klickar du på **nästa**.
-
-    ![Innan du börjar sidan](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
-6. På den **installationstyp** lämnar den **rollbaserad eller funktionsbaserad installation** alternativet är markerat och klicka på **nästa**.
-
-    ![Installationstyp](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
-7. På den **Serverval** , Välj den aktuella virtuella datorn från serverpoolen och klicka på **nästa**.
-
-    ![Sida för val av Server](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. På den **serverroller** klickar du på **nästa**.
-9. På den **funktioner** sidan, klicka på och expandera den **verktyg för fjärrserveradministration** noden och klicka sedan på Expandera den **Rolladministrationsverktyg** noden. Välj **DNS-serververktyg** funktion i listan med Rolladministrationsverktyg.
-
-    ![Funktionssidan](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
-10. På den **bekräftelse** klickar du på **installera** installera hanteringsverktygen för DNS-Server på den virtuella datorn. När funktionsinstallationen är klar, klickar du på **Stäng** att avsluta den **Lägg till roller och funktioner** guiden.
-
-    ![Bekräftelsesida](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-confirmation.png)
-
-## <a name="task-3---launch-the-dns-management-console-to-administer-dns"></a>Uppgift 3 – Starta DNS-hanteringskonsolen för att administrera DNS
-Nu, kan du använda Windows Server-DNS-verktyg för att administrera DNS på den hanterade domänen.
+Med verktyg för DNS-server installerat kan du administrera DNS-poster på den hanterade domänen i Azure AD DS.
 
 > [!NOTE]
-> Du måste vara medlem i gruppen ”AAD DC-administratörer” för att administrera DNS på den hanterade domänen.
->
->
+> Om du vill administrera DNS i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i administratörs gruppen för *AAD* -domänkontrollanten.
 
-1. På startsidan klickar du på **Administrationsverktyg**. Du bör se den **DNS** konsolen har installerats på den virtuella datorn.
+1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas, inklusive **DNS** installerat i föregående avsnitt. Välj **DNS** för att starta konsolen DNS-hantering.
+1. I dialog rutan **Anslut till DNS-Server** väljer **du följande dator**och anger sedan DNS-domännamnet för den hanterade domänen, till exempel *contoso.com*:
 
-    ![Administrativa verktyg - DNS-konsolen](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)
-2. Klicka på **DNS** att starta DNS-hanteringskonsolen.
-3. I den **Anslut till DNS-Server** dialogrutan klickar du på **följande dator**, och ange DNS-domännamnet för den hanterade domänen (till exempel ”contoso100.com”).
+    ![Ansluta till den hanterade Azure AD DS-domänen i DNS-konsolen](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 
-    ![DNS-konsolen – Anslut till domän](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
-4. DNS-konsolen ansluter till den hanterade domänen.
+1. DNS-konsolen ansluter till den angivna Azure AD DS-hanterade domänen. Expandera zoner för **vanlig sökning** eller **zoner för omvänd sökning** för att skapa DNS-poster som krävs eller redigera befintliga poster efter behov.
 
-    ![DNS-konsolen – administrera domän](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
-5. Du kan nu använda DNS-konsolen för att lägga till DNS-poster för datorerna i det virtuella nätverket där du har aktiverat AAD Domain Services.
+    ![DNS-konsol – administrera domän](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
 
 > [!WARNING]
-> Var försiktig när du administrerar DNS för den hanterade domänen med hjälp av DNS-verktyg för fjärrserveradministration. Se till att du **inte bort eller ändra inbyggd DNS-posterna som används av Domain Services i domänen**. Inbyggd DNS-poster är DNS-poster för domänen, namnserverposterna och andra poster som används för DC-plats. Om du ändrar dessa poster följd domäntjänster på det virtuella nätverket.
->
->
+> När du hanterar poster med hjälp av verktyg för DNS-server, se till att du inte tar bort eller ändrar de inbyggda DNS-posterna som används av Azure AD DS. Inbyggda DNS-poster inkluderar domän-DNS-poster, namn server poster och andra poster som används för lokalisering av domänkontrollant. Om du ändrar dessa poster avbryts domän tjänster på det virtuella nätverket.
 
-Mer information om hur du hanterar DNS finns i den [DNS-verktyg artikel på Technet](https://technet.microsoft.com/library/cc753579.aspx).
+## <a name="next-steps"></a>Nästa steg
 
-## <a name="related-content"></a>Relaterat innehåll
-* [Azure AD Domain Services – komma igång-guiden](create-instance.md)
-* [Ansluta en Windows Server-dator till en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Hantera en Azure AD Domain Services-domän](manage-domain.md)
-* [DNS-verktyg för fjärrserveradministration](https://technet.microsoft.com/library/cc753579.aspx)
+Mer information om hur du hanterar DNS finns i [artikeln DNS-verktyg på TechNet](https://technet.microsoft.com/library/cc753579.aspx).
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[create-join-windows-vm]: join-windows-vm.md
+[tutorial-create-management-vm]: tutorial-create-management-vm.md
+[connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm
+
+<!-- EXTERNAL LINKS -->
+[install-rsat]: /windows-server/remote/remote-server-administration-tools#BKMK_Thresh

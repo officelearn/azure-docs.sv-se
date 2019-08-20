@@ -6,18 +6,18 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 06/26/2019
+ms.date: 08/16/2019
 ms.author: alinast
-ms.openlocfilehash: 3ebfa9b54007d0b409780e6a549bdd2411b94810
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 38df195f787407c4beab2f7251cf00c08a739e09
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484676"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622890"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Självstudier: Etablera dina att skapa och arbeta villkor med digitala Twins förhandsversionen av Azure monitor
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Självstudier: Etablera dina arbets förhållanden för bygge och övervakning med Azure Digitals för hands version
 
-Den här självstudien visar hur du använder Azure Digital Twins förhandsversion för att övervaka dina adressutrymmen för önskad temperatur och komfort. När du har [konfigurerat exempelbyggnaden](tutorial-facilities-setup.md) kan du etablera din byggnad och köra egna funktioner på dina sensordata med hjälp av stegen i den här självstudien.
+Den här självstudien visar hur du använder Azure Digital-förhands granskning för att övervaka dina utrymmen för önskade temperatur villkor och bekvämlighets nivåer. När du har [konfigurerat exempelbyggnaden](tutorial-facilities-setup.md) kan du etablera din byggnad och köra egna funktioner på dina sensordata med hjälp av stegen i den här självstudien.
 
 I den här guiden får du lära dig att:
 
@@ -269,7 +269,7 @@ Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du h
 Nu när du har etablerat dina utrymmen och skapat ett ramverk för att utlösa anpassade meddelanden kan du gå till någon av följande självstudier:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps](tutorial-facilities-events.md)
+> [Självstudier: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
-> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
+> [Självstudier: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)

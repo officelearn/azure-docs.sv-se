@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 3d44937c977ba264d671f2053d387470651af68a
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 509bd472fe5f930ac830b8b4016129f8acb67324
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030888"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612879"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Vanliga frågor och svar
 På den här sidan besvaras vanliga frågor om Azure Active Directory Domain Services. Fortsätt att söka efter uppdateringar igen.
@@ -31,6 +31,9 @@ Läs [fel söknings guiden](troubleshoot.md) för lösningar på vanliga problem
 ## <a name="configuration"></a>Konfiguration
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Kan jag skapa flera hanterade domäner för en enda Azure AD-katalog?
 Nej. Det går bara att skapa en enskild hanterad domän som hanteras av Azure AD Domain Services för en enda Azure AD-katalog.  
+
+### <a name="can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network"></a>Kan jag aktivera Azure AD Domain Services i ett klassiskt virtuellt nätverk?
+Klassiska virtuella nätverk stöds inte för nya distributioner. Befintliga hanterade domäner som distribueras i klassiska virtuella nätverk fortsätter att stödjas.
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Kan jag aktivera Azure AD Domain Services i ett Azure Resource Manager virtuellt nätverk?
 Ja. Azure AD Domain Services kan aktive ras i ett Azure Resource Manager virtuellt nätverk. Klassiska virtuella Azure-nätverk stöds inte längre för att skapa nya hanterade domäner.

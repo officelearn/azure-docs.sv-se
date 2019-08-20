@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 8a542f7927ddd834c7273f6ef8b251ddc35e8436
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f9f4a8b52548dad011f5e825fa42c50da970ea7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234195"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613154"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services – fel sökning av säkert LDAP konfiguration
 
-Den här artikeln innehåller lösningar på vanliga problem när du [konfigurerar säker LDAP](configure-ldaps.md) för Azure AD Domain Services.
+Den här artikeln innehåller lösningar på vanliga problem när du [konfigurerar säker LDAP](tutorial-configure-ldaps.md) för Azure AD Domain Services.
 
 ## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: säkert LDAP konfiguration av nätverks säkerhets grupp
 
@@ -62,7 +62,7 @@ När säker LDAP har Aktiver ATS rekommenderar vi att du skapar ytterligare regl
 
 **Lösning**
 
-Skapa ett nytt säkert LDAP-certifikat genom att följa stegen som beskrivs i artikeln [Konfigurera säker LDAP](configure-ldaps.md) .
+Skapa ett nytt säkert LDAP-certifikat genom att följa stegen som beskrivs i artikeln [Konfigurera säker LDAP](tutorial-configure-ldaps.md) .
 
 ## <a name="contact-us"></a>Kontakta oss
 Kontakta Azure Active Directory Domain Services produkt teamet för att [dela feedback eller för support](contact-us.md).

@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/16/2019
 ms.author: diberry
-ms.openlocfilehash: a3e1853e587f2f1632641cbb896eba59f8dc9455
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5175dee24542c716b3d087412864ae7e6f056d18
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515767"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615985"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
 QnA Maker extraherar automatiskt fråga – svar par från halvstrukturerade innehåll, till exempel vanliga frågor och svar, produkthandböcker, riktlinjer, stöd för dokument och principer som lagras som webbsidor, PDF-filer eller filer som Microsoft Word-dokument. Innehållet kan också läggas till i knowledge base från strukturerade innehållsfiler för frågor och svar. 
+
+## <a name="data-types"></a>Datatyper
 
 Följande tabell sammanfattar typerna av innehåll och filformat som stöds av QnA Maker.
 
@@ -32,11 +34,21 @@ Följande tabell sammanfattar typerna av innehåll och filformat som stöds av Q
 
 ## <a name="data-source-locations"></a>Data-källplatser
 
-De flesta platser för data källor måste tillhandahålla offentliga URL: er eller filer som inte kräver autentisering. 
+Platser för data källor är **offentliga URL: er eller filer**som inte kräver autentisering. 
 
-[Platser för SharePoint](../How-to/add-sharepoint-datasources.md) -datakällor får tillhandahålla autentiserade filer. SharePoint-resurser måste vara filer, inte webb sidor. 
+Om du behöver autentisering för din data källa kan du använda följande metoder för att hämta dessa data till QnA Maker:
 
-Om du har en autentiserad fil eller URL är ett alternativt alternativ att ladda ned filen från den autentiserade platsen till din lokala dator. Lägg sedan till filen från den lokala datorn i kunskaps basen. 
+* [Ladda ned filen manuellt](#download-file-from-authenticated-data-source-location) och importera till QNA Maker
+* Importera fil för autentiserad [SharePoint-plats](#import-file-from-authenticated-sharepoint) 
+
+### <a name="download-file-from-authenticated-data-source-location"></a>Hämta filen från den autentiserade data käll platsen
+
+Om du har en autentiserad fil (inte på en autentiserad SharePoint-plats) eller URL är ett alternativt alternativ att ladda ned filen från den autentiserade platsen till din lokala dator. Lägg sedan till filen från den lokala datorn i kunskaps basen.
+
+### <a name="import-file-from-authenticated-sharepoint"></a>Importera filen från autentiserad SharePoint 
+
+[Platser för SharePoint](../How-to/add-sharepoint-datasources.md) -datakällor får tillhandahålla autentiserade **filer**. SharePoint-resurser måste vara filer, inte webb sidor. Om URL: en slutar med ett webb tillägg, till exempel **. ASPX**importeras inte till QNA Maker från SharePoint.
+
 
 ## <a name="faq-urls"></a>Vanliga frågor och svar-URL: er
 

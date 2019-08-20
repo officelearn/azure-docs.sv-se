@@ -6,12 +6,12 @@ author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 67ad37491f71ac82ff52331d19ea92a646c80a52
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8f83c40aeecdbf9ca30adc20286712850882ee41
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716982"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616798"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionering och vågrät skalning i Azure Cosmos DB
 
@@ -27,7 +27,7 @@ En logisk partition definierar även omfattningen av databas transaktioner. Du k
 
 ## <a name="physical-partitions"></a>Fysiska partitioner
 
-En Azure Cosmos-behållare skalas genom att distribuera data och data flöde över ett stort antal logiska partitioner. Internt mappas en eller flera logiska partitioner till en fysisk partition som består av en uppsättning repliker, även kallat en [*replik uppsättning*](global-dist-under-the-hood.md). Varje replik uppsättning är värd för en instans av Azure Cosmos DB databas motorn. En replik uppsättning gör data lagrade i den fysiska partitionen tåligt, hög tillgängliga och konsekvent. En fysisk partition har stöd för maximalt lagrings utrymme och enheter för programbegäran (ru: er). Varje replik som utgör den fysiska partitionen ärver partitionens lagrings kvot. Alla repliker av en fysisk partition har gemensamt stöd för det data flöde som har allokerats till den fysiska partitionen. 
+En Azure Cosmos-behållare skalas genom att distribuera data och data flöde över ett stort antal logiska partitioner. Internt mappas en eller flera logiska partitioner till en fysisk partition som består av en uppsättning repliker, även kallat en [*replik uppsättning*](global-dist-under-the-hood.md). Varje replik uppsättning är värd för en instans av Azure Cosmos-databasmotorn. En replik uppsättning gör data lagrade i den fysiska partitionen tåligt, hög tillgängliga och konsekvent. En fysisk partition har stöd för maximalt lagrings utrymme och enheter för programbegäran (ru: er). Varje replik som utgör den fysiska partitionen ärver partitionens lagrings kvot. Alla repliker av en fysisk partition har gemensamt stöd för det data flöde som har allokerats till den fysiska partitionen. 
 
 Följande bild visar hur logiska partitioner mappas till fysiska partitioner som distribueras globalt:
 

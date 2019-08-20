@@ -6,28 +6,28 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
-ms.openlocfilehash: 87b275806c06443e37e9e92c35a38b4cde378322
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5537133b31bb63c9fa6ac3a52b344f7f1d9c4c8a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342886"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614355"
 ---
 # <a name="getting-started-with-sql-queries"></a>Komma igång med SQL-frågor
 
-Azure Cosmos DB SQL API-konton stöder förfrågningar till objekt som använder SQL Structured Query Language () som ett frågespråk för JSON. Designmålen för Azure Cosmos DB-frågespråket är att:
+Azure Cosmos DB SQL API-konton har stöd för att skicka frågor till objekt med Structured Query Language (SQL) som ett JSON-frågespråk. Design målen för Azure Cosmos DB frågespråk är att:
 
-* Stöd för SQL, ett av de mest välkända och populära fråga språk, i stället för inventing ett nytt frågespråk. SQL är en formell programmeringsmodell för komplexa frågor via JSON-objekt.  
+* Stöd för SQL, ett av de mest välkända och populära frågespråket, i stället för att använda ett nytt frågespråk. SQL innehåller en formell programmerings modell för omfattande frågor över JSON-objekt.  
 
-* Använda JavaScript-programmeringsmodell som grund för frågespråket. JavaScript-typsystemet, uttrycksutvärdering och funktionsanrop är roten i SQL-API. Dessa rötter tillhandahåller en naturlig programmeringsmodell för funktioner som relationella projektioner hierarkisk navigering i JSON-objekt, Självkopplingar, rumsliga förfrågningar och anrop av användardefinierade funktioner (UDF) helt skrivna i JavaScript.
+* Använd Java scripts programmerings modell som grund för frågespråket. Java Script: s typ system, uttrycks utvärdering och funktions anrop är rötter för SQL-API: et. Dessa rötter tillhandahåller en naturlig programmerings modell för funktioner som relationella projektioner, hierarkisk navigering över JSON-objekt, själv koppling, spatiala frågor och aktivering av användardefinierade funktioner (UDF: er) helt skrivna i Java Script.
 
-## <a name="upload-sample-data"></a>Ladda upp exempeldata
+## <a name="upload-sample-data"></a>Ladda upp exempel data
 
-I ditt SQL API Cosmos DB-konto skapar du en behållare som kallas `Families`. Skapa två enkla JSON-objekt i behållaren. Du kan köra de flesta av exempelfrågor i Azure Cosmos DB-fråga dokumenten med hjälp av den här datamängden.
+Skapa en behållare med namnet `Families`i ditt SQL API Cosmos DB-konto. Skapa två enkla JSON-objekt i behållaren. Du kan köra de flesta exempel frågorna i Azure Cosmos DB Query-dokument med hjälp av den här data uppsättningen.
 
 ### <a name="create-json-items"></a>Skapa JSON-objekt
 
-Följande kod skapar två enkla JSON-objekt om familjer. Enkla JSON-objekt för familjen Andersen och Wakefield-serier är föräldrar, barn och deras husdjur, adress och registreringsinformation. Det första objektet har strängar, tal, booleska värden, matriser och kapslade egenskaper.
+Följande kod skapar två enkla JSON-objekt om familjer. De enkla JSON-objekten för Andersen-och Wakefield-familjer innehåller föräldrar, barn och deras hus djur, adress och registrerings information. Det första objektet har strängar, siffror, booleska värden, matriser och kapslade egenskaper.
 
 
 ```json
@@ -52,7 +52,7 @@ Följande kod skapar två enkla JSON-objekt om familjer. Enkla JSON-objekt för 
 }
 ```
 
-Objektet på andra använder `givenName` och `familyName` i stället för `firstName` och `lastName`.
+Det andra objektet använder `givenName` och `familyName` i stället `firstName` för `lastName`och.
 
 ```json
 {
@@ -84,11 +84,11 @@ Objektet på andra använder `givenName` och `familyName` i stället för `first
 }
 ```
 
-### <a name="query-the-json-items"></a>Frågan JSON-objekt
+### <a name="query-the-json-items"></a>Fråga JSON-objekten
 
 Prova några frågor mot JSON-data för att förstå några av de viktigaste aspekterna i Azure Cosmos DB SQL-frågespråket.
 
-Följande fråga returnerar objekt där den `id` fältet matchar `AndersenFamily`. Eftersom det är en `SELECT *` frågan, resultatet av frågan är fullständigt JSON-objekt. Mer information om hur du väljer syntax finns i [SELECT-instruktion](sql-query-select.md). 
+Följande fråga returnerar de objekt där `id` fältet matchar. `AndersenFamily` Eftersom det är en `SELECT *` fråga är resultatet av frågan det fullständiga JSON-objektet. Mer information om SELECT-syntax finns i [Select Statement](sql-query-select.md). 
 
 ```sql
     SELECT *
@@ -96,7 +96,7 @@ Följande fråga returnerar objekt där den `id` fältet matchar `AndersenFamily
     WHERE f.id = "AndersenFamily"
 ```
 
-Resultatet av frågan är: 
+Frågeresultatet är: 
 
 ```json
     [{
@@ -118,7 +118,7 @@ Resultatet av frågan är:
     }]
 ```
 
-Följande fråga förbereder JSON-utdata till en annan form. Frågan genererar en ny JSON `Family` objekt med två valda fält, `Name` och `City`när adressen stad är samma som tillståndet. ”USA, USA” matchar det här fallet.
+Följande fråga formaterar om JSON-utdata till en annan form. Frågan Projects ett nytt JSON `Family` -objekt med två markerade fält `Name` , `City`och när adressens ort är samma som status. "NY, NY" matchar det här ärendet.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -126,7 +126,7 @@ Följande fråga förbereder JSON-utdata till en annan form. Frågan genererar e
     WHERE f.address.city = f.address.state
 ```
 
-Resultatet av frågan är:
+Frågeresultatet är:
 
 ```json
     [{
@@ -137,7 +137,7 @@ Resultatet av frågan är:
     }]
 ```
 
-Följande fråga returnerar alla angivna namn på barnen i familjen vars `id` matchar `WakefieldFamily`, ordnade efter ort.
+Följande fråga returnerar alla namn på underordnade objekt i den familj vars `id` matchningar `WakefieldFamily`beställs efter ort.
 
 ```sql
     SELECT c.givenName
@@ -147,7 +147,7 @@ Följande fråga returnerar alla angivna namn på barnen i familjen vars `id` ma
     ORDER BY f.address.city ASC
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -158,15 +158,15 @@ Resultatet är:
 
 ## <a name="remarks"></a>Kommentarer
 
-I föregående exempel visas flera aspekter av frågespråket Cosmos DB:  
+I föregående exempel visas flera aspekter av Cosmos DB frågespråket:  
 
-* Eftersom SQL-API fungerar på JSON-värden, behandlar den trädet formad entiteter i stället för rader och kolumner. Du kan referera till trädnoder på varje godtyckliga djup som `Node1.Node2.Node3…..Nodem`, ungefär som i två delar referens `<table>.<column>` i ANSI SQL.
+* Eftersom SQL API fungerar med JSON-värden, hanterar den Tree-formade entiteter i stället för rader och kolumner. Du kan referera till trädnoden i godtyckligt djup, som `Node1.Node2.Node3…..Nodem`liknar referensen för två delar av `<table>.<column>` i ANSI SQL.
 
-* Frågespråket fungerar med schemalös data, att typsystemet måste bindas dynamiskt. Samma uttryck kan ge olika typer på olika objekt. Resultatet av en fråga är ett giltigt JSON-värde, men är inte garanterad ska vara av ett fast schema.  
+* Eftersom frågespråket fungerar med schemabaserade data, måste typ systemet bindas dynamiskt. Samma uttryck kan ge olika typer på olika objekt. Resultatet av en fråga är ett giltigt JSON-värde, men det är inte säkert att det är ett fast schema.  
 
-* Azure Cosmos DB stöder endast strikta JSON-objekt. Den och uttryck är begränsade till bara handlar om JSON-typer. Mer information finns i den [JSON-specifikationen](https://www.json.org/).  
+* Azure Cosmos DB stöder endast strikta JSON-objekt. Typ systemet och uttryck är begränsade till att bara hantera JSON-typer. Mer information finns i JSON- [specifikationen](https://www.json.org/).  
 
-* En Cosmos DB-container är en schemafri samling med JSON-objekt. Relationer inom och mellan behållare objekt avbildas implicit av inneslutning, inte av primärnyckel och sekundärnyckel viktiga relationer. Den här funktionen är viktig för intra-item-kopplingar som beskrivs senare i den här artikeln.
+* En Cosmos-behållare är en schema fri samling med JSON-objekt. Relationerna i och över behållar objekt samlas in implicit genom inne slutning, inte av primär nyckel och sekundär nyckel relationer. Den här funktionen är viktig för kopplingen mellan artiklar som diskuteras senare i den här artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
 title: Köra anpassade skript på virtuella Linux-datorer i Azure | Microsoft Docs
-description: Automatisera åtgärder för Linux VM-konfigurationen genom att använda tillägget för anpassat skript v2
+description: Automatisera konfigurations uppgifter för virtuella Linux-datorer med hjälp av det anpassade skript tillägget v2
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
@@ -15,70 +15,70 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 8b16d7b20c4d49398790d207065da946d98ef658
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1a01f5f8aed994c16b8302e42996b27ee6a48003
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839169"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624863"
 ---
-# <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använda Azure anpassade skript-tillägget Version 2 med Linux-datorer
-Anpassat skript-tillägget Version 2 laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfigurationen efter distribution, Programvaruinstallation eller andra konfigurationshantering/uppgifter. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internetplats eller du kan ange dem till tillägget-körningen. 
+# <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använd Azures anpassade skript tillägg version 2 med virtuella Linux-datorer
+Det anpassade skript tillägget version 2 laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, program varu installation eller andra konfigurations-och hanterings åtgärder. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internet plats, eller så kan du ange dem till tilläggets körnings miljö. 
 
-Det anpassade Skripttillägget integreras med Azure Resource Manager-mallar. Du kan också köra den med hjälp av Azure CLI, PowerShell eller Azure Virtual Machines REST API.
+Det anpassade skript tillägget integreras med Azure Resource Manager mallar. Du kan också köra det med hjälp av Azure CLI, PowerShell eller Azure Virtual Machines REST API.
 
-Den här artikeln beskriver hur du använder tillägget för anpassat skript från Azure CLI och hur du kör tillägget med hjälp av en Azure Resource Manager-mall. Den här artikeln innehåller också felsökningssteg för Linux-system.
+Den här artikeln beskriver hur du använder tillägget för anpassat skript från Azure CLI och hur du kör tillägget med hjälp av en Azure Resource Manager mall. Den här artikeln innehåller också fel söknings steg för Linux-system.
 
 
-Det finns två Linux anpassade skripttillägg:
-* Version 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
-* Version 2 – Microsoft.Azure.Extensions.CustomScript
+Det finns två anpassade skript tillägg för Linux:
+* Version 1-Microsoft. OSTCExtensions. CustomScriptForLinux
+* Version 2-Microsoft. Azure. Extensions. CustomScript
 
-Växla nya och befintliga distributioner för att använda den nya versionen 2 i stället. Den nya versionen är avsedd att vara en lättillgänglig ersättning. Därför migreringen är lika enkelt som att ändra namn och version, du behöver inte ändra din konfiguration.
+Växla mellan nya och befintliga distributioner för att använda den nya version 2 i stället. Den nya versionen är avsedd att vara en ersättning. Därför är migreringen lika enkel som att ändra namn och version. du behöver inte ändra tilläggs konfigurationen.
 
 
 ### <a name="operating-system"></a>Operativsystem
 
-Tillägget för anpassat skript för Linux ska köras på tillägget tillägget stöds OS, mer information finns i det här [artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+Det anpassade skript tillägget för Linux kommer att köras på tillägget tillägg som stöds, mer information finns i den här [artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
 
-### <a name="script-location"></a>Skriptplats
+### <a name="script-location"></a>Skript plats
 
-Du kan använda tillägget för att använda Azure Blob storage-autentiseringsuppgifter för att få åtkomst till Azure Blob storage. Du kan också kan skriptets placering vara någon where, så länge som den virtuella datorn kan vidarebefordra till den slutpunkten, till exempel GitHub, interna filserver osv.
+Du kan använda tillägget för att använda dina Azure Blob Storage-autentiseringsuppgifter för att få åtkomst till Azure Blob Storage. Alternativt kan skript platsen var som helst, så länge den virtuella datorn kan dirigeras till den slut punkten, till exempel GitHub, intern fil Server osv.
 
-### <a name="internet-connectivity"></a>Internetanslutning
-Om du behöver hämta ett skript externt, till exempel GitHub eller Azure Storage kan sedan ytterligare Brandväggsnätverk säkerhetsgrupp-portar måste du öppna. Till exempel om skriptet finns i Azure Storage, du kan tillåta åtkomst till med hjälp av Azure NSG-Tjänsttaggar för [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+### <a name="internet-connectivity"></a>Internet anslutning
+Om du behöver hämta ett skript externt, till exempel GitHub eller Azure Storage, måste du öppna ytterligare brand Väggs-och nätverks säkerhets grupps portar. Om ditt skript till exempel finns i Azure Storage kan du tillåta åtkomst med hjälp av Azure NSG service-taggar för [lagring](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
-Om skriptet finns på en lokal server så kan du fortfarande behöver ytterligare brandvägg/Network Security Group portar måste du öppna.
+Om ditt skript finns på en lokal server kanske du fortfarande behöver fler brand Väggs-och nätverks säkerhets grupps portar som måste öppnas.
 
 ### <a name="tips-and-tricks"></a>Tips
 * Den högsta felfrekvensen för det här tillägget beror på syntaxfel i skriptet. Kontrollera att skriptet körs utan fel, och implementera ytterligare loggning i skriptet så att det blir enklare att identifiera var felet inträffade.
 * Skriv skript som är idempotenta, så att inga systemändringar görs om de oavsiktligt körs mer än en gång.
-* Se till att skript som inte kräver indata från användaren när de körs.
-* Det är 90 minuter som tillåts för skriptet att köra, något längre resulterar i en misslyckad tillhandahållande av tillägget.
-* Placera inte omstarter i skriptet och detta kan orsaka problem med andra tillägg installeras efter omstarten tillägget kommer inte att fortsätta efter omstarten. 
-* Om du har ett skript som utlöser en omstart installerar program, kör skript osv. Du bör schemalägga omstarten med ett Cron-jobb eller med verktyg som DSC eller Chef, Puppet-tillägg.
-* Tillägget körs bara ett skript en gång, om du vill köra ett skript på varje start kan du använda [cloud-init bild](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) och använda en [skript Per Start](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) modulen. Du kan också använda skriptet för att skapa en Systemd service-enhet.
-* Om du vill schemalägga när ett skript som körs ska du använda tillägget för att skapa ett Cron-jobb. 
-* När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du vill mer frekventa statusuppdateringar ett skript som körs, behöver du skapa en egen lösning.
-* Anpassat skripttillägg internt stöder inte proxy-servrar, men du kan använda ett filöverföringsverktyg som stöder proxyservrar i skriptet som *Curl*. 
-* Tänk på inte är standard directory-platser som dina skript eller kommandon kan förlita sig på, har logik för att hantera det.
+* Kontrol lera att skripten inte kräver användarindata när de körs.
+* Det finns 90 minuter som tillåts för att skriptet ska kunna köras. allt längre leder till en misslyckad etablering av tillägget.
+* Starta inte om omstarter inuti skriptet. Detta leder till problem med andra tillägg som installeras och efter omstarten kommer tillägget inte att fortsätta efter omstarten. 
+* Om du har ett skript som utlöser en omstart installerar program, kör skript osv. Du bör schemalägga en omstart med hjälp av ett cron-jobb eller använda verktyg som DSC eller chef, Puppet-tillägg.
+* Tillägget kör bara ett skript en gång, om du vill köra ett skript vid varje start, kan du använda [Cloud-Init-avbildning](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) och använda [skript per](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) startmodul. Du kan också använda skriptet för att skapa en system tjänst enhet.
+* Om du vill schemalägga när ett skript ska köras ska du använda tillägget för att skapa ett cron-jobb. 
+* När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du vill ha mer frekventa status uppdateringar för ett skript som körs måste du skapa en egen lösning.
+* Anpassat skript tillägg stöder inte proxyservrar, men du kan använda ett fil överförings verktyg som stöder proxyservrar i skriptet, till exempel *vändning*. 
+* Var medveten om icke-standardkataloger som skripten eller kommandona kan vara beroende av, har logik för att hantera detta.
 
 
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Tillägget för anpassat skript konfigurationen anger till exempel skriptplats och kommandot som ska köras. Du kan lagra den här konfigurationen i konfigurationsfiler, ange det på kommandoraden eller anger den i en Azure Resource Manager-mall. 
+Konfigurationen för det anpassade skript tillägget anger saker som skript plats och kommandot som ska köras. Du kan lagra konfigurationen i konfigurationsfiler, ange den på kommando raden eller ange den i en Azure Resource Manager mall. 
 
-Du kan lagra känsliga data i en skyddad konfiguration, som krypteras och dekrypteras bara på den virtuella datorn. Konfigurationen av skyddade är användbart när körningskommandot innefattar hemligheter som lösenord.
+Du kan lagra känsliga data i en skyddad konfiguration, som krypteras och bara dekrypteras i den virtuella datorn. Den skyddade konfigurationen är användbar när körnings kommandot innehåller hemligheter som lösen ord.
 
-De här objekten ska behandlas som känsliga data och anges i den skyddade Konfigurationsinställningen för tillägg. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn.
+De här objekten ska behandlas som känsliga data och anges i konfigurationerna för tilläggen för skyddad inställning. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn.
 
 ```json
 {
   "name": "config-app",
   "type": "Extensions",
   "location": "[resourceGroup().location]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-03-01",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
   ],
@@ -109,47 +109,47 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 
 | Namn | Värdet / exempel | Datatyp | 
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute.Extensions | sträng |
+| apiVersion | 2019-03-01 | date |
+| publisher | Microsoft. Compute. Extensions | sträng |
 | type | CustomScript | sträng |
 | typeHandlerVersion | 2.0 | int |
-| fileUris (t.ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (t.ex.) | python MyPythonScript.py \<my-param1> | sträng |
+| fileUris (t. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| commandToExecute (t. ex.) | python MyPythonScript.py \<My-param1 > | sträng |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | sträng |
-| skipDos2Unix (t.ex.) | false | boolean |
+| skipDos2Unix (t. ex.) | false | boolean |
 | timestamp (t.ex.) | 123456789 | 32-bitars heltal |
-| storageAccountName (t.ex.) | examplestorageacct | sträng |
-| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
+| storageAccountName (t. ex.) | examplestorageacct | sträng |
+| storageAccountKey (t. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
 
-### <a name="property-value-details"></a>Information om egenskapen
-* `skipDos2Unix`: (valfritt, booleskt) hoppa över dos2unix konvertering av skriptbaserade fil-URL: er eller skript.
-* `timestamp` (valfritt, 32-bitars heltal) Använd det här fältet bara för att utlösa en omkörning av skriptet genom att ändra värdet för det här fältet.  Alla heltalsvärde är godtagbara. Det får endast vara skiljer sig från det tidigare värdet.
-  * `commandToExecute`: (**krävs** om skriptet inte har angetts sträng) startpunktsskriptet att köra. Använd det här fältet i stället om kommandot innehåller hemligheter som lösenord.
-* `script`: (**krävs** om commandToExecute inte har angetts sträng) en base64-kodat (och eventuellt gzip'ed) skript som körs av/bin/sh.
-* `fileUris`: (valfritt, Strängmatrisen) URL: er för filer som ska hämtas.
-* `storageAccountName`: (valfritt, string) namnet på lagringskontot. Om du anger autentiseringsuppgifter för lagringskontot, alla `fileUris` måste vara URL: er för Azure-BLOB.
-* `storageAccountKey`: (valfritt, string) åtkomstnyckeln för lagringskontot
+### <a name="property-value-details"></a>Information om egenskaps värde
+* `skipDos2Unix`: (valfritt, boolesk) hoppa över dos2unix-konvertering av skriptbaserade fil-URL: er eller skript.
+* `timestamp`(valfritt, 32-bitars heltal) Använd bara det här fältet för att utlösa en ny körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
+  * `commandToExecute`: (**krävs** om skript inte har angetts, sträng) Start punkt skriptet som ska köras. Använd det här fältet i stället om kommandot innehåller hemligheter som lösen ord.
+* `script`: (**krävs** om commandToExecute inte har angetts, sträng) ett base64-kodat (och eventuellt gzip'ed) skript som körs av/bin/sh.
+* `fileUris`: (valfritt, sträng mat ris) URL: er för fil (er) som ska hämtas.
+* `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter för lagring måste `fileUris` alla vara URL: er för Azure-blobar.
+* `storageAccountKey`: (valfritt, sträng) åtkomst nyckeln för lagrings kontot
 
 
-Följande värden kan anges i antingen offentliga eller skyddade inställningar, tillägget kommer att avslå alla konfigurationer där värdena nedan anges i inställningarna för både offentliga och skyddade.
+Följande värden kan anges i offentliga eller skyddade inställningar. tillägget kommer att neka alla konfigurationer där värdena nedan anges i både offentliga och skyddade inställningar.
 * `commandToExecute`
 * `script`
 * `fileUris`
 
-Med offentliga inställningar som kan vara användbart för felsökning, men det rekommenderas starkt att du använder skyddade inställningarna.
+Användning av offentliga inställningar kan vara användbart för fel sökning, men vi rekommenderar starkt att du använder skyddade inställningar.
 
-Inställningar för offentliga skickas i klartext till den virtuella datorn där skriptet körs.  Skyddade inställningarna är krypterat med en nyckel som bara du känner till Azure och den virtuella datorn. Inställningarna sparas till den virtuella datorn som de skickades, dvs. Om inställningarna krypterades sparas de krypterade på den virtuella datorn. Certifikatet som används för att dekryptera krypterade värden lagras på den virtuella datorn, och används för att dekryptera inställningar (vid behov) vid körning.
+Offentliga inställningar skickas i klartext till den virtuella dator där skriptet ska köras.  Skyddade inställningar krypteras med en nyckel som endast är känd för Azure och den virtuella datorn. Inställningarna sparas på den virtuella datorn när de skickades, dvs. om inställningarna krypterades sparas de som krypterade på den virtuella datorn. Certifikatet som används för att dekryptera de krypterade värdena lagras på den virtuella datorn och används för att dekryptera inställningar (vid behov) vid körning.
 
-#### <a name="property-skipdos2unix"></a>Egenskapen: skipDos2Unix
+#### <a name="property-skipdos2unix"></a>Egenskap: skipDos2Unix
 
-Standardvärdet är FALSKT, vilket innebär att dos2unix konvertering **är** körs.
+Standardvärdet är false, vilket innebär att dos2unix-konverteringen körs.
 
-Den tidigare versionen av CustomScript Microsoft.OSTCExtensions.CustomScriptForLinux, skulle automatiskt konvertera DOS-filer till UNIX-filer genom att översätta `\r\n` till `\n`. Den här translation fortfarande finns och är aktiverad som standard. Den här konverteringen tillämpas på alla filer som hämtas från fileUris eller skriptinställningen baserat på något av följande villkor.
+Den tidigare versionen av CustomScript, Microsoft. OSTCExtensions. CustomScriptForLinux, konverterar automatiskt dos-filer till UNIX-filer genom `\r\n` att översätta till. `\n` Den här översättningen finns fortfarande och är på som standard. Den här konverteringen tillämpas på alla filer som laddats ned från fileUris eller skript inställningen baserat på något av följande kriterier.
 
-* Om tillägget är en av `.sh`, `.txt`, `.py`, eller `.pl` kommer att konverteras. Skriptinställningen kommer alltid att matcha det här villkoret eftersom det antas vara ett skript som körs med /bin/sh och sparas som script.sh på den virtuella datorn.
-* Om filen som börjar med `#!`.
+* Om `.sh`tillägget är en av `.txt` `.py`,, eller `.pl` kommer att konverteras. Skript inställningen matchar alltid det här kriteriet eftersom det antas vara ett skript som körs med/bin/sh och som sparas som script.sh på den virtuella datorn.
+* Om filen börjar med `#!`.
 
-Dos2unix konverteringen kan du hoppa över genom att ange skipDos2Unix till true.
+Dos2unix-omvandlingen kan hoppas över genom att ange skipDos2Unix till true.
 
 ```json
 {
@@ -159,13 +159,13 @@ Dos2unix konverteringen kan du hoppa över genom att ange skipDos2Unix till true
 }
 ```
 
-####  <a name="property-script"></a>Egenskapen: skript
+####  <a name="property-script"></a>Egenskap: skript
 
-CustomScript stöder användardefinierade skriptkörningen. Skriptinställningar att kombinera commandToExecute och fileUris till en och samma inställning. Du kan helt enkelt koda skriptet som en inställning i stället för att konfigurera en fil för nedladdning från Azure storage eller GitHub gist. Skriptet kan användas för att ersatta commandToExecute och fileUris.
+CustomScript stöder körning av ett användardefinierat skript. Skript inställningarna för att kombinera commandToExecute och fileUris i en enda inställning. I stället för att behöva konfigurera en fil för nedladdning från Azure Storage eller GitHub, kan du bara koda skriptet som en inställning. Skriptet kan användas för att ersätta commandToExecute och fileUris.
 
-Skriptet **måste** vara base64-kodad.  Skriptet kan **eventuellt** vara gzip'ed. Skriptinställningen kan användas i inställningarna för offentliga eller skyddade. Den maximala storleken för parametern skriptet data är 256 KB. Om skriptet överskrider den här storleken inte kommer att köra.
+Skriptet **måste** vara Base64-kodat.  Skriptet kan **också** vara gzip'ed. Skript inställningen kan användas i offentliga eller skyddade inställningar. Den maximala storleken för skript parameterns data är 256 KB. Om skriptet överskrider den här storleken kommer det inte att köras.
 
-Till exempel får följande skript sparas i filen /script.sh/.
+Till exempel kan följande skript sparas i filen/script.sh/.
 
 ```sh
 #!/bin/sh
@@ -174,7 +174,7 @@ apt update
 apt upgrade -y
 ```
 
-Rätt skriptinställningen med CustomScript skulle skapas genom att utföra följande kommandots utdata.
+Rätt CustomScript-skript inställning skulle konstrueras genom att ta utdata från följande kommando.
 
 ```sh
 cat script.sh | base64 -w0
@@ -186,7 +186,7 @@ cat script.sh | base64 -w0
 }
 ```
 
-Skriptet kan du kan också vara gzip'ed att ytterligare minska storleken (i de flesta fall). (CustomScript upptäcker automatiskt användningen av gzip-komprimering.)
+Skriptet kan också vara gzip'ed för att ytterligare minska storleken (i de flesta fall). (CustomScript automatiskt identifierar användningen av gzip-komprimering.)
 
 ```sh
 cat script | gzip -9 | base64 -w 0
@@ -194,15 +194,15 @@ cat script | gzip -9 | base64 -w 0
 
 CustomScript använder följande algoritm för att köra ett skript.
 
- 1. Assert längden på skriptets värdet inte överstiga 256 KB.
- 1. Base64 avkoda skriptets värdet
- 1. _Försök_ till gunzip base64 avkodas värde
- 1. skriva avkodade (och eventuellt okomprimerade) värdet till disk (/ var/lib/waagent/custom-script/#/script.sh)
- 1. Kör skriptet med _ / bin/sh – c /var/lib/waagent/custom-script/#/script.sh.
+ 1. kontroll av att längden på skriptets värde inte överskrider 256 KB.
+ 1. Base64 avkoda skriptets värde
+ 1. _försök_ att gunzip det Base64-avkodade värdet
+ 1. Skriv avkodat (och eventuellt expanderat) värde till disk (/var/lib/waagent/Custom-script/#/script.sh)
+ 1. Kör skriptet med _/bin/sh-c/var/lib/waagent/Custom-script/#/script.sh.
 
 
 ## <a name="template-deployment"></a>Malldistribution
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget för anpassat skript under en malldistribution för Azure Resource Manager. En exempelmall som innehåller det anpassade Skripttillägget finns här, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Det JSON-schema som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager mall för att köra det anpassade skript tillägget under en Azure Resource Manager mall-distribution. En exempel mall som innehåller tillägget för anpassat skript hittar du här, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 
 ```json
@@ -210,7 +210,7 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schem
   "name": "config-app",
   "type": "extensions",
   "location": "[resourceGroup().location]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-03-01",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
   ],
@@ -234,10 +234,10 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schem
 ```
 
 >[!NOTE]
->Dessa egenskapsnamn är skiftlägeskänsliga. Undvik distributionsproblem genom att använda namnen som visas här.
+>Dessa egenskaps namn är Skift läges känsliga. Använd de namn som visas här för att undvika distributions problem.
 
 ## <a name="azure-cli"></a>Azure CLI
-Skapa en konfigurationsfil eller filer när du använder Azure CLI för att köra tillägget för anpassat skript. Du måste ha ”commandToExecute” som ett minimum.
+När du använder Azure CLI för att köra det anpassade skript tillägget skapar du en konfigurations fil eller filer. Du måste minst ha "commandToExecute".
 
 ```azurecli
 az vm extension set \
@@ -247,7 +247,7 @@ az vm extension set \
   --protected-settings ./script-config.json
 ```
 
-Alternativt kan du ange inställningarna i kommandot som en JSON-formaterad sträng. På så sätt kan konfigurationen anges vid körning och utan en separat konfigurationsfil.
+Alternativt kan du ange inställningarna i kommandot som en JSON-formaterad sträng. Detta gör att konfigurationen kan anges under körningen och utan en separat konfigurations fil.
 
 ```azurecli
 az vm extension set \
@@ -260,7 +260,7 @@ az vm extension set \
 
 ### <a name="azure-cli-examples"></a>Azure CLI-exempel
 
-#### <a name="public-configuration-with-script-file"></a>Offentlig konfiguration med skriptfil
+#### <a name="public-configuration-with-script-file"></a>Offentlig konfiguration med skript fil
 
 ```json
 {
@@ -279,7 +279,7 @@ az vm extension set \
   --settings ./script-config.json
 ```
 
-#### <a name="public-configuration-with-no-script-file"></a>Offentlig konfiguration med inga skriptfil
+#### <a name="public-configuration-with-no-script-file"></a>Offentlig konfiguration utan skript fil
 
 ```json
 {
@@ -299,9 +299,9 @@ az vm extension set \
 
 #### <a name="public-and-protected-configuration-files"></a>Offentliga och skyddade konfigurationsfiler
 
-Du kan använda en offentlig konfigurationsfil för att ange skriptfil URI. Du kan använda en skyddad fil för att ange kommandot för att köras.
+Du kan använda en offentlig konfigurations fil för att ange skript filens URI. Du använder en skyddad konfigurations fil för att ange kommandot som ska köras.
 
-Offentliga konfigurationsfil:
+Offentlig konfigurations fil:
 
 ```json
 {
@@ -309,7 +309,7 @@ Offentliga konfigurationsfil:
 }
 ```
 
-Skyddade konfigurationsfil:  
+Skyddad konfigurations fil:  
 
 ```json
 {
@@ -330,19 +330,19 @@ az vm extension set \
 ```
 
 ## <a name="troubleshooting"></a>Felsökning
-När tillägget för anpassat skript körs skriptet skapas eller hämtas i en katalog som liknar följande exempel. Utdata från kommandot sparas även i den här katalogen i `stdout` och `stderr` filer.
+När det anpassade skript tillägget körs, skapas eller laddas skriptet ned till en katalog som liknar följande exempel. Kommandots utdata sparas också i den här katalogen i `stdout` och `stderr` filer.
 
 ```bash
 /var/lib/waagent/custom-script/download/0/
 ```
 
-Felsöka, först kontrollera loggen för Linux-agenten, kontrollera att tillägget har körts, kontrollera:
+Du kan felsöka genom att först kontrol lera loggen för Linux-agenten, se till att tillägget har körts, se:
 
 ```bash
 /var/log/waagent.log 
 ```
 
-Du bör se ut för tillägget körningen, det ser ut ungefär som:
+Du bör söka efter tilläggs körningen, det ser ut ungefär så här:
 ```text
 2018/04/26 17:47:22.110231 INFO [Microsoft.Azure.Extensions.customScript-2.0.6] [Enable] current handler state is: notinstalled
 2018/04/26 17:47:22.306407 INFO Event: name=Microsoft.Azure.Extensions.customScript, op=Download, message=Download succeeded, duration=167
@@ -355,16 +355,16 @@ Du bör se ut för tillägget körningen, det ser ut ungefär som:
 ```
 Några saker att tänka på:
 1. Aktivera är när kommandot börjar köras.
-2. Download som relaterar till hämtning av paketets CustomScript-tillägget från Azure, inte skriptfiler anges i fileUris.
+2. Hämtningen är relaterad till nedladdningen av CustomScript-tilläggs paketet från Azure, inte skriptfilerna som anges i fileUris.
 
 
-Azure-Skripttillägget resulterar i en logg som du hittar här:
+Azure-skriptets tillägg skapar en logg, som du hittar här:
 
 ```bash
 /var/log/azure/custom-script/handler.log
 ```
 
-Du bör se ut för enskilda körningen, det ser ut ungefär som:
+Du bör söka efter den enskilda körningen. den ser ut ungefär så här:
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check
@@ -390,12 +390,12 @@ time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=end
 ```
 Här kan du se:
-* Aktivera kommando startar är den här loggfilen
+* Kommandot Aktivera startar är den här loggen
 * Inställningarna som överförs till tillägget
-* Tillägget hämtar fil- och resultatet av den.
-* Det kommando som körs och resultatet.
+* Tillägget laddar ned filen och resultatet av det.
+* Kommandot som körs och resultatet.
 
-Du kan också hämta Körningstillståndet för tillägget för anpassat skript med hjälp av Azure CLI:
+Du kan också hämta körnings statusen för det anpassade skript tillägget med hjälp av Azure CLI:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM
@@ -414,5 +414,5 @@ info:    vm extension get command OK
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Kod, aktuella problem och versioner finns i [anpassad-skript-tillägg-linux lagringsplatsen](https://github.com/Azure/custom-script-extension-linux).
+Om du vill se kod, aktuella problem och versioner, se [lagrings platsen för anpassade skript-tillägg – Linux](https://github.com/Azure/custom-script-extension-linux).
 

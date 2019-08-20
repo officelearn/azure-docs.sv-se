@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: f8cb7458deddc95f33fa5e4582ffa7c25c3c64e6
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: ef006e94ee22886f1129c7c9ca31e20503312fe3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619824"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616936"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använd bulk executor Java-bibliotek för att utföra massåtgärder på Azure Cosmos DB-data
 
-Den här självstudiekursen innehåller instruktioner om hur du använder Azure Cosmos DB: s bulk executor Java-bibliotek för att importera och uppdatera Azure Cosmos DB-dokument. Läs om bulk executor biblioteket och hur den hjälper dig att utnyttja massivt dataflöde och lagring i [bulk executor biblioteksöversikt](bulk-executor-overview.md) artikeln. I den här självstudien får du skapa ett Java-program som genererar slumpmässiga dokument och de är samtidigt som importeras till en Azure Cosmos DB-behållare. När du har importerat, bulk uppdatera vissa egenskaper för ett dokument. 
+Den här självstudiekursen innehåller instruktioner om hur du använder Azure Cosmos DB: s bulk executor Java-bibliotek för att importera och uppdatera Azure Cosmos DB-dokument. Läs om bulk executor biblioteket och hur den hjälper dig att utnyttja massivt dataflöde och lagring i [bulk executor biblioteksöversikt](bulk-executor-overview.md) artikeln. I den här självstudien skapar du ett Java-program som genererar slumpmässiga dokument och de har Mass importer ATS till en Azure Cosmos-behållare. När du har importerat, bulk uppdatera vissa egenskaper för ett dokument. 
 
 För närvarande stöds inte bulk utförar-biblioteket av Azure Cosmos DB SQL API-och Gremlin API-konton. Den här artikeln beskriver hur du använder bulk utförar Java-bibliotek med SQL API-konton. Läs om hur du använder .NET-biblioteket för bulk-executor med Gremlin-API i [utföra massåtgärder i Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
 
@@ -88,7 +88,7 @@ Den klonade lagringsplatsen innehåller två exempel ”bulkimport” och ”bul
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
    ```
 
-4. Anropa importAll API som genererar slumpmässiga dokument om du vill Massuppdatera import till en Azure Cosmos DB-behållare. Du kan konfigurera kommandoraden-konfigurationer i filen CmdLineConfiguration.java.
+4. Anropa det inportal-API som genererar slumpmässiga dokument för Mass import till en Azure Cosmos-behållare. Du kan konfigurera kommandoraden-konfigurationer i filen CmdLineConfiguration.java.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
@@ -155,7 +155,7 @@ Du kan uppdatera befintliga dokument med hjälp av BulkUpdateAsync-API. I det h�
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. Anropa updateAll API som genererar slumpmässiga dokument för att sedan samtidigt som importeras till en Azure Cosmos DB-behållare. Du kan konfigurera konfigurationerna som kommandorad som ska skickas i CmdLineConfiguration.java-filen.
+2. Anropa updateAll-API: et som genererar slumpmässiga dokument som sedan Mass importer ATS till en Azure Cosmos-behållare. Du kan konfigurera konfigurationerna som kommandorad som ska skickas i CmdLineConfiguration.java-filen.
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
@@ -206,7 +206,7 @@ Tänk på följande för bättre prestanda när du använder bulk executor bibli
    * Ange i JVM. generace till ett tal som är tillräckligt stor för att undvika eventuella problem med minne för att hantera stora antal dokument. Föreslås stackstorlek: max (3GB, 3 * sizeof (alla dokument som skickats till bulk importera API i en batch)).  
    * Det finns en förbearbetning tid, vilket du får högre dataflöde när du utför massåtgärder med ett stort antal dokument. Om du vill importera 10 000 000 dokument är köra massimport 10 gånger på 10 största delen av dokument varje storlek 1 000 000 så bättre än att köra massimport 100 gånger på 100 största delen av dokument var och en av storlek på 100 000 dokument.  
 
-* Vi rekommenderar att skapa en instans av ett enda DocumentBulkExecutor-objekt för hela programmet i en enda virtuell dator som motsvarar en viss Azure Cosmos DB-behållare.  
+* Vi rekommenderar att instansiera ett enskilt DocumentBulkExecutor-objekt för hela programmet inom en enskild virtuell dator som motsvarar en viss Azure Cosmos-behållare.  
 
 * Eftersom ett enda API massåtgärder förbrukar en stor del av klientdatorns processor- och IO. Detta sker genom att skapa flera aktiviteter internt bör du undvika att skapa flera samtidiga aktiviteter i din programprocessen varje körs samtidigt åtgärden API-anrop. Om ett enda bulk åtgärden API-anrop som körs på en virtuell dator inte kan använda hela behållaren dataflöde (om din behållare dataflöde > 1 miljon RU/s), är det bättre att skapa separata virtuella datorer för att samtidigt köra grupp åtgärden API-anrop.
 

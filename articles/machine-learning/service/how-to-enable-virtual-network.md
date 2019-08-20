@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 1b5e3777109b13baa7d774a524664551798ba4ca
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: aab93e1ecd112f7ef9fdb0829469efa14aff2e98
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558201"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623995"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 
@@ -266,6 +266,8 @@ Gör så här om du vill använda en virtuell dator eller ett Azure HDInsight-kl
     Om du inte vill använda de utgående standard reglerna och du vill begränsa den utgående åtkomsten för ditt virtuella nätverk kan du läsa avsnittet [begränsa utgående anslutningar från det virtuella nätverket](#limiting-outbound-from-vnet) .
 
 1. Anslut den virtuella datorn eller HDInsight-klustret till din Azure Machine Learning service-arbetsyta. Mer information finns i [Konfigurera beräknings mål för modell träning](how-to-set-up-training-targets.md).
+
+<a id="aksvnet"></a>
 
 ## <a name="use-azure-kubernetes-service-aks"></a>Använda Azure Kubernetes service (AKS)
 

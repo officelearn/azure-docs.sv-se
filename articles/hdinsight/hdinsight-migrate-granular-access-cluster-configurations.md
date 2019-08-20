@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/09/2019
-ms.openlocfilehash: 1e5eb1e363ac9e282a72a9c1430c3f80c825bb91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a77310d0e45f095260d77ead0cfe14a3ce0ebd8e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945083"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623850"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
 
@@ -201,7 +201,7 @@ Om det fortfarande inte fungerar kontaktar du AAD-administratören för att få 
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>Vad händer om jag inte vidtar någon åtgärd?
 
-Och kommer inte längre att `GET /configurations/{configurationName}` returnera någon information och anropet kommer inte längre att returnera känsliga parametrar, till exempel lagrings konto nyckel eller kluster lösen ord. `POST /configurations/gateway` `GET /configurations` Samma sak gäller för motsvarande SDK-metoder och PowerShell-cmdletar.
+Anropen `POST /configurations/gateway` `GET /configurations/{configurationName}` och kommer inte längre att returnera någon information och anropet kommer inte längre att returnera känsliga parametrar, till exempel lagrings konto nycklar eller kluster lösen ord. `GET /configurations` Samma sak gäller för motsvarande SDK-metoder och PowerShell-cmdletar.
 
 Om du använder en äldre version av ett av verktygen för Visual Studio, VSCode, IntelliJ eller Sol förmörkelse som nämns ovan, fungerar de inte längre förrän du uppdaterar.
 

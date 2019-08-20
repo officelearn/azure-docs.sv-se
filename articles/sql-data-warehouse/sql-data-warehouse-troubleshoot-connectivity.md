@@ -10,64 +10,64 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d7f56b65db09232af4fe7e198675ea0cfd64a25
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 290753b866f15e09a52572fdd7a43a60fc2812d6
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595482"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575542"
 ---
-# <a name="troubleshooting-connectivity-issues"></a>Felsökning av problem med nätverksanslutningen
+# <a name="troubleshooting-connectivity-issues"></a>Felsöka anslutnings problem
 
-Den här artikeln innehåller vanliga felsökningstekniker runt ansluter till SQL Data Warehouse.
-- [Kontrollera tjänsttillgänglighet för](./sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [Sök efter pausad eller skalning](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
-- [Kontrollera dina brandväggsinställningar](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [Kontrollera inställningarna för virtuellt nätverk/tjänstens slutpunkt](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [Sök efter de senaste drivrutinerna](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
-- [Kontrollera anslutningssträngen](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
-- [Tillfälliga anslutningsproblem](./sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
+Den här artikeln innehåller vanliga fel söknings tekniker för att ansluta till din SQL Data Warehouse.
+- [Kontrol lera tjänstens tillgänglighet](./sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
+- [Sök efter pausad eller skalnings åtgärd](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
+- [Kontrol lera brand Väggs inställningarna](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
+- [Kontrol lera inställningarna för VNet/service-slutpunkt](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
+- [Sök efter de senaste driv rutinerna](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
+- [Kontrol lera anslutnings strängen](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
+- [Tillfälliga anslutnings problem](./sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
 - [Vanliga felmeddelanden](./sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
 
-## <a name="check-service-availability"></a>Kontrollera tjänsttillgänglighet för
+## <a name="check-service-availability"></a>Kontrol lera tjänstens tillgänglighet
 
-Kontrollera om tjänsten är tillgänglig. I Azure-portalen går du till SQL data warehouse som du försöker ansluta. I den vänstra innehållsförteckning-panelen, klickar du på **diagnostisera och lösa problem**.
+Kontrol lera om tjänsten är tillgänglig. I Azure Portal går du till SQL Data Warehouse som du försöker ansluta. Klicka på **diagnostisera och lös problem**i den vänstra panelen i innehålls förteckningen.
 
-![Välj Resource health](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
+![Välj resurs hälsa](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Status för SQL data warehouse visas här. Om tjänsten inte visas som **tillgänglig**, kontrollera ytterligare steg.
+Status för SQL Data Warehouse visas här. Om tjänsten inte visas som **tillgänglig**kontrollerar du ytterligare steg.
 
 ![Tjänsten är tillgänglig](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Om Resource health visar att ditt informationslager är pausat eller skalning, följer du anvisningarna för att återuppta ditt informationslager.
+Om din resurs hälsa visar att informations lagret har pausats eller skalas, följer du anvisningarna för att återuppta ditt informations lager.
 
-![Tjänsten pausas](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) ytterligare information om Resource Health finns här.
+![Tjänsten har pausats](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) ytterligare information om Resource Health finns här.
 
-## <a name="check-for-paused-or-scaling-operation"></a>Sök efter pausad eller skalning
+## <a name="check-for-paused-or-scaling-operation"></a>Sök efter pausad eller skalnings åtgärd
 
-Kontrollera portalen och se om ditt SQL data warehouse är pausad eller skalar.
+Kontrol lera portalen för att se om din SQL Data Warehouse har pausats eller skalats.
 
-![Tjänsten pausas](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Tjänsten har pausats](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Om du se att tjänsten är pausad eller skalning, kontrollera att det inte under ditt underhållsschema. På portalen för din SQL data warehouse *översikt*, utvalda underhållsschemat visas.
+Om du ser att tjänsten har pausats eller skalas kan du kontrol lera att den inte finns under ditt underhålls schema. I portalen för din SQL Data Warehouse *Översikt*visas schemat för valt underhåll.
 
-![Översikt över underhållsschema](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
+![Översikt över underhålls schema](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-I annat fall söker med IT-administratören att kontrollera att det här underhållet inte är en schemalagd händelse. Om du vill återuppta SQL data warehouse, följer du stegen som [här](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+Annars kan du kontakta IT-administratören för att kontrol lera att det här underhållet inte är en schemalagd händelse. Om du vill återuppta SQL Data Warehouse följer du stegen som beskrivs [här](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
 
-## <a name="check-your-firewall-settings"></a>Kontrollera dina brandväggsinställningar
+## <a name="check-your-firewall-settings"></a>Kontrol lera brand Väggs inställningarna
 
-SQL Database Warehouse kommunicerar via port 1433.   Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433. Mer information om brandväggskonfigurationer finns [här](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal).
+SQL Database Warehouse kommunicerar via port 1433.   Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till din Azure SQL Database-Server om inte din IT-avdelning öppnar port 1433. Ytterligare information om brand Väggs konfigurationer finns [här](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal).
 
-## <a name="check-your-vnetservice-endpoint-settings"></a>Kontrollera inställningarna för virtuellt nätverk/tjänstens slutpunkt
+## <a name="check-your-vnetservice-endpoint-settings"></a>Kontrol lera inställningarna för VNet/service-slutpunkt
 
-Om du har fått fel 40914 och 40615, se [felbeskrivning och matchning här](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
+Om du får fel 40914 och 40615, se [fel beskrivning och lösning här](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
 
-## <a name="check-for-the-latest-drivers"></a>Sök efter de senaste drivrutinerna
+## <a name="check-for-the-latest-drivers"></a>Sök efter de senaste driv rutinerna
 
 ### <a name="software"></a>Programvara
 
-Kontrollera att du använder de senaste verktygen för att ansluta till SQL data warehouse:
+Kontrol lera att du använder de senaste verktygen för att ansluta till din SQL Data Warehouse:
 
 * SSMS
 * Azure Data Studio
@@ -75,16 +75,16 @@ Kontrollera att du använder de senaste verktygen för att ansluta till SQL data
 
 ### <a name="drivers"></a>Drivrutiner
 
-Kontrollera att du använder de senaste drivrutinsversionerna.  Använder en äldre version av drivrutinerna kan resultera i oväntade beteenden som inte kanske äldre drivrutiner har stöd för nya funktioner.
+Kontrol lera att du använder de senaste driv rutins versionerna.  Om du använder en äldre version av driv rutinerna kan det leda till oväntade beteenden eftersom de äldre driv rutinerna kanske inte stöder nya funktioner.
 
 * [ODBC](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server)
 * [JDBC](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
 * [OLE DB](https://docs.microsoft.com/sql/connect/oledb/download-oledb-driver-for-sql-server)
 * [PHP](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server)
 
-## <a name="check-your-connection-string"></a>Kontrollera anslutningssträngen
+## <a name="check-your-connection-string"></a>Kontrol lera anslutnings strängen
 
-Kontrollera att anslutningssträngarna är korrekt inställda.  Nedan visas några exempel.  Du hittar mer information kring [anslutning strängar här](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
+Kontrol lera att anslutnings strängarna är korrekt inställda.  Nedan visas några exempel.  Du hittar ytterligare information kring [anslutnings strängarna här](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
 
 ADO.NET-anslutningssträng
 
@@ -110,13 +110,13 @@ JDBC-anslutningssträng
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
-## <a name="intermittent-connection-issues"></a>Tillfälliga anslutningsproblem
+## <a name="intermittent-connection-issues"></a>Tillfälliga anslutnings problem
 
-Kontrollera om du upplever hård belastning på servern med ett stort antal begäranden i kö. Du kan behöva skala upp ditt informationslager för ytterligare resurser.
+Kontrol lera om du är hårt belastad på servern med ett stort antal köade begär Anden. Du kan behöva skala upp data lagret för ytterligare resurser.
 
 ## <a name="common-error-messages"></a>Vanliga felmeddelanden
 
-Fel 40914 och 40615, finns i den [felbeskrivning och matchning här](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
+Fel 40914 och 40615, se [fel beskrivningen och lösningen här](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
 
 ## <a name="still-having-connectivity-issues"></a>Har du fortfarande problem med anslutningen?
-Skapa en [supportärende](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) så att du har stöd för det tekniska teamet.
+Skapa ett [support ärende](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) så att teknik teamet kan stödja dig.

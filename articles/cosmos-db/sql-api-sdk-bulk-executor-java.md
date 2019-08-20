@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: 134a4e42b779c199b7846dabd1f5158c86c5a146
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 018c8f7895669d437b129d92a840a393e2453a79
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638614"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624652"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java-utförar för Mass bibliotek: Hämta information
 
@@ -33,9 +33,9 @@ ms.locfileid: "68638614"
 
 | |  |
 |---|---|
-|**Beskrivning**|Med bulk utförar-biblioteket kan klient program utföra Mass åtgärder i Azure Cosmos DB konton. i bulk utförar-biblioteket finns BulkImport-och BulkUpdate-namnrymder. BulkImport-modulen kan samla in dokument på ett optimerat sätt, så att det data flöde som har allokerats för en samling förbrukas i maximal omfattning. BulkUpdate-modulen kan Mass uppdatera befintliga data i Azure Cosmos DB behållare som korrigeringar.|
+|**Beskrivning**|Med bulk utförar-biblioteket kan klient program utföra Mass åtgärder i Azure Cosmos DB konton. i bulk utförar-biblioteket finns BulkImport-och BulkUpdate-namnrymder. BulkImport-modulen kan samla in dokument på ett optimerat sätt, så att det data flöde som har allokerats för en samling förbrukas i maximal omfattning. BulkUpdate-modulen kan massredigera befintliga data i Azure Cosmos-behållare som korrigeringsfiler.|
 |**Hämta SDK**|[Maven 3.](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
-|**BulkExecutor-bibliotek i GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
+|**Mass utförar-bibliotek i GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
 | **API-dokumentation**| [.NET API-referensdokumentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Kom igång**|[Kom igång med bulk utförar Library Java SDK](bulk-executor-java.md)|
 |**Lägsta stödda körningar**|[Java Development Kit (JDK 7 +)](https://aka.ms/azure-jdks)|

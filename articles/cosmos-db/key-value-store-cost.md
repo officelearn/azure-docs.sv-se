@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 757366f1d1f94d11438be4df0772ce1155f71cee
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 3758766b1051acb9321ec67727eecef249971065
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310574"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615096"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB som ett nyckelvärde – kostnaden översikt
 
 Azure Cosmos DB är en globalt distribuerad databastjänst för att bygga högtillgängliga, storskaliga program enkelt. Azure Cosmos DB indexerar automatiskt alla data som den matar in, effektivt som standard. Detta möjliggör snabbt och konsekvent [SQL](how-to-sql-query.md) (och [JavaScript](stored-procedures-triggers-udfs.md)) frågor för alla typer av data. 
 
-Den här artikeln beskriver kostnaden för Azure Cosmos DB för skrivning enkla och läsåtgärder när den används som en nyckel/värde-lager. Skriva-åtgärder inkluderar infogningar, ersätter, borttagningar och upsertar av dokument. Förutom, vilket ger en 99,99% tillgänglighet för alla och alla konton i flera regioner med Avslappnad konsekvens och 99,999% läsningstillgänglighet för alla databaskonton, Azure Cosmos DB erbjuder garanterad < 10 ms svarstid för läsningar och för (indexerade) skrivningar, den 99: e percentilen. 
+Den här artikeln beskriver kostnaden för Azure Cosmos DB för skrivning enkla och läsåtgärder när den används som en nyckel/värde-lager. Skriva-åtgärder inkluderar infogningar, ersätter, borttagningar och upsertar av dokument. Förutom att garantera ett service avtal på 99,99% tillgänglighet för alla enkla region konton och alla konton med flera regioner med avslappnad konsekvens och 99,999% Läs tillgänglighet för alla databas konton i flera regioner, Azure Cosmos DB ger garanterad < 10 MS-svars tid för läser och för (indexerade) skrivningar i 99 percentilen. 
 
 ## <a name="why-we-use-request-units-rus"></a>Varför vi använder programbegäran (ru: er)
 
 Azure Cosmos DB-prestanda är baserad på mängden etablerade [programbegäran](request-units.md) (RU) för partitionen. Etableringen är med en andra Precision och köps i ru/sek ([ska inte förväxlas med fakturering per timme](https://azure.microsoft.com/pricing/details/cosmos-db/)). RU: er bör betraktas som en valuta som förenklar etableringen av nödvändiga genomströmning för programmet. Våra kunder behöver inte tänka på hur man skiljer mellan läsa och skriva kapacitetsenheter. Den enda valuta modellen med enheter för programbegäran skapar effektivitet om du vill dela etablerad kapacitet mellan läsningar och skrivningar. Den här modellen etablerad kapacitet gör att tjänsten en förutsägbar och konsekvent dataflöde garanterad låg latens och hög tillgänglighet. Slutligen kan vi använda RU att modellen dataflöde, men varje etablerade RU har också en definierad mängd resurser (minne, Core). RU/sek är inte bara IOPS.
 
-Cosmos DB är endast Azure-tjänst som tillhandahåller ett serviceavtal på svarstid, dataflöde och enhetlighet förutom hög tillgänglighet som ett globalt distribuerade databassystem. Dataflödet som du etablerar tillämpas på var och en av de regioner som associeras med din Cosmos DB-databaskonto. För läsningar, Cosmos DB erbjuder flera väldefinierade [konsekvensnivåer](consistency-levels.md) där du kan välja från. 
+Cosmos DB är endast Azure-tjänst som tillhandahåller ett serviceavtal på svarstid, dataflöde och enhetlighet förutom hög tillgänglighet som ett globalt distribuerade databassystem. Det data flöde som du etablerar tillämpas på var och en av de regioner som är kopplade till ditt Cosmos Database-konto. För läsningar, Cosmos DB erbjuder flera väldefinierade [konsekvensnivåer](consistency-levels.md) där du kan välja från. 
 
 I följande tabell visas antalet mediereserverade enheter som krävs för att utföra läsa och skriva transaktioner på dokumentstorlek av 1 KB och 100 kB-artiklar.
 

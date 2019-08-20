@@ -1,30 +1,30 @@
 ---
-title: Migrera icke-partitionerad Azure Cosmos DB-behållare till partitionerad behållare
-description: Lär dig hur du migrerar alla befintliga icke-partitionerad behållare i partitionerad behållare.
+title: Migrera icke-partitionerade Azure Cosmos-behållare till partitionerade behållare
+description: Lär dig hur du migrerar alla befintliga icke-partitionerade behållare till partitionerade behållare.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8ba9489496a8f9e3703702e344684b4028a002cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d51c200ebff0d92b1bcdf2c8e3e0325103e214b7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241930"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615024"
 ---
-# <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrera icke-partitionerad behållare till partitionerad behållare
+# <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrera icke-partitionerade behållare till partitionerade behållare
 
-Azure Cosmos DB stöder skapa behållare utan någon partitionsnyckel. För närvarande kan du skapa icke-partitionerad behållare med hjälp av Azure CLI och Azure Cosmos DB SDK (.Net, Java, NodeJs) som har en version som är mindre än eller lika med till 2.x. Du kan inte skapa icke-partitionerad behållare med hjälp av Azure-portalen. Sådana icke-partitionerad behållare är inte elastisk och har åtgärdat lagringskapacitet på 10 GB och dataflöde gränsen på 10 K RU/s.
+Azure Cosmos DB har stöd för att skapa behållare utan en partitionsnyckel. För närvarande kan du skapa icke-partitionerade behållare med hjälp av Azure CLI och Azure Cosmos DB SDK: er (.net, Java, NodeJs) som har en version som är mindre än eller lika med 2. x. Du kan inte skapa icke-partitionerade behållare med hjälp av Azure Portal. Sådana icke-partitionerade behållare är dock inte elastiska och har en fast lagrings kapacitet på 10 GB och data flödes gränsen på 10 000 RU/s.
 
-De icke-partitionerad behållarna äldre och du bör migrera dina befintliga icke-partitionerad behållare till partitionerad behållare för att skala lagringsutrymme och dataflöde. Azure Cosmos DB erbjuder en systemdefinierade mekanism för att migrera dina icke-partitionerad behållare till partitionerad behållare. Det här dokumentet beskriver hur alla befintliga icke-partitionerad behållare är automatisk migreras till partitionerad behållare. Du kan dra nytta av funktionen för automatisk migrering bara om du använder den V3-versionen av SDK: er på alla språk.
+Icke-partitionerade behållare är äldre och du bör migrera befintliga icke-partitionerade behållare till partitionerade behållare för att skala lagring och data flöde. Azure Cosmos DB innehåller en systemdefinierad mekanism för att migrera icke-partitionerade behållare till partitionerade behållare. I det här dokumentet beskrivs hur alla befintliga icke-partitionerade behållare automatiskt migreras till partitionerade behållare. Du kan bara dra nytta av funktionen för automatisk migrering om du använder v3-versionen av SDK: er på alla språk.
 
 > [!NOTE] 
-> För närvarande kan migrera du inte konton för Azure Cosmos DB MongoDB och Gremlin-API med hjälp av stegen som beskrivs i det här dokumentet. 
+> För närvarande kan du inte migrera Azure Cosmos DB MongoDB-och Gremlin API-konton med hjälp av stegen som beskrivs i det här dokumentet. 
 
-## <a name="migrate-container-using-the-system-defined-partition-key"></a>Migrera behållare med Partitionsnyckeln systemdefinierade
+## <a name="migrate-container-using-the-system-defined-partition-key"></a>Migrera behållare med den systemdefinierade partitionsnyckel
 
-För att stödja migrering, Azure Cosmos DB definierar en systemdefinierade partitionsnyckel med namnet `/_partitionkey` på alla behållare som inte har en partitionsnyckel. Du kan inte ändra definitionen av en partition när behållarna har migrerats. Till exempel debiteras definitionen av en behållare som har migrerats till en partitionerad behållare enligt följande: 
+För att stödja migreringen definierar Azure Cosmos DB en systemdefinierad partitionsnyckel med `/_partitionkey` namnet på alla behållare som inte har någon partitionsnyckel. Du kan inte ändra partitionens nyckel definition efter att behållarna har migrerats. Definitionen av en behållare som migreras till en partitionerad behållare är till exempel följande: 
 
 ```json
 {
@@ -38,14 +38,14 @@ För att stödja migrering, Azure Cosmos DB definierar en systemdefinierade part
 }
 ```
  
-När behållaren har migrerats, kan du skapa dokument genom att fylla i `_partitionKey` egenskapen tillsammans med andra egenskaper för dokumentet. Den `_partitionKey` egenskap representerar Partitionsnyckeln för dina dokument. 
+När behållaren har migrerats kan du skapa dokument genom att fylla i `_partitionKey` egenskapen tillsammans med de andra egenskaperna för dokumentet. `_partitionKey` Egenskapen representerar partitionens partitionsnyckel. 
 
-Välja rätt Partitionsnyckeln är viktigt att använda det etablerade dataflödet optimalt. Mer information finns i [hur du väljer en partitionsnyckel](partitioning-overview.md) artikeln. 
+Det är viktigt att välja rätt partitionsnyckel för att använda det etablerade data flödet optimalt. Mer information finns i [så här väljer du en partitionsnyckel](partitioning-overview.md) . 
 
 > [!NOTE]
-> Du kan dra nytta av system definierad partitionsnyckel endast om du använder den senaste/V3-versionen av SDK: er på alla språk.
+> Du kan bara dra nytta av systemdefinierad partitionsnyckel om du använder den senaste/v3-versionen av SDK: er på alla språk.
 
-I följande exempel visas en exempelkod för att skapa ett dokument med system definierad partitionsnyckel och läsa dokumentet:
+I följande exempel visas en exempel kod för att skapa ett dokument med den systemdefinierade partitionsnyckel och läsa dokumentet:
 
 **JSON-representation av dokumentet**
 
@@ -91,15 +91,15 @@ CosmosItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-Hela exemplet finns det [.Net-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub-lagringsplatsen. 
+Det fullständiga exemplet finns i .net- [exempel](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub-lagringsplatsen. 
                       
 ## <a name="migrate-the-documents"></a>Migrera dokumenten
 
-Medan behållardefinitionen har förbättrats med en partition nyckelegenskap så dokumenten i behållaren inte automatiskt migrerats. Vilket innebär att systemet partition nyckelegenskapen `/_partitionKey` sökväg läggs inte automatiskt till de befintliga dokument. Du måste partitionera om befintliga dokument genom att läsa dokument som har skapats utan någon partitionsnyckel och skriva om dem med `_partitionKey` -egenskapen i dokumenten. 
+Medan behållar definitionen har förbättrats med en partitionsnyckel, migreras inte dokumenten i behållaren automatiskt. Vilket innebär att `/_partitionKey` sökvägen till system partition Key inte automatiskt läggs till i de befintliga dokumenten. Du måste partitionera om de befintliga dokumenten genom att läsa dokumenten som har skapats utan en partitionsnyckel och skriva tillbaka dem igen med `_partitionKey` egenskapen i dokumenten. 
 
-## <a name="access-documents-that-dont-have-a-partition-key"></a>Få åtkomst till dokument som inte har en partitionsnyckel
+## <a name="access-documents-that-dont-have-a-partition-key"></a>Åtkomst till dokument som saknar partitionsnyckel
 
-Program kan komma åt de befintliga dokument som inte har en partitionsnyckel med hjälp av Systemegenskapen särskilda som kallas ”CosmosContainerSettings.NonePartitionKeyValue”, det här är värdet för icke-migrerade-dokument. Du kan använda den här egenskapen i alla CRUD- och åtgärder. I följande exempel visas ett exempel för att läsa ett enstaka dokument från NonePartitionKey. 
+Program har åtkomst till befintliga dokument som saknar partitionsnyckel med hjälp av den särskilda system egenskapen som kallas "CosmosContainerSettings. NonePartitionKeyValue", detta är värdet för de dokument som inte har migrerats. Du kan använda den här egenskapen i alla CRUD-och Query-åtgärder. I följande exempel visas ett exempel på hur du kan läsa ett enda dokument från NonePartitionKey. 
 
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 
@@ -110,17 +110,17 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-Komplett exempel på hur du partitionera om dokumenten finns det [.Net-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub-lagringsplatsen. 
+Det fullständiga exemplet på hur du partitionerar om dokumenten finns i [.net-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub-lagringsplatsen. 
 
 ## <a name="compatibility-with-sdks"></a>Kompatibilitet med SDK: er
 
-Äldre version av Azure Cosmos DB SDK: er, till exempel V2.x.x och V1.x.x stöder inte nyckelegenskapen systemdefinierade partition. När du läser behållardefinitionen från en äldre SDK kan den innehåller inte någon definition av en partition och de här behållarna fungerar precis som tidigare. Program som har skapats med den äldre versionen av SDK: er fortsätta arbeta med icke-partitionerad skick utan ändringar. 
+En äldre version av Azure Cosmos DB SDK: er, till exempel v2. x. x och v1. x. x, har inte stöd för den systemdefinierade partitionerings nyckel egenskapen. När du läser behållar definitionen från en äldre SDK innehåller den inte heller någon partitionsnyckel och dessa behållare fungerar precis som tidigare. Program som har skapats med den äldre versionen av SDK: er fortsätter att fungera med icke-partitionerade som är utan några ändringar. 
 
-Om en migrerad behållare används av den senaste/V3-versionen av SDK och du börjar fyllas Partitionsnyckeln som definieras i de nya dokument, kan du inte kommer åt (läsa, uppdatera, ta bort, fråga) dokument, till exempel från äldre SDK: erna längre.
+Om en migrerad behållare används av den senaste/v3-versionen av SDK och du börjar fylla i den systemdefinierade partitionsnyckel i de nya dokumenten, kan du inte komma åt (läsa, uppdatera, ta bort, fråga) sådana dokument från de äldre SDK: erna längre.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 * [Enheter för programbegäran i Azure Cosmos DB](request-units.md)
-* [Etablera dataflöde på behållare och databaser](set-throughput.md)
+* [Etablera data flöde på behållare och databaser](set-throughput.md)
 * [Arbeta med Azure Cosmos-konto](account-overview.md)

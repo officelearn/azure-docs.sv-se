@@ -1,60 +1,60 @@
 ---
-title: Felsöka ett långsamt eller felaktigt jobb på ett HDInsight-kluster – Azure HDInsight
-description: Diagnostisera och felsöka ett långsamt eller felaktigt HDInsight-kluster.
+title: Felsöka ett långsamt eller misslyckat jobb i ett HDInsight-kluster – Azure HDInsight
+description: Diagnostisera och Felsök ett långsamt eller misslyckat HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 03/19/2019
-ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: b7afeee554a1faee9507f0a891803024f3bc11e4
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203631"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573597"
 ---
-# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Felsöka ett långsamt eller felaktigt jobb på ett HDInsight-kluster
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Felsöka ett jobb som är långsamt eller som inte fungerar i ett HDInsight-kluster
 
-Om ett program som bearbetar data på ett HDInsight-kluster är antingen långsam eller misslyckas med felkoden, du har flera alternativ för felsökning. Om dina jobb tar längre tid än förväntat eller om du ser långa svarstider i allmänhet, kan det finnas fel uppströms från ditt kluster, till exempel de tjänster som körs på klustret. Den vanligaste orsaken till dessa fördröjningar är dock inte tillräckligt med skalning. När du skapar ett nytt HDInsight-kluster väljer du lämplig [storlekar för virtuella datorer](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Om ett program som bearbetar data i ett HDInsight-kluster antingen körs långsamt eller om en felkod uppstår, har du flera fel söknings alternativ. Om jobben tar längre tid att köra än förväntat, eller om du ser långsamma svars tider i allmänhet, kan det hända att det inte går att strömma från klustret, till exempel de tjänster som klustret kör. Den vanligaste orsaken till den här minskningen är dock inte tillräcklig för skalning. När du skapar ett nytt HDInsight-kluster väljer du lämpliga [storlekar för virtuella datorer](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
-Samla in information om alla aspekter av miljön, till exempel tillhörande Azure-tjänster och konfiguration av klustrets jobbinformation för körning för att diagnostisera ett långsamt eller felaktigt kluster. En bra diagnostik är att försöka återskapa feltillstånd i ett annat kluster.
+Om du vill diagnostisera ett långsamt eller misslyckat kluster samlar du in information om alla aspekter av miljön, till exempel associerade Azure-tjänster, kluster konfiguration och information om jobb körning. En användbar diagnostik är att försöka återskapa fel tillstånd i ett annat kluster.
 
 * Steg 1: Samla in data om problemet.
-* Steg 2: Validera miljön för HDInsight-kluster.
-* Steg 3: Visa hälsotillstånd för ditt kluster.
-* Steg 4: Granska miljö stack och versioner.
+* Steg 2: Verifiera HDInsight-klustrets miljö.
+* Steg 3: Visa klustrets hälsa.
+* Steg 4: Granska miljö stacken och-versionerna.
 * Steg 5: Granska loggfilerna för klustret.
-* Steg 6: Kontrollera konfigurationsinställningarna.
+* Steg 6: Kontrol lera konfigurations inställningarna.
 * Steg 7: Återskapa felet på ett annat kluster.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>Steg 1: Samla in data om problemet
 
-HDInsight innehåller många verktyg som du kan använda för att identifiera och Felsök problem med kluster. Följande steg hjälper dig att dessa verktyg och ge förslag för att lokalisera problemet.
+HDInsight innehåller många verktyg som du kan använda för att identifiera och felsöka problem med kluster. Följande steg vägleder dig genom de här verktygen och ger förslag på att hitta problemet.
 
 ### <a name="identify-the-problem"></a>Identifiera problemet
 
-För att identifiera problemet, beakta följande frågor:
+Du kan identifiera problemet genom att tänka på följande frågor:
 
-* Vad jag förvänta mig ske? Vad hände istället?
-* Hur lång tid processen tog för att köra? Hur lång tid ska den ha köras?
-* Har mina aktiviteter alltid körs långsamt i det här klustret? De kördes snabbare på ett annat kluster?
-* När det här problemet första gången? Hur ofta har det skett sedan?
-* Ändrats något i min klusterkonfiguration?
+* Vad förväntades mig? Vad hände i stället?
+* Hur lång tid tar det att köra processen? Hur lång tid tar det att köra?
+* Ska mina aktiviteter alltid köras långsamt i det här klustret? Kördes de snabbare på ett annat kluster?
+* När gjorde detta problem först? Hur ofta har det hänt sedan?
+* Har allt ändrats i min kluster konfiguration?
 
-### <a name="cluster-details"></a>Information om kluster
+### <a name="cluster-details"></a>Klusterinformation
 
-Viktig information om klustret innehåller:
+Viktig kluster information innehåller:
 
-* Klustrets namn.
-* Kluster region - Sök efter [region avbrott](https://azure.microsoft.com/status/).
-* Typ av HDInsight-kluster och version.
-* Typ och antal HDInsight-instanser som angetts för huvud- och worker-noder.
+* Kluster namn.
+* Kluster region – Sök efter [regions avbrott](https://azure.microsoft.com/status/).
+* HDInsight-kluster typ och-version.
+* Typ av och antal HDInsight-instanser som angetts för Head-och Worker-noderna.
 
-Azure-portalen kan ge den här informationen:
+Azure Portal kan ange den här informationen:
 
-![HDInsight-Azure-portalen Information](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
+![HDInsight Azure Portal information](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
 Du kan också använda [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
@@ -63,206 +63,206 @@ az hdinsight list --resource-group <ResourceGroup>
 az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
-Ett annat alternativ med hjälp av PowerShell. Mer information finns i [hantera Apache Hadoop-kluster i HDInsight med Azure PowerShell](hdinsight-administer-use-powershell.md).
+Ett annat alternativ är att använda PowerShell. Mer information finns i [hantera Apache Hadoop kluster i HDInsight med Azure PowerShell](hdinsight-administer-use-powershell.md).
 
-## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Steg 2: Validera miljön för HDInsight-kluster
+## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Steg 2: Verifiera HDInsight-klustrets miljö
 
-Varje HDInsight-kluster förlitar sig på olika Azure-tjänster och programvara med öppen källkod, till exempel Apache HBase- och Apache Spark. HDInsight-kluster kan du även anropa på andra Azure-tjänster, till exempel virtuella Azure-nätverk.  Ett klusterfel kan orsakas av någon av tjänsterna som körs i klustret eller genom att en extern tjänst.  En konfigurationsändring för kluster-tjänsten kan också orsaka klustret slutar fungera.
+Varje HDInsight-kluster förlitar sig på olika Azure-tjänster och på program med öppen källkod som Apache HBase och Apache Spark. HDInsight-kluster kan också anropa andra Azure-tjänster, till exempel virtuella Azure-nätverk.  Ett kluster fel kan orsakas av alla tjänster som körs i klustret eller av en extern tjänst.  En konfigurations ändring i kluster tjänsten kan även orsaka att klustret slutar fungera.
 
 ### <a name="service-details"></a>Tjänstinformation
 
-* Kontrollera slutversionerna bibliotek med öppen källkod.
-* Sök efter [Azure tjänstavbrott](https://azure.microsoft.com/status/).  
-* Sök efter Azure-tjänsten användningsbegränsningar. 
-* Kontrollera konfigurationen för Azure Virtual Network-undernät.  
+* Kontrol lera biblioteks versionerna med öppen källkod.
+* Kontrol lera om det finns [avbrott i Azure-tjänsten](https://azure.microsoft.com/status/).  
+* Sök efter begränsningar för Azure-tjänstens användning. 
+* Kontrol lera Azure Virtual Network Subnet-konfigurationen.  
 
-### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visa inställningar för klustrets med Ambari UI
+### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visa kluster konfigurations inställningar med Ambari-ANVÄNDARGRÄNSSNITTET
 
-Apache Ambari ger hantering och övervakning av ett HDInsight-kluster med ett webbgränssnitt och ett REST-API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj den **Klusterinstrumentpanel** fönstret på Azure HDInsight portalsidan.  Välj den **HDInsight-klusterinstrumentpanel** fönstret för att öppna Ambari UI och ange autentiseringsuppgifterna för klusterinloggning.  
+Apache Ambari tillhandahåller hantering och övervakning av ett HDInsight-kluster med ett webb gränssnitt och en REST API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj fönstret **kluster instrument panel** på sidan Azure Portal HDInsight.  Välj **panelen för kluster instrument panelen i HDInsight** för att öppna AMBARI-användargränssnittet och ange autentiseringsuppgifter för inloggning för klustret.  
 
 ![Ambari-Användargränssnittet](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
 
-Om du vill öppna en lista över service-vyerna, Välj **Ambari-vyer** på sidan för Azure portal.  Den här listan beror på vilka bibliotek som är installerade. Du kan till exempel se köhanteraren YARN, Hive-vyerna och Tez.  Välj en tjänst-länk för att se konfigurations- och tjänstinformation.
+Öppna en lista över tjänstevyer genom att välja **Ambari-vyer** på sidan Azure Portal.  Den här listan beror på vilka bibliotek som är installerade. Du kan till exempel se garn Queue Manager, Hive och Tez vy.  Välj en tjänst länk om du vill visa information om konfigurationen och tjänsten.
 
-#### <a name="check-for-azure-service-outages"></a>Sök efter Azure tjänstavbrott
+#### <a name="check-for-azure-service-outages"></a>Sök efter avbrott i Azure-tjänsten
 
-HDInsight är beroende av flera Azure-tjänster. Den körs virtuella servrar på Azure HDInsight lagrar data och skript på Azure Blob storage eller Azure Data Lake Storage och index loggfiler i Azure Table storage. Avbrott i tjänsterna, kan även om det är sällsynt, orsaka problem i HDInsight. Om du har oväntat kapacitetssänkningar eller fel i klustret och kontrollera den [instrumentpanelen för Azure](https://azure.microsoft.com/status/). Status för varje tjänst anges per region. Kontrollera ditt kluster region, och som också regioner för eventuella relaterade tjänster.
+HDInsight förlitar sig på flera Azure-tjänster. Den kör virtuella servrar på Azure HDInsight, lagrar data och skript på Azure Blob Storage eller Azure Data Lake Storage och indexerar loggfiler i Azure Table Storage. Avbrott i dessa tjänster, även om det är sällsynt, kan orsaka problem i HDInsight. Om du har oväntade avbrott eller fel i klustret kan du kontrol lera [instrument panelen för Azure-status](https://azure.microsoft.com/status/). Status för varje tjänst visas efter region. Kontrol lera klustrets region och även regioner för relaterade tjänster.
 
-#### <a name="check-azure-service-usage-limits"></a>Kontrollera Azure-tjänsten användningsbegränsningar
+#### <a name="check-azure-service-usage-limits"></a>Kontrol lera användnings gränser för Azure-tjänsten
 
-Om du startar ett stort kluster, eller har lanserat många kluster samtidigt, kan ett kluster misslyckas om du har överskridit gränsen för en Azure-tjänsten. Tjänstbegränsningar varierar beroende på din Azure-prenumeration. Mer information finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits).
-Du kan begära att Microsoft öka antalet HDInsight-resurser som är tillgängliga (till exempel Virtuella kärnor och VM-instanser) med en [Resource Manager core ökning kvotförfrågan](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Om du startar ett stort kluster eller har lanserat flera kluster samtidigt, kan ett kluster inte köras om du har överskridit en Azure-tjänstegräns. Tjänst gränserna varierar beroende på din Azure-prenumeration. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Du kan begära att Microsoft ökar antalet tillgängliga HDInsight-resurser (till exempel virtuella dator kärnor och VM-instanser) med en [bas kvot för Resource Manager-begäranden](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-#### <a name="check-the-release-version"></a>Kontrollera den utgivna versionen
+#### <a name="check-the-release-version"></a>Kontrol lera slut versionen
 
-Jämför klusterversionen med den senaste versionen av HDInsight. Varje HDInsight-versionen innehåller nya program, funktioner, korrigeringar och felkorrigeringar. Det problem som påverkar ditt kluster kanske har åtgärdats i den senaste versionen. Om möjligt kör klustret använder den senaste versionen av HDInsight och associerade bibliotek som Apache HBase, Apache Spark och andra.
+Jämför kluster versionen med den senaste versionen av HDInsight. Varje HDInsight-utgåva innehåller förbättringar som nya program, funktioner, korrigeringar och fel korrigeringar. Problemet som påverkar klustret kan ha åtgärd ATS i den senaste versionen. Om möjligt kan du köra klustret igen med den senaste versionen av HDInsight och associerade bibliotek som Apache HBase, Apache Spark och andra.
 
-#### <a name="restart-your-cluster-services"></a>Starta om din klustertjänster
+#### <a name="restart-your-cluster-services"></a>Starta om dina kluster tjänster
 
-Överväg att starta om dina tjänster via Ambari UI eller den klassiska Azure-CLI om du upplever fördröjningar i klustret. Klustret kan bero på tillfälliga fel och starta om är det snabbaste sättet att stabilisera din miljö och eventuellt förbättra prestanda.
+Om du upplever långsammare i klustret kan du överväga att starta om tjänsterna via Ambari-ANVÄNDARGRÄNSSNITTET eller den klassiska Azure-CLI. Klustret kan drabbas av tillfälliga fel och det snabbaste sättet att starta om miljön är att öka prestandan.
 
-## <a name="step-3-view-your-clusters-health"></a>Steg 3: Visa din klusterhälsa
+## <a name="step-3-view-your-clusters-health"></a>Steg 3: Visa klustrets hälsa
 
-HDInsight-kluster består av olika typer av noder som körs på instanser av virtuella datorer. Varje nod kan övervakas för negativa effekter på resurser, problem med nätverksanslutningen och andra problem som kan sakta ned klustret. Varje kluster innehåller två huvudnoder och de flesta klustertyper innehålla en kombination av worker och kantnoder. 
+HDInsight-kluster består av olika typer av noder som körs på virtuella dator instanser. Varje nod kan övervakas för resurs effekter, problem med nätverks anslutningen och andra problem som kan sakta ned klustret. Varje kluster innehåller två huvudnoder och de flesta kluster typerna innehåller en kombination av arbetar-och Edge-noder. 
 
-En beskrivning av de olika noderna som används av varje typ av kluster finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
+En beskrivning av de olika noderna som varje kluster typ använder finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
-I följande avsnitt beskrivs hur du kontrollerar hälsotillståndet för varje nod och i hela klustret.
+I följande avsnitt beskrivs hur du kontrollerar hälsan för varje nod och det övergripande klustret.
 
-### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>En ögonblicksbild av klusterhälsa med hjälp av Ambari UI-instrumentpanel
+### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Få en ögonblicks bild av kluster hälsan med hjälp av instrument panelen för Ambari-gränssnittet
 
-Den [Ambari UI instrumentpanelen](#view-cluster-configuration-settings-with-the-ambari-ui) (`https://<clustername>.azurehdinsight.net`) innehåller en översikt över klusterhälsa, till exempel drifttid, minne, nätverks- och CPU-användning, HDFS diskanvändning och så vidare. Använd avsnittet värdar i Ambari om du vill visa resurser på en värdnivå. Du kan även stoppa och starta om tjänsterna.
+[Instrument panelen för Ambari](#view-cluster-configuration-settings-with-the-ambari-ui) -`https://<clustername>.azurehdinsight.net`gränssnittet () innehåller en översikt över kluster hälsa, till exempel drift tid, minne, nätverk och CPU-användning, HDFS disk användning och så vidare. Använd avsnittet värdar i Ambari om du vill visa resurser på en värd nivå. Du kan även stoppa och starta om tjänster.
 
-### <a name="check-your-webhcat-service"></a>Kontrollera din WebHCat-tjänst
+### <a name="check-your-webhcat-service"></a>Kontrol lera din WebHCat-tjänst
 
-Ett vanligt scenario för Apache Hive, Apache Pig eller Apache Sqoop jobb misslyckas uppstår ett fel med den [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (eller *Templeton*) service. WebHCat är ett REST-gränssnitt för körning av Fjärrjobb, till exempel Hive, Pig, dig mer och MapReduce. WebHCat översätter jobbet inskickade önskemål till Apache Hadoop YARN-program och returnerar en status som härletts från statusen för YARN-programmet.  I följande avsnitt beskrivs vanliga WebHCat HTTP-statuskoder.
+Ett vanligt scenario för Apache Hive-, Apache gris-eller Apache Sqoop-jobb Miss lyckas är ett problem med [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) -tjänsten (eller *Templeton*). WebHCat är ett REST-gränssnitt för fjärrkörning av jobb, till exempel Hive, gris, bilden och MapReduce. WebHCat översätter jobb sändnings begär anden till Apache Hadoop garn program, och returnerar en status som härletts från form av garn program.  I följande avsnitt beskrivs vanliga status koder för WebHCat HTTP.
 
-#### <a name="badgateway-502-status-code"></a>BadGateway (502 statuskod)
+#### <a name="badgateway-502-status-code"></a>BadGateway (502 status kod)
 
-Detta är ett allmänt meddelande från gateway-noder och är de vanligaste statuskoden för felet. En möjlig orsak till detta är den WebHCat-tjänst som håller ned på den aktiva huvudnoden. Om du vill söka efter den här risken, använder du följande CURL-kommando:
+Den här koden är ett allmänt meddelande från Gateway-noderna och är de vanligaste fel status koderna. En möjlig orsak till detta är att WebHCat-tjänsten är nere på den aktiva Head-noden. Använd följande spiral kommando för att kontrol lera den här möjligheten:
 
 ```bash
 curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
 ```
 
-Ambari visas en avisering som visar de värdar där WebHCat-tjänsten har stoppats. Du kan försöka att återställa tjänsten WebHCat säkerhetskopiera genom att starta om tjänsten på dess värd.
+Ambari visar en avisering som visar värdarna där WebHCat-tjänsten är nere. Du kan försöka att ta WebHCat-tjänsten tillbaka genom att starta om tjänsten på värddatorn.
 
-![Restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
+![Starta om WebHCat-servern](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
 
-Om en server med WebHCat fortfarande inte kommer, kontrollerar du åtgärdsloggen för felmeddelanden. Mer detaljerad information, kontrollera den `stderr` och `stdout` filer som refereras till på noden.
+Om en WebHCat-Server fortfarande inte är igång kan du kontrol lera i åtgärds loggen om felen. Mer detaljerad information finns i och de `stderr` filer `stdout` som refereras till på noden.
 
-#### <a name="webhcat-times-out"></a>WebHCat tidsgränsen uppnås
+#### <a name="webhcat-times-out"></a>WebHCat tids gräns
 
-En HDInsight-Gateway tidsgränsen svar som tar längre tid än två minuter returnerar `502 BadGateway`. WebHCat frågar YARN-tjänster för jobbstatus och om YARN tar längre tid än två minuter att svara, som begär kan timeout.
+An-HDInsight gateways tids gräns för svar som tar längre tid än två `502 BadGateway`minuter att returnera. WebHCat skickar frågor till garn tjänster för jobb status, och om garn tar längre tid än två minuter att svara kan denna begäran ta lång tid.
 
-I det här fallet granska följande loggar i den `/var/log/webhcat` directory:
+I det här fallet granskar du följande loggar i `/var/log/webhcat` katalogen:
 
-* **webhcat.log** är log4j-loggen vilka skrivningar serverloggar
-* **webhcat console.log** är stdout för servern när startade
-* **webhcat-konsolen-error.log** är stderr för serverprocessen
+* **webhcat. log** är den log4j-logg som servern skriver loggar till
+* **webhcat-Console. log** är STDOUT för servern när den startas
+* **webhcat-Console-error. log** är stderr för Server processen
 
 > [!NOTE]  
-> Varje `webhcat.log` perioder varje dag, genereras filerna med namnet `webhcat.log.YYYY-MM-DD`. Välj filen för det tidsintervall som du undersöker.
+> Varje `webhcat.log` överförs varje dag och genererar filer med namnet. `webhcat.log.YYYY-MM-DD` Välj lämplig fil för tidsintervallet som du undersöker.
 
-I följande avsnitt beskrivs några orsaker till WebHCat-timeout.
+I följande avsnitt beskrivs några möjliga orsaker till WebHCat-timeout.
 
-##### <a name="webhcat-level-timeout"></a>Tidsgräns för WebHCat-nivå
+##### <a name="webhcat-level-timeout"></a>Timeout för WebHCat-nivå
 
-När WebHCat är under belastning med fler än 10 öppna sockets, tar det längre tid att etablera nya socketanslutningar, vilket kan resultera i en tidsgräns. Om du vill visa nätverksanslutningar till och från WebHCat använder `netstat` på den aktuella aktiva huvudnoden:
+När WebHCat är under belastning, med fler än 10 öppna Sockets, tar det längre tid att upprätta nya socketanslutningar, vilket kan resultera i en tids gräns. Om du vill visa nätverks anslutningarna till och från WebHCat `netstat` använder du på den aktuella aktiva huvudnoden:
 
 ```bash
 netstat | grep 30111
 ```
 
-30111 är WebHCat lyssnar på porten. Antalet öppna sockets bör vara mindre än 10.
+30111 är porten WebHCat lyssnar på. Antalet öppna Sockets måste vara mindre än 10.
 
-Om det finns inga öppna sockets, genererar inte ett resultat i det föregående kommandot. Kontrollera om Templeton är igång och lyssnar på port 30111, Använd:
+Om det inte finns några öppna Sockets skapas inget resultat i föregående kommando. Om du vill kontrol lera om Templeton är igång och lyssnar på port 30111 använder du:
 
 ```bash
 netstat -l | grep 30111
 ```
 
-##### <a name="yarn-level-timeout"></a>Tidsgräns för YARN-nivå
+##### <a name="yarn-level-timeout"></a>Timeout för garn nivå
 
-Templeton anropar YARN att köra jobb och kommunikationen mellan Templeton och YARN kan orsaka en tidsgräns.
+Templeton anropar garn för att köra jobb, och kommunikationen mellan Templeton och garn kan orsaka en tids gräns.
 
-Det finns två typer av tidsgränser på YARN-nivå:
+På garn nivån finns det två typer av tids gränser:
 
-1. Skicka en YARN-jobbet kan ta tillräckligt lång för att orsaka en tidsgräns.
+1. Att skicka ett garn jobb kan ta tillräckligt lång tid för att orsaka en tids gräns.
 
-    Om du öppnar den `/var/log/webhcat/webhcat.log` loggfilen och Sök efter ”köade jobb” du kan se flera poster där körningstiden är för lång (> 2 000 ms), med poster som visar ökar väntetid.
+    Om du öppnar `/var/log/webhcat/webhcat.log` logg filen och söker efter "köade jobb" kan du se flera poster där körnings tiden är alltför lång (> 2000 MS), med poster som visar ökande vänte tider.
 
-    Tid för jobb i kö fortsätter att öka eftersom den hastighet som nya jobb får skickas är högre än den som de gamla jobb har slutförts. När det YARN-minnet är 100% används, den *joblauncher kö* kan inte längre att låna kapacitet från den *standardkö*. Därför kan inga fler nya jobb godkännas i kön joblauncher. Detta kan medföra väntetiden ska bli längre och längre, orsakar ett tidsgränsfel som vanligtvis följs av många andra.
+    Tiden för de köade jobben fortsätter att öka eftersom den hastighet med vilken nya jobb skickas är högre än den hastighet med vilken de gamla jobben har slutförts. När garn minnet har 100% använt kan joblauncher- *kön* inte längre låna kapacitet från *standard kön*. Därför kan inga fler nya jobb accepteras i joblauncher-kön. Det här beteendet kan orsaka att vänte tiden blir längre och längre, vilket orsakar ett tids gräns fel som vanligt vis följs av många andra.
 
-    Följande bild visar joblauncher kön 714.4% överutnyttjas. Detta är acceptabelt så länge det finns fortfarande kapacitet i standardkön som ska lånar från. När klustret har utnyttjats och YARN-minne är 100% kapacitet, måste nya jobb däremot vänta, vilket till slut gör timeout-fel.
+    Följande bild visar joblauncher-kön vid 714,4% överanvändning. Detta är acceptabelt så länge det fortfarande finns ledig kapacitet i standard kön till låna från. Men när klustret används fullt ut och garn minnet har en kapacitet på 100%, måste nya jobb vänta, vilket kan orsaka timeout.
 
-    ![Joblauncher kö](./media/hdinsight-troubleshoot-failed-cluster/joblauncher-queue.png)
+    ![Joblauncher-kö](./media/hdinsight-troubleshoot-failed-cluster/joblauncher-queue.png)
 
-    Det finns två sätt att lösa problemet: antingen minska hastighet nya jobb som skickas eller öka hastigheten för användning av den äldre jobb genom att skala klustret.
+    Det finns två sätt att lösa det här problemet: du kan antingen minska hastigheten på nya jobb som skickas eller öka förbruknings hastigheten för gamla jobb genom att skala upp klustret.
 
-2. YARN-bearbetning kan ta lång tid, vilket kan orsaka tidsgränser.
+2. GARN bearbetning kan ta lång tid, vilket kan orsaka timeout.
 
-    * Lista över alla jobb: Det här är en tidskrävande anrop. Det här anropet räknar upp program från YARN ResourceManager och för varje färdiga programmet, hämtar status från YARN-JobHistoryServer. Med ett högre antal jobb kan det här anropet timeout.
+    * Lista alla jobb: Detta är ett tids krävande anrop. Det här anropet räknar upp programmen från garn hanteraren och hämtar status från garn JobHistoryServer för varje slutfört program. Det här anropet kan ta lång tid med ett högre antal jobb.
 
-    * Lista jobb är äldre än sju dagar: HDInsight YARN JobHistoryServer är konfigurerad för att bevara slutfört jobb informationen i sju dagar (`mapreduce.jobhistory.max-age-ms` värde). Försök att räkna upp borttagna jobb resulterar i en tidsgräns.
+    * Visa en lista över jobb som är äldre än sju dagar: HDInsight-Garnets JobHistoryServer har kon figurer ATS för att behålla slutförd jobb`mapreduce.jobhistory.max-age-ms` information under sju dagar (värde). Att försöka räkna upp rensade jobb resulterar i en tids gräns.
 
-Diagnostisera problemen:
+Så här diagnostiserar du problemen:
 
-1. Intervall för UTC-tid att felsöka
-2. Välj lämplig `webhcat.log` fil (er)
-3. Leta efter WARN och felmeddelanden under den tiden
+1. Fastställa UTC-tidsintervallet för fel sökning
+2. Välj lämplig `webhcat.log` (a) fil (er)
+3. Sök efter VARNINGs-och fel meddelanden under den tiden
 
-#### <a name="other-webhcat-failures"></a>Andra fel med WebHCat
+#### <a name="other-webhcat-failures"></a>Andra WebHCat-problem
 
-1. HTTP-statuskoden 500
+1. HTTP-statuskod 500
 
-    I de flesta fall där WebHCat returnerar 500 innehåller felmeddelandet information om felet. I annat fall titta igenom `webhcat.log` för WARN och felmeddelanden.
+    I de flesta fall där WebHCat returnerar 500 innehåller fel meddelandet information om felet. Annars kan du söka `webhcat.log` efter varnings-och fel meddelanden.
 
-2. Misslyckade jobb
+2. Jobb haverier
 
-    Det kan finnas fall där interaktioner med WebHCat är lyckades, men jobb som misslyckas.
+    Det kan finnas fall där interaktioner med WebHCat lyckas, men jobben Miss lyckas.
 
-    Templeton samlar in jobbet konsolens utdata som `stderr` i `statusdir`, vilket ofta är användbart för felsökning. `stderr` innehåller YARN-program-ID för den faktiska frågan.
+    Templeton samlar in jobb konsolens utdata som `stderr` i `statusdir`, vilket ofta är användbart vid fel sökning. `stderr`innehåller den faktiska frågans garn program identifierare.
 
-## <a name="step-4-review-the-environment-stack-and-versions"></a>Steg 4: Granska miljö stack och versioner
+## <a name="step-4-review-the-environment-stack-and-versions"></a>Steg 4: Granska miljö stacken och versionerna
 
-Ambari UI **Stack och Version** sidan innehåller information om klustret tjänster konfigurations- och tidigare versioner.  Felaktig Hadoop biblioteket tjänstversioner kan vara en orsak till klusterfelet.  I Ambari UI, väljer du den **Admin** menyn och sedan **stackar och versioner**.  Välj den **versioner** fliken på sidan för att se information om tjänstens version:
+Ambari-GRÄNSSNITTets **stack-och version** -sida innehåller information om kluster tjänstens konfiguration och tjänst versions historik.  Felaktiga Hadoop service Library-versioner kan vara orsaken till kluster fel.  I Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan **stackar och versioner**.  Välj fliken **versioner** på sidan för att se information om tjänst version:
 
 ![Stack och versioner](./media/hdinsight-troubleshoot-failed-cluster/stack-versions.png)
 
 ## <a name="step-5-examine-the-log-files"></a>Steg 5: Granska loggfilerna
 
-Det finns många typer av loggarna som genereras från de många tjänsterna och komponenterna som utgör ett HDInsight-kluster. [Loggfiler för WebHCat](#check-your-webhcat-service) beskrivs tidigare. Det finns flera andra användbara loggfiler som du kan undersöka om du vill begränsa problem med ditt kluster, enligt beskrivningen i följande avsnitt.
+Det finns många typer av loggar som genereras från de många tjänster och komponenter som utgör ett HDInsight-kluster. [WebHCat loggfiler](#check-your-webhcat-service) beskrivs tidigare. Det finns flera andra användbara loggfiler som du kan undersöka för att begränsa problem med klustret, enligt beskrivningen i följande avsnitt.
 
-* HDInsight-kluster består av flera noder, de flesta är har behörighet för att köra skickade jobb. Jobb körs samtidigt, men loggfiler kan bara visa resultat linjärt. HDInsight kör nya aktiviteter avslutas andra som inte slutföras först. Den här aktiviteten loggas i den `stderr` och `syslog` filer.
+* HDInsight-kluster består av flera noder, varav de flesta är aktiviteter för att köra skickade jobb. Jobb körs samtidigt, men loggfiler kan bara visa resultat linjärt. HDInsight kör nya uppgifter och avslutar andra som inte kan slutföras först. All den här aktiviteten loggas till `stderr` - `syslog` och-filerna.
 
-* Loggfiler i skriptet visar fel eller oväntat konfigurationsändringar under skapandeprocessen för ditt kluster.
+* I logg filen för skript åtgärd visas fel eller oväntade konfigurations ändringar under skapande processen för klustret.
 
-* Hadoop steg loggarna identifiera Hadoop-jobb startas som en del av ett steg som innehåller fel.
+* Hadoop-stegen loggar identifierar Hadoop-jobb som lanserats som en del av ett steg som innehåller fel.
 
-### <a name="check-the-script-action-logs"></a>Kontrollera skriptet åtgärdsloggar
+### <a name="check-the-script-action-logs"></a>Kontrol lera skript åtgärds loggarna
 
-HDInsight [skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md) köra skript på klustret som manuellt eller när anges. Skriptåtgärder kan till exempel användas för att installera ytterligare programvara på klustret eller ändra konfigurationsinställningarna från standardvärdena. Kontrollerar åtgärdsloggar skriptet ger kunskaper om fel som uppstått under konfiguration och konfiguration.  Du kan visa statusen för en skriptåtgärd genom att välja den **ops** knappen i Ambari UI, eller genom att komma åt loggarna från standardkontot för lagring.
+HDInsight- [skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md) kör skript i klustret manuellt eller när det angetts. Skript åtgärder kan till exempel användas för att installera ytterligare program vara i klustret eller ändra konfigurations inställningarna från standardvärdena. Att kontrol lera skript åtgärds loggarna kan ge insikter om fel som uppstått under kluster konfigurationen och konfigurationen.  Du kan visa statusen för en skript åtgärd genom att välja **Ops** -knappen i AMBARI-användargränssnittet eller genom att komma åt loggarna från standard lagrings kontot.
 
-Åtgärdsloggar skript finns i den `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE` directory.
+Skript åtgärden loggar finns i `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE` katalogen.
 
-### <a name="view-hdinsight-logs-using-ambari-quick-links"></a>Visa loggar för HDInsight med hjälp av Ambari snabblänkar
+### <a name="view-hdinsight-logs-using-ambari-quick-links"></a>Visa HDInsight-loggar med Ambari snabb länkar
 
-HDInsight Ambari UI innehåller ett antal **snabblänkar** avsnitt.  För att komma åt log-länkar för en viss tjänst i ditt HDInsight-kluster, öppna Ambari UI för klustret och välj sedan länken tjänsten i listan till vänster. Välj den **snabblänkar** listrutan sedan noden HDInsight Orienteringspunkter och välj sedan länken för dess associerade logg.
+HDInsight Ambari-ANVÄNDARGRÄNSSNITTET innehåller ett antal **snabb länkar** avsnitt.  Om du vill komma åt logg Länkar för en viss tjänst i HDInsight-klustret öppnar du Ambari-ANVÄNDARGRÄNSSNITTET för klustret och väljer sedan tjänst länken i listan till vänster. Välj List rutan **snabb länkar** , sedan HDInsight-noden av intresse och välj sedan länken för den associerade loggen.
 
 Till exempel för HDFS-loggar:
 
-![Ambari snabblänkar till loggfiler](./media/hdinsight-troubleshoot-failed-cluster/quick-links.png)
+![Ambari snabb länkar till loggfiler](./media/hdinsight-troubleshoot-failed-cluster/quick-links.png)
 
-### <a name="view-hadoop-generated-log-files"></a>Visa loggfiler som genererats av Hadoop
+### <a name="view-hadoop-generated-log-files"></a>Visa Hadoop-genererade loggfiler
 
-Ett HDInsight-kluster genererar loggar som skrivs till Azure-tabeller och Azure Blob storage. YARN skapar en egen körningsloggar. Mer information finns i [hantera loggar för ett HDInsight-kluster](hdinsight-log-management.md#access-the-hadoop-log-files).
+An-HDInsight Cluster genererar loggar som skrivs till Azure-tabeller och Azure Blob Storage. GARN skapar egna körnings loggar. Mer information finns i [hantera loggar för ett HDInsight-kluster](hdinsight-log-management.md#access-the-hadoop-log-files).
 
-### <a name="review-heap-dumps"></a>Granska heapdumpar
+### <a name="review-heap-dumps"></a>Granska heap-dumpar
 
-Heapdumpar innehåller en ögonblicksbild av programmets minne, inklusive värdena för variabler vid den tidpunkten, vilket är användbart för att diagnostisera problem som uppstår vid körning. Mer information finns i [aktivera heapdumpar för Apache Hadoop-tjänster på Linux-baserade HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
+Heap-dumpar innehåller en ögonblicks bild av programmets minne, inklusive Variablernas värden vid tidpunkten, som är användbara för att diagnostisera problem som inträffar vid körning. Mer information finns i [Aktivera heap Dumps för Apache Hadoop Services på Linux-baserade HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
-## <a name="step-6-check-configuration-settings"></a>Steg 6: Kontrollera konfigurationsinställningarna
+## <a name="step-6-check-configuration-settings"></a>Steg 6: Kontrol lera konfigurations inställningarna
 
-HDInsight-kluster är förkonfigurerad med standardinställningarna för relaterade tjänster, till exempel Hadoop, Hive, HBase och så vidare. Beroende på vilken typ av kluster, dess maskinvarukonfiguration, dess antalet noder, vilka typer av jobb du kör, och data du arbetar med (och hur dessa data bearbetas) du kan behöva optimera din konfiguration.
+HDInsight-kluster är förkonfigurerade med standardinställningar för relaterade tjänster, till exempel Hadoop, Hive, HBase och så vidare. Beroende på typ av kluster, dess maskin varu konfiguration, antalet noder, vilka typer av jobb du kör och vilka data du arbetar med (och hur dessa data bearbetas) kan du behöva optimera konfigurationen.
 
-Detaljerade anvisningar om hur du optimerar prestandakonfigurationer för de flesta scenarier finns i [optimera klusterkonfigurationer med Apache Ambari](hdinsight-changing-configs-via-ambari.md). När du använder Spark, se [optimera Apache Spark-jobb för prestanda](spark/apache-spark-perf.md). 
+Detaljerade anvisningar om hur du optimerar prestanda konfigurationen för de flesta scenarier finns i [optimera klusterkonfigurationer med Apache Ambari](hdinsight-changing-configs-via-ambari.md). När du använder Spark, se [optimera Apache Spark jobb för prestanda](spark/apache-spark-perf.md). 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Steg 7: Återskapa felet på ett annat kluster
 
-Starta ett nytt kluster med samma konfiguration för att diagnostisera källan till ett klusterfel, och sedan skicka det misslyckade jobbet steg en i taget. Kontrollera resultatet av varje steg innan nästa. Den här metoden ger dig möjlighet att korrigera och kör ett enda steg som misslyckades. Den här metoden har även fördelen med bara inläsning av dina indata en gång.
+För att diagnostisera källan till ett kluster fel, starta ett nytt kluster med samma konfiguration och skicka sedan om de misslyckade jobb stegen ett i taget. Kontrol lera resultaten för varje steg innan du bearbetar nästa. Den här metoden ger dig möjlighet att korrigera och köra ett enda misslyckat steg. Den här metoden har också fördelen att bara läsa in dina indata en gång.
 
-1. Skapa ett nytt testkluster med samma konfiguration som misslyckade klustret.
-2. Skicka det första steget i test-klustret.
-3. När steget har slutförts bearbetning, Sök efter fel i loggfilerna steg. Anslut till test-klustrets huvudnod och visa det loggfilerna. Loggfilerna steg visas endast när steget körs under en period har slutförts eller misslyckas.
-4. Om det första steget lyckades, kör du nästa steg. Om det finns fel, Undersök fel i loggfilerna. Om det uppstod ett fel i koden, korrigera och kör steget.
+1. Skapa ett nytt test kluster med samma konfiguration som det felande klustret.
+2. Skicka det första jobb steget till test klustret.
+3. När steget har slutfört bearbetningen söker du efter fel i stegen i-logg filen. Anslut till test klustrets huvud nod och Visa loggfilerna där. Steg loggfilerna visas bara när steget körs under en viss tid, har slutförts eller misslyckats.
+4. Kör nästa steg om det första steget lyckades. Om det finns fel kan du undersöka felet i loggfilerna. Om det var ett fel i din kod, gör du korrigeringen och kör sedan steget igen.
 5. Fortsätt tills alla steg körs utan fel.
-6. När du är klar felsökning test-klustret, ta bort den.
+6. När du är färdig med fel sökningen av test klustret tar du bort det.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
 * [Analysera HDInsight-loggar](hdinsight-debug-jobs.md)
-* [Åtkomst Apache Hadoop YARN-program för inloggning i Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Aktivera heap dumps för Apache Hadoop-tjänster på Linux-baserat HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Kända problem för Apache Spark-kluster i HDInsight](hdinsight-apache-spark-known-issues.md)
+* [Åtkomst Apache Hadoop garn program logga in Linux-baserade HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Aktivera heap-dum par för Apache Hadoop tjänster på Linux-baserade HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Kända problem för Apache Spark kluster i HDInsight](hdinsight-apache-spark-known-issues.md)

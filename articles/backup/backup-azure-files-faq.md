@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 35a41abb156326612c2d60829980f73457cde881
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 05b591137a53e60b3197feb7f57564a8d4af7a44
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601759"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624285"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 Den här artikeln innehåller vanliga frågor och svar om hur du säkerhetskopierar Azure Files. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -83,8 +83,6 @@ Azure Backup stöder för närvarande att konfigurera schemalagda en gång – d
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>Hur många säkerhetskopior på begäran kan jag göra per filresurs? <br/>
 Du kan ha upp till 200 ögonblicksbilder för en filresurs vid varje tidpunkt. Gränsen gäller ögonblicksbilderna som har tagits av Azure Backup enligt definitionen i din princip. Om dina säkerhetskopior börjar misslyckas när gränsen är nådd tar du bort återställningspunkter på begäran för lyckade säkerhetskopior i framtiden.
 
-### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>När jag aktiverade virtuella nätverk på mitt lagringskonto började säkerhetskopieringen av filresurser på kontot att misslyckas. Varför då?
-Säkerhetskopiering för Azure-filresurser stöder för närvarande inte lagringskonton med aktiverade virtuella nätverk. Inaktivera virtuella nätverk i lagringskonton för att få en fungerande säkerhetskopiering.
 
 ## <a name="restore"></a>Återställ
 

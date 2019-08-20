@@ -7,14 +7,14 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: dc9d7ba9499f2c98370b14fd88d38dffc65480e5
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 2965376d72cf32c0394d0c493a141bbb1f820ace
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68964020"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624936"
 ---
-# <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support"></a>Konfigurera ett befintligt Azure Service Fabric-kluster för att aktivera stöd för hanterade identiteter
+# <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>Konfigurera ett befintligt Azure Service Fabric-kluster för att aktivera hanterad identitets support (för hands version)
 För att få åtkomst till funktionen för hanterad identitet för Azure Service Fabric-program måste du först aktivera **hanterad identitetsprovider** i klustret. Den här tjänsten ansvarar för autentiseringen av Service Fabric program med hjälp av deras hanterade identiteter och för att få åtkomst till token för deras räkning. När tjänsten är aktive rad kan du se den i Service Fabric Explorer under **system** avsnittet i det vänstra fönstret, som körs under namnet **Fabric:/system/ManagedIdentityTokenService**.
 
 > [!NOTE]

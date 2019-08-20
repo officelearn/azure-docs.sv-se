@@ -92,9 +92,9 @@ Följande tabell innehåller en översikt över de viktigaste JSON-elementen som
 
 | JSON-element | Beskrivning | type | Tillåtna värden | Obligatorisk |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | Typ av utlösare. Typen är det fasta värdet "TumblingWindowTrigger". | Sträng | "TumblingWindowTrigger" | Ja |
-| **runtimeState** | Det aktuella läget för utlösarens körnings tid.<br/>**Obs!** Det här elementet \<är skrivskyddat >. | Sträng | "Startat", "stoppad", "inaktive rad" | Ja |
-| **frequency** | En sträng som representerar frekvens enheten (minuter eller timmar) då utlösaren upprepas. Om värdena för StartTime-datum är mer detaljerade än **frekvens** svärdet beaktas **StartTime** -datum när fönster gränserna beräknas. Om värdet för **frekvens** till exempel är per timme och StartTime -värdet är 2017-09-01T10:10:10Z, är det första fönstret (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Sträng | "minut", "timme"  | Ja |
+| **type** | Typ av utlösare. Typen är det fasta värdet "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Ja |
+| **runtimeState** | Det aktuella läget för utlösarens körnings tid.<br/>**Obs!** Det här elementet \<är skrivskyddat >. | String | "Startat", "stoppad", "inaktive rad" | Ja |
+| **frequency** | En sträng som representerar frekvens enheten (minuter eller timmar) då utlösaren upprepas. Om värdena för StartTime-datum är mer detaljerade än **frekvens** svärdet beaktas **StartTime** -datum när fönster gränserna beräknas. Om värdet för **frekvens** till exempel är per timme och StartTime -värdet är 2017-09-01T10:10:10Z, är det första fönstret (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minut", "timme"  | Ja |
 | **interval** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Om **intervallet** till exempel är 3 och frekvensen är "timme" upprepas utlösaren var 3: e timme. | Integer | Ett positivt heltal. | Ja |
 | **startTime**| Den första förekomsten, som kan vara i det förflutna. Det första Utlösar intervallet är (StartTime **,**  + **Interval**). | DateTime | Ett DateTime-värde. | Ja |
 | **endTime**| Den sista förekomsten, som kan vara i det förflutna. | DateTime | Ett DateTime-värde. | Ja |

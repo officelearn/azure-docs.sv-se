@@ -128,6 +128,9 @@
         - name: Konfigurera utvecklingsmiljöer
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
+        - name: Hantera programvarumiljön
+          displayName: 'pip, Conda'
+          href: how-to-use-environments.md
         - name: Aktivera loggning
           displayName: 'troubleshoot, log, files, tracing'
           href: how-to-enable-logging.md

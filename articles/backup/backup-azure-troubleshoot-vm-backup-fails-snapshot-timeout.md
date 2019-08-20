@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: f47afd450350226aa944287e756b73f61b15b32d
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 54b83df4c0ad68c9bd6b39d39926657395c48f3e
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952045"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615879"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: Problem med agenten eller tillägget
 
@@ -106,7 +106,7 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Felkod**: UserErrorUnsupportedDiskSize <br>
 **Fel meddelande**: För närvarande stöder Azure Backup inte disk storlekar som är större än 4 095 GB <br>
 
-Säkerhets kopierings åtgärden kunde inte utföras vid säkerhets kopiering av en virtuell dator med en disk storlek som är större än 4 095 GB. Om du vill registrera dig för en begränsad, allmän för hands version av Azure Backup stöd för stora diskar för diskar som är större än 4 TB och upp till 30 TB i storlek, se [en översikt över Azure VM backup](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Säkerhets kopierings åtgärden kunde inte utföras vid säkerhets kopiering av en virtuell dator med en disk storlek som är större än 4 095 GB. Om du vill registrera dig för en begränsad, allmän för hands version av Azure Backup stöd för stora diskar för diskar som är större än 4 TB och upp till 30 TB i storlek, se den här [artikeln](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress – det går inte att initiera säkerhets kopieringen eftersom en annan säkerhets kopiering pågår just nu
 

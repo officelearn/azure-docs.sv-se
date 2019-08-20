@@ -10,16 +10,16 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1f800ade5c5122f0891c9122f6698b6550048c67
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: f5ee4227b0aeb53be4512dafc91f814468b50c12
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479328"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574901"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Snabbstart: Skapa och skicka frågor till ett Azure SQL Data Warehouse med Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Snabbstart: Skapa och skicka frågor till en Azure SQL Data Warehouse med Azure PowerShell
 
-Skapa snabbt ett Azure SQL Data Warehouse med hjälp av Azure PowerShell.
+Skapa snabbt en Azure SQL Data Warehouse med hjälp av Azure PowerShell.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -90,7 +90,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Konfigurera en serverbrandväggsregel
 
-Skapa en [brand Väggs regel för Azure SQL Server-nivå](../sql-database/sql-database-firewall-configure.md) med kommandot [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) . En brand Väggs regel på server nivå gör det möjligt för ett externt program, till exempel SQL Server Management Studio eller SQLCMD-verktyget att ansluta till ett SQL Data Warehouse via SQL Data Warehouse tjänstens brand vägg. I följande exempel öppnas brandväggen bara för andra Azure-resurser. Aktivera extern anslutning, ändra IP-adressen till en adress som är lämplig för din miljö. Öppna alla IP-adresser genom att använda 0.0.0.0 som den första IP-adressen och 255.255.255.255 som slutadress.
+Skapa en [brand Väggs regel för Azure SQL Server-nivå](../sql-database/sql-database-firewall-configure.md) med kommandot [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) . En brand Väggs regel på server nivå gör det möjligt för ett externt program, till exempel SQL Server Management Studio eller SQLCMD-verktyget att ansluta till en SQL Data Warehouse via SQL Data Warehouse tjänstens brand vägg. I följande exempel öppnas brandväggen bara för andra Azure-resurser. Aktivera extern anslutning, ändra IP-adressen till en adress som är lämplig för din miljö. Öppna alla IP-adresser genom att använda 0.0.0.0 som den första IP-adressen och 255.255.255.255 som slutadress.
 
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -149,4 +149,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 Nu har du skapat ett informations lager, skapat en brand Väggs regel, anslutit till ditt data lager och kört några frågor. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
 > [!div class="nextstepaction"]
->[Läsa in data i ett SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Läs in data i en SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

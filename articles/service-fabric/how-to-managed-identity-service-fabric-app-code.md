@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 528e1b0a353cdcd716f9bca63c423af7a6f12641
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d5593da4f874688fa099827e418b12e41363f4bd
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68958244"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624882"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Hur du utnyttjar ett Service Fabric programmets hanterade identitet för att få åtkomst till Azure-tjänster
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Hur du utnyttjar ett Service Fabric programmets hanterade identitet för att få åtkomst till Azure-tjänster (för hands version)
 
 Service Fabric program kan dra nytta av hanterade identiteter för att få åtkomst till andra Azure-resurser som stöder Azure Active Directory-baserad autentisering. Ett program kan hämta en [](../active-directory/develop/developer-glossary.md#access-token) åtkomsttoken som representerar identiteten, som kan vara systemtilldelad eller tilldelad, och använda den som en "Bearer"-token för att autentisera sig mot en annan tjänst, även kallat en [skyddad resurs Server](../active-directory/develop/developer-glossary.md#resource-server). Token representerar den identitet som tilldelats Service Fabric programmet och kommer bara att utfärdas till Azure-resurser (inklusive SF-program) som delar identiteten. Mer detaljerad information om hanterade identiteter finns i översikts dokumentationen för [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) , samt skillnaden mellan systemtilldelade och användarspecifika identiteter. Vi kommer att referera till ett hanterat identitets aktiverat Service Fabric program som [klient program](../active-directory/develop/developer-glossary.md#client-application) i den här artikeln.
 

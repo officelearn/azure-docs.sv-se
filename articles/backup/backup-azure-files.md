@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 03b65c71201ba125cb3924a52e8760a088374aa6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d5702576b3353bbc779601c7a5fe91417d73c7a1
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954724"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624358"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Säkerhetskopiera och återställa Azure-filresurser
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
@@ -32,7 +32,6 @@ Innan du kan säkerhetskopiera en Azure-filresurs bör du kontrollera att den fi
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Begränsningar för säkerhetskopiering av Azure-filresurser i förhandsversionen
 Säkerhetskopiering för Azure-filresurser är i förhandsversion. Azure-filresurser i både general-purpose v1- och general-purpose v2-lagringskonton stöds. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
 - Stöd för säkerhets kopiering av Azure-filresurser i lagrings konton med ZRS-replikering ( [Zone redundant Storage](../storage/common/storage-redundancy-zrs.md) ) är för närvarande begränsat till [dessa regioner](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
-- Du kan inte skydda av Azure-filresurser i lagringskonton som har virtuella nätverk eller brandvägg aktiverade.
 - Det finns ingen tillgänglig CLI som skyddar Azure Files med hjälp av Azure Backup.
 - Azure Backup stöder för närvarande att konfigurera schemalagda en gång – daglig säkerhets kopiering av Azure-filresurser.
 - Det maximala antalet schemalagda säkerhetskopieringar per dag är en.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fff27094881ffbada2bda7937fa714ffc07133
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0e1be41c854e212a7b673d8c2dff42d7b9981fb4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954357"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616133"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Konfigurera säkerhets information (för hands version) för att använda en Authenticator-app
 
@@ -145,6 +145,8 @@ Du har ytterligare alternativ för hur din organisation kontaktar dig för att v
     >Om några av dessa alternativ saknas beror det förmodligen på att din organisation inte tillåter dessa metoder. Om så är fallet måste du välja en tillgänglig metod eller kontakta administratören om du vill ha mer hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
+
+- Logga in med Microsoft Authenticator-appen genom att följa anvisningarna i artikeln [Logga in med tvåstegsverifiering eller säkerhets information](security-info-setup-signin.md) .
 
 - Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md).
 

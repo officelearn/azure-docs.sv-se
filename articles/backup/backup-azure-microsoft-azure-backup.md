@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: eb9908fc7b2d4ecd8af8c2b4a65ab43352035ec5
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 18eacc914a30dc6004bef71e9d3910e170c43d9b
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018900"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575136"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 > [!div class="op_single_selector"]
@@ -176,11 +176,10 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
     När du använder din egen instans av SQL 2017 måste du konfigurera SSRS manuellt. Efter SSRS-konfigurationen kontrollerar du att egenskapen *IsInitialized* för SSRS har angetts till *True*. Om detta är inställt på Sant förutsätter MABS att SSRS redan har kon figurer ATS och kommer att hoppa över SSRS-konfigurationen.
 
     Använd följande värden för SSRS-konfiguration: 
-
-        - Service Account: ‘Use built-in account’ should be Network Service
-        - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
-        - Database: DatabaseName should be ReportServer$<SQLInstanceName>
-        - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+    - Tjänst konto: Använd det inbyggda kontot måste vara nätverks tjänst
+    - Webb tjänst-URL: ' Virtuell katalog ' ska vara ReportServer_<SQLInstanceName>
+    - Databas DatabaseName ska vara ReportServer $<SQLInstanceName>
+    - Webb portal-URL: ' Virtuell katalog ' ska vara Reports_<SQLInstanceName>
 
     [Läs mer](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) om SSRS-konfiguration.
 

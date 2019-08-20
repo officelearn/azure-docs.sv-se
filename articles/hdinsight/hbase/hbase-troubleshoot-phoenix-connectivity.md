@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/07/2019
-ms.openlocfilehash: 641d622377bad7a1239efd526b93c6f0f0c08d4a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.date: 08/14/2019
+ms.openlocfilehash: 66077416dca4048fc99047f7d6b967e55aab0a23
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68887045"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575734"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Scenario: Apache Phoenix anslutnings problem i Azure HDInsight
 
@@ -27,7 +27,7 @@ Felaktig IP för aktiv Zookeeper-nod.
 
 ### <a name="resolution"></a>Lösning
 
-IP-adressen för den aktiva Zookeeper-noden kan identifieras från Ambari UI genom att följa länkarna till **HBase-> Quick Links-> ZK***  **(Active)-> Zookeeper information**. Korrigera efter behov.
+IP-adressen för den aktiva Zookeeper-noden kan identifieras från Ambari-användargränssnittet genom att följa länkar till **HBase** > **snabb länkar** > **ZK (aktiv)**  > **Zookeeper-information**. Korrigera IP-adressen efter behov.
 
 ---
 
@@ -35,27 +35,27 @@ IP-adressen för den aktiva Zookeeper-noden kan identifieras från Ambari UI gen
 
 När du kör kommandon som `!tables`, får du ett fel meddelande som liknar:
 
-```
+```output
 Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings.
 ```
 
 När du kör kommandon som `count 'SYSTEM.CATALOG'`, får du ett fel meddelande som liknar:
 
-```
+```output
 ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189)
 ```
 
 ### <a name="resolution"></a>Lösning
 
-Starta om HMaster-tjänsten på alla Zookeeper-noder från Ambari-ANVÄNDARGRÄNSSNITTET.
+I Apache Ambari-ANVÄNDARGRÄNSSNITTET utför du följande steg för att starta om HMaster-tjänsten på alla ZooKeeper-noder:
 
-1. Gå till **HBase-> Active HBase Master-** länken i avsnittet Sammanfattning i HBase.
+1. Gå till **HBase** > **Active HBase Master**i avsnittet **Sammanfattning** i HBase.
 
 1. I avsnittet **komponenter** startar du om HBase master tjänsten.
 
-1. Upprepa stegen ovan för återstående **vänte läges HBase Master** tjänster.
+1. Upprepa de här stegen för alla återstående **vänte läges HBase Master** tjänster.
 
-Det kan ta upp till 5 minuter för HBase Master tjänst att stabilisera och slutföra återställningen. `SYSTEM.CATALOG` När tabellen återgår till normal bör anslutnings problemet till Apache Phoenix lösas automatiskt.
+Det kan ta upp till fem minuter innan den HBase Master tjänsten stabiliseras och slutför återställningen. `SYSTEM.CATALOG` När tabellen är tillbaka till normal bör anslutnings problem till Apache Phoenix lösas automatiskt.
 
 ## <a name="next-steps"></a>Nästa steg
 

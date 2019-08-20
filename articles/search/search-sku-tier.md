@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: d93f8c61511dd1d3fc2bfd253fa7a21857f67ed6
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: a874c8a1fe2e8a81e2f42b2c88447fd52b47f3ad
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563361"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611961"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en pris nivå för Azure Search
 
@@ -62,7 +62,7 @@ En lösning som bygger på Azure Search kan ådra sig kostnaderna på följande 
 
 Till skillnad från virtuella datorer eller andra resurser som kan vara "pausade" för att undvika avgifter, är en Azure Search-tjänst alltid tillgänglig på maskin vara som är dedikerad för exklusiv användning. Därför är att skapa en tjänst en fakturerbar händelse som startar när du skapar tjänsten och slutar när du tar bort tjänsten. 
 
-Den lägsta avgiften är den första Sök enheten (en partition med en enda replik x). Detta minimum är fast för tjänstens livs längd eftersom tjänsten inte kan köras på något som är mindre än den här konfigurationen. Utöver det lägsta antalet kan du lägga till repliker och partitioner oberoende av varandra. Stegvisa ökningar i kapaciteten via repliker och partitioner ökar din faktura utifrån följande formel: [(repliker x partitioner x hastighet)](#search-units), där den hastighet du debiteras beror på vilken pris nivå du väljer.
+Den lägsta avgiften är den första Sök enheten (en partition med en enda replik x) till fakturerings takten. Detta minimum är fast för tjänstens livs längd eftersom tjänsten inte kan köras på något som är mindre än den här konfigurationen. Utöver det lägsta antalet kan du lägga till repliker och partitioner oberoende av varandra. Stegvisa ökningar i kapaciteten via repliker och partitioner ökar din faktura utifrån följande formel: [(repliker x partitioner x hastighet)](#search-units), där den hastighet du debiteras beror på vilken pris nivå du väljer.
 
 När du uppskattar kostnaden för en Sök lösning bör du tänka på att priserna och kapaciteten inte är linjära. (Dubbla kapaciteten är mer än dubbelt så mycket som kostnaden.) Ett exempel på hur formeln fungerar finns i [så här allokerar du repliker och partitioner](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
@@ -157,7 +157,7 @@ L2 offers twice the overall storage capacity of L1.  Choose your tier based on t
 
 ### <a name="evaluating-capacity"></a>Utvärderar kapacitet
 
-Kapaciteten och kostnaderna för att köra tjänsten är direkt relaterade. Nivåerna begränsar gränserna på två nivåer: lagring och resurser. Du bör tänka på båda eftersom den gräns du uppnår först är den effektiva gränsen.
+Kapacitet och kostnaderna för att köra tjänsten finns i handen. Nivåerna begränsar gränserna på två nivåer: lagring och resurser. Du bör tänka på båda eftersom den gräns du uppnår först är den effektiva gränsen.
 
 Företags krav avgör vanligt vis hur många index du behöver. Du kan till exempel behöva ett globalt index för en stor lagrings plats för dokument. Eller så kanske du behöver flera index baserade på region, program eller affärs nischmarknader.
 
@@ -167,25 +167,25 @@ Om du vill fastställa storleken på ett index måste du [bygga ett](search-crea
 > Även om det går att uppskatta framtida behov för index och lagring kan det vara värt att göra. Om en nivås kapacitet blir för låg måste du etablera en ny tjänst på en högre nivå och sedan [läsa in indexen](search-howto-reindex.md)på nytt. Det finns ingen uppgradering på plats av en tjänst från en SKU till en annan.
 >
 
-### <a name="step-1-develop-rough-estimates-by-using-the-free-tier"></a>Steg 1: Utveckla grov uppskattningar med den kostnads fria nivån
+### <a name="estimate-with-the-free-tier"></a>Uppskatta med den kostnads fria nivån
 
-En metod för att uppskatta kapaciteten är att börja med den kostnads fria nivån. Kom ihåg att den kostnads fria tjänsten erbjuder upp till tre index, 50 MB lagrings utrymme och 2 minuters indexerings tid. Det kan vara svårt att uppskatta en beräknad index storlek med dessa begränsningar. Här är en metod som du kan vidta:
+En metod för att uppskatta kapaciteten är att börja med den kostnads fria nivån. Kom ihåg att den kostnads fria tjänsten erbjuder upp till tre index, 50 MB lagrings utrymme och 2 minuters indexerings tid. Det kan vara svårt att uppskatta en beräknad index storlek med de här begränsningarna, men de är stegen:
 
 + [Skapa en kostnads fri tjänst](search-create-service-portal.md).
-+ Förbered en liten, representativ data uppsättning (till exempel 5 000 dokument och 10 procents samplings storlek).
-+ [Bygg ett första index](search-create-index-portal.md) och anteckna dess storlek i portalen (till exempel 30 MB).
++ Förbered en liten, representativ data uppsättning.
++ [Bygg ett första index i portalen](search-create-index-portal.md) och anteckna dess storlek. Funktioner och attribut påverkar lagringen. Om du till exempel lägger till förslag (typeahead) kommer det att öka lagrings kraven. Med samma data uppsättning kan du prova att skapa flera versioner av ett index, med olika attribut i varje fält, för att se hur lagrings kraven varierar. Mer information finns [i "lagrings konsekvenser" i skapa ett grundläggande index](search-what-is-an-index.md#storage-implications).
 
-Om exemplet är representativt och 10 procent av hela data källan blir ett 30 MB-index ungefär 300 MB om alla dokument är indexerade. Väpnade med det här preliminära numret kan du dubblera beloppet till budget för två index (utveckling och produktion). Detta ger dig totalt 600 MB i lagrings kraven. Det här kravet är enkelt att uppfyllas av Basic-nivån, så du börjar där.
+Med en grov uppskattning i handen kan du dubblera beloppet till budget för två index (utveckling och produktion) och sedan välja din nivå.
 
-### <a name="step-2-develop-refined-estimates-by-using-a-billable-tier"></a>Steg 2: Utveckla raffinerade uppskattningar med hjälp av en fakturerbar nivå
+### <a name="estimate-with-a-billable-tier"></a>Beräkna med en fakturerbar nivå
 
-Vissa kunder föredrar att börja med dedikerade resurser som kan hantera större samplings-och bearbetnings tider och sedan utveckla realistiska uppskattningar av index antal, storlek och fråga-volymer under utvecklingen. En tjänst har inlednings vis etablerats baserat på en uppskattning för bästa gissning. I takt med att utvecklings projektet mognar vet teamen vanligt vis om den befintliga tjänsten är över eller under kapacitet för projekt arbets belastningar.
+Dedikerade resurser kan hantera större samplings-och bearbetnings tider för mer realistiska uppskattningar av index antal, storlek och fråga-volymer under utvecklingen. Vissa kunder går direkt till med en fakturerbar nivå och sedan utvärderas igen som utvecklingsprojekt för projektet.
 
 1. [Granska tjänst begränsningar på varje nivå](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) för att avgöra om lägre nivåer kan stödja det antal index du behöver. På nivåerna Basic, S1 och S2 är index gränserna 15, 50 respektive 200. Lagrings optimerings nivån har en gräns på 10 index eftersom den har utformats för att stödja ett lågt antal mycket stora index.
 
 1. [Skapa en tjänst på en fakturerbar nivå](search-create-service-portal.md):
 
-    + Starta låg, med Basic eller S1, om du befinner dig i början av din inlärnings kurva.
+    + Starta låg, med Basic eller S1, om du inte är säker på den projekterade belastningen.
     + Starta hög, på S2 eller till och med S3 om du vet att du kommer att ha storskalig indexering och läsa in frågor.
     + Börja med den optimerade lagringen, vid L1 eller L2, om du har indexerat en stor mängd data och frågan är relativt låg, precis som med ett internt affärs program.
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 41fa5a859e738c2bb70e4885aa856f247e922492
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3a2702abd39ecdf506d58b6bd8884f12607e29e8
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449002"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615298"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Diagnostisk loggning i Azure Cosmos DB 
 
-När du börjar använda en eller flera Azure Cosmos DB-databaser, kanske du vill övervaka hur och när dina databaser används. Den här artikeln innehåller en översikt över de loggar som är tillgängliga på Azure-plattformen. Du lär dig hur du aktiverar diagnostikloggning för att skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), så strömma loggar till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), och hur du exporterar loggar till [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/).
+När du har startat en eller flera Azure Cosmos-databaser kanske du vill övervaka hur och när dina databaser används. Den här artikeln innehåller en översikt över de loggar som är tillgängliga på Azure-plattformen. Du får lära dig hur du aktiverar diagnostikloggning för övervakning för att skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), hur du strömmar loggar till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)och hur du exporterar loggar till [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -25,9 +25,9 @@ När du börjar använda en eller flera Azure Cosmos DB-databaser, kanske du vil
 
 ## <a name="logs-available-in-azure"></a>Loggar som är tillgängliga i Azure
 
-Innan vi pratar om hur du övervakar dina Azure Cosmos DB-konto, ska vi tydliggöra några saker om loggning och övervakning. Det finns olika typer av loggar på Azure-plattformen. Det finns [Azure-aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure-mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), händelser, övervakning av pulsslag, åtgärdsloggar och så vidare. Det finns en mängd olika loggar. Du kan se den fullständiga listan med loggar i [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) i Azure-portalen. 
+Innan vi pratar om hur du övervakar dina Azure Cosmos DB-konto, ska vi tydliggöra några saker om loggning och övervakning. Det finns olika typer av loggar på Azure-plattformen. Det finns [Azure-aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure-mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), händelser, övervakning av pulsslag, åtgärdsloggar och så vidare. Det finns en mängd olika loggar. Du kan se den fullständiga listan över loggar i [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) i Azure Portal. 
 
-Följande bild visar de olika slags Azure loggar som är tillgängliga:
+Följande bild visar de olika typerna av Azure-loggar som är tillgängliga:
 
 ![Olika typer av Azure-loggar](./media/logging/azurelogging.png)
 
@@ -54,9 +54,9 @@ Aktivitetsloggar (kontrollplanåtgärder) kan vara bredare sin natur och kan inn
 
 ### <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
-Azure diagnostikloggar genereras av en resurs och tillhandahåller omfattande, frekventa data om användningen av den här resursen. Dessa loggar samlas per begäran. Innehållet i de här loggarna varierar efter resurstyp. Resursnivå diagnostikloggar skiljer sig också från-nivån för gästoperativsystemet diagnostikloggar. Gäst-OS diagnostiska loggar samlas in av en agent som körs i en virtuell dator eller andra stöds resurstyp. Resursnivå diagnostikloggar kräver ingen agent och avbilda resurs-specifika data från själva Azure-plattformen. Diagnostikloggar för gäst-OS-nivå samla in data från operativsystemet och programmen som körs på en virtuell dator.
+Azure diagnostikloggar genereras av en resurs och tillhandahåller omfattande, frekventa data om användningen av den här resursen. Dessa loggar samlas in per begäran. Innehållet i de här loggarna varierar efter resurstyp. Resursnivå diagnostikloggar skiljer sig också från-nivån för gästoperativsystemet diagnostikloggar. Gäst-OS diagnostiska loggar samlas in av en agent som körs i en virtuell dator eller andra stöds resurstyp. Resursnivå diagnostikloggar kräver ingen agent och avbilda resurs-specifika data från själva Azure-plattformen. Diagnostikloggar för gäst-OS-nivå samla in data från operativsystemet och programmen som körs på en virtuell dator.
 
-![Diagnostisk loggning till lagring, Event Hubs eller Azure Monitor-loggar](./media/logging/azure-cosmos-db-logging-overview.png)
+![Diagnostisk loggning till lagring, Event Hubs eller Azure Monitor loggar](./media/logging/azure-cosmos-db-logging-overview.png)
 
 ### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Vad loggas av Azure-diagnostikloggar?
 
@@ -68,47 +68,47 @@ Azure diagnostikloggar genereras av en resurs och tillhandahåller omfattande, f
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Aktivera loggning i Azure portal
 
-Använd följande steg för att aktivera Diagnostisk loggning i Azure portal:
+Använd följande steg för att aktivera diagnostisk loggning i Azure Portal:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
-1. Navigera till ditt Azure Cosmos-konto. Öppna den **diagnostikinställningar** rutan och välj sedan **Lägg till diagnostikinställning** alternativet.
+1. Navigera till ditt Azure Cosmos-konto. Öppna fönstret **diagnostikinställningar** och välj sedan alternativet för att **lägga till diagnostiska** inställningar.
 
     ![Aktivera Diagnostisk loggning för Azure Cosmos DB i Azure portal](./media/logging/turn-on-portal-logging.png)
 
-1. I den **diagnostikinställningar** fyller du i formuläret med följande uppgifter: 
+1. Fyll i formuläret med följande information på sidan **diagnostikinställningar** : 
 
     * **Namn på**: Ange ett namn att skapa loggarna.
 
     * Du kan lagra loggarna till följande tjänster:
 
-      * **Arkivera till ett lagringskonto**: Om du vill använda det här alternativet om behöver du ett befintligt lagringskonto för att ansluta till. Om du vill skapa ett nytt lagringskonto i portal, [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md) artikeln. Återvänd sedan till fönstret Azure Cosmos Db diagnostikinställningar i portalen för att välja ett lagringskonto. Det kan ta några minuter innan nyligen skapade lagringskonton ska visas i den nedrullningsbara menyn.
+      * **Arkivera till ett lagrings konto**: Om du vill använda det här alternativet om behöver du ett befintligt lagringskonto för att ansluta till. Information om hur du skapar ett nytt lagrings konto i portalen finns i artikeln [skapa ett lagrings konto](../storage/common/storage-create-storage-account.md) . Gå sedan tillbaka till fönstret diagnostiska inställningar i Azure Cosmos db i portalen för att välja ditt lagrings konto. Det kan ta några minuter innan nyligen skapade lagringskonton ska visas i den nedrullningsbara menyn.
 
-      * **Stream till en händelsehubb**: Om du vill använda det här alternativet behöver du en befintlig Event Hubs-namnområde och event hub att ansluta till. Om du vill skapa ett namnområde för Event Hubs [skapa ett Event Hubs-namnområde och en event hub med hjälp av Azure portal](../event-hubs/event-hubs-create.md). Återvänd sedan till den här sidan i portalen för att välja Event Hub-namnområde och principen.
+      * **Strömma till en Event Hub**: Om du vill använda det här alternativet behöver du ett befintligt Event Hubs namnrymd och händelsehubben för att ansluta till. Om du vill skapa ett namnområde för Event Hubs [skapa ett Event Hubs-namnområde och en event hub med hjälp av Azure portal](../event-hubs/event-hubs-create.md). Gå sedan tillbaka till den här sidan i portalen för att välja namn området för Händelsehubben och princip namnet.
 
-      * **Skicka till Log Analytics**: Om du vill använda det här alternativet måste använda en befintlig arbetsyta eller skapa en ny Log Analytics-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) i portalen. 
+      * **Skicka till Log Analytics**: Om du vill använda det här alternativet använder du antingen en befintlig arbets yta eller skapar en ny Log Analytics arbets yta genom att följa stegen för att [skapa en ny arbets yta](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) i portalen. 
 
    * Du kan logga följande data:
 
-      * **DataPlaneRequests**: Välj det här alternativet för att logga backend-begäranden till alla API: er som innehåller SQL, diagram, MongoDB, Cassandra och tabell-API-konton i Azure Cosmos DB. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut. Följande JSON-data är ett exempel på utdata av information som loggas med DataPlaneRequests. Nyckelegenskaper att notera är: Requestcharge, statusCode, clientIPaddress och partitionID:
+      * **DataPlaneRequests**: Välj det här alternativet om du vill logga backend-begäranden till alla API: er som innehåller SQL-, Graph-, MongoDB-, Cassandra-och Tabell-API konton i Azure Cosmos DB. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut. Följande JSON-data är ett exempel på utdata som loggas med DataPlaneRequests. Viktiga egenskaper att observera är: Requestcharge, statusCode, clientIPaddress och partitionID:
 
        ```
        { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
        ```
 
-      * **MongoRequests**: Välj det här alternativet för att logga användarinitierad begäranden från klientdelen att betjäna förfrågningar till Azure Cosmos DB-API för MongoDB. MongoDB begäranden visas i MongoRequests samt DataPlaneRequests. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut. Följande JSON-data är ett exempel på utdata av information som loggas med MongoRequests. Nyckelegenskaper att notera är: Requestcharge opCode:
+      * **MongoRequests**: Välj det här alternativet om du vill logga användarinitierade begär Anden från klient delen för att betjäna begär anden till Azure Cosmos DB s API för MongoDB. MongoDB-begäranden visas i MongoRequests och DataPlaneRequests. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut. Följande JSON-data är ett exempel på utdata som loggas med MongoRequests. Viktiga egenskaper att observera är: Requestcharge, opCode:
 
        ```
        { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
        ```
 
-      * **QueryRuntimeStatistics**: Välj det här alternativet för att logga frågetexten som kördes.  Följande JSON-data är ett exempel på utdata av information som loggas med QueryRuntimeStatistics:
+      * **QueryRuntimeStatistics**: Välj det här alternativet om du vill logga frågetexten som kördes.  Följande JSON-data är ett exempel på utdata som loggas med QueryRuntimeStatistics:
 
        ```
        { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
        ```
 
-      * **Metrisk begäranden**: Välj det här alternativet för att lagra utförliga data i [Azure-mått](../azure-monitor/platform/metrics-supported.md). Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
+      * **Mått begär Anden**: Välj det här alternativet om du vill lagra utförliga data i [Azure-mått](../azure-monitor/platform/metrics-supported.md). Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
 
 3. Välj **Spara**.
 
@@ -126,7 +126,7 @@ Om du vill aktivera mått och diagnostikloggning med hjälp av Azure CLI, använ
    az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   Den `resource` är namnet på Azure Cosmos DB-kontot. Resursen är i formatet ”/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ < Azure_Cosmos_account_name >” den `storage-account` är namnet på lagringskontot som du Om du vill skicka loggarna. Du kan logga andra loggar genom att uppdatera kategorin parametervärden till ”MongoRequests” eller ”DataPlaneRequests”. 
+   Den `resource` är namnet på Azure Cosmos DB-kontot. Resursen har formatet "/Subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ `storage-account` < Azure_Cosmos_account_name >" är namnet på det lagrings konto som du vill skicka loggarna. Du kan logga andra loggar genom att uppdatera kategori parameter värden till "MongoRequests" eller "DataPlaneRequests". 
 
 - Om du vill aktivera strömning av diagnostiska loggar till en händelsehubb, Använd följande kommando:
 
@@ -134,7 +134,7 @@ Om du vill aktivera mått och diagnostikloggning med hjälp av Azure CLI, använ
    az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   Den `resource` är namnet på Azure Cosmos DB-kontot. Den `event-hub-rule` är den event hub-regel-ID 
+   Den `resource` är namnet på Azure Cosmos DB-kontot. `event-hub-rule` Är regel-ID för Event Hub. 
 
 - Använd följande kommando om du vill aktivera skicka diagnostikloggar till Log Analytics-arbetsyta:
 
@@ -183,7 +183,7 @@ Mer information om hur du konfigurerar Azure PowerShell finns i [hur du installe
 ### <a id="storage"></a>Skapa ett nytt lagringskonto för dina loggar
 Men du kan använda ett befintligt lagringskonto för dina loggar i den här självstudien, skapa vi ett nytt lagringskonto som är dedikerad för Azure Cosmos DB-loggar. För enkelhetens skull Vi lagrar uppgifterna för lagringskontot i variabeln **sa**.
 
-För att ytterligare underlätta hantering i den här självstudien använder vi samma resursgrupp som det som innehåller Azure Cosmos DB-databasen. Ersätt värdena för den **ContosoResourceGroup**, **contosocosmosdblogs**, och **norra centrala USA** parametrar, i tillämpliga fall:
+I den här självstudien använder vi samma resurs grupp som den som innehåller Azure Cosmos-databasen för att under lätta hanteringen. Ersätt värdena för den **ContosoResourceGroup**, **contosocosmosdblogs**, och **norra centrala USA** parametrar, i tillämpliga fall:
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
@@ -251,7 +251,7 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 ```
 
 ### <a id="access"></a>Komma åt loggarna
-Azure Cosmos DB-loggarna för den **DataPlaneRequests** kategori lagras i den **insights-logs-dataplanerequests** behållare i lagringskontot som du angav. 
+Azure Cosmos DB loggar för kategorin **DataPlaneRequests** lagras i behållaren **Insights-logs-DataPlaneRequests** i det lagrings konto som du har angett. 
 
 Börja med att skapa en variabel för containerns namn. Variabeln används i hela genomgången.
 
@@ -373,20 +373,20 @@ Diagnostikloggar görs tillgängliga i ditt konto för två timmar från den tid
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-azure-monitor-logs"></a>Visa loggar i Azure Monitor-loggar
 
-Om du har valt den **skicka till Log Analytics** när du har aktiverat Diagnostisk loggning diagnostiska data från din behållare vidarebefordras till Azure Monitor-loggar inom två timmar. När du tittar på Azure Monitor-loggar omedelbart efter att du aktiverar loggning, visas inte några data. Bara vänta två timmar och försök igen. 
+Om du har valt alternativet **Skicka till Log Analytics** när du aktiverade diagnostisk loggning vidarebefordras diagnostikdata från din behållare till Azure Monitor loggar inom två timmar. När du tittar på Azure Monitor loggar direkt efter att du har aktiverat loggning ser du inga data. Bara vänta två timmar och försök igen. 
 
-Innan du visa loggarna och se om Log Analytics-arbetsytan har uppgraderats för att använda det nya Kusto-frågespråket. Du kan kontrollera genom att öppna den [Azure-portalen](https://portal.azure.com)väljer **Log Analytics-arbetsytor** längst till vänster, välj sedan namnet på arbetsytan som du ser i nästa bild. Den **Log Analytics-arbetsyta** visas:
+Innan du visar loggarna kan du kontrol lera om din Log Analytics arbets yta har uppgraderats för att använda det nya Kusto-frågespråket. Om du vill kontrol lera detta öppnar du [Azure Portal](https://portal.azure.com), väljer **Log Analytics arbets ytor** längst till vänster och väljer sedan namnet på arbets ytan som visas i nästa bild. Den **Log Analytics-arbetsyta** visas:
 
-![Azure Monitor-loggar i Azure portal](./media/logging/azure-portal.png)
+![Azure Monitor loggar i Azure Portal](./media/logging/azure-portal.png)
 
 >[!NOTE]
 >OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.  
 
 Om du ser följande meddelande på den **Log Analytics-arbetsyta** sidan din arbetsyta inte har uppgraderats för att använda det nya språket. Läs mer om hur du uppgraderar till det nya frågespråket [uppgradera Azure Log Analytics-arbetsytan till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md). 
 
-![Azure Monitor-loggar uppgradera meddelande](./media/logging/upgrade-notification.png)
+![Azure Monitor loggar uppgraderings meddelande](./media/logging/upgrade-notification.png)
 
-Om du vill visa dina diagnostiska data i Azure Monitor-loggar, öppna den **Loggsökning** sidan menyn till vänster eller **Management** området på sidan som visas i följande bild:
+Om du vill visa dina diagnostikdata i Azure Monitor loggar öppnar du sidan **loggs ökning** på den vänstra menyn eller i **hanterings** ytan på sidan, som du ser i följande bild:
 
 ![Loggalternativ för sökning i Azure portal](./media/logging/log-analytics-open-log-search.png)
 
@@ -397,7 +397,7 @@ Nu när du har aktiverat insamling av data, kör du följande loggsökning genom
 <a id="#queries"></a>
 ### <a name="queries"></a>Frågor
 
-Här följer några ytterligare frågor som du kan ange i den **loggsökning** rutan för att övervaka dina Azure Cosmos DB-behållare. Dessa frågor fungerar med den [nytt språk](../log-analytics/log-analytics-log-search-upgrade.md). 
+Här följer några ytterligare frågor som du kan ange i rutan **loggs ökning** som hjälper dig att övervaka dina Azure Cosmos-behållare. Dessa frågor fungerar med den [nytt språk](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 Läs om betydelsen av de data som returneras av varje loggsökning i [tolka Azure Cosmos DB-loggarna](#interpret).
 
@@ -451,24 +451,24 @@ Läs om betydelsen av de data som returneras av varje loggsökning i [tolka Azur
     AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
     ```
 
-Mer information om hur du använder det nya Log Search-språket finns i [förstå loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-search-new.md). 
+Mer information om hur du använder det nya logg Sök språket finns i [förstå loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-search-new.md). 
 
 ## <a id="interpret"></a>Tolka dina loggar
 
-Diagnostiska data som lagras i Azure Storage och Azure Monitor-loggar använder ett liknande schema. 
+Diagnostiska data som lagras i Azure Storage och Azure Monitor loggar använder ett liknande schema. 
 
 I följande tabell beskrivs innehållet i varje loggpost.
 
-| Azure Storage-fält eller någon egenskap | Azure Monitor loggar egenskapen | Beskrivning |
+| Azure Storage-fält eller någon egenskap | Azure Monitor loggar egenskap | Beskrivning |
 | --- | --- | --- |
 | **tid** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
 | **Resurs-ID** | **Resurs** | Azure Cosmos DB-kontot som loggar är aktiverad.|
 | **Kategori** | **Kategori** | För Azure Cosmos DB-loggar är **DataPlaneRequests** är endast tillgängligt värde. |
-| **OperationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara något av följande åtgärder: Skapa, uppdatera, läsa, ReadFeed, ta bort, ersätta, köra SQL-fråga, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
+| **OperationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara någon av följande åtgärder: Skapa, uppdatera, läsa, ReadFeed, ta bort, ersätta, köra, SqlQuery, fråga, JSQuery, Head, HeadFeed eller upsert.   |
 | **Egenskaper** | Saknas | Innehållet i det här fältet beskrivs i de rader som följer. |
 | **Aktivitets-ID** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
 | **UserAgent** | **userAgent_s** | En sträng som anger klientanvändaragent som utför förfrågan. Formatet är {användarnamn för agenten} / {version}.|
-| **requestResourceType** | **requestResourceType_s** | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: Databasen, behållare, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
+| **requestResourceType** | **requestResourceType_s** | Typ av resurs som används. Det här värdet kan vara någon av följande resurs typer: Databas, behållare, dokument, bilaga, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudande. |
 | **statusCode** | **statusCode_s** | Svarsstatus för åtgärden. |
 | **requestResourceId** | **Resurs-ID** | ResourceId som gäller för begäran. Värdet kan peka databaseRid, collectionRid eller documentRid beroende på de åtgärder som utförs.|
 | **clientIpAddress** | **clientIpAddress_s** | Klientens IP-adress. |
@@ -486,4 +486,4 @@ I följande tabell beskrivs innehållet i varje loggpost.
    - [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Läs [hämta mått och diagnostikloggar från Azure Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
-- Läs [förstå loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-search-new.md).
+- Läs [förstå loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-search-new.md).

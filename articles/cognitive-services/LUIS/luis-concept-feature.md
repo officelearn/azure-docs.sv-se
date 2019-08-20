@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639205"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624575"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Fras List funktioner i LUIS-appen
 

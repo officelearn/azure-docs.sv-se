@@ -1,103 +1,115 @@
 ---
 title: Översikt över Azure Active Directory Domain Services | Microsoft Docs
-description: Översikt över Azure Active Directory Domain Services
+description: I den här översikten får du veta vad Azure Active Directory Domain Services tillhandahåller och hur du använder det i din organisation för att tillhandahålla identitets tjänster till program och tjänster i molnet.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
-ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/20/2019
+ms.topic: overview
+ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: e29936915f0cd0b7e7ae7adfdbdb90d31195cd34
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 921266b78b82364b4610dcd74b6ee16ee44cb060
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472738"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617252"
 ---
-# <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
-## <a name="overview"></a>Översikt
-Azure Infrastructure Services kan du distribuera en lång rad databehandlingslösningar på ett flexibelt sätt. Med Azure Virtual Machines kan du distribuera nästan omedelbart och du betalar endast per minut. Med stöd för Windows, Linux, SQL Server, Oracle, IBM, SAP och BizTalk kan distribuera du valfri arbetsbelastning, valfritt språk på nästan vilket operativsystem. Dessa förmåner kan du migrera äldre program som distribuerats lokalt till Azure för att spara på driftskostnader.
+# <a name="what-is-azure-active-directory-domain-services"></a>Vad är Azure Active Directory Domain Services?
 
-En viktig aspekt av migrerar lokala program till Azure hanterar identitet behov av dessa program. Katalogbaserade appar förlitar sig på LDAP för Läs- eller skrivbehörighet till företagskatalogen eller förlitar sig på Windows-integrerad autentisering (Kerberos eller NTLM-autentisering) att autentisera användare. Line-of-business (LOB) program som körs på Windows Server distribueras vanligen på domänanslutna datorer, så att de kan hanteras på ett säkert sätt med hjälp av en Grupprincip. Dessa beroenden på företagsidentitet infrastrukturen måste matchas till ”lift and shift” på lokala program till molnet.
+Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade domän tjänster som domän anslutning, grup princip, LDAP och Kerberos/NTLM-autentisering som är helt kompatibelt med Windows Server Active Directory. Du använder dessa domän tjänster utan att behöva distribuera, hantera och korrigera domänkontrollanter i molnet. Azure AD DS integreras med din befintliga Azure AD-klient, vilket gör det möjligt för användarna att logga in med sina befintliga autentiseringsuppgifter. Du kan också använda befintliga grupper och användar konton för att skydda åtkomsten till resurser, vilket ger en smidigare ökning och växling av lokala resurser till Azure.
 
-Administratörer oftare på något av följande lösningar för att uppfylla behoven identitet i sina program som distribueras i Azure:
+Azure AD DS replikerar identitets information från Azure AD, så att den fungerar med Azure AD-klienter som endast är enbart i molnet eller som synkroniseras med en lokal Active Directory Domain Services (AD DS)-miljö. Om du har en befintlig lokal AD DS-miljö kan du synkronisera användar konto information för att ge användarna en enhetlig identitet. I miljöer med enbart moln behöver du inte en traditionell lokal AD DS-miljö för att använda de centraliserade identitets tjänsterna för Azure AD DS. Samma uppsättning Azure AD DS-funktioner finns i båda miljöerna.
 
-* Distribuera en plats-till-plats VPN-anslutning mellan arbetsbelastningar som körs i Azure Infrastructure Services och företagskatalog lokala platser.
-* Utöka infrastruktur för företagets AD-domän/skog genom att konfigurera replikeringsdomänkontrollanter med hjälp av Azure-datorer.
-* Distribuera en fristående domän i Azure med hjälp av domänkontrollanter som distribueras som virtuella Azure-datorer.
+Följande videoklipp ger en översikt över hur Azure AD DS integreras med dina program och arbets belastningar för att tillhandahålla identitets tjänster i molnet:
 
-Alla dessa metoder drabbas av höga kostnader och minimala administrationskostnader. Administratörer krävs för att distribuera domänkontrollanter med hjälp av virtuella datorer i Azure. Dessutom kan behöva de hantera, skydda, uppdatera, övervaka, säkerhetskopiera och felsöka dessa virtuella datorer. Förlita dig på VPN-anslutningar till en lokal katalog gör att arbetsbelastningar som distribuerats i Azure för att vara sårbara för tillfälliga nätverket problem och fel. Dessa nätverksavbrott leda i sin tur till lägre drifttid och lägre tillförlitlighet för dessa program.
-
-Vi har utformat Azure AD Domain Services för att tillhandahålla ett enklare alternativ.
-
-### <a name="watch-an-introductory-video"></a>En introduktionsvideo
+<br />
 
 >[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]
 
-## <a name="introducing-azure-ad-domain-services"></a>Introduktion till Azure AD Domain Services
+## <a name="common-ways-to-provide-identity-solutions-in-the-cloud"></a>Vanliga sätt att tillhandahålla identitets lösningar i molnet
 
-Azure AD Domain Services tillhandahåller hanterade domäntjänster, till exempel domänanslutning, grupp princip, LDAP, Kerberos/NTLM-autentisering som är helt kompatibla med Windows Server Active Directory. Du kan använda tjänsterna domän utan att behöva distribuera, hantera och korrigera domänkontrollanter i molnet. Azure AD Domain Services kan integreras med din befintliga Azure AD-klient, vilket gör det möjligt för användare att logga in med sina företagsuppgifter. Du kan dessutom använda befintliga grupper och konton för att säkra åtkomst till resurser, vilket säkerställer en jämnare 'lift-and-shift ”av lokala resurser till Azure Infrastructure Services.
+När du migrerar befintliga arbets belastningar till molnet kan katalog medveten program använda LDAP för Läs-eller skriv åtkomst till en lokal AD DS-katalog. Program som körs på Windows Server distribueras vanligt vis på domänanslutna så att de kan hanteras på ett säkert sätt med hjälp av grupprincip. För att användarna ska kunna autentisera slutanvändare kan programmen också vara beroende av Windows-integrerad autentisering, t. ex. Kerberos eller NTLM-autentisering.
 
-Azure AD Domain Services-funktioner fungerar sömlöst oavsett om din Azure AD-klient är molnbaserad eller synkroniserade med din lokala Active Directory.
+IT-administratörer använder ofta en av följande lösningar för att tillhandahålla en identitets tjänst till program som körs i Azure:
 
-### <a name="azure-ad-domain-services-for-cloud-only-organizations"></a>Azure AD Domain Services för endast molnbaserad organisationer
+* Konfigurera en plats-till-plats-VPN-anslutning mellan arbets belastningar som körs i Azure och den lokala AD DS-miljön.
+* Skapa replik-domänkontrollanter med Azure Virtual Machines (VM) för att utöka AD DS-domänen/-skogen.
+* Distribuera en fristående AD DS-miljö i Azure med hjälp av domänkontrollanter som körs på virtuella Azure-datorer.
 
-En molnbaserad Azure AD-klient (kallas ofta ”hanterade klienter”) inte har någon lokal identitet fotavtryck. Med andra ord finns användarkonton, lösenord och gruppmedlemskap alla inbyggd i molnet – det vill säga skapas och hanteras i Azure AD. Överväg att under en kort stund att Contoso är en molnbaserad Azure AD-klient. I följande bild visas Contosos administratören har konfigurerat ett virtuellt nätverk i Azure Infrastructure Services. Program och server-arbetsbelastningar har distribuerats i det här virtuella nätverket i Azure virtual machines. Eftersom Contoso är en endast molnbaserad klient, alla användaridentiteter, sina autentiseringsuppgifter och gruppmedlemskap skapas och hanteras i Azure AD.
+Med dessa metoder kan VPN-anslutningar till den lokala katalogen göra program sårbara för tillfälliga nätverks fel eller avbrott. Om du distribuerar domänkontrollanter med virtuella datorer i Azure måste de virtuella datorerna hantera, säkra, korrigera, övervaka, säkerhetskopiera och felsöka dem.
 
-![Azure AD Domain Services översikt](./media/active-directory-domain-services-overview/aadds-overview.png)
+Azure AD DS innehåller alternativ för behovet av att skapa VPN-anslutningar tillbaka till en lokal AD DS-miljö eller köra och hantera virtuella datorer i Azure för att tillhandahålla identitets tjänster. Som en hanterad tjänst minskar Azure AD DS komplexiteten för att skapa en integrerad identitets lösning för både hybrid miljöer och moln miljöer.
 
-Contosos IT-administratören kan aktivera Azure AD Domain Services för sina Azure AD-klient och väljer att tillgängliggöra domäntjänster i det här virtuella nätverket. Därefter Azure AD Domain Services tillhandahåller en hanterad domän och gör dem tillgängliga i det virtuella nätverket. Alla användarkonton, gruppmedlemskap och autentiseringsuppgifter för användare i Contosos Azure AD-klient är också tillgängliga i den här nya domänen. Den här funktionen gör det möjligt för användare i organisationen att logga in på domänen med sina företagsuppgifter – till exempel när du ansluter via en fjärranslutning till domänanslutna datorer via fjärrskrivbord. Administratörer kan etablera åtkomst till resurser i domänen med befintliga gruppmedlemskap. Program som distribueras på virtuella datorer i det virtuella nätverket kan använda funktioner som domänanslutning, LDAP Läs, LDAP-bindning, NTLM och Kerberos-autentisering och Grupprincip.
+## <a name="azure-ad-ds-features-and-benefits"></a>Funktioner och fördelar i Azure AD DS
 
-Några designmönster för den hanterade domänen som tillhandahålls av Azure AD Domain Services är följande:
+För att tillhandahålla identitets tjänster för program och virtuella datorer i molnet är Azure AD DS helt kompatibelt med en traditionell AD DS-miljö för åtgärder som domän anslutning, säker LDAP (LDAPs), grupprincip och DNS-hantering samt LDAP-bindning och Läs stöd. Stöd för LDAP-skrivning är tillgängligt för objekt som skapats i den hanterade Azure AD DS-domänen, men inte resurser som synkroniseras från Azure AD. Följande funktioner i Azure AD DS fören klar distributions-och hanterings åtgärder:
 
-* Contosos IT-administratören inte behöver hantera, korrigera och övervaka den här domänen eller domänkontrollanter för den här hanterade domänen.
-* Det finns inget behov att hantera AD-replikering för den här domänen. Användarkonton, gruppmedlemskap och autentiseringsuppgifter från Contosos Azure AD-klient blir automatiskt tillgängliga i den här hanterade domänen.
-* Eftersom domänen hanteras av Azure AD Domain Services, Contoso IT-administratören har inte domänadministratör eller företagsadministratör behörighet på den här domänen.
+* **Förenklad distributions upplevelse:** Azure AD DS har Aktiver ATS för din Azure AD-klient med hjälp av en enda guide i Azure Portal.
+* **Integrerat med Azure AD:** Användar konton, grupp medlemskap och autentiseringsuppgifter är automatiskt tillgängliga från Azure AD-klienten. Nya användare, grupper eller ändringar av attribut från din Azure AD-klient eller din lokala AD DS-miljö synkroniseras automatiskt till Azure AD DS.
+* **Använd företagets autentiseringsuppgifter/lösen ord:** Lösen ord för användare i Azure AD-klienten fungerar med Azure AD DS. Användarna kan använda sina företags uppgifter för att ansluta till domän datorer, logga in interaktivt eller via fjärr skrivbord och autentisera mot den hanterade domänen i Azure AD DS.
+* **NTLM-och Kerberos-autentisering:** Med stöd för NTLM-och Kerberos-autentisering kan du distribuera program som förlitar sig på Windows-integrerad autentisering.
+* **Hög tillgänglighet:** Azure AD DS innehåller flera domänkontrollanter som ger hög tillgänglighet för din hanterade domän. Den här hög tillgängligheten garanterar tjänste drift tid och återhämtning till problem.
 
-### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Azure AD Domain Services för hybridorganisationer
-Organisationer med en hybrid IT-infrastruktur använder en blandning av molnresurser och lokala resurser. Sådana organisationer synkronisera identitetsinformation från sina lokala katalog till deras Azure AD-klient. Som hybridorganisationer se ut för att migrera mer av sina lokala program till molnet, särskilt äldre katalogbaserade appar Azure AD Domain Services kan vara användbar för dem.
+Några viktiga aspekter av en hanterad Azure AD DS-domän är följande:
 
-Litware Corporation har distribuerat [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md), för att synkronisera identitetsinformation från sina lokala katalog till deras Azure AD-klient. ID-information som synkroniseras innehåller användarkonton, deras hashvärden för autentiseringsuppgifter för autentisering (lösenordshashsynkronisering) och gruppmedlemskap.
+* Den hanterade domänen i Azure AD DS är en fristående domän. Den är inte en utökning av en lokal domän.
+* IT-teamet behöver inte hantera, korrigera eller övervaka domänkontrollanter för den här hanterade domänen i Azure AD DS.
 
-> [!NOTE]
-> **Synkronisering av lösenordshash är obligatoriskt för hybridorganisationer att använda Azure AD Domain Services**. Det här kravet är eftersom användarnas autentiseringsuppgifter behövs i den hanterade domänen tillhandahålls av Azure AD Domain Services för att autentisera dessa användare via NTLM eller Kerberos autentiseringsmetoder.
->
->
+För Hybrid miljöer som kör AD DS lokalt behöver du inte hantera AD-replikering till den hanterade Azure AD DS-domänen. Användar konton, grupp medlemskap och autentiseringsuppgifter från din lokala katalog synkroniseras med Azure AD via Azure AD Connect. Dessa användar konton, grupp medlemskap och autentiseringsuppgifter är automatiskt tillgängliga i den hanterade domänen i Azure AD DS.
 
-![Azure AD Domain Services för Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
+## <a name="how-does-azure-ad-ds-work"></a>Hur fungerar Azure AD DS?
 
-Föregående bild visar hur organisationer med en hybrid IT-infrastruktur, till exempel Litware Corporation, kan använda Azure AD Domain Services. Litwares program och server-arbetsbelastningar som kräver domäntjänster distribueras i ett virtuellt nätverk i Azure Infrastructure Services. Litware's IT-administratören kan aktivera Azure AD Domain Services för sina Azure AD-klient och välja att göra en hanterad domän som är tillgängliga i det här virtuella nätverket. Eftersom Litware är en organisation med en hybrid IT-infrastruktur, synkroniseras användarkonton, grupper och autentiseringsuppgifter till deras Azure AD-klient från sina lokala katalog. Den här funktionen gör det möjligt för användare att logga in på domänen med sina företagsuppgifter – exempelvis när fjärransluta till datorer anslutna till domänen via fjärrskrivbord. Administratörer kan etablera åtkomst till resurser i domänen med befintliga gruppmedlemskap. Program som distribueras på virtuella datorer i det virtuella nätverket kan använda funktioner som domänanslutning, LDAP Läs, LDAP-bindning, NTLM och Kerberos-autentisering och Grupprincip.
+För att tillhandahålla identitets tjänster skapar Azure en AD DS-hanterad domän som är tillgänglig i ett virtuellt nätverk som du väljer. I bakgrunden, och utan att du behöver hantera, skydda eller uppdatera, tillhandahålls redundans genom ett par Windows Server-domänkontrollanter. Den hanterade domänen i Azure AD DS har kon figurer ATS för att utföra en enkelriktad synkronisering från Azure AD för att ge åtkomst till en central uppsättning användare, grupper och autentiseringsuppgifter. Du kan skapa resurser direkt i den hanterade domänen i Azure AD DS, men de synkroniseras inte tillbaka till Azure AD. Program, tjänster och virtuella datorer i Azure som ansluter till det här virtuella nätverket kan sedan använda vanliga AD DS-funktioner som domän anslutning, grup princip, LDAP och Kerberos/NTLM-autentisering. I en hybrid miljö med en lokal AD DS-miljö synkroniserar [Azure AD Connect][azure-ad-connect] identitets information med Azure AD.
 
-Några designmönster för den hanterade domänen som tillhandahålls av Azure AD Domain Services är följande:
+![Synkronisering i Azure AD Domain Services med Azure AD och lokala Active Directory Domain Services med AD Connect](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
-* Den hanterade domänen är en fristående domän. Det är inte ett tillägg till Litwares lokal domän.
-* Litware's IT-administratören inte behöver hantera, korrigera eller övervaka domänkontrollanter för den här hanterade domänen.
-* Det finns inget behov att hantera AD-replikering till den här domänen. Användarkonton, gruppmedlemskap och autentiseringsuppgifter från en lokal katalog Litwares synkroniseras till Azure AD via Azure AD Connect. Dessa användarkonton, gruppmedlemskap och autentiseringsuppgifter blir automatiskt tillgängliga i den hanterade domänen.
-* Eftersom domänen hanteras av Azure AD Domain Services, Litware's IT-administratören har inte domänadministratör eller företagsadministratör behörighet på den här domänen.
+Låt oss titta på några exempel för att se hur Azure AD DS fungerar:
 
-## <a name="benefits"></a>Fördelar
-Med Azure AD Domain Services, kan du utnyttja följande fördelar:
+* [Azure AD DS för Hybrid organisationer](#azure-ad-ds-for-hybrid-organizations)
+* [Azure AD DS för endast moln organisationer](#azure-ad-ds-for-cloud-only-organizations)
 
-* **Enkel** – du kan uppfylla identitet behoven hos virtuella datorer distribueras på Azure-infrastrukturtjänster med ett par enkla klick. Du behöver inte distribuera och hantera infrastruktur för Identitetshantering i Azure eller konfiguration ansluten till din lokala identitetsinfrastruktur.
-* **Integrerad** – Azure AD Domain Services är djupt integrerad med Azure AD-klienten. Du kan nu använda Azure AD som en integrerad molnbaserad enterprise-katalog som caters i förhållande till både traditionella katalogbaserade appar och moderna program.
-* **Kompatibel** – Azure AD Domain Services bygger på beprövade enterprise grade infrastruktur för Windows Server Active Directory. Ditt program kan därför förlitar sig på en högre grad av kompatibilitet med Windows Server Active Directory-funktioner. Inte alla funktioner som är tillgängliga i Windows Server AD är tillgängliga i Azure AD Domain Services. Dock är tillgängliga funktioner kompatibla med de motsvarande Windows Server AD-funktioner som du förlita dig på i din lokala infrastruktur. LDAP, Kerberos, NTLM, Grupprincip och domän join funktionerna utgör en mogen erbjudande som har testats och förfinat över olika versioner av Windows Server.
-* **Kostnadseffektiv** – med Azure AD Domain Services, kan du undvika infrastruktur och belastningen som är associerad med att hantera identitetsinfrastrukturen för att stödja traditionella katalogbaserade appar. Du kan flytta dessa program till Azure Infrastructure Services och dra nytta av större besparingar med driftskostnader.
+### <a name="azure-ad-ds-for-hybrid-organizations"></a>Azure AD DS för Hybrid organisationer
 
+Många organisationer kör en hybrid infrastruktur som omfattar både moln-och lokala program arbets belastningar. Äldre program som migrerats till Azure som en del av en hiss och Shift-strategi kan fortfarande använda traditionella LDAP-anslutningar för att tillhandahålla identitets information. För att stödja den här hybrid infrastrukturen kan identitets information från en lokal Active Directory Domain Services (AD DS) synkroniseras med en Azure AD-klient. Azure AD DS kan sedan tillhandahålla dessa äldre program i Azure med en identitets källa, utan att behöva konfigurera och hantera program anslutningen tillbaka till lokala katalog tjänster.
+
+Nu ska vi titta på ett exempel för Litware ' Corporation, en hybrid organisation som kör både lokala och Azure-resurser:
+
+![Azure Active Directory Domain Services för en hybrid organisation som innehåller lokal synkronisering](./media/overview/synced-tenant.png)
+
+* Program-och Server arbets belastningar som kräver domän tjänster distribueras i ett virtuellt nätverk i Azure.
+    * Detta kan inkludera äldre program som migrerats till Azure som en del av en hiss-och Shift-strategi.
+* För att synkronisera identitets information från sin lokala katalog till sin Azure AD-klient distribuerar Litware ' Corporation [Azure AD Connect][azure-ad-connect].
+    * Identitets information som synkroniseras innehåller användar konton och grupp medlemskap.
+* Litware ' IT-teamet möjliggör Azure AD DS för sin Azure AD-klient i detta eller ett peer-kopplat virtuellt nätverk.
+* Program och virtuella datorer som distribueras i det virtuella Azure-nätverket kan sedan använda Azure AD DS-funktioner som domän anslutning, LDAP Read, LDAP-bindning, NTLM-och Kerberos-autentisering och grupprincip.
+
+### <a name="azure-ad-ds-for-cloud-only-organizations"></a>Azure AD DS för endast moln organisationer
+
+En molnbaserad Azure AD-klient har ingen lokal identitets källa. Användar konton och grupp medlemskap skapas till exempel och hanteras i Azure AD.
+
+Nu ska vi titta på ett exempel för contoso, en moln organisation som bara använder Azure AD för identitet. Alla användar identiteter, deras autentiseringsuppgifter och grupp medlemskap skapas och hanteras i Azure AD. Det finns ingen ytterligare konfiguration av Azure AD Connect för att synkronisera identitets information från en lokal katalog.
+
+![Azure Active Directory Domain Services för en organisation som endast är i molnet utan lokal synkronisering](./media/overview/cloud-only-tenant.png)
+
+* Program-och Server arbets belastningar som kräver domän tjänster distribueras i ett virtuellt nätverk i Azure.
+* Contosos IT-team möjliggör Azure AD DS för sin Azure AD-klient i detta eller ett peer-kopplat virtuellt nätverk.
+* Program och virtuella datorer som distribueras i det virtuella Azure-nätverket kan sedan använda Azure AD DS-funktioner som domän anslutning, LDAP Read, LDAP-bindning, NTLM-och Kerberos-autentisering och grupprincip.
 
 ## <a name="next-steps"></a>Nästa steg
-### <a name="learn-more-about-azure-ad-domain-services"></a>Läs mer om Azure AD Domain Services
-* [Funktioner](active-directory-ds-features.md)
-* [Distributionsscenarier](scenarios.md)
-* [Ta reda på om Azure AD Domain Services passar dina användningsfall](comparison.md)
-* [Förstå hur Azure AD Domain Services synkroniseras med din Azure AD-katalog](synchronization.md)
 
-### <a name="get-started-with-azure-ad-domain-services"></a>Kom igång med Azure AD Domain Services
-* [Aktivera Azure AD Domain Services med Azure portal](create-instance.md)
+Mer information om Azure AD DS jämför med andra identitets lösningar och hur synkronisering fungerar finns i följande artiklar:
+
+* [Jämför Azure AD DS med Azure AD, Active Directory Domain Services på virtuella Azure-datorer och Active Directory Domain Services lokalt][compare]
+* [Lär dig hur Azure AD Domain Services synkroniseras med din Azure AD-katalog][synchronization]
+
+Kom igång genom att [skapa en Azure AD DS-hanterad domän med hjälp av Azure Portal][tutorial-create].
+
+<!-- INTERNAL LINKS -->
+[compare]: compare-identity-solutions.md
+[synchronization]: synchronization.md
+[tutorial-create]: tutorial-create-instance.md
+[azure-ad-connect]: ../active-directory/hybrid/whatis-hybrid-identity.md
+[password-hash-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md

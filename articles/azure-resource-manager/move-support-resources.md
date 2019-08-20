@@ -4,14 +4,14 @@ description: Visar en lista över de Azure-resurs typer som kan flyttas till en 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 7/9/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 22493ad7998e9014c88c79e6ac5eee3bf1216119
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 73f4b6fe4714d21c12d2c7bd387cd30f6f711d5a
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226802"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624313"
 ---
 # <a name="move-operation-support-for-resources"></a>Åtgärds stöd för flytt av resurser
 Den här artikeln visar om en Azure-resurs har stöd för flytt åtgärden. Den innehåller också information om särskilda villkor att tänka på när du flyttar en resurs.
@@ -167,7 +167,7 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Brygghuvudservrar | Ja | Ja |
+| servrar | Ja | Ja |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Resurstyp | Resource group | Subscription |
@@ -229,8 +229,8 @@ Hoppa till ett namn område för en resurs leverantör:
 | ------------- | ----------- | ---------- |
 | kluster | Nej | Nej |
 | fileservers | Nej | Nej |
-| utskrifts | Nej | Nej |
-| Arbets ytor | Nej | Nej |
+| jobb | Nej | Nej |
+| arbetsytor | Nej | Nej |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Resurstyp | Resource group | Subscription |
@@ -263,7 +263,7 @@ Hoppa till ett namn område för en resurs leverantör:
 | Redis | Ja | Ja |
 
 > [!IMPORTANT]
-> Om Azure cache för Redis-instansen har kon figurer ATS med ett virtuellt nätverk kan instansen inte flyttas till en annan prenumeration. Se [begränsningar för flytt av virtuella nätverk](./move-limitations/virtual-network-move-limitations.md).
+> Om Azure cache för Redis-instansen har kon figurer ATS med ett virtuellt nätverk kan instansen inte flyttas till en annan prenumeration. Se [begränsningar för flytt av virtuella nätverk](./move-limitations/networking-move-limitations.md).
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | Resurstyp | Resource group | Subscription |
@@ -315,18 +315,18 @@ Hoppa till ett namn område för en resurs leverantör:
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | availabilitysets | Ja | Ja |
-| Disk | Ja | Ja |
+| Diskar | Ja | Ja |
 | gallerier | Nej | Nej |
 | gallerier/bilder | Nej | Nej |
 | gallerier/avbildningar/versioner | Nej | Nej |
 | hostgroups | Nej | Nej |
 | hostgroups/värdar | Nej | Nej |
-| images | Ja | Ja |
+| bilder | Ja | Ja |
 | proximityplacementgroups | Nej | Nej |
 | restorepointcollections | Nej | Nej |
 | sharedvmimages | Nej | Nej |
 | sharedvmimages/versioner | Nej | Nej |
-| Ögonblicks bilder | Ja | Ja |
+| ögonblicksbilder | Ja | Ja |
 | virtualmachines | Ja | Ja |
 | virtualmachines/tillägg | Ja | Ja |
 | virtualmachinescalesets | Ja | Ja |
@@ -383,7 +383,7 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| utskrifts | Nej | Nej |
+| jobb | Nej | Nej |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Resurstyp | Resource group | Subscription |
@@ -393,7 +393,7 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftdatabricks"></a>Microsoft. Databricks
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Arbets ytor | Nej | Nej |
+| arbetsytor | Nej | Nej |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Resurstyp | Resource group | Subscription |
@@ -409,7 +409,7 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| distributionspaket | Nej | Nej |
+| paket | Nej | Nej |
 | utgå | Nej | Nej |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
@@ -443,18 +443,18 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Brygghuvudservrar | Ja | Ja |
+| servrar | Ja | Ja |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Brygghuvudservrar | Ja | Ja |
+| servrar | Ja | Ja |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | servergroups | Nej | Nej |
-| Brygghuvudservrar | Ja | Ja |
+| servrar | Ja | Ja |
 | serversv2 | Ja | Ja |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
@@ -478,7 +478,7 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Domänkontrollanter | Nej | Nej |
+| domänkontrollanter | Nej | Nej |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Resurstyp | Resource group | Subscription |
@@ -522,13 +522,13 @@ Hoppa till ett namn område för en resurs leverantör:
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | domäner | Ja | Ja |
-| Avsnitt | Ja | Ja |
+| avsnitt | Ja | Ja |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | kluster | Ja | Ja |
-| namn områden | Ja | Ja |
+| namnrymder | Ja | Ja |
 
 ## <a name="microsoftgenomics"></a>Microsoft. genomik
 | Resurstyp | Resource group | Subscription |
@@ -558,7 +558,7 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| faxar | Nej | Nej |
+| datorer | Nej | Nej |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | Resurstyp | Resource group | Subscription |
@@ -568,7 +568,7 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| utskrifts | Ja | Ja |
+| jobb | Ja | Ja |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Resurstyp | Resource group | Subscription |
@@ -578,14 +578,14 @@ Hoppa till ett namn område för en resurs leverantör:
 | activitylogalerts | Nej | Nej |
 | alertrules | Ja | Ja |
 | autoscalesettings | Ja | Ja |
-| Delarna | Ja | Ja |
+| delarna | Ja | Ja |
 | guestdiagnosticsettings | Nej | Nej |
 | metricalerts | Nej | Nej |
 | notificationgroups | Nej | Nej |
 | notificationrules | Nej | Nej |
 | scheduledqueryrules | Ja | Ja |
 | webbtester | Ja | Ja |
-| Arbets böcker | Ja | Ja |
+| arbetsböcker | Ja | Ja |
 
 > [!IMPORTANT]
 > Se till att flytta till den nya prenumerationen inte överskrider [prenumerations kvoterna](../azure-subscription-service-limits.md#azure-monitor-limits).
@@ -644,7 +644,7 @@ Hoppa till ett namn område för en resurs leverantör:
 | ------------- | ----------- | ---------- |
 | commitmentplans | Ja | Ja |
 | WebServices | Ja | Nej |
-| Arbets ytor | Ja | Ja |
+| arbetsytor | Ja | Ja |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | Resurstyp | Resource group | Subscription |
@@ -674,7 +674,7 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Arbets ytor | Nej | Nej |
+| arbetsytor | Nej | Nej |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Resurstyp | Resource group | Subscription |
@@ -722,7 +722,7 @@ Hoppa till ett namn område för en resurs leverantör:
 | applicationsecuritygroups | Ja | Ja |
 | azurefirewalls | Ja | Ja |
 | bastionhosts | Nej | Nej |
-| anslutning | Ja | Ja |
+| anslutningar | Ja | Ja |
 | ddoscustompolicies | Ja | Ja |
 | ddosprotectionplans | Nej | Nej |
 | dnszones | Ja | Ja |
@@ -730,7 +730,7 @@ Hoppa till ett namn område för en resurs leverantör:
 | expressroutecrossconnections | Nej | Nej |
 | expressroutegateways | Nej | Nej |
 | expressrouteports | Nej | Nej |
-| frontdoors | Nej | Nej |
+| ytterdörrar | Nej | Nej |
 | frontdoorwebapplicationfirewallpolicies | Nej | Nej |
 | belastningsutjämnare | Ja – grundläggande SKU<br>Standard-SKU: n | Ja – grundläggande SKU<br>Standard-SKU: n |
 | localnetworkgateways | Ja | Ja |
@@ -765,18 +765,18 @@ Hoppa till ett namn område för en resurs leverantör:
 | webapplicationfirewallpolicies | Ja | Ja |
 
 > [!IMPORTANT]
-> Se hur du [flyttar vägledning för virtuella nätverk](./move-limitations/virtual-network-move-limitations.md).
+> Se [rikt linjer för nätverks flytt](./move-limitations/networking-move-limitations.md).
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| namn områden | Ja | Ja |
+| namnrymder | Ja | Ja |
 | namnrymder/notificationhubs | Ja | Ja |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Arbets ytor | Ja | Ja |
+| arbetsytor | Ja | Ja |
 
 > [!IMPORTANT]
 > Se till att flytta till den nya prenumerationen inte överskrider [prenumerations kvoterna](../azure-subscription-service-limits.md#azure-monitor-limits).
@@ -786,17 +786,17 @@ Hoppa till ett namn område för en resurs leverantör:
 | ------------- | ----------- | ---------- |
 | managementconfigurations | Ja | Ja |
 | lösningar | Ja | Ja |
-| Vyer | Ja | Ja |
+| visningar | Ja | Ja |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| peerings | Nej | Nej |
+| peeringar | Nej | Nej |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Instrument paneler | Ja | Ja |
+| instrument paneler | Ja | Ja |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 | Resurstyp | Resource group | Subscription |
@@ -829,7 +829,7 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| namn områden | Ja | Ja |
+| namnrymder | Ja | Ja |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Resurstyp | Resource group | Subscription |
@@ -839,7 +839,7 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| planta | Ja | Ja |
+| flöden | Ja | Ja |
 | förfrågningsåtgärder | Ja | Ja |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -864,7 +864,7 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| namn områden | Ja | Ja |
+| namnrymder | Ja | Ja |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Resurstyp | Resource group | Subscription |
@@ -876,7 +876,7 @@ Hoppa till ett namn område för en resurs leverantör:
 | edgeclusters | Nej | Nej |
 | nätet | Nej | Nej |
 | secretstores | Nej | Nej |
-| volumes | Nej | Nej |
+| volymer | Nej | Nej |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Resurstyp | Resource group | Subscription |
@@ -885,8 +885,8 @@ Hoppa till ett namn område för en resurs leverantör:
 | containergroups | Nej | Nej |
 | gatewayer | Ja | Ja |
 | nätet | Ja | Ja |
-| secrets | Ja | Ja |
-| volumes | Ja | Ja |
+| hemligheter | Ja | Ja |
+| volymer | Ja | Ja |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft. SignalRService
 | Resurstyp | Resource group | Subscription |
@@ -916,7 +916,7 @@ Hoppa till ett namn område för en resurs leverantör:
 | instancepools | Nej | Nej |
 | managedinstances | Nej | Nej |
 | managedinstances/databaser | Nej | Nej |
-| Brygghuvudservrar | Ja | Ja |
+| servrar | Ja | Ja |
 | servrar/databaser | Ja | Ja |
 | servrar/elasticpools | Ja | Ja |
 | virtualclusters | Ja | Ja |
@@ -986,7 +986,7 @@ Hoppa till ett namn område för en resurs leverantör:
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | providerregistrations | Nej | Nej |
-| Resurser | Nej | Nej |
+| resurser | Nej | Nej |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Resurstyp | Resource group | Subscription |
@@ -1025,13 +1025,13 @@ Hoppa till ett namn område för en resurs leverantör:
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Intyg | Nej | Ja |
+| certifikat | Nej | Ja |
 | connectiongateways | Ja | Ja |
-| anslutning | Ja | Ja |
+| anslutningar | Ja | Ja |
 | customapis | Ja | Ja |
 | hostingenvironments | Nej | Nej |
 | Server grupper | Ja | Ja |
-| stationer | Ja | Ja |
+| webbplatser | Ja | Ja |
 | platser/premieraddons | Ja | Ja |
 | platser/platser | Ja | Ja |
 
@@ -1048,7 +1048,7 @@ Hoppa till ett namn område för en resurs leverantör:
 | ------------- | ----------- | ---------- |
 | applicationgroups | Nej | Nej |
 | hostpools | Nej | Nej |
-| Arbets ytor | Nej | Nej |
+| arbetsytor | Nej | Nej |
 
 ## <a name="third-party-services"></a>Tjänster från tredje part
 

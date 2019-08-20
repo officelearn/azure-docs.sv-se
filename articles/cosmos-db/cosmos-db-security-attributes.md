@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50711f8675e1b8aca6b9f90925ea921d22020ddd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: f1b578ff70e8a2795ba886e6d0c75eff521f77c3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442558"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615531"
 ---
 # <a name="security-attributes-for-azure-cosmos-db"></a>Säkerhetsattribut för Azure Cosmos DB
 
@@ -26,7 +26,7 @@ I den här artikeln dokumenteras säkerhetsattributen som är inbyggda i Azure C
 
 | Säkerhetsattribut | Ja/Nej | Anteckningar |
 |---|---|--|
-| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja | Alla Cosmos DB databaser och säkerhets kopior krypteras som standard. Se [data kryptering i Azure Cosmos DB](database-encryption-at-rest.md). Kryptering på Server sidan med Kundhanterade nycklar stöds inte. |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja | Alla Cosmos-databaser och säkerhets kopior krypteras som standard. Se [data kryptering i Azure Cosmos DB](database-encryption-at-rest.md). Kryptering på Server sidan med Kundhanterade nycklar stöds inte. |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Alla Azure Cosmos DB data krypteras vid överföring. |
 | Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej |  |
 | Kryptering på kolumn nivå (Azure Data Services)| Ja | Endast i Tables API Premium. Alla API: er stöder inte den här funktionen. Se [introduktion till Azure Cosmos DB: Tabell-API](table-introduction.md). |

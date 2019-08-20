@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f2145811338200b38e84766459844b4c83e5a80
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00f8a0e8d655f9412eceb7b0901ced829e490f78
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382771"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616100"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Lägg till ett konto i appen manuellt
 
@@ -105,6 +105,6 @@ Du kan lägga till ditt Amazon-konto genom att aktivera tvåstegsverifiering och
 
 - När du har lagt till dina konton i appen kan du logga in med Microsoft Authenticator-appen på enheten. Mer information finns i [Logga in med appen](user-help-auth-app-sign-in.md).
 
-- Om du har problem med att hämta din verifierings kod för din personliga Microsoft-konto kan du läsa avsnittet **fel sökning av verifierings kod problem** i artikeln [Microsoft-konto säkerhets information & verifierings koder](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) .
+- Om du har problem med att hämta din verifierings kod för din personliga Microsoft-konto kan du läsa avsnittet **fel sökning av verifierings kod problem** i artikeln [Microsoft-konto säkerhets information & verifierings koder](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
 
 - För enheter som kör iOS kan du också säkerhetskopiera dina kontoautentiseringsuppgifter och relaterade appinställningar, till exempel ordningen på dina konton, i molnet. Mer information finns i [säkerhets kopiering och återställning med Microsoft Authenticator app](user-help-auth-app-backup-recovery.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 29c91f2dcff04a2d21973e79c5719c3f4d84181b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a443931b8340552251fbcbe534f009eeeaf953aa
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827369"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617313"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Vägledning för personliga data som lagras i Log Analytics och Application Insights
 
@@ -98,6 +98,11 @@ För både Visa och exportera data begär Anden, ska [API för Log Analytics fr�
 Vi har gjort tillgängliga som en del av en sekretess hantering som hanterar en rensnings-API-sökväg. Den här sökvägen bör användas sparsamt på grund av risken som är kopplad till att göra detta, den potentiella prestanda påverkan och potentialen att skeva alla agg regeringar, mätningar och andra aspekter av dina Log Analytics data. I avsnittet [strategi för personlig data hantering](#strategy-for-personal-data-handling) finns alternativa metoder för att hantera privata data.
 
 Rensa är en hög privilegie rad åtgärd som ingen app eller användare i Azure (inklusive resurs ägaren) har behörighet att köra utan att uttryckligen beviljas en roll i Azure Resource Manager. Den här rollen är _data rensning_ och bör delegeras försiktigt på grund av risken för data förlust. 
+
+> [!IMPORTANT]
+> För att kunna hantera system resurser begränsas rensnings förfrågningar vid 50 förfrågningar per timme. Du bör batch-köra rensnings begär Anden genom att skicka ett enda kommando vars predikat innehåller alla användar identiteter som kräver rensning. Använd [operatorn i](/azure/kusto/query/inoperator) för att ange flera identiteter. Du bör köra frågan innan du kör rensnings förfrågan för att verifiera att resultatet förväntas. 
+
+
 
 När Azure Resource Manager rollen har tilldelats är två nya API-sökvägar tillgängliga: 
 

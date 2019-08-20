@@ -5,15 +5,15 @@ services: digital-twins
 author: alinamstanciu
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 08/16/2019
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: 9f4bf6fb92b590e274e8880b5f900e5469f85727
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ef6b395aeff18a63f52f58e2477679b48a19b002
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012296"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624750"
 ---
 1. I [Azure-portalen](https://portal.azure.com)öppnar du **Azure Active Directory** från den vänstra panelen och öppnar sedan fönstret **Egenskaper**. Kopiera **katalog-ID:t** till en temporär fil. Du använder det här värdet för att konfigurera exempelprogrammet i nästa avsnitt.
 
@@ -41,7 +41,7 @@ ms.locfileid: "69012296"
 
    e. Markera **Klar** i fönstret **Lägg till API-åtkomst**.
 
-   f. I fönstret **Nödvändiga behörigheter** väljer du knappen **Bevilja behörigheter** och godkänner bekräftelsen som visas. Kontakta administratören om behörigheten inte beviljas för detta API.
+   f. I fönstret **nödvändiga behörigheter** väljer du knappen **bevilja behörigheter** och godkänner bekräftelsen som visas. Kontakta administratören om behörigheten inte beviljas för detta API.
 
       ![Fönstret Nödvändiga behörigheter](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png)
 

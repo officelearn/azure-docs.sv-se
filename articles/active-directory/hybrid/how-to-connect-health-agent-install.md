@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3d1a8afdbad1878f4ce134edeeb95dad79e98a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dedb60a2a5d3681198fbc8a21af1dce1778e43eb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784821"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622658"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 
@@ -45,7 +45,7 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Utgående anslutning till Azure-tjänstens slutpunkter
 
- Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om utgående anslutningar blockeras använder brandväggar, se till att följande webbadresser inte blockeras som standard. Inaktivera inte säkerhetsövervakning eller granskning av dessa URL: er, men låta dem precis som andra internet-trafiken. De tillåter kommunikation med Azure AD Connect Health-Tjänsteslutpunkter. Lär dig hur du [Kontrollera utgående anslutningar med Test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
+ Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om utgående anslutning blockeras med hjälp av brand väggar kontrollerar du att följande URL: er inte blockeras som standard. Inaktivera inte säkerhetsövervakning eller inspektion av dessa URL: er, men tillåt dem som andra Internet trafik. De tillåter kommunikation med Azure AD Connect Health tjänst slut punkter. Lär dig hur du [kontrollerar utgående anslutningar med test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
 
 | Domänmiljö | Nödvändiga Azure-tjänsteslutpunkter |
 | --- | --- |
@@ -249,12 +249,12 @@ Dessa tjänster bör köras om du har slutfört konfigurationen. Annars startar 
 
 ![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
-### <a name="quick-agent-installation-in-multiple-servers"></a>Snabb agentinstallationen med flera servrar
+### <a name="quick-agent-installation-in-multiple-servers"></a>Snabb agent installation på flera servrar
 
-1. Skapa ett användarkonto i Azure AD med ett lösenord.
-2. Tilldela den **ägare** rollen för den här lokala AAD-konto i Azure AD Connect Health via portalen. Följ stegen [här](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Tilldela rollen till alla instanser av tjänsten. 
-3. Hämta .exe MSI-filen i den lokala domänkontrollanten för installation.
-4. Kör följande skript till registreringen. Ersätt parametrarna med det nya användarkontot som skapade och dess lösenord. 
+1. Skapa ett användar konto i Azure AD med ett lösen ord.
+2. Tilldela **ägar** rollen för det här lokala AAD-kontot i Azure AD Connect Health via portalen. Följ stegen [här](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Tilldela rollen till alla tjänst instanser. 
+3. Hämta MSI-filen för. exe i den lokala domänkontrollanten för installation.
+4. Kör följande skript för att registrera dig. Ersätt parametrarna med det nya användar kontot som skapats och lösen ordet. 
 
 ```powershell
 AdHealthAddsAgentSetup.exe /quiet
@@ -268,11 +268,11 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 
 ```
 
-1. När du är klar kan du ta bort åtkomst för det lokala kontot genom att göra en eller flera av följande: 
-    * Ta bort rolltilldelning för det lokala kontot för AAD Connect Health
-    * Rotera lösenordet för det lokala kontot. 
-    * Inaktivera det lokala kontot för AAD
-    * Ta bort det lokala kontot för AAD  
+1. När du är färdig kan du ta bort åtkomsten för det lokala kontot genom att göra något av följande: 
+    * Ta bort roll tilldelningen för det lokala kontot för AAD Connect Health
+    * Rotera lösen ordet för det lokala kontot. 
+    * Inaktivera lokalt AAD-konto
+    * Ta bort det lokala AAD-kontot  
 
 ## <a name="agent-registration-using-powershell"></a>Agentregistrering med PowerShell
 
@@ -313,7 +313,7 @@ Du kan välja följande alternativ när du konfigurerar Azure AD Connect Health 
 
 > [!NOTE]
 > Du måste starta om alla Azure AD Connect Health Agent-tjänster för att proxyinställningarna ska uppdateras. Kör följande kommando:<br />
-> Restart-Service AdHealth*
+> Restart-service AzureADConnectHealth *
 >
 >
 

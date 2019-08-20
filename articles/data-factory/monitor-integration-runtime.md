@@ -43,12 +43,12 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av cmdle
 
 | Egenskap | Beskrivning |
 -------- | ------------- | 
-| Namn | Namnet på Azure integration runtime. |  
-| Status | Status för Azure integration runtime. | 
+| Name | Namnet på Azure integration runtime. |  
+| State | Status för Azure integration runtime. | 
 | Location | Platsen för Azure integration runtime. Mer information om platsen för en Azure integration runtime finns [introduktion till integration runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Namnet på datafabriken som tillhör Azure integration runtime. | 
 | ResourceGroupName | Namnet på resursgruppen som datafabriken tillhör.  |
-| Beskrivning | Beskrivning av integration runtime.  |
+| Description | Beskrivning av integration runtime.  |
 
 ### <a name="status"></a>Status
 Följande tabell innehåller olika statusar av en Azure integration runtime:

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: SQL Async Java API, SDK och resurser'
+title: 'Azure Cosmos DB: SQL-asynkron Java-API, SDK &-resurser'
 description: Lär dig allt om SQL Async Java API och SDK, inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version av Azure Cosmos DB SQL Async Java SDK.
 author: moderakh
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 3cafa4d5aecaa4c8f3863c3269ec02793340e3e6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3bee473adde9c4762cf400dff6190eb76a4cc8d7
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509261"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624696"
 ---
-# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK för SQL-API: Viktig information och resurser
+# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB asynkron Java SDK för SQL API: Viktig information och resurser
 > [!div class="op_single_selector"]
 > * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
@@ -27,8 +27,8 @@ ms.locfileid: "67509261"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor – .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor – Java](sql-api-sdk-bulk-executor-java.md)
+> * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhandahålla asynkrona åtgärder med stöd för den [Netty biblioteket](https://netty.io/). Ett befintligt [SQL API Java SDK](sql-api-sdk-java.md) har inte stöd för asynkrona åtgärder. 
 
@@ -39,48 +39,48 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 |**Bidra till SDK** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
 |**Kom igång** | [Kom igång med Async Java SDK](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
 |**Kodexempel** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
-| **Prestandatips**| [GitHub viktigt](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
+| **Prestandatips**| [GitHub – viktigt](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
 | **Lägsta stödda körningar**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
-* TCP-läge nu på som standard
-* Fråga mått i korspartition nu returnerar alla partitioner
+* TCP-läget är nu aktiverat som standard
+* Fråga efter mått i Cross partition returnerar nu alla partitioner
 * Global stark fungerar nu korrekt
-* Redundans för frågor försöker inte korrekt för flera master
-* Beroende kullar för snabbkorrigeringar för säkerhet
+* Redundans för frågor som inte går att använda korrekt för flera huvud servrar
+* Sambands ojämnheter för säkerhets snabb korrigeringar
 
 ### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
-* Bugfix för Hash-V2-support
+* Bugfix för hash v2-stöd
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
-* Bugfix för resurs-läcka på client#close() ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
+* Bugfix för resurs läcka på klienten # Close () ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
-* Har lagts till fortsatt stöd för token för mellan partition frågor.
+* Stöd för stöd för fortsatt token för kors partitions frågor har lagts till.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
-* Fast vissa buggar i direkt-läge.
-* Förbättrad loggning i direkt-läge.
-* Förbättrad hantering.
+* Vissa buggar i direkt läge har åtgärd ATS.
+* Förbättrad loggning i direkt läge.
+* Förbättrad anslutnings hantering.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* Direkt-läge anslutningen är nu allmänt Available(GA). Ett exempel som använder direkt läge anslutning, se [azure cosmosdb java](https://github.com/Azure/azure-cosmosdb-java) GitHub-lagringsplatsen.
+* Anslutning till direkt läge är nu allmänt tillgänglig (GA). Ett exempel som använder anslutning via direkt läge finns i [Azure-cosmosdb-Java GitHub-](https://github.com/Azure/azure-cosmosdb-java) lagringsplatsen.
 * Stöd har lagts till för QueryMetrics.
-* Ändra API: er som tar emot java.util.Collection där ordningen är viktig att acceptera java.util.List i stället. Nu acceptera ConnectionPolicy#getPreferredLocations() och JsonSerialization PartitionKey(.) lista.
+* Ändrade API: erna som accepterar Java. util. Collection för vilken ordning är viktigt att godkänna Java. util. list i stället. Nu ConnectionPolicy # getPreferredLocations (), JsonSerialization och PartitionKey (.) Accept (.).
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
-* Stöd har lagts till för anslutning direkt-läge.
-* Ändra API: er som tar emot java.util.Collection där ordningen är viktig att acceptera java.util.List i stället.
-  Nu acceptera ConnectionPolicy#getPreferredLocations() och JsonSerialization PartitionKey(.) lista.
-* En bugg session för dokumentet frågan i gateway-läge.
-* Uppgraderas beroenden (netty 0.4.20 [github #79](https://github.com/Azure/azure-cosmosdb-java/issues/79), RxJava 1.3.8).
+* Stöd har lagts till för anslutning till direkt läge.
+* Ändrade API: erna som accepterar Java. util. Collection för vilken ordning är viktigt att godkänna Java. util. list i stället.
+  Nu ConnectionPolicy # getPreferredLocations (), JsonSerialization och PartitionKey (.) Accept (.).
+* Åtgärdat ett sessions-fel för dokument fråga i Gateway-läge.
+* Uppgraderade beroenden (nett 0.4.20 [github #79](https://github.com/Azure/azure-cosmosdb-java/issues/79), RxJava 1.3.8).
 
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
-* Korrigeringar hantera mycket stora frågesvar.
-* Åtgärdar token resurshantering när instanser skapades av klienten ([github #78](https://github.com/Azure/azure-cosmosdb-java/issues/78)).
-* Uppgraderas sårbara beroende jackson-databind ([github #77](https://github.com/Azure/azure-cosmosdb-java/pull/77)).
+* Korrigeringar hanterar mycket stora fråge svar.
+* Korrigerar hantering av resursens token när klienten instansieras ([github #78](https://github.com/Azure/azure-cosmosdb-java/issues/78)).
+* Uppgraderat sårbart beroende Jackson-DataBind ([github #77](https://github.com/Azure/azure-cosmosdb-java/pull/77)).
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 * En bugg resource dataläckor.
@@ -93,7 +93,7 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Ett NPE-fel har åtgärdats i sökvägen för skrivning försök igen.
 * Ett NPE-fel har åtgärdats i slutpunkten management.
-* Uppgraderas sårbara beroenden ([GitHub #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Uppgraderade sårbara beroenden ([GitHub #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
 * Stöd har lagts till för Netty nätverk loggning för felsökning.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
@@ -102,16 +102,16 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Stöd har lagts till för Proxy.
 * Tillagt stöd för token resursauktorisering.
-* En bugg i hantering av stora partitionsnycklar ([GitHub #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
+* En bugg har åtgärd ATS vid hantering av stora partitionsnyckel ([GitHub #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
 * Dokumentation om bättre.
 * SDK har strukturerats i mer detaljerade moduler.
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
-* En bugg för andra språk än engelska ([GitHub #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* Ett fel har åtgärd ATS för icke-engelska språk ([GitHub #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
 * Har lagts till hjälpmetoder i konflikt resurs.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
-* Ersatts org.json beroende av jackson på grund av prestandaskäl och licensiering ([GitHub #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Ett beroende av org. JSON har ersatts av Jackson på grund av prestanda orsaker och licensiering ([GitHub #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
 * Ta bort föråldrad OfferV2 klass.
 * Har lagts till accessor metod till erbjudandet klass för dataflöde innehåll.
 * Valfri metod i dokumentet/resurs returnerar org.json typer ändras för att returnera en jackson objekttyp.
@@ -124,18 +124,18 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 * Stöd har lagts till för unikt Index-principen.
 * Stöd har lagts till för att begränsa fortsättning token svarsstorlek i alternativen för feed.
 * Stöd har lagts till för Partition Split i mellan Partitionsfrågan.
-* Ett fel har åtgärdats i Json-serialisering för tidsstämpel ([GitHub #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* En bugg har åtgärd ATS i[GitHub #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)(JSON timestamp).
 * Ett fel har åtgärdats i Json-serialisering för enum.
-* En bugg i hanteringen av dokument för storlek på 2MB ([GitHub #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
-* Beroende com.fasterxml.jackson.core:jackson-databind uppgraderas till 2.9.5 på grund av ett fel ([jackson databind: GitHub #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
-* Beroende på rxjava-tillägg som uppgraderas till 0.8.0.17 på grund av ett fel ([rxjava-tillägg: GitHub #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* Ett fel har åtgärd ATS i hanteringen av dokument på 2 MB ([GitHub #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Beroende com. fasterxml. Jackson. Core: Jackson-DataBind uppgraderat till 2.9.5 på grund av ett[fel (Jackson-DataBind: GitHub #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Beroende av rxjava-extrafunktioner som uppgraderats till 0.8.0.17 på grund av ett[fel (rxjava-tillägg: GitHub #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
 * Metadatabeskrivning i pom-filen uppdateras för att vara infogad med resten av dokumentationen.
-* Syntax improvement ([GitHub #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([GitHub #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+* [GitHub #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([GitHub #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Ytterligare belastning stöd har lagts till i frågan.
 * Stöd har lagts till för partitions-id nyckelintervall i fråga.
-* Åtgärda att tillåta större fortsättningstoken i huvudet i begäran (bugfix GitHub #24).
+* Korrigera för att tillåta större fortsättnings-token i begär ande huvudet (Bugfix GitHub #24).
 * Netty beroende uppgraderas till 4.1.22.Final så JVM stängs av när huvudtråden har slutförts.
 * Åtgärda och Undvik att sessionstoken vid läsning av master-resurser.
 * Lägga till fler exempel.
@@ -156,12 +156,12 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
-| [2.4.3](#2.4.3) |5 mar 2019|--- |
-| [2.4.2](#2.4.2) |Den 1 mars 2019|--- |
-| [2.4.1](#2.4.1) |20 februari 2019|--- |
-| [2.4.0](#2.4.0) |Den 8 februari 2019|--- |
-| [2.4.0-beta-1](#2.4.0-beta-1) |4 februari 2019|--- |
-| [2.3.1](#2.3.1) |15 jan 2019|--- |
+| [2.4.3](#2.4.3) |Mar 5, 2019|--- |
+| [2.4.2](#2.4.2) |Mar 1, 2019|--- |
+| [2.4.1](#2.4.1) |Feb 20, 2019|--- |
+| [2.4.0](#2.4.0) |Feb 8, 2019|--- |
+| [2.4.0-beta-1](#2.4.0-beta-1) |Feb 4, 2019|--- |
+| [2.3.1](#2.3.1) |15 Jan 2019|--- |
 | [2.3.0](#2.3.0) |Den 29 november 2018|--- |
 | [2.2.2](#2.2.2) |8 november 2018|--- |
 | [2.2.1](#2.2.1) |Den 2 november 2018|--- |

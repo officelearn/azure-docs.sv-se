@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a5842d590a4597253bac39c0b7a6f62e6acad908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ac257d4eb9fb9e26739f1a63049751f9298efb5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243521"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616772"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestanda och skalningstester med Azure Cosmos DB
 
@@ -37,16 +37,16 @@ Om du letar efter klientsidans konfigurationsalternativ för att förbättra pre
 ## <a name="run-the-performance-testing-application"></a>Kör programmet för prestandatest
 Det snabbaste sättet att komma igång är att kompilera och kör .NET-exemplet som beskrivs i följande steg. Du kan också granska källkoden och implementera liknande konfigurationer på dina egna program.
 
-**Steg 1:** Hämta projektet från [exempel för Azure Cosmos DB-prestandatest](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), eller Förgrena GitHub-lagringsplatsen.
+**Steg 1:** Hämta projektet från [Azure Cosmos DB exempel på prestandatest](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)eller förgrening av GitHub-lagringsplatsen.
 
-**Steg 2:** Ändra inställningarna för EndpointUrl, AuthorizationKey, CollectionThroughput och DocumentTemplate (valfritt) i App.config.
+**Steg 2:** Ändra inställningarna för EndpointUrl, AuthorizationKey, CollectionThroughput och DocumentTemplate (valfritt) i app. config.
 
 > [!NOTE]
-> Innan du etablerar samlingar med dataflöden måste referera till den [prissidan](https://azure.microsoft.com/pricing/details/cosmos-db/) uppskatta kostnader per samling. Azure Cosmos DB fakturerar lagringen och dataflödet separat per timme. Du kan spara pengar genom att ta bort eller sänka dataflödet för Azure Cosmos DB-samlingar efter testning.
+> Innan du etablerar samlingar med dataflöden måste referera till den [prissidan](https://azure.microsoft.com/pricing/details/cosmos-db/) uppskatta kostnader per samling. Azure Cosmos DB fakturerar lagringen och dataflödet separat per timme. Du kan spara kostnader genom att ta bort eller minska genomflödet för dina Azure Cosmos-behållare efter testning.
 > 
 > 
 
-**Steg 3:** Kompilera och kör konsolappen från kommandoraden. Du bör se utdata som liknar följande:
+**Steg 3:** Kompilera och kör-konsol programmet från kommando raden. Du bör se utdata som liknar följande:
 
     C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
@@ -89,7 +89,7 @@ Det snabbaste sättet att komma igång är att kompilera och kör .NET-exemplet 
     Press any key to exit...
 
 
-**Steg 4 (vid behov):** Dataflödet rapporterade (RU/s) från verktyget ska vara samma eller högre än det etablerade dataflödet i samlingen eller en uppsättning samlingar. Om den inte öka DegreeOfParallelism i små steg kan hjälpa dig att nå gränsen. Om dataflödet från klientappen högplaåter, starta flera instanser av appen på ytterligare datorer. Om du behöver hjälp med det här e- askcosmosdb@microsoft.com eller öppna ett supportärende från den [Azure-portalen](https://portal.azure.com).
+**Steg 4 (om det behövs):** Data flödet som rapporterades (RU/s) från verktyget ska vara samma eller högre än det etablerade data flödet för samlingen eller en uppsättning samlingar. Om den inte öka DegreeOfParallelism i små steg kan hjälpa dig att nå gränsen. Om dataflödet från klientappen högplaåter, starta flera instanser av appen på ytterligare datorer. Om du behöver hjälp med det här e- askcosmosdb@microsoft.com eller öppna ett supportärende från den [Azure-portalen](https://portal.azure.com).
 
 När du har appen körs kan du prova olika [indexeringsprinciper](index-policy.md) och [konsekvensnivåer](consistency-levels.md) att förstå deras inverkan på dataflöde och svarstid. Du kan också granska källkoden och implementera liknande konfigurationer till dina egna testpaket eller program i produktion.
 

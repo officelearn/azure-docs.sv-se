@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 1716bd64286f1882b9fc224712d227967d78058a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8d2cb30e0f18485d500344e571b3ac5f2cde008f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637788"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615710"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Översikt över Azure Cosmos DB utförar-bibliotek
  
@@ -36,7 +36,7 @@ Massexecutor-biblioteket hjälper dig att dra nytta av det omfattande dataflöde
  
 * Den kan Mass import av mer än en terabyte data inom en timme med hjälp av en skalbar arkitektur.  
 
-* Det kan Mass uppdatera befintliga data i Azure Cosmos DB behållare som korrigeringsfiler. 
+* Det kan Mass uppdatera befintliga data i Azure Cosmos-behållare som korrigeringar. 
  
 ## <a name="how-does-the-bulk-executor-operate"></a>Hur fungerar bulk-utförar? 
 

@@ -1,110 +1,74 @@
 ---
-title: Konfigurera tvåstegsverifiering – Azure Active Directory | Microsoft Docs
-description: När ditt företag konfigurerar Azure Multi-Factor Authentication uppmanas du att registrera dig för tvåstegsverifiering. Lär dig hur du konfigurerar det.
+title: Konfigurera en översikt över metoder för verifiering av två faktorer – Azure Active Directory | Microsoft Docs
+description: Översikt över hur du ställer in dina metoder för tvåstegsverifiering för tvåstegsverifiering.
 services: active-directory
-keywords: använda Azure Directory, Active Directory i molnet, självstudier för Active Directory
 author: eross-msft
 manager: daveba
-ms.reviewer: richagi
-ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
-ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
-ms.date: 05/15/2017
+ms.workload: identity
+ms.topic: overview
+ms.date: 08/12/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75bc067bfe8a98ef2337f368243b3221be1677d6
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 83bba343ac73fd0df575ae1e8a83c589a0bc15ac
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949895"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616179"
 ---
-# <a name="set-up-my-account-for-two-step-verification"></a>Konfigurera mitt konto för tvåstegsverifiering
-Tvåstegsverifiering är ett extra säkerhets steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att avbryta i. Om du läser den här artikeln, fick du förmodligen ett e-postmeddelande från din arbets-eller skol administratör om multifaktorautentisering. Eller så kanske du försökte logga in och fått ett meddelande där du uppmanas att konfigurera ytterligare säkerhets verifiering. I så fall **kan du inte logga in förrän du har slutfört processen för automatisk registrering**.
+# <a name="set-up-your-two-factor-verification-methods-overview"></a>Konfigurera en översikt över metoder för verifiering av två faktorer
 
-Den här artikeln hjälper dig att konfigurera ditt **arbets-eller skol konto**. Om du vill aktivera tvåstegsverifiering för din egen, personliga Microsoft-konto, se [om](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)tvåstegsverifiering.
+Din organisation har aktiverat tvåstegsverifiering, vilket innebär att ditt arbets-eller skol konto loggar nu kräver en kombination av ditt användar namn, ditt lösen ord och en mobil enhet eller telefon. Din organisation aktiverade den här extra verifieringen eftersom det är säkrare än bara ett lösen ord, som förlitar sig på två typer av autentisering: något du känner och något som du har med dig. Tvåstegsverifiering kan hjälpa till att förhindra att skadliga hackare är du, eftersom även om de har ditt lösen ord, strider är att de inte har din enhet.
 
-## <a name="set-up-your-account"></a>Konfigurera ditt konto
+>[!Important]
+>Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-När företagets support kräver att du börjar använda tvåstegsverifiering, ser du en skärm som säger att **din administratör har begärt att du konfigurerar det här kontot för ytterligare säkerhets verifiering**:
+## <a name="who-decides-if-you-use-this-feature"></a>Vem bestämmer om du använder den här funktionen?
 
-![Konfiguration](./media/multi-factor-authentication-end-user-first-time/first.png)
+Beroende på din typ av konto kan organisationen välja att du måste använda tvåfaktorsverifiering, eller så kanske du kan välja själv.
 
-Kom igång genom att välja **Konfigurera det nu.**
+- **Arbets- eller skolkonto.** Om du använder ett arbets- eller skolkonto (till exempel alain@contoso.com) är det upp till din organisation om du måste använda tvåfaktorsverifiering tillsammans med de specifika verifieringsmetoderna. Eftersom din organisation har valt att du måste använda den här funktionen kan du inaktivera den på ett och samma sätt.
 
-Om du inte ser en skärm som detta när du loggar in, följer du anvisningarna i [Hantera dina inställningar för](multi-factor-authentication-end-user-manage-settings.md#using-the-additional-security-verification-page) tvåstegsverifiering för att hitta inställnings sidan där du kan hantera dina verifierings alternativ.
+- **Personligt Microsoft-konto.** Du kan välja att ställa in tvåfaktorsverifiering för dina personliga Microsoft-konton (till exempel alain@outlook.com). Om du har problem med tvåstegsverifiering och din personliga Microsoft-konto kan du läsa mer i [Aktivera och inaktivera tvåstegsverifiering för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Eftersom du väljer om du vill använda den här funktionen kan du aktivera och inaktivera den när du vill.
 
-## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Bestäm hur du vill verifiera inloggnings programmen
+## <a name="access-the-additional-security-verification-page"></a>Öppna sidan ytterligare säkerhets verifiering
 
-Den första frågan i registrerings processen är hur du vill att vi ska kontakta dig. Ta en titt på alternativen i tabellen och Använd länkarna för att gå till installations stegen för varje metod.
+När din organisation har aktiverat och ställt in tvåstegsverifiering, får du en uppmaning som uppmanar dig att ange mer information som hjälper dig att skydda ditt konto.
 
-| Kontaktmetod | Beskrivning |
-| --- | --- |
-| [Mobilapp](#use-a-mobile-app-as-the-contact-method) |- **Ta emot meddelanden om verifiering.** Med det här alternativet skickas ett meddelande till Authenticator-appen på din smartphone eller surfplatta. Visa meddelandet och välj **autentisera** i appen om det är giltigt. Ditt arbete eller din skola kan kräva att du anger en PIN-kod innan du autentiserar.<br>- **Använd verifierings kod.** I det här läget genererar Authenticator-appen en verifierings kod som uppdateras var 30: e sekund. Ange den mest aktuella verifierings koden i inloggnings gränssnittet.<br>Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594) och [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|
-| [Mobil samtal eller SMS](#use-your-mobile-phone-as-the-contact-method) |- **Telefonsamtal** placerar ett automatiskt röst samtal till det telefonnummer som du anger. Besvara anropet och tryck på # i telefon tangent bordet för att autentisera.<br>- **SMS** avslutar ett textmeddelande som innehåller en verifierings kod. Följ anvisningarna i texten, antingen svara på textmeddelandet eller ange verifierings koden som anges i inloggnings gränssnittet. |
-| [Telefonsamtal till kontor](#use-your-office-phone-as-the-contact-method) |Placerar ett automatiskt röst samtal till det telefonnummer som du anger. Besvara anropet och tryck på # i telefon tangent bordet för att autentisera. |
+![Prompt för mer information krävs](media/multi-factor-authentication-verification-methods/multi-factor-authentication-initial-prompt.png)
 
-## <a name="use-a-mobile-app-as-the-contact-method"></a>Använd en mobilapp som kontakt metod
-Om du använder den här metoden måste du installera en Authenticator-app på din telefon eller surfplatta. Stegen i den här artikeln baseras på Microsoft Authenticator-appen, som är tillgänglig för [Android](https://go.microsoft.com/fwlink/?Linkid=825072) och [iOS](https://go.microsoft.com/fwlink/?Linkid=825073).
+### <a name="to-access-the-additional-security-verification-page"></a>Så här öppnar du sidan ytterligare säkerhets verifiering
 
->[!NOTE]
->Du behöver inte använda Microsoft Authenticator-appen. Om du redan använder en annan Authenticator-app kan du fortsätta att använda den.
+1. Välj **Nästa** från frågan **Mer information krävs** .
 
-1. Välj **mobilapp** i den nedrullningsbara listan.
-2. Välj antingen **ta emot meddelanden för verifiering** eller **Använd verifierings koden**och välj sedan **Konfigurera**.
+    Sidan **ytterligare säkerhets verifiering** visas.
 
-   ![Skärmen ytterligare säkerhets verifiering](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
+2. På sidan **ytterligare säkerhets verifiering** måste du bestämma vilken metod för tvåstegsverifiering som ska användas för att kontrol lera att du har loggat in på ditt arbets-eller skol konto. Du kan välja:
 
-3. Öppna appen på din telefon eller surfplatta och välj **+** att lägga till ett konto. (På Android-enheter väljer du de tre punkterna och sedan **Lägg till konto**.)
-4. Ange att du vill lägga till ett arbets-eller skol konto. QR kod skannern på din telefon öppnas. Om kameran inte fungerar som den ska kan du välja att ange företagets information manuellt. Mer information finns i [lägga till ett konto manuellt](#add-an-account-manually).  
-5. Skanna QR-kodfragmentet som visades med skärmen för att konfigurera mobilappen.  Välj **Done** för att stänga QR-kod skärmen.  
-
-   ![Sidan QR-kod](./media/multi-factor-authentication-end-user-first-time/scan2.png)
-
-6. När aktiveringen är klar på telefonen väljer du **kontakta mig**.  Det här steget skickar antingen ett meddelande eller en verifierings kod till din telefon. Välj **Verifiera**.  
-7. Om ditt företag kräver en PIN-kod för att godkänna inloggnings verifieringen anger du det.
-
-   ![Ruta för att ange en PIN-kod](./media/multi-factor-authentication-end-user-first-time/scan3.png)
-
-8. När PIN-koden är klar väljer du **Stäng**. Nu bör verifieringen lyckas.
-9. Vi rekommenderar att du anger ditt mobiltelefon nummer om du förlorar åtkomsten till mobilappen. Ange ditt land/din region i list rutan och ange ditt mobiltelefon nummer i rutan bredvid namnet på landet/regionen. Välj **Nästa**.
-10. Nu uppmanas du att ställa in applösenord för icke-webbläsarbaserade appar, till exempel Outlook 2010 eller äldre, eller den interna e-postappen på Apple-enheter. Detta beror på att vissa appar inte stöder tvåstegsverifiering. Om du inte använder de här apparna klickar du på **färdig** och hoppar över resten av stegen.
-11. Om du använder dessa appar kopierar du appens lösen ord och klistrar in det i programmet i stället för ditt vanliga lösen ord. Du kan använda samma applösenord för flera appar. Mer information finns i [hjälp med applösenord].
-12. Klicka på **Klar**.
-
-### <a name="add-an-account-manually"></a>Lägg till ett konto manuellt
-Om du vill lägga till ett konto i mobilappen manuellt, i stället för att använda QR-läsaren, följer du de här stegen.
-
-1. Välj knappen **Ange konto manuellt** .  
-2. Ange koden och URL: en som finns på samma sida som visar streckkoden. Den här informationen visas i rutorna **kod** och **URL** i mobilappen.
-
-    ![Konfiguration](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
-3. När aktiveringen är färdig väljer du **kontakta mig**. Det här steget skickar antingen ett meddelande eller en verifierings kod till din telefon. Välj **Verifiera**.
-
-## <a name="use-your-mobile-phone-as-the-contact-method"></a>Använd din mobil telefon som kontakt metod
-1. Välj **telefon för autentisering** i den nedrullningsbara listan.  
-
-    ![Konfiguration](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Välj land/region i list rutan och ange ditt mobiltelefon nummer.
-3. Välj den metod som du föredrar att använda med mobil telefon – text eller samtal.
-4. Välj **kontakta mig** för att verifiera ditt telefonnummer. Beroende på vilket läge du har valt skickar vi dig en text eller anropar dig. Följ anvisningarna på skärmen och välj **Verifiera**.
-5. Nu uppmanas du att ställa in applösenord för icke-webbläsarbaserade appar, till exempel Outlook 2010 eller äldre, eller den interna e-postappen på Apple-enheter. Detta beror på att vissa appar inte stöder tvåstegsverifiering. Om du inte använder de här apparna klickar du på **färdig** och hoppar över resten av stegen.
-6. Om du använder dessa appar kopierar du appens lösen ord och klistrar in det i programmet i stället för ditt vanliga lösen ord. Du kan använda samma applösenord för flera appar. Mer information finns i [hjälp med applösenord].
-7. Klicka på **Klar**.
-
-## <a name="use-your-office-phone-as-the-contact-method"></a>Använd din arbets telefon som kontakt metod
-1. Välj **arbets telefon** i list rutan  
-
-    ![Konfiguration](./media/multi-factor-authentication-end-user-first-time/office.png)  
-2. Rutan telefonnummer fylls i automatiskt med företagets kontakt uppgifter. Om numret är fel eller saknas kan du be administratören att göra ändringar.
-3. Välj **kontakta mig** för att verifiera ditt telefonnummer och vi ska ringa ditt nummer. Följ anvisningarna på skärmen och välj **Verifiera**.
-4. Nu uppmanas du att ställa in applösenord för icke-webbläsarbaserade appar, till exempel Outlook 2010 eller äldre, eller den interna e-postappen på Apple-enheter. Detta beror på att vissa appar inte stöder tvåstegsverifiering. Om du inte använder de här apparna klickar du på **färdig** och hoppar över resten av stegen.
-5. Om du använder dessa appar kopierar du appens lösen ord och klistrar in det i programmet i stället för ditt vanliga lösen ord. Du kan använda samma applösenord för flera appar. Mer information finns i [Vad är app-lösenord](multi-factor-authentication-end-user-app-passwords.md).
-6. Klicka på **Klar**.
+    | Kontaktmetod | Beskrivning |
+    | --- | --- |
+    | Mobilapp | <ul><li>**Ta emot meddelanden om verifiering.** Med det här alternativet skickas ett meddelande till Authenticator-appen på din smartphone eller surfplatta. Visa meddelandet och välj **autentisera** i appen om det är giltigt. Ditt arbete eller din skola kan kräva att du anger en PIN-kod innan du autentiserar.</li><li>**Använd verifierings kod.** I det här läget genererar Authenticator-appen en verifierings kod som uppdateras var 30: e sekund. Ange den mest aktuella verifierings koden på inloggnings skärmen.<br>Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594) och [iOS](https://go.microsoft.com/fwlink/?linkid=866594).</li></ul> |
+    | Telefon för autentisering | <ul><li>**Telefonsamtal** placerar ett automatiskt röst samtal till det telefonnummer som du anger. Besvara anropet och tryck på fyrkant (#) på telefon knappen för att autentisera.</li><li>**SMS** avslutar ett textmeddelande som innehåller en verifierings kod. Följ anvisningarna i texten, antingen svara på textmeddelandet eller ange verifierings koden som anges i inloggnings gränssnittet.</li></ul> |
+    | Arbetstelefon | Placerar ett automatiskt röst samtal till det telefonnummer som du anger. Besvara anropet och tryck på fyrkant (#) på telefon knappen för att autentisera. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Ändra önskade alternativ och [Hantera dina inställningar för](multi-factor-authentication-end-user-manage-settings.md) tvåstegsverifiering
-* Konfigurera [applösenord](multi-factor-authentication-end-user-app-passwords.md) för appar för inbyggd enhet som inte stöder tvåstegsverifiering.
-* Kolla in [Microsoft Authenticator-appen](user-help-auth-app-download-install.md) för snabb och säker autentisering även när du inte har någon cell tjänst.
+
+När du har öppnat sidan **ytterligare säkerhets verifiering** måste du välja och konfigurera en metod för verifiering av två faktorer:
+
+- [Konfigurera din mobila enhet som din verifierings metod](multi-factor-authentication-setup-phone-number.md)
+
+- [Konfigurera din arbets telefon som din verifierings metod](multi-factor-authentication-setup-office-phone.md)
+
+- [Konfigurera Microsoft Authenticator-appen som din verifierings metod](multi-factor-authentication-setup-auth-app.md)
+
+## <a name="related-resources"></a>Relaterade resurser
+
+- [Hantera dina inställningar för verifierings metoden med två faktorer](multi-factor-authentication-end-user-manage-settings.md)
+
+- [Hantera lösenord för appar](multi-factor-authentication-end-user-app-passwords.md)
+
+- [Logga in med tvåstegsverifiering](multi-factor-authentication-end-user-signin.md)
+
+- [Få hjälp med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md) 

@@ -1,6 +1,6 @@
 ---
 title: Hantera loggar för ett HDInsight-kluster – Azure HDInsight
-description: Kontrollera de typer och storlekar bevarandeprinciper för loggfiler för HDInsight-aktivitet.
+description: Bestäm typ, storlek och bevarande principer för HDInsight-aktivitets logg filen.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,172 +8,172 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: b42eb51b510423ffc0d15ee3a646bca3d4392f7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4774dcc96e5f7639ca0b03bca992c9a3126230b
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686845"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623899"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
-Ett HDInsight-kluster ger en mängd olika loggfiler. Till exempel generera Apache Hadoop och relaterade tjänster, till exempel Apache Spark, detaljerade loggarna för jobbkörning. Hantering av filen är en del av underhållet ett felfritt HDInsight-kluster. Det kan också vara regelkrav för arkivering av loggen.  På grund av antalet och storleken på loggfiler, optimerar lagringen för loggen och arkivering hjälper dig med tjänsten för kostnadshantering.
+An-HDInsight klustret skapar en mängd olika loggfiler. Till exempel Apache Hadoop och relaterade tjänster, till exempel Apache Spark, skapa detaljerade jobb körnings loggar. Logg fils hantering är en del av att underhålla ett friskt HDInsight-kluster. Det kan också finnas regler för att arkivera loggen.  På grund av antalet loggfiler och storleken på loggfiler kan du optimera logg lagring och arkivering av tjänster för att hantera kostnader.
 
-Hantera loggar för HDInsight-kluster innehåller behåller information om alla aspekter av klustermiljön. Informationen omfattar alla associerade Azure-tjänstens loggar, klusterkonfiguration, jobbinformation för körning, alla feltillstånd och andra data efter behov.
+Hantering av HDInsight-kluster loggar innehåller information om alla aspekter i kluster miljön. Den här informationen omfattar alla associerade Azure Service-loggar, kluster konfiguration, jobb körnings information, eventuella fel tillstånd och andra data vid behov.
 
-Vanliga steg i hantering av HDInsight är:
+Vanliga steg i hantering av HDInsight-loggen är:
 
-* Steg 1: Fastställa principer för kvarhållning av logg
-* Steg 2: Hantera kluster tjänstloggar versioner konfiguration
-* Steg 3: Hantera loggfiler för klustret jobbet körning
-* Steg 4: Skapa prognoser för log volym lagringsstorlekar och kostnader
-* Steg 5: Fastställa log Arkiv principer och processer
+* Steg 1: Fastställ principer för logg bevarande
+* Steg 2: Hantera konfigurations loggar för kluster tjänst versioner
+* Steg 3: Hantera loggfiler för körning av kluster jobb
+* Steg 4: Beräkna lagrings storlek och kostnader för volym logg
+* Steg 5: Fastställa principer och processer för logg Arkiv
 
-## <a name="step-1-determine-log-retention-policies"></a>Steg 1: Fastställa principer för kvarhållning av logg
+## <a name="step-1-determine-log-retention-policies"></a>Steg 1: Fastställ principer för logg bevarande
 
-Det första steget i att skapa ett HDInsight-kluster log management strategi är att samla in information om affärsscenarier och lagringskrav för jobbet körning historik.
+Det första steget i att skapa en hanterings strategi för HDInsight-kluster är att samla in information om affärs scenarier och lagrings krav för jobb körnings historik.
 
-### <a name="cluster-details"></a>Information om kluster
+### <a name="cluster-details"></a>Klusterinformation
 
-Information om följande kluster är användbara i hjälper till att samla in information i din strategi för hantering av loggen. Samla in informationen från alla HDInsight-kluster som du har skapat i en viss Azure-konto.
+Följande kluster information är användbar för att hjälpa till att samla in information i din strategi för logg hantering. Samla in den här informationen från alla HDInsight-kluster som du har skapat i ett visst Azure-konto.
 
 * Klusternamn
-* Kluster-region och Azure-tillgänglighetszon
-* Tillstånd för klustret, inklusive information om den senaste tillståndsändringen
-* Typ och antal HDInsight-instanser som angetts för master, core och uppgiften noder
+* Kluster region och tillgänglighets zon för Azure
+* Kluster tillstånd, inklusive information om den senaste tillstånds ändringen
+* Ange och antal HDInsight-instanser som angetts för huvud-, kärn-och aktivitets noderna
 
-Du kan hämta de flesta av informationen på den högsta nivån med Azure portal.  Du kan också använda [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) att få information om HDInsight-kluster:
+Du kan få ut mesta möjliga av den här informationen på den översta nivån med hjälp av Azure Portal.  Du kan också använda [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) för att få information om dina HDInsight-kluster:
 
 ```azurecli
     az hdinsight list --resource-group <ResourceGroup>
     az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
-Du kan också använda PowerShell för att visa denna information.  Mer information finns i [Apache hantera Hadoop-kluster i HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md).
+Du kan också använda PowerShell för att visa den här informationen.  Mer information finns i [Apache Hantera Hadoop-kluster i HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md).
 
-### <a name="understand-the-workloads-running-on-your-clusters"></a>Förstå de arbetsbelastningar som körs i ditt kluster
+### <a name="understand-the-workloads-running-on-your-clusters"></a>Förstå arbets belastningarna som körs i klustren
 
-Det är viktigt att förstå de typer av arbetsbelastningar som körs på HDInsight-kluster till lämplig loggning strategier för varje typ av design.
+Det är viktigt att förstå de arbets belastnings typer som körs på dina HDInsight-kluster för att utforma lämpliga loggnings strategier för varje typ.
 
-* Är arbetsbelastningarna experimentella (till exempel utveckling eller testning) eller hög kvalitet?
-* Hur ofta arbetsbelastningarna med hög kvalitet normalt kör?
-* Är något av arbetsbelastningarna resurskrävande och/eller långvariga?
-* Använd någon av arbetsbelastningarna som en komplex uppsättning Hadoop-tjänster som flera typer av loggar produceras?
-* Något av arbetsbelastningarna har associerat föreskrifter körning härkomst krav?
+* Är arbets belastningarna experimentella (till exempel utveckling eller testning) eller produktions kvalitet?
+* Hur ofta körs arbets belastningarna för produktions kvalitet normalt?
+* Är någon av arbets belastningarna resurs intensiv och/eller lång drift?
+* Använder någon av arbets belastningarna en komplex uppsättning Hadoop-tjänster där flera typer av loggar skapas?
+* Har någon av arbets belastningarna kopplat härkomst krav för myndighets körning?
 
-### <a name="example-log-retention-patterns-and-practices"></a>Exempel log kvarhållning mönster och metoder
+### <a name="example-log-retention-patterns-and-practices"></a>Exempel på logg kvarhållning mönster och metoder
 
-* Överväg att underhålla datahärkomst spårning genom att lägga till en identifierare till varje loggpost eller via andra tekniker. På så sätt kan du spåra tillbaka den ursprungliga källan och åtgärden och följ data via varje steg för att förstå dess konsekvens och giltighet.
+* Överväg att underhålla data härkomst spårning genom att lägga till en identifierare till varje loggpost eller via andra tekniker. På så sätt kan du spåra den ursprungliga data källan och åtgärden och följa data via varje steg för att förstå dess konsekvens och giltighet.
 
-* Överväg hur du kan samla in loggar från klustret eller från flera kluster och sortera dem för exempelvis granskning, övervakning, planering och varningar. Du kan använda en anpassad lösning för att komma åt och ladda ned filerna med jämna mellanrum, och kombinera och analysera dem för att tillhandahålla en instrumentpanelsvy. Du kan också lägga till ytterligare funktioner för avisering för säkerhets- eller felidentifiering. Du kan skapa dessa verktyg med PowerShell, HDInsight SDK: er eller koden som ansluter till den klassiska distributionsmodellen.
+* Överväg hur du kan samla in loggar från klustret eller från fler än ett kluster och sortera dem för exempelvis granskning, övervakning, planering och aviseringar. Du kan använda en anpassad lösning för att komma åt och hämta loggfilerna regelbundet och kombinera och analysera dem för att ange en instrument panels visning. Du kan också lägga till ytterligare funktioner för aviseringar om säkerhets-eller haveri identifiering. Du kan bygga dessa verktyg med PowerShell, HDInsight SDK: er eller kod som använder den klassiska Azure-distributions modellen.
 
-* Överväg om en övervakning lösning eller tjänst skulle vara en användbar fördel. Microsoft System Center innehåller en [HDInsight hanteringspaket](https://www.microsoft.com/download/details.aspx?id=42521). Du kan också använda verktyg från tredje part, till exempel Apache Chukwa och Ganglia för att samla in och centralisera loggar. Många företag erbjuder tjänster för att övervaka Hadoop-baserade big data-lösningar, till exempel: Centerity, Compuware APM, Sematext SPM och Zettaset Orchestrator.
+* Överväg om en övervaknings lösning eller tjänst är en användbar förmån. Microsoft System Center tillhandahåller ett [hanterings paket för HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Du kan också använda verktyg från tredje part som Apache Chukwa och ganglia för att samla in och centralisera loggar. Många företag erbjuder tjänster för att övervaka Hadoop-baserade Big data-lösningar, till exempel: Centrering, CompuWare APM, Sematext SPM och Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Steg 2: Hantera service-kluster-versioner och visa loggar skriptåtgärd
+## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Steg 2: Hantera kluster tjänst versioner och Visa skript åtgärds loggar
 
-En typisk HDInsight-klustret använder flera tjänster och program med öppen källkod-paket (till exempel Apache HBase, Apache Spark och så vidare). För vissa arbetsbelastningar, till exempel bioinformatik, kan du behöva behålla service configuration logghistorik förutom loggarna för jobbkörning.
+Ett typiskt HDInsight-kluster använder flera tjänster och program varu paket med öppen källkod (till exempel Apache HBase, Apache Spark och så vidare). För vissa arbets belastningar, till exempel Bioinformatics, kan du behöva behålla tjänst konfigurations logg historiken förutom jobb körnings loggarna.
 
-### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visa inställningar för klustrets med Ambari UI
+### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visa kluster konfigurations inställningar med Ambari-ANVÄNDARGRÄNSSNITTET
 
-Apache Ambari förenklar hantering, konfiguration och övervakning i ett HDInsight-kluster genom att tillhandahålla en web UI och ett REST-API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj den **Klusterinstrumentpanel** fönstret på Azure HDInsight portalsidan att öppna den **Klusterinstrumentpaneler** länksida.  Välj sedan den **HDInsight-klusterinstrumentpanel** fönstret för att öppna Ambari UI.  Du uppmanas att ange dina autentiseringsuppgifter för klusterinloggning.
+Apache Ambari fören klar hanteringen, konfigurationen och övervakningen av ett HDInsight-kluster genom att tillhandahålla ett webb gränssnitt och en REST API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj rutan **kluster instrument panel** på sidan Azure Portal HDInsight för att öppna länk sidan **kluster instrument paneler** .  Välj sedan fönstret **instrument panel för HDInsight-kluster** för att öppna AMBARI-användargränssnittet.  Du uppmanas att ange autentiseringsuppgifter för ditt kluster inloggnings konto.
 
-Om du vill öppna en lista över service-vyerna, Välj den **Ambari-vyer** rutan på sidan för Azure portal för HDInsight.  Den här listan varierar beroende på vilka bibliotek som du har installerat.  Du kan till exempel se köhanteraren YARN, Hive-vyerna och Tez.  Välj en länk för tjänsten att se konfigurations- och tjänstinformation.  Ambari UI **Stack och Version** sidan innehåller information om kluster-tjänsternas konfiguration och versionshistorik för tjänsten. Gå till det här avsnittet av Ambari UI, välja den **Admin** menyn och sedan **stackar och versioner**.  Välj den **versioner** fliken för att se information om tjänstens version.
+Öppna en lista över tjänstevyer genom att välja fönstret **Ambari vyer** på sidan Azure Portal för HDInsight.  Den här listan varierar beroende på vilka bibliotek som du har installerat.  Du kan till exempel se garn Queue Manager, Hive och Tez vy.  Välj en tjänst länk om du vill visa information om konfigurationen och tjänsten.  Sidan Ambari UI **stack och version** innehåller information om konfigurations historiken för kluster tjänster och tjänster. Om du vill navigera till det här avsnittet i Ambari-ANVÄNDARGRÄNSSNITTET väljer du administratörs menyn och sedan **stackar och versioner**.  Välj fliken **versioner** för att se information om tjänst version.
 
 ![Stack och versioner](./media/hdinsight-log-management/stack-versions.png)
 
-Du kan med hjälp av Ambari UI, för att hämta konfigurationen för alla (eller alla) tjänster som körs på en viss värd (eller noden) i klustret.  Välj den **värdar** -menyn, sedan på länken för värden i närheten. På den värd-sidan väljer den **värden åtgärder** knappen och sedan **ladda ned klienten Peeringkonfigurationer**. 
+Med hjälp av användar gränssnittet för Ambari kan du ladda ned konfigurationen för alla (eller alla) tjänster som körs på en viss värd (eller nod) i klustret.  Välj menyn **värdar** och sedan länken för värden av intresse. På värddatorns sida väljer du knappen **värd åtgärder** och **laddar ned klient konfigurationerna**. 
 
-![Klient-konfigurationer för värd](./media/hdinsight-log-management/client-configs.png)
+![Konfiguration av värd klient](./media/hdinsight-log-management/client-configs.png)
 
-### <a name="view-the-script-action-logs"></a>Visa skript åtgärdsloggar
+### <a name="view-the-script-action-logs"></a>Visa skript åtgärds loggar
 
-HDInsight [skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md) köra skript i ett kluster, antingen manuellt eller när angetts. Skriptåtgärder kan till exempel användas för att installera ytterligare programvara på klustret eller ändra konfigurationsinställningarna från standardvärdena. Skriptet åtgärdsloggar kan ge insikter om fel som uppstod under installationen av klustret och ändringar i av konfigurationsinställningar som kan påverka klusterprestanda och tillgänglighet.  Om du vill se status för en skriptåtgärd, Välj den **ops** knappen på din Ambari UI, eller åtkomst status loggar in standardkontot för lagring. Storage-loggar finns på `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
+HDInsight [skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md) kör skript i ett kluster, antingen manuellt eller när det anges. Skript åtgärder kan till exempel användas för att installera ytterligare program vara i klustret eller ändra konfigurations inställningarna från standardvärdena. Skript åtgärds loggar kan ge insikter om fel som uppstått under installationen av klustret och även konfigurations inställningarnas ändringar som kan påverka kluster prestanda och tillgänglighet.  Om du vill se status för en skript åtgärd väljer du knappen **Ops** i AMBARI-användargränssnittet eller åtkomst till status loggarna på standard lagrings kontot. Lagrings loggarna är tillgängliga `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`på.
 
-## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Steg 3: Hantera loggfiler för klustret jobbet körning
+## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Steg 3: Hantera loggfilerna för körning av kluster jobb
 
-Nästa steg är Granska loggfilerna för jobbet körning för de olika tjänsterna.  Tjänsterna kan omfatta Apache HBase, Apache Spark och mycket mer. Ett Hadoop-kluster ger ett stort antal utförliga loggar så kan vara tidskrävande att bestämma vilka loggar är användbara (och som inte är).  Förstå loggning system är viktigt för riktade hantering av loggfiler.  Följande är en exempel-loggfil.
+Nästa steg är att granska loggfilerna för jobb körning för de olika tjänsterna.  Tjänsterna kan omfatta Apache HBase, Apache Spark och många andra. Ett Hadoop-kluster genererar ett stort antal utförliga loggar, så att du kan fastställa vilka loggar som är användbara (och som inte är) kan vara tids krävande.  Att förstå loggnings systemet är viktigt för riktad hantering av loggfiler.  Följande är en exempel logg fil.
 
-![Exempel på HDInsight en loggfil](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
+![Exempel på HDInsight-logg filen](./media/hdinsight-log-management/logs.png)
 
-### <a name="access-the-hadoop-log-files"></a>Få åtkomst till loggfilerna för Hadoop
+### <a name="access-the-hadoop-log-files"></a>Komma åt Hadoop-loggfilerna
 
-HDInsight lagrar loggfilerna både i filsystemet kluster och i Azure storage. Du kan undersöka loggfiler i klustret genom att öppna en [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) anslutningen till klustret och bläddra i filsystemet eller med hjälp av Hadoop YARN Status-portalen på fjärranslutna huvudnoden-servern. Du kan granska loggfilerna i Azure storage med någon av de verktyg som kan komma åt och hämta data från Azure storage. Exempel är [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer), och Visual Studio Server Explorer. Du kan också använda PowerShell och Azure Storage-klientbibliotek eller Azure .NET SDK för att komma åt data i Azure blob storage.
+HDInsight lagrar sina loggfiler både i kluster fil systemet och i Azure Storage. Du kan granska loggfilerna i klustret genom att öppna en [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) -anslutning till klustret och bläddra i fil systemet, eller genom att använda status portalen för HADOOP-garn på servern för fjärrhead-noden. Du kan granska loggfilerna i Azure Storage med något av de verktyg som kan komma åt och hämta data från Azure Storage. Exempel är [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)och Visual Studio-Server Explorer. Du kan också använda PowerShell och Azure Storage klient bibliotek eller Azure .NET-SDK: er för att komma åt data i Azure Blob Storage.
 
-Hadoop körs verk som tillhör jobb som *uppgift försök* på olika noder i klustret. HDInsight kan initiera spekulativ uppgift försök Avsluta några andra uppgiften försök som inte slutförs först. Detta genererar betydande aktivitet som loggas i domänkontrollanten, stderr och syslog log-filer i farten. Dessutom kan flera försök att uppgiften körs samtidigt, men en loggfil kan bara visa resultat linjärt.
+Hadoop kör jobbet för jobben som *aktivitets försök* på olika noder i klustret. HDInsight kan initiera spekulativa uppgifts försök och avsluta alla andra uppgifts försök som inte slutförs först. Detta genererar betydande aktivitet som är loggad till Controller-, stderr-och syslog-loggfilerna i farten. Dessutom körs flera aktivitets försök samtidigt, men en loggfil kan bara visa resultat linjärt.
 
-#### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>HDInsight-loggar som skrivs till Azure Blob storage
+#### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>HDInsight-loggar som skrivs till Azure Blob Storage
 
-HDInsight-kluster har konfigurerats för att skriva uppgift loggar till ett Azure Blob storage-konto för alla jobb som skickas med hjälp av Azure PowerShell-cmdlets eller jobböverföring .NET API: er.  Om du skickar in jobb via SSH till klustret, lagras loggningsinformation körning i Azure-tabeller som beskrivs i föregående avsnitt.
+HDInsight-kluster konfigureras att skriva aktivitets loggar till ett Azure Blob Storage-konto för alla jobb som skickas med hjälp av Azure PowerShell-cmdlets eller .NET-jobbets sändnings-API: er.  Om du skickar jobb via SSH till klustret lagras körnings loggnings informationen i Azure-tabellerna enligt beskrivningen i föregående avsnitt.
 
-Installerat services förutom core loggfiler som genererats av HDInsight, t.ex. YARN också skapa jobb loggfiler för körning.  Antalet och typen av loggfiler beror på de tjänster som är installerad.  Vanliga tjänster är Apache HBase, Apache Spark och så vidare.  Undersök jobbet körning loggfilerna för varje tjänst att förstå den övergripande loggningen replikeringsfiler i klustret.  Varje tjänst har sin egen unika metoder för loggning och platser för att lagra loggfiler.  Till exempel beskrivs information för att komma åt de vanligaste service-loggfilerna (från YARN) i följande avsnitt.
+Förutom de kärn loggfiler som genereras av HDInsight genererar installerade tjänster som t. ex. garn även loggfiler för jobb körning.  Antalet och typen av loggfiler beror på vilka tjänster som är installerade.  Vanliga tjänster är Apache HBase, Apache Spark och så vidare.  Undersök körnings filerna för jobb loggen för varje tjänst för att förstå de övergripande loggfilerna som finns i klustret.  Varje tjänst har sina egna unika metoder för loggning och platser för lagring av loggfiler.  Som exempel beskrivs information för att komma åt de vanligaste tjänsteloggfilerna (från garn) i följande avsnitt.
 
-### <a name="hdinsight-logs-generated-by-yarn"></a>HDInsight-loggar som genereras av YARN
+### <a name="hdinsight-logs-generated-by-yarn"></a>HDInsight-loggar som genereras av garn
 
-YARN sammanställer loggar över alla behållare på en underordnad nod och lagrar dessa loggar som en sammansatt loggfil per arbetsnod. Loggen lagras på standardfilsystemet när ett program har slutförts. Ditt program kan använda hundratals eller tusentals behållare, men loggar för alla behållare som körs på en enda arbetsnod alltid räknas avgifter för en enskild fil. Det finns bara en logg per arbetsnod som används av ditt program. Log aggregering är aktiverat som standard på HDInsight-kluster version 3.0 och senare. Sammanställda loggfiler finns i Standardlagringsutrymmet för klustret.
+GARN sammanställer loggar över alla behållare på en arbetsnoden och lagrar dessa loggar som en sammanslagen loggfil per arbets nod. Loggen lagras i standard fil systemet när ett program har slutförts. Ditt program kan använda hundratals eller tusentals behållare, men loggar för alla behållare som körs på en enda arbetsnoden sammanställs alltid i en enda fil. Det finns bara en logg per arbets nod som används av ditt program. Logg agg regering är aktiverat som standard i HDInsight-kluster version 3,0 och senare. Sammanställda loggar finns i standard lagrings utrymmet för klustret.
 
 ```
     /app-logs/<user>/logs/<applicationId>
 ```
 
-Sammanställda loggfiler är inte direkt läsbar, eftersom de är skrivna i TFile binärformat indexeras av behållare. Använda loggar för YARN ResourceManager eller CLI-verktyg för att visa dessa loggar som oformaterad text för program eller behållare av intresse.
+De sammanställda loggarna är inte direkt läsbara, eftersom de skrivs i ett TFile binärformat som indexeras av container. Använd garn-ResourceManager-loggarna eller CLI-verktygen för att visa dessa loggar som oformaterad text för program eller behållare av intresse.
 
-#### <a name="yarn-cli-tools"></a>YARN CLI-verktyg
+#### <a name="yarn-cli-tools"></a>GARN CLI-verktyg
 
-Om du vill använda YARN CLI-verktyg, måste du först ansluta till HDInsight-kluster med SSH. Ange den `<applicationId>`, `<user-who-started-the-application>`, `<containerId>`, och `<worker-node-address>` information när du kör dessa kommandon. Du kan visa loggarna som oformaterad text med något av följande kommandon:
+Om du vill använda garn CLI-verktygen måste du först ansluta till HDInsight-klustret med SSH. Ange information om `<user-who-started-the-application>`,, `<containerId>` och`<worker-node-address>` när du kör de här kommandona. `<applicationId>` Du kan visa loggarna som oformaterad text med något av följande kommandon:
 
 ```bash
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 ```
 
-#### <a name="yarn-resourcemanager-ui"></a>YARN ResourceManager UI
+#### <a name="yarn-resourcemanager-ui"></a>GARN-ResourceManager-gränssnitt
 
-YARN ResourceManager UI körs på klustrets huvudnod och nås via Ambari-webbgränssnittet. Använd följande steg för att visa YARN-loggar:
+Användar gränssnittet för garn-ResourceManager körs på kluster huvud noden och nås via Ambari-webbgränssnittet. Använd följande steg för att Visa garn loggarna:
 
-1. I en webbläsare, navigerar du till `https://CLUSTERNAME.azurehdinsight.net`. Ersätt CLUSTERNAME med namnet på ditt HDInsight-kluster.
-2. Listan över tjänster till vänster, Välj YARN.
-3. Välj någon av klustrets huvudnoder listrutan snabblänkar och välj sedan **ResourceManager loggar**. Visas en lista med länkar till YARN-loggar.
+1. Navigera till `https://CLUSTERNAME.azurehdinsight.net`i en webbläsare. Ersätt kluster namn med namnet på ditt HDInsight-kluster.
+2. I listan över tjänster till vänster väljer du garn.
+3. I list rutan snabb länkar väljer du en av klustrets huvud-noder och väljer sedan **ResourceManager-loggar**. En lista med länkar till garn loggar visas.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Steg 4: Skapa prognoser för log volym lagringsstorlekar och kostnader
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Steg 4: Beräkna lagrings storlek och kostnader för volym logg
 
-När du har slutfört föregående steg, har du en förståelse för vilka typer och volymer med loggfiler som som ger upphov till HDInsight-kluster.
+När du har slutfört föregående steg har du en förståelse för de typer och volymer av loggfiler som dina HDInsight-kluster tillverkar.
 
-Sedan analysera loggdata lagringsplatser för nyckel log under en viss tidsperiod. Du kan till exempel analysera volym och tillväxt över 30 – 60 – 90 dagarna.  Registrera den här informationen i ett kalkylblad eller använda andra verktyg som Visual Studio, Azure Storage Explorer eller Power Query för Excel. Mer information finns i [analysera HDInsight loggar](hdinsight-debug-jobs.md).  
+Därefter analyserar du volymen av loggdata i nyckel logg lagrings platser under en viss tids period. Du kan till exempel analysera volym och tillväxt över 30-60-90-dagars perioder.  Registrera den här informationen i ett kalkyl blad eller Använd andra verktyg som Visual Studio, Azure Storage Explorer eller Power Query för Excel. Mer information finns i [analysera HDInsight-loggar](hdinsight-debug-jobs.md).  
 
-Nu har du tillräcklig information för att skapa en strategi för hantering av loggen för viktiga loggarna.  Använd kalkylbladet (eller verktyg) för att skapa prognoser för båda log storlekstillväxt och logga Azure-tjänsten lagringskostnader framöver.  Överväg att även eventuella kvarhållning loggkraven för loggar som du undersöker.  Du kan nu reforecast framtida log kostnader för lagring, när du har fastställt vilken loggfiler kan tas bort (om sådan finns) och vilka loggar ska behållas och arkiveras till billigare Azure storage.
+Nu har du tillräckligt med information för att skapa en logg hanterings strategi för nyckel loggarna.  Använd ditt kalkyl blad (eller valfritt verktyg) om du vill beräkna storleks ökningen och logg lagringen för Azure-tjänster i loggen.  Överväg även eventuella krav för logg kvarhållning för den uppsättning loggar som du undersöker.  Nu kan du omberäkna framtida logg lagrings kostnader efter att du har fastställt vilka loggfiler som kan tas bort (om det finns några) och vilka loggar som ska behållas och arkiveras till billigare Azure-lagring.
 
-## <a name="step-5-determine-log-archive-policies-and-processes"></a>Steg 5: Fastställa log Arkiv principer och processer
+## <a name="step-5-determine-log-archive-policies-and-processes"></a>Steg 5: Fastställa principer och processer för logg Arkiv
 
-När du har bestämt vilka loggfiler kan tas bort kan du justera parametrar på många Hadoop-tjänster för att automatiskt ta bort loggfiler efter en angiven tidsperiod.
+När du har fastställt vilka loggfiler som kan tas bort kan du justera loggnings parametrarna på många Hadoop-tjänster för att automatiskt ta bort loggfiler efter en angiven tids period.
 
-Du kan använda ett billigare loggfilen arkivering metod för vissa loggfiler. Aktivitetsloggar i Azure Resource Manager, kan du utforska den här metoden med Azure portal.  Konfigurera arkivering av ARM-loggarna genom att välja den **aktivitetsloggen**' länken i Azure-portalen för din HDInsight-instans.  Överst på sidan för sökning av aktivitetsloggen, väljer den **exportera** menyalternativet att öppna den **exportera aktivitetslogg** fönstret.  Fyll i prenumerationen, region, om du vill exportera till ett lagringskonto och hur många dagar att behålla loggarna. På det här samma fönstret kan ange du också om du vill exportera till en händelsehubb. 
+För vissa loggfiler kan du använda en metod för att arkivera logg filen med lägre pris. För Azure Resource Manager aktivitets loggar kan du utforska den här metoden med hjälp av Azure Portal.  Ställ in arkivering av ARM-loggar genom att välja länken **aktivitets logg**i Azure Portal för din HDInsight-instans.  Överst på sidan för aktivitets loggs ökning väljer du meny alternativet **Exportera** för att öppna fönstret **Exportera aktivitets logg** .  Fyll i prenumerationen, regionen, om du vill exportera till ett lagrings konto och hur många dagar loggen ska sparas. I det här fönstret kan du också ange om du vill exportera till en Event Hub. 
 
 ![Exportera loggfiler](./media/hdinsight-log-management/archive.png)
 
-Du kan också skript log arkivering med PowerShell.  Ett exempel PowerShell-skript finns i [Arkiv Azure Automation loggar till Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
+Alternativt kan du arkivera skript loggen med PowerShell.  Ett exempel på PowerShell-skript finns i [arkivera Azure Automation loggar till Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 
-### <a name="accessing-azure-storage-metrics"></a>Åtkomst till Azure storage-mått
+### <a name="accessing-azure-storage-metrics"></a>Åtkomst till Azure Storage-mått
 
-Azure storage kan konfigureras att loggen lagringsåtgärder och åtkomst. Du kan använda dessa mycket detaljerade loggar för övervakning och planering och för granskning förfrågningar till storage. Loggade informationen innehåller information om svarstider, så att du kan övervaka och finjustera prestanda för dina lösningar.
-Du kan använda .NET SDK för Hadoop för att undersöka loggfiler som genererats för Azure-lagring som innehåller data för ett HDInsight-kluster.
+Azure Storage kan konfigureras för att logga lagrings åtgärder och åtkomst. Du kan använda dessa mycket detaljerade loggar för kapacitets övervakning och planering och för gransknings begär anden till lagring. Den loggade informationen innehåller svars information, så att du kan övervaka och finjustera lösningens prestanda.
+Du kan använda .NET SDK för Hadoop för att undersöka de loggfiler som genereras för Azure Storage som innehåller data för ett HDInsight-kluster.
 
-### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Kontrollera storleken och antalet säkerhetskopiering index för gamla loggfiler
+### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Kontrol lera storlek och antal säkerhets kopierings index för gamla loggfiler
 
-Ange följande egenskaper för att kontrollera storlek och antal loggfiler som bevaras den `RollingFileAppender`:
+Om du vill kontrol lera storleken på och antalet loggfiler, anger du följande egenskaper för `RollingFileAppender`:
 
-* `maxFileSize` är kritisk storleken på filen, ovan, som filen återställs. Standardvärdet är 10 MB.
-* `maxBackupIndex` Anger hur många säkerhetskopior som ska skapas standardvärdet 1.
+* `maxFileSize`är filens kritiska storlek, ovanför vilken filen har registrerats. Standardvärdet är 10 MB.
+* `maxBackupIndex`anger det antal säkerhets kopierings filer som ska skapas, standard 1.
 
-### <a name="other-log-management-techniques"></a>Andra metoder för hantering av logg
+### <a name="other-log-management-techniques"></a>Andra logg hanterings tekniker
 
-För att undvika körs slut på diskutrymme kan du använda några OS-verktyg som [logrotate](https://linux.die.net/man/8/logrotate) att hantera hantering av loggfiler. Du kan konfigurera `logrotate` dagligen måste komprimera logga filer och ta bort gamla. Din beror på dina behov, till exempel hur länge för att hålla loggfilerna på lokala noder.  
+För att undvika disk utrymme kan du använda vissa OS-verktyg som [logrotate](https://linux.die.net/man/8/logrotate) för att hantera hanteringen av loggfiler. Du kan konfigurera `logrotate` så att de körs dagligen, komprimera loggfiler och ta bort gamla. Ditt tillvägagångs sätt beror på dina krav, till exempel hur länge du vill behålla loggfilerna på lokala noder.  
 
-Du kan också kontrollera om felsökningsloggning är aktiverat för en eller flera tjänster, vilket ökar loggstorleken utdata.  
+Du kan också kontrol lera om fel SÖKNINGs loggning har Aktiver ATS för en eller flera tjänster, vilket avsevärt ökar logg storleken för utdata.  
 
-För att samla in loggar från alla noder till en central plats, kan du skapa ett dataflöde, till exempel mata in alla loggposter i Solr.
+Om du vill samla in loggar från alla noder till en central plats kan du skapa ett data flöde, till exempel mata in alla logg poster i Solr.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Övervakning och loggning för HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Åtkomst Apache Hadoop YARN-programloggar i Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Övervaknings-och loggnings praxis för HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
+* [Åtkomst Apache Hadoop garn program loggar i Linux-baserade HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Så här kontrollerar du storleken på loggfiler för olika Apache Hadoop-komponenter](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

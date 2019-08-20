@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: bc9d3f6b461412f0e28cba3cb86d288085ffe500
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 490085da1e8f6b8e151168433836d59329887c6e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543571"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623962"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 
@@ -59,6 +59,9 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 **Tids uppskattning**: Ungefär 20 minuter.
 
 Att skapa eller ansluta ett AKS-kluster är en process för arbets ytan. Du kan återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resurs gruppen som innehåller den måste du skapa ett nytt kluster nästa gången du behöver distribuera. Du kan ha flera AKS-kluster kopplade till din arbets yta.
+
+> [!TIP]
+> Om du vill skydda ditt AKS-kluster med hjälp av ett Azure-Virtual Network måste du först skapa det virtuella nätverket. Mer information finns i [säker experimentering och härledning med Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
 Om du vill skapa ett AKS-kluster för __utveckling__, __validering__och __testning__ i stället för produktion kan du ange ett __kluster syfte__ för __dev-test__.
 
@@ -115,6 +118,8 @@ Om du redan har AKS-kluster i din Azure-prenumeration och det är version 1.12. 
 
 > [!TIP]
 > Det befintliga AKS-klustret kan finnas i en Azure-region än din Azure Machine Learning service-arbetsyta.
+>
+> Om du vill skydda ditt AKS-kluster med hjälp av ett Azure-Virtual Network måste du först skapa det virtuella nätverket. Mer information finns i [säker experimentering och härledning med Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
 > [!WARNING]
 > När du kopplar ett AKS-kluster till en arbets yta kan du definiera hur du ska använda klustret genom att ange `cluster_purpose` parametern.
@@ -272,6 +277,7 @@ print(token)
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Säker experimentering och härledning i ett virtuellt nätverk](how-to-enable-virtual-network.md)
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
 * [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)

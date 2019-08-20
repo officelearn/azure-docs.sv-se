@@ -7,16 +7,16 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 7923ce10912ebb6f09c1c3d8390dd51b4f876bea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68551996"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616952"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 
-Azure Cosmos DB-ändringsflödet är en mekanism för att hämta en kontinuerlig och inkrementella feed med poster från en Azure Cosmos DB-behållare som de posterna som ska skapas eller ändras. Ändra feed support fungerar genom att lyssna på behållare efter ändringar. Sedan returnerar den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Läs mer om ändringsfeed i [arbeta med ändringsflödet](change-feed.md) artikeln. 
+Azure Cosmos DB ändra feed är en mekanism för att få ett kontinuerligt och stegvist flöde av poster från en Azure Cosmos-behållare när dessa poster skapas eller ändras. Ändra feed support fungerar genom att lyssna på behållare efter ändringar. Sedan returnerar den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Läs mer om ändringsfeed i [arbeta med ändringsflödet](change-feed.md) artikeln. 
 
 Den här artikeln beskrivs hur ändringsfeed kan användas av en e-handel företag att förstå användarmönster, utföra dataanalys i realtid och visualisering. Du kan analysera händelser, t.ex en användare visa ett objekt, att lägga till ett objekt i deras kundvagn eller köpa ett objekt. När något av dessa händelser inträffar, en ny post skapas och ändringsfeed loggar som registrerar. Ändringsfeed sedan utlösare en serie steg, vilket resulterar i visualisering av mått som analyserar företagets prestanda och aktivitet. Som du kan visualisera måttexempel intäkter, unika besökare, mest populära objekt och genomsnittspriset för de objekt som visas och lagts till i kundvagnen och har köpt. De här måtten exempel kan ett e-handel företag utvärdera dess plats popularitet, utveckla dess reklam och priser strategier och fatta beslut rörande vilka lager ni ska investera i.
 
@@ -41,9 +41,9 @@ Följande diagram representerar dataflöde och komponenter som ingår i lösning
    }
    ```
 
-2. **Cosmos DB:** Genererade data lagras i en Azure Cosmos DB-samling.  
+2. **Cosmos DB:** Genererade data lagras i en Azure Cosmos-behållare.  
 
-3. **Ändra feed:** Ändrings flödet kommer att lyssna efter ändringar i Azure Cosmos DBs samlingen. Varje gång ett nytt dokument har lagts till i samlingen (som när en händelse inträffar, till exempel en användare som visar ett objekt när en artikel läggs till i sina kundvagn eller köpa ett objekt), kommer ändringsfeed utlösa en [Azure Function](../azure-functions/functions-overview.md).  
+3. **Ändra feed:** Ändrings flödet kommer att lyssna efter ändringar i Azure Cosmos-behållaren. Varje gång ett nytt dokument har lagts till i samlingen (som när en händelse inträffar, till exempel en användare som visar ett objekt när en artikel läggs till i sina kundvagn eller köpa ett objekt), kommer ändringsfeed utlösa en [Azure Function](../azure-functions/functions-overview.md).  
 
 4. **Azure Function:** Azure-funktionen bearbetar nya data och skickar dem till en [Azure Event Hub](../event-hubs/event-hubs-about.md).  
 
@@ -143,7 +143,7 @@ En Azure-Händelsehubb tar emot händelsedata, butiker, processer och vidarebefo
 
 ## <a name="set-up-azure-function-to-read-the-change-feed"></a>Konfigurera Azure Function för att läsa ändringsflöde
 
-När ett nytt dokument har skapats, eller ett aktuella dokument ändras i en Cosmos DB-samling, ändringsflödet automatiskt lägger till det ändrade dokumentet dess historik över samlingsändringar. Du kan nu skapa och kör en Azure-funktion som bearbetar den ändringsflödet. När ett dokument skapas eller ändras i samlingen som du skapade, utlöses Azure Function ändringen feed. Azure Function skickar sedan det ändrade dokumentet till Händelsehubben.
+När ett nytt dokument skapas, eller om ett aktuellt dokument ändras i en Cosmos-behållare, lägger ändrings flödet automatiskt till det ändrade dokumentet i historiken över samlings ändringar. Du kan nu skapa och kör en Azure-funktion som bearbetar den ändringsflödet. När ett dokument skapas eller ändras i samlingen som du skapade, utlöses Azure Function ändringen feed. Azure Function skickar sedan det ändrade dokumentet till Händelsehubben.
 
 1. Gå tillbaka till den lagringsplats du klonade på din enhet.  
 
@@ -318,7 +318,7 @@ Powerbi är en uppsättning verktyg för Företagsanalys att analysera data och 
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Valfritt: Visualisera med en E-handelswebbplats
 
-Du kommer nu att se hur du kan använda din nya Analysverktyget för att ansluta till en plats för verkliga e-handel. För att skapa e-handelswebbplats, använder du en Azure Cosmos DB-databas för att lagra listan över produktkategorier (kvinnor, män, Unisex), produktkatalogen och en lista över de mest populära.
+Du kommer nu att se hur du kan använda din nya Analysverktyget för att ansluta till en plats för verkliga e-handel. För att bygga e-Handelswebbplatsen använder du en Azure Cosmos-databas för att lagra listan över produkt kategorier (kvinno, män, unisex), produkt katalogen och en lista över de populäraste objekten.
 
 1. Gå tillbaka till den [Azure-portalen](https://portal.azure.com/), sedan till din **Cosmos DB-konto**, sedan till **Datautforskaren**.  
 

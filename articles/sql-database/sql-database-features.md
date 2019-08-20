@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 7e5c33577a2d926266ae45057509b112dc27ce7b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c4ba2269003c9d401982b83f4e66c8caf45a0073
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985728"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624709"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQL Server
 
@@ -53,7 +53,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Sortering-Server/instans](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Nej, standard sorteringen `SQL_Latin1_General_CP1_CI_AS` av logisk server används alltid. | Ja, kan ställas in när [instansen skapas](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) och kan inte uppdateras senare. |
 | [Columnstore-index](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja – [Premium-nivå, standard nivå – S3 och över, generell användning nivå och affärskritisk nivåer](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
 | [CLR (Common Language Runtime) – CLR](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nej | Ja, men utan åtkomst till fil systemet i `CREATE ASSEMBLY` instruktionen – se [CLR-skillnader](sql-database-managed-instance-transact-sql-information.md#clr) |
-| [Inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | Det finns för närvarande inget [fel i återställning, inklusive återställning av tidpunkt](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database). Detta är ett fel som kommer att åtgärdas snart. |
+| [Inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | Ja |
 | [Inneslutna användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Ja | Ja |
 | [Kontroll över nyckelord för flödes språk](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Ja | Ja |
 | [Autentiseringsuppgifter](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/credentials-database-engine) | Ja, men endast [databasens begränsade autentiseringsuppgifter](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Ja, men endast **Azure Key Vault** och `SHARED ACCESS SIGNATURE` stöds se [information](sql-database-managed-instance-transact-sql-information.md#credential) |
@@ -132,7 +132,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Ja](sql-database-temporal-tables.md) | [Ja](sql-database-temporal-tables.md) |
 | Val av tidszon | Nej | [Ja](sql-database-managed-instance-timezone.md), och det måste konfigureras när den hanterade instansen skapas. |
 | Identifiering av hot|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
-| [Spårnings flaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nej | Nej |
+| [Spårnings flaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nej | Ja, men endast en begränsad uppsättning globala spårnings flaggor. Se [DBCC-skillnader](sql-database-managed-instance-transact-sql-information.md#dbcc) |
 | [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) | Ja, [endast transaktionell prenumerant och replikering av ögonblicks bilder](sql-database-single-database-migrate.md) | Ja, i [offentlig för hands version](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance). Se begränsningarna [här](sql-database-managed-instance-transact-sql-information.md#replication). |
 | [Variabler](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Ja | Ja |
 | [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Ja – endast Generell användning och Affärskritisk tjänst nivåer| [Ja](transparent-data-encryption-azure-sql.md) |

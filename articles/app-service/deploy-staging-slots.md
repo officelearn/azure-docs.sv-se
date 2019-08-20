@@ -1,6 +1,6 @@
 ---
-title: Konfigurera mellanlagringsmiljöer för webbappar i Azure App Service | Microsoft Docs
-description: Lär dig hur du använder mellanlagrad publicering för web apps i Azure App Service.
+title: Konfigurera mellanlagrings miljöer för webbappar i Azure App Service | Microsoft Docs
+description: Lär dig hur du använder mellanlagrad publicering för webb program i Azure App Service.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -15,227 +15,197 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: cephalin
-ms.openlocfilehash: fd488d475e24bc1aeebfa49b9d81b04ebae449ff
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a6d659d558c15a9a224196c471f7798b1a7f2660
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445604"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623701"
 ---
-# <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
+# <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagrings miljöer i Azure App Service
 <a name="Overview"></a>
 
-När du distribuerar din webbapp, web Apps i Linux-, mobil serverdel- eller API-app till [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714), du kan använda en separat distributionsplats i stället för standard-produktionsplatsen när du kör i den **Standard**, **Premium**, eller **isolerad** nivå för App Service-plan. Distributionsplatser är liveappar med egna värdnamn. App webbappsinnehåll och konfigurationselement kan bytas mellan två distributionsfack, inklusive produktionsplatsen. 
+När du distribuerar din webbapp, webbapp på Linux, mobil Server del eller API-app till [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)kan du använda en separat distributions plats i stället för standard produktions platsen när du kör som **standard**, **Premium**eller **isolerad** App Service plan nivå. Distributions platser är Live-appar med sina egna värdnamn. App-innehåll och konfigurations element kan växlas mellan två distributions platser, inklusive produktions platsen. 
 
-Distribuera programmet till en icke-produktionsplatsen har följande fördelar:
+Distribution av ditt program till en icke-produktions plats har följande fördelar:
 
-* Du kan validera appändringar i en mellanlagringsplats för distributionen innan du växlar med produktionsplatsen.
-* Distribuera en app till en plats först och växlar den till produktionen ser till att alla instanser av facket värmas upp innan du håller på att växlas till produktion. Detta eliminerar avbrott när du distribuerar din app. Trafik-omdirigering sker sömlös och inga förfrågningar ignoreras på grund av swap-åtgärder. Du kan automatisera hela arbetsflödet genom att konfigurera [Autoväxling](#Auto-Swap) när före swap-verifiering är inte behövs.
-* Efter en växling har facket med tidigare mellanlagrad app nu appen tidigare produktion. Om ändringarna växlas över till produktionsplatsen inte som förväntat, du kan utföra samma växlingen direkt för att få igång ”senaste kända bra webbplatsen” tillbaka.
+* Du kan validera ändringar av appar på en mellanlagrings plats innan du växlar med produktions platsen.
+* Om du distribuerar en app till en plats och byter ut den till produktion ser du till att alla instanser av facket har värmts upp innan du växlar till produktion. Detta eliminerar nedtid när du distribuerar din app. Omdirigeringen av trafiken är sömlös och inga förfrågningar tas bort på grund av växlings åtgärder. Du kan automatisera hela arbets flödet genom att konfigurera [Automatisk växling](#Auto-Swap) när det inte behövs för verifiering före växling.
+* Efter en växling har facket med den tidigare mellanlagrade appen nu den tidigare produktions appen. Om ändringarna som utbyts till produktions platsen inte är som du förväntar dig kan du utföra samma växling direkt för att få tillbaka din "senast fungerande webbplats".
 
-Varje nivå för App Service-plan har stöd för ett annat antal distributionsplatser. Det finns inga ytterligare avgifter för användning av distributionsfack. Att ta reda på hur många platser stöder din app, se [gränser för Apptjänst](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). 
+Varje App Service plan nivå har stöd för ett annat antal distributions platser. Det kostar inget extra att använda distributions platser. För att ta reda på antalet platser som din apps-nivå stöder, se [App Service gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). 
 
-Kontrollera att mål-nivån har stöd för antalet fack appen redan använder för att skala din app till en annan nivå. Exempel: om din app har fler än fem platser, kan du inte skala den ned till den **Standard** tier, eftersom den **Standard** nivån stöder endast fem distributionsplatser. 
+Om du vill skala din app till en annan nivå ser du till att mål nivån stöder antalet platser som appen redan använder. Om din app till exempel har fler än fem platser kan du inte skala ned den till **standard** nivån eftersom **standard** nivån endast stöder fem distributions fack. 
 
 <a name="Add"></a>
 
 ## <a name="add-a-slot"></a>Lägg till en plats
-Appen måste köras i den **Standard**, **Premium**, eller **isolerad** nivå för att du kan aktivera flera distributionsplatser.
+Appen måste köras på nivån **standard**, **Premium**eller isolerad för att du ska kunna aktivera flera distributions platser.
 
-1. I den [Azure-portalen](https://portal.azure.com/), öppna appens [resurssida](../azure-resource-manager/manage-resources-portal.md#manage-resources).
+1. Öppna appens [resurs sida](../azure-resource-manager/manage-resources-portal.md#manage-resources)i [Azure Portal](https://portal.azure.com/).
 
-2. I den vänstra rutan väljer **distributionsfack** > **Lägg till plats**.
+2. I det vänstra fönstret väljer du **distributions platser** > **Lägg till plats**.
    
-    ![Lägg till en ny distributionsplats](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Lägg till en ny distributions plats](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Om appen inte redan är i den **Standard**, **Premium**, eller **isolerad** nivå, du får ett meddelande som anger stöds nivåerna för att aktivera mellanlagrad publicering. Nu har du möjlighet att välja **uppgradera** och gå till den **skala** fliken i din app innan du fortsätter.
+   > Om appen inte redan finns på **standard**-, **Premium**-eller den isolerade nivån får du ett meddelande som anger vilka nivåer som stöds för aktivering av mellanlagrad publicering. Nu har du möjlighet att välja **uppgradering** och gå till fliken **Scale (skala** ) i appen innan du fortsätter.
    > 
 
-3. I den **Lägg till en plats** dialogrutan namnge facket och välja om du vill klona en appkonfiguration från en annan distributionsplats. Välj **Lägg till** att fortsätta.
+3. I dialog rutan **Lägg till en plats** anger du platsens namn och anger om du vill klona en app-konfiguration från en annan distributions plats. Välj **Lägg till** för att fortsätta.
    
-    ![Konfigurationskälla](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+    ![Konfigurations källa](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
-    Du kan klona en konfiguration från en befintlig plats. Inställningar som kan klonas omfattar appinställningar, anslutningssträngar, språk framework-versioner, webbsockets, HTTP-version och plattformen bitarna.
+    Du kan klona en konfiguration från en befintlig plats. Inställningar som kan klonas är inställningar för appar, anslutnings strängar, språk Ramverks versioner, Web Sockets, HTTP-version och plattforms bitness.
 
-4. När platsen har lagts till, Välj **Stäng** att stänga dialogrutan. Nu visas den nya platsen på den **distributionsfack** sidan. Som standard **trafik %** anges till 0 för den nya platsen med alla kund trafik som dirigerats till produktionsplatsen.
+4. När platsen har lagts till väljer du **Stäng** för att stänga dialog rutan. Den nya platsen visas nu på sidan **distributions platser** . Som standard är **trafik%** inställd på 0 för den nya platsen, där all kund trafik dirigeras till produktions platsen.
 
-5. Välj den nya distributionsplatsen att öppna sida att platsen.
+5. Välj den nya distributions platsen för att öppna platsens resurs sida.
    
-    ![Distribution fack rubrik](./media/web-sites-staged-publishing/StagingTitle.png)
+    ![Rubrik för distributions plats](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    Mellanlagringsplatsen har en hanteringssidan precis som andra App Service-app. Du kan ändra platsens konfiguration. Namnet på platsen visas överst på sidan för att påminna dig om att du visar distributionsplatsen.
+    Mellanlagringsplatsen har en hanterings sida precis som andra App Service-appar. Du kan ändra platsens konfiguration. Namnet på facket visas längst upp på sidan för att påminna dig om att du visar distributions platsen.
 
-6. Välj appens URL på resurssidan för den platsen. Distributionsplatsen har sin egen värdnamn och är också en live-app. För att begränsa offentlig åtkomst till distributionsplatsen, se [Azure App Service-IP-restriktioner](app-service-ip-restrictions.md).
+6. Välj appens URL på platsens resurs sida. Distributions platsen har sitt eget värdnamn och är även en Live-app. Information om hur du begränsar offentlig åtkomst till distributions platsen finns i [Azure App Service IP-begränsningar](app-service-ip-restrictions.md).
 
-Den nya distributionsplatsen har inget innehåll, även om du klonar inställningarna från en annan plats. Du kan till exempel [publicera till den här platsen med Git](app-service-deploy-local-git.md). Du kan distribuera till facket från en annan databas gren eller en annan databas. 
+Den nya distributions platsen har inget innehåll, även om du klonar inställningarna från en annan plats. Du kan till exempel [Publicera till den här platsen med git](app-service-deploy-local-git.md). Du kan distribuera till platsen från en annan databas gren eller en annan lagrings plats. 
 
 <a name="AboutConfiguration"></a>
 
-## <a name="what-happens-during-a-swap"></a>Vad som händer under en växling
+## <a name="what-happens-during-a-swap"></a>Vad händer under en växling
 
-### <a name="swap-operation-steps"></a>Växla åtgärdsstegen
+### <a name="swap-operation-steps"></a>Steg för växlings åtgärd
 
-När du växlar mellan två platser (vanligtvis från en mellanlagringsplatsen till produktionsplatsen) gör följande för att säkerställa att målplatsen inte drabbas av App Service:
+När du växlar två platser (vanligt vis från en mellanlagringsplats till produktions platsen) gör App Service följande för att se till att mål platsen inte upplever drift stopp:
 
-1. Använd följande inställningar från målplatsen (till exempel produktionsplatsen) till alla instanser av källplatsen: 
-    - [Plats-specifika](#which-settings-are-swapped) appinställningar och anslutningssträngar, om tillämpligt.
-    - [Kontinuerlig distribution](deploy-continuous-deployment.md) inställningar, om aktiverad.
-    - [App Service-autentisering](overview-authentication-authorization.md) inställningar, om aktiverad.
+1. Använd följande inställningar från mål platsen (till exempel produktions platsen) till alla instanser av käll platsen: 
+    - [](#which-settings-are-swapped) Platsspecifika appinställningar och anslutnings strängar, om tillämpligt.
+    - Inställningar för [kontinuerlig distribution](deploy-continuous-deployment.md) , om aktive rad.
+    - [App Service autentiseringsinställningarna](overview-authentication-authorization.md) om det är aktiverat.
     
-    Båda fallen utlösa alla instanser i käll-facket för att starta om. Under [växling med förhandsgranskning](#Multi-Phase), detta markerar slutet av den första fasen. Växlingen har pausats och du kan verifiera att källplatsen fungerar korrekt med mål platsinställningar.
+    Alla dessa fall utlöser alla instanser på käll platsen för omstart. Vid [växling med förhands granskning](#Multi-Phase)markerar detta slutet av den första fasen. Växlings åtgärden har pausats och du kan kontrol lera att käll platsen fungerar korrekt med mål platsens inställningar.
 
-1. Vänta tills alla instanser i käll-facket för att slutföra sin omstart. Om det inte går att starta om en instans, växlingen återställs alla ändringar till källplatsen och åtgärden avbryts.
+1. Vänta tills varje instans på käll platsen har startats om. Om någon instans inte kan starta om återställer växlings åtgärden alla ändringar till käll platsen och stoppar åtgärden.
 
-1. Om [lokalt cacheminne](overview-local-cache.md) är aktiverat kan utlösa initiering av lokal cache genom att göra en HTTP-begäran till programrot-(”/”) i varje instans av källplatsen. Vänta tills varje instans returnerar alla HTTP-svar. Initiering av lokal cache gör att en ny omstart på varje instans.
+1. Om [lokal cache](overview-local-cache.md) har Aktiver ATS utlöser du initiering av lokalt cacheminne genom att göra en http-begäran till program roten ("/") på varje instans av käll platsen. Vänta tills varje instans returnerar HTTP-svar. Initiering av lokal cache orsakar en omstart av varje instans.
 
-1. Om [Autoväxling](#Auto-Swap) har aktiverats med [anpassade värma upp](#Warm-up), utlösare [program Initiation](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) genom att göra en HTTP-begäran till programrot-(”/”) i varje instans av källan fack.
+1. Om [Automatisk växling](#Auto-Swap) har Aktiver ATS med [anpassad uppvärmning](#Warm-up), Utlös [program initiering](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) genom att göra en http-begäran till program roten ("/") på varje instans av käll platsen.
 
-    Om `applicationInitialization` inte anges, utlösa en HTTP-begäran till programmet roten käll-fack på varje instans. 
+    Om `applicationInitialization` inte anges utlöses en http-begäran till käll platsens program rot på varje instans. 
     
-    Om en instans returnerar alla HTTP-svar, uppfattas det värmas upp.
+    Om en instans returnerar ett HTTP-svar anses det vara värmat.
 
-1. Om alla instanser på källplatsen värmas upp har, kan du växla på två platser genom att växla mellan routningsregler för två platser. Efter det här steget har målplatsen (till exempel produktionsplatsen) den app som tidigare värmas upp i källplatsen.
+1. Om alla instanser på käll platsen har värmts upp korrekt byter du ut de två platserna genom att växla routningsregler för de två platserna. Efter det här steget har mål platsen (till exempel produktions platsen) den app som tidigare har förvärmts på käll platsen.
 
-1. Nu när källplatsen har tidigare före swap-appen för målplatsen, kan du utföra samma åtgärd med hjälp av alla inställningar och startar om instanserna.
+1. Nu när käll platsen har för hands växlings appen tidigare på mål platsen, utför du samma åtgärd genom att tillämpa alla inställningar och starta om instanserna.
 
-När som helst av växlingen sker allt arbete för initiering av bytts ut appar på källplatsen. På målplatsen förblir online när källplatsen förberedd och värmas upp, oavsett var växlingen lyckas eller misslyckas. Kontrollera att produktionsplatsen alltid är på målplatsen för att växla en mellanlagringsplats med produktionsplatsen. På så sätt kan växlingen påverkar inte din produktionsapp.
+När som helst i växlings åtgärden sker allt arbete vid initiering av de växlade apparna på käll platsen. Mål platsen är online medan käll platsen förbereds och förvärmas, oavsett var växlingen lyckas eller Miss lyckas. Om du vill byta mellan en mellanlagringsplats med produktions platsen kontrollerar du att produktions platsen alltid är mål platsen. På så sätt kommer växlings åtgärden inte att påverka din produktions program.
 
-### <a name="which-settings-are-swapped"></a>Vilka inställningar växlas ut?
-När du klonar konfigurationen från en annan distributionsplats kan klonade konfigurationen redigeras. Vissa konfigurationselement följer innehållet i en växling (inte port specifika), medan andra konfigurationselement stannar på samma plats efter en växling (specifika-port). I listan nedan visas de inställningar som ändras när du växlar mellan platser.
+### <a name="which-settings-are-swapped"></a>Vilka inställningar byts ut?
 
-**Inställningar som växlas ut**:
+[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
-* Allmänna inställningar, till exempel framework-version, 32/64-bitars web sockets
-* App-inställningar (kan konfigureras för att fästs mot en plats)
-* Anslutningssträngar (kan konfigureras för att fästs mot en plats)
-* Hanterarmappningar
-* Inställningar för övervakning och diagnostik
-* Offentliga certifikat
-* WebJobs-innehåll
-* Hybridanslutningar *
-* Virtual network-integration *
-* Tjänstslutpunkter *
-* Azure Content Delivery Network *
-
-Funktioner som är markerade med en asterisk (*) planeras att göras Fäst till facket. 
-
-**Inställningar som inte växlas**:
-
-* Publiceringsslutpunkterna
-* Egna domännamn
-* Privata certifikat och SSL-bindningar
-* Skalinställningar
-* WebJobs-schemaläggare
-* IP-begränsningar
-* Alltid på
-* Protokoll-inställningar (HTTPS, TLS-version, klientcertifikat)
-* Diagnostiklogginställningar
-* Cross-origin resource sharing (CORS)
-
-<!-- VNET and hybrid connections not yet sticky to slot -->
-
-Om du vill konfigurera en app-inställningen eller anslutningssträng till fästs mot en specifik plats (inte växlas), går du till den **Configuration** för platsen. Lägg till eller redigera en inställning och välj sedan **distribution platsinställning**. Markerar den här kryssrutan anger App Service inställningen inte är under drift. 
+Om du vill konfigurera en app-inställning eller anslutnings sträng för att fästa mot en angiven plats (som inte växlas) går du till sidan **konfiguration** för den platsen. Lägg till eller redigera en inställning och välj sedan **distributions plats inställning**. Om du markerar den här kryss rutan visas App Service att inställningen inte kan växlas. 
 
 ![Platsinställning](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
 ## <a name="swap-two-slots"></a>Växla två platser 
-Du kan växla distributionsfack på appens **distributionsfack** sidan och **översikt** sidan. Teknisk information om växlingen finns i [vad som händer under bytet](#AboutConfiguration).
+Du kan växla distributions platser på sidan **distributions platser** för appar och **översikts** sidan. Teknisk information om plats växlingen finns i [vad som händer under växlingen](#AboutConfiguration).
 
 > [!IMPORTANT]
-> Kontrollera att din målplatsen är för produktion och att alla inställningar i källplatsen är konfigurerade exakt som du vill ha dem i produktion innan du växlar mellan en app från ett distributionsfack till produktionen.
+> Innan du byter ut en app från en distributions plats i produktion kontrollerar du att produktionen är mål platsen och att alla inställningar i käll platsen är konfigurerade exakt som du vill ha dem i produktion.
 > 
 > 
 
-Att byta distributionsfack:
+Växla mellan distributions platser:
 
-1. Gå till appens **distributionsfack** och välj **växla**.
+1. Gå till sidan distributions **platser** för appen och välj **Byt**.
    
-    ![Växla, knapp](./media/web-sites-staged-publishing/SwapButtonBar.png)
+    ![Växlings knapp](./media/web-sites-staged-publishing/SwapButtonBar.png)
 
-    Den **växla** dialogrutan visas inställningar i de valda käll- och platser som ska ändras.
+    Dialog rutan **Växla** visar inställningar i de valda käll-och mål platserna som ska ändras.
 
-2. Välj önskat **källa** och **Target** platser. Målet är vanligtvis produktionsplatsen. Markera också den **ändringar av datakällan** och **Target ändringar** flikarna och kontrollera att konfigurationsändringarna förväntas. När du är klar kan du byta platserna omedelbart genom att välja **växling**.
+2. Välj önskade **käll** -och **mål** platser. Normalt är målet produktions platsen. Välj också flikarna **käll ändringar** och **mål ändringar** och kontrol lera att konfigurations ändringarna förväntas. När du är klar kan du växla platserna direkt genom att välja **Växla**.
 
     ![Slutför växling](./media/web-sites-staged-publishing/SwapImmediately.png)
 
-    Om du vill se hur din målplatsen skulle köras med de nya inställningarna innan växlingen faktiskt händer inte markerar **växling**, men följer du anvisningarna i [växling med förhandsgranskning](#Multi-Phase).
+    Om du vill se hur mål platsen kommer att köras med de nya inställningarna innan växlingen faktiskt sker väljer du inte **växling**, utan följer anvisningarna i [Växla med förhands granskning](#Multi-Phase).
 
-3. När du är klar stänger du dialogrutan genom att välja **Stäng**.
+3. När du är klar stänger du dialog rutan genom att välja **Stäng**.
 
-Om du har några problem, se [felsöka växlingar](#troubleshoot-swaps).
+Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
 <a name="Multi-Phase"></a>
 
-### <a name="swap-with-preview-multi-phase-swap"></a>Växla med förhandsgranskning (med swap)
+### <a name="swap-with-preview-multi-phase-swap"></a>Växla med förhands granskning (växling i flera faser)
 
 > [!NOTE]
-> Växling med förhandsgranskning stöds inte i web apps på Linux.
+> Växling med förhands granskning stöds inte i Web Apps på Linux.
 
-Innan du växla till produktion som den målplats, kan du verifiera att appen körs med inställningarna som du har bytts ut. Källplatsen är också värmas upp innan växling, vilket är önskvärt för verksamhetskritiska program.
+Innan du byter till produktion som mål plats kontrollerar du att appen körs med de växlade inställningarna. Käll platsen har också förvärmts innan växlings förslutning, vilket är önskvärt för verksamhets kritiska program.
 
-När du utför en växling med förhandsgranskning, App-tjänsten utför samma [växlingsåtgärden](#AboutConfiguration) men pausar efter det första steget. Du kan kontrollera resultaten på mellanlagringsplatsen innan du slutför växlingen. 
+När du utför en växling med för hands versionen utför App Service samma [växlings åtgärd](#AboutConfiguration) men pausas efter det första steget. Du kan sedan verifiera resultatet på mellanlagringsplatsen innan du slutför växlingen. 
 
-Om du avbryter växlingen lägger konfigurationselement i App Service till källplatsen.
+Om du avbryter växlingen App Service återanvänder konfigurations elementen på käll platsen.
 
-Att växla med förhandsgranskning:
+För att växla med för hands version:
 
-1. Följ stegen i [växla distributionsfack](#Swap) men välj **utför växling med förhandsgranskning**.
+1. Följ stegen i [Växla distributions fack](#Swap) men Välj **utför växling med förhands granskning**.
 
     ![Växla med förhandsgranskning](./media/web-sites-staged-publishing/SwapWithPreview.png)
 
-    Dialogrutan visar hur konfigurationen i källplatsen ändras i fas 1 och hur facket käll- och ändras i fas 2.
+    I dialog rutan visas hur konfigurationen i käll platsen ändras i fas 1, och hur käll-och mål platsen ändras i fas 2.
 
-2. När du är redo att börja växlingen väljer **starta växlingen**.
+2. När du är redo att starta växlingen väljer du **Starta växling**.
 
-    När fas 1 har slutförts meddelas du i dialogrutan. Förhandsgranska växling i källplatsen genom att gå till `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
+    När fas 1 är klar får du ett meddelande i dialog rutan. Förhandsgranska växlingen på käll platsen genom att gå till `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
 
-3. När du är redo att slutföra väntande växlingen väljer **fullständig växling** i **växlingsåtgärd** och välj **fullständig växling**.
+3. När du är redo att slutföra den väntande växlingen väljer du **fullständig växling** i **växlings åtgärd** och väljer **Slutför växling**.
 
-    Om du vill avbryta en väntande växling, Välj **Avbryt växling** i stället.
+    Om du vill avbryta en väntande växling väljer du **Avbryt växling** i stället.
 
-4. När du är klar stänger du dialogrutan genom att välja **Stäng**.
+4. När du är klar stänger du dialog rutan genom att välja **Stäng**.
 
-Om du har några problem, se [felsöka växlingar](#troubleshoot-swaps).
+Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
-Om du vill automatisera en med-växling, se [automatisera med PowerShell](#automate-with-powershell).
+Om du vill automatisera en växling i flera faser, se [Automatisera med PowerShell](#automate-with-powershell).
 
 <a name="Rollback"></a>
 
 ## <a name="roll-back-a-swap"></a>Återställa en växling
-Om något fel uppstår för målplatsen (till exempel produktionsplatsen) efter en växling återställa platserna till deras före växling tillstånd genom att byta samma två platserna omedelbart.
+Om några fel inträffar på mål platsen (t. ex. produktions platsen) efter en plats växling, återställer du platserna till deras före växlings tillstånd genom att växla samma två platser direkt.
 
 <a name="Auto-Swap"></a>
 
 ## <a name="configure-auto-swap"></a>Konfigurera automatisk växling
 
 > [!NOTE]
-> Autoväxling stöds inte i web apps på Linux.
+> Automatisk växling stöds inte i Web Apps på Linux.
 
-Autoväxling effektiviserar Azure DevOps-scenarier där du vill distribuera din app kontinuerligt med noll kallstarter och utan stilleståndstid för kunder i appen. När Autoväxling har aktiverats från en plats i produktionen, varje gång du överföra dina ändringar i koden till platsen, App Service automatiskt [växlingar appen till produktionen](#swap-operation-steps) när den är värmas upp i källplatsen.
+Automatisk växling effektiviserar Azure DevOps-scenarier där du vill distribuera din app kontinuerligt med noll som kall startar och noll nedtid för kunder i appen. När automatisk växling har Aktiver ATS från en plats till produktion, byter App Service automatiskt [appen till produktion](#swap-operation-steps) när den har värmts upp på käll platsen när du skickar kod ändringarna till den platsen.
 
    > [!NOTE]
-   > Du kan testa Autoväxling på en icke-produktion målplatsen innan du konfigurerar Autoväxling för produktionsplatsen.
+   > Innan du konfigurerar automatisk växling för produktions platsen bör du överväga att testa automatisk växling på ett mål fack som inte är för produktion.
    > 
 
-Konfigurera Autoväxling:
+Så här konfigurerar du automatisk växling:
 
-1. Gå till appens sida. Välj **distributionsfack** >  *\<önskade källplatsen >*  > **Configuration**  >  **Allmänna inställningar**.
+1. Gå till appens resurs sida. Välj **distributions platser** >  >  *\<önskad käll plats >* konfiguration > **allmänna inställningar**.
    
-2. För **Autoväxling aktiverat**väljer **på**. Välj sedan önskad målplatsen för **distribution autoväxlingsplats**, och välj **spara** i kommandofältet. 
+2. För **Automatisk växling aktive rad**väljer du **på**. Välj sedan önskad mål plats för **Automatisk växling distributions plats**och välj **Spara** i kommando fältet. 
    
-    ![Val för att konfigurera Autoväxling](./media/web-sites-staged-publishing/AutoSwap02.png)
+    ![Alternativ för att konfigurera automatisk växling](./media/web-sites-staged-publishing/AutoSwap02.png)
 
-3. Köra en kod push till källplatsen. Autoväxling händer efter en kort tid, och uppdateringen visas på din målplatsen URL: en.
+3. Kör en kod push till käll platsen. Automatisk växling sker efter en kort tid och uppdateringen återspeglas på mål platsens URL.
 
-Om du har några problem, se [felsöka växlingar](#troubleshoot-swaps).
+Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
 <a name="Warm-up"></a>
 
-## <a name="specify-custom-warm-up"></a>Ange anpassade värma upp
-När du använder [Autoväxling](#Auto-Swap), vissa appar kan kräva anpassade värma upp åtgärder före växlingen. Den `applicationInitialization` konfigurationselementet i web.config kan du ange anpassade initieringen åtgärder. Den [växlingsåtgärden](#AboutConfiguration) väntar på den här anpassade värma upp ska slutföras innan du växlar med på målplatsen. Här är ett exempel web.config-fragment.
+## <a name="specify-custom-warm-up"></a>Ange anpassad uppvärmning
+När du använder [Automatisk växling](#Auto-Swap)kan vissa appar kräva anpassade värme åtgärder innan växlingen. I `applicationInitialization` konfigurations elementet i Web. config kan du ange anpassade initierings åtgärder. [Växlings åtgärden](#AboutConfiguration) väntar på att den här anpassade uppvärmningen ska slutföras innan den växlar till mål platsen. Här är ett exempel på Web. config-fragment.
 
     <system.webServer>
         <applicationInitialization>
@@ -246,66 +216,66 @@ När du använder [Autoväxling](#Auto-Swap), vissa appar kan kräva anpassade v
 
 Mer information om hur du anpassar den `applicationInitialization` element, se [vanligaste slot swap distributionsfel och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-Du kan också anpassa beteendet värma upp med en eller båda av följande [appinställningar](configure-common.md):
+Du kan också anpassa det varmaste sättet med en eller båda av följande [appinställningar](configure-common.md):
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: Sökvägen till pinga för att värmt upp din webbplats. Lägg till den här appinställningen genom att ange en anpassad sökväg som börjar med ett snedstreck som värde. Ett exempel är `/statuscheck`. Standardvärdet är `/`. 
-- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Ogiltig HTTP-svarskoder för värma upp igen. Lägg till den här appinställningen med en kommaavgränsad lista över HTTP-koder. Ett exempel är `200,202` . Om den returnerade statuskoden är inte i listan, stoppas värma upp och växling åtgärderna. Som standard är alla svarskoder giltiga.
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: Sökvägen till ping för att värma upp din webbplats. Lägg till den här appens inställningen genom att ange en anpassad sökväg som börjar med ett snedstreck som värde. Ett exempel är `/statuscheck`. Standardvärdet är `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Giltiga HTTP-svars koder för en värme åtgärd. Lägg till den här appens inställningen med en kommaavgränsad lista över HTTP-koder. Ett exempel är `200,202` . Om den returnerade status koden inte finns i listan stoppas uppvärmnings och växlings åtgärder. Som standard är alla svars koder giltiga.
 
-Om du har några problem, se [felsöka växlingar](#troubleshoot-swaps).
+Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
 ## <a name="monitor-a-swap"></a>Övervaka en växling
 
-Om den [växlingsåtgärden](#AboutConfiguration) tar lång tid att slutföra, du kan få information om växlingen i den [aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Om [växlings åtgärden](#AboutConfiguration) tar lång tid att slutföra kan du få information om växlings åtgärden i [aktivitets loggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
-På appens sida i portalen, i den vänstra rutan väljer **aktivitetsloggen**.
+På appens resurs sida i portalen väljer du **aktivitets logg**i det vänstra fönstret.
 
-En växlingsåtgärd visas i loggfråga som `Swap Web App Slots`. Du kan expandera den och välj en av katalogtjänstens eller fel att se detaljerna.
+En växlings åtgärd visas i logg frågan som `Swap Web App Slots`. Du kan expandera den och välja en av under åtgärder eller fel för att se information.
 
 ## <a name="route-traffic"></a>Dirigera trafik
 
-Som standard alla klientbegäranden till appens produktions-URL (`http://<app_name>.azurewebsites.net`) dirigeras till produktionsplatsen. Du kan vidarebefordra en del av trafiken till en annan plats. Den här funktionen är användbar om du behöver Användarfeedback för en ny uppdatering, men du inte är redo att lansera till produktion.
+Som standard dirigeras alla klient begär anden till appens produktions-`http://<app_name>.azurewebsites.net`URL () till produktions platsen. Du kan dirigera en del av trafiken till en annan plats. Den här funktionen är användbar om du behöver feedback från användaren för en ny uppdatering, men du inte är redo att släppa den på produktionen.
 
-### <a name="route-production-traffic-automatically"></a>Dirigera produktionstrafik automatiskt
+### <a name="route-production-traffic-automatically"></a>Dirigera produktions trafik automatiskt
 
-Att dirigera produktionstrafik automatiskt:
+Så här dirigerar du produktions trafiken automatiskt:
 
-1. Gå till appens sida och välj **distributionsfack**.
+1. Gå till appens resurs sida och välj **distributions platser**.
 
-2. I den **trafik %** kolumnen av plats som du vill dirigera till, ange ett procentvärde (mellan 0 och 100) som representerar hur mycket av den totala trafiken som du vill dirigera. Välj **Spara**.
+2. I kolumnen **Traffic%** på den plats som du vill dirigera till anger du ett procenttal (mellan 0 och 100) för att representera den totala trafik som du vill dirigera. Välj **Spara**.
 
-    ![Ställa in ett trafik procenttal](./media/web-sites-staged-publishing/RouteTraffic.png)
+    ![Ange en trafik procent](./media/web-sites-staged-publishing/RouteTraffic.png)
 
-När inställningen har sparats, dirigeras den angivna procentandelen av klienter slumpmässigt till icke-produktionsplatsen. 
+När inställningen har sparats dirigeras den angivna procent andelen av klienter slumpmässigt till den icke-produktions platsen. 
 
-När en klient dirigeras automatiskt till en specifik plats dess ”fästa” till platsen för den session som klienten. På klientens webbläsare kan du se vilken plats som din session har fästs på genom att titta på den `x-ms-routing-name` cookie i HTTP-huvuden. En begäran som dirigeras till ”” mellanlagringsplatsen har cookien `x-ms-routing-name=staging`. En begäran som dirigeras till produktionsplatsen har cookien `x-ms-routing-name=self`.
+När en klient dirigeras automatiskt till en speciell plats, är den "fäst" på den platsen under den aktuella klient sessionen. I klientens webbläsare kan du se vilka platser som din session fästs på genom att titta på `x-ms-routing-name` cookien i dina HTTP-huvuden. En begäran som dirigeras till "mellanlagrings platsen" har cookien `x-ms-routing-name=staging`. En begäran som dirigeras till produktions platsen har cookien `x-ms-routing-name=self`.
 
-### <a name="route-production-traffic-manually"></a>Dirigera produktionstrafik manuellt
+### <a name="route-production-traffic-manually"></a>Dirigera produktions trafik manuellt
 
-Förutom automatisk trafikroutning kan App Service dirigera begäranden till en specifik plats. Detta är användbart när du vill att användarna ska kunna välja eller välja bort beta-app. För att dirigera produktionstrafik manuellt, använder du den `x-ms-routing-name` frågeparameter.
+Förutom automatisk trafik dirigering kan App Service dirigera begär anden till en angiven plats. Detta är användbart när du vill att användarna ska kunna välja eller avanmäla din Beta-app. Om du vill dirigera produktions trafiken manuellt använder `x-ms-routing-name` du Frågeparametern.
 
-Så att användarna kan välja bort beta-app, till exempel kan du publicera den här länken på din webbsida:
+Du kan till exempel använda den här länken på din webb sida om du vill låta användarna välja att använda beta appen:
 
 ```HTML
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
-Strängen `x-ms-routing-name=self` anger produktionsplatsen. När klientens webbläsare får åtkomst till länken, omdirigeras den till produktionsplatsen. Varje efterföljande begäran har den `x-ms-routing-name=self` cookie som PIN-koder, sessionen till produktionsplatsen.
+Strängen `x-ms-routing-name=self` anger produktions platsen. När klient läsaren har åtkomst till länken omdirigeras den till produktions platsen. Varje efterföljande begäran har den `x-ms-routing-name=self` cookie som fäster sessionen på produktions platsen.
 
-Så att användare kan välja att beta-app genom att ange samma Frågeparametern namnet på icke-produktionsplatsen. Här är ett exempel:
+Om du vill låta användarna välja beta-appen ställer du in samma frågeparameter till namnet på den plats som inte är för produktion. Här är ett exempel:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
-Som standard nya platser ges en routningsregel för `0%`, visas i grått. Om du uttryckligen anger det här värdet till `0%` (visas i svart text), användarna kan nå mellanlagringsplatsen manuellt med hjälp av den `x-ms-routing-name` frågeparameter. Men de dirigeras inte till facket automatiskt eftersom routning procentandelen anges till 0. Det här är ett avancerat scenario där du kan ”dölja” din mellanlagringsplats för allmänheten samtidigt som interna team att testa ändringar på platsen.
+Som standard tilldelas nya platser en regel för `0%`routning, som visas i grått. När du uttryckligen anger det här värdet `0%` (visas i svart text) kan användarna komma åt mellanlagringsplatsen manuellt med `x-ms-routing-name` hjälp av Frågeparametern. Men de dirigeras inte till facket automatiskt eftersom routningsdomänens procents ATS är inställd på 0. Det här är ett avancerat scenario där du kan "dölja" mellanlagringsplatsen från allmänheten samtidigt som du tillåter interna team att testa ändringar på platsen.
 
 <a name="Delete"></a>
 
 ## <a name="delete-a-slot"></a>Ta bort en plats
 
-Gå till appens sida. Välj **distributionsfack** >  *\<fack att ta bort >*  > **översikt**. Välj **ta bort** i kommandofältet.  
+Gå till appens resurs sida. Välj plats för **distributions fack** >  *\<för att ta bort >*  > **Översikt**. Välj **ta bort** i kommando fältet.  
 
-![Ta bort ett distributionsfack](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
+![Ta bort ett distributions fack](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
@@ -315,9 +285,9 @@ Gå till appens sida. Välj **distributionsfack** >  *\<fack att ta bort >*  > *
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Azure PowerShell är en modul som tillhandahåller cmdletar för att hantera Azure via Windows PowerShell, inklusive stöd för att hantera distributionsplatser i Azure App Service.
+Azure PowerShell är en modul som tillhandahåller cmdlets för att hantera Azure via Windows PowerShell, inklusive stöd för att hantera distributions platser i Azure App Service.
 
-Information om att installera och konfigurera Azure PowerShell och om autentisering av Azure PowerShell med Azure-prenumerationen finns i [hur du installerar och konfigurerar du Microsoft Azure PowerShell](/powershell/azure/overview).  
+Information om hur du installerar och konfigurerar Azure PowerShell och hur du autentiserar Azure PowerShell med din Azure-prenumeration finns i [så här installerar och konfigurerar du Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 ---
 ### <a name="create-a-web-app"></a>Skapa en webbapp
@@ -332,26 +302,26 @@ New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot
 ```
 
 ---
-### <a name="initiate-a-swap-with-a-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-the-source-slot"></a>Initiera en växling med förhandsgranskning (med swap) och tillämpa platskonfigurationen för mål på källplatsen
+### <a name="initiate-a-swap-with-a-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-the-source-slot"></a>Påbörja en växling med en förhands granskning (växling vid flera faser) och Använd destinations plats konfigurationen för käll platsen
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 ---
-### <a name="cancel-a-pending-swap-swap-with-review-and-restore-the-source-slot-configuration"></a>Avbryt en väntande växling (växling med granskning) och återställa platskonfigurationen för källa
+### <a name="cancel-a-pending-swap-swap-with-review-and-restore-the-source-slot-configuration"></a>Avbryt en väntande växling (Byt till granskning) och Återställ käll plats konfigurationen
 ```powershell
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 ---
-### <a name="swap-deployment-slots"></a>Växla distributionsfack
+### <a name="swap-deployment-slots"></a>Växla distributions fack
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
-### <a name="monitor-swap-events-in-the-activity-log"></a>Övervaka växling händelser i aktivitetsloggen
+### <a name="monitor-swap-events-in-the-activity-log"></a>Övervaka växlings händelser i aktivitets loggen
 ```powershell
 Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
@@ -369,19 +339,19 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-the-cli"></a>Automatisera med CLI
 
-För [Azure CLI](https://github.com/Azure/azure-cli) kommandon för distributionsplatser, se [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
+[Azure CLI](https://github.com/Azure/azure-cli) -kommandon för distributions platser finns i [AZ webapp Deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="troubleshoot-swaps"></a>Felsöka växlingar
 
-Om något fel uppstår vid en [växling](#AboutConfiguration), den är inloggad *D:\home\LogFiles\eventlog.xml*. Det loggas också i programspecifika felloggen.
+Om ett fel inträffar under en [plats växling](#AboutConfiguration)är det inloggat i *D:\home\LogFiles\eventlog.XML*. Den är också inloggad i den programspecifika fel loggen.
 
-Här följer några vanliga swap-fel:
+Här följer några vanliga växlings fel:
 
-- En HTTP-begäran till programmet roten tidsgränsen. Växlingen väntar på 90 sekunder för varje HTTP-begäran, och försöker upp till 5 gånger. Om alla nya försök är tidsgränsen har växlingen stoppats.
+- En HTTP-begäran till program roten har uppnåtts. Växlings åtgärden väntar i 90 sekunder för varje HTTP-begäran och försöker upp till 5 gånger. Om alla nya försök har överskridits stoppas växlings åtgärden.
 
-- Lokal cache initieringen misslyckas när appinnehållet överskrider kvoten för lokala diskar som angetts för den lokala cachen. Mer information finns i [översikt över Lokal cachelagring](overview-local-cache.md).
+- Initieringen av den lokala cachen kan Miss förfalla när innehållet i appen överskrider den lokala disk kvoten som angetts för den lokala cachen Mer information finns i [Översikt över Local cache](overview-local-cache.md).
 
-- Under [anpassade värma upp](#Warm-up), HTTP-förfrågningar som gjorts internt (utan att gå via den externa URL: en). De kan misslyckas med vissa URL-omskrivningsregler i *Web.config*. Regler för omdirigering domännamn eller framtvinga HTTPS kan till exempel förhindra att värma upp begäranden från att nå appkoden. Undvik problemet genom att ändra din omskrivningsregler genom att lägga till följande villkor:
+- Vid [anpassad uppvärmning](#Warm-up)görs HTTP-begäranden internt (utan att gå via den externa URL: en). De kan inte utföras med vissa regler för URL-omskrivning i *Web. config*. Till exempel kan regler för omdirigering av domän namn eller tvingande HTTPS förhindra att värme begär Anden når appens kod. Undvik det här problemet genom att ändra dina omskrivnings regler genom att lägga till följande två villkor:
 
     ```xml
     <conditions>
@@ -390,7 +360,7 @@ Här följer några vanliga swap-fel:
       ...
     </conditions>
     ```
-- Utan en anpassad värma upp blockerar URL-omskrivningsregler fortfarande HTTP-förfrågningar. Undvik problemet genom att ändra din omskrivningsregler genom att lägga till följande villkor:
+- Utan en anpassad värme kan du fortfarande blockera HTTP-förfrågningar om reglerna för URL-omskrivning. Undvik det här problemet genom att ändra reglerna för att skriva om genom att lägga till följande villkor:
 
     ```xml
     <conditions>
@@ -398,7 +368,7 @@ Här följer några vanliga swap-fel:
       ...
     </conditions>
     ```
-- Vissa [regler för IP-begränsning](app-service-ip-restrictions.md) kan förhindra att växlingen från att skicka HTTP-begäranden till din app. IPv4-adressintervall som börjar med `10.` och `100.` är interna för din distribution. Du ska tillåta dem att ansluta till din app.
+- Vissa [regler för IP-begränsning](app-service-ip-restrictions.md) kan förhindra att växlings åtgärden skickar HTTP-förfrågningar till din app. IPv4-adress intervall som börjar `10.` med `100.` och är interna för din distribution. Du bör tillåta dem att ansluta till din app.
 
 ## <a name="next-steps"></a>Nästa steg
-[Blockera åtkomst till icke-produktionsplatser](app-service-ip-restrictions.md)
+[Blockera åtkomst till platser som inte är för produktion](app-service-ip-restrictions.md)

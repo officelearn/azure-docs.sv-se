@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1c2bf53a610c566ac58df588f6d96389f2206563
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 700cd6c0c75b25d56e812a394d6bdd193e4fb57c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717534"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614050"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Lagrade procedurer, utlösare och användardefinierade funktioner
 
@@ -26,7 +26,7 @@ Genom att skriva lagrade procedurer, utlösare och användardefinierade funktion
 
 * **Atomiska transaktioner:** Azure Cosmos DB garanterar att databas åtgärderna som utförs inom en enda lagrad procedur eller en utlösare är atomiska. Med den här atomiska funktionen kan ett program kombinera relaterade åtgärder i en enda batch, så att antingen alla åtgärder lyckas eller ingen av dem lyckas.
 
-* **Historik** JSON-data mappas inbäddat till språk typs systemet för Java Script. Den här mappningen möjliggör ett antal optimeringar som till exempel Lazy materialization av JSON-dokument i bufferten och gör dem tillgängliga på begäran till den kod som körs. Det finns andra prestanda fördelar kopplade till-databasen med affärs logik, bland annat:
+* **Prestanda:** JSON-data mappas inbäddat till språk typs systemet för Java Script. Den här mappningen möjliggör ett antal optimeringar som till exempel Lazy materialization av JSON-dokument i bufferten och gör dem tillgängliga på begäran till den kod som körs. Det finns andra prestanda fördelar kopplade till-databasen med affärs logik, bland annat:
 
    * *Batchbearbetning* Du kan gruppera åtgärder som infogningar och skicka dem i bulk. Kostnaderna för nätverks trafik fördröjningen och butiks omkostnaderna för att skapa separata transaktioner minskas avsevärt.
 
@@ -79,11 +79,11 @@ Azure Cosmos DB stöder två typer av utlösare:
 
 ### <a name="pre-triggers"></a>För utlösare
 
-Azure Cosmos DB tillhandahåller utlösare som kan anropas genom att utföra en åtgärd på ett Azure Cosmos DB objekt. Du kan till exempel ange en för utlösare när du skapar ett objekt. I det här fallet körs före utlösaren innan objektet skapas. Före utlösare kan inte ha någon indataparametrar. Vid behov kan objektet Request användas för att uppdatera dokument innehållet från den ursprungliga begäran. När utlösare är registrerade ange användare vilka åtgärder som den kan köras med. Om en utlösare skapades `TriggerOperation.Create`med innebär det att det inte är tillåtet att använda utlösaren i en ersättnings åtgärd. Exempel finns i artikeln om [att skriva](how-to-write-stored-procedures-triggers-udfs.md#triggers) utlösare.
+Azure Cosmos DB tillhandahåller utlösare som kan anropas genom att utföra en åtgärd på ett Azure Cosmos-objekt. Du kan till exempel ange en för utlösare när du skapar ett objekt. I det här fallet körs före utlösaren innan objektet skapas. Före utlösare kan inte ha någon indataparametrar. Vid behov kan objektet Request användas för att uppdatera dokument innehållet från den ursprungliga begäran. När utlösare är registrerade ange användare vilka åtgärder som den kan köras med. Om en utlösare skapades `TriggerOperation.Create`med innebär det att det inte är tillåtet att använda utlösaren i en ersättnings åtgärd. Exempel finns i artikeln om [att skriva](how-to-write-stored-procedures-triggers-udfs.md#triggers) utlösare.
 
 ### <a name="post-triggers"></a>Efter utlösare
 
-På samma sätt som för-utlösare är post-triggers också kopplade till en åtgärd på ett Azure Cosmos DB objekt och de kräver inte några indataparametrar. De körs *när* åtgärden har slutförts och har åtkomst till svarsmeddelandet som skickas till klienten. Exempel finns i artikeln om [att skriva](how-to-write-stored-procedures-triggers-udfs.md#triggers) utlösare.
+På samma sätt som för-utlösare är post-triggers också kopplade till en åtgärd på ett Azure Cosmos-objekt och de kräver inga indataparametrar. De körs *när* åtgärden har slutförts och har åtkomst till svarsmeddelandet som skickas till klienten. Exempel finns i artikeln om [att skriva](how-to-write-stored-procedures-triggers-udfs.md#triggers) utlösare.
 
 > [!NOTE]
 > Registrerade Utlösare körs inte automatiskt när motsvarande åtgärder (skapa/ta bort/Ersätt/uppdatera) sker. De måste anropas explicit när de utför dessa åtgärder. Mer information finns i artikeln [om att köra](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) utlösare.

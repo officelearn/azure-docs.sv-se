@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 9a11af7e2875c9af5cf4b08d459bc67b55dbdcf3
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 21a42b2986b52282fbab914fa702d8c4a323ed35
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515546"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611945"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
 
@@ -30,8 +30,7 @@ ms.locfileid: "69515546"
 >
 
 ## <a name="platforms-that-support-the-data-collection-agent"></a>Plattformar som stöder data insamlings agenten 
-
-I det här avsnittet visas vilka plattformar som Azure Security Center agenten kan köra och från vilken den kan samla in data.
+I det här avsnittet visas de plattformar där Log Analytics-agenten, som används av Azure Security Center, kan köras.
 
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plattformar som stöds för Windows-datorer och virtuella datorer
 Följande Windows-operativ system stöds:

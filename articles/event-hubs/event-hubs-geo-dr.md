@@ -14,18 +14,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8dca94f0200f6bd41dfdc199b41bf69981a960da
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562709"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611714"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - geohaveriberedskap 
 
 När hela Azure-regioner eller Datacenter (om ingen [tillgänglighetszoner](../availability-zones/az-overview.md) används) drabbas, det är viktigt för att bearbeta till fortsätter att fungera i en annan region eller datacenter. Därför *geohaveriberedskap* och *Geo-replikering* är viktiga funktioner för vilket företag som helst. Azure Event Hubs stöder både geo-haveriberedskap och geo-replikering på namnområdesnivå. 
 
-Funktionen för att återställa geo-katastrofer är globalt tillgänglig för både Event Hubs standard och dedikerade SKU. Observera att du bara kan använda geo-par-namnområden på samma nivå av SKU. Om du till exempel har ett namn område i ett kluster som bara erbjuds i vår dedikerade SKU, kan det bara kombineras med ett namn område i ett annat kluster. 
+> [!NOTE]
+> Funktionen för geo-katastrof återställning är bara tillgänglig för [standard-och dedikerade SKU: er](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## <a name="outages-and-disasters"></a>Avbrott och katastrofer
 
@@ -37,7 +38,9 @@ Funktionen Geo-disaster recovery i Azure Event Hubs är en lösning för haverib
 
 ## <a name="basic-concepts-and-terms"></a>Grundläggande begrepp och termer
 
-Funktionen disaster recovery implementerar metadata katastrofåterställning och förlitar sig på primära och sekundära disaster recovery-namnområden. Observera att funktionen för geo-katastrof återställning endast är tillgänglig för [standard-och dedikerade SKU: er](https://azure.microsoft.com/pricing/details/event-hubs/) . Du behöver inte göra några ändringar av anslutningen sträng, eftersom anslutningen görs via ett alias.
+Funktionen disaster recovery implementerar metadata katastrofåterställning och förlitar sig på primära och sekundära disaster recovery-namnområden. 
+
+Funktionen för geo-katastrof återställning är endast tillgänglig för [standard-och dedikerade SKU: er](https://azure.microsoft.com/pricing/details/event-hubs/) . Du behöver inte göra några ändringar av anslutningen sträng, eftersom anslutningen görs via ett alias.
 
 I den här artikeln används följande termer:
 
@@ -48,6 +51,19 @@ I den här artikeln används följande termer:
 -  *Metadata*: Entiteter som händelse hubbar och konsument grupper; och deras egenskaper för tjänsten som är associerad med namn området. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden och händelser som replikeras inte. 
 
 -  *Redundans*: Processen för att aktivera det sekundära namn området.
+
+## <a name="supported-namespace-pairs"></a>Namn rymds par som stöds
+Följande kombinationer av primära och sekundära namn rymder stöds:  
+
+| Primär namnrymd | Sekundär namnrymd | Stöds | 
+| ----------------- | -------------------- | ---------- |
+| Standard | Standard | Ja | 
+| Standard | Dedikerad | Ja | 
+| Dedikerad | Dedikerad | Ja | 
+| Dedikerad | Standard | Nej | 
+
+> [!NOTE]
+> Det går inte att para ihop namn områden som finns i samma dedicerade kluster. Du kan para ihop namn områden som finns i separata kluster. 
 
 ## <a name="setup-and-failover-flow"></a>Installation och redundans flöde
 

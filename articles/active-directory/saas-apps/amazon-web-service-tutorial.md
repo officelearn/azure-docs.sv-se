@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f346c995cbc8be6e609020db799959d873ce89b3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 672a3571202b92232bd45a42254a43019f6a9796
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944957"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617331"
 ---
 # <a name="tutorial-integrate-amazon-web-services-aws-with-azure-active-directory"></a>Självstudier: Integrera Amazon Web Services (AWS) med Azure Active Directory
 
@@ -111,7 +111,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 7. Förutom föregående attribut förväntar sig AWS-programmet fler attribut att skickas tillbaka i SAML-svaret. I avsnittet **användar anspråk** i dialog rutan användarattribut, utför följande steg för att lägga till SAML-token-attributet.
 
-    | Namn  | Källattribut  | Namnrymd |
+    | Name  | Källattribut  | Namnrymd |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Role            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -369,6 +369,12 @@ När du väljer panelen AWS på åtkomst panelen, bör du loggas in automatiskt 
    Flera AWS-klienter (som representeras av `servicePrincipals`) kan läggas till i Azure AD från galleriet för etablering. Det finns dock ett känt problem, men det går inte att automatiskt skriva alla importerade roller från de flera AWS `servicePrincipals` som används för etablering i den enda `servicePrincipal` som används för SSO. 
    
    Som en lösning kan du använda [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) för att extrahera alla `appRoles` importerade till varje AWS `servicePrincipal` där etableringen har kon figurer ATS. Du kan senare lägga till de här roll strängarna `servicePrincipal` i AWS där SSO är konfigurerat.
+ 
+* Roller måste uppfylla följande krav för att kunna importeras från AWS till Azure AD:
+
+  * Roller måste ha exakt en SAML-Provider definierad i AWS
+
+  * Den kombinerade längden på rollens ARN och SAML-providerns ARN för en roll som importeras måste vara 119 tecken eller mindre
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

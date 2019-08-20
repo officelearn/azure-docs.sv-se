@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Domain Services för Azure Cloud Solution Providers | Microsoft Docs
-description: Azure Active Directory Domain Services för Azure Cloud Solution Providers.
+title: Azure Active Directory Domain Services för Azure Cloud solution providers | Microsoft Docs
+description: Azure Active Directory Domain Services för Azure Cloud solution providers.
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,79 +15,79 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: iainfou
-ms.openlocfilehash: a0ea28f3b62e6560e4adf8ea6bcb1fe984a1dbe6
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: dc4ad7d8cf9f3267713fd066fa79a4d9d8ab733f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473566"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612964"
 ---
-# <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services för Azure Cloud Solution Providers (CSP)
-Den här artikeln förklarar hur du kan använda Azure AD Domain Services i en Azure CSP-prenumeration.
+# <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services för Azure Cloud solution providers (CSP)
+I den här artikeln förklaras hur du kan använda Azure AD Domain Services i en Azure CSP-prenumeration.
 
 ## <a name="overview-of-azure-csp"></a>Översikt över Azure CSP
-Azure CSP är ett program för Microsoft-Partners och tillhandahåller en kanal som licens för olika Microsoft-molntjänster. Azure CSP kan partner hantera försäljning, äga, ge teknisk support och faktureringssupport och vara kundens enda kontaktpunkt. Dessutom tillhandahåller Azure CSP en komplett uppsättning verktyg, bland annat en självbetjäningsportal och medföljande API: er. Dessa verktyg aktivera CSP-partner att enkelt etablera och hantera Azure-resurser och tillhandahållande av fakturering för kunder och prenumerationer.
+Azure CSP är ett program för Microsoft-partner och tillhandahåller en licens kanal för olika moln tjänster från Microsoft. Azure CSP gör det möjligt för partner att hantera försäljning, äga fakturerings relationen, ge teknisk support och fakturerings support och vara kundens enda kontakt punkt. Dessutom tillhandahåller Azure CSP en fullständig uppsättning verktyg, inklusive en självbetjänings Portal och medföljande API: er. Med dessa verktyg kan CSP-partner enkelt etablera och hantera Azure-resurser och tillhandahålla fakturering för kunder och deras prenumerationer.
 
-Den [Partner Center-portalen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) fungerar som en startpunkt för alla Azure CSP-partner. Det ger funktioner för hantering av spännande och automatisk behandling. Azure CSP-partner kan använda Partner Center-funktioner med hjälp av ett webbaserat gränssnitt eller med hjälp av PowerShell och olika API-anrop.
+[Partner Center-portalen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) fungerar som en start punkt för alla Azure CSP-partner. Den ger omfattande funktioner för kund hantering, automatisk bearbetning med mera. Azure CSP-partner kan använda Partner Center-funktioner med hjälp av ett webbaserat användar gränssnitt eller med hjälp av PowerShell och olika API-anrop.
 
-Följande diagram illustrerar hur CSP-modellen fungerar på hög nivå. Contoso har en Azure AD Active Directory. De har ett samarbete med en CSP som distribuerar och hanterar resurser i Azure CSP-prenumerationen. Contoso kan också ha regelbundna (direkt) Azure-prenumerationer, som faktureras direkt till Contoso.
+Följande diagram illustrerar hur CSP-modellen fungerar på en hög nivå. Contoso har en Azure AD-Active Directory. De har ett partnerskap med en CSP, som distribuerar och hanterar resurser i sin Azure CSP-prenumeration. Contoso kan också ha vanliga (direkta) Azure-prenumerationer som faktureras direkt till contoso.
 
 ![Översikt över CSP-modellen](./media/csp/csp_model_overview.png)
 
-CSP-partner-klienten har tre grupper för särskild agent - administratör agenter, supportavdelningen agenter och agenter för försäljning. Administratörsgrupp för agenter har tilldelats klientadministratörsroll i Contosos Azure AD-katalog. En användare som hör till CSP-partner administratörsgrupp för agenter har därför klient admin-behörighet i Contosos Azure AD-katalog. När den CSP-partner tillhandahåller en Azure CSP-prenumeration för Contoso, deras agenter administratörsgrupp tilldelas rollen ägare för den aktuella prenumerationen. Därför kan har CSP-partner admin agenter de behörigheter som krävs för att etablera Azure-resurser som virtuella datorer, virtuella nätverk och Azure AD Domain Services för Contoso.
+CSP-partnerns klient organisation har tre särskilda agent grupper – administratörs agenter, support agenter och försäljnings agenter. Gruppen administratörs agenter tilldelas rollen klient organisations administratör i Contosos Azure AD-katalog. Därför har en användare som tillhör CSP-partnerns administratörs agenter gruppen klient organisations administratörs behörighet i Contosos Azure AD-katalog. När CSP-partnern etablerar en Azure CSP-prenumeration för Contoso tilldelas gruppen administratörs agenter rollen som ägare för den prenumerationen. Därför har CSP-partnerns administratörs agenter de behörigheter som krävs för att etablera Azure-resurser, till exempel virtuella datorer, virtuella nätverk och Azure AD Domain Services å uppdrag av contoso.
 
-Mer information finns i den [Azure CSP-översikt](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)
+Mer information finns i [Översikt över Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)
 
-## <a name="benefits-of-using-azure-ad-domain-services-in-an-azure-csp-subscription"></a>Fördelarna med att använda Azure AD Domain Services i en Azure CSP-prenumeration
-Azure AD Domain Services tillhandahåller Windows Server AD-kompatibla tjänster i Azure, till exempel LDAP, Kerberos/NTLM-autentisering, domänanslutning, Grupprincip och DNS. Under årtiondena har många program skapats för att arbeta mot AD med hjälp av dessa funktioner. Många oberoende programvaruleverantörer (ISV) har skapats och distribuerade program i sina kunders lokaler. Dessa program är betungande för eftersom som ofta kräver åtkomst till olika miljöer där programmen distribueras. Med Azure CSP-prenumerationer har du ett enklare alternativ med skala och flexibilitet i Azure.
+## <a name="benefits-of-using-azure-ad-domain-services-in-an-azure-csp-subscription"></a>Fördelar med att använda Azure AD Domain Services i en Azure CSP-prenumeration
+Azure AD Domain Services tillhandahåller Windows Server AD-kompatibla tjänster i Azure, till exempel LDAP, Kerberos/NTLM-autentisering, domän anslutning, grup princip och DNS. Under årtionden har många program skapats för att fungera mot AD med hjälp av dessa funktioner. Många oberoende program varu leverantörer (ISV: er) har skapat och distribuerat program till sina kunders lokaler. Dessa program är betungande för att stödja eftersom det ofta krävs åtkomst till de olika miljöer där dessa program distribueras. Med Azure CSP-prenumerationer har du ett enklare alternativ med skalbarhet och flexibilitet i Azure.
 
-Azure AD Domain Services har nu stöd för Azure CSP-prenumerationer. Du kan nu distribuera ditt program i en Azure CSP-prenumeration som är kopplad till din kunds Azure AD-katalog. Dina anställda (supportpersonalen) kan därför hantera, administrera och de virtuella datorerna som ditt program har distribuerats med din organisations företagsuppgifter-tjänsten. Dessutom kan du etablera en Azure AD Domain Services-hanterad domän för din kunds Azure AD-katalog. Ditt program är ansluten till din kunds hanterade domänen. Därför kan de funktioner i ditt program som förlitar sig på Kerberos/NTLM, LDAP, eller [System.DirectoryServices API](/dotnet/api/system.directoryservices) arbets sömlöst mot din kunds katalog. Dina slutkunder dra avsevärt använder ditt program som en tjänst, utan att behöva bekymra dig om att underhålla infrastrukturen som programmet har distribuerats på.
+Azure AD Domain Services stöder nu Azure CSP-prenumerationer. Du kan nu distribuera ditt program i en Azure CSP-prenumeration som är kopplad till kundens Azure AD-katalog. Det innebär att dina anställda (support personal) kan hantera, administrera och underhålla de virtuella datorer där ditt program distribueras med företagets företags uppgifter. Ytterligare kan du etablera en Azure AD Domain Services hanterad domän för kundens Azure AD-katalog. Ditt program är anslutet till kundens hanterade domän. Därför fungerar funktioner i ditt program som är beroende av Kerberos/NTLM, LDAP eller [system. DirectoryServices-API: et](/dotnet/api/system.directoryservices) sömlöst mot kundens katalog. Dina slutanvändare har nytta av att förbruka ditt program som en tjänst, utan att behöva oroa sig för att underhålla infrastrukturen som programmet distribueras på.
 
-Alla fakturering för Azure-resurser du förbrukar i den prenumerationen, inklusive Azure AD Domain Services debiteras till dig. Du kan ha fullständig kontroll över relationen med kunden när det gäller försäljning, fakturering, teknisk support osv. Med flexibilitet i Azure CSP-plattformen, en liten grupp agenter kan underhålla många kunder som har instanser av ditt program distribuerats.
-
-
-## <a name="csp-deployment-models-for-azure-ad-domain-services"></a>CSP-distributionsmodeller för Azure AD Domain services
-Det finns två sätt som du kan använda Azure AD Domain Services med en Azure CSP-prenumeration. Välj det rätt baserat på de överväganden för säkerhet och enkelhet som dina kunder har.
-
-### <a name="direct-deployment-model"></a>Direkt-distributionsmodellen
-I denna distributionsmodell Azure AD Domain Services aktiveras inom ett virtuellt nätverk som hör till Azure CSP-prenumeration. CSP-partner admin agenter har följande behörigheter:
-* Behörigheter som global administratör i kundens Azure AD-katalog.
-* Prenumeration ägarprivilegier för Azure CSP-prenumerationen.
-
-![Direkt-distributionsmodellen](./media/csp/csp_direct_deployment_model.png)
-
-I denna distributionsmodell administrera CSP-provider admin agenter identiteter för kunden. Agenterna administratören har möjlighet att etablera nya användare, grupper, lägga till program i Azure AD-katalog för kundens osv. Denna distributionsmodell kan vara lämpligt för mindre organisationer som inte har en dedikerad identity-administratör eller föredrar för CSP-partner att administrera identiteter för deras räkning.
+All fakturering för Azure-resurser som du förbrukar i den prenumerationen, inklusive Azure AD Domain Services, debiteras till dig. Du behåller full kontroll över relationen med kunden när den kommer till försäljning, fakturering, teknisk support osv. Med flexibiliteten i Azure CSP-plattformen kan en liten grupp support agenter betjäna många sådana kunder som har instanser av ditt program distribuerade.
 
 
-### <a name="peered-deployment-model"></a>Peer-kopplade distributionsmodell
-I denna distributionsmodell Azure AD Domain Services aktiveras inom ett virtuellt nätverk som tillhör kunden – det vill säga en direkt Azure-prenumeration som betalas av kunden. CSP-partner kan sedan distribuera program i ett virtuellt nätverk som tillhör kundens CSP-prenumeration. De virtuella nätverken kan sedan kopplas med hjälp av Azure vnet-peering. Därför kan kan arbetsbelastningar/program som distribuerats av CSP-partner i Azure CSP-prenumeration ansluta till kundens hanterade domänen tillhandahålls i kundens direkt Azure-prenumeration.
+## <a name="csp-deployment-models-for-azure-ad-domain-services"></a>CSP-distributions modeller för Azure AD Domain Services
+Det finns två sätt att använda Azure AD Domain Services med en Azure CSP-prenumeration. Välj rätt baserat på säkerhets-och förenklings överväganden som dina kunder har.
 
-![Peer-kopplade distributionsmodell](./media/csp/csp_peered_deployment_model.png)
+### <a name="direct-deployment-model"></a>Direkt distributions modell
+I den här distributions modellen är Azure AD Domain Services aktive rad i ett virtuellt nätverk som tillhör Azure CSP-prenumerationen. CSP-partnerns administratörs agenter har följande behörigheter:
+* Global administratörs behörighet i kundens Azure AD-katalog.
+* Prenumerations ägarens behörigheter för Azure CSP-prenumerationen.
 
-Denna distributionsmodell ger en åtskillnad mellan privilegier och gör det möjligt för CSP-partner supportavdelningen agenter att administrera Azure-prenumeration och distribuera och hantera resurser i den. CSP-partner supportavdelningen agenter behöver dock inte har behörigheter som global administratör för kundens Azure AD-katalog. Kundens identitetsadministratörer kan fortsätta att hantera identiteter för organisationen.
+![Direkt distributions modell](./media/csp/csp_direct_deployment_model.png)
 
-Denna distributionsmodell kan vara bra för scenarier där en ISV (oberoende programvaruleverantör) tillhandahåller en värdbaserad version av sina lokala program som måste också ansluta till kunden är AD.
+I den här distributions modellen kan CSP-providerns administratörs agenter administrera identiteter för kunden. Dessa administratörs agenter kan etablera nya användare, grupper, lägga till program i kundens Azure AD-katalog osv. Den här distributions modellen kan vara lämplig för mindre organisationer som inte har en särskild identitets administratör eller som föredras för CSP-partnern för att administrera identiteter för deras räkning.
+
+
+### <a name="peered-deployment-model"></a>Modell för peer-distribution
+I den här distributions modellen är Azure AD Domain Services aktive rad i ett virtuellt nätverk som tillhör kunden, d.v.s. en direkt Azure-prenumeration som betalas av kunden. CSP-partnern kan sedan distribuera program i ett virtuellt nätverk som tillhör kundens CSP-prenumeration. De virtuella nätverken kan sedan anslutas med hjälp av Azure Virtual Network-peering. Det innebär att arbets belastningar/program som distribueras av CSP-partnern i Azure CSP-prenumerationen kan ansluta till kundens hanterade domän etablerade i kundens direkta Azure-prenumeration.
+
+![Modell för peer-distribution](./media/csp/csp_peered_deployment_model.png)
+
+Den här distributions modellen ger en separation av privilegier och gör det möjligt för CSP-partnerns helpdesk-agenter att administrera Azure-prenumerationen och distribuera och hantera resurser i den. CSP-partnerns helpdesk-agenter behöver dock inte ha global administratörs behörighet för kundens Azure AD-katalog. Kundens identitets administratörer kan fortsätta att hantera identiteter för organisationen.
+
+Den här distributions modellen kan vara lämplig för scenarier där en ISV (oberoende program varu leverantör) tillhandahåller en värdbaserad version av sitt lokala program, som också måste ansluta till kundens AD.
 
 
 ## <a name="administering-azure-ad-domain-services-managed-domains-in-csp-subscriptions"></a>Administrera Azure AD Domain Services hanterade domäner i CSP-prenumerationer
 Följande viktiga överväganden gäller när du administrerar en hanterad domän i en Azure CSP-prenumeration:
 
-* **Agenter för CSP-administratör kan etablera en hanterad domän med sina autentiseringsuppgifter:** Azure AD Domain Services har stöd för Azure CSP-prenumerationer. Användare som tillhör en CSP-partner administratörsgrupp för agenter kan därför etablera en ny Azure AD Domain Services-hanterad domän.
+* **CSP admin-agenter kan etablera en hanterad domän med sina autentiseringsuppgifter:** Azure AD Domain Services stöder Azure CSP-prenumerationer. Därför kan användare som tillhör en CSP-partners grupp med administratörs agenter etablera en ny Azure AD Domain Services hanterad domän.
 
-* **CSP: er kan skript skapandet av nya hanterade domäner för sina kunder med hjälp av PowerShell:** Se [hur att aktivera Azure AD Domain Services med hjälp av PowerShell](powershell-create-instance.md) mer information.
+* **Kryptografiproviders kan skapa skript för nya hanterade domäner för sina kunder med hjälp av PowerShell:** Mer information finns i [så här aktiverar du Azure AD Domain Services med hjälp av PowerShell](powershell-create-instance.md) .
 
-* **Agenter för CSP-administratören kan inte utföra pågående hanteringsuppgifter på den hanterade domänen med sina autentiseringsuppgifter:** CSP-administratörer kan inte utföra vanliga hanteringsuppgifter i den hanterade domänen med sina autentiseringsuppgifter. Dessa användare är externa för kundens Azure AD-katalog och sina autentiseringsuppgifter är inte tillgängliga i kundens Azure AD-katalog. Azure AD Domain Services har därför inte åtkomst till Kerberos- och NTLM-lösenordshashvärden för dessa användare. Därför kan kan dessa användare inte autentiseras på Azure AD Domain Services hanterade domäner.
+* **CSP admin-agenter kan inte utföra pågående hanterings uppgifter på den hanterade domänen med sina autentiseringsuppgifter:** Användare av CSP-administratörer kan inte utföra rutin hanterings uppgifter i den hanterade domänen med sina autentiseringsuppgifter. Dessa användare är externa i kundens Azure AD-katalog och deras autentiseringsuppgifter är inte tillgängliga i kundens Azure AD-katalog. Därför har Azure AD Domain Services inte åtkomst till Kerberos-och NTLM-hashvärden för dessa användare. Därför kan sådana användare inte autentiseras på Azure AD Domain Services hanterade domäner.
 
   > [!WARNING]
-  > **Du måste skapa ett användarkonto i kundens directory att utföra löpande administrationsuppgifter i den hanterade domänen.**
-  > Du kan inte logga in till den hanterade domänen med hjälp av en administratörsanvändare för CSP-autentiseringsuppgifter. Använd autentiseringsuppgifterna för ett användarkonto som tillhör kundens Azure AD-katalog för att göra detta. Du behöver dessa autentiseringsuppgifter för uppgifter som att ansluta virtuella datorer till den hanterade domänen, administrera DNS, administrera grupp princip osv.
+  > **Du måste skapa ett användar konto i kundens katalog för att utföra pågående administrations uppgifter på den hanterade domänen.**
+  > Du kan inte logga in på den hanterade domänen med hjälp av en CSP admin-användares autentiseringsuppgifter. Använd autentiseringsuppgifterna för ett användar konto som tillhör kundens Azure AD-katalog. Du behöver dessa autentiseringsuppgifter för uppgifter som att ansluta virtuella datorer till den hanterade domänen, administrera DNS, administrera grupprincip osv.
   >
 
-* **Det användarkonto som har skapats för löpande administrativa måste läggas till gruppen ”AAD DC-administratörer”:** Gruppen ”AAD DC-administratörer” har behörighet att utföra vissa uppgifter för delegerad administration i den hanterade domänen. Dessa omfattar att konfigurera DNS, skapa organisationsenheter, administrera Grupprincip osv. För CSP-partner att utföra uppgifter på en hanterad domän, behöver ett konto skapas i kundens Azure AD-katalog. Autentiseringsuppgifterna för det här kontot måste delas med CSP-partner admin-agenter. Det här användarkontot måste också läggas till gruppen ”AAD DC-administratörer” för att aktivera konfigurationsåtgärder i den hanterade domänen som ska utföras med hjälp av det här användarkontot.
+* **Användar kontot som skapas för pågående administration måste läggas till i gruppen "AAD DC-administratörer":** Gruppen AAD DC-administratörer har behörighet att utföra vissa delegerade administrations uppgifter på den hanterade domänen. De här uppgifterna omfattar konfigurering av DNS, skapande av organisationsenheter, administration av grup princip osv. För att en CSP-partner ska kunna utföra sådana uppgifter på en hanterad domän måste du skapa ett användar konto i kundens Azure AD-katalog. Autentiseringsuppgifterna för det här kontot måste delas med CSP-partnerns administratörs agenter. Dessutom måste det här användar kontot läggas till i gruppen "AAD DC-administratörer" för att aktivera konfigurations åtgärder på den hanterade domänen som ska utföras med det här användar kontot.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Registrera dig i Azure CSP-programmet](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) och börja skapa verksamhet med Azure CSP.
-* Granska listan över [Azure-tjänster i Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
+* [Registrera dig för Azure CSP-programmet](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) och börja skapa företag via Azure CSP.
+* Granska listan över [Azure-tjänster som är tillgängliga i Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 * [Aktivera Azure AD Domain Services med PowerShell](powershell-create-instance.md)
-* [Kom igång med Azure AD Domain Services](create-instance.md)
+* [Kom igång med Azure AD Domain Services](tutorial-create-instance.md)

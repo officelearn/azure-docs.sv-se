@@ -13,12 +13,12 @@ ms.date: 08/05/2019
 ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6145ccc67eedfdae8e9e1aa9245ff8d34101d387
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949553"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615990"
 ---
 # <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>Översikt över tvåstegsverifiering och ditt arbets-eller skol konto
 
@@ -29,7 +29,15 @@ Tvåstegsverifiering är säkrare än bara ett lösen ord eftersom det förlitar
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 >
->Det här innehållet är även avsett för användning med ditt arbets-eller skol konto, kontot som du fått av din organisation (till exempel alain@contoso.com). Om du har problem med tvåstegsverifiering och din personliga Microsoft-konto, kan du danielle@outlook.comse hur du [aktiverar och inaktiverar tvåstegsverifiering på eller av för din Microsoft-konto genom att aktivera eller inaktivera tvåstegsverifiering](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Det här innehållet är även avsett för användning med ditt arbets-eller skol konto, kontot som du fått av din organisation (till exempel alain@contoso.com). Om du har problem med tvåstegsverifiering och din personliga Microsoft-konto, kan du danielle@outlook.comse hur du [aktiverar och inaktiverar tvåstegsverifiering på eller av för din Microsoft-konto genom att aktivera eller inaktivera tvåstegsverifiering](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+## <a name="who-decides-if-you-use-this-feature"></a>Vem bestämmer om du använder den här funktionen?
+
+Beroende på din typ av konto kan organisationen välja att du måste använda tvåfaktorsverifiering, eller så kanske du kan välja själv.
+
+- **Arbets- eller skolkonto.** Om du använder ett arbets- eller skolkonto (till exempel alain@contoso.com) är det upp till din organisation om du måste använda tvåfaktorsverifiering tillsammans med de specifika verifieringsmetoderna. Eftersom din organisation har valt att du måste använda den här funktionen kan du inaktivera den på ett och samma sätt.
+
+- **Personligt Microsoft-konto.** Du kan välja att ställa in tvåfaktorsverifiering för dina personliga Microsoft-konton (till exempel alain@outlook.com). Om du har problem med tvåstegsverifiering och din personliga Microsoft-konto kan du läsa mer i [Aktivera och inaktivera tvåstegsverifiering för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Eftersom du väljer om du vill använda den här funktionen kan du aktivera och inaktivera den när du vill.
 
 ## <a name="two-factor-verification-related-articles"></a>Artiklar med två faktorer för verifiering
 

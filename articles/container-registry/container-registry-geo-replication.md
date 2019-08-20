@@ -6,14 +6,14 @@ author: stevelas
 manager: gwallace
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/24/2019
+ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 2fffa3b063969cbe68fb9a405f4198f15b3f9809
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 73d497b4784a91974fab8a94c6f9fe595770ea45
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845202"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574398"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
@@ -105,6 +105,14 @@ ACR börjar synkronisera avbildningar mellan de konfigurerade replikerna. När d
 Geo-replikering är en funktion i [Premium SKU](container-registry-skus.md) för Azure Container Registry. När du replikerar ett register till din önskade regioner debiteras du avgifter för Premium-register för varje region.
 
 I föregående exempel konsoliderade Contoso två register till ett och lade till repliker i USA, östra; Kanada, centrala samt Europa, västra. Contoso betalade då fyra gånger Premium per månad, utan ytterligare konfiguration eller hantering. Varje region hämtar nu sina avbildningar lokalt, vilket förbättrar prestanda och tillförlitlighet utan utgående nätverksavgifter från USA, västra till Kanada och USA, östra.
+
+## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>Felsöka push-åtgärder med geo-replikerade register
+ 
+En Docker-klient som skickar en avbildning till ett geo-replikerat register får inte skicka alla avbildnings lager och dess manifest till en enda replikerad region. Detta kan inträffa eftersom Azure Traffic Manager dirigerar register begär anden till det nätverks närmast replikerade registret. Om registret har två *närliggande* replikerade regioner kan bild lager och manifestet distribueras till de två platserna och push-åtgärden Miss lyckas när manifestet verifieras. Det här problemet beror på hur DNS-namnet på registret matchas på vissa Linux-värdar. Det här problemet uppstår inte i Windows, som tillhandahåller en DNS-cache på klient sidan.
+ 
+Om det här problemet uppstår är en lösning att tillämpa en DNS-cache `dnsmasq` på klient sidan, till exempel på Linux-värden. Detta säkerställer att register namnet matchas konsekvent. Om du använder en virtuell Linux-dator i Azure för att skicka till ett register, se alternativ i alternativ [för DNS-namnmatchning för virtuella Linux-datorer i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns).
+
+Om du vill optimera DNS-matchningen till den närmaste repliken när du skickar avbildningar konfigurerar du ett geo-replikerat register i samma Azure-regioner som källan till push-åtgärderna eller den närmaste regionen när du arbetar utanför Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 

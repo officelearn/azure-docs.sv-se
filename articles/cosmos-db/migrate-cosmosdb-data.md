@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.author: bharathb
-ms.openlocfilehash: 041f9c95b22fd4b8c238c603deb0558f2bca01a8
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a4de902e51b101d14aac599c9aad8c4feb86a9c6
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737633"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624582"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrera hundratals terabyte data till Azure Cosmos DB 
 
@@ -124,7 +124,7 @@ Eftersom migreringen ska slutföras så snart som möjligt är det tillrådligt 
 
 När migreringen är klar kan du uppdatera indexeringen.  
 
-## <a name="migration-process"></a>Migreringsprocessen 
+## <a name="migration-process"></a>Migreringsprocess 
 
 När förutsättningarna har slutförts kan du migrera data med följande steg:  
 
@@ -140,9 +140,16 @@ När förutsättningarna har slutförts kan du migrera data med följande steg:
 
 6. Vissa av dessa fel kan bero på felaktiga dokument i källdata. Dessa bör identifieras och åtgärdas. Sedan bör du köra import-steget på de partitioner som misslyckades för att mata in dem igen. 
 
-När migreringen är klar kan du kontrol lera att antalet dokument i Azure Cosmos DB är samma som antalet dokument i käll databasen. I det här exemplet har den totala storleken i Azure Cosmos DB varit i 65 terabyte. Efter migreringen kan indexering aktive ras selektivt och ru: er kan sänkas till den nivå som krävs för arbets Belastningens åtgärder.   
+När migreringen är klar kan du kontrol lera att antalet dokument i Azure Cosmos DB är samma som antalet dokument i käll databasen. I det här exemplet har den totala storleken i Azure Cosmos DB varit i 65 terabyte. Efter migreringen kan indexering aktive ras selektivt och ru: er kan sänkas till den nivå som krävs för arbets Belastningens åtgärder.
+
+## <a name="contact-the-azure-cosmos-db-team"></a>Kontakta Azure Cosmos DB-teamet
+Även om du kan följa den här guiden för att migrera stora data mängder till Azure Cosmos DB för storskaliga migreringar, rekommenderar vi att du når Azure Cosmos DB produkt teamet för att verifiera data modellen och en allmän arkitektur granskning. Efter din data uppsättning och arbets belastning kan produkt teamet även föreslå andra prestanda-och kostnads optimeringar som kan vara tillgängliga för dig. Om du vill kontakta Azure Cosmos DB-teamet för att få hjälp med storskaliga migreringar kan du öppna ett support ärende under "allmän råd givande" problem typ och "stora (TB +) migreringar" problem under typ (se nedan).
+
+![Avsnittet migration support](./media/migrate-cosmosdb-data/supporttopic.png)
+
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer genom att testa exempel programmen som använder bulk utförar-biblioteket i [.net](bulk-executor-dot-net.md) och [Java](bulk-executor-java.md). 
 * Bulk utförar-biblioteket är integrerat i Cosmos DB Spark-anslutningsprogrammet för mer information finns i artikeln [Azure Cosmos DB Spark Connector](spark-connector.md) .  
+* Kontakta Azure Cosmos DB produkt teamet genom att öppna ett support ärende under "allmän råd givande" problem typ och "stora (TB +) migreringar" problem under typ för ytterligare hjälp med storskalig migrering. 
 

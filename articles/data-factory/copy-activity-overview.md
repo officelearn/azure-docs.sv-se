@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 23ae7b5cfec26fb2483a3e4ac13a1220888d76ee
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966391"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614261"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopiera aktivitet i Azure Data Factory
 
@@ -130,7 +130,7 @@ Följande mall med en Kopieringsaktivitet innehåller en fullständig förteckni
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Typ egenskapen för en kopierings aktivitet måste anges till: **Copy** | Ja |
+| type | Typ egenskapen för en kopierings aktivitet måste anges till: **Exemplar** | Ja |
 | inputs | Ange den datauppsättning som du skapade som pekar till källdata. Kopieringsaktivitet stöder bara en enda indata. | Ja |
 | outputs | Ange den datauppsättning som du skapade som pekar till mottagardata. Kopieringsaktivitet stöder bara ett enda utflöde. | Ja |
 | typeProperties | En grupp egenskaper för att konfigurera kopieringsaktiviteten. | Ja |
@@ -144,7 +144,7 @@ Följande mall med en Kopieringsaktivitet innehåller en fullständig förteckni
 
 ## <a name="monitoring"></a>Övervakning
 
-Du kan övervaka kopieringsaktivitetskörningen på Azure Data Factory ”författare och Övervakare” Användargränssnittet eller programmässigt. Du kan sedan jämföra prestanda och konfiguration av ditt scenario för att Kopieringsaktivitet [Prestandareferens](copy-activity-performance.md#performance-reference) från interna testning.
+Du kan övervaka kopieringsaktivitetskörningen på Azure Data Factory ”författare och Övervakare” Användargränssnittet eller programmässigt.
 
 ### <a name="monitor-visually"></a>Övervaka visuellt
 

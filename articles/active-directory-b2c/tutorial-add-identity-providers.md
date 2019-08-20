@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eee881e6d4e446e07867261545a90dfacaa93712
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 388ef66351140dab18bd7c92290d84f0f4d734ac
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512206"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622796"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Självstudier: Lägg till identitets leverantörer till dina program i Azure Active Directory B2C
 
@@ -94,13 +94,11 @@ När du har skapat programmet för den identitetsprovider som du vill lägga til
 
 ### <a name="add-the-azure-active-directory-identity-provider"></a>Lägg till Azure Active Directory Identity Provider
 
-1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att klicka på **filtret katalog och prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD B2C-klient.
+1. Kontrol lera att du använder den katalog som innehåller Azure AD B2C klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller Azure AD B2C klienten.
 1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-1. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
+1. Välj **identitets leverantörer**och välj sedan **ny OpenID Connect-Provider**.
 1. Ange ett **namn**. Ange till exempel *contoso Azure AD*.
-1. Välj **typ av identitets leverantör**, Välj **OpenID Anslut**och klicka sedan på **OK**.
-1. Klicka på **Konfigurera den här identitets leverantören**
-1. För **metadata-URL**anger du följande URL och ersätter `your-AD-tenant-domain` med domän namnet för din Azure AD-klient.
+1. För **metadata-URL**anger du följande URL som `your-AD-tenant-domain` ersätter med domän namnet för din Azure AD-klient:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
@@ -108,28 +106,27 @@ När du har skapat programmet för den identitetsprovider som du vill lägga til
 
     Till exempel `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
-1. För **klient-ID**anger du det *program (klient) ID* som du tidigare har registrerat.
-1. För **klient hemlighet**anger du det *klient hemlighet* -värde som du tidigare har registrerat.
-1. Du kan också ange ett värde för **Domain_hint**. Till exempel `ContosoAD`. [Domän tips](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) är direktiv som ingår i autentiseringsbegäran från ett program. De kan användas för att påskynda användaren till deras federerade IdP-inloggnings sida. Eller så kan de användas av ett program med flera klienter för att påskynda användaren direkt till den anpassade inloggnings sidan för Azure AD för klient organisationen.
-1. Välj **OK**.
-1. Välj **mappa den här identitets leverantörens anspråk** och ange följande anspråk:
+1. För **klient-ID**anger du det program-ID som du tidigare har registrerat.
+1. För **klient hemlighet**anger du den klient hemlighet som du tidigare har registrerat.
+1. Lämna standardvärdena för **omfång**, **svars typ**och **svars läge**.
+1. Valfritt Ange ett värde för **Domain_hint**. Till exempel *ContosoAD*. [Domän tips](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) är direktiv som ingår i autentiseringsbegäran från ett program. De kan användas för att påskynda användaren till deras federerade IdP-inloggnings sida. Eller så kan de användas av ett program med flera klienter för att påskynda användaren direkt till den anpassade inloggnings sidan för Azure AD för klient organisationen.
+1. Under **anspråks mappning för identitetsprovider**anger du följande anspråks mappnings värden:
 
-    - För **användar-ID**anger `oid`du.
-    - I **visnings namn**anger `name`du.
-    - För **angivet namn**anger `given_name`du.
-    - För efter **namn**anger `family_name`du.
-    - För **e-post**anger `unique_name`du.
+    * **Användar-ID**: *OID*
+    * **Visnings namn**: *namn*
+    * **Angivet namn**: *given_name*
+    * Efter **namn**: *family_name*
+    * **E-post**: *unique_name*
 
-1. Välj **OK**och välj sedan **skapa** för att spara konfigurationen.
+1. Välj **Spara**.
 
 ### <a name="add-the-facebook-identity-provider"></a>Lägg till Facebook Identity Provider
 
-1. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
-1. Ange ett **namn**. Ange till exempel *Facebook*.
-1. Välj **typ av identitetsprovider**, Välj **Facebook**och sedan **OK**.
-1. Välj **Konfigurera den här identitets leverantören** och ange det *app-ID* som du registrerade tidigare som **klient-ID**.
-1. Ange den *app-hemlighet* som du registrerade som **klient hemlighet**.
-1. Välj **OK** och välj sedan **skapa** för att spara Facebook-konfigurationen.
+1. Välj **identitets leverantörer**och välj sedan **Facebook**.
+1. Ange ett **namn**. Till exempel *Facebook*.
+1. För **klient-ID**anger du app-ID: t för det Facebook-program som du skapade tidigare.
+1. För **klient hemligheten**anger du appens hemlighet som du har spelat in.
+1. Välj **Spara**.
 
 ## <a name="update-the-user-flow"></a>Uppdatera användar flödet
 

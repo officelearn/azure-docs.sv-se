@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 45f5e21e05cf627d418cb66418cf305833a73891
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: e8f943ebaa5dfc06e0bfb04dc1097d6794ec6d05
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965094"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616837"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Hantera Azure Cosmos DB SQL API-resurser med hjälp av PowerShell
 
@@ -46,7 +46,7 @@ Följande avsnitt visar hur du hanterar Azure Cosmos-kontot, inklusive:
 
 ### <a id="create-account"></a>Skapa ett Azure Cosmos-konto
 
-Det här kommandot skapar ett Azure Cosmos DB Database-konto med [flera regioner][distribute-data-globally], begränsade inaktuella [konsekvens principer](consistency-levels.md).
+Det här kommandot skapar ett Azure Cosmos Database-konto med [flera regioner][distribute-data-globally], begränsade inaktuella [konsekvens principer](consistency-levels.md).
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Core (SQL) API
@@ -112,7 +112,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="update-account"></a>Uppdatera ett Azure Cosmos-konto
 
-Det här kommandot kan du uppdatera egenskaperna för databasen ditt Azure Cosmos DB. De egenskaper som kan uppdateras är följande:
+Med det här kommandot kan du uppdatera egenskaperna för ditt Azure Cosmos-databas konto. De egenskaper som kan uppdateras är följande:
 
 * Lägga till eller ta bort regioner
 * Ändra standard konsekvens princip
@@ -247,6 +247,7 @@ I exemplet nedan antar du att kontot har en aktuell växlings prioritet för `We
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"

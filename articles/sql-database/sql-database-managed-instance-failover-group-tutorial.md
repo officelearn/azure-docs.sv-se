@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 5bf2ee68ff2cfde2846dff2d94f7478920a18760
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e4b7de3931c0d3508e5af6aa6bf85dfa18641aee
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037117"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624975"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Självstudier: Lägga till en SQL Database Hanterad instans i en failover-grupp
 
@@ -151,7 +151,7 @@ För två hanterade instanser som ska ingå i en failover-grupp måste det finna
     | **Typ av Gateway** | Välj **VPN**. |
     | **VPN-typ** | Välj **Route-baserad** |
     | **SKU**| Lämna standardvärdet `VpnGw1`. |
-    | **Location**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket är.   |
+    | **Location**| Den plats där din primära hanterade instans och det primära virtuella nätverket är.   |
     | **Virtuellt nätverk**| Välj det virtuella nätverk som skapades i avsnitt 2, till exempel `vnet-sql-mi-primary`. |
     | **Offentlig IP-adress**| Välj **Skapa ny**. |
     | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress, till `primary-gateway-IP`exempel. |

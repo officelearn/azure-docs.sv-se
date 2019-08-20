@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 35211d6f832033a2bb16c495ebab839b7f740445
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 21693926bae681cf15d31dca06344dfa5d865e3b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031032"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613011"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuera Azure AD-programproxy på en Azure AD Domain Services hanterad domän
 Azure Active Directory (AD) Application Proxy hjälper dig att stödja fjärran vändare genom att publicera lokala program som ska nås via Internet. Med Azure AD Domain Services kan du nu lyfta upp och flytta äldre program som körs lokalt till Azures infrastruktur tjänster. Du kan sedan publicera dessa program med hjälp av Azure-AD-programproxy för att ge säker fjärråtkomst till användare i din organisation.
@@ -35,7 +35,7 @@ För att utföra de uppgifter som anges i den här artikeln behöver du:
 1. En giltig **Azure-prenumeration**.
 2. En **Azure AD-katalog** – antingen synkroniserad med en lokal katalog eller en katalog som endast är molnad.
 3. En **Azure AD Premium-licens** krävs för att använda Azure-AD-programproxy.
-4. **Azure AD Domain Services** måste vara aktiverat för Azure AD-katalogen. Om du inte har gjort det följer du alla uppgifter som beskrivs i Komma igångs [guiden](create-instance.md).
+4. **Azure AD Domain Services** måste vara aktiverat för Azure AD-katalogen. Om du inte har gjort det följer du alla uppgifter som beskrivs i Komma igångs [guiden](tutorial-create-instance.md).
 
 <br>
 
@@ -114,18 +114,18 @@ Använd Resource based KCD enligt beskrivningen i den här [artikeln](deploy-kcd
 
 Använd PowerShell-cmdleten Get-ADComputer för att hämta inställningarna för den dator där Azure AD-programproxy-anslutningen är installerad.
 ```powershell
-$ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
+$ConnectorComputerAccount = Get-ADComputer -Identity contoso-proxy.contoso.com
 ```
 
 Därefter använder du cmdleten Set-ADComputer för att konfigurera resurs-baserade KCD för resurs servern.
 ```powershell
-Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
+Set-ADComputer contoso-resource.contoso.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 
 Om du har distribuerat flera Application Proxy-kopplingar på din hanterade domän måste du konfigurera resursbaserade KCD för varje sådan anslutnings instans.
 
 
 ## <a name="related-content"></a>Relaterat innehåll
-* [Azure AD Domain Services-Komma igång guide](create-instance.md)
+* [Azure AD Domain Services-Komma igång guide](tutorial-create-instance.md)
 * [Konfigurera Kerberos-begränsad delegering på en hanterad domän](deploy-kcd.md)
 * [Översikt över Kerberos-begränsad delegering](https://technet.microsoft.com/library/jj553400.aspx)

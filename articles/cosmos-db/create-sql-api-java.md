@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
 ms.custom: seo-java-august2019
-ms.openlocfilehash: 5f8555d23a43a3ca391ec03f827b0d81ac3c4698
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a7e2089b8dfff1f021c31d2b13591b54dcd9c4ac
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933958"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616988"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Snabbstart: Skapa ett Java-program med hjälp av Azure Cosmos DB SQL API-konto
 
@@ -26,7 +26,7 @@ ms.locfileid: "68933958"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Den här självstudiekursen visar hur du skapar och hanterar resurser för ett Azure Cosmos DB [SQL API](sql-api-introduction.md)-konto med hjälp av ett Java-program. Först skapar du ett Azure Cosmos DB SQL API-konto med hjälp av Azure-portalen, skapar en Java-app med hjälp av [SQL Java SDK](sql-api-sdk-async-java.md) och lägger till resurser till ditt Cosmos DB-konto med hjälp av Java-programmet. Anvisningarna i den här snabbstartsguiden gäller alla operativsystem som kan köra Java. När du har slutfört den här snabb starten är du bekant med att skapa och ändra Cosmos DB databaser, behållare i antingen användar gränssnittet eller program mässigt, beroende på vad du föredrar.
+Den här självstudiekursen visar hur du skapar och hanterar resurser för ett Azure Cosmos DB [SQL API](sql-api-introduction.md)-konto med hjälp av ett Java-program. Först skapar du ett Azure Cosmos DB SQL API-konto med hjälp av Azure-portalen, skapar en Java-app med hjälp av [SQL Java SDK](sql-api-sdk-async-java.md) och lägger till resurser till ditt Cosmos DB-konto med hjälp av Java-programmet. Anvisningarna i den här snabbstartsguiden gäller alla operativsystem som kan köra Java. När du har slutfört den här snabb starten är du bekant med att skapa och ändra Cosmos-databaser, behållare i antingen användar gränssnittet eller program mässigt, beroende på vad du föredrar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

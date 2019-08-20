@@ -1,46 +1,46 @@
 ---
-title: Konfigurera registrering och logga in med LinkedIn-konto – Azure Active Directory B2C | Microsoft Docs
-description: Tillhandahålla registrera dig och logga in till kunder med LinkedIn-konton i dina program med Azure Active Directory B2C.
+title: Konfigurera registrering och inloggning med ett LinkedIn-konto – Azure Active Directory B2C
+description: Tillhandahålla registrering och inloggning till kunder med LinkedIn-konton i dina program med hjälp av Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5ffe75a58a8cfb2409af3a65ff822023d7ccf5d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddc42bc9315d50b8b8cdd40264de561d0edf5c7d
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508476"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622375"
 ---
-# <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett LinkedIn-konto med Azure Active Directory B2C
+# <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett LinkedIn-konto med hjälp av Azure Active Directory B2C
 
-## <a name="create-a-linkedin-application"></a>Skapa ett program med LinkedIn
+## <a name="create-a-linkedin-application"></a>Skapa ett LinkedIn-program
 
-Att använda ett LinkedIn-konto som ett [identitetsprovider](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient som representerar den. Om du inte redan har en LinkedIn-konto, kan du hämta den på [ https://www.linkedin.com/ ](https://www.linkedin.com/).
+Om du vill använda ett LinkedIn-konto som [identitets leverantör](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient organisation som representerar det. Om du inte redan har ett LinkedIn-konto kan du registrera dig på [https://www.linkedin.com/](https://www.linkedin.com/).
 
-1. Logga in på den [LinkedIn utvecklare webbplats](https://www.developer.linkedin.com/) med autentiseringsuppgifterna för ditt LinkedIn-konto.
-2. Välj **Mina appar**, och klicka sedan på **skapa program**.
-3. Ange **företagsnamn**, **programnamn**, **Programbeskrivning**, **Programlogotyp**, **programanvändning** , **Webbadress**, **företags-e-** , och **Företagstelefon**.
-4. Godkänn den **LinkedIn API användningsvillkor** och klicka på **skicka**.
-5. Kopiera värdena för **klient-ID** och **Klienthemlighet**. Du hittar dem under **autentiseringsnycklar**. Du måste båda för att konfigurera LinkedIn som en identitetsprovider i din klient. **Klienthemlighet** är en viktig säkerhetsuppgift för autentisering.
-6. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i **behörighet-URL: Omdirigeringswebbadresser**. Ersätt `your-tenant-name` med namnet på din klient. Du måste använda gemener när du anger ditt klientnamn även om klienten har definierats med versaler i Azure AD B2C. Välj **Lägg till**, och klicka sedan på **uppdatering**.
+1. Logga in på [webbplatsen LinkedIn-utvecklare](https://www.developer.linkedin.com/) med dina LinkedIn-kontoautentiseringsuppgifter.
+1. Välj **Mina appar**och klicka sedan på **skapa program**.
+1. Ange **företags namn**, **program namn**, **programbeskrivning**, **program logo typ**, **program användning**, **webbplats-URL**, **företags-e-post**och **företags telefon**.
+1. Godkänn LinkedIn- **API-villkoren för användning** och klicka på **Skicka**.
+1. Kopiera värdena för **klient-ID** och **Klienthemlighet**. Du hittar dem under **nycklar för autentisering**. Du behöver båda dessa för att konfigurera LinkedIn som en identitets leverantör i din klient. **Klient hemlighet** är en viktig säkerhets autentiseringsuppgift.
+1. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i **behöriga omdirigerings-URL: er**. Ersätt `your-tenant-name` med namnet på din klient. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C. Välj **Lägg till**och klicka sedan på **Uppdatera**.
 
-## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Konfigurera ett LinkedIn-konto som identitetsprovider
+## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Konfigurera ett LinkedIn-konto som en identitets leverantör
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
-5. Ange en **namn**. Ange till exempel *LinkedIn*.
-6. Välj **identifiera providertyp**väljer **LinkedIn**, och klicka på **OK**.
-7. Välj **ställa in den här identitetsprovidern** och ange klient-Id som du antecknade tidigare som den **klient-ID** och ange Klienthemligheten som du registrerade som den **klienthemlighet**av programmet för LinkedIn-konto som du skapade tidigare.
-8. Klicka på **OK** och klicka sedan på **skapa** att spara din konfiguration för LinkedIn-konto.
+1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
+1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+1. Välj **identitets leverantörer**och välj **LinkedIn**.
+1. Ange ett **namn**. Till exempel *LinkedIn*.
+1. För **klient-ID**anger du klient-ID för LinkedIn-programmet som du skapade tidigare.
+1. Ange den klient hemlighet som du har spelat in för **klient hemligheten**.
+1. Välj **Spara**.
 
-## <a name="migration-from-v10-to-v20"></a>Migrering från v1.0 till v2.0
+## <a name="migration-from-v10-to-v20"></a>Migrering från v 1.0 till v 2.0
 
-LinkedIn nyligen [uppdaterat sina API: er från v1.0 till v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Som en del av migreringen kan Azure AD B2C bara hämta det fullständiga namnet på LinkedIn användaren under registreringen. Om en e-postadress är en av de attribut som samlats in under registrering för, användaren måste manuellt ange den e-postadressen och verifiera den.
+LinkedIn har nyligen [uppdaterat sina API: er från v 1.0 till v 2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Som en del av migreringen kan Azure AD B2C bara hämta det fullständiga namnet på LinkedIn-användaren under registreringen. Om en e-postadress är en av de attribut som samlas in under registreringen måste användaren manuellt ange e-postadressen och verifiera den.

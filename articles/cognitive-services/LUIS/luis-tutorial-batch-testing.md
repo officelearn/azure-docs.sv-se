@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 08/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0a3a9330eaa977f72cdbaba4e11aaa706b437fad
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 60cd87b6cecfb30ebc90f445c79e25c241980a86
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945906"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623339"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Självstudier: Data uppsättningar för batch-test
 
@@ -95,7 +95,7 @@ Använd följande steg:
 
 ## <a name="review-batch-results"></a>Granska resultatet från batch
 
-Batch-diagrammet visar fyra quadrants resultat. Är ett filter till höger om diagrammet. Filtret är som standard första avsikten i listan. Filtret innehåller alla avsikter och bara enkla och sammansatta entiteter. När du väljer en [delen av diagrammet](luis-concept-batch-test.md#batch-test-results) eller en punkt i diagrammet visas de associerade utterance(s) under diagrammet. 
+Batch-diagrammet visar fyra quadrants resultat. Är ett filter till höger om diagrammet. Filtret innehåller avsikter och entiteter. När du väljer en [delen av diagrammet](luis-concept-batch-test.md#batch-test-results) eller en punkt i diagrammet visas de associerade utterance(s) under diagrammet. 
 
 Vid hovring över diagrammet, ett mushjul förstora eller minska visas i diagrammet. Detta är användbart när det finns många saker i diagrammet klustrade nära tillsammans. 
 
@@ -103,27 +103,27 @@ Diagrammet är i fyra quadrants med två av de avsnitt som visas i rött. **Dess
 
 ### <a name="getjobinformation-test-results"></a>GetJobInformation testresultat
 
-Den **GetJobInformation** test visas i filtret visar att 2 av fyra förutsägelser har genomförts. Välj namnet **falsklarm** över övre högra quadrant att se yttranden under diagrammet. 
+Den **GetJobInformation** test visas i filtret visar att 2 av fyra förutsägelser har genomförts. Välj namnet **falskt negativ** längst ned till vänster för att se yttranden under diagrammet. 
 
-![LUIS batch test yttranden](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
+Använd tangent bordet, CTRL + E, för att växla till vyn etikett för att se den exakta texten för användaren uttryck. 
 
-Varför är två av talade förutse som **ApplyForJob**, i stället för rätt avsikten **GetJobInformation**? Två avsikter relaterade mycket nära när det gäller word val och word placering. Det finns dessutom nästan tre gånger så många exempel för **ApplyForJob** än **GetJobInformation**. Den här ojämnheter av exempel yttranden väger **ApplyForJob** avsikts fördel. 
+Uttryck `Is there a database position open in Los Colinas?` är märkt som _GetJobInformation_ , men den aktuella modellen förutsäger uttryck som _ApplyForJob_. 
+
+Det finns nästan tre gånger så många exempel som **ApplyForJob** än **GetJobInformation**. Detta är inte ens till exempel yttranden vikter i **ApplyForJob** avsikts förmån, vilket orsakar felaktig förutsägelse. 
 
 Observera att båda avsikter har samma antal fel. En felaktig förutsägelse i en avsikt påverkar andra avsikten samt. De båda innehåller fel eftersom talade har felaktigt förväntas en avsikt, och även felaktigt inte förväntad för ett annat syfte. 
 
-![LUIS batch test filterfel](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
+<a name="fix-the-app"></a>
 
-Tidpunkt för talade motsvarande upp den **falsklarm** avsnittet är `Can I apply for any database jobs with this resume?` och `Can I apply for any database jobs with this resume?`. För den första uttryck ordet `resume` har endast används i **ApplyForJob**. För andra uttryck, ordet `apply` har endast används i den **ApplyForJob** avsikt.
-
-## <a name="fix-the-app"></a>Åtgärda appen
+## <a name="how-to-fix-the-app"></a>Så här åtgärdar du appen
 
 Målet med det här avsnittet är att låta alla talade korrekt förutse för **GetJobInformation** genom att åtgärda appen. 
 
-En till synes snabb korrigering är att lägga till dessa batch filen yttranden till rätt avsikt. Det är inte vad du vill göra om. Vill du LUIS för att förutsäga dessa yttranden utan att lägga till dem som exempel. 
+En till synes snabb korrigering är att lägga till dessa batch filen yttranden till rätt avsikt. Det är inte det du vill göra. Vill du LUIS för att förutsäga dessa yttranden utan att lägga till dem som exempel. 
 
 Du kanske också undrar om att ta bort yttranden från **ApplyForJob** tills antalet uttryck är samma som **GetJobInformation**. Som kan åtgärdas testresultaten men skulle hindra LUIS från att förutsäga detta syfte korrekt nästa gång. 
 
-Första korrigeringen är att lägga till fler yttranden till **GetJobInformation**. Andra korrigeringen är att minska vikten av ord som till exempel `resume` och `apply` mot den **ApplyForJob** avsikt. 
+Korrigeringen är att lägga till fler yttranden till **GetJobInformation**. Kom ihåg att variera uttryck längd, ord val och ord ordning medan du fortfarande riktar in dig på att söka efter jobb information, som _inte_ gäller för jobbet.
 
 ### <a name="add-more-utterances"></a>Lägg till mer yttranden
 
@@ -161,15 +161,13 @@ För att verifiera att yttranden i batch-testet är korrekt förutse, kör du ba
 
 1. Välj **Test** i det övre navigeringsfältet. Om batch-resultat är fortfarande öppen väljer **tillbaka till listan**.  
 
-2. Välj ellipsen (***...*** ) till höger om batch-namn och välj **kör datauppsättning**. Vänta tills det batch-testet är klart. Observera att den **se resultat** är nu grön. Det innebär att hela batchen har körts.
+1. Välj knappen med tre punkter (***...***) till höger om batch-namnet och välj **Kör**. Vänta tills det batch-testet är klart. Observera att den **se resultat** är nu grön. Det innebär att hela batchen har körts.
 
-3. Välj **se resultat**. Avsikter ska ha grön ikonerna till vänster om avsiktlig namnen. 
-
-    ![Skärmbild av LUIS med batch resulterar knappen markerad](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+1. Välj **se resultat**. Avsikter ska ha grön ikonerna till vänster om avsiktlig namnen. 
 
 ## <a name="create-batch-file-with-entities"></a>Skapa en batchfil med entiteter 
 
-För att verifiera entiteter i ett batch-test, måste entiteterna ska förses i batch JSON-fil. Endast de enheter som har lärts från enheten används: enkla och sammansatta entiteter. Lägg inte till icke-machine-lärt dig entiteter, eftersom de finns alltid genom reguljära uttryck eller explicit text matchar.
+För att verifiera entiteter i ett batch-test, måste entiteterna ska förses i batch JSON-fil. 
 
 Variationen för entiteter för totalt antal ord ([token](luis-glossary.md#token)) antal kan påverka förutsägelse kvalitet. Kontrollera att träningsdata som angetts för avsikten med märkta yttranden innehåller en mängd längder för entiteten. 
 
@@ -178,7 +176,6 @@ När du först skriva och testa batch-filer, är det bäst att börja med ett pa
 Värdet för en **jobbet** entiteten i test-uttryck är vanligtvis en eller två ord med några exempel som flera ord. Om _egna_ personalapp har vanligtvis jobbet namnen på många ord, exempel yttranden som är märkt med **jobbet** entitet i den här appen inte skulle fungera bra.
 
 1. Skapa `HumanResources-entities-batch.json` i en textredigerare som [VSCode](https://code.visualstudio.com/) eller [hämta](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) den.
-
 
 2. I JSON-formaterade batch-filen lägger du till en matris med objekt som innehåller yttranden med den **avsikt** du vill att förväntade i test samt platserna för alla entiteter i uttryck. Eftersom en entitet är tokenbaserad kan du se till att starta och stoppa varje entitet på ett tecken. Inte börja eller sluta uttryck på ett blanksteg. Detta orsakar ett fel under importen för batch-fil.  
 

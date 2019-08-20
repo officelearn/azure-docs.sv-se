@@ -4,14 +4,14 @@ description: Använd Azure Resource Manager för att flytta resurser till en ny 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 53482fdd760517967c9a4a976b43b64ba745c637
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 114e0d8e935aa8e6ac3f70a34a8050b19758fb42
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542954"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624562"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Flytta resurser till en ny resurs grupp eller prenumeration
 
@@ -32,9 +32,11 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
    * [Vägledning för App Services flytt](./move-limitations/app-service-move-limitations.md)
    * [Vägledning för flytt av Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [Klassisk distributions modell flytta vägledning](./move-limitations/classic-model-move-limitations.md) – klassisk beräkning, klassisk lagring, klassiska virtuella nätverk och Cloud Services
+   * [Vägledning om nätverks flytt](./move-limitations/networking-move-limitations.md)
    * [Vägledning för Recovery Services flytt](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Vägledning för Virtual Machines flytt](./move-limitations/virtual-machines-move-limitations.md)
-   * [Vägledning för att flytta virtuella nätverk](./move-limitations/virtual-network-move-limitations.md)
+
+   Om mål resurs gruppen innehåller ett virtuellt nätverk kan statusen för dess beroende resurser blockera flyttningen, även om resurserna inte är involverade i flytten. Mer information finns i avsnittet om att [Flytta rikt linjer för nätverk](./move-limitations/virtual-network-move-limitations.md).
 
 1. Käll-och mål prenumerationerna måste vara aktiva. Om du har problem med att aktivera ett konto som har inaktiverats [skapar du en support förfrågan för Azure](../azure-supportability/how-to-create-azure-support-request.md). Välj **prenumerationshantering** för typ av ärende.
 
@@ -97,10 +99,11 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
 1. **För att flytta över prenumerationer måste resursen och dess beroende resurser finnas i samma resurs grupp och de måste flyttas tillsammans.** En virtuell dator med Managed disks skulle till exempel kräva att den virtuella datorn och de hanterade diskarna flyttas tillsammans, tillsammans med andra beroende resurser.
 
    Om du flyttar en resurs till en ny prenumeration kan du kontrol lera om resursen har resurser som är beroende av varandra och om de finns i samma resurs grupp. Om resurserna inte finns i samma resurs grupp kontrollerar du om resurserna kan konsol IDE ras i samma resurs grupp. I så fall kan du ta med alla dessa resurser i samma resurs grupp genom att använda en flyttnings åtgärd över resurs grupper.
-    
-Mer information finns i [scenario för att flytta mellan prenumerationer](#scenario-for-move-across-subscriptions).
+
+   Mer information finns i [scenario för att flytta mellan prenumerationer](#scenario-for-move-across-subscriptions).
 
 ## <a name="scenario-for-move-across-subscriptions"></a>Scenario för att flytta mellan prenumerationer
+
 Att flytta resurser från en prenumeration till en annan är en process i tre steg:
 
 ![flytt scenario mellan prenumerationer](./media/resource-group-move-resources/cross-subscription-move-scenario.png)

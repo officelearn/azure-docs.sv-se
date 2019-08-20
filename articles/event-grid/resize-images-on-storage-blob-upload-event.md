@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 652fe182663d37c389658c8fe3b172826168e51f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c09e2cd812dd34976218ff71036734466943e8cd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462834"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "69623876"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudie: Automatisera storleksändring av överförda bilder med Event Grid
 
 [Azure Event Grid](overview.md) är en händelsetjänst för molnet. Med Event Grid kan du skapa prenumerationer på händelser som genereras av Azure-tjänster eller resurser från tredje part.  
 
-Den här självstudien är del två i en serie med Storage-självstudier. Den bygger vidare på [föregående Storage-självstudie][previous-tutorial] och lägger till serverfri och automatisk generering av miniatyrbilder med Azure Event Grid och Azure Functions. Event Grid gör att [Azure Functions](../azure-functions/functions-overview.md) kan svara på [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)-händelser och generera miniatyrbilder av bilder som laddats upp. En händelseprenumeration skapas mot skapandehändelsen i Blob Storage. När en blob läggs till i en viss Blob-lagringscontainer anropas en funktionsslutpunkt. Data som skickas till funktionsbindningen från Event Grid används till att få åtkomst till bloben och generera miniatyrbilden.
+Den här självstudien är del två i en serie med Storage-självstudier. Den utökar den [tidigare lagrings kursen][previous-tutorial] för att lägga till Server lös automatisk generering av miniatyr bilder med hjälp av Azure Event Grid och Azure Functions. Event Grid gör att [Azure Functions](../azure-functions/functions-overview.md) kan svara på [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)-händelser och generera miniatyrbilder av bilder som laddats upp. En händelseprenumeration skapas mot skapandehändelsen i Blob Storage. När en blob läggs till i en viss Blob-lagringscontainer anropas en funktionsslutpunkt. Data som skickas till funktionsbindningen från Event Grid används till att få åtkomst till bloben och generera miniatyrbilden.
 
 Du kan använda Azure CLI och Azure-portalen till att lägga till funktionen för storleksändring i en befintlig app för uppladdning av bilder.
 
@@ -48,13 +48,13 @@ I den här guiden får du lära dig att:
 > * Distribuera serverfri kod med Azure Functions
 > * Skapa en prenumeration på en Blob Storage-händelse i Event Grid
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 För att slutföra den här självstudien behöver du:
 
-Du måste ha slutfört den föregående Blob Storage-självstudien: [Ladda upp avbildningsdata i molnet med Azure Storage][previous-tutorial].
+Du måste ha slutfört den föregående Blob Storage-självstudien: [Överför avbildnings data i molnet med Azure Storage][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -109,7 +109,7 @@ I följande kommando anger du ditt unika namn på funktionsappen. Funktionsappen
     --resource-group $resourceGroupName --consumption-plan-location southeastasia
     ```
 
-Nu måste du konfigurera funktionsappen så att den ansluts till Blob Storage-kontot du skapade i [föregående självstudie][previous-tutorial].
+Nu måste du konfigurera Function-appen så att den ansluter till Blob Storage-kontot som du skapade i [föregående självstudie][previous-tutorial].
 
 ## <a name="configure-the-function-app"></a>Konfigurera funktionsappen
 
@@ -275,6 +275,8 @@ Klicka på **Välj fil** för att välja en fil och klicka sedan på **Ladda upp
 Klicka på **Välj fil** för att välja en fil och klicka sedan på **Ladda upp bild**. När uppladdningen är klar navigerar webbläsaren till en sida som visar att åtgärden lyckades. Klicka på länken för att återgå till startsidan. En kopia av den uppladdade bilden visas i området **Genererade miniatyrer**. (Om bilden inte visas kan du prova med att uppdatera sidan.) Den här bildens storlek ändrades av funktionen. Därefter lades den till i containern med *miniatyrer* och laddades ned av webbklienten.
 
 ![Publicerad webbapp i webbläsaren](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

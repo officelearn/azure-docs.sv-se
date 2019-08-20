@@ -111,15 +111,19 @@
         - name: Konfigurera virtuella VMware-datorer för det privata molnet
           items:
             - name: Skapa en virtuell dator i Azure
-              href: 'https://docs.azure.cloudsimple.com/azure-create-vm/'
+              href: azure-create-vm.md
+            - name: Hantera virtuella datorer i Azure
+              href: azure-manage-vm.md
     - name: Instruktionsguider
       items:
         - name: Skydda din miljö
           href: 'https://docs.azure.cloudsimple.com/private-cloud-secure/'
         - name: Hantering av privata moln
           items:
+            - name: Eskalera privilegier för privat moln
+              href: escalate-privileges.md
             - name: DNS- och DHCP-konfiguration för arbetsbelastning
-              href: 'https://docs.azure.cloudsimple.com/dns-dhcp-setup/'
+              href: dns-dhcp-setup.md
             - name: NSX Layer 2-VPN för migrering
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn'
         - name: Privata nätverk i molnet
@@ -133,11 +137,11 @@
         - name: VMware-plattform
           items:
             - name: Lär dig behörighetsmodellen för privat moln
-              href: 'https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/'
+              href: learn-private-cloud-permissions.md
             - name: vCenter-identitetskällor
               href: set-vcenter-identity.md
             - name: Azure Application Gateway med virtuella VMware-datorer
-              href: 'https://docs.azure.cloudsimple.com/azure-application-gateway/'
+              href: azure-application-gateway.md
             - name: Konfigurera vCenter-server för privat moln som vRealize-automatiseringsslutpunkt
               href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
             - name: Migrera arbetsbelastning för virtuella datorer till ett privat moln
@@ -146,8 +150,8 @@
               href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
         - name: VMware-ekosystem
           items:
-            - name: Säkerhetskopiering av arbetsbelastning för virtuella datorer
-              href: 'https://docs.azure.cloudsimple.com/backup-workloads-veeam/'
+            - name: Säkerhetskopiera virtuella datorer med arbetsbelastningar
+              href: backup-workloads-veeam.md
             - name: Lösningsguide för VMware Horizon
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
             - name: Konfigurera vSAN-kryptering för ditt privata moln

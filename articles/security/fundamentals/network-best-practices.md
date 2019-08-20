@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: a821ce5d9e545db2dee2adbe942eab5edcfdb01f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 09caffcfdad4b132858b6ec52b36fe037f488b3a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726956"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934712"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Metod tips för Azure för nätverks säkerhet
 I den här artikeln beskrivs en samling Azure Best Practices för att förbättra nätverks säkerheten. Dessa bästa metoder är härledda från vår erfarenhet av Azure-nätverk och våra kunders upplevelser som du själv har.
@@ -35,7 +35,7 @@ För varje bästa praxis förklarar den här artikeln:
 De här metod tipsen bygger på ett samförstånds yttrande och Azures plattforms funktioner och funktions uppsättningar, eftersom de fanns när den här artikeln skrevs. Åsikter och tekniker förändras med tiden och den här artikeln uppdateras regelbundet för att avspegla ändringarna.
 
 ## <a name="use-strong-network-controls"></a>Använd starka nätverks kontroller
-Du kan ansluta [virtuella Azure-datorer (VM)](https://azure.microsoft.com/services/virtual-machines/) och-enheter till andra nätverksanslutna enheter genom att placera dem på [virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/). Det innebär att du kan ansluta virtuella nätverks gränssnitts kort till ett virtuellt nätverk för att tillåta TCP/IP-baserad kommunikation mellan nätverks aktiverade enheter. Virtuella datorer som är anslutna till ett virtuellt Azure-nätverk kan ansluta till enheter i samma virtuella nätverk, olika virtuella nätverk, Internet eller dina egna lokala nätverk.
+Du kan ansluta [virtuella Azure-datorer (VM)](https://azure.microsoft.com/services/virtual-machines/) och-enheter till andra nätverksanslutna enheter genom att placera dem på [virtuella Azure-nätverk](../../virtual-network/index.yml). Det innebär att du kan ansluta virtuella nätverks gränssnitts kort till ett virtuellt nätverk för att tillåta TCP/IP-baserad kommunikation mellan nätverks aktiverade enheter. Virtuella datorer som är anslutna till ett virtuellt Azure-nätverk kan ansluta till enheter i samma virtuella nätverk, olika virtuella nätverk, Internet eller dina egna lokala nätverk.
 
 När du planerar nätverket och säkerheten i nätverket rekommenderar vi att du centraliserar:
 
@@ -114,7 +114,7 @@ Azure Network Security-enheter kan ge bättre säkerhet än vad kontroller på n
 Om du vill hitta tillgängliga Azure Virtual Network Security-enheter går du till [Azure Marketplace](https://azure.microsoft.com/marketplace/) och söker efter "säkerhet" och "nätverks säkerhet".
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Distribuera perimeternätverk för säkerhets zoner
-Ett [perimeternätverk](https://docs.microsoft.com/azure/best-practices-network-security) (kallas även DMZ) är ett fysiskt eller logiskt nätverks segment som ger ett extra säkerhets lager mellan dina till gångar och Internet. Specialiserade enheter för nätverks åtkomst kontroll på kanten av ett perimeternätverk tillåter endast önskad trafik till det virtuella nätverket.
+Ett [perimeternätverk](./https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (kallas även DMZ) är ett fysiskt eller logiskt nätverks segment som ger ett extra säkerhets lager mellan dina till gångar och Internet. Specialiserade enheter för nätverks åtkomst kontroll på kanten av ett perimeternätverk tillåter endast önskad trafik till det virtuella nätverket.
 
 Perimeternätverk är användbara eftersom du kan fokusera din hantering av nätverks åtkomst kontroll, övervakning, loggning och rapportering av enheterna vid gränsen för ditt virtuella Azure-nätverk. Ett perimeternätverk är där du normalt aktiverar DDoS-skydd (distributed denial of Service), intrångs identifiering/skydd mot intrång (ID/IP-adresser), brand Väggs regler och principer, webb filtrering, nätverks program mot skadlig kod och mycket annat. Nätverks säkerhetsenheterna hamnar mellan Internet och ditt virtuella Azure-nätverk och har ett gränssnitt i båda nätverken.
 

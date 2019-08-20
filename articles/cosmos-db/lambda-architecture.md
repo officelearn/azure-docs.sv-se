@@ -6,12 +6,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 70f3471b22027bbf5ece87897e678370767f6743
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 56f293600d876a5bc52b618ce8eed044e93f424d
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717087"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616872"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementera en lambda-arkitektur på Azure-plattformen 
 
@@ -42,7 +42,7 @@ De grundläggande principerna för en lambda-arkitekturen beskrivs i föregåend
 
 Vid läsning av ytterligare, kommer vi att kunna genomföra den här arkitekturen använder endast följande:
 
-* Azure Cosmos DB-samling(ar)
+* Azure Cosmos-behållare
 * Kluster för HDInsight (Apache Spark 2.1)
 * Spark-Anslutningappen [1.0](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark_2.1.0_2.11-1.0.0)
 
@@ -114,11 +114,11 @@ Vad är viktigt i dessa lager:
 
  1. Alla **data** skickas endast till Azure Cosmos DB (för att undvika multicast problem).
  2. Den **batchlager** har en master datauppsättning (inte kan ändras, Lägg endast uppsättning rådata) som lagras i Azure Cosmos DB. Med HDI Spark kan beräkna du förväg din aggregeringar lagras i dina beräknade batch-vyer.
- 3. Den **betjäningslagret** är en Azure Cosmos DB-databas med samlingar för master datauppsättningen och beräknad batchvyn.
+ 3. Betjänande **skikt** är en Azure Cosmos-databas med samlingar för huvud data uppsättningen och den beräknade vyn.
  4. Den **hastighetslagret** beskrivs senare i den här artikeln.
  5. Alla frågor besvaras genom att sammanfoga resultatet från batch-vyer i realtid vyer, pinga dem individuellt.
 
-### <a name="code-example-pre-computing-batch-views"></a>Kod exempel: För hands beräkning av batch-vyer
+### <a name="code-example-pre-computing-batch-views"></a>Kodexempel: För hands beräkning av batch-vyer
 Att demonstrera hur du kör förberäknade vyer mot din **master datauppsättning** från Apache Spark i Azure Cosmos DB, använder du följande kodavsnitt från de bärbara datorerna [Lambda-arkitektur Rearchitected - Batchlager ](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) och [Lambda-arkitekturen Rearchitected - Batch för att serva Layer](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb). I det här scenariot använder du Twitter-data som lagras i Azure Cosmos DB.
 
 Låt oss börja med att skapa konfigurationen anslutningen till Twitter-data i Azure Cosmos DB med hjälp av PySpark-kod nedan.
@@ -161,7 +161,7 @@ limit 10
 
 ![Diagram som visar antal tweets per hashtagg](./media/lambda-architecture/lambda-architecture-batch-hashtags-bar-chart.png)
 
-Nu när du har din fråga kan vi spara tillbaka dem till en samling med hjälp av Spark-anslutningen för att spara utdata till en annan samling.  I det här exemplet använder du Scala för att demonstrera anslutningen. Ett liknande sätt som i föregående exempel, skapa konfigurationsanslutning för att spara Apache Spark DataFrame till en annan Azure Cosmos DB-samling.
+Nu när du har din fråga kan vi spara tillbaka dem till en samling med hjälp av Spark-anslutningen för att spara utdata till en annan samling.  I det här exemplet använder du Scala för att demonstrera anslutningen. Precis som i föregående exempel skapar du konfigurations anslutningen för att spara Apache Spark DataFrame till en annan Azure Cosmos-behållare.
 
 ```
 val writeConfigMap = Map(
@@ -192,7 +192,7 @@ val tweets_bytags = spark.sql("select hashtags.text as hashtags, count(distinct 
 tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 ```
 
-Det här sista instruktionen nu har sparats Spark DataFrame till en ny Azure Cosmos DB-samling; ur en lambda-arkitektur, det här är din **batchvy** inom den **betjäningslagret**.
+Den här sista instruktionen har nu sparat din spark-DataFrame i en ny Azure Cosmos-behållare. från ett lambda-arkitektur perspektiv är detta din **batch-vy** i **betjänar skiktet**.
  
 #### <a name="resources"></a>Resurser
 
@@ -205,7 +205,7 @@ Som tidigare meddelanden, som använder Azure Cosmos DB ändringen Feed-bibliote
 
 ![Schemat betonar hastighetslagret av lambda-arkitekturen](./media/lambda-architecture/lambda-architecture-speed.png)
 
-Gör detta genom att skapa en separat Azure Cosmos DB-samling för att spara resultatet av dina strukturerad direktuppspelning frågor.  Detta gör att du kan ha andra system åtkomst den här informationen inte bara Apache Spark. Du kan också konfigurera dina dokument som ska tas bort automatiskt efter en angiven varaktighet med funktionen Time-to-Live (TTL) Cosmos DB.  Läs mer om Azure Cosmos DB TTL-funktionen [ta bort data från Azure Cosmos DB-samlingarna automatiskt med TTL-värde](time-to-live.md)
+Det gör du genom att skapa en separat Azure Cosmos-behållare för att spara resultatet av dina strukturerade strömnings frågor.  Detta gör att du kan ha andra system åtkomst den här informationen inte bara Apache Spark. Du kan också konfigurera dina dokument som ska tas bort automatiskt efter en angiven varaktighet med funktionen Time-to-Live (TTL) Cosmos DB.  Mer information om Azure Cosmos DB TTL-funktionen finns i förfaller [data i Azure Cosmos-behållare automatiskt med Time to Live](time-to-live.md)
 
 ```
 // Import Libraries

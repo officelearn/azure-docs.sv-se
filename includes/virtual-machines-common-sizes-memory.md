@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3d45defa9ff8e7b2e03d550b76c0e18192c58c4a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881601"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626409"
 ---
 Minnesoptimerade VM-storlekar erbjuder ett högt förhållande mellan minne och processor som är bra för Relations databas servrar, medel stora och stora cacheminnen och minnes intern analys. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för varje storlek i den här gruppen.
 
 * Ev3-serien har en-processor (E5-2673 v4 2,3 GHz) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar och gör att Ev3 kan justeras med generella virtuella datorer i de flesta andra moln.  Minnet har utökats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras med flytten till hyperthreading.  Ev3 är en uppföljning av de virtuella datorerna med hög minnes storlek för D/Dv2-familjer.
 
-* Eav3-serien och Easv3-serien använder AMD: s 2.35 GHz EPYC<sup>TM</sup> 7452V-processor i en multi-threadd konfiguration med upp till 256GB L3-cache, vilket ökar alternativen för att köra de flesta minnesoptimerade arbets belastningar.  Eav3-serien och Easv3-serien har samma minnes-och diskkonfigurationer som Ev3 & Esv3-serien.
+* Eav3-serien och Easv3-serien använder AMD: s 2.35 GHz EPYC<sup>TM</sup> 7452V-processor i en multi-threadd konfiguration med upp till 256 MB L3-cache, vilket ökar alternativen för att köra de flesta minnesoptimerade arbets belastningar.  Eav3-serien och Easv3-serien har samma minnes-och diskkonfigurationer som Ev3 & Esv3-serien.
 
 * Mv2-serien erbjuder det högsta antalet vCPU (upp till 208 virtuella processorer) och störst minne (upp till 5,7 TiB) för virtuella datorer i molnet. Serien är det perfekta valet för mycket stora databaser eller andra program som har nytta av många virtuella processorer och stora mängder minne.
 

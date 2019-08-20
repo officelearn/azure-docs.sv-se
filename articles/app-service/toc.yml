@@ -170,7 +170,7 @@
     - name: Skalningsapp
       items:
         - name: Skala upp serverkapaciteten
-          href: web-sites-scale.md
+          href: manage-scale-up.md
         - name: Konfigurera PremiumV2-nivå
           href: app-service-configure-premium-tier.md
         - name: Skala ut till flera instanser

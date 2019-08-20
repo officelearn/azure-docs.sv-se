@@ -7,9 +7,8 @@ metadata:
   description: 'Lär dig hur du skapar en söklösning för företag med privat, heterogent innehåll med hjälp av Azure Search. Självstudier, API-referenser och andra dokument visar dig hur du konsoliderar sökbart innehåll till ett enda snabbt frågningsbart index med hjälp av enkel-till-avancerad syntax för en mängd olika scenarier.'
   services: search
   author: HeidiSteen
-  manager: cgronlun
+  manager: nitinme
   ms.service: search
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/12/2019
   ms.author: heidist

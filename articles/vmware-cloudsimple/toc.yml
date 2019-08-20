@@ -117,7 +117,7 @@
     - name: Instruktionsguider
       items:
         - name: Skydda din miljö
-          href: 'https://docs.azure.cloudsimple.com/private-cloud-secure/'
+          href: private-cloud-secure.md
         - name: Hantering av privata moln
           items:
             - name: Eskalera privilegier för privat moln
@@ -143,7 +143,7 @@
             - name: Azure Application Gateway med virtuella VMware-datorer
               href: azure-application-gateway.md
             - name: Konfigurera vCenter-server för privat moln som vRealize-automatiseringsslutpunkt
-              href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
+              href: configure-server-vrealize-automation-endpoint.md
             - name: Migrera arbetsbelastning för virtuella datorer till ett privat moln
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
             - name: Säkerställa hög tillgänglighet för program i VMware på Azure

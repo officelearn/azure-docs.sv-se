@@ -21,7 +21,7 @@ ms.locfileid: "69624750"
 
 1. Öppna **Azure Active Directory** i den vänstra rutan i [Azure Portal](https://portal.azure.com)och öppna sedan fönstret **Appregistreringar (bakåtkompatibelt)** . Välj knappen **ny program registrering** .
 
-1. Ge appregistreringen ett eget namn i rutan **Namn**. Ställ in **Programtyp** på **Intern** och  **	Omdirigerings-URI** som `https://microsoft.com`. Välj **Skapa**.
+1. Ge appregistreringen ett eget namn i rutan **Namn**. Ställ in **Programtyp** på **Intern** och **Omdirigerings-URI** som `https://microsoft.com`. Välj **Skapa**.
 
     ![Skapa fönster](./media/digital-twins-permissions-legacy/aad-app-reg-create.png)
 

@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB prestanda tips för .NET
-description: Lär dig mer om klient konfigurations alternativ för att förbättra Azure Cosmos DB databas prestanda
+description: Lär dig mer om klient konfigurations alternativ för att förbättra prestanda för Azure Cosmos Database
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: 21886c11bea6ff09cf97362e06c6d304aaa0d8cc
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3c4dbd38edaf36461578e087010d978a25450d06
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250046"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614925"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestanda tips för Azure Cosmos DB och .NET
 
@@ -48,8 +48,8 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
      |Anslutnings läge  |Protokoll som stöds  |SDK: er som stöds  |API/tjänst-port  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  All SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabell (443), Cassandra (10350), Graf (443)    |
-     |Direct    |    HTTPS     |  .NET och Java SDK    |   Portar inom 10 000 – 20000-intervall    |
-     |Direct    |     TCP    |  .NET SDK    | Portar inom 10 000 – 20000-intervall |
+     |Direkt    |    HTTPS     |  .NET och Java SDK    |   Portar inom 10 000 – 20000-intervall    |
+     |Direkt    |     TCP    |  .NET SDK    | Portar inom 10 000 – 20000-intervall |
 
      Azure Cosmos DB erbjuder en enkel och öppen RESTful programmerings modell över HTTPS. Dessutom erbjuder den ett effektivt TCP-protokoll, som också RESTful i sin kommunikations modell och är tillgängligt via .NET-klient-SDK: n. Både direkt TCP och HTTPS använder SSL för inledande autentisering och kryptering av trafik. Använd TCP-protokollet när det är möjligt för bästa prestanda.
 
@@ -78,7 +78,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
    <a id="same-region"></a>
 3. **Samordna-klienter i samma Azure-region för prestanda**
 
-    När det är möjligt kan du placera alla program som anropar Azure Cosmos DB i samma region som Azure Cosmos DBs databasen. För en ungefärlig jämförelse kan anrop till Azure Cosmos DB inom samma region slutföras inom 1-2 MS, men svars tiden mellan västra USA och östra kust är > 50 ms. Den här fördröjningen kan troligt vis variera från begäran till begäran beroende på den väg som tas av begäran när den skickas från klienten till Azure Data Center-gränser. Den lägsta möjliga fördröjningen uppnås genom att se till att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB slut punkten. En lista över tillgängliga regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
+    När det är möjligt kan du placera alla program som anropar Azure Cosmos DB i samma region som Azure Cosmos-databasen. För en ungefärlig jämförelse kan anrop till Azure Cosmos DB inom samma region slutföras inom 1-2 MS, men svars tiden mellan västra USA och östra kust är > 50 ms. Den här fördröjningen kan troligt vis variera från begäran till begäran beroende på den väg som tas av begäran när den skickas från klienten till Azure Data Center-gränser. Den lägsta möjliga fördröjningen uppnås genom att se till att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB slut punkten. En lista över tillgängliga regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
     ![Bild av Azure Cosmos DB anslutnings princip](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
@@ -162,7 +162,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     - För körbara program kan du göra detta genom att avmarkera alternativet **hellre 32-bit** i fönstret **projekt egenskaper** på fliken **bygge** .
 
-    - För VSTest-baserade test projekt kan du göra detta **genom att välja**->->**standard processor arkitektur som x64**från meny alternativet test på **Visual Studio** .
+    - För VSTest-baserade test projekt kan du göra detta genom att->välja->**standard processor arkitektur som x64**från meny alternativet test på **Visual Studio** .
 
     - För lokalt distribuerade ASP.net-webbappar kan du göra detta genom att kontrol lera att **använda 64-bitars versionen av IIS Express för webbplatser och projekt**, under **verktyg**->**alternativ**->**projekt och lösningar** **Webb projekt**. ->
 

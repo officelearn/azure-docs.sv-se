@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 04d63b2c1583228a274c0ba21c87df08886f5cdb
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: a6a6fdf6e63bf8c063f8dd6f23ae380e9ce7b98d
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619064"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575507"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Felsöka Azure SQL Data Warehouse
 Den här artikeln innehåller vanliga fel söknings frågor.

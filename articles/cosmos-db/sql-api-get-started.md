@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 37b6a9947d3cabe1f566f842e321229efe9d03b6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 25275aeb6637d50379b7c71e87be9ecffce269db
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598529"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614683"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Bygg en .NET-konsol-app för att hantera data i Azure Cosmos DB SQL API-konto
 
@@ -253,7 +253,7 @@ En databas kan skapas med hjälp av antingen funktionen [**CreateDatabaseIfNotEx
 
 Kör appen genom att välja **F5**.
 
-Grattis! Du har skapat en Azure Cosmos DB-databas.  
+Grattis! Du har skapat en Azure Cosmos-databas.  
 
 ## <a id="CreateColl"></a>Steg 5: Skapa en container
 > [!WARNING]
@@ -283,10 +283,10 @@ En behållare kan skapas med hjälp av antingen funktionen [**CreateContainerIfN
 
    Kör appen genom att välja **F5**.
 
-Grattis! Du har skapat en Azure Cosmos DB-container.  
+Grattis! Du har skapat en Azure Cosmos-behållare.  
 
 ## <a id="CreateDoc"></a>Steg 6: Lägga till objekt i containern
-Ett objekt kan skapas med hjälp av funktionen [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) i **CosmosContainer** -klassen. När du använder SQL-API:et projiceras objekt som dokument, som är användardefinierat (godtyckligt), JSON-innehåll. Nu kan du infoga ett objekt i Azure Cosmos DB-containern.
+Ett objekt kan skapas med hjälp av funktionen [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) i **CosmosContainer** -klassen. När du använder SQL-API:et projiceras objekt som dokument, som är användardefinierat (godtyckligt), JSON-innehåll. Nu kan du infoga ett objekt i din Azure Cosmos-behållare.
 
 Först ska vi skapa en **serie** klass som representerar objekt som lagras i Azure Cosmos db i det här exemplet. Vi kommer även att skapa underklasserna **Förälder**, **Barn**, **Husdjur** och **Adress** som används inom **Familj**. Antecknings objekt måste ha en **ID-** egenskap serialiserad som **ID** i JSON.
 
@@ -320,7 +320,7 @@ Koden kontrollerar att det inte redan finns ett objekt med samma ID innan du ska
 
 Kör appen genom att välja **F5**.
 
-Grattis! Du har skapat två Azure Cosmos DB-objekt.  
+Grattis! Du har skapat två Azure Cosmos-objekt.  
 
 ## <a id="Query"></a>Steg 7: Köra frågor mot Azure Cosmos DB-resurser
 Azure Cosmos DB stöder [komplexa frågor](sql-api-sql-query.md) mot JSON-dokument som lagras i varje samling. I följande exempelkod visas hur du kör en fråga mot de objekt som vi infogade i det föregående steget.
@@ -347,7 +347,7 @@ Azure Cosmos DB stöder [komplexa frågor](sql-api-sql-query.md) mot JSON-dokume
 
 Kör appen genom att välja **F5**.
 
-Grattis! Du har skickat frågor mot en Azure Cosmos DB-container.
+Grattis! Du har frågat mot en Azure Cosmos-behållare.
 
 ## <a id="ReplaceItem"></a>Steg 8: Ersätta ett JSON-objekt
 Vi uppdaterar nu ett objekt i Azure Cosmos DB.
@@ -375,7 +375,7 @@ Vi uppdaterar nu ett objekt i Azure Cosmos DB.
 
    Kör appen genom att välja **F5**.
 
-Grattis! Du har ersatt ett Azure Cosmos DB-objekt.
+Grattis! Du har ersatt ett Azure Cosmos-objekt.
 
 ## <a id="DeleteDocument"></a>Steg 9: Ta bort objekt
 Vi tar nu bort ett objekt i Azure Cosmos DB.
@@ -404,7 +404,7 @@ Vi tar nu bort ett objekt i Azure Cosmos DB.
 
 Kör appen genom att välja **F5**.
 
-Grattis! Du har tagit bort ett Azure Cosmos DB-objekt.
+Grattis! Du har tagit bort ett Azure Cosmos-objekt.
 
 ## <a id="DeleteDatabase"></a>Steg 10: Ta bort databasen
 Nu tar vi bort databasen. Om du tar bort den skapade databasen tas databasen och alla underordnade resurser bort (containrar, objekt samt lagrade procedurer, användardefinierade funktioner och utlösare). Vi tar även bort **CosmosClient**-instansen.
@@ -419,7 +419,7 @@ Nu tar vi bort databasen. Om du tar bort den skapade databasen tas databasen och
 
 Kör appen genom att välja **F5**.
 
-Grattis! Du har tagit bort en Azure Cosmos DB-databas.
+Grattis! Du har tagit bort en Azure Cosmos-databas.
 
 ## <a id="Run"></a>Steg 11: Köra C#-konsolappen i dess helhet!
 Välj F5 i Visual Studio för att bygga och köra appen i felsökningsläge.

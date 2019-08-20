@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fe80c6231f95ec7040bde5f1d7e74353b8bfff60
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b9060ecbb9ca9e77d994a8f20378e2c53927586a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544427"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617379"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Använd Azure AD som identitets leverantör för vCenter på CloudSimple privata moln
 
@@ -64,16 +64,16 @@ Du kan också konfigurera andra funktioner i Azure AD.  Dessa krävs inte för a
 3. Konfigurera administratörs gruppen för hantering av Azure AD Domain Services enligt beskrivningen i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../active-directory-domain-services/active-directory-ds-getting-started-admingroup.md).
 4. Uppdatera DNS-inställningarna för din Azure AD Domain Services enligt beskrivningen i [aktivera Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-dns.md).  Om du vill ansluta till AD via Internet konfigurerar du DNS-posten för den offentliga IP-adressen för Azure AD Domain Services till domän namnet.
 5. Aktivera synkronisering av lösen ords-hash för användare.  Det här steget gör det möjligt att synkronisera lösen ords-hashar som krävs för NTLM (NT LAN Manager) och Kerberos-autentisering till Azure AD Domain Services. När du har konfigurerat lösenordshashsynkronisering kan användarna logga in till den hanterade domänen med sina företagsuppgifter. Se [aktivera hash-synkronisering av lösen ord för att Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
-    1. Om enbart moln användare finns, måste de ändra sitt lösen ord med hjälp av <a href="http://myapps.microsoft.com/" target="_blank">Azure AD Access panel</a> för att säkerställa att lösen ords-hashar lagras i det format som krävs av NTLM eller Kerberos.  Följ anvisningarna i [aktivera hash-synkronisering av lösen ord till din hanterade domän för användar konton som endast är moln](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts).  Det här steget måste göras för enskilda användare och alla nya användare som har skapats i Azure AD-katalogen med hjälp av Azure Portal eller Azure AD PowerShell-cmdletar. Användare som behöver åtkomst till Azure AD Domain Services måste använda <a href="http://myapps.microsoft.com/" target="_blank">Azure AD-åtkomst panelen</a> och komma åt sin profil för att ändra lösen ordet.
+    1. Om enbart moln användare finns, måste de ändra sitt lösen ord med hjälp av <a href="http://myapps.microsoft.com/" target="_blank">Azure AD Access panel</a> för att säkerställa att lösen ords-hashar lagras i det format som krävs av NTLM eller Kerberos.  Följ anvisningarna i [aktivera hash-synkronisering av lösen ord till din hanterade domän för användar konton som endast är moln](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Det här steget måste göras för enskilda användare och alla nya användare som har skapats i Azure AD-katalogen med hjälp av Azure Portal eller Azure AD PowerShell-cmdletar. Användare som behöver åtkomst till Azure AD Domain Services måste använda <a href="http://myapps.microsoft.com/" target="_blank">Azure AD-åtkomst panelen</a> och komma åt sin profil för att ändra lösen ordet.
 
         > [!NOTE]
         > Om din organisation har molnbaserade användar konton måste alla användare som behöver använda Azure Active Directory Domain Services ändra sina lösen ord. Ett endast molnbaserat användarkonto är ett konto som skapats i Azure AD-katalogen med antingen Azure Portal eller Azure AD PowerShell-cmdletar. Dessa användarkonton är inte synkroniserade från en lokal katalog.
 
-    2. Om du synkroniserar lösen ord från din lokala Active Directory följer du stegen i [Active Directory documentation] (.. /active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md.
+    2. Om du synkroniserar lösen ord från din lokala Active Directory följer du stegen i [Active Directory-dokumentationen](../active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md).
 
-6.  Konfigurera säker LDAP på Azure Active Directory Domain Services enligt beskrivningen i [Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services hanterad domän](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
-    1. Ladda upp ett certifikat för användning av säker LDAP enligt beskrivningen i Azure-ämnet [Skaffa ett certifikat för säker LDAP](../active-directory-domain-services/configure-ldaps.md#task-1---obtain-a-certificate-for-secure-ldap).  CloudSimple rekommenderar att du använder ett signerat certifikat som utfärdats av en certifikat utfärdare för att säkerställa att vCenter kan lita på certifikatet.
-    2. Aktivera säker LDAP enligt beskrivningen [Aktivera säker LDAP (LDAPS) för en Azure AD Domain Services hanterad domän](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md).
+6.  Konfigurera säker LDAP på Azure Active Directory Domain Services enligt beskrivningen i [Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services hanterad domän](../active-directory-domain-services/tutorial-configure-ldaps.md).
+    1. Ladda upp ett certifikat för användning av säker LDAP enligt beskrivningen i Azure-ämnet [Skaffa ett certifikat för säker LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap).  CloudSimple rekommenderar att du använder ett signerat certifikat som utfärdats av en certifikat utfärdare för att säkerställa att vCenter kan lita på certifikatet.
+    2. Aktivera säker LDAP enligt beskrivningen [Aktivera säker LDAP (LDAPS) för en Azure AD Domain Services hanterad domän](../active-directory-domain-services/tutorial-configure-ldaps.md).
     3. Spara den offentliga delen av certifikatet (utan den privata nyckeln) i. cer-format för användning med vCenter när du konfigurerar identitets källan.
     4. Om Internet åtkomst till Azure AD Domain Services krävs aktiverar du alternativet Tillåt säker åtkomst till LDAP över Internet.
     5. Lägg till regeln för inkommande säkerhet för Azure AD Domain Services-NSG för TCP-port 636.

@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rogarana
-ms.openlocfilehash: addb97d71da1ceac8717ae77204c87a8197dac86
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6cdee8f1ad59962822e9e0394547c395c13e4bd8
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935178"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611787"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>Översikt över stöd för Azure AD DS-autentisering (Azure Files Azure Active Directory Domain Service) för SMB-åtkomst
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -59,7 +59,7 @@ När en identitet som är kopplad till ett program som körs på en virtuell dat
 ### <a name="enable-azure-ad-domain-service-authentication-for-smb-access"></a>Aktivera Azure AD Domain Service-autentisering för SMB-åtkomst
 Du kan aktivera Azure AD Domain Service-autentisering för Azure Files på dina nya och befintliga lagrings konton som skapats efter den 24 september 2018. 
 
-Innan du aktiverar den här funktionen kontrollerar du att Azure AD Domain Services har distribuerats för den primära Azure AD-klient som ditt lagrings konto är associerat med. Om du ännu inte har konfigurerat Azure AD Domain Services följer du de stegvisa anvisningarna i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../../active-directory-domain-services/create-instance.md).
+Innan du aktiverar den här funktionen kontrollerar du att Azure AD Domain Services har distribuerats för den primära Azure AD-klient som ditt lagrings konto är associerat med. Om du ännu inte har konfigurerat Azure AD Domain Services följer du de stegvisa anvisningarna i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../../active-directory-domain-services/tutorial-create-instance.md).
 
 Azure AD Domain Services distributionen tar vanligt vis 10 till 15 minuter. När Azure AD Domain Services har distribuerats kan du aktivera Azure AD-autentisering över SMB för Azure Files. Mer information finns i [aktivera Azure Active Directory Domain Service-autentisering över SMB för Azure Files](storage-files-active-directory-enable.md). 
 

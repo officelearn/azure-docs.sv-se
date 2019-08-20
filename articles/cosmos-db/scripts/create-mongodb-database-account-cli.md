@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 7/2/2019
 ms.reviewer: sngun
-ms.openlocfilehash: a256a0ff5164ec9b25aea3849f20643ee3719fac
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e30419d328cf7af4e1cb710d5bad79f5ebba055e
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541430"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614731"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Skapa ett Azure Cosmos DB-konto med Azure Cosmos DB:s API för MongoDB med Azure CLI
 
@@ -23,7 +23,7 @@ Det här CLI-exempelskriptet skapar ett Cosmos-konto med Azure Cosmos DB:s API f
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-[!NOTE] Läs mer om databasen och behållaren namngivningskonventioner i, [arbeta med databaser, behållare och objekt i Azure Cosmos DB](../databases-containers-items.md).
+[!NOTE] Mer information om namngivnings konventioner för databaser och behållare finns i, [arbeta med databaser, behållare och objekt i Azure Cosmos DB](../databases-containers-items.md).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -45,8 +45,8 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Skapar ett Azure Cosmos DB-konto. |
-| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Skapar en Azure Cosmos DB-databas. |
-| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Skapar en Azure Cosmos DB-samling för MongoDB. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Skapar en Azure Cosmos-databas. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Skapar en Azure Cosmos-behållare för MongoDB. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67566063"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611917"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrera befintliga Azure Service Bus standard namn områden till Premium-nivån
 Tidigare erbjöds endast namn områden på standard nivån för Azure Service Bus. Namn områden är installations program för flera innehavare som är optimerade för låg data flöde och utvecklings miljöer. Premium-nivån erbjuder dedikerade resurser per namnrymd för förutsägbar svars tid och större data flöde till ett fast pris. Premium nivån är optimerad för stora data flöden och produktions miljöer som kräver ytterligare företags funktioner.
@@ -115,7 +115,8 @@ Migrering med hjälp av Azure Portal har samma logiska flöde som migreringen me
    1. När synkroniseringen är klar väljer du **Nästa** längst ned på sidan.
 
 1. Granska ändringarna på sidan Sammanfattning. Välj **fullständig migrering** för att byta namn rymder och slutföra migreringen.
-    ![Byt namn område – Byt][] meny sidan bekräftelse visas när migreringen är klar.
+    ![Byt namn område – Byt meny][]  
+    Sidan bekräftelse visas när migreringen är klar.
     ![Switch-namnrymd-lyckad][]
 
 ## <a name="caveats"></a>Varningar

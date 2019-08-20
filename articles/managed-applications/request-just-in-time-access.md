@@ -1,45 +1,45 @@
 ---
-title: Aktivera och begär just-in-time-åtkomst för Azure Managed Applications
-description: Beskriver hur utgivare av Azure Managed Applications begär just-in-time-åtkomst till ett hanterat program.
+title: Aktivera och begär just-in-Time-åtkomst för Azure Managed Applications
+description: Beskriver hur utgivare av Azure Managed Applications begär just-in-Time-åtkomst till ett hanterat program.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
-ms.openlocfilehash: ea933f5382cb42c01de523326b094c1813401132
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d595d4c96e9f87f1c8eece5d47bf4c8cdd58d7c
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481781"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574978"
 ---
-# <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Aktivera och begär just-in-time-åtkomst för Azure Managed Applications
+# <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Aktivera och begär just-in-Time-åtkomst för Azure Managed Applications
 
-Användare av det hanterade programmet vara ovilliga att ge permanent åtkomst till den hanterade resursgruppen. Som utgivare av ett manager-program, kanske du föredrar att kunderna ser exakt när du behöver åtkomst till de hanterade resurserna. Om du vill ge användare innehåller större kontroll över beviljar åtkomst till hanterade resurser, Azure Managed Applications en funktion som kallas just-in-time (JIT) åtkomst, vilket är en förhandsversion.
+Konsumenter av det hanterade programmet kan vara ovilliga för att ge dig permanent åtkomst till den hanterade resurs gruppen. Som utgivare av ett hanterings program kanske du föredrar att konsumenter vet exakt när du behöver åtkomst till de hanterade resurserna. För att ge konsumenterna bättre kontroll över beviljandet av åtkomst till hanterade resurser, ger Azure Managed Applications en funktion som kallas JIT-åtkomst (just-in-Time), som för närvarande är en för hands version.
 
-JIT-åtkomst till kan du begära utökad åtkomst till resurser i ett hanterat program för felsökning eller underhåll. Du har alltid skrivskyddad åtkomst till resurser, men du kan ha större åtkomst för en viss tidsperiod.
+Med JIT-åtkomst kan du begära utökad åtkomst till ett hanterat programs resurser för fel sökning eller underhåll. Du har alltid skrivskyddad åtkomst till resurserna, men under en viss tids period kan du ha större åtkomst.
 
-Arbetsflöde för att bevilja åtkomst är:
+Arbets flödet för att bevilja åtkomst är:
 
-1. Du lägger till ett hanterat program på Marketplace och ange att JIT-åtkomst till är tillgängliga.
+1. Du lägger till ett hanterat program på Marketplace och anger att JIT-åtkomst är tillgänglig.
 
-1. Under distributionen kan konsumenten JIT-åtkomst för den instansen av det hanterade programmet.
+1. Under distributionen aktiverar konsumenten JIT-åtkomst för den instansen av det hanterade programmet.
 
-1. Konsumenten kan ändra inställningarna för JIT-åtkomst till efter distributionen.
+1. Efter distributionen kan konsumenten ändra inställningarna för JIT-åtkomst.
 
-1. Du kan skicka en begäran om åtkomst när du behöver felsöka eller uppdatera hanterade resurser.
+1. Du skickar en begäran om åtkomst när du behöver felsöka eller uppdatera de hanterade resurserna.
 
 1. Konsumenten godkänner din begäran.
 
-Den här artikeln fokuserar på de åtgärder som utgivare vidta för att aktivera JIT-åtkomst och skicka begäran. Läs om hur du godkänner JIT förfrågningar i [godkänna just-in-time-åtkomst i Azure Managed Applications](approve-just-in-time-access.md).
+Den här artikeln fokuserar på de åtgärder som utgivaren vidtar för att aktivera JIT-åtkomst och skicka begär Anden. Information om hur du godkänner JIT-begäranden finns i [godkänna just-in-Time-åtkomst i Azure Managed Applications](approve-just-in-time-access.md).
 
-## <a name="add-jit-access-step-to-ui"></a>Lägg till steg för JIT-åtkomst till Gränssnittet
+## <a name="add-jit-access-step-to-ui"></a>Lägg till JIT-åtkomst steg i användar gränssnittet
 
-CreateUiDefinition.json-filen är likadant som filen Användargränssnittet du skapar för permanent åtkomst, förutom måste du inkludera ett steg som låter användare aktivera JIT-åtkomst. Mer information om hur du publicerar ditt första hanterade program i Azure Marketplace finns [Azure Managed Applications i Marketplace](publish-marketplace-app.md).
+Din CreateUiDefinition. JSON-fil är precis som den GRÄNSSNITTs fil som du skapar för permanent åtkomst, förutom att du måste inkludera ett steg som låter konsumenterna Aktivera JIT-åtkomst. Mer information om hur du publicerar ditt första hanterade program på Azure Marketplace finns i [Azure Managed Applications på Marketplace](publish-marketplace-app.md).
 
-För att stödja JIT-funktion för ditt erbjudande, lägger du till följande innehåll i filen CreateUiDefinition.json:
+För att stödja JIT-funktioner för ditt erbjudande lägger du till följande innehåll i din CreateUiDefinition. JSON-fil:
 
-I ”steg”:
+I "steg":
 
 ```json
 {
@@ -60,57 +60,57 @@ I ”steg”:
 }
 ```
  
-I ”utdata”:
+I "utdata":
 
 ```json
-"jitAccessPolicy": "[parse(concat('{\"jitAccessEnabled\":', string(steps('jitConfiguration').jitConfigurationControl.jitEnabled), ',\"jitApprovalMode\":\"', steps('jitConfiguration').jitConfigurationControl.jitApprovalMode, '\",\"maximumJitAccessDuration\":\"', steps('jitConfiguration').jitConfigurationControl.maxAccessDuration, '\",\"jitApprovers\":', string(steps('jitConfiguration').jitConfigurationControl.approvers), '}'))]"
+"jitAccessPolicy": "[steps('jitConfiguration').jitConfigurationControl]"
 ```
 
 > [!NOTE]
-> JIT-åtkomst till genomgår förhandsgranskning. Schemat för JIT-konfiguration kan ändras i framtida iterationer.
+> JIT-åtkomst är i för hands version. Schemat för JIT-konfiguration kan ändras i framtida iterationer.
 
 ## <a name="enable-jit-access"></a>Aktivera JIT-åtkomst
 
-När du definierar ditt erbjudande i marketplace måste du kontrollera att du aktiverar JIT-åtkomst.
+När du definierar ditt erbjudande i Marketplace, se till att aktivera JIT-åtkomst.
 
-1. Logga in på den [Molnpartner publiceringsportalen](https://cloudpartner.azure.com).
+1. Logga in på [moln partnerns publicerings Portal](https://cloudpartner.azure.com).
 
-1. Ange värden för att publicera det hanterade programmet i marketplace. Välj **Ja** för **aktivera JIT-åtkomst?**
+1. Ange värden för att publicera det hanterade programmet på Marketplace. Välj **Ja** för **Aktivera JIT-åtkomst?**
 
-   ![Aktivera just-in-time-åtkomst](./media/request-just-in-time-access/marketplace-enable.png)
+   ![Aktivera just-in-Time-åtkomst](./media/request-just-in-time-access/marketplace-enable.png)
 
-Du har lagt till ett JIT-konfigurationssteg i Användargränssnittet och har aktiverat JIT-åtkomst till i marketplace-erbjudande. När kunder distribuerar det hanterade programmet, kan de [aktivera JIT-åtkomst för deras instans](approve-just-in-time-access.md#enable-during-deployment).
+Du har lagt till ett konfigurations steg för JIT i användar gränssnittet och har aktiverat JIT-åtkomst i Marketplace-erbjudandet. När konsumenter distribuerar ditt hanterade program kan de [Aktivera JIT-åtkomst för](approve-just-in-time-access.md#enable-during-deployment)instansen.
 
 ## <a name="request-access"></a>Begär åtkomst
 
-När du behöver komma åt konsumentens hanterade resurser kan skicka du en begäran om en viss roll, tid och varaktighet. Konsumenten måste sedan godkänna begäran.
+När du behöver åtkomst till konsumentens hanterade resurser skickar du en begäran om en speciell roll, tid och varaktighet. Konsumenten måste sedan godkänna begäran.
 
-Så här skickar en begäran för JIT-åtkomst:
+Skicka en begäran om JIT-åtkomst:
 
-1. Välj **JIT-åtkomst till** för det hanterade programmet som du behöver komma åt.
+1. Välj **JIT-åtkomst** för det hanterade programmet som du behöver åtkomst till.
 
-1. Välj **berättigade roller**, och välj **aktivera** i kolumnen åtgärder för den roll som du vill använda.
+1. Välj **berättigade roller**och välj **Aktivera** i kolumnen åtgärd för den roll som du vill använda.
 
-   ![Aktivera begäran om åtkomst](./media/request-just-in-time-access/send-request.png)
+   ![Aktivera åtkomstbegäran](./media/request-just-in-time-access/send-request.png)
 
-1. På den **aktivera rollen** formuläret, Välj en starttid och varaktighet för din roll ska aktiveras. Välj **aktivera** att skicka din begäran.
+1. I formuläret **Aktivera roll** väljer du start tid och varaktighet för att din roll ska vara aktiv. Välj **Aktivera** för att skicka begäran.
 
-   ![Aktivera åtkomst till](./media/request-just-in-time-access/activate-access.png) 
+   ![Aktivera åtkomst](./media/request-just-in-time-access/activate-access.png) 
 
-1. Visa meddelanden att se att den nya JIT-förfrågan har skickats till konsumenten.
+1. Visa meddelanden för att se att den nya JIT-begäran har skickats till konsumenten.
 
    ![Avisering](./media/request-just-in-time-access/in-progress.png)
 
-   Nu kan du måste vänta tills användaren till [godkänna din begäran](approve-just-in-time-access.md#approve-requests).
+   Nu måste du vänta tills konsumenten har [godkänt din begäran](approve-just-in-time-access.md#approve-requests).
 
-1. Om du vill visa status för alla JIT-begäranden för ett hanterat program, Välj **JIT-åtkomst till** och **begär historik**.
+1. Om du vill visa status för alla JIT-begäranden för ett hanterat program väljer du **JIT-åtkomst** och **begär ande historik**.
 
    ![Visa status](./media/request-just-in-time-access/view-status.png)
 
 ## <a name="known-issues"></a>Kända problem
 
-Ägar-ID för det konto som begär åtkomst till JIT måste uttryckligen inkluderas i definitionen för hanterade programmet. Kontot kan inte bara inkluderas genom en grupp som har angetts i paketet. Den här begränsningen kommer att åtgärdas i en framtida version.
+Ägar-ID för det konto som begär JIT-åtkomst måste uttryckligen tas med i definitionen för hanterade program. Kontot får inte ingå i en grupp som har angetts i paketet. Den här begränsningen kommer att åtgärdas i en framtida version.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om hur du godkänner begäranden om JIT-åtkomst i [godkänna just-in-time-åtkomst i Azure Managed Applications](approve-just-in-time-access.md).
+Om du vill veta mer om att godkänna begär Anden om JIT-åtkomst, se [Godkänn just-in-Time-åtkomst i Azure Managed Applications](approve-just-in-time-access.md).

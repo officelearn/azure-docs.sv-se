@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 6c8f9c98d645f60ea9281d1ca2aa15731c9c1e80
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 576a44663518343a9132af468a0f1c1fb8e4de50
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954993"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575391"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Samla in loggdata med Log Analytics agent
 
@@ -148,7 +148,7 @@ Att ansluta datorer i din Azure-prenumeration eller hybrid miljö direkt med Azu
 
 |Källa | Metod | Beskrivning|
 |-------|-------------|-------------|
-|Azure VM| -Log Analytics VM-tillägg för [Windows](../../virtual-machines/extensions/oms-windows.md) eller [Linux](../../virtual-machines/extensions/oms-linux.md) med Azure CLI eller med en Azure Resource Manager-mall<br>- [Manuellt från Azure portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | Tillägget Log Analytics-agenten installeras på virtuella Azure-datorer och registrerar dem i en befintlig Azure Monitor-arbetsyta.|
+|Azure VM| -Log Analytics VM-tillägg för [Windows](../../virtual-machines/extensions/oms-windows.md) eller [Linux](../../virtual-machines/extensions/oms-linux.md) med Azure CLI eller med en Azure Resource Manager-mall<br>- [Manuellt från Azure Portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)<br>- [Azure Security Center automatisk etablering](../../security-center/security-center-enable-data-collection.md)| -Tillägget installerar Log Analytics agent på virtuella Azure-datorer och registrerar dem i en befintlig Azure Monitor arbets yta.<br>-Azure Security Center kan etablera Log Analytics agent på alla virtuella Azure-datorer som stöds och eventuella nya som skapas om du aktiverar den för att övervaka säkerhets problem och hot. Om den aktive ras kommer alla nya eller befintliga virtuella datorer utan en installerad agent att tillhandahållas.|
 | Windows-hybriddator|- [Manuell installation](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager-mall med Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Installera Microsoft Monitoring agent från kommandoraden eller med hjälp av en automatiserad metod, till exempel Azure Automation DSC [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), eller med en Azure Resource Manager-mall om du har distribuerat Microsoft Azure Stack i ditt datacenter.| 
 | Linux-hybriddator| [Manuell installation](../../azure-monitor/learn/quick-collect-linux-computer.md)|Installera agenten för Linux som anropar ett wrapper-skript som finns på GitHub. | 
 | System Center Operations Manager|[Integrera Operations Manager med Log Analytics](../../azure-monitor/platform/om-agents.md) | Konfigurera integration mellan Operations Manager och Azure Monitor loggar för att vidarebefordra insamlade data från Windows-datorer som rapporterar till en hanterings grupp.|  

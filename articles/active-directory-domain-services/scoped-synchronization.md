@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Begränsade synkronisering | Microsoft Docs'
-description: Konfigurera begränsade synkronisering från Azure AD till din hanterade domäner
+title: 'Azure Active Directory Domain Services: Omfångs synkronisering | Microsoft Docs'
+description: Konfigurera omfångs synkronisering från Azure AD till dina hanterade domäner
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,73 +15,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: bb96e7ccbc38a71d24178c31f8eb9a077c06b8f0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 7d3bd8c6c62c0b8a1be6203e426337fcee7d2126
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472528"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617117"
 ---
-# <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Konfigurera begränsade synkronisering från Azure AD till din hanterade domän
-Den här artikeln visar hur du konfigurerar endast specifika användarkonton som ska synkroniseras från din Azure AD-katalog till din hanterade domän i Azure AD Domain Services.
+# <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Konfigurera omfångs synkronisering från Azure AD till din hanterade domän
+Den här artikeln visar hur du konfigurerar enbart vissa användar konton som ska synkroniseras från din Azure AD-katalog till din Azure AD Domain Services hanterade domän.
 
 
-## <a name="group-based-scoped-synchronization"></a>Gruppbaserad begränsade synkronisering
-Som standard synkroniseras alla användare och grupper i Azure AD-katalogen till din hanterade domän. Om bara ett fåtal användare använda den hanterade domänen, kan du synkronisera enbart de användarkontona. Gruppbaserad begränsade synkronisering kan du göra detta. När du konfigurerat, synkroniseras användarkonton som hör till de grupper som du har angett till den hanterade domänen.
+## <a name="group-based-scoped-synchronization"></a>Gruppbaserad synkronisering av omfång
+Som standard synkroniseras alla användare och grupper i Azure AD-katalogen med din hanterade domän. Om bara några få användare använder den hanterade domänen kan du bara synkronisera dessa användar konton. Med gruppbaserad omsynkronisering kan du göra det. När det är konfigurerat synkroniseras endast användar konton som tillhör de grupper som du har angett till den hanterade domänen.
 
-Tabellen nedan hjälper dig att avgöra hur du använder begränsade synkronisering:
+Följande tabell hjälper dig att avgöra hur du ska använda omfångs synkronisering:
 
-| **Aktuell status** | **Önskat tillstånd** | **Konfiguration som krävs** |
+| **Nuvarande tillstånd** | **Önskat tillstånd** | **Obligatorisk konfiguration** |
 | --- | --- | --- |
-| Din befintliga hanterade domän är konfigurerad för att synkroniseras alla användarkonton och grupper. | Du vill synkronisera endast användarkonton som tillhör specifika grupper till din hanterade domän. | [Ta bort den befintliga hanterade domänen](delete-aadds.md). Följ instruktionerna i den här artikeln för att återskapa det begränsade synkronisering är konfigurerat. |
-| Du har inte en befintlig hanterad domän. | Du vill skapa en ny hanterad domän och synkronisera endast användarkonton som tillhör specifika grupper. | Följ instruktionerna i den här artikeln för att skapa en ny hanterad domän med begränsade synkronisering har konfigurerats. |
-| Din befintliga hanterade domän är konfigurerad för att synkronisera bara de konton som tillhör specifika grupper. | Du vill ändra i listan över grupper vars användare ska synkroniseras till Hantera domänen. | Följ anvisningarna i den här artikeln för att ändra begränsade synkronisering. |
+| Din befintliga hanterade domän är konfigurerad för att synkronisera alla användar konton och grupper. | Du vill bara synkronisera användar konton som tillhör vissa grupper till din hanterade domän. | [Ta bort den befintliga hanterade domänen](delete-aadds.md). Följ sedan instruktionerna i den här artikeln för att återskapa den med konfigurerad omfångs synkronisering. |
+| Du har inte en befintlig hanterad domän. | Du vill skapa en ny hanterad domän och endast synkronisera användar konton som tillhör vissa grupper. | Följ anvisningarna i den här artikeln för att skapa en ny hanterad domän med begränsad synkronisering konfigurerad. |
+| Din befintliga hanterade domän är konfigurerad för att endast synkronisera konton som tillhör vissa grupper. | Du vill ändra listan över grupper vars användare ska synkroniseras till hantera domän. | Följ instruktionerna i den här artikeln för att ändra omfångs synkroniseringen. |
 
 > [!WARNING]
-> **Ändrar omfånget av synkronisering gör din hanterade domän genomgå för omsynkronisering.**
+> **Om du ändrar omfånget för synkronisering går din hanterade domän att gå igenom omsynkroniseringen.**
 > 
->  * När du ändrar synkronisering omfånget för en hanterad domän, sker en fullständig omsynkronisering.
+>  * När du ändrar omfånget för synkronisering för en hanterad domän sker en fullständig omsynkronisering.
 >  * Objekt som inte längre behövs i den hanterade domänen tas bort. Nya objekt skapas i den hanterade domänen.
->  * Omsynkroniseringen kan ta lång tid att slutföra beroende på hur många objekt (användare, grupper och gruppmedlemskap) i den hanterade domänen och Azure AD-katalogen. Omsynkroniseringen kan ta ett par dagar för stora kataloger med flera hundra tusentals objekt.
+>  * Det kan ta lång tid att slutföra omsynkroniseringen, beroende på antalet objekt (användare, grupper och grupp medlemskap) i din hanterade domän och Azure AD-katalogen. För stora kataloger med hundratals tusen objekt kan omsynkroniseringen ta några dagar.
 
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Skapa en ny hanterad domän och aktivera gruppbaserad begränsade synkronisering med hjälp av Azure portal
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Skapa en ny hanterad domän och aktivera gruppbaserad omsynkronisering med hjälp av Azure Portal
 
-1. Följ den [komma igång-guiden](create-instance.md) att skapa en hanterad domän.
-2. Välj **begränsade** under synkronisering style val i guiden Skapa Azure AD Domain Services.
+1. Följ [komma igång-guiden](tutorial-create-instance.md) för att skapa en hanterad domän.
+2. Välj **omfång** under valet av synkronisering i guiden Skapa Azure AD Domain Services.
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Skapa en ny hanterad domän och aktivera gruppbaserad begränsade synkronisering med hjälp av PowerShell
-Använda PowerShell för att slutföra den här uppsättningen med steg. Se anvisningarna för att [aktiverar Azure Active Directory Domain Services med hjälp av PowerShell](powershell-create-instance.md). Några steg i den här artikeln har ändrats något om du vill konfigurera begränsade synkronisering.
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Skapa en ny hanterad domän och aktivera gruppbaserad synkronisering med hjälp av PowerShell
+Använd PowerShell för att slutföra den här uppsättningen steg. Läs anvisningarna för att [aktivera Azure Active Directory Domain Services med hjälp av PowerShell](powershell-create-instance.md). Ett par steg i den här artikeln har ändrats något för att konfigurera omfångst synkronisering.
 
-Utför följande steg för att konfigurera gruppbaserad begränsade synkronisering till din hanterade domän:
+Utför följande steg för att konfigurera gruppbaserad synkronisering med omfång till din hanterade domän:
 
 1. Utför följande uppgifter:
-   * [Uppgift 1: Installera PowerShell-moduler som krävs](powershell-create-instance.md#task-1-install-the-required-powershell-modules).
-   * [Uppgift 2: Skapa nödvändiga tjänstens huvudnamn i Azure AD-katalogen](powershell-create-instance.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-   * [Uppgift 3: Skapa och konfigurera den ”AAD DC-administratörer” group]powershell-create-instance.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-   * [Uppgift 4: Registrera resursprovidern Azure AD Domain Services](powershell-create-instance.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-   * [Uppgift 5: Skapa en resursgrupp](powershell-create-instance.md#task-5-create-a-resource-group).
+   * [Uppgift 1: Installera de PowerShell-moduler](powershell-create-instance.md#task-1-install-the-required-powershell-modules)som krävs.
+   * [Uppgift 2: Skapa det tjänst huvud namn som krävs i Azure AD](powershell-create-instance.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory)-katalogen.
+   * [Uppgift 3: Skapa och konfigurera gruppen AAD DC-administratörer] PowerShell-Create-instance. MD # Task-3-Create-och-Configure-the-AAD-DC-administrators-Group).
+   * [Uppgift 4: Registrera Azure AD Domain Services Resource Provider](powershell-create-instance.md#task-4-register-the-azure-ad-domain-services-resource-provider).
+   * [Uppgift 5: Skapa en resurs grupp](powershell-create-instance.md#task-5-create-a-resource-group).
    * [Uppgift 6: Skapa och konfigurera det virtuella nätverket](powershell-create-instance.md#task-6-create-and-configure-the-virtual-network).
 
-2. Välj de grupper som du vill synkronisera och ange visningsnamnet för de grupper som du vill att synkroniseras till din hanterade domän.
+2. Välj de grupper som du vill synkronisera och ange visnings namnet för de grupper som du vill synkronisera till din hanterade domän.
 
-3. Spara den [skript i följande avsnitt](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) till en fil med namnet ```Select-GroupsToSync.ps1```. Kör skriptet som den här:
+3. Spara [skriptet i följande avsnitt](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) till en fil med namnet ```Select-GroupsToSync.ps1```. Kör skriptet som nedan:
 
    ```powershell
    .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
    ```
 
    > [!WARNING]
-   > **Glöm inte att inkludera gruppen ”AAD DC-administratörer”.**
+   > **Glöm inte att lägga till gruppen "AAD DC-administratörer".**
    >
-   > I listan över grupper som konfigurerats för begränsade synkronisering måste du inkludera gruppen ”AAD DC-administratörer”. Om du inte använder den här gruppen, blir den hanterade domänen inte kan användas.
+   > Du måste lägga till gruppen "AAD DC-administratörer" i listan över grupper som har kon figurer ATS för omfångs synkronisering. Om du inte tar med den här gruppen går det inte att använda den hanterade domänen.
    >
 
-4. Nu kan skapa den hanterade domänen och aktivera gruppbaserad begränsade synkronisering för den hanterade domänen. Egenskapen ```"filteredSync" = "Enabled"``` i den ```Properties``` parametern. Till exempel finns i den följande skript fragment som kopieras från [uppgift 7: Etablera den hanterade domänen i Azure AD Domain Services](powershell-create-instance.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+4. Skapa nu den hanterade domänen och aktivera gruppbaserad synkronisering för den hanterade domänen. Ta med egenskapen ```"filteredSync" = "Enabled"``` ```Properties``` i parametern. Se till exempel följande skript fragment, kopierat från [uppgift 7: Etablera den Azure AD Domain Services hanterade](powershell-create-instance.md#task-7-provision-the-azure-ad-domain-services-managed-domain)domänen.
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso100.com"
+   $ManagedDomainName = "contoso.com"
    $ResourceGroupName = "ContosoAaddsRg"
    $VnetName = "DomainServicesVNet_WUS"
    $AzureLocation = "westus"
@@ -95,11 +95,11 @@ Utför följande steg för att konfigurera gruppbaserad begränsade synkroniseri
    ```
 
    > [!TIP]
-   > Glöm inte att inkludera ```"filteredSync" = "Enabled"``` i den ```-Properties``` parameter, så begränsade synkronisering har aktiverats för den hanterade domänen.
+   > Glöm inte att inkludera ```"filteredSync" = "Enabled"``` ```-Properties``` i parametern, så omfångst synkronisering är aktiverat för den hanterade domänen.
 
 
-## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>Skript för att välja grupper ska synkroniseras till den hanterade domänen (Välj GroupsToSync.ps1)
-Spara följande skript i en fil (```Select-GroupsToSync.ps1```). Det här skriptet konfigurerar Azure AD Domain Services för att synkronisera valda grupper till den hanterade domänen. Alla användarkonton som hör till de angivna grupperna kommer att synkroniseras till den hanterade domänen.
+## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>Skript för att välja grupper som ska synkroniseras till den hanterade domänen (Select-GroupsToSync. ps1)
+Spara följande skript i en fil (```Select-GroupsToSync.ps1```). Det här skriptet konfigurerar Azure AD Domain Services att synkronisera valda grupper till den hanterade domänen. Alla användar konton som tillhör de angivna grupperna kommer att synkroniseras med den hanterade domänen.
 
 ```powershell
 param (
@@ -179,18 +179,18 @@ Write-Output "******************************************************************
 ```
 
 
-## <a name="modify-group-based-scoped-synchronization"></a>Ändra gruppbaserad begränsade synkronisering
-Om du vill ändra i listan över grupper vars användare ska synkroniseras till din hanterade domän, kör den [PowerShell-skript](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) och ange den nya listan över grupper. Kom ihåg att alltid ange gruppen ”AAD DC-administratörer” i den här listan.
+## <a name="modify-group-based-scoped-synchronization"></a>Ändra gruppbaserad synkronisering med omfång
+Om du vill ändra listan över grupper vars användare ska synkroniseras till din hanterade domän, kör du [PowerShell-skriptet](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) igen och anger den nya listan över grupper. Kom ihåg att alltid ange gruppen "AAD DC-administratörer" i den här listan.
 
 > [!WARNING]
-> **Glöm inte att inkludera gruppen ”AAD DC-administratörer”.**
+> **Glöm inte att lägga till gruppen "AAD DC-administratörer".**
 >
-> I listan över grupper som konfigurerats för begränsade synkronisering måste du inkludera gruppen ”AAD DC-administratörer”. Om du inte använder den här gruppen, blir den hanterade domänen inte kan användas.
+> Du måste lägga till gruppen "AAD DC-administratörer" i listan över grupper som har kon figurer ATS för omfångs synkronisering. Om du inte tar med den här gruppen går det inte att använda den hanterade domänen.
 >
 
 
-## <a name="disable-group-based-scoped-synchronization"></a>Inaktivera gruppbaserad begränsade synkronisering
-Använd följande PowerShell-skript för att inaktivera gruppbaserad begränsad synkronisering för din hanterade domän:
+## <a name="disable-group-based-scoped-synchronization"></a>Inaktivera gruppbaserad synkronisering av omfång
+Använd följande PowerShell-skript för att inaktivera gruppbaserad omsynkronisering för din hanterade domän:
 
 ```powershell
 // Login to your Azure AD tenant
@@ -207,4 +207,4 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScoped
 
 ## <a name="next-steps"></a>Nästa steg
 * [Förstå synkronisering i Azure AD Domain Services](synchronization.md)
-* [Aktivera Azure Active Directory Domain Services med hjälp av PowerShell](powershell-create-instance.md)
+* [Aktivera Azure Active Directory Domain Services med PowerShell](powershell-create-instance.md)

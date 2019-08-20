@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 617d19b0dd9da926eb49170c1566febc6f6280ba
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 833d8533ff3289693e1744db2d77d4bed6a9ea69
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467802"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616998"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Arbeta med ett Azure Cosmos-konto
 
@@ -25,7 +25,7 @@ Om du vill hantera åtkomsten till alla data i ditt Azure Cosmos-konto på ett s
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Element i ett Azure Cosmos-konto
 
-Azure Cosmos DB container är den grundläggande enheten för skalbarhet. Du kan i princip ha ett obegränsat, allokerat data flöde (RU/s) och lagrings utrymme i en behållare. Azure Cosmos DB transparent partitionering av din behållare med hjälp av den logiska partitionsnyckel som du anger för att elastiskt skala ditt etablerade data flöde och lagrings utrymme elastiskt. Mer information finns i [arbeta med Azure Cosmos-behållare och-objekt](databases-containers-items.md).
+Azure Cosmos-behållaren är den grundläggande enheten för skalbarhet. Du kan i princip ha ett obegränsat, allokerat data flöde (RU/s) och lagrings utrymme i en behållare. Azure Cosmos DB transparent partitionering av din behållare med hjälp av den logiska partitionsnyckel som du anger för att elastiskt skala ditt etablerade data flöde och lagrings utrymme elastiskt. Mer information finns i [arbeta med Azure Cosmos-behållare och-objekt](databases-containers-items.md).
 
 För närvarande kan du skapa högst 100 Azure Cosmos-konton under en Azure-prenumeration. Ett enda Azure Cosmos-konto kan i princip hantera obegränsad mängd data och etablerade data flöden. Om du vill hantera dina data och ett allokerat data flöde kan du skapa en eller flera Azure Cosmos-databaser under ditt konto och inom den databasen, kan du skapa en eller flera behållare. Följande bild visar hierarkin för element i ett Azure Cosmos-konto:
 

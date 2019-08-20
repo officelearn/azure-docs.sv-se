@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 7db14f6406223486ea0efb80d3d1cfcd0351f414
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3ad9aff10b3bae36a173f776f55a434fd8b38b98
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037248"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574280"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Konfigurera Start tiden för Change feed processor
 
@@ -51,8 +51,7 @@ Processorn för ändrings flöden initieras och börjar läsa ändringar från b
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan nu fortsätta att lära dig mer om ändringsfeed i följande artiklar:
+Nu kan du fortsätta med att lära dig mer om att ändra flödes processor i följande artiklar:
 
-* [Översikt över ändra feed](change-feed.md)
-* [Sätt att läsa ändrings flöde](read-change-feed.md)
-* [Använda Change feed processor](change-feed-processor.md)
+* [Översikt över ändring av flödes processor](change-feed-processor.md)
+* [Använda uppskattningen ändra feed](how-to-use-change-feed-estimator.md)

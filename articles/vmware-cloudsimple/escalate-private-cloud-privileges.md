@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e53d0d4f8f19a3cf81f1adb6c62b2797a50d146
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b54f1d8c0705488c53925d097433e77aed3eac72
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812228"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617617"
 ---
-# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Eskalera behörigheter för privat moln vCenter från CloudSimple-portalen 
+# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Eskalera behörigheter för privat moln vCenter från CloudSimple-portalen
 
 För administrativ åtkomst till ditt privata moln vCenter kan du tillfälligt eskalera dina CloudSimple-privilegier.  Med utökade privilegier kan du installera VMware-lösningar, lägga till identitets källor och hantera användare.
 
@@ -38,7 +38,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
     ![Ändra vSphere-behörighet](media/escalate-private-cloud-privilege.png)
 
-4. Välj användar typen vSphere.  Endast **CloudOwner@cloudsimple.local** lokal användare kan eskaleras.
+4. Välj användar typen vSphere.  Endast `CloudOwner@cloudsimple.local` lokal användare kan eskaleras.
 
 5. Välj intervallet för eskalerad tid i list rutan. Välj den kortaste perioden som gör att du kan slutföra uppgiften.
 

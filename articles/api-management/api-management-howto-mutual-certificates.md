@@ -1,6 +1,6 @@
 ---
-title: Säkra serverdelstjänster med hjälp av klienten certifikatautentisering – Azure API Management | Microsoft Docs
-description: Lär dig hur du skyddar backend-tjänster med hjälp av autentisering av klientcertifikat i Azure API Management.
+title: Säkra backend-tjänster med autentisering av klient certifikat – Azure API Management | Microsoft Docs
+description: Lär dig hur du skyddar backend-tjänster med autentisering av klient certifikat i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,77 +13,77 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 13a2eb080c6822a8a6786be1952bc588fa8afd80
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc90b87c55b44d57b8b2251c535065792b5d4c71
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141598"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612017"
 ---
-# <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Hur du skyddar backend-tjänster med hjälp av klienten autentisering i Azure API Management
+# <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Skydda backend-tjänster med autentisering av klient certifikat i Azure API Management
 
-API Management kan du skyddar åtkomsten till backend-tjänst i ett API med hjälp av klientcertifikat. Den här guiden visar hur du hanterar certifikat i Azure API Management-tjänstinstans i Azure-portalen. Den förklarar också hur du konfigurerar ett API om du vill använda ett certifikat för att få åtkomst till en backend tjänst.
+API Management ger dig säker åtkomst till backend-tjänsten för ett API med hjälp av klient certifikat. Den här guiden visar hur du hanterar certifikat i Azure API Management-tjänsteinstansen i Azure Portal. Det beskriver också hur du konfigurerar ett API för att använda ett certifikat för att få åtkomst till en backend-tjänst.
 
-Information om hur du hanterar certifikat med hjälp av API Management REST API finns i <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API-certifikat entitet</a>.
+Information om hur du hanterar certifikat med hjälp av API Management REST API finns i <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API certifikat enhet</a>.
 
-## <a name="prerequisites"> </a>Nödvändiga komponenter
+## <a name="prerequisites"> </a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Den här guiden visar hur du konfigurerar din API Management-tjänstinstans för att använda autentisering med klientcertifikat för att få åtkomst till backend-tjänsten för ett API. Innan du följer stegen i den här artikeln bör du ha dina backend-tjänst som konfigurerats för autentisering av klientcertifikat ([konfigurera autentisering med datorcertifikat i Azure WebSites finns på den här artikeln] [ to configure certificate authentication in Azure WebSites refer to this article]). Du behöver åtkomst till certifikatet och lösenordet för att överföra den till API Management-tjänsten.
+Den här guiden visar hur du konfigurerar din API Management tjänst instans så att autentisering med klient certifikat används för att komma åt backend-tjänsten för ett API. Innan du följer stegen i den här artikeln bör du ha konfigurerat din server dels tjänst för autentisering av klient certifikat ([för att konfigurera certifikatautentisering på Azure Websites se den här artikeln][to configure certificate authentication in Azure WebSites refer to this article]). Du behöver åtkomst till certifikatet och lösen ordet för att ladda upp det till API Management tjänsten.
 
-## <a name="step1"> </a>Ladda upp ett klientcertifikat
+## <a name="step1"> </a>Ladda upp ett klient certifikat
 
-![Lägg till certifikat](media/api-management-howto-mutual-certificates/apim-client-cert.png)
+![Lägg till klient certifikat](media/api-management-howto-mutual-certificates/apim-client-cert.png)
 
-Följ stegen nedan för att ladda upp ett nytt klientcertifikat. Om du inte har skapat en API Management-tjänstinstans ännu, finns i självstudierna [skapa en API Management-tjänstinstans][Create an API Management service instance].
+Följ stegen nedan för att ladda upp ett nytt klient certifikat. Om du inte har skapat en API Management tjänst instans ännu går du till självstudien [skapa en API Management tjänst instans][Create an API Management service instance].
 
-1. Gå till din Azure API Management-tjänstinstans i Azure-portalen.
-2. Välj **klientcertifikat** på menyn.
+1. Gå till Azure API Management Service-instansen i Azure Portal.
+2. Välj **klient certifikat** på menyn.
 3. Klicka på knappen **+ Lägg till**.  
-    ![Lägg till certifikat](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
-4. Bläddra fram certifikatet, anger dess ID och lösenord.  
+    ![Lägg till klient certifikat](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
+4. Bläddra efter certifikatet, ange dess ID och lösen ord.  
 5. Klicka på **Skapa**.
 
 > [!NOTE]
-> Certifikatet måste vara i **.pfx** format. Självsignerade certifikat är tillåtna.
+> Certifikatet måste vara i **PFX** -format. Självsignerade certifikat är tillåtna.
 
-När certifikatet har överförts, visas i den **klientcertifikat**.  Om du har många certifikat, anteckna tumavtrycket för det önskade certifikatet för att [konfigurera ett API för att använda ett certifikat för gateway-autentisering][Configure an API to use a client certificate for gateway authentication].
+När certifikatet har laddats upp visas det i **klient certifikaten**.  Om du har många certifikat ska du anteckna tumavtrycket för det önskade certifikatet för att [Konfigurera ett API för att använda ett klient certifikat för gateway-autentisering][Configure an API to use a client certificate for gateway authentication].
 
 > [!NOTE]
-> Om du vill inaktivera verifiering av certifikatkedjan när du använder, till exempel ett självsignerat certifikat, följer du stegen som beskrivs i den här vanliga frågor och svar [objekt](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).
+> Om du vill inaktivera verifiering av certifikat kedjan när du använder, till exempel ett självsignerat certifikat, följer du stegen som beskrivs i den här [artikeln](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)om vanliga frågor och svar.
 
-## <a name="step1a"> </a>Ta bort ett klientcertifikat
+## <a name="step1a"> </a>Ta bort ett klient certifikat
 
-Ta bort ett certifikat genom att klicka på snabbmenyn **...**  och välj **ta bort** bredvid certifikatet.
+Ta bort ett certifikat genom att klicka på snabb menyn **...** och välj **ta bort** bredvid certifikatet.
 
-![Ta bort klientcertifikat](media/api-management-howto-mutual-certificates/apim-client-cert-delete.png)
+![Ta bort klient certifikat](media/api-management-howto-mutual-certificates/apim-client-cert-delete.png)
 
-Om certifikaten som används av ett API, visas en varning-skärm. Om du vill ta bort certifikatet, måste du först ta bort certifikatet från alla API: er som är konfigurerade för att använda den.
+Om certifikatet används av ett API visas en varnings skärm. Om du vill ta bort certifikatet måste du först ta bort certifikatet från alla API: er som har kon figurer ATS för att använda det.
 
-![Ta bort certifikat klientfel](media/api-management-howto-mutual-certificates/apim-client-cert-delete-failure.png)
+![Ta bort klient certifikats problem](media/api-management-howto-mutual-certificates/apim-client-cert-delete-failure.png)
 
-## <a name="step2"> </a>Konfigurera ett API för att använda ett certifikat för gateway-autentisering
+## <a name="step2"> </a>Konfigurera ett API för att använda ett klient certifikat för gateway-autentisering
 
-1. Klicka på **API: er** från den **API Management** på vänstra menyn och navigera till API: et.  
-    ![Aktivera klientcertifikat](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
+1. Klicka på **API: er** på **API Management** menyn till vänster och navigera till API: et.  
+    ![Aktivera klient certifikat](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
 
-2. I den **Design** fliken, klickar du på penn-ikonen för den **serverdel** avsnittet. 
-3. Ändra den **Gateway autentiseringsuppgifter** till **Client cert** och välj ditt certifikat i listrutan.  
-    ![Aktivera klientcertifikat](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
+2. På fliken **design** klickar du på en Penn ikon i **Server delen** . 
+3. Ändra **Gateway-autentiseringsuppgifterna** till **klient certifikat** och välj ditt certifikat i list rutan.  
+    ![Aktivera klient certifikat](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
 4. Klicka på **Spara**. 
 
 > [!WARNING]
-> Den här ändringen är omedelbart verksam och anrop till åtgärderna i den API ska använda certifikatet för autentisering på backend-servern.
+> Den här ändringen börjar gälla omedelbart och anrop till åtgärder i detta API använder certifikatet för att autentisera på backend-servern.
 
 
 > [!TIP]
-> När ett certifikat har angetts för gateway-autentisering för backend-tjänst i ett API, blir en del av principen för det API: et och kan ses i principredigeraren.
+> När ett certifikat anges för gateway-autentisering för backend-tjänsten för ett API, blir det en del av principen för detta API och kan visas i princip redigeraren.
 
 ## <a name="self-signed-certificates"></a>Självsignerade certifikat
 
-Om du använder självsignerade certifikat, måste du inaktivera verifiering av certifikatkedjan för API Management att kommunicera med backend-system. Annars returneras en 500 felkod. Om du vill skapa den här konfigurationen kan du använda den [ `New-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (för ny serverdel) eller [ `Set-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (för befintliga serverdel) PowerShell-cmdletar och ange den `-SkipCertificateChainValidation` parameter `True`.
+Om du använder självsignerade certifikat måste du inaktivera verifiering av certifikat kedjan för att API Management ska kunna kommunicera med backend-systemet. Annars returneras en felkod på 500. Om du vill konfigurera detta kan du använda [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) PowerShell- `-SkipCertificateChainValidation` cmdletarna (for New [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) Server End) eller (för befintliga Server delar) och ange parametern till `True`.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

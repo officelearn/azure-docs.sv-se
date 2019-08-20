@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/18/2019
-ms.openlocfilehash: 05e16a67e6b01ce3bd1f03f0649baa1358414ea7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: HT
+ms.date: 08/16/2019
+ms.openlocfilehash: 69a3b4fc966b6dd506d91e52b33967a2e001367f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035068"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575788"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -25,7 +25,9 @@ Grupper med automatisk redundans är en SQL Database funktion som gör att du ka
 > [!NOTE]
 > När du arbetar med enskilda databaser eller databaser på en SQL Database-Server och vill ha flera sekundära servrar i samma eller olika regioner, använder du [aktiv geo-replikering](sql-database-active-geo-replication.md). 
 
-När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar en eller flera av databaserna i gruppen i automatisk redundans. Dessutom tillhandahåller grupper för automatisk redundans skrivskyddade och skrivskyddade lyssnar slut punkter som förblir oförändrade under redundansväxling. Oavsett om du använder manuell eller automatisk redundans växlar redundans alla sekundära databaser i gruppen till primär. När databasen har redundans har slutförts uppdateras DNS-posten automatiskt för att omdirigera slut punkterna till den nya regionen. För specifika återställnings-och RTO-data, se [Översikt över affärs kontinuitet](sql-database-business-continuity.md).
+När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar en eller flera av databaserna i gruppen i automatisk redundans. Detta är vanligt vis incidenter som inte kan begränsas av de inbyggda automatiska hög tillgänglighets åtgärderna. Exempel på utlösare för växling vid fel är en incident som orsakas av att en SQL-klients ring eller kontroll ring stoppas på grund av en minnes läcka för operativ system på flera datornoder, eller att en incident som orsakas av en eller flera klient signaler är nere, eftersom en fel nätverks kabel togs bort under ro utine maskin varu avställning.  Mer information finns i [SQL Database hög tillgänglighet](sql-database-high-availability.md).
+
+Dessutom tillhandahåller grupper för automatisk redundans skrivskyddade och skrivskyddade lyssnar slut punkter som förblir oförändrade under redundansväxling. Oavsett om du använder manuell eller automatisk redundans växlar redundans alla sekundära databaser i gruppen till primär. När databasen har redundans har slutförts uppdateras DNS-posten automatiskt för att omdirigera slut punkterna till den nya regionen. För specifika återställnings-och RTO-data, se [Översikt över affärs kontinuitet](sql-database-business-continuity.md).
 
 När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar databaser i SQL Database-servern eller hanterade instanser i automatisk redundans. Du kan hantera gruppen för automatisk redundans med:
 

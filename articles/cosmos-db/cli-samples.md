@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: a6348024d4e84c27610f1294f916cca9a851b6b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d7ce5e2c12feeee770de8acfd5df81d340e0a7d0
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892633"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615576"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Azure CLI-exempel för Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure Cos
 | [Skapa ett Azure Cosmos DB-konto med hjälp av Tabell-API](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett konto, en databas och en tabell i Azure Cosmos DB. |
 |**Skala Azure Cosmos DB**||
 | [Skala containerns dataflöde](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Ändrar dataflöde i en container.|
-| [Replikera ett Azure Cosmos DB-databaskonto i flera regioner och konfigurera redundansprioriteringar](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Replikerar kontodata globalt till flera regioner med en angiven redundansprioritet.|
+| [Replikera Azure Cosmos Database-kontot i flera regioner och konfigurera prioriteter för redundans](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Replikerar kontodata globalt till flera regioner med en angiven redundansprioritet.|
 |**Skydda Azure Cosmos DB**||
 | [Hämta kontonycklar](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Hämtar de primära och sekundära huvudskrivnycklarna och de primära och sekundära skrivskyddade nycklarna för kontot.|
 | [Hämta en anslutningssträng för Cosmos-konto konfigurerat med Azure Cosmos DB:s API för MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Hämtar anslutningssträngen för att ansluta MongoDB-appen till Azure Cosmos DB-kontot.|
@@ -37,5 +37,5 @@ Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure Cos
 |**Hög tillgänglighet, haveriberedskap, säkerhetskopiering och återställning**||
 | [Konfigurera redundansprincip](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Ställer in redundansprioritet för varje region i vilken kontot är replikerat.|
 |**Ansluta Azure Cosmos DB till resurser**||
-| [Ansluta en webbapp till Azure Cosmos DB](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Skapa och anslut en Azure Cosmos DB-databas och en Azure-webbapp.|
+| [Ansluta en webbapp till Azure Cosmos DB](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Skapa och Anslut en Azure Cosmos-databas och en Azure-webbapp.|
 |||

@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 28a4cc854842b66a9fb61134e3ca9ac9a5f38fed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04c1466c47d28f638bf7461050cb06b59c7d2396
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965602"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614220"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Vanliga användningsområden för Azure Cosmos DB
 Den här artikeln innehåller en översikt över flera vanliga användningsområden för Azure Cosmos DB.  Rekommendationerna i den här artikeln fungerar som en startpunkt när du utvecklar ditt program med Cosmos DB.   
@@ -26,7 +26,7 @@ När du har läst den här artikeln kommer du att kunna besvara följande frågo
 ## <a name="introduction"></a>Introduktion
 [Azure Cosmos DB](../cosmos-db/introduction.md) är Microsofts globalt distribuerade databastjänst. Tjänsten är utformad att ge kunderna möjlighet att (skala Elastiskt och oberoende) dataflöde och lagring över valfritt antal geografiska regioner. Azure Cosmos DB är den första globalt distribuerade databastjänsten på marknaden idag som erbjuder omfattande [serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/) omfattar dataflöde, svarstider, tillgänglighet och konsekvens. 
 
-Azure Cosmos DB är en globalt distribuerad databas som används i en mängd olika program och användningsfall. Det är ett bra val för någon [serverlös](https://azure.com/serverless) program som behöver korta svarstider ordning millisekunder och behöver skalas globalt och snabbt. Det har stöd för flera datamodeller (nyckelvärde, dokument, diagram och kolumner) och många API: er för data kan komma åt, inklusive [Azure Cosmos DB-API för MongoDB](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin-API](graph-introduction.md), och [API: T Tables](table-introduction.md) internt och på ett utökningsbart sätt. 
+Azure Cosmos DB är en globalt distribuerad databas som används i en mängd olika program och användningsfall. Det är ett bra val för någon [serverlös](https://azure.com/serverless) program som behöver korta svarstider ordning millisekunder och behöver skalas globalt och snabbt. Den har stöd för flera data modeller (nyckel värde, dokument, grafer och kolumner) och många API: er för data åtkomst, inklusive [Azure Cosmos DB s API för MongoDB](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin API](graph-introduction.md)och [tabeller API](table-introduction.md) internt, och i en utöknings bar sätt. 
 
 Här följer några attribut för Azure Cosmos DB som gör att den passar bra för program med höga prestanda med globala ambitionsnivå.
 
@@ -44,7 +44,7 @@ IoT-användningsfall ofta delar vissa mönster i hur de mata in, bearbeta, och l
 
 ![Azure Cosmos DB IoT-Referensarkitektur](./media/use-cases/iot.png)
 
-Ökningar av data kan matas in av Händelsehubbar i Azure som den erbjuder hög genomströmning datainmatning med kort svarstid. Data som samlas in och som behöver bearbetas för insikter i realtid som kan vara går till Azure Stream Analytics för analys i realtid. Data kan läsas in i Azure Cosmos DB för ad hoc-frågor. När data har lästs in till Azure Cosmos DB, är data redo att efterfrågas. Dessutom kan kan nya data och ändringar i befintliga data läsas på ändringsfeed. Ändringsfeed kvarsåt, Lägg till loggen som lagrar ändringar i Cosmos DB-behållare i sekventiell ordning. Alla data eller bara ändringar av data i Azure Cosmos DB kan användas som för referensdata som en del av analys i realtid. Dessutom kan kan data ytterligare finjusteras och bearbetas genom att ansluta Azure Cosmos DB-data till HDInsight för Pig, Hive eller Map/Reduce-jobb.  Förfinade data läses sedan tillbaka till Azure Cosmos DB för rapportering.   
+Ökningar av data kan matas in av Händelsehubbar i Azure som den erbjuder hög genomströmning datainmatning med kort svarstid. Data som samlas in och som behöver bearbetas för insikter i realtid som kan vara går till Azure Stream Analytics för analys i realtid. Data kan läsas in i Azure Cosmos DB för ad hoc-frågor. När data har lästs in till Azure Cosmos DB, är data redo att efterfrågas. Dessutom kan kan nya data och ändringar i befintliga data läsas på ändringsfeed. Ändra feed är en beständigt, bifogad logg som lagrar ändringar i Cosmos-behållare i sekventiell ordning. Alla data eller bara ändringar av data i Azure Cosmos DB kan användas som för referensdata som en del av analys i realtid. Dessutom kan kan data ytterligare finjusteras och bearbetas genom att ansluta Azure Cosmos DB-data till HDInsight för Pig, Hive eller Map/Reduce-jobb.  Förfinade data läses sedan tillbaka till Azure Cosmos DB för rapportering.   
 
 Ett exempel IoT-lösning med Azure Cosmos DB-, EventHubs- och Storm, finns det [hdinsight-storm-exempel arkivet på GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
@@ -68,7 +68,7 @@ Data som lagras i Azure Cosmos DB kan dessutom integreras med HDInsight för ana
 ## <a name="gaming"></a>Spel
 Databasnivån är en fundamental komponent i spelappar. Moderna spel utföra grafiska bearbetning av klienter för mobila/konsolen, men förlitar sig på molnet för att leverera anpassade och personligt anpassad innehåll som statistik i spelet, integrering av sociala media och hög Poängrekord. Spel kräver ofta svarstider på ensiffriga millisekunder för läsningar och skrivningar för att tillhandahålla en engagerande i spelet upplevelse. En game databasen måste vara snabba och att kunna hantera massiva tillfälliga trafiktopparna vid begäranhastigheter när nya spel startar och funktionsuppdateringar.
 
-Azure Cosmos DB används av spel som [The Walking Dead: NO Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) av [Next Games](https://www.nextgames.com/), och [Halo 5: Skyddarna](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB ger följande fördelar för spelutvecklare:
+Azure Cosmos DB används av spel som [det promenad döda: Ingen man är jord](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) av [Nästa spel](https://www.nextgames.com/)och [Halo 5: Skyddare](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB ger följande fördelar för spelutvecklare:
 
 * Azure Cosmos DB kan prestanda kan skalas upp eller ned Elastiskt. På så sätt kan spel att hantera uppdatering profil och statistik från flera miljoner samtidiga spelare genom att göra en enda API-anrop.
 * Azure Cosmos DB stöder millisekund läsningar och skrivningar för att undvika eventuella beräkningstider under spelet.
@@ -108,13 +108,13 @@ Eller, om du vill läsa mer om kunder som använder Cosmos DB, följande kundber
 * [Citrix](https://customers.microsoft.com/story/citrix). Citrix utvecklar single-sign-on lösning med hjälp av Azure Service Fabric och Azure Cosmos DB
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXAS revolutionerande IoT-lösning för vehicle ägare kan du spara tid, pengar, gas – och eventuellt finns.
 * [Domino's Pizza](https://www.dominos.com). Domino's Pizza Inc. är en American pizza restaurangkedja.
-* [Johnson styr](https://www.johnsoncontrols.com). Johnson kontroller är en global diversifierad teknik och flera industriella ledare som betjänar ett stort antal kunder i fler än 150 länder/regioner.
+* [Johnson styr](https://www.johnsoncontrols.com). Johnson-kontroller är en global diversifierad teknik och flera industriella ledare som betjänar ett brett utbud av kunder i mer än 150 länder/regioner.
 * [Microsoft Windows Universal Store, Azure IoT Hub, Xbox Live och andra tjänster](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Hur Microsoft skapar mycket skalbara tjänster med Azure Cosmos DB.
 * [Microsoft Data- och analysteamet](https://customers.microsoft.com/story/microsoftdataandanalytics). Microsofts team för Data och analyser uppnår insamling av stordata global skala med Azure Cosmos DB
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha använder Azure Cosmos DB för att ansluta kunder och företag i Indien.
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb). NewOrbit tar flygning med Azure Cosmos DB.
 * [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio byter från AWS till Azure Cosmos DB för att dra nytta av sociala data i skala.
-* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: Spelet No Man's Land tar sig till #1 stöds av Azure Cosmos DB.
+* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). Promenad död: Det finns ingen Soars till #1 som stöds av Azure Cosmos DB.
 * [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Så implementerade Halo 5 sociala spelupplevelser med Azure Cosmos DB.
 * [Cortana Analytics-galleriet](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana Analytics-galleriet – en skalbar community-webbplatsen på Azure Cosmos DB.
 * [Enkelt](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Inledande Integrator ger multinationella företag globala insikt på bara några minuter med flexibla tekniker.

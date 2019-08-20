@@ -4,24 +4,24 @@ description: Få svar på vanliga frågor om hur du arbetar med Apache Hadoop YA
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 8396f682558b71ca99af845bd51f7b2c8059f79b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: 8bfe249b0295bc860cf17a006c3787ff8afa676b
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072020"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573704"
 ---
-# <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop YARN med Azure HDInsight
+# <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop garn med hjälp av Azure HDInsight
 
 Läs mer om de viktigaste problemen och sina lösningar när du arbetar med Apache Hadoop YARN-nyttolaster i Apache Ambari.
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Hur skapar jag en ny YARN-kö på ett kluster?
 
-### <a name="resolution-steps"></a>Lösningsanvisningar 
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
-Använd följande steg i Ambari för att skapa en ny YARN-kö och för att balansera kapacitetstilldelning bland alla köer. 
+Använd följande steg i Ambari för att skapa en ny YARN-kö och för att balansera kapacitetstilldelning bland alla köer.
 
 I det här exemplet, två befintliga köer (**standard** och **thriftsvr**) både ändras från 50% kapacitet till 25% kapacitet som får den nya kön (spark) 50% kapaciteten.
 
@@ -59,21 +59,20 @@ Dessa ändringar visas direkt på Scheduler YARN-Användargränssnittet.
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-- [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
-
+- [Apache Hadoop garn CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Hur jag för att hämta YARN-loggar från ett kluster?
-
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar 
 
 1. Anslut till HDInsight-kluster med hjälp av en Secure Shell (SSH)-klient. Mer information finns i [mer att läsa](#additional-reading-2).
 
-2. Om du vill visa alla program-ID för YARN-program som körs, kör du följande kommando:
+1. Om du vill visa alla program-ID för YARN-program som körs, kör du följande kommando:
 
     ```apache
     yarn top
     ```
+
     ID: N visas i den **APPLICATIONID** kolumn. Du kan hämta loggar från den **APPLICATIONID** kolumn.
 
     ```apache
@@ -89,42 +88,42 @@ Dessa ändringar visas direkt på Scheduler YARN-Användargränssnittet.
      application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
     ```
 
-3. Om du vill hämta loggar för YARN-behållare för alla program huvudservrar, använder du följande kommando:
-   
+1. Om du vill hämta loggar för YARN-behållare för alla program huvudservrar, använder du följande kommando:
+
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
     ```
 
-    Det här kommandot skapar en loggfil med namnet amlogs.txt. 
+    Det här kommandot skapar en loggfil med namnet amlogs.txt.
 
-4. Om du vill hämta loggar för YARN-behållare för endast det senaste programmet master, använder du följande kommando:
+1. Om du vill hämta loggar för YARN-behållare för endast det senaste programmet master, använder du följande kommando:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
     ```
 
-    Det här kommandot skapar en loggfil med namnet latestamlogs.txt. 
+    Det här kommandot skapar en loggfil med namnet latestamlogs.txt.
 
-4. Om du vill hämta loggar för YARN-behållare för de första två program huvudservrarna, använder du följande kommando:
+1. Om du vill hämta loggar för YARN-behållare för de första två program huvudservrarna, använder du följande kommando:
 
     ```apache
-    yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 
+    yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt
     ```
 
-    Det här kommandot skapar en loggfil med namnet first2amlogs.txt. 
+    Det här kommandot skapar en loggfil med namnet first2amlogs.txt.
 
-5. Om du vill hämta alla loggar för YARN-behållare, använder du följande kommando:
+1. Om du vill hämta alla loggar för YARN-behållare, använder du följande kommando:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
     ```
 
-    Det här kommandot skapar en loggfil med namnet logs.txt. 
+    Det här kommandot skapar en loggfil med namnet logs.txt.
 
-6. För att hämta YARN-logg för behållare för en specifik behållare, använder du följande kommando:
+1. För att hämta YARN-logg för behållare för en specifik behållare, använder du följande kommando:
 
     ```apache
-    yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt 
+    yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
     Det här kommandot skapar en loggfil med namnet containerlogs.txt.
@@ -134,6 +133,12 @@ Dessa ändringar visas direkt på Scheduler YARN-Användargränssnittet.
 - [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN-begrepp och program](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
+## <a name="next-steps"></a>Nästa steg
 
-### <a name="see-also"></a>Se även
-[Felsöka med Azure HDInsight](hdinsight-troubleshoot-guide.md)
+Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
+
+- Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
+
+- Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+
+- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

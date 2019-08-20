@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 849c3a745de08e7cf8ff7f1b8bb237a6d0f54395
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ce943fbed0774667100f6de4c60f91c0b02de6c3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384159"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615344"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Global data distribution med Azure Cosmos DB – under huven
 
@@ -34,7 +34,7 @@ Som du ser i följande bild distribueras data i en behållare längs två dimens
 
 En fysisk partition implementeras av en grupp repliker, som kallas *replik uppsättning*. Varje dator är värd för hundratals repliker som motsvarar olika fysiska partitioner i en fast uppsättning processer som visas i bilden ovan. Repliker som motsvarar de fysiska partitionerna placeras dynamiskt och belastningsutjämnas mellan datorer inom ett kluster och datacenter inom en region.  
 
-En replik tillhör unikt en Azure Cosmos DB-klient. Varje replik har en instans av Cosmos DB [databasmotorn](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), som hanterar resurserna som de associera index. Cosmos DB database engine fungerar på ett atom-postsekvensbaserad (ARS) utifrån typen. Motorn är oberoende till begreppet schema, vilket gör att det går att minska gränserna mellan struktur-och instans värden för poster. Cosmos DB ger fullständig schemat agnosticism genom att automatiskt indexera allt vid inmatning på ett effektivt sätt, där användarna kan fråga efter deras globalt distribuerade data utan att behöva bry dig om schema- eller indexhantering.
+En replik tillhör unikt en Azure Cosmos DB-klient. Varje replik har en instans av Cosmos DB [databasmotorn](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), som hanterar resurserna som de associera index. Cosmos-databasmotorn använder sig av en-baserad (Atom-Record-Sequence)-baserad typ system. Motorn är oberoende till begreppet schema, vilket gör att det går att minska gränserna mellan struktur-och instans värden för poster. Cosmos DB ger fullständig schemat agnosticism genom att automatiskt indexera allt vid inmatning på ett effektivt sätt, där användarna kan fråga efter deras globalt distribuerade data utan att behöva bry dig om schema- eller indexhantering.
 
 Cosmos-databasmotorn består av komponenter, inklusive implementering av flera koordinerande primitiver, language runtime, Query processor och de lagrings-och indexerings under system som ansvarar för transaktions lagring och indexering av data, benämningar. För att ge hållbarhet och hög tillgänglighet databasmotorn bevaras dess data och index på SSD: er och replikerar den bland database engine-instanser inom repliken-uppsättning respektive. Större klienter motsvarar högre skalbarhet och lagrings utrymme och har antingen större eller fler repliker eller både och. Alla komponenter i systemet är fullständigt asynkron – ingen tråd blockerar någonsin och varje tråd fungerar tillfällig utan att det medför några onödiga tråd-växlar. Hastighetsbegränsande och ytterligare belastning är inkopplade över hela spektrumet från åtkomstkontroll till alla i/o-sökvägar. Cosmos-databasmotorn är utformad för att utnyttja detaljerad samtidighet och leverera högt data flöde samtidigt som du arbetar inom Frugal-mängder system resurser.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e5142e9b4e7c2c79fd2b7e41123db4422334b730
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0efd11ef4e9dda2c522e145bf5cb942998d59e53
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467791"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573963"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändra flödes processor i Azure Cosmos DB 
 
@@ -60,7 +60,7 @@ Den normala livs cykeln för en värd instans är:
 1. Läs ändrings flödet.
 1. Om det inte finns några ändringar kan du försätta i vilo läge under en `WithPollInterval` fördefinierad tid (anpassningsbar med i-verktyget) och gå till #1.
 1. Om det finns ändringar skickar du dem till **ombudet**.
-1. När ombudet har slutfört bearbetningen **av ändringarna uppdaterar**du leasing lagret med den senaste bearbetade tidpunkten och går till #1.
+1. När ombudet har slutfört bearbetningenav ändringarna uppdaterar du leasing lagret med den senaste bearbetade tidpunkten och går till #1.
 
 ## <a name="error-handling"></a>Felhantering
 
@@ -85,12 +85,13 @@ Du debiteras för ru: er som förbrukas, eftersom data förflyttning in och ut u
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Användnings exempel på GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
 * [Ytterligare exempel på GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan nu fortsätta att lära dig mer om ändringsfeed i följande artiklar:
+Nu kan du fortsätta med att lära dig mer om att ändra flödes processor i följande artiklar:
 
 * [Översikt över ändra feed](change-feed.md)
-* [Sätt att läsa ändrings flöde](read-change-feed.md)
-* [Med hjälp av ändringen feed med Azure Functions](change-feed-functions.md)
+* [Använda uppskattningen ändra feed](how-to-use-change-feed-estimator.md)
+* [Ändra start tid för matnings processor](how-to-configure-change-feed-start-time.md)

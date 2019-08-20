@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: abnarain
-ms.openlocfilehash: 7e09c36128c3471ce9df33b2a78eb14fab89435b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad09715f8ccbe20ec6f58d3a4543e0168e9f4cbc
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498295"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617707"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 I den här självstudien använder du användargränssnittet för Azure Data Factory för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet.
@@ -89,7 +89,6 @@ Du använder namnet och nyckeln för lagringskontot i den här självstudien. G�
 
 1. I fönstret **Lagringskonto** väljer du **Åtkomstnycklar**.
 
-    ![Åtkomstnycklar](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
 1. I rutorna **Lagringskontonamn** och **key1** kopierar du värdena och klistrar sedan in dem i Anteckningar eller annat redigeringsprogram så att du har dem när du behöver dem senare i självstudien. 
 
@@ -114,14 +113,11 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
 1. Låt **containerfönstret** för **adftutorial** vara öppet. Du kommer att använda den för att bekräfta utdata i slutet av självstudien. Data Factory skapar automatiskt utdatamappen i den här containern, så du behöver inte skapa en.
 
-    ![Containerfönster](media/tutorial-hybrid-copy-powershell/container-page.png)
-
-
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 I det här steget skapar du en datafabrik och startar sedan användargränssnittet för Data Factory för att skapa en pipeline i datafabriken. 
 
 1. Öppna webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**:
+1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**:
    
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -161,7 +157,7 @@ Namnet på datafabriken måste vara *globalt unikt*. Om följande felmeddelande 
 
 1. På fliken **Allmänt** nedtill i fönstret **Egenskaper** skriver du för **Namn** värdet **SQLServerToBlobPipeline**.
 
-   ![Namn på pipeline](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
+   ![Pipelinenamn](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
 
 1. Gå till verktygsfältet **Aktiviteter** och expandera **Dataflöde**. Dra och släpp aktiviteten **Kopiera** på pipelinedesignytan. Ge aktiviteten namnet **CopySqlServerToAzureBlobActivity**.
 
@@ -199,7 +195,7 @@ Namnet på datafabriken måste vara *globalt unikt*. Om följande felmeddelande 
 
     ![Länk för expressinstallation](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
-1. Välj **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)**. 
+1. Välj **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)** . 
 
     ![Snabbinstallation av Integration Runtime (lokal installation)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
 
@@ -231,7 +227,7 @@ Namnet på datafabriken måste vara *globalt unikt*. Om följande felmeddelande 
 
     a. Bekräfta att du ser **SqlServerLinkedService** i **Länkad tjänst**.
 
-    b. Under **Tabell** väljer du **[dbo].[emp]**.
+    b. Under **Tabell** väljer du **[dbo].[emp]** .
 
     ![Källdatauppsättning – anslutningsinformation](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
 

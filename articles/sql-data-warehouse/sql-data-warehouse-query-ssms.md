@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 67707b64bb6018b322ba980535651c126a526eb7
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b96896c0366c6fba2548480b166bdb9cf6ca692c
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479540"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575341"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Ansluta till SQL Data Warehouse med SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga Azu
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att använda de här självstudierna:
 
-* Ett befintligt SQL Data Warehouse. Se [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] för att se hur man skapar det.
+* En befintlig SQL Data Warehouse. Se [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] för att se hur man skapar det.
 * SQL Server Management Studio (SSMS) har installerats. [Installera SSMS][Install SSMS] kostnads fritt om du inte redan har det.
 * Det fullständigt kvalificerade servernamnet. [Anslut till SQL Data Warehouse][Connect to SQL Data Warehouse] för att hitta detta.
 

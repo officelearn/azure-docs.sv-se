@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 08/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f7c83e67c2162561aa579d38116f8ce01fceda9a
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: e820ed25cae23a2dad37c807eb3e188161eaecbf
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014384"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617701"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Skapa ett Azure Data Lake Storage Gen2-lagringskonto
 
@@ -28,7 +28,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 |           | Krav |
 |-----------|--------------|
 |Portalen     | Inget         |
-|PowerShell | Den här snabbstarten kräver PowerShell-modul Az.Storage-version **0.7** eller senare. Kör kommandot `Get-Module -ListAvailable Az.Storage` för att hitta din nuvarande version. Om inga resultat visas när du kör detta kommando eller om en annan version än **0.7** visas måste du uppgradera powershell-modulen. Se avsnittet [Uppgradera powershell-modulen](#upgrade-your-powershell-module) i den här guiden.
+|PowerShell | Den här snabbstarten kräver PowerShell-modul Az.Storage-version **0.7** eller senare. Kör kommandot `Get-Module -ListAvailable Az.Storage` för att hitta din nuvarande version. Om du har kört det här kommandot visas inga resultat eller om en version som är lägre än **0,7** visas måste du uppgradera din PowerShell-modul. Se avsnittet [Uppgradera powershell-modulen](#upgrade-your-powershell-module) i den här guiden.
 |CLI        | Du kan logga in på Azure och köra Azure CLI-kommandon på ett av två sätt: <ul><li>Du kan köra CLI-kommandon från Azure-portalen, i Azure Cloud Shell </li><li>Du kan installera CLI och köra CLI-kommandon lokalt</li></ul>|
 
 När du arbetar på kommandoraden kan du välja om du vill köra Azure Cloud Shell eller installera CLI lokalt.

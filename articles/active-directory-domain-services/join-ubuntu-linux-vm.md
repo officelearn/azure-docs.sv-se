@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 78afec75269876c309b2c324d8a5973fd5ebf9a8
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c782629d422eb8846b209fed7ab6b5a5c015de25
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68773042"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612289"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Ansluta en virtuell Ubuntu-dator i Azure till en hanterad domän
 Den här artikeln visar hur du ansluter en Ubuntu Linux virtuell dator till en Azure AD Domain Services hanterad domän.
@@ -31,9 +31,9 @@ Den här artikeln visar hur du ansluter en Ubuntu Linux virtuell dator till en A
 För att utföra de uppgifter som anges i den här artikeln behöver du:  
 1. En giltig **Azure-prenumeration**.
 2. En **Azure AD-katalog** – antingen synkroniserad med en lokal katalog eller en katalog som endast är molnad.
-3. **Azure AD Domain Services** måste vara aktiverat för Azure AD-katalogen. Om du inte har gjort det följer du alla uppgifter som beskrivs i Komma igångs [guiden](create-instance.md).
-4. Se till att du har konfigurerat IP-adresserna för den hanterade domänen som DNS-servrar för det virtuella nätverket. Mer information finns i [så här uppdaterar du DNS-inställningar för Azure Virtual Network](active-directory-ds-getting-started-dns.md)
-5. Slutför de steg som krävs för att [Synkronisera lösen ord till din Azure AD Domain Services hanterade domänen](active-directory-ds-getting-started-password-sync.md).
+3. **Azure AD Domain Services** måste vara aktiverat för Azure AD-katalogen. Om du inte har gjort det följer du alla uppgifter som beskrivs i Komma igångs [guiden](tutorial-create-instance.md).
+4. Se till att du har konfigurerat IP-adresserna för den hanterade domänen som DNS-servrar för det virtuella nätverket. Mer information finns i [så här uppdaterar du DNS-inställningar för Azure Virtual Network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
+5. Slutför de steg som krävs för att [Synkronisera lösen ord till din Azure AD Domain Services hanterade domänen](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 
 ## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Etablera en Ubuntu Linux virtuell dator
@@ -51,7 +51,7 @@ Etablera en Ubuntu Linux virtuell dator i Azure med någon av följande metoder:
 ## <a name="connect-remotely-to-the-ubuntu-linux-virtual-machine"></a>Fjärrans luta till den Ubuntu Linux virtuella datorn
 Den virtuella Ubuntu-datorn har etablerats i Azure. Nästa uppgift är att fjärrans luta till den virtuella datorn med det lokala administratörs kontot som skapades när den virtuella datorn etablerades.
 
-Följ anvisningarna i artikeln [så här loggar du in på en virtuell dator som kör Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Följ instruktionerna i artikeln [så här loggar du in på en virtuell dator som kör Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Konfigurera värd filen på den virtuella Linux-datorn
@@ -64,10 +64,10 @@ sudo vi /etc/hosts
 I hosts-filen anger du följande värde:
 
 ```console
-127.0.0.1 contoso-ubuntu.contoso100.com contoso-ubuntu
+127.0.0.1 contoso-ubuntu.contoso.com contoso-ubuntu
 ```
 
-Här är "contoso100.com" DNS-domännamnet för din hanterade domän. "contoso-Ubuntu" är värd namnet för den virtuella Ubuntu-dator som du ansluter till den hanterade domänen.
+Här är "contoso.com" DNS-domännamnet för din hanterade domän. "contoso-Ubuntu" är värd namnet för den virtuella Ubuntu-dator som du ansluter till den hanterade domänen.
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Installera nödvändiga paket på den virtuella Linux-datorn
@@ -88,7 +88,7 @@ Installera sedan paket som krävs för domän anslutning på den virtuella dator
 3. Under Kerberos-installationen ser du en rosa skärm. Installationen av paketet "krb5-user" efterfrågar sfär namnet (i alla VERSALer). Installationen skriver [Realm] och [domain_realm]-avsnitten i/etc/krb5.conf.
 
     > [!TIP]
-    > Om namnet på din hanterade domän är contoso100.com anger du CONTOSO100.COM som sfär. Kom ihåg att sfär namnet måste anges i VERSALer.
+    > Om namnet på din hanterade domän är contoso.com anger du contoso.COM som sfär. Kom ihåg att sfär namnet måste anges i VERSALer.
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Konfigurera NTP-inställningarna (Network Time Protocol) på den virtuella Linux-datorn
@@ -101,16 +101,16 @@ sudo vi /etc/ntp.conf
 I filen NTP. conf anger du följande värde och sparar filen:
 
 ```console
-server contoso100.com
+server contoso.com
 ```
 
-Här är "contoso100.com" DNS-domännamnet för din hanterade domän.
+Här är "contoso.com" DNS-domännamnet för din hanterade domän.
 
 Synkronisera nu Ubuntu VM-datum och-tid med NTP-servern och starta sedan NTP-tjänsten:
 
 ```console
 sudo systemctl stop ntp
-sudo ntpdate contoso100.com
+sudo ntpdate contoso.com
 sudo systemctl start ntp
 ```
 
@@ -121,7 +121,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
 1. Identifiera den hanterade domänen för AAD Domain Services. Skriv följande kommando i SSH-terminalen:
 
     ```console
-    sudo realm discover CONTOSO100.COM
+    sudo realm discover contoso.COM
     ```
 
    > [!NOTE]
@@ -133,12 +133,12 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
 2. Initiera Kerberos. Skriv följande kommando i SSH-terminalen:
 
     > [!TIP]
-    > * Se till att du anger en användare som tillhör gruppen "AAD DC-administratörer".
+    > * Se till att du anger en användare som tillhör gruppen "AAD DC-administratörer". Om det behövs [lägger du till ett användar konto i en grupp i Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)
     > * Ange domän namnet med versala bokstäver, annars Miss lyckas kinit.
     >
 
     ```console
-    kinit bob@CONTOSO100.COM
+    kinit bob@contoso.COM
     ```
 
 3. Anslut datorn till domänen. Skriv följande kommando i SSH-terminalen:
@@ -149,7 +149,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
     > Om den virtuella datorn inte kan ansluta till domänen ser du till att den virtuella datorns nätverks säkerhets grupp tillåter utgående Kerberos-trafik på TCP + UDP-port 464 till det virtuella nätverkets undernät för din Azure AD DS-hanterade domän.
 
     ```console
-    sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/
+    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM' --install=/
     ```
 
 Du bör få ett meddelande ("den registrerade datorn i sfären") när datorn har anslutits till den hanterade domänen.
@@ -176,7 +176,7 @@ Du bör få ett meddelande ("den registrerade datorn i sfären") när datorn har
 
 
 ## <a name="configure-automatic-home-directory-creation"></a>Konfigurera automatisk skapande av arbets katalog
-Om du vill aktivera automatisk generering av hem katalogen efter inloggnings användare skriver du följande kommandon i dinin Terminal:
+Om du vill aktivera automatisk generering av hem katalogen efter att du har loggat in användare, skriver du följande kommandon i din SparaTillFil-Terminal:
 
 ```console
 sudo vi /etc/pam.d/common-session
@@ -192,10 +192,10 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## <a name="verify-domain-join"></a>Verifiera domän anslutning
 Kontrol lera om datorn har anslutits till den hanterade domänen. Anslut till den domänanslutna Ubuntu-datorn med en annan SSH-anslutning. Använd ett domän användar konto och kontrol lera sedan för att se om användar kontot har lösts korrekt.
 
-1. I SSH-terminalen skriver du följande kommando för att ansluta till den domänanslutna virtuella Ubuntu-datorn med SSH. Använd ett domän konto som tillhör den hanterade domänen (till exempel "bob@CONTOSO100.COM" i det här fallet.)
+1. I SSH-terminalen skriver du följande kommando för att ansluta till den domänanslutna virtuella Ubuntu-datorn med SSH. Använd ett domän konto som tillhör den hanterade domänen (till exempel "bob@contoso.COM" i det här fallet.)
     
     ```console
-    ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
+    ssh -l bob@contoso.COM contoso-ubuntu.contoso.com
     ```
 
 2. I SSH-terminalen skriver du följande kommando för att se om arbets katalogen har initierats korrekt.
@@ -231,10 +231,10 @@ Du kan bevilja medlemmar i gruppen "AAD DC-administratörer" administratörs beh
 
 
 ## <a name="troubleshooting-domain-join"></a>Felsöka domän anslutning
-Se artikeln [fel söknings domän anslutning](join-windows-vm.md#troubleshoot-joining-a-domain) .
+Se artikeln [fel söknings domän anslutning](join-windows-vm.md#troubleshoot-domain-join-issues) .
 
 
 ## <a name="related-content"></a>Relaterat innehåll
-* [Azure AD Domain Services-Komma igång guide](create-instance.md)
+* [Azure AD Domain Services-Komma igång guide](tutorial-create-instance.md)
 * [Ansluta en virtuell Windows Server-dator till en Azure AD Domain Services hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Så här loggar du in på en virtuell dator som kör Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Logga in på en virtuell dator som kör Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

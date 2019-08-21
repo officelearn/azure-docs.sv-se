@@ -930,6 +930,8 @@
               href: platform/alerts-understand-migration.md
             - name: Använda migreringsverktyget
               href: platform/alerts-using-migration-tool.md
+            - name: Automatisk migreringsprocess
+              href: platform/alerts-automatic-migration.md
             - name: Hantera klassiska måttaviseringar
               href: platform/alerts-classic-portal.md
             - name: Klassisk måttavisering med en Resource Manager-mall

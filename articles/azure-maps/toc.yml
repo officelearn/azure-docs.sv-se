@@ -149,6 +149,8 @@
           href: display-feature-information-android.md
         - name: Lägga till ett panelskikt
           href: how-to-add-tile-layer-android-map.md
+    - name: Ge datafeedback
+      href: how-to-use-feedback-tool.md
 - name: Referens
   items:
     - name: API- och parametertillägg

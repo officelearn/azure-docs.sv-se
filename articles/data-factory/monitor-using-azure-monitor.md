@@ -105,15 +105,15 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Egenskap | Type | Beskrivning |
 | --- | --- | --- |
-| storageAccountId |Sträng | Resurs-ID för det lagrings konto som du vill skicka diagnostikloggar till |
-| serviceBusRuleId |Sträng | Service Bus-regelns ID för Service Bus-namnområdet som du vill ha Event Hubs skapat för för strömnings diagnostikloggar. Regel-ID: t har formatet {Service Bus Resource ID}/authorizationrules/{Key Name}.|
+| storageAccountId |String | Resurs-ID för det lagrings konto som du vill skicka diagnostikloggar till |
+| serviceBusRuleId |String | Service Bus-regelns ID för Service Bus-namnområdet som du vill ha Event Hubs skapat för för strömnings diagnostikloggar. Regel-ID: t har formatet {Service Bus Resource ID}/authorizationrules/{Key Name}.|
 | workspaceId | Komplex typ | Mat ris tids kornig het och deras bevarande principer. Den här egenskapen är för närvarande tom. |
 |metrics| Parameter värden för pipeline-körningen som ska skickas till den anropade pipelinen| Ett JSON-objekt som mappar parameter namn till argument värden |
 | logs| Komplex typ| Namnet på en diagnostisk logg kategori för en resurs typ. Om du vill hämta en lista över diagnostiska logg kategorier för en resurs, utför först en Hämta diagnostiska inställningar-åtgärd. |
-| category| Sträng| Matris med logg kategorier och deras bevarande principer |
-| timeGrain | Sträng | Granularitet för mått som samlas in i ISO 8601-varaktighets format. Måste vara PT1M (en minut)|
+| category| String| Matris med logg kategorier och deras bevarande principer |
+| timeGrain | String | Granularitet för mått som samlas in i ISO 8601-varaktighets format. Måste vara PT1M (en minut)|
 | enabled| Boolesk | Anger om samlingen av detta mått eller vilken logg kategori som är aktive rad för den här resursen|
-| Retention Policy| Komplex typ| Beskriver bevarande principen för en mått-eller logg kategori. Används endast för lagrings konto alternativ.|
+| retentionPolicy | Komplex typ| Beskriver bevarande principen för en mått-eller logg kategori. Används endast för lagrings konto alternativ.|
 | days| Int| Antal dagar att behålla måtten eller loggarna. Värdet 0 behåller loggarna oändligt. Används endast för lagrings konto alternativ. |
 
 **Svar**

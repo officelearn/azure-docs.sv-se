@@ -216,9 +216,6 @@
         - name: Felsök ändringar på en virtuell dator
           href: automation-tutorial-troubleshoot-changes.md
           displayName: inventory
-        - name: Hantera en virtuell dator med inventeringssamling
-          href: automation-vm-inventory.md
-          displayName: inventory
     - name: Felsöka
       items:
         - name: Publicering

@@ -65,7 +65,7 @@ En länkad tjänst länkar ett datalager till en data factory. Du skapar en län
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| accessKeyID |ID för den hemliga åtkomstnyckeln. |sträng |Ja |
+| accessKeyID |ID för den hemliga åtkomstnyckeln. |string |Ja |
 | secretAccessKey |Den hemliga åtkomstnyckeln själva. |Krypterad hemlighet sträng |Ja |
 
 >[!NOTE]
@@ -94,10 +94,10 @@ Avsnitt som struktur, tillgänglighet och princip är liknande för alla dataupp
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| bucketName |S3-Bucketnamn. |Sträng |Ja |
-| key |Objektnyckel S3. |Sträng |Nej |
-| prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |Sträng |Nej |
-| version |Versionen av S3-objektet, om S3 versionshantering är aktiverad. |Sträng |Nej |
+| bucketName |S3-Bucketnamn. |String |Ja |
+| key |Objektnyckel S3. |String |Nej |
+| prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |String |Nej |
+| version |Versionen av S3-objektet, om S3 versionshantering är aktiverad. |String |Nej |
 | format | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som – är mellan filbaserade (binär kopia) att hoppa över avsnittet format i både inkommande och utgående datamängd definitioner. |Nej | |
 | compression | Ange typ och komprimeringsnivå för data. Typerna som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåerna som stöds är: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej | |
 

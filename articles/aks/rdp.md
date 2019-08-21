@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/04/2019
 ms.author: mlearned
-ms.openlocfilehash: 0238278b81255d735f8a950ca307d0e05100cfec
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e3a4ea2e81e6c428b51d164336282f8f929d414b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614568"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639797"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Ansluta med RDP till Azure Kubernetes service (AKS) Cluster Windows Server-noder för underhåll eller fel sökning
 
@@ -63,6 +63,27 @@ Följande exempel på utdata visar att den virtuella datorn har skapats och visa
 ```
 
 Registrera den virtuella datorns offentliga IP-adress. Du kommer att använda den här adressen i ett senare steg.
+
+## <a name="allow-access-to-the-virtual-machine"></a>Tillåt åtkomst till den virtuella datorn
+
+AKS för Node-noder skyddas med NSG: er (nätverks säkerhets grupper) som standard. För att få åtkomst till den virtuella datorn måste du ha aktiverat åtkomst i NSG.
+
+> [!NOTE]
+> NSG: er kontrol leras av AKS-tjänsten. Alla ändringar du gör i NSG kommer att skrivas över när som helst av kontroll planet.
+>
+
+Börja med att hämta resurs gruppen och NSG namnet för den NSG som du vill lägga till regeln till:
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
+```
+
+Skapa sedan NSG-regeln:
+
+```azurecli-interactive
+az network nsg rule create --name tempRDPAccess --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --priority 100 --destination-port-range 3389 --protocol Tcp --description "Temporary RDP access to Windows nodes"
+```
 
 ## <a name="get-the-node-address"></a>Hämta Node-adressen
 
@@ -117,6 +138,17 @@ När du är färdig avslutar du RDP-anslutningen till Windows Server-noden och s
 
 ```azurecli-interactive
 az vm delete --resource-group myResourceGroup --name myVM
+```
+
+Och NSG-regeln:
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
+```
+
+```azurecli-interactive
+az network nsg rule delete --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --name tempRDPAccess
 ```
 
 ## <a name="next-steps"></a>Nästa steg

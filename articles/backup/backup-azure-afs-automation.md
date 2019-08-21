@@ -5,15 +5,15 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/05/2018
+ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: f933b926aa0e277976416ae1b3b2eb684d9fcc85
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
-ms.translationtype: MT
+ms.openlocfilehash: f736d7f1dde8f268033d7c80322b91543672e68f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955089"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638532"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Säkerhetskopiera och återställa Azure Files med PowerShell
 
@@ -262,6 +262,12 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 ```
 
 Ögonblicks bilder av Azure-filresurser används när säkerhets kopieringen görs, så vanligt vis jobbet slutförs när kommandot returnerar utdata.
+
+### <a name="using-on-demand-backups-to-extend-retention"></a>Använda säkerhets kopiering på begäran för att utöka kvarhållning
+
+Säkerhets kopiering på begäran kan användas för att spara dina ögonblicks bilder i 10 år. Scheduler kan användas för att köra PowerShell-skript på begäran med vald kvarhållning och därmed ta ögonblicks bilder med jämna mellanrum varje vecka, månad eller år. När du använder vanliga ögonblicks bilder kan du se [begränsningarna för säkerhets kopiering på begäran](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-) med Azure Backup.
+
+Om du letar efter exempel skript kan du referera till exempel skriptet på GitHub (https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) med Azure Automation Runbook som gör att du kan schemalägga säkerhets kopieringar regelbundet och behålla dem jämnt upp till 10 år.
 
 ### <a name="modify-the-protection-policy"></a>Ändra skydds principen
 

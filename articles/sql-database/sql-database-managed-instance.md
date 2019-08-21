@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 94035fda6b1dff491a69c0f0001019ccd753d4e8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: ebf4f516b8f90ce2ba8b277281300ae3239821c5
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816631"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640806"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database Hanterad instans?
 
@@ -82,7 +82,7 @@ I vCore-modellen kan du välja mellan generationens maskin vara.
 Hitta mer information om skillnaden mellan maskin varu generationer i [resurs gränser för hanterade instanser](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
 > [!IMPORTANT]
-> Nya Gen4-databaser stöds inte längre i AustraliaEast-regionen.
+> Nya Gen4-databaser stöds inte längre i regionerna Australien, östra eller Brasilien, södra.
 
 ## <a name="managed-instance-service-tiers"></a>Tjänst nivåer för hanterade instanser
 
@@ -292,7 +292,7 @@ Med distributions alternativet för hanterade instanser kan system administratö
 
 I följande tabell visas flera egenskaper, som är tillgängliga via Transact SQL, som du kan använda för att identifiera att programmet fungerar med en hanterad instans och hämta viktiga egenskaper.
 
-|Egenskap|Värde|Kommentar|
+|Egenskap|Value|Kommentar|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) – 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Värdet är samma som i SQL Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Värdet är samma som i SQL Database.|

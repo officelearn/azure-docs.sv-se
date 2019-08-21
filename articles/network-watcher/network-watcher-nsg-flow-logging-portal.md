@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 433f8550e9bf8d5f352494005300e1f92494c3c7
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 3e5490a4d74f10532764029f7a83788e3e39b592
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563501"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636219"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure-portalen
 
@@ -95,7 +95,8 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
     Det tar ungefär en minut att skapa lagringskontot. Fortsätt inte med de återstående stegen förrän lagringskontot har skapats. Om du använder ett befintligt lagringskonto i stället för att skapa ett nytt väljer du ett lagringskonto där **Alla nätverk** (standard) har valts för **Brandväggar och virtuella nätverk** under **Inställningar** för lagringskontot. I samtliga fall måste lagrings kontot finnas i samma region som NSG. 
     
     > [!NOTE]
-    > Även om Microsoft. Insight och Microsoft. Networking-leverantörer stöds för närvarande som betrodda Microsoft-tjänster för Azure Storage, är NSG Flow-loggar fortfarande inte fullständigt installerade. Om du vill aktivera NSG flödes loggning måste **alla nätverk** fortfarande väljas tills den här funktionen har publicerats helt. 
+    > Även om Microsoft. Insight och Microsoft. Networking-leverantörer stöds för närvarande som [betrodda Microsoft-tjänster för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), är NSG Flow-loggar fortfarande inte fullständigt installerade. Om du vill aktivera NSG flödes loggning måste **alla nätverk** väljas enligt ovan.
+    
 4. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 5. Välj **NSG-flödesloggar** under **LOGGAR**, som du ser i följande bild:
 

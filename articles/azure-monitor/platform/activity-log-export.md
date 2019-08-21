@@ -1,6 +1,6 @@
 ---
-title: Exportera Azure-aktivitetsloggen
-description: Exportera Azure-aktivitetsloggen till lagring för arkivering eller Azure Event Hubs för att exportera utanför Azure.
+title: Exportera Azure aktivitets loggen
+description: Exportera Azure aktivitets logg till lagring för arkivering eller Azure-Event Hubs för export utanför Azure.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,118 +8,120 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: acf2526e79519e610614dc5217efbfe5e327b90f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d34040722ac8793fd4bbb02f2d3fa59247f8267c
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248151"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639638"
 ---
-# <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportera aktivitetslogg för Azure storage eller Azure Event Hubs
-Den [Azure-aktivitetsloggen](activity-logs-overview.md) ger information om händelser på prenumerationsnivå som har inträffat i Azure-prenumerationen. Förutom att visa aktivitetsloggen i Azure-portalen eller kopiera den till en Log Analytics-arbetsyta där de kan analyseras med annan information som samlas in av Azure Monitor kan du skapa en loggprofil om du vill arkivera aktivitetslogg till ett Azure storage-konto eller strömma det till en  Event Hub.
+# <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportera Azure aktivitets logg till lagring eller Azure Event Hubs
+[Azure aktivitets loggen](activity-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i din Azure-prenumeration. Förutom att Visa aktivitets loggen i Azure Portal eller kopiera den till en Log Analytics arbets yta där den kan analyseras med andra data som samlas in av Azure Monitor, kan du skapa en logg profil för att arkivera aktivitets loggen till ett Azure Storage-konto eller strömma den till en  Event Hub.
 
-## <a name="archive-activity-log"></a>Arkivera aktivitetsloggen
-Arkivera aktivitetsloggen till ett lagringskonto är användbart om du vill behålla dina loggdata som är längre än 90 dagar (med fullständig kontroll över bevarandeprincipen) för granskning, statiska analys eller säkerhetskopiering. Om du behöver bara att behålla dina händelser i 90 dagar eller mindre du behöver inte konfigurera arkivering till ett lagringskonto eftersom aktivitetslogghändelser finns kvar i Azure-plattformen i 90 dagar.
+## <a name="archive-activity-log"></a>Arkivera aktivitets logg
+Att arkivera aktivitets loggen på ett lagrings konto är användbart om du vill behålla dina loggdata längre än 90 dagar (med fullständig kontroll över bevarande principen) för granskning, statisk analys eller säkerhets kopiering. Om du bara behöver behålla dina händelser i 90 dagar eller mindre behöver du inte konfigurera arkivering till ett lagrings konto eftersom aktivitets logg händelser behålls i Azure-plattformen för 90 dagar.
 
-## <a name="stream-activity-log-to-event-hub"></a>Stream aktivitetsloggen till Event Hub
-[Azure Event Hubs](/azure/event-hubs/) är en dataströmningsplattform och händelseinmatningstjänst som kan ta emot och bearbeta miljontals händelser per sekund. Data som skickas till en händelsehubb kan omvandlas och lagras med hjälp av valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Det finns två sätt som du kan använda den strömmande kapaciteten för aktivitetsloggen:
-* **Stream att loggning och telemetri tredjepartssystem**: Framöver kommer blir Azure Event Hubs streaming mekanism för att skicka vidare din aktivitetslogg till tredje parts SIEMs och logga Analyslösningar.
-* **Skapa en anpassad telemetri och loggning**: Om du redan har en specialbyggda telemetri plattform eller funderar på att skapa en mycket skalbar publicerings-/ natur Händelsehubbar kan du flexibelt kan mata in aktivitetsloggen. 
+## <a name="stream-activity-log-to-event-hub"></a>Strömma aktivitets logg till Händelsehubben
+[Azure Event Hubs](/azure/event-hubs/) är en data strömnings plattform och händelse inmatnings tjänst som kan ta emot och bearbeta miljon tals händelser per sekund. Data som skickas till en händelsehubb kan omvandlas och lagras med hjälp av valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Du kan använda strömnings funktionerna för aktivitets loggen på två sätt:
+* **Strömma till system för loggning och telemetri från tredje part**: Med tiden blir Azure Event Hubs streaming mekanismen att skicka in aktivitets loggen till Siem-och Log Analytics-lösningar från tredje part.
+* **Bygg en anpassad telemetri-och loggnings plattform**: Om du redan har en anpassad telemetri plattform eller tänker på att skapa en, kan du med den mycket skalbara publicerings prenumerations typen för Event Hubs skapa aktivitets loggen på ett flexibelt sätt. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="storage-account"></a>Lagringskonto
-Om du arkivera din aktivitetslogg, måste du [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) om du inte redan har ett. Du bör inte använda ett befintligt lagringskonto som har andra, icke-övervakning av data som lagras i den så att du kan få bättre kontroll över åtkomsten till övervakningsdata. Om du även arkivera diagnostikloggar och mått till ett lagringskonto om du använder det samma lagringskontot för att hålla alla övervakningsdata på en central plats.
+Om du ska arkivera aktivitets loggen måste du [skapa ett lagrings konto](../../storage/common/storage-quickstart-create-account.md) om du inte redan har ett. Du bör inte använda ett befintligt lagrings konto som har andra data som inte övervakas, så att du kan kontrol lera åtkomsten till övervaknings data bättre. Om du också vill arkivera diagnostikloggar och mått till ett lagrings konto kan du välja att använda samma lagrings konto för att behålla alla övervaknings data på en central plats.
 
-Storage-kontot behöver inte finnas i samma prenumeration som prenumerationen för loggarna så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
+Lagrings kontot behöver inte finnas i samma prenumeration som den prenumeration som avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 > [!NOTE]
->  Du kan för närvarande inte arkivera data till ett lagringskonto som ligger bakom ett skyddat virtuellt nätverk.
+>  Du kan för närvarande inte arkivera data till ett lagrings konto som ligger bakom ett säkert virtuellt nätverk.
 
 ### <a name="event-hubs"></a>Event Hubs
-Om du skickar din aktivitetslogg till en händelsehubb, måste du [skapar en event hub](../../event-hubs/event-hubs-create.md) om du inte redan har ett. Om du strömmat tidigare händelser i aktivitetsloggen till Event Hubs-namnområdet, återanvändas den händelsehubben.
+Om du skickar aktivitets loggen till en Event Hub måste du [skapa en Event Hub](../../event-hubs/event-hubs-create.md) om du inte redan har en. Om du tidigare har strömmat aktivitets logg händelser till den här Event Hubs namn rymden, kommer den händelsehubben att återanvändas.
 
-Princip för delad åtkomst definierar de behörigheter som har mekanismen för direktuppspelning. Strömma till Event Hubs kräver behörighet att hantera, skicka och lyssna. Du kan skapa eller ändra principer för delad åtkomst för Event Hubs-namnområde i Azure-portalen under fliken Konfigurera för Event Hubs-namnområdet.
+Principen för delad åtkomst definierar de behörigheter som används av den strömmande mekanismen. Strömning till Event Hubs kräver behörigheterna hantera, skicka och lyssna. Du kan skapa eller ändra principer för delad åtkomst för Event Hubs namn området i Azure Portal under fliken Konfigurera för ditt Event Hubs namn område.
 
-Om du vill uppdatera aktivitetsloggen log profilen om du vill inkludera streaming, måste du ha behörigheten ListKey på den Event Hubs-auktoriseringsregeln. Event Hubs-namnområdet behöver inte vara i samma prenumeration som den prenumeration som genererar loggar, så länge som den användare som konfigurerar inställningen har rätt RBAC åtkomst till båda prenumerationerna och båda prenumerationerna finns i samma AAD-klient.
+Om du vill uppdatera logg profilen för aktivitets loggen så att den inkluderar strömning måste du ha ListKey-behörighet för den Event Hubs auktoriseringsregeln. Event Hubs namn området behöver inte finnas i samma prenumeration som den prenumeration som avger loggar, så länge den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna och båda prenumerationerna finns i samma AAD-klient.
 
-Stream aktivitetsloggen till en Händelsehubb genom [skapar en profil för Log](#create-a-log-profile).
+Strömma aktivitets loggen till en Event Hub genom att [skapa en logg profil](#create-a-log-profile).
 
-## <a name="create-a-log-profile"></a>Skapa en loggprofil
-Du definierar hur din Azure-aktivitetsloggen är exporteras med hjälp av en **loggprofilen**. Varje Azure-prenumeration kan bara ha en loggprofil. De här inställningarna kan konfigureras via den **exportera** alternativet i bladet aktivitetsloggen i portalen. De kan också konfigureras programmässigt [med hjälp av REST-API i Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell-cmdletar eller CLI.
+## <a name="create-a-log-profile"></a>Skapa en logg profil
+Du definierar hur din Azure aktivitets logg ska exporteras med en **logg profil**. Varje Azure-prenumeration kan bara ha en logg profil. Dessa inställningar kan konfigureras via alternativet **Exportera** på bladet aktivitets logg i portalen. De kan också konfigureras program mässigt [med hjälp av Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell-cmdletar eller cli.
 
-Loggprofil definierar följande.
+Logg profilen definierar följande.
 
-**Där aktivitetsloggen ska skickas.** De tillgängliga alternativen är för närvarande Lagringskonto eller Event Hubs.
+**Var aktivitets loggen ska skickas.** För närvarande är de tillgängliga alternativen lagrings konto eller Event Hubs.
 
-**Vilka kategorier ska skickas.** Enligt *kategori* i Loggprofiler och aktivitetsloggen händelser är olika. I profilen för den Log *kategori* representerar åtgärdstypen (skriva, ta bort, åtgärd). I en aktivitetslogghändelse den *kategori*”* egenskap representerar källan eller typen av händelse (till exempel Administration, ServiceHealth och avisering).
+**Vilka händelse kategorier som ska skickas.** Syftet med *kategorin* i logg profiler och aktivitets logg händelser är annorlunda. I logg profilen representerar *kategorin* åtgärds typen (Skriv, ta bort, åtgärd). I en aktivitets logg händelse representerar *kategorin*"*" källan eller typen av händelse (till exempel administration, ServiceHealth och avisering).
 
-**Vilka regioner (platser) ska exporteras.** Eftersom många händelser i aktivitetsloggen är globala händelser bör du inkludera alla platser.
+**Vilka regioner (platser) som ska exporteras.** Du bör inkludera alla platser eftersom många händelser i aktivitets loggen är globala händelser.
 
-**Hur länge aktivitetsloggen ska behållas i ett Lagringskonto.** En kvarhållning av noll dagar innebär loggar hålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 2147483647.
+**Hur länge aktivitets loggen ska behållas i ett lagrings konto.** En kvarhållning av noll dagar innebär loggar hålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 2147483647.
 
-Om principerna för kvarhållning anges, men lagra loggar i ett lagringskonto är inaktiverad, har ingen effekt med principer för kvarhållning. Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto.
+Om bevarande principer har ställts in, men lagrings loggar i ett lagrings konto är inaktiverat, har bevarande principerna ingen påverkan. Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto.
 
 
 
 > [!WARNING]
-> Formatet på loggdata i storage-kontot ändras till JSON-rader från den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](diagnostic-logs-append-blobs.md)
->
->
-
-### <a name="create-log-profile-using-the-azure-portal"></a>Skapa loggprofil med hjälp av Azure portal
-
-Skapa eller redigera en loggprofil med den **exportera till Event Hub** alternativ i Azure-portalen.
-
-1. Från den **övervakaren** menyn i Azure portal, Välj **exportera till Event Hub**.
-
-    ![Exportera-knappen i portalen](media/activity-log-export/portal-export.png)
-
-3. På bladet som visas anger du följande:
-   * Regioner med händelser som ska exporteras. Du bör välja alla regioner för att se till att du inte missa viktiga händelser eftersom aktivitetsloggen är en global (icke-regionalt) logg och så inte behöver en region som är kopplade till dem i de flesta händelser. 
-   * Om du vill skriva till lagringskontot:
-       * Det Lagringskonto som du vill spara händelser.
-       * antal dagar som du vill behålla dessa händelser i lagring. En inställning på 0 dagar behåller loggarna alltid.
-   * Om du vill skriva till event hub:
-       * Service Bus Namespace där du vill ha en Händelsehubb skapas för direktuppspelning av dessa händelser.
-
-     ![Exportera aktivitetslogg bladet](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
+> Formatet på loggdata i lagrings kontot har ändrats till JSON-linjer på nov. 1st, 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](diagnostic-logs-append-blobs.md)
 
 
-4. Klicka på **spara** dessa inställningar ska sparas. Inställningarna tillämpas omedelbart på din prenumeration.
+> [!IMPORTANT]
+> Du kan få ett fel meddelande när du skapar en logg profil om Microsoft. Insights-resurs leverantören inte är registrerad. Se [Azures resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md) för att registrera denna provider.
+
+### <a name="create-log-profile-using-the-azure-portal"></a>Skapa logg profil med hjälp av Azure Portal
+
+Skapa eller redigera en logg profil med alternativet **Exportera till Event Hub** i Azure Portal.
+
+1. I menyn **övervakare** i Azure Portal väljer du **Exportera till Event Hub**.
+
+    ![Knappen Exportera i portalen](media/activity-log-export/portal-export.png)
+
+3. I bladet som visas anger du följande:
+   * Regioner med händelser att exportera. Du bör välja alla regioner för att se till att du inte är missa viktiga händelser eftersom aktivitets loggen är en global (icke-regional) logg och att de flesta händelser inte har någon region kopplad till sig. 
+   * Om du vill skriva till lagrings kontot:
+       * Lagrings kontot som du vill spara händelser i.
+       * Antalet dagar som du vill behålla dessa händelser i lagringen. En inställning på 0 dagar behåller alltid loggarna.
+   * Om du vill skriva till Event Hub:
+       * Service Bus namn området som du vill att en Event Hub ska skapas för att strömma dessa händelser.
+
+     ![Bladet exportera aktivitets logg](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
 
 
-### <a name="configure-log-profile-using-powershell"></a>Konfigurera loggprofil med hjälp av PowerShell
+4. Klicka på **Spara** för att spara inställningarna. Inställningarna tillämpas omedelbart på din prenumeration.
+
+
+### <a name="configure-log-profile-using-powershell"></a>Konfigurera logg profil med PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Om det finns redan en loggprofil, måste du först ta bort den befintliga log-profilen och sedan skapa en ny.
+Om det redan finns en logg profil måste du först ta bort den befintliga logg profilen och sedan skapa en ny.
 
-1. Använd `Get-AzLogProfile` att identifiera om det finns en loggprofil.  Observera om en logg-profilen finns i *namn* egenskapen.
+1. Används `Get-AzLogProfile` för att identifiera om det finns en logg profil.  Om det finns en logg profil noterar du egenskapen *namn* .
 
-1. Använd `Remove-AzLogProfile` att ta bort log-profilen med värdet från den *namn* egenskapen.
+1. Använd `Remove-AzLogProfile` för att ta bort logg profilen med värdet från egenskapen *Name* .
 
     ```powershell
     # For example, if the log profile name is 'default'
     Remove-AzLogProfile -Name "default"
     ```
 
-3. Använd `Add-AzLogProfile` att skapa en ny loggprofil:
+3. Använd `Add-AzLogProfile` för att skapa en ny logg profil:
 
     ```powershell
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Egenskap | Krävs | Beskrivning |
+    | Egenskap | Obligatorisk | Beskrivning |
     | --- | --- | --- |
-    | Name |Ja |Namnet på din loggprofil. |
-    | StorageAccountId |Nej |Resurs-ID för det Lagringskonto där aktivitetsloggen ska sparas. |
-    | serviceBusRuleId |Nej |Service Bus regel-ID för Service Bus-namnområde som du vill ha händelsehubbar som skapats i. Detta är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}`. |
-    | Location |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. |
-    | RetentionInDays |Ja |Antal dagar som händelser ska behållas i storage-konto, mellan 1 och 2147483647. Värdet noll lagras loggarna på obestämd tid. |
-    | Category |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är _skriva_, _ta bort_, och _åtgärd_. |
+    | Name |Ja |Namn på din logg profil. |
+    | StorageAccountId |Nej |Resurs-ID för det lagrings konto där aktivitets loggen ska sparas. |
+    | serviceBusRuleId |Nej |Service Bus regel-ID för det Service Bus namn område som du vill ha händelse hubbar skapade i. Det här är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}`. |
+    | Location |Ja |Kommaavgränsad lista över regioner för vilka du vill samla in aktivitets logg händelser. |
+    | RetentionInDays |Ja |Antal dagar som händelser ska behållas i lagrings kontot, mellan 1 och 2147483647. Värdet noll lagrar loggarna oändligt. |
+    | Category |Nej |Kommaavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är _Write_, _Delete_och _Action_. |
 
 ### <a name="example-script"></a>Exempelskript
-Följande är ett exempel PowerShell-skript för att skapa en loggprofil som skriver aktivitetsloggen till både en storage-konto och event hub.
+Följande är ett exempel på PowerShell-skript för att skapa en logg profil som skriver aktivitets loggen till både ett lagrings konto och en Event Hub.
 
    ```powershell
    # Settings needed for the new log profile
@@ -140,31 +142,31 @@ Följande är ett exempel PowerShell-skript för att skapa en loggprofil som skr
    ```
 
 
-### <a name="configure-log-profile-using-azure-cli"></a>Konfigurera loggprofil med hjälp av Azure CLI
+### <a name="configure-log-profile-using-azure-cli"></a>Konfigurera logg profil med Azure CLI
 
-Om det finns redan en loggprofil, måste du först ta bort den befintliga log-profilen och sedan skapa en ny loggprofil.
+Om det redan finns en logg profil måste du först ta bort den befintliga logg profilen och sedan skapa en ny logg profil.
 
-1. Använd `az monitor log-profiles list` att identifiera om det finns en loggprofil.
-2. Använd `az monitor log-profiles delete --name "<log profile name>` att ta bort log-profilen med värdet från den *namn* egenskapen.
-3. Använd `az monitor log-profiles create` att skapa en ny loggprofil:
+1. Används `az monitor log-profiles list` för att identifiera om det finns en logg profil.
+2. Använd `az monitor log-profiles delete --name "<log profile name>` för att ta bort logg profilen med värdet från egenskapen *Name* .
+3. Använd `az monitor log-profiles create` för att skapa en ny logg profil:
 
    ```azurecli-interactive
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Egenskap | Krävs | Beskrivning |
+    | Egenskap | Obligatorisk | Beskrivning |
     | --- | --- | --- |
-    | name |Ja |Namnet på din loggprofil. |
-    | storage-account-id |Ja |Resurs-ID för det Lagringskonto där aktivitetsloggar ska sparas. |
-    | locations |Ja |Blankstegsavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name`. |
-    | days |Ja |Antal dagar för vilka händelser ska behållas, mellan 1 och 365. Värdet noll kommer att lagra loggarna på obestämd tid (alltid).  Om noll, sedan parametern aktiverade ska anges till true. |
-    |enabled | Ja |SANT eller FALSKT.  Används för att aktivera eller inaktivera bevarandeprincipen.  Om värdet är True måste dagsparametern vara ett värde som är större än 0.
-    | categories |Ja |Blankstegsavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder. |
+    | name |Ja |Namn på din logg profil. |
+    | lagrings konto-ID |Ja |Resurs-ID för det lagrings konto som aktivitets loggar ska sparas i. |
+    | locations |Ja |Blankstegsavgränsad lista över regioner för vilka du vill samla in aktivitets logg händelser. Du kan visa en lista över alla regioner för din prenumeration med `az account list-locations --query [].name`hjälp av. |
+    | days |Ja |Antal dagar som händelser ska behållas, mellan 1 och 365. Om värdet är noll lagras loggarna oändligt (för alltid).  Om värdet är noll ska den aktiverade parametern anges till sant. |
+    |enabled | Ja |SANT eller FALSKT.  Används för att aktivera eller inaktivera bevarande principen.  Om värdet är true måste parametern Days vara ett värde som är större än 0.
+    | categories |Ja |Blankstegsavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är Write, Delete och action. |
 
 
 
-## <a name="activity-log-schema"></a>Aktivitetslogg
-Om skickas till Azure storage eller Event Hub, skrivs aktivitetsloggdata till JSON med följande format.
+## <a name="activity-log-schema"></a>Aktivitets logg schema
+Oavsett om du skickar till Azure Storage eller Event Hub, skrivs aktivitets logg data till JSON med följande format.
 
 ``` JSON
 {
@@ -221,31 +223,31 @@ Om skickas till Azure storage eller Event Hub, skrivs aktivitetsloggdata till JS
     ]
 }
 ```
-Elementen i den här JSON beskrivs i följande tabell.
+Elementen i denna JSON beskrivs i följande tabell.
 
 | Elementnamn | Beskrivning |
 | --- | --- |
-| time |Tidsstämpel när händelsen skapades av tjänsten Azure behandlingen av begäran som motsvarande händelsen. |
-| resourceId |Resurs-ID för resursen som påverkas. |
+| time |Tidsstämpel när händelsen genererades av Azure-tjänsten som bearbetar begäran som motsvarar händelsen. |
+| resourceId |Resurs-ID för den påverkade resursen. |
 | operationName |Åtgärdens namn. |
-| category |Kategori för åtgärden, t.ex. Skriva, Läs, åtgärd. |
-| resultType |Vilken typ av resultatet, t.ex. Klart, fel, Start |
-| resultSignature |Beror på resurstypen. |
+| category |Kategori för åtgärden, t. ex. Skriv, Läs, åtgärd. |
+| resultType |Typ av resultat, t. ex. Lyckad, misslyckad, start |
+| resultSignature |Beror på resurs typen. |
 | durationMs |Varaktighet i millisekunder |
-| callerIpAddress |IP-adressen för den användare som har utfört den åtgärden eller UPN-anspråket SPN-anspråk baserat på tillgänglighet. |
-| correlationId |Vanligtvis ett GUID i formatet för strängen. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
-| identity |JSON-blob som beskriver auktorisering och anspråk. |
-| authorization |BLOB för RBAC egenskaper för händelsen. Vanligtvis inkluderar egenskaper för ”action”, ”roll” och ”omfång”. |
-| level |Nivån på händelsen. En av följande värden: _Kritiska_, _fel_, _varning_, _endast i informationssyfte_, och _utförlig_ |
-| location |Region i platsen uppstod (eller global). |
-| properties |Uppsättning `<Key, Value>` par (d.v.s. ordlista) som beskriver informationen om händelsen. |
+| callerIpAddress |IP-adressen för den användare som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. |
+| correlationId |Vanligt vis ett GUID i sträng formatet. Händelser som delar ett correlationId tillhör samma Uber-åtgärd. |
+| identity |JSON-blob som beskriver auktoriseringen och anspråk. |
+| authorization |BLOB för RBAC-egenskaper för händelsen. Innehåller vanligt vis egenskaperna "Action", "roll" och "omfattning". |
+| level |Händelsens nivå. Ett av följande värden: _Kritisk_, _fel_, _Varning_, _information_och _utförlig_ |
+| location |Region där platsen inträffade (eller global). |
+| properties |`<Key, Value>` Uppsättning par (dvs. ord lista) som beskriver information om händelsen. |
 
 > [!NOTE]
-> Egenskaper och användning av de här egenskaperna kan variera beroende på resurs.
+> Egenskaperna och användningen av dessa egenskaper kan variera beroende på resurs.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om aktivitetsloggen](../../azure-resource-manager/resource-group-audit.md)
-* [Samla in aktivitetsloggen i Azure Monitor-loggar](activity-log-collect.md)
+* [Läs mer om aktivitets loggen](../../azure-resource-manager/resource-group-audit.md)
+* [Samla in aktivitets loggar i Azure Monitor loggar](activity-log-collect.md)

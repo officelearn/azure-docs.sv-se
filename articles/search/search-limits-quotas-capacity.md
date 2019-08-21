@@ -2,20 +2,18 @@
 title: 'Tjänst begränsningar för nivåer och SKU: er – Azure Search'
 description: Tjänst begränsningar som används för kapacitets planering och högsta gräns för begär Anden och svar för Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 35beb55d7326b954a568a377b73696fe598742c5
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 9ddc7ad8882b30a17be5820116da72c5ab32fad9
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348294"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640609"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänst begränsningar i Azure Search
 De maximala gränserna för lagring, arbets belastningar och kvantiteter av index, dokument och andra objekt är beroende av om du [etablerar Azure Search](search-create-service-portal.md) på kostnads nivåer som är **kostnads fria**, **Basic**, **standard**eller **Storage** .

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: e07a436ee18a216bab569d299e534e729996db19
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5947c4c28736f8488ea0e48941214df42c6af72a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990164"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639489"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tid för att mata in logg data i Azure Monitor
 Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om hur lång tid det tar för loggdata att bli tillgängliga när de har samlats in. I den här artikeln beskrivs de olika faktorer som påverkar den här svars tiden.
@@ -100,8 +100,11 @@ Heartbeat
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
- 
-Om du vill öka detalj nivån för inmatnings tiden för en viss dator under en viss tids period, använder du följande fråga som också visualiserar data från föregående dag i ett diagram: 
+
+Föregående percentils kontroller är lämpliga för att hitta allmänna trender i svars tid. För att kunna identifiera kortvarig insamling i svars tid kan det vara mer`max()`effektivt att använda maximalt ().
+
+Om du vill öka detalj nivån för inmatnings tiden för en viss dator under en viss tids period, använder du följande fråga, som också visualiserar data från föregående dag i ett diagram: 
+
 
 ``` Kusto
 Heartbeat 

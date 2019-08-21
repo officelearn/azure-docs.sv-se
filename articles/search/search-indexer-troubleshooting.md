@@ -1,57 +1,55 @@
 ---
-title: Felsöka vanliga search-indexeraren problem – Azure Search
-description: Åtgärda fel och vanliga problem med indexerare i Azure Search, inklusive anslutning till datakälla, brandvägg och saknas dokument.
+title: Felsök vanliga problem med Sök Indexer – Azure Search
+description: Åtgärda fel och vanliga problem med indexerare i Azure Search, inklusive anslutning till data källa, brand vägg och saknade dokument.
 author: mgottein
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
-ms.custom: seodec2018
-ms.openlocfilehash: 1cb3260fa11354de963318a023fec912d082eae4
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 4692be287e9b38cf116107d2e7c1043f23a6b34b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653402"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640600"
 ---
-# <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Felsökning av vanliga problem med indexerare i Azure Search
+# <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Felsöka vanliga indexerings problem i Azure Search
 
-Indexerare kan hamna i ett antal problem vid indexering av data till Azure Search. Huvudkategorier för felet är:
+Indexerare kan köra ett antal problem när de indexerar data i Azure Search. De huvudsakliga kategorier av felen är:
 
-* [Ansluta till en datakälla](#data-source-connection-errors)
-* [Dokumentbearbetning](#document-processing-errors)
-* [Inmatning av dokumentet till ett index](#index-errors)
+* [Ansluta till en data Källa](#data-source-connection-errors)
+* [Dokument bearbetning](#document-processing-errors)
+* [Dokument inmatning till ett index](#index-errors)
 
-## <a name="data-source-connection-errors"></a>Anslutningsfel för data källan
+## <a name="data-source-connection-errors"></a>Anslutnings fel för data Källa
 
-### <a name="blob-storage"></a>Blob Storage
+### <a name="blob-storage"></a>Blobblagring
 
-#### <a name="storage-account-firewall"></a>Brandvägg för Storage-konto
+#### <a name="storage-account-firewall"></a>Brand vägg för lagrings konto
 
-Azure Storage tillhandahåller en konfigurerbar brandvägg. Brandväggen är inaktiverad som standard så att Azure Search kan ansluta till ditt lagringskonto.
+Azure Storage tillhandahåller en konfigurerbar brand vägg. Som standard är brand väggen inaktive rad så Azure Search kan ansluta till ditt lagrings konto.
 
-Det finns inga specifika meddelanden när en brandvägg har aktiverats. Normalt brandväggen fel ut `The remote server returned an error: (403) Forbidden`.
+Det finns inget speciellt fel meddelande när brand väggen är aktive rad. Normalt ser brand Väggs fel `The remote server returned an error: (403) Forbidden`ut.
 
-Du kan kontrollera att brandväggen är aktiverad i den [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Den enda stödda lösningen är att inaktivera brandväggen genom att välja att tillåta åtkomst från [”alla nätverk”](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
+Du kan kontrol lera att brand väggen är aktive rad i [portalen](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Den enda lösning som stöds är att inaktivera brand väggen genom att välja att tillåta åtkomst från [alla nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
 
-Om indexeraren inte har en ansluten kompetens du _kan_ försöker [lägga till ett undantag](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) för IP-adresserna för din söktjänst. Det här scenariot stöds inte och är inte säkert att fungera.
+Om indexeraren inte har en ansluten färdigheter _kan_ du försöka [lägga till ett undantag](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) för IP-adresserna för Sök tjänsten. Det här scenariot stöds dock inte och är inte garanterat att det fungerar.
 
-Du hittar IP-adressen för din söktjänst genom att skicka pingsignaler dess FQDN (`<your-search-service-name>.search.windows.net`).
+Du kan ta reda på IP-adressen för din Sök tjänst genom att pinga dess`<your-search-service-name>.search.windows.net`FQDN ().
 
 ### <a name="cosmos-db"></a>Cosmos DB
 
-#### <a name="indexing-isnt-enabled"></a>Indexering har inte aktiverats
+#### <a name="indexing-isnt-enabled"></a>Indexering är inte aktiverat
 
-Azure Search är en implicit beroende på Cosmos DB indexering. Om du inaktiverar automatisk indexering i Cosmos DB, Azure Search returnerar tillståndet lyckades, men går inte att index behållarens innehåll. Instruktioner om hur du kontrollerar inställningar och aktivera indexering finns [hantera indexering i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
+Azure Search har ett implicit beroende av Cosmos DB indexering. Om du inaktiverar automatisk indexering i Cosmos DB Azure Search, returneras ett fungerande tillstånd, men det går inte att indexera container innehåll. Instruktioner för hur du kontrollerar inställningar och aktiverar indexering finns i [Hantera indexering i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
-## <a name="document-processing-errors"></a>Dokumentet bearbetningsfel
+## <a name="document-processing-errors"></a>Fel vid dokument bearbetning
 
-### <a name="unprocessable-or-unsupported-documents"></a>Filer eller ej stödd dokument
+### <a name="unprocessable-or-unsupported-documents"></a>Dokument som inte kan hanteras eller som inte stöds
 
-Blob-indexeraren [dokument som dokumenterar format stöds uttryckligen.](search-howto-indexing-azure-blob-storage.md#supported-document-formats). Ibland innehåller en blob storage-behållare som inte stöds dokument. Andra gånger kan det vara problematiskt dokument. Du kan undvika stoppar indexeraren på de här dokumenten genom [ändrar konfigurationsalternativ](search-howto-indexing-azure-blob-storage.md#dealing-with-errors):
+BLOB-indexeraren [dokument vars dokument format stöds explicit.](search-howto-indexing-azure-blob-storage.md#supported-document-formats).. Ibland innehåller en Blob Storage-behållare dokument som inte stöds. Andra gånger kan det finnas problematiska dokument. Du kan undvika att stoppa din indexerare på dessa dokument genom att [ändra konfigurations alternativ](search-howto-indexing-azure-blob-storage.md#dealing-with-errors):
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -64,12 +62,12 @@ api-key: [admin key]
 }
 ```
 
-### <a name="missing-document-content"></a>Saknas innehållet i dokumentet
+### <a name="missing-document-content"></a>Dokument innehåll saknas
 
-Blob-indexeraren [söker efter och extraherar text från blobarna i en behållare](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Vissa problem med att extrahera text är:
+BLOB-indexeraren [söker efter och extraherar text från blobbar i en behållare](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Vissa problem med extrahering av text är:
 
-* Dokumentet innehåller endast inlästa bilder. PDF-blobar som har textinnehåll, som skannade bilder (jpg) ger inte resultat i en pipeline för fulltextindexering standard blob. Om du har innehållet med textelement kan du använda [kognitiv sökning](cognitive-search-concept-image-scenarios.md) att söka efter och extrahera text.
-* Blob-indexeraren är konfigurerad att endast indexets metadata. Om du vill extrahera innehållet, blob-indexeraren måste konfigureras för att [extrahera både innehåll och metadata](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed):
+* Dokumentet innehåller bara skannade bilder. PDF-blobar som inte har text innehåll, till exempel scannade bilder (JPGs), genererar inte resultat i en standard-BLOB för BLOB-indexering. Om du har bild innehåll med text element kan du använda [kognitiv sökning](cognitive-search-concept-image-scenarios.md) för att hitta och extrahera texten.
+* BLOB-indexeraren har kon figurer ATS för att endast indexera metadata. För att extrahera innehåll måste BLOB-indexeraren konfigureras för att [extrahera både innehåll och metadata](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed):
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -82,14 +80,14 @@ api-key: [admin key]
 }
 ```
 
-## <a name="index-errors"></a>Index-fel
+## <a name="index-errors"></a>Index fel
 
-### <a name="missing-documents"></a>Saknas dokument
+### <a name="missing-documents"></a>Dokument som saknas
 
-Indexerare hitta dokument från en [datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Ibland verkar ett dokument från datakällan som ska indexeras sakna från ett index. Det finns några vanliga orsaker till att dessa fel kan inträffa:
+Indexerare hittar dokument från en [data källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Ibland visas ett dokument från data källan som har indexerats för att saknas i ett index. Det finns några vanliga orsaker till att dessa fel inträffar:
 
-* Dokumentet har inte indexerats. Kontrollera portal för en lyckad indexer-körning.
-* Dokumentet har uppdaterats efter indexeraren körs. Om indexeraren finns på en [schema](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), kommer så småningom kör och fortsatte dokumentet.
-* Den [fråga](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) anges i data källan utesluter dokumentet. Indexerare inte kan indexera dokument som inte ingår i datakällan.
-* [Fältmappningar](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) eller [kognitiv sökning](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) har ändrats dokumentet och det ser annorlunda ut än du förväntar dig.
-* Använd den [lookup dokumentet API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) att hitta dokumentet.
+* Dokumentet har inte indexerats. Kontrol lera portalen för att köra en lyckad indexerare.
+* Dokumentet uppdaterades när indexeraren kördes. Om indexeraren är enligt ett [schema](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), kommer den att köras igen och hämta dokumentet.
+* [Frågan](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) som anges i data källan utesluter dokumentet. Indexerare kan inte indexera dokument som inte är en del av data källan.
+* [Fält mappningar](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) eller [kognitiv sökning](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) har ändrat dokumentet och det ser annorlunda ut än förväntat.
+* Använd [Sök-API: et](https://docs.microsoft.com/rest/api/searchservice/lookup-document) för att hitta ditt dokument.

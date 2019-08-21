@@ -10,18 +10,88 @@ ms.author: jmartens
 author: j-martens
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec913133ef97a632b12db2859bd4ac32df70a1c5
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
-ms.translationtype: MT
+ms.openlocfilehash: 684a84431c8348ddafab8cefbe831c2b58c3cee6
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828614"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639931"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
 I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://aka.ms/aml-sdk) -referens.
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
+
+## <a name="2019-08-19"></a>2019-08-19
+
+### <a name="azure-machine-learning-sdk-for-python-v1057"></a>Azure Machine Learning SDK för python v-1.0.57
++ **Nya funktioner**
+  + Aktive rad `TabularDataset` för användning av AutomatedML. Om du vill veta `TabularDataset`mer om kan https://aka.ms/azureml/howto/createdatasets du besöka.
+  
++ **Fel korrigeringar och förbättringar**
+  + **automl-client-core-nativeclient**
+    + Korrigerade felet, utlöses när inlärnings-och/eller verifierings etiketter (y och y_valid) har angetts i formatet Pandas dataframe, men inte som numpy matris.
+    + Gränssnittet har uppdaterats för `RawDataContext` att skapa ett för att endast kräva `AutoMLBaseSettings` data och objektet.
+    +  Tillåt AutoML-användare att släppa inlärnings serier som inte är tillräckligt långa vid prognoser. – Tillåt AutoML-användare att släppa kärnor från test uppsättningen som inte finns i inlärnings uppsättningen vid prognoser.
+  + **azure-cli-ml**
+    + Nu kan du uppdatera SSL-certifikatet för den poängsättnings slut punkt som distribueras i AKS-kluster både för Microsoft-genererade och kund certifikat.
+  + **azureml-automl-Core**
+    + Ett problem har åtgärd ATS i AutoML där rader med etiketter som saknas har tagits bort felaktigt.
+    + Förbättrad fel loggning i AutoML; fullständiga fel meddelanden kommer nu alltid att skrivas till logg filen.
+    + AutoML har uppdaterat paket fästen för att `azureml-defaults`inkludera `azureml-explain-model`, och `azureml-dataprep`. AutoML kommer inte längre att varna vid paket matchnings fel (förutom `azureml-train-automl` paket).
+    + Ett problem har åtgärd ATS i timeseries, där ka-delningar är av samma storlek och det går inte att utföra lager plats beräkningen.
+    + När du kör Ensemble-iteration för inlärnings typen kors validering, om vi har problem med att ladda ned de modeller som har tränats på hela data uppsättningen, hade vi en inkonsekvens mellan modellens vikt och de modeller som har matats in i röstningen Ensemble.
+    + Korrigerade felet, utlöses när inlärnings-och/eller verifierings etiketter (y och y_valid) har angetts i formatet Pandas dataframe, men inte som numpy matris.
+    + Har åtgärdat problemet med prognos uppgifter när inget har påträffats i de booleska kolumnerna i ingångs tabeller.
+    + Tillåt AutoML-användare att släppa inlärnings serier som inte är tillräckligt långa vid prognoser. – Tillåt AutoML-användare att släppa kärnor från test uppsättningen som inte finns i inlärnings uppsättningen vid prognoser.
+  + **azureml-core**
+    + Åtgärdat problem med blob_cache_timeout-parameter ordning.
+    + Externa anpassade och transformera undantags typer har lagts till i systemfel.
+    + Stöd har lagts till för Key Vault hemligheter för fjärrkörningar. Lägg till en azureml. Core. nyckel valvs klass för att lägga till, hämta och lista hemligheter från det nyckel valv som är associerat med din arbets yta. Åtgärder som stöds är:
+      + azureml. Core. Workspace. arbetsyte. get _default_keyvault ()
+      + azureml. Core. nyckel valv. nyckel valv. Ange _secret (namn, värde)
+      + azureml. Core. nyckel valv. nyckel valv. Ange _secrets (secrets_dict)
+      + azureml. Core. nyckel valv. Hämta _secret (namn)
+      + azureml. Core. nyckel valv. Hämta _secrets (secrets_list)
+      + azureml. Core. nyckel valv. list_secrets ()
+    + Ytterligare metoder för att hämta standard nyckel valv och få hemligheter under fjärrkörning:
+      + azureml. Core. Workspace. arbetsyte. get _default_keyvault ()
+      + azureml. Core. Run. Run. get _secret (Name)
+      + azureml. Core. Run. Run. get _secrets (secrets_list)
+    + Ytterligare parametrar för åsidosättning har lagts till för Submit-HyperDrive CLI-kommandot.
+    + Bättre tillförlitlighet för API-anrop för att expandera nya begär Anden biblioteks undantag.
+    + Lägg till stöd för att skicka körningar från en skickad körning.
+    + Problem med fast förfallo datum för SAS-token i FileWatcher som gjorde att filer slutade överföras efter att deras ursprungliga token hade upphört att gälla.
+    + Import av HTTP CSV/TSV-filer som stöds i data uppsättning python SDK.
+    + Föråldrad-metoden arbetsyte. Setup (). Varnings meddelande som visas för användare som föreslår att använda Create () eller Get ()/from_config () i stället.
+    + Miljön har lagts till. Lägg till _private_pip_wheel (), som möjliggör överföring av privata anpassade python-paket (. WHL) till arbets ytan och att använda dem på ett säkert sätt för att bygga/materialisera miljön.
+    + Nu kan du uppdatera SSL-certifikatet för den poängsättnings slut punkt som distribueras i AKS-kluster både för Microsoft-genererade och kund certifikat.
+  + **azureml-explain-model**
+    + Parameter har lagts till för att lägga till ett modell-ID till förklaringar vid uppladdning.
+    + Taggar `is_raw` har lagts till i förklaringar i minnet och uppladdning.
+    + Stöd för pytorch och tester har lagts till för azureml-förklarar-modell-paketet.
+  + **azureml-opendatasets**
+    + Stöd för att identifiera och logga automatiska test miljöer.
+    + Klasser har lagts till för att hämta befolkning efter region och post.
+  + **azureml-pipeline-core**
+    + Etikett egenskapen har lagts till i definitionerna för indata och utdata.
+  + **azureml – telemetri**
+    + En felaktig konfiguration av telemetri har åtgärd ATS.
+  + **azureml-train-automl**
+    + Ett fel uppstod vid fel vid installationen av fel, det gick inte att logga in "fel"-fältet för installations körningen och därför sparades inte i den överordnade körningen "fel".
+    + Ett problem har åtgärd ATS i AutoML där rader med etiketter som saknas har tagits bort felaktigt.
+    + Tillåt AutoML-användare att släppa inlärnings serier som inte är tillräckligt långa vid prognoser.
+    + Tillåt AutoML-användare att släppa kärnor från test uppsättningen som inte finns i inlärnings uppsättningen vid prognostisering.
+    + Nu AutoMLStep passerar genom automl config till Server del för att undvika problem vid ändringar eller tillägg av nya konfigurations parametrar.
+  + **azureml-train-core**
+    + Stöd för Torch 1,2 har lagts till i PyTorch-uppskattningen.
+  + **azureml – widgetar**
+    + Förbättrade diagram för förvirrings mat ris för klassificerings träning.
+
+### <a name="azure-portal"></a>Azure Portal
++ **Förhands gransknings funktion**
+  + Logg-och utdatafilen är nu tillgängliga för att köra informations sidor. Filerna strömmar uppdateringar i real tid när växling vid förhands visning är aktive rad.
 
 ## <a name="2019-08-05"></a>2019-08-05
 
@@ -477,7 +547,7 @@ Azure Machine Learning SDK för python v-1.0.30 har släppts.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning data prep SDK v 1.1.2
 
-Anteckning: Data prepare för prepare installation och `numpy` `pandas` paket kommer inte längre att installeras. Se [uppdaterade installations anvisningar](https://aka.ms/aml-data-prep-installation).
+Obs! Data prepare för prepare installation och `numpy` `pandas` paket kommer inte längre att installeras. Se [uppdaterade installations anvisningar](https://aka.ms/aml-data-prep-installation).
 
 + **Nya funktioner**
   + Nu kan du använda Pivot-transformeringen.

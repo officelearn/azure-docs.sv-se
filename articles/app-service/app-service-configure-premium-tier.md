@@ -1,6 +1,6 @@
 ---
-title: Konfigurera PremiumV2 - nivå i Azure App Service | Microsoft Docs
-description: Lär dig hur du bättre prestanda för dina webb-, mobil- och API-app i Azure App Service genom att skala till den nya prisnivån PremiumV2.
+title: Konfigurera PremiumV2-nivå – Azure App Service | Microsoft Docs
+description: Lär dig hur du får bättre prestanda för din webb-, mobil-och API-app i Azure App Service genom att skala till den nya pris nivån för PremiumV2.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 services: app-service
 documentationcenter: ''
@@ -16,28 +16,28 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d500c3841a9ecec1e4ceae8b13824f0240a5121d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139770"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639853"
 ---
-# <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2-nivå för Azure App Service
+# <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2-nivån för Azure App Service
 
-Den nya **PremiumV2** prisnivån får du snabbare processorer, SSD-lagring och Double-värden minne-till-kärna-förhållande på befintliga prisnivåer. Du kan spara pengar genom att köra dina appar på färre instanser med fördelen prestanda. I den här artikeln får du lära dig hur du skapar en app i **PremiumV2** nivån eller skala upp en app på **PremiumV2** nivå.
+Den nya pris nivån för **PremiumV2** ger dig snabbare processorer, SSD-lagring och dubblar förhållandet mellan minne och kärna för de befintliga pris nivåerna. Med prestanda fördelen kan du spara pengar genom att köra dina appar på färre instanser. I den här artikeln får du lära dig hur du skapar en app i **PremiumV2** -nivån eller skalar upp en app till **PremiumV2** -nivån.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Skala upp en app på **PremiumV2**, måste du ha en Azure App Service-app som körs i en prisnivå som är lägre än **PremiumV2**, och appen måste köras i en App Service-distribution som har stöd för PremiumV2.
+Om du vill skala upp en app till **PremiumV2**måste du ha en Azure App Service-app som körs på en pris nivå som är lägre än **PremiumV2**och appen måste köras i en app service-distribution som stöder PremiumV2.
 
 <a name="availability"></a>
 
-## <a name="premiumv2-availability"></a>PremiumV2-tillgänglighet
+## <a name="premiumv2-availability"></a>PremiumV2 tillgänglighet
 
-Den **PremiumV2** nivån är tillgänglig för App Service på både _Windows_ samt _Linux_.
+**PremiumV2** -nivån är tillgänglig för App Service både på _Windows_ och _Linux_.
 
-**PremiumV2** är tillgängliga i de flesta Azure-regioner. För att se om den är tillgänglig i din region, kör du följande Azure CLI-kommando den [Azure Cloud Shell](../cloud-shell/overview.md):
+**PremiumV2** finns i de flesta Azure-regioner. Om du vill se om den är tillgänglig i din region kör du följande Azure CLI-kommando i [Azure Cloud Shell](../cloud-shell/overview.md):
 
 ```azurecli-interactive
 az appservice list-locations --sku P1V2
@@ -45,63 +45,63 @@ az appservice list-locations --sku P1V2
 
 <a name="create"></a>
 
-## <a name="create-an-app-in-premiumv2-tier"></a>Skapa en app i PremiumV2-nivå
+## <a name="create-an-app-in-premiumv2-tier"></a>Skapa en app i PremiumV2-nivån
 
-Prisnivån för en App Service-app har definierats i den [App Service-plan](overview-hosting-plans.md) som den körs på. Du kan skapa en App Service-plan eller som en del av skapandet av appen.
+Pris nivån för en App Service-app definieras i [App Service plan](overview-hosting-plans.md) som den körs på. Du kan skapa en App Service plan separat eller som en del av att skapa appar.
 
-När du konfigurerar App Service-plan i den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>väljer **prisnivå**. 
+När du konfigurerar App Service plan i <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **pris nivå**. 
 
-Välj **produktion**och välj sedan **P1V2**, **P2V2**, eller **P3V2**, klicka sedan på **tillämpa**.
+Välj **produktion**, välj sedan **P1V2**, **P2V2**eller **P3V2**och klicka sedan på **Verkställ**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Om du inte ser **P1V2**, **P2V2**, och **P3V2** som alternativ, eller om alternativen är gråmarkerat ut sedan **PremiumV2** förmodligen inte tillgängliga i den underliggande App Service-distribution som innehåller App Service-planen. Se [skala upp från en resurs som inte stöds grupp och region kombination](#unsupported) för mer information.
+> Om du inte ser alternativen **P1V2**, **P2V2**och **P3V2** som alternativ, eller om alternativen är nedtonade, är **PremiumV2** troligen inte tillgängligt i den underliggande app service distribution som innehåller App Service plan. Se [skala upp från en resurs grupp och en region kombination som inte stöds](#unsupported) för mer information.
 
-## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Skala upp en befintlig app som PremiumV2-nivå
+## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Skala upp en befintlig app till PremiumV2-nivån
 
-Innan du skalar en befintlig app som **PremiumV2** nivå, se till att **PremiumV2** är tillgänglig. Mer information finns i [PremiumV2 tillgänglighet](#availability). Om det inte är tillgänglig, se [skala upp från en resurs som inte stöds grupp och region kombination](#unsupported).
+Innan du skalar en befintlig app till **PremiumV2** -nivån ser du till att **PremiumV2** är tillgängligt. Mer information finns i [PremiumV2-tillgänglighet](#availability). Om den inte är tillgänglig kan du läsa mer i [skala upp från en kombination av resurs grupp och region som inte stöds](#unsupported).
 
-Beroende på din värdmiljö kan det kräva ytterligare åtgärder för att skala upp. 
+Beroende på din värd miljö kan det krävas ytterligare steg vid skalningen. 
 
-I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, öppna din App Service-app-sida.
+Öppna din App Service app-sida i <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
-I den vänstra navigeringen i din App Service-app-sida väljer **skala upp (App Service-plan)** .
+I det vänstra navigerings fönstret på App Service app-sidan väljer du **skala upp (App Service plan)** .
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Välj **produktion**och välj sedan **P1V2**, **P2V2**, eller **P3V2**, klicka sedan på **tillämpa**.
+Välj **produktion**, välj sedan **P1V2**, **P2V2**eller **P3V2**och klicka sedan på **Verkställ**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
-Om åtgärden har slutförts översiktssidan för din app visar att det finns i en **PremiumV2** nivå.
+Om åtgärden slutförs, visar appens översikts sida att den nu finns på en **PremiumV2** -nivå.
 
 ![](media/app-service-configure-premium-tier/finished.png)
 
-### <a name="if-you-get-an-error"></a>Om du får ett felmeddelande
+### <a name="if-you-get-an-error"></a>Om du får ett fel meddelande
 
-Vissa App Service-planer det går inte att skala upp till PremiumV2-nivå om den underliggande App Service-distributionen inte stöder PremiumV2.  Se [skala upp från en resurs som inte stöds grupp och region kombination](#unsupported) för mer information.
+Vissa App Services planer kan inte skala upp till PremiumV2-nivån om den underliggande App Service distributionen inte stöder PremiumV2.  Se [skala upp från en resurs grupp och en region kombination som inte stöds](#unsupported) för mer information.
 
 <a name="unsupported"></a>
 
-## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Skala upp från en resurs som inte stöds grupp och region kombination
+## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Skala upp från en kombination av resurs grupp och region som inte stöds
 
-Om din app körs i en App Service-distribution där **PremiumV2** är inte tillgängligt eller om din app körs i en region som för närvarande stöder inte **PremiumV2**, måste du distribuera din app för att ta utnyttja **PremiumV2**.  Du kan välja mellan två alternativ:
+Om din app körs i en App Service distribution där **PremiumV2** inte är tillgänglig, eller om din app körs i en region som för närvarande inte stöder **PremiumV2**, måste du distribuera om din app för att kunna dra nytta av **PremiumV2**.  Du kan välja mellan två alternativ:
 
-- Skapa en **nya** resource gruppen och skapa sedan en **nya** appen och App Service plan i den **nya** resource group välja önskad Azure region under skapandeprocessen.  Du **måste** väljer den **PremiumV2** planen vid den nya app service-planen har skapats.  Detta säkerställer att kombinationen av resursgruppen, App Service-planen och Azure-region leder till App Service-planen som skapas i en App Service-distribution som har stöd för **PremiumV2**.  Omdistribuera sedan din programkod i den nyligen skapade app och app service-plan. Om du vill du därefter skalas App Service-planen från **PremiumV2** att spara kostnader och du kommer fortfarande att kunna har skala tillbaka upp igen i framtiden med **PremiumV2**.
-- Om din app körs redan i en befintlig **Premium** tier, och sedan kan du klona din app med alla appinställningar, anslutningssträngar och distributionskonfiguration till en ny app service-plan som använder **PremiumV2**.
+- Skapa en **ny** resurs grupp och skapa sedan en **ny** app och App Service plan i den **nya** resurs gruppen och välj önskad Azure-region under skapande processen.  Du **måste** välja **PremiumV2** -planen vid den tidpunkt då den nya app service-planen skapas.  Detta garanterar att kombinationen av resurs grupp, App Service plan och Azure-region leder till att App Service plan skapas i en App Service-distribution som stöder **PremiumV2**.  Distribuera sedan program koden till den nyligen skapade appen och App Service-planen. Om du vill kan du skala App Service plan nedåt från **PremiumV2** för att spara kostnaderna, och du kan fortfarande skala upp igen i framtiden med **PremiumV2**.
+- Om din app redan körs på en befintlig **Premium** -nivå kan du klona din app med alla appinställningar, anslutnings strängar och distributions konfiguration till en ny app service-plan som använder **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    I den **klonapp** sidan kan du skapa en App Service-plan med **PremiumV2** i regionen du vill och anger app-inställningar och konfigurationer som du vill klona.
+    På sidan **klon app** kan du skapa en app service plan med **PremiumV2** i den region som du vill använda och ange de appinställningar och den konfiguration som du vill klona.
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 
-Du kan automatisera skapa appar i den **PremiumV2** nivå med skript, med hjälp av den [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).
+Du kan automatisera skapandet av appar i **PremiumV2** -nivån med skript med hjälp av [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Följande kommando skapar en App Service-plan i _P1V2_. Du kan köra den i Cloud Shell. Alternativ för `--sku` är P1V2, _P2V2_, och _P3V2_.
+Följande kommando skapar en App Service plan i _P1V2_. Du kan köra den i Cloud Shell. Alternativen för `--sku` är P1V2, _P2V2_och _P3V2_.
 
 ```azurecli-interactive
 az appservice plan create \
@@ -114,7 +114,7 @@ az appservice plan create \
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Följande kommando skapar en App Service-plan i _P1V2_. Alternativ för `-WorkerSize` är _små_, _medel_, och _stor_.
+Följande kommando skapar en App Service plan i _P1V2_. `-WorkerSize` Alternativen för är _små_, _medel stora_och _stora_.
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
@@ -123,7 +123,7 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Tier "PremiumV2" `
     -WorkerSize "Small"
 ```
-## <a name="more-resources"></a>Fler resurser
+## <a name="more-resources"></a>Flera resurser
 
-[Skala upp en app i Azure](web-sites-scale.md)  
+[Skala upp en app i Azure](manage-scale-up.md)  
 [Skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md)

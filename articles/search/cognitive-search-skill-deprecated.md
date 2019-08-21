@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 316cfb228050030b15e791e1d890c9048eadc109
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 57dd8e47d44248270920e44268b99c98d399504d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841093"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635892"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Föråldrade kognitiva Sök kunskaper
 
@@ -25,7 +24,7 @@ Det här dokumentet beskriver kognitiva kunskaper som betraktas som föråldrade
 * Kunskaps namn: Namnet på den kunskap som ska vara inaktuell, mappas till @odata.type attributet.
 * Senaste tillgängliga API-version: Den senaste versionen av Azure Searchs offentliga API genom vilka färdighetsuppsättningar som innehåller motsvarande föråldrade färdighet kan skapas/uppdateras.
 * Supportens slut: Den sista dagen efter vilken motsvarande färdighet betraktas som ej stöds. Tidigare skapade färdighetsuppsättningar bör fortfarande fortsätta att fungera, men användarna rekommenderas att migrera bort från en föråldrad färdighet.
-* Rekommendationer: Sökväg för migrering framåt för att använda en färdighet som stöds. Användarna uppmanas att följa rekommendationerna för att fortsätta att få support.
+* Rekommenderade Sökväg för migrering framåt för att använda en färdighet som stöds. Användarna uppmanas att följa rekommendationerna för att fortsätta att få support.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
 

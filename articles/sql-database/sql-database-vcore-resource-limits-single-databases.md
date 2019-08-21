@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/14/2019
-ms.openlocfilehash: f69fc89fe5634c9467cf728c7ab5c4d8ac6c5c74
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 6a29d1e001d4c647d5b975b7e746eced29962ee4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512311"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637253"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Resurs gränser för enskilda databaser med den vCore-baserade inköps modellen
 
@@ -35,7 +35,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 ## <a name="general-purpose-service-tier-for-provisioned-compute"></a>Generell användning tjänst nivå för allokerad beräkning
 
 > [!IMPORTANT]
-> Nya Gen4-databaser stöds inte längre i AustraliaEast-regionen.
+> Nya Gen4-databaser stöds inte längre i regionerna Australien, östra eller Brasilien, södra.
 
 ### <a name="gen4-compute-generation-part-1"></a>Gen4 beräknings generation (del 1)
 
@@ -184,7 +184,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 ## <a name="business-critical-service-tier-for-provisioned-compute"></a>Affärskritisk tjänst nivå för allokerad beräkning
 
 > [!IMPORTANT]
-> Nya Gen4-databaser stöds inte längre i AustraliaEast-regionen.
+> Nya Gen4-databaser stöds inte längre i regionerna Australien, östra eller Brasilien, södra.
 
 ### <a name="gen4-compute-generation-part-1"></a>Gen4 beräknings generation (del 1)
 

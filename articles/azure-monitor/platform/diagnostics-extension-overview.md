@@ -1,90 +1,90 @@
 ---
-title: Översikt över Azure Diagnostics-tillägget
-description: Använd Azure diagnostics för felsökning, mäta prestanda, övervaka, analysera trafik i molntjänster, virtuella datorer och service fabric
+title: Översikt över Azure-diagnostik-tillägget
+description: Använd Azure Diagnostics för fel sökning, mäta prestanda, övervakning, trafik analys i moln tjänster, virtuella datorer och Service Fabric
 author: rboucher
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0325a3bda912c95d8d27646bc1e80fff5ce10a8
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236239"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639433"
 ---
-# <a name="what-is-azure-diagnostics-extension"></a>Vad är Azure Diagnostics-tillägget
-Azure Diagnostics-tillägget är en agent i Azure som aktiverar insamlingen av diagnostikdata på ett distribuerat program. Du kan använda diagnostiktillägget från ett antal olika källor. För närvarande är Azure-molntjänst (klassisk) rollerna Web och Worker, virtuella datorer, virtuella datorer skala uppsättningar och Service Fabric. Andra Azure-tjänster har olika diagnostik metoder. Se [översikt över övervakning i Azure](../../azure-monitor/overview.md).
+# <a name="what-is-azure-diagnostics-extension"></a>Vad är Azure-diagnostik tillägget
+Azure-diagnostik tillägget är en agent i Azure som möjliggör insamling av diagnostikdata i ett distribuerat program. Du kan använda Diagnostics-tillägget från ett antal olika källor. För närvarande finns stöd för webb-och arbets roller i Azure Cloud Service (klassisk), Virtual Machines, skalnings uppsättningar för virtuella datorer och Service Fabric. Andra Azure-tjänster har olika diagnostiska metoder. Se [Översikt över övervakning i Azure](../../azure-monitor/overview.md).
 
 ## <a name="linux-agent"></a>Linux-agent
-En [Linux-versionen av tillägget](../../virtual-machines/extensions/diagnostics-linux.md) är tillgänglig för virtuella datorer som kör Linux. Statistik som samlas in och beteende skilja sig från den Windows-versionen.
+En [Linux-version av tillägget](../../virtual-machines/extensions/diagnostics-linux.md) är tillgänglig för Virtual Machines som kör Linux. Den insamlade statistiken och beteendet varierar från Windows-versionen.
 
-## <a name="data-you-can-collect"></a>Du kan samla in data
-Azure Diagnostics-tillägget kan samla in följande typer av data:
+## <a name="data-you-can-collect"></a>Data som du kan samla in
+Azure-diagnostik-tillägget kan samla in följande typer av data:
 
 | Datakälla | Beskrivning |
 | --- | --- |
-| Räknaren prestandamått |Operativsystem och anpassade prestandaräknare |
+| Prestanda räknar mått |Operativ system och anpassade prestanda räknare |
 | Programloggar |Spåra meddelanden som skrivits av ditt program |
-| Windows-händelseloggar |Informationen som skickas till Windows event loggning system |
-| .NET EventSource loggar |Kod med hjälp av .NET-händelser skrivs [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) klass |
+| Windows-händelseloggar |Information som skickas till händelse loggnings systemet i Windows |
+| .NET EventSource-loggar |Kod skrivnings händelser med hjälp av .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -klassen |
 | IIS-loggar |Information om IIS-webbplatser |
-| [Manifestet baserat ETW-loggar](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Event Tracing för Windows händelser som genererats av en process. (1) |
-| Kraschdumpar (loggar) |Information om tillståndet hos processen om ett program kraschar |
-| Anpassa felloggar |Loggar som skapats av programmet eller tjänsten |
-| Azure Diagnostic infrastructure-loggar |Information om Azure Diagnostics själva |
+| [Manifestbaserade ETW-loggar](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |ETW (Event Tracing for Windows) händelser som genererats av en process. 81.1 |
+| Krasch dum par (loggar) |Information om processens tillstånd om ett program kraschar |
+| Anpassa felloggar |Loggar som skapats av ditt program eller din tjänst |
+| Azure Diagnostic Infrastructure-loggar |Information om Azure-diagnostik |
 
-(1) för att få en lista över ETW-leverantörer, köra `c:\Windows\System32\logman.exe query providers` i ett konsolfönster på den dator som du vill samla in information från.
+(1) om du vill hämta en lista över ETW- `c:\Windows\System32\logman.exe query providers` providers kör du i ett konsol fönster på den dator som du vill samla in information från.
 
 ## <a name="data-storage"></a>Datalagring
-Tillägget lagrar data i en [Azure Storage-konto](diagnostics-extension-to-storage.md) som du anger.
+Tillägget lagrar data i ett [Azure Storage konto](diagnostics-extension-to-storage.md) som du anger.
 
 Du kan också skicka den till [Application Insights](../../azure-monitor/app/cloudservices.md). 
 
-Ett annat alternativ är att strömma det till [Event Hub](../../event-hubs/event-hubs-about.md), som sedan kan du skicka den till Azure-övervakningstjänster.
+Ett annat alternativ är att strömma det till [händelsehubben](../../event-hubs/event-hubs-about.md), som sedan gör att du kan skicka den till tjänster som inte är Azure-övervakning.
 
-Du har också valet av skickar du data till Azure Monitor metrics time series-databas. Den här mottagare är för tillfället endast gäller för prestandaräknare. Det kan du skicka prestandaräknare i som anpassade mått. Den här funktionen är i förhandsversion. Azure Monitor-mellanlagringsplatsen har stöd för:
-* Hämtar alla prestandaräknare skickas till Azure Monitor via den [Azure Monitor metrics API: er.](https://docs.microsoft.com/rest/api/monitor/)
-* Varna vid alla prestandaräknare skickas till Azure Monitor via den [måttaviseringar](../../azure-monitor/platform/alerts-overview.md) i Azure Monitor
-* Behandla jokertecken operator i prestandaräknare som dimensionen ”instans” på din mått.  Till exempel om du samlat in den ”logisk disk (\*) / DiskWrites/sek” räknare du skulle kunna filtrera och dela upp på dimensionen ”instans” för diagram eller Varna vid den Diskskrivningar/sek för varje logisk Disk på den virtuella datorn (till exempel C:)
+Du kan också välja att skicka data till Azure Monitor Metrics Time-Series-databas. För tillfället gäller den här sinken endast för prestanda räknare. Det gör att du kan skicka prestanda räknare i som anpassade mått. Den här funktionen är i för hands version. Azure Monitor-mottagaren stöder:
+* Hämta alla prestanda räknare som skickats till Azure Monitor via [API: er för Azure Monitor mått.](https://docs.microsoft.com/rest/api/monitor/)
+* Aviseringar om alla prestanda räknare som skickas till Azure Monitor via [mått varningar](../../azure-monitor/platform/alerts-overview.md) i Azure Monitor
+* Behandlar operator med jokertecken i prestanda räknare som "instance"-dimensionen på måttet.  Om du till exempel har samlat in räknaren "logisk disk (\*)/DiskWrites/SEC" kan du filtrera och dela på "instance"-dimensionen för att rita eller Varna vid disk skrivningar/s för varje logisk disk på den virtuella datorn (t. ex. C:)
 
-Mer information om hur du konfigurerar den här mottagare som avser den [Azure diagnostics schema-dokumentationen.](diagnostics-extension-schema-1dot3.md)
+Mer information om hur du konfigurerar den här sinken finns i [dokumentationen för Azure Diagnostics schema.](diagnostics-extension-schema-1dot3.md)
 
 ## <a name="costs"></a>Kostnader
-Vart och ett av alternativen ovan kan tillkomma kostnader. Glöm inte att undersöka dem för att undvika oväntade fakturor.  Application Insights, Event hub och Azure Storage har olika kostnader i samband med datainmatning och den tid som lagras. I synnerhet innehåller Azure Storage några data alltid så kan du ta bort äldre data efter en viss tidsperiod att hålla kostnaderna nere.    
+Vart och ett av alternativen ovan kan medföra kostnader. Var noga med att undersöka dem för att undvika oväntade räkningar.  Application Insights, Händelsehubben och Azure Storage har separata kostnader för inmatning och den tid som lagras. I synnerhet innehåller Azure Storage alla data för alltid, så du kanske vill rensa äldre data efter en viss tids period för att hålla kostnaderna nere.    
 
-## <a name="versioning-and-configuration-schema"></a>Schema för versionshantering och konfiguration
-Se [versionshistorik för Azure-diagnostik och Schema](diagnostics-extension-schema.md).
+## <a name="versioning-and-configuration-schema"></a>Versions-och konfigurations schema
+Se [Azure-diagnostik versions historik och schema](diagnostics-extension-schema.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
-Välj vilken tjänst som du försöker samla in diagnostik på och Använd följande artiklar för att komma igång. Länkarna Allmänt Azure-diagnostik för referens för specifika uppgifter.
+Välj den tjänst som du vill samla in diagnostik på och Använd följande artiklar för att komma igång. Använd de allmänna Azure Diagnostics-länkarna för att referera till vissa uppgifter.
 
-## <a name="cloud-services-using-azure-diagnostics"></a>Cloud Services med Azure Diagnostics
-* Om du använder Visual Studio finns i [Använd Visual Studio för att spåra en Cloud Services-program](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) att komma igång. Annars läser
-* [Så här övervakar du Cloud services med Azure Diagnostics](../../cloud-services/cloud-services-how-to-monitor.md)
-* [Konfigurera Azure Diagnostics i en Cloud Services-program](../../cloud-services/cloud-services-dotnet-diagnostics.md)
+## <a name="cloud-services-using-azure-diagnostics"></a>Cloud Services att använda Azure-diagnostik
+* Om du använder Visual Studio läser [du använda Visual Studio för att spåra ett Cloud Services program](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) för att komma igång. Annars, se
+* [Övervaka moln tjänster med Azure-diagnostik](../../cloud-services/cloud-services-how-to-monitor.md)
+* [Konfigurera Azure-diagnostik i ett Cloud Services program](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
-Läs mer avancerade ämnen
+Mer avancerade ämnen finns i
 
-* [Med hjälp av Azure-diagnostik med Application Insights för Cloud Services](../../azure-monitor/app/cloudservices.md)
-* [Spåra flödet för en Cloud Services-program med Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [Använd PowerShell för att konfigurera diagnostik på molntjänster](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Använda Azure-diagnostik med Application Insights för Cloud Services](../../azure-monitor/app/cloudservices.md)
+* [Spåra flödet av ett Cloud Services program med Azure-diagnostik](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
+* [Använd PowerShell för att konfigurera diagnostik på Cloud Services](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>Virtuella datorer
-* Om du använder Visual Studio finns i [Använd Visual Studio för att spåra Azure Virtual Machines](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) att komma igång. Annars läser
-* [Konfigurera Azure Diagnostics på en Azure-dator](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
+* Om du använder Visual Studio läser [du använda Visual Studio för att spåra Azure-Virtual Machines](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) för att komma igång. Annars, se
+* [Konfigurera Azure-diagnostik på en virtuell Azure-dator](/azure/virtual-machines/extensions/diagnostics-windows)
 
-Läs mer avancerade ämnen
+Mer avancerade ämnen finns i
 
 * [Använd PowerShell för att konfigurera diagnostik på Azure Virtual Machines](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Skapa en virtuell Windows-dator med övervakning och diagnostik med Azure Resource Manager-mall](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Skapa en virtuell Windows-dator med övervakning och diagnostik med Azure Resource Manager mall](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric"></a>Service Fabric
-Kom igång på [övervaka ett Service Fabric-program](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Många andra Service Fabric diagnostik artiklar är tillgängliga i navigeringsträdet till vänster när du har hämtat den här artikeln.
+Kom igång med att [övervaka ett Service Fabric program](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Många andra Service Fabric-diagnostiska artiklar är tillgängliga i navigerings trädet till vänster när du kommer till den här artikeln.
 
 ## <a name="general-articles"></a>Allmänna artiklar
-* Lär dig hur du [använda prestandaräknare i Azure Diagnostics](../../cloud-services/diagnostics-performance-counters.md).
-* Om du har problem med att starta diagnostik eller söka efter data i Azure storage-tabeller finns i [felsöka Azure Diagnostics](diagnostics-extension-troubleshooting.md)
+* Lär dig att [använda prestanda räknare i Azure-diagnostik](../../cloud-services/diagnostics-performance-counters.md).
+* Om du har problem med att starta eller hitta dina data i Azure Storage-tabeller läser du [felsöka Azure-diagnostik](diagnostics-extension-troubleshooting.md)
 

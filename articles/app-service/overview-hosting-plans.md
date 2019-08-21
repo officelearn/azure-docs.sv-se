@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: be391f2aa9ee5d94ffc36a6e03d3af8881346520
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932347"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636557"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Services plan
 
@@ -100,7 +100,7 @@ Du kan till exempel börja testa din webbapp i ett **kostnads fritt** App Servic
 
 Samma fungerar i omvänd ordning. När du tycker att du inte längre behöver de funktioner som finns i en högre nivå kan du skala ned till en lägre nivå, vilket sparar pengar.
 
-Information om hur du skalar upp App Service plan finns i [skala upp en app i Azure](web-sites-scale.md).
+Information om hur du skalar upp App Service plan finns i [skala upp en app i Azure](manage-scale-up.md).
 
 Om din app finns i samma App Service plan med andra appar, kanske du vill förbättra appens prestanda genom att isolera beräknings resurserna. Du kan göra det genom att flytta appen till en separat App Service plan. Mer information finns i [flytta en app till en annan app service plan](app-service-plan-manage.md#move).
 

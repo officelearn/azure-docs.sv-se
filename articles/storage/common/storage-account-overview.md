@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2adb2928772f97c2dc14b8ebe9eb2072cbc4a36d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 49e15964ba370cc6dc18491507b906764f1f882c
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985369"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640113"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure Storage-kontot
 
@@ -143,12 +143,12 @@ Du kan bevilja åtkomst till data i ditt lagrings konto med någon av följande 
 
 - **Azure Active Directory:** Använd Azure Active Directory (Azure AD) autentiseringsuppgifter för att autentisera en användare, grupp eller annan identitet för åtkomst till blob-och Queue-data. Om autentiseringen av en identitet lyckas returnerar Azure AD en token som ska användas för att auktorisera begäran till Azure Blob Storage eller Queue Storage. Mer information finns i [autentisera åtkomst till Azure Storage med hjälp av Azure Active Directory](storage-auth-aad.md).
 - **Auktorisering av delad nyckel:** Använd din åtkomst nyckel för lagrings kontot för att skapa en anslutnings sträng som programmet använder vid körning för att få åtkomst till Azure Storage. Värdena i anslutnings strängen används för att skapa ett *Authorization* -huvud som skickas till Azure Storage. Mer information finns i [Konfigurera anslutnings strängar för Azure Storage](storage-configure-connection-string.md).
-- **Signatur för delad åtkomst:** Använd en signatur för delad åtkomst för att delegera åtkomst till resurser i ditt lagrings konto, om du inte använder Azure AD-autentisering. En signatur för delad åtkomst är en token som kapslar in all information som behövs för att auktorisera en begäran till Azure Storage på URL: en. Du kan ange lagrings resursen, de behörigheter som beviljats och det intervall med vilket behörigheterna är giltiga som en del av signaturen för delad åtkomst. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-sas-overview.md).
+- **Signatur för delad åtkomst:** Använd en signatur för delad åtkomst för att delegera åtkomst till resurser i ditt lagrings konto, om du inte använder Azure AD-auktorisering. En signatur för delad åtkomst är en token som kapslar in all information som behövs för att auktorisera en begäran till Azure Storage på URL: en. Du kan ange lagrings resursen, de behörigheter som beviljats och det intervall med vilket behörigheterna är giltiga som en del av signaturen för delad åtkomst. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-sas-overview.md).
 
 > [!NOTE]
 > Autentisering av användare eller program som använder Azure AD-autentiseringsuppgifter ger överlägsen säkerhet och lätt att använda för andra auktoriserings metoder. Även om du kan fortsätta att använda autentisering med delad nyckel med dina program kan du använda Azure AD för att kringgå behovet av att lagra din konto åtkomst nyckel med din kod. Du kan även fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt lagrings konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig för att återkalla en komprometterad SAS. 
 >
-> Microsoft rekommenderar att du använder Azure AD-autentisering för Azure Storage blob-och Queue-program när det är möjligt.
+> Microsoft rekommenderar att du använder Azure AD-auktorisering för Azure Storage blob-och Queue-program när det är möjligt.
 
 ## <a name="copying-data-into-a-storage-account"></a>Kopiera data till ett lagrings konto
 
@@ -173,7 +173,7 @@ Mer information om Azure Storage REST API finns i [Azure Storage Services REST A
 > [!IMPORTANT]
 > Blobar som krypteras med kryptering på klientsidan lagrar krypteringsrelaterade metadata tillsammans med bloben. Om du kopierar en blob som är krypterad med kryptering på klientsidan bör du se till att kopieringen bevarar blobmetadata och framför allt krypteringsrelaterade metadata. Om du kopierar en blob utan krypteringsmetadata kan blobinnehållet inte hämtas igen. Mer information om krypteringsrelaterade metadata finns i [Azure Storage Client Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="azure-importexport-service"></a>Azure Import/Export-tjänsten
+### <a name="azure-importexport-service"></a>Azure import/export-tjänsten
 
 Om du har en stor mängd data som ska importeras till ditt lagrings konto bör du ta hänsyn till Azure import/export-tjänsten. Import/export-tjänsten används för att på ett säkert sätt importera stora mängder data till Azure Blob Storage och Azure Files genom att leverera disk enheter till ett Azure-datacenter. 
 

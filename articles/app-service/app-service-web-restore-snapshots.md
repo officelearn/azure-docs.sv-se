@@ -1,6 +1,6 @@
 ---
-title: Återställ från säkerhetskopia - Azure App Service
-description: Lär dig mer om att återställa din app från en ögonblicksbild.
+title: Återställ från säkerhets kopia – Azure App Service
+description: Lär dig hur du återställer din app från en ögonblicks bild.
 services: app-service
 documentationcenter: ''
 author: ahmedelnably
@@ -15,60 +15,60 @@ ms.date: 04/04/2018
 ms.author: aelnably
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: ed659e95289665b6ce63ba6961e9f63650b4accf
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4b3b10177b119c9362f807206a915d4b0b367e16
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617550"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639756"
 ---
-# <a name="restore-an-app-in-azure-from-a-snapshot"></a>Återställ en app i Azure från en ögonblicksbild
-Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) från en ögonblicksbild. Du kan återställa din app till ett tidigare tillstånd, baserat på en av ögonblicksbilder av din app. Du behöver inte aktivera säkerhetskopiering av ögonblicksbilder, plattformen sparas automatiskt en ögonblicksbild av alla appar för dataåterställningsändamål.
+# <a name="restore-an-app-in-azure-from-a-snapshot"></a>Återställa en app i Azure från en ögonblicks bild
+Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) från en ögonblicks bild. Du kan återställa din app till ett tidigare tillstånd baserat på en av appens ögonblicks bilder. Du behöver inte aktivera säkerhets kopiering av ögonblicks bilder, plattformen sparar automatiskt en ögonblicks bild av alla appar för data återställnings syfte.
 
-Ögonblicksbilder är inkrementell skuggkopior och de erbjuder flera fördelar jämfört med vanliga [säkerhetskopior](manage-backup.md):
-- Filkopieringsfel på grund av fillås.
-- Ingen begränsning för storage storlek.
+Ögonblicks bilder är stegvisa skugg kopior och de ger flera fördelar jämfört med regelbundna [säkerhets kopieringar](manage-backup.md):
+- Inga fil kopierings fel på grund av fillås.
+- Ingen begränsning för lagrings storlek.
 - Ingen konfiguration krävs.
 
-Återställning från ögonblicksbilder är tillgänglig för appar som körs i **Premium** nivå eller högre. Information om att skala upp appar finns i [skala upp en app i Azure](web-sites-scale.md).
+Att återställa från ögonblicks bilder är tillgängligt för appar som körs i **Premium** -nivån eller högre. Information om hur du skalar upp din app finns i [skala upp en app i Azure](manage-scale-up.md).
 
 ## <a name="limitations"></a>Begränsningar
 
-- Funktionen är för närvarande i förhandsversion.
+- Funktionen är för närvarande en för hands version.
 - Du kan bara återställa till samma app eller till en plats som hör till appen.
-- App Service stoppar målappen eller målplatsen när du gör återställningen.
-- App Service håller tre månaders ögonblicksbilder för plattformen för dataåterställningsändamål.
-- Du kan bara återställa ögonblicksbilder för de senaste 30 dagarna.
-- Apptjänster som körs på en App Service Environment har inte stöd för ögonblicksbilder.
+- App Service stoppar mål programmet eller mål platsen under återställningen.
+- App Service behåller tre månader av ögonblicks bilder för plattforms data återställnings syfte.
+- Du kan bara återställa ögonblicks bilder under de senaste 30 dagarna.
+- App Services som körs på en App Service-miljön har inte stöd för ögonblicks bilder.
  
 
-## <a name="restore-an-app-from-a-snapshot"></a>Återställa en app från en ögonblicksbild
+## <a name="restore-an-app-from-a-snapshot"></a>Återställa en app från en ögonblicks bild
 
-1. På den **inställningar** sidan för din app i den [Azure-portalen](https://portal.azure.com), klickar du på **säkerhetskopior** att visa den **säkerhetskopior** sidan. Klicka sedan på **återställa** under den **Snapshot(Preview)** avsnittet.
+1. På sidan **Inställningar** i appen i [Azure Portal](https://portal.azure.com)klickar du på **säkerhets kopiering** för att visa sidan **säkerhets kopior** . Klicka sedan på **Återställ** under avsnittet **ögonblicks bild (för hands version)** .
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 
-2. I den **återställa** väljer att återställa ögonblicksbilden.
+2. På sidan **Återställ** väljer du den ögonblicks bild som ska återställas.
    
     ![](./media/app-service-web-restore-snapshots/2.png)
    
-3. Ange mål för app-återställning i **databasfilens Återställningsmål**.
+3. Ange målet för appen Återställ i återställnings **målet**.
    
     ![](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
-   > Om du väljer **överskrivning**, alla befintliga data i din app aktuella filsystemet raderas och skrivas över. Innan du klickar på **OK**, se till att det är vad du vill göra.
+   > Om du väljer **Skriv över**raderas och ersätts alla befintliga data i appens aktuella fil system. Kontrol lera att det är det du vill göra innan du klickar på **OK**.
    > 
    > 
       
    > [!Note]
-   > På grund av nuvarande tekniska begränsningar kan återställa du bara till appar i samma skalningsenheten. Den här begränsningen tas bort i kommande versioner.
+   > På grund av aktuella tekniska begränsningar kan du bara återställa till appar i samma skalnings enhet. Den här begränsningen tas bort i en framtida version.
    > 
    > 
    
-    Du kan välja **befintlig App** att återställa till en plats. Innan du använder det här alternativet kan bör du redan har skapat en plats i din app.
+    Du kan välja en **befintlig app** för att återställa till en plats. Innan du använder det här alternativet bör du redan ha skapat en plats i din app.
 
-4. Du kan välja att återställa din plats-konfiguration.
+4. Du kan välja att återställa plats konfigurationen.
    
     ![](./media/app-service-web-restore-snapshots/4.png)
 

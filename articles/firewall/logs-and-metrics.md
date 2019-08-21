@@ -1,24 +1,26 @@
 ---
-title: Översikt över Azure brandväggsloggar
-description: Den här artikeln är en översikt över diagnostikloggar för Azure-brandvägg.
+title: Översikt över Azure Firewall-loggar och-mått
+description: Den här artikeln är en översikt över Azure Firewall-diagnostikloggar och-mått.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8524c8f05a5d48755ab1ccca62f0fd53870190bb
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61065860"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640248"
 ---
-# <a name="azure-firewall-logs"></a>Loggar från brandväggen för Azure
+# <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall-loggar och-mått
 
 Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också använda aktivitetsloggar till att granska åtgärder som utförs på Azure Firewall-resurser.
 
 Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar till [Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md), Storage och Event Hubs samt analysera dem i Azure Monitor-loggar eller med andra verktyg såsom Excel och Power BI.
+
+Måtten är lätta att använda och kan ge stöd för scenarier i nästan real tid, vilket gör dem användbara för varningar och snabb problem identifiering. 
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
@@ -26,7 +28,7 @@ Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar ti
 
 * **Programregelloggen**
 
-   Regeln programloggen sparas till ett lagringskonto, strömma till Event hubs och/eller skickas till Azure Monitor-loggar endast om du har aktiverat det för varje Azure-brandväggen. Varje ny anslutning som matchar en av de konfigurerade programreglerna genererar en loggpost för den accepterade eller nekade anslutningen. Data loggas i JSON-format, här är ett exempel:
+   Program regel loggen sparas till ett lagrings konto, strömmas till händelse nav och/eller skickas till Azure Monitor loggar endast om du har aktiverat det för varje Azure-brandvägg. Varje ny anslutning som matchar en av de konfigurerade programreglerna genererar en loggpost för den accepterade eller nekade anslutningen. Data loggas i JSON-format, här är ett exempel:
 
    ```
    Category: application rule logs.
@@ -49,7 +51,7 @@ Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar ti
 
 * **Nätverksregellogg**
 
-   Regel-loggen nätverk sparas i ett lagringskonto, strömma till Event hubs och/eller skickas till Azure Monitor-loggar endast om du har aktiverat det för varje Azure-brandväggen. Varje ny anslutning som matchar en av de konfigurerade nätverksreglerna genererar en loggpost för den accepterade eller nekade anslutningen. Data loggas i JSON-format, här är ett exempel:
+   Nätverks regel loggen sparas till ett lagrings konto, strömmas till händelse nav och/eller skickas till Azure Monitor loggar endast om du har aktiverat det för varje Azure-brandvägg. Varje ny anslutning som matchar en av de konfigurerade nätverksreglerna genererar en loggpost för den accepterade eller nekade anslutningen. Data loggas i JSON-format, här är ett exempel:
 
    ```
    Category: network rule logs.
@@ -73,17 +75,53 @@ Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar ti
 
 Du har tre alternativ för att lagra dina loggar:
 
-* **Lagringskonto**: Storage-konton är bäst för loggar när loggar lagras under en längre period och granskat när det behövs.
-* **Händelsehubbar**: Händelsehubbar är ett bra alternativ för att integrera med andra säkerhet och händelsehantering (SEIM) hanteringsverktyg för att få meddelanden om dina resurser.
-* **Azure Monitor-loggar**: Azure Monitor-loggar är bäst för allmän realtidsövervakning av ditt program eller leta efter trender.
+* **Lagringskonto**: Lagrings konton används bäst för loggar när loggar lagras under en längre tid och granskas vid behov.
+* **Event Hub**: Event Hub är ett bra alternativ för att integrera med andra verktyg för säkerhets informations-och händelse hantering (SEIM) för att få aviseringar om dina resurser.
+* **Azure Monitor loggar**: Azure Monitor loggar används bäst för allmänt real tids övervakning av ditt program eller tittar på trender.
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 
    Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
 
-   Du kan använda [Azure-aktivitetsloggar](../azure-resource-manager/resource-group-audit.md) (kallades tidigare för driftloggar och granskningsloggar) till att visa alla åtgärder som skickas till din Azure-prenumeration.
+   Du kan använda [Azure aktivitets loggar](../azure-resource-manager/resource-group-audit.md) (tidigare kallade drift loggar och gransknings loggar) för att visa alla åtgärder som skickats till din Azure-prenumeration.
+
+## <a name="metrics"></a>Mått
+
+Mått i Azure Monitor är numeriska värden som beskriver viss aspekt av ett system vid en viss tidpunkt. Mått samlas in varje minut och är användbara för aviseringar eftersom de kan samplas ofta. En avisering kan utlösas snabbt med relativt enkel logik.
+
+Följande mått är tillgängliga för Azure-brand väggen:
+
+- **Antal träffar för program regler** – antalet gånger som en program regel har nåtts.
+
+    Enhet: antal
+
+- **Bearbetade data** – mängden data som passerar brand väggen.
+
+    Enhet: byte
+
+- **Hälso tillstånd för brand vägg** – anger hälso tillståndet för brand väggen.
+
+    Enhet: procent
+
+   Det här måttet har två dimensioner:
+  - **Status**: Möjliga värden är *felfria*, degraderade, *felaktiga*.
+  - **Orsak**: Anger orsaken till brand väggens aktuella status. Det kan till exempel tyda på *SNAT-portar* om brand Väggs statusen är försämrad eller skadad.
+
+
+
+- **Antal träffar för nätverks regler** – antalet gånger som en nätverks regel har nåtts.
+
+    Enhet: antal
+
+- **SNAT-port användning** – procent andelen SNAT-portar som används av brand väggen.
+
+    Enhet: procent
+
+   När du lägger till fler offentliga IP-adresser i brand väggen är fler SNAT-portar tillgängliga, vilket minskar användningen av SNAT-portar. Dessutom, när brand väggen skalas ut av olika orsaker (till exempel CPU eller data flöde), blir ytterligare SNAT-portar också tillgängliga. I praktiken kan en viss procent andel av SNAT-portarna gå nedåt utan att du behöver lägga till några offentliga IP-adresser, bara för att tjänsten ska skalas ut. Du kan styra antalet offentliga IP-adresser som är tillgängliga för att öka portarna i brand väggen direkt. Men du kan inte styra skalning av brand väggen direkt. För närvarande läggs bara SNAT-portar till för de första fem offentliga IP-adresserna.   
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs hur du övervakar Azure brandväggen loggar och mått i [självstudien: Övervaka Azure brandväggsloggar](tutorial-diagnostics.md).
+- Information om hur du övervakar Azure Firewall-loggar och-mått finns [i Självstudier: Övervaka Azure Firewall-](tutorial-diagnostics.md)loggar.
+
+- Mer information om mått i Azure Monitor finns i [mått i Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).

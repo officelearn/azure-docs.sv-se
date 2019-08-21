@@ -1,13 +1,13 @@
 ---
-title: Felsöka försämrade prestanda – Azure App Service | Microsoft Docs
-description: Den här artikeln hjälper dig att felsöka problem med långsam app prestanda i Azure App Service.
+title: Felsök prestanda försämring – Azure App Service | Microsoft Docs
+description: Den här artikeln hjälper dig att felsöka problem med långsam program prestanda i Azure App Service.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: ''
 tags: top-support-issue
-keywords: prestanda för webbappar, långsam app app som är långsam
+keywords: webb program prestanda, långsam app, appen är långsam
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
@@ -17,33 +17,33 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02a214c10c5b111070127e4a823682989f24b20b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128457"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637731"
 ---
-# <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Felsök problem med långsamma app prestanda i Azure App Service
-Den här artikeln hjälper dig att felsöka långsam prestandaproblem i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
+# <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Felsök problem med långsam program prestanda i Azure App Service
+Den här artikeln hjälper dig att felsöka problem med långsam program prestanda i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på [Azure MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Du kan alternativt kan du även skicka en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och klicka på **få Support**.
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna på [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och klicka på alternativet för att **få support**.
 
 ## <a name="symptom"></a>Symtom
-När du bläddrar appen, sidor belastningen långsamt och ibland timeout.
+När du bläddrar i appen inaktive ras sidorna långsamt och ibland tids gräns.
 
 ## <a name="cause"></a>Orsak
-Det här problemet beror ofta på nivån programfel, till exempel:
+Det här problemet orsakas ofta av problem på program nivå, till exempel:
 
-* nätverksbegäranden som tar lång tid
-* program-kod eller database-frågor som är ineffektiv
-* program med hög minne/CPU
-* program som kraschar på grund av ett undantag
+* nätverks förfrågningar tar lång tid
+* program kod eller databas frågor är ineffektiva
+* program som använder högt minne/CPU
+* programmet kraschar på grund av ett undantag
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
-Felsökning kan delas in i tre olika uppgifter i sekventiell ordning:
+Fel sökning kan delas upp i tre olika uppgifter i nummerordning:
 
-1. [Se och övervaka programmets beteende](#observe)
+1. [Observera och övervaka programmets beteende](#observe)
 2. [Samla in data](#collect)
 3. [Åtgärda problemet](#mitigate)
 
@@ -51,14 +51,14 @@ Felsökning kan delas in i tre olika uppgifter i sekventiell ordning:
 
 <a name="observe" />
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1. Se och övervaka programmets beteende
-#### <a name="track-service-health"></a>Spåra tjänstehälsa
-Microsoft Azure publicizes varje gång som en försämring av tjänsten avbrott eller prestanda. Du kan spåra hälsotillståndet för tjänsten på den [Azure-portalen](https://portal.azure.com/). Mer information finns i [spåra tjänstehälsa](../monitoring-and-diagnostics/insights-service-health.md).
+### <a name="1-observe-and-monitor-application-behavior"></a>1. Observera och övervaka programmets beteende
+#### <a name="track-service-health"></a>Spåra tjänstens hälsa
+Microsoft Azure publicizes varje gången det uppstår avbrott i tjänsten eller prestanda försämring. Du kan spåra hälso tillståndet för tjänsten på [Azure Portal](https://portal.azure.com/). Mer information finns i [spåra tjänstens hälsa](../monitoring-and-diagnostics/insights-service-health.md).
 
 #### <a name="monitor-your-app"></a>Övervaka din app
-Det här alternativet kan du ta reda på om ditt program är har problem. Appens bladet klickar du på den **förfrågningar och fel** panelen. Den **mått** bladet visar alla mått som du kan lägga till.
+Med det här alternativet kan du ta reda på om ditt program har problem. Klicka på panelen **förfrågningar och fel** i appens blad. Bladet **mått** visar alla mått som du kan lägga till.
 
-Några av de mått som du kan övervaka för din app
+Några av de mått som du kanske vill övervaka för din app är
 
 * Genomsnittligt arbetsminne
 * Genomsnittlig svarstid
@@ -66,109 +66,109 @@ Några av de mått som du kan övervaka för din app
 * Arbetsminne
 * Begäranden
 
-![övervaka prestanda](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
+![övervaka app-prestanda](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
 Mer information finns i:
 
 * [Övervaka appar i Azure App Service](web-sites-monitor.md)
 * [Få varningsmeddelanden](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-#### <a name="monitor-web-endpoint-status"></a>Övervaka status för web-slutpunkt
-Om du kör din app den **Standard** prisnivå, App Service kan du övervaka två slutpunkter från tre geografiska platser.
+#### <a name="monitor-web-endpoint-status"></a>Övervaka webb slut punkts status
+Om du kör din app på **standard** pris nivån kan App Service övervaka två slut punkter från tre geografiska platser.
 
-Slutpunktsövervakning konfigurerar webbtester från geo-distribuerad platser som testar svarstid och drifttid för webbadresser. Testet utför en HTTP GET-åtgärd till webb-URL för att fastställa svarstid och drifttid från varje plats. Varje konfigurerade platsen körs ett test var femte minut.
+Slut punkts övervakning konfigurerar webbtester från geo-distribuerade platser som testar svars tid och drift tid för webb-URL: er. Testet utför en HTTP GET-åtgärd på webb-URL: en för att fastställa svars tid och drift tid från varje plats. Varje konfigurerad plats kör ett test var femte minut.
 
-Drifttid övervakas med hjälp av HTTP-svarskoder och svarstid mäts i millisekunder. Det går inte att en övervakningstestet om HTTP-svarskoden är större än eller lika med 400 eller om svaret tar mer än 30 sekunder. En slutpunkt anses vara tillgänglig om dess övervakningstesten lyckas från de angivna platserna.
+Drift tiden övervakas med HTTP-svars koder och svars tid mäts i millisekunder. Ett övervaknings test Miss lyckas om HTTP-svarskod är större än eller lika med 400 eller om svaret tar mer än 30 sekunder. En slut punkt anses tillgänglig om övervaknings testen lyckas från alla angivna platser.
 
-Om du vill konfigurera, se [övervaka appar i Azure App Service](web-sites-monitor.md).
+Information om hur du konfigurerar den finns [i övervaka appar i Azure App Service](web-sites-monitor.md).
 
-Se även [att hålla Azure Web Sites upp plus Slutpunktsövervakning - med Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) ett videoklipp om slutpunktsövervakning.
+Se även att [hålla Azure Web Sites upp och slut punkts övervakning – med Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) för en video om slut punkts övervakning.
 
-#### <a name="application-performance-monitoring-using-extensions"></a>Prestandaövervakning av program med hjälp av tillägg
-Du kan också övervaka programprestanda med hjälp av en *webbplatstillägg*.
+#### <a name="application-performance-monitoring-using-extensions"></a>Övervakning av program prestanda med hjälp av tillägg
+Du kan också övervaka dina program prestanda genom att använda ett *webbplats tillägg*.
 
-Varje App Service-app innehåller en utökningsbar hantering-slutpunkt som gör det möjligt att en kraftfull verktygsuppsättning som distribueras som webbplatstillägg. Tillägg är: 
+Varje App Service app tillhandahåller en utöknings bar hanterings slut punkt som gör att du kan använda en kraftfull uppsättning verktyg som distribueras som webbplats tillägg. Tilläggen omfattar: 
 
-- Källkodsredigering som [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
-- Hanteringsverktyg för anslutna resurser, till exempel en MySQL-databas ansluten till en app.
+- Käll kods redigerare som [Azure-DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
+- Hanterings verktyg för anslutna resurser, till exempel en MySQL-databas som är ansluten till en app.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) är en plats-tillägg som är också tillgängligt för prestandaövervakning. Om du vill använda Application Insights måste återskapa du din kod med ett SDK. Du kan också installera ett tillägg som ger åtkomst till ytterligare data. Med SDK kan du skriva kod för att övervaka användning och prestanda för din app i detalj. Mer information finns i [övervaka prestanda i webbprogram](../azure-monitor/app/web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) är en webbplats för prestanda övervakning som också är tillgänglig. Om du vill använda Application Insights återbygger du koden med ett SDK. Du kan också installera ett tillägg som ger åtkomst till ytterligare data. Med SDK kan du skriva kod för att övervaka användning och prestanda för din app i detalj. Mer information finns i [övervaka prestanda i webb program](../azure-monitor/app/web-monitor-performance.md).
 
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2. Samla in data
-App Service tillhandahåller diagnostisk funktionalitet för att logga information från både webbservern och webbprogrammet. Informationen är uppdelad i web serverdiagnostik och programdiagnostik.
+App Service innehåller diagnostiska funktioner för loggning av information från både webb servern och webb programmet. Informationen är uppdelad i Web Server Diagnostics och Application Diagnostics.
 
-#### <a name="enable-web-server-diagnostics"></a>Aktivera web server-diagnostik
+#### <a name="enable-web-server-diagnostics"></a>Aktivera diagnostik för webb server
 Du kan aktivera eller inaktivera följande typer av loggar:
 
-* **Detaljerad felloggning** -detaljerad information om fel för HTTP-statuskoder som indikerar ett fel (statuskod 400 eller större). Detta kan innehålla information som hjälper dig att avgöra varför servern returnerade felkoden.
-* **Det gick inte att begäran om spårning av** -detaljerad information om misslyckade förfrågningar, inklusive en spårning av IIS-komponenter som används för att bearbeta begäran och den tid det tar i varje komponent. Detta kan vara användbart om du vill förbättra prestanda och isolera vad som orsakar ett specifikt HTTP-fel.
-* **Web Server-loggning** -Information om hur du använder W3C utökat loggfilsformat för HTTP-transaktioner. Detta är användbart när du fastställer den övergripande app mätvärden, till exempel antalet begäranden som hanteras eller hur många begäranden som kommer från en specifik IP-adress.
+* **Detaljerad fel loggning** -detaljerad fel information för HTTP-statuskod som indikerar ett fel (status kod 400 eller senare). Detta kan innehålla information som kan hjälpa dig att avgöra varför servern returnerade felkoden.
+* **Spårning av misslyckade begär** Anden-detaljerad information om misslyckade förfrågningar, inklusive spårning av IIS-komponenter som används för att bearbeta begäran och den tid som tagits i varje komponent. Detta kan vara användbart om du försöker förbättra appens prestanda eller isolera vad som orsakar ett särskilt HTTP-fel.
+* **Webb Server loggning** – information om http-transaktioner med utökat logg fils format för W3C. Detta är användbart när du fastställer generella app-mått, till exempel antalet begär Anden som hanteras eller hur många begär Anden som kommer från en speciell IP-adress.
 
-#### <a name="enable-application-diagnostics"></a>Aktivera programdiagnostik
-Det finns flera alternativ för att samla in prestandadata för programmet från App Service, profil ditt program direkt från Visual Studio eller ändra din programkod för att logga in mer information och spårningar. Du kan välja alternativ baserat på hur mycket åtkomst som du måste programmet och vad du observerade från övervakningen verktyg.
+#### <a name="enable-application-diagnostics"></a>Aktivera Application Diagnostics
+Det finns flera alternativ för att samla in program prestanda data från App Service, profilera ditt program Live från Visual Studio eller ändra program koden för att logga mer information och spårningar. Du kan välja alternativ baserat på hur mycket åtkomst du har till programmet och vad du har observerat från övervaknings verktygen.
 
 ##### <a name="use-application-insights-profiler"></a>Använd Application Insights Profiler
-Du kan aktivera Application Insights Profiler att börja samla in detaljerade prestandaspårningar. Du kan komma åt spårningar som avbildas upp till fem dagar sedan när du behöver undersöka problem har inträffat tidigare. Du kan välja det här alternativet så länge som du har åtkomst till appens Application Insights-resurs på Azure-portalen.
+Du kan aktivera Application Insights Profiler för att börja samla in detaljerade prestanda spårningar. Du kan komma åt spårningar som registrerats upp till fem dagar sedan när du behöver undersöka problem som har inträffat tidigare. Du kan välja det här alternativet så länge du har åtkomst till appens Application Insights resurs på Azure Portal.
 
-Application Insights Profiler innehåller statistik om svarstid för varje webbanrop och spårningar som visar vilken kodrad orsakas långsamma svar. Ibland App Service-appen är långsam eftersom vissa kod inte skrivs på ett effektivt sätt. Exempel är sekventiella kod som kan köras i parallella program och oönskade databasen låskonkurrens. Ta bort dessa flaskhalsar i koden ökar appens prestanda, men de är svåra att identifiera utan att ställa in avancerade spårningar och loggar. Spårningar som samlas in av Application Insights Profiler kan identifiera rader med kod som saktar ned programmet och lösa denna utmaning för App Service-appar.
+Application Insights Profiler innehåller statistik över svars tider för varje webb anrop och spår som anger vilken kodrad som orsakade långsamma svar. Ibland är App Services appen långsam eftersom viss kod inte är skriven på ett utfört sätt. Exempel är sekventiell kod som kan köras parallellt och oönskade databas lås. Om du tar bort dessa Flask halsar i koden ökar appens prestanda, men det är svårt att identifiera utan att ställa in avancerade spår och loggar. De spår som samlas in av Application Insights Profiler hjälper till att identifiera de kodrader som saktar ned programmet och kan lösa den här utmaningen för App Service appar.
 
- Mer information finns i [Profiling live-appar i Azure App Service med Application Insights](../azure-monitor/app/profiler.md).
+ Mer information finns i [profilering av Live Apps i Azure App Service med Application Insights](../azure-monitor/app/profiler.md).
 
-##### <a name="use-remote-profiling"></a>Använda Fjärrprofilering
-Mobila serverdelar i Azure App Service, webbappar, API apps och WebJobs kan profileras via en fjärranslutning. Välj det här alternativet om du har åtkomst till resursen i appen och du vet hur du återskapa problemet, eller om du vet det exakta tidsintervallet prestandaproblemet händer.
+##### <a name="use-remote-profiling"></a>Använd fjär profilering
+I Azure App Service kan webbappar, API-appar, mobila Server delar och WebJobs fjärrlagras. Välj det här alternativet om du har åtkomst till app-resursen och du vet hur du kan återskapa problemet, eller om du vet det exakta tidsintervallet som prestanda problemet inträffar.
 
-Remote Profiling är användbart om CPU-användningen för processen är hög och processer körs långsammare än förväntat eller svarstiden för HTTP-begäranden är högre än normalt, du via fjärranslutning kan profilera din process och få CPU sampling anropsstackar för att analysera processen aktivitet och kod frekvent sökvägar.
+Fjärrprofilering är användbart om processor användningen är hög och processen körs långsammare än förväntat, eller om svars tiden för HTTP-begäranden är högre än normalt, kan du fjärrregistrera din process och hämta anrops stackarna för CPU-sampling för att analysera processen aktiva sökvägar för aktivitet och kod.
 
-Mer information finns i [fjärrprofiler i Azure App Service](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
+Mer information finns i [stöd för fjär profilering i Azure App Service](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
 
-##### <a name="set-up-diagnostic-traces-manually"></a>Ställa in diagnostikspår manuellt
-Om du har åtkomst till webb-programmets källkod kan du samla in information som genereras av ett webbprogram i programdiagnostik. ASP.NET-program kan använda den `System.Diagnostics.Trace` klassen för att logga information till programloggen för diagnostik. Dock måste du ändra koden och distribuera programmet igen. Den här metoden rekommenderas om din app körs på en testmiljö.
+##### <a name="set-up-diagnostic-traces-manually"></a>Konfigurera diagnostiska spårningar manuellt
+Om du har åtkomst till käll koden för webb program kan du använda Application Diagnostics för att avbilda information som produceras av ett webb program. ASP.NET-program kan använda `System.Diagnostics.Trace` -klassen för att logga information till Application Diagnostics-loggen. Du måste dock ändra koden och distribuera programmet igen. Den här metoden rekommenderas om din app körs i en test miljö.
 
-Detaljerade anvisningar om hur du konfigurerar ditt program för loggning finns i [aktivera diagnostikloggning för appar i Azure App Service](troubleshoot-diagnostic-logs.md).
+Detaljerade anvisningar om hur du konfigurerar programmet för loggning finns i [Aktivera diagnostikloggning för appar i Azure App Service](troubleshoot-diagnostic-logs.md).
 
-#### <a name="use-the-diagnostics-tool"></a>Använda diagnostikverktyget för
-App Service tillhandahåller en intelligent och interaktiv upplevelse för att hjälpa dig att felsöka din app med krävs ingen konfiguration. När du stöter på problem med din app, påpeka diagnostikverktyget fel att guida dig till rätt information för att enkelt och snabbt felsöka och lösa problemet.
+#### <a name="use-the-diagnostics-tool"></a>Använda verktyget diagnostik
+App Service ger en intelligent och interaktiv upplevelse som hjälper dig att felsöka din app utan att det krävs någon konfiguration. När du stöter på problem med din app, pekar diagnostikverktyget ut vad som är fel för att hjälpa dig med rätt information för att enklare och snabbare felsöka och lösa problemet.
 
-Om du vill få åtkomst till App Service-diagnostik, navigera till din App Service-app eller en App Service Environment i den [Azure-portalen](https://portal.azure.com). I det vänstra navigeringsfönstret klickar du på **diagnostisera och lösa problem**.
+Om du vill komma åt App Service diagnostik navigerar du till din App Service app eller App Service-miljön i [Azure Portal](https://portal.azure.com). Klicka på **diagnostisera och lös problem**i det vänstra navigerings fältet.
 
-#### <a name="use-the-kudu-debug-console"></a>Använda Kudu-Felsökningskonsolen
-App Service levereras med ett Felsökningskonsolen som du kan använda för felsökning, utforska, ladda upp filer, samt JSON-slutpunkter för att hämta information om din miljö. Den här konsolen kallas den *Kudu-konsolen* eller *instrumentpanelen SCM* för din app.
+#### <a name="use-the-kudu-debug-console"></a>Använda fel söknings konsolen kudu
+App Service levereras med en fel söknings konsol som du kan använda för att felsöka, utforska, ladda upp filer, samt JSON-slutpunkter för att få information om din miljö. Den här konsolen kallas *kudu-konsolen* eller *SCM* -instrumentpanelen för din app.
 
-Du kan komma åt den här instrumentpanelen genom att gå till länken **https://&lt;ditt appnamn >.scm.azurewebsites.net/** .
+Du kan komma åt den här instrument panelen genom att gå till länken **https://&lt;ditt program namn >. scm. azurewebsites. net/** .
 
-Några av de saker som Kudu tillhandahåller är:
+Några av de saker som kudu tillhandahåller är:
 
-* miljöinställningar för ditt program
-* loggström
-* diagnostiska dump
-* Felsök konsolen där du kan köra Powershell-cmdlets och grundläggande DOS-kommandon.
+* miljö inställningar för ditt program
+* logg ström
+* diagnostisk dump
+* fel söknings konsolen där du kan köra PowerShell-cmdlets och Basic DOS-kommandon.
 
-En annan bra funktion i Kudu är att, om ditt program som utlöste första chansen-undantag, du kan använda Kudu och verktyget SysInternals Procdump skapa minne minnesdumpar. Dessa minnesdumpar är ögonblicksbilder av processen och ofta kan hjälpa dig att felsöka mer komplicerade problem med din app.
+En annan användbar funktion i kudu är att, om ditt program ska leda till undantag i första chansen, kan du använda kudu och SysInternals-verktyget ProcDump för att skapa minnes dum par. Dessa minnes dum par är ögonblicks bilder av processen och kan ofta hjälpa dig att felsöka mer komplicerade problem med din app.
 
-Läs mer om funktioner som är tillgängliga i Kudu [Azure DevOps-verktyg som du bör känna till om](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Mer information om vilka funktioner som är tillgängliga i kudu finns i [Azure DevOps-verktyg som du bör känna](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)till.
 
 <a name="mitigate" />
 
 ### <a name="3-mitigate-the-issue"></a>3. Åtgärda problemet
 #### <a name="scale-the-app"></a>Skala appen
-I Azure App Service kan för bättre prestanda och dataflöde, du justera skalan där du kör ditt program. Skala upp en app omfattar två relaterade åtgärder: Om du ändrar din App Service-plan till en högre prisnivå och konfigurera vissa inställningar när du har växlat till högre prisnivå.
+I Azure App Service kan du, för bättre prestanda och data flöde, ändra skalan då du kör programmet. Att skala upp en app innefattar två relaterade åtgärder: att ändra App Service plan till en högre pris nivå och konfigurera vissa inställningar när du har bytt till den högre pris nivån.
 
-Läs mer om att skala [skala en app i Azure App Service](web-sites-scale.md).
+Mer information om skalning finns i [skala en app i Azure App Service](manage-scale-up.md).
 
-Dessutom kan du välja att köra programmet i fler än en instans. Skala ut inte bara får du fler funktioner för bearbetning, men ger dig även vissa delar av feltolerans. Om processen stängs av på en instans, andra instanser att fortsätta att hantera begäranden.
+Du kan också välja att köra programmet på fler än en instans. Genom att skala ut får du inte bara mer processor kapacitet, men du får också en viss mängd fel tolerans. Om processen går ned på en instans fortsätter de andra instanserna att betjäna förfrågningar.
 
-Du kan ange skalning för att vara manuell eller automatisk.
+Du kan ställa in skalningen på manuell eller automatisk.
 
-#### <a name="use-autoheal"></a>Använd AutoHeal
-AutoHeal återanvänder arbetsprocessen för din app baserat på dina inställningar (till exempel konfigurationsändringar, begäranden, Minnesbaserad gränser eller den tid som behövs för att utföra en begäran). I de flesta fall, är omarbetning av processen det snabbaste sättet att komma tillrätta med problem. Även om du kan alltid starta om appen direkt i Azure-portalen, gör AutoHeal det automatiskt åt dig. Allt du behöver göra är att lägga till vissa utlösare i rot web.config för din app. De här inställningarna skulle fungera på samma sätt även om ditt program inte är en .NET-app.
+#### <a name="use-autoheal"></a>Använd autoläka
+Autoreparation återanvänder arbets processen för din app baserat på de inställningar du väljer (t. ex. konfigurations ändringar, begär Anden, minnesbaserade gränser eller tiden som krävs för att utföra en begäran). Det mesta av tiden är att återvinna processen är det snabbaste sättet att återställa från ett problem. Även om du alltid kan starta om appen direkt i Azure Portal gör autoläka det automatiskt åt dig. Allt du behöver göra är att lägga till vissa utlösare i rotens Web. config för din app. De här inställningarna fungerar på samma sätt även om ditt program inte är en .NET-app.
 
-Mer information finns i [automatisk återställning Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
+Mer information finns i [Automatisk återställning av Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
 #### <a name="restart-the-app"></a>Starta om appen
-Starta om är ofta det enklaste sättet att återställa efter engångshändelser. På den [Azure-portalen](https://portal.azure.com/), appbladet, har du alternativ för att stoppa eller starta om din app.
+Att starta om är ofta det enklaste sättet att återställa från engångs problem. På sidan [Azure Portal](https://portal.azure.com/)har du möjlighet att stoppa eller starta om din app på bladet för din app.
 
- ![Starta om appen för att lösa problem med prestanda](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
+ ![Starta om appen för att lösa prestanda problem](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Du kan också hantera din app med Azure Powershell. Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
+Du kan också hantera din app med hjälp av Azure PowerShell. Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).

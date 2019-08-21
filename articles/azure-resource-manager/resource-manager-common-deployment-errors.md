@@ -1,23 +1,25 @@
 ---
-title: Felsök vanliga fel i Azure-distribution | Microsoft Docs
-description: Beskriver hur du löser vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager.
+title: Felsök vanliga problem med Azure-distribution | Microsoft Docs
+description: Beskriver hur du löser vanliga fel när du distribuerar resurser till Azure med hjälp av Azure Resource Manager.
 tags: top-support-issue
 author: tfitzmac
-keywords: distributionsfel, azure-distribution, distribuera till azure
+keywords: distributions fel, Azure-distribution, distribuera till Azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 02/15/2019
+ms.date: 07/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 639f6b3b29b7effa12de79335d44b0193f3f9932
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206326"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638547"
 ---
-# <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distributionsfel med Azure Resource Manager
+# <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsök vanliga problem med Azure-distribution med Azure Resource Manager
 
-Den här artikeln beskriver några vanliga Azure-distribution-fel och innehåller information om du vill åtgärda felen. Om du hittar felkoden för din distributionsfel, [hittar felkod](#find-error-code).
+Den här artikeln beskriver några vanliga problem med Azure-distribution och innehåller information om hur du löser felen. Om du inte hittar felkoden för ditt distributions fel, se [find Error code](#find-error-code).
+
+Om du letar efter information om en felkod och den informationen inte finns i den här artikeln kan du berätta för oss. Längst ned på den här sidan kan du lämna feedback. Feedbacken spåras med GitHub-problem. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -25,59 +27,59 @@ Den här artikeln beskriver några vanliga Azure-distribution-fel och innehålle
 
 | Felkod | Åtgärd | Mer information |
 | ---------- | ---------- | ---------------- |
-| AccountNameInvalid | Följ namngivningsbegränsningar för storage-konton. | [Lösa lagringskontonamn](resource-manager-storage-account-name-errors.md) |
-| AccountPropertyCannotBeSet | Kontrollera tillgängligt lagringsutrymme kontoegenskaperna. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | Det kluster eller en region har resurser som är tillgängliga eller har inte stöd för den begärda VM-storleken. Gör om begäran vid ett senare tillfälle eller be en annan VM-storlek. | [Problem med etablering och allokering för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problem med etablering och allokering för Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) och [Felsök Allokeringsfel](../virtual-machines/troubleshooting/allocation-failure.md)|
-| AnotherOperationInProgress | Vänta tills samtidiga åtgärden har slutförts. | |
-| AuthorizationFailed | Ditt konto eller tjänstens huvudnamn har inte behörighet att slutföra distributionen. Kontrollera ditt konto tillhör rollen och dess åtkomst för distributionsomfattningen.<br><br>Du kan se det här felet när en nödvändig resurs-providern inte är registrerad. | [Rollbaserad åtkomstkontroll i Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Lösa registrering](resource-manager-register-provider-errors.md) |
-| BadRequest | Du har skickat distribution värden som inte matchar vad som förväntas av Resource Manager. Kontrollera det inre statusmeddelanden för att få hjälp med felsökning. | [Mallreferensen](/azure/templates/) och [platser som stöds](resource-group-authoring-templates.md#resource-location) |
-| Konflikt | Du ska få en åtgärd som inte är tillåtet i resursens aktuella tillstånd. Till exempel tillåts ändra storlek på disken endast när du skapar en virtuell dator eller när Virtuellt datorn frigörs. | |
-| DeploymentActive | Vänta tills samtidig distribuering till den här resursgruppen ska slutföras. | |
-| DeploymentFailed | DeploymentFailed-felet är ett allmänt fel som inte ger de information du behöver för att lösa felet. Titta i felinformationen för en felkod som innehåller mer information. | [Hitta felkoden](#find-error-code) |
-| DeploymentQuotaExceeded | Om du når gränsen på 800 distributioner per resursgrupp kan du ta bort distributioner från historiken som inte längre behövs. Du kan ta bort poster från historiken över med [az group deployment ta bort](/cli/azure/group/deployment#az-group-deployment-delete) för Azure CLI eller [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) i PowerShell. Ta bort en post från distributionshistoriken påverkar inte distribuera resurser. | |
-| DnsRecordInUse | DNS-postnamnet måste vara unikt. Ange ett annat namn eller ändra den befintliga posten. | |
-| ImageNotFound | Kontrollera inställningarna för VM-avbildning. |  |
-| InUseSubnetCannotBeDeleted | Du kan få det här felet när du försöker uppdatera en resurs, men begäran har bearbetats genom att ta bort och skapa resursen. Se till att ange värden för alla oförändrade. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
-| InvalidAuthenticationTokenTenant | Hämta åtkomsttoken för lämpliga klienten. Du kan bara hämta token från den klient som ditt konto tillhör. | |
-| InvalidContentLink | Du har troligen försökt att länka till en kapslad mall som inte är tillgänglig. Kontrollera URI som du angav för den kapslade mallen. Om mallen finns i ett storage-konto, kontrollera att URI: N är tillgänglig. Du kan behöva skicka en SAS-token. | [Länkade mallar](resource-group-linked-templates.md) |
-| InvalidParameter | En av de värden som du angav för en resurs matchar inte det förväntade värdet. Det här felet kan bero på många olika villkor. Till exempel ett lösenord kan vara otillräckligt eller en blobnamnet kan vara felaktigt. Kontrollera felmeddelandet för att avgöra vilket värde måste åtgärdas. | |
-| InvalidRequestContent | Dina värden för distribution som innehåller värden som inte är förväntade eller saknas nödvändiga värden. Kontrollera värdena för din resurstyp av. | [Mallreferens](/azure/templates/) |
-| InvalidRequestFormat | Aktivera felsökningsloggning när du genomför distributionen och kontrollera innehållet i begäran. | [Felsökningsloggning](#enable-debug-logging) |
-| InvalidResourceNamespace | Kontrollera resursnamnområdet som du angav i den **typ** egenskapen. | [Mallreferens](/azure/templates/) |
-| InvalidResourceReference | Resursen finns inte ännu eller felaktigt refererar till. Kontrollera om du behöver lägga till ett beroende. Kontrollera att din användning av den **referens** funktion innehåller de obligatoriska parametrarna för ditt scenario. | [Lös beroenden](resource-manager-not-found-errors.md) |
-| InvalidResourceType | Kontrollera resursen skriver du angav i den **typ** egenskapen. | [Mallreferens](/azure/templates/) |
-| InvalidSubscriptionRegistrationState | Registrera din prenumeration med resursprovidern. | [Lösa registrering](resource-manager-register-provider-errors.md) |
-| InvalidTemplate | Kontrollera din mallens syntax för fel. | [Lösa ogiltig mall](resource-manager-invalid-template-errors.md) |
-| InvalidTemplateCircularDependency | Ta bort onödiga beroenden. | [Lösa cirkulärt tjänstberoende](resource-manager-invalid-template-errors.md#circular-dependency) |
-| LinkedAuthorizationFailed | Kontrollera om ditt konto tillhör samma klientorganisation som du distribuerar till resursgruppen. | |
-| LinkedInvalidPropertyId | Resurs-ID för en resurs är inte korrekt lösning. Kontrollera att du ger alla nödvändiga värden för resurs-ID, inklusive prenumerations-ID, resursgruppens namn, resurstyp, överordnade resursnamnet (vid behov) och resursnamn. | |
-| LocationRequired | Ange en plats för din resurs. | [Ange en plats](resource-group-authoring-templates.md#resource-location) |
-| MismatchingResourceSegments | Se till att kapslad resurs har rätt antal segment i namn och typ. | [Lösa resource segment](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
-| MissingRegistrationForLocation | Kontrollera status för resursleverantör registrering och platser som stöds. | [Lösa registrering](resource-manager-register-provider-errors.md) |
-| MissingSubscriptionRegistration | Registrera din prenumeration med resursprovidern. | [Lösa registrering](resource-manager-register-provider-errors.md) |
-| NoRegisteredProviderFound | Kontrollera status för resursleverantör registrering. | [Lösa registrering](resource-manager-register-provider-errors.md) |
-| NotFound | Du kan försöka att distribuera en beroende resurs parallellt med en överordnad resurs. Kontrollera om du behöver lägga till ett beroende. | [Lös beroenden](resource-manager-not-found-errors.md) |
-| OperationNotAllowed | Distributionen försöker en åtgärd som överskrider kvoten för prenumerationen, resursgruppen eller region. Om möjligt ändra distributionen för att hålla sig inom kvoter. I annat fall du begär en ändring av dina kvoter. | [Lösa kvoter](resource-manager-quota-errors.md) |
-| ParentResourceNotFound | Kontrollera att det finns en överordnad resurs innan du skapar underordnat resurser. | [Lösa överordnade resurs](resource-manager-parent-resource-errors.md) |
-| PasswordTooLong | Du kanske har markerat ett lösenord som innehåller för många tecken eller kanske har konverterat lösenordsvärdet till en säker sträng innan det skickas som en parameter. Om mallen innehåller en **säker sträng** parameter, du behöver inte att konvertera värdet till en säker sträng. Ange lösenordsvärdet som text. |  |
-| PrivateIPAddressInReservedRange | Den angivna IP-adressen innehåller ett adressintervall som krävs av Azure. Ändra IP-adress för att undvika reserverade intervallet. | [IP-adresser](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PrivateIPAddressNotInSubnet | Den angivna IP-adressen ligger utanför undernätsintervallet. Ändra IP-adress som ligger inom intervall för undernät. | [IP-adresser](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PropertyChangeNotAllowed | Vissa egenskaper kan inte ändras på en distribuerad resurs. När du uppdaterar en resurs, begränsa dina ändringar till tillåtna egenskaper. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
-| RequestDisallowedByPolicy | Prenumerationen innehåller en resursprincip som förhindrar att en åtgärd som du försöker utföra under distributionen. Hitta den princip som blockerar åtgärden. Om möjligt ändra distributionen för att uppfylla begränsningarna från principen. | [Lösa principer](resource-manager-policy-requestdisallowedbypolicy-error.md) |
-| ReservedResourceName | Ange ett resursnamn som inte innehåller ett reserverat namn. | [Reserverade resursnamn](resource-manager-reserved-resource-name.md) |
-| ResourceGroupBeingDeleted | Vänta tills borttagningen att slutföra. | |
-| ResourceGroupNotFound | Kontrollera namnet på målresursgruppen för distributionen. Det måste redan finnas i din prenumeration. Kontrollera din prenumerationskontexten. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
-| ResourceNotFound | Distributionen av refererar till en resurs som inte kan matchas. Kontrollera att din användning av den **referens** funktion innehåller de parametrar som krävs för ditt scenario. | [Åtgärda referenser](resource-manager-not-found-errors.md) |
-| ResourceQuotaExceeded | Distributionen försöker skapa resurser som överstiger kvoten för prenumerationen, resursgruppen eller region. Om möjligt ändra din infrastruktur för hålla dig inom kvoter. I annat fall du begär en ändring av dina kvoter. | [Lösa kvoter](resource-manager-quota-errors.md) |
-| SkuNotAvailable | Välj SKU (till exempel VM-storlek) som är tillgänglig för den plats som du har valt. | [Lösa SKU](resource-manager-sku-not-available-errors.md) |
-| StorageAccountAlreadyExists | Ange ett unikt namn för lagringskontot. | [Lösa lagringskontonamn](resource-manager-storage-account-name-errors.md)  |
-| StorageAccountAlreadyTaken | Ange ett unikt namn för lagringskontot. | [Lösa lagringskontonamn](resource-manager-storage-account-name-errors.md) |
-| StorageAccountNotFound | Kontrollera prenumerationen, resursgruppen och namnet på det lagringskonto som du försöker använda. | |
-| SubnetsNotInSameVnet | En virtuell dator kan bara ha ett virtuellt nätverk. När du distribuerar flera nätverkskort kan du kontrollera att de tillhör samma virtuella nätverk. | [Flera nätverkskort](../virtual-machines/windows/multiple-nics.md) |
-| TemplateResourceCircularDependency | Ta bort onödiga beroenden. | [Lösa cirkulärt tjänstberoende](resource-manager-invalid-template-errors.md#circular-dependency) |
-| TooManyTargetResourceGroups | Minska antalet resursgrupper för en enkel distribution. | [Distribution mellan resursgrupper](resource-manager-cross-resource-group-deployment.md) |
+| AccountNameInvalid | Följ namngivnings begränsningar för lagrings konton. | [Matcha lagrings konto namn](resource-manager-storage-account-name-errors.md) |
+| AccountPropertyCannotBeSet | Kontrol lera egenskaperna för tillgängligt lagrings konto. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| AllocationFailed | Det finns inga tillgängliga resurser för klustret eller regionen eller så stöds inte den begärda virtuella dator storleken. Försök igen vid ett senare tillfälle eller begär en annan VM-storlek. | [Etablerings-och tilldelnings problem för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [etablering och tilldelning av Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) och [fel sökning av allokeringsfel](../virtual-machines/troubleshooting/allocation-failure.md)|
+| AnotherOperationInProgress | Vänta tills den samtidiga åtgärden har slutförts. | |
+| AuthorizationFailed | Ditt konto eller tjänstens huvud namn har inte tillräcklig åtkomst för att slutföra distributionen. Kontrol lera vilken roll ditt konto tillhör och dess åtkomst till distributions omfånget.<br><br>Du kan få det här felet när en resurs leverantör som krävs inte är registrerad. | [Rollbaserad Access Control i Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Lös registrering](resource-manager-register-provider-errors.md) |
+| BadRequest | Du skickade distributions värden som inte matchar det som förväntas av Resource Manager. Kontrol lera meddelandet om inre status för att få hjälp med fel sökning. | [Referera till mallar](/azure/templates/) och [platser som stöds](resource-group-authoring-templates.md#resource-location) |
+| Konflikt | Du begär en åtgärd som inte är tillåten i resursens aktuella tillstånd. Till exempel tillåts disk storleks ändring bara när du skapar en virtuell dator eller när den virtuella datorn frigörs. | |
+| DeploymentActive | Vänta tills en samtidig distribution till den här resurs gruppen har slutförts. | |
+| DeploymentFailed | DeploymentFailed-felet är ett allmänt fel som inte innehåller den information du behöver för att lösa problemet. Se fel informationen för en felkod som innehåller mer information. | [Hitta felkod](#find-error-code) |
+| DeploymentQuotaExceeded | Om du når gränsen på 800-distributioner per resurs grupp tar du bort distributioner från den historik som inte längre behövs. Du kan ta bort poster från historiken med [AZ Group Deployment Delete](/cli/azure/group/deployment#az-group-deployment-delete) för Azure CLI eller [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) i PowerShell. Att ta bort en post från distributions historiken påverkar inte distributions resurserna. | |
+| DnsRecordInUse | DNS-postens namn måste vara unikt. Ange ett annat namn. | |
+| ImageNotFound | Kontrol lera inställningarna för VM-avbildningar. |  |
+| InUseSubnetCannotBeDeleted | Du kan få det här felet när du försöker uppdatera en resurs, och begäran bearbetas genom att ta bort och skapa resursen. Se till att du anger alla värden som inte har ändrats. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InvalidAuthenticationTokenTenant | Hämta åtkomsttoken för lämplig klient organisation. Du kan bara hämta token från den klient som ditt konto tillhör. | |
+| InvalidContentLink | Du har troligen försökt länka till en kapslad mall som inte är tillgänglig. Dubbelt kontrol lera den URI du angav för den kapslade mallen. Om mallen finns i ett lagrings konto kontrollerar du att URI: n är tillgänglig. Du kan behöva skicka en SAS-token. | [Länkade mallar](resource-group-linked-templates.md) |
+| InvalidParameter | Ett av de värden som du angav för en resurs stämmer inte överens med det förväntade värdet. Det här felet kan bero på flera olika villkor. Ett lösen ord kan till exempel vara otillräckligt eller också kan ett BLOB-namn vara felaktigt. Fel meddelandet ska ange vilket värde som behöver korrigeras. | |
+| InvalidRequestContent | Distributions värden innehåller antingen värden som inte känns igen eller värden som krävs saknas. Bekräfta värdena för resurs typen. | [Mallreferens](/azure/templates/) |
+| InvalidRequestFormat | Aktivera fel söknings loggning när du kör distributionen och kontrol lera innehållet i begäran. | [Fel söknings loggning](#enable-debug-logging) |
+| InvalidResourceNamespace | Kontrol lera resurs namn området du angav i egenskapen **Type** . | [Mallreferens](/azure/templates/) |
+| InvalidResourceReference | Resursen finns inte ännu eller så refereras den felaktigt. Kontrol lera om du behöver lägga till ett beroende. Kontrol lera att din användning av **referens** funktionen innehåller de nödvändiga parametrarna för ditt scenario. | [Matcha beroenden](resource-manager-not-found-errors.md) |
+| InvalidResourceType | Kontrol lera den resurs typ som du angav i egenskapen **Type** . | [Mallreferens](/azure/templates/) |
+| InvalidSubscriptionRegistrationState | Registrera din prenumeration med resurs leverantören. | [Lös registrering](resource-manager-register-provider-errors.md) |
+| InvalidTemplate | Kontrol lera din malls syntax för fel. | [Lös Ogiltig mall](resource-manager-invalid-template-errors.md) |
+| InvalidTemplateCircularDependency | Ta bort onödiga beroenden. | [Lös cirkulära beroenden](resource-manager-invalid-template-errors.md#circular-dependency) |
+| LinkedAuthorizationFailed | Kontrol lera om ditt konto tillhör samma klient organisation som den resurs grupp som du distribuerar till. | |
+| LinkedInvalidPropertyId | Resurs-ID: t för en resurs löses inte korrekt. Kontrol lera att du anger alla obligatoriska värden för resurs-ID, inklusive prenumerations-ID, resurs gruppens namn, resurs typ, överordnat resurs namn (vid behov) och resurs namn. | |
+| LocationRequired | Ange en plats för resursen. | [Ange en plats](resource-group-authoring-templates.md#resource-location) |
+| MismatchingResourceSegments | Kontrol lera att den kapslade resursen har rätt antal segment i namn och typ. | [Lösa resurs segment](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
+| MissingRegistrationForLocation | Kontrol lera registrerings status för resurs leverantör och platser som stöds. | [Lös registrering](resource-manager-register-provider-errors.md) |
+| MissingSubscriptionRegistration | Registrera din prenumeration med resurs leverantören. | [Lös registrering](resource-manager-register-provider-errors.md) |
+| NoRegisteredProviderFound | Kontrol lera registrerings status för resurs leverantör. | [Lös registrering](resource-manager-register-provider-errors.md) |
+| NotFound | Du kanske försöker att distribuera en beroende resurs parallellt med en överordnad resurs. Kontrol lera om du behöver lägga till ett beroende. | [Matcha beroenden](resource-manager-not-found-errors.md) |
+| OperationNotAllowed | Distributionen försöker utföra en åtgärd som överskrider kvoten för prenumerationen, resurs gruppen eller regionen. Om möjligt kan du ändra distributionen så att den ligger inom kvoterna. Annars kan du överväga att begära en ändring av dina kvoter. | [Lösa kvoter](resource-manager-quota-errors.md) |
+| ParentResourceNotFound | Kontrol lera att det finns en överordnad resurs innan du skapar underordnade resurser. | [Matcha överordnad resurs](resource-manager-parent-resource-errors.md) |
+| PasswordTooLong | Du kanske har valt ett lösen ord med för många tecken eller konverterat ditt lösen ord till en säker sträng innan du skickar det som en parameter. Om mallen innehåller en **säker sträng** -parameter behöver du inte konvertera värdet till en säker sträng. Ange lösen ordets värde som text. |  |
+| PrivateIPAddressInReservedRange | Den angivna IP-adressen innehåller ett adress intervall som krävs av Azure. Ändra IP-adress för att undvika reserverat intervall. | [IP-adresser](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
+| PrivateIPAddressNotInSubnet | Den angivna IP-adressen ligger utanför under nätets intervall. Ändra IP-adressen så att den hamnar inom under nätets intervall. | [IP-adresser](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
+| PropertyChangeNotAllowed | Vissa egenskaper kan inte ändras i en distribuerad resurs. Begränsa ändringarna till tillåtna egenskaper när du uppdaterar en resurs. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| RequestDisallowedByPolicy | Din prenumeration innehåller en resurs princip som förhindrar en åtgärd som du försöker utföra under distributionen. Hitta principen som blockerar åtgärden. Om möjligt kan du ändra distributionen för att uppfylla begränsningarna från principen. | [Lös principer](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| ReservedResourceName | Ange ett resurs namn som inte innehåller ett reserverat namn. | [Reserverade resurs namn](resource-manager-reserved-resource-name.md) |
+| ResourceGroupBeingDeleted | Vänta tills borttagningen har slutförts. | |
+| ResourceGroupNotFound | Kontrol lera namnet på mål resurs gruppen för distributionen. Mål resurs gruppen måste redan finnas i din prenumeration. Kontrol lera prenumerations kontexten. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceNotFound | Distributionen refererar till en resurs som inte kan lösas. Kontrol lera att din användning av funktionen **Reference** innehåller de parametrar som krävs för ditt scenario. | [Lösa referenser](resource-manager-not-found-errors.md) |
+| ResourceQuotaExceeded | Distributionen försöker skapa resurser som överskrider kvoten för prenumerationen, resurs gruppen eller regionen. Om möjligt kan du ändra infrastrukturen för att hålla dig inom kvoterna. Annars kan du överväga att begära en ändring av dina kvoter. | [Lösa kvoter](resource-manager-quota-errors.md) |
+| SkuNotAvailable | Välj SKU (till exempel VM-storlek) som är tillgänglig för den plats som du har valt. | [Lös SKU](resource-manager-sku-not-available-errors.md) |
+| StorageAccountAlreadyExists | Ange ett unikt namn för lagringskontot. | [Matcha lagrings konto namn](resource-manager-storage-account-name-errors.md)  |
+| StorageAccountAlreadyTaken | Ange ett unikt namn för lagringskontot. | [Matcha lagrings konto namn](resource-manager-storage-account-name-errors.md) |
+| StorageAccountNotFound | Kontrol lera prenumerationen, resurs gruppen och namnet på det lagrings konto som du försöker använda. | |
+| SubnetsNotInSameVnet | En virtuell dator kan bara ha ett virtuellt nätverk. När du distribuerar flera nätverkskort ser du till att de tillhör samma virtuella nätverk. | [Flera nätverkskort](../virtual-machines/windows/multiple-nics.md) |
+| TemplateResourceCircularDependency | Ta bort onödiga beroenden. | [Lös cirkulära beroenden](resource-manager-invalid-template-errors.md#circular-dependency) |
+| TooManyTargetResourceGroups | Minska antalet resurs grupper för en enskild distribution. | [Distribution mellan resursgrupper](resource-manager-cross-resource-group-deployment.md) |
 
-## <a name="find-error-code"></a>Hitta felkoden
+## <a name="find-error-code"></a>Hitta felkod
 
 Det finns två typer av fel som du kan få:
 
@@ -88,17 +90,17 @@ Valideringsfel uppstår från scenarier som kan fastställas före distributione
 
 Båda typerna av fel returnerar en felkod som du använder för att felsöka distributionen. Båda typerna av fel visas i [aktivitetsloggen](resource-group-audit.md). Dock visas valideringsfel inte i distributionshistoriken eftersom distributionen aldrig startades.
 
-### <a name="validation-errors"></a>verifieringsfel
+### <a name="validation-errors"></a>Verifieringsfel
 
 När du distribuerar via portalen visas ett valideringsfel när du har skickat in dina värden.
 
-![Visa portal verifieringsfel](./media/resource-manager-common-deployment-errors/validation-error.png)
+![Visa Portal validerings fel](./media/resource-manager-common-deployment-errors/validation-error.png)
 
-Välj meddelandet för mer information. I följande bild, ser du en **InvalidTemplateDeployment** fel och ett meddelande som anger en princip blockeras distributionen.
+Välj meddelandet för mer information. I följande bild visas ett **InvalidTemplateDeployment** -fel och ett meddelande som anger en princip blockerad distribution.
 
-![Visa verifieringsinformation](./media/resource-manager-common-deployment-errors/validation-details.png)
+![Visa verifierings information](./media/resource-manager-common-deployment-errors/validation-details.png)
 
-### <a name="deployment-errors"></a>distributionsfel
+### <a name="deployment-errors"></a>Distributions fel
 
 När åtgärden godkänns men inte fungerar under distributionen visas ett distributionsfel.
 
@@ -116,23 +118,23 @@ az group deployment operation list --name exampledeployment -g examplegroup --qu
 
 Markera meddelandet på portalen.
 
-![Aviseringsfel](./media/resource-manager-common-deployment-errors/notification.png)
+![meddelande fel](./media/resource-manager-common-deployment-errors/notification.png)
 
-Visas mer information om hur du distribuerar. Välj alternativet för att hitta mer information om felet.
+Du får mer information om distributionen. Välj alternativet för att hitta mer information om felet.
 
 ![distributionen misslyckades](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
 Du ser felmeddelandet och felkoderna. Observera att det finns två felkoder. Den första felkoden (**DeploymentFailed**) är ett allmänt fel som inte ger den information du behöver för att lösa felet. Den andra felkoden (**StorageAccountNotFound**) ger dig den information du behöver. 
 
-![Felinformation](./media/resource-manager-common-deployment-errors/error-details.png)
+![felinformation](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## <a name="enable-debug-logging"></a>Aktivera felsökningsloggning
 
-Ibland behöver du mer information om begäranden och svar för att lära dig vad som gick fel. Under distributionen kan du begära att ytterligare information är inloggad under en distribution. 
+Ibland behöver du mer information om begäran och svar för att lära dig vad som gått fel. Under distributionen kan du begära att ytterligare information loggas under en distribution. 
 
 ### <a name="powershell"></a>PowerShell
 
-I PowerShell, ange den **DeploymentDebugLogLevel** parametern till alla, obsah ResponseContent eller RequestContent.
+I PowerShell anger du parametern **DeploymentDebugLogLevel** till alla, ResponseContent eller RequestContent.
 
 ```powershell
 New-AzResourceGroupDeployment `
@@ -142,7 +144,7 @@ New-AzResourceGroupDeployment `
   -DeploymentDebugLogLevel All
 ```
 
-Granska begäran innehåll med följande cmdlet:
+Granska innehållet i begäran med följande cmdlet:
 
 ```powershell
 (Get-AzResourceGroupDeploymentOperation `
@@ -151,7 +153,7 @@ Granska begäran innehåll med följande cmdlet:
 | ConvertTo-Json
 ```
 
-Eller innehåll med svaret:
+Eller, svars innehållet med:
 
 ```powershell
 (Get-AzResourceGroupDeploymentOperation `
@@ -160,13 +162,13 @@ Eller innehåll med svaret:
 | ConvertTo-Json
 ```
 
-Den här informationen kan hjälpa dig att avgöra om ett värde i mallen som angivits felaktigt.
+Den här informationen kan hjälpa dig att avgöra om ett värde i mallen har angetts felaktigt.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-För närvarande, Azure CLI har inte stöd för att aktivera felsökningsloggning, men du kan hämta felsökningsloggning.
+För närvarande stöder inte Azure CLI aktivering av fel söknings loggning, men du kan hämta fel söknings loggning.
 
-Undersök distributionsåtgärder med följande kommando:
+Granska distributions åtgärderna med följande kommando:
 
 ```azurecli
 az group deployment operation list \
@@ -174,7 +176,7 @@ az group deployment operation list \
   --name exampledeployment
 ```
 
-Granska begäran innehåll med följande kommando:
+Granska innehållet i begäran med följande kommando:
 
 ```azurecli
 az group deployment operation list \
@@ -183,7 +185,7 @@ az group deployment operation list \
   --query [].properties.request
 ```
 
-Kontrollera svaret innehåll med följande kommando:
+Granska svars innehållet med följande kommando:
 
 ```azurecli
 az group deployment operation list \
@@ -194,7 +196,7 @@ az group deployment operation list \
 
 ### <a name="nested-template"></a>Kapslad mall
 
-Logga felsökningsinformation för en kapslad mall med det **debugSetting** element.
+Om du vill logga felsöknings information för en kapslad mall använder du **debugSetting** -elementet.
 
 ```json
 {
@@ -214,9 +216,9 @@ Logga felsökningsinformation för en kapslad mall med det **debugSetting** elem
 }
 ```
 
-## <a name="create-a-troubleshooting-template"></a>Skapa en mall för felsökning
+## <a name="create-a-troubleshooting-template"></a>Skapa en mall för fel sökning
 
-I vissa fall är det enklaste sättet att felsöka mallen för att testa delar av den. Du kan skapa en förenklad mall som gör att du kan fokusera på den del som du tror orsakas felet. Anta exempelvis att du får ett fel när du refererar till en resurs. Skapa en mall som returnerar den del som orsakar problemet i stället för att hantera med en mall för hela. Det kan hjälpa dig avgöra om du låter i rätt parametrar med Mallfunktioner ska, och hämtar resursen du förväntar dig.
+I vissa fall är det enklaste sättet att felsöka din mall att testa delar av den. Du kan skapa en förenklad mall som hjälper dig att fokusera på den del som du tror är orsaken till felet. Anta till exempel att du får ett fel när du refererar till en resurs. I stället för att hantera en hel mall skapar du en mall som returnerar den del som kan orsaka ditt problem. Det kan hjälpa dig att avgöra om du skickar rätt parametrar, använder mallarna på rätt sätt och hur du får den resurs som du förväntar dig.
 
 ```json
 {
@@ -241,11 +243,11 @@ I vissa fall är det enklaste sättet att felsöka mallen för att testa delar a
 }
 ```
 
-Eller så kan du anta att det uppstår distributionsfel som du tycker är relaterade till att ange ett felaktigt sätt beroenden. Testa din mall genom att bryta ned den i förenklad mallar. Skapa först en mall som distribuerar en enskild resurs (till exempel en SQL Server). Lägg till en resurs som är beroende av den (till exempel en SQL-databas) när du är säker på att du har den här resursen korrekt definierad. Lägg till andra beroende resurser (till exempel granskningsprinciper) när du har dessa två resurser korrekt definierad. Ta bort resursgruppen för att se till att du testar rätt beroenden mellan varje test-distribution.
+Eller anta att du påträffar distributions fel som du tror är relaterade till felaktigt inställda beroenden. Testa mallen genom att dela upp den i förenklade mallar. Börja med att skapa en mall som endast distribuerar en enskild resurs (som en SQL Server). När du är säker på att resursen är korrekt definierad lägger du till en resurs som är beroende av den (t. ex. en SQL Database). När de här två resurserna är korrekt definierade lägger du till andra beroende resurser (t. ex. gransknings principer). I mellan varje test distribution tar du bort resurs gruppen för att kontrol lera att du testar beroendena på ett korrekt sätt.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill gå igenom en självstudiekurs om felsökning finns i [självstudien: Felsöka malldistributioner för Resource Manager](./resource-manager-tutorial-troubleshoot.md)
-* Läs om granskning åtgärder i [granskningsåtgärder med Resource Manager](resource-group-audit.md).
-* Mer information om åtgärder för att avgöra felen under distributionen, se [visa distributionsåtgärder](resource-manager-deployment-operations.md).
+* Information om hur du går igenom en fel [söknings kurs finns i Självstudier: Felsöka distributioner av Resource Manager-mallar](./resource-manager-tutorial-troubleshoot.md)
+* Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](resource-group-audit.md).
+* Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](resource-manager-deployment-operations.md).

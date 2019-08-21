@@ -1,24 +1,24 @@
 ---
-title: Anropar Azure Storage tjänster REST API åtgärder inklusive autentisering | Microsoft Docs
-description: Anropar Azure Storage tjänster REST API åtgärder inklusive autentisering
+title: Anropar Azure Storage tjänster REST API åtgärder med behörighet för delad nyckel | Microsoft Docs
+description: Använd Azure Storage REST API för att göra en begäran till Blob Storage med hjälp av autentisering med delad nyckel.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2149bfb68697129680c45f15c6cce359863fbc59
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1463a470c84d38ebc30e32cf539aa9d6f64a6854
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989947"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640668"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Använda Azure Storage REST API
 
-Den här artikeln visar hur du använder REST-API: er för tjänsten Blob Storage och hur du autentiserar anropet till tjänsten. Den är skriven från den tidpunkt då en utvecklare vet ingenting om REST och ingen idé att göra ett REST-samtal. Vi tittar på referens dokumentationen för ett REST-samtal och ser hur du översätter det till ett faktiskt REST-anrop – vilka fält går var? När du har lärt dig hur du konfigurerar ett REST-samtal kan du utnyttja den här kunskapen för att använda någon av de andra REST-API: erna för lagrings tjänsten.
+Den här artikeln visar hur du använder REST-API: erna för Blob Storage service och hur du auktoriserar anropet till tjänsten. Den är skriven från den tidpunkt då en utvecklare vet ingenting om REST och ingen idé att göra ett REST-samtal. Vi tittar på referens dokumentationen för ett REST-samtal och ser hur du översätter det till ett faktiskt REST-anrop – vilka fält går var? När du har lärt dig hur du konfigurerar ett REST-samtal kan du utnyttja den här kunskapen för att använda någon av de andra REST-API: erna för lagrings tjänsten.
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
@@ -267,9 +267,10 @@ Nu när du förstår hur du skapar begäran, anropar tjänsten och tolkar result
 ## <a name="creating-the-authorization-header"></a>Skapa ett Authorization-huvud
 
 > [!TIP]
-> Azure Storage stöder nu Azure Active Directory-integration (Azure AD) för blobbar och köer. Azure AD erbjuder en mycket enklare upplevelse för att auktorisera en begäran till Azure Storage. Mer information om hur du använder Azure AD för att auktorisera REST-åtgärder finns i [autentisera med Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). En översikt över Azure AD-integrering med Azure Storage finns i [autentisera åtkomst till Azure Storage med hjälp av Azure Active Directory](storage-auth-aad.md).
+> Azure Storage stöder nu Azure Active Directory-integration (Azure AD) för blobbar och köer. Azure AD erbjuder en mycket enklare upplevelse för att auktorisera en begäran till Azure Storage. Mer information om hur du använder Azure AD för att auktorisera REST-åtgärder finns i [bevilja med Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory). En översikt över Azure AD-integrering med Azure Storage finns i [autentisera åtkomst till Azure Storage med hjälp av Azure Active Directory](storage-auth-aad.md).
 
-Det finns en artikel som förklarar konceptuellt (ingen kod) om hur du utför [autentisering för Azure Storage-tjänsterna](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
+Det finns en artikel som förklarar konceptuellt (ingen kod) hur du [auktoriserar begär anden till Azure Storage](/rest/api/storageservices/authorize-requests-to-azure-storage).
+
 Nu ska vi ta bort den artikeln nedåt och Visa koden.
 
 Börja med att använda autentisering med delad nyckel. Formatet för auktoriserings huvud ser ut så här:
@@ -360,7 +361,7 @@ Den här delen av Signature-strängen representerar det lagrings konto som är m
 
 Om du har frågeparametrar innehåller det här exemplet även dessa parametrar. Här är koden, som även hanterar ytterligare frågeparametrar och frågeparametrar med flera värden. Kom ihåg att du skapar den här koden så att den fungerar för alla REST-API: er. Du vill inkludera alla möjligheter, även om ListContainers-metoden inte behöver alla.
 
-```csharp 
+```csharp
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
 {
     // The absolute path will be "/" because for we're getting a list of containers.
@@ -376,7 +377,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
         sb.Append('\n').Append(item).Append(':').Append(values[item]);
     }
 
-    return sb.ToString();
+    return sb.ToString().ToLower();
 }
 ```
 
@@ -571,3 +572,4 @@ I den här artikeln har du lärt dig hur du gör en begäran till Blob Storage R
 * [BLOB service-REST API](/rest/api/storageservices/blob-service-rest-api)
 * [Fil tjänst REST API](/rest/api/storageservices/file-service-rest-api)
 * [Queue Service-REST API](/rest/api/storageservices/queue-service-rest-api)
+* [Tabell tjänst REST API](/rest/api/storageservices/table-service-rest-api)

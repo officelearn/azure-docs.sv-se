@@ -1,6 +1,6 @@
 ---
-title: Använda cloud-init för att konfigurera en växlingsfil på en Linux VM | Microsoft Docs
-description: Hur du använder cloud-init för att konfigurera en växlingsfil i en Linux VM när skapas med Azure CLI
+title: Använd Cloud-Init för att konfigurera en swap-partition på en virtuell Linux-dator | Microsoft Docs
+description: Använda Cloud-Init för att konfigurera en swap-partition i en virtuell Linux-dator när den skapas med Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,22 +14,22 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: adf03ea912a028c1059683c49350dea3743ee7a6
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d8ce12b931b6a30fa375588b73a1140ed4697c2f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671705"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640774"
 ---
-# <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Använda cloud-init för att konfigurera en växlingsfil på en Linux VM
-Den här artikeln visar hur du använder [cloud-init](https://cloudinit.readthedocs.io) att konfigurera växlingsfil på olika Linux-distributioner. Växlingsfil konfigurerades traditionellt genom den Linux Agent (WALA) baserat på vilka distributioner krävs en.  Det här dokumentet beskriver processen för att skapa växlingsfil på begäran under etableringstid med cloud-init.  Mer information om hur cloud-init fungerar internt i Azure och Linux-distributioner som stöds finns i [cloud-init-översikt](using-cloud-init.md)
+# <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Använd Cloud-Init för att konfigurera en swap-partition på en virtuell Linux-dator
+Den här artikeln visar hur du använder [Cloud-Init](https://cloudinit.readthedocs.io) för att konfigurera växlings partition på olika Linux-distributioner. Byt partition konfigurerades traditionellt av Linux-agenten (WALA) baserat på vilka distributioner som krävs.  Det här dokumentet beskriver processen för att bygga swap-partitionen på begäran under etablerings tiden med Cloud-init.  Mer information om hur Cloud-Init fungerar internt i Azure och vilka Linux-distributioner som stöds finns i [Översikt över Cloud-Init](using-cloud-init.md)
 
-## <a name="create-swapfile-for-ubuntu-based-images"></a>Skapa växlingsfil för Ubuntu-baserade avbildningar
-Som standard på Azure skapa inte Ubuntu galleriavbildningar swap-filer. Att aktivera swap-filkonfiguration under VM-etableringstillstånd tid på att använda cloud-init - finns på den [AzureSwapPartitions dokumentet](https://wiki.ubuntu.com/AzureSwapPartitions) på Ubuntu wiki.
+## <a name="create-swap-partition-for-ubuntu-based-images"></a>Skapa swap-partition för Ubuntu-baserade avbildningar
+Som standard i Azure skapar Ubuntu Gallery-avbildningar inte växlingsfiler-partitioner. Om du vill aktivera konfiguration av växlings partition under etablerings tiden för virtuella datorer med Cloud-Init, se [AzureSwapPartitions-dokumentet](https://wiki.ubuntu.com/AzureSwapPartitions) på Ubuntu-wikin.
 
-## <a name="create-swapfile-for-red-hat-and-centos-based-images"></a>Skapa växlingsfil för Red Hat och CentOS-baserade avbildningar
+## <a name="create-swap-partition-for-red-hat-and-centos-based-images"></a>Skapa swap-partition för Red Hat-och CentOS-baserade bilder
 
-Skapa en fil i ditt nuvarande gränssnitt med namnet *cloud_init_swapfile.txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_swapfile.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 för att använda den **nano** redigeraren. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden.  
+Skapa en fil i det aktuella gränssnittet med namnet *cloud_init_swappart. txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_swappart.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Kontrol lera att hela Cloud-Init-filen har kopierats korrekt, särskilt den första raden.  
 
 ```yaml
 #cloud-config
@@ -48,37 +48,37 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-Innan du distribuerar den här avbildningen måste du skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group) kommando. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+Innan du distribuerar den här avbildningen måste du skapa en resurs grupp med kommandot [AZ Group Create](/cli/azure/group) . En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Nu skapar du en virtuell dator med [az vm skapa](/cli/azure/vm) och ange cloud-init-fil med `--custom-data cloud_init_swapfile.txt` på följande sätt:
+Nu skapar du en virtuell dator med [AZ VM Create](/cli/azure/vm) och anger Cloud-Init-filen `--custom-data cloud_init_swappart.txt` med följande:
 
 ```azurecli-interactive 
 az vm create \
   --resource-group myResourceGroup \
   --name centos74 \
   --image OpenLogic:CentOS:7-CI:latest \
-  --custom-data cloud_init_swapfile.txt \
+  --custom-data cloud_init_swappart.txt \
   --generate-ssh-keys 
 ```
 
-## <a name="verify-swapfile-was-created"></a>Kontrollera växlingsfil har skapats
-SSH till den offentliga IP-adressen för den virtuella datorn visas i utdata från föregående kommando. Ange ett eget **publicIpAddress** på följande sätt:
+## <a name="verify-swap-partition-was-created"></a>Verifiera att växlings partition skapades
+SSH till den offentliga IP-adressen för den virtuella datorn som visas i utdata från föregående kommando. Ange din egen **publicIpAddress** enligt följande:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-När du har SSH'ed på den virtuella datorn kan du kontrollera om växlingsfil har skapats
+När du har SSH'ed till den virtuella datorn kontrollerar du om Byt partition har skapats
 
 ```bash
 swapon -s
 ```
 
-Utdata från det här kommandot ska se ut så här:
+Utdata från det här kommandot bör se ut så här:
 
 ```text
 Filename                Type        Size    Used    Priority
@@ -86,12 +86,12 @@ Filename                Type        Size    Used    Priority
 ```
 
 > [!NOTE] 
-> Om du har en befintlig Azure-avbildning som har en växlingsfil som konfigurerats och du vill ändra konfigurationen för swap-fil för nya avbildningar, bör du ta bort befintliga växlingsfilen. Se ”anpassa avbildningar kan etablera av cloud-init-dokumentet för mer information.
+> Om du har en befintlig Azure-avbildning som har en konfigurerad swap-partition och du vill ändra konfigurationen för växlings partition för nya avbildningar bör du ta bort den befintliga växlings partitionen. Mer information finns i avsnittet Anpassa avbildningar för att etablera efter Cloud-Init-dokument.
 
 ## <a name="next-steps"></a>Nästa steg
-Ytterligare cloud-init exempel av konfigurationsändringar finns i följande:
+Ytterligare Cloud-Init-exempel på konfigurations ändringar finns i följande avsnitt:
  
-- [Lägg till en ytterligare Linux-användare till en virtuell dator](cloudinit-add-user.md)
-- [Kör en pakethanterare för att uppdatera befintliga paket vid första start](cloudinit-update-vm.md)
-- [Ändra lokala värdnamnet för virtuell dator](cloudinit-update-vm-hostname.md) 
+- [Lägga till ytterligare en Linux-användare till en virtuell dator](cloudinit-add-user.md)
+- [Köra en paket hanterare för att uppdatera befintliga paket vid första starten](cloudinit-update-vm.md)
+- [Ändra lokalt värdnamn för virtuell dator](cloudinit-update-vm-hostname.md) 
 - [Installera ett programpaket, uppdatera konfigurationsfiler och mata in nycklar](tutorial-automate-vm-deployment.md)

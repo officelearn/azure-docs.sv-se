@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6a929359c0e4e0a5c64eadbf41f565dfeb56a233
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: e18d6519d1ee3c1750757af5c59157de8bdde80c
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854120"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637917"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -51,22 +51,29 @@ Upprätta anslutningar genom att använda något av följande alternativ:
 
 - **Tillåt IP-intervall för Azure-datacenter**. Med det här alternativet kan du hämta [IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) i nedladdningen. Använd cmdleten Set-AzureNetworkSecurityRule för att få åtkomst till en nätverks säkerhets grupp (NSG). Om du är säker på att det bara finns en lista över landsspecifika IP-adresser måste du uppdatera de säkra mottagarna i den Azure Active Directory (Azure AD) service tag gen för att aktivera autentisering.
 
-- **Tillåt åtkomst med NSG-Taggar**. Om du använder NSG: er för att begränsa anslutningen lägger det här alternativet till en regel till din NSG som tillåter utgående åtkomst till Azure Backup med hjälp av AzureBackup-taggen. Förutom den här taggen måste du också ha motsvarande [regler](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för Azure AD och Azure Storage för att tillåta anslutning för autentisering och data överföring. AzureBackup-taggen är för närvarande endast tillgänglig i PowerShell. Så här skapar du en regel med AzureBackup-taggen:
+- **Tillåt åtkomst med NSG-Taggar**.  Om du använder NSG för att begränsa anslutningen bör du använda AzureBackup service tag för att tillåta utgående åtkomst till Azure Backup. Dessutom bör du även tillåta anslutning för autentisering och data överföring genom att använda [regler](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för Azure AD och Azure Storage. Detta kan göras från portalen eller PowerShell.
 
-    - Lägg till autentiseringsuppgifter för Azure-kontot och uppdatera de nationella molnen<br/>
-    `Add-AzureRmAccount`
+    Så här skapar du en regel med hjälp av portalen:
+    
+    - I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
+    - Välj **utgående säkerhets regler** under **Inställningar**.
+    - Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Se till att alternativet **destination** har angetts till **service tag** och **mål tjänst tag gen** är inställt på **AzureBackup**.
+    - Klicka på **Lägg till**för att spara den nyligen skapade utgående säkerhets regeln.
+    
+   Så här skapar du en regel med hjälp av PowerShell:
 
-    - Välj prenumerationen NSG<br/>
-    `Select-AzureRmSubscription "<Subscription Id>"`
-
-     - Välj NSG<br/>
-    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
-
-    - Lägg till Tillåt utgående regel för Azure Backup service tag<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
-
+   - Lägg till autentiseringsuppgifter för Azure-kontot och uppdatera de nationella molnen<br/>
+    ``Add-AzureRmAccount``
+  - Välj prenumerationen NSG<br/>
+    ``Select-AzureRmSubscription "<Subscription Id>"``
+  - Välj NSG<br/>
+    ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
+  - Lägg till Tillåt utgående regel för Azure Backup service tag<br/>
+   ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
   - Spara NSG<br/>
-    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+    ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
+
+   
 - **Tillåt åtkomst med hjälp av Azure Firewall-Taggar**. Om du använder Azure-brandväggen kan du skapa en program regel med hjälp av AzureBackup [FQDN-taggen](https://docs.microsoft.com/azure/firewall/fqdn-tags). Detta tillåter utgående åtkomst till Azure Backup.
 - **Distribuera en HTTP-proxyserver för att dirigera trafik**. När du säkerhetskopierar en SQL Server-databas på en virtuell Azure-dator använder säkerhets kopierings tillägget på den virtuella datorn HTTPS-API: er för att skicka hanterings kommandon till Azure Backup och data till Azure Storage. Säkerhets kopierings tillägget använder också Azure AD för autentisering. Dirigera trafiken för säkerhetskopieringstillägget för dessa tre tjänster via HTTP-proxyn. Tilläggen är den enda komponenten som är konfigurerad för åtkomst till det offentliga Internet.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: mlearned
-ms.openlocfilehash: cf9dc304efea8874d16953f74bf88a4317760819
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 369729f10de4a55cd14bb866795ea1aa15b3d9da
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031840"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639789"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>För hands version – begränsa utgående trafik för klusternoder och kontrol lera åtkomst till nödvändiga portar och tjänster i Azure Kubernetes service (AKS)
 
@@ -58,6 +58,10 @@ I hanterings-och drift syfte måste noder i ett AKS-kluster ha åtkomst till vis
 Om du vill öka säkerheten för ditt AKS-kluster kan du vilja begränsa utgående trafik. Klustret har kon figurer ATS för hämtning av bas system behållar avbildningar från MCR eller ACR. Om du låser utgående trafik på det här sättet måste du definiera vissa portar och FQDN för att tillåta att AKS-noderna kommunicerar med nödvändiga externa tjänster på rätt sätt. Utan dessa auktoriserade portar och FQDN kan dina AKS-noder inte kommunicera med API-servern eller installera kärn komponenter.
 
 Du kan använda [Azure-brandväggen][azure-firewall] eller en brand Väggs enhet från tredje part för att skydda den utgående trafiken och definiera dessa nödvändiga portar och adresser. AKS skapar inte dessa regler automatiskt åt dig. Följande portar och adresser används som referens när du skapar lämpliga regler i nätverks brand väggen.
+
+> [!IMPORTANT]
+> När du använder Azure-brandväggen för att begränsa utgående trafik och skapar en användardefinierad väg (UDR) för att tvinga all utgående trafik, se till att du skapar en lämplig DNAT-regel i brand väggen för att tillåta inträngande trafik korrekt. Genom att använda Azure-brandväggen med en UDR avbryter du ingångs inställningen på grund av asymmetrisk routning. (Problemet beror på att AKS-undernätet har en standard väg som går till brand väggens privata IP-adress, men du använder en offentlig belastningsutjämnare – ingress eller Kubernetes-tjänst av typen: LoadBalancer). I det här fallet tas den inkommande belastnings Utjämnings trafiken emot via dess offentliga IP-adress, men retur vägen går genom brand väggens privata IP-adress. Eftersom brand väggen är tillstånds känslig, släpps det returnerade paketet eftersom brand väggen inte är medveten om en etablerad session. Information om hur du integrerar Azure-brandväggen med ingångs-eller tjänst belastnings utjämning finns i [integrera Azure-brandväggen med azure standard Load Balancer](https://docs.microsoft.com/en-us/azure/firewall/integrate-lb).
+>
 
 I AKS finns det två uppsättningar portar och adresser:
 

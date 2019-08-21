@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 08/10/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 41ebca7bd4ea299bda7e2d7a95edced583866527
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9b65a9b7440922d2b1d7a02a79cc6d0811a1d9fc
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966796"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639342"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Bygg en TensorFlow djup inlärnings modell i skala med Azure Machine Learning
 
@@ -215,6 +215,7 @@ Azure Machine Learnings tjänsten stöder två metoder för distribuerad utbildn
 Om du vill använda Horovod anger [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) du ett objekt `distributed_training` för parametern i TensorFlow-konstruktorn. Den här parametern säkerställer att Horovod-biblioteket installeras för användning i ditt utbildnings skript.
 
 ```Python
+from azureml.core.runconfig import MpiConfiguration
 from azureml.train.dnn import TensorFlow
 
 # Tensorflow constructor

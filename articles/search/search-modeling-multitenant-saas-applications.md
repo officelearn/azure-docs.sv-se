@@ -1,133 +1,131 @@
 ---
-title: Modellering multitenancy för isolering av innehåll i en tjänst – Azure Search
-description: Läs mer om vanliga designmönster för SaaS-program med flera klientorganisationer när du använder Azure Search.
+title: Modellering av flera innehavare för innehålls isolering i en tjänst-Azure Search
+description: Lär dig om vanliga design mönster för SaaS-program med flera innehavare när du använder Azure Search.
 manager: jlembicz
 author: LiamCavanagh
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: liamca
-ms.custom: seodec2018
-ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3e47fc0c46c638a51e6555ccbdc1885f081c149
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61288729"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640548"
 ---
-# <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Designmönster för SaaS-program för flera innehavare och Azure Search
-Ett program för flera är en som innehåller samma tjänster och funktioner till valfritt antal klienter som inte kan se eller dela data med andra innehavare. Det här dokumentet beskriver innehavare isolering strategier för program för flera innehavare som skapats med Azure Search.
+# <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Design mönster för SaaS-program för flera innehavare och Azure Search
+Ett program för flera innehavare är ett program som tillhandahåller samma tjänster och funktioner för alla klienter som inte kan se eller dela data för någon annan klient organisation. I det här dokumentet beskrivs strategier för klient isolering för program med flera klienter som skapats med Azure Search.
 
-## <a name="azure-search-concepts"></a>Azure Search-begrepp
-Azure Search kan utvecklare kan lägga till avancerade sökupplevelser i program utan att hantera all infrastruktur eller bli expert på informationshämtning som en sökning som tjänst-lösning. Data har överförts till tjänsten och lagras sedan i molnet. Med hjälp av enkla begäranden till Azure Search-API, kan data sedan ändras och söks igenom. En översikt över tjänsten finns i [i den här artikeln](https://aka.ms/whatisazsearch). Innan vi diskuterar designmönster, är det viktigt att förstå vissa begrepp i Azure Search.
+## <a name="azure-search-concepts"></a>Azure Search begrepp
+Som en Sök-som-tjänst-lösning ger Azure Search utvecklare möjlighet att lägga till omfattande Sök upplevelser i program utan att behöva hantera en infrastruktur eller bli expert på informations hämtning. Data överförs till tjänsten och lagras sedan i molnet. Med hjälp av enkla begär anden till Azure Search API, kan data sedan ändras och genomsökas. Du hittar en översikt över tjänsten i [den här artikeln](https://aka.ms/whatisazsearch). Innan du diskuterar design mönster är det viktigt att förstå vissa begrepp i Azure Search.
 
-### <a name="search-services-indexes-fields-and-documents"></a>Söktjänster, index, fält och dokument
-När du använder Azure Search, en prenumererar på en *söktjänsten*. När data har överförts till Azure Search, den är lagrad i en *index* i söktjänsten. Det kan finnas flera index i en enskild tjänst. Om du vill använda välbekanta begreppet databaser kan söktjänsten liknas vid en databas medan index i en tjänst kan liknas vid tabeller i en databas.
+### <a name="search-services-indexes-fields-and-documents"></a>Sök tjänster, index, fält och dokument
+När du använder Azure Search en prenumeration på en *Sök tjänst*. När data överförs till Azure Search lagras de i ett *index* i Sök tjänsten. Det kan finnas ett antal index i en enskild tjänst. Om du vill använda de välkända koncepten för databaser kan Sök tjänsten likened till en databas medan indexen i en tjänst kan vara likened till tabeller i en databas.
 
-Varje index i en söktjänst har ett eget schema, som definieras av ett antal olika anpassningsbara *fält*. Data läggs till ett Azure Search-index i form av enskilda *dokument*. Varje dokument måste laddas upp till en viss index och måste rymmas den indexschemat. När du söker data med hjälp av Azure Search, utfärdas fulltextsökning-frågor mot en viss index.  Om du vill jämföra de här koncepten dem från en databas, fält kan liknas vid kolumner i en tabell och dokument kan liknas vid rader.
+Varje index i en Sök tjänst har sitt eget schema, vilket definieras av ett antal anpassningsbara *fält*. Data läggs till i ett Azure Search-index i form av enskilda *dokument*. Varje dokument måste överföras till ett visst index och måste passa det indexets schema. När du söker efter data med Azure Search utfärdas full text Sök frågorna mot ett visst index.  Om du vill jämföra dessa begrepp med databaserna i en databas kan du likened kolumner i en tabell och dokument kan likened till rader.
 
 ### <a name="scalability"></a>Skalbarhet
-Alla Azure Search-tjänst i vanlig [prisnivån](https://azure.microsoft.com/pricing/details/search/) skala i två dimensioner: lagring och tillgänglighet.
+Alla Azure Search-tjänster på standard [pris nivån](https://azure.microsoft.com/pricing/details/search/) kan skalas i två dimensioner: lagring och tillgänglighet.
 
-* *Partitioner* kan läggas till öka lagring av en söktjänst.
-* *Repliker* kan läggas till en tjänst för att öka dataflödet för begäranden som kan hantera en söktjänst.
+* Du kan lägga till *partitioner* för att öka lagringen för en Sök tjänst.
+* *Repliker* kan läggas till i en tjänst för att öka data flödet för begär Anden som en Sök tjänst kan hantera.
 
-Skapa och ta bort partitioner och -repliker på kan kapaciteten för söktjänsten växa med mängden data och trafik kraven för programmet. För en söktjänst att uppnå en läsning [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), det krävs två repliker. För att en tjänst för att uppnå en skrivskyddad [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), den kräver tre repliker.
+Genom att lägga till och ta bort partitioner och repliker på kan du öka kapaciteten för Sök tjänsten med den mängd data och trafik som programmet kräver. För att en Sök tjänst ska kunna uppnå ett [service avtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/)för läsning kräver det två repliker. För att en tjänst ska kunna uppnå ett service [avtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/)med Läs-och skriv åtgärder krävs tre repliker.
 
-### <a name="service-and-index-limits-in-azure-search"></a>Begränsningar för tjänsten och index i Azure Search
-Det finns några olika [prisnivåer](https://azure.microsoft.com/pricing/details/search/) i Azure Search, var och en av nivåerna har olika [begränsningar och kvoter](search-limits-quotas-capacity.md). Vissa av dessa gränser är på servicenivån, vissa är på nivån index och vissa är på nivån partition.
+### <a name="service-and-index-limits-in-azure-search"></a>Tjänst-och index gränser i Azure Search
+Det finns några olika [pris nivåer](https://azure.microsoft.com/pricing/details/search/) i Azure Search, var och en av nivåerna har olika [gränser och kvoter](search-limits-quotas-capacity.md). Några av dessa begränsningar finns på tjänst nivå, vissa finns på index-nivå och några finns på partition-nivå.
 
 |  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
-| Maximal repliker per tjänst |3 |12 |12 |12 |12 |
-| Maximal partitioner per tjänst |1 |12 |12 |12 |3 |
-| Maximal Search-enheter (repliker * partitioner) per tjänst |3 |36 |36 |36 |36 (max 3 partitioner) |
-| Maximalt lagringsutrymme per tjänst |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
-| Maximalt lagringsutrymme per Partition |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Maximalt antal index per tjänst |5 |50 |200 |200 |3000 (högst 1000 index/partition) |
+| Maximalt antal repliker per tjänst |3 |12 |12 |12 |12 |
+| Maximalt antal partitioner per tjänst |1 |12 |12 |12 |3 |
+| Maximalt antal Sök enheter (repliker * partitioner) per tjänst |3 |36 |36 |36 |36 (max 3 partitioner) |
+| Maximalt lagrings utrymme per tjänst |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
+| Maximalt lagrings utrymme per partition |2 GB |25 GB |100 GB |200 GB |200 GB |
+| Maximalt antal index per tjänst |5 |50 |200 |200 |3000 (max 1000-index/partition) |
 
-#### <a name="s3-high-density"></a>S3 High Density'
-I Azure Search S3-prisinivå finns ett alternativ för hög Högdensitetsläge (HD)-läge som utformats speciellt för scenarion med flera klientorganisationer. I många fall är det nödvändigt att stöder ett stort antal mindre klienter under en enda tjänst att uppnå fördelarna med enkelhet och kostnadsbesparingar.
+#### <a name="s3-high-density"></a>S3 hög densitet
+I Azure Search är S3-pris nivån, finns ett alternativ för läget hög densitet (HD) som utformats specifikt för scenarier med flera innehavare. I många fall är det nödvändigt att stödja ett stort antal mindre klienter under en enda tjänst för att uppnå fördelarna med enkelhet och kostnads effektivitet.
 
-S3 HD möjliggör många små index ska packas under hanteringen av en enda söktjänst av handel med möjligheten att skala ut index med partitioner för möjligheten att vara värd för flera index i en enskild tjänst.
+S3 HD gör att många små index kan packas upp under hanteringen av en enskild Sök tjänst genom att handel kan skala ut index med partitioner för att kunna hantera fler index i en enskild tjänst.
 
-Concretely, kan en S3-tjänsten ha mellan 1 och 200 index som tillsammans kan vara värd för upp till 1,4 miljarder dokument. En S3 HD å andra sidan skulle tillåta individuella index bara gå upp till 1 miljon dokument, men den kan hantera upp till 1000 index per partition (upp till 3 000 per tjänst) med ett antal totala dokument över 200 miljoner per partition (upp till 600 miljoner per tjänst).
+Konkret kan en S3-tjänst ha mellan 1 och 200 index som tillsammans kan vara värd för upp till 1 400 000 000 dokument. En S3 HD på den andra sidan tillåter att enskilda index endast går upp till 1 000 000 dokument, men det kan hantera upp till 1000 index per partition (upp till 3000 per tjänst) med ett totalt antal dokument på 200 000 000 per partition (upp till 600 000 000 per tjänst).
 
-## <a name="considerations-for-multitenant-applications"></a>Överväganden för program med flera klienter
-Program med flera klienter måste effektivt distribuera resurser mellan klienterna och behålla viss nivå av sekretess mellan olika klienter. Det finns några överväganden vid utformning av arkitekturen för ett sådant program:
+## <a name="considerations-for-multitenant-applications"></a>Att tänka på för program med flera klienter
+Program för flera innehavare måste effektivt distribuera resurser mellan klienterna samtidigt som du behåller en viss sekretess nivå mellan olika klienter. Det finns några saker att tänka på när du utformar arkitekturen för ett sådant program:
 
-* *Klientisolering:* Programmet utvecklare behöver vidta lämpliga åtgärder för att säkerställa att inga klienter har Ej behörig eller oönskad åtkomst till data med andra klienter. Utöver perspektiv på datasekretess kräver strategier för isolering av klienten effektiv hantering av delade resurser och skydd mot störningar grannar.
-* *Resurskostnader för molnet:* Precis som med alla andra program måste programvarulösningar vara konkurrenskraftiga som en del av ett program för flera kostnaden.
-* *Enkel åtgärder:* När du utvecklar en arkitektur med flera innehavare är viktigt, påverkan på programmets åtgärder och komplexitet. Azure Search har ett [serviceavtal på 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* *Globala fotavtrycket:* Program med flera klienter kan behöva effektivt hantera klienter som distribueras över hela världen.
-* *Skalbarhet:* Programutvecklare måste du överväga hur de stämma av mellan upprätthålla en tillräckligt låg nivå av komplexitet för programmet och utformning av programmet som ska skalas tillsammans med antalet klienter och storleken på klienternas data och arbetsbelastningen.
+* *Klient isolering:* Programutvecklare måste vidta lämpliga åtgärder för att säkerställa att inga klienter har obehörig eller oönskad åtkomst till data för andra klienter. Utöver data sekretessens perspektiv kräver klient isolerings strategier effektiv hantering av delade resurser och skydd mot störningar i grannar.
+* *Resurs kostnad för moln:* Precis som med alla andra program måste program varu lösningar vara kostnads konkurrens kraftiga som en komponent i ett program för flera innehavare.
+* *Enkel drift:* När du utvecklar en arkitektur för flera innehavare är påverkan av programmets drift och komplexitet viktigt att tänka på. Azure Search har ett [service avtal på 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+* *Global storlek:* Program för flera klient organisationer kan behöva betjäna klienter som distribueras över hela världen.
+* *Skalbarhet:* Programutvecklare måste fundera över hur de stämmer överens med en tillräckligt låg nivå av program komplexitet och att utforma programmet för skalning med antalet klienter och storleken på klient organisationens data och arbets belastning.
 
-Azure Search erbjuder några gränser som kan användas för att isolera klienternas data och arbetsbelastningen.
+Azure Search erbjuder några gränser som kan användas för att isolera innehavares data och arbets belastning.
 
-## <a name="modeling-multitenancy-with-azure-search"></a>Modellering flera innehavare med Azure Search
-När det gäller ett scenario med flera innehavare programutvecklaren använder en eller flera söktjänster och dela sina klienter mellan tjänster, index eller båda. Azure Search har några vanliga mönster när modellering ett scenario med flera innehavare:
+## <a name="modeling-multitenancy-with-azure-search"></a>Modellering av flera innehav med Azure Search
+I ett scenario med flera innehavare förbrukar programutvecklaren en eller flera Sök tjänster och delar upp sina klienter bland tjänster, index eller både och. Azure Search har några vanliga mönster för att modellera ett scenario med flera innehavare:
 
-1. *Index per klient:* Varje klient har ett eget index i en söktjänst som delas med andra klienter.
-2. *Tjänsten per klient:* Varje klient har sin egen dedikerade Azure Search-tjänst som erbjuder den högsta nivån på data och arbetsbelastningen uppdelning.
-3. *Blandning av båda:* Större, mer aktiva klienter tilldelas dedikerade tjänster medan mindre klienter tilldelas individuella index i delade tjänster.
+1. *Index per klient:* Varje klient har sitt eget index i en Sök tjänst som delas med andra klienter.
+2. *Tjänst per klient:* Varje klient har sin egen dedikerade Azure Search tjänst, vilket ger den högsta nivån av data och separering av arbets belastning.
+3. *Blandning av båda:* Större, mer-aktiva klienter tilldelas dedikerade tjänster, medan mindre klienter tilldelas enskilda index inom delade tjänster.
 
 ## <a name="1-index-per-tenant"></a>1. Index per klient
-![En bild av modellen index-per-klient](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+![En portrayal av modellen index-per-klient](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
 
-I ett index per klient-modellen upptar flera klienter en enda Azure Search-tjänst där varje klientorganisation har sina egna index.
+I en modell för index per klient använder flera klienter en enda Azure Search tjänst där varje klient har sitt eget index.
 
-Klienter uppnå dataisolering eftersom alla Sök begäranden och Dokumentåtgärder utfärdas på indexnivå i Azure Search. I programlagret har medvetenheten behöver dirigera olika klienternas trafik till rätt index och hanterar resurser på tjänstnivå för alla klienter.
+Klienter uppnår data isolering eftersom alla Sök begär Anden och dokument åtgärder utfärdas på en index nivå i Azure Search. I program lagret behöver du veta mer om hur du dirigerar de olika klienternas trafik till rätt index samtidigt som du även hanterar resurser på tjänst nivå över alla klienter.
 
-Nyckelattribut av modellen index-per-klient är möjligheten för programutvecklare att överprenumerera på kapaciteten för en söktjänst bland programmets klienter. Om klienterna har en ojämn fördelning av arbetsbelastning, kan optimal kombination av klienter distribueras på en söktjänst index för ett antal hög, resurskrävande klienter samtidigt som man betjänar en lång slutet av mindre samtidigt aktiva klienter. En kompromiss är modellen oförmåga att hantera situationer där varje innehavare samtidigt är hög.
+Ett nyckelattribut för modellen index-per-klient är möjligheten för programutvecklaren att överlåta kapaciteten hos en Sök tjänst bland programmets klienter. Om klienterna har en ojämn fördelning av arbets belastningen, kan den optimala kombinationen av klienter distribueras över en Sök tjänsts index för att hantera ett antal mycket aktiva, resurs krävande klienter samtidigt som de samtidigt betjänar en lång ände på mindre aktiva klienter. Kompromissen är oförmåga för modellen att hantera situationer där varje klient är samtidigt hög aktiv.
 
-Index-per-klient-modellen utgör grunden för en variabel kostnadsmodell där en hel Azure Search-tjänst är köpte startkostnader och sedan fylls sedan med klienter. Det möjliggör outnyttjad kapacitet kan utses för försök och kostnadsfria konton.
+Modellen index-per-klient utgör grunden för en variabel kostnads modell, där en hel Azure Search-tjänst köps upp och sedan sedan fylls med klient organisationer. Detta gör det möjligt för oanvänd kapacitet att utses för försök och kostnads fria konton.
 
-Index-per-klient-modellen kanske inte den effektivaste för program med ett globala fotavtryck. Om ett programs klienter är fördelade över hela världen, kan det vara nödvändigt för varje region där duplicera kostnader för var och en av dem en separat tjänst.
+För program med global storlek kanske modellen index per klient inte är den mest effektiva. Om ett programs klienter distribueras över hela världen kan en separat tjänst vara nödvändig för varje region som kan duplicera kostnader för var och en av dem.
 
-Azure Search kan skalan för både individuella index och det totala antalet index att växa. Om en lämplig priser väljs nivå, partitioner och -repliker kan läggas till hela söktjänsten när ett enskilt index i tjänsten blir för stor vad gäller lagring eller trafik.
+Azure Search tillåter skalning av både enskilda index och det totala antalet index som ska växa. Om en lämplig pris nivå väljs, kan partitioner och repliker läggas till i hela Sök tjänsten när ett enskilt index i tjänsten växer för stort när det gäller lagring eller trafik.
 
-Om det totala antalet index blir för stor för en enda tjänst, har en annan tjänst som ska etableras för att hantera nya klienter. Om index har flyttas mellan söktjänster som läggs nya tjänster kan måste data från indexet kopieras manuellt från ett index till en annan eftersom Azure Search inte tillåter för ett index som ska flyttas.
+Om det totala antalet index blir för stort för en enskild tjänst, måste en annan tjänst tillhandahållas för att hantera de nya klient organisationerna. Om index måste flyttas mellan Sök tjänsterna när nya tjänster läggs till, måste data från indexet kopieras manuellt från ett index till det andra eftersom Azure Search inte tillåter att ett index flyttas.
 
-## <a name="2-service-per-tenant"></a>2. Tjänsten per klient
-![En bild av modellen service-per-klient](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+## <a name="2-service-per-tenant"></a>2. Tjänst per klient
+![En portrayal av modellen för tjänst per klient](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
 
-Varje klientorganisation har en egen search-tjänst i en arkitektur för service-per-klient.
+I en arkitektur för tjänst per klient organisation har varje klient organisation sin egen Sök tjänst.
 
-I den här modellen uppnår programmet den maximala nivån av isolering för sina klienter. Varje tjänst har dedikerade lagring och dataflöde för att hantera sökbegäran samt separat API-nycklar.
+I den här modellen uppnår programmet den maximala isolerings nivån för dess klienter. Varje tjänst har dedikerad lagring och data flöde för hantering av Sök begär Anden samt separata API-nycklar.
 
-För program där varje klientorganisation har ett stort fotavtryck eller en arbetsbelastning har lite variationer från en klient till en klient, är service-per-klient-modell passar som resurserna inte delas mellan olika klienternas arbetsbelastningar.
+För program där varje klient har ett stort utrymme eller om arbets belastningen har liten variation från klient organisation till klient organisation, är tjänst per klient modell ett effektivt val som resurser inte delas mellan olika klienters arbets belastningar.
 
-En tjänst per klient modell erbjuder även fördelen med en förutsägbar, fast kostnadsmodell. Det finns inga direkta investeringar i en hel search-tjänst tills det är en klient att fylla det, men kostnaden per klient är högre än en modell för index-per-klient.
+En tjänst per klient modell erbjuder också fördelen med en förutsägbar, fast kostnads modell. Det finns ingen direkt investering i en hel Sök tjänst tills det finns en klient som kan fylla den, men kostnaden per klient är högre än en modell med index per klient.
 
-Modellen service-per-klient är en effektiv val för program med ett globala fotavtryck. Med geografiskt utspridda innehavare är det lätt att service för varje klient i aktuell region.
+Modellen för tjänst per klient är ett effektivt alternativ för program med global storlek. Med geografiskt distribuerade klienter är det enkelt att ha varje klients tjänst i lämplig region.
 
-Utmaningar vid skalning av det här mönstret kan uppstå vid enskilda klienter växa ifrån sina tjänster. Azure Search stöder för närvarande inte uppgradera prisnivån för search-tjänsten så att alla data skulle behöva manuellt kopieras till en ny tjänst.
+Utmaningarna med att skala det här mönstret uppstår när enskilda klienter utökar sin tjänst. Azure Search stöder för närvarande inte uppgradering av pris nivån för en Sök tjänst, så alla data måste kopieras manuellt till en ny tjänst.
 
 ## <a name="3-mixing-both-models"></a>3. Blanda båda modellerna
-En annan mönster för modellering multitenancy blanda strategier för både index per klient och service-per-klient.
+Ett annat mönster för modellering av flera innehavare är att blanda både index-per-klient-och tjänst per klient-strategier.
 
-Största klienter för ett program kan blandas två mönster, uppta dedikerade tjänster medan lång slutet av mindre aktiva, mindre klienter får ha index i en delad tjänst. Den här modellen garanterar att de största innehavarna har konsekvent hög prestanda från tjänsten samtidigt som man skyddar mindre klienter från alla bort störande grannar.
+Genom att blanda de två mönstren kan ett programs största innehavare ha dedikerade tjänster medan den långa änden av mindre aktiva och mindre klienter kan uppta index i en delad tjänst. Den här modellen säkerställer att de största klient organisationerna har konsekvent höga prestanda från tjänsten samtidigt som den hjälper till att skydda de mindre klienterna från alla störningar i olika störningar.
 
-Implementera den här strategin använder dock förutseende i förutse vilka klienter kräver en dedikerad tjänst jämfört med ett index i en delad tjänst. Programmet komplexitet ökar behovet av att hantera både modellers multitenancy.
+Att implementera den här strategin är dock beroende av utseende för att förutsäga vilka klienter som kräver en dedikerad tjänst jämfört med ett index i en delad tjänst. Program komplexiteten ökar med behovet av att hantera båda de här flera innehavande modellerna.
 
-## <a name="achieving-even-finer-granularity"></a>Uppnå ännu finare granularitet
-Ovanstående designmönster modellera scenarion med flera klientorganisationer i Azure Search förutsätter en uniform scopet där varje innehavare en hel instans av ett program. Program kan ibland hantera många mindre scope.
+## <a name="achieving-even-finer-granularity"></a>Uppnå ännu bättre precision
+Ovanstående design mönster för att modellera scenarier för flera innehavare i Azure Search förutsätter en enhetlig omfattning där varje klient är en hel instans av ett program. Program kan dock ibland hantera många mindre omfång.
 
-Om service-per-klient och index per klient modeller inte är tillräckligt små för scope, är det möjligt att utforma ett index för att uppnå en ännu finare graden av kornighet.
+Om modeller för tjänst per klient och index per klient inte är tillräckligt små omfattningar, är det möjligt att modellera ett index för att uppnå en ännu bättre grad av granularitet.
 
-Om du vill ha ett enda index beter sig annorlunda för olika klientslutpunkter, kan ett fält läggas till ett index som anger ett visst värde för varje klient som möjligt. Varje gång en klient anropar Azure Search för att fråga efter eller ändra ett index koden från klientprogrammet anger lämpligt värde för fältet med hjälp av Azure Search [filter](https://msdn.microsoft.com/library/azure/dn798921.aspx) funktion när en fråga körs.
+Om ett enskilt index beter sig annorlunda för olika klient slut punkter kan ett fält läggas till i ett index som anger ett visst värde för varje möjlig klient. Varje gången en klient anropar Azure Search för att fråga eller ändra ett index, anger koden från klient programmet lämpligt värde för fältet med hjälp av Azure Searchs [filter](https://msdn.microsoft.com/library/azure/dn798921.aspx) funktion vid tidpunkten för frågan.
 
-Den här metoden kan användas för att möjliggöra funktioner av separata användarkonton, separat behörighetsnivåer och även helt olika program.
+Den här metoden kan användas för att uppnå funktioner i separata användar konton, olika behörighets nivåer och till och med helt separata program.
 
 > [!NOTE]
-> Med den metod som beskrivs ovan påverkar om du vill konfigurera ett enda index för att betjäna flera innehavare relevans för sökresultat. Sök efter relevans poängen beräknas i ett index på servernivå definitionsområde, inte ett på klientnivå omfång, så att alla klienter data ingår i relevans poängen underliggande statistik, till exempel termen frekvens.
+> Genom att använda den metod som beskrivs ovan för att konfigurera ett enda index för att betjäna flera klienter, påverkar Sök resultatnas relevans. Sök Resultat beräknas på ett omfång på index nivå, inte på en omfattning på klient nivå, så alla innehavares data införlivas i resultat underliggande statistik, till exempel term frekvens.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Azure Search är ett intressant alternativ för många program, [Läs mer om tjänstens robusta funktioner](https://aka.ms/whatisazsearch). När du utvärderar olika designmönster för program med flera klienter, Överväg att den [olika prisnivåer](https://azure.microsoft.com/pricing/details/search/) och motsvarande [tjänstbegränsningar](search-limits-quotas-capacity.md) bäst anpassa Azure Search för att passa program arbetsbelastningar och arkitekturer i alla storlekar.
+Azure Search är ett övertygande val för många program, [Läs mer om tjänstens robusta funktioner](https://aka.ms/whatisazsearch). När du utvärderar de olika design mönstren för program med flera klienter bör du överväga de [olika pris nivåerna](https://azure.microsoft.com/pricing/details/search/) och respektive [tjänst begränsningar](search-limits-quotas-capacity.md) för bästa anpassade Azure Search för att passa program arbets belastningar och arkitekturer i alla storlekar.
 
-Frågor om Azure Search och scenarion med flera klientorganisationer kan dirigeras till azuresearch_contact@microsoft.com.
+Eventuella frågor om Azure Search och flera klient scenarier kan dirigeras till azuresearch_contact@microsoft.com.
 

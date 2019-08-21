@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 08/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 60e1db913336cc9f9e355c2e8f8466854de20389
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: b93d9ee65850749e79714b632584f1977ca88c81
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828339"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639988"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella Hyper-V-datorer med Azure Migrate Server-utvärdering
 
@@ -73,7 +73,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     - Du kan välja en annan Azure-mål region när du migrerar de virtuella datorerna. Alla Azure-regioner stöds för mål för migrering.
 
 7. Klicka på **Nästa**.
-8. I **Välj bedömnings verktyg**väljer **du Azure Migrate: Server bedömning** > **Nästa**.
+8. I **Välj bedömnings verktyg**väljer **du Azure Migrate: Serverutvärdering > Nästa.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-hyper-v/assessment-tool.png)
 
@@ -128,13 +128,17 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 
 Importera den hämtade filen och skapa den virtuella datorn.
 
-1. Extrahera den zippade VHD-filen till en mapp på Hyper-V-värden som ska vara värd för den virtuella dator enheten. Tre mappar extraheras.
+1. När du har laddat ned den zippade VHD-filen till Hyper-V-värden som den virtuella dator enheten ska placeras på, extrahera den zippade filen.
+    - På den extraherade platsen packas filen upp i en mapp med namnet **AzureMigrateAppliance_VersionNumber**.
+    - Den här mappen innehåller en undermapp, som även kallas **AzureMigrateAppliance_VersionNumber**.
+    - Den här undermappen innehåller tre ytterligare undermappar – **ögonblicks bilder**, **virtuella hård diskar**och **Virtual Machines**.
+
 2. Öppna Hyper-V Manager. Klicka på **Importera virtuell dator**i **åtgärder**.
 
     ![Distribuera virtuell hård disk](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
 2. I guiden Importera virtuell dator > **innan du börjar klickar du**på **Nästa**.
-3. I **hitta mapp**anger du den mapp som innehåller den extraherade virtuella hård disken. Klicka sedan på **Nästa**.
+3. I **hitta mapp**väljer du mappen **Virtual Machines** . Klicka sedan på **Nästa**.
 1. I **Välj virtuell dator**klickar du på **Nästa**.
 2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)** . Klicka sedan på **Nästa**.
 3. I **Välj mål**låter du standardvärdet vara kvar. Klicka på **Nästa**.

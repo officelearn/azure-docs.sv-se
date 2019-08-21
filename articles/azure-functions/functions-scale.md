@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 348cd0eccc66adb29a7564bbbeca99fffec28957
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: fdef1457254b6deb8a0b791b11c94154518b4301
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562861"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636443"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
@@ -101,7 +101,7 @@ Dina Function-appar kan också köras på samma dedikerade virtuella datorer som
 
 Du betalar samma för functions-appar i en App Service planera precis som för andra App Service resurser, t. ex. Web Apps. Mer information om hur App Service plan fungerar finns [i Översikt över Azure App Service planer](../app-service/overview-hosting-plans.md).
 
-Med en App Service plan kan du manuellt skala ut genom att lägga till fler VM-instanser. Du kan också aktivera autoskalning. Mer information finns i [skala antalet instanser manuellt eller automatiskt](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Du kan också skala upp genom att välja en annan App Service plan. Mer information finns i [skala upp en app i Azure](../app-service/web-sites-scale.md). 
+Med en App Service plan kan du manuellt skala ut genom att lägga till fler VM-instanser. Du kan också aktivera autoskalning. Mer information finns i [skala antalet instanser manuellt eller automatiskt](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Du kan också skala upp genom att välja en annan App Service plan. Mer information finns i [skala upp en app i Azure](../app-service/manage-scale-up.md). 
 
 När du kör JavaScript-funktioner på en App Service plan bör du välja en plan som har färre virtuella processorer. Mer information finns i [välj App Service planer med en kärna](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 

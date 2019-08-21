@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6a29117ff6e5173063bc2aced87f08f1a6aea425
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8b4b5553605042499a9a8f3343ac4e6678e7006f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559590"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640430"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Förbereda data för att skapa en anpassad röst
 
@@ -118,13 +118,13 @@ Alla ljudfiler ska grupperas i en zip-fil. Det är OK att skicka. wav-filer och.
 
 Avskrifter måste förberedas enligt de specifikationer som anges i den här tabellen. Varje ljudfil måste matchas med en avskrift.
 
-| Egenskap | Värde |
+| Egenskap | Value |
 | -------- | ----- |
 | Fil format | Oformaterad text (. txt), grupperad i en. zip |
 | Filnamn | Använd samma namn som den matchande ljud filen |
 | Kodnings format | UTF-8-endast struktur |
 | antal yttrande per rad | Ingen gräns |
-| Maximal filstorlek | 50M |
+| Maximal filstorlek | 50 MB |
 
 Alla avskrifts filer i den här data typen ska grupperas i en zip-fil. Ingen undermapp tillåts i zip-filen. Du har till exempel laddat upp en zip-fil som innehåller en ljudfil med namnet "kingstory. wav", 45 sekunder och en annan med namnet "queenstory. mp3", 200 sekunder lång. Du måste ladda upp en annan zip-fil som innehåller två avskrifter, en med namnet "kingstory. txt", den andra som är queenstory. txt. I varje oformaterad textfil kommer du att ange en fullständig korrekt avskrift för det matchande ljudet.
 

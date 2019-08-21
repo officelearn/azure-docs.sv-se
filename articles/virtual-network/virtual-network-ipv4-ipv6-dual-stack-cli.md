@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: cc89e9284e6dbb735aef08100c99a5a7fdb87549
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 75af2012c4e6287a2fbe76098c2a325e6c9ae2ef
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248846"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640678"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Distribuera ett IPv6-program med dubbla stackar i Azure Virtual Network – CLI (för hands version)
 
@@ -111,7 +111,7 @@ az network public-ip create \
 
 I det här avsnittet konfigurerar du IP-adresser för dubbel klient del (IPv4 och IPv6) och backend-adresspoolen för belastningsutjämnaren och sedan skapar du en grundläggande Load Balancer.
 
-### <a name="create-load-balancer"></a>Skapa en lastbalanserare
+### <a name="create-load-balancer"></a>Skapa lastbalanserare
 
 Skapa den grundläggande Load Balancer med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **dsLB** som innehåller en frontend-pool med namnet **dsLbFrontEnd_v4**, en backend-pool med namnet **DsLbBackEndPool_v4** som är associerad med den offentliga IPv4-IP-adressen  **dsPublicIP_v4** som du skapade i föregående steg. 
 
@@ -130,7 +130,7 @@ az network lb create \
 
 Skapa en IP-adress för IPV6-klient med [AZ Network lb frontend-IP Create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). I följande exempel skapas en IP-konfiguration för klient delen med namnet *dsLbFrontEnd_v6* och bifogas *dsPublicIP_v6* -adressen:
 
-```azurepowershell-interactive
+```azurecli
 az network lb frontend-ip create \
 --lb-name dsLB  \
 --name dsLbFrontEnd_v6  \

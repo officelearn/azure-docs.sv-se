@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: e5af3803ebb4cb0a88a082d3c85d0df68da8d1b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566626"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637291"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Välj bland vCore-tjänst nivåerna och migrera från DTU-tjänstens nivåer
 
@@ -28,7 +28,7 @@ Med den virtuella Core-baserade inköps modellen (vCore) kan du skala beräkning
 Gen4-maskinvara erbjuder betydligt mer minne per vCore. Med Gen5 maskin vara kan du dock skala upp beräknings resurserna mycket högre.
 
 > [!IMPORTANT]
-> Nya Gen4-databaser stöds inte längre i AustraliaEast-regionen.
+> Nya Gen4-databaser stöds inte längre i regionerna Australien, östra eller Brasilien, södra.
 > [!NOTE]
 > Information om DTU-baserade tjänst nivåer finns i [tjänst nivåer för den DTU-baserade inköps modellen](sql-database-service-tiers-dtu.md). Information om skillnaderna mellan tjänst nivåerna för DTU-baserade och vCore-baserade inköps modeller finns i [Azure SQL Database inköps modeller](sql-database-purchase-models.md).
 

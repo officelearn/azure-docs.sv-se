@@ -7,14 +7,14 @@ manager: paulyuk
 editor: ''
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: 3f5196c81550446221a4524330e355c595b65c6a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d5662fa3cae8ba0cec0fd76965597ccac7c83889
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934377"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639470"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Spara hemliga program inställningar för ett webb program på ett säkert sätt
 
@@ -45,12 +45,12 @@ Om du utvecklar ett projekt och behöver dela käll koden på ett säkert sätt,
 
     ![Lägg till Key Vault åtkomst princip](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-3. Lägg till din hemlighet i Key Vault Azure Portal. För kapslade konfigurations inställningar ersätter du ":" med "-", så att Key Vault hemliga namnet är giltigt. ":" får inte vara i namnet på en Key Vault hemlighet.
+3. Lägg till din hemlighet i Key Vault på Azure Portal. För kapslade konfigurations inställningar ersätter du ":" med "-", så att Key Vault hemliga namnet är giltigt. ":" får inte vara i namnet på en Key Vault hemlighet.
 
     ![Lägg till Key Vault hemlighet](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE] 
-    > Före Visual Studio 2017 V-15,6 vi vi använde för att rekommendera att installera Azure-tjänstens autentiserings-tillägg för Visual Studio. Men det är nu föråldrat eftersom funcionality är integrerat i Visual Studio. Om du använder en äldre version av Visual Studio 2017, rekommenderar vi att du uppdaterar till minst VS 2017 15,6 eller upp så att du kan använda den här funktionen internt och komma åt nyckel valvet från att använda Visual Studio-inloggning identiteten.
+    > Före Visual Studio 2017 V-15,6 vi vi använde för att rekommendera att installera Azure-tjänstens autentiserings-tillägg för Visual Studio. Men det är föråldrat nu när funktionen är integrerad i Visual Studio. Om du använder en äldre version av Visual Studio 2017, rekommenderar vi att du uppdaterar till minst VS 2017 15,6 eller upp så att du kan använda den här funktionen internt och komma åt nyckel valvet från att använda Visual Studio-inloggning identiteten.
     >
  
 4. Lägg till följande NuGet-paket i projektet:
@@ -97,10 +97,10 @@ Om du skriver en snabb prototyp och inte vill etablera Azure-resurser går du ti
 
 1. Installera följande NuGet-paket i projektet
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic
+    Microsoft.Configuration.ConfigurationBuilders.Base
     ```
 
-2. Skapa en fil som liknar Följ. Spara den under en plats utanför projektmappen.
+2. Skapa en fil som liknar följande. Spara den under en plats utanför projektmappen.
 
     ```xml
     <root>
@@ -123,7 +123,7 @@ Om du skriver en snabb prototyp och inte vill etablera Azure-resurser går du ti
     </configBuilders>
     ```
 
-4. Avsnittet appSettings använder det hemliga konfigurations verktyget. Se till att det finns en post för den hemliga inställningen med ett värde för provdocka.
+4. Avsnittet appSettings använder det hemliga konfigurations verktyget. Se till att det finns en post för den hemliga inställningen med ett dummy-värde.
 
     ```xml
         <appSettings configBuilders="Secrets">

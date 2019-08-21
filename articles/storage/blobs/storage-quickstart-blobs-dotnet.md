@@ -7,12 +7,12 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 40ee855aa01a9b24e35fb9863221e3607786d407
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1b6348173f47b570efff25bf09e9a427ff2ba9b5
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722026"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640994"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Snabbstart: Azure Blob Storage-klient bibliotek för .NET
 
@@ -129,7 +129,7 @@ namespace blob_quickstart
 
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Kopiera dina autentiseringsuppgifter från Azure-portalen
 
-Exempelprogrammet måste autentisera åtkomsten till lagringskontot. Lägg till autentiseringsuppgifterna för ditt lagringskonto till programmet i form av en anslutningssträng. Visa autentiseringsuppgifterna för lagringskontot genom att följa dessa steg:
+När exempel programmet gör en begäran för att Azure Storage, måste det vara auktoriserat. Om du vill auktorisera en begäran lägger du till autentiseringsuppgifterna för ditt lagrings konto i programmet som en anslutnings sträng. Visa autentiseringsuppgifterna för lagringskontot genom att följa dessa steg:
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
 2. Leta rätt på ditt lagringskonto.

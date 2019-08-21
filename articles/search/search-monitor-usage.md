@@ -1,124 +1,122 @@
 ---
-title: Övervaka användning och fråga Resursmått för en search-tjänst – Azure Search
-description: Aktivera loggning, få frågan aktivitetsmått, Resursanvändning och andra systemdata från en Azure Search-tjänst.
+title: Övervaka resursanvändning och fråga mått för en search-tjänst – Azure Search
+description: Aktivera loggning, Hämta aktivitets mått, resursanvändning och andra system data från en Azure Search-tjänst.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e83e84cc8627be468ce0074b35549d5ea7def4f5
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755072"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640535"
 ---
-# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resource förbrukning och fråga i Azure Search
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resursförbrukning och fråga-aktivitet i Azure Search
 
-På sidan Översikt i Azure Search-tjänsten kan du visa systemdata om resursanvändning, fråga mått och hur mycket kvoten är att skapa flera index, indexerare och datakällor. Du kan också använda portalen för att konfigurera log analytics eller en annan resurs som används vid insamling av beständiga data. 
+På sidan Översikt i din Azure Search-tjänst kan du Visa system information om resursanvändning, fråga mått och hur mycket kvot som finns för att skapa fler index, indexerare och data källor. Du kan också använda portalen för att konfigurera Log Analytics eller en annan resurs som används för beständig data insamling. 
 
-Konfigurera loggar är användbart för self diagnostik- och preserving operativa historik. Internt, finns loggar på serverdelen för en kort tidsperiod, räcker för undersökning och analys om en supportbegäran. Om du vill kontroll över- och att logga information, bör du ställa in en av de lösningar som beskrivs i den här artikeln.
+Att konfigurera loggar är användbart för självstudier och bevarande av drift historik. Internt finns loggar på Server delen under en kort tids period, tillräckligt för undersökning och analys om du filerar ett support ärende. Om du vill ha kontroll över och åtkomst till logg information, bör du konfigurera en av lösningarna som beskrivs i den här artikeln.
 
-I den här artikeln lär du dig om hur du övervakar alternativ, hur du aktiverar loggning och logga storage och hur du visar logginnehållet.
+I den här artikeln lär du dig hur du övervakar dina övervaknings alternativ, hur du aktiverar loggning och logg lagring och hur du visar logg innehåll.
 
-## <a name="metrics-at-a-glance"></a>Mått direkt
+## <a name="metrics-at-a-glance"></a>Snabbt och enkelt mått
 
-**Användning** och **övervakning** avsnitt som är inbyggda i översikten sidan rapporten ut i resursförbrukning och frågar om mått för körning. Den här informationen blir tillgänglig när du börjar använda tjänsten, med krävs ingen konfiguration. Den här sidan uppdateras några minuters mellanrum. Om du slutför beslut om [vilken nivå ska användas för produktionsarbetsbelastningar](search-sku-tier.md), eller om du vill [justera antalet aktiva repliker och partitioner](search-capacity-planning.md), de här måtten kan hjälpa dig med dessa beslut där du kan se hur snabbt resurser används och hur väl den aktuella konfigurationen hanterar befintlig belastning.
+Avsnitt om **användning** och **övervakning** som är inbyggda på översikts sidan rapporterar om resursanvändningen och mått för frågekörning. Den här informationen blir tillgänglig så snart du börjar använda tjänsten, utan konfiguration krävs. Den här sidan uppdateras varje minut. Om du slutför beslut om [vilken nivå som ska användas för produktions arbets belastningar](search-sku-tier.md), eller om du vill [Justera antalet aktiva repliker och partitioner](search-capacity-planning.md), kan dessa mått hjälpa dig med dessa beslut genom att visa hur snabbt resurser förbrukas och hur väl den aktuella konfigurationen hanterar den befintliga belastningen.
 
-Den **användning** fliken visar resurstillgänglighet i förhållande till aktuell [gränser](search-limits-quotas-capacity.md). Följande bild är för den kostnadsfria tjänsten som är högst 3 objekt av varje typ och 50 MB lagringsutrymme. Basic eller Standard-tjänsten har högre gränser, och om du ökar antalet för partition, det största lagringsutrymmet går upp proportionellt.
+På fliken **användning** visas resurs tillgänglighet i förhållande till aktuella [gränser](search-limits-quotas-capacity.md). Följande bild är avsedd för den kostnads fria tjänsten som är ett tak på 3 objekt av varje typ och 50 MB lagrings utrymme. En Basic-eller standard-tjänst har högre gränser, och om du ökar antalet partitioner, hamnar det maximala lagrings utrymmet proportionellt.
 
-![Status för användning i förhållande till effektiva gränser](./media/search-monitor-usage/usage-tab.png
- "för programanvändning i förhållande till effektiva gränser")
+![Användnings status relativt mot gällande gränser](./media/search-monitor-usage/usage-tab.png
+ "användnings status i förhållande till effektiva gränser")
 
-## <a name="queries-per-second-qps-and-other-metrics"></a>Frågor per sekund (QPS) och andra mått
+## <a name="queries-per-second-qps-and-other-metrics"></a>Frågor per sekund (frågor per sekund) och andra mått
 
-Den **övervakning** fliken visar flytta medelvärden för mått som Sök *frågor Per sekund* (QPS), aggregerade per minut. 
-*Svarstid för sökningar* avser mängden tid som behövs för att bearbeta sökfrågor, aggregerade per minut i söktjänsten. *Begränsade frågar procent* (visas inte) är procentandelen av sökfrågor som har begränsats också samman per minut.
+Fliken **övervakning** visar glidande medelvärden för mått som Sök *frågor per sekund* (frågor per sekund), sammanställt per minut. 
+*Sök fördröjning* är den tid som Sök tjänsten behöver för att bearbeta Sök frågor, sammanställt per minut. *Begränsade Sök frågor i procent* (visas inte) är procent andelen Sök frågor som har begränsats, även sammanlagt per minut.
 
-Dessa siffror är ungefärliga och är avsedda att ge dig en allmän uppfattning av hur väl dina system betjänar förfrågningar. Faktiska Indexlagring kan vara högre eller lägre än det antal som rapporterats i portalen.
+Dessa tal är ungefärliga och är avsedda att ge dig en allmän uppfattning om hur väl systemet hanterar begär Anden. Det faktiska frågor per sekund kan vara högre eller lägre än det antal som rapporteras i portalen.
 
-![Frågor per sekund aktivitet](./media/search-monitor-usage/monitoring-tab.png "frågor per sekund aktivitet")
+![Frågor per sekund aktivitet](./media/search-monitor-usage/monitoring-tab.png "Frågor per sekund aktivitet")
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 
-Den **aktivitetsloggen** samlar in information från Azure Resource Manager. Exempel på information som finns i aktivitetsloggen är skapa eller ta bort en tjänst, uppdaterar en resursgrupp, kontroll av namntillgänglighet eller lägga till en åtkomstnyckel för att hantera en begäran. 
+**Aktivitets loggen** samlar in information från Azure Resource Manager. Exempel på information som finns i aktivitets loggen är att skapa eller ta bort en tjänst, uppdatera en resurs grupp, kontrol lera namn tillgänglighet eller hämta en tjänst åtkomst nyckel för att hantera en begäran. 
 
-Du kan komma åt den **aktivitetsloggen** från det vänstra navigeringsfönstret eller från meddelanden i det övre fönstret kommando fältet eller från den **diagnostisera och lösa problem** sidan.
+Du kan komma åt **aktivitets loggen** i det vänstra navigerings fönstret eller från meddelanden i det övre fönstrets kommando fält eller på sidan **diagnosticera och lösa problem** .
 
-För av uppgifter som att skapa ett index eller ta bort en datakälla visas allmänna meddelanden som ”hämta Admin Key” för varje begäran, men inte åtgärden själva. Du måste aktivera en lösning för övervakning av tillägg för den här nivån av information.
+För tjänst uppgifter som att skapa ett index eller ta bort en data källa visas allmänna meddelanden som "Hämta administratörs nyckel" för varje begäran, men inte själva åtgärden. För den här informations nivån måste du aktivera en lösning för övervakning av tillägg.
 
-## <a name="add-on-monitoring-solutions"></a>Tillägg övervakningslösningar
+## <a name="add-on-monitoring-solutions"></a>Lösningar för övervakning av tillägg
 
-Azure Search lagrar inte några data utöver de objekt som den hanterar, vilket innebär att data har lagras externt log. Du kan konfigurera någon av resurserna nedan om du vill bevara loggdata. 
+Azure Search lagrar inga data utöver de objekt som hanteras, vilket innebär att loggdata lagras externt. Du kan konfigurera någon av resurserna nedan om du vill spara loggdata. 
 
-I följande tabell jämförs alternativen för att lagra loggar och lägger till djupgående övervakning av tjänståtgärder och frågearbetsbelastningar via Application Insights.
+I följande tabell jämförs alternativen för att lagra loggar och lägga till djupgående övervakning av tjänst åtgärder och fråga arbets belastningar via Application Insights.
 
 | Resource | Används för |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Loggade händelser och mätvärden för fråga, baserat på scheman som nedan, ihop med användarhändelser i din app. Det här är den enda lösningen som tar användaråtgärder eller signaler i beräkningen, mappning av händelser från användarinitierad sökning, till skillnad från filtrera begäranden som skickas av programkoden. Om du vill använda den här metoden, kopiera och klistra in instrumentation kod till källfilerna vägen begära information till Application Insights. Mer information finns i [Söktrafikanalys](search-traffic-analytics.md). |
-| [Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Loggade händelser och mätvärden för fråga, baserat på scheman som nedan. Händelser loggas en Log Analytics-arbetsyta. Du kan köra frågor mot en arbetsyta som returnerar detaljerad information från loggen. Mer information finns i [Kom igång med Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Loggade händelser och mätvärden för fråga, baserat på scheman som nedan. Händelser loggas på en blobbehållare och lagras i JSON-filer. Använda en JSON-redigerare för att visa innehållet i filen.|
-| [Händelsehubb](https://docs.microsoft.com/azure/event-hubs/) | Loggade händelser och mått i frågan, baserat på de scheman som beskrivs i den här artikeln. Välj det som ett alternativt samling tjänst för mycket stora loggar. |
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Loggade händelser och fråga mått baserat på scheman nedan, korrelerade med användar händelser i din app. Det här är den enda lösningen som utför användar åtgärder eller signalerar till konto, mappning av händelser från användarinitierade sökning, i stället för filter förfrågningar som skickats av program koden. Om du vill använda den här metoden kopierar du klistra in kod till källfilerna för att skicka information om begäran till Application Insights. Mer information finns i [Sök efter trafik analys](search-traffic-analytics.md). |
+| [Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Loggade händelser och fråga mått baserat på scheman nedan. Händelser loggas till en Log Analytics-arbetsyta. Du kan köra frågor mot en arbets yta för att returnera detaljerad information från loggen. Mer information finns i [Kom igång med Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Loggade händelser och fråga mått baserat på scheman nedan. Händelser loggas till en BLOB-behållare och lagras i JSON-filer. Använd en JSON-redigerare för att visa fil innehåll.|
+| [Händelsehubb](https://docs.microsoft.com/azure/event-hubs/) | Loggade händelser och fråga om mått baserat på de scheman som dokumenteras i den här artikeln. Välj det här som en alternativ data insamlings tjänst för mycket stora loggar. |
 
-Både Azure Monitor-loggar och Blob storage är tillgängliga som en kostnadsfri, delad tjänst så att du kan prova utan kostnad för livslängden för dina Azure-prenumeration. Application Insights är kostnadsfritt att registrera och använda så länge application data ligger under vissa gränser (se den [sidan med priser](https://azure.microsoft.com/pricing/details/monitor/) information).
+Både Azure Monitor loggar och Blob Storage är tillgängliga som en kostnads fri delad tjänst så att du kan testa den utan kostnad för Azure-prenumerationens livs längd. Application Insights är kostnads fri att registrera dig och använda så länge program data storleken är under vissa gränser (se [sidan med priser](https://azure.microsoft.com/pricing/details/monitor/) för mer information).
 
-Nästa avsnitt vägleder dig genom stegen för att aktivera och använda Azure Blob storage för att samla in och komma åt loggdata som skapats av Azure Search-åtgärder.
+I nästa avsnitt får du stegvisa anvisningar om hur du aktiverar och använder Azure Blob Storage för att samla in och få åtkomst till loggdata som skapats av Azure Search åtgärder.
 
 ## <a name="enable-logging"></a>Aktivera loggning
 
-Loggning för indexerings- och arbetsbelastningar är inaktiverat som standard och beror på tilläggslösningar för både loggning infrastruktur och externa långtidslagring. Är de enda beständiga data i Azure Search de objekt som den skapar och hanterar, så loggar måste lagras på annan plats.
+Loggning av indexerings-och fråge arbets belastningar är inaktiverat som standard och är beroende av tilläggs lösningar för både loggning av infrastruktur och långsiktig extern lagring. De enda beständiga data i Azure Search är de objekt som skapas och hanteras, så loggar måste lagras någon annan stans.
 
-I det här avsnittet lär du dig att använda Blob storage kan lagra loggade händelser och mått.
+I det här avsnittet får du lära dig hur du använder Blob Storage för att lagra loggade händelser och mått data.
 
-1. [Skapa ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) om du inte redan har ett. Du kan placera det i samma resursgrupp som Azure Search för att förenkla Rensa senare om du vill ta bort alla resurser som används i den här övningen.
+1. [Skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) om du inte redan har ett. Du kan placera den i samma resurs grupp som Azure Search för att förenkla rensningen senare om du vill ta bort alla resurser som används i den här övningen.
 
-   Lagringskontot måste finnas i samma region som Azure Search.
+   Ditt lagrings konto måste finnas i samma region som Azure Search.
 
-2. Öppna din översiktssidan för söktjänsten. I det vänstra navigeringsfönstret, rulla ned till **övervakning** och klicka på **aktivera övervakning**.
+2. Öppna översikts sidan för Sök tjänsten. Rulla ned till **övervakning** i det vänstra navigerings fönstret och klicka på **Aktivera övervakning**.
 
-   ![Aktivera övervakning](./media/search-monitor-usage/enable-monitoring.png "aktivera övervakning")
+   ![Aktivera övervakning](./media/search-monitor-usage/enable-monitoring.png "Aktivera övervakning")
 
-3. Välj de data som du vill exportera: Loggar, mått eller båda. Du kan kopiera den till ett lagringskonto, skickar den till en event hub eller exportera den till Azure Monitor-loggar.
+3. Välj de data som du vill exportera: Loggar, mått eller båda. Du kan kopiera det till ett lagrings konto, skicka det till en Event Hub eller exportera det till Azure Monitor loggar.
 
-   För arkivering till Blob storage, endast lagringskontot måste finnas. Behållare och blobbar skapas när det behövs när loggdata exporteras.
+   Endast lagrings kontot måste finnas för arkivering till blob-lagring. Behållare och blobbar skapas som nödvändiga när loggdata exporteras.
 
-   ![Konfigurera blob storage Arkiv](./media/search-monitor-usage/configure-blob-storage-archive.png "konfigurera blob storage-Arkiv")
+   ![Konfigurera Blob Storage-Arkiv](./media/search-monitor-usage/configure-blob-storage-archive.png "Konfigurera Blob Storage-Arkiv")
 
 4. Spara profilen.
 
-5. Testa loggning genom att skapa eller ta bort objekt (skapar logghändelser) och genom att skicka frågor (genererar mått). 
+5. Testa loggning genom att skapa eller ta bort objekt (skapar logg händelser) och genom att skicka frågor (genererar mått). 
 
-Loggning är aktiverad när du sparar profilen. Behållare skapas endast när det finns en aktivitet till loggen eller mått. När data kopieras till ett lagringskonto, data formaterade som JSON och placeras i två behållare:
+Loggning aktive ras när du sparar profilen. Behållare skapas endast när det finns en aktivitet som ska loggas eller mätas. När data kopieras till ett lagrings konto formateras data som JSON och placeras i två behållare:
 
 * Insights-logs-operationlogs: för search trafikloggar
 * Insights-mått-pt1m: för mått
 
-**Det tar en timme innan behållarna som visas i Blob storage. Det finns en blob, per timme per behållare.**
+**Det tar en timme innan behållarna visas i Blob Storage. Det finns en BLOB, per timme, per behållare.**
 
 Du kan använda [Visual Studio Code](#download-and-open-in-visual-studio-code) eller en annan JSON-redigerare för att visa filerna. 
 
-### <a name="example-path"></a>Exempel på sökväg
+### <a name="example-path"></a>Exempel Sök väg
 
 ```
 resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
 ```
 
 ## <a name="log-schema"></a>Log-schema
-BLOB-objekt som innehåller dina trafikloggar för search-tjänsten är strukturerade som beskrivs i det här avsnittet. Varje blob har en rotobjektet kallas **poster** som innehåller en matris med objekt i loggen. Varje blob innehåller poster för alla åtgärder som ägde rum under en och samma timme.
+Blobbar som innehåller dina Sök tjänst trafik loggar struktureras enligt beskrivningen i det här avsnittet. Varje Blob har ett rot objekt som kallas **poster** som innehåller en matris med logg objekt. Varje Blob innehåller poster för alla åtgärder som ägde rum under samma timme.
 
-| Namn | Typ | Exempel | Anteckningar |
+| Name | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |Tidsstämpel för åtgärden |
 | resourceId |sträng |”/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>RESOURCEGROUPS-STANDARD-PROVIDERS /<br/> MICROSOFT. SÖK/SEARCHSERVICES/SEARCHSERVICE ” |Din resurs-ID |
 | operationName |sträng |”Query.Search” |Åtgärdens namn |
-| operationVersion |string |"2019-05-06" |Api-versionen som används |
+| operationVersion |sträng |"2019-05-06" |Api-versionen som används |
 | category |sträng |”OperationLogs” |konstant |
-| resultType |sträng |”Lyckades” |Möjliga värden: Lyckad eller misslyckad |
+| resultType |sträng |”Lyckades” |Möjliga värden: Lyckades eller misslyckades |
 | resultSignature |int |200 |Resultatkod för HTTP |
 | . durationMS |int |50 |Varaktighet i millisekunder |
 | properties |objekt |Se följande tabell |Objekt som innehåller åtgärden-specifika data |
@@ -128,15 +126,15 @@ BLOB-objekt som innehåller dina trafikloggar för search-tjänsten är struktur
 | Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
 | Beskrivning |sträng |”Hämta /indexes('content')/docs” |Åtgärdens slutpunkt |
-| Söka i data |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Frågeparametrar |
+| Söka i data |sträng |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Frågeparametrar |
 | Dokument |int |42 |Antal bearbetade dokument |
 | Indexnamn |sträng |”testindex” |Namnet på det index som är associerade med åtgärden |
 
 ## <a name="metrics-schema"></a>Mått-schema
 
-Mått som avbildas för frågebegäranden.
+Måtten fångas för fråge förfrågningar.
 
-| Namn | Typ | Exempel | Anteckningar |
+| Name | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
 | resourceId |sträng |”/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>RESOURCEGROUPS-STANDARD-PROVIDERS /<br/>MICROSOFT. SÖK/SEARCHSERVICES/SEARCHSERVICE ” |resurs-id |
 | MetricName |sträng |”Svarstiden” |namnet på måttet |
@@ -157,20 +155,20 @@ För ThrottledSearchQueriesPercentage, lägsta, högsta, genomsnittlig och total
 
 ## <a name="download-and-open-in-visual-studio-code"></a>Ladda ned och öppna i Visual Studio Code
 
-Du kan använda valfri JSON-redigerare för att visa loggfilen. Om du inte har ett, rekommenderar vi [Visual Studio Code](https://code.visualstudio.com/download).
+Du kan Visa logg filen med valfri JSON-redigerare. Om du inte har en sådan rekommenderar vi [Visual Studio Code](https://code.visualstudio.com/download).
 
-1. Öppna ditt Storage-konto i Azure-portalen. 
+1. I Azure Portal öppnar du ditt lagrings konto. 
 
-2. I det vänstra navigeringsfönstret, klickar du på **Blobar**. Du bör se **insights-logs-operationlogs** och **insights-mått-pt1m**. De här behållarna har skapats av Azure Search när loggdata exporteras till Blob storage.
+2. Klicka på **blobbar**i det vänstra navigerings fönstret. Du bör se **Insights-logs-operationlogs** och **Insights-Metrics-pt1m**. Dessa behållare skapas av Azure Search när loggdata exporteras till Blob Storage.
 
-3. Klicka på ned mapphierarkin tills du når JSON-fil.  Använd på snabbmenyn för att hämta filen.
+3. Klicka på mapphierarkin tills du når. JSON-filen.  Använd snabb menyn för att hämta filen.
 
-När filen har hämtats, kan du öppna den i en JSON-redigerare för att visa innehållet.
+När filen har hämtats öppnar du den i en JSON-redigerare för att visa innehållet.
 
-## <a name="use-system-apis"></a>Använd system-API
-Både Azure Search REST API och .NET-SDK: N ger programmatisk åtkomst till information om tjänstens mått, index och indexerare och dokumentantal.
+## <a name="use-system-apis"></a>Använda system-API: er
+Både Azure Search REST API och .NET SDK ger programmerings åtkomst till tjänst statistik, index-och index information och dokument antal.
 
-* [Hämta statistik för tjänster](/rest/api/searchservice/get-service-statistics)
+* [Hämta tjänste statistik](/rest/api/searchservice/get-service-statistics)
 * [Hämta Indexstatistiken](/rest/api/searchservice/get-index-statistics)
 * [Antal dokument](/rest/api/searchservice/count-documents)
 * [Hämta Status för indexerare](/rest/api/searchservice/get-indexer-status)
@@ -179,4 +177,4 @@ Om du vill aktivera med PowerShell eller Azure CLI finns i dokumentationen [här
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hantera din söktjänst på Microsoft Azure](search-manage.md) för mer information om tjänstadministration och [prestanda och optimering](search-performance-optimization.md) för justering vägledning.
+[Hantera din Sök tjänst på Microsoft Azure](search-manage.md) för mer information om tjänst administration och [prestanda och optimering](search-performance-optimization.md) för justerings vägledning.

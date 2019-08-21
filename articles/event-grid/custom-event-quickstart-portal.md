@@ -9,12 +9,12 @@ ms.date: 03/27/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 0861c47ef9f9649dfe223d8abeb51310a87ea4a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afb53ed013af6cd1db2f6ff3d25c350aa2b4f1e8
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169707"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638552"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Snabbstart: Dirigera anpassade händelser till en webbslutpunkt med Azure Portal och Event Grid
 
@@ -35,35 +35,35 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
 Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj **alla tjänster** på menyn till vänster navigering, söka efter **Event Grid**, och välj **Event Grid-ämnen**. 
+2. Välj **alla tjänster** i den vänstra navigerings menyn, sök efter **Event Grid**och välj **Event Grid ämnen**. 
 
-    ![Välj Event Grid-ämnen](./media/custom-event-quickstart-portal/select-event-grid-topics.png)
-3. På den **Event Grid-ämnen** väljer **+ Lägg till** i verktygsfältet. 
+    ![Välj Event Grid ämnen](./media/custom-event-quickstart-portal/select-event-grid-topics.png)
+3. På sidan **Event Grid ämnen** väljer du **+ Lägg till** i verktygsfältet. 
 
-    ![Lägg till Event Grid-ämne knapp](./media/custom-event-quickstart-portal/add-event-grid-topic-button.png)
-4. På den **Skapa avsnittet** utför de här stegen:
+    ![Knappen Lägg till Event Grid ämne](./media/custom-event-quickstart-portal/add-event-grid-topic-button.png)
+4. Följ dessa steg på sidan **skapa ämne** :
     1. Ange ett unikt **namn** för det anpassade ämnet. Ämnesnamnet måste vara unikt eftersom det representeras av en DNS-post. Använd inte det namn som visas på bilden. I stället skapar du ett eget namn som måste bestå av 3–50 tecken och enbart får innehålla a-z, A-Z, 0-9 och ”-”.
     2. Välj din Azure-**prenumeration**.
-    3. Välj en befintlig resursgrupp eller välj **Skapa nytt**, och ange en **namn** för den **resursgrupp**.
-    4. Välj en **plats** för event grid-ämne.
-    5. Behåll standardvärdet **Grid Händelseschema** för den **Händelseschema** fält. 
+    3. Välj en befintlig resurs grupp eller Välj **Skapa ny**och ange ett **namn** för **resurs gruppen**.
+    4. Välj en **plats** för Event Grid-ämnet.
+    5. Behåll standardvärdet **Event Grid schema** för fältet **händelse schema** . 
 
-       ![Skapa ämne sida](./media/custom-event-quickstart-portal/create-custom-topic.png)
+       ![Sidan skapa ämne](./media/custom-event-quickstart-portal/create-custom-topic.png)
     6. Välj **Skapa**. 
-5. När du har skapat det anpassade ämnet visas ett meddelande om detta. Välj **går du till resursgruppen**. 
+5. När du har skapat det anpassade ämnet visas ett meddelande om detta. Välj **gå till resurs grupp**. 
 
    ![Se meddelandet](./media/custom-event-quickstart-portal/success-notification.png)
-6. På den **resursgrupp** väljer event grid-ämne. 
+6. På sidan **resurs grupp** väljer du avsnittet Event Grid. 
 
-   ![Välj event grid avsnittet resurs](./media/custom-event-quickstart-portal/select-event-grid-topic.png)
-7. Du ser den **Event Grid-ämne** sidan för event grid. Behåll den här sidan öppen. Du kan använda den senare i snabbstarten. 
+   ![Välj ämnes resurs för händelse rutnät](./media/custom-event-quickstart-portal/select-event-grid-topic.png)
+7. Du ser sidan **Event Grid ämne** för Event Grid. Behåll sidan öppen. Du använder det senare i snabb starten. 
 
-    ![Startsida för Event Grid-ämne](./media/custom-event-quickstart-portal/event-grid-topic-home-page.png)
+    ![Start sida för Event Grid ämne](./media/custom-event-quickstart-portal/event-grid-topic-home-page.png)
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
-Innan du skapar en prenumeration för det anpassade ämnet måste du skapa en slutpunkt för händelsemeddelandet. Slutpunkten utför vanligtvis åtgärder baserat på informationen om händelsen. För att förenkla den här snabbstarten kan du distribuera en [förskapad webbapp](https://github.com/Azure-Samples/azure-event-grid-viewer) som visar meddelanden om händelser. Den distribuerade lösningen innehåller en App Service-plan,en webbapp för App Service och källkod från GitHub.
+Innan du skapar en prenumeration för det anpassade ämnet skapar du en slut punkt för händelse meddelandet. Slutpunkten utför vanligtvis åtgärder baserat på informationen om händelsen. För att förenkla den här snabbstarten kan du distribuera en [förskapad webbapp](https://github.com/Azure-Samples/azure-event-grid-viewer) som visar meddelanden om händelser. Den distribuerade lösningen innehåller en App Service-plan,en webbapp för App Service och källkod från GitHub.
 
-1. Artikeln på sidan Välj **distribuera till Azure** att distribuera lösningen till din prenumeration. Ange parametervärdena i Azure Portal.
+1. På sidan artikel väljer du **distribuera till Azure** för att distribuera lösningen till din prenumeration. Ange parametervärdena i Azure Portal.
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 1. Det kan ta några minuter att slutföra distributionen. Efter distributionen har slutförts kan du visa webbappen för att kontrollera att den körs. I en webbläsare navigerar du till: `https://<your-site-name>.azurewebsites.net`
@@ -75,19 +75,19 @@ Innan du skapar en prenumeration för det anpassade ämnet måste du skapa en sl
 
 Du prenumererar på ett Event Grid-ämne därför att du vill ange för Event Grid vilka händelser du vill följa och vart du vill skicka händelserna.
 
-1. Nu på den **Event Grid-ämne** sidan för ditt anpassade ämne väljer **+ händelseprenumeration** i verktygsfältet.
+1. På sidan **Event Grid ämne** för ditt anpassade ämne väljer du **+ händelse prenumeration** i verktygsfältet.
 
    ![Lägga till händelseprenumeration](./media/custom-event-quickstart-portal/new-event-subscription.png)
-2. På den **skapa händelseprenumeration** utför de här stegen:
-    1. Ange en **namn** för händelseprenumerationen.
-    3. Välj **Webhook** för den **slutpunktstyp**. 
-    4. Välj **väljer du en slutpunkt**. 
+2. Följ dessa steg på sidan **Skapa händelse prenumeration** :
+    1. Ange ett **namn** för händelse prenumerationen.
+    3. Välj **Web Hook** som **typ av slut punkt**. 
+    4. Välj **Välj en slut punkt**. 
 
        ![Ange värden för händelseprenumerationen](./media/custom-event-quickstart-portal/provide-subscription-values.png)
     5. För webhookens slutpunkt anger du webbappens webbadress och lägger till `api/updates` till startsidans webbadress. Välj **Bekräfta val**.
 
        ![Ange slutpunktens webbadress](./media/custom-event-quickstart-portal/provide-endpoint.png)
-    6. Gå tillbaka till den **skapa händelseprenumeration** väljer **skapa**.
+    6. Gå tillbaka till sidan **Skapa händelse prenumeration** och välj **skapa**.
 
 3. Visa ditt webbprogram igen och observera att en händelse för verifieringen av prenumerationen har skickats till den. Välj ögonikonen för att utöka informationen om händelsen. Händelserutnätet skickar valideringshändelsen så att slutpunkten kan bekräfta att den vill ta emot händelsedata. Webbappen inkluderar kod för att verifiera prenumerationen.
 
@@ -101,25 +101,25 @@ I det första exemplet används Azure CLI. URL och nyckel för det anpassade äm
 
 
 ### <a name="azure-cli"></a>Azure CLI
-1. I Azure-portalen väljer du **Cloud Shell**. Välj **Bash** i det övre vänstra hörnet i Cloud Shell-fönstret. 
+1. I Azure Portal väljer du **Cloud Shell**. Välj **bash** i det övre vänstra hörnet i Cloud Shells fönstret. 
 
-    ![Cloudshell - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
-1. Kör följande kommando för att hämta den **endpoint** för ämnet: När du kopierar och klistrar in det, uppdaterar den **ämnesnamn** och **resursgruppens namn** innan du kör kommandot. 
+    ![Cloud Shell-bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
+1. Kör följande kommando för att hämta **slut punkten** för ämnet: När du har kopierat och klistrat in kommandot uppdaterar du **ämnes namnet** och **resurs gruppens namn** innan du kör kommandot. 
 
     ```azurecli
     endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
     ```
-2. Kör följande kommando för att hämta den **nyckel** för det anpassade ämnet: När du kopierar och klistrar in det, uppdaterar den **ämnesnamn** och **resursgrupp** namn innan du kör kommandot. 
+2. Kör följande kommando för att hämta **nyckeln** för det anpassade ämnet: När du har kopierat och klistrat in kommandot uppdaterar du **ämnes namnet** och **resurs gruppens** namn innan du kör kommandot. 
 
     ```azurecli
     key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
     ```
-3. Kopiera följande instruktion med händelsen definition och tryck på **RETUR**. 
+3. Kopiera följande instruktion med händelse definitionen och tryck på **RETUR**. 
 
     ```json
     event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
     ```
-4. Kör följande **Curl** kommando för att publicera händelsen:
+4. Kör följande **spiral** kommando för att publicera händelsen:
 
     ```
     curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
@@ -128,20 +128,22 @@ I det första exemplet används Azure CLI. URL och nyckel för det anpassade äm
 ### <a name="azure-powershell"></a>Azure PowerShell
 I det andra exemplet används PowerShell för att utföra liknande steg.
 
-1. I Azure-portalen väljer du **Cloud Shell**. Välj **PowerShell** i det övre vänstra hörnet i Cloud Shell-fönstret. Se exemplet **Cloud Shell** fönstret avbildning i Azure CLI-avsnitt. 
-2. Kör följande kommando för att hämta den **endpoint** för ämnet: När du kopierar och klistrar in det, uppdaterar den **ämnesnamn** och **resursgruppens namn** innan du kör kommandot. 
+1. I Azure Portal väljer du **Cloud Shell** (du kan också gå https://shell.azure.com/) till. Välj **PowerShell** i det övre vänstra hörnet i Cloud Shells fönstret. Se exemplet på **Cloud Shell** fönstret i Azure CLI-avsnittet.
+2. Ange följande variabler. När du har kopierat och klistrat in varje kommando uppdaterar du **ämnes namnet** och **resurs gruppens namn** innan du kör kommandot:
 
     ```powershell
-    $endpoint = (Get-AzEventGridTopic -ResourceGroupName <resource group name> -Name <topic name>).Endpoint
+    $resourceGroupName = <resource group name>
+    $topicName = <topic name>
     ```
-3. Kör följande kommando för att hämta den **nyckel** för det anpassade ämnet: När du kopierar och klistrar in det, uppdaterar den **ämnesnamn** och **resursgrupp** namn innan du kör kommandot.
+3. Kör följande kommandon för att hämta **slut punkten** och **nycklarna** för ämnet:
 
     ```powershell
-    $keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic name>
+    $endpoint = (Get-AzEventGridTopic -ResourceGroupName $resourceGroupName -Name $topicName).Endpoint
+    $keys = Get-AzEventGridTopicKey -ResourceGroupName $resourceGroupName -Name $topicName
     ```
-4. Förbered händelsen. Kopiera och kör uttryck i Cloud Shell-fönstret. 
+4. Förbered händelsen. Kopiera och kör instruktionerna i fönstret Cloud Shell. 
 
-    ```azurepowershell
+    ```powershell
     $eventID = Get-Random 99999
 
     #Date format should be SortableDateTimePattern (ISO 8601)
@@ -164,13 +166,13 @@ I det andra exemplet används PowerShell för att utföra liknande steg.
     #Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
     $body = "["+(ConvertTo-Json $htbody)+"]"
     ```
-5. Använd den **Invoke-WebRequest** cmdlet för att skicka händelsen. 
+5. Använd cmdleten **Invoke-WebRequest** för att skicka händelsen. 
 
     ```powershell
     Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
     ```
 
-### <a name="verify-in-the-event-grid-viewer"></a>Kontrollera i Loggboken i rutnätet
+### <a name="verify-in-the-event-grid-viewer"></a>Verifiera i Event Grid Viewer
 Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Visa din webbapp om du vill se händelsen som du har skickat.
 
 ```json
@@ -192,14 +194,14 @@ Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt
 ## <a name="clean-up-resources"></a>Rensa resurser
 Om du planerar att fortsätta arbeta med den här händelsen ska du inte rensa upp bland de resurser som skapades i den här artikeln. I annat fall tar du bort alla resurser som du har skapat i den här artikeln.
 
-1. Välj **resursgrupper** på den vänstra menyn. Om du inte ser det på den vänstra menyn, Välj **alla tjänster** på den vänstra menyn och välj **resursgrupper**. 
-2. Välj resursgrupp att starta den **resursgrupp** sidan. 
-3. Välj **ta bort resursgrupp** i verktygsfältet. 
-4. Bekräfta borttagningen genom att ange namnet på resursgruppen och välj **ta bort**. 
+1. Välj **resurs grupper** på den vänstra menyn. Om du inte ser det på den vänstra menyn väljer du **alla tjänster** i den vänstra menyn och väljer **resurs grupper**. 
+2. Välj den resurs grupp där du vill starta sidan **resurs grupp** . 
+3. Välj **ta bort resurs grupp** i verktygsfältet. 
+4. Bekräfta borttagningen genom att ange namnet på resurs gruppen och välj **ta bort**. 
 
     ![Resursgrupper](./media/custom-event-quickstart-portal/delete-resource-groups.png)
 
-    Den resursgrupp som du ser i bilden skapades och används av Cloud Shell-fönstret. Ta bort den om du inte planerar att använda Cloud Shell-fönstret senare. 
+    Den andra resurs gruppen som visas i avbildningen har skapats och används av Cloud Shells fönstret. Ta bort det om du inte planerar att använda fönstret Cloud Shell senare. 
 
 ## <a name="next-steps"></a>Nästa steg
 

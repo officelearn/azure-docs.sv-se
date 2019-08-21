@@ -1,6 +1,6 @@
 ---
 title: Transformeringar och jobb i Azure Media Services | Microsoft Docs
-description: När du använder Media Services kan behöva du skapa en transformering för att beskriva regler och specifikationer för bearbetning av dina videor. Den här artikeln ger en översikt över vad transformeringen är och hur du använder den.
+description: När du använder Media Services måste du skapa en transformering för att beskriva reglerna eller specifikationerna för att bearbeta dina videor. Den här artikeln ger en översikt över vad transformering är och hur du använder den.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,115 +9,116 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 01b386c820a09af0e616698aabc58a886c30bb09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 466ab0737aa5af40bd1bc137b98ab57a48feafde
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550933"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637359"
 ---
 # <a name="transforms-and-jobs"></a>Transformeringar och jobb
 
-Det här avsnittet innehåller information om [omvandlar](https://docs.microsoft.com/rest/api/media/transforms) och [jobb](https://docs.microsoft.com/rest/api/media/jobs) och beskriver relationen mellan dessa entiteter. 
+Det här avsnittet innehåller information [](https://docs.microsoft.com/rest/api/media/transforms) om transformeringar och [jobb](https://docs.microsoft.com/rest/api/media/jobs) och förklarar förhållandet mellan dessa entiteter. 
 
 ## <a name="overview"></a>Översikt 
 
-### <a name="transformsjobs-workflow"></a>Arbetsflöde för transformeringar/jobb
+### <a name="transformsjobs-workflow"></a>Transformeringar/jobb arbets flöde
 
-Följande diagram visar transformeringar/jobb arbetsflöde.
+I följande diagram visas transformeringar/jobb arbets flöde.
 
 ![Transformering](./media/encoding/transforms-jobs.png)
 
 #### <a name="typical-workflow"></a>Typiskt arbetsflöde
 
 1. Skapa en transformering 
-2. Skicka jobb under den transformeringen 
+2. Skicka jobb under transformeringen 
 3. Lista transformeringar 
 4. Ta bort en transformering, om du inte planerar att använda den i framtiden. 
 
 #### <a name="example"></a>Exempel
 
-Anta att du vill extrahera första bildruta från dina videor som en miniatyrbild – är vad du måste göra: 
+Anta att du vill extrahera den första bild rutan i alla videor som en miniatyr bild – de steg du skulle vidta är: 
 
-1. Definiera receptet eller regeln för att bearbeta dina videor – ”Använd första ramen videoklippets som miniatyren”. 
-2. För varje video skulle du instruera tjänsten: 
-    1. Var du hittar den här videon  
-    2. Var ska skriva på miniatyrbilden för utdata. 
+1. Definiera receptet eller regeln för att bearbeta videor – "Använd den första bild rutan i videon som miniatyren". 
+2. För varje video ser du till att tjänsten: 
+    1. Var du hittar videon,  
+    2. Var du vill skriva bilden med miniatyr bilden. 
 
-En **transformera** hjälper dig att skapa receptet en gång (steg 1) och skicka jobb med hjälp av det receptet (steg 2).
+En **transformering** hjälper dig att skapa ett recept en gång (steg 1) och skicka jobb med det receptet (steg 2).
 
 > [!NOTE]
-> Egenskaper för **transformera** och **jobbet** som är av typen är alltid i UTC-format för datum/tid.
+> Egenskaper för **transformering** och **jobb** som är av typen datetime är alltid i UTC-format.
 
 ## <a name="transforms"></a>Transformering
 
-Använd **omvandlar** att konfigurera vanliga uppgifter för kodning eller analysera videor. Varje **transformera** beskriver ett recept eller ett arbetsflöde med uppgifter för att bearbeta video- eller ljudinnehåll filer. En enda transformering kan använda mer än en regel. En transformering kan till exempel ange att varje videon kodas till en MP4-fil på en viss bithastighet och att en miniatyrbild genereras från den första bildrutan i videon. Du skulle lägga till en TransformOutput post för varje regel som du vill ska ingå i din transformeringen. Du kan använda förinställningar för att berätta för transformering hur inkommande mediefiler ska bearbetas.
+Använd **transformeringar** för att konfigurera vanliga aktiviteter för kodning eller analys av videor. Varje **transformering** beskriver ett recept, eller ett arbets flöde för uppgifter för bearbetning av video-eller ljudfiler. En enda transformering kan använda mer än en regel. En transformering kan till exempel ange att varje video ska kodas till en MP4-fil vid en specifik bit hastighet och att en miniatyr bild genereras från den första bild rutan i videon. Du lägger till en TransformOutput-post för varje regel som du vill inkludera i transformeringen. Du kan använda för inställningar för att berätta för transformeringen hur media-filerna ska bearbetas.
 
-### <a name="viewing-schema"></a>Visa schemat
+### <a name="viewing-schema"></a>Visa schema
 
-Förinställningar finns i Media Services v3, starkt typifierad entiteter i själva API: T. Du kan hitta ”schema” definitionen för dessa objekt i [Open API Specification (eller Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Du kan också visa de förinställda definitionerna (t.ex. **StandardEncoderPreset**) i den [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (eller andra Media Services v3 SDK referensdokumentation).
+I Media Services v3 är för inställningar starkt skrivna entiteter i själva API: et. Du hittar definitionen "schema" för dessa objekt i [Open API-specifikationen (eller Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Du kan också Visa förinställda definitioner (som **StandardEncoderPreset**) i [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (eller andra Media Services v3 SDK referens dokumentation).
 
 ### <a name="creating-transforms"></a>Skapar transformeringar
 
-Du kan skapa transformeringar med hjälp av REST, CLI, eller använda någon av de publicerade SDK: er. Media Services-v3 API drivs av Azure Resource Manager, så du kan också använda Resource Manager-mallar för att skapa och distribuera transformeringar i Media Services-kontot. Rollbaserad åtkomstkontroll kan användas för att låsa åtkomsten till transformeringar.
+Du kan skapa transformeringar med hjälp av REST, CLI eller använda någon av de publicerade SDK: erna. Media Services v3-API: et styrs av Azure Resource Manager, så du kan även använda Resource Manager-mallar för att skapa och distribuera transformeringar i ditt Media Services-konto. Rollbaserad åtkomst kontroll kan användas för att låsa åtkomsten till transformeringar.
 
 ### <a name="updating-transforms"></a>Uppdaterar transformeringar
 
-Om du behöver uppdatera din [transformera](https://docs.microsoft.com/rest/api/media/transforms), använda den **uppdatera** igen. Den är avsedd för att göra ändringarna för beskrivningen eller prioriteringarna för underliggande TransformOutputs. Vi rekommenderar att dessa uppdateringar ska utföras när alla pågående jobb har slutförts. Om du vill skriva om receptet, måste du skapa en ny omvandling.
+Om du behöver uppdatera transformeringen [](https://docs.microsoft.com/rest/api/media/transforms)använder du uppdaterings åtgärden. Den är avsedd för att göra ändringar i beskrivningen eller prioriteterna för underliggande TransformOutputs. Vi rekommenderar att sådana uppdateringar utförs när alla pågående jobb har slutförts. Om du tänker skriva om receptet måste du skapa en ny transformering.
 
-### <a name="transform-object-diagram"></a>Omvandla objektet diagram
+### <a name="transform-object-diagram"></a>Transformera objekt diagram
 
-Följande diagram visar den **transformera** objekt och de objekt som den refererar till, inklusive härledning relationer. Grå pilarna visar en typ som jobbet-referenser och grön pilarna visar härledning klassrelationer.<br/>Klicka på bilden för att visa den i full storlek.  
+Följande diagram visar **Transform** -objektet och de objekt som det refererar till, inklusive härlednings relationer. Grå pilarna visar en typ som jobbet refererar till och gröna pilar visar klass härlednings relationer.<br/>Klicka på bilden för att visa den i full storlek.  
 
 <a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a> 
 
 ## <a name="jobs"></a>Jobb
 
-En **jobbet** är den faktiska begäran till Azure Media Services att tillämpa den **omvandla** till en given video- eller ljudinnehåll datainnehållet. När vi har skapats, kan du skicka jobb med hjälp av API: er för Media Services eller någon av de publicerade SDK: er. Den **jobbet** anger information som platsen för indatavideo och platsen för utdata. Du kan ange platsen för dina indata video med: HTTPS-adresser, SAS URL: er eller [tillgångar](https://docs.microsoft.com/rest/api/media/assets).  
+Ett **jobb** är den faktiska begäran om Azure Media Services att tillämpa **transformeringen** på ett angivet video-eller ljud innehåll. När transformeringen har skapats kan du skicka jobb med Media Services-API: er eller någon av de publicerade SDK: erna. **Jobbet** anger information som till exempel platsen för indata-videon och platsen för utdata. Du kan ange platsen för Indataporten med: HTTPS-URL: er, SAS-URL: er eller [till gångar](https://docs.microsoft.com/rest/api/media/assets).  
 
-### <a name="job-input-from-https"></a>Jobbindata från HTTPS
+### <a name="job-input-from-https"></a>Jobb inmatat från HTTPS
 
-Använd [jobbet indata från HTTPS](job-input-from-http-how-to.md) om innehållet är redan nås via en URL och du behöver inte lagra källfilen i Azure (till exempel importera från S3). Den här metoden passar också om du har innehållet i Azure Blob storage, men inte har behov av att filen finns i en tillgång. Den här metoden stöder för närvarande bara en enda fil för indata.
+Använd [jobb indata från https](job-input-from-http-how-to.md) om ditt innehåll redan är tillgängligt via en URL och du inte behöver lagra käll filen i Azure (till exempel importera från S3). Den här metoden är också lämplig om du har innehållet i Azure Blob Storage men inte behöver filen i en till gång. För närvarande stöder den här metoden bara en enda fil för indata.
 
-### <a name="asset-as-job-input"></a>Tillgången som indata för jobbet
+### <a name="asset-as-job-input"></a>Till gång som jobb inmatat
 
-Använd [tillgången som jobbindata](job-input-from-local-file-how-to.md) om inkommande innehållet är redan i en tillgång eller innehållet lagras i lokal fil. Det är också ett bra alternativ om du planerar att publicera indatatillgången för direktuppspelning eller ladda ned (anta att du vill publicera mp4 för nedladdning men vill också tal till text eller ansikte identifiering). Den här metoden har stöd för flera filtillgångar (till exempel MBR strömmande datauppsättningar som kodats lokalt).
+Använd [till gång som indata för jobb](job-input-from-local-file-how-to.md) om indata-innehållet redan finns i en till gång eller om innehållet lagras i en lokal fil. Det är också ett bra alternativ om du planerar att publicera indata till gången för strömning eller hämtning (anta att du vill publicera MP4 för nedladdning, men även vill göra tal till text eller ansikts igenkänning). Den här metoden stöder flersidiga till gångar (t. ex. MBR streaming-uppsättningar som kodats lokalt).
 
-### <a name="checking-job-progress"></a>Kontrollera jobbförlopp
+### <a name="checking-job-progress"></a>Kontrollerar jobb förlopp
 
-Förlopp och status för jobben kan hämtas genom att övervaka händelser med Event Grid. Mer information finns i [övervaka händelser med hjälp av EventGrid](job-state-events-cli-how-to.md).
+Jobbets förlopp och tillstånd kan hämtas genom att övervaka händelser med Event Grid. Mer information finns i [övervaka händelser med hjälp av EventGrid](job-state-events-cli-how-to.md).
 
-### <a name="updating-jobs"></a>Uppdatera jobb
+### <a name="updating-jobs"></a>Uppdaterar jobb
 
-Uppdateringsåtgärden på den [jobbet](https://docs.microsoft.com/rest/api/media/jobs) entiteten kan användas för att ändra den *beskrivning*, och *prioritet* egenskaper när jobbet har skickats. En ändring av den *prioritet* egenskap gäller endast om jobbet är fortfarande i en kö. Om jobbet har startat bearbetning eller har slutförts, har ändra prioritet ingen effekt.
+Uppdaterings åtgärden för [jobb](https://docs.microsoft.com/rest/api/media/jobs) -entiteten kan användas för att ändra *beskrivningen*och prioritets egenskaperna när jobbet har skickats. En ändring av *prioritets* egenskapen är endast effektiv om jobbet fortfarande har statusen i kö. Om jobbet har påbörjat bearbetningen eller har avslut ATS har ändrings prioriteten ingen påverkan.
 
-### <a name="job-object-diagram"></a>Objektet jobbdiagram
+### <a name="job-object-diagram"></a>Jobb objekts diagram
 
-Följande diagram visar den **jobbet** objekt och de objekt som den refererar till, inklusive härledning relationer.<br/>Klicka på bilden för att visa den i full storlek.  
+Följande diagram visar **jobbobjektet** och de objekt som det refererar till, inklusive härlednings relationer.<br/>Klicka på bilden för att visa den i full storlek.  
 
 <a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
 
-## <a name="configure-media-reserved-units"></a>Konfigurera Mediereserverade enheter
+## <a name="configure-media-reserved-units"></a>Konfigurera reserverade enheter för media
 
-För analys av ljud och Video Analysis jobb som utlöses av Media Services v3 eller Video Indexer kan rekommenderar vi starkt att etablera ditt konto med 10 Mediereserverade S3-enheter (MRUs). Om du behöver fler än 10 S3 MRUs kan öppna en stöd biljett med den [Azure-portalen](https://portal.azure.com/).
+För ljud analys-och video analys jobb som utlöses av Media Services v3 eller Video Indexer, rekommenderar vi starkt att du etablerar ditt konto med 10 MRUs (S3 Media reservered units). Om du behöver fler än 10 S3 MRUs kan öppna en stöd biljett med den [Azure-portalen](https://portal.azure.com/).
 
-Mer information finns i [skala mediebearbetning med CLI](media-reserved-units-cli-how-to.md).
+Mer information finns i [skala medie bearbetning med CLI](media-reserved-units-cli-how-to.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
-Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
 
 ## <a name="see-also"></a>Se också
 
 * [Felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
-* [Filtrering, skrivordning, växling av Media Services-entiteter](entities-overview.md)
+* [Filtrering, sortering, sid indelning för Media Services entiteter](entities-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Innan du börjar utveckla granska [utveckla med API: er för Media Services v3](media-services-apis-overview.md) (innehåller information om hur du använder API: er, namngivningskonventioner, osv.)
-- Kolla in de här självstudierna:
+- Innan du börjar utveckla bör du läsa [utveckla med Media Services v3-API: er](media-services-apis-overview.md) (innehåller information om hur du kommer åt API: er, namngivnings konventioner osv.)
+- Kolla i de här självstudierna:
 
-    - [Självstudie: Ladda upp, koda och strömma videor med hjälp av .NET](stream-files-tutorial-with-api.md)
-    - [Självstudie: Analysera videoklipp med Media Services v3 med hjälp av .NET](analyze-videos-tutorial-with-api.md)
+    - [Självstudier: Koda en fjärrfil utifrån URL och strömma videon](stream-files-tutorial-with-rest.md)
+    - [Självstudier: Ladda upp, koda och strömma videor](stream-files-tutorial-with-api.md)
+    - [Självstudier: Analysera videor med Media Services v3](analyze-videos-tutorial-with-api.md)

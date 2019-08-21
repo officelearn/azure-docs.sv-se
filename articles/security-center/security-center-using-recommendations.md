@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Security Center-rekommendationer för att förbättra säkerheten | Microsoft Docs
-description: " Lär dig hur du använder säkerhetsprinciper och säkerhetsrekommendationer i Azure Security Center för att minska en säkerhetsangrepp. "
+title: Använd Azure Security Center rekommendationer för att förbättra säkerheten | Microsoft Docs
+description: " Lär dig hur du använder säkerhets principer och rekommendationer i Azure Security Center för att minimera en säkerhets attack. "
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/26/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 60bb1c3b81ef990993a2ce659a2b189c9d8a0eba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967963"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640865"
 ---
-# <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använd Azure Security Center-rekommendationer för att förbättra säkerheten
-Du kan minska risken för en betydande säkerhetshändelse genom att konfigurera en säkerhetsprincip för och implementera rekommendationer som tillhandahålls av Azure Security Center. Den här artikeln visar hur du använder säkerhetsprinciper och säkerhetsrekommendationer i Security Center för att minska en säkerhetsangrepp. 
+# <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använd Azure Security Center rekommendationer för att förbättra säkerheten
+Du kan minska risken för en betydande säkerhets händelse genom att konfigurera en säkerhets princip och sedan implementera de rekommendationer som tillhandahålls av Azure Security Center. Den här artikeln visar hur du använder säkerhets principer och rekommendationer i Security Center för att minimera en säkerhets attack. 
 
-Security Center körs automatiskt kontinuerlig sökningar för att analysera säkerhetsläget hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera säkerhetskontrollerna som behövs. Security Center uppdaterar sina rekommendationer inom 24 timmar, med följande undantag:
+Security Center kör automatiskt kontinuerliga genomsökningar för att analysera säkerhets statusen för dina Azure-resurser. När Security Center identifierar potentiella säkerhets problem skapas rekommendationer som vägleder dig genom processen med att konfigurera de säkerhets kontroller som krävs. Security Center uppdaterar sina rekommendationer inom 24 timmar, med följande undantag:
 
-- Konfiguration av operativsystemet säkerhetsrekommendationer uppdateras inom 48 timmar
-- Problem med rekommendationer om endpoint Protection uppdateras inom 8 timmar
+- Rekommendationer för säkerhets konfiguration av operativ system uppdateras inom 48 timmar
+- Rekommendationer för Endpoint Protection problem uppdateras inom 8 timmar
 
 ## <a name="scenario"></a>Scenario
-Det här scenariot visar hur du använder Security Center för att minska risken för en säkerhetsincident genom att övervaka Security Center-rekommendationer och vidta åtgärder. Scenariot använder fiktiva företag, Contoso och roller som visas i Security Center [planerings- och bruksanvisning](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). I det här fallet vill vi fokusera på rollerna för följande personer:
+Det här scenariot visar hur du använder Security Center för att minska risken för en säkerhets incident genom att övervaka Security Center rekommendationer och vidta åtgärder. Scenariot använder det fiktiva företaget, Contoso och roller som presenteras i Security Center planerings- [och drift guide](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). I det här scenariot fokuserar vi på rollerna för följande personer:
 
-![Scenario-roller](./media/security-center-using-recommendations/scenario-roles.png)
+![Scenario roller](./media/security-center-using-recommendations/scenario-roles.png)
 
-Contoso migrerade nyligen några av sina lokala resurser till Azure. Contoso vill skydda sina resurser och minska säkerhetsrisken i sina resurser i molnet.
+Contoso migrerade nyligen några av sina lokala resurser till Azure. Contoso vill skydda sina resurser och minska risken för deras resurser i molnet.
 
 ## <a name="use-azure-security-center"></a>Använda Azure Security Center
-David från Contoso är IT-säkerhet, redan har valt att integrera Security Center för Contosos prenumerationer till Azure Security Center för att förhindra och identifiera säkerhetsproblem. 
+David, från Contosos IT-säkerhet, har redan valt att publicera Security Center på Contosos prenumerationer för att Azure Security Center för att förhindra och identifiera säkerhets problem. 
 
-Security Center analyserar säkerhetstillståndet för Contosos Azure-resurser automatiskt och använder standard säkerhetsprinciper. När Security Center identifierar potentiella säkerhetsproblem skapas **rekommendationer** baserat på de kontroller som angetts i säkerhetsprincipen. 
+Security Center analyserar automatiskt säkerhets läget för Contosos Azure-resurser och tillämpar standard säkerhets principer. När Security Center identifierar potentiella säkerhets problem skapas **rekommendationer** baserat på de kontroller som anges i säkerhets principen. 
 
-David körs standardnivån för Azure-säkerhet för alla sina prenumerationer att hämta den fullständiga uppsättning rekommendationer och säkerhetsfunktioner. Jeff som registrerar virtuella alla sina befintliga lokala servrar som inte ännu har migrerats till molnet så att han kan dra nytta av Security Center hybrid stöder även över sin [Windows](quick-onboard-windows-computer.md) och [Linux](quick-onboard-linux-computer.md) servrar.
+David kör Azure Security Standard-nivån, över alla prenumerationer för att få en fullständig uppsättning rekommendationer och säkerhetsfunktioner. Jeff registrerar också alla befintliga lokala servrar som ännu inte har migrerats till molnet så att de kan dra nytta av Security Center hybrid support över sina [Windows](quick-onboard-windows-computer.md) -och [Linux](quick-onboard-linux-computer.md) -servrar.
 
-Jeff är en molnansvarig. Jeff är ansvarig för att installera säkerhetskontroller i enlighet med Contosos säkerhetsprinciper. 
+Jeff är en moln arbets belastnings ägare. Jeff ansvarar för att tillämpa säkerhets kontroller i enlighet med Contosos säkerhets principer. 
 
 Jeff utför följande uppgifter:
 
-- Övervaka säkerhetsrekommendationer från Security Center
-- Utvärdera säkerhetsrekommendationer och bestämma om han ska tillämpa eller avvisa
-- Tillämpa säkerhetsrekommendationer
+- Övervaka säkerhets rekommendationer som tillhandahålls av Security Center
+- Utvärdera säkerhets rekommendationer och bestäm om de ska använda eller stänga av rekommendationerna.
+- Tillämpa säkerhets rekommendationer
 
 ### <a name="remediate-threats-using-recommendations"></a>Åtgärda hot med hjälp av rekommendationer
-Som en del av sin dagliga övervakningsaktiviteter, Jeff loggar in på Azure och öppnar Security Center. 
+Som en del av de dagliga övervaknings aktiviteterna loggar Jeff in på Azure och öppnar Security Center. 
 
-1. Jeff väljer sin arbetsbelastning prenumerationer.
+1. Jeff väljer arbets Belastningens prenumerationer.
 
-2. Jeff kontrollerar sin **skyddar score** för att få en övergripande bild av hur säker prenumerationerna är och ser han att sin poängen är 548.
+2. Jeff kontrollerar de **säkra poängen** för att få en övergripande bild av hur säkra prenumerationerna är och ser att poängen är 548.
 
-3. Jeff har att bestämma vilka rekommendationer för att hantera först. Så Jeff klickar säker poäng och börjar hantera rekommendationer baserat på hur mycket det förbättrar sin [skyddar score påverkan](security-center-secure-score.md).
+3. Jeff måste bestämma vilka rekommendationer som ska hanteras först. Så Jeff klickar du på säkra poäng och börjar hantera rekommendationer baserat på hur mycket det förbättrar sin [säkra Poäng påverkan](security-center-secure-score.md).
 
-4. Eftersom Jeff har massor av anslutna virtuella datorer och servrar kan Jeff bestämmer sig för att fokusera på **beräknings- och appar**.
+4. Eftersom Jeff har många anslutna virtuella datorer och servrar, bestämmer Jeff att fokusera på data **behandling och appar**.
 
-5. När Jeff klickar **beräknings- och appar**, han ser en lista över rekommendationer och hanterar dem enligt den säkra bedöma effekten.
+5. När Jeff klickar på **Compute och appar**, ser de en lista över rekommendationer och hanterar dem enligt den säkra Poäng effekten.
 
-6. Jeff har ett stort antal virtuella datorer som riktas mot Internet och eftersom deras hamnar exponeras han är oroliga att en angripare kan få kontroll över servrar. Så Jeff väljer att använda (**åtkomst till Virtuella just-in-time**) [security-center-just-i-time.md].
+6. Jeff har flera virtuella datorer som är riktade mot Internet och eftersom deras portar exponeras, så är de oroar att en angripare kan få kontroll över servrarna. Så Jeff väljer att använda (**just-in-Time VM-åtkomst**) [Security-Center-just-in-Time.MD].
 
-Jeff fortsätter att flytta via hög prioritet och rekommendationer Medelhög prioritet och fattar beslut om implementering. För varje rekommendation tittar Jeff på den detaljerade informationen angivna från Security Center att förstå vilka resurser som påverkas, säker poängen påverka är, vilka varje rekommendation innebär och steg att minimera olika problemen.
+Jeff fortsätter att gå igenom rekommendationerna med hög prioritet och medelhög prioritet och fatta beslut om implementeringen. För varje rekommendation tittar Jeff på den detaljerade informationen som tillhandahålls av Security Center för att förstå vilka resurser som påverkas, vad den säkra poängen påverkar, vad varje rekommendation innebär och åtgärder för att minimera varje problem.
 
 ## <a name="conclusion"></a>Sammanfattning
-Övervakningsfunktioner rekommendationer i Security Center kan du eliminera säkerhetsrisker innan en attack inträffar. När du reparera rekommendationer, förbättra dina säker poäng och säkerhetsstatus för dina arbetsbelastningar. Security Center identifierar automatiskt nya resurser som du distribuerar, utvärderar dem mot din säkerhetsprincip och ger nya rekommendationer för att skydda dem.
+Övervaknings rekommendationer i Security Center hjälper dig att undvika säkerhets risker innan ett angrepp uppstår. När du reparerar rekommendationer kan du förbättra dina säkra poäng och dina arbets belastningar position. Security Center identifierar automatiskt nya resurser som du distribuerar, utvärderar dem mot din säkerhets princip och ger nya rekommendationer för att skydda dem.
 
 
 ## <a name="next-steps"></a>Nästa steg
-Kontrollera att du har en övervakningsprocessen på plats, där du regelbundet kontrollera rekommendationerna i Security Center så att du kan se till att skydda dina resurser över tid.
+Se till att du har en övervaknings process på plats, där du regelbundet kontrollerar rekommendationerna i Security Center så att du kan se till att dina resurser är säkra över tid.
 
-Det här scenariot visades hur du använder säkerhetsprinciper och säkerhetsrekommendationer i Security Center för att minska en säkerhetsangrepp. Se den [scenario med incidenthantering](security-center-incident-response.md) och lär dig att ha en incidenthanteringsplan på plats innan en attack äger rum.
+I det här scenariot visar vi hur du använder säkerhets principer och rekommendationer i Security Center för att minimera en säkerhets attack. Se scenariot med [incident svar](security-center-incident-response.md) för att lära dig hur du får en incident svars plan på plats innan en attack äger rum.
 
-Lär dig att svara på hot med [incidenthantering](security-center-incident-response.md).
+Lär dig hur du svarar på hot med [incident svar](security-center-incident-response.md).

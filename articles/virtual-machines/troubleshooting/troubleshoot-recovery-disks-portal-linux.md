@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2016
+ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: 6a848717e4796e0bb35cbcf045bb50fabf543c1b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 21122847c1b417b00cfe8c69b8324a2f73bf31ea
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617663"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641130"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal
 Om din virtuella Linux-dator (VM) påträffar ett start-eller diskfel kan du behöva utföra fel söknings stegen på den virtuella hård disken. Ett vanligt exempel är en ogiltig post i `/etc/fstab` som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder Azure Portal för att ansluta den virtuella hård disken till en annan virtuell Linux-dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
@@ -27,7 +27,7 @@ Om din virtuella Linux-dator (VM) påträffar ett start-eller diskfel kan du beh
 Så här ser felsökningsprocessen ut:
 
 1. Stoppa den virtuella datorn som påverkas.
-1. Skapa en ögonblicks bild för den virtuella datorns OS-disk.
+1. Ta en ögonblicks bild för den virtuella datorns OS-disk.
 1. Skapa en virtuell hård disk från ögonblicks bilden.
 1. Anslut och montera den virtuella hård disken till en annan virtuell Windows-dator i fel söknings syfte.
 1. Anslut till den virtuella felsökningsdatorn. Redigera filer eller kör eventuella verktyg för att åtgärda problem på den ursprungliga virtuella hård disken.
@@ -175,18 +175,6 @@ Azure Portal har nu stöd för att ändra den virtuella datorns OS-disk. Det gö
 
 1. Välj den nya disken som du reparerat och skriv sedan namnet på den virtuella datorn för att bekräfta ändringen. Om du inte ser disken i listan väntar du 10 ~ 15 minuter efter att du kopplar bort disken från den virtuella fel söknings datorn. Kontrol lera också att disken finns på samma plats som den virtuella datorn.
 1. Välj OK.
-
-## <a name="re-enable-boot-diagnostics"></a>Återaktivera startdiagnostik
-När du skapar en virtuell dator från den befintliga virtuella hård disken aktive ras kanske inte startdiagnostik automatiskt. Om du vill kontrol lera statusen för startdiagnostiken och aktivera vid behov väljer du den virtuella datorn i portalen. Under **övervakning**klickar du på **Inställningar för diagnostik**. Se till att statusen är **på**och att bock markeringen bredvid startdiagnostik är markerad. Om du gör några ändringar klickar du på **Spara**:
-
-![Uppdatera inställningarna för startdiagnostik](./media/troubleshoot-recovery-disks-portal-linux/reenable-boot-diagnostics.png)
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Felsöka en virtuell dator med hanterade diskar genom att koppla en ny OS-disk
-1. Stoppa den virtuella datorn som påverkas.
-2. [Skapa en ögonblicks bild av en hanterad disk](../windows/snapshot-copy-managed-disk.md) av OS-disken för den hanterade virtuella hård disken.
-3. [Skapa en hanterad disk från ögonblicks bilden](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Anslut den hanterade disken som en data disk på den virtuella datorn](../windows/attach-disk-ps.md).
-5. [Ändra data disken från steg 4 till OS-disk](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Om du har problem med att ansluta till din virtuella dator kan du läsa [FELSÖK SSH-anslutningar till en virtuell Azure-dator](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Problem med att komma åt program som körs på den virtuella datorn finns i [Felsöka problem med program anslutningen på en virtuell Linux-dator](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

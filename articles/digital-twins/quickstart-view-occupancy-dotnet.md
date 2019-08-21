@@ -8,14 +8,14 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 06/26/2019
+ms.date: 08/16/2019
 ms.author: alinast
-ms.openlocfilehash: 9f88eccf1e488d52fbbbd064cc5d7f54c2eec32b
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 40a98f915bc11ad17eae27596519cc78539fb2bb
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459064"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640293"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins
 
@@ -72,6 +72,7 @@ I det här steget etableras den rumsliga Digital Twins-grafen med:
 En rumslig graf etableras med hjälp av filen [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
 1. Kör `dotnet run ProvisionSample`.
+
     >[!NOTE]
     >Azure CLI-verktyget Inloggning på enhet används för att autentisera användaren för Azure AD. Användaren måste ange en viss kod för att autentisera med hjälp av [Microsofts inloggningssida](https://microsoft.com/devicelogin). När koden anges följer du stegen för att autentisera. Användaren måste autentiseras när verktyget körs.
 
@@ -80,11 +81,11 @@ En rumslig graf etableras med hjälp av filen [provisionSample.yaml](https://git
 
 1. Etableringssteget kan ta några minuter. En IoT-hubb etableras också i Digital Twins-instansen. Den loopas tills IoT-hubben visar Status=`Running`.
 
-    ![Etablera exempel][4]
+    [![Etablera exempel](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
 
 1. I slutet av körningen kopierar du enhetens `ConnectionString` för användning i exemplet med enhetssimulatorn. Kopiera den sträng som beskrivs i den här bilden.
 
-    ![Etablera exempel][1]
+    [![Kopiera anslutnings strängen](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
     >[!TIP]
     > Du kan visa och ändra ett spatialt diagram med hjälp av [Visningsprogrammet för Azure Digital Twins Graph](https://github.com/Azure/azure-digital-twins-graph-viewer).
@@ -99,7 +100,7 @@ Skapa och kör sensorsimulatorprogrammet med hjälp av följande steg.
 1. Redigera [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) för att uppdatera **DeviceConnectionString** med föregående `ConnectionString`.
 1. Kör `dotnet run` för att börja skicka sensordata. Du ser dem skickas till Digital Twins enligt följande bild.
 
-     ![Enhetsanslutning][2]
+     [![Enhets anslutning](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 
 1. Låt den här simulatorn köras så att du kan visa resultat sida vid sida med nästa steg. I det här fönstret visas de simulerade sensordata som skickats till Digital Twins. I nästa steg ställs frågor i realtid för att hitta tillgängliga rum med frisk luft.
 
@@ -118,7 +119,7 @@ Sensorexemplet simulerar slumpmässiga datavärden för två sensorer. Det är r
    - Tillgängliga rum med frisk luft.
    - Upptaget eller dålig luftkvalitet i rummet.
 
-     ![Hämta tillgängliga utrymmen med frisk luft][3]
+     [![Hämta tillgängliga utrymmen med frisk luft](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
 För att förstå vad som hände i den här snabbstarten och vilka API:er som har anropats öppnar du [Visual Studio Code](https://code.visualstudio.com/Download) med kodprojektet för arbetsytan som finns i digital-twins-samples-csharp (se kommandot nedan). Ange följande kommando:
 
@@ -132,7 +133,7 @@ Självstudierna går på djupet i koden. Du lär dig hur du ändrar konfiguratio
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Namn | Ersätt med |
+| Name | Ersätt med |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Namnet på Digital Twins-instansen |
 | YOUR_LOCATION | Den serverregion som instansen finns i |
@@ -160,9 +161,3 @@ Den här snabbstarten har använt ett enkelt scenario som visar hur du hittar ru
 
 >[!div class="nextstepaction"]
 >[Självstudie: Distribuera Azure Digital Twins och konfigurera ett spatialt diagram](tutorial-facilities-setup.md)
-
-<!-- Images -->
-[1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
-[2]: media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png
-[3]: media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png
-[4]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png

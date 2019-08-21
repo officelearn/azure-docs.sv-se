@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6b127738d4be79c30d1791d7313c0f8f7eacaf36
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: 60b3d1dcc7d60b25319b3fa5dd740541a457927f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985141"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640097"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -65,9 +65,9 @@ Använd den här tabellen som en guide:
 |**Blob Storage (hierarki-namnrymd)** | Azure AD & SAS |
 |**Fil lagring** | Endast SAS |
 
-### <a name="option-1-use-azure-ad"></a>Alternativ 1: Använda Azure AD
+### <a name="option-1-use-azure-active-directory"></a>Alternativ 1: Använd Azure Active Directory
 
-Genom att använda Azure AD kan du ange autentiseringsuppgifter en gång i stället för att behöva lägga till en SAS-token i varje kommando.  
+Med hjälp av Azure Active Directory kan du ange autentiseringsuppgifter en gång i stället för att behöva lägga till en SAS-token i varje kommando.  
 
 > [!NOTE]
 > Om du planerar att kopiera blobbar mellan lagrings konton i den aktuella versionen måste du lägga till en SAS-token till varje käll-URL. Du kan bara utelämna SAS-token från mål-URL: en. Exempel finns i [Kopiera blobbar mellan lagrings konton](storage-use-azcopy-blobs.md).
@@ -149,7 +149,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> Överväg att använda en prompt som du ser i det här exemplet. På så sätt visas inte klient hemligheten i konsolens kommando historik. 
+> Överväg att använda en prompt som du ser i det här exemplet. På så sätt visas inte lösen ordet i konsolens kommando historik.  
 
 Skriv sedan följande kommando och tryck sedan på RETUR-tangenten.
 
@@ -170,7 +170,7 @@ Ställ sedan in `AZCOPY_SPA_CERT_PASSWORD` miljövariabeln på certifikatets lö
 > [!NOTE]
 > Se till att ange det här värdet från kommando tolken och inte i miljö variabel inställningarna för ditt operativ system. På så sätt är värdet bara tillgängligt för den aktuella sessionen.
 
-Det här exemplet visar hur du kan göra detta i PowerShell.
+Det här exemplet visar hur du kan utföra den här uppgiften i PowerShell.
 
 ```azcopy
 $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"

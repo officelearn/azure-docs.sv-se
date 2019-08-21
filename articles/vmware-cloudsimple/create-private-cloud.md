@@ -1,21 +1,23 @@
 ---
-title: Skapa en Azure VMware-lösning via CloudSimple privat moln
+title: Azure VMware-lösning av CloudSimple – skapa CloudSimple privat moln
 description: Beskriver hur du skapar ett CloudSimple privat moln för att utöka VMware-arbetsbelastningar till molnet med drift flexibilitet och kontinuitet
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 06/10/2019
+ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 02a2bd311ea1e89a49eb12ef57a167a08eea5f98
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: aacdb57c312946a9ec2b17a8d41aa9150efc277d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812246"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640977"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Skapa ett privat CloudSimple-moln
+
+Ett privat moln är en isolerad VMware-stack som stöder ESXi-värdar, vCenter, virtuellt San och NSX. Privata moln hanteras via CloudSimple-portalen. De har sina egna vCenter-servrar i sin egen hanterings domän. Stacken körs på dedikerade noder och isolerade Bare Metal-maskinvarukonfigurationer.
 
 Genom att skapa ett privat moln kan du hantera en mängd olika vanliga behov för nätverks infrastruktur:
 
@@ -29,54 +31,38 @@ Genom att skapa ett privat moln kan du hantera en mängd olika vanliga behov fö
 
 När du skapar ett privat moln får du ett enda vSphere-kluster och alla virtuella hanterings datorer som skapas i det klustret.
 
-## <a name="before-you-begin"></a>Innan du börjar
-
-Noder måste vara etablerade innan du kan skapa ditt privata moln.  Mer information om hur du etablerar noder finns i [etablera noder för VMware-lösning av CloudSimple-Azure-](create-nodes.md) artikeln.
-
-Allokera ett CIDR-intervall för vSphere/virtuellt San-undernät för det privata molnet. Ett privat moln skapas som en isolerad VMware-stack (ESXi-värdar, vCenter-, virtuellt San-och NSX)-miljö som hanteras av en vCenter-Server. Hanterings komponenter distribueras i det nätverk som valts för vSphere/virtuellt San-undernät CIDR. Nätverks-CIDR-intervallet är indelat i olika undernät under distributionen.  Adress utrymmet för vSphere/virtuellt San-under nätet måste vara unikt. Det får inte överlappa något nätverk som kommunicerar med CloudSimple-miljön.  De nätverk som kommunicerar med CloudSimple omfattar lokala nätverk och virtuella Azure-nätverk.  Mer information om vSphere/virtuellt San-undernät finns i [Översikt över VLAN och undernät](cloudsimple-vlans-subnets.md).
-
-* Minsta vSphere/virtuellt San-undernät CIDR-intervall prefix:/24 
-* Maximalt vSphere/virtuellt San-undernät CIDR-intervall prefix:/21
-
-## <a name="sign-in-to-azure"></a>Logga in på Azure
-
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-
 ## <a name="access-the-cloudsimple-portal"></a>Få åtkomst till CloudSimple-portalen
 
 Få åtkomst till [CloudSimple-portalen](access-cloudsimple-portal.md).
 
 ## <a name="create-a-new-private-cloud"></a>Skapa ett nytt privat moln
 
-1. På sidan **resurser** klickar du på **Nytt privat moln**.
+1. Välj **Alla tjänster**.
+2. Sök efter **CloudSimple-tjänster**.
+3. Välj den CloudSimple-tjänst som du vill skapa ditt privata moln på.
+4. Från **Översikt**klickar du på **skapa privat moln** för att öppna en ny flik i webbläsaren för CloudSimple-portalen. Logga in med dina inloggnings uppgifter för Azure om du uppmanas till detta.
 
-    ![Skapa ett privat moln – så här startar du](media/create-pc-button.png)
+    ![Skapa ett privat moln från Azure](media/create-private-cloud-from-azure.png)
 
-2. Välj den plats som ska vara värd för de privata moln resurserna.
+5. I CloudSimple-portalen anger du ett namn för ditt privata moln.
+6. Välj **plats** för ditt privata moln.
+7. Välj **nodtyp**, konsekvent med det du köpte i Azure.  Du kan välja [alternativet CS28 eller CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). Det senare alternativet inkluderar den maximala beräknings-och minnes kapaciteten.
+8. Ange **antal noder**.  Minst tre noder krävs för att skapa ett privat moln.
 
-3. Välj CS28-eller CS36-nodtyp you'ev som har skapats för det privata molnet. Det senare alternativet inkluderar den maximala beräknings-och minnes kapaciteten.
+    ![Skapa privat moln – grundläggande information](media/create-private-cloud-basic-info.png)
 
-4. Välj antalet noder för det privata molnet. Du kan välja högst det tillgängliga antalet noder som you'ev har [allokerats](create-nodes.md).
+9. Klicka på **Nästa: Avancerade alternativ**.
+10. Ange CIDR-intervallet för vSphere/virtuellt San-undernät. Se till att CIDR-intervallet inte överlappar något av dina lokala eller andra Azure-undernät (virtuella nätverk) eller med Gateway-undernätet.
 
-    ![Skapa ett privat moln – grundläggande inställningar](media/create-private-cloud-basic-info.png)
-
-5. Klicka på **Nästa: Avancerade alternativ**.
-
-6. Ange CIDR-intervallet för vSphere/virtuellt San-undernät. Se till att CIDR-intervallet inte överlappar något av dina lokala eller andra Azure-undernät (virtuella nätverk) eller med Gateway-undernätet.  Använd inte något CIDR-intervall som definierats i virtuella Azure-nätverk.
-    
     **Alternativ för CIDR-intervall:** /24,/23,/22 eller/21. Ett/24 CIDR-intervall stöder upp till nio noder, ett/23 CIDR-intervall stöder upp till 41 noder och ett/22-och/21 CIDR-intervall stöder upp till 64-noder (det maximala antalet noder i ett privat moln).
 
-    > [!CAUTION]
-    > IP-adresser i vSphere/virtuellt San CIDR-intervall är reserverat för användning av privat moln infrastruktur.  Använd inte IP-adressen i det här intervallet på någon virtuell dator.
+    > [!IMPORTANT]
+    > IP-adresser i CIDR-intervallet vSphere/virtuellt San är reserverade för användning av den privata moln infrastrukturen.  Använd inte IP-adressen i det här intervallet på någon virtuell dator.
 
-7. Klicka på **Nästa: Granska och skapa**.
+11. Klicka på **Nästa: Granska och skapa**.
+12. Granska inställningarna. Om du behöver ändra några inställningar klickar du på **föregående**.
+13. Klicka på **Skapa**.
 
-8. Granska inställningarna. Om du behöver ändra några inställningar klickar du på **föregående**.
+Etablerings processen för privata moln startar. Det kan ta upp till två timmar för det privata molnet att tillhandahållas.
 
-9. Klicka på **Skapa**.
-
-Etablering av privat moln startar när du klickar på Skapa.  Du kan övervaka förloppet från [aktiviteter](https://docs.azure.cloudsimple.com/activity/#tasks) -sidan på CloudSimple-portalen.  Etableringen kan ta 30 minuter till två timmar.  Du får ett e-postmeddelande när etableringen har slutförts.
-
-## <a name="next-steps"></a>Nästa steg
-
-* [Expandera privat moln](expand-private-cloud.md)
+Anvisningar om hur du expanderar ett befintligt privat moln finns i [expandera ett privat moln](expand-private-cloud.md).

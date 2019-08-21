@@ -12,47 +12,76 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 08/19/2019
 ms.author: spelluru
-ms.openlocfilehash: bc5c12d4bb92edaafcc9808da8c48106a6e0cbd5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: ef954f44799b1cf4103847b21ea78e0ac94a9021
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104162"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640189"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Få åtkomst till ett klassrumslabb i Azure Lab Services
-Artikeln beskriver hur du får åtkomst till ett klassrumslabb, ansluter till den virtuella datorn i labbet och stoppar den virtuella datorn. 
+Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, visar alla labb som du kan komma åt, starta/stoppa en virtuell dator i labbet och ansluta till den virtuella datorn. 
 
-## <a name="register-to-a-lab"></a>Registrera dig till ett labb
-1. Gå till **registrerings-URL:en** som du fick av läraren. 
-2. Logga in på tjänsten med ditt skolkonto för att slutföra registreringen. 
-3. När registreringen är klar kontrollerar du att du ser den virtuella datorn för det labb som du har åtkomst till. 
-2. Vänta tills den virtuella datorn är klar och **starta** sedan den virtuella datorn. Den här processen tar lite tid.  
+## <a name="register-to-the-lab"></a>Registrera dig för labbet
+
+1. Gå till **registrerings-URL:en** som du fick av läraren. Du behöver inte använda registrerings-URL:en efter att du har slutfört registreringen. Använd i stället URL:en: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 stöds inte ännu. 
+1. Logga in på tjänsten med ditt skolkonto för att slutföra registreringen. 
+2. När registreringen är klar kontrollerar du att du ser den virtuella datorn för det labb som du har åtkomst till. 
+3. Vänta tills den virtuella datorn är klar. Observera följande fält på panelen VM:
+    1. Längst upp i panelen ser du **namnet på labbet**.
+    1. Till höger visas ikonen som representerar den virtuella datorns **operativ system (OS)** . I det här exemplet är det Windows-operativsystem. 
+    1. Du ser ikoner/knappar längst ned i panelen för att starta/stoppa den virtuella datorn och ansluta till den virtuella datorn. 
+    1. Till höger om knapparna visas statusen för den virtuella datorn. Bekräfta att du ser statusen för den virtuella datorn har **stoppats**.
+
+        ![Virtuell dator i stoppat tillstånd](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
+
+## <a name="start-to-stop-the-vm"></a>Starta för att stoppa den virtuella datorn
+1. **Starta** den virtuella datorn genom att välja den första knappen som visas i följande bild. Den här processen tar lite tid.  
 
     ![Starta den virtuella datorn](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
+4. Bekräfta att statusen för den virtuella datorn är inställd på att **köras**. 
+
+    ![Virtuell dator i körnings läge](../media/tutorial-connect-vm-in-classroom-lab/vm-running.png)
+
+    Observera att ikonen för den första knappen har ändrats för att representera en **stopp** åtgärd. Du kan välja den här knappen för att stoppa den virtuella datorn. 
+
+## <a name="connect-to-the-vm"></a>Anslut till VM:en
+
+1. Välj den andra knappen som visas i följande bild för att **ansluta** till Labbets VM. 
+
+    ![Ansluta till virtuell dator](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
+2. Gör något av följande: 
+    1. För virtuella **Windows** -datorer sparar du **RDP** -filen på hård disken. Öppna RDP-filen för att ansluta till den virtuella datorn. Använd det **användar namn** och **lösen ord** som du får från din lärare/lärare för att logga in på datorn. 
+    3. För virtuella **Linux** -datorer kan du använda **SSH** eller **RDP** (om det är aktiverat) för att ansluta till dem. Mer information finns i [aktivera anslutning till fjärr skrivbord för Linux-datorer](how-to-enable-remote-desktop-linux.md). 
+
+## <a name="progress-bar"></a>Förloppsindikator 
+Förlopps indikatorn i panelen visar antalet timmar som använts för antalet tilldelade [kvot timmar](how-to-configure-student-usage.md#set-quotas-for-users) . Den här gången är den ytterligare tid som tilldelas dig utöver den schemalagda tiden för labbet. Färgen på förlopps indikatorn och texten under förlopps indikatorn varierar enligt följande scenarier:
+
+- Om en klass pågår (inom schemat för klassen) är förlopps indikatorn nedtonad för att representera kvot timmar som inte används. 
+
+    ![Förlopps indikator i grå färg](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png)
+- Om en kvot inte är tilldelad (noll timmar) visas bara texten som är **tillgänglig under klasser** i stället för förlopps indikatorn. 
+    
+    ![Status när ingen kvot har angetts](../media/tutorial-connect-vm-in-classroom-lab/available-during-class.png)
+- Om du tog **slut på kvoten**är färgen på förlopps indikatorn **röd**. 
+
+    ![Förlopps indikator i röd färg](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png)
+- Förlopps indikatorns färg är **blå** när den ligger utanför den schemalagda tiden för labbet och en del av kvot tiden har använts. 
+
+    ![Förlopps indikator i blå färg](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
 
 
 ## <a name="view-all-the-classroom-labs"></a>Visa alla klassrumslabb
 När du registrerat dig till labben kan du visa alla klassrumslabb genom att utföra följande steg: 
 
-1. Navigera till [https://labs.azure.com](https://labs.azure.com). Observera att Internet Explorer 11 inte stöds ännu. 
+1. Navigera till [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 stöds inte ännu. 
 2. Logga in på tjänsten med hjälp av det användarkonto som du använde för att registrera dig till labbet. 
 3. Bekräfta att du ser alla labb som du har åtkomst till. 
 
     ![Visa alla labb](../media/how-to-use-classroom-lab/all-labs.png)
 
-## <a name="connect-to-the-virtual-machine-in-a-classroom-lab"></a>Ansluta till den virtuella datorn i ett klassrumslabb
-
-1. Starta den virtuella datorn om den inte redan startats, och välj **Starta** i panelen. 
-2. Välj **Anslut** i panelen som representerar den virtuella dator som du vill ha åtkomst till i labbet. 
-3. Gör något av följande steg: 
-   1. För **Windows** virtuella datorer, spara den **RDP** filen till hårddisken. Öppna RDP-filen för att ansluta till den virtuella datorn. Använd den **användarnamn** och **lösenord** du får från educator/professor att logga in på datorn. 
-   3. För **Linux** virtuella datorer, kopiera och spara anslutningssträngen SSH på den **Anslut till den virtuella datorn** dialogrutan. Använd den här anslutningssträngen från en SSH-terminalen (t.ex. [Putty](https://www.putty.org/)) att ansluta till den virtuella datorn.
-
-## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Stoppa den virtuella datorn i ett klassrumslabb
-
-Om du vill stoppa den virtuella datorn väljer du **Stoppa** på panelen. När den virtuella datorn har stoppats aktiveras knappen **Starta** i panelen. 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:

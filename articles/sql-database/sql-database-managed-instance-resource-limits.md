@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 961c0de6856a9791f76be1ec609f176f1fbbf8fb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 412a3cb32663f5bd3bfad2d565b6797f92e26b75
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567327"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641117"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -42,7 +42,7 @@ Azure SQL Database Hanterad instans kan distribueras på två maskin varu genera
 | Högsta reserverade instans lagring |  Generell användning: 8 TB<br/>Affärskritisk: 1 TB | Generell användning: 8 TB<br/> Affärskritisk 1 TB, 2 TB eller 4 TB beroende på antalet kärnor |
 
 > [!IMPORTANT]
-> Nya Gen4-databaser stöds inte längre i AustraliaEast-regionen.
+> Nya Gen4-databaser stöds inte längre i regionerna Australien, östra eller Brasilien, södra.
 
 ### <a name="service-tier-characteristics"></a>Egenskaper för tjänst nivå
 
@@ -127,7 +127,7 @@ Initiera processen för att erhålla en större kvot:
 3. Klicka på **Nästa**.
 4. På **fliken problem** för den nya support förfrågan:
    - För **allvarlighets grad**väljer du problemets allvarlighets grad.
-   - Om **du vill ha**mer information anger du ytterligare information om problemet, inklusive fel meddelanden.
+   - Omdu vill ha mer information anger du ytterligare information om problemet, inklusive fel meddelanden.
    - Bifoga en fil med mer information (upp till 4 MB) för **fil uppladdning**.
 
      ![Uppgifter om problem](media/sql-database-managed-instance-resource-limits/problem-details.png)

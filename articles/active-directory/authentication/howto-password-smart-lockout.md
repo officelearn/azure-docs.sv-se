@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 489ff1824c4bc45ee7ed31e9c96377975a32baa4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8df01c204a6893f4e2ff1c2ff22fa337d77c519b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879246"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637597"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Smart utelåsning
 
@@ -48,7 +48,7 @@ När du använder [direktautentisering](../hybrid/how-to-connect-pta.md)måste d
 Om du till exempel vill att din Azure AD-räknare ska vara högre än AD blir Azure AD 120 sekunder (2 minuter) medan lokal AD har angetts till 1 minut (60 sekunder).
 
 > [!IMPORTANT]
-> För närvarande kan en administratör inte låsa upp användarnas moln konton om de har låsts av funktionen Smart utelåsning. Administratören måste vänta tills utelåsnings tiden upphör att gälla.
+> För närvarande kan en administratör inte låsa upp användarnas moln konton om de har låsts av funktionen Smart utelåsning. Administratören måste vänta tills utelåsnings tiden upphör att gälla. Användaren kan dock låsa upp med hjälp av självbetjäning för återställning av lösen ord (SSPR) från en betrodd enhet eller plats.
 
 ## <a name="verify-on-premises-account-lockout-policy"></a>Verifiera den lokala konto utelåsnings principen
 

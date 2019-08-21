@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/07/2019
-ms.openlocfilehash: e75f2fdd0530b92e8c8405b74c2a364ff9e9e28e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 08/16/2019
+ms.openlocfilehash: 6e734a661557b024257fcd1b9d9c2da6a3bc8f85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935437"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640229"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problem med region servrar i Azure HDInsight
 
@@ -27,7 +27,7 @@ När du `hbase hbck` kör kommandot visas ett fel meddelande som liknar:
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-Från Apache HBase Master UI kan du se att antalet regioner är obalanserade över alla region servrar.
+Från Apache HBase Master UI kan du se antalet regioner som inte är balanserade över alla region servrar. Sedan kan du köra `hbase hbck` kommandot för att se hålen i region kedjan.
 
 ### <a name="cause"></a>Orsak
 
@@ -37,15 +37,15 @@ Hålen kan vara resultatet av offline-regioner.
 
 Korrigera tilldelningarna. Följ stegen nedan för att återställa de otilldelade områdena till normalt läge:
 
-1. Logga in på HDInsight HBase-kluster med SSH.
+1. Logga in på HDInsight HBase-klustret med SSH.
 
-1. Kör `hbase zkcli` kommando för att ansluta till Zookeeper-gränssnittet.
+1. Kör `hbase zkcli` kommando för att ansluta till ZooKeeper-gränssnittet.
 
 1. Kör `rmr /hbase/regions-in-transition` eller`rmr /hbase-unsecure/regions-in-transition` -kommando.
 
 1. Avsluta Zookeeper-gränssnittet med `exit` hjälp av kommandot.
 
-1. Öppna Ambari-ANVÄNDARGRÄNSSNITTET och starta om Active HBase Master-tjänsten från Ambari.
+1. Öppna Apache Ambari-ANVÄNDARGRÄNSSNITTET och starta om tjänsten Active HBase Master.
 
 1. Kör `hbase hbck` kommandot igen (utan fler alternativ). Kontrol lera utdata och se till att alla regioner tilldelas.
 
@@ -61,7 +61,7 @@ Det gick inte att starta region servrarna.
 
 Flera delnings WAL kataloger.
 
-1. Hämta lista över aktuella Wals: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`.
+1. Hämta lista över aktuella WALs: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`.
 
 1. `wals.out` Granska filen. Om det finns för många delnings kataloger (från och med * delning), fungerar inte region servern på grund av dessa kataloger.
 

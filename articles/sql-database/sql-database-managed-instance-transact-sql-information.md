@@ -11,28 +11,30 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5e9972c5fea7aaa2e6b5270aff87343437b1963e
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
-ms.translationtype: MT
+ms.openlocfilehash: b792c0fc5d02a84d45b47ac68e0058144f31e673
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624009"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641003"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database hanterade instans T-SQL-skillnader från SQL Server
+# <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
-Den här artikeln sammanfattar och förklarar skillnaderna i syntax och beteende mellan Azure SQL Database Hanterad instans och lokala SQL Server databas motor. Följande ämnen diskuteras:<a name="Differences"></a>
+Den här artikeln sammanfattar och förklarar skillnaderna i syntax och beteende mellan Azure SQL Database Hanterad instans och lokala SQL Server databas motor. Distributions alternativet för hanterade instanser ger hög kompatibilitet med lokala SQL Server databas motor. De flesta av funktionerna i SQL Server-databasmotorn stöds i en hanterad instans.
+
+![Migrering](./media/sql-database-managed-instance/migration.png)
+
+Det finns vissa PaaS-begränsningar som introduceras i den hanterade instansen och vissa beteende ändringar jämfört med SQL Server. Skillnaderna är indelade i följande kategorier:<a name="Differences"></a>
 
 - [Tillgänglighet](#availability) inkluderar skillnaderna i [Always on](#always-on-availability) och [backups](#backup).
 - [Säkerhet](#security) omfattar skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credential), kryptografiproviders [](#cryptographic-providers), inloggningar [och användare](#logins-and-users)samt [tjänst nyckeln och tjänstens huvud nyckel](#service-key-and-service-master-key).
 - [Konfigurationen](#configuration) inkluderar skillnaderna i [tillägg för buffertpooltillägget](#buffer-pool-extension), [sortering](#collation), [kompatibilitetsnivå](#compatibility-levels), [databas spegling](#database-mirroring), [databas alternativ](#database-options), [SQL Server Agent](#sql-server-agent)och [tabell alternativ](#tables).
 - [Funktionerna](#functionalities) omfattar [bulk INSERT/OpenRowSet](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), distribuerade [transaktioner](#distributed-transactions), [utökade händelser](#extended-events), [externa bibliotek](#external-libraries), [FILESTREAM och FileTable](#filestream-and-filetable), [full text Semantisk sökning](#full-text-semantic-search), [länkade servrar](#linked-servers), [PolyBase](#polybase), [replikering](#replication), [återställning](#restore-statement), [Service Broker](#service-broker), [lagrade procedurer, funktioner och](#stored-procedures-functions-and-triggers)utlösare.
 - [Miljö inställningar](#Environment) som virtuella nätverk och under näts konfiguration.
-- [Funktioner som har olika beteenden i hanterade instanser](#Changes).
-- [Tillfälliga begränsningar och kända problem](#Issues).
 
-Distributions alternativet för hanterade instanser ger hög kompatibilitet med lokala SQL Server databas motor. De flesta av funktionerna i SQL Server-databasmotorn stöds i en hanterad instans.
+De flesta av dessa funktioner är arkitektur begränsningar och representerar tjänst funktioner.
 
-![Migrering](./media/sql-database-managed-instance/migration.png)
+Den här sidan förklarar även [tillfälliga kända problem](#Issues) som upptäcks i en hanterad instans, vilket kommer att lösas i framtiden.
 
 ## <a name="availability"></a>Tillgänglighet
 
@@ -499,6 +501,18 @@ Service Broker för överinstans stöds inte:
 - `Extended stored procedures`stöds inte, vilket inkluderar `sp_addextendedproc`  och `sp_dropextendedproc`. Se [utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db`, och `sp_detach_db` stöds inte. Se [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)och [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
+### <a name="system-functions-and-variables"></a>System funktioner och variabler
+
+Följande variabler, funktioner och vyer returnerar olika resultat:
+
+- `SERVERPROPERTY('EngineEdition')`Returnerar värdet 8. Den här egenskapen identifierar en hanterad instans unikt. Se [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')`returnerar NULL eftersom begreppet instans som det finns för SQL Server inte gäller för en hanterad instans. Se [SERVERPROPERTY (' instancename ')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME`Returnerar ett fullständigt DNS "anslutnings bara" namn, till exempel my-managed-instance.wcus17662feb9ce98.database.windows.net. Se [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
+- `SYS.SERVERS`Returnerar ett fullständigt DNS "anslutnings bara" namn, t. `myinstance.domain.database.windows.net` ex. för egenskaperna "name" och "data_source". Se [sys. SERVRAR](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
+- `@@SERVICENAME`returnerar NULL eftersom begreppet tjänst som finns för SQL Server inte gäller för en hanterad instans. Se [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- `SUSER_ID`stöds. Den returnerar NULL om Azure AD-inloggningen inte finns i sys. syslogins. Se [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_SID`stöds inte. Felaktiga data returneras, vilket är ett tillfälligt känt problem. Se [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
+
 ## <a name="Environment"></a>Miljö begränsningar
 
 ### <a name="subnet"></a>Subnet
@@ -513,33 +527,25 @@ Service Broker för överinstans stöds inte:
 - När en hanterad instans har skapats går det inte att flytta den hanterade instansen eller det virtuella nätverket till en annan resurs grupp eller prenumeration.
 - Vissa tjänster, till exempel App Service miljöer, Logic Apps och hanterade instanser (som används för geo-replikering, Transaktionsreplikering eller via länkade servrar) kan inte komma åt hanterade instanser i olika regioner om deras virtuella nätverk är anslutna med [Global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
 
-### <a name="tempdb-size"></a>TEMPDB-storlek
+### <a name="tempdb"></a>TEMPDB
 
 Den maximala fil storleken på `tempdb` får inte vara större än 24 GB per kärna på en generell användning nivå. Den maximala `tempdb` storleken på en affärskritisk nivå begränsas av instans lagrings storleken. `Tempdb`logg filens storlek är begränsad till 120 GB både på Generell användning och Affärskritisk nivåer. Vissa frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb` eller om de producerar mer än 120 GB loggdata.
 
-## <a name="Changes"></a>Beteende ändringar
+### <a name="error-logs"></a>Felloggar
 
-Följande variabler, funktioner och vyer returnerar olika resultat:
+En hanterad instans placerar utförlig information i fel loggarna. Det finns många interna system händelser som loggas i fel loggen. Använd en anpassad procedur för att läsa fel loggar som filtrerar bort vissa irrelevanta poster. Mer information finns i [Managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
-- `SERVERPROPERTY('EngineEdition')`Returnerar värdet 8. Den här egenskapen identifierar en hanterad instans unikt. Se [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')`returnerar NULL eftersom begreppet instans som det finns för SQL Server inte gäller för en hanterad instans. Se [SERVERPROPERTY (' instancename ')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME`Returnerar ett fullständigt DNS "anslutnings bara" namn, till exempel my-managed-instance.wcus17662feb9ce98.database.windows.net. Se [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
-- `SYS.SERVERS`Returnerar ett fullständigt DNS "anslutnings bara" namn, t. `myinstance.domain.database.windows.net` ex. för egenskaperna "name" och "data_source". Se [sys. SERVRAR](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME`returnerar NULL eftersom begreppet tjänst som finns för SQL Server inte gäller för en hanterad instans. Se [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
-- `SUSER_ID`stöds. Den returnerar NULL om Azure AD-inloggningen inte finns i sys. syslogins. Se [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
-- `SUSER_SID`stöds inte. Felaktiga data returneras, vilket är ett tillfälligt känt problem. Se [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
+## <a name="Issues"></a>Kända problem
 
-## <a name="Issues"></a>Kända problem och begränsningar
-
-### <a name="cross-database-service-broker-dialogs-dont-work-after-service-tier-upgrade"></a>Service Broker dialog rutor mellan databaser fungerar inte efter uppgradering av tjänst nivå
+### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Service Broker dialog rutor mellan databaser måste initieras igen efter uppgraderingen av service nivå
 
 **Ikraftträdande** Aug 2019
 
-Service Broker dialog rutor i flera databaser kan inte leverera meddelanden efter åtgärden ändra tjänst nivå. Om du ändrar virtuella kärnor eller instans lagrings storlek i den hanterade instansen kommer `service_broke_guid` värdet i [sys. Databass](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) -vyn att ändras för alla databaser. Alla `DIALOG` skapade med [dialog](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) instruktionen BEGIN som refererar till tjänst utjämnare i andra databaser med GUID, kommer inte att kunna leverera meddelanden.
+Service Broker dialog rutor mellan databaser slutar att leverera meddelanden till tjänsterna i andra databaser efter åtgärden ändra tjänst nivå. Meddelandena går **inte förlorade** och de finns i avsändar kön. Om du ändrar virtuella kärnor eller instans lagrings storlek i den hanterade instansen kommer `service_broke_guid` värdet i [sys. Databass](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) -vyn att ändras för alla databaser. Alla `DIALOG` skapade med [dialog](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) instruktionen BEGIN som refererar till tjänst hanterare i andra databaser kommer att sluta leverera meddelanden till mål tjänsten.
 
-**Korrigera** Stoppa alla aktiviteter som använder Service Broker dialog samtal över flera databaser innan du uppdaterar tjänst nivån och återinitierar dem igen.
+**Korrigera** Stoppa alla aktiviteter som använder Service Broker dialog samtal över flera databaser innan du uppdaterar tjänst nivån och återinitierar dem igen. Om det finns återstående meddelanden som inte levereras efter ändringar i tjänst nivån läser du meddelandena från käll kön och skickar dem igen till målkön.
 
-### <a name="some-aad-login-types-cannot-be-impersonated"></a>Vissa inloggnings typer för AAD kan inte personifieras
+### <a name="impresonification-of-aad-login-types-is-not-supported"></a>Impresonification av inloggnings typer för AAD stöds inte
 
 **Ikraftträdande** Juli 2019
 
@@ -547,11 +553,19 @@ Personifiering med `EXECUTE AS USER` eller `EXECUTE AS LOGIN` av följande AAD-h
 -   AAD-användare med alias. Följande fel returneras i det här fallet `15517`.
 - AAD-inloggningar och användare baserat på AAD-program eller tjänstens huvud namn. Följande fel returneras i det här fallet `15517` och. `15406`
 
+### <a name="database-email"></a>Database-e-post 
+
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparametern stöds inte i sp_send_db_mail
 
 **Ikraftträdande** April 2019
 
 Parametern i sp_send_db_mail-proceduren fungerar inte. [](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) `@query`
+
+### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>Transaktionsreplikering måste konfigureras om efter GEO-redundans
+
+**Ikraftträdande** Mar 2019
+
+Om transaktionell replikering har Aktiver ATS för en databas i en grupp för automatisk redundans, måste den hanterade instans administratören rensa alla publikationer på den gamla primära servern och konfigurera om dem på den nya primära servern efter en redundansväxling till en annan region. Se [replikering](#replication) för mer information.
 
 ### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>AAD-inloggningar och användare stöds inte i verktyg
 
@@ -588,13 +602,7 @@ Flera systemvyer, prestanda räknare, fel meddelanden, XEvents och fel logg post
 
 ### <a name="error-logs-arent-persisted"></a>Fel loggarna är inte beständiga
 
-Fel loggar som är tillgängliga i den hanterade instansen är inte bestående och deras storlek ingår inte i den maximala lagrings gränsen. Fel loggar kan raderas automatiskt om redundansväxlingen sker.
-
-### <a name="error-logs-are-verbose"></a>Fel loggarna är utförliga
-
-En hanterad instans placerar utförlig information i fel loggarna och mycket som inte är relevant. 
-
-**Korrigera** Använd en anpassad procedur för att läsa fel loggar som filtrerar bort vissa irrelevanta poster. Mer information finns i [Managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+Fel loggar som är tillgängliga i den hanterade instansen är inte bestående och deras storlek ingår inte i den maximala lagrings gränsen. Fel loggar kan raderas automatiskt om redundansväxlingen sker. Det kan finnas luckor i fel logg historiken eftersom den hanterade instansen har flyttats flera gång på flera virtuella datorer.
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Transaktions omfånget på två databaser inom samma instans stöds inte
 

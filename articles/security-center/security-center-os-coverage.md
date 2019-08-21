@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 21a42b2986b52282fbab914fa702d8c4a323ed35
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1f5a144728614ee13bf4f08bb594f0546d446880
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611945"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640785"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
 
@@ -111,7 +111,7 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 |------|------|-----|-----|
 | Windows Defender (Microsoft-programvara mot skadlig kod)| Windows Server 2016| Nej, inbyggd i OS| Ja |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
-| Trend Micro – Alla versioner | Windows Server-familjen  | Nej | Ja |
+| Trend Micro – alla versioner * | Windows Server-familjen  | Nej | Ja |
 | Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
 | McAfee v10 + | Windows Server-familjen  | Nej | Ja |
 | McAfee v10 + | Linux Server-serien  | Nej | Ja **\*** |
@@ -121,6 +121,7 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 
 > [!NOTE]
 > - Identifiering av System Center Endpoint Protection (SCEP) på en virtuell dator med Windows Server 2008 R2 kräver SCEP för att installeras efter PowerShell 3,0 (eller en övre version).
+> - Identifiering av Trend Micro Protection stöds för djup säkerhets agenter.  OfficeScan-agenter stöds inte.
 
 ## <a name="supported-paas-features"></a>PaaS funktioner som stöds
 

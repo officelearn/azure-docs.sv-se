@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb4ac9953bcadd9e49cee5b7b99e853705b6567c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9609a886bdcbf093cffaf888f9aeaff0d61acec1
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990271"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636655"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure Portal
 
@@ -167,7 +167,7 @@ Gå till appens hanterings sida i [Azure Portal]. I appens vänstra meny klickar
 
 ![Almänna inställningar](./media/configure-common/open-general.png)
 
-Här kan du konfigurera några vanliga inställningar för appen. Vissa inställningar kräver att du [skalar upp till högre pris nivåer](web-sites-scale.md).
+Här kan du konfigurera några vanliga inställningar för appen. Vissa inställningar kräver att du [skalar upp till högre pris nivåer](manage-scale-up.md).
 
 - **Stack inställningar**: Program varu stacken för att köra appen, inklusive språk-och SDK-versioner. För Linux-appar och anpassade behållar appar kan du också ange ett valfritt start kommando eller en valfri fil.
 - **Plattforms inställningar**: Gör att du kan konfigurera inställningar för värd plattformen, inklusive:
@@ -268,4 +268,4 @@ Se [Konfigurera en anpassad Linux-behållare för Azure App Service](containers/
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Grundläggande övervakning i Azure App Service]: ./web-sites-monitor.md
 [läge]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Skala en app i Azure App Service]: ./web-sites-scale.md
+[Skala en app i Azure App Service]: ./manage-scale-up.md

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: b84e317745b7bd20f4862bd04584e42254a660d1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aa35cb1ae0ad035bdef6ff8e19cf115188ba7f3a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566198"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640862"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resurs gränser för elastiska pooler med vCore-baserade inköps modell gränser
 
@@ -37,7 +37,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Generell användning tjänst nivå: Lagrings storlekar och beräknings storlekar
 
 > [!IMPORTANT]
-> Nya Gen4-databaser stöds inte längre i AustraliaEast-regionen.
+> Nya Gen4-databaser stöds inte längre i regionerna Australien, östra eller Brasilien, södra.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Generell användning tjänst nivå: Generation 4-beräknings plattform (del 1)
 
@@ -153,7 +153,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Affärskritisk tjänst nivå: Lagrings storlekar och beräknings storlekar
 
 > [!IMPORTANT]
-> Nya Gen4-databaser stöds inte längre i AustraliaEast-regionen.
+> Nya Gen4-databaser stöds inte längre i regionerna Australien, östra eller Brasilien, södra.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Affärskritisk tjänst nivå: Generation 4-beräknings plattform (del 1)
 

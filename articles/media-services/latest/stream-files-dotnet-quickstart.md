@@ -1,6 +1,6 @@
 ---
 title: Strömma videofiler med Azure Media Services – .NET | Microsoft Docs
-description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services-konto, koda en fil och strömma det till Azure Media Player.
+description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services konto, koda en fil och strömma den till Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,18 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/20/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3834b4f07f6450f498831accfa6640f55bc5855a
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 7f997865ba33a51c3e3aa7a4c7e990037be9e534
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550185"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637341"
 ---
-# <a name="tutorial-stream-video-files---net"></a>Självstudier: Strömma videofiler – .NET
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Självstudier: Koda en fjärrfil utifrån URL och strömma videon – .NET
 
-Den här självstudien visar hur enkelt det är att koda och starta direktuppspelning av videor på en mängd olika webbläsare och enheter med Azure Media Services. Ett indatainnehåll kan anges med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage.
+Den här självstudien visar hur enkelt det är att koda och börja strömma videor på en rad olika webbläsare och enheter med hjälp av Azure Media Services. Ett indatainnehåll kan anges med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage.
 Exemplet i det här ämnet kodar innehåll som du gör tillgängligt via en HTTPS-URL. Observera att AMS v3 för närvarande inte stöder segmentvis överföringskodning över HTTPS-URL:er.
 
 I slutet av självstudien kommer du att kunna strömma en video.  
@@ -31,7 +31,7 @@ I slutet av självstudien kommer du att kunna strömma en video.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
@@ -66,9 +66,9 @@ Du kan få beskrivningar av varje funktion i exemplet, undersöka koden och titt
 När du kör appen visas URL:er som kan användas för uppspelning av video med olika protokoll. 
 
 1. Tryck på Ctrl+F5 för att köra programmet *EncodeAndStreamFiles*.
-2. Välj Apples **HLS**-protokoll (slutar med *manifest(format=m3u8-aapl)*) och kopiera strömnings-URL:en från konsolen.
+2. Välj Apples **HLS**-protokoll (slutar med *manifest(format=m3u8-aapl)* ) och kopiera strömnings-URL:en från konsolen.
 
-![Utdata](./media/stream-files-tutorial-with-api/output.png)
+![Output](./media/stream-files-tutorial-with-api/output.png)
 
 I exemplets [källkod](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs), kan du se hur URL:en är byggd. För att skapa den, måste du sammanfoga strömningsslutpunktens värdnamn och sökvägen för strömningslokaliseraren.  
 
@@ -89,7 +89,7 @@ Azure Media Player kan användas vid testning, men bör inte användas i en prod
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive medietjänster och storage-konton som du skapade i den här självstudien tar du bort resursgruppen.
+Ta bort resurs gruppen om du inte längre behöver någon av resurserna i resurs gruppen, inklusive Media Services-och lagrings konton som du skapade för den här självstudien.
 
 Kör följande CLI-kommando:
 

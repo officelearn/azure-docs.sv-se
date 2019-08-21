@@ -1,6 +1,6 @@
 ---
-title: Använda en Linux felsöknings-VM med Azure CLI | Microsoft Docs
-description: Lär dig att felsöka problem med Linux VM genom att ansluta operativsystemdisken till en virtuell dator med hjälp av Azure CLI för återställning
+title: Använda en Linux felsöka virtuell dator med Azure CLI | Microsoft Docs
+description: Lär dig hur du felsöker problem med virtuella Linux-datorer genom att ansluta OS-disken till en virtuell återställnings dator med Azure CLI
 services: virtual-machines-linux
 documentationCenter: ''
 author: genlin
@@ -13,88 +13,138 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: e1e91ec4393072a7da78c0de800cab26608c74d6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 49ee83e451e9d555a7fe5fca57bc58d6616334da
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709328"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641060"
 ---
-# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Felsöka en Linux-VM genom att koppla OS-disken till en virtuell dator med Azure CLI för återställning
-Om din Linux-dator (VM) påträffar ett fel vid start- eller disk, kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är ett ogiltigt värde i `/etc/fstab` som förhindrar den virtuella datorn från att kunna starta. Den här artikeln beskriver hur du använder Azure CLI för att ansluta den virtuella hårddisken till en annan Linux VM att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn. 
-
+# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell dator för återställning med Azure CLI
+Om din virtuella Linux-dator (VM) påträffar ett start-eller diskfel kan du behöva utföra fel söknings stegen på den virtuella hård disken. Ett vanligt exempel är en ogiltig post i `/etc/fstab` som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder Azure CLI för att ansluta din virtuella hård disk till en annan virtuell Linux-dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn. 
 
 ## <a name="recovery-process-overview"></a>Översikt över återställningsprocessen
 Så här ser felsökningsprocessen ut:
 
-1. Ta bort den virtuella datorn uppstår några problem, som de virtuella hårddiskarna.
-2. Anslut och montera den virtuella hårddisken till en annan Linux-VM i felsökningssyfte.
-3. Anslut till den virtuella felsökningsdatorn. Redigera filer eller köra några verktyg för att åtgärda problem på den ursprungliga virtuella hårddisken.
-4. Demontera och koppla från den virtuella hårddisken från den virtuella felsökningsdatorn.
-5. Skapa en virtuell dator med den ursprungliga virtuella hårddisken.
+1. Stoppa den virtuella datorn som påverkas.
+1. Ta en ögonblicks bild från den virtuella datorns OS-disk.
+1. Skapa en disk från ögonblicks bilden av OS-disken.
+1. Anslut och montera den nya OS-disken till en annan virtuell Linux-dator i fel söknings syfte.
+1. Anslut till den virtuella felsökningsdatorn. Redigera filer eller kör eventuella verktyg för att åtgärda problem på den nya OS-disken.
+1. Demontera och koppla från den nya OS-disken från den virtuella fel söknings datorn.
+1. Ändra OS-disken för den berörda virtuella datorn.
 
-För den virtuella datorn som använder hanterade diskar, se [felsöka en hanterad Disk i virtuell dator genom att koppla en ny OS-disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+Om du vill utföra de här fel söknings stegen måste du ha det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
 
-Om du vill utföra de här felsökningsstegen du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index).
+> [!Important]
+> Skripten i den här artikeln gäller bara för de virtuella datorer som använder [hanterad disk](../linux/managed-disks-overview.md). 
 
-I följande exempel, ersätter du parameternamn med dina egna värden. Parametern exempelnamnen inkluderar `myResourceGroup`, `mystorageaccount`, och `myVM`.
+I följande exempel ersätter du parameter namn med dina egna värden. Exempel på parameter namn `myResourceGroup` är `myVM`och.
 
+## <a name="determine-boot-issues"></a>Fastställa start problem
+Granska de seriella utdata för att avgöra varför den virtuella datorn inte kan starta korrekt. Ett vanligt exempel är en ogiltig post i `/etc/fstab`, eller den underliggande virtuella hård disken som tas bort eller flyttas.
 
-## <a name="determine-boot-issues"></a>Fastställa startproblem
-Granska seriell utdata för att avgöra varför den virtuella datorn är inte kan starta korrekt. Ett vanligt exempel är ett ogiltigt värde i `/etc/fstab`, eller den underliggande virtuella hårddisken tas bort eller flyttas.
-
-Hämta startlogg med [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics). I följande exempel hämtas seriell utdata från den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`:
+Hämta start loggarna med [AZ VM Boot-Diagnostics get-Boot-log](/cli/azure/vm/boot-diagnostics). I följande exempel hämtas serie resultatet från den virtuella datorn som `myVM` heter i resurs gruppen med `myResourceGroup`namnet:
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
 ```
 
-Granska seriell utdata för att avgöra varför den virtuella datorn kan inte starta. Om seriell utdata inte är att tillhandahålla ingen indikation kan du behöva granska loggfiler i `/var/log` när du har den virtuella hårddisken är ansluten till en Virtuella felsökningsdatorn.
+Granska de seriella utdata för att avgöra varför den virtuella datorn inte kan starta. Om den seriella utmatningen inte ger någon indikation kan du behöva granska loggfilerna `/var/log` i när du har en virtuell hård disk ansluten till en felsöknings-VM.
 
+## <a name="stop-the-vm"></a>Stoppa den virtuella datorn
 
-## <a name="view-existing-virtual-hard-disk-details"></a>Se information om en befintlig virtuell hårddisk
-Innan du kan koppla din virtuella hårddisk (VHD) till en annan virtuell dator, måste du identifiera URI för OS-disken. 
+I följande exempel stoppas den virtuella `myVM` datorn med namnet från resurs `myResourceGroup`gruppen med namnet:
 
-Visa information om den virtuella datorn med [az vm show](/cli/azure/vm). Använd den `--query` flagga för att extrahera URI som OS-disken. I följande exempel hämtas diskinformation för den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`:
-
-```azurecli
-az vm show --resource-group myResourceGroup --name myVM \
-    --query [storageProfile.osDisk.vhd.uri] --output tsv
+```powershell
+Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
-URI: N liknar **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** .
+Vänta tills den virtuella datorn har tagits bort innan du bearbetar nästa steg.
 
-## <a name="delete-existing-vm"></a>Ta bort befintlig virtuell dator
-Virtuella hårddiskar och virtuella datorer är två separata resurser i Azure. En virtuell hårddisk är där själva operativsystemet, program och konfigurationer lagras. Virtuellt datorn är bara metadata som definierar storleken eller platsen och refererar till resurser, till exempel en virtuell hårddisk eller virtuella nätverkskort (NIC). Varje virtuell hårddisk har ett lån när ansluten till en virtuell dator. Datadiskar kan anslutas och kopplas från när den virtuella datorn körs, men operativsystemdisken kan inte kopplas från om inte den virtuella datorresursen tagits bort. Lånet fortsätter att associera operativsystemdisken med en virtuell dator, även om den virtuella datorn är i stoppat eller frigjort läge.
+## <a name="create-a-snapshot-from-the-os-disk-of-the-vm"></a>Skapa en ögonblicks bild från den virtuella datorns OS-disk
 
-Det första steget att återställa den virtuella datorn är att ta bort den Virtuella datorresursen. När du tar bort den virtuella datorn hamnar de virtuella hårddiskarna på ditt lagringskonto. När den virtuella datorn har tagits bort, kan du koppla den virtuella hårddisken till en annan virtuell dator för att felsöka och lösa problemen.
+En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård disk. Den kan inte kopplas till en virtuell dator. I nästa steg ska vi skapa en disk från den här ögonblicks bilden. I följande exempel skapas en ögonblicks bild `mySnapshot` med namnet från operativ system disken för den virtuella datorn med namnet "myVM". 
 
-Ta bort den virtuella datorn med [az vm ta bort](/cli/azure/vm). I följande exempel tar bort den virtuella datorn med namnet `myVM` från resursgruppen med namnet `myResourceGroup`:
+```powershell
+$resourceGroupName = 'myResourceGroup' 
+$location = 'eastus' 
+$vmName = 'myVM'
+$snapshotName = 'mySnapshot'  
 
-```azurecli
-az vm delete --resource-group myResourceGroup --name myVM 
+#Get the VM
+$vm = get-azvm `
+-ResourceGroupName $resourceGroupName `
+-Name $vmName
+
+#Create the snapshot configuration for the OS disk
+$snapshot =  New-AzSnapshotConfig `
+-SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+-Location $location `
+-CreateOption copy
+
+#Take the snapshot
+New-AzSnapshot `
+   -Snapshot $snapshot `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName 
 ```
+## <a name="create-a-disk-from-the-snapshot"></a>Skapa en disk från ögonblicks bilden
 
-Vänta tills den virtuella datorn har tagits bort innan du kopplar den virtuella hårddisken till en annan virtuell dator. Lånet på den virtuella hårddisken som associeras med den virtuella datorn måste frigöras innan du kan koppla den virtuella hårddisken till en annan virtuell dator.
+Det här skriptet skapar en hanterad disk `newOSDisk` med namnet från ögonblicks bilden med namnet. `mysnapshot`  
 
+```powershell
+#Set the context to the subscription Id where Managed Disk will be created
+#You can skip this step if the subscription is already selected
 
-## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Bifoga befintlig virtuell hårddisk till en annan virtuell dator
-De efterföljande stegen använder du en annan virtuell dator för felsökning. Du kan koppla den befintliga virtuella hårddisken till den här virtuella datorn för felsökning Bläddra och redigera dess innehåll. Den här processen kan du korrigera eventuella konfigurationsfel eller granska ytterligare program eller systemloggfilerna, till exempel. Välj eller skapa en annan virtuell dator för felsökning.
+$subscriptionId = 'yourSubscriptionId'
 
-Bifoga den befintliga virtuella hårddisken med [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk). När du ansluter den befintliga virtuella hårddisken, ange URI: N på disken som hämtades i föregående `az vm show` kommando. Följande exempel ansluter en befintlig virtuell hårddisk för felsökning VM med namnet `myVMRecovery` i resursgruppen med namnet `myResourceGroup`:
+Select-AzSubscription -SubscriptionId $SubscriptionId
+
+#Provide the name of your resource group
+$resourceGroupName ='myResourceGroup'
+
+#Provide the name of the snapshot that will be used to create Managed Disks
+$snapshotName = 'mySnapshot' 
+
+#Provide the name of the Managed Disk
+$diskName = 'newOSDisk'
+
+#Provide the size of the disks in GB. It should be greater than the VHD file size.
+$diskSize = '128'
+
+#Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
+$storageType = 'StandardLRS'
+
+#Provide the Azure region (e.g. westus) where Managed Disks will be located.
+#This location should be same as the snapshot location
+#Get all the Azure location using command below:
+#Get-AzLocation
+$location = 'eastus'
+
+$snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
+ 
+$diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+ 
+New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
+```
+Nu har du en kopia av den ursprungliga OS-disken. Du kan montera den här nya disken till en annan virtuell Windows-dator i fel söknings syfte.
+
+## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>Koppla den nya virtuella hård disken till en annan virtuell dator
+För kommande steg använder du en annan virtuell dator i fel söknings syfte. Du ansluter disken till den här fel söknings datorn för att bläddra och redigera diskens innehåll. Med den här processen kan du korrigera eventuella konfigurations fel eller granska ytterligare program-eller systemloggfiler, till exempel. Välj eller skapa en annan virtuell dator som ska användas i fel söknings syfte.
+
+Anslut den befintliga virtuella hård disken med [AZ VM unmanaged-disk Attach](/cli/azure/vm/unmanaged-disk). När du ansluter den befintliga virtuella hård disken anger du URI: n till disken som hämtades i `az vm show` föregående kommando. I följande exempel kopplas en befintlig virtuell hård disk till den virtuella fel söknings datorn med namnet `myVMRecovery` i resurs `myResourceGroup`gruppen:
 
 ```azurecli
 az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
     --vhd-uri https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
 ```
-
-
-## <a name="mount-the-attached-data-disk"></a>Montera ansluten datadisk
+## <a name="mount-the-attached-data-disk"></a>Montera den anslutna data disken
 
 > [!NOTE]
-> I följande exempel förklarar vi de steg som krävs på en Ubuntu-VM. Om du använder en annan Linux-distribution, till exempel Red Hat Enterprise Linux- eller SUSE, loggen filplatser och `mount` kommandon kan vara lite annorlunda. I dokumentationen för din distribution som är specifika för ändringarna som behövs i kommandon.
+> Följande exempel beskriver stegen som krävs på en virtuell Ubuntu-dator. Om du använder en annan Linux-distribution, till exempel Red Hat Enterprise Linux eller SUSE, kan logg filens platser `mount` och kommandon vara lite annorlunda. Se dokumentationen för din speciella distribution för lämpliga ändringar i kommandon.
 
-1. SSH till den felsökning virtuella datorn med rätt autentiseringsuppgifter. Om den här disken är den första disken kopplade till Virtuellt felsökningsdatorn, disken sannolikt är ansluten till `/dev/sdc`. Använd `dmseg` att visa anslutna diskar:
+1. SSH till din felsöka virtuella dator med hjälp av lämpliga autentiseringsuppgifter. Om den här disken är den första datadisk som är ansluten till den virtuella fel söknings datorn är `/dev/sdc`disken antagligen ansluten till. Använd `dmseg` för att Visa anslutna diskar:
 
     ```bash
     dmesg | grep SCSI
@@ -110,90 +160,85 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
     [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
     ```
 
-    I föregående exempel är OS-disken på `/dev/sda` och den temporära disken som angetts för varje virtuell dator är på `/dev/sdb`. Om du har flera datadiskar, de ska vara på `/dev/sdd`, `/dev/sde`och så vidare.
+    I föregående exempel är OS-disken på `/dev/sda` och den temporära disken som anges för varje virtuell dator finns på. `/dev/sdb` Om du hade flera data diskar bör de vara på `/dev/sdd`, `/dev/sde`och så vidare.
 
-2. Skapa en katalog för att montera den befintliga virtuella hårddisken. I följande exempel skapas en katalog med namnet `troubleshootingdisk`:
+2. Skapa en katalog för att montera din befintliga virtuella hård disk. I följande exempel skapas en katalog med `troubleshootingdisk`namnet:
 
     ```bash
     sudo mkdir /mnt/troubleshootingdisk
     ```
 
-3. Om du har flera partitioner på dina befintliga virtuella hårddisken kan du montera nödvändiga partitionen. I följande exempel monterar den första primära partitionen på `/dev/sdc1`:
+3. Om du har flera partitioner på din befintliga virtuella hård disk monterar du den nödvändiga partitionen. I följande exempel monteras den första primära partitionen på `/dev/sdc1`:
 
     ```bash
     sudo mount /dev/sdc1 /mnt/troubleshootingdisk
     ```
 
     > [!NOTE]
-    > Det är bra att montera datadiskar på virtuella datorer i Azure med hjälp av universell unik identifierare (UUID) för den virtuella hårddisken. För den här korta felsöknings är montera den virtuella hårddisken med hjälp av UUID inte nödvändigt. Men under normal användning, redigering `/etc/fstab` för att montera virtuella hårddiskar med hjälp av enhetens namn i stället för UUID kanske inte kan starta den virtuella datorn.
+    > Bästa praxis är att montera data diskar på virtuella datorer i Azure med hjälp av den virtuella hård diskens UUID (Universal Unique Identifier). För det här korta fel söknings scenariot är det inte nödvändigt att montera den virtuella hård disken med UUID. Men under normal användning kan redigering `/etc/fstab` av virtuella hård diskar med enhets namn i stället för UUID leda till att den virtuella datorn inte kan starta.
 
 
-## <a name="fix-issues-on-original-virtual-hard-disk"></a>Åtgärda problem på den ursprungliga virtuella hårddisken
-Med den befintliga virtuella hårddisken monteras, kan du nu utföra underhålls- och felsökningssteg efter behov. När du har åtgärdat problemen fortsätter du med följande steg.
+## <a name="fix-issues-on-the-new-os-disk"></a>Åtgärda problem på den nya OS-disken
+Med den befintliga virtuella hård disken monterad kan du nu utföra eventuella underhålls-och fel söknings steg efter behov. När du har åtgärdat problemen fortsätter du med följande steg.
 
 
-## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Demontera och koppla från den ursprungliga virtuella hårddisken
-När din fel har åtgärdats du demontera och koppla från den befintliga virtuella hårddisken från Virtuellt felsökningsdatorn. Du kan inte använda den virtuella hårddisken med andra virtuella datorer tills frigörs lånet som kopplar den virtuella hårddisken till Virtuellt felsökningsdatorn.
+## <a name="unmount-and-detach-the-new-os-disk"></a>Demontera och koppla från den nya OS-disken
+När dina fel har åtgärd ATS demonterar du och kopplar från den befintliga virtuella hård disken från den virtuella fel söknings datorn. Du kan inte använda den virtuella hård disken med någon annan virtuell dator förrän lånet som ansluter till den virtuella hård disken till den virtuella fel söknings datorn har släppts.
 
-1. Demontera den befintliga virtuella hårddisken från SSH-sessionen till Virtuellt felsökningsdatorn. Byta ut från den överordnade katalogen för din monteringspunkt börjar:
+1. Från SSH-sessionen till din felsöka virtuella hård disk avmonterar du den befintliga virtuella hård disken. Ändra från den överordnade katalogen för monterings punkten först:
 
     ```bash
     cd /
     ```
 
-    Nu demontera den befintliga virtuella hårddisken. I följande exempel demonteras enheten på `/dev/sdc1`:
+    Demontera nu den befintliga virtuella hård disken. I följande exempel demonterar du enheten på `/dev/sdc1`:
 
     ```bash
     sudo umount /dev/sdc1
     ```
 
-2. Nu ska du koppla från den virtuella hårddisken från den virtuella datorn. Avsluta SSH-sessionen till Virtuellt felsökningsdatorn. Lista de anslutna diskarna till Virtuellt felsökningsdatorn med [az vm unmanaged-disk lista](/cli/azure/vm/unmanaged-disk). I följande exempel visas de diskar som är anslutna till den virtuella datorn med namnet `myVMRecovery` i resursgruppen med namnet `myResourceGroup`:
+2. Koppla nu från den virtuella hård disken från den virtuella datorn. Avsluta SSH-sessionen till din felsöka VM. Lista de anslutna data diskarna till din felsöka virtuella datorn med [AZ VM unmanaged-disk List](/cli/azure/vm/unmanaged-disk). I följande exempel visas de data diskar som är anslutna till den `myVMRecovery` virtuella datorn med namnet i `myResourceGroup`resurs gruppen med namnet:
 
     ```azurecli
     azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
         --query '[].{Disk:vhd.uri}' --output table
     ```
 
-    Notera namnet för din befintliga virtuella hårddisken. Till exempel namnet på en disk med URI: N för **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** är **myVHD**. 
+    Anteckna namnet på din befintliga virtuella hård disk. Till exempel är namnet på en disk med URI: n för **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** **myVHD**. 
 
-    Koppla från datadisk från den virtuella datorn [az vm unmanaged-disk koppla från](/cli/azure/vm/unmanaged-disk). I följande exempel kopplar från disken med namnet `myVHD` från den virtuella datorn med namnet `myVMRecovery` i den `myResourceGroup` resursgrupp:
+    Koppla bort data disken från den virtuella datorn [AZ VM unmanaged-disk Detached](/cli/azure/vm/unmanaged-disk). Följande exempel kopplar från disken med namnet `myVHD` från den virtuella datorn med namnet `myVMRecovery` i `myResourceGroup` resurs gruppen:
 
     ```azurecli
     az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
         --name myVHD
     ```
 
+## <a name="change-the-os-disk-for-the-affected-vm"></a>Ändra OS-disken för den berörda virtuella datorn
 
-## <a name="create-vm-from-original-hard-disk"></a>Skapa virtuell dator från den ursprungliga hårddisken
-Du kan skapa en virtuell dator från den ursprungliga virtuella hårddisken med [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). Faktiska JSON-mallen finns på följande länk:
+Du kan använda Azure PowerShell för att växla OS-diskarna. Du behöver inte ta bort och återskapa den virtuella datorn.
 
-- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
+Det här exemplet stoppar den virtuella `myVM` datorn med namnet och tilldelar disken namnet `newOSDisk` som den nya OS-disken. 
 
-Mallen distribuerar en virtuell dator med VHD-URI från det tidigare kommandot. Distribuera mallen med [az group deployment skapa](/cli/azure/group/deployment). Ange URI: N till den ursprungliga virtuella Hårddisken och sedan ange OS-typ, storlek och namn på virtuell dator på följande sätt:
+```powershell
+# Get the VM 
+$vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM 
 
-```azurecli
-az group deployment create --resource-group myResourceGroup --name myDeployment \
-  --parameters '{"osDiskVhdUri": {"value": "https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd"},
-    "osType": {"value": "Linux"},
-    "vmSize": {"value": "Standard_DS1_v2"},
-    "vmName": {"value": "myDeployedVM"}}' \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
+# Make sure the VM is stopped\deallocated
+Stop-AzVM -ResourceGroupName myResourceGroup -Name $vm.Name -Force
+
+# Get the new disk that you want to swap in
+$disk = Get-AzDisk -ResourceGroupName myResourceGroup -Name newDisk
+
+# Set the VM configuration to point to the new disk  
+Set-AzVMOSDisk -VM $vm -ManagedDiskId $disk.Id -Name $disk.Name  -sto
+
+# Update the VM with the new OS disk. Possible values of StorageAccountType include: 'Standard_LRS' and 'Premium_LRS'
+Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -StorageAccountType <Type of the storage account >
+
+# Start the VM
+Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
 ```
-
-## <a name="re-enable-boot-diagnostics"></a>Återaktivera startdiagnostiken
-När du skapar den virtuella datorn från den befintliga virtuella hårddisken kan startdiagnostik inte automatiskt att aktivera. Aktivera startdiagnostik med [az vm boot-diagnostics aktivera](/cli/azure/vm/boot-diagnostics). I följande exempel aktiveras diagnostiktillägget på den virtuella datorn med namnet `myDeployedVM` i resursgruppen med namnet `myResourceGroup`:
-
-```azurecli
-az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
-```
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Felsöka en hanterad Disk i virtuell dator genom att koppla en ny OS-disk
-1. Stoppa den berörda virtuella datorn.
-2. [Skapa en hanterad disk ögonblicksbild](../linux/snapshot-copy-managed-disk.md) av OS-disken för den hanterade disken i virtuella datorn.
-3. [Skapa en hanterad disk från ögonblicksbilden](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Koppla hanterad disk som en datadisk på den virtuella datorn](../windows/attach-disk-ps.md).
-5. [Ändra datadisken från steg 4 till OS-disken](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Om du har problem med att ansluta till den virtuella datorn kan du läsa [Felsök SSH-anslutningar till en Azure VM](troubleshoot-ssh-connection.md). Problem med att komma åt program som körs på den virtuella datorn finns [felsöka problem med programanslutningar på en Linux VM](troubleshoot-app-connection.md).
+Om du har problem med att ansluta till din virtuella dator kan du läsa [FELSÖK SSH-anslutningar till en virtuell Azure-dator](troubleshoot-ssh-connection.md). Problem med att komma åt program som körs på den virtuella datorn finns i [Felsöka problem med program anslutningen på en virtuell Linux-dator](troubleshoot-app-connection.md).
 

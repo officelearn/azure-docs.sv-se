@@ -72,7 +72,7 @@ Om du följde den andra själv studie kursen och redan har ett Azure Migrate-pro
 
     ![Välj ett verktyg](./media/tutorial-migrate-vmware/select-migration-tool.png)
 
-4. I listan verktyg väljer **du Azure Migrate: Verktyget Migreringsverktyg**till** Server** > 
+4. I listan verktyg väljer **du Azure Migrate: Verktyget Migreringsverktyg**till**Server** > 
 
     ![Migreringsverktyg för Server](./media/tutorial-migrate-vmware/server-migration-tool.png)
 
@@ -216,7 +216,7 @@ När delta-replikering börjar kan du köra en testmigrering för de virtuella d
 Gör en testmigrering enligt följande:
 
 
-1. I >  **** Serverför > migreringsmålAzureMigrate: **Server-** migrering klickar du på **testa migrerade servrar**.
+1. I **Serverför** >  **migreringsmål** >  **AzureMigrate: Server-** migrering klickar du på **testa migrerade servrar**.
 
      ![Testmigrerade servrar](./media/tutorial-migrate-vmware/test-migrated-servers.png)
 

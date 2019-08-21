@@ -83,7 +83,7 @@ I moderna företag är IT-avdelningar ofta inte medvetna om alla moln program so
 
 [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) kan hjälpa dig att identifiera användbara appar som är populära med användare som det kan sanktionera och lägga till i galleriet för företags program, så att användarna får nytta av funktioner som SSO och villkorlig åtkomst.
 
-*"* * Cloud App Security** hjälper oss att se till att våra personer på rätt sätt använder våra moln-och SaaS-program, på ett sätt som har stöd för de grundläggande säkerhets principerna som skyddar Accenture." *--- [John Blasi, hanterings chef, informations säkerhet, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+*"**Cloud App Security** hjälper oss att se till att våra personer på rätt sätt använder våra moln-och SaaS-program, på ett sätt som har stöd för de grundläggande säkerhets principerna som skyddar Accenture."* --- [John Blasi, hanterings chef, informations säkerhet, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Förutom att upptäcka skugg-IT kan MCAS också fastställa risk nivån för appar, förhindra obehörig åtkomst till företags data, möjliga data läckage och andra säkerhets risker i programmen.
 

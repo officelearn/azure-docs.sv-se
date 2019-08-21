@@ -61,9 +61,9 @@ Under krypteringen genererar klient biblioteket en slumpmässig initierings vekt
 > 
 > 
 
-Genom att hämta en krypterad BLOB måste du hämta innehållet i hela blobben med hjälp av **Get***-bekvämlighets metoderna. Den omslutna CEK är unwrap och används tillsammans med IV (lagras som BLOB-metadata i det här fallet) för att returnera dekrypterade data till användarna.
+Genom att hämta en krypterad BLOB måste du hämta innehållet i hela blobben med hjälp av **Get** *-bekvämlighets metoderna. Den omslutna CEK är unwrap och används tillsammans med IV (lagras som BLOB-metadata i det här fallet) för att returnera dekrypterade data till användarna.
 
-Att ladda ned ett godtyckligt intervall (**Get*** metoder med intervall parametrar som skickas in) i den krypterade blobben innefattar justering av intervallet som anges av användarna för att få en liten mängd ytterligare data som kan användas för att dekryptera det begärda intervallet .
+Att ladda ned ett godtyckligt intervall ( **Get** * metoder med intervall parametrar som skickas in) i den krypterade blobben innefattar justering av intervallet som anges av användarna för att få en liten mängd ytterligare data som kan användas för att dekryptera det begärda intervallet .
 
 Block-blobbar och Page blobbar kan bara krypteras/dekrypteras med det här schemat. Det finns för närvarande inget stöd för kryptering av tilläggs-blobar.
 

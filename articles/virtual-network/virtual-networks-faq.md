@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 7ec731c6b75ff556c9e00f7041fea32f807fe5f4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035329"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69892025"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Virtual Network
 
@@ -29,9 +29,11 @@ Ett Azure-Virtual Network (VNet) är en representation av ditt eget nätverk i m
 
 Använd virtuella nätverk för att:
 
-* Skapa ett dedikerat privat nätverk med endast ett privat nätverk som ibland inte kräver någon lokal konfiguration för din lösning. När du skapar ett VNet kan dina tjänster och virtuella datorer i ditt VNet kommunicera direkt och säkert med varandra i molnet. Du kan fortfarande konfigurera slut punkts anslutningar för de virtuella datorer och tjänster som kräver Internet kommunikation som en del av lösningen.
-* Utöka ditt data Center på ett säkert sätt med virtuella nätverk, du kan bygga vanliga VPN för plats-till-plats (S2S) för att på ett säkert sätt skala din data Center kapacitet. S2S VPN använder IPSEC för att tillhandahålla en säker anslutning mellan din företags VPN-gateway och Azure.
-* Aktivera hybrid moln scenarier virtuella nätverk ger dig flexibiliteten att stödja ett antal hybrid moln scenarier. Du kan på ett säkert sätt ansluta molnbaserade program till alla typer av lokala system, till exempel stordatorer och UNIX-system.
+* Skapa ett dedikerat privat virtuellt nätverk för endast moln. Ibland behöver du inte någon lokal konfiguration för din lösning. När du skapar ett VNet kan dina tjänster och virtuella datorer i ditt VNet kommunicera direkt och säkert med varandra i molnet. Du kan fortfarande konfigurera slut punkts anslutningar för de virtuella datorer och tjänster som kräver Internet kommunikation som en del av lösningen.
+
+* Utöka ditt data Center på ett säkert sätt. Med virtuella nätverk kan du bygga vanliga VPN för plats-till-plats (S2S) för att på ett säkert sätt skala din data Center kapacitet. S2S VPN använder IPSEC för att tillhandahålla en säker anslutning mellan din företags VPN-gateway och Azure.
+
+* Aktivera scenarier med hybrid moln. Virtuella nätverk ger dig flexibiliteten att stödja ett antal hybrid moln scenarier. Du kan på ett säkert sätt ansluta molnbaserade program till alla typer av lokala system, till exempel stordatorer och UNIX-system.
 
 ### <a name="how-do-i-get-started"></a>Hur kommer jag igång?
 Gå till [dokumentationen för det virtuella nätverket](https://docs.microsoft.com/azure/virtual-network/) för att komma igång. Det här innehållet innehåller översikts-och distributions information för alla VNet-funktioner.

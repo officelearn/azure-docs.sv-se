@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 08/20/2019
 ms.author: v-adgera
-ms.openlocfilehash: 7ceb36d818c84642461372f0df70c8088908550c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 66dbfd09ef07740c07ddb010b73e33e783340e5a
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965824"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873664"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för digital Azures dubbla
 
@@ -53,7 +53,9 @@ Konfigurera Azure Active Directory-appen så att den använder det implicita bid
 
 ## <a name="obtain-an-oauth-20-token"></a>Hämta en OAuth 2,0-token
 
-Sedan ställer du in och konfigurerar Postman för att hämta en Azure Active Directory-token. Därefter gör du en autentiserad HTTP-begäran till Azure Digitals med den hämtade token:
+[!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
+
+Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-token. Därefter gör du en autentiserad HTTP-begäran till Azure Digitals med den hämtade token:
 
 1. Gå till [www.getpostman.com](https://www.getpostman.com/) för att ladda ned appen.
 1. Kontrol lera att **behörighets webb adressen** är korrekt. Det bör ha formatet:
@@ -62,7 +64,7 @@ Sedan ställer du in och konfigurerar Postman för att hämta en Azure Active Di
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Namn  | Ersätt med | Exempel |
+    | Name  | Ersätt med | Exempel |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | Namnet på din klient organisation eller organisation | `microsoft` |
 
@@ -75,7 +77,7 @@ Sedan ställer du in och konfigurerar Postman för att hämta en Azure Active Di
     | URL för autentisering | Använd **URL:** en för auktorisering från steg 2 |
     | Klientorganisations-ID | Använd **program-ID:** t för den Azure Active Directory app som skapades eller återanvändas från föregående avsnitt |
     | Omfång | Lämna tomt |
-    | Tillstånd | Lämna tomt |
+    | State | Lämna tomt |
     | Klientautentisering | `Send as Basic Auth header` |
 
 1. Klienten bör nu visas som:

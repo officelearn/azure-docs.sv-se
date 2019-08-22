@@ -76,7 +76,7 @@ Om du vill att användarna ska logga in med ett LinkedIn-konto måste du definie
 
 Definiera ett LinkedIn-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil.
 
-1. Öppna filen *SocialAndLocalAccounts/* * TrustFrameworkExtensions. XML** * i redigeraren. Den här filen finns i det [Start paket för anpassad princip][starter-pack] som du laddade ned som en del av en av kraven.
+1. Öppna filen *SocialAndLocalAccounts/ **TrustFrameworkExtensions. XML** *i redigeraren. Den här filen finns i det [Start paket för anpassad princip][starter-pack] som du laddade ned som en del av en av kraven.
 1. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
 1. Lägg till en ny **ClaimsProvider** enligt följande:
 

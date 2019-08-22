@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 07/25/2019
+ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 684a84431c8348ddafab8cefbe831c2b58c3cee6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: e169d7734776f9319685d97f941b3fc11eec8298
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639931"
+ms.locfileid: "69656249"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
-I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://aka.ms/aml-sdk) -referens.
+I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://aka.ms/aml-sdk) -referens. 
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
 

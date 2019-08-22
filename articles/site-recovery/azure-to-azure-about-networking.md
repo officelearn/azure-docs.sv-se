@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: c642640d590e1f568fb6f6c5072decd75575ab2d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b549e8bf53ca7728b18e04542c7291f0ce720cb0
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543646"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876459"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure-replikering
 
@@ -68,7 +68,7 @@ Om du använder en IP-baserad brand Väggs-proxy eller NSG-regler för att kontr
 
 Site Recovery IP-adressintervall är följande:
 
-   **Fokusera** | **Site Recovery IP** |  **Site Recovery övervakning av IP**
+   **Mål** | **Site Recovery IP** |  **Site Recovery övervakning av IP**
    --- | --- | ---
    Östasien | 52.175.17.132 | 13.94.47.61
    Sydostasien | 52.187.58.193 | 13.76.179.223
@@ -149,7 +149,7 @@ De här reglerna krävs för att replikeringen ska kunna aktive ras från mål r
 
    **Location** | **Site Recovery IP-adress** |  **Site Recovery övervakning av IP-adress**
     --- | --- | ---
-   Centrala USA | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
 
 ## <a name="network-virtual-appliance-configuration"></a>Konfiguration av virtuell nätverks installation
 

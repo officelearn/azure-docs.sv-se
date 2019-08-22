@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e8e9b737676b2695b7b88430f59b0b0e79bc477a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d667588cea5902700c225dd7b597d8f03d93d200
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883871"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650050"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-frågesyntax i Azure Search
 Du kan skriva frågor mot Azure Search baserat på den avancerade [Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) -syntaxen i Query parser för specialiserade fråge formulär: jokertecken, fuzzy search, närhets sökning, reguljära uttryck är några exempel. En stor del av den här syntaxen för en Lucene-fråga implementeras intakt [i Azure Search](search-lucene-query-architecture.md), med undantag för intervalls `$filter` ökningar som är konstruerade i Azure Search genom uttryck. 

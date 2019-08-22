@@ -1,6 +1,6 @@
 ---
-title: Skapa en enhetlig flera Azure Monitor Application Insights-resurser | Microsoft Docs
-description: Den här artikeln innehåller information om hur du använder en funktion i Azure Monitor-loggar att skicka frågor till flera Application Insights-resurser och visualisera data.
+title: Förena flera Azure Monitor Application Insights resurser | Microsoft Docs
+description: Den här artikeln innehåller information om hur du använder en funktion i Azure Monitor loggar för att fråga flera Application Insights resurser och visualisera dessa data.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,27 +12,34 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 190b7f15a8ae0a5b9472188129f7116050fc831f
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: d441b72b34da6146eba523563a09c2908cdcbbf4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466843"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650138"
 ---
-# <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Skapa en enhetlig flera Azure Monitor Application Insights-resurser 
-Den här artikeln beskriver hur du fråga efter och visa alla dina Application Insights log programdata på samma plats, även om de finns i olika Azure-prenumerationer, som en ersättning för utfasningen av Application Insights-anslutningsprogram. Antalet resurser Application Insights-resurser som ska inkluderas i en enskild fråga är begränsad till 100.  
+# <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Förena flera Azure Monitor Application Insights resurser 
+I den här artikeln beskrivs hur du frågar och visar alla dina Application Insights loggdata på ett ställe, även om de finns i olika Azure-prenumerationer, som ersättning för utfasningen av Application Insights-anslutningsprogram. Antalet Application Insights-resurser som du kan ta med i en enskild fråga är begränsat till 100.
 
-## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Rekommenderad metod för att skicka frågor till flera Application Insights-resurser 
-Lista över flera Application Insights-resurser i en fråga kan vara besvärligt och svårhanterligt att underhålla. I stället kan du använda funktionen för att avgränsa frågelogiken från program som omfång.  
+## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Rekommenderad metod för att fråga flera Application Insights resurser 
+Att visa flera Application Insights resurser i en fråga kan vara besvärligt och svårt att underhålla. I stället kan du använda funktionen för att avgränsa fråge logiken från program omfånget.  
 
-Det här exemplet visar hur du kan övervaka flera Application Insights-resurser och visualisera antal misslyckade begäranden per programnamn. Innan du börjar måste du köra den här frågan i arbetsytan som är ansluten till Application Insights-resurser för att hämta en lista över anslutna program: 
+Det här exemplet visar hur du kan övervaka flera Application Insights resurser och visualisera antalet misslyckade förfrågningar efter program namn. Innan du börjar ska du köra den här frågan på arbets ytan som är ansluten till Application Insights resurser för att hämta listan över anslutna program: 
 
 ```
 ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Skapa en funktion med hjälp av union-operator med listan över program och spara frågan i din arbetsyta som funktionen med alias *applicationsScoping*.  
+Skapa en funktion med operatorn union med listan över program och spara sedan frågan i arbets ytan som funktion med aliaset *applicationsScoping*. 
+
+Du kan ändra de program som visas när som helst i portalen genom att gå till Utforskaren på arbets ytan och välja funktionen för redigering och sedan Spara eller använda `SavedSearch` PowerShell-cmdleten. 
+
+>[!NOTE]
+>Den här metoden kan inte användas med logg aviseringar eftersom åtkomst verifieringen av aviserings regel resurserna, inklusive arbets ytor och program, utförs när aviseringen skapas. Det går inte att lägga till nya resurser till funktionen när aviseringen har skapats. Om du föredrar att använda funktionen för resurs omfång i logg aviseringar måste du redigera aviserings regeln i portalen eller med en Resource Manager-mall för att uppdatera de omfångs resurserna. Du kan också inkludera listan över resurser i logg aviserings frågan.
+
+`withsource= SourceApp` Kommandot lägger till en kolumn i resultatet som anger det program som skickade loggen. Operatorn parse är valfri i det här exemplet och använder för att extrahera program namnet från egenskapen SourceApp. 
 
 ```
 union withsource=SourceApp 
@@ -44,14 +51,7 @@ app('Contoso-app5').requests
 | parse SourceApp with * "('" applicationName "')" *  
 ```
 
->[!NOTE]
->Du kan ändra de listade programmen när som helst i portalen genom att gå till Query explorer i din arbetsyta och välja funktionen för att redigera och spara sedan eller med hjälp av den `SavedSearch` PowerShell-cmdlet. Den `withsource= SourceApp` kommando lägger till en kolumn till resultatet som betecknar programmet som skickas i loggen. 
->
->Frågan använder Application Insights-schema, även om frågan körs i arbetsytan eftersom applicationsScoping-funktionen returnerar Application Insights-datastruktur. 
->
->Operatorn parsa är valfri i det här exemplet, det extraherar programnamnet från SourceApp egenskapen. 
-
-Du är nu redo att använda applicationsScoping funktion i frågan mellan resurser:  
+Du är nu redo att använda funktionen applicationsScoping i frågan över resurser:  
 
 ```
 applicationsScoping 
@@ -62,17 +62,17 @@ applicationsScoping
 | render timechart
 ```
 
-Funktionens alias returnerar unionen av begäranden från alla definierade program. Frågan och sedan filtrerar för misslyckade förfrågningar och hjälper dig att visualisera trender av program.
+Frågan använder Application Insights schema, även om frågan körs i arbets ytan eftersom funktionen applicationsScoping returnerar Application Insights data strukturen. Funktions Ali Aset returnerar union av begär Anden från alla definierade program. Frågan filtrerar sedan efter misslyckade förfrågningar och visualiserar trender efter program.
 
-![Exempel för Cross-frågeresultat](media/unify-app-resource-data/app-insights-query-results.png)
+![Exempel på resultat över frågor](media/unify-app-resource-data/app-insights-query-results.png)
 
-## <a name="query-across-application-insights-resources-and-workspace-data"></a>Fråga efter data i Application Insights-resurser och arbetsytan 
-När du har slutat anslutningstjänsten och behovet av att köra frågor på ett tidsintervall som var tas bort av Application Insights-datakvarhållning (90 dagar), måste du utföra [mellan resurser frågor](../../azure-monitor/log-query/cross-workspace-query.md) på arbetsytan och Application Insights resurser för ett mellanliggande period. Det här är tills en publiceringskonfiguration ackumuleras programdata ditt per ny Application Insights-datalagring som nämns ovan. Frågan kräver vissa ändringar eftersom alla scheman i Application Insights och arbetsytan är olika. Se tabellen i avsnittet om du markerar schemaolikheter. 
+## <a name="query-across-application-insights-resources-and-workspace-data"></a>Fråga över Application Insights resurser och data för arbets yta 
+När du stoppar anslutningen och behöver utföra frågor över ett tidsintervall som har rensats av Application Insights data kvarhållning (90 dagar), måste du utföra [kors resurs frågor](../../azure-monitor/log-query/cross-workspace-query.md) på arbets ytan och Application Insights resurser för en mellanliggande gått. Detta är förrän dina program data ackumuleras per den nya Application Insights data kvarhållning som anges ovan. Frågan kräver vissa modifieringar eftersom scheman i Application Insights och arbets ytan är olika. Se tabellen senare i det här avsnittet och markera schema skillnaderna. 
 
 >[!NOTE]
->[Fråga mellan resurser](../log-query/cross-workspace-query.md) i loggen för aviseringar stöds i den nya [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Azure Monitor använder som standard den [äldre Log Analytics avisering API](../platform/api-alerts.md) för att skapa nya log Varningsregler från Azure-portalen om du växlar från [äldre Log aviseringar API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln, nya API: et blir standard för nya aviseringsregler i Azure-portalen och du kan skapa mellan resurser fråga log aviseringar regler. Du kan skapa [mellan resurser fråga](../log-query/cross-workspace-query.md) loggar Varningsregler utan att göra växeln med hjälp av den [ARM-mall för scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här aviseringsregeln kan hanteras dock [ scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och inte från Azure-portalen.
+>[Frågan över resurser](../log-query/cross-workspace-query.md) i logg aviseringar stöds i det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor den [äldre Log Analytics varnings-API: n](../platform/api-alerts.md) för att skapa nya logg aviserings regler från Azure Portal, såvida du inte växlar från [äldre API för logg aviseringar](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API: t standardvärdet för nya varnings regler i Azure Portal och du kan skapa frågor om aviserings regler för kors resurs. Du kan skapa [frågor om kors resursfrågor](../log-query/cross-workspace-query.md) utan att göra växeln med hjälp av arm- [mallen för scheduledQueryRules-API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här varnings regeln kan hanteras även om [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och inte från Azure Portal.
 
-Om anslutningen inte fungerar längre på 2018-11-01, när du fråga loggar i Application Insights-resurser och program på arbetsytan, skulle frågan konstrueras som i följande exempel:
+Om anslutningen till exempel slutade fungera på 2018-11-01, när du frågar efter loggar över Application Insights resurser och program data på arbets ytan, skulle din fråga konstrueras som i följande exempel:
 
 ```
 applicationsScoping //this brings data from Application Insights resources 
@@ -93,10 +93,10 @@ applicationsScoping //this brings data from Application Insights resources
 | project timestamp , duration , name , resultCode 
 ```
 
-## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Application Insights och Log Analytics-arbetsyta schemaolikheter
-I följande tabell visas schemaolikheter mellan Log Analytics och Application Insights.  
+## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Schema skillnader för Application Insights och Log Analytics arbets yta
+I följande tabell visas schema skillnaderna mellan Log Analytics och Application Insights.  
 
-| Logga in egenskaper för Analytics-arbetsyta| Application Insights-resursegenskaper|
+| Egenskaper för Log Analytics arbets yta| Application Insights resurs egenskaper|
 |------------|------------| 
 | AnonUserId | user_id|
 | ApplicationId | appId|

@@ -1,13 +1,13 @@
 ---
-title: OData-referens för logisk operator – Azure Search
-description: OData logiska operatorer, och, eller, och inte i Azure Search-frågor.
+title: Referens för OData logisk operator – Azure Search
+description: Logiska OData-operatörer och, eller, och inte, i Azure Search frågor.
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,26 +19,26 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: de93765117b4cafe70e5ad277e32ca0a1fa8d90a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bf4939a40a2fdf1c8fc6cf97beca0184b1604c98
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079774"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648000"
 ---
-# <a name="odata-logical-operators-in-azure-search---and-or-not"></a>OData logiska operatorer i Azure Search - `and`, `or`, `not`
+# <a name="odata-logical-operators-in-azure-search---and-or-not"></a>Logiska OData-operatörer i Azure Search `and`- `or`,,`not`
 
-[OData-filteruttryck](query-odata-filter-orderby-syntax.md) i Azure Search är booleska uttryck som utvärderas till `true` eller `false`. Du kan skriva ett komplexa filter genom att skriva en serie [enklare filter](search-query-odata-comparison-operators.md) och skapa dem med hjälp av de logiska operatorerna från [boolesk algebra](https://en.wikipedia.org/wiki/Boolean_algebra):
+[OData filter-uttryck](query-odata-filter-orderby-syntax.md) i Azure Search är booleska uttryck som utvärderas `false`till `true` eller. Du kan skriva ett komplext filter genom att skriva en serie med [enklare filter](search-query-odata-comparison-operators.md) och skriva dem med hjälp av logiska operatorer från [booleska algebra](https://en.wikipedia.org/wiki/Boolean_algebra):
 
-- `and`: En binär operator som utvärderas till `true` om båda dess vänster- och underordnade uttryck som utvärderas till `true`.
-- `or`: En binär operator som utvärderas till `true` om antingen en av dess vänster eller höger underordnade uttryck utvärderas till `true`.
-- `not`: En unär operator som utvärderas till `true` om dess underordnade uttryck som utvärderas till `false`, och vice versa.
+- `and`: En binär operator som utvärderar `true` till om både vänster och höger under uttryck utvärderas till `true`.
+- `or`: En binär operator som utvärderar `true` till om något av dess vänstra eller högra del uttryck utvärderas till. `true`
+- `not`: En unär operator som utvärderar `true` till om dess under uttryck utvärderas till `false`och vice versa.
 
-Dessa, tillsammans med den [samling operatörer `any` och `all` ](search-query-odata-collection-operators.md), att du kan skapa filter som kan uttrycka mycket avancerade sökvillkor.
+Dessa, tillsammans med [samlings `any` operatörerna `all`och ](search-query-odata-collection-operators.md), låter dig skapa filter som kan uttrycka mycket komplexa Sök kriterier.
 
 ## <a name="syntax"></a>Syntax
 
-Följande EBNF ([utökade Backus Naur formuläret](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar struktur för ett OData-uttryck som använder logiska operatorer.
+Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken i ett OData-uttryck som använder logiska operatorer.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -48,31 +48,31 @@ logical_expression ::=
     | 'not' boolean_expression
 ```
 
-Det finns också ett diagram för interaktiva syntax:
+Ett interaktivt syntax diagram är också tillgängligt:
 
 > [!div class="nextstepaction"]
-> [OData-syntaxdiagrammet för Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
+> [OData-syntax diagram för Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
 
 > [!NOTE]
-> Se [OData-referens för uttryckssyntax för Azure Search](search-query-odata-syntax-reference.md) för fullständig EBNF.
+> Se [syntax för OData-uttryck för Azure Search](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-Det finns två typer av logiska uttryck: binary (`and`/`or`), där det finns två underordnade uttryck och unära (`not`), där det finns bara ett. Underordnade uttryck kan vara booleska uttryck av något slag:
+Det finns två former av logiska uttryck: Binary (`and`/`or`), där det finns två under uttryck och unära (`not`), där det bara finns ett. Under uttryck kan vara booleska uttryck av valfri typ:
 
-- Variabler för fält eller ett intervall av typen `Edm.Boolean`
-- Funktioner som returnerar värden av typen `Edm.Boolean`, till exempel `geo.intersects` eller `search.ismatch`
-- [Jämförelseuttryck](search-query-odata-comparison-operators.md), till exempel `rating gt 4`
-- [Samling uttryck](search-query-odata-collection-operators.md), till exempel `Rooms/any(room: room/Type eq 'Deluxe Room')`
-- Booleska konstanter `true` eller `false`.
-- Andra logiska uttryck som skapats med hjälp av `and`, `or`, och `not`.
+- Fält eller intervall-variabler av typen`Edm.Boolean`
+- Funktioner som returnerar värden av typen `Edm.Boolean`, `geo.intersects` t. ex. eller`search.ismatch`
+- [Jämförelse uttryck](search-query-odata-comparison-operators.md), till exempel`rating gt 4`
+- [Samlings uttryck](search-query-odata-collection-operators.md), till exempel`Rooms/any(room: room/Type eq 'Deluxe Room')`
+- Booleska litteraler `true` eller `false`.
+- Andra logiska uttryck som konstrueras `or`med `and`, `not`och.
 
 > [!IMPORTANT]
-> Det finns vissa situationer där inte alla typer av underordnade uttryck kan användas med `and` / `or`, särskilt inuti lambda-uttryck. Se [OData samling operatörer i Azure Search](search-query-odata-collection-operators.md#limitations) mer information.
+> Det finns vissa situationer där inte alla typer av under uttryck kan användas med `and` / `or`, särskilt i lambda-uttryck. Mer information finns i [OData Collection-operatörer i Azure Search](search-query-odata-collection-operators.md#limitations) .
 
-### <a name="logical-operators-and-null"></a>Logiska operatorer och `null`
+### <a name="logical-operators-and-null"></a>Logiska operatorer och`null`
 
-De flesta booleska uttryck, till exempel funktioner och jämförelser kan inte producera `null` värden och de logiska operatorerna kan inte tillämpas på den `null` literal direkt (till exempel `x and null` tillåts inte). Fält för booleska värden kan dock vara `null`, så du behöver känna till hur `and`, `or`, och `not` operatörer beter sig när det finns null. Detta är sammanfattas i tabellen nedan, där `b` är ett fält av typen `Edm.Boolean`:
+De flesta booleska uttryck, till exempel Functions och jämförelser kan inte skapa `null` värden, och logiska operatorer kan inte användas `null` för literalen `x and null` direkt (till exempel tillåts inte). Booleska fält kan dock `null`vara, så du måste vara medveten om `and`hur operatorerna, `or`och `not` fungerar i närvaron av null. Detta sammanfattas i följande tabell, där `b` är ett fält av typen: `Edm.Boolean`
 
-| uttryck | Resultatet när `b` är `null` |
+| Uttryck | Resultat när `b` är`null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |
@@ -87,29 +87,29 @@ De flesta booleska uttryck, till exempel funktioner och jämförelser kan inte p
 | `b or true` | `true` |
 | `b or false` | `false` |
 
-När typen Boolean `b` visas ensamt i ett filteruttryck fungerar som om det har utvecklats `b eq true`, så om `b` är `null`, uttrycket utvärderas till `false`. På samma sätt `not b` fungerar som `not (b eq true)`, så att det utvärderar till `true`. På så sätt kan `null` fält fungerar på samma sätt som `false`. Den här riktlinjen följer hur de beter sig när de kombineras med andra uttryck med hjälp av `and` och `or`, vilket visas i tabellen ovan. Trots detta som en direkt jämförelse till `false` (`b eq false`) kommer fortfarande utvärderas till `false`. Med andra ord `null` är inte lika `false`, trots att den fungerar som den i booleskt uttryck.
+När ett Boolean- `b` fält visas ensamt i ett filter uttryck, beter sig det som om det hade skrivits `b eq true`, så om `b` är `null`uttrycket utvärderas till `false`. Fungerar på samma sätt som `not (b eq true)`, så den utvärderas till `true`. `not b` På det här sättet `null` har fälten samma som. `false` Detta är konsekvent med hur de fungerar när de kombineras med andra uttryck `and` med `or`hjälp av och, som visas i tabellen ovan. Trots detta kommer en direkt jämförelse mellan `false` (`b eq false`) fortfarande att utvärderas `false`till. Med andra ord `null` är inte `false`lika med, även om det beter sig som det i booleska uttryck.
 
 ## <a name="examples"></a>Exempel
 
-Matcha dokument där den `rating` fältet är mellan 3 och 5, inklusive:
+Matcha dokument där `rating` fältet är mellan 3 och 5, inklusive:
 
     rating ge 3 and rating le 5
 
-Matcha dokument där alla element i den `ratings` fältet är mindre än 3 eller större än 5:
+Matcha dokument där alla element i `ratings` fältet är mindre än 3 eller större än 5:
 
     ratings/all(r: r lt 3 or r gt 5)
 
-Matcha dokument där den `location` fält inom den angivna polygonen, och dokumentet inte innehåller termen ”offentliga”.
+Matcha dokument där `location` fältet finns inom den aktuella polygonen och dokumentet inte innehåller termen "offentlig".
 
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))') and not search.ismatch('public')
 
-Matcha dokument efter hotell i Vancouver, Kanada där det finns ett deluxe rum med bas Betygsätt mindre än 160:
+Matcha dokument för hotell i Vancouver, Kanada där det finns ett Deluxe-rum med en bas taxa på mindre än 160:
 
     Address/City eq 'Vancouver' and Address/Country eq 'Canada' and Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 160)
 
 ## <a name="next-steps"></a>Nästa steg  
 
 - [Filter i Azure Search](search-filters.md)
-- [OData-uttrycket Språköversikt för Azure Search](query-odata-filter-orderby-syntax.md)
-- [Referens för OData-uttryckssyntax för Azure Search](search-query-odata-syntax-reference.md)
-- [Söka efter dokument &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [OData uttrycks språk översikt för Azure Search](query-odata-filter-orderby-syntax.md)
+- [Syntax-referens för OData-uttryck för Azure Search](search-query-odata-syntax-reference.md)
+- [Sök efter &#40;dokument Azure Search tjänst REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

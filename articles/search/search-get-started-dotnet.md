@@ -2,7 +2,7 @@
 title: C#Start Skapa, läsa in och fråga index med .NET SDK – Azure Search
 description: Förklarar hur du skapar ett index, läser in data och kör frågor med C# hjälp av och Azure Search .NET SDK.
 author: heidisteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 tags: azure-portal
 services: search
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/11/2019
-ms.openlocfilehash: 6138df5b80f479a54683ec0408b832dd78bff8e4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 6a77ecd91c0d04f0b449d25686578784921987bf
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847082"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649816"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>Snabbstart: Skapa ett Azure Search-index C# i med .NET SDK
 > [!div class="op_single_selector"]

@@ -1,6 +1,6 @@
 ---
-title: Skapa webhooks i reglerna i Azure IoT Central | Microsoft Docs
-description: Skapa webhooks i Azure IoT Central som automatiskt underrättar andra program när regler utlöses.
+title: Skapa webhookar för regler i Azure IoT Central | Microsoft Docs
+description: Skapa Webhooks i Azure IoT Central för att automatiskt meddela andra program när regler utlöses.
 author: viv-liu
 ms.author: viviali
 ms.date: 06/16/2019
@@ -8,40 +8,42 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: fdeefdc1ec5372d6ac17f0f985ee0c50ce902e56
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 508e8b4b3a909e87f538f67b1ad9a5efdbcd9551
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165324"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876025"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Skapa webhook-åtgärder på regler i Azure IoT Central
 
-*Det här avsnittet gäller builders och administratörer.*
+*Det här avsnittet gäller för byggare och administratörer.*
 
-Webhooks kan du ansluta din IoT Central-app till andra program och tjänster för fjärrövervakning och aviseringar. Webhookarna meddelar automatiskt andra program och tjänster som du ansluter när en regel utlöses i din IoT Central-app. Din IoT Central-app skickar en POST-begäran till det andra programmet HTTP-slutpunkt när en regel utlöses. Nyttolasten innehåller information om enheten och Regelinformation för utlösaren.
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+Med Webhooks kan du ansluta din IoT Central-app till andra program och tjänster för fjärrövervakning och-aviseringar. Webhooks meddelar automatiskt andra program och tjänster som du ansluter när en regel utlöses i IoT Central-appen. Din IoT Central-App skickar en POST-begäran till det andra programmets HTTP-slutpunkt när en regel utlöses. Nytto lasten innehåller information om enhets information och regel utlösare.
 
 ## <a name="set-up-the-webhook"></a>Konfigurera webhooken
 
-I det här exemplet kan du ansluta till RequestBin att bli meddelad när regler utlöses med webhookar.
+I det här exemplet ansluter du till RequestBin för att få meddelanden när regler som aktive ras med Webhooks.
 
 1. Öppna [RequestBin](https://requestbin.net/).
 
-1. Skapa en ny RequestBin och kopiera den **lagerplatsens URL**.
+1. Skapa en ny RequestBin och kopiera **bin-URL: en**.
 
-1. Skapa en [telemetri regeln](howto-create-telemetry-rules.md) eller en [händelse regeln](howto-create-event-rules.md). Spara regeln och Lägg till en ny åtgärd.
+1. Skapa en [regel för telemetri](howto-create-telemetry-rules.md) eller en [händelse regel](howto-create-event-rules.md). Spara regeln och Lägg till en ny åtgärd.
 
-    ![Webhooken skapas skärmen](media/howto-create-webhooks/webhookcreate.png)
+    ![Skärm bild för skapande av webhook](media/howto-create-webhooks/webhookcreate.png)
 
-1. Välj webhook-åtgärd och ange ett visningsnamn och klistra in lagerplatsens URL som Motringnings-URL.
+1. Välj åtgärden webhook och ange ett visnings namn och klistra in URL-adressen som återanrops-URL.
 
 1. Spara regeln.
 
-Nu när regeln utlöses, visas en ny begäran visas i RequestBin.
+Nu när regeln utlöses visas en ny begäran i RequestBin.
 
-## <a name="payload"></a>nyttolast
+## <a name="payload"></a>Nyttolast
 
-När en regel utlöses görs en HTTP POST-begäran att Motringnings-URL som innehåller en json-nyttolast med mått, enhet, regel och programinformation. För en telemetri-regel nyttolasten som returneras liknar följande:
+När en regel utlöses görs en HTTP POST-begäran till återanrops-URL: en med en JSON-nyttolast med mätningarna, enheten, regeln och programinformationen. För en telemetri-regel ser nytto lasten ut ungefär så här:
 
 ```json
 {
@@ -91,10 +93,10 @@ När en regel utlöses görs en HTTP POST-begäran att Motringnings-URL som inne
 
 ## <a name="known-limitations"></a>Kända begränsningar
 
-För närvarande finns ingen programmässiga sätt att prenumerera/avslutar prenumerationen från dessa webhooks via ett API.
+För närvarande finns det inget programmerings sätt för att prenumerera/avslutning från dessa webhookar via ett API.
 
-Om du har idéer om hur du kan förbättra den här funktionen kan du publicera dina förslag till våra [Uservoice-forum](https://feedback.azure.com/forums/911455-azure-iot-central).
+Om du har idéer om hur du kan förbättra den här funktionen kan du publicera dina förslag till vårt [UserVoice-forum](https://feedback.azure.com/forums/911455-azure-iot-central).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ställer in och använda webhooks, föreslagna nästa steg är att utforska [att skapa arbetsflöden i Microsoft Flow](howto-add-microsoft-flow.md).
+Nu när du har lärt dig hur du konfigurerar och använder Webhooks är det föreslagna nästa steg att utforska [Bygg arbets flöden i Microsoft Flow](howto-add-microsoft-flow.md).

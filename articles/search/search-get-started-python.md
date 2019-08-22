@@ -3,18 +3,18 @@ title: 'Python-snabb start: Skapa, läsa in och fråga index med REST API: er �
 description: Förklarar hur du skapar ett index, läser in data och kör frågor med python, Jupyter Notebooks och Azure Search REST API.
 ms.date: 07/11/2019
 author: heidisteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: 9e12133179ca02c3474e768305feb8ae19a6178e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 308e296ba5306949e87e68f14c8c219b85825af4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840763"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656794"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Snabbstart: Skapa ett Azure Search-index i python med Jupyter-anteckningsböcker
 > [!div class="op_single_selector"]

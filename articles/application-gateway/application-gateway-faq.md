@@ -5,15 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 6/1/2019
+ms.date: 08/22/2019
 ms.author: victorh
-ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: da8142ad035eec338a3c1ba1a23be7c2be470a04
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740873"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891710"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -361,6 +360,13 @@ Du kan också använda en Resource Manager-mall som installerar och kör den pop
 ### <a name="what-could-cause-backend-health-to-return-an-unknown-status"></a>Vad kan orsaka Server dels hälso tillstånd att returnera en okänd status?
 
 Normalt ser du en okänd status när åtkomst till Server delen blockeras av en nätverks säkerhets grupp (NSG), anpassad DNS eller användardefinierad routning (UDR) i Application Gateway-undernätet. Mer information finns i [backend-hälsa, diagnostikloggning och mått för Application Gateway](application-gateway-diagnostics.md).
+
+### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>Finns det några fall där NSG Flow-loggar inte visar tillåten trafik?
+
+Ja. Om konfigurationen matchar följande scenario visas inte tillåten trafik i dina NSG-flödes loggar:
+- Du har distribuerat Application Gateway v2
+- Du har en NSG på Application Gateway-undernätet
+- Du har aktiverat NSG Flow-loggar på den NSG
 
 ## <a name="next-steps"></a>Nästa steg
 

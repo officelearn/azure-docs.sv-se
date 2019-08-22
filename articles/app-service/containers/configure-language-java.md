@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 07d44bb54c288202d571f8e664822ecf9b4998be
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 428c470eb633c7727f65c5a9a3afa76bce50b177
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639765"
+ms.locfileid: "69647250"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera en Linux Java-app för Azure App Service
 
@@ -423,7 +423,7 @@ Mer information om det här ämnet finns i [vår Boot-dokumentation om data åtk
 ## <a name="configure-java-ee-wildfly"></a>Konfigurera Java EE (WildFly)
 
 > [!NOTE]
-> Java Enterprise Edition på App Service Linux är för närvarande en för hands version. Den här stacken rekommenderas **inte** för produktion till sitt arbete. information om Java-SE-och Tomcat-stackar.
+> Java Enterprise Edition på App Service Linux är för närvarande en för hands version. Den här stacken rekommenderas **inte** för produktion till sitt arbete.
 
 Med Azure App Service i Linux kan Java-utvecklare bygga, distribuera och skala Java Enterprise-program (Java-program) på en fullständigt hanterad Linux-baserad tjänst.  Den underliggande Java Enterprise runtime-miljön är program servern med öppen källkod [WildFly](https://wildfly.org/) .
 
@@ -434,7 +434,6 @@ Det här avsnittet innehåller följande underavsnitt:
 - [Installera moduler och beroenden](#install-modules-and-dependencies)
 - [Konfigurera data källor](#configure-data-sources)
 - [Aktivera meddelande tjänster](#enable-messaging-providers)
-- [Konfigurera cachelagring av session Management](#configure-session-management-caching)
 
 ### <a name="scale-with-app-service"></a>Skala med App Service
 
@@ -652,14 +651,121 @@ Så här aktiverar du meddelande drivna bönor med Service Bus som meddelande fu
 
 4. Följ stegen som beskrivs i avsnittet Installera moduler och beroenden med XML-beskrivningen för XML,. jar-beroenden, JBoss CLI-kommandon och start skript för JMS-providern. Förutom de fyra filerna måste du också skapa en XML-fil som definierar JNDI namn för JMS-kön och ämnet. Se [den här lagrings platsen](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig) för referens konfigurationsfiler.
 
-### <a name="configure-session-management-caching"></a>Konfigurera cachelagring av session Management
+## <a name="use-redis-as-a-session-cache-with-tomcat"></a>Använda Redis som en session-cache med Tomcat
 
-Som standard använder App Service på Linux cookies för att kontrol lera att klient begär Anden med befintliga sessioner dirigeras till samma instans av programmet. Detta standard beteende kräver ingen konfiguration men har vissa begränsningar:
+Du kan konfigurera Tomcat till att använda ett externt sessionsobjekt, till exempel [Azure cache för Redis](/azure/azure-cache-for-redis/). På så sätt kan du bevara sessionstillstånd för användare (till exempel shopping vagns data) när en användare överförs till en annan instans av appen, till exempel när automatisk skalning, omstart eller redundans inträffar.
 
-- Om en program instans startas om eller skalas ned går det inte att gå till sessionstillstånd för användarens session i program servern.
-- Om program har timeout-inställningar eller ett fast antal användare, kan det ta lite tid för automatiskt skalade nya instanser att ta emot inläsning eftersom endast nya sessioner dirigeras till de nyligen startade instanserna.
+Om du vill använda Tomcat med Redis måste du konfigurera appen så att den använder en [PersistentManager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) -implementering. I följande steg förklaras den här processen med hjälp av [pivoting session Manager: Redis-Store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) som ett exempel.
 
-Du kan konfigurera WildFly till att använda ett externt sessionsobjekt, till exempel [Azure cache för Redis](/azure/azure-cache-for-redis/). Du måste [inaktivera den befintliga](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) konfigurationen av arr-tillhörigheten för att stänga av sessionen cookie-baserad Routning och tillåta att det konfigurerade WildFly-sessionstillståndet fungerar utan störningar.
+1. Öppna en bash-Terminal och `export <variable>=<value>` Använd för att ange var och en av följande miljövariabler.
+
+    | Variabel                 | Value                                                                      |
+    |--------------------------|----------------------------------------------------------------------------|
+    | RESOURCEGROUP_NAME       | Namnet på den resurs grupp som innehåller App Service-instansen.       |
+    | WEBAPP_NAME              | Namnet på App Service-instansen.                                     |
+    | WEBAPP_PLAN_NAME         | Namnet på din App Service plan                                          |
+    | REGION                   | Namnet på den region där din app finns.                           |
+    | REDIS_CACHE_NAME         | Namnet på Azure-cachen för Redis-instansen.                           |
+    | REDIS_PORT               | SSL-porten som Redis-cachen lyssnar på.                             |
+    | REDIS_PASSWORD           | Den primära åtkomst nyckeln för din instans.                                  |
+    | REDIS_SESSION_KEY_PREFIX | Ett värde som du anger för att identifiera sessionsnycklar som kommer från din app. |
+
+    Du hittar information om namn, port och åtkomst nycklar på Azure Portal genom att titta i avsnitten **Egenskaper** eller **åtkomst nycklar** i tjänst instansen.
+
+2. Skapa eller uppdatera appens *src/main/webapp/meta-inf/context. XML-* fil med följande innehåll:
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Context path="">
+        <!-- Specify Redis Store -->
+        <Valve className="com.gopivotal.manager.SessionFlushValve" />
+        <Manager className="org.apache.catalina.session.PersistentManager">
+            <Store className="com.gopivotal.manager.redis.RedisStore"
+                   connectionPoolSize="20"
+                   host="${REDIS_CACHE_NAME}.redis.cache.windows.net"
+                   port="${REDIS_PORT}"
+                   password="${REDIS_PASSWORD}"
+                   sessionKeyPrefix="${REDIS_SESSION_KEY_PREFIX}"
+                   timeout="2000"
+            />
+        </Manager>
+    </Context>
+    ```
+
+    Den här filen anger och konfigurerar sessionshanteraren för din app. Den använder de miljövariabler som du angav i föregående steg för att hålla din konto information ut från källfilerna.
+
+3. Använd FTP för att ladda upp sessionshanteraren i App Service-instansen och placera den i */Home/Tomcat/lib* -katalogen. Mer information finns i [distribuera din app för att Azure App Service att använda FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+
+4. Inaktivera cookien för [session-tillhörighet](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) för App Service-instansen. Du kan göra detta från Azure Portal genom att navigera till din app och sedan ställa in **konfigurations > allmänna inställningar > arr** -tillhörighet. Alternativt kan du använda följande kommando:
+
+    ```azurecli
+    az webapp update -g <resource group> -n <webapp name> --client-affinity-enabled false
+    ```
+
+    Som standard använder App Service session tillhörighets-cookies för att se till att klient begär Anden med befintliga sessioner dirigeras till samma instans av programmet. Detta standard beteende kräver ingen konfiguration, men den kan inte bevara sessionstillstånd när din App-instans startas om eller när trafik dirigeras om till en annan instans. När du [inaktiverar den befintliga](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) konfigurationen för arr-tillhörighet för att stänga av sessionen cookie-baserad routning, tillåter du att det konfigurerade sessionstillståndet kan köras utan störningar.
+
+5. Navigera till avsnittet **Egenskaper** i App Service-instansen och hitta **ytterligare utgående IP-adresser**. Detta representerar alla möjliga utgående IP-adresser för din app. Kopiera dessa för användning i nästa steg.
+
+6. För varje IP-adress skapar du en brand Väggs regel i Azure-cachen för Redis-instansen. Du kan göra detta på Azure Portal från **brand Väggs** avsnittet i Redis-instansen. Ange ett unikt namn för varje regel och ange **Start-IP-adress** och **slut-IP-adress** värden till samma IP-adress.
+
+7. Navigera till avsnittet **Avancerade inställningar** i Redis-instansen och ange **Tillåt endast åtkomst via SSL** till **Nej**. Detta gör att App Service-instansen kan kommunicera med din Redis-cache via Azure-infrastrukturen.
+
+8. Uppdatera konfigurationen i appens *Pom. XML-* fil för att referera till din Redis-konto information. `azure-webapp-maven-plugin` I den här filen används de miljövariabler som du angav tidigare för att behålla din konto information från källfilerna.
+
+    Om det behövs ändrar `1.7.0` du till den aktuella versionen av [maven-plugin-programmet för Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+
+    ```xml
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.7.0</version>
+        <configuration>
+
+            <!-- Web App information -->
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appServicePlanName>${WEBAPP_PLAN_NAME}-${REGION}</appServicePlanName>
+            <appName>${WEBAPP_NAME}-${REGION}</appName>
+            <region>${REGION}</region>
+            <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+
+            <appSettings>
+                <property>
+                    <name>REDIS_CACHE_NAME</name>
+                    <value>${REDIS_CACHE_NAME}</value>
+                </property>
+                <property>
+                    <name>REDIS_PORT</name>
+                    <value>${REDIS_PORT}</value>
+                </property>
+                <property>
+                    <name>REDIS_PASSWORD</name>
+                    <value>${REDIS_PASSWORD}</value>
+                </property>
+                <property>
+                    <name>REDIS_SESSION_KEY_PREFIX</name>
+                    <value>${REDIS_SESSION_KEY_PREFIX}</value>
+                </property>
+                <property>
+                    <name>JAVA_OPTS</name>
+                    <value>-Xms2048m -Xmx2048m -DREDIS_CACHE_NAME=${REDIS_CACHE_NAME} -DREDIS_PORT=${REDIS_PORT} -DREDIS_PASSWORD=${REDIS_PASSWORD} IS_SESSION_KEY_PREFIX=${REDIS_SESSION_KEY_PREFIX}</value>
+                </property>
+
+            </appSettings>
+
+        </configuration>
+    </plugin>
+    ```
+
+9. Återskapa och distribuera om din app.
+
+    ```bash
+    mvn package
+    mvn azure-webapp:deploy
+    ```
+
+Din app kommer nu att använda Redis-cache för hantering av sessioner.
+
+Ett exempel som du kan använda för att testa dessa instruktioner finns i avsnittet om [skalning-tillstånds känsligt-Java-Web-App-on-Azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure) på GitHub.
 
 ## <a name="docker-containers"></a>Docker-containrar
 

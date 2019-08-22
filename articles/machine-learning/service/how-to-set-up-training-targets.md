@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e73a64a9782535da31e2eacbaa2740007707c774
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990468"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872407"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning 
 
@@ -317,7 +317,7 @@ Använd följande steg för att se beräknings målen för din arbets yta:
 1. Navigera till [Azure Portal](https://portal.azure.com) och öppna din arbets yta. 
 1. Under __program__väljer du __beräkning__.
 
-    ![Visa beräkning fliken](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    [![Visa fliken beräkning](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>Skapa ett beräknings mål
 
@@ -336,8 +336,6 @@ Följ föregående steg för att visa listan över beräknings mål. Använd sed
 
 1. Fyll i formuläret. Ange värden för de obligatoriska egenskaperna, särskilt **VM-serien**och de **maximalt antal noder** som ska användas för att öka beräkningen.  
 
-    ![Fyll i formulär](./media/how-to-set-up-training-targets/add-compute-form.png) 
-
 1. Välj __Skapa__.
 
 
@@ -348,8 +346,6 @@ Följ föregående steg för att visa listan över beräknings mål. Använd sed
 1. Sedan kan du se information om Compute-målet: 
 
     ![Visa information om dator mål](./media/how-to-set-up-training-targets/compute-target-details.png) 
-
-
 
 ### <a id="portal-reuse"></a>Bifoga Compute-mål
 

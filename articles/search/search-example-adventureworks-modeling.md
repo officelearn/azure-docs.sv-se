@@ -1,73 +1,73 @@
 ---
-title: 'Exempel: Utforma AdventureWorks inventering-databas – Azure Search'
-description: Lär dig hur du modeller med relationsdata, omvandla det till en Flat datamängd, för indexering och Fullständig textsökning i Azure Search.
+title: 'Exempel: Modellera AdventureWorks Inventory Database – Azure Search'
+description: Lär dig att modellera Relations data, omvandla dem till en förenklad data uppsättning för indexering och fullständig texts ökning i Azure Search.
 author: cstone
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
-ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52ccf3edfca5b3481b038bd5d3449c1dd6354179
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61291916"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649908"
 ---
-# <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Exempel: Utforma AdventureWorks inventering databasen för Azure Search
+# <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Exempel: Modellera AdventureWorks Inventory Database för Azure Search
 
-Modellering strukturerade databasen innehåll till en effektiv search-index är sällan en enkel övning. Schemaläggning och ändringshantering tagits ur bruk, det finns den stora utmaningen med avnormalisera källraderna från deras tillstånd för anslutna till en tabell till search-vänlig entiteter. Den här artikeln använder exempeldata AdventureWorks, som du tillgängliga online, för att markera vanliga upplevelser i övergången från databasen för att söka. 
+Att modellera strukturerat databas innehåll till ett effektivt sökindex är sällan en enkel övning. Schemaläggning och ändrings hantering tas bort, det finns en utmaning för att avnormalisera käll rader från deras tabell anslutna tillstånd till sökvänliga entiteter. Den här artikeln använder exempel data från AdventureWorks, tillgängliga online, för att markera vanliga upplevelser i över gången från databasen att söka. 
 
 ## <a name="about-adventureworks"></a>Om AdventureWorks
 
-Om du har en SQL Server-instans kan kanske du är bekant med exempeldatabasen AdventureWorks. Bland de tabeller som ingår i den här databasen är fem tabeller som exponerar produktinformation.
+Om du har en SQL Server-instans kan du bekanta dig med AdventureWorks-exempel databasen. Bland tabellerna som ingår i databasen finns fem tabeller som visar produkt information.
 
 + **ProductModel**: namn
-+ **Produkten**: namn, färg, kostnad, storlek, vikt, bild, kategori (varje rad ansluter till en specifik ProductModel)
-+ **ProductDescription**: beskrivning
-+ **ProductModelProductDescription**: nationella inställningar (varje rad kopplar en ProductModel till en specifik ProductDescription för ett specifikt språk)
++ **Produkt**: namn, färg, kostnad, storlek, vikt, bild, kategori (varje rad kopplas till en viss ProductModel)
++ **ProductDescription**: Beskrivning
++ **ProductModelProductDescription**: locale (varje rad kopplar en ProductModel till en specifik ProductDescription för ett speciellt språk)
 + **ProductCategory**: namn, överordnad kategori
 
-Kombinera alla dessa data till en Flat raduppsättning som kan hämtas till ett search-index är den aktuella uppgiften. 
+Att kombinera alla dessa data till en utplattad rad uppsättning som kan matas in i ett sökindex är den uppgift som är i handen. 
 
-## <a name="considering-our-options"></a>Funderar på att våra alternativ
+## <a name="considering-our-options"></a>Överväg våra alternativ
 
-Naïve metod är att indexera alla rader från Product-tabellen (ansluten där det behövs) sedan Product-tabellen har informationen som mest. Denna metod skulle dock exponera sökindex som upplevd dubbletter i en resultatuppsättning. Till exempel är väg 650 modellen tillgänglig i två färger och sex storlekar. En fråga för ”vägen cyklar” skulle sedan domineras av tolv instanser av samma modell, differentierade bara av storlek och färg. De andra sex väg-specifika modellerna skulle alla vara delegerats till nether världen av search: sidan två.
+Naïve-metoden skulle vara att indexera alla rader från produkt tabellen (där det är lämpligt) sedan produkt tabellen har den mest detaljerade informationen. Den metoden skulle dock innebära att Sök indexet uppfattar dubbletter i en resultat uppsättning. Till exempel är Road-650-modellen tillgänglig i två färger och sex storlekar. En fråga för "Road Bikes" kommer sedan att domineratss av tolv instanser av samma modell, differentierad enbart efter storlek och färg. De andra sex vägbaserade modellerna skulle alltid relegated till Nether-världen för Sök: sida två.
 
-  ![Lista över produkter](./media/search-example-adventureworks/products-list.png "produktlista")
+  ![Produkt lista](./media/search-example-adventureworks/products-list.png "Produkt lista")
  
-Observera att vägen 650 modellen har tolv alternativ. Entitet i en-till-många rader visas bäst som flervärdesfält eller plap aggregated värdet fält i sökindexet.
+Observera att Road-650-modellen har tolv alternativ. En-till-många-enhets rader visas bäst som flervärdesfält eller föraggregerade-värde fält i Sök indexet.
 
-Hur du löser det här problemet är inte lika enkelt som att flytta målindex till tabellen ProductModel. Detta skulle Ignorera viktiga data i Product-tabellen som bör fortfarande visas i sökresultaten.
+Att lösa det här problemet är inte lika enkelt som att flytta mål indexet till ProductModel-tabellen. Detta skulle ignorera viktiga data i produkt tabellen som fortfarande ska visas i Sök resultaten.
 
-## <a name="use-a-collection-data-type"></a>Använd datatypen samling
+## <a name="use-a-collection-data-type"></a>Använd en samlings data typ
 
-Den ”rätta metoden” är att använda en sökschema funktion som inte har en direkt parallell i databasmodellen: **Collection(Edm.String)** . En samlingsdatatyp används när du har en lista med enskilda strängar, snarare än en lång sträng (enkelt). Om du har taggar eller nyckelord, använder du en samlingsdatatyp för det här fältet.
+"Rätt metod" är att använda en Sök schema funktion som inte har en direkt parallell i databas modellen: **Collection(Edm.String)** . En samlings data typ används när du har en lista med enskilda strängar, i stället för en mycket lång (enkel) sträng. Om du har taggar eller nyckelord använder du en samlings data typ för det här fältet.
 
-Genom att definiera flera värden index-fält av **Collection(Edm.String)** för ”färg”, ”storlek” och ”bild” extra information som är sparade för fasettering och filtrering utan förorenande index med dubbla poster. På samma sätt gäller mängdfunktioner för de numeriska fält för produkten kan indexera **minListPrice** i stället för varje enskild produkt **listPrice**.
+Genom att definiera flera värde index fält för **samling (EDM. String)** för "Color", "size" och "image", bevaras hjälp informationen för fasettering och filtrering utan att det förorenar indexet med dubbla poster. På samma sätt använder du mängd funktioner för de numeriska produkt fälten och indexerar **minListPrice** i stället för varje enskild produkt **listPrice**.
 
-Med ett index med dessa strukturer kan visas en sökning efter ”mountain cyklar” diskreta cykel modeller och behålla viktiga metadata som färg, storlek och lägst pris. Följande skärmbild innehåller en bild.
+Med tanke på ett index med dessa strukturer skulle en sökning efter "Mountain Bikes" Visa modeller för diskreta cyklar, samtidigt som viktiga metadata som färg, storlek och lägsta pris betjänas. Följande skärm bild visar en illustration.
 
-  ![Mountain cykel search exempel](./media/search-example-adventureworks/mountain-bikes-visual.png "Mountain cykel search-exempel")
+  ![Exempel på Mountain Bike search](./media/search-example-adventureworks/mountain-bikes-visual.png "Exempel på Mountain Bike search")
 
-## <a name="use-script-for-data-manipulation"></a>Använd skript för datamanipulering
+## <a name="use-script-for-data-manipulation"></a>Använd skript för data behandling
 
-Tyvärr uppnås inte den här typen av modellering enkelt via fristående SQL-uttryck. Använd istället ett enkelt NodeJS-skript för att läsa in data och mappa den till search-vänlig JSON entiteter.
+Den här typen av modellering kan tyvärr inte enkelt uppnås genom SQL-uttryck. Använd i stället ett enkelt NodeJS-skript för att läsa in data och sedan mappa dem till sökvänliga JSON-entiteter.
 
-Sista databassökning mappningen ser ut så här:
+Den slutgiltiga databasen – Sök mappningen ser ut så här:
 
-+ model (Edm.String: searchable, filterable, retrievable) from "ProductModel.Name"
-+ description_en (Edm.String: sökbar) från ”ProductDescription” för modellen där kultur = ”en”
-+ färg (Collection(Edm.String): sökbar, filtrerbar, fasettbar, hämtningsbara): unika värden från ”Product.Color” för modellen
-+ storlek (Collection(Edm.String): sökbar, filtrerbar, fasettbar, hämtningsbara): unika värden från ”Product.Size” för modellen
-+ bild (Collection(Edm.String): hämtningsbar): unika värden från ”Product.ThumbnailPhoto” för modellen
-+ minStandardCost (Edm.Double: filtrerbar, fasettbar, sorterbar, hämtningsbara): sammanställd minst alla ”Product.StandardCost” för modellen
-+ minListPrice (Edm.Double: filtrerbar, fasettbar, sorterbar, hämtningsbara): sammanställd minst alla ”Product.ListPrice” för modellen
-+ minWeight (Edm.Double: filtrerbar, fasettbar, sorterbar, hämtningsbara): sammanställd minst alla ”Product.Weight” för modellen
-+ produkter (Collection(Edm.String): sökbar, filtrerbar, hämtningsbara): unika värden från ”Product.Name” för modellen
++ modell (EDM. String: sökbar, Filterable, hämtnings bar) från "ProductModel.Name"
++ description_en (EDM. String: sökbar) från "ProductDescription" för modellen där Culture = "en"
++ färg (samling (EDM. String): sökbar, Filterable, aspekt bar, hämtnings bar): unika värden från "Product. Color" för modellen
++ storlek (samling (EDM. String): sökbar, Filterable, aspekt bar, hämtnings bar): unika värden från "Product. size" för modellen
++ bild (samling (EDM. String): hämtnings bar): unika värden från "Product. ThumbnailPhoto" för modellen
++ minStandardCost (EDM. Double: Filterable, aspekt bar, sorterbar, hämtnings bar): sammanlagt minst alla "Product. StandardCost" för modellen
++ minListPrice (EDM. Double: Filterable, aspekt bar, sorterbar, hämtnings bar): sammanlagt minst alla "Product. ListPrice" för modellen
++ minWeight (EDM. Double: Filterable, aspekt bar, sorterbar, hämtnings bar): sammanlagt minimum för all produkt. vikt för modellen
++ produkter (samling (EDM. String): sökbart, Filterable, hämtnings bar): unika värden från "Product.Name" för modellen
 
-När du ansluter till tabellen ProductModel med produkt och ProductDescription, Använd [lodash](https://lodash.com/) (eller Linq i C#) att snabbt omvandla resultatuppsättningen:
+När du har gått med i ProductModel-tabellen med produkten och ProductDescription, använder du [lodash](https://lodash.com/) ( C#eller LINQ in) för att snabbt transformera resultat uppsättningen:
 
 ```javascript
 var records = queryYourDatabase();
@@ -93,7 +93,7 @@ var models = _(records)
   .value();
 ```
 
-Den resulterande JSON ser ut så här:
+Den resulterande JSON-filen ser ut så här:
 
 ```json
 [
@@ -137,7 +137,7 @@ Den resulterande JSON ser ut så här:
 ]
 ```
 
-Här är slutligen SQL-frågan ska returnera inledande postuppsättning. Jag använde den [mssql](https://www.npmjs.com/package/mssql) npm-modulen för att läsa in data till min NodeJS-app.
+Slutligen är det SQL-frågan för att returnera den första post uppsättningen. Jag använde modulen [MSSQL](https://www.npmjs.com/package/mssql) NPM för att läsa in data i min NodeJS-app.
 
 ```T-SQL
 SELECT
@@ -163,6 +163,6 @@ WHERE
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Exempel: Med flera nivåer aspekten taxonomier i Azure Search](search-example-adventureworks-multilevel-faceting.md)
+> [Exempel: Fasett-taxonomier på flera nivåer i Azure Search](search-example-adventureworks-multilevel-faceting.md)
 
 

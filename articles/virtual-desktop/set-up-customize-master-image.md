@@ -1,120 +1,120 @@
 ---
-title: Förbereda och anpassa en virtuell Hårddisk huvudavbildning - Azure
-description: Hur du förbereder, anpassa och ladda upp en huvudavbildning för virtuellt skrivbord i Windows-förhandsversion till Azure.
+title: Förbereda och anpassa en huvud-VHD-avbildning – Azure
+description: Hur du förbereder, anpassar och laddar upp en Windows Virtual Desktop Preview-huvudavbildning till Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 2413a380adf32755452482d2b68d2055f7db666d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: abde79ab131719fe4f2963db98c7a6daa3419424
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620442"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876841"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
-Den här artikeln beskriver hur du förbereder en avbildning av master virtuell hårddisk (VHD) för överföring till Azure, inklusive hur du skapar virtuella datorer (VM) och installera programvara på dem. Dessa instruktioner är för en virtuell Windows-skrivbordet förhandsversion konfiguration som kan användas med din organisations befintliga processer.
+Den här artikeln beskriver hur du förbereder en avbildning av en virtuell hård disk (VHD) för uppladdning till Azure, inklusive hur du skapar virtuella datorer (VM) och installerar program vara på dem. Dessa anvisningar gäller för en för hands version av en Windows Virtual Desktop-konfiguration som kan användas med din organisations befintliga processer.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Windows 10 Enterprise flera session är tillgänglig i Azure-bildgalleriet. Det finns två alternativ för att anpassa den här avbildningen.
+Windows 10 Enterprise multi-session är tillgängligt i Azures avbildnings Galleri. Det finns två alternativ för att anpassa avbildningen.
 
-Det första alternativet är att etablera en virtuell dator (VM) i Azure genom att följa instruktionerna i [skapa en virtuell dator från en hanterad avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed), och sedan gå vidare till [förberedelse av programvara och installation](set-up-customize-master-image.md#software-preparation-and-installation).
+Det första alternativet är att etablera en virtuell dator (VM) i Azure genom att följa anvisningarna i [skapa en virtuell dator från en hanterad avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)och sedan gå vidare till [förberedelse och installation av program vara](set-up-customize-master-image.md#software-preparation-and-installation).
 
-Det andra alternativet är att skapa avbildningen lokalt genom att hämta avbildningen, etablera en Hyper-V virtuell dator och anpassa den så att den passar dina behov, vilket vi upp i följande avsnitt.
+Det andra alternativet är att skapa avbildningen lokalt genom att ladda ned avbildningen, etablering av en virtuell Hyper-V-dator och anpassa den efter dina behov, som vi tar upp i följande avsnitt.
 
-### <a name="local-image-creation"></a>Skapa lokala avbildningar
+### <a name="local-image-creation"></a>Skapa lokal avbildning
 
-När du har laddat ned avbildningen till en lokal plats, öppna **Hyper-V Manager** att skapa en virtuell dator med den virtuella Hårddisken som du kopierade. Följande instruktioner är en enkel version, men du kan hitta mer detaljerad information i [skapa en virtuell dator i Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
+När du har laddat ned avbildningen till en lokal plats öppnar du **Hyper-V Manager** för att skapa en virtuell dator med den virtuella hård disken som du kopierade. Följande instruktioner är en enkel version, men du hittar mer detaljerad information i [skapa en virtuell dator i Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
 
-Skapa en virtuell dator med den kopierade virtuella Hårddisken:
+Så här skapar du en virtuell dator med den kopierade virtuella hård disken:
 
-1. Öppna den **guiden Ny virtuell dator**.
+1. Öppna **guiden Ny virtuell dator**.
 
-2. På sidan Ange Generation väljer **Generation 1**.
+2. På sidan Ange generation väljer du **generation 1**.
 
-    ![En skärmbild av sidan Ange Generation. Alternativet ”Generation 1” har valts.](media/a41174fd41302a181e46385e1e701975.png)
+    ![En skärm bild av sidan Ange generation. Alternativet "generation 1" är markerat.](media/a41174fd41302a181e46385e1e701975.png)
 
-3. Inaktivera kontrollpunkter under typ av kontrollpunkt genom att avmarkera kryssrutan.
+3. Under kontroll punkts typ inaktiverar du kontroll punkter genom att avmarkera kryss rutan.
 
-    ![En skärmbild av den typ av kontrollpunkt delen av sidan kontrollpunkter.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
+    ![En skärm bild av avsnittet kontroll punkts typ på sidan kontroll punkter.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
 
-Du kan också köra följande cmdlet i PowerShell för att inaktivera kontrollpunkter.
+Du kan också köra följande cmdlet i PowerShell för att inaktivera kontroll punkter.
 
 ```powershell
 Set-VM -Name <VMNAME> -CheckpointType Disabled
 ```
 
-### <a name="fixed-disk"></a>Fast hårddisk
+### <a name="fixed-disk"></a>Fast disk
 
-Om du skapar en virtuell dator från en befintlig virtuell Hårddisk skapar en dynamisk disk som standard. Det kan ändras till en fast disk genom att välja **redigera Disk...**  enligt följande bild. Mer detaljerade instruktioner finns i [förbereda en Windows-VHD eller VHDX för att överföra till Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+Om du skapar en virtuell dator från en befintlig virtuell hård disk skapas en dynamisk disk som standard. Den kan ändras till en fast disk genom att välja **Redigera disk...** som visas i följande bild. Mer detaljerad information finns i [förbereda en virtuell Windows-VHD eller VHDX att ladda upp till Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
-![En skärmbild av alternativet Redigera Disk.](media/35772414b5a0f81f06f54065561d1414.png)
+![En skärm bild av alternativet Redigera disk.](media/35772414b5a0f81f06f54065561d1414.png)
 
-Du kan också köra följande PowerShell-cmdlet om du vill ändra disken till en fast disk.
+Du kan också köra följande PowerShell-cmdlet för att ändra disken till en fast disk.
 
 ```powershell
 Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.vhd -VHDType Fixed
 ```
 
-## <a name="software-preparation-and-installation"></a>Förberedelse av programvara och installation
+## <a name="software-preparation-and-installation"></a>Förberedelse av program vara och installation
 
-Det här avsnittet beskriver hur du förbereder och installera FSLogix, Windows Defender och andra vanliga program. 
+Det här avsnittet beskriver hur du förbereder och installerar FSLogix, Windows Defender och andra vanliga program. 
 
-Om du installerar Office 365 ProPlus och OneDrive på den virtuella datorn, se [installerar Office på en VHD-huvudavbildning](install-office-on-wvd-master-image.md). Följ länken i nästa steg i den här artikeln att gå tillbaka till den här artikeln och slutföra master VHD-processen.
+Om du installerar Office 365 ProPlus och OneDrive på den virtuella datorn, se [installera Office på en huvud-VHD-avbildning](install-office-on-wvd-master-image.md). Följ länken i nästa steg i artikeln för att gå tillbaka till den här artikeln och slutföra huvud-VHD-processen.
 
-Om dina användare behöver åtkomst till vissa LOB-program, rekommenderar vi du installera dem när du har slutfört instruktionerna i det här avsnittet.
+Om dina användare behöver åtkomst till vissa LOB-program rekommenderar vi att du installerar dem när du har slutfört det här avsnittets instruktioner.
 
 ### <a name="disable-automatic-updates"></a>Inaktivera automatiska uppdateringar
 
-Inaktivera automatiska uppdateringar via lokal grupprincip:
+Så här inaktiverar du automatiska uppdateringar via lokal grupprincip:
 
-1. Öppna **Redigeraren för lokal grupprincip\\Administrationsmallar\\Windows-komponenter\\Windows Update**.
-2. Högerklicka på **konfigurera automatisk uppdatering** och ge den värdet **inaktiverad**.
+1. Öppna **Redigerare för lokalt grupprincipobjekt\\\\administrativa mallar\\Windows-komponenter Windows Update**.
+2. Högerklicka på **Konfigurera automatisk uppdatering** och Ställ in den på **inaktive rad**.
 
-Du kan också köra följande kommando i Kommandotolken för att inaktivera automatiska uppdateringar.
+Du kan också köra följande kommando i en kommando tolk för att inaktivera automatiska uppdateringar.
 
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
-### <a name="specify-start-layout-for-windows-10-pcs-optional"></a>Ange Start-layout för Windows 10-datorer (valfritt)
+### <a name="specify-start-layout-for-windows-10-pcs-optional"></a>Ange startlayout för Windows 10-datorer (valfritt)
 
-Kör detta kommando för att ange en Start-layout för Windows 10-datorer.
+Kör det här kommandot för att ange en startlayout för Windows 10-datorer.
 
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
-### <a name="set-up-user-profile-container-fslogix"></a>Konfigurera användarbehållaren profil (FSLogix)
+### <a name="set-up-user-profile-container-fslogix"></a>Konfigurera användar profil behållare (FSLogix)
 
-För att inkludera FSLogix behållaren som en del av avbildningen, följer du anvisningarna i [ställa in en användare profil resurs för en värd-pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Du kan testa funktionerna i behållaren FSLogix med [snabbstarten](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+Om du vill inkludera FSLogix-behållaren som en del av avbildningen följer du anvisningarna i [skapa en profil behållare för en adresspool med hjälp av en fil resurs](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Du kan testa funktionerna i FSLogix-behållaren med [den här snabb](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial)starten.
 
 ### <a name="configure-windows-defender"></a>Konfigurera Windows Defender
 
-Om Windows Defender konfigureras på den virtuella datorn kan du kontrollera att den har konfigurerats för att inte genomsökning hela innehållet i VHD och VHDX-filer under bifogad fil.
+Om Windows Defender är konfigurerat på den virtuella datorn kontrollerar du att det har kon figurer ATS för att inte genomsöka hela innehållet i VHD-och VHDX-filer under bilagan.
 
-Den här konfigurationen kan du bara tar bort genomsökning av VHD och VHDX-filer under bifogad fil, men påverkar inte genomsökning i realtid.
+Den här konfigurationen tar bara bort skanning av VHD-och VHDX-filer under den bifogade filen, men påverkar inte genomsökningen i real tid.
 
-Mer detaljerade instruktioner för hur du konfigurerar Windows Defender i Windows Server finns i [konfigurera Windows Defender Antivirus-undantag i Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
+Mer detaljerad information om hur du konfigurerar Windows Defender på Windows Server finns i [Konfigurera Windows Defender Antivirus-undantag i Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
 
-Mer information om hur du konfigurerar Windows Defender för att undanta vissa filer från sökning finns [konfigurera och verifiera undantag baserat på filplats för tillägg och mappnamn](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
+Mer information om hur du konfigurerar Windows Defender för att undanta vissa filer från genomsökning finns i [Konfigurera och validera undantag baserat på fil namns tillägg och mappens plats](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
-### <a name="configure-session-timeout-policies"></a>Konfigurera principer för tidsgräns för session
+### <a name="configure-session-timeout-policies"></a>Konfigurera tids gräns principer för sessioner
 
-Fjärrsession principerna kan tillämpas på nivån Grupprincip eftersom alla virtuella datorer i en värd-pool är en del av samma säkerhetsgrupp.
+Fjärråtkomstprinciper kan aktive ras på grupprincip nivå eftersom alla virtuella datorer i en modempool ingår i samma säkerhets grupp.
 
-Konfigurera fjärrsession principer:
+Så här konfigurerar du fjärråtkomstprinciper:
 
-1. Gå till **Administrationsmallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster**  >  **Värd för fjärrskrivbordssession** > **tidsgränser för sessionen**.
-2. I panelen till höger väljer du den **ange tidsgränsen för aktiva Remote Desktop Services-sessioner** princip.
-3. När fönstret modal visas ändra alternativet från **inte konfigurerad** till **aktiverad** att aktivera principen.
-4. I listrutan under alternativet ställer du in hur lång tid att **4 timmar**.
+1. Navigera till **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > tidsgränserför sessionsvärdservern för fjärrskrivbordssessioner. > 
+2. I panelen till höger väljer du den **angivna tids gränsen för aktiva men inaktiva principer för Fjärrskrivbordstjänster sessioner** .
+3. När det modala fönstret visas ändrar du princip alternativet från **inte konfigurerad** till **aktive rad** för att aktivera principen.
+4. I den nedrullningsbara menyn under alternativet princip anger du hur lång tid som ska vara **4 timmar**.
 
-Du kan också konfigurera fjärrsession principer manuellt genom att köra följande kommandon:
+Du kan också konfigurera fjärråtkomstprinciper manuellt genom att köra följande kommandon:
 
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
@@ -127,27 +127,27 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxId
 
 ### <a name="set-up-time-zone-redirection"></a>Konfigurera omdirigering av tidszon
 
-Omdirigering av tidszon kan tillämpas på nivån Grupprincip eftersom alla virtuella datorer i en värd-pool är en del av samma säkerhetsgrupp.
+Omdirigering av tidszon kan verkställas på grupprincip nivå eftersom alla virtuella datorer i en pool är en del av samma säkerhets grupp.
 
-Att omdirigera tidszoner:
+Omdirigera tids zoner:
 
-1. På Active Directory-servern öppnar du den **konsolen Grupprinciphantering**.
-2. Expandera din domän och grupprincipobjekt.
-3. Högerklicka på den **grupprincipobjekt** som du skapade för inställningar av grupprinciper och välj **redigera**.
-4. I den **Redigeraren för Grupprinciphantering**, gå till **Datorkonfiguration** > **principer** > **administrativa Mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd för fjärrskrivbordssession**   >  **Enhet och resurs**.
-5. Aktivera den **Tillåt omdirigering av tidszon** inställningen.
+1. Öppna **konsolen Grupprinciphantering**på Active Directory-servern.
+2. Expandera din domän och grupprincip objekt.
+3. Högerklicka på grupprincip- **objektet** som du skapade för grup princip inställningarna och välj **Redigera**.
+4. I **redigeraren Grupprinciphantering**navigerar du till **dator konfigurations** > **principer** > **administrativa mallar** > **Windows-komponenter**  >   **Fjärrskrivbordstjänster** > värdenhet > för fjärrskrivbordssession och omdirigering**av resurser**.
+5. Aktivera inställningen **Tillåt omdirigering** av tidszon.
 
-Du kan också köra det här kommandot på huvudavbildningen att omdirigera tidszoner:
+Du kan också köra det här kommandot på huvud avbildningen för att omdirigera tids zoner:
 
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableTimeZoneRedirection /t REG_DWORD /d 1 /f
 ```
 
-### <a name="disable-storage-sense"></a>Inaktivera Sense för lagring
+### <a name="disable-storage-sense"></a>Inaktivera Storage Sense
 
-För Windows virtuella värd för fjärrskrivbordssessioner som använder Windows 10 Enterprise eller Windows 10 Enterprise flera session, rekommenderar vi att inaktiverar Storage mening. Du kan inaktivera Sense för lagring på menyn Inställningar under **Storage**, enligt följande skärmbild:
+Vi rekommenderar att du inaktiverar Storage Sense för Windows Virtual Desktop-fjärrskrivbordssession som använder Windows 10 Enterprise eller Windows 10 Enterprise multi-session. Du kan inaktivera Storage Sense i menyn Inställningar under **lagring**, som du ser på följande skärm bild:
 
-![En skärmbild av menyn lagring under inställningar. Alternativet ”Storage förnuft” är inaktiverad.](media/storagesense.png)
+![En skärm bild av lagrings menyn under Inställningar. Alternativet "Storage Sense" är inaktiverat.](media/storagesense.png)
 
 Du kan också ändra inställningen med registret genom att köra följande kommando:
 
@@ -155,34 +155,34 @@ Du kan också ändra inställningen med registret genom att köra följande komm
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
 ```
 
-### <a name="include-additional-language-support"></a>Inkludera ytterligare språk som stöds
+### <a name="include-additional-language-support"></a>Ta med ytterligare språk stöd
 
-Den här artikeln täcker inte så här konfigurerar du språk och nationella support. Mer information finns i följande artiklar:
+Den här artikeln beskriver inte hur du konfigurerar språk och regional support. Mer information finns i följande artiklar:
 
 - [Lägga till språk i Windows-avbildningar](https://docs.microsoft.com/windows-hardware/manufacture/desktop/add-language-packs-to-windows)
 - [Funktioner på begäran](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)
-- [Språk och din region funktioner på begäran (departement)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-language-fod)
+- [Språk-och regions funktioner på begäran (franska)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-language-fod)
 
-### <a name="other-applications-and-registry-configuration"></a>Andra program och registerkonfigurationen
+### <a name="other-applications-and-registry-configuration"></a>Andra program och register konfiguration
 
-Det här avsnittet beskriver program- och operativsystemets konfiguration. All konfiguration i det här avsnittet görs via registerposter som kan utföras av kommandorad och regedit verktyg.
+I det här avsnittet beskrivs program-och operativ system konfiguration. All konfiguration i det här avsnittet görs via register poster som kan utföras av kommando rads-och regedit-verktyg.
 
 >[!NOTE]
->Du kan implementera bästa praxis i konfigurationen med grupprincipobjekt (GPO) eller registret import. Administratören kan välja något av alternativen utifrån organisationens krav.
+>Du kan implementera bästa praxis i konfigurationen med antingen grupprincip objekt (GPO) eller register import. Administratören kan välja något av alternativen baserat på deras organisations krav.
 
-För feedback hub insamlingen av dessa data på flera session för Windows 10 Enterprise kan du köra det här kommandot:
+För feedback Hub-insamling av telemetridata i Windows 10 Enterprise multi-session kör du följande kommando:
 
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f
 ```
 
-Kör följande kommando för att åtgärda Watson krascher:
+Kör följande kommando för att åtgärda Watson-krascher:
 
 ```batch
 remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting
 ```
 
-Ange följande kommandon i Registereditorn för att åtgärda 5 k matchningsstöd. Du måste köra kommandon innan du kan aktivera sida-vid-sida-stack.
+Ange följande kommandon i Registereditorn för att åtgärda stöd för 5 k-matchning. Du måste köra kommandona innan du kan aktivera stacken sida vid sida.
 
 ```batch
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxMonitors /t REG_DWORD /d 4 /f
@@ -194,38 +194,38 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" /v MaxYResolution /t REG_DWORD /d 2880 /f
 ```
 
-## <a name="prepare-the-image-for-upload-to-azure"></a>Förbereda avbildningen för uppladdning till Azure
+## <a name="prepare-the-image-for-upload-to-azure"></a>Förbered avbildningen för uppladdning till Azure
 
-När du har slutfört konfigurationen och installerat alla program, följer du anvisningarna i [förbereda en Windows-VHD eller VHDX för att överföra till Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) förbereda avbildningen.
+När du har avslutat konfigurationen och installerat alla program följer du anvisningarna i [förbereda en Windows-VHD eller VHDX att ladda upp till Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) för att förbereda avbildningen.
 
-När du har förberett avbildningen för uppladdning, kontrollera den virtuella datorn fortfarande är i eller om det finns frigjort tillstånd.
+När du har förberedat avbildningen för uppladdning ser du till att den virtuella datorn är i läget avstängd eller inte allokerad.
 
-## <a name="upload-master-image-to-a-storage-account-in-azure"></a>Ladda upp huvudavbildningen till ett lagringskonto i Azure
+## <a name="upload-master-image-to-a-storage-account-in-azure"></a>Ladda upp huvud avbildningen till ett lagrings konto i Azure
 
-Det här avsnittet gäller bara när huvudavbildningen har skapats lokalt.
+Det här avsnittet gäller endast när huvud avbildningen har skapats lokalt.
 
-Följande instruktioner berätta hur du överför huvudavbildningen till ett Azure storage-konto. Om du inte redan har ett Azure storage-konto, följer du anvisningarna i [i den här artikeln](https://code.visualstudio.com/tutorials/static-website/create-storage) att skapa en.
+Följande anvisningar visar hur du överför huvud avbildningen till ett Azure Storage-konto. Om du inte redan har ett Azure Storage-konto följer du anvisningarna i [den här artikeln](https://code.visualstudio.com/tutorials/static-website/create-storage) för att skapa ett.
 
-1. Konvertera virtuell datoravbildning (VHD) som fast om du inte redan har gjort. Om du inte konverterar bilden till fast, kan du skapa avbildningen.
+1. Konvertera VM-avbildningen (VHD) till Fixed om du inte redan gjort det. Om du inte konverterar bilden till Fixed kan du inte skapa bilden.
 
-2. Ladda upp den virtuella Hårddisken till en blobbehållare i ditt storage-konto. Du kan ladda upp snabbt med den [Storage Explorer-verktyget](https://azure.microsoft.com/features/storage-explorer/). Läs mer om Storage Explorer-verktyget i [i den här artikeln](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+2. Ladda upp den virtuella hård disken till en BLOB-behållare i ditt lagrings konto. Du kan ladda upp snabbt med [Storage Explorer-verktyget](https://azure.microsoft.com/features/storage-explorer/). Mer information om Storage Explorer-verktyget finns i [den här artikeln](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-    ![En skärmbild av Microsoft Azure Storage Explorer verktygets sökfönstret. Kryssrutan ”ladda upp VHD- eller vhdx-filer som sidblobbar (rekommenderas)” är markerad.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
+    ![En skärm bild av Microsoft Azure Storage Explorer verktygs fönstret Sök. Kryss rutan "Ladda upp VHD-eller VHDX-filer som Page blobbar (rekommenderas)" är markerad.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
-3. Gå sedan till Azure-portalen i webbläsaren och Sök efter ”avbildningar”. Sökningen ska leder dig till den **Skapa avbildning** sidan som visas i följande skärmbild:
+3. Gå sedan till Azure Portal i webbläsaren och Sök efter "images". Din sökning ska leda dig till sidan **Skapa avbildning** , som du ser på följande skärm bild:
 
-    ![En skärmbild av sidan Skapa avbildning i Azure Portal fyllda med exempelvärden för avbildningen.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    ![En skärm bild av sidan Skapa avbildning i Azure Portal, fyllt med exempel värden för bilden.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
-4. När du har skapat avbildningen, bör du se ett meddelande som i följande skärmbild:
+4. När du har skapat avbildningen bör du se ett meddelande som liknar det i följande skärm bild:
 
-    ![En skärmbild av ”har skapats bild”-meddelande.](media/1f41b7192824a2950718a2b7bb9e9d69.png)
+    ![En skärm bild av meddelandet "en avbildning har skapats".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har någon bild kan du skapa eller uppdatera värd pooler. Mer information om hur du skapar och uppdatera värden pooler finns i följande artiklar:
+Nu när du har en avbildning kan du skapa eller uppdatera värdar för pooler. Mer information om hur du skapar och uppdaterar värdbaserade pooler finns i följande artiklar:
 
-- [Skapa en värd-pool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
-- [Självstudier: Skapa en värd-pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Skapa en värd-pool med PowerShell](create-host-pools-powershell.md)
-- [Skapa en användare profil resurs för en värd-pool](create-host-pools-user-profile.md)
-- [Konfigurera den virtuella Windows-skrivbordet belastningsutjämningsmetoden](configure-host-pool-load-balancing.md)
+- [Skapa en värdbaserad pool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
+- [Självstudier: Skapa en värdbaserad pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Skapa en värdbaserad pool med PowerShell](create-host-pools-powershell.md)
+- [Skapa en profil behållare för en värd-pool med en fil resurs](create-host-pools-user-profile.md)
+- [Konfigurera belastnings Utjämnings metoden för Windows Virtual Desktop](configure-host-pool-load-balancing.md)

@@ -1,13 +1,13 @@
 ---
-title: OData-referens för operatorn av jämförelse – Azure Search
-description: OData-jämförelseoperatorerna eq, ne, gt, lt, ge och le i Azure Search-frågor.
+title: Referens för OData-jämförelse operator – Azure Search
+description: OData-jämförelse operatorer, EQ, Ne, gt, lt, ge och Le i Azure Search frågor.
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,37 +19,37 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b51bf3d77283ae828f47fdb0355d2deb43f071a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8bd8b05fd874e05e5e59042d461f4a4286c81e4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079930"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648063"
 ---
-# <a name="odata-comparison-operators-in-azure-search---eq-ne-gt-lt-ge-and-le"></a>OData-jämförelseoperatorer i Azure Search - `eq`, `ne`, `gt`, `lt`, `ge`, och `le`
+# <a name="odata-comparison-operators-in-azure-search---eq-ne-gt-lt-ge-and-le"></a>OData-jämförelse operatorer i `eq`Azure Search `ne`- `gt`, `lt`, `ge`,, och`le`
 
-Den mest grundläggande åtgärden i en [OData-filteruttryck](query-odata-filter-orderby-syntax.md) i Azure Search är att jämföra ett fält till ett givet värde. Två typer av jämförelse är möjliga--likhetsjämförelse och intervallet jämförelse. Du kan använda följande operatorer för att jämföra ett fält till ett konstant värde:
+Den mest grundläggande åtgärden i ett [OData-filter uttryck](query-odata-filter-orderby-syntax.md) i Azure Search är att jämföra ett fält med ett angivet värde. Två typer av jämförelse är möjliga – likhets jämförelse och jämförelse av intervall. Du kan använda följande operatorer för att jämföra ett fält med ett konstant värde:
 
-Likhetsoperatorer:
+Likhets operatorer:
 
-- `eq`: Testa om ett fält är **lika** ett konstant värde
-- `ne`: Testa om ett fält är **inte lika med** ett konstant värde
+- `eq`: Testa om ett fält är **lika** med ett konstant värde
+- `ne`: Testa om ett fält **inte är lika** med ett konstant värde
 
-Range-operatorer:
+Intervall operatorer:
 
-- `gt`: Testa om ett fält är **är större än** ett konstant värde
+- `gt`: Testa om ett fält är **större än** ett konstant värde
 - `lt`: Testa om ett fält är **mindre än** ett konstant värde
-- `ge`: Testa om ett fält är **större än eller lika med** ett konstant värde
-- `le`: Testa om ett fält är **mindre än eller lika med** ett konstant värde
+- `ge`: Testa om ett fält är **större än eller lika** med ett konstant värde
+- `le`: Testa om ett fält är **mindre än eller lika** med ett konstant värde
 
-Du kan använda range-operatorer i kombination med den [logiska operatorer](search-query-odata-logical-operators.md) att testa om ett fält är inom ett visst intervall av värden. Se den [exempel](#examples) senare i den här artikeln.
+Du kan använda intervall operatorerna i kombination med de [logiska operatörerna](search-query-odata-logical-operators.md) för att testa om ett fält är inom ett visst värde intervall. Se [exemplen](#examples) senare i den här artikeln.
 
 > [!NOTE]
-> Om du vill kan placera du det konstanta värdet på vänster sida av operatorn och fältnamn på höger sida. Betydelsen av jämförelsen är omvänd för range-operatorer. Om det konstanta värdet är till vänster, till exempel `gt` skulle testa om det konstanta värdet är större än fältet. Du kan också använda jämförelseoperatorerna för att jämföra resultatet av en funktion som `geo.distance`, med ett värde. För boolesk funktioner som t.ex `search.ismatch`, att jämföra resultatet ska `true` eller `false` är valfritt.
+> Om du vill kan du ange det konstanta värdet på vänster sida av operatorn och fält namnet på den högra sidan. Innebörden av jämförelsen är omvänd för intervall operatorer. Om till exempel det konstanta värdet är till vänster, `gt` testar om det konstanta värdet är större än fältet. Du kan också använda jämförelse operatorer för att jämföra resultatet av en funktion, till exempel `geo.distance`, med ett värde. För booleska funktioner som `search.ismatch`till exempel jämför resultatet med `true` eller `false` är valfritt.
 
 ## <a name="syntax"></a>Syntax
 
-Följande EBNF ([utökade Backus Naur formuläret](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar struktur för ett OData-uttryck som använder jämförelseoperatorerna.
+Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken i ett OData-uttryck som använder jämförelse operatorer.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -63,57 +63,57 @@ variable_or_function ::= variable | function_call
 comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 ```
 
-Det finns också ett diagram för interaktiva syntax:
+Ett interaktivt syntax diagram är också tillgängligt:
 
 > [!div class="nextstepaction"]
-> [OData-syntaxdiagrammet för Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#comparison_expression)
+> [OData-syntax diagram för Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#comparison_expression)
 
 > [!NOTE]
-> Se [OData-referens för uttryckssyntax för Azure Search](search-query-odata-syntax-reference.md) för fullständig EBNF.
+> Se [syntax för OData-uttryck för Azure Search](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-Det finns två typer av jämförelseuttryck. Den enda skillnaden mellan dem är om konstanten ska visas på vänster eller right-hand-sida för operatorn. Uttrycket på den andra sidan för operatorn måste vara en **variabeln** eller ett funktionsanrop. En variabel kan vara antingen ett fältnamn eller en variabel för intervallet i fall med en [lambda-uttrycket](search-query-odata-collection-operators.md).
+Det finns två former av jämförelse uttryck. Den enda skillnaden mellan dem är huruvida konstanten visas till vänster eller höger i operatorn. Uttrycket på den andra sidan av operatorn måste vara en **variabel** eller ett funktions anrop. En variabel kan vara antingen ett fält namn eller en intervall variabel i fallet med ett lambda- [uttryck](search-query-odata-collection-operators.md).
 
-## <a name="data-types-for-comparisons"></a>Datatyper för jämförelser
+## <a name="data-types-for-comparisons"></a>Data typer för jämförelser
 
-Datatyper på båda sidorna av en jämförelseoperator måste vara kompatibla. Exempel: om till vänster är ett fält av typen `Edm.DateTimeOffset`, och sedan på höger sida måste vara en konstant för datum / tid. Numeriska datatyper är mer flexibla. Du kan jämföra variabler och de funktioner i alla numeriska typer med konstanter av andra numerisk typ med vissa begränsningar som beskrivs i följande tabell.
+Data typerna på båda sidor av en jämförelse operator måste vara kompatibla. Om till exempel den vänstra sidan är ett fält av typen `Edm.DateTimeOffset`måste den högra sidan vara en datum-och tids konstant. Numeriska data typer är mer flexibla. Du kan jämföra variabler och funktioner för en numerisk typ med konstanter av annan numerisk typ, med några begränsningar, enligt beskrivningen i följande tabell.
 
-| Variabeln eller funktionen typ | Konstant värdetyp | Begränsningar |
+| Variabel eller funktions typ | Konstant värde typ | Begränsningar |
 | --- | --- | --- |
-| `Edm.Double` | `Edm.Double` | Jämförelse är föremål för [särskilda `NaN`](#special-case-nan) |
-| `Edm.Double` | `Edm.Int64` | Konstant konverteras till `Edm.Double`, vilket resulterar i förlust av precision för värden i stor omfattning |
+| `Edm.Double` | `Edm.Double` | Jämförelse gäller [särskilda regler för `NaN` ](#special-case-nan) |
+| `Edm.Double` | `Edm.Int64` | Konstant konverteras till `Edm.Double`, vilket resulterar i en precisions förlust för värden av stor storlek |
 | `Edm.Double` | `Edm.Int32` | Saknas |
-| `Edm.Int64` | `Edm.Double` | Jämförelser med `NaN`, `-INF`, eller `INF` tillåts inte |
+| `Edm.Int64` | `Edm.Double` | Jämförelser till `NaN`, `-INF`eller `INF` är inte tillåtna |
 | `Edm.Int64` | `Edm.Int64` | Saknas |
-| `Edm.Int64` | `Edm.Int32` | Konstant konverteras till `Edm.Int64` innan jämförelse |
-| `Edm.Int32` | `Edm.Double` | Jämförelser med `NaN`, `-INF`, eller `INF` tillåts inte |
+| `Edm.Int64` | `Edm.Int32` | Konstanten konverteras `Edm.Int64` till före jämförelsen |
+| `Edm.Int32` | `Edm.Double` | Jämförelser till `NaN`, `-INF`eller `INF` är inte tillåtna |
 | `Edm.Int32` | `Edm.Int64` | Saknas |
 | `Edm.Int32` | `Edm.Int32` | Saknas |
 
-För jämförelser som inte är tillåtna, till exempel jämföra ett fält av typen `Edm.Int64` till `NaN`, Azure Search REST API returnerar ett ”HTTP 400: Felaktig begäran ”-fel.
+För jämförelser som inte är tillåtna, till exempel jämförelse av ett fält av `Edm.Int64` typen `NaN`till, returnerar Azure Search REST API "http 400: Felaktig begäran "fel.
 
 > [!IMPORTANT]
-> Även om numerisk typ jämförelser är flexibla, vi rekommenderar starkt att skriva jämförelser i filter så att det konstanta värdet är av samma datatyp som variabeln eller funktionen som det jämförs. Detta är särskilt viktigt när blanda med och integer-värden, där implicita konverteringar som sin precision är möjliga.
+> Även om numeriska typ jämförelser är flexibla rekommenderar vi att du skriver jämförelser i filter så att det konstanta värdet är av samma datatyp som variabeln eller funktionen som den jämförs med. Detta är särskilt viktigt när du blandar flytt ALS-och heltals värden där implicita konverteringar som förlorar precision är möjliga.
 
 <a name="special-case-nan"></a>
 
-### <a name="special-cases-for-null-and-nan"></a>Särskilda fall för `null` och `NaN`
+### <a name="special-cases-for-null-and-nan"></a>Särskilda fall för `null` och`NaN`
 
-När du använder jämförelseoperatorer, är det viktigt att komma ihåg att alla icke-samlingen fält i Azure Search kan vara `null`. I följande tabell visas de möjliga resultaten för en jämförelseuttryck där endera sidan kan vara `null`:
+När du använder jämförelse operatorer är det viktigt att komma ihåg att alla fält som inte är samlings fält `null`i Azure Search kan vara. I följande tabell visas alla möjliga resultat för ett jämförelse uttryck där endera sidan kan vara `null`:
 
-| Operator | Resultatet när det fält eller variabeln är `null` | Resultatet när endast Ständiga `null` | Resultatet när fältet eller variabeln och Ständiga `null` |
+| Operator | Resultat när endast fältet eller variabeln är`null` | Resultat när endast konstanten är`null` | Resultat när både fältet eller variabeln och konstanten är`null` |
 | --- | --- | --- | --- |
-| `gt` | `false` | HTTP 400: Felaktig begäran-fel | HTTP 400: Felaktig begäran-fel |
-| `lt` | `false` | HTTP 400: Felaktig begäran-fel | HTTP 400: Felaktig begäran-fel |
-| `ge` | `false` | HTTP 400: Felaktig begäran-fel | HTTP 400: Felaktig begäran-fel |
-| `le` | `false` | HTTP 400: Felaktig begäran-fel | HTTP 400: Felaktig begäran-fel |
+| `gt` | `false` | HTTP 400: Fel i felaktig begäran | HTTP 400: Fel i felaktig begäran |
+| `lt` | `false` | HTTP 400: Fel i felaktig begäran | HTTP 400: Fel i felaktig begäran |
+| `ge` | `false` | HTTP 400: Fel i felaktig begäran | HTTP 400: Fel i felaktig begäran |
+| `le` | `false` | HTTP 400: Fel i felaktig begäran | HTTP 400: Fel i felaktig begäran |
 | `eq` | `false` | `false` | `true` |
 | `ne` | `true` | `true` | `false` |
 
-Sammanfattningsvis `null` är lika med själva och är inte mindre eller större än andra värdet.
+I sammanfattning `null` är bara lika med sig själv, och är inte mindre eller större än något annat värde.
 
-Om ditt index har fält av typen `Edm.Double` och du ladda upp `NaN` värden till dessa fält, måste du redovisa som när du skriver filter. Azure Search implementerar 754 IEEE-standarden för hantering av `NaN` värden och jämförelser med sådana värden ge icke-uppenbara resultat som visas i följande tabell.
+Om ditt index har fält av typ `Edm.Double` och du överför `NaN` värden till dessa fält, måste du ha konto för det när du skriver filter. Azure Search implementerar IEEE 754-standarden för hantering `NaN` av värden och jämförelser med sådana värden ger icke-uppenbara resultat, vilket visas i följande tabell.
 
-| Operator | Resultatet när minst en operand är `NaN` |
+| Operator | Resultat när minst en operand är`NaN` |
 | --- | --- |
 | `gt` | `false` |
 | `lt` | `false` |
@@ -122,41 +122,41 @@ Om ditt index har fält av typen `Edm.Double` och du ladda upp `NaN` värden til
 | `eq` | `false` |
 | `ne` | `true` |
 
-Sammanfattningsvis `NaN` är inte lika med valfritt värde, inklusive själva.
+I sammanfattningen `NaN` är inte lika med något värde, inklusive sig själv.
 
-### <a name="comparing-geo-spatial-data"></a>Jämföra geospatiala data
+### <a name="comparing-geo-spatial-data"></a>Jämföra geo-spatiala data
 
-Du kan inte direkt jämföra ett fält av typen `Edm.GeographyPoint` med ett konstant värde, men du kan använda den `geo.distance` funktion. Den här funktionen returnerar ett värde av typen `Edm.Double`, så att du kan jämföra den med en numerisk konstant att filtrera utifrån avståndet från konstant geospatial koordinater. Se den [exempel](#examples) nedan.
+Du kan inte direkt jämföra ett fält av `Edm.GeographyPoint` typen med ett konstant värde, men du kan `geo.distance` använda funktionen. Den här funktionen returnerar ett värde av `Edm.Double`typen, så att du kan jämföra den med en numerisk konstant för att filtrera baserat på avståndet från konstanta geo-spatiala koordinater. Se [exemplen](#examples) nedan.
 
-### <a name="comparing-string-data"></a>Jämföra strängdata
+### <a name="comparing-string-data"></a>Jämför sträng data
 
-Strängar kan jämföras i filter för exakta matchningar med hjälp av den `eq` och `ne` operatörer. Dessa jämförelser är skiftlägeskänsliga.
+Strängar kan jämföras med filter för exakta matchningar med `eq` operatorerna och `ne` . Jämförelserna är Skift läges känsliga.
 
 ## <a name="examples"></a>Exempel
 
-Matcha dokument där den `Rating` fältet är mellan 3 och 5, inklusive:
+Matcha dokument där `Rating` fältet är mellan 3 och 5, inklusive:
 
     Rating ge 3 and Rating le 5
 
-Matcha dokument där den `Location` fältet är mindre än 2 kilometer från den givna latituden och longituden:
+Matcha dokument där `Location` fältet är mindre än 2 kilo meter från den aktuella latitud och longitud:
 
     geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
 
-Matcha dokument där den `LastRenovationDate` fältet är större än eller lika med 1 januari 2015, midnatt UTC-tid:
+Matcha dokument där `LastRenovationDate` fältet är större än eller lika med den 1 januari 2015, midnatt UTC:
 
     LastRenovationDate ge 2015-01-01T00:00:00.000Z
 
-Matcha dokument där den `Details/Sku` fältet är inte `null`:
+Matcha dokument där `Details/Sku` fältet inte `null`är:
 
     Details/Sku ne null
 
-Matcha dokument efter hotell där minst en plats har typen ”Deluxe rummet”, där sträng med det `Rooms/Type` fältet matchar filtret som exakt:
+Matcha dokument för hotell där minst ett rum har typen "Deluxe-rum", där strängen för `Rooms/Type` fältet matchar filtret exakt:
 
     Rooms/any(room: room/Type eq 'Deluxe Room')
 
 ## <a name="next-steps"></a>Nästa steg  
 
 - [Filter i Azure Search](search-filters.md)
-- [OData-uttrycket Språköversikt för Azure Search](query-odata-filter-orderby-syntax.md)
-- [Referens för OData-uttryckssyntax för Azure Search](search-query-odata-syntax-reference.md)
-- [Söka efter dokument &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [OData uttrycks språk översikt för Azure Search](query-odata-filter-orderby-syntax.md)
+- [Syntax-referens för OData-uttryck för Azure Search](search-query-odata-syntax-reference.md)
+- [Sök efter &#40;dokument Azure Search tjänst REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

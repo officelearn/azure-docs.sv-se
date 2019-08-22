@@ -1,5 +1,5 @@
 ---
-title: Övervaka Azure-tjänster och program med Grafana
+title: Övervaka Azure-tjänster och-program med Grafana
 description: Dirigera Azure Monitor och Application Insights data så att du kan visa dem i Grafana.
 services: azure-monitor
 keywords: ''
@@ -9,126 +9,124 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: e9a20aba84e79e87f84d63e4bdae3ba1aac062f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9a9d0a16a31d06d0d4edc1b6f0617a5771b179e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387195"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872828"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka dina Azure-tjänster i Grafana
-Du kan nu övervaka Azure-tjänster och program från [Grafana](https://grafana.com/) med hjälp av den [Azure Monitor-plugin-programmet för datakällans](https://grafana.com/plugins/grafana-azure-monitor-datasource). Plugin-programmet samlar in program-prestandadata som samlats in från Azure Monitor, inklusive olika loggar och mått. Du kan sedan visa dessa data på din Grafana-instrumentpanel.
+Nu kan du övervaka Azure-tjänster och-program från [Grafana](https://grafana.com/) med hjälp av [Azure Monitor data källans plugin](https://grafana.com/plugins/grafana-azure-monitor-datasource)-program. Plugin-programmet samlar in program prestanda data som samlas in av Azure Monitor, inklusive olika loggar och mått. Du kan sedan Visa dessa data på Grafana-instrumentpanelen.
 
-Plugin-programmet är för närvarande i förhandsversion.
+Använd följande steg för att konfigurera en Grafana-Server och skapa instrument paneler för mått och loggar från Azure Monitor.
 
-Använd följande steg för att ställa in en Grafana-server och skapa instrumentpaneler för mått och loggar från Azure Monitor.
-
-## <a name="set-up-a-grafana-server"></a>Konfigurera en server med Grafana
+## <a name="set-up-a-grafana-server"></a>Konfigurera en Grafana-Server
 
 ### <a name="set-up-grafana-locally"></a>Konfigurera Grafana lokalt
-Du ställer in en lokal Grafana server [ladda ned och installera Grafana i din lokala miljö](https://grafana.com/grafana/download). Om du vill använda plugin-programmet Azure Monitor-integrering, installera Grafana version 5.3 eller senare.
+Om du vill konfigurera en lokal Grafana-Server [laddar du ned och installerar Grafana i din lokala miljö](https://grafana.com/grafana/download). Om du vill använda plugin-programmets Azure Monitor-integrering installerar du Grafana version 5,3 eller senare.
 
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Konfigurera Grafana på Azure via Azure Marketplace
-1. Gå till Azure Marketplace och välja Grafana av Grafana Labs.
+1. Gå till Azure Marketplace och välj Grafana av Grafana Labs.
 
-2. Fyll i namn och information. Skapa en ny resursgrupp. Håll koll på den värden du anger för den virtuella datorns användarnamn, VM-lösenord och Grafana lösenord för serveradministratören.  
+2. Fyll i namn och information. Skapa en ny resursgrupp. Håll koll på de värden som du väljer för VM-användarnamnet, VM-lösenordet och Grafana-serverns administratörs lösen ord.  
 
-3. Välj VM-storlek och ett lagringskonto.
+3. Välj storlek på virtuell dator och ett lagrings konto.
 
-4. Konfigurera nätverksinställningar för konfigurationen.
+4. Konfigurera inställningarna för nätverks konfigurationen.
 
-5. Visa sammanfattningen och välj **skapa** efter att du godkänt användningsvillkoren.
+5. Visa sammanfattningen och välj **skapa** när du har accepterat användnings villkoren.
 
-6. När distributionen är klar väljer du **går du till resursgruppen**. Du kan se en lista över nyligen skapade resurser.
+6. När distributionen är klar väljer **du gå till resurs grupp**. Du ser en lista över nyligen skapade resurser.
 
-    ![Grafana resource gruppobjekt](media/grafana-plugin/grafana1.png)
+    ![Resurs grupps objekt för Grafana](media/grafana-plugin/grafana1.png)
 
-    Om du väljer den nya nätverkssäkerhetsgruppen (*grafana-nsg* i det här fallet), ser du att port 3000 används för att få åtkomst till Grafana server.
+    Om du väljer Nätverks säkerhets gruppen (*Grafana-NSG* i det här fallet) kan du se att port 3000 används för att få åtkomst till Grafana-servern.
 
-7. Hämta offentliga IP-adressen för servern Grafana - gå tillbaka till listan över resurser och välj **offentliga IP-adressen**.
+7. Hämta den offentliga IP-adressen för din Grafana-Server – gå tillbaka till listan över resurser och välj **offentlig IP-adress**.
 
 ## <a name="sign-in-to-grafana"></a>Logga in på Grafana
 
-1. Med IP-adressen för din server, öppna inloggningssidan i *http://\<IP-adress\>: 3000* eller  *\<DNSName >\:3000* i webbläsaren. 3000 är standardporten, du Observera att du kan ha valt en annan port under installationen. Du bör se en inloggningssida för Grafana-server som du skapat.
+1. Med hjälp av IP-adressen för din server öppnar du inloggnings sidan på *\<http://\>IP-adress: 3000* eller  *\<DNSName >\:3000* i webbläsaren. Även om 3000 är standard porten, Observera att du kanske har valt en annan port under installationen. Du bör se en inloggnings sida för den Grafana-server som du har skapat.
 
-    ![Grafana-inloggningsskärmen](./media/grafana-plugin/grafana-login-screen.png)
+    ![Grafana inloggnings skärm](./media/grafana-plugin/grafana-login-screen.png)
 
-2. Logga in med användarnamnet *admin* och Grafana lösenordet för serveradministratören du skapade tidigare. Om du använder en lokal konfiguration, standardlösenordet blir *admin*, och du kan uppmanas att ändra den loggar in första gången.
+2. Logga in med användar namns *administratören* och det Grafana-Server administratörs lösen ord som du skapade tidigare. Om du använder en lokal installation är standard lösen ordet *administratör*och du uppmanas att ändra det vid din första inloggning.
 
-## <a name="configure-data-source-plugin"></a>Konfigurera plugin-programmet för data källan
+## <a name="configure-data-source-plugin"></a>Konfigurera data källans plugin-program
 
-När du har loggat in kan bör du se att plugin-programmet Azure Monitor data källan redan ingår.
+När du har loggat in bör du se att Azure Monitor data källans plugin-program redan ingår.
 
-![Grafana innehåller Azure Monitor-plugin-programmet](./media/grafana-plugin/grafana-includes-azure-monitor-plugin-dark.png)
+![Grafana innehåller Azure Monitor-plugin](./media/grafana-plugin/grafana-includes-azure-monitor-plugin-dark.png)
 
-1. Välj **Lägg till datakälla** att lägga till och konfigurera Azure Monitor-datakälla.
+1. Välj **Lägg till data källa** för att lägga till och konfigurera data källan Azure Monitor.
 
-2. Välj ett namn för datakällan och välj **Azure Monitor** som typ i listrutan.
+2. Välj ett namn för data källan och välj **Azure Monitor** som typ i list rutan.
 
-3. Skapa ett huvudnamn för tjänsten - Grafana använder ett huvudnamn för tjänsten Azure Active Directory för att ansluta till API: er för Azure-övervaka och samla in data. Du måste skapa eller använda ett befintligt huvudnamn för tjänsten för att hantera åtkomst till dina Azure-resurser.
-    * Se [instruktionerna](../../azure-resource-manager/resource-group-create-service-principal-portal.md) att skapa ett huvudnamn för tjänsten. Kopiera och spara din klient-ID (katalog-ID), klient-ID (program-ID) och klienthemlighet (programmet nyckelvärde).
-    * Se [tilldela program till roll](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) om du vill tilldela rollen läsare i Azure Active Directory-programmet för prenumerationen, resursgruppen eller resursen du vill övervaka. 
-    Log Analytics-API kräver den [Log Analytics Reader rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), som innehåller behörigheter som rollen Läsare och lägger till den.
+3. Skapa ett huvud namn för tjänsten – Grafana använder ett Azure Active Directory tjänstens huvud namn för att ansluta till Azure Monitor-API: er och samla in data. Du måste skapa eller använda ett befintligt huvud namn för tjänsten för att hantera åtkomst till dina Azure-resurser.
+    * Se [de här anvisningarna](../../azure-resource-manager/resource-group-create-service-principal-portal.md) för att skapa ett huvud namn för tjänsten. Kopiera och spara ditt klient-ID (katalog-ID), klient-ID (program-ID) och klient hemlighet (program nyckel värde).
+    * Se [tilldela program till roll](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) för att tilldela rollen läsare till Azure Active Directory program i den prenumeration, resurs grupp eller resurs som du vill övervaka. 
+    Log Analytics-API: t kräver [rollen Log Analytics läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), som innehåller läsar rollens behörigheter och som läggs till i den.
 
-4. Ange anslutningsinformationen till API: er som du vill använda. Du kan ansluta till alla eller vissa av dem. 
+4. Ange anslutnings informationen till de API: er som du vill använda. Du kan ansluta till alla eller en del av dem. 
     * Om du ansluter till både mått och loggar i Azure Monitor kan du återanvända samma autentiseringsuppgifter genom att välja **samma information som Azure Monitor API**.
-    * När du konfigurerar plugin-programmet kan du ange vilket Azure-moln som plugin-programmet ska övervakas (offentligt, Azure US Government, Azure Tyskland eller Azure Kina).
-    * Du kan även inkludera din Application Insights API och program-ID för att samla in Application Insights baserat mått om du använder Application Insights. Mer information finns i [få din API-nyckel och en program-ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
+    * När du konfigurerar plugin-programmet kan du ange vilket Azure-moln som du vill att plugin-programmet ska övervaka (offentlig, Azure amerikanska myndigheter, Azure Germany eller Azure Kina).
+    * Om du använder Application Insights kan du även ta med ditt Application Insights-API och program-ID för att samla in Application Insightsbaserade mått. Mer information finns i [Hämta API-nyckel och program-ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
         > [!NOTE]
-        > Vissa data källfält namnges annorlunda än sina korrelerade inställningar för Azure:
+        > Vissa fält i data källan får samma namn som de korrelerade Azure-inställningarna:
         > * Klient-ID är Azure-katalog-ID
-        > * Klient-ID är Azure Active Directory-program-ID
-        > * Klienthemlighet är nyckelvärdet för Azure Active Directory-program
+        > * Klient-ID är Azure Active Directory program-ID
+        > * Klient hemlighet är det Azure Active Directory programmets nyckel värde
 
-5. Du kan även inkludera din Application Insights API och program-ID för att samla in Application Insights baserat mått om du använder Application Insights. Mer information finns i [få din API-nyckel och en program-ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
+5. Om du använder Application Insights kan du även ta med ditt Application Insights-API och program-ID för att samla in Application Insightsbaserade mått. Mer information finns i [Hämta API-nyckel och program-ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
-6. Välj **spara**, och Grafana kommer att testa autentiseringsuppgifterna för varje API. Du bör se ett meddelande som liknar det följande.  
-    ![Grafana config som godkänts av datakälla](./media/grafana-plugin/grafana-data-source-config-approved-dark.png)
+6. Välj **Spara**och Grafana kommer att testa autentiseringsuppgifterna för varje API. Du bör se ett meddelande som liknar det som följer.  
+    ![Konfiguration av Grafana-datakälla godkändes](./media/grafana-plugin/grafana-data-source-config-approved-dark.png)
 
-## <a name="build-a-grafana-dashboard"></a>Skapa en Grafana-instrumentpanel
+## <a name="build-a-grafana-dashboard"></a>Bygg en Grafana-instrumentpanel
 
-1. Gå till sidan med Grafana och välj **ny instrumentpanel**.
+1. Gå till start sidan för Grafana och välj **ny instrument panel**.
 
-2. I den nya instrumentpanelen väljer du den **Graph**. Du kan prova andra diagram alternativ men den här artikeln använder *Graph* som exempel.
+2. I den nya instrument panelen väljer du **grafen**. Du kan prova andra diagram alternativ, men den här artikeln använder *Graph* som exempel.
 
-3. Ett tomt diagram som visas på instrumentpanelen. Klicka på rubriken panelen och välj **redigera** att ange information om de data som du vill rita i den här graph-diagram.
+3. Ett tomt diagram visas på din instrument panel. Klicka på panelens rubrik och välj **Redigera** för att ange information om de data som du vill rita i diagrammet.
     ![Grafana nytt diagram](./media/grafana-plugin/grafana-new-graph-dark.png)
 
-4. Välj Azure Monitor-datakälla som du har konfigurerat.
-   * Samla in Azure Monitor metrics - Välj **Azure Monitor** i listrutan för tjänsten. En lista över väljare visar upp, där du kan välja resurser och mått som ska övervakas i det här diagrammet. Om du vill samla in statistik från en virtuell dator att använda namnområdet **Microsoft.Compute/VirtualMachines**. När du har valt virtuella datorer och mått, kan du visa sina data i instrumentpanelen.
-     ![Grafana graph-konfiguration för Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * Samla in Azure Monitor logga data – Välj **Azure Log Analytics** i listrutan för tjänsten. Välj den arbetsyta som du vill fråga och ställa in frågetexten. Du kan kopiera här några loggfråga du redan har eller skapa en ny. När du skriver i din fråga visas IntelliSense och föreslår att du alternativ för automatisk komplettering. Välj typen av visualisering **Time series** **tabell**, och kör frågan.
+4. Välj den Azure Monitor data källa som du har konfigurerat.
+   * Samla in Azure Monitor mått – Välj **Azure Monitor** i list rutan för tjänster. En lista över väljare visas, där du kan välja vilka resurser och mått som ska övervakas i det här diagrammet. Om du vill samla in mått från en virtuell dator använder du namn området **Microsoft. Compute/VirtualMachines**. När du har valt virtuella datorer och mått kan du börja visa data i instrument panelen.
+     ![Grafana Graph config för Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
+   * Samla in Azure Monitor loggdata – Välj **Azure-Log Analytics** i list rutan för tjänster. Välj den arbets yta som du vill fråga och Ange frågetexten. Du kan kopiera här alla logg frågor som du redan har eller skapa en ny. När du skriver in din fråga kommer IntelliSense att visa och föreslå alternativ för automatisk komplettering. Välj visualiserings typ, **tids serie** **tabell**och kör frågan.
     
      > [!NOTE]
      >
-     > Standardfrågan medföljer plugin-programmet använder två makron: ”$__timeFilter() och $__interval. 
-     > Dessa makron Tillåt Grafana att dynamiskt beräkna tidsintervall och tidsintervallet, när du zoomar in på en del av ett diagram. Du kan ta bort dessa makron och använda ett normaltid filter som *TimeGenerated > ago(1)* , men som innebär att diagrammet inte stöder zoomning i funktionen.
+     > Standard frågan som medföljer plugin-programmet använder två makron: "$ __timeFilter () och $ __interval. 
+     > Med de här makrona kan Grafana dynamiskt beräkna tidsintervallet och tiden när du zoomar in en del av ett diagram. Du kan ta bort dessa makron och använda ett standard tids filter, t. ex. *TimeGenerated > sedan (1H)* , men det innebär att grafen inte stöder funktionen zooma in.
     
-     ![Grafana graph-konfiguration för Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
+     ![Grafana Graph config för Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
-5. Följande är en enkel instrumentpanel med två diagram. En vänster visar CPU-procent två virtuella datorer. Diagrammet till höger visar transaktioner i ett Azure Storage-konto per transaktion API-typen.
-    ![Grafana två diagram-exempel](media/grafana-plugin/grafana6.png)
+5. Följande är en enkel instrument panel med två diagram. Den ena till vänster visar CPU-procenten för två virtuella datorer. I diagrammet till höger visas transaktionerna i ett Azure Storage-konto uppdelat efter transaktions-API-typen.
+    ![Exempel på Grafana av två diagram](media/grafana-plugin/grafana6.png)
 
 
-## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Valfritt: Övervaka din anpassade mått på samma server Grafana
+## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Valfritt: Övervaka dina anpassade mått på samma Grafana-Server
 
-Du kan också installera Telegraf och InfluxDB för att samla in och rita anpassade såväl agentbaserad mått samma Grafana-instans. Det finns många data källan plugin-program som du kan använda för att samla de här måtten på en instrumentpanel.
+Du kan också installera multiympkvistar och InfluxDB för att samla in och rita både anpassade och agentbaserade mått samma Grafana-instans. Det finns många plugin-program för data källor som du kan använda för att ta med dessa mått tillsammans på en instrument panel.
 
-Du kan även återanvända den här konfigurationen att inkludera mått från Prometheus-servern. Använda plugin-programmet Prometheus datakälla i Grafanas plugin-programmet-galleriet.
+Du kan också återanvända den här inställningen för att inkludera mått från din Prometheus-Server. Använd plugin-galleriet för Prometheus-data källa i Grafana.
 
-Här är bra referensartiklar om hur du använder Telegraf, InfluxDB, Prometheus och Docker
- - [Så här övervakar du Systemmått med SKALSTRECK-Stack på Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
+Här är en referens artikel om hur du använder InfluxDB, Prometheus och Docker
+ - [Så här övervakar du system mått med skal stacken på Ubuntu 16,04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
 
- - [En övervakningslösning för Docker, behållare och tjänster i behållare](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
+ - [En övervaknings lösning för Docker-värdar, behållare och behållar tjänster](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
-Här är en avbildning av en fullständig Grafana-instrumentpanel med mått från Azure Monitor och Application Insights.
+Här är en bild av en fullständig Grafana-instrumentpanel som har mått från Azure Monitor och Application Insights.
 ![Grafana exempel mått](media/grafana-plugin/grafana8.png)
 
-## <a name="advanced-grafana-features"></a>Avancerade funktioner för Grafana
+## <a name="advanced-grafana-features"></a>Avancerade Grafana-funktioner
 
 ### <a name="variables"></a>Variabler
-Vissa frågevärden kan väljs via Användargränssnittet listrutor och uppdateras i frågan. Överväg följande fråga som ett exempel:
+Vissa värden för frågor kan väljas med hjälp av UI-listruta och uppdateras i frågan. Tänk på följande fråga som exempel:
 ```
 Usage 
 | where $__timeFilter(TimeGenerated) 
@@ -136,12 +134,12 @@ Usage
 | sort by TimeGenerated
 ```
 
-Du kan konfigurera en variabel som visar en lista över alla tillgängliga **lösning** standardvärden och uppdatera din fråga för att använda den.
-Om du vill skapa en ny variabel, klicka på knappen för instrumentpanelens inställningar i den övre högra delen, Välj **variabler**, och sedan **New**.
-Definiera datakälla och fråga för att hämta listan över värden på sidan variabeln.
-![Grafana konfigurera variabeln](./media/grafana-plugin/grafana-configure-variable-dark.png)
+Du kan konfigurera en variabel som visar alla tillgängliga **lösnings** värden och sedan uppdaterar din fråga för att använda den.
+Om du vill skapa en ny variabel klickar du på knappen Inställningar för instrument panelen i det övre högra fältet, väljer **variabler**och sedan **ny**.
+På sidan variabel definierar du data källan och frågan som ska köras för att hämta listan över värden.
+![Grafana konfigurera variabel](./media/grafana-plugin/grafana-configure-variable-dark.png)
 
-När du skapat justera frågan så att de valda värdena och dina diagram svarar i enlighet med detta:
+När du har skapat justerar du frågan för att använda de valda värdena och dina diagram kommer att svara på följande sätt:
 ```
 Usage 
 | where $__timeFilter(TimeGenerated) and Solution in ($Solutions)
@@ -149,21 +147,21 @@ Usage
 | sort by TimeGenerated
 ```
     
-![Grafana Använd variabler](./media/grafana-plugin/grafana-use-variables-dark.png)
+![Grafana använder variabler](./media/grafana-plugin/grafana-use-variables-dark.png)
 
-### <a name="create-dashboard-playlists"></a>Skapa instrumentpanel spelningslistor
+### <a name="create-dashboard-playlists"></a>Skapa spelnings panels spelnings listor
 
-En av de många användbara funktionerna för Grafana är spellistan för instrumentpanelen. Du kan skapa flera instrumentpaneler och lägga till dem i en spellista konfigurera ett intervall för varje instrumentpanelen att visa. Välj **spela upp** att se instrumentpaneler gå igenom. Du kanske vill visa dem på en stor wall-Övervakare för att tillhandahålla en tavla för status för din grupp.
+En av de många användbara funktionerna i Grafana är spel panelens spelnings lista. Du kan skapa flera instrument paneler och lägga till dem i en spelnings lista och konfigurera ett intervall för varje instrument panel som ska visas. Välj **spela upp** för att visa instrument panelerna i cykeln. Du kanske vill visa dem i en stor vägg Övervakare för att tillhandahålla en status tavla för gruppen.
 
-![Grafana spellistan exempel](./media/grafana-plugin/grafana7.png)
+![Exempel på Grafana-spel](./media/grafana-plugin/grafana7.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du har ställt in en Grafana-miljö på Azure, debiteras du när virtuella datorer körs om du använder dem eller inte. Rensa resursgruppen som skapades i den här artikeln för att undvika extra kostnader.
+Om du har konfigurerat en Grafana-miljö i Azure debiteras du när virtuella datorer körs oavsett om du använder dem eller inte. Du undviker ytterligare kostnader genom att rensa resurs gruppen som skapades i den här artikeln.
 
-1. I den vänstra menyn i Azure portal, klickar du på **resursgrupper** och klicka sedan på **Grafana**.
-2. På sidan med resursgrupper, klickar du på **ta bort**, typ **Grafana** i textrutan och klicka sedan på **ta bort**.
+1. Klicka på **resurs grupper** på den vänstra menyn i Azure Portal och klicka sedan på **Grafana**.
+2. På sidan resurs grupp klickar du på **ta bort**, skriver **Grafana** i text rutan och klickar sedan på **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Översikt över Azure Monitor-mått](data-platform.md)
+* [Översikt över Azure Monitor mått](data-platform.md)
 

@@ -1,61 +1,61 @@
 ---
-title: Implementera söktrafikanalys – Azure Search
-description: Aktivera söktrafikanalys för Azure Search att lägga till telemetri och användarinitierad händelser till loggfiler.
+title: implementera Sök trafik analys – Azure Search
+description: Aktivera Sök trafik analys för Azure Search för att lägga till telemetri och händelser som initieras av användaren för att logga filer.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b15ae30151b22509a78b9a39d258991363a05e5b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: bb12ed2f18df100ab3f679e7a8a3ef1e7c1aca45
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295424"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647801"
 ---
-# <a name="implement-search-traffic-analytics-in-azure-search"></a>Implementera söktrafikanalys i Azure Search
-Söktrafikanalys är ett mönster för att implementera en feedbackloop för din söktjänst. Det här mönstret beskriver uppgifterna som krävs och hur du samlar in den med hjälp av Application Insights, branschledande för övervakningstjänster i flera plattformar.
+# <a name="implement-search-traffic-analytics-in-azure-search"></a>Implementera Sök trafik analys i Azure Search
+Sök trafik analys är ett mönster för att implementera en feedback-slinga för din Sök tjänst. Det här mönstret beskriver nödvändiga data och hur du samlar in dem med hjälp av Application Insights, en bransch ledare för att övervaka tjänster på flera plattformar.
 
-Söktrafikanalys kan du få insyn i din söktjänst och låsa upp insikter om dina användare och deras beteende. Genom att låta data om vad användarna väljer, är det möjligt att fatta beslut som ytterligare förbättrar din sökning och avbryter när resultatet är inte vad som förväntas.
+Med Sök trafik analys kan du få insyn i Sök tjänsten och låsa upp insikter om dina användare och deras beteende. Genom att ha data om vad dina användare väljer, är det möjligt att fatta beslut som ytterligare förbättrar din Sök upplevelse och att du kan använda dem när resultatet inte är förväntat.
 
-Azure Search erbjuder ett-telemetrilösning som kan integreras Azure Application Insights och Power BI för att tillhandahålla djupgående övervakning och spårning. Eftersom interaktion med Azure Search är endast via API: er, måste telemetri som implementeras av utvecklare med search, följa anvisningarna i den här sidan.
+Azure Search erbjuder en telemetri-lösning som integrerar Azure Application insikter och Power BI för att ge djupgående övervakning och spårning. Eftersom interaktion med Azure Search bara via API: er, måste telemetri implementeras av utvecklarna med hjälp av Sök funktionen på den här sidan.
 
-## <a name="identify-relevant-search-data"></a>Identifiera relevanta söka efter data
+## <a name="identify-relevant-search-data"></a>Identifiera relevanta Sök data
 
-Det är nödvändigt att logga vissa signaler från användare av search-program för att få användbara mätdata ska. Dessa signaler tillkännage innehåll som användare är intresserad av och de anser relevanta för deras behov.
+Om du vill ha användbara Sök mått är det nödvändigt att logga vissa signaler från användarna av sökprogrammet. Dessa signaler indikerar innehåll som användarna är intresserade av och som de anser vara relevanta för deras behov.
 
-Det finns två signaler Söktrafikanalys måste:
+Det finns två Signals öknings Trafikanalys behov:
 
-1. Användargenererade sökhändelser: endast sökfrågor som initierats av en användare är intressant. Sök efter ansökningar som används för att fylla fasetter ytterligare innehåll eller någon intern information är inte viktiga och ge skeva och bias dina resultat.
+1. Användare som genererade Sök händelser: endast Sök frågor som initierats av en användare är intressanta. Sök begär Anden som används för att fylla i FACET, ytterligare innehåll eller intern information, är inte viktiga och de skevar och gör resultatet av dina resultat.
 
-2. Användargenererade klickar du på händelser: Klick i det här dokumentet kan hänvisa vi till en användare väljer en viss sökresultat som har returnerats från en sökfråga. Ett klick innebär vanligtvis att ett dokument är relevanta resultat för en specifik sökfråga.
+2. Användaren skapade klicknings händelser: När du klickar på det här dokumentet refererar vi till en användare som väljer ett visst Sök resultat som returneras från en Sök fråga. Ett klick innebär vanligt vis att ett dokument är ett relevant resultat för en speciell Sök fråga.
 
-Genom att länka Sök och klicka på händelser med ett Korrelations-id, är det möjligt att analysera beteenden för användare på ditt program. Dessa search insikter är omöjligt att få med endast trafik sökloggar.
+Genom att länka sökningen och klicka på händelser med ett korrelations-ID, är det möjligt att analysera beteenden för användare i ditt program. Det går inte att hämta de här Sök insikterna med Sök trafik loggar.
 
-## <a name="add-search-traffic-analytics"></a>Lägg till söktrafikanalys
+## <a name="add-search-traffic-analytics"></a>Lägg till Sök trafik analys
 
-Signaler som nämns i föregående avsnitt måste samlas in från search-program när användaren interagerar med den. Application Insights är en utökningsbar lösning för övervakning, tillgängliga för flera plattformar, med alternativ för flexibel instrumentation. Användning av Application Insights kan du dra nytta av Power BI-search-rapporter som skapats av Azure Search för att underlätta analyser av data.
+Signalerna som anges i föregående avsnitt måste samlas in från Sök programmet när användaren interagerar med den. Application Insights är en utöknings bar övervaknings lösning som är tillgänglig för flera plattformar med flexibla instrument alternativ. Med hjälp av Application Insights kan du dra nytta av Power BI Sök rapporter som skapats av Azure Search för att göra det enklare att analysera data.
 
-I den [portal](https://portal.azure.com) för din Azure Search-tjänst, bladet Search Traffic Analytics innehåller en fusklapp för att kunna följa det här mönstret för telemetri. Du kan också välja eller skapa en Application Insights-resurs och se nödvändiga data, alla på samma plats.
+På [Portal](https://portal.azure.com) sidan för din Azure Search-tjänst innehåller bladet Sök trafikanalys ett lathund-blad för följande telemetri-mönster. Du kan också välja eller skapa en Application Insights resurs och se nödvändiga data på ett och samma ställe.
 
-![Sök trafikanalys instruktioner][1]
+![Sök Trafikanalys-instruktioner][1]
 
 ## <a name="1---select-a-resource"></a>1 – Välj en resurs
 
-Du måste välja en Application Insights-resurs för att använda eller skapa en om du inte redan har en. Du kan använda en resurs som redan används för att logga in nödvändiga anpassade händelser.
+Du måste välja en Application Insights resurs som du vill använda eller skapa en om du inte redan har en. Du kan använda en resurs som redan används för att logga de anpassade händelserna som krävs.
 
-När du skapar en ny Application Insights-resurs, gäller alla programtyper för det här scenariot. Välj det som passar bäst för den plattform som du använder.
+När du skapar en ny Application Insights resurs, är alla program typer giltiga för det här scenariot. Välj den som passar bäst för den plattform som du använder.
 
-Du måste instrumenteringsnyckeln för att skapa telemetriklienten för ditt program. Du kan hämta den från instrumentpanelen i Application Insights-portalen eller du kan hämta det från sidan Search Traffic Analytics att välja den instans som du vill använda.
+Du behöver Instrumentation-nyckeln för att skapa telemetri-klienten för ditt program. Du kan hämta den från instrument panelen för Application Insights portalen, eller så kan du hämta den från sidan Sök Trafikanalys och välja den instans som du vill använda.
 
-## <a name="2---add-instrumentation"></a>2 – lägger till instrumentering
+## <a name="2---add-instrumentation"></a>2 – Lägg till instrumentering
 
-Den här fasen är där instrumentera din egen search-program med Application Insights-resursen skapade i ovanstående steg. Det finns fyra steg att den här processen:
+I den här fasen kan du skapa ett eget sökprogram med hjälp av Application Insights resurs som du skapade i steget ovan. Det finns fyra steg i den här processen:
 
-**Steg 1: Skapa en telemetriklienten** detta är det objekt som skickar händelser till Application Insights-resurs.
+**Steg 1: Skapa en telemetri-** klient detta är det objekt som skickar händelser till Application Insights resursen.
 
 *C#*
 
@@ -71,9 +71,9 @@ Den här fasen är där instrumentera din egen search-program med Application In
     window.appInsights=appInsights;
     </script>
 
-För övriga språk och plattformar, se hela [lista](https://docs.microsoft.com/azure/application-insights/app-insights-platforms).
+För andra språk och plattformar, se den fullständiga [listan](https://docs.microsoft.com/azure/application-insights/app-insights-platforms).
 
-**Steg 2: Begär ett Sök-ID för korrelation** för att knyta samman sökförfrågningar med klick, är det nödvändigt att ha ett Korrelations-id som berör dessa händelser. Azure Search har ett Sök-Id när du begär det med en rubrik:
+**Steg 2: Begär ett Sök-ID för** korrelation att korrelera Sök begär Anden med klick, det är nödvändigt att ha ett korrelations-ID som relaterar till dessa två distinkta händelser. Azure Search ger dig ett Sök-ID när du begär det med ett huvud:
 
 *C#*
 
@@ -94,18 +94,18 @@ För övriga språk och plattformar, se hela [lista](https://docs.microsoft.com/
     request.setRequestHeader("Access-Control-Expose-Headers", "x-ms-azs-searchid");
     var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
-**Steg 3: Sökhändelser**
+**Steg 3: Loggs öknings händelser**
 
-Varje gång som en sökbegäran utfärdas av en användare kan logga du som som en sökning-händelse med följande schema i en anpassad händelse i Application Insights:
+Varje gång en sökbegäran utfärdas av en användare bör du logga in som en Sök händelse med följande schema på en Application Insights anpassad händelse:
 
-**SearchServiceName**: (sträng) söktjänstnamnet **SearchId**: (guid) Unik identifierare för sökfrågan (det sker i Sök-svaret) **IndexName**: (sträng)-tjänsten för sökindex som efterfrågas **QueryTerms**: (sträng) sökvillkor som anges av användaren **resultcount som**: (int) antalet dokument som returnerades (det sker i Sök-svaret)  **ScoringProfile**: (sträng) namnet på den bedömningsprofilen som används, i förekommande fall
+**SearchServiceName**: (sträng) Sök tjänst namn **SearchId**: (GUID) unik identifierare för Sök frågan (kommer i Sök svaret) **IndexName**: (sträng) Sök tjänst index som ska frågas **QueryTerms**: (sträng) Sök villkor som anges av användaren **resultcount som**: (int) antalet dokument som returnerades (kommer i Sök svaret) **ScoringProfile**: (sträng) för den bedömnings profil som används, om något
 
 > [!NOTE]
-> Antal begäranden på användargenererat frågor genom att lägga till $count = SANT om din sökfråga. Läs mer information [här](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)
+> Antal begär Anden för användardefinierade frågor genom att lägga till $count = true i Sök frågan. Mer information finns [här](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)
 >
 
 > [!NOTE]
-> Kom ihåg att endast logga sökfrågor som genereras av användare.
+> Kom ihåg att endast logga Sök frågor som genereras av användarna.
 >
 
 *C#*
@@ -131,14 +131,14 @@ Varje gång som en sökbegäran utfärdas av en användare kan logga du som som 
     ScoringProfile: <scoring profile used>
     });
 
-**Steg 4: Logga in klickar du på händelser**
+**Steg 4: Logga klicknings händelser**
 
-Varje gång en användare klickar på ett dokument som är en signal som måste vara inloggad för search-analys. Använd anpassade händelser för Application Insights för att logga dessa händelser med följande schema:
+Varje gång en användare klickar på ett dokument, är det en signal som måste loggas för söknings analys. Använd Application Insights anpassade händelser för att logga dessa händelser med följande schema:
 
-**ServiceName**: (sträng) söktjänstnamnet **SearchId**: (guid) Unik identifierare för relaterade sökfrågan **DocId**: (sträng) dokument-ID **Position**: (int) rangordningen för dokument i sökningen resultatsida
+**ServiceName**: (sträng) Sök tjänst namn **SearchId**: (GUID) unik identifierare för den relaterade Sök frågan **fulltextdokument**: (sträng) dokument identifierare **position**: (int) rangordning av dokumentet på sidan med Sök Resultat
 
 > [!NOTE]
-> Position refererar till väsentliga ordningen i ditt program. Du kan ange antalet, så länge det är alltid detsamma, så att jämförelse.
+> Position syftar på kardinal ordningen i ditt program. Du är kostnads fri att ange det här talet, så länge det alltid är detsamma, för att möjliggöra jämförelse.
 >
 
 *C#*
@@ -160,44 +160,44 @@ Varje gång en användare klickar på ett dokument som är en signal som måste 
         Rank: <clicked document position>
     });
 
-## <a name="3---analyze-in-power-bi"></a>3 – analysera i Powerbi
+## <a name="3---analyze-in-power-bi"></a>3-analysera i Power BI
 
-När du har instrumenterade din app och verifierat programmet är korrekt ansluten till Application Insights kan använda du en fördefinierad mall som skapats av Azure Search för Power BI desktop. 
+När du har instrumenterat appen och kontrollerat att programmet är korrekt anslutet till Application Insights kan du använda en fördefinierad mall som skapats av Azure Search för Power BI Skriv bordet. 
 
-Azure search har ett övervakning [Power BI-Innehållspaketet](https://app.powerbi.com/getdata/services/azure-search) så att du kan analysera loggdata. T Innehållspaketet lägger till fördefinierade diagram och tabeller som är användbar för att analysera den ytterligare data som hämtats för söktrafikanalys. Mer information finns i den [hjälpsidan för Innehållspaketet](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
+Azure Search tillhandahåller ett övervaknings [Power BI innehålls paket](https://app.powerbi.com/getdata/services/azure-search) så att du kan analysera logg data. Innehålls paketet innehåller fördefinierade diagram och tabeller som är användbara för att analysera ytterligare data som registrerats för Sök trafik analys. Mer information finns i den [hjälpsidan för Innehållspaketet](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
 
-1. Azure Sök i instrumentpanelen vänstra navigeringsfönstret, under **inställningar**, klickar du på **Söktrafikanalys**.
+1. I rutan Azure Search instrument panelens vänstra navigerings fönster, under **Inställningar**, klickar du på **Sök trafik analys**.
 
-2. På den **Söktrafikanalys** läser du i steg 3, klickar du på **hämta Power BI Desktop** att installera Power BI.
+2. På sidan **Sök trafik analys** går du till steg 3 och klickar på **Hämta Power BI Desktop** för att installera Power BI.
 
-   ![Hämta Power BI-rapporter](./media/search-traffic-analytics/get-use-power-bi.png "hämta Power BI-rapporter")
+   ![Hämta Power BI rapporter](./media/search-traffic-analytics/get-use-power-bi.png "Hämta Power BI rapporter")
 
-2. På samma sida, klickar du på **ladda ned PowerBI-rapport**.
+2. Klicka på **Hämta PowerBI rapport**på samma sida.
 
-3. Rapporten öppnas i Power BI Desktop och du uppmanas att ansluta till Application Insights. Du hittar den här informationen på Azure portalsidor du Application Insights-resurs.
+3. Rapporten öppnas i Power BI Desktop och du uppmanas att ansluta till Application Insights. Du hittar den här informationen på sidan Azure Portal för att Application Insights resursen.
 
    ![Anslut till Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Anslut till Application Insights")
 
-4. Klicka på **belastningen**.
+4. Klicka på **Läs in**.
 
-Rapporten innehåller diagram och tabeller som hjälper dig att fatta mer välgrundade beslut för att förbättra din sökningsprestanda och relevans.
+Rapporten innehåller diagram och tabeller som hjälper dig att fatta mer välgrundade beslut för att förbättra Sök prestanda och relevans.
 
-Mått ingår följande:
+Måtten omfattar följande objekt:
 
-* Klicka på via hastighet (CTR): förhållandet mellan användare och klicka på ett visst dokument för hur många totala sökningar.
-* Söker utan klick: villkoren för vanliga frågor som registrerar inga klick
-* Mest klickade dokument: mest klickade dokument efter ID under de senaste 24 timmarna, sju dagar och 30 dagar.
-* Populära termen dokument-par: villkor som resulterar i samma dokument klickade på, sorterade efter klick.
-* Tid för att klicka på: klick bucketas av tiden efter sökfrågan
+* Klicka igenom Rate (prod) (pris): förhållandet mellan användare som klickar på ett speciellt dokument för att summera antalet sökningar.
+* Sökningar utan klickningar: villkor för de vanligaste frågorna som registrerar inga klick
+* De mest klickade dokumenten: de mest klickade dokumenten efter ID under de senaste 24 timmarna, 7 dagar och 30 dagar.
+* Populära term dokument par: termer som resulterar i samma dokument som du klickar på, sorteras efter klickningar.
+* Tid att klicka: klickar på Bucket efter tid sedan Sök frågan
 
-Följande skärmbild visar de inbyggda rapporterna och diagram för att analysera Sök trafikanalys.
+Följande skärm bild visar inbyggda rapporter och diagram för analys av Sök trafik analys.
 
-![Power BI-instrumentpanel för Azure Search](./media/search-traffic-analytics/AzureSearch-PowerBI-Dashboard.png "Power BI-instrumentpanel för Azure Search")
+![Power BI instrument panel för Azure Search](./media/search-traffic-analytics/AzureSearch-PowerBI-Dashboard.png "Power BI instrument panel för Azure Search")
 
 ## <a name="next-steps"></a>Nästa steg
-Instrumentera din search-program för att få kraftfulla och informationsrika data om din söktjänst.
+Instrumentera ditt sökprogram för att få kraftfull och insiktad information om din Sök tjänst.
 
-Du hittar mer information på [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) och gå till den [prissättningssidan](https://azure.microsoft.com/pricing/details/application-insights/) mer information om sina olika tjänstnivåer.
+Du hittar mer information om [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) och besöker sidan med [priser](https://azure.microsoft.com/pricing/details/application-insights/) för att lära dig mer om deras olika tjänst nivåer.
 
 Lär dig mer om att skapa fantastiska rapporter. Se [komma igång med Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) information
 

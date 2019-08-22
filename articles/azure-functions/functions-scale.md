@@ -1,24 +1,21 @@
 ---
 title: Azure Functions skala och vara värd | Microsoft Docs
 description: Lär dig hur du väljer mellan Azure Functions förbruknings plan och Premium-plan.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: Azure Functions, functions, förbruknings plan, Premium plan, händelse bearbetning, Webhooks, dynamisk beräkning, Server lös arkitektur
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdef1457254b6deb8a0b791b11c94154518b4301
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c39ee29b9a4449000d44e44bc6feae407cf4cd38
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636443"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874937"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
@@ -143,9 +140,6 @@ Mer information om lagrings konto typer finns i [Introduktion till Azure Storage
 I förbruknings-och Premium-planerna skalar Azure Functions-infrastrukturen processor-och minnes resurser genom att lägga till ytterligare instanser av Functions-värden, baserat på antalet händelser som dess funktioner aktive ras på. Varje instans av Functions-värden i förbruknings planen är begränsad till 1,5 GB minne och en processor.  En instans av värden är hela Function-appen, vilket innebär att alla funktioner i en Function-resurs resurs i en instans och skalas på samma gång. Function-appar som delar samma förbruknings plan skalas oberoende av varandra.  I Premium-planen avgör din Plans storlek det tillgängliga minnet och CPU: n för alla appar i planen på den instansen.  
 
 Funktions kod filen lagras på Azure Files resurser på funktionens huvud lagrings konto. När du tar bort huvud lagrings kontot för Function-appen tas funktions kod filerna bort och kan inte återställas.
-
-> [!NOTE]
-> När du använder en BLOB-utlösare i en förbruknings plan kan det gå upp till 10 minuter innan nya blobbar bearbetas. Den här fördröjningen inträffar när en Function-app har varit inaktiv. När Function-appen körs bearbetas blobarna direkt. Använd Premium-prenumerationen för att undvika den här kall start fördröjningen eller Använd [Event Grid](functions-bindings-event-grid.md)-utlösaren. Mer information finns i [artikeln om bindnings referens för BLOB](functions-bindings-storage-blob.md#trigger)-utlösare.
 
 ### <a name="runtime-scaling"></a>Körnings skalning
 

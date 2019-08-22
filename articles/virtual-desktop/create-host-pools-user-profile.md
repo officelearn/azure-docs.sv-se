@@ -1,71 +1,71 @@
 ---
-title: Skapa en användare profil resurs för en förhandsversion för virtuella skrivbord i Windows-värd pool - Azure
-description: Hur du ställer in en FSLogix profil-behållare för en pool för förhandsversion för virtuella skrivbord i Windows-värd.
+title: Skapa en FSLogix profil behållare för en adresspool med en virtuell dator baserad fil resurs – Azure
+description: Så här konfigurerar du en FSLogix profil behållare för en Windows-pool för för hands version av virtuella datorer med en virtuell dator baserad fil resurs.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 692902c28b336dd46a7c6f00d5cf5a61ee9f7328
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: cf3d682e4d0c68822267a4e63846d80b632cbdcc
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619107"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876800"
 ---
-# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Skapa en användarprofilresurs för en värdpool
+# <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Skapa en profil behållare för en värd-pool med en fil resurs
 
-Windows Virtual Desktop förhandsversionen av tjänsten erbjuder FSLogix profil behållare som rekommenderade användarens profil lösning. Vi rekommenderar inte med hjälp av lösningen användarens profil Disk (UPD), som är föråldrade i framtida versioner av virtuella Windows-skrivbordet.
+I för hands versionen av Windows Virtual Desktop finns FSLogix profil behållare som den rekommenderade användar profil lösningen. Vi rekommenderar inte att du använder UPD-lösningen (User profile disk) som kommer att vara inaktuell i framtida versioner av Windows Virtual Desktop.
 
-Det här avsnittet kommer berättar hur du ställer in en resurs FSLogix profil behållare för en värd-pool. Allmän dokumentation om FSLogix finns i den [FSLogix plats](https://docs.fslogix.com/).
+I den här artikeln får du veta hur du konfigurerar en FSLogix profil behållar resurs för en adresspool med en virtuell dator baserad fil resurs. Mer FSLogix-dokumentation finns på [FSLogix-webbplatsen](https://docs.fslogix.com/).
 
-## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Skapa en ny virtuell dator som fungerar som en filresurs
+## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Skapa en ny virtuell dator som fungerar som en fil resurs
 
-När du skapar den virtuella datorn, måste du placera den på antingen samma virtuella nätverk som värd pool-datorer eller på ett virtuellt nätverk som är ansluten till de poolen virtuella datorerna. Du kan skapa en virtuell dator på flera olika sätt:
+När du skapar den virtuella datorn måste du placera den antingen i samma virtuella nätverk som de virtuella datorerna i poolen för värdar eller i ett virtuellt nätverk som har anslutning till de virtuella datorerna i poolen för värdar. Du kan skapa en virtuell dator på flera sätt:
 
-- [Skapa en virtuell dator från en avbildning i Azure-galleriet](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
+- [Skapa en virtuell dator från en Azure Gallery-avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
 - [Skapa en virtuell dator från en hanterad avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Skapa en virtuell dator från en ohanterad avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-När du har skapat den virtuella datorn, ansluter du den till domänen genom att göra följande:
+När du har skapat den virtuella datorn ansluter du den till domänen genom att göra följande:
 
-1. [Ansluta till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter som du angav när du skapar den virtuella datorn.
-2. På den virtuella datorn, startar **Kontrollpanelen** och välj **System**.
-3. Välj **datornamn**väljer **ändra inställningarna för**, och välj sedan **ändringen...**
-4. Välj **domän** och ange sedan Active Directory-domänen i det virtuella nätverket.
-5. Autentisera med ett domänkonto som har behörighet att domänanslutning datorer.
+1. [Anslut till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+2. Starta **kontroll panelen** på den virtuella datorn och välj **system**.
+3. Välj **dator namn**, Välj **ändra inställningar**och välj sedan **ändra...**
+4. Välj **domän** och ange sedan Active Directory domän i det virtuella nätverket.
+5. Autentisera med ett domän konto som har behörighet att ansluta till datorer med domän anslutning.
 
-## <a name="prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles"></a>Förbereda den virtuella datorn ska fungera som en filresurs för användarprofiler
+## <a name="prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles"></a>Förbered den virtuella datorn så att den fungerar som en fil resurs för användar profiler
 
-Här följer allmänna instruktioner om hur du förbereder en virtuell dator att fungera som en filresurs för användarprofiler:
+Här följer allmänna anvisningar om hur du förbereder en virtuell dator så att den fungerar som en fil resurs för användar profiler:
 
-1. Lägga till Windows Virtual Desktop Active Directory-användare i en [Active Directory-säkerhetsgrupp](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Denna säkerhetsgrupp används för att autentisera virtuellt skrivbord i Windows-användare till filresurs virtuella datorn som du nyss skapade.
-2. [Ansluta till filen resurs virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
-3. Skapa en mapp på filen dela virtuell dator på den **C-enheten** som ska användas som resursen.
-4. Högerklicka på den nya mappen, Välj **egenskaper**väljer **delning**och välj sedan **Avancerad delning...** .
-5. Välj **dela den här mappen**väljer **behörigheter...** och välj sedan **Lägg till...** .
-6. Söker du efter gruppen som du har lagt till de virtuella Windows-skrivbordet och kontrollera att gruppen har **fullständig kontroll**.
-7. När du lägger till säkerhetsgruppen, högerklicka på mappen, Välj **egenskaper**väljer **delning**, kopiera sedan ned den **nätverkssökvägen** ska användas för senare.
+1. Lägg till den virtuella Windows-skrivbordet Active Directory användare i en [Active Directory säkerhets grupp](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Den här säkerhets gruppen används för att autentisera virtuella Windows-skrivbordet användare till den virtuella dator resursen som du nyss skapade.
+2. [Anslut till den virtuella datorn för fil resursen](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
+3. På den virtuella datorn fil resurs skapar du en mapp på **C-enheten** som ska användas som profil resurs.
+4. Högerklicka på den nya mappen, Välj **Egenskaper**, Välj **delning**och välj sedan **Avancerad delning..** ..
+5. Välj **dela den här mappen**, Välj **behörigheter..** . och välj sedan **Lägg till.** ...
+6. Sök efter säkerhets gruppen där du lade till de virtuella Windows-användarna och kontrol lera att gruppen har **fullständig behörighet**.
+7. När du har lagt till säkerhets gruppen högerklickar du på mappen, väljer **Egenskaper**, väljer **delning**och kopierar sedan **nätverks Sök vägen** för senare användning.
 
-Mer information om behörigheter finns i den [FSLogix dokumentation](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
+Mer information om behörigheter finns i FSLogix- [dokumentationen](https://docs.microsoft.com/fslogix/fslogix-storage-config-ht).
 
-## <a name="configure-the-fslogix-profile-container"></a>Konfigurera behållaren FSLogix profil
+## <a name="configure-the-fslogix-profile-container"></a>Konfigurera FSLogix profil behållare
 
-För att konfigurera de virtuella datorerna med FSLogix-programvara, gör du följande på varje dator som är registrerad till poolen värden:
+Om du vill konfigurera de virtuella datorerna med FSLogix-programvaran gör du följande på varje dator som är registrerad på värddatorn:
 
-1. [Ansluta till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter som du angav när du skapar den virtuella datorn.
-2. Starta en webbläsare och gå till [den här länken](https://go.microsoft.com/fwlink/?linkid=2084562) att hämta FSLogix-agenten. Som en del av den offentliga förhandsversionen av virtuella Windows-skrivbordet får du en licensnyckel för att aktivera FSLogix programvaran. Nyckeln är LicenseKey.txt-filen som ingår i ZIP-filen FSLogix agent.
-3. Navigera till någon \\ \\Win32\\versionen eller \\ \\X64\\versionen i ZIP-filen och kör **FSLogixAppsSetup** att installera agenten FSLogix.
-4. Gå till **programfiler** > **FSLogix** > **appar** att bekräfta att agenten installerad.
-5. Kör från start-menyn **RegEdit** som administratör. Gå till **datorn\\HKEY_LOCAL_MACHINE\\programvara\\FSLogix**.
+1. [Anslut till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+2. Starta en webbläsare och navigera till [den här länken](https://go.microsoft.com/fwlink/?linkid=2084562) för att ladda ned FSLogix-agenten.
+3. Gå till \\ \\Win32 -versionen\\ellerx64-\\versionen i. zip-filen och kör FSLogixAppsSetup för att installera FSLogix-agenten. \\ \\  Mer information om hur du installerar FSLogix finns i [Hämta och installera FSLogix](https://docs.microsoft.com/fslogix/install-ht).
+4. Navigera till **Program Files** > **FSLogix** > -**appar** för att bekräfta att agenten är installerad.
+5. Från Start-menyn kör du **regedit** som administratör. Navigera till **\\datorns\\HKEY_LOCAL_MACHINE\\-program vara FSLogix**.
 6. Skapa en nyckel med namnet **profiler**.
-7. Skapa följande värden för nyckeln profiler:
+7. Skapa följande värden för profil nyckeln:
 
-| Namn                | type               | Data/värde                        |
+| Name                | type               | Data/värde                        |
 |---------------------|--------------------|-----------------------------------|
 | Aktiverad             | DWORD              | 1                                 |
-| VHDLocations        | Multisträngvärde | ”Nätverkssökväg för filresursen”     |
+| VHDLocations        | Värde med flera strängar | "Nätverks Sök väg för fil resurs"     |
 
 >[!IMPORTANT]
->Om du vill att skydda din miljö för virtuella Windows-skrivbordet i Azure, rekommenderar vi du inte öppna inkommande port 3389 på dina virtuella datorer. Virtuella Windows-skrivbordet kräver inte en öppen inkommande port 3389 för användare att komma åt värden poolens virtuella datorer. Om du måste öppna port 3389 för felsökningsändamål kan vi rekommenderar att du använder [åtkomst till Virtuella just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>Vi rekommenderar att du inte öppnar den inkommande port 3389 på dina virtuella datorer för att skydda din Windows-miljö för virtuella skriv bord i Azure. Virtuella Windows-datorer kräver inte en öppen inkommande port 3389 för att användare ska kunna komma åt värddatorns virtuella datorer. Om du måste öppna port 3389 för fel söknings syfte rekommenderar vi att du använder [just-in-Time VM-åtkomst](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

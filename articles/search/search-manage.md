@@ -1,8 +1,8 @@
 ---
-title: Administration av tjänster för Azure Search i portalen – Azure Search
-description: Hantera en Azure Search-tjänst, en värdbaserad molnsöktjänst på Microsoft Azure, med hjälp av Azure portal.
+title: Tjänst administration för Azure Search i portalen – Azure Search
+description: Hantera en Azure Search tjänst, en värd för moln Sök tjänst på Microsoft Azure med hjälp av Azure Portal.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c4b2a03e7e5c818453eaf4ad6881b2caba3b93c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565447"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647666"
 ---
-# <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration av tjänster för Azure Search i Azure portal
+# <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Tjänst administration för Azure Search i Azure Portal
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
 > * [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/)
@@ -25,100 +25,100 @@ ms.locfileid: "60565447"
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure Search är en fullständigt hanterad, molnbaserad search-tjänst som används för att skapa en fullständig sökfunktion i anpassade appar. Den här artikeln beskriver administrationsuppgifter för tjänsten som du kan utföra i den [Azure-portalen](https://portal.azure.com) för en search-tjänst som du redan har etablerat. Administration av tjänster är lätta i design, begränsat till följande uppgifter:
+Azure Search är en fullständigt hanterad, molnbaserad Sök tjänst som används för att skapa en omfattande Sök upplevelse i anpassade appar. Den här artikeln beskriver de tjänst administrations uppgifter som du kan utföra i [Azure Portal](https://portal.azure.com) för en Sök tjänst som du redan har etablerad. Tjänst administration är lätt att utforma, begränsad till följande uppgifter:
 
 > [!div class="checklist"]
-> * Hantera åtkomst till den *api-nycklar* används för Läs- eller skrivbehörighet till din tjänst.
-> * Justera tjänstkapacitet genom att ändra allokeringen av partitioner och -repliker.
-> * Övervaka Resursanvändning, i förhållande till gränsvärdena för din tjänstnivå.
+> * Hantera åtkomst till de *API-nycklar* som används för Läs-eller skriv åtkomst till din tjänst.
+> * Justera tjänst kapaciteten genom att ändra allokeringen av partitioner och repliker.
+> * Övervaka resursanvändningen, i förhållande till de maximala gränserna för din tjänst nivå.
 
-Observera att *uppgradera* har inte listats som en administrativ åtgärd. Eftersom resurser tilldelas när tjänsten har etablerats, måste flytta till en annan nivå en ny tjänst. Mer information finns i [skapa en Azure Search-tjänst](search-create-service-portal.md).
+Observera att *uppgraderingen* inte visas som en administrativ uppgift. Eftersom resurser allokeras när tjänsten är etablerade kräver en ny tjänst att flytta till en annan nivå. Mer information finns i [skapa en Azure Search-tjänst](search-create-service-portal.md).
 
 > [!Tip]
-> Behöver du hjälp med att analysera search trafik eller fråga prestanda? Du kan övervaka fråga volym, vilket villkor personer söka efter och hur lyckad sökning resultatet är i guida kunder till specifika dokument i indexet. Mer information finns i [Search Traffic Analytics för Azure Search](search-traffic-analytics.md), [övervaka användning och fråga mått](search-monitor-usage.md), och [prestanda och optimering](search-performance-optimization.md).
+> Behöver du hjälp med att analysera Sök trafik eller fråga prestanda? Du kan övervaka Query Volume, vilka sökord som personsökningen ska utföras på och hur lyckade Sök resultat har GUID-kunder till vissa dokument i ditt index. Mer information finns i [sök Trafikanalys Azure Search](search-traffic-analytics.md), [övervaka användning och fråga mått](search-monitor-usage.md)och [prestanda och optimering](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
-## <a name="administrator-rights"></a>Administratörsbehörighet
-Etablering eller inaktivering av själva tjänsten kan göras av en administratör för Azure-prenumeration eller delad administratör.
+## <a name="administrator-rights"></a>Administratörs behörighet
+Etablering eller inaktive ring av tjänsten kan utföras av en administratör för Azure-prenumeration eller tillsammans med en administratör.
 
-Inom en tjänst har alla med tillgång till tjänstens URL och en api-administratörsnyckel skrivskyddad åtkomst till tjänsten. Läs-/ skrivåtkomst ger dig möjlighet att lägga till, ta bort eller ändra serverobjekt, inklusive api-nycklar, index, indexerare, datakällor, scheman och rolltilldelningar som implementerats via [RBAC-definierade roller](search-security-rbac.md).
+I en tjänst har alla som har åtkomst till tjänst-URL: en och en Admin API-nyckel Läs-och Skriv behörighet till tjänsten. Läs-och skriv åtkomst ger möjlighet att lägga till, ta bort eller ändra Server objekt, inklusive API-nycklar, index, indexerare, data källor, scheman och roll tilldelningar som implementerade via [RBAC-definierade roller](search-security-rbac.md).
 
-Alla användarinteraktion med Azure Search som ligger inom något av följande lägen: skrivskyddad åtkomst till tjänsten (administratörsbehörighet) eller skrivskyddad åtkomst till tjänsten (fråga rights). Mer information finns i [hantera api-nycklar](search-security-api-keys.md).
+All användar interaktion med Azure Search faller inom något av dessa lägen: Läs-och Skriv behörighet till tjänsten (administratörs behörighet) eller skrivskyddad åtkomst till tjänsten (fråge rättigheter). Mer information finns i [Hantera API-nycklar](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
-## <a name="logging-and-system-information"></a>Loggning och Systeminformation
-Azure Search exponerar inte loggfilerna för en enskild tjänst antingen via portalen eller programgränssnitt. På Basic-nivån och över Microsoft övervakar alla Azure Search-tjänsterna för 99,9% tillgänglighet per servicenivåavtal (SLA). Om tjänsten är långsam eller dataflödet för begäran ligger under SLA tröskelvärden supportteam Granska loggfilerna som är tillgängliga för dem och åtgärda problemet.
+## <a name="logging-and-system-information"></a>Loggning och system information
+Azure Search visar inte loggfiler för en enskild tjänst, antingen via portalen eller programmerings gränssnittet. På Basic-nivån och över, övervakar Microsoft alla Azure Search tjänster för 99,9% tillgänglighet per service nivå avtal (SLA). Om tjänsten är långsam eller begär data flöde hamnar under SLA-tröskelvärden granskar support team de loggfiler som är tillgängliga för dem och löser problemet.
 
-När det gäller allmän information om din tjänst, kan du få information på följande sätt:
+När det gäller allmän information om tjänsten kan du hämta information på följande sätt:
 
-* I portalen på instrumentpanelen för tjänsten via aviseringar, egenskaper och statusmeddelanden.
-* Med hjälp av [PowerShell](search-manage-powershell.md) eller [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) till [hämta tjänstegenskaper](https://docs.microsoft.com/rest/api/searchmanagement/services), eller status på index Resursanvändning.
-* Via [söktrafikanalys](search-traffic-analytics.md), enligt tidigare notering.
+* I portalen, på instrument panelen för tjänsten, via aviseringar, egenskaper och status meddelanden.
+* Använda [PowerShell](search-manage-powershell.md) eller [hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/) för att [Hämta tjänst egenskaper](https://docs.microsoft.com/rest/api/searchmanagement/services)eller status för index resursanvändning.
+* Via [Sök trafik analys](search-traffic-analytics.md), som tidigare nämnts.
 
 <a id="sub-5"></a>
 
-## <a name="monitor-resource-usage"></a>Övervaka Resursanvändning
-Instrumentpanelen för är Resursövervakning begränsad till informationen som visas i instrumentpanelen för tjänsten och några mått som du kan få genom att fråga tjänsten. På instrumentpanelen för tjänsten i avsnittet användning kan du snabbt se om partitionen resursnivåer är lämpliga för ditt program. Om du vill samla in och spara loggade händelser kan du etablera externa resurser, till exempel Azure-övervakning. Mer information finns i [övervakning av Azure Search](search-monitor-usage.md).
+## <a name="monitor-resource-usage"></a>Övervaka resursanvändning
+I instrument panelen är resurs övervakning begränsad till den information som visas i instrument panelen för tjänsten och några mått som du kan hämta genom att fråga tjänsten. På instrument panelen för tjänsten i användnings avsnittet kan du snabbt avgöra om partitionernas resurs nivåer är lämpliga för ditt program. Du kan etablera externa resurser, till exempel Azure-övervakning, om du vill samla in och spara loggade händelser. Mer information finns i [övervaknings Azure Search](search-monitor-usage.md).
 
-Med Search Service REST API kan få du ett antal på dokument och index programmässigt: 
+Med hjälp av Search Service REST API kan du få ett antal dokument och index program mässigt: 
 
 * [Hämta Indexstatistiken](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Antal dokument](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
-## <a name="disaster-recovery-and-service-outages"></a>Disaster recovery och service avbrott
+## <a name="disaster-recovery-and-service-outages"></a>Haveri beredskap och drift avbrott
 
-Vi kan rädda dina data, tillhandahåller Azure Search ingen omedelbar redundans av tjänsten om det uppstår ett avbrott på klustret eller data center. Om det inte går att ett kluster i datacentret, driftsteamet identifierar och arbetar för att återställa tjänsten. Du får driftstopp under återställning av tjänsten, men du kan begära servicekrediter att kompensera för tjänsten otillgänglighet per den [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Även om vi kan återanvända dina data ger Azure Search inte omedelbar redundansväxling av tjänsten om det uppstår ett avbrott på klustret eller data Center nivån. Om ett kluster Miss lyckas i data centret kommer drift teamet att identifiera och arbeta med återställnings tjänsten. Du får stillestånds tid under tjänst återställningen, men du kan begära service krediter för att kompensera för att tjänsten inte är tillgänglig per [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Om tjänsternas kontinuitet krävs i händelse av kritiska fel utanför Microsofts kontroll, kan du [etablera en ytterligare tjänst](search-create-service-portal.md) i en annan region och implementera en geo-replikering-strategi för att se till att index är fullständigt redundanta för alla tjänster.
+Om kontinuerlig tjänst krävs vid oåterkalleliga haverier utanför Microsofts kontroll kan du [etablera en ytterligare tjänst](search-create-service-portal.md) i en annan region och implementera en strategi för geo-replikering för att säkerställa att index är fullständigt redundanta för alla tjänster.
 
-Kunder som använder [indexerare](search-indexer-overview.md) att fylla i och uppdatera index kan hantera katastrofåterställning via geo-specifika indexerare att använda samma datakälla. Två tjänster i olika regioner, som kör en indexerare kan indexera samma datakälla för att uppnå geo-redundans. Om du indexerar från datakällor som också är geo-redundant, Tänk på att Azure Search-indexerare kan bara utföra inkrementell indexering från primära repliker. I en redundansväxling måste du peka indexeraren igen på den primära repliken. 
+Kunder som använder [indexerare](search-indexer-overview.md) för att fylla i och uppdatera index kan hantera haveri beredskap via geo-/regionsspecifika indexerare som använder samma data källa. Två tjänster i olika regioner, som kör en indexerare, kan indexera samma data källa för att uppnå GEO-redundans. Om du indexerar från data källor som också är geo-redundanta bör du vara medveten om att Azure Search indexerare endast kan utföra stegvis indexering från primära repliker. I en redundansväxling, se till att du pekar på indexeraren igen till den nya primära repliken. 
 
-Om du inte använder indexerare, använder du din programkod för att push-objekt och data till olika söktjänster parallellt. Mer information finns i [prestanda och optimering i Azure Search](search-performance-optimization.md).
+Om du inte använder indexerare använder du program koden för att skicka objekt och data till olika Sök tjänster parallellt. Mer information finns i [prestanda och optimering i Azure Search](search-performance-optimization.md).
 
 ## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
-Eftersom Azure Search inte är en lösning för lagring av primärdata, erbjuder vi inte en formell mekanism för självbetjäning säkerhetskopiering och återställning. Din programkod som används för att skapa och fylla ett index är det faktiska restore-alternativet om du av misstag tar bort ett index. 
+Eftersom Azure Search inte är en primär data lagrings lösning ger vi inte en formell mekanism för säkerhets kopiering och återställning av självbetjäning. Program koden som används för att skapa och fylla i ett index är det alternativ för återställning om du tar bort ett index av misstag. 
 
-Om du vill bygga om index, ta bort den (förutsatt att den finns), återskapa indexet i tjänsten och Läs in på nytt genom att hämta data från det primära datalagret.
+Om du vill återskapa ett index tar du bort det (förutsatt att det finns), återskapar indexet i tjänsten och läser in igen genom att hämta data från det primära data lagret.
 
 
 <a id="scale"></a>
 
 ## <a name="scale-up-or-down"></a>Skala upp eller ned
-Varje söktjänst börjar med minst en replik och en partition. Om du har registrerat sig för en [nivå som tillhandahåller dedikerade resurser](search-limits-quotas-capacity.md), klickar du på den **skala** panelen på instrumentpanelen för att justera Resursanvändning.
+Varje Sök tjänst börjar med minst en replik och en partition. Om du har registrerat dig för en [nivå som tillhandahåller dedikerade resurser](search-limits-quotas-capacity.md), klickar du på **skala** -panelen i instrument panelen för att justera resursanvändningen.
 
-När du lägger till kapacitet via antingen resursen använder tjänsten dem automatiskt. Ingen ytterligare åtgärd krävs från din sida, men det finns en fördröjning innan effekten av den nya resursen realiseras. Det kan ta 15 minuter eller mer att etablera ytterligare resurser.
+När du lägger till kapacitet via någon av resurserna använder tjänsten dem automatiskt. Ingen ytterligare åtgärd krävs för din del, men det finns en liten fördröjning innan den nya resursens påverkan realiseras. Det kan ta 15 minuter eller mer att etablera ytterligare resurser.
 
  ![][10]
 
 ### <a name="add-replicas"></a>Lägg till repliker
-Öka frågor per sekund (QPS) eller uppnå hög tillgänglighet gör du genom att lägga till repliker. Varje replik har en kopia av ett index så att lägga till en mer replik översätts till en mer index för hantering av tjänsten frågebegäranden. Det krävs minst 3 repliker för hög tillgänglighet (finns i [kapacitetsplanering](search-capacity-planning.md) information).
+Att öka antalet frågor per sekund (frågor per sekund) eller att uppnå hög tillgänglighet görs genom att lägga till repliker. Varje replik har en kopia av ett index, så du kan lägga till en eller flera repliker översätts till ett mer index som är tillgängligt för att hantera förfrågningar om tjänst frågor. Det krävs minst 3 repliker för hög tillgänglighet (mer information finns i [kapacitets planering](search-capacity-planning.md) ).
 
-En söktjänst har flera repliker kan läsa in frågebegäranden för ett större antal index. Med en nivå av frågan volymen kan kommer frågedataflöde att vara snabbare när det finns fler kopior av index som är tillgängliga som kan hantera begäran. Om du upplever svarstid, du kan förvänta dig en positiv inverkan på prestanda när ytterligare repliker är online.
+En Sök tjänst som har fler repliker kan belastningsutjämna förfrågningar om begär anden över ett större antal index. Med tanke på en nivå av frågans volym kommer frågans data flöde att bli snabbare när det finns fler kopior av det index som är tillgängligt för att betjäna begäran. Om du upplever svars tid för frågor kan du förvänta en positiv inverkan på prestanda när de ytterligare replikerna är online.
 
-Även om frågedataflöde går upp när du lägger till repliker, den inte exakt dubbelklicka eller tredubbla när du lägger till repliker till din tjänst. Alla sökprogram omfattas externa faktorer som kan skada frågeprestanda. Komplexa frågor och svarstid för nätverk är två faktorer som bidrar till variationer i frågesvarstiderna.
+Även om frågans data flöde går upp när du lägger till repliker, så är det inte exakt dubbelt eller tredubbla när du lägger till repliker till din tjänst. Alla Sök program omfattas av externa faktorer som kan impinge på frågans prestanda. Komplexa frågor och nätverks fördröjning är två faktorer som bidrar till variationer i svars tider för frågor.
 
 ### <a name="add-partitions"></a>Lägg till partitioner
-De flesta tjänstprogram har inbyggda behov av mer repliker snarare än partitioner. För de fall där en ökad dokumentantal krävs, kan du lägga till partitioner om du har registrerat dig för Standard-tjänsten. Basic-nivån ger inte för fler partitioner.
+De flesta tjänst program har ett inbyggt behov av fler repliker snarare än partitioner. I de fall där det krävs ett ökat antal dokument kan du lägga till partitioner om du har registrerat dig för standard tjänsten. Basic-nivån tillhandahåller inga ytterligare partitioner.
 
-På Standard-nivån partitioner har lagts till i multipler av 12 (mer specifikt 1, 2, 3, 4, 6 eller 12). Det här är en metod med horisontell partitionering. Ett index skapas i 12 shards, vilket kan alla lagras på 1 partition eller jämt i 2, 3, 4, 6 eller 12 partitioner (en shard per partition).
+På standard-nivån läggs partitioner till i multipler av 12 (särskilt, 1, 2, 3, 4, 6 eller 12). Detta är en artefakt av horisontell partitionering. Ett index skapas i 12 Shards, som kan lagras på en partition eller vara jämnt indelat i 2, 3, 4, 6 eller 12 partitioner (en Shard per partition).
 
 ### <a name="remove-replicas"></a>Ta bort repliker
-Du kan använda skjutreglaget för att minska repliker när search frågebelastningar har normaliserats (till exempel efter helgdag försäljning har överskridit) efter perioder med hög ställa frågor till volymer. Det finns inga ytterligare åtgärder krävs från din sida. Sänka replikantalet avsäger virtuella datorer i datacentret. Åtgärder för din fråga och inmatning nu körs på virtuella färre datorer än innan. Minimikravet är en replik.
+Efter perioder med hög fråga-volymer kan du använda skjutreglaget för att minska antalet repliker när Sök frågan läses in har normaliserats (till exempel efter att försäljningen är över). Det finns inga ytterligare steg som krävs för din del. Om du sänker antalet repliker överlämnas virtuella datorer i data centret. Dina frågor och data inmatnings åtgärder kommer nu att köras på färre virtuella datorer än tidigare. Minimi kravet är en replik.
 
 ### <a name="remove-partitions"></a>Ta bort partitioner
-Till skillnad från tar bort repliker, vilket kräver ingen extra ansträngning från din sida måste kanske du vissa arbete att göra om du använder mer lagring än vad som kan minskas. Till exempel om lösningen använder tre partitioner, genereras downsizing till en eller två partitioner ett fel om det nya lagringsutrymmet är mindre än vad som krävs för som är värd för ditt index. Dina val är att ta bort index eller dokument inom ett associerat index Frigör utrymme eller behålla den aktuella konfigurationen som förväntat.
+I motsats till att ta bort repliker, som inte kräver extra ansträngning på din sida, kan du ha lite arbete om du använder mer lagrings utrymme än vad som kan minskas. Om din lösning exempelvis använder tre partitioner genererar downsizing till en eller två partitioner ett fel om det nya lagrings utrymmet är mindre än vad som krävs för att vara värd för ditt index. Som du kan förväntar dig kan du välja att ta bort index eller dokument i ett associerat index för att frigöra utrymme, eller behålla den aktuella konfigurationen.
 
-Det finns inga identifieringsmetod som talar om vilka index shards lagras på specifika partitioner. Varje partition innehåller cirka 25 GB i lagring, så du måste minska lagring till en storlek som kan användas av antalet partitioner som du har. Om du vill återställa till en partition måste alla 12 shards att få plats.
+Det finns ingen identifierings metod som anger vilka index-Shards som lagras på vissa partitioner. Varje partition ger cirka 25 GB lagring, så du måste minska lagrings utrymmet till en storlek som kan hanteras av antalet partitioner som du har. Om du vill återgå till en partition måste alla 12-Shards anpassas.
 
-För att hjälpa till med framtida planering, kanske du vill kontrollera storage (med hjälp av [hämta Indexstatistiken](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) att se hur mycket du faktiskt används. 
+Om du vill ha hjälp med framtida planeringen kanske du vill kontrol lera lagringen (med hjälp av [Hämta index statistik](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) för att se hur mycket du faktiskt har använt. 
 
 <a id="advanced-deployment"></a>
 
-## <a name="best-practices-on-scale-and-deployment"></a>Bästa metoder för skalning och distribution
-Den här 30-minuters videon går igenom metodtips för av avancerade distributionsscenarier, bland annat geo-distribuerad arbetsbelastningar. Du kan också se [prestanda och optimering i Azure Search](search-performance-optimization.md) för hjälpsidor som omfattar samma punkter.
+## <a name="best-practices-on-scale-and-deployment"></a>Metod tips för skalning och distribution
+Denna 30-minuters video granskar bästa praxis för avancerade distributions scenarier, inklusive geo-distribuerade arbets belastningar. Du kan också se [prestanda och optimering i Azure Search](search-performance-optimization.md) för hjälp sidor som behandlar samma punkter.
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
 > 
@@ -127,11 +127,11 @@ Den här 30-minuters videon går igenom metodtips för av avancerade distributio
 <a id="next-steps"></a>
 
 ## <a name="next-steps"></a>Nästa steg
-När du förstår begreppen bakom tjänstadministration kan du överväga att använda [PowerShell](search-manage-powershell.md) att automatisera uppgifter.
+När du förstår begreppen bakom tjänst administration kan du använda [PowerShell](search-manage-powershell.md) för att automatisera uppgifter.
 
-Vi rekommenderar också granska den [prestanda och optimering artikeln](search-performance-optimization.md).
+Vi rekommenderar också att du går igenom [artikeln om prestanda och optimering](search-performance-optimization.md).
 
-En annan rekommendation är att titta på videon som anges i föregående avsnitt. Det ger bättre täckning av de metoder som nämns i det här avsnittet.
+En annan rekommendation är att titta på videon som anges i föregående avsnitt. Den ger djupare täckning av de tekniker som nämns i det här avsnittet.
 
 <!--Image references-->
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 13eef9beb6c86683c56efc744dc42b4614b84fe9
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: b813ef89bb1a55f769d0ea2391855ba5d671c140
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946485"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648800"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagerar på Blob Storage-händelser
 
@@ -32,6 +32,8 @@ Om du vill testa detta nu kan du läsa följande artiklar om snabb start:
 |Azure Portal    |[Snabbstart: Dirigera Blob Storage-händelser till webb slut punkt med Azure Portal](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |PowerShell    |[Snabbstart: Dirigera lagrings händelser till webb slut punkt med PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure CLI    |[Snabbstart: Dirigera lagrings händelser till webb slut punkter med Azure CLI](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+
+Om ditt konto har ett hierarkiskt namn område, visar den här självstudien hur du ansluter samman en Event Grid-prenumeration, en Azure-funktion och ett [jobb](https://docs.azuredatabricks.net/user-guide/jobs.html) i Azure Databricks: [Gång Använd Azure Data Lake Storage Gen2 händelser om du vill uppdatera en Databricks](data-lake-storage-events.md)delta tabell.
 
 ## <a name="the-event-model"></a>Händelse modellen
 

@@ -2,17 +2,17 @@
 title: API v2 för SaaS-utförande | Azure Marketplace
 description: 'Den här artikeln förklarar hur du skapar och hanterar ett SaaS-erbjudande på AppSource och Azure Marketplace genom att använda de associerade API: erna för uppfyllande v2.'
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: qianw211
 ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: 276699b9316a0c4fd428038f2c967bdf934f449c
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: a2041aefcfdcb1746e64f50c7cb53b3bfaec3299
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016044"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872796"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API: er för SaaS-uppfyllelse, version 2 
 
@@ -108,7 +108,7 @@ Med hjälp av matchnings slut punkten kan utgivaren matcha en Marketplace-token 
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Innehållstyp      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-MS-RequestId    |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 |  x-MS-correlationId |  Ett unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  authorization     |  [Hämta JSON Web token (JWT) Bearer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)-token. Till exempel: "`Bearer <access_token>`". |
@@ -116,7 +116,7 @@ Med hjälp av matchnings slut punkten kan utgivaren matcha en Marketplace-token 
 
 *Svars koder:*
 
-Kod: 200<br>
+Rikt 200<br>
 Löser in ogenomskinlig token till en SaaS-prenumeration. Svars text:
  
 
@@ -130,17 +130,17 @@ Löser in ogenomskinlig token till en SaaS-prenumeration. Svars text:
 }
 ```
 
-Kod: 400<br>
+Rikt 400<br>
 Felaktig begäran. x-MS-Marketplace-token saknas, är felaktig eller har upphört att gälla.
 
-Kod: 403<br>
-Ej auktoriserad. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
+Rikt 403<br>
+Tillstånd. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
 
-Kod: 404<br>
-Kunde inte hittas.
+Rikt 404<br>
+Hittades inte.
 
-Kod: 500<br>
-Internt serverfel.
+Rikt 500<br>
+Internt Server fel.
 
 ```json
 {
@@ -172,14 +172,14 @@ Visar en lista över alla SaaS-prenumerationer för en utgivare.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| Innehållstyp       |  `application/json`  |
+| Content-Type       |  `application/json`  |
 | x-MS-RequestId     |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 | x-MS-correlationId |  Ett unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 | authorization      |  [Hämta JSON Web token (JWT) Bearer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)-token. Till exempel: "`Bearer <access_token>`".  |
 
 *Svars koder:*
 
-Kod: 200 <br/>
+Rikt 200 <br/>
 Hämtar utgivaren och motsvarande prenumerationer för alla utgivares erbjudanden, baserat på autentiseringstoken.
 Nytto last för svar:<br>
 
@@ -218,11 +218,11 @@ Nytto last för svar:<br>
 
 Fortsättnings-token finns bara om det finns ytterligare "sidor" av planer att hämta. 
 
-Kod: 403 <br>
-Ej auktoriserad. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren. 
+Rikt 403 <br>
+Tillstånd. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren. 
 
-Kod: 500<br>
-Internt serverfel.
+Rikt 500<br>
+Internt Server fel.
 
 ```json
 {
@@ -250,14 +250,14 @@ Hämtar den angivna SaaS-prenumerationen. Använd det här anropet för att häm
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Innehållstyp      |  `application/json`  |
+|  Content-Type      |  `application/json`  |
 |  x-MS-RequestId    |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 |  x-MS-correlationId |  Ett unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  authorization     |  [Hämta JSON Web token (JWT) Bearer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)-token. Till exempel: "`Bearer <access_token>`".  |
 
 *Svars koder:*
 
-Kod: 200<br>
+Rikt 200<br>
 Hämtar SaaS-prenumerationen från identifierare. Nytto last för svar:<br>
 
 ```json
@@ -287,14 +287,14 @@ Response Body:
 }
 ```
 
-Kod: 403<br>
-Ej auktoriserad. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
+Rikt 403<br>
+Tillstånd. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
 
-Kod: 404<br>
-Kunde inte hittas.<br> 
+Rikt 404<br>
+Hittades inte.<br> 
 
-Kod: 500<br>
-Internt serverfel.<br>
+Rikt 500<br>
+Internt Server fel.<br>
 
 ```json
 {
@@ -320,14 +320,14 @@ Använd det här anropet för att ta reda på om det finns privata eller offentl
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Innehållstyp     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |   x-MS-RequestId   |   Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 |  x-MS-correlationId  | Ett unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 |  authorization     |  [Hämta JSON Web token (JWT) Bearer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)-token.  Till exempel: "`Bearer <access_token>`". |
 
 *Svars koder:*
 
-Kod: 200<br>
+Rikt 200<br>
 Hämtar en lista över tillgängliga planer för en kund. Svars text:
 
 ```json
@@ -340,14 +340,14 @@ Hämtar en lista över tillgängliga planer för en kund. Svars text:
 }
 ```
 
-Kod: 404<br>
-Kunde inte hittas.<br> 
+Rikt 404<br>
+Hittades inte.<br> 
 
-Kod: 403<br>
-Ej auktoriserad. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren. <br> 
+Rikt 403<br>
+Tillstånd. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren. <br> 
 
-Kod: 500<br>
-Internt serverfel.<br>
+Rikt 500<br>
+Internt Server fel.<br>
 
 ```json
 { 
@@ -372,7 +372,7 @@ Internt serverfel.<br>
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Innehållstyp      | `application/json`  |
+|  Content-Type      | `application/json`  |
 |  x-MS-RequestId    | Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  x-MS-correlationId  | Ett unikt sträng värde för åtgärden på klienten. Den här strängen korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  authorization     |  [Hämta JSON Web token (JWT) Bearer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)-token.  Till exempel: "`Bearer <access_token>`". |
@@ -388,20 +388,20 @@ Internt serverfel.<br>
 
 *Svars koder:*
 
-Kod: 200<br>
+Rikt 200<br>
 Aktiverar prenumerationen.<br>
 
-Kod: 400<br>
+Rikt 400<br>
 Felaktig begäran: verifierings fel.
 
-Kod: 403<br>
-Ej auktoriserad. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
+Rikt 403<br>
+Tillstånd. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
 
-Kod: 404<br>
-Kunde inte hittas.
+Rikt 404<br>
+Hittades inte.
 
-Kod: 500<br>
-Internt serverfel.
+Rikt 500<br>
+Internt Server fel.
 
 ```json
 {
@@ -429,7 +429,7 @@ Uppdatera planen för prenumerationen.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Innehållstyp      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-MS-RequestId    |   Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  x-MS-correlationId  |  Ett unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden.    |
 | authorization      |  [Hämta JSON Web token (JWT) Bearer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)-token.  Till exempel: "`Bearer <access_token>`".  |
@@ -451,20 +451,20 @@ Request Body:
 
 *Svars koder:*
 
-Kod: 202<br>
+Rikt 202<br>
 Begäran om att ändra planen har accepterats. Partnern förväntas avsöka åtgärds platsen för att avgöra om det lyckades eller inte. <br>
 
-Kod: 400<br>
+Rikt 400<br>
 Felaktig begäran: verifierings fel.
 
-Kod: 403<br>
-Ej auktoriserad. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
+Rikt 403<br>
+Tillstånd. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
 
-Kod: 404<br>
-Kunde inte hittas.
+Rikt 404<br>
+Hittades inte.
 
-Kod: 500<br>
-Internt serverfel.
+Rikt 500<br>
+Internt Server fel.
 
 ```json
 {
@@ -495,7 +495,7 @@ Uppdatera antalet i prenumerationen.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Innehållstyp      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-MS-RequestId    |   Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  x-MS-correlationId  |  Ett unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden.    |
 | authorization      |  [Hämta JSON Web token (JWT) Bearer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)-token.  Till exempel: "`Bearer <access_token>`".  |
@@ -517,21 +517,21 @@ Request Body:
 
 *Svars koder:*
 
-Kod: 202<br>
+Rikt 202<br>
 Begäran om att ändra kvantitet har accepterats. Partnern förväntas avsöka åtgärds platsen för att avgöra om det lyckades eller inte. <br>
 
-Kod: 400<br>
+Rikt 400<br>
 Felaktig begäran: verifierings fel.
 
 
-Kod: 403<br>
-Ej auktoriserad. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
+Rikt 403<br>
+Tillstånd. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
 
-Kod: 404<br>
-Kunde inte hittas.
+Rikt 404<br>
+Hittades inte.
 
-Kod: 500<br>
-Internt serverfel.
+Rikt 500<br>
+Internt Server fel.
 
 ```json
 {
@@ -562,27 +562,27 @@ Avbryt prenumerationen och ta bort den angivna prenumerationen.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Innehållstyp     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-MS-RequestId    |   Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.   |
 |  x-MS-correlationId  |  Ett unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden.   |
 |  authorization     |  [Hämta JSON Web token (JWT) Bearer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)-token.  Till exempel: "`Bearer <access_token>`".  |
 
 *Svars koder:*
 
-Kod: 202<br>
+Rikt 202<br>
 Partnern initierade ett anrop för att avbryta prenumerationen på en SaaS-prenumeration.<br>
 
-Kod: 400<br>
+Rikt 400<br>
 Ta bort en prenumeration med **ta bort** inte `allowedCustomerOperations`i.
 
-Kod: 403<br>
-Ej auktoriserad. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
+Rikt 403<br>
+Tillstånd. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
 
-Kod: 404<br>
-Kunde inte hittas.
+Rikt 404<br>
+Hittades inte.
 
-Kod: 500<br>
-Internt serverfel.
+Rikt 500<br>
+Internt Server fel.
 
 ```json
 {
@@ -615,14 +615,14 @@ Visar en lista över utestående åtgärder för den aktuella utgivaren.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Innehållstyp     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-MS-RequestId    |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  x-MS-correlationId |  Ett unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  authorization     |  [Hämta JSON Web token (JWT) Bearer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)-token.  Till exempel: "`Bearer <access_token>`".  |
 
 *Svars koder:*
 
-Kod: 200<br> Hämtar listan över väntande åtgärder för en prenumeration. Nytto last för svar:
+Rikt 200<br> Hämtar listan över väntande åtgärder för en prenumeration. Nytto last för svar:
 
 ```json
 [{
@@ -640,17 +640,17 @@ Kod: 200<br> Hämtar listan över väntande åtgärder för en prenumeration. Ny
 ```
 
 
-Kod: 400<br>
+Rikt 400<br>
 Felaktig begäran: verifierings fel.
 
-Kod: 403<br>
-Ej auktoriserad. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
+Rikt 403<br>
+Tillstånd. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
 
-Kod: 404<br>
-Kunde inte hittas.
+Rikt 404<br>
+Hittades inte.
 
-Kod: 500<br>
-Internt serverfel.
+Rikt 500<br>
+Internt Server fel.
 
 ```json
 {
@@ -678,14 +678,14 @@ Gör att utgivaren kan spåra statusen för den angivna utlösta asynkrona åtg�
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Innehållstyp      |  `application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-MS-RequestId    |   Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  x-MS-correlationId |  Ett unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  authorization     |  [Hämta JSON Web token (JWT) Bearer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)-token. Till exempel: "`Bearer <access_token>`".  |
 
 *Svars koder:*<br>
 
-Kod: 200<br> Hämtar den angivna väntande SaaS-åtgärden. Nytto last för svar:
+Rikt 200<br> Hämtar den angivna väntande SaaS-åtgärden. Nytto last för svar:
 
 ```json
 Response body:
@@ -704,16 +704,16 @@ Response body:
 
 ```
 
-Kod: 400<br>
+Rikt 400<br>
 Felaktig begäran: verifierings fel.
 
-Kod: 403<br>
-Ej auktoriserad. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
+Rikt 403<br>
+Tillstånd. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
  
-Kod: 404<br>
-Kunde inte hittas.
+Rikt 404<br>
+Hittades inte.
 
-Kod: 500<br> Internt serverfel.
+Rikt 500<br> Internt Server fel.
 
 ```json
 {
@@ -742,7 +742,7 @@ Uppdatera status för en åtgärd för att indikera att det lyckades eller missl
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Innehållstyp     | `application/json`   |
+|   Content-Type     | `application/json`   |
 |   x-MS-RequestId   |   Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 |  x-MS-correlationId |  Ett unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 |  authorization     |  [Hämta JSON Web token (JWT) Bearer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)-token.  Till exempel: "`Bearer <access_token>`".  |
@@ -760,21 +760,21 @@ Uppdatera status för en åtgärd för att indikera att det lyckades eller missl
 
 *Svars koder:*
 
-Kod: 200<br> Ett anrop för att informera om att en åtgärd slutförts på partner sidan. Svaret kan till exempel signalera ändringen av platser eller planer.
+Rikt 200<br> Ett anrop för att informera om att en åtgärd slutförts på partner sidan. Svaret kan till exempel signalera ändringen av platser eller planer.
 
-Kod: 400<br>
+Rikt 400<br>
 Felaktig begäran: verifierings fel.
 
-Kod: 403<br>
-Ej auktoriserad. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
+Rikt 403<br>
+Tillstånd. Autentiseringstoken angavs inte eller är ogiltig eller så försöker begäran att komma åt ett förvärv som inte tillhör den aktuella utgivaren.
 
-Kod: 404<br>
-Kunde inte hittas.
+Rikt 404<br>
+Hittades inte.
 
-Kod: 409<br>
+Rikt 409<br>
 Uppstod. Till exempel är en nyare transaktion redan uppfylld.
 
-Kod: 500<br> Internt serverfel.
+Rikt 500<br> Internt Server fel.
 
 ```json
 {
@@ -790,7 +790,6 @@ Kod: 500<br> Internt serverfel.
 
 Utgivaren måste implementera en webhook i den här SaaS-tjänsten för att proaktivt meddela användarnas ändringar i sin tjänst. SaaS-tjänsten förväntas anropa API: et för åtgärder för att verifiera och auktorisera innan åtgärden för webhook-aviseringen utförs.
 
-För att säkerställa säker kommunikation inkluderar Microsoft Azure Active Directory JWT-token i Authorization-huvudet som en del av anropet. SaaS-leverantörer uppmanas att validera JWT-token enligt beskrivningen i artikeln [Microsoft Identity Platform Access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) för att säkerställa att endast giltiga anrop accepteras.
 
 ```json
 {

@@ -4,14 +4,14 @@ description: Beskriver funktionerna du använder i en Azure Resource Manager-mal
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 08/06/2019
+ms.date: 08/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ec6e58438e7be953e1f672fb815ff3f68a7f252
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2cd37405176eefa8f4445942b9fbf1afc2a7404a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839250"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650421"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -634,7 +634,7 @@ Föregående exempel returnerar ett objekt i följande format:
 
 ## <a name="resourceid"></a>resourceId
 
-`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
+`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Returnerar den unika identifieraren för en resurs. Du använder den här funktionen när resursnamnet är tvetydigt eller ej etablerad inom samma mall. 
 
@@ -646,43 +646,46 @@ Returnerar den unika identifieraren för en resurs. Du använder den här funkti
 | resourceGroupName |Nej |sträng |Standardvärdet är aktuella resursgruppen. Ange det här värdet när du behöver hämta en resurs i en annan resursgrupp. |
 | ResourceType |Ja |sträng |Typ av resurs, inklusive resursproviderns namnområde. |
 | resourceName1 |Ja |sträng |Namnet på resursen. |
-| resourceName2 |Nej |sträng |Nästa resurs namnsegmentet om resursen är kapslade. |
+| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+
+Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
 ### <a name="return-value"></a>Returvärde
 
 Identifieraren returneras i följande format:
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+
 
 ### <a name="remarks"></a>Kommentarer
 
-När den `resourceId()` används med en [distribution på prenumerations nivå](deploy-to-subscription.md)kan funktionen bara hämta ID för resurser som har distribuerats på den nivån. Du kan till exempel hämta ID: t för en princip definition eller roll definition, men inte ID: t för ett lagrings konto. Vid distributioner till en resurs grupp är motsatsen sant. Du kan inte hämta resurs-ID för resurser som har distribuerats på prenumerations nivå.
+Antalet parametrar som du anger varierar beroende på om resursen är en överordnad eller underordnad resurs och om resursen finns i samma prenumeration eller resurs grupp.
 
-De parametervärden som du anger beror på om resursen är i på samma prenumeration och resursgrupp som den aktuella distributionen. Hämta resurs-ID för ett lagringskonto i samma prenumeration och resursgrupp med:
-
-```json
-"[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
-```
-
-Hämta resurs-ID för ett lagringskonto i samma prenumeration men en annan resursgrupp med:
+Om du vill hämta resurs-ID för en överordnad resurs i samma prenumeration och resurs grupp anger du resursens typ och namn.
 
 ```json
-"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+"[resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')]"
 ```
 
-Hämta resurs-ID för ett lagringskonto i en annan prenumeration och resursgrupp med:
+Om du vill hämta resurs-ID för en underordnad resurs, bör du tänka på antalet segment i resurs typen. Ange ett resurs namn för varje segment av resurs typen. Namnet på segmentet motsvarar den resurs som finns för den delen av hierarkin.
+
+```json
+"[resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')]"
+```
+
+Om du vill hämta resurs-ID för en resurs i samma prenumeration, men i en annan resurs grupp, anger du resurs gruppens namn.
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')]"
+```
+
+Om du vill hämta resurs-ID för en resurs i en annan prenumeration och resurs grupp anger du prenumerations-ID och resurs gruppens namn.
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Hämta resurs-ID för en databas i en annan resursgrupp med:
-
-```json
-"[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
-```
+När den `resourceId()` används med en [distribution på prenumerations nivå](deploy-to-subscription.md)kan funktionen bara hämta ID för resurser som har distribuerats på den nivån. Du kan till exempel hämta ID: t för en princip definition eller roll definition, men inte ID: t för ett lagrings konto. Vid distributioner till en resurs grupp är motsatsen sant. Du kan inte hämta resurs-ID för resurser som har distribuerats på prenumerations nivå.
 
 Om du vill hämta resurs-ID för en resurs på en prenumerations nivå när du distribuerar i prenumerations omfånget använder du:
 

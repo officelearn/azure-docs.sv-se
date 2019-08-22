@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 9a62001f168e0577ea07ad030923a4d0398e50af
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 28537ac2389fbb1ca43ca4014515564bddeba4ce
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534972"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872485"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT Hub-meddelanden
 
@@ -73,7 +73,7 @@ Mer information om hur du kodar och avkodar meddelanden som skickas med olika pr
 
 ## <a name="message-size"></a>Meddelandestorlek
 
-IoT Hub mäter meddelande storleken på ett oberoende sätt, överväger bara den faktiska nytto lasten. Storleken i byte beräknas som summan av följande:
+IoT Hub mäter meddelande storleken på ett oberoende sätt, överväger bara den faktiska nytto lasten. Storleken i byte beräknas som summan av följande värden:
 
 * Text storleken i byte.
 * Storleken i byte på alla värden i meddelande systemets egenskaper.

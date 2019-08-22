@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2019
+ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 261f337ac72a28bc2e1c74e23731242cc3bd0075
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 411037dd97350d877aff4e2d094c3408f168f9fd
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68572035"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648579"
 ---
 # <a name="classroom-labs-in-azure-lab-services---frequently-asked-questions-faq"></a>Klass rums labb i Azure Lab Services vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om klass rums labb i Azure Lab Services. 
@@ -44,13 +44,13 @@ Om du till exempel har ett block på/19-10.0.0.0/19 får detta adress intervall 
 Prenumerera på [Azure Lab Services blogg](https://azure.microsoft.com/blog/tag/azure-lab-services/).
 
 ## <a name="update-notifications"></a>Uppdatera meddelanden
-Prenumerera på [labb tjänst uppdateringar](https://azure.microsoft.com/updates/?product=lab-services) för att hålla dig informerad om nya funktioner i DevTest Labs.
+Prenumerera på [labb tjänst uppdateringar](https://azure.microsoft.com/updates/?product=lab-services) för att hålla dig informerad om nya funktioner i labb tjänster.
 
 ## <a name="general"></a>Allmänt
 ### <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
 Om din fråga inte visas här kan vi berätta för oss, så vi kan hjälpa dig att hitta ett svar.
 
 - Publicera en fråga i slutet av dessa vanliga frågor och svar. 
-- Om du vill få en större mål grupp kan du publicera en fråga i [Azure DEVTEST Labs MSDN-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). 
-- Skicka dina förfrågningar och idéer till [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs)för funktions förfrågningar.
+- För att få en större mål grupp kan du skicka en fråga till [Azure Lab Services-Stack Overflow-forumet](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- Skicka dina förfrågningar och idéer till [Azure Lab Services-User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774)för funktions förfrågningar.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 164a71354423bebc1422ba94747f2daeec33909d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e9c21ff5c4c94eecc7bb1a6643e46166df80edf4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828935"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648323"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Aktivera lösen ords utan lösen ord med Microsoft Authenticator-appen (förhands granskning)
 
@@ -92,7 +92,7 @@ Slutanvändare som har Aktiver ATS för MFA via en organisations lokala Azure MF
 
 ### <a name="device-registration"></a>Enhetsregistrering
 
-En av kraven för att skapa den här nya, starka autentiseringsuppgiften är att enheten även måste registreras i Azure AD-klienten för en enskild användare. På grund av aktuella begränsningar för enhets registrering kan en enhet bara registreras i en enda klient. Den här gränsen innebär att endast ett arbets-eller skol konto i Microsoft Authenticator-appen kan aktive ras för telefonin loggning.
+En av kraven för att skapa den här nya starka autentiseringsuppgiften är att enheten, där Microsoft Authenticator-appen är installerad, också måste registreras i Azure AD-klienten till en enskild användare. På grund av aktuella begränsningar för enhets registrering kan en enhet bara registreras i en enda klient. Den här gränsen innebär att endast ett arbets-eller skol konto i Microsoft Authenticator-appen kan aktive ras för telefonin loggning.
 
 > [!NOTE]
 > Enhets registrering är inte detsamma som enhets hantering eller MDM. Den kopplar bara ett enhets-ID och ett användar-ID tillsammans i Azure AD-katalogen.  

@@ -7,12 +7,12 @@ ms.date: 08/10/2018
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 9e0e024a5bd3c9cf16879bb9ea93727a338ddbf4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ee8dd9da186013dc168e20e6b8b842cca85de172
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986397"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877633"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure Storage-emulatorn för utveckling och testning
 
@@ -221,9 +221,21 @@ Det finns inga skillnader vad gäller Queue Storage i emulatorn.
 
 ## <a name="storage-emulator-release-notes"></a>Viktig information om Storage mula torn
 
+### <a name="version-510"></a>Version 5,10
+
+* Storage-emulatorn kommer inte att förkasta version 2019-07-07 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
+
+### <a name="version-59"></a>Version 5,9
+
+* Storage-emulatorn kommer inte att förkasta version 2019-02-02 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
+
+### <a name="version-58"></a>Version 5,8
+
+* Storage-emulatorn kommer inte att förkasta version 2018-11-09 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
+
 ### <a name="version-57"></a>Version 5,7
 
-En bugg har åtgärd ATS som orsakar en krasch om loggning har Aktiver ATS.
+* En bugg har åtgärd ATS som orsakar en krasch om loggning har Aktiver ATS.
 
 ### <a name="version-56"></a>Version 5,6
 
@@ -236,11 +248,11 @@ En bugg har åtgärd ATS som orsakar en krasch om loggning har Aktiver ATS.
 
 ### <a name="version-54"></a>Version 5.4
 
-För att förbättra installations stabiliteten försöker emulatorn inte längre att reservera portar vid installations tiden. Om Port reservationer önskas, använder du alternativet *-reserveports* för kommandot **init** för att ange dem.
+* För att förbättra installations stabiliteten försöker emulatorn inte längre att reservera portar vid installations tiden. Om Port reservationer önskas, använder du alternativet *-reserveports* för kommandot **init** för att ange dem.
 
 ### <a name="version-53"></a>Version 5,3
 
-Storage-emulatorn stöder nu version 2017-07-29 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
+* Storage-emulatorn stöder nu version 2017-07-29 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
 
 ### <a name="version-52"></a>Version 5.2
 
@@ -249,7 +261,7 @@ Storage-emulatorn stöder nu version 2017-07-29 av lagrings tjänsterna på BLOB
 
 ### <a name="version-51"></a>Version 5.1
 
-Ett fel har åtgärd ATS där Storage-emulatorn `DataServiceVersion` returnerade rubriken i vissa svar där tjänsten inte var det.
+* Ett fel har åtgärd ATS där Storage-emulatorn `DataServiceVersion` returnerade rubriken i vissa svar där tjänsten inte var det.
 
 ### <a name="version-50"></a>Version 5.0
 

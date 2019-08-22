@@ -1,6 +1,6 @@
 ---
-title: Kontrollpunkter och återuppspelning i varaktiga funktioner – Azure
-description: Lär dig hur kontrollpunkter och svar fungerar i tillägget varaktiga funktioner för Azure Functions.
+title: Kontroll punkter och uppspelning i Durable Functions – Azure
+description: Lär dig hur kontroll punkter och svar fungerar i Durable Functions-tillägget för Azure Functions.
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b1fd31a758501620129fdbbc532b8defcf927045
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ed9e4aced7983cce10a577b38c1c170474cf83d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648507"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876865"
 ---
-# <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrollpunkter och återuppspelning i varaktiga funktioner (Azure Functions)
+# <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontroll punkter och uppspelning i Durable Functions (Azure Functions)
 
-En av viktiga punkter för varaktiga funktioner är **arbetsflödesprocesserna**. Orchestrator-funktioner och Aktivitetsfunktioner kan köras på olika virtuella datorer inom ett datacenter och de virtuella datorerna eller den underliggande nätverksinfrastrukturen är inte 100% pålitlig.
+Ett av de viktigaste attributen för Durable Functions är **tillförlitlig körning**. Funktionerna i Orchestrator-funktioner och-aktiviteter kan köras på olika virtuella datorer i ett Data Center, och de virtuella datorerna eller den underliggande nätverks infrastrukturen är inte 100% Reliable.
 
-Trots detta säkerställer varaktiga funktioner arbetsflödesprocesserna orkestreringar. Detta sker med hjälp av lagringsköer till enheten funktionsanrop och regelbundet kontrollpunkter körningstiden till storage-tabeller (med en designmönster för molnet som kallas [händelsekällor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)). Ändringar sedan spelas upp för att automatiskt återskapa InMemory-tillståndet för en orchestrator-funktion.
+Trots detta säkerställer Durable Functions tillförlitlig körning av dirigering. Det gör det genom att använda lagrings köer för att köra funktions anrop och genom att regelbundet kontrol lera körnings historiken i lagrings tabeller (med ett design mönster för molnet som kallas [händelse källa](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)). Historiken kan sedan upprepas för att automatiskt återskapa InMemory-statusen för en Orchestrator-funktion.
 
 ## <a name="orchestration-history"></a>Orchestration-historik
 
-Anta att du har följande orchestrator-funktion:
+Anta att du har följande Orchestrator-funktion:
 
 ### <a name="c"></a>C#
 
@@ -45,7 +45,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -61,29 +61,29 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-På varje `await` (C#) eller `yield` (JavaScript)-instruktionen, hållbar uppgift Framework kontrollpunkter funktionen i tabellagring körningstillstånd. Det här tillståndet är vad kallas den *orchestration historik*.
+I varje `await` (C#)- `yield` eller (JavaScript)-instruktion, kontroll ramverket för det varaktiga aktivitets ramverket körnings status för funktionen i Table Storage. Det här är det tillstånd som kallas för *Orchestration*-historiken.
 
-## <a name="history-table"></a>Historiktabellen
+## <a name="history-table"></a>Historik tabell
 
-Generellt sett gör ramen varaktiga uppgiften följande på varje kontrollpunkt:
+I allmänhet är det ständiga aktivitets ramverket följande vid varje kontroll punkt:
 
-1. Sparar körningshistorik i Azure Storage-tabeller.
-2. Placerar det i kö meddelanden för funktioner i orchestrator vill anropa.
-3. Placerar det i kö meddelanden för dirigering du själva &mdash; exempelvis varaktiga timer meddelanden.
+1. Sparar körnings historik i Azure Storage tabeller.
+2. Köa meddelanden för funktioner som Orchestrator vill anropa.
+3. Köa meddelanden för själva &mdash; Orchestrator till exempel meddelanden med varaktig timer.
 
-När kontrollpunkten har slutförts, kostar orchestrator-funktion som ska tas bort från minnet tills det är mer arbete för att det ska göra.
+När kontroll punkten har slutförts är Orchestrator-funktionen kostnads fri att tas bort från minnet tills det finns mer arbete att göra.
 
 > [!NOTE]
-> Azure Storage ger inte alla transaktionella garantier mellan sparar data i table storage och köer. Om du vill hantera fel lagringsprovidern varaktiga funktioner använder *eventuell konsekvens* mönster. Dessa mönster se till att ingen data går förlorade om det finns en krasch eller förlust av anslutning mitt i en kontrollpunkt.
+> Azure Storage tillhandahåller inte några transaktions garantier mellan att spara data i tabell lagring och köer. För att hantera fel använder Durable Functions lagringsprovider de *slutliga konsekvens* mönstren. Dessa mönster ser till att inga data går förlorade om anslutningen bryts eller bryts i mitten av en kontroll punkt.
 
-När åtgärden har slutförts ut ungefär så här i Azure Table Storage (förkortat för tydlighetens skull) i historiken för funktionen som visades tidigare:
+Vid slut för ande ser historiken för funktionen som visas tidigare ut ungefär så här i Azure Table Storage (förkortat för illustration):
 
-| PartitionKey (InstanceId)                     | Händelsetyp             | Tidsstämpel               | Indata | Namn             | Resultat                                                    | Status |
+| PartitionKey (InstanceId)                     | Händelsetyp             | Timestamp               | Indata | Name             | Resultat                                                    | State |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852 Z | null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670 Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670 Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
@@ -97,39 +97,39 @@ När åtgärden har slutförts ut ungefär så här i Azure Table Storage (förk
 | eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Slutfört           |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
 
-Några anmärkningar om kolumnvärdena:
+Några anmärkningar om kolumn värden:
 
-* **PartitionKey**: Innehåller instans-ID för dirigering.
-* **Händelsetyp**: Representerar typ av händelsen. Kan vara något av följande typer:
-  * **OrchestrationStarted**: Orchestrator-funktion återupptas från ett await eller körs för första gången. Den `Timestamp` kolumnen används för att fylla i deterministisk värdet för den [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API.
-  * **ExecutionStarted**: Orchestrator-funktion startats för första gången. Den här händelsen innehåller även funktionen indata i den `Input` kolumn.
-  * **TaskScheduled**: En funktion för aktiviteten har schemalagts. Namnet på funktionen aktivitet har tagits emot under de `Name` kolumn.
-  * **TaskCompleted**: En aktivitet-funktion som har slutförts. Resultatet av funktionen är i den `Result` kolumn.
-  * **TimerCreated**: En hållbar timer skapades. Den `FireAt` kolumnen innehåller den schemalagda UTC-tiden då timern upphör att gälla.
-  * **TimerFired**: En hållbar timer utlösta.
-  * **EventRaised**: En extern händelse har skickats till orchestration-instans. Den `Name` kolumnen fångar händelsens namn och `Input` kolumnen fångar nyttolasten för händelsen.
-  * **OrchestratorCompleted**: Orchestrator-funktion som slutförts.
-  * **ContinueAsNew**: Orchestrator-funktion har slutförts och startas om sig själv med nya tillstånd. Den `Result` kolumnen innehåller värdet som används som indata i den startats om-instansen.
-  * **ExecutionCompleted**: Orchestrator-funktion körde slutförandet (eller misslyckade). Utdata för funktionen eller felinformationen lagras i den `Result` kolumn.
-* **Tidsstämpel**: UTC-tidsstämpel för historikhändelsen.
-* **Namn på**: Namnet på den funktion som anropas.
-* **Indata**: JSON-formaterade indata för funktionen.
-* **Resultatet**: Resultatet av funktionen. det vill säga dess returvärde.
+* **PartitionKey**: Innehåller dirigeringens instans-ID.
+* **EventType**: Representerar händelsens typ. Kan vara en av följande typer:
+  * **OrchestrationStarted**: Orchestrator-funktionen återupptogs från en await eller körs för första gången. Kolumnen används för att fylla på det deterministiska värdet för CurrentUtcDateTime-API: et. [](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) `Timestamp`
+  * **ExecutionStarted**: Orchestrator-funktionen startade körning för första gången. Den här händelsen innehåller också funktions ingången `Input` i kolumnen.
+  * **TaskScheduled**: En aktivitets funktion har schemalagts. Namnet på aktivitets funktionen samlas in i `Name` kolumnen.
+  * **TaskCompleted**: En aktivitets funktion har slutförts. Resultatet av funktionen finns i `Result` kolumnen.
+  * **TimerCreated**: En varaktig timer skapades. `FireAt` Kolumnen innehåller den schemalagda UTC-tid då timern upphör att gälla.
+  * **TimerFired**: En varaktig timer har utlösts.
+  * **Händelse aktive rad**: En extern händelse skickades till Orchestration-instansen. Kolumnen samlar in namnet på händelsen `Input` och kolumnen fångar in händelsens nytto Last. `Name`
+  * **OrchestratorCompleted**: Orchestrator-funktionen förväntades.
+  * **ContinueAsNew**: Orchestrator-funktionen har slutförts och startats om automatiskt med det nya läget. `Result` Kolumnen innehåller värdet, som används som indatamängden i den omstartade instansen.
+  * **ExecutionCompleted**: Orchestrator-funktionen kördes (eller misslyckades). Utdata från funktionen eller fel informationen lagras i `Result` kolumnen.
+* **Tidsstämpel**: UTC-tidsstämpeln för historik händelsen.
+* **Namn på**: Namnet på den funktion som anropades.
+* Inmatade: Den JSON-formaterade indatamängden för funktionen.
+* **Resultat**: Resultatet av funktionen. det vill säga dess retur värde.
 
 > [!WARNING]
-> Det är användbart som felsökningsverktyg, inte ta alla beroenden på den här tabellen. Det kan ändras när tillägget varaktiga funktioner utvecklas.
+> Även om det är användbart som ett fel söknings verktyg ska du inte göra något beroende av den här tabellen. Den kan ändras när Durable Functions tillägget utvecklas.
 
-Varje gång som funktionen återgår från en `await` (C#) eller `yield` (JavaScript), hållbar uppgift ramverket produktmiljö orchestrator-funktion från grunden. Placera på varje kör den konsultationer körningshistorik för att avgöra om den aktuella async-åtgärden har tagit.  Om åtgärden ägde rum, ramverket spelar upp resultatet av åtgärden omedelbart och går vidare till nästa `await` (C#) eller `yield` (JavaScript). Den här processen fortsätter tills hela historiken har varit återupprepas, då alla lokala variabler i orchestrator-funktion återställs till sina föregående värden.
+Varje gång funktionen återupptas från en `await` (C#) eller `yield` (Java Script), kör det ständiga aktivitets ramverket om Orchestrator-funktionen från grunden. Vid varje körnings försök kontaktas körnings historiken för att avgöra om den aktuella asynkrona åtgärden har ägt rum.  Om åtgärden utfördes, spelar ramverket om resultatet av åtgärden direkt och fortsätter med nästa `await` (C#) eller `yield` (Java Script). Den här processen fortsätter tills hela historiken har spelats upp, där alla lokala variabler i Orchestrator-funktionen återställs till sina tidigare värden.
 
-## <a name="orchestrator-code-constraints"></a>Begränsningar för orchestrator-kod
+## <a name="orchestrator-code-constraints"></a>Begränsningar för Orchestrator-kod
 
-Beteendet repetitionsattacker skapar begränsningar på vilken typ av kod som kan skrivas i en orchestrator-funktion:
+Uppspelnings beteendet skapar begränsningar för den typ av kod som kan skrivas i en Orchestrator-funktion:
 
-* Orchestrator-koden måste vara **deterministisk**. Den ska återupprepas flera gånger, och du måste ge samma resultat varje gång. Till exempel ingen direct-anrop till hämta aktuellt datum och tid, hämta slumptal, generera slumpmässig GUID eller anropa remote slutpunkter.
+* Orchestrator-koden måste vara **deterministisk**. Den kommer att spelas upp flera gånger och måste ge samma resultat varje gång. Till exempel, inga direkta anrop för att hämta aktuellt datum/tid, Hämta slumpmässiga nummer, generera slumpmässiga GUID eller anropa till Fjärrslutpunkter.
 
-  Om orchestrator-koden måste hämta aktuellt datum och tid, bör den använda den [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.NET) eller `currentUtcDateTime` (JavaScript)-Programmeringsgränssnittet, som är säker för repetitionsattacker.
+  Om Orchestrator-koden behöver hämta aktuellt datum/tid bör den använda [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.net) eller `currentUtcDateTime` (Java Script) API, som är säkert för uppspelning.
 
-  Om orchestrator-koden måste generera en slumpmässig GUID, bör den använda den [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.NET)-Programmeringsgränssnittet, som är säker för repetitionsattacker eller delegera GUID generering till en aktivitet-funktion (JavaScript), som i det här exemplet:
+  Om Orchestrator-koden behöver generera ett slumpmässigt GUID bör den använda [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.net)-API: et, som är säkert för repetition eller delegera GUID-generering till en aktivitets funktion (Java Script), som i det här exemplet:
 
   ```javascript
   const uuid = require("uuid/v1");
@@ -139,37 +139,37 @@ Beteendet repetitionsattacker skapar begränsningar på vilken typ av kod som ka
   }
   ```
 
-  Icke-deterministisk åtgärder måste göras i Aktivitetsfunktioner. Detta inkluderar en interaktion med andra inkommande eller utgående bindningar. Detta säkerställer att alla icke-deterministisk värden genereras en gång på den första körningen och sparas i historiken för körning. Efterföljande körningar använder sedan det sparade värdet automatiskt.
+  Icke-deterministiska åtgärder måste utföras i aktivitets funktioner. Detta omfattar alla interaktioner med andra indata-eller utdata-bindningar. Detta säkerställer att alla icke-deterministiska värden genereras en gång vid den första körningen och sparas i körnings historiken. Efterföljande körningar kommer sedan att använda det sparade värdet automatiskt.
 
-* Orchestrator-kod ska vara **icke-blockerande**. Till exempel det innebär att inga i/o och inga anrop till `Thread.Sleep` (.NET) eller motsvarande API: er.
+* Orchestrator-koden ska vara **icke-blockerande**. Det innebär exempelvis inga I/O och inga anrop till `Thread.Sleep` (.net) eller motsvarande API: er.
 
-  Om en initierare måste fördröjning, den kan använda den [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.NET) eller `createTimer` (JavaScript) API.
+  Om en Orchestrator behöver fördröjning kan den använda API: et för [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.net) `createTimer` eller (Java Script).
 
-* Orchestrator-kod måste **initieras aldrig asynkrona åtgärder** förutom med hjälp av den [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API eller `context.df` objektets API. Till exempel Nej `Task.Run`, `Task.Delay` eller `HttpClient.SendAsync` i .NET, eller `setTimeout()` och `setInterval()` i JavaScript. Ramverket varaktiga uppgift kör orchestrator-kod på en enda tråd och samverka inte med andra trådar kan schemaläggas med andra async API: er.
+* Orchestrator-kod får **aldrig initiera en asynkron åtgärd** förutom att använda API: et `context.df` för [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) eller Object. Till `Task.Run`exempel Nej `HttpClient.SendAsync` `setInterval()` eller i .net, eller `setTimeout()` och `Task.Delay` i Java Script. Det tåliga aktivitets ramverket Kör Orchestrator-kod på en enskild tråd och kan inte samverka med andra trådar som kan schemaläggas av andra asynkrona API: er. Detta inträffar om detta `InvalidOperationException` inträffar, genereras ett undantag.
 
-* **Oändlig slingor bör undvikas** i orchestrator-kod. Eftersom varaktiga uppgift ramverket sparar körningshistorik som utvecklas för orchestration-funktionen, kan en oändlig loop orsaka en orchestrator-instans som ska få slut på minne. Oändlig loop scenarier kan du använda API: er som [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) eller `continueAsNew` (JavaScript) för att starta om körning funktion och ta bort tidigare körningshistorik.
+* **Oändliga slingor bör undvikas** i Orchestrator-kod. Eftersom den varaktiga aktivitets ramverket sparar körnings historiken när Orchestration-funktionen fortskrider, kan en oändlig loop orsaka att en Orchestrator-instans tar slut på minne. För oändliga upprepnings scenarier använder du API: er som [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.net `continueAsNew` ) eller (Java Script) för att starta om funktionen och ta bort tidigare körnings historik.
 
-* JavaScript orchestrator-funktioner kan inte vara `async`. De måste deklareras som Synkron generator-funktioner.
+* JavaScript Orchestrator-funktioner kan `async`inte vara. De måste deklareras som synkrona Generator funktioner.
 
-Även om dessa begränsningar kan verka skrämmande på först i praktiken som de inte är svårt att följa. Hållbar uppgift ramverket försöker identifiera brott mot av ovanstående och genererar en `NonDeterministicOrchestrationException`. Men detta identifiering är mån, och du bör inte lita på den.
-
-> [!NOTE]
-> Alla dessa regler gäller endast för funktioner som utlöses av den `orchestrationTrigger` bindning. Aktivitetsfunktioner utlöses av den `activityTrigger` bindnings- och funktioner som använder den `orchestrationClient` bindning, har inga sådana begränsningar.
-
-## <a name="durable-tasks-net"></a>Beständiga uppgifter (.NET)
+Dessa begränsningar kan verka avskräckande i första, i praktiken att de inte är svåra att följa. Det beständiga aktivitets ramverket försöker identifiera överträdelser av ovanstående regler och returnerar en `NonDeterministicOrchestrationException`. Detta identifierings beteende är dock bästa och du bör inte vara beroende av den.
 
 > [!NOTE]
-> Det här avsnittet beskrivs interna implementeringsdetaljer för ramen varaktiga uppgift. Du kan använda varaktiga funktioner utan att känna till den här informationen. Det är endast avsedd att hjälpa dig att förstå beteendet repetitionsattacker.
+> Alla dessa regler gäller endast för funktioner som utlöses av `orchestrationTrigger` bindningen. Aktivitets funktioner som utlöses av `activityTrigger` bindningen och funktioner som `orchestrationClient` använder bindningen har inga sådana begränsningar.
 
-Uppgifter som kan vara på ett säkert sätt slutförts i orchestrator-funktioner ibland kallas *varaktiga uppgifter*. Detta är aktiviteter som skapas och hanteras av ramverket varaktiga uppgift. Exempel är de uppgifter som returneras av `CallActivityAsync`, `WaitForExternalEvent`, och `CreateTimer`.
+## <a name="durable-tasks-net"></a>Varaktiga uppgifter (.NET)
 
-Dessa *varaktiga uppgifter* hanteras internt med hjälp av en lista över `TaskCompletionSource` objekt. Under repetitionsattacker, dessa uppgifter skapas som en del av orchestrator kodkörning och slutförs som avsändaren räknar upp motsvarande historik-händelser. Detta görs alla synkront med en enda tråd tills all historik har varit återupprepas. Alla hållbara uppgifter som inte är slutförda i slutet av historik repetitionsattacker har åtgärder utförs. Till exempel kanske ett meddelande i kö för att anropa en funktion för aktiviteten.
+> [!NOTE]
+> I det här avsnittet beskrivs interna implementerings Detaljer för det varaktiga aktivitets ramverket. Du kan använda Durable Functions utan att känna till den här informationen. Den är endast avsedd för att hjälpa dig att förstå repetitions beteendet.
 
-Körningsbeteende som beskrivs här hjälper dig att förstå varför orchestrator function-koden måste aldrig `await` en icke-varaktiga uppgift: dispatcher-tråden inte vill vänta tills den är klar och alla återanrop av aktiviteten kan potentiellt skadat spårnings tillståndet för orchestrator-funktion. Vissa runtime-kontroller är uppfyllda att förhindra detta.
+Aktiviteter som kan förväntas på ett säkert sätt i Orchestrator-funktioner kallas ibland för *varaktiga uppgifter*. Detta är uppgifter som skapas och hanteras av det varaktiga aktivitets ramverket. Exempel är de uppgifter som returneras `CallActivityAsync`av `WaitForExternalEvent`, och `CreateTimer`.
 
-Om du vill ha mer information om hur ramen varaktiga uppgift kör orchestrator-funktioner, det bästa du ska göra är att läsa den [varaktiga uppgift källkod på GitHub](https://github.com/Azure/durabletask). I synnerhet Se [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) och [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)
+Dessa *varaktiga uppgifter* hanteras internt med hjälp av en lista `TaskCompletionSource` med objekt. Under uppspelningen skapas de här aktiviteterna som en del av Orchestrator Code Execution och slutförs eftersom Dispatchern räknar upp motsvarande historik händelser. Detta görs synkront med en enda tråd tills all historik har spelats upp. Eventuella varaktiga uppgifter som inte slutförs i slutet av historik uppspelningen har lämpliga åtgärder som utförs. Ett meddelande kan till exempel vara placerat i kö för att anropa en aktivitets funktion.
+
+Det körnings beteende som beskrivs här bör hjälpa dig att förstå varför Orchestrator- `await` funktions koden aldrig får innehålla en icke-beständig uppgift: dispatcher-tråden kan inte vänta på att den ska slutföras och återanrop från den aktiviteten kan eventuellt skada spårningen status för Orchestrator-funktionen. Vissa körnings kontroller är på plats för att förhindra detta.
+
+Om du vill ha mer information om hur det varaktiga aktivitets ramverket Kör Orchestrator-funktioner, är det bästa sättet att se den [varaktiga aktivitets käll koden på GitHub](https://github.com/Azure/durabletask). I synnerhet, se [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) och [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om instanshantering](durable-functions-instance-management.md)
+> [Läs mer om instans hantering](durable-functions-instance-management.md)

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: 97f7393622311103d94d3067205f902e3eec6843
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8dfe0db5277a995b6e6675381ebeb5aeb243c9b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567345"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647221"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Komma igång med hanterad Azure SQL Database-instans
 
@@ -55,8 +55,6 @@ Med de här snabbstarterna kan du snabbt skapa, konfigurera och återställa dat
 ## <a name="customize-network-environment"></a>Anpassa nätverksmiljön
 
 Även om det virtuella nätverket/undernätet kan konfigureras automatiskt när instansen skapas med hjälp av [Azure-portalen](sql-database-managed-instance-get-started.md) kan det vara bra att skapa det innan du börjar skapa hanterade instanser eftersom du kan konfigurera parametrarna för virtuellt nätverk och undernät. Det enklaste sättet att skapa och konfigurera nätverksmiljön är att använda mallen för [Azure-resursdistribution](sql-database-managed-instance-create-vnet-subnet.md), som skapar och konfigurerar det nätverk och undernät där instansen ska placeras. Du behöver bara trycka på knappen för Azure Resource Manager-distribution och fylla i formuläret med parametrar.
-
-Alternativt kan du använda [PowerShell-skript](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) för att automatisera skapandet av nätverket.
 
 Alternativt kan du använda det här [PowerShell-skriptet](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) för att automatisera skapandet av nätverket.
 

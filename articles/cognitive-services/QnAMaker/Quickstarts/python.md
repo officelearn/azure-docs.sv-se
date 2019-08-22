@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/13/2019
+ms.date: 08/20/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5add68902b23d41c9e3031839508418a81086e6b
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: fc15b08bb293864c22b7e26c1e408b99ac58d698
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342178"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647082"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Hur du använder REST-API för QnA Maker med Python
 <a name="HOLTop"></a>
@@ -35,12 +35,12 @@ Den här artikeln visar hur du använder den [Microsoft QnA Maker API](../Overvi
 - [Ta bort en kunskapsbas.](#Delete)
 - [Hämta de aktuella slutpunktsnycklarna.](#GetKeys)
 - [Återskapa de aktuella slutpunktsnycklarna.](#PutKeys)
-- [Hämta den aktuella uppsättningen skiftlägeskänsliga word förändras.](#GetAlterations)
-- [Ersätt den aktuella uppsättningen skiftlägeskänsliga word förändras.](#PutAlterations)
+- [Hämta den aktuella uppsättningen Skift läges känsliga ord ändringar.](#GetAlterations)
+- [Ersätt den aktuella uppsättningen Skift läges känsliga ord ändringar.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver [Python 3.x](https://www.python.org/downloads/) för att köra koden.
 

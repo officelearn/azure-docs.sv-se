@@ -8,14 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: ced771002ca9f542f89dbf74ba4a4745ad2a0339
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: aa5ff93b4f1f6392f753a88d57a072f542fc16e2
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850180"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877278"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Självstudier: Anpassa operatörsvyn i Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Den här självstudien visar hur du som är byggare anpassar operatörsvyn för programmet. När du som byggare gör en ändring i programmet kan du förhandsgranska operatörsvyn i Microsoft Azure IoT Central.
 
@@ -28,8 +30,8 @@ I den här guiden får du lära dig att:
 > * Konfigurera layouten för dina enhetsinställningar
 > * Konfigurera layouten för dina enhetsegenskaper
 > * Förhandsgranska enheten som operatör
-> * Konfigurera standardinstrumentpanelen för program
-> * Förhandsgranska standardinstrumentpanelen för program som en operatör
+> * Konfigurera standard program instrument panelen
+> * Förhandsgranska standard instrument panelen som en operatör
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -46,7 +48,7 @@ Som byggare kan du definiera vilken information som ska visas på en enhetsinst
 
     ![Sidan Enhetsmallar](media/tutorial-customize-operator/devicetemplates.png)
 
-2. För att anpassa din instrumentpanel för enheten, Välj den **anslutna luftkonditionering (1.0.0)** enhet mallen som du skapade i den [definierar en ny typ av enhet i ditt program](tutorial-define-device-type.md) självstudien.
+2. Om du vill anpassa din instrument panel för enheten väljer du den **1.0.0-** enhet som du skapade i själv studie kursen [definiera en ny enhets typ i programmet](tutorial-define-device-type.md) .
 
 3. Om du vill redigera instrumentpanelen väljer fliken **Instrumentpanel**.
 
@@ -56,7 +58,7 @@ Som byggare kan du definiera vilken information som ska visas på en enhetsinst
 
     | Inställning     | Värde |
     | ----------- | ----- |
-    | Namn        | Högsta temperatur |
+    | Name        | Högsta temperatur |
     | Tidsintervall  | Senaste veckan |
     | Typ av mått | Telemetri |
     | Mått | temperatur |
@@ -91,7 +93,7 @@ Du kan också konfigurera operatörsvyn för enhetsegenskaperna, förutom instru
 
     ![Redigera egenskapslayouten](media/tutorial-customize-operator/propertieslayout.png)
 
-## <a name="preview-the-device"></a>Förhandsversion av enheten
+## <a name="preview-the-device"></a>Förhandsgranska enheten
 
 Du använder sidan **Enhetsmallar** till att anpassa flikarna för instrumentpanel, inställningar och egenskaper för en operatör. Du använder sidan **Device Explorer** till att visa och använda enhetsmallen.
 
@@ -99,7 +101,7 @@ Du använder sidan **Enhetsmallar** till att anpassa flikarna för instrumentpan
 
     ![Visa och använda enhetsmallen](media/tutorial-customize-operator/usetemplate.png)
 
-2. Om du vill uppdatera platsen för den här enheten väljer du **Egenskaper** och redigerar värdet i platspanelen. Välj sedan **spara**:
+2. Om du vill uppdatera platsen för den här enheten väljer du **Egenskaper** och redigerar värdet i platspanelen. Välj sedan **Spara**:
 
     ![Redigera ett egenskapsvärde](media/tutorial-customize-operator/editproperty.png)
 
@@ -113,37 +115,37 @@ Du använder sidan **Enhetsmallar** till att anpassa flikarna för instrumentpan
 
     ![Operatörsvy för enhetsinstrumentpanelen](media/tutorial-customize-operator/operatordashboard.png)
 
-## <a name="configure-the-default-dashboard"></a>Konfigurera standardinstrumentpanel
+## <a name="configure-the-default-dashboard"></a>Konfigurera standard instrument panelen
 
-När en builder eller operatorn loggar du in på ett Azure IoT Central program, kan de se instrumentpanelen för program. Du kan konfigurera innehållet i standardinstrumentpanelen för att inkludera det mest användbara och relevant innehållet för en operatör som ett verktyg.
+När ett verktyg eller en operatör loggar in till ett Azure IoT Central-program, ser de program instrument panelen. Som ett verktyg kan du konfigurera innehållet på standard instrument panelen så att det innehåller det mest användbara och relevanta innehållet för en operatör.
 
 > [!NOTE]
-> Användare kan också skapa egna personliga instrumentpaneler och välja en som standard.
+> Användare kan också skapa egna personliga instrument paneler och välja en som standard.
 
-1. För att anpassa programmet standardinstrumentpanelen, navigera till den **instrumentpanelen** och välj **redigera** uppe till höger på sidan. En ruta visas med ett bibliotek med objekt som du kan lägga till på instrumentpanelen.
+1. Om du vill anpassa standard instrument panelen navigerar du till sidan **instrument panel** och väljer **Redigera** överst till höger på sidan. En panel visas med ett bibliotek med objekt som du kan lägga till på instrument panelen.
 
-    ![Instrumentpanelen](media/tutorial-customize-operator/builderhome.png)
+    ![Instrument panels sida](media/tutorial-customize-operator/builderhome.png)
 
-2. Du kan anpassa instrumentpanelen genom att lägga till paneler från den **biblioteket**. Välj **Länk** och lägg till information om din organisations webbplats. Välj sedan **Spara**:
+2. Om du vill anpassa instrument panelen lägger du till paneler från **biblioteket**. Välj **Länk** och lägg till information om din organisations webbplats. Välj sedan **Spara**:
 
-    ![Lägg till länk till instrumentpanelen](media/tutorial-customize-operator/addlink.png)
+    ![Lägg till en länk till instrument panelen](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > Du kan också lägga till länkar på sidor i ditt Azure IoT Central-program. Du kan till exempel lägga till en länk på en enhetsinstrumentpanel eller inställningssida.
 
-3. Du kan också välja **bild** och ladda upp en bild som ska visas på instrumentpanelen. En avbildning kan ha en URL som du navigera när du väljer den:
+3. Du kan också välja **bild** och ladda upp en bild som ska visas på instrument panelen. En bild kan ha en URL som du navigerar till när du väljer den:
 
-    ![Lägga till en bild på instrumentpanelen](media/tutorial-customize-operator/addimage.png)
+    ![Lägga till en bild på instrument panelen](media/tutorial-customize-operator/addimage.png)
 
     Läs mer i [Hur du förbereder och laddar upp bilder till ditt Azure IoT Central-program](howto-prepare-images.md).
 
-## <a name="preview-the-dashboard"></a>Förhandsversion av instrumentpanelen
+## <a name="preview-the-dashboard"></a>Förhandsgranska instrument panelen
 
-Om du vill förhandsgranska instrumentpanel för program som operatör, Välj **klar** uppe till höger på sidan.
+Om du vill förhandsgranska program instrument panelen som en operatör väljer du **Done** överst till höger på sidan.
 
 ![Växla designläge](media/tutorial-customize-operator/operatorviewhome.png)
 
-Du kan välja att gå till URL: er som du anger som en builder-länk och avbildningar panelerna.
+Du kan välja länkar och bild paneler för att navigera till de URL: er som du anger som ett verktyg.
 
 ## <a name="next-steps"></a>Nästa steg
 

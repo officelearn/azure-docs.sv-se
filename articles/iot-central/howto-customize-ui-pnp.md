@@ -8,32 +8,32 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 28a0e91befb717882aa202a776e0b9cddb8fd390
+ms.openlocfilehash: 6d120ecc322318e6daf72c506131bcd85c3be4e5
 ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876105"
+ms.locfileid: "69880857"
 ---
-# <a name="customize-the-azure-iot-central-ui"></a>Anpassa Azure IoT Central UI
+# <a name="customize-the-azure-iot-central-ui-preview-features"></a>Anpassa Azure IoT Central UI (för hands versions funktioner)
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+Den här artikeln beskriver hur du, som administratör, kan anpassa användar gränssnittet för ditt program genom att använda anpassade teman och ändra hjälp länkar så att de pekar på dina egna anpassade hjälp resurser. 
 
-Den här artikeln beskriver hur du, som administratör, kan anpassa användar gränssnittet för ditt program genom att använda anpassade teman och ändra hjälp länkar så att de pekar på dina egna anpassade hjälp resurser.
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 På följande skärm bild visas en sida med standard temat:
 
-![Standard IoT Central-tema](./media/howto-customize-ui/standard-ui.png)
+![Standard IoT Central-tema](./media/howto-customize-ui-pnp/standard-ui.png)
 
 På följande skärm bild visas en sida med en anpassad skärm bild med de anpassade GRÄNSSNITTs elementen markerade:
 
-![Anpassat IoT Central-tema](./media/howto-customize-ui/themed-ui.png)
+![Anpassat IoT Central-tema](./media/howto-customize-ui-pnp/themed-ui.png)
 
 ## <a name="create-theme"></a>Skapa tema
 
 Om du vill skapa ett anpassat tema navigerar du till sidan **Anpassa ditt program** i avsnittet **Administration** :
 
-![IoT Central teman](./media/howto-customize-ui/themes.png)
+![IoT Central teman](./media/howto-customize-ui-pnp/themes.png)
 
 På den här sidan kan du anpassa följande aspekter av ditt program:
 
@@ -41,7 +41,7 @@ På den här sidan kan du anpassa följande aspekter av ditt program:
 
 En PNG-bild, som inte är större än 1 MB, med en genomskinlig bakgrund. Logo typen visas till vänster i namn listen för IoT Centrals programmet.
 
-Om logo typens bild innehåller namnet på ditt program kan du dölja texten i program namnet. Mer information finns i [Hantera ditt program](./howto-administer.md#change-application-name-and-url).
+Om logo typens bild innehåller namnet på ditt program kan du dölja texten i program namnet. Mer information finns i [Hantera ditt program](./howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#change-application-name-and-url).
 
 ### <a name="browser-icon-favicon"></a>Webb läsar ikon (favicon)
 
@@ -64,11 +64,11 @@ Om du vill tillhandahålla anpassad hjälp information till dina operatörer och
 
 Om du vill ändra hjälp länkarna navigerar du till sidan **Anpassa hjälp** i avsnittet **Administration** :
 
-![Anpassa IoT Central hjälp länkar](./media/howto-customize-ui/help-links.png)
+![Anpassa IoT Central hjälp länkar](./media/howto-customize-ui-pnp/help-links.png)
 
 Du kan också lägga till nya poster på Hjälp-menyn och ta bort standard poster:
 
-![Anpassad IoT Central hjälp](./media/howto-customize-ui/custom-help.png)
+![Anpassad IoT Central hjälp](./media/howto-customize-ui-pnp/custom-help.png)
 
 > [!NOTE]
 > Du kan alltid återgå till standard hjälp länkarna på sidan **Anpassa hjälp** .
@@ -77,5 +77,5 @@ Du kan också lägga till nya poster på Hjälp-menyn och ta bort standard poste
 
 Nu när du har lärt dig hur du anpassar användar gränssnittet i ditt IoT Central-program, är det här några förslag på nästa steg:
 
-- [Administrera ditt program](./howto-administer.md)
-- [Konfigurera program instrument panelen](./howto-configure-homepage.md)
+- [Administrera ditt program](./howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [Konfigurera program instrument panelen](./howto-configure-homepage.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

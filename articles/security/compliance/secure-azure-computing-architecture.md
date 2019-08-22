@@ -1,119 +1,119 @@
 ---
 title: Skydda Azures databehandlingsarkitektur
-description: Den här referensarkitekturen för en företagsnivå DMZ-arkitektur använder virtuell nätverksutrustning och andra verktyg. Den här arkitekturen har utformats för att uppfylla Försvarsmyndighets skydda Cloud Computing arkitektur funktionskrav. Den ska också användas för alla organisationer. Den här referensen innehåller två alternativ för automatisk som använder Citrix eller F5 installationer.
+description: Den här referens arkitekturen för en DMZ-arkitektur på företags nivå använder virtuella nätverks apparater och andra verktyg. Den här arkitekturen har utformats för att möta försvars departementets säkra funktions krav för molnbaserad data behandling i molnet. Den kan också användas för alla organisationer. Den här referensen innehåller två automatiserade alternativ som använder Citrix eller F5-enheter.
 author: jahender
 ms.author: jahender
 ms.date: 4/9/2019
 ms.topic: article
 ms.service: security
-ms.openlocfilehash: 017a26d5672f666d4d8eaf629a0f53fe0cfe517f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a27eac3d4609f1054b0ef6a9417fe2f1ca53ae4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963228"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656634"
 ---
 # <a name="secure-azure-computing-architecture"></a>Skydda Azures databehandlingsarkitektur
 
-Amerikansk Department of Defense (DoD) kunder som distribuerar arbetsbelastningar till Azure har angett riktlinjer för att ställa in säkra virtuella nätverk och konfigurera säkerhetsverktyg och tjänster som anges av studiematerial och DoD-standarder. 
+Amerikansk DoD-kunder (Department of försvar) som distribuerar arbets belastningar till Azure har bett om rikt linjer för att konfigurera säkra virtuella nätverk och konfigurera de säkerhets verktyg och tjänster som definieras av DoD-standarder och-praxis. 
 
-Defense Information System Agency (DISA) publicerat den [skydda Cloud Computing arkitektur (SCCA) funktionella krav dokumentet (FRD)](https://iasecontent.disa.mil/stigs/pdf/SCCA_FRD_v2-9.pdf) i 2017. SCCA beskriver funktionella målen för att säkra Defense Information System nätverkets (DISN) och kommersiella molnet anslutningspunkter för providern. SCCA beskriver också hur verksamhetskritiska ägare säkra molnprogram på gränsen för anslutningen. Varje DoD-entitet som ansluter till kommersiella molnet måste följa riktlinjerna i SCCA FRD.
+Försvars information system Agency (DISA) publicerade [SCCA-dokumentet (Secure Cloud Computing Architecture) (FRD)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/SCCA_FRD_v2-9.pdf) i 2017. SCCA beskriver de funktionella målen för att skydda försvars information system nätverkets (DISN) och anslutnings punkter för kommersiella moln leverantörer. SCCA beskriver också hur uppdrags ägare skyddar moln program på anslutnings gränser. Varje DoD-entitet som ansluter till det kommersiella molnet måste följa rikt linjerna som anges i SCCA-FRD.
  
 SCCA har fyra komponenter:
  
-- Boundary Cloud Access Point (BCAP)
-- Virtuella Datacenter Security-stacken (VDSS)
-- Virtuella Datacenter hanterad tjänst (VDM)
+- Åtkomst punkt för begränsande moln (BCAP)
+- Säkerhets stack för virtuella Data Center (VDSS)
+- Hanterings tjänst för virtuella Data Center (VDMS)
 - Trusted Cloud Credential Manager (TCCM) 
 
-Microsoft har utvecklat en lösning som uppfyller SCCA för både IL4 och IL5 arbetsbelastningar som körs i Azure. Den här lösningen för Azure-specifika kallas den säkra Azure databehandling arkitektur (SACA). Kunder som distribuerar SACA är kompatibla med SCCA FRD. De kan aktivera DoD-kunder att flytta arbetsbelastningar till Azure när de är anslutna.
+Microsoft har utvecklat en lösning som uppfyller SCCA-kraven för både IL4-och IL5-arbetsbelastningar som körs i Azure. Den här Azure-/regionsspecifika lösningen kallas för SACA (Secure Azure Computing Architecture). Kunder som distribuerar SACA är kompatibla med SCCA-FRD. De kan göra det möjligt för DoD-kunder att flytta arbets belastningar till Azure när de är anslutna.
 
-SCCA vägledning och arkitekturer som är specifika för DoD kunder, men de senaste ändringarna till SACA hjälp federala kunder som är kompatibla med betrodda vägledning för internet-anslutning (ärende). De senaste ändringarna kan också hjälpa med kommersiella kunder som vill implementera en säker DMZ för att skydda sina Azure-miljöer.
+SCCA-vägledning och arkitekturer är speciella för DoD-kunder, men de senaste revisionerna till SACA hjälper civila kunder att följa vägledningen för Trusted Internet Connection (luffarschack). De senaste revideringarna hjälper även kommersiella kunder som vill implementera en säker DMZ för att skydda sina Azure-miljöer.
 
 
-## <a name="secure-cloud-computing-architecture-components"></a>Säker databehandling Molnarkitektur komponenter
+## <a name="secure-cloud-computing-architecture-components"></a>Skydda arkitektur komponenter för molnbaserad data behandling
 
 ### <a name="bcap"></a>BCAP
 
-Syftet med BCAP är att skydda DISN från attacker som har sitt ursprung i molnmiljön. BCAP utför Intrångsdetektion och dataförlustskydd. även filtreras bort obehörig trafik. Den här komponenten kan samordnas med andra komponenter i SCCA. Vi rekommenderar att du distribuerar den här komponenten med hjälp av fysisk maskinvara. BCAP säkerhetskrav visas i följande tabell.
+Syftet med BCAP är att skydda DISN från attacker som har sitt ursprung i moln miljön. BCAP utför intrångs identifiering och skydd. den filtrerar också bort obehörig trafik. Den här komponenten kan samplaceras med andra komponenter i SCCA. Vi rekommenderar att du distribuerar den här komponenten med hjälp av fysisk maskin vara. BCAP säkerhets krav anges i följande tabell.
 
-#### <a name="bcap-security-requirements"></a>BCAP säkerhetskrav
+#### <a name="bcap-security-requirements"></a>BCAP säkerhets krav
 
-![BCAP krav matris](media/bcapreqs.png)
+![BCAP krav mat ris](media/bcapreqs.png)
 
 
 ### <a name="vdss"></a>VDSS
 
-Syftet med VDSS är att skydda DoD verksamhetskritiska ägar-program som finns i Azure. VDSS utför stora mängd du säkerhetsåtgärderna i SCCA. Den genomför trafikkontroll för att skydda program som körs i Azure. Den här komponenten kan anges i Azure-miljön.
+Syftet med VDSS är att skydda DoD uppdrags ägar program som finns i Azure. VDSS utför Mass säkerhets åtgärder i SCCA. Den genomför trafik inspektionen för att skydda de program som körs i Azure. Den här komponenten kan anges i din Azure-miljö.
 
-#### <a name="vdss-security-requirements"></a>VDSS säkerhetskrav
+#### <a name="vdss-security-requirements"></a>VDSS säkerhets krav
 
-![VDSS krav matris](media/vdssreqs.png)
+![VDSS krav mat ris](media/vdssreqs.png)
 
 ### <a name="vdms"></a>VDMS
 
-Syftet med VDM är att tillhandahålla värdsäkerheten och delade data center-tjänster. Funktioner i VDM kan antingen köra i hubben för din SCCA eller verksamhetskritiska ägare kan du distribuera delar av det i sina egna specifika Azure-prenumeration. Den här komponenten kan anges i Azure-miljön.
+Syftet med VDMS är att tillhandahålla värd säkerhet och delade data center tjänster. Funktionerna i VDMS kan antingen köras i hubben för din SCCA eller uppdrags ägaren kan distribuera delar av den i sin egen specifika Azure-prenumeration. Den här komponenten kan anges i din Azure-miljö.
 
-#### <a name="vdms-security-requirements"></a>VDM säkerhetskrav
+#### <a name="vdms-security-requirements"></a>VDMS säkerhets krav
 
-![VDM krav matris](media/vdmsreqs.png)
+![VDMS krav mat ris](media/vdmsreqs.png)
 
 
 ### <a name="tccm"></a>TCCM
 
-TCCM är en roll för företag. Administratören är ansvarig för att hantera SCCA. I ansvarsområdet är att: 
+TCCM är en affärs roll. Den här personen ansvarar för att hantera SCCA. Deras uppgifter är att: 
 
-- Upprätta planer och principer för åtkomst till molnmiljön. 
-- Se till att identitets- och åtkomsthantering fungerar korrekt. 
-- Underhålla Plan för autentiseringsuppgifter i molnet. 
+- Upprätta planer och principer för konto åtkomst till moln miljön. 
+- Se till att identitets-och åtkomst hantering fungerar korrekt. 
+- Underhåll planen för hantering av moln referenser. 
 
-Den här personen är utse auktorisering officiella. Den BCAP och VDSS VDM innehåller funktioner som TCCM behöver för att utföra sitt arbete.
+Den här personen utses av den officiella auktorisationen. BCAP, VDSS och VDMS tillhandahåller de funktioner som TCCM behöver för att utföra sitt jobb.
 
-#### <a name="tccm-security-requirements"></a>TCCM säkerhetskrav
+#### <a name="tccm-security-requirements"></a>TCCM säkerhets krav
 
-![TCCM krav matris](media/tccmreqs.png) 
+![TCCM krav mat ris](media/tccmreqs.png) 
 
-## <a name="saca-components-and-planning-considerations"></a>SACA komponenter och överväganden 
+## <a name="saca-components-and-planning-considerations"></a>SACA-komponenter och överväganden vid planering 
 
-Referensarkitektur SACA är utformad att distribuera komponenter för VDSS och VDM i Azure och aktivera TCCM. Den här arkitekturen är modulära. Alla delar av VDSS och VDM kan finnas i en centraliserad hubb. Vissa kontroller kan uppfyllas i det verksamhetskritiska ägar- eller lokalt. Microsoft rekommenderar att du samplacera VDSS och VDM komponenter till en central virtuella nätverk som alla verksamhetskritiska ägare kan ansluta till. Följande diagram visar den här arkitekturen: 
+SACA-referens arkitekturen är utformad för att distribuera VDSS-och VDMS-komponenterna i Azure och för att aktivera TCCM. Den här arkitekturen är modulär. Alla delar av VDSS och VDMS kan leva i ett centraliserat nav. Vissa av kontrollerna kan uppfyllas i uppdrags ägar utrymmet eller till och med lokalt. Microsoft rekommenderar att du samplacerar VDSS-och VDMS-komponenterna i ett centralt virtuellt nätverk som alla uppdrags ägare kan ansluta till. Följande diagram visar den här arkitekturen: 
 
 
-![Arkitekturdiagram för SACA referens](media/sacav2generic.png)
+![SACA referens arkitektur diagram](media/sacav2generic.png)
 
-Tänk i följande avsnitt från början när du planerar din strategi för SCCA restriktioner och teknisk arkitektur, eftersom de påverkar alla kunder. Följande problem har aktiverats med DoD kunder och tenderar att sakta ned planering och körning. 
+När du planerar din SCCA kompatibilitet-strategi och teknisk arkitektur bör du tänka på följande avsnitt från början eftersom de påverkar varje kund. Följande problem har inträffat i DoD-kunder och tenderar att minska planeringen och körningen. 
 
-#### <a name="which-bcap-will-your-organization-use"></a>Vilka BCAP använder din organisation?
+#### <a name="which-bcap-will-your-organization-use"></a>Vilken BCAP kommer din organisation använda?
    - DISA BCAP:
-        - DISA har två operativa BCAPs på femhörning och Camp Roberts, CA. Tredje planeras som snart blir online. 
-        - DISA: s BCAPs alla har Azure ExpressRoute-kretsar till Azure, vilket kan användas för anslutning av DoD-kunder. 
-        - DISA har en företagsnivå Microsoft peering-session för DoD-kunder som vill prenumerera på Microsoft-programvara som en tjänst (SaaS)-verktyg, till exempel Office 365. Du kan aktivera anslutning och peer-kopplingen till din SACA-instans med hjälp av DISA BCAP. 
-    - Skapa din egen BCAP:
-        - Det här alternativet måste du låna utrymme i ett samordnade datacenter och ställa in en ExpressRoute-krets till Azure. 
+        - DISA har två operativa BCAPs på femhörning och på Camp Roberts, CA. En tredje plan planeras att bli online snart. 
+        - DISA-BCAPs har alla Azure ExpressRoute-kretsar till Azure, som kan användas av DoD-kunder för anslutning. 
+        - DISA har en Microsoft-peering-session på företags nivå för DoD-kunder som vill prenumerera på Microsoft-program som tjänst (SaaS) verktyg, till exempel Office 365. Genom att använda DISA-BCAP kan du aktivera anslutning och peering till SACA-instansen. 
+    - Bygg dina egna BCAP:
+        - Det här alternativet kräver att du lånar utrymme i ett Samplacerat Data Center och konfigurerar en ExpressRoute-krets till Azure. 
         - Det här alternativet kräver ytterligare godkännande. 
-        - På grund av ytterligare godkännande och en fysisk version av tar det här alternativet längst tid. 
-    - Vi rekommenderar att du använder DISA BCAP. Det här alternativet tillgängligt är, har inbyggd redundans och måste kunderna som fungerar på det idag i produktion.
-- DoD dirigerbara IP-adressutrymme:
-    - Du måste använda DoD dirigerbara IP-adressutrymme vid din nätverksgräns. Alternativet att använda NAT för att ansluta dessa blanksteg privata IP-adressutrymme i Azure är tillgängligt.
-    - Kontakta DoD Network Information Center (NIC) för att erhålla IP-utrymme. Du behöver den som en del av ditt bidrag för System/Network godkännande Process (SNAPIN) med DISA. 
-    - Om du planerar att använda NAT för att ansluta privata adressutrymmet i Azure, behöver du minst ett/24-undernät på adressutrymme som tilldelats från nätverkskortet för varje region där du planerar att distribuera SACA.
+        - På grund av det ytterligare godkännandet och en fysisk utbyggnad tar det här alternativet den senaste gången. 
+    - Vi rekommenderar att du använder DISA-BCAP. Det här alternativet är enkelt att komma åt, har inbyggd redundans och har kunder som arbetar på den idag i produktionen.
+- DoD dirigerbart IP-utrymme:
+    - Du måste använda DoD-dirigerbart IP-utrymme på din gräns. Alternativet att använda NAT för att ansluta dessa utrymmen till det privata IP-utrymmet i Azure är tillgängligt.
+    - Kontakta DoD Network Information Center (NIC) för att få IP-utrymme. Du behöver det som en del av ditt system/nätverks godkännande process (SNAP) med DISA. 
+    - Om du planerar att använda NAT för att ansluta privat adress utrymme i Azure, behöver du minst ett/24-undernät för adress utrymmet som tilldelas från NÄTVERKSKORTet för varje region där du planerar att distribuera SACA.
 - Redundans:
-    - Distribuera en SACA-instans till minst två regioner. I molnet DoD distribuera du den till båda tillgängliga DoD-regioner.
-    - Ansluta till minst två BCAPs via separata ExpressRoute-kretsar. Båda ExpressRoute-anslutningar kan sedan kopplas till varje region SACA instans. 
-- DoD komponent-specifika krav:
-    - Har några särskilda krav utanför SCCA kraven i din organisation? Vissa organisationer har särskilda krav för IP-adresser.
+    - Distribuera en SACA-instans till minst två regioner. I DoD-molnet distribuerar du det till båda tillgängliga DoD-regionerna.
+    - Anslut till minst två BCAPs via separata ExpressRoute-kretsar. Båda ExpressRoute-anslutningarna kan sedan länkas till varje regions SACA-instans. 
+- DoD-särskilda krav för komponenten:
+    - Har din organisation några särskilda krav utanför SCCA-kraven? Vissa organisationer har särskilda krav på IP-adresser.
 - SACA är en modulär arkitektur:
-    - Använd endast de komponenter som du behöver för din miljö. 
-        - Distribuera virtuella nätverksinstallationer i en enda nivå eller flera nivåer.
-        - Använd integrerad IP-adresser eller ta med egna IP-adresser.
-- DoD effektnivå för dina program och data:
-    - Om det finns risk att program som körs i Microsoft IL5 regioner måste du skapa din SACA-instans i IL5. Instansen kan användas framför IL4 program och IL5. En instans för IL4 SACA framför ett IL5 program som är mest sannolikt inte tar emot ackreditering.
+    - Använd bara de komponenter som du behöver för din miljö. 
+        - Distribuera virtuella nätverks enheter på en enda nivå eller flera nivåer.
+        - Använd integrerade IP-adresser eller ta egna IP-adresser.
+- DoD effekt nivå för dina program och data:
+    - Om det finns någon möjlighet att köra program i Microsoft IL5-regioner skapar du SACA-instansen i IL5. Instansen kan användas framför IL4-program och IL5. En IL4 SACA-instans framför ett IL5-program kommer troligen inte att få någon ackreditering.
 
-#### <a name="which-network-virtual-appliance-vendor-will-you-use-for-vdss"></a>Vilken leverantör för virtuell installation av nätverket ska du använda för VDSS?
-Som tidigare nämnts kan du skapa SACA referensen med hjälp av en mängd olika enheter och Azure-tjänster. Microsoft har en automatiserad lösningsmallar om du vill distribuera arkitekturen SACA med både F5 och Citrix. Dessa lösningar beskrivs i följande avsnitt.
+#### <a name="which-network-virtual-appliance-vendor-will-you-use-for-vdss"></a>Vilken nätverks leverantör av virtuella enheter kommer du att använda för VDSS?
+Som tidigare nämnts kan du bygga den här SACA-referensen med hjälp av en mängd olika apparater och Azure-tjänster. Microsoft har automatiserade lösnings mallar för att distribuera SACA-arkitekturen med både F5 och Citrix. Dessa lösningar beskrivs i följande avsnitt.
 
-#### <a name="which-azure-services-will-you-use"></a>Vilka Azure-tjänster ska du använda?
-- Det finns Azure-tjänster som uppfyller kraven för logganalys, värdbaserad skydds- och ID: N funktioner. Det är möjligt att vissa tjänster inte är allmänt tillgängligt i Microsoft IL5 regioner. I det här fallet kan du behöva använda verktyg från tredje part om dessa Azure-tjänster inte kan uppfyller dina krav. Titta på de verktyg du är bekant med och möjligt att använda interna Azure-verktyg.
-- Vi rekommenderar att du använder så många interna Azure-verktyg som möjligt. De är byggda med cloud security i åtanke och integrera sömlöst med resten av Azure-plattformen. Använda Azure inbyggda verktyg i listan nedan för att uppfylla olika krav SCCA:
+#### <a name="which-azure-services-will-you-use"></a>Vilka Azure-tjänster kommer du att använda?
+- Det finns Azure-tjänster som kan uppfylla kraven för Log Analytics, värdbaserade skydd och ID-funktioner. Det är möjligt att vissa tjänster inte är allmänt tillgängliga i Microsoft IL5-regioner. I så fall kan du behöva använda verktyg från tredje part om dessa Azure-tjänster inte uppfyller dina krav. Titta på de verktyg du känner till och möjligheten att använda Azures inbyggda verktyg.
+- Vi rekommenderar att du använder så många inbyggda Azure-verktyg som möjligt. De har skapats med moln säkerhet i åtanke och integreras sömlöst med resten av Azure-plattformen. Använd de inbyggda Azure-verktygen i följande lista för att uppfylla olika krav för SCCA:
 
     - [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview )
     - [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) 
@@ -121,75 +121,75 @@ Som tidigare nämnts kan du skapa SACA referensen med hjälp av en mängd olika 
     - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) 
     - [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
     - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview)
-    - [Azure-brandväggen](https://docs.microsoft.com/azure/firewall/overview) 
+    - [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview) 
     - [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview)
     - [Azure-säkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/security-overview)
     - [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)
     - [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/overview)
 - Storleksändring
-    - En storlek Övning måste utföras. Titta på antalet samtidiga anslutningar som du kanske via SACA-instans och nätverkskrav för dataflöde. 
-    - Det här steget är viktigt. Det hjälper dig att ändra storlek på de virtuella datorerna och identifiera de licenser som krävs från olika leverantörer som du använder i din instans av SACA. 
-    - En bra kostnadsanalys kan inte utföras utan den här övningen storlek. Det kan också rätt storlek för bästa prestanda. 
+    - En storleks övning måste utföras. Titta på antalet samtidiga anslutningar som du kan ha via SACA-instansen och kraven på nätverks data flöde. 
+    - Det här steget är kritiskt. Den hjälper till att ändra storlek på de virtuella datorerna och identifiera de licenser som krävs från de olika leverantörer som du använder i din SACA-instans. 
+    - Det går inte att utföra en klar kostnads analys utan denna storleks övning. Korrekt storlek ger också bästa möjliga prestanda. 
 
 
-## <a name="most-common-deployment-scenario"></a>De vanligaste distributionsscenario
+## <a name="most-common-deployment-scenario"></a>Vanligaste distributions scenariot
 
- Flera Microsoft-kunder har gått igenom fullständig distribution eller vid minst av planeringsfasen SACA miljö. Deras upplevelser framkommer insikt i de vanligaste distributionsscenariot. Följande diagram illustrerar de vanligaste arkitekturen: 
-
-
-![Arkitekturdiagram för SACA referens](media/sacav2commonscenario.png) 
+ Många Microsoft-kunder har genomgått en fullständig distribution eller minst planerings faserna i sina SACA-miljöer. Deras upplevelser visar inblick i det vanligaste distributions scenariot. Följande diagram visar den vanligaste arkitekturen: 
 
 
-Som du ser i diagrammet, prenumerera DoD kunder vanligtvis på två av DISA BCAPs. En av dessa ligger på västkusten och andra liv på östkusten. En ExpressRoute privat peer-enhet aktiveras till Azure på varje DISA BCAP plats. Dessa ExpressRoute peer-datorer kopplas sedan till den virtuella nätverksgatewayen i DoD, östra och DoD centrala Azure-regioner. En SACA-instans distribueras i DoD, östra och DoD centrala Azure-regioner. Alla ingående och utgående trafik flödar genom det till och från ExpressRoute-anslutningen till DISA BCAP.
+![SACA referens arkitektur diagram](media/sacav2commonscenario.png) 
 
-Ägare av verksamhetskritiska program väljer du de Azure-regioner där de planerar att distribuera sina program. De använder virtuell nätverkspeering för att ansluta virtuella nätverk i sitt program till det virtuella nätverket från SACA. Och sedan de Tvingad tunnel sin trafik genom VDSS-instans.
 
-Vi rekommenderar den här arkitekturen eftersom de uppfyller kraven för SCCA. Det är med hög tillgänglighet och lätt att skala. Det förenklar distribution och hantering.
+Som du kan se i diagrammet prenumererar DoD kunder vanligt vis på två av DISA-BCAPs. En av dessa liv på västkusten och den andra bor på östra kusten. En privat ExpressRoute-peer är aktive rad för Azure på varje DISA BCAP-plats. Dessa ExpressRoute-peer-datorer länkas sedan till den virtuella Nätverksgatewayen i DoD öst-och DoD-centrala Azure-regioner. En SACA-instans distribueras i DoD öst-och DoD-centrala Azure-regioner. All ingående och utgående trafik flödar genom den till och från ExpressRoute-anslutningen till DISA-BCAP.
 
-## <a name="automated-saca-deployment-options"></a>Automatiserad SACA-distributionsalternativ
+Program för uppdrags ägare väljer sedan de Azure-regioner där de planerar att distribuera sina program. De använder peering för virtuella nätverk för att ansluta sina programs virtuella nätverk till det virtuella SACA-nätverket. Därefter tvingar de tunnel trafik genom VDSS-instansen.
 
- Som tidigare nämnts Microsoft samarbetar med två leverantörer för att skapa olika SACA infrastruktur mallar. Båda mallarna distribuerar följande Azure-komponenterna: 
+Vi rekommenderar den här arkitekturen eftersom den uppfyller SCCA-krav. Den är hög tillgänglig och lätt att skala. Det fören klar också distribution och hantering.
+
+## <a name="automated-saca-deployment-options"></a>Automatiserade SACA distributions alternativ
+
+ Som tidigare nämnts har Microsoft samarbetat med två leverantörer för att skapa en automatiserad infrastruktur mal len SACA. Båda mallarna distribuerar följande Azure-komponenter: 
 
 - SACA virtuellt nätverk
-    - Hanteringsundernätet
-        - Det här undernätet är där hantering av virtuella datorer och tjänster har distribuerats, även känt som en jump-rutorna.
-        - VDM undernät
-            - Det här undernätet är där virtuella datorer och tjänster som används för VDM har distribuerats.
-        - Obetrodda och betrodda undernät
-            - Dessa undernät är där virtuella installationer distribueras.
-        - Gateway-undernät
-            - Det här undernätet är där ExpressRoute-gatewayen distribueras.
-- Virtuella hanteringsdatorerna jump box
+    - Hanterings under nät
+        - Det här under nätet är den plats där hantering av virtuella datorer och tjänster distribueras, även kallat hopp rutor.
+        - VDMS-undernät
+            - Det här under nätet är där virtuella datorer och tjänster som används för VDMS distribueras.
+        - Ej betrodda och betrodda undernät
+            - Dessa undernät är där virtuella enheter distribueras.
+        - Gatewayundernät
+            - Det här under nätet är där ExpressRoute-gatewayen distribueras.
+- Hanterings rutan för virtuella datorer i hanterings hopp
     - De används för out-of-band-hantering av miljön.
 - Virtuella nätverksinstallationer
-    - Du använder antingen Citrix eller F5 baserat på vilken mall som du distribuerar.
+    - Du använder antingen Citrix eller F5 baserat på vilken mall du distribuerar.
 - Offentliga IP-adresser
-    - De används för klientdelen tills ExpressRoute är online. Dessa IP-adresser översätts till serverdel privata adressutrymmet i Azure.
+    - De används för klient delen tills ExpressRoute är online. De här IP-adresserna översätts till det privata Azure-adressutrymmet.
 - Routningstabeller 
-    - Tillämpas under automation, dirigera dessa tabeller tvinga tunneltrafik all trafik via den virtuella installationen.
-- Azure-belastningsutjämnare – Standard-SKU
-    - De används för att läsa in belastningsutjämna trafik mellan enheter.
+    - Dessa Route-tabeller tillämpas under automatiseringen och tvingar all trafik via den virtuella installationen.
+- Azure load BALANCERS – standard-SKU
+    - De används för att belastningsutjämna trafik mellan de olika enheterna.
 - Nätverkssäkerhetsgrupper
-    - De används för att styra vilka typer av trafik som kan bläddra till vissa slutpunkter.
+    - De används för att styra vilka typer av trafik som kan passera till vissa slut punkter.
 
 
-### <a name="citrix-saca-deployment"></a>Citrix SACA distribution
+### <a name="citrix-saca-deployment"></a>Citrix SACA-distribution
 
-En mall för distribution av Citrix distribuerar två skikt med hög tillgänglighet Citrix ADC-installationer. Den här arkitekturen uppfyller kraven för VDSS. 
+En mall för att distribuera Citrix distribuerar två lager med ADC-enheter med hög tillgänglighet. Den här arkitekturen uppfyller kraven i VDSS. 
 
-![Citrix SACA diagram](media/citrixsaca.png)
-
-
-Citrix-dokumentation och distributionsskriptet finns i [GitHub länken](https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca).
+![Citrix SACA-diagram](media/citrixsaca.png)
 
 
- ### <a name="f5-saca-deployment"></a>F5 SACA distribution
+För Citrix-dokumentationen och distributions skriptet, se [den här github-länken](https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca).
 
-Två separata F5 mallar för distribution omfattar två olika arkitekturer. Den första mallen har bara ett lager med F5 installationer i en aktiv-aktiv-konfiguration med hög tillgänglighet. Den här arkitekturen uppfyller kraven för VDSS. Den andra mallen lägger till ett andra lager för aktiv-aktiv med hög tillgänglighet F5s. Den här andra lager kan kunderna lägga till egna IP-adresser som är separat från F5 mellan F5-lager. Inte alla DoD-komponenter har specifika IP-adresser som föreskrivs för användning. Om så är fallet, fungerar det enda lagret med F5 installationer för de flesta eftersom den arkitekturen innehåller IP-adresser på F5-enheter.
 
-![F5 SACA diagram](media/f5saca.png)
+ ### <a name="f5-saca-deployment"></a>F5 SACA-distribution
 
-F5-dokumentation och distributionsskriptet finns i [GitHub länken](https://github.com/f5devcentral/f5-azure-saca).
+Två separata F5-mallar behandlar två olika arkitekturer. Den första mallen har bara ett lager med F5-enheter i en aktiv-aktiv konfiguration med hög tillgänglighet. Den här arkitekturen uppfyller kraven för VDSS. Den andra mallen lägger till ett andra lager av aktiva, hög tillgängliga F5s. Det här andra lagret låter kunder lägga till sina egna IP-adresser åtskilda från F5 mellan F5-lagren. Alla DoD-komponenter har inte särskilda IP-adresser som krävs för användning. Om så är fallet fungerar det enda lagret med F5-enheter för de flesta eftersom den arkitekturen innehåller IP-adresser på F5-enheterna.
+
+![F5 SACA-diagram](media/f5saca.png)
+
+För F5-dokumentationen och distributions skriptet, se [den här github-länken](https://github.com/f5devcentral/f5-azure-saca).
 
 
 

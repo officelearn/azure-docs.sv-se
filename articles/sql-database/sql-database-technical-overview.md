@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: e648f89a86d7d6064b883496f888cb27a4af27e4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1c4fae5c41f4f23c4a7fe3135b602133aa69aacd
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566393"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873684"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database tjänst
 
@@ -197,6 +197,8 @@ SQL Database gör byggandet och underhållet av appar enklare och mer produktivt
   En kostnads fri, nedladdnings bar kod redigerare med öppen källkod för Windows, macOS och Linux som stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för frågor Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse.
 
 Skapa program med Python, Java, Node.js, PHP, Ruby och .NET på MacOS, Linux och Windows har stöd för SQL-databas. SQL Database stöder samma [anslutningsbibliotek](sql-database-libraries.md) som SQL Server.
+
+[!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
 
 ## <a name="sql-database-frequently-asked-questions-faq"></a>Vanliga frågor och svar om SQL Database
 

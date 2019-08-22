@@ -2,19 +2,19 @@
 title: 'Snabbstart: Skapa, Läs in och fråga ett index med Azure Portal-Azure Search'
 description: Använd guiden Importera data i Azure Portal för att skapa, läsa in och fråga ditt första index i Azure Search.
 author: lobrien
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: laobri
-ms.openlocfilehash: e8baa2ae5f60926f46be577a02d3c23ad6b77b79
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: c2950b35f207f772f1190a2f8f104098eeb43375
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828476"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656353"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Snabbstart: Skapa ett Azure Search-index med hjälp av Azure Portal
 > [!div class="op_single_selector"]

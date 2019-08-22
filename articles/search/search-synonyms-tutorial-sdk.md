@@ -1,7 +1,7 @@
 ---
-title: Synonymer C# exempel – Azure Search
-description: I det här C# exempelvis Lär dig hur du lägger till synonymfunktionen för i ett index i Azure Search. En synonymkarta är en lista med motsvarande termer. Fält med stöd för synonymer expanderar frågor till att innehålla det användarangivna uttrycket och alla relaterade synonymer.
-manager: cgronlun
+title: C# Exempel på synonymer – Azure Search
+description: I det C# här exemplet lär du dig hur du lägger till synonym funktionen i ett index i Azure Search. En synonymkarta är en lista med motsvarande termer. Fält med stöd för synonymer expanderar frågor till att innehålla det användarangivna uttrycket och alla relaterade synonymer.
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad71a6ab5090e601ef075617edf08c421abebdb0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025159"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647759"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Exempel: Lägga till synonymer för Azure Search i C#
 
 Med synonymer kan du utöka en fråga genom att matcha mot termer som anses betyda samma sak som den angivna söktermen. Du kanske vill att söktermen ”bil” även ska matcha dokument som innehåller termen ”fordon”. 
 
-I Azure Search definieras synonymer i en *synonymmappning* enligt *mappningsregler* som associerar ekvivalenta termer. Det här exemplet beskriver viktiga steg för att lägga till och med synonymer med ett befintligt index. Lär dig att:
+I Azure Search definieras synonymer i en *synonymmappning* enligt *mappningsregler* som associerar ekvivalenta termer. I det här exemplet beskrivs viktiga steg för att lägga till och använda synonymer med ett befintligt index. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en synonym karta med det [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) klass. 
-> * Ange den [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) egenskapen på fält som ska ha stöd för frågan expansion via synonymer.
+> * Skapa en synonym mappning med klassen [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
+> * Ange egenskapen [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) för fält som ska ha stöd för frågans expansion via synonymer.
 
-Du kan fråga ett synonymen-aktiverade fält som vanligt. Det finns inga ytterligare frågesyntax som krävs för att få åtkomst till synonymer.
+Du kan fråga ett synonymt-aktiverat fält som vanligt. Det krävs ingen ytterligare frågesyntax som krävs för att komma åt synonymer.
 
 Du kan skapa flera synonymmappningar, publicera dem som en resurs på tjänstnivå tillgänglig för alla index och sedan referera till den mappning som ska användas på fältnivå. När en fråga körs kommer Azure Search då att söka i den synonymmappning som anges för fälten som används i frågan förutom att söka i indexet.
 
 > [!NOTE]
-> Synonymer kan skapas via programmering, men inte i portalen. Om du skulle ha nytta av funktionen Synonymer på Azure Portal vill vi gärna att du skickar din feedback via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> Synonymer kan skapas program mässigt, men inte i portalen. Om du skulle ha nytta av funktionen Synonymer på Azure Portal vill vi gärna att du skickar din feedback via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien behöver du följande:
 
@@ -44,7 +44,7 @@ I den här självstudien behöver du följande:
 
 ## <a name="overview"></a>Översikt
 
-Med före-och-efter-frågor kan du se hur användbara synonymer kan vara. I det här exemplet använder du ett exempelprogram som kör frågor och returnerar resultatet för ett exempelindex. Exempelprogrammet skapar ett litet index med namnet ”hotels” som innehåller två dokument. Programmet kör sökfrågor med termer och fraser som inte förekommer i indexet, aktiverar synonymfunktionen och kör sedan samma sökningar igen. I koden nedan kan du se flödet som en helhet.
+Med före-och-efter-frågor kan du se hur användbara synonymer kan vara. I det här exemplet använder du ett exempel program som kör frågor och returnerar resultat i ett exempel index. Exempelprogrammet skapar ett litet index med namnet ”hotels” som innehåller två dokument. Programmet kör sökfrågor med termer och fraser som inte förekommer i indexet, aktiverar synonymfunktionen och kör sedan samma sökningar igen. I koden nedan kan du se flödet som en helhet.
 
 ```csharp
   static void Main(string[] args)
@@ -163,18 +163,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 Den första frågan hittar dokument via regeln `five star=>luxury`. Den andra frågan utökar sökningen med `internet,wifi` och den tredje med både `hotel, motel` och `economy,inexpensive=>budget`, och därför hittas de matchande dokumenten.
 
-Du får en helt ny sökupplevelse när du lägger till synonymer. I det här exemplet de ursprungliga frågorna kunde inte returnera meningsfulla resultat trots att dokumenten i indexet var relevanta. Genom att aktivera synonymer kan vi expandera ett index med termer som används ofta utan att behöva ändra underliggande data i indexet.
+Du får en helt ny sökupplevelse när du lägger till synonymer. I det här exemplet kunde inte de ursprungliga frågorna returnera meningsfulla resultat trots att dokumenten i vårt index var relevanta. Genom att aktivera synonymer kan vi expandera ett index med termer som används ofta utan att behöva ändra underliggande data i indexet.
 
 ## <a name="sample-application-source-code"></a>Källkod för exempelprogrammet
 Du hittar hela källkoden för exempelprogrammet i den här genomgången på [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Det snabbaste sättet att rensa upp efter ett exempel är genom att ta bort resursgruppen som innehåller Azure Search-tjänsten. Du kan ta bort resursgruppen nu så att allt innehåll i den tas bort permanent. I portalen ser du resursgruppens namn på översiktssidan för Azure Search-tjänsten.
+Det snabbaste sättet att rensa efter ett exempel är genom att ta bort resurs gruppen som innehåller den Azure Search tjänsten. Du kan ta bort resursgruppen nu så att allt innehåll i den tas bort permanent. I portalen ser du resursgruppens namn på översiktssidan för Azure Search-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här exemplet visas synonymfunktionen i C# kod för att skapa och publicera regler för mappning av och sedan anropa synonymmappningen på en fråga. Mer information finns i referensdokumentationen för [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) och [REST-API:t](https://docs.microsoft.com/rest/api/searchservice/).
+I det här exemplet demonstreras funktionen synonymer i C# kod för att skapa och publicera mappnings regler och sedan anropa synonym kartan på en fråga. Mer information finns i referensdokumentationen för [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) och [REST-API:t](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Använda synonymer i Azure Search](search-synonyms.md)

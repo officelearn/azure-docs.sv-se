@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: f0944e9fddc0afb28f758ba7b16232330d3bc34d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 5095e680eb7fd33d28acb2d187f83d86db1b46bf
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635526"
+ms.locfileid: "69656632"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Hur du utnyttjar ett Service Fabric programmets hanterade identitet för att få åtkomst till Azure-tjänster (för hands version)
 
@@ -60,7 +60,7 @@ vilken
 | `GET` | HTTP-verbet som anger att du vill hämta data från slut punkten. I det här fallet en OAuth-åtkomsttoken. | 
 | `http://localhost:2377/metadata/identity/oauth2/token` | Den hanterade identitets slut punkten för Service Fabric program som tillhandahålls via miljövariabeln MSI_ENDPOINT. |
 | `api-version` | En frågesträngparametern, som anger API-versionen för den hanterade identitets-token-tjänsten. för närvarande är `2019-07-01-preview`det enda godkända värdet och kan komma att ändras. |
-| `resource` | En frågesträngparametern som anger URI för app-ID för mål resursen. Detta kommer att avspeglas som `aud` mål för den utfärdade token. I det här exemplet begärs en token för åtkomst till Azure Key Vault, vars https://keyvault.azure.com/ app-ID-URI är. |
+| `resource` | En frågesträngparametern som anger URI för app-ID för mål resursen. Detta kommer att avspeglas som `aud` mål för den utfärdade token. I det här exemplet begärs en token för åtkomst till Azure Key Vault, vars app-\/ID-URI är https:/keyvault.Azure.com/. |
 | `Secret` | Ett huvud fält för HTTP-begäran som krävs av den Service Fabric Managed Identity token-tjänsten för att Service Fabric Services ska kunna autentisera anroparen. Det här värdet tillhandahålls av MSI_SECRET-miljövariabeln SF-körning via miljö. |
 
 

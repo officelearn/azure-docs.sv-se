@@ -1,40 +1,40 @@
 ---
-title: Använda ScaleR och SparkR med Azure HDInsight
-description: Använda ScaleR och SparkR med ML-tjänster på HDInsight
+title: Använda scaler och Spark med Azure HDInsight
+description: Använd scaler och Spark med ML-tjänster i HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: 48792a90a42d0cfe5c0b34c872b3d474d6a784f1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 75bbcfa831ba7ef0b3dd0da629cfa94768d6ae9d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433493"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873334"
 ---
-# <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera ScaleR och SparkR i HDInsight
+# <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera scaler och Sparkr i HDInsight
 
-Det här dokumentet beskrivs hur du kan förutsäga ankomst flygförseningar med hjälp av en **ScaleR** logistic regression-modellen. I exemplet används flygning fördröjning och väder data med hjälp av **SparkR**.
+Det här dokumentet visar hur du förutsäger fördröjningar i flygningen med en modell för skalnings-logistik regression. Exemplet använder flyg fördröjning och väder data som anslötsmed sparker.
 
-Även om båda paketen körs på motorn för körning av Apache Hadoop Spark, blockeras de minnesintern Datadelning eftersom de kräver sina egna respektive Spark-sessioner. Tills problemet åtgärdas i en kommande version av ML Server, är lösningen att upprätthålla inte överlappar Spark-sessioner och för att utbyta data via mellanliggande filer. Instruktionerna här visar att dessa krav är enkelt att uppnå.
+Även om båda paketen körs på Apache Hadoops Spark-körnings motor blockeras de från data delning i minnet eftersom de kräver sina egna respektive Spark-sessioner. Tills det här problemet har åtgärd ATS i en kommande version av ML Server, är lösningen att underhålla Spark-sessioner som inte överlappar och för att utbyta data via mellanliggande filer. Anvisningarna här visar att dessa krav är enkla att uppnå.
 
-Det här exemplet har ursprungligen delas i en talk på Strata 2016 av Mario Inchiosa och Roni Burd. Du hittar den här diskussionen på [att bygga en skalbar Datavetenskapsplattform med R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
+Det här exemplet delade först i en prata vid Strata 2016 av Mario Inchiosa och Roni Burd. Du hittar den här genom att [bygga en skalbar plattform för data vetenskap med R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
-Koden skapades ursprungligen för ML Server som körs på Spark i HDInsight-kluster i Azure. Men begreppet blanda användningen av SparkR och ScaleR i ett skript också är giltig i kontexten för lokala miljöer.
+Koden skrevs ursprungligen för ML Server som körs i spark i ett HDInsight-kluster på Azure. Men begreppet att blanda användningen av sparker och scaler i ett skript är också giltigt i samband med lokala miljöer.
 
-I det här dokumentet förutsätter vi att du har en mellanliggande nivå av kunskaper om R och är den [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) bibliotek med ML Server. Du introduceras [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) vid gå igenom det här scenariot.
+Stegen i det här dokumentet förutsätter att du har en mellanliggande kunskap om R och är [skalnings](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) bibliotek för ml Server. Du introduceras i [sparker](https://spark.apache.org/docs/2.1.0/sparkr.html) och går igenom det här scenariot.
 
-## <a name="the-airline-and-weather-datasets"></a>Datauppsättningar för flygbolag och väder
+## <a name="the-airline-and-weather-datasets"></a>Data uppsättningarna flyg och väder
 
-Flight data är tillgängliga från den [US government Arkiv](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Det är också tillgängligt som en zip från [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+Flyg data är tillgängliga från [amerikanska myndighets Arkiv](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Den är också tillgänglig som ett zip från [AirOnTimeCSV. zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Weather-data som kan laddas ned som zip-filer i obearbetat format efter månad, från den [National Oceanic and Atmospheric Administration databasen](https://www.ncdc.noaa.gov/orders/qclcd/). Hämta data för maj 2007 – December 2012 i det här exemplet. Använda per timme datafiler och `YYYYMMMstation.txt` fil i var och en av komprimerade. 
+Väder data kan laddas ned som zip-filer i obearbetad form, efter månad, från den [nationella databasen för havs-och luft administration](https://www.ncdc.noaa.gov/orders/qclcd/). I det här exemplet hämtar du data för maj 2007 – december 2012. Använd varje data fil i timmen och `YYYYMMMstation.txt` filen i varje zips. 
 
-## <a name="setting-up-the-spark-environment"></a>Konfigurera Spark-miljö
+## <a name="setting-up-the-spark-environment"></a>Konfigurera Spark-miljön
 
-Använd följande kod för att konfigurera Spark-miljö:
+Använd följande kod för att konfigurera Spark-miljön:
 
 ```
 workDir        <- '~'  
@@ -79,7 +79,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Lägg sedan till `Spark_Home` till sökvägen för R-paket. Lägga till den i sökvägen kan du använda SparkR och initiera en SparkR session:
+Lägg `Spark_Home` sedan till i Sök vägen för R-paket. Genom att lägga till den i Sök vägen kan du använda sparker och initiera en spark-session:
 
 ```
 #..setup for use of SparkR  
@@ -100,20 +100,20 @@ sc <- sparkR.init(
 sqlContext <- sparkRSQL.init(sc)
 ```
 
-## <a name="preparing-the-weather-data"></a>Förberedelsen av väderdata
+## <a name="preparing-the-weather-data"></a>Förbereda väder data
 
-För att förbereda väderdata delmängd den till kolumnerna som behövs för modellering: 
+För att förbereda väder data, delmängd den till de kolumner som behövs för modellering: 
 
-- ”Visibility”
+- Insyn
 - "DryBulbCelsius"
 - "DewPointCelsius"
 - "RelativeHumidity"
 - "WindSpeed"
 - "Altimeter"
 
-Sedan lägger du till en flygplats kod som är associerade med stationen som väder och konvertera mätningar från lokal tid till UTC.
+Lägg sedan till en flyg plats kod som är kopplad till väder stationen och konvertera måtten från lokal tid till UTC.
 
-Börja med att skapa en fil för att mappa info-väderstation, (WBAN) till en flygplats-kod. Följande kod läser var och en av datafiler för varje timme raw väder, delmängder till de kolumner vi behöver, sammanfogar mappningsfilen-väderstation, justerar datum-tid för mätning av faktisk användning till UTC och sedan skriver en ny version av filen:
+Börja med att skapa en fil för att mappa väder stationens (WBAN) information till en flyg plats kod. Följande kod läser var och en av de obearbetade väder-datafilerna för varje timme, under uppsättningar till de kolumner som vi behöver, sammanfogar väder stationens mappnings fil, justerar datum tiderna för mätningarna till UTC och skriver sedan ut en ny version av filen:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
@@ -191,9 +191,9 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
            transformObjects = list(wbanToAirIDAndTZDF1 = wbanToAirIDAndTZDF))
 ```
 
-## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importerar data flygbolag och väder till Spark dataramar
+## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importera flyg-och väder data till Spark DataFrames
 
-Vi använder SparkR [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) funktionen Importera väder och flygbolag data till Spark dataramar. Den här funktionen så många andra Spark-metoder, utförs lazily, vilket innebär att de i kö för körning men inte köras förrän krävs.
+Nu använder vi Spark-funktionen [Read. DF ()](http://spark.apache.org/docs/latest/api/R/read.df.html) för att importera väder-och flyg data till Spark-DataFrames. Den här funktionen, precis som många andra Spark-metoder, körs Lazy, vilket innebär att de står i kö för körning men inte körs förrän de krävs.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -215,9 +215,9 @@ weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv
                      header = "true", inferSchema = "true")
 ```
 
-## <a name="data-cleansing-and-transformation"></a>Datarensning och transformering
+## <a name="data-cleansing-and-transformation"></a>Rengöring och transformering av data
 
-Därefter gör vi Rensa på flygbolag data som vi har importerat att byta namn på kolumner. Vi bara behålla de variabler som behövs och avrunda till närmaste timme Aktivera koppling med senaste väderdata vid avgång schemalagda avgång tider:
+Nu gör vi några rensningar av flyg data som vi har importerat för att byta namn på kolumner. Vi behåller bara de variabler som behövs, och den schemalagda sändnings tiden går nedåt till närmaste timme för att aktivera sammanfogning med de senaste väder uppgifterna vid avresa:
 
 ```
 logmsg('clean the airline data') 
@@ -245,7 +245,7 @@ coltypes(airDF) <- c("character", "integer", "integer", "integer", "integer", "c
 airDF$CRSDepTime <- floor(airDF$CRSDepTime / 100)
 ```
 
-Nu kan vi utföra liknande åtgärder på weather-data:
+Nu utför vi liknande åtgärder på väder data:
 
 ```
 # Average weather readings by hour
@@ -264,9 +264,9 @@ weatherDF <- rename(weatherDF,
 )
 ```
 
-## <a name="joining-the-weather-and-airline-data"></a>Koppla väder och flygbolag data
+## <a name="joining-the-weather-and-airline-data"></a>Ansluta till väder-och flyg data
 
-Nu använder vi SparkR [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) som utför en vänster yttre koppling av flygbolag och väder data genom att han eller hon lämnar AirportID och datetime. Yttre koppling ger oss möjlighet att behålla alla flygbolag dataposter även om det finns inga matchande weather-data. Följande kopplingen vi ta bort vissa redundant kolumner och Byt namn på behållna kolumner för att ta bort prefixet inkommande DataFrame introducerats av kopplingen.
+Vi använder nu funktionen Spark [JOIN ()](http://spark.apache.org/docs/latest/api/R/join.html) för att göra en yttre yttre koppling av flyg-och väder data efter avgångs-AirportID och DateTime. Med den yttre kopplingen kan vi behålla alla flyg data poster även om det inte finns några matchande väder data. Efter kopplingen tar vi bort några överflödiga kolumner och byter namn på de sparade kolumnerna för att ta bort det inkommande DataFrame-prefixet som introducerades av kopplingen.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -297,7 +297,7 @@ joinedDF2 <- rename(joinedDF1,
 )
 ```
 
-På liknande sätt Anslut vi väder och flygbolag data baserat på ankomst AirportID och datum/tid:
+På liknande sätt ansluter vi väder-och flyg data baserat på ankomst-AirportID och datetime:
 
 ```
 logmsg('Join airline data with weather at Destination Airport')
@@ -328,9 +328,9 @@ joinedDF5 <- rename(joinedDF4,
                     )
 ```
 
-## <a name="save-results-to-csv-for-exchange-with-scaler"></a>Spara resultaten till CSV för exchange med ScaleR
+## <a name="save-results-to-csv-for-exchange-with-scaler"></a>Spara resultat till CSV för Exchange med scaler
 
-Kopplingar som vi behöver göra med SparkR är klar. Vi spara data från den sista Spark DataFrame ”joinedDF5” i en klusterdelad volym för indata till ScaleR och stäng sedan ut SparkR sessionen. Vi begära uttryckligen SparkR att spara den resulterande CSV i 80 olika partitioner för att aktivera tillräcklig parallellitet i ScaleR bearbetning:
+Detta slutför de kopplingar som vi behöver göra med Spark. Vi sparar data från den slutliga Spark-DataFrame "joinedDF5" till en CSV för indata till scaler och stänger sedan Spark-sessionen. Du uppmanas uttryckligen att spara den resulterande CSV-filen i 80 separata partitioner för att möjliggöra tillräcklig parallellitet i skalnings hantering:
 
 ```
 logmsg('output the joined data from Spark to CSV') 
@@ -346,9 +346,9 @@ sparkR.stop()
 rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 ```
 
-## <a name="import-to-xdf-for-use-by-scaler"></a>Importera till XDF för användning av ScaleR
+## <a name="import-to-xdf-for-use-by-scaler"></a>Importera till XDF för användning av scaler
 
-Vi kunde använda CSV-filen med domänanslutna flygbolag och väderdata som – för modellering via en datakälla för ScaleR text. Men vi importera den till XDF först, eftersom det är mer effektivt när du kör flera åtgärder på datauppsättningen:
+Vi kan använda CSV-filen för anslutna flyg bolag och väder data som-är för modellering via en data källa för skalnings text. Men vi importerar det till XDF först, eftersom det är mer effektivt när du kör flera åtgärder på data uppsättningen:
 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
@@ -431,9 +431,9 @@ finalData <- RxXdfData(file.path(dataDir, "joined5XDF"), fileSystem = hdfsFS)
 
 ```
 
-## <a name="splitting-data-for-training-and-test"></a>Dela upp data för träning och testning
+## <a name="splitting-data-for-training-and-test"></a>Dela data för utbildning och testning
 
-Vi använder rxDataStep för att dela upp 2012-data för att testa och övriga för träning:
+Vi använder rxDataStep för att dela upp 2012-data för testning och hålla resten för utbildning:
 
 ```
 # split out the training data
@@ -456,9 +456,9 @@ rxGetInfo(trainDS)
 rxGetInfo(testDS)
 ```
 
-## <a name="train-and-test-a-logistic-regression-model"></a>Träna och testa en logistic regression-modell
+## <a name="train-and-test-a-logistic-regression-model"></a>Träna och testa en logistik Regressions modell
 
-Nu är vi redo att skapa en modell. Om du vill se påverkan på weather-data på fördröjning i ankomsttiden kan använda vi Scaler's logistic regression-rutin. Vi kan använda den för att modellera om en ankomst fördröjning på större än 15 minuter innan påverkas av vädret vid avgång och ankomst flygplatser:
+Nu är vi redo att bygga en modell. För att se påverkan av väder data vid fördröjning vid införsel tiden använder vi scalers logistisk Regressions rutin. Vi använder den för att modellera om en införsel fördröjning på mer än 15 minuter påverkas av väder på avgångs-och ankomst flyg platserna:
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -478,7 +478,7 @@ logitModel <- rxLogit(formula, data = trainDS, maxIterations = 3)
 base::summary(logitModel)
 ```
 
-Nu ska vi se hur det fungerar på testdata genom att göra vissa förutsägelser och titta på ROC och AUC.
+Nu ska vi se hur det fungerar på test data genom att göra vissa förutsägelser och titta på ROC och AUC.
 
 ```
 # Predict over test data (Logistic Regression).
@@ -503,9 +503,9 @@ logitAuc
 plot(logitRoc)
 ```
 
-## <a name="scoring-elsewhere"></a>Bedömning någon annanstans
+## <a name="scoring-elsewhere"></a>Poängsättning någon annan stans
 
-Vi kan också använda modellen för bedömnings-data på en annan plattform. Genom att spara det som en RDS-fil och överföra och importerar den RDS till ett mål som bedömning miljö, till exempel MIcrosoft SQL Server R Services. Det är viktigt att se till att faktor nivåer av data som ska poängsättas matchar de som modellen har skapats. Som matchar kan uppnås genom att extrahera och sparar kolumninformation som är associerade med den modellering av finansdata via Scaler's `rxCreateColInfo()` funktion och sedan använda den kolumninformationen till inkommande datakällan för förutsägelse. I följande spara några rader i testdatauppsättningen vi och extrahera och Använd kolumninformation från det här exemplet i skriptet förutsägelse:
+Vi kan också använda modellen för poängsättnings data på en annan plattform. Genom att spara den till en RDS-fil och sedan överföra och importera den till en mål miljö, till exempel MIcrosoft SQL Server R Services. Det är viktigt att se till att faktor nivåerna för de data som ska poängas matchar de som modellen skapades på. Detta kan uppnås genom att extrahera och spara kolumn informationen som är associerad med modellerings data via scaler `rxCreateColInfo()` -funktionen och sedan använda den kolumn informationen i indata-källan för förutsägelse. I följande sparar vi några rader av test data uppsättningen och extraherar och använder kolumn informationen från det här exemplet i förutsägelse skriptet:
 
 ```
 # save the model and a sample of the test dataset 
@@ -530,16 +530,16 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln visas hur det är möjligt att kombinera användningen av SparkR för datamanipulering med ScaleR för modellen utveckling i Hadoop Spark. Det här scenariot kräver att du underhålla separata Spark-sessioner som endast kör en session i taget och utbyta data via CSV-filer. Även om det är enkelt, ska den här processen vara enklare i en kommande version i ML-tjänster när SparkR och ScaleR kan dela en Spark-session och så dela Spark dataramar.
+I den här artikeln har vi visat hur det är möjligt att kombinera användningen av Spark för data manipulation med Skalare för modell utveckling i Hadoop Spark. Det här scenariot kräver att du underhåller separata Spark-sessioner, kör bara en session i taget och utbyter data via CSV-filer. Även om det är enkelt bör den här processen vara ännu enklare i en kommande ML-version, när sparker och Scaleor kan dela en spark-session och dela Spark-DataFrames.
 
 ## <a name="next-steps-and-more-information"></a>Nästa steg och mer information
 
-- Mer information om användning av ML-Server i Apache Spark finns i den [komma igång](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- Mer information om hur du använder ML Server på Apache Spark finns i [komma igång-guiden](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
-- Information om ML-tjänster på HDInsight finns i [översikt av ML tjänster på HDInsight](r-server/r-server-overview.md).
+- Information om ML-tjänster i HDInsight finns i [Översikt över ml-tjänster i HDInsight](r-server/r-server-overview.md).
 
-Mer information om användning av SparkR finns:
+Mer information om hur du använder Spark finns i:
 
-- [Apache SparkR dokumentet](https://spark.apache.org/docs/2.1.0/sparkr.html).
+- [Apache sparker-dokument](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [Översikt över SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) från Databricks.
+- [Sparker-översikt](https://docs.databricks.com/spark/latest/sparkr/overview.html) från Databricks.

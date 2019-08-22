@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: c4ba2269003c9d401982b83f4e66c8caf45a0073
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
-ms.translationtype: MT
+ms.openlocfilehash: a8d36e48558432edfaa242b9db13c59adacf5619
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624709"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876361"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQL Server
 
@@ -102,8 +102,6 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|Ja|Ja|
 | [Operatörer](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | De flesta – se enskilda operatörer |Ja – se [skillnader i T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Partitionering](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Ja | Ja |
-| Offentlig IP-adress | Ja. Åtkomsten kan begränsas med hjälp av brand Väggs-eller tjänst slut punkter.  | Ja. Måste aktive ras explicit och port 3342 måste vara aktive rad i NSG-regler. Offentliga IP-adresser kan inaktive ras om det behövs. Mer information finns i den [offentliga slut punkten](sql-database-managed-instance-public-endpoint-securely.md) . | 
-| [Återställning av tidpunkt för databas](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Ja – alla andra tjänst nivåer än storskalig-se [SQL Database återställning](sql-database-recovery-using-backups.md#point-in-time-restore) | Ja – se [SQL Database återställning](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Nej. Du kan fråga efter data i filerna som placeras på Azure Blob Storage `OPENROWSET` med hjälp av funktionen. | Nej. Du kan fråga efter data i filerna som placeras på Azure Blob Storage `OPENROWSET` med hjälp av funktionen. |
 | [Predikat](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Ja | Ja |
 | [Fråga om aviseringar](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | Nej | Ja |
@@ -147,39 +145,47 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | --- | --- | --- |
 | [Aktiv geo-replikering](sql-database-active-geo-replication.md) | Ja – alla tjänst nivåer förutom storskalig | Nej, se [grupperna för automatisk redundans (förhands granskning)](sql-database-auto-failover-group.md) som ett alternativ |
 | [Automatiska redundansgrupper](sql-database-auto-failover-group.md) | Ja – alla tjänst nivåer förutom storskalig | Ja, i [offentlig för hands version](sql-database-auto-failover-group.md)|
+| Autoskala | Ja, i [Server lös modell](sql-database-serverless.md) | Nej, du måste välja reserverad beräkning och lagring. |
+| [Azure Active Directory autentisering (AAD)](sql-database-aad-authentication.md) | Ja. AAD-användare. | Ja. Inklusive AAD-inloggningar på server nivå. |
 | [Azure Resource Health](/azure/service-health/resource-health-overview) | Ja | Nej |
+| Kvarhållning av säkerhetskopior | Ja. 7 dagar som standard, max 35 dagar. | Ja. 7 dagar som standard, max 35 dagar. |
 | [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Ja | Ja |
 | Fil system åtkomst | Nej. Använd [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) för att komma åt och läsa in data från Azure Blob Storage som ett alternativ. | Nej. Använd [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) för att komma åt och läsa in data från Azure Blob Storage som ett alternativ. |
 | [Geo-återställning](sql-database-recovery-using-backups.md#geo-restore) | Ja – alla tjänst nivåer förutom storskalig | Ja – använder [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Skalnings arkitektur](sql-database-service-tier-hyperscale.md) | Ja | Nej |
 | [Långsiktig kvarhållning av säkerhets kopior – LTR](sql-database-long-term-retention.md) | Ja, Behåll automatiskt säkerhets kopieringar upp till 10 år. | Inte ännu. Använd `COPY_ONLY` [manuella säkerhets kopieringar](sql-database-managed-instance-transact-sql-information.md#backup) som en tillfällig lösning. |
-| [Principbaserad hantering](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Nej | Nej |
-| Resurspooler | Ja, som [elastiska pooler](sql-database-elastic-pool.md) | Den inbyggda-en enda hanterade instansen kan ha flera databaser som delar samma resurspool |
-| Skala upp eller ned (online) | Ja, du kan antingen ändra DTU eller reserverad virtuella kärnor eller maximum Storage med minimal stillestånds tid. | Ja, du kan ändra reserverad virtuella kärnor eller maximum Storage med minimal stillestånds tid. | 
-| Autoskala | Ja, i [Server lös modell](sql-database-serverless.md) | Nej, du måste välja reserverad beräkning och lagring. |
 | Pausa/återuppta | Ja, i [Server lös modell](sql-database-serverless.md) | Nej | 
-| [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [Ja](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) | Ja, [version 150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) |
+| [Principbaserad hantering](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Nej | Nej |
+| Offentlig IP-adress | Ja. Åtkomsten kan begränsas med hjälp av brand Väggs-eller tjänst slut punkter.  | Ja. Måste aktive ras explicit och port 3342 måste vara aktive rad i NSG-regler. Offentliga IP-adresser kan inaktive ras om det behövs. Mer information finns i den [offentliga slut punkten](sql-database-managed-instance-public-endpoint-securely.md) . | 
+| [Återställning av tidpunkt för databas](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Ja – alla andra tjänst nivåer än storskalig-se [SQL Database återställning](sql-database-recovery-using-backups.md#point-in-time-restore) | Ja – se [SQL Database återställning](sql-database-recovery-using-backups.md#point-in-time-restore) |
+| Resurspooler | Ja, som [elastiska pooler](sql-database-elastic-pool.md) | Nej. En enda hanterad mnstance kan ha flera databaser som delar samma pool med resurser. Hanterade instanser kan inte dela resurser. |
+| Skala upp eller ned (online) | Ja, du kan antingen ändra DTU eller reserverad virtuella kärnor eller maximum Storage med minimal stillestånds tid. | Ja, du kan ändra reserverad virtuella kärnor eller maximum Storage med minimal stillestånds tid. |
 | [SQL-analys](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Ja | Ja |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Ja | Nej |
-| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-moln tjänst. | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-moln tjänst. |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av Azure SQL Database och körs på Azure SSIS Integration Runtime (IR), se [Skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Information om hur du jämför SSIS-funktionerna i SQL Database Server och en hanterad instans finns i [jämför Azure SQL Database enstaka databaser/elastiska pooler och hanterade instanser](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av hanterade instanser och körs på Azure SSIS Integration Runtime (IR), se [Skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Om du vill jämföra SSIS-funktionerna i SQL Database och hanterade instanser, se [jämför Azure SQL Database enstaka databaser/elastiska pooler och hanterade instanser](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No- [se Power BI](https://docs.microsoft.com/power-bi/) | No- [se Power BI](https://docs.microsoft.com/power-bi/) |
 | [Fråga prestanda insikter (QPI)](sql-database-query-performance.md) | Ja | Nej. Använd inbyggda rapporter i SQL Server Management Studio och Azure Data Studio. |
 | [VNet](../virtual-network/virtual-networks-overview.md) | Delvis, den ger begränsad åtkomst med [VNet](sql-database-vnet-service-endpoint-rule-overview.md) -slutpunkter | Ja, den hanterade instansen matas in i kundens VNet. Se [undernät](sql-database-managed-instance-transact-sql-information.md#subnet) och [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
+| VNet-tjänstens slut punkt | [Ja](sql-database-vnet-service-endpoint-rule-overview.md) | Nej |
 
 ## <a name="tools"></a>Verktyg
 Azure SQL Database har stöd för olika data verktyg som kan hjälpa dig att hantera dina data.
 
-| **SQL-verktyg** | **Enkla databaser och elastiska pooler** | **Hanterade instanser** |
+| **Verktyg** | **Enkla databaser och elastiska pooler** | **Hanterade instanser** |
 | --- | --- | --- |
+| Azure Portal | Ja | Ja |
+| Azure CLI | Ja | Ja|
 | [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Ja | Ja |
+| Azure PowerShell | Ja | Ja |
 | [BACPAC-fil (export)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Ja – se [SQL Database export](sql-database-export.md) | Ja – se [SQL Database export](sql-database-export.md) |
 | [BACPAC-fil (importera)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Ja – se [SQL Database import](sql-database-import.md) | Ja – se [SQL Database import](sql-database-import.md) |
 | [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | Nej | Nej |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Nej | Nej |
+| [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [Ja](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) | Ja, [version 150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) |
 | [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Ja | Ja |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja [version 18,0 och högre](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Inga – se [utökade händelser](sql-database-xevent-db-diff-from-svr.md) | Ja |
 | [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [Ja](https://www.microsoft.com/download/details.aspx?id=38829) | Nej |
 

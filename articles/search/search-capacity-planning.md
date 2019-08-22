@@ -1,88 +1,88 @@
 ---
-title: Skala partitioner och -repliker för frågor och indexering - söka i Azure
-description: Justera partition och repliken datorresurser i Azure Search, där varje resurs prissätts i fakturerbara search-enheter.
+title: Skala partitioner och repliker för frågor och indexering – Azure Search
+description: Justera partitions-och replik dator resurser i Azure Search, där varje resurs priss ätts i de fakturerbara Sök enheterna.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5955b21ae405f15960974fcbc81b8383f3322509
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c048dcf31d8f434f742d2da9351ef9b46f0a71d4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485705"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650067"
 ---
-# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Skala partitioner och -repliker för fråge- och indexeringsarbetsbelastningar i Azure Search
-När du [Välj en prisnivå](search-sku-tier.md) och [etablera en söktjänst](search-create-service-portal.md), nästa steg är att du kan också öka antalet repliker eller partitioner som används av din tjänst. Varje nivå erbjuder ett fast antal faktureringsenheter. Den här artikeln beskriver hur du allokera dessa enheter för att uppnå en optimal konfiguration som balanserar dina krav för frågekörning, indexering och lagring.
+# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Skala partitioner och repliker för att köra frågor och indexera arbets belastningar i Azure Search
+När du har [valt en pris nivå](search-sku-tier.md) och [tillhandahåller en Sök tjänst](search-create-service-portal.md), är nästa steg att välja att öka antalet repliker eller partitioner som används av tjänsten. Varje nivå erbjuder ett fast antal fakturerings enheter. I den här artikeln förklaras hur du allokerar dessa enheter för att uppnå en optimal konfiguration som balanserar dina krav för frågekörningen, indexering och lagring.
 
-Resurskonfigurationen är tillgänglig när du ställer in en tjänst på den [Basic-nivån](https://aka.ms/azuresearchbasic) eller någon av de [Standard- eller Lagringsoptimerade nivå](search-limits-quotas-capacity.md). För tjänster på dessa nivåer, kapacitet köps i steg om *Sök enheter* (su) där varje partition och repliken räknas som en SU. 
+Resurs konfigurationen är tillgänglig när du konfigurerar en tjänst på Basic- [nivån](https://aka.ms/azuresearchbasic) eller någon av de [optimerade standard-eller lagrings nivåerna](search-limits-quotas-capacity.md). För tjänster på dessa nivåer köps kapaciteten i steg om *Sök enheter* (SUS) där varje partition och replik räknas som en su. 
 
-Med färre SUs-resultat i en proportionellt lägre kostnader. Fakturering har aktiverats för förutsatt att tjänsten har ställts in. Om du tillfälligt inte använder en tjänst, är det enda sättet att undvika fakturering som tar bort tjänsten och sedan återskapa den när du behöver den.
+Att använda färre SUs-resultat i en proportionellt lägre faktura. Faktureringen gäller så länge tjänsten har kon figurer ATS. Om du tillfälligt inte använder en tjänst är det enda sättet att undvika fakturering genom att ta bort tjänsten och sedan återskapa den när du behöver den.
 
 > [!Note]
-> Ta bort en tjänst tar bort allt på den. Det finns ingen möjlighet i Azure Search för att säkerhetskopiera och återställa sparas söka efter data. Om du vill distribuera om ett befintligt index på en ny tjänst, bör du köra det program som används för att skapa och läsa in den ursprungligen. 
+> När du tar bort en tjänst tas allt på den bort. Det finns ingen funktion i Azure Search för säkerhets kopiering och återställning av sparade Sök data. Om du vill distribuera om ett befintligt index i en ny tjänst bör du köra programmet som används för att skapa och läsa in det ursprungligen. 
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologi: repliker och partitioner
-Repliker och partitioner är de viktigaste resurserna som stöder en söktjänst.
+Repliker och partitioner är de primära resurser som återställer en Sök tjänst.
 
 | Resource | Definition |
 |----------|------------|
-|*Partitioner* | Innehåller indexet lagring och i/o för läs-/ skrivåtgärder (till exempel när återskapa eller uppdatera ett index).|
-|*Repliker* | Instanser för search-tjänsten används främst för att läsa in saldo frågeåtgärder. Varje replik värd alltid en kopia av ett index. Om du har 12 repliker har du 12 kopior av alla index som har lästs in på tjänsten.|
+|*Partitioner* | Tillhandahåller index lagring och I/O för Läs-och skriv åtgärder (till exempel när du återskapar eller uppdaterar ett index).|
+|*Repliker* | Instanserna av Sök tjänsten används främst för att belastningsutjämna frågor. Varje replik är alltid värd för en kopia av ett index. Om du har 12 repliker får du 12 kopior av varje index som har lästs in i tjänsten.|
 
 > [!NOTE]
-> Det går inte att direkt hantera eller hantera vilka index som körs på en replik. En kopia av varje indexet för varje replik är en del av arkitekturen för tjänsten.
+> Det finns inget sätt att direkt ändra eller hantera vilka index som körs på en replik. En kopia av varje-index på varje replik är en del av tjänst arkitekturen.
 >
 
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>Så här allokerar du repliker och partitioner
-I Azure Search allokeras en tjänst först en minimal nivå på resurser som består av en partition och en replik. För nivåerna som har stöd för det justera du stegvis resurser genom att öka partitioner om du behöver mer lagringsutrymme och i/o, eller lägga till fler repliker för större volymer i frågan eller bättre prestanda. En enskild tjänst måste ha tillräckligt med resurser för att hantera alla arbetsbelastningar (indexering och frågor). Du kan inte dela upp arbetsbelastningar mellan flera tjänster.
+I Azure Search allokeras en tjänst ursprungligen till en minimal resurs nivå som består av en partition och en replik. För nivåer som stöder det kan du stegvis justera beräknings resurser genom att öka partitionerna om du behöver mer lagrings utrymme och I/O, eller lägga till fler repliker för större volymer eller bättre prestanda. En enskild tjänst måste ha tillräckligt med resurser för att hantera alla arbets belastningar (indexering och frågor). Du kan inte dela upp arbets belastningar mellan flera tjänster.
 
-Om du vill öka eller ändra allokeringen av repliker och partitioner, bör du använda Azure-portalen. Portalen framtvingar gränser för tillåtna kombinationer som vara under gränsvärden. Om du behöver en skriptbaserade eller kodbaserad etablering metod, den [Azure PowerShell](search-manage-powershell.md) eller [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) är alternativa lösningar.
+Om du vill öka eller ändra tilldelningen av repliker och partitioner rekommenderar vi att du använder Azure Portal. Portalen tillämpar gränser på tillåtna kombinationer som ligger under max gränsen. Om du behöver en skript-baserad eller kod baserad etablerings metod är [Azure PowerShell](search-manage-powershell.md) eller [hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) alternativa lösningar.
 
-Sökprogram behöver i allmänhet fler repliker än partitioner, särskilt när tjänståtgärderna är prioriterar frågearbetsbelastningar. I avsnittet om [hög tillgänglighet](#HA) förklarar varför.
+I allmänhet behöver Sök program fler repliker än partitioner, särskilt när tjänst åtgärderna prioriteras mot arbets belastningar. Avsnittet om [hög tillgänglighet](#HA) förklarar varför.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) och välj search-tjänst.
+1. Logga in på [Azure Portal](https://portal.azure.com/) och välj Sök tjänsten.
 
-2. I **inställningar**öppnar den **skala** att ändra repliker och partitioner. 
+2. I **Inställningar**öppnar du sidan **skala** för att ändra repliker och partitioner. 
 
-   Följande skärmbild visar ett standard-tjänsten med en replik respektive partition. Formeln längst ned anger hur många search-enheter som ska användas (1). Om enhetspriset var $100 (inte en verklig kostnad), är månatliga kostnaden för att köra den här tjänsten $100 i genomsnitt.
+   Följande skärm bild visar en standard tjänst som tillhandahålls med en replik och partition. Formeln längst ned anger hur många Sök enheter som används (1). Om enhets priset var $100 (inte ett verkligt pris) blir månads kostnaden för att köra tjänsten $100 i genomsnitt.
 
-   ![Skala sida som visar aktuella värden](media/search-capacity-planning/1-initial-values.png "skala sida som visar aktuella värden")
+   ![Skala sidan visar aktuella värden](media/search-capacity-planning/1-initial-values.png "Skala sidan visar aktuella värden")
 
-3. Använd skjutreglaget för att öka eller minska antalet partitioner. Formeln längst ned anger hur många search-enheter som används.
+3. Använd skjutreglaget för att öka eller minska antalet partitioner. Formeln längst ned anger hur många Sök enheter som används.
 
-   Det här exemplet fördubblar kapacitet, med två repliker och partitioner var och en. Lägg märke till search enhet count; Nu är det fyra eftersom fakturering formeln är repliker multiplicerat med partitioner (2 × 2). En fördubbling kapacitet fördubblar mer än kostnaden för att köra tjänsten. Om sökningen enhetskostnad var $100, är nu nya månadsfaktura 400 USD.
+   I det här exemplet dubbleras kapaciteten, med två repliker och partitioner. Observera antalet Sök enheter; nu är det fyra eftersom fakturerings formeln är repliker multiplicerade med partitioner (2 x 2). Dubbla kapaciteter är mer än dubbelt så mycket kostnaden för att köra tjänsten. Om priset för Sök enheten var $100 skulle den nya månads fakturan nu vara $400.
 
-   Aktuellt per enhet kostnaderna för varje nivå, finns det [prissidan](https://azure.microsoft.com/pricing/details/search/).
+   För aktuella kostnader per enhet för varje nivå går du till [sidan med priser](https://azure.microsoft.com/pricing/details/search/).
 
-   ![Lägg till repliker och partitioner](media/search-capacity-planning/2-add-2-each.png "lägga till repliker och partitioner")
+   ![Lägg till repliker och partitioner](media/search-capacity-planning/2-add-2-each.png "Lägg till repliker och partitioner")
 
-3. Klicka på **spara** att bekräfta ändringarna.
+3. Klicka på **Spara** för att bekräfta ändringarna.
 
-   ![Bekräfta ändringar för skalning och fakturering](media/search-capacity-planning/3-save-confirm.png "bekräfta ändringar för skalning och fakturering")
+   ![Bekräfta ändringar av skalning och fakturering](media/search-capacity-planning/3-save-confirm.png "Bekräfta ändringar av skalning och fakturering")
 
-   Ändringar i kapaciteten ta flera timmar att slutföra. Du kan inte avbryta när processen har startats och det finns ingen övervakning i realtid för replik och partition justeringar. Följande meddelande fortfarande visas när ändringarna är pågår.
+   Ändringar i kapaciteten tar flera timmar att slutföra. Det går inte att avbryta när processen har startats och det inte finns någon real tids övervakning för replik-och partitions justeringar. Följande meddelande är dock fortfarande synligt när ändringarna pågår.
 
-   ![Statusmeddelande i portalen](media/search-capacity-planning/4-updating.png "statusmeddelande i portalen")
+   ![Status meddelande i portalen](media/search-capacity-planning/4-updating.png "Status meddelande i portalen")
 
 
 > [!NOTE]
-> När en tjänst har etablerats kan inte uppgraderas till en högre SKU. Du måste skapa en söktjänst på den nya nivån och läsa in dina index. Se [skapa en Azure Search-tjänst i portalen](search-create-service-portal.md) hjälp med Tjänstetablering.
+> När en tjänst har allokerats kan den inte uppgraderas till en högre SKU. Du måste skapa en Sök tjänst på den nya nivån och läsa in index på nytt. Se [skapa en Azure Search-tjänst i portalen](search-create-service-portal.md) för hjälp med tjänst etablering.
 >
 >
 
 <a id="chart"></a>
 
-## <a name="partition-and-replica-combinations"></a>Kombinationer av partition och repliken
+## <a name="partition-and-replica-combinations"></a>Kombinationer av partition och repliker
 
-En grundläggande tjänst kan ha exakt en partition och upp till tre repliker i maximalt begränsa tre SUS. Endast justerbara resursen är repliker. Du behöver minst två repliker för hög tillgänglighet på frågor.
+En grundläggande tjänst kan ha exakt en partition och upp till tre repliker, för en gräns på tre SUs. Den enda justerbara resursen är repliker. Du behöver minst två repliker för att få hög tillgänglighet för frågor.
 
-Alla Standard- och Lagringsoptimerade söktjänster kan anta följande kombinationer av repliker och partitioner, omfattas av 36 SU-gränsen. 
+Alla standard-och Storage-optimerade Sök tjänster kan utgå från följande kombinationer av repliker och partitioner, beroende på 36-SU-gränsen. 
 
 |   | **1 partition** | **2 partitioner** | **3 partitioner** | **4 partitioner** | **6 partitioner** | **12 partitioner** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -94,53 +94,53 @@ Alla Standard- och Lagringsoptimerade söktjänster kan anta följande kombinati
 | **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Gäller inte |
 | **12 repliker** |12 SU |24 SU |36 SU |Gäller inte |Saknas |Gäller inte |
 
-SUs, priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [prisinformation om](https://azure.microsoft.com/pricing/details/search/).
+SUs, priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [pris information](https://azure.microsoft.com/pricing/details/search/).
 
 > [!NOTE]
-> Antal repliker och partitioner jämnt delas upp i 12 (mer specifikt 1, 2, 3, 4, 6, 12). Det beror på att Azure Search dividerar före varje index 12 horisontellt så att de går att sprida lika stora delar för alla partitioner. Om tjänsten har tre partitioner och du skapar ett index, till exempel innehåller varje partition fyra delar av indexet. Hur Azure Search shards ett index är en implementeringsdetalj, kan ändras i framtida utgåvor. Även om talet är 12 idag, bör inte kommer detta antal ska alltid vara 12 i framtiden.
+> Antalet repliker och partitioner delas upp jämnt i 12 (särskilt, 1, 2, 3, 4, 6, 12). Detta beror på att Azure Search i förväg delar upp varje index i 12 Shards så att det kan spridas i lika stora delar av alla partitioner. Om din tjänst till exempel har tre partitioner och du skapar ett index, kommer varje partition att innehålla fyra Shards av indexet. Hur Azure Search Shards ett index är en implementerings information som kan komma att ändras i framtida versioner. Även om talet är 12 i dag, bör du inte vänta att antalet alltid är 12 i framtiden.
 >
 
 
 <a id="HA"></a>
 
 ## <a name="high-availability"></a>Hög tillgänglighet
-Eftersom det är enkelt och relativt snabbt att skala upp allmänhet rekommenderar vi att du börjar med en partition och en eller två repliker och sedan skala upp som frågan volymer skapa. Fråga arbetsbelastningar främst för repliker. Om du behöver mer dataflöde eller hög tillgänglighet kan förmodligen du ytterligare repliker.
+Eftersom det är enkelt och relativt enkelt att skala upp rekommenderar vi vanligt vis att du börjar med en partition och en eller två repliker, och sedan skalar upp som fråge volymer skapas. Fråga arbets belastningar körs främst på repliker. Om du behöver mer data flöde eller hög tillgänglighet behöver du förmodligen ytterligare repliker.
 
-Allmänna rekommendationer för hög tillgänglighet är:
+Allmänna rekommendationer för hög tillgänglighet:
 
-* Två repliker för hög tillgänglighet för skrivskyddade arbetsbelastningar (frågor)
+* Två repliker för hög tillgänglighet för skrivskyddade arbets belastningar (frågor)
 
-* Tre eller fler repliker för hög tillgänglighet för Läs/Skriv-arbetsbelastningar (frågor plus indexering när enskilda dokument läggs till, uppdateras eller tas bort)
+* Tre eller flera repliker för hög tillgänglighet av Läs-och skriv arbets belastningar (frågor plus indexering när enskilda dokument läggs till, uppdateras eller tas bort)
 
-Servicenivåavtal (SLA) för Azure Search riktas på frågeåtgärder och uppdateringar av index som består av att lägga till, uppdatera eller ta bort dokument.
+Service avtal (SLA) för Azure Search riktas mot åtgärder och vid index uppdateringar som består av att lägga till, uppdatera eller ta bort dokument.
 
-Basic-nivån överkant på en partition och tre repliker. Om du vill ha flexibiliteten svara omedelbart på grund av variationer i efterfrågan på både indexerings- och dataflöde du något av Standard-nivåerna.  Om du hittar dina lagringsbehov växer mycket snabbare än din frågedataflöde kan du överväga att en av de Lagringsoptimerade nivåerna.
+Basic-nivån ligger utanför en partition och tre repliker. Om du vill att flexibiliteten omedelbart ska svara på fluktuationer i behov för både indexering och frågans data flöde, bör du överväga en av standard nivåerna.  Om du upptäcker att dina lagrings krav ökar mycket snabbare än din fråga genom att använda en av de optimerade lagrings nivåerna.
 
-### <a name="index-availability-during-a-rebuild"></a>Indexet tillgänglighet under återskapas
+### <a name="index-availability-during-a-rebuild"></a>Index tillgänglighet under en återskapning
 
-Hög tillgänglighet för Azure Search gäller frågor och index-uppdateringar som inte rör när ett index. Om du tar bort ett fält, ändra datatypen eller byta namn på ett fält måste du återskapa indexet. Om du vill återskapa indexet, måste du ta bort indexet, återskapa indexet och läsa in data.
+Hög tillgänglighet för Azure Search gäller frågor och index uppdateringar som inte innebär att återskapa ett index. Om du tar bort ett fält, ändrar en datatyp eller byter namn på ett fält måste du återskapa indexet. För att återskapa indexet måste du ta bort indexet, återskapa indexet och läsa in data på nytt.
 
 > [!NOTE]
-> Du kan lägga till nya fält till ett Azure Search-index utan att återskapa indexet. Värdet för det nya fältet ska vara null för alla dokument redan i indexet.
+> Du kan lägga till nya fält i ett Azure Search index utan att återskapa indexet. Värdet för det nya fältet kommer att vara null för alla dokument som redan finns i indexet.
 
-Om du vill behålla indexet tillgänglighet under en återskapning av en du har en kopia av indexet med ett annat namn på samma tjänst eller en kopia av indexet med samma namn på en annan tjänst och sedan ange omdirigering eller redundanslogiken i din kod.
+Du måste ha en kopia av indexet med ett annat namn på samma tjänst, eller en kopia av indexet med samma namn på en annan tjänst, och sedan ange omdirigering eller växlings logik i din kod för att bevara indexets tillgänglighet under en ny version.
 
 ## <a name="disaster-recovery"></a>Haveriberedskap
-Det finns för närvarande ingen inbyggd mekanism för katastrofåterställning. Att lägga till partitioner eller repliker är fel strategin i syfte att uppfylla katastrofåterställningsmål. Den vanligaste metoden är att lägga till redundans på tjänstnivå genom att ställa in en andra söktjänst i en annan region. Precis som med tillgängliga under en återskapning av ett index, måste omdirigering av eller redundanslogiken komma från din kod.
+För närvarande finns det ingen inbyggd mekanism för haveri beredskap. Att lägga till partitioner eller repliker skulle vara fel strategi för att uppfylla återställnings mål för haveri beredskap. Den vanligaste metoden är att lägga till redundans på service nivå genom att konfigurera en andra Sök tjänst i en annan region. Som med tillgänglighet under ett index återuppbyggnad måste omdirigeringen eller växlings logiken komma från din kod.
 
 ## <a name="increase-query-performance-with-replicas"></a>Öka prestanda för frågor med repliker
-Frågesvarstiden är en indikator att ytterligare repliker behövs. I allmänhet är ett första steg mot att förbättra frågeprestanda att lägga till mer av den här resursen. När du lägger till repliker fler kopior av indexet åter är online att stödja större arbetsbelastningar i fråga och läsa in Utjämna begäranden över flera repliker.
+Svars tid är en indikator som ytterligare repliker behövs. Ett första steg för att förbättra prestanda för frågor är vanligt vis att lägga till mer av den här resursen. När du lägger till repliker, kommer ytterligare kopior av indexet att bli online för att stödja större arbets belastningar och belastningsutjämna begär anden över flera repliker.
 
-Vi kan inte ge hårda uppskattningar på frågor per sekund (QPS): fråga prestanda beror på komplexiteten i frågan och konkurrerande arbetsbelastningar. Även om att lägga till repliker tydligt resulterar i bättre prestanda, resultatet är inte strikt linjär: lägga till tre repliker garanterar inte tre dataflöde.
+Vi kan inte tillhandahålla hårda uppskattningar av frågor per sekund (frågor per sekund): fråga om prestanda beror på frågans komplexitet och konkurrerande arbets belastningar. Även om du lägger till repliker tydligt resulterar i bättre prestanda är resultatet inte strikt linjärt: om du lägger till tre repliker garanterar vi inte tredubbel data flöde.
 
-Vägledning för att uppskatta frågor per sekund för dina arbetsbelastningar finns i [överväganden för prestanda och optimering av Azure Search](search-performance-optimization.md).
+Vägledning för att uppskatta frågor per sekund för dina arbets belastningar finns i [Azure Search prestanda-och optimerings överväganden](search-performance-optimization.md).
 
-## <a name="increase-indexing-performance-with-partitions"></a>Öka prestanda med partitioner för innehållsindexering
-Sök efter program som kräver nästan i realtid datauppdatering behöver proportionellt fler partitioner än repliker. Att lägga till partitioner sprider ut läs-/ skrivåtgärder över ett större antal beräkningsresurser. Du får också mer diskutrymme för att lagra ytterligare index och dokument.
+## <a name="increase-indexing-performance-with-partitions"></a>Öka indexerings prestanda med partitioner
+Sök efter program som kräver data uppdatering i nära real tid måste ha proportionellt sett fler partitioner än repliker. Att lägga till partitioner sprider Läs-och skriv åtgärder över ett större antal beräknings resurser. Du får också mer disk utrymme för att lagra ytterligare index och dokument.
 
-Större index ta längre tid att fråga. Därför kanske du upptäcker att varje inkrementell ökning av partitioner kräver en mindre men proportionell ökning av repliker. Komplexitet frågorna och fråga volymen ska ta med i hur snabbt Frågekörningen stängs.
+Större index tar längre tid att fråga. Därför kanske du upptäcker att varje stegvis ökning i partitioner kräver en mindre men proportionell ökning av repliker. Komplexiteten för dina frågor och frågesträngen kommer att kopplas till hur snabbt frågekörningen ska aktive ras runt.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Välj en prisnivå för Azure Search](search-sku-tier.md)
+[Välj en pris nivå för Azure Search](search-sku-tier.md)

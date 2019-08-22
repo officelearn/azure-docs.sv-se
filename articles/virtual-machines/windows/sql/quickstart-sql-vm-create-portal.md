@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb35cc99164cc8da047e8309d63bf7909abf4815
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 50297147d371898c35259bf4be59337eaa716579
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846030"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877860"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator med SQL Server 2017 i Azure Portal
 
@@ -42,16 +42,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
 
-1. I Azure-portalen väljer du **Skapa en resurs**. 
+1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan.
+1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information genom att välja **Visa information** på panelen **SQL Virtual Machines** .
+1. Välj **Kostnadsfri SQL Server-licens: SQL Server 2017-utvecklare på Windows Server** 2016-avbildningen från List rutan.
 
-1. I Sök fältet skriver `SQL Server 2017 Developer on Windows Server 2016`du och trycker på RETUR. Expandera alternativet SQL Server 2017 på Windows Server 2016. 
-
-1. Välj **Kostnadsfri SQL Server-licens: SQL Server 2017 Developer i Windows Server 2016**. Vi använder Developer-versionen i den här självstudiekursen eftersom det är en komplett version av SQL Server som är kostnadsfri i samband med utvecklingstester. Du betalar endast för kostnaden för den VM som körs. Fullständig prisinformation finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
-
-   ![Nytt sökfönster](./media/quickstart-sql-vm-create-portal/newsearch.png)
-
+   ![Nytt sökfönster](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
 1. Välj **Skapa**.
+
+   ![Nytt sökfönster](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
 ## <a id="configure"></a> Ange grundläggande information
 
@@ -66,9 +65,9 @@ Ange följande information på fliken **grundläggande** :
     1. Välj en plats för din **region**. 
     1. I den här snabb starten måste du lämna **tillgänglighets alternativen** inställt på _ingen infrastruktur-redundans krävs_. Om du vill veta mer om tillgänglighets alternativ, se [tillgänglighet](../../windows/availability.md). 
     1. I listan **avbildning** väljer _du gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server_2016. 
-    1. Välj att **ändra storleken** **på den** virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. 
+    1. Välj att **ändra storleken** på den virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. 
 
-   ![Instans information](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
+   ![Instansinformation](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 1. Under **administratörs konto**anger du ett användar namn, till exempel _azureuser_ och ett lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 

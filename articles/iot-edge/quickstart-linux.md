@@ -9,27 +9,27 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a3d2b51824f4293dc790979ca2513d011b60fd9c
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 70d0f5b28f769617b16b2ae8c71bc5b3e90d5dfe
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414437"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877255"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux-enhet
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en virtuell Linux-enhet
 
-Azure IoT Edge flyttar kraften i molnet till IoT-enheter. I den här snabbstarten får du lära dig hur du använder molngränssnittet för att fjärrdistribuera färdig kod till en IoT Edge-enhet.
+Testa Azure IoT Edge i den här snabb starten genom att distribuera container kod till en virtuell IoT Edge-enhet. Med IoT Edge kan du fjärrhantera kod på dina enheter så att du kan skicka fler arbets belastningar till gränsen. I den här snabb starten rekommenderar vi att du använder en virtuell Azure-dator för din IoT Edge enhet, vilket gör att du snabbt kan skapa en test dator med alla nödvändiga komponenter installerade och sedan ta bort den när du är klar. 
 
 I den här snabbstarten lär du dig att:
 
 1. Skapa en IoT Hub.
 2. Registrera en IoT Edge-enhet till din IoT Hub.
-3. Installera och starta IoT Edge-körningen på enheten.
+3. Installera och starta IoT Edge runtime på den virtuella enheten.
 4. Fjärrdistribuera en modul till en IoT Edge-enhet.
 
 ![Diagram – Snabbstart av arkitektur för enhet och moln](./media/quickstart-linux/install-edge-full.png)
 
-Den här snabbstarten visar hur du skapar en virtuell Azure-dator som är konfigurerad att vara en IoT Edge-enhet. Du kan sedan distribuera en modul från Azure Portal till din enhet. Modulen som du distribuerar i den här snabbstarten är en simulerad sensor som genererar temperatur-, fuktighets- och lufttrycksdata. De andra självstudierna i Azure IoT Edge bygger vidare på det arbete som du gör här, genom att distribuera moduler som analyserar simulerade data för verksamhetsinsyn.
+Den här snabb starten vägleder dig genom att skapa en virtuell Linux-dator som är konfigurerad att vara IoT Edge enhet. Du kan sedan distribuera en modul från Azure Portal till din enhet. Modulen som du distribuerar i den här snabbstarten är en simulerad sensor som genererar temperatur-, fuktighets- och lufttrycksdata. De andra självstudierna i Azure IoT Edge bygger vidare på det arbete som du gör här, genom att distribuera moduler som analyserar simulerade data för verksamhetsinsyn.
 
 Om du inte har en aktiv Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 

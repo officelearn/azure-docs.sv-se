@@ -9,14 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 56ff40cb2b103c620b880792571549e2bdb17064
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c06d789e6a005c0079f889cead6a75f4d0baf19
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064369"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875704"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Ta en rundtur i Azure IoT Central-användargränssnittet
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Den här artikeln beskriver Microsoft Azure IoT Central-användargränssnittet. Du kan använda gränssnittet till att skapa, hantera och använda en Azure IoT Central-lösning och dess anslutna enheter.
 
@@ -35,11 +37,11 @@ Som _operatör_ använder du Azure IoT Central-användargränssnittet till att h
 
 ## <a name="use-the-left-navigation-menu"></a>Använda den vänstra navigeringsmenyn
 
-Använd den vänstra navigeringsmenyn för att komma åt de olika områdena i programmet. Du kan expandera eller komprimera navigeringsfältet genom att välja **<** eller **>** :
+Använd den vänstra navigerings menyn för att få åtkomst till olika delar av programmet. Du kan expandera eller komprimera navigerings fältet genom att välja **<** eller **>** :
 
 | Meny | Beskrivning |
 | ---- | ----------- |
-| ![Vänster navigeringsmeny](media/overview-iot-central-tour/navigationbar.png) | <ul><li>Den **instrumentpanelen** knappen visar instrumentpanelen för dina program. Du kan anpassa instrumentpanelen för dina operatörer som ett verktyg. Användarna kan också skapa egna instrumentpaneler.</li><li>Knappen **Device Explorer** (Enhetsutforskare) visar simulerade och verkliga enheter som är associerade med varje enhetsmall i programmet. Som operatör kan du använda **Device Explorer** till att hantera dina anslutna enheter.</li><li>Med knappen **Device Sets** (Enhetsuppsättningar) kan du visa och skapa enhetsuppsättningar. Som operatör kan du skapa enhetsuppsättningar som en logisk samling av enheter som anges av en fråga.</li><li>Knappen **Analytics** (Analys) visar analys som härletts från enhetstelemetrin för enheter och enhetsuppsättningar. Som operatör kan du skapa anpassade vyer ovanpå enhetsdata för att kunna härleda insikter från ditt program.</li><li>Med knappen **Jobb** kan du ägna dig åt massenhetshantering genom att skapa och köra jobb och utföra uppdateringar i skala.</li><li>Knappen **Enhetsmallar** visar de verktyg som byggare använder för att skapa och hantera enhetsmallar.</li><li>Knappen **Kontinuerlig dataexport** gör att en administratör kan konfigurera en löpande export till andra Azure-tjänster såsom lagring och köer.</li><li>Knappen **Administration** visar programmets administrationssidor där administratören kan hantera programinställningar, användare och roller.</li></ul> |
+| ![Vänster navigeringsmeny](media/overview-iot-central-tour/navigationbar.png) | <ul><li>På **instrument panelen** visas instrument panelen för programmet. Som ett verktyg kan du anpassa instrument panelen för dina operatörer. Användare kan också skapa egna instrument paneler.</li><li>Knappen **Device Explorer** (Enhetsutforskare) visar simulerade och verkliga enheter som är associerade med varje enhetsmall i programmet. Som operatör kan du använda **Device Explorer** till att hantera dina anslutna enheter.</li><li>Med knappen **Device Sets** (Enhetsuppsättningar) kan du visa och skapa enhetsuppsättningar. Som operatör kan du skapa enhetsuppsättningar som en logisk samling av enheter som anges av en fråga.</li><li>Knappen **Analytics** (Analys) visar analys som härletts från enhetstelemetrin för enheter och enhetsuppsättningar. Som operatör kan du skapa anpassade vyer ovanpå enhetsdata för att kunna härleda insikter från ditt program.</li><li>Med knappen **Jobb** kan du ägna dig åt massenhetshantering genom att skapa och köra jobb och utföra uppdateringar i skala.</li><li>Knappen **Enhetsmallar** visar de verktyg som byggare använder för att skapa och hantera enhetsmallar.</li><li>Knappen **Kontinuerlig dataexport** gör att en administratör kan konfigurera en löpande export till andra Azure-tjänster såsom lagring och köer.</li><li>Knappen **Administration** visar programmets administrationssidor där administratören kan hantera programinställningar, användare och roller.</li></ul> |
 
 ## <a name="search-help-and-support"></a>Sök, hjälp och support
 
@@ -47,25 +49,25 @@ Den översta menyn visas på varje sida:
 
 ![Verktygsfält](media/overview-iot-central-tour/toolbar.png)
 
-- Om du vill söka efter enhet mallar och enheter, ange en **Search** värde.
-- Om du vill ändra språk i Användargränssnittet eller tema, Välj den **inställningar** ikon.
-- Om du vill logga ut från programmet, Välj den **konto** ikon.
-- Om du behöver hjälp och support väljer du listrutan **Hjälp** för att visa en lista med resurser. I en utvärderingsprogram Supportresurser omfattar tillgång till [live-chatt](howto-show-hide-chat.md).
+- Ange ett sökvärde om du vill söka efter enhets mallar och enheter.
+- Om du vill ändra språket eller temat för användar gränssnittet väljer du ikonen **Inställningar** .
+- Om du vill logga ut från programmet väljer du **konto** ikonen.
+- Om du behöver hjälp och support väljer du listrutan **Hjälp** för att visa en lista med resurser. I ett utvärderings program inkluderar support resurserna åtkomst till [Live Chat](howto-show-hide-chat.md).
 
 Du kan välja mellan ett ljust eller ett mörkt tema för användargränssnittet:
 
 ![Välja ett tema för användargränssnittet](media/overview-iot-central-tour/themes.png)
 
 > [!NOTE]
-> Möjlighet att välja mellan ljusa och mörka teman är inte tillgängligt om din administratör har konfigurerat ett anpassat tema för programmet.
+> Alternativet att välja mellan ljust och mörkt teman är inte tillgängligt om administratören har konfigurerat ett anpassat tema för programmet.
 
 ## <a name="dashboard"></a>Instrumentpanel
 
 ![Instrumentpanel](media/overview-iot-central-tour/homepage.png)
 
-* Instrumentpanelen är den första sidan som visas när du loggar in på ditt Azure IoT Central program. Du kan anpassa instrumentpanelen för program för andra användare genom att lägga till paneler som ett verktyg. Mer information finns i självstudien om att [anpassa operatörsvyn i Azure IoT Central](tutorial-customize-operator.md).
+* Instrument panelen är den första sidan som visas när du loggar in på ditt Azure IoT Central-program. Som ett verktyg kan du anpassa program instrument panelen för andra användare genom att lägga till paneler. Mer information finns i självstudien om att [anpassa operatörsvyn i Azure IoT Central](tutorial-customize-operator.md).
 
-* Som operatör kan du skapa anpassade instrumentpaneler och växla mellan dem och standardinstrumentpanelen. Mer information finns i den [skapa och hantera personliga instrumentpaneler](howto-personalize-dashboard.md) artikel.
+* Som operatör kan du skapa anpassade instrument paneler och växla mellan dem och standard instrument panelen. Mer information finns i artikeln [skapa och hantera personliga instrument paneler](howto-personalize-dashboard.md) instruktioner.
 
 ## <a name="device-explorer"></a>Enhetsutforskaren
 
@@ -92,18 +94,18 @@ På analyssidan visas diagram där du kan se hur enheter som är anslutna till d
 
 ![Sidan Jobb](media/overview-iot-central-tour/jobs.png)
 
-Sidan jobb kan du köra massåtgärder för enheten på dina enheter. Verktyget använder den här sidan för att uppdatera enhetsegenskaper, inställningar och kommandon. Mer information finns i artikeln [Köra ett jobb](howto-run-a-job.md).
+På sidan jobb kan du köra hanterings åtgärder för flera enheter på dina enheter. Verktyget använder den här sidan för att uppdatera enhetsegenskaper, inställningar och kommandon. Mer information finns i artikeln [Köra ett jobb](howto-run-a-job.md).
 
-## <a name="device-templates"></a>Enheten mallar
+## <a name="device-templates"></a>Enhets mallar
 
 ![Sidan Enhetsmallar](media/overview-iot-central-tour/templates.png)
 
-Sidan för enhetsmallar är där en byggare skapar och hanterar enhetsmallarna i programmet. En mall för enheten anger enhetsegenskaper till exempel:
+Sidan för enhetsmallar är där en byggare skapar och hanterar enhetsmallarna i programmet. En enhets mal len anger enhets egenskaper som:
 
-- Telemetri, status och händelsen mått.
+- Telemetri, tillstånd och händelse mätningar.
 - Inställningar och egenskaper.
-- -Kommandon.
-- Regler baserat på händelser eller telemetrivärden.
+- Kommandon.
+- Regler som baseras på värden för händelser eller telemetri.
 
 Mer information finns i självstudien om att [definiera en ny enhetstyp i Azure IoT Central-programmet](tutorial-define-device-type.md).
 
@@ -111,13 +113,13 @@ Mer information finns i självstudien om att [definiera en ny enhetstyp i Azure 
 
 ![Sidan Kontinuerlig dataexport](media/overview-iot-central-tour/export.png)
 
-Sidan kontinuerlig export finns där administratören definierar hur att strömma data, till exempel telemetri från programmet. Andra tjänster kan lagra exporterade data eller använda dem för analys. Mer information finns i artikeln om att [exportera dina data i Azure IoT Central](howto-export-data.md).
+Sidan för kontinuerlig data export är där en administratör definierar hur data strömmas, t. ex. telemetri, från programmet. Andra tjänster kan lagra exporterade data eller använda dem för analys. Mer information finns i artikeln om att [exportera dina data i Azure IoT Central](howto-export-data.md).
 
 ## <a name="administration"></a>Administration
 
-![Sidan Administration](media/overview-iot-central-tour/administration.png)
+![Administrationssida](media/overview-iot-central-tour/administration.png)
 
-Administrationssidan innehåller länkar till de verktyg som en administratör använder till exempel definiera användare och roller i programmet och anpassa Gränssnittet. Mer information finns i artikeln om att [administrera ditt Azure IoT Central-program](howto-administer.md).
+Sidan administration innehåller länkar till de verktyg som en administratör använder, till exempel definiera användare och roller i programmet och anpassa användar gränssnittet. Mer information finns i artikeln om att [administrera ditt Azure IoT Central-program](howto-administer.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

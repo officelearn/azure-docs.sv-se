@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 56ced4f5e2fd0fbf829f72cff2413998398a7a09
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30bfd3b119b3ae4badbda50747158e8b08a9dd08
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066003"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875527"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Självstudie: Konfigurera regler och åtgärder för enheten i Azure IoT Central
 
 *Den här artikeln gäller för operatörer, kompilerare och administratörer.*
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 I den här självstudien skapar du en regel som skickar ett e-postmeddelande när temperaturen i en ansluten luftkonditioneringsenhet överskrider 90&deg; F.
 
@@ -28,21 +30,21 @@ I den här guiden får du lära dig att:
 > * Skapa en telemetribaserad regel
 > * Lägga till en åtgärd
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du slutföra självstudien om att [definiera en ny enhetstyp i programmet](tutorial-define-device-type.md) för att skapa enhetsmallen **Ansluten luftkonditioneringsenhet** som du kommer att arbeta med.
 
 ## <a name="create-a-telemetry-based-rule"></a>Skapa en telemetribaserad regel
 
-1. Om du vill lägga till en ny regel för telemetribaserad i ditt program, i den vänstra navigeringsmenyn och välj **enheten mallar**:
+1. Om du vill lägga till en ny telemetri-baserad regel i programmet väljer du **enhets mal**lin i den vänstra navigerings menyn:
 
     ![Sidan Enhetsmallar](media/tutorial-configure-rules/templatespage1.png)
 
     Du ser enhetsmallen **Connected Air Conditioner (1.0.0)** som du skapade i föregående självstudie.
 
-2. För att anpassa mallen för enheten, Välj den **anslutna luftkonditionering** mallen som du skapade i föregående självstudie.
+2. Om du vill anpassa din enhets mall väljer du den **anslutna Luft Konditionerings** mal len som du skapade i föregående självstudie.
 
-3. Att lägga till en telemetribaserad regel i den **regler** väljer **regler**väljer **+ ny regel**, och välj sedan **telemetri**:
+3. Om du vill lägga till en telemetri-baserad regel i vyn **regler** väljer du **regler**, väljer **+ ny regel**och väljer sedan **telemetri**:
 
     ![Vyn Regler](media/tutorial-configure-rules/newrule.png)
 
@@ -50,10 +52,10 @@ Innan du börjar bör du slutföra självstudien om att [definiera en ny enhetst
 
     | Inställning                                      | Värde                             |
     | -------------------------------------------- | ------------------------------    |
-    | Namn                                         | Temperaturmeddelande för luftkonditionering |
+    | Name                                         | Temperaturmeddelande för luftkonditionering |
     | Aktivera regeln för alla enheter med den här mallen | På                                |
     | Tillstånd                                    | Temperaturen är högre än 90    |
-    | Sammansättning                                  | Ingen                              |
+    | Sammansättning                                  | Inga                              |
 
     ![Regelvillkor för temperatur](media/tutorial-configure-rules/temperaturerule.png)
 
@@ -69,7 +71,7 @@ När du definierar en regel kan du även definiera en åtgärd som ska köras n�
 
 2. Använd informationen i följande tabell för att definiera åtgärden:
 
-    | Inställning   | Värde                          |
+    | Inställning   | Value                          |
     | --------- | ------------------------------ |
     | Till        | Din e-postadress             |
     | Anteckningar     | Temperaturen i luftkonditioneringsenheten har överskridit tröskelvärdet. |

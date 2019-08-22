@@ -1,13 +1,13 @@
 ---
-title: OData-referens för uttryckssyntax – Azure Search
-description: Grammatik och syntax formella specifikation för OData-uttryck i Azure Search-frågor.
+title: Syntax-referens för OData-uttryck – Azure Search
+description: Formell grammatik-och syntax-specifikation för OData-uttryck i Azure Search frågor.
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ebe41ba61ac5136900328db9c35acb8551dcd5b2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5d7e6456cd6a6648ff2ca38ecbb4f2de5479d7c9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428663"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647501"
 ---
-# <a name="odata-expression-syntax-reference-for-azure-search"></a>Referens för OData-uttryckssyntax för Azure Search
+# <a name="odata-expression-syntax-reference-for-azure-search"></a>Syntax-referens för OData-uttryck för Azure Search
 
-Använder Azure Search [OData uttryck](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) som parametrar i hela API: et. Oftast OData-uttryck används för den `$orderby` och `$filter` parametrar. Dessa uttryck kan vara komplexa, som innehåller flera satser, funktioner och operatorer. Men som även enkla OData-uttryck egenskapen sökvägar används i många delar av Azure Search REST API. Till exempel sökvägsuttryck används för att referera till underordnade fält av komplexa fält var som helst i API, till exempel när lista icke fält i en [förslagsställare](index-add-suggesters.md), ett [bedömning funktionen](index-add-scoring-profiles.md), `$select` parameter , eller till och med [fielded sökning i Lucene frågor](query-lucene-syntax.md).
+Azure Search använder [OData-uttryck](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) som parametrar i API: et. Oftast används OData-uttryck för `$orderby` parametrarna och. `$filter` Dessa uttryck kan vara komplexa, som innehåller flera satser, funktioner och operatorer. Men även enkla OData-uttryck som egenskaps Sök vägar används i många delar av Azure Search REST API. Sök vägs uttryck används till exempel för att referera till underordnade fält i komplexa fält överallt i API: t, till exempel när du visar underordnade fält i en [förslags](index-add-suggesters.md)funktion, en [bedömnings funktion](index-add-scoring-profiles.md), `$select` parametern eller t.o.m. [fälts ökning i Lucene frågor](query-lucene-syntax.md).
 
-Den här artikeln beskrivs alla dessa typer av OData-uttryck med hjälp av en formell grammatik. Det finns också en [interaktiva diagram](#syntax-diagram) för att visuellt utforska grammatik.
+I den här artikeln beskrivs alla dessa former av OData-uttryck med hjälp av en formell grammatik. Det finns också ett [interaktivt diagram](#syntax-diagram) som hjälper dig att visuellt utforska grammatiken.
 
-## <a name="formal-grammar"></a>Formella grammatik
+## <a name="formal-grammar"></a>Formell grammatik
 
-Beskriver vi delmängd av OData-språk som stöds av Azure Search med hjälp av en EBNF ([utökade Backus Naur formuläret](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) grammatik. Reglerna visas ”uppifrån och ned”, börjar med de mest komplexa uttryck och analysera dem till mer primitiva uttryck. Högst upp är grammatik som motsvarar specifika parametrar för Azure Search REST API:
+Vi kan beskriva den delmängd av OData-språket som stöds av Azure Search med hjälp av en EBNF-grammatik ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)). Reglerna visas i "uppifrån och ned", med de mest komplexa uttrycken och de delas upp i fler primitiva uttryck. Längst upp är de grammatikverktyg som motsvarar vissa parametrar i Azure Search REST API:
 
-- [`$filter`](search-query-odata-filter.md), definieras av den `filter_expression` regeln.
-- [`$orderby`](search-query-odata-orderby.md), definieras av den `order_by_expression` regeln.
-- [`$select`](search-query-odata-select.md), definieras av den `select_expression` regeln.
-- Fältet sökvägarna som definieras av den `field_path` regeln. Fältet sökvägar används i API: et. De kan hänvisa till antingen översta fälten i ett index eller underordnade fält med en eller flera [komplexa fältet](search-howto-complex-data-types.md) överordnade element.
+- [`$filter`](search-query-odata-filter.md), som definieras av `filter_expression` regeln.
+- [`$orderby`](search-query-odata-orderby.md), som definieras av `order_by_expression` regeln.
+- [`$select`](search-query-odata-select.md), som definieras av `select_expression` regeln.
+- Fält Sök vägar, som definieras `field_path` av regeln. Fält Sök vägar används i hela API: et. De kan referera till fält på den översta nivån i ett index eller under fält med ett eller flera [komplexa fält](search-howto-complex-data-types.md) överordnade.
 
-När EBNF är en bläddringsbar [syntaxdiagrammet](https://en.wikipedia.org/wiki/Syntax_diagram) som gör det möjligt att interaktivt utforska grammatik- och relationerna mellan reglerna.
+När EBNF är ett bläddringsbar- [syntaxfel](https://en.wikipedia.org/wiki/Syntax_diagram) som gör det möjligt att interaktivt utforska grammatiken och relationerna mellan reglerna.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -207,16 +207,16 @@ query_type ::= "'full'" | "'simple'"
 search_mode ::= "'any'" | "'all'"
 ```
 
-## <a name="syntax-diagram"></a>Syntaxdiagrammet
+## <a name="syntax-diagram"></a>Syntax-diagram
 
-Prova interaktiva syntaxdiagrammet för att visuellt utforska OData språk grammatik som stöds av Azure Search:
+För att visuellt utforska OData-språkgrammet som stöds av Azure Search, prova med det interaktiva syntax diagrammet:
 
 > [!div class="nextstepaction"]
-> [OData-syntaxdiagrammet för Azure Search](https://azuresearch.github.io/odata-syntax-diagram/)
+> [OData-syntax diagram för Azure Search](https://azuresearch.github.io/odata-syntax-diagram/)
 
 ## <a name="see-also"></a>Se också  
 
 - [Filter i Azure Search](search-filters.md)
-- [Söka efter dokument &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Sök efter &#40;dokument Azure Search tjänst REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 - [Lucene-frågesyntax](query-lucene-syntax.md)
 - [Enkel frågesyntax i Azure Search](query-simple-syntax.md)

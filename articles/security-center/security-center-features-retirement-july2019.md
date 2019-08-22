@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 8e7456eff3062ef6667e7b0022ea9740c397a493
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 5ffa77a05e6019ee6b5e29c5af5ed0130e027cae
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679248"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876507"
 ---
 > [!NOTE]
 > Det här dokumentet innehåller en lista över funktioner som har dragits tillbaka från Azure Security Center den 31 juli 2019.
@@ -160,7 +160,7 @@ Security Center kan aktivera [integrerade säkerhetslösningar i Azure](https://
 - [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-När du har inaktiverat kan du inte lägga till eller ändra någon av lösnings typerna som anges i föregående lista, antingen från användar gränssnittet eller API: et.
+När du har inaktiverat kan du inte lägga till eller ändra någon av lösnings typerna som anges i föregående lista, antingen från användar gränssnittet eller API: et. Azure Security Center kommer inte längre att upptäcka några nya instanser av de tidigare partner lösningarna.
 
 Om du har befintliga anslutna lösningar rekommenderar vi att du flyttar till Azure Sentinel.
 

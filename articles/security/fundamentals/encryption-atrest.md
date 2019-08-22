@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2019
+ms.date: 08/20/2019
 ms.author: barclayn
-ms.openlocfilehash: 89acc86526d1017e97efbf1812e02cfb6a240953
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 910057e0e81219a68608441530d03ca1a2411b02
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035413"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875100"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption – i vila
 
@@ -254,14 +254,14 @@ Stöd för server kryptering tillhandahålls för närvarande genom SQL-funktion
 
 Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) . Always Encrypted använder en nyckel som skapas och lagras av klienten. Kunder kan lagra huvud nyckeln i ett Windows-certifikat Arkiv, Azure Key Vault eller en lokal säkerhetsmodul för maskin vara. Med hjälp av SQL Server Management Studio väljer SQL-användare vilken nyckel de vill använda för att kryptera vilken kolumn som helst.
 
-|                                  |                    | **Krypterings modell och nyckel hantering** |                    |
-|----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Server sidan med tjänst hanterad nyckel**     | **Server sidan med kundhanterad nyckel**             | **Klient sidan med hjälp av klient hantering**      |
-| **AI och Machine Learning**      |                    |                    |                    |
+#### <a name="encryption-model-and-key-management"></a>Krypterings modell och nyckel hantering
+
+| **Server sidan med tjänst hanterad nyckel** |**Server sidan med kundhanterad nyckel**| **Klient sidan med hjälp av klient hantering** | **AI och Machine Learning**   |
+|--------------------|-------------------|----------------------|--------------------|
 | Azure Search                     | Ja                | -                  | -                  |
 | Azure Machine Learning Service   | Ja                | -                  | -                  |
 | Azure Machine Learning Studio    | Ja                | För hands version, RSA 2048-bitars | -               |
-| Power BI                         | Ja                | För hands version, RSA 2048-bitars | -                  |
+| Power BI                         | Ja                | För hands version, RSA 2048-bitars | -               |
 | **Analys**                    |                    |                    |                    |
 | Azure Stream Analytics           | Ja                | -                  | -                  |
 | Event Hubs                       | Ja                | -                  | -                  |
@@ -282,7 +282,7 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Azure SQL Database               | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Azure SQL Database för MariaDB   | Ja                | -                  | -                  |
 | Azure SQL Database för MySQL     | Ja                | -                  | -                  |
-| Azure SQL Database för PostgreSQL | Ja                | -                  | -                  |
+| Azure SQL Database för PostgreSQL | Ja                | -                  | -                 |
 | Azure SQL Data Warehouse         | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | SQL Server Stretch Database      | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Table Storage                    | Ja                | -                  | Ja                |

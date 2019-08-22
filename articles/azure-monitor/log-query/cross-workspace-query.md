@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 597944d03e685a9a2933a04847f78c9d54f3ea36
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a1ea4012b7cda5b5deab82027e5547a9c9ef786f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722707"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650158"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Utföra kors resurs logg frågor i Azure Monitor  
 
@@ -134,6 +134,11 @@ applicationsScoping
 | summarize count() by applicationName, bin(timestamp, 1h) 
 | render timechart
 ```
+
+>[!NOTE]
+>Den här metoden kan inte användas med logg aviseringar eftersom åtkomst verifieringen av aviserings regel resurserna, inklusive arbets ytor och program, utförs när aviseringen skapas. Det går inte att lägga till nya resurser till funktionen när aviseringen har skapats. Om du föredrar att använda funktionen för resurs omfång i logg aviseringar måste du redigera aviserings regeln i portalen eller med en Resource Manager-mall för att uppdatera de omfångs resurserna. Du kan också inkludera listan över resurser i logg aviserings frågan.
+
+
 ![Timechart](media/cross-workspace-query/chart.png)
 
 ## <a name="next-steps"></a>Nästa steg

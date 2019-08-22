@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/21/2019
-ms.openlocfilehash: b0d227b71677db1d6b4ce8386b02cf957ca259f7
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.date: 08/16/2019
+ms.openlocfilehash: a2134853c48ca09faa150f038be2d9327af75eee
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668411"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891685"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Självstudier: Förutsäg bil pris med Visual Interface
 
@@ -27,9 +27,11 @@ I del ett konfigurerar du din miljö, drar och släpper data uppsättningar och 
 I del ett av självstudien får du lära dig att:
 
 > [!div class="checklist"]
-> * Importera och rensa data
+> * Skapa ett nytt experiment
+> * Importera data
+> * Förbereda data
 > * Träna en Machine Learning-modell
-> * Poäng och utvärdera en modell
+> * Utvärdera en Machine Learning-modell
 
 I [del två](ui-tutorial-automobile-price-deploy.md) av självstudien får du lära dig hur du distribuerar din förutsägelse modell som en Azure-webbtjänst så att du kan använda den för att förutsäga priset på en bil baserat på tekniska specifikationer som du skickar den. 
 
@@ -37,13 +39,17 @@ En slutförd version av den här självstudien är tillgänglig som ett exempel 
 
 Du hittar det genom att välja **Lägg till ny**på  ****sidan experiment**och sedan välja 1-regression: Test av bil pris förutsägelse (grundläggande** ).
 
-## <a name="create-a-workspace"></a>Skapa en arbetsyta
+## <a name="create-a-new-experiment"></a>Skapa ett nytt experiment
+
+Om du vill skapa ett visuellt gränssnitts experiment måste du först ha en Azure Machine-tjänst arbets yta. I det här avsnittet får du lära dig hur du skapar båda dessa resurser.
+
+### <a name="create-a-new-workspace"></a>Skapa en ny arbetsyta
 
 Om du har en Azure Machine Learning service-arbetsyta går du vidare till nästa avsnitt.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-new-experiment"></a>Skapa nytt experiment
+### <a name="create-an-experiment"></a>Skapa ett experiment
 
 1. Öppna din arbets yta i [Azure Portal](https://portal.azure.com/).
 
@@ -57,7 +63,7 @@ Om du har en Azure Machine Learning service-arbetsyta går du vidare till nästa
 
 1. Välj standard experiment namnet **"experiment som skapats på...** " överst på arbets ytan och Byt namn på det till något meningsfullt. Till exempel **"pris förutsägelse för bil"** . Namnet behöver inte vara unikt.
 
-## <a name="specify-data"></a>Ange data
+## <a name="import-data"></a>Importera data
 
 Maskin inlärningen är beroende av data. Som tur är finns flera exempel data uppsättningar som ingår i det här gränssnittet och som du kan använda för att experimentera med. I den här självstudien använder du data för exempel data uppsättning **bil (RAW)** . 
 
@@ -65,7 +71,7 @@ Maskin inlärningen är beroende av data. Som tur är finns flera exempel data u
 
 1. Välj data uppsättningen, **bil pris data (RAW)** och dra den till arbets ytan.
 
-   ![Dra data till arbets yta](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
+   ![Dra data till arbets yta](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
 1. Välj vilka kolumner med data som ska användas. Skriv **Select** (Sök) i sökrutan överst på paletten för att hitta modulen **Välj kolumner i data uppsättning** .
 
@@ -87,11 +93,11 @@ Maskin inlärningen är beroende av data. Som tur är finns flera exempel data u
 
     I dialog rutan **Välj kolumner** väljer du **alla kolumner** och inkluderar **alla funktioner**. Dialogrutan bör se ut så här:
 
-     ![kolumn-väljare](./media/ui-tutorial-automobile-price-train-score/select-all.png)
+     ![kolumn-väljare](./media/ui-tutorial-automobile-price-train-score/select-all.gif)
 
 1. Klicka på **OK** längst ned till höger för att stänga kolumn väljaren.
 
-## <a name="run-the-experiment"></a>Kör experimentet
+### <a name="run-the-experiment"></a>Kör experimentet
 
 Du kan när som helst klicka på utdataporten för en data uppsättning eller modul för att se hur data ser ut som vid den punkten i data flödet. Om alternativet **visualisera** är inaktiverat, måste du först köra experimentet.
 
@@ -100,7 +106,7 @@ Du kan när som helst klicka på utdataporten för en data uppsättning eller mo
 Experimentet körs när Compute-målet är tillgängligt. När körningen är klar visas en grön bock markering i varje modul.
 
 
-## <a name="visualize-the-data"></a>Visualisera datan
+### <a name="visualize-the-data"></a>Visualisera datan
 
 Nu när du har kört det första experimentet kan du visualisera data för att förstå mer om den data uppsättning som du har.
 
@@ -110,9 +116,9 @@ Nu när du har kört det första experimentet kan du visualisera data för att f
 
     I den här datamängden representerar varje rad en bil, och de variabler som är associerade med varje bil visas som kolumner. Det finns 205 rader och 26 kolumner i den här data uppsättningen.
 
-     Varje gången du klickar på en kolumn med data visas **statistik** och **visualiserings** bilden för den kolumnen till vänster. Om du till exempel klickar på antalet antal **dörrar** visas det två unika värden och två värden som saknas. Rulla nedåt för att se värdena: två och fyra dörrar.
+    Varje gången du klickar på en kolumn med data visas **statistik** och **visualiserings** bilden för den kolumnen till vänster.
 
-     ![Förhandsgranska data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+    [![Förhandsgranska data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)](./media/ui-tutorial-automobile-price-train-score/preview-data.gif#lightbox)
 
 1. Klicka på varje kolumn för att lära dig mer om din data uppsättning och fundera över om dessa kolumner kan vara användbara för att förutsäga priset på en bil.
 
@@ -137,15 +143,11 @@ Ta först bort de **normaliserade förluster-** kolumnen helt.
 
     * Klicka på **OK** längst ned till höger för att stänga kolumn väljaren.
 
-    ![Undanta en kolumn](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+    ![Undanta en kolumn](./media/ui-tutorial-automobile-price-train-score/exclude-column.gif)
         
     Nu visar egenskaps rutan för Välj kolumner i data uppsättningen att den kommer att gå igenom alla kolumner från data uppsättningen, förutom **normaliserade förluster**.
         
     Rutan egenskaper visar att kolumnen **normaliserade förluster** är exkluderad.
-        
-    ![Egenskaps fönster](./media/ui-tutorial-automobile-price-train-score/property-pane.png)
-        
-    Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. 
 
 1. Dubbelklicka på modulen **Välj kolumner i data uppsättning** och Skriv kommentaren "exkludera normaliserade förluster". 
     
@@ -168,22 +170,22 @@ När du tränar en modell måste du göra något om de data som saknas. I det h�
 1. I fönstret Egenskaper väljer du **ta bort hela raden** under **rensnings läge**.
 
 1. Dubbelklicka på modulen och skriv kommentaren ”Ta bort rader med värden som saknas”.
- 
-    ![Ta bort rader](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
 
     Experimentet bör nu se ut ungefär så här:
     
     ![Select-Column](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
 
-## <a name="train-the-model"></a>Träna modellen
+## <a name="train-a-machine-learning-model"></a>Träna en Machine Learning-modell
 
 Nu när data är klara kan du skapa en förutsägelse modell. Du ska använda dina data för att träna modellen. Sedan testar du modellen för att se hur nära den kan förutsäga priser.
+
+### <a name="select-an-algorithm"></a>Välja en algoritm
 
 **Klassificering** och **regression** är två typer av övervakade Machine Learning-algoritmer. **Klassificering** förutsäger ett svar från en definierad uppsättning kategorier, till exempel en färg (röd, blå eller grön). **Regression** används för att förutsäga ett tal.
 
 Eftersom du vill förutsäga pris, vilket är ett tal, kan du använda en Regressions algoritm. I det här exemplet ska du använda en linjär Regressions modell.
 
-Träna modellen genom att ge den en uppsättning data som inkluderar priset. Modellen söker igenom data och söker efter korrelationer mellan en bils funktioner och dess pris.
+### <a name="split-the-data"></a>Dela data
 
 Använd dina data för att både träna modellen och testa den genom att dela upp data i separata data uppsättningar för utbildning och testning.
 
@@ -191,17 +193,17 @@ Använd dina data för att både träna modellen och testa den genom att dela up
 
 1. Välj modulen **dela data** . I fönstret Egenskaper ställer du in bråk talet i den första data uppsättningen för utdata till 0,7. På så sätt kommer vi att använda 70 procent av data för att träna modellen och hålla 30 procent för testning.
 
-    ![Skärm bild som visar rätt konfiguration för fönstret Egenskaper. Värdena för "dela data" ska vara "delade rader", 0,7, slumpmässig Split, 0, false.](./media/ui-tutorial-automobile-price-train-score/split-data.png)
-
 1. Dubbelklicka på **dela data** och Skriv kommentaren "dela in data uppsättningen i Training set (0,7) och test uppsättning (0,3)"
+
+### <a name="train-the-model"></a>Träna modellen
+
+Träna modellen genom att ge den en uppsättning data som inkluderar priset. Modellen söker igenom data och söker efter korrelationer mellan en bils funktioner och dess pris.
 
 1. Om du vill välja Learning-algoritmen rensar du sökrutan för modulens palett.
 
 1. Expandera **Machine Learning** expandera sedan **initiera modell**. Nu visas flera kategorier av moduler som kan användas för att initiera algoritmer för Machine Learning.
 
 1. För det här experimentet väljer du **regression** > **linjär regression** och drar den till experimentets arbets yta.
-
-    ![Skärm bild som visar rätt konfiguration för fönstret Egenskaper. Värdena för "dela data" ska vara "delade rader", 0,7, slumpmässig Split, 0, false.](./media/ui-tutorial-automobile-price-train-score/linear-regression-module.png)
 
 1. Leta upp och dra modulen **träna modell** till arbets ytan för experimentet. Anslut utdataporten för modulen linjär regression till vänster indata för modulen träna modell och Anslut utbildnings data utmatningen (den vänstra porten) för modulen **dela data** till rätt indata för modulen **träna modell** .
 
@@ -215,7 +217,7 @@ Använd dina data för att både träna modellen och testa den genom att dela up
 
     ![Skärm bild som visar rätt konfiguration av experimentet när du har lagt till modulen träna modell.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
-## <a name="score-and-evaluate-the-model"></a>Poäng och utvärdera modellen
+## <a name="evaluate-a-machine-learning-model"></a>Utvärdera en Machine Learning-modell
 
 Nu när du har tränat modellen med 70 procent av dina data kan du använda den för att visa de andra 30 procenten av data för att se hur väl modellen fungerar.
 
@@ -244,26 +246,6 @@ Följande statistik visas för din modell:
 * **Bestämningskoefficient**: Det kallas även för R-kvadratvärdet, det här är ett statistiskt mått som anger hur väl en modell passar data.
 
 För all felstatistik gäller att mindre är bättre. Ett mindre värde anger att förutsägelser bättre överensstämmer med de faktiska värdena. För att fastställa koefficienten är det närmare värdet för en (1,0), desto bättre förutsägelser.
-
-## <a name="manage-experiments-in-azure-machine-learning-service-workspace"></a>Hantera experiment i Azure Machine Learning service-arbetsyta
-
-Experiment som du skapar i det visuella gränssnittet kan hanteras från arbets ytan Azure Machine Learning tjänst. Använd arbets ytan om du vill se mer detaljerad information, till exempel enskilda personer experiment körningar, diagnostikloggar, körnings diagram och mycket annat.
-
-1. Öppna din arbets yta i [Azure Portal](https://portal.azure.com/).  
-
-1. Välj **experiment**i arbets ytan. Välj sedan experimentet som du skapade.
-
-    ![Skärm bild som visar hur du navigerar till experiment i Azure Portal](./media/ui-tutorial-automobile-price-train-score/portal-experiments.png)
-
-    På den här sidan ser du en översikt över experimentet och de senaste körningarna.
-
-    ![Skärm bild som visar en översikt över experiment statistik i Azure Portal](./media/ui-tutorial-automobile-price-train-score/experiment-overview.png)
-
-1. Välj ett körnings nummer om du vill visa mer information om en speciell körning.
-
-    ![Detaljerad rapport om skärm bilds körning](./media/ui-tutorial-automobile-price-train-score/run-details.png)
-
-    Körnings rapporten uppdateras i real tid. Om du använde ett **Kör Python-skript** eller **Kör R-skript** i experimentet kan du ange skript loggar som ska matas ut på fliken **loggar** .
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

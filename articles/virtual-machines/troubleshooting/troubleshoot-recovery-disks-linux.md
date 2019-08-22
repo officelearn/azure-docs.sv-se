@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: 49ee83e451e9d555a7fe5fca57bc58d6616334da
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: b1aca591437738b29786f50c2a5291ab456f3416
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641060"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876699"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell dator för återställning med Azure CLI
 Om din virtuella Linux-dator (VM) påträffar ett start-eller diskfel kan du behöva utföra fel söknings stegen på den virtuella hård disken. Ett vanligt exempel är en ogiltig post i `/etc/fstab` som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder Azure CLI för att ansluta din virtuella hård disk till en annan virtuell Linux-dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn. 
@@ -39,7 +39,7 @@ Om du vill utföra de här fel söknings stegen måste du ha det senaste [Azure 
 > [!Important]
 > Skripten i den här artikeln gäller bara för de virtuella datorer som använder [hanterad disk](../linux/managed-disks-overview.md). 
 
-I följande exempel ersätter du parameter namn med dina egna värden. Exempel på parameter namn `myResourceGroup` är `myVM`och.
+I följande exempel ersätter du parameter namn med dina egna värden, till exempel `myResourceGroup` och. `myVM`
 
 ## <a name="determine-boot-issues"></a>Fastställa start problem
 Granska de seriella utdata för att avgöra varför den virtuella datorn inte kan starta korrekt. Ett vanligt exempel är en ogiltig post i `/etc/fstab`, eller den underliggande virtuella hård disken som tas bort eller flyttas.
@@ -56,88 +56,70 @@ Granska de seriella utdata för att avgöra varför den virtuella datorn inte ka
 
 I följande exempel stoppas den virtuella `myVM` datorn med namnet från resurs `myResourceGroup`gruppen med namnet:
 
-```powershell
-Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+```azurecli
+az vm stop --resource-group MyResourceGroup --name MyVm
 ```
-
-Vänta tills den virtuella datorn har tagits bort innan du bearbetar nästa steg.
-
-## <a name="create-a-snapshot-from-the-os-disk-of-the-vm"></a>Skapa en ögonblicks bild från den virtuella datorns OS-disk
+## <a name="take-a-snapshot-from-the-os-disk-of-the-affected-vm"></a>Ta en ögonblicks bild från OS-disken för den berörda virtuella datorn
 
 En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård disk. Den kan inte kopplas till en virtuell dator. I nästa steg ska vi skapa en disk från den här ögonblicks bilden. I följande exempel skapas en ögonblicks bild `mySnapshot` med namnet från operativ system disken för den virtuella datorn med namnet "myVM". 
 
-```powershell
-$resourceGroupName = 'myResourceGroup' 
-$location = 'eastus' 
-$vmName = 'myVM'
-$snapshotName = 'mySnapshot'  
+```azurecli
+#Get the OS disk Id 
+$osdiskid=(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 
-#Get the VM
-$vm = get-azvm `
--ResourceGroupName $resourceGroupName `
--Name $vmName
-
-#Create the snapshot configuration for the OS disk
-$snapshot =  New-AzSnapshotConfig `
--SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
--Location $location `
--CreateOption copy
-
-#Take the snapshot
-New-AzSnapshot `
-   -Snapshot $snapshot `
-   -SnapshotName $snapshotName `
-   -ResourceGroupName $resourceGroupName 
+#creates a snapshot of the disk
+az snapshot create --resource-group myResourceGroupDisk --source "$osdiskid" --name mySnapshot
 ```
 ## <a name="create-a-disk-from-the-snapshot"></a>Skapa en disk från ögonblicks bilden
 
-Det här skriptet skapar en hanterad disk `newOSDisk` med namnet från ögonblicks bilden med namnet. `mysnapshot`  
+Det här skriptet skapar en hanterad disk `myOSDisk` med namnet från ögonblicks bilden med namnet. `mySnapshot`  
 
-```powershell
-#Set the context to the subscription Id where Managed Disk will be created
-#You can skip this step if the subscription is already selected
-
-$subscriptionId = 'yourSubscriptionId'
-
-Select-AzSubscription -SubscriptionId $SubscriptionId
-
+```azurecli
 #Provide the name of your resource group
-$resourceGroupName ='myResourceGroup'
+$resourceGroup=myResourceGroup
 
 #Provide the name of the snapshot that will be used to create Managed Disks
-$snapshotName = 'mySnapshot' 
+$snapshot=mySnapshot
 
 #Provide the name of the Managed Disk
-$diskName = 'newOSDisk'
+$osDisk=myNewOSDisk
 
 #Provide the size of the disks in GB. It should be greater than the VHD file size.
-$diskSize = '128'
+$diskSize=128
 
-#Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-$storageType = 'StandardLRS'
+#Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+$storageType=Premium_LRS
 
-#Provide the Azure region (e.g. westus) where Managed Disks will be located.
-#This location should be same as the snapshot location
-#Get all the Azure location using command below:
-#Get-AzLocation
-$location = 'eastus'
+#Provide the OS type
+$osType=linux
 
-$snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
- 
-$diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
- 
-New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
+#Provide the name of the virtual machine
+$virtualMachine=myVM
+
+#Get the snapshot Id 
+$snapshotId=(az snapshot show --name $snapshot --resource-group $resourceGroup --query [id] -o tsv)
+
+# Create a new Managed Disks using the snapshot Id.
+
+az disk create --resource-group $resourceGroup --name $osDisk --sku $storageType --size-gb $diskSize --source $snapshotId
+
 ```
+
+Om resurs gruppen och käll ögonblicks bilden inte finns i samma region visas fel meddelandet "Det gick inte att hitta resursen" när du kör `az disk create`. I så fall måste du ange `--location <region>` att disken ska skapas i samma region som ögonblicks bilden av källan.
+
 Nu har du en kopia av den ursprungliga OS-disken. Du kan montera den här nya disken till en annan virtuell Windows-dator i fel söknings syfte.
 
 ## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>Koppla den nya virtuella hård disken till en annan virtuell dator
-För kommande steg använder du en annan virtuell dator i fel söknings syfte. Du ansluter disken till den här fel söknings datorn för att bläddra och redigera diskens innehåll. Med den här processen kan du korrigera eventuella konfigurations fel eller granska ytterligare program-eller systemloggfiler, till exempel. Välj eller skapa en annan virtuell dator som ska användas i fel söknings syfte.
+För kommande steg använder du en annan virtuell dator i fel söknings syfte. Du ansluter disken till den här fel söknings datorn för att bläddra och redigera diskens innehåll. Med den här processen kan du korrigera eventuella konfigurations fel eller granska ytterligare program-eller systemloggfiler.
 
-Anslut den befintliga virtuella hård disken med [AZ VM unmanaged-disk Attach](/cli/azure/vm/unmanaged-disk). När du ansluter den befintliga virtuella hård disken anger du URI: n till disken som hämtades i `az vm show` föregående kommando. I följande exempel kopplas en befintlig virtuell hård disk till den virtuella fel söknings datorn med namnet `myVMRecovery` i resurs `myResourceGroup`gruppen:
+Det här skriptet ansluter disken `myNewOSDisk` till den virtuella `MyTroubleshootVM`datorn:
 
 ```azurecli
-az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
-    --vhd-uri https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
+# Get ID of the OS disk that you just created.
+$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+
+# Attach the disk to the troubleshooting VM
+az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 --sku Standard_LRS --vm-name MyTroubleshootVM
 ```
 ## <a name="mount-the-attached-data-disk"></a>Montera den anslutna data disken
 
@@ -197,46 +179,30 @@ När dina fel har åtgärd ATS demonterar du och kopplar från den befintliga vi
     sudo umount /dev/sdc1
     ```
 
-2. Koppla nu från den virtuella hård disken från den virtuella datorn. Avsluta SSH-sessionen till din felsöka VM. Lista de anslutna data diskarna till din felsöka virtuella datorn med [AZ VM unmanaged-disk List](/cli/azure/vm/unmanaged-disk). I följande exempel visas de data diskar som är anslutna till den `myVMRecovery` virtuella datorn med namnet i `myResourceGroup`resurs gruppen med namnet:
+2. Koppla nu från den virtuella hård disken från den virtuella datorn. Avsluta SSH-sessionen till din felsöka VM:
 
     ```azurecli
-    azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
-        --query '[].{Disk:vhd.uri}' --output table
-    ```
-
-    Anteckna namnet på din befintliga virtuella hård disk. Till exempel är namnet på en disk med URI: n för **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** **myVHD**. 
-
-    Koppla bort data disken från den virtuella datorn [AZ VM unmanaged-disk Detached](/cli/azure/vm/unmanaged-disk). Följande exempel kopplar från disken med namnet `myVHD` från den virtuella datorn med namnet `myVMRecovery` i `myResourceGroup` resurs gruppen:
-
-    ```azurecli
-    az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
-        --name myVHD
+    az vm disk detach -g MyResourceGroup --vm-name MyTroubleShootVm --name myNewOSDisk
     ```
 
 ## <a name="change-the-os-disk-for-the-affected-vm"></a>Ändra OS-disken för den berörda virtuella datorn
 
-Du kan använda Azure PowerShell för att växla OS-diskarna. Du behöver inte ta bort och återskapa den virtuella datorn.
+Du kan använda Azure CLI för att växla OS-diskarna. Du behöver inte ta bort och återskapa den virtuella datorn.
 
-Det här exemplet stoppar den virtuella `myVM` datorn med namnet och tilldelar disken namnet `newOSDisk` som den nya OS-disken. 
+Det här exemplet stoppar den virtuella `myVM` datorn med namnet och tilldelar disken namnet `myNewOSDisk` som den nya OS-disken.
 
-```powershell
-# Get the VM 
-$vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM 
+```azurecli
+# Stop the affected VM
+az vm stop -n myVM -g myResourceGroup
 
-# Make sure the VM is stopped\deallocated
-Stop-AzVM -ResourceGroupName myResourceGroup -Name $vm.Name -Force
+# Get ID of the OS disk that is repaired.
+$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 
-# Get the new disk that you want to swap in
-$disk = Get-AzDisk -ResourceGroupName myResourceGroup -Name newDisk
-
-# Set the VM configuration to point to the new disk  
-Set-AzVMOSDisk -VM $vm -ManagedDiskId $disk.Id -Name $disk.Name  -sto
-
-# Update the VM with the new OS disk. Possible values of StorageAccountType include: 'Standard_LRS' and 'Premium_LRS'
-Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -StorageAccountType <Type of the storage account >
+# Change the OS disk of the affected VM to "myNewOSDisk"
+az vm update -g myResourceGroup -n myVM --os-disk $myNewOSDiskid
 
 # Start the VM
-Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
+az vm start -n myVM -g myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg

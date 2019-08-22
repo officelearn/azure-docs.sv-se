@@ -2,7 +2,7 @@
 title: Så här arbetar du med Sök Resultat – Azure Search
 description: Strukturera och sortera Sök resultat, hämta ett dokument antal och Lägg till innehålls navigering till Sök resultat i Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bb86a75be464cb78a16170626bc96778d43bb8b6
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 9fa2baf64dbb35d85c55635d7522075d61bfc17d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67974625"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647708"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Så här arbetar du med Sök resultat i Azure Search
 Den här artikeln innehåller vägledning om hur du implementerar standard element på en Sök resultat sida, till exempel totala antal, dokument hämtning, sorterings ordning och navigering. Sid-relaterade alternativ som bidrar med data eller information till dina Sök Resultat anges genom [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) förfrågningar som skickas till din Azure Search-tjänst. 

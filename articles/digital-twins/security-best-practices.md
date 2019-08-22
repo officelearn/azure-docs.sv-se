@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/19/2019
 ms.author: v-adgera
-ms.openlocfilehash: 64a980ba8ed581b3cad369951220d47baf9e17ab
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849287"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656528"
 ---
 # <a name="security-best-practices"></a>Metodtips för säkerhet
 
@@ -26,6 +26,9 @@ I den här artikeln sammanfattas viktiga metod tips.
 > [!IMPORTANT]
 > Granska ytterligare säkerhets resurser för att säkerställa maximal säkerhet för ditt IoT-utrymme. Se till att ta med dina enhets leverantörer.
 
+> [!TIP]
+> Använd [Azure Security Center för IoT](https://docs.microsoft.com/azure/asc-for-iot/) för att identifiera IoT-säkerhetshot och sårbarheter.
+
 ## <a name="iot-security-best-practices"></a>Metodtips för IoT-säkerhet
 
 Några viktiga metoder för att säkra dina IoT-enheter på ett säkert sätt är:
@@ -36,6 +39,7 @@ Några viktiga metoder för att säkra dina IoT-enheter på ett säkert sätt ä
 > * Överväg den potentiella användningen av enhets filtrering och port begränsning i enheten.
 > * Begränsa I/O-och enhets bandbredden för att förbättra prestandan. Hastighets begränsning kan förbättra säkerheten genom att förhindra DoS-attacker (Denial-of-Service).
 > * Se till att enhetens inbyggda program vara är uppdaterad.
+> * Granska och granska regelbundet rekommenderade säkerhets metoder för enhet, nätverk och gateway när de fortsätter att förbättra och utveckla.
 
 Några viktiga metoder för att säkert skydda ett IoT-utrymme är:
 
@@ -43,6 +47,7 @@ Några viktiga metoder för att säkert skydda ett IoT-utrymme är:
 > * Kryptera sparade, lagrade eller beständiga data.
 > * Kräv lösen ord eller nycklar som ska ändras regelbundet eller uppdateras.
 > * Begränsa åtkomsten och behörigheten noggrant efter roll. Se metod tipsen för den [rollbaserade åtkomst kontrollen](#rbac) nedan.
+> * Överväg en delad nätverkstopologi så att enheterna i varje nätverk isoleras från de andra.
 > * Använd kraftfull kryptering. Kräv långa lösen ord och Använd säkra protokoll och tvåfaktorautentisering.
 
 [Övervaka](./how-to-configure-monitoring.md) IoT-resurser för att se om det finns extrem värden, hot eller resurs parametrar som ligger utanför det normala drift intervallet. Använd Azure Analytics för övervakning av hantering.

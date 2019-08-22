@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 08/20/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: cc005ee578e938311c640f7aa19f6643e7c99900
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: ec68a54b5e90416e97bb4e4b0c3074092502a920
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253895"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647196"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>Hur du använder den QnA Maker REST-APIC# 
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Den här artikeln visar hur du använder den [Microsoft QnA Maker API](../Overvi
 - [Ta bort en kunskapsbas.](#Delete)
 - [Hämta de aktuella slutpunktsnycklarna.](#GetKeys)
 - [Återskapa de aktuella slutpunktsnycklarna.](#PutKeys)
-- [Hämta den aktuella uppsättningen skiftlägeskänsliga word förändras.](#GetAlterations)
-- [Ersätt den aktuella uppsättningen skiftlägeskänsliga word förändras.](#PutAlterations)
+- [Hämta den aktuella uppsättningen Skift läges känsliga ord ändringar.](#GetAlterations)
+- [Ersätt den aktuella uppsättningen Skift läges känsliga ord ändringar.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 

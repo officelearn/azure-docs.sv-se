@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: e18d6519d1ee3c1750757af5c59157de8bdde80c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637917"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872897"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -175,7 +175,7 @@ Identifiera databaser som körs på en virtuell dator:
    För att optimera säkerhetskopieringsbelastningar anger Azure Backup ett maximalt antal databaser i ett säkerhetskopieringsjobb till 50.
 
      * Om du vill skydda fler än 50 databaser konfigurerar du flera säkerhetskopieringar.
-     * Om du [](#enable-auto-protection) vill aktivera hela instansen eller den Always on-tillgänglighetsgruppen. I list rutan autoskydd väljer du **på**och väljer sedan **OK**.
+     * Om du vill [Aktivera](#enable-auto-protection) hela instansen eller den Always on-tillgänglighetsgruppen väljer du **på**i list rutan autoskydd och väljer sedan **OK**.
 
     > [!NOTE]
     > Funktionen för [automatiskt skydd](#enable-auto-protection) aktiverar inte bara skydd på alla befintliga databaser samtidigt, men skyddar också automatiskt nya databaser som läggs till i den instansen eller tillgänglighets gruppen.  

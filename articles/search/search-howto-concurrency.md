@@ -1,51 +1,51 @@
 ---
 title: Hantera samtidiga skrivningar till resurser – Azure Search
-description: Använd Optimistisk samtidighet för att undvika mitten air kollisioner på uppdateringar eller borttagningar till Azure Search-index, indexerare och datakällor.
+description: Använd optimistisk samtidighet för att undvika konflikter i luften vid uppdateringar eller borttagningar av Azure Search index, indexerare, data källor.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67f2dad016d3958dc10ba87e785d31694a1c94f5
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025328"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656727"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Hantera samtidighet i Azure Search
 
-När du hanterar Azure Search-resurser, till exempel index och datakällor, är det viktigt att uppdatera resurser på ett säkert sätt, särskilt om resurser samtidigt av olika komponenter i ditt program. När två klienter uppdaterar samtidigt en resurs utan samordning, är konkurrenstillstånd möjliga. Om du vill förhindra detta kan Azure Search erbjuder en *optimistisk samtidighetsmodellen*. Det finns inga lås på en resurs. Det finns i stället en ETag för varje resurs som identifierar resursen version så att du kan skapa förfrågningar som undviker oavsiktligt skriver över.
+När du hanterar Azure Search resurser, till exempel index och data källor, är det viktigt att uppdatera resurserna på ett säkert sätt, särskilt om resurser kan nås samtidigt av olika komponenter i ditt program. När två klienter samtidigt uppdaterar en resurs utan samordning är det möjligt att tävla. För att förhindra detta erbjuder Azure Search en *optimistisk samtidighets modell*. Det finns inga lås på en resurs. I stället finns det en ETag för varje resurs som identifierar resurs versionen så att du kan ställa förfrågningar som förhindrar oavsiktlig överskrivning.
 
 > [!Tip]
-> Konceptuell koden i en [exempel C# lösning](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) förklarar hur du samtidighetskontroll i Azure Search. Koden skapar villkor som anropar samtidighetskontroll. Läsa den [kodfragmentet nedan](#samplecode) är förmodligen tillräckliga för de flesta utvecklare, men om du vill köra den, redigera appsettings.json för att lägga till tjänstens namn och en api-administratörsnyckel. Tjänsten URL: en `http://myservice.search.windows.net`, namnet på tjänsten är `myservice`.
+> Konceptuell kod i en [exempel C# lösning](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) förklarar hur samtidighets kontrollen fungerar i Azure Search. Koden skapar villkor som anropar samtidighets kontroll. Att läsa [kodfragmentet nedan](#samplecode) är förmodligen tillräckligt för de flesta utvecklare, men om du vill köra det kan du redigera appSettings. JSON för att lägga till tjänst namnet och en Admin-API-nyckel. Med en tjänst-URL `http://myservice.search.windows.net`, är `myservice`tjänstens namn.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Optimistisk samtidighet implementeras via åtkomst villkoret kontrollerar i API-anrop som skriver till index, indexerare, datakällor och synonymMap resurser.
+Optimistisk samtidighet implementeras genom åtkomst villkors kontroller i API-anrop för att skriva till index, indexerare, data källor och synonymMap-resurser.
 
-Alla resurser har en [ *entitetstagg (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) som innehåller versionsinformation för objektet. Genom att kontrollera ETag först, kan du undvika att samtidiga uppdateringar i ett vanligt arbetsflöde (get, ändra lokalt, uppdatera) genom att säkerställa resursens ETag matchar den lokala kopian.
+Alla resurser har en [*Entity-tagg (etag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) som tillhandahåller objekt versions information. Genom att först kontrol lera ETag kan du undvika samtidiga uppdateringar i ett typiskt arbets flöde (Hämta, ändra lokalt, uppdatera) genom att se till att resursens ETag matchar din lokala kopia.
 
-+ REST-API använder en [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) på rubriken.
-+ .NET SDK anger ETag via ett accessCondition-objekt och ange den [If-Match | If-Match-ingen rubrik](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) på resursen. Alla objekt som ärver från [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) har ett accessCondition-objekt.
++ REST API använder en [etag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) i begär ande huvudet.
++ .NET SDK anger ETag genom ett accessCondition-objekt, vilket anger [If-Match | If-Match-none-huvud](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) på resursen. Alla objekt som ärver från [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) har ett accessCondition-objekt.
 
-Varje gång du uppdaterar en resurs ändras dess ETag automatiskt. När du implementerar hantering av samtidighet är allt du gör skapar ett Förhandsvillkoret på begäran om uppdatering som kräver fjärresursen ha samma ETag som kopia av den resurs som du har ändrat på klienten. Om en samtidig process har redan ändrats fjärresursen, ETag matchar inte villkor och begäran misslyckas med HTTP 412. Om du använder .NET SDK detta manifest som en `CloudException` där den `IsAccessConditionFailed()` tilläggsmetod returnerar true.
+Varje gång du uppdaterar en resurs ändras dess ETag automatiskt. När du implementerar samtidiga hantering, kommer allt du gör att införa ett villkor för den uppdateringsbegäran som kräver att fjär resursen har samma ETag som kopian av resursen som du ändrade på klienten. Om en samtidig process redan har ändrat fjär resursen, stämmer inte ETagen överens med villkoret och begäran Miss fungerar med HTTP 412. Om du använder .NET SDK visas manifestet som en `CloudException` `IsAccessConditionFailed()` där tilläggs metoden returnerar true.
 
 > [!Note]
-> Det finns bara en mekanism för samtidighet. Den används alltid oavsett vilka API används för att uppdatera resurserna.
+> Det finns bara en mekanism för samtidighet. Den används alltid oavsett vilket API som används för resurs uppdateringar.
 
 <a name="samplecode"></a>
-## <a name="use-cases-and-sample-code"></a>Användningsfall och exempelkod
+## <a name="use-cases-and-sample-code"></a>Användnings fall och exempel kod
 
-Följande kod visar accessCondition söker efter nyckeln uppdateringsåtgärder:
+Följande kod visar accessCondition-kontroller för nyckel uppdaterings åtgärder:
 
-+ Inte en uppdatering om resursen finns inte längre
-+ Inte en uppdatering om resursversionen ändras
++ Det gick inte att uppdatera om resursen inte längre finns
++ Det går inte att uppdatera om resurs versionen ändras
 
-### <a name="sample-code-from-dotnetetagsexplainer-programhttpsgithubcomazure-samplessearch-dotnet-getting-startedtreemasterdotnetetagsexplainer"></a>Exempelkoden från [DotNetETagsExplainer program](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)
+### <a name="sample-code-from-dotnetetagsexplainer-programhttpsgithubcomazure-samplessearch-dotnet-getting-startedtreemasterdotnetetagsexplainer"></a>Exempel kod från [DotNetETagsExplainer-program](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)
 
 ```
     class Program
@@ -166,13 +166,13 @@ Följande kod visar accessCondition söker efter nyckeln uppdateringsåtgärder:
 }
 ```
 
-## <a name="design-pattern"></a>designmönster
+## <a name="design-pattern"></a>Design mönster
 
-Design arbetsprofilen för att implementera Optimistisk samtidighet bör innehålla en loop som försöker åtkomst villkoret kontrollera ett test för åtkomst-villkor och du kan också hämtar en uppdaterad resurs innan du försöker igen tillämpa ändringarna.
+Ett design mönster för att implementera optimistisk samtidighet bör innehålla en slinga som försöker få åtkomst till villkors kontroll, ett test för åtkomst villkoret och hämtar en uppdaterad resurs innan du försöker återställa ändringarna igen.
 
-Det här kodstycket visar att lägga till en synonymMap till ett index som redan finns. Den här koden är från den [synonymen C# exempel för Azure Search](search-synonyms-tutorial-sdk.md).
+Det här kodfragmentet illustrerar hur en synonymMap läggs till i ett index som redan finns. Den här koden är från [synonym C# exemplet för Azure Search](search-synonyms-tutorial-sdk.md).
 
-Kodfragmentet hämtar indexet ”hotels”, kontrollerar versionen på en uppdateringsåtgärd, genereras ett undantag om villkoret misslyckas, och sedan försöker igen (upp till tre gånger) från och med index hämtning från servern för att hämta den senaste versionen.
+Kodfragmentet hämtar indexet "Hotels", kontrollerar objekt versionen vid en uppdaterings åtgärd, genererar ett undantag om villkoret Miss lyckas och försöker sedan utföra åtgärden igen (upp till tre gånger), med början från index hämtning från servern för att hämta den senaste versionen.
 
         private static void EnableSynonymsInHotelsIndexSafely(SearchServiceClient serviceClient)
         {
@@ -208,15 +208,15 @@ Kodfragmentet hämtar indexet ”hotels”, kontrollerar versionen på en uppdat
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska den [synonymer C# exempel](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) för mer kontext om hur du uppdaterar ett befintligt index på ett säkert sätt.
+Granska [synonym C# exemplet](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) för mer information om hur du uppdaterar ett befintligt index på ett säkert sätt.
 
-Försök att ändra något av följande exempel ska innehålla ETags eller AccessCondition objekt.
+Försök att ändra något av följande exempel för att inkludera ETags-eller AccessCondition-objekt.
 
-+ [REST API-exemplet på GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
-+ [.NET SDK-exemplet på GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Den här lösningen inkluderar ”DotNetEtagsExplainer”-projektet som innehåller koden som visas i den här artikeln.
++ [REST API exempel på GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
++ [.NET SDK-exempel på GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Den här lösningen innehåller projektet "DotNetEtagsExplainer" som innehåller koden som visas i den här artikeln.
 
 ## <a name="see-also"></a>Se också
 
-[Vanliga HTTP-begäranden och svar rubriker](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
-[HTTP-statuskoder](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
-[Index-åtgärder (REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Vanliga](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+http[-status koder](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
+för HTTP-förfrågningar och svars rubriker[(REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

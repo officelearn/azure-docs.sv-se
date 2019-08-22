@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 3d3fc1541fb99d8d1219392158c3b87cd6ff99aa
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: MT
+ms.openlocfilehash: 37624c79a345f956de9a289c672340e391199e2f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033535"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650690"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -225,7 +225,7 @@ Upp till 3 000 tecken text kan anges i det här fältet. Ytterligare tips finns 
 
 #### <a name="description"></a>**Beskrivning**
 
-Det här är ett obligatoriskt fält. Objekt som ska tas med i beskrivningen: 
+Det här fältet är obligatoriskt. Objekt som ska tas med i beskrivningen: 
 
 * Beskriv tydligt ditt erbjudande värde i de första meningarna i beskrivningen.  
 * Tänk på att de första meningarna kan visas i Sök motorns resultat.  
@@ -302,12 +302,7 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
 
     Ovanstående skulle se ut så här:
 
-    <h1>Detta är rubrik 1</h1> 
-    <h2>Detta är rubrik 2</h2> 
-    <h3>Detta är rubrik 3</h3> 
-    <h4>Detta är rubrik 4</h4> 
-    <h5>Detta är rubrik 5</h5> 
-    <h6>Detta är rubrik 6</h6> 
+    ![Exempel rubriker](./media/heading.png)
 
 #### <a name="links"></a>Länkar
 
@@ -381,7 +376,7 @@ Vilka **åtgärder** som är tillgängliga i **plan översikten** varierar beroe
 **Skapa ny plan** (minst en plan för de som väljer att sälja via Microsoft)
 
 - **Plan-ID:** Skapa ett unikt plan-ID för varje plan i det här erbjudandet. Detta ID visas för kunder i produkt-URL och Azure Resource Manager mallar (om tillämpligt). Använd endast gemener, alfanumeriska tecken, bindestreck eller under streck. Högst 50 tecken tillåts för det här plan-ID: t. Observera att ID: t inte kan ändras när du har valt skapa.
-- **Plan namn:** Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (t. ex. Erbjudandenamn: Windows Server; utgå Windows Server 2016, Windows Server 2019).
+- **Plan namn:** Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (t. ex. Erbjudandets namn: Windows Server; utgå Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Plan lista
 

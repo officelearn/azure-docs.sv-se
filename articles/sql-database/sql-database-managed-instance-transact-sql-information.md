@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: b792c0fc5d02a84d45b47ac68e0058144f31e673
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641003"
+ms.locfileid: "69644879"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -545,15 +545,13 @@ Service Broker dialog rutor mellan databaser slutar att leverera meddelanden til
 
 **Korrigera** Stoppa alla aktiviteter som använder Service Broker dialog samtal över flera databaser innan du uppdaterar tjänst nivån och återinitierar dem igen. Om det finns återstående meddelanden som inte levereras efter ändringar i tjänst nivån läser du meddelandena från käll kön och skickar dem igen till målkön.
 
-### <a name="impresonification-of-aad-login-types-is-not-supported"></a>Impresonification av inloggnings typer för AAD stöds inte
+### <a name="impersonification-of-aad-login-types-is-not-supported"></a>Impersonification av inloggnings typer för AAD stöds inte
 
 **Ikraftträdande** Juli 2019
 
 Personifiering med `EXECUTE AS USER` eller `EXECUTE AS LOGIN` av följande AAD-huvudobjekt stöds inte:
 -   AAD-användare med alias. Följande fel returneras i det här fallet `15517`.
 - AAD-inloggningar och användare baserat på AAD-program eller tjänstens huvud namn. Följande fel returneras i det här fallet `15517` och. `15406`
-
-### <a name="database-email"></a>Database-e-post 
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparametern stöds inte i sp_send_db_mail
 

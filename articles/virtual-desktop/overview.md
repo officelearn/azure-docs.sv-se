@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7c331a4a7395069dc4dc3ab1dcfc89415be0898c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8827aa660d348ef9e42c617067c2837b8697ba6e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854459"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876787"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Vad är för hands versionen av Windows Virtual Desktop? 
 
@@ -81,7 +81,7 @@ Infrastrukturen behöver följande saker för att stödja Windows Virtual Deskto
 De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste vara:
 
 * [Standard domän ansluten](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) eller [hybrid AD-ansluten](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtuella datorer kan inte vara Azure AD-anslutna.
-* Köra en av följande OS-avbildningar som [stöds](#supported-virtual-machine-os-image).
+* Köra en av följande OS-avbildningar som [stöds](#supported-virtual-machine-os-images).
 
 >[!NOTE]
 >Om du behöver en Azure-prenumeration kan du [Registrera dig för en kostnads fri utvärderings version av en månad](https://azure.microsoft.com/free/). Om du använder den kostnads fria utvärderings versionen av Azure bör du använda Azure AD Domain Services för att hålla Windows Server-Active Directory synkroniserad med Azure Active Directory.
@@ -101,7 +101,7 @@ Följande fjärr skrivbords klienter stöder virtuellt skriv bord i Windows:
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-## <a name="supported-virtual-machine-os-image"></a>Operativ system avbildning för virtuella datorer som stöds
+## <a name="supported-virtual-machine-os-images"></a>OS-avbildningar för virtuella datorer som stöds
 
 Windows Virtual Desktop stöder följande OS-avbildningar:
 

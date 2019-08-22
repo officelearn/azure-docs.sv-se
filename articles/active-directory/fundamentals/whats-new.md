@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45a7477fa312a172579c6b4717e9f679ac253e1b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 50f2f1f7f5d8509a28557e9704bc178be465b1ee
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823815"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648664"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -36,6 +36,20 @@ Azure AD får förbättringar med jämna mellanrum. Om du vill hålla dig uppdat
 - Planer för ändringar
 
 Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet. Om du letar efter objekt som är äldre än sex månader kan du hitta dem i [arkivet för nyheter i Azure Active Directory](whats-new-archive.md).
+
+---
+
+## <a name="august-2019"></a>2019 augusti
+
+### <a name="adalnet-ignores-the-msalnet-shared-cache-for-on-behalf-of-scenarios"></a>ADAL.NET ignorerar det delade cacheminnet MSAL.NET för on-of-scenarier
+
+**Bastyp** Korrigerat  
+**Tjänste kategori:** Autentiseringar (inloggningar)  
+**Produkt kapacitet:** Användarautentisering
+
+Från och med Azure AD Authentication Library (ADAL.NET) version 5.0.0 – för hands version måste Apps-utvecklare [serialisera en cache per konto för webbappar och webb-API: er](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). I annat fall kan vissa scenarier som använder [sig av Flow](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow), tillsammans med vissa speciella användnings fall av `UserAssertion`, resultera i en höjning av behörighet. För att undvika den här säkerhets risken ignorerar ADAL.NET nu det delade cacheminnet för Microsoft Authentication Library för dotNET (MSAL.NET) för scenarier med olika förutsättningar.
+
+Mer information om det här problemet finns i [Azure Active Directory behörighets bibliotekets utökning av behörighets sårbarhet](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258).
 
 ---
 
@@ -69,7 +83,7 @@ Nya användar gränssnitts ändringar kommer till design av bladet **Lägg till 
 
 **Bastyp** Förändringsplan  
 **Tjänste kategori:** MFA  
-**Produkt kapacitet:** Identitetssäkerhet och skydd
+**Produkt kapacitet:** & Skydd för identitets säkerhet
 
 Vi tar bort MFA-serverns IP-adress från [Office 365 IP-adress och URL-webbtjänst](https://docs.microsoft.com/office365/enterprise/office-365-ip-web-service). Om du för närvarande förlitar dig på dessa sidor för att uppdatera brand Väggs inställningarna måste du även se till att du inkluderar listan över IP-adresser som beskrivs i avsnittet om **brand Väggs krav för Azure Multi-Factor Authentication-Server** i avsnittet [komma igång med artikeln Azure Multi-Factor Authentication Server](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements) .
 
@@ -122,7 +136,7 @@ Mer information om apparna som finns i [SaaS-programintegration med Azure Active
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Företagsappar  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Nu kan du automatisera att skapa, uppdatera och ta bort användar konton för dessa nyligen integrerade appar:
 
@@ -170,7 +184,7 @@ Mer information finns i [Aktivera säkerhets granskningar för Azure AD Domain S
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Lösenordsåterställning via självbetjäning  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Den nya autentiseringsmetoden användning & Insights-rapporter kan hjälpa dig att förstå hur funktioner som Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning registreras och används i din organisation, inklusive antalet registrerade användare för varje funktion, hur ofta lösen ords återställning via självbetjäning används för att återställa lösen ord och med vilken metod som återställningen sker.
 
@@ -182,7 +196,7 @@ Mer information finns i [användning av autentiseringsmetoder & insikter (för h
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Identity Protection  
-**Produkt kapacitet:** Identitetssäkerhet och skydd
+**Produkt kapacitet:** & Skydd för identitets säkerhet
 
 Alla Azure AD-administratörer kan nu välja banderollen överst i befintliga säkerhets rapporter, till exempel användare som har **flaggats för risk** rapport, för att börja använda den nya säkerhets upplevelsen som visas i rapporterna **riskfyllda användare** och riskfyllda **inloggningar** . Med tiden kommer alla säkerhets rapporter att flyttas från äldre versioner till de nya versionerna, med de nya rapporterna som ger dig följande ytterligare funktioner:
 
@@ -226,7 +240,7 @@ Mer information finns i [direkt Federation med AD FS och tredje parts leverantö
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Företagsappar  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Nu kan du automatisera att skapa, uppdatera och ta bort användar konton för dessa nyligen integrerade appar:
 
@@ -276,7 +290,7 @@ För närvarande blockerar appens registrerings skärmar för Azure Portal fortf
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Rapportering  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Vi är glada över att kunna meddela att Azure AD aktivitets loggar (gransknings-och inloggnings rapporter) nu är tillgängliga via Azure AD PowerShell-modulen. Tidigare kunde du skapa egna skript med MS Graph API-slutpunkter och nu har vi utökat den möjligheten till PowerShell-cmdletar.
 
@@ -288,7 +302,7 @@ Mer information om hur du använder dessa cmdlets finns i [Azure AD PowerShell-c
 
 **Bastyp** Ändrad funktion  
 **Tjänste kategori:** Rapportering  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Vi har uppdaterat rapporterna för gransknings-och inloggnings loggar så att du nu kan använda olika filter utan att behöva lägga till dem som kolumner i rapport skärmarna. Dessutom kan du bestämma hur många filter som ska visas på skärmen. De här uppdateringarna fungerar tillsammans för att göra dina rapporter lättare att läsa och mer begränsade till dina behov.
 
@@ -302,7 +316,7 @@ Mer information om de här uppdateringarna finns i [filtrera gransknings loggar]
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Identity Protection  
-**Produkt kapacitet:** Identitetssäkerhet och skydd
+**Produkt kapacitet:** & Skydd för identitets säkerhet
 
 Vi är glada över att kunna presentera den nya riskDetections-API: n för Microsoft Graph nu i offentlig för hands version. Du kan använda den här nya API: n för att visa en lista över organisationens identitet skydd – relaterad användare och inloggnings risk identifieringar. Du kan också använda det här API: et för att effektivt fråga dina risk identifieringar, inklusive information om identifierings typ, status, nivå och mycket annat.
 
@@ -328,7 +342,7 @@ Mer information om apparna som finns i [SaaS-programintegration med Azure Active
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Företagsappar  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Nu kan du automatisera att skapa, uppdatera och ta bort användar konton för dessa nyligen integrerade appar:
 
@@ -372,7 +386,7 @@ Mer information om hur du konfigurerar din företags anpassning finns i [lägga 
 
 **Bastyp** Inaktuell  
 **Tjänste kategori:** MFA  
-**Produkt kapacitet:** Identitetssäkerhet och skydd
+**Produkt kapacitet:** & Skydd för identitets säkerhet
 
 Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication i organisationen måste nu använda molnbaserad Azure Multi-Factor Authentication. Kunder som aktiverade MFA Server tidigare än 1 juli ser ingen ändring. Du kommer fortfarande att kunna ladda ned den senaste versionen, Hämta framtida uppdateringar och generera autentiseringsuppgifter för aktivering.
 
@@ -398,7 +412,7 @@ Utfasningen av TLS 1,0 och TLS 1,1 sker den 31 augusti 2019, men vi ger ytterlig
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Företagsappar  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Nu kan du använda rapporten användning och insikter som finns i avsnittet **företags program** i Azure Portal för att få en programinriktad vy över dina inloggnings data, inklusive information om:
 
@@ -416,7 +430,7 @@ Mer information om den här funktionen finns i [användnings-och insikts rapport
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Företagsappar  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Följ de här nya självstudierna för att använda Azure AD Provisioning-tjänsten för att automatisera skapande, borttagning och uppdatering av användar konton för följande molnbaserade appar:
 
@@ -436,7 +450,7 @@ Mer information om hur du bättre skyddar din organisation genom att tillhandah�
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Gäller inte  
-**Produkt kapacitet:** Identitetssäkerhet och skydd
+**Produkt kapacitet:** & Skydd för identitets säkerhet
 
 Nu kan du övervaka och förbättra din position för identiteter genom att använda funktionen identitet säkra poäng i Azure AD. I funktionen för identitetens säkra poäng används en enda instrument panel för att hjälpa dig:
 
@@ -472,7 +486,7 @@ Mer information finns i [Microsoft Identity Platform](https://docs.microsoft.com
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Identity Protection  
-**Produkt kapacitet:** Identitetssäkerhet och skydd
+**Produkt kapacitet:** & Skydd för identitets säkerhet
 
 Vi är glada över att kunna meddela att du nu kan använda API: erna för riskfyllda användare för att hämta användares risk historik, ignorera riskfyllda användare och bekräfta användare som komprometterade. Den här ändringen hjälper dig att effektivt uppdatera risk statusen för dina användare och förstå deras risk historik.
 
@@ -538,7 +552,7 @@ Mer information finns i [framtvinga en namngivnings princip för Office 365-grup
 
 **Bastyp** Ändrad funktion  
 **Tjänste kategori:** Rapportering  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Vi är glada över att kunna meddela allmän tillgänglighet för stöd för Microsoft Graph API-slutpunkter för Azure AD-aktivitets loggar. I den här versionen kan du nu använda version 1,0 av både gransknings loggarna i Azure AD och inloggnings loggarna.
 
@@ -550,7 +564,7 @@ Mer information finns i [Översikt över Azure AD audit log API](https://docs.mi
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Villkorad åtkomst  
-**Produkt kapacitet:** Identitetssäkerhet och skydd  
+**Produkt kapacitet:** & Skydd för identitets säkerhet  
 
 Administratörer kan nu skapa principer för villkorlig åtkomst för användning av den kombinerade registrerings sidan. Detta omfattar att tillämpa principer för att tillåta registrering om:
 
@@ -568,13 +582,13 @@ Om du vill ha mer information om villkorlig åtkomst och återställning av lös
 
 ## <a name="april-2019"></a>April 2019
 
-### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-in-refreshed-azure-ad-identity-protection"></a>Ny identifiering av Azure AD Threat Intelligence är nu tillgängligt i uppdaterade Azure AD Identity Protection
+### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-as-part-of-azure-ad-identity-protection"></a>Ny identifiering av Azure AD Threat Intelligence är nu tillgängligt som en del av Azure AD Identity Protection
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Azure AD Identity Protection  
-**Produkt kapacitet:** Identitetssäkerhet och skydd
+**Produkt kapacitet:** & Skydd för identitets säkerhet
 
-Identifiering av Azure AD Threat Intelligence är nu tillgängligt i den uppdaterade Azure AD Identity Protection. Med den här nya funktionen kan du ange en användar aktivitet som är ovanlig för en viss användare eller som är konsekvent med kända angrepps mönster baserade på Microsofts interna och externa hot information.
+Identifiering av Azure AD Threat Intelligence är nu tillgängligt som en del av den uppdaterade Azure AD Identity Protections funktionen. Med den här nya funktionen kan du ange ovanliga användar aktiviteter för en viss användare eller aktivitet som är konsekvent med kända angrepps mönster baserade på Microsofts interna och externa hot informations källor.
 
 Mer information om den uppdaterade versionen av Azure AD Identity Protection finns i de [fyra viktiga Azure AD Identity Protection förbättringarna finns nu i den offentliga för hands](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) versionen av bloggen och [vad som är Azure Active Directory Identity Protection (uppdaterat)?](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) artiklar. Mer information om identifiering av Azure AD Threat Intelligence finns i artikeln [Azure Active Directory Identity Protection risk händelser](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence) .
 
@@ -612,7 +626,7 @@ Mer information finns i [framtvinga en namngivnings princip för Office 365-grup
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Rapportering  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Vi presenterar en ny insikts funktion i Log Analytics för att hjälpa dig att åtgärda dina synpunkter på visualiseringar med aktivitets loggarna i Azure AD. Den här funktionen hjälper dig att få insikter om dina Azure AD-resurser med hjälp av våra interaktiva mallar, som kallas arbets böcker. Dessa färdiga arbets böcker kan ge information om appar eller användare och inkludera:
 
@@ -684,7 +698,7 @@ Mer information finns i [fel sökning av fel under synkronisering](https://docs.
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Villkorad åtkomst  
-**Produkt kapacitet:** Identitetssäkerhet och skydd
+**Produkt kapacitet:** & Skydd för identitets säkerhet
 
 App Protection-baserad villkorlig åtkomst är nu tillgänglig med hjälp av principen **Kräv app-skydd** . Den här nya principen hjälper till att öka din organisations säkerhet genom att bidra till att förhindra:
 
@@ -702,7 +716,7 @@ Mer information finns i [så här kräver du app Protection-princip för Cloud a
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Villkorad åtkomst  
-**Produkt kapacitet:** Identitetssäkerhet och skydd
+**Produkt kapacitet:** & Skydd för identitets säkerhet
 
 Vi har förbättrat Azure AD-supporten för Microsoft Edge, inklusive att tillhandahålla nytt stöd för enkel inloggning och villkorlig åtkomst i Azure AD. Om du tidigare har använt Microsoft Intune Managed Browser kan du nu använda Microsoft Edge i stället.
 
@@ -715,7 +729,7 @@ Mer information om hur du konfigurerar och hanterar enheter och appar med hjälp
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Identitets upplevelse ramverk och anpassad princip support i Azure Active Directory B2C är nu tillgänglig (GA)
 
 **Bastyp** Ny funktion  
-**Tjänste kategori:** B2C – konsumentidentitetshantering  
+**Tjänste kategori:** B2C – konsument identitets hantering  
 **Produkt kapacitet:** B2B/B2C
 
 Nu kan du skapa anpassade principer i Azure AD B2C, inklusive följande uppgifter, som stöds i stor skala och under vårt Azure SLA:
@@ -802,7 +816,7 @@ Den här uppdateringen skickar `invalid_grant` ett fel `AADSTS50196: The server 
 
 **Bastyp** Ändrad funktion  
 **Tjänste kategori:** Rapportering  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Vi har skapat en ny sida med **gransknings loggar** för Azure AD som hjälper till att förbättra både läsbarhet och hur du söker efter din information. Om du vill se sidan nya **gransknings loggar** väljer du **gransknings loggar** i avsnittet **aktivitet** i Azure AD.
 
@@ -816,7 +830,7 @@ Mer information om sidan nya **gransknings loggar** finns [i gransknings aktivit
 
 **Bastyp** Ändrad funktion  
 **Tjänste kategori:** Villkorad åtkomst  
-**Produkt kapacitet:** Identitetssäkerhet och skydd
+**Produkt kapacitet:** & Skydd för identitets säkerhet
 
 För att förhindra att administratörer oavsiktligt låser sig själva ut från sina egna klienter via felkonfigurerade principer för villkorlig åtkomst har vi skapat nya varningar och uppdaterad vägledning i Azure Portal. Mer information om den nya vägledningen finns i [Vad är tjänst beroenden i Azure Active Directory villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
 
@@ -836,7 +850,7 @@ Vi har uppdaterat våra befintliga användnings villkor för att hjälpa till at
 
 **Bastyp** Ändrad funktion  
 **Tjänste kategori:** Rapportering  
-**Produkt kapacitet:** Övervakning och rapportering
+**Produkt kapacitet:** Övervaka & rapportering
 
 Nu kan du hämta stora mängder aktivitets loggar direkt från Azure Portal. Med den här uppdateringen kan du:
 
@@ -862,7 +876,7 @@ Vi håller på att uppdatera hur Exchange ActiveSync (EAS) utvärderar följande
 
 - Användar plats, baserat på land, region eller IP-adress
 
-- Inloggningsrisk
+- Inloggnings risk
 
 - Enhetsplattform
 
@@ -872,7 +886,7 @@ Om du tidigare har använt dessa villkor i dina principer för villkorlig åtkom
 
 ## <a name="february-2019"></a>Februari 2019
 
-### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Konfigurerbar Azure AD SAML-tokenkryptering (allmänt tillgänglig förhandsversion) 
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Konfigurerbar Azure AD SAML token Encryption (offentlig för hands version) 
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Företagsappar  
@@ -884,7 +898,7 @@ Mer information om hur du konfigurerar din kryptering för SAML-token finns i [K
 
 ---
 
-### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Skapa en åtkomstgranskning för grupper eller appar som använder Azure AD-åtkomstgranskningar
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Skapa en åtkomst granskning för grupper eller appar med hjälp av åtkomst granskningar för Azure AD
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Åtkomstgranskningar  
@@ -896,7 +910,7 @@ Mer information om hur du skapar en åtkomst granskning med hjälp av åtkomst g
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Nya federerade appar tillgängliga i Azure AD-appgalleriet – februari 2019
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Nya federerade appar som är tillgängliga i Azure AD App Gallery – februari 2019
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Företagsappar  
@@ -910,7 +924,7 @@ Mer information om apparna som finns i [SaaS-programintegration med Azure Active
 
 ---
 
-### <a name="enhanced-combined-mfasspr-registration"></a>Förbättrad kombinerad MFA SSPR-registrering
+### <a name="enhanced-combined-mfasspr-registration"></a>Förbättrad kombination av MFA-/SSPR-registrering
 
 **Bastyp** Ändrad funktion  
 **Tjänste kategori:** Lösenordsåterställning via självbetjäning  
@@ -938,10 +952,10 @@ För ytterligare information om den förbättrade registrerings upplevelsen, se 
 
 ---
 
-### <a name="updated-policy-management-experience-for-user-flows"></a>Principhanteringsupplevelsen för användarflöden har uppdaterats
+### <a name="updated-policy-management-experience-for-user-flows"></a>Uppdaterad princip hanterings upplevelse för användar flöden
 
 **Bastyp** Ändrad funktion  
-**Tjänste kategori:** B2C – konsumentidentitetshantering  
+**Tjänste kategori:** B2C – konsument identitets hantering  
 **Produkt kapacitet:** B2B/B2C
 
 Vi har uppdaterat processen för att skapa och hantera principer för användar flöden (tidigare kallade inbyggda principer) enklare. Den nya upplevelsen är nu standard för alla dina Azure AD-klienter.
@@ -952,10 +966,10 @@ Mer information om den nya princip hanterings upplevelsen finns i [Azure AD B2C 
 
 ---
 
-### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Välj specifika sidelementsversioner som tillhandahålls av Azure AD B2C
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Välj vissa sid element versioner som tillhandahålls av Azure AD B2C
 
 **Bastyp** Ny funktion  
-**Tjänste kategori:** B2C – konsumentidentitetshantering  
+**Tjänste kategori:** B2C – konsument identitets hantering  
 **Produkt kapacitet:** B2B/B2C
 
 Nu kan du välja en speciell version av sid elementen som tillhandahålls av Azure AD B2C. Genom att välja en viss version kan du testa dina uppdateringar innan de visas på en sida och du kan få förutsägbara beteenden. Dessutom kan du välja att använda vissa sid versioner för att tillåta anpassade JavaScript-anpassningar. Om du vill aktivera den här funktionen går du till sidan **Egenskaper** i dina användar flöden.
@@ -964,10 +978,10 @@ Mer information om hur du väljer vissa versioner av sid element finns i avsnitt
 
 ---
 
-### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>Konfigurerbara lösenordskrav för slutanvändare för B2C (GA)
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>Konfigurerbara lösen ords krav för B2C (GA)
 
 **Bastyp** Ny funktion  
-**Tjänste kategori:** B2C – konsumentidentitetshantering  
+**Tjänste kategori:** B2C – konsument identitets hantering  
 **Produkt kapacitet:** B2B/B2C
 
 Nu kan du konfigurera din organisations lösen ords komplexitet för dina slutanvändare, i stället för att behöva använda din interna lösen ords princip för Azure AD. Från **egenskaps** bladet för dina användar flöden (kallades tidigare dina inbyggda principer) kan du välja ett lösen ords komplexitet som är **enkelt** eller **starkt**, eller så kan du skapa en **anpassad** uppsättning krav.
@@ -976,10 +990,10 @@ Mer information om konfiguration av lösen ords komplexitets krav finns i [Konfi
 
 ---
 
-### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Nya standardmallar för anpassade autentiseringsupplevelser
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Nya standardmallar för anpassade funktioner för anpassad autentisering
 
 **Bastyp** Ny funktion  
-**Tjänste kategori:** B2C – konsumentidentitetshantering  
+**Tjänste kategori:** B2C – konsument identitets hantering  
 **Produkt kapacitet:** B2B/B2C
 
 Du kan använda våra nya standardmallar som finns på bladet sidlayouter i dina användar flöden (tidigare kallade inbyggda principer) för att skapa en anpassad anpassad autentisering för dina användare.

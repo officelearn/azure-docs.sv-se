@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: 81b2145e6107558f2d9698c7e5d03658f1129b00
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 63534260e042a1b47ca5e635c48123672d663a9b
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667932"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873319"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Schema-och sändnings jobb (python)
 
@@ -47,15 +47,17 @@ I slutet av den här självstudien har du två python-appar:
 
 **scheduleJobService.py**, som anropar en direkt metod i den simulerade Device-appen och uppdaterar enhetens dubbla egenskaper med ett jobb.
 
-[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
-
-Följande är installations anvisningarna för kraven.
-
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
 > [!NOTE]
 > **Azure IoT SDK för python** stöder inte **jobb** funktioner direkt. I stället erbjuder den här självstudien en alternativ lösning som använder asynkrona trådar och timers. Mer uppdateringar finns i funktions listan för **service client SDK** på sidan [Azure IoT SDK för python](https://github.com/Azure/azure-iot-sdk-python) .
 >
+
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
+
+För att slutföra den här kursen behöver du:
+
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -74,6 +76,10 @@ I det här avsnittet skapar du en python-konsol-app som svarar på en direkt met
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
+
+   > [!NOTE]
+   > PIP-paketen för Azure-iothub-service-Client och Azure-iothub-Device-client är för närvarande endast tillgängliga för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   >
 
 2. Skapa en ny **simDevice.py** -fil i din arbets katalog med hjälp av en text redigerare.
 
@@ -158,9 +164,27 @@ I det här avsnittet skapar du en python-konsol-app som svarar på en direkt met
 
 ## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
-[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+I den här artikeln skapar du en backend-tjänst som anropar en direkt metod på en enhet och uppdaterar enheten med dubbla. Tjänsten behöver **service Connect-** behörighet för att anropa en direkt metod på en enhet. Tjänsten behöver också Läs-och Skriv behörighet för **registret** för att läsa och skriva identitets registret. Det finns ingen standard princip för delad åtkomst som bara innehåller de här behörigheterna, så du måste skapa en.
 
-[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+Följ dessa steg om du vill skapa en princip för delad åtkomst som beviljar **tjänsten Connect**, **Registry Read**och **Registry Skriv** behörigheter och för att få en anslutnings sträng för den här principen:
+
+1. Öppna din IoT Hub i [Azure Portal](https://portal.azure.com). Det enklaste sättet att komma till din IoT-hubb är att välja **resurs grupper**, välja resurs gruppen där IoT Hub finns och sedan välja din IoT Hub i listan över resurser.
+
+2. I den vänstra rutan i IoT Hub väljer du **principer för delad åtkomst**.
+
+3. Välj **Lägg till**på den översta menyn ovanför listan över principer.
+
+4. I fönstret **Lägg till en princip för delad åtkomst** anger du ett beskrivande namn för principen. till exempel: *serviceAndRegistryReadWrite*. Under **behörigheter**väljer du **tjänst anslutning** och **Skriv register** (**register läsning** väljs automatiskt när du väljer **register skrivning**). Välj sedan **Skapa**.
+
+    ![Visa hur du lägger till en ny princip för delad åtkomst](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+
+5. Gå tillbaka till fönstret **principer för delad åtkomst** och välj den nya principen i listan över principer.
+
+6. Under **delade åtkomst nycklar**väljer du kopierings ikonen för **anslutnings strängen – primär nyckel** och spara värdet.
+
+    ![Visa hur anslutningssträngen hämtas](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
+
+Mer information om IoT Hub principer för delad åtkomst och behörigheter finns i [åtkomst kontroll och behörigheter](./iot-hub-devguide-security.md#access-control-and-permissions).
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Schemalägg jobb för att anropa en direkt metod och uppdatera en enhets dubbla egenskaper
 
@@ -172,9 +196,13 @@ I det här avsnittet skapar du en python-konsol-app som initierar en fjärran sl
     pip install azure-iothub-service-client
     ```
 
+   > [!NOTE]
+   > PIP-paketen för Azure-iothub-service-Client och Azure-iothub-Device-client är för närvarande endast tillgängliga för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   >
+
 2. Skapa en ny **scheduleJobService.py** -fil i din arbets katalog med hjälp av en text redigerare.
 
-3. Lägg till följande `import` -instruktioner och variabler i början av **scheduleJobService.py** -filen:
+3. Lägg till följande `import` -instruktioner och variabler i början av **scheduleJobService.py** -filen. Ersätt plats hållaren med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen.](#get-the-iot-hub-connection-string) `{IoTHubConnectionString}` Ersätt plats hållaren med det enhets-ID som du registrerade i [Registrera en ny enhet i IoT Hub:](#register-a-new-device-in-the-iot-hub) `{deviceId}`
 
     ```python
     import sys

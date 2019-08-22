@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d08dce95836328f6a0991601951057944fa5f61e
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0ad917215275ce2f80dfdd2ec4e5a16794b36c13
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536448"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650364"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Konfigurera en anslutning med hög tillgänglighet från lokal plats till CloudSimple VPN-gateway
 
@@ -315,7 +315,7 @@ Konfigurera Cisco adaptiv Security-installation (ASAv) på Azure:
 
 Konfigurera VPN för plats-till-plats med proxy-ID: n på Palo,
 
-<a href="https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/vpns/set-up-Site-to-Site-vpn.html#" target="_blank">Konfigurera VPN för plats-till-plats</a>
+<a href="https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/vpns/set-up-site-to-site-vpn#" target="_blank">Konfigurera VPN för plats-till-plats</a>
 
 Konfigurera tunnel Övervakare:
 
@@ -323,4 +323,4 @@ Konfigurera tunnel Övervakare:
 
 IKE-gateway eller IPsec-tunnel åtgärder:
 
-<a href="https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/vpns/set-up-Site-to-Site-vpn/enabledisable-refresh-or-restart-an-ike-gateway-or-ipsec-tunnel.html#" target="_blank">Aktivera/inaktivera, uppdatera eller starta om en IKE-gateway eller IPsec-tunnel</a>
+<a href="https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/vpns/set-up-site-to-site-vpn/enabledisable-refresh-or-restart-an-ike-gateway-or-ipsec-tunnel#" target="_blank">Aktivera/inaktivera, uppdatera eller starta om en IKE-gateway eller IPsec-tunnel</a>

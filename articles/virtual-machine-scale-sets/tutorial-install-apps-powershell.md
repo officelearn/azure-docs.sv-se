@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/08/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4c6216f3dff3cbf4c8d838810c4dd786f1c34ec1
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 6877ba6240806f3213cadc66fdc74d89b2e9ba31
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728661"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877991"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Självstudier: Installera program i VM-skalningsuppsättningar med Azure PowerShell
 
@@ -109,10 +109,6 @@ Varje virtuell datorinstans i skalningsuppsättningen laddar ned och kör skript
 Om du vill tillåta åtkomst till den grundläggande webbappen måste du skapa en nätverkssäkerhetsgrupp med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) och [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). Mer information finns i [Nätverk för skalningsuppsättningar för virtuella Azure-datorer](virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
-# Get information about the scale set
-$vmss = Get-AzVmss `
-            -ResourceGroupName "myResourceGroup" `
-            -VMScaleSetName "myScaleSet"
 
 #Create a rule to allow traffic over port 80
 $nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
@@ -147,11 +143,6 @@ $frontendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
 
 Set-AzVirtualNetwork -VirtualNetwork $vnet
 
-# Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzVmss `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
 ```
 
 

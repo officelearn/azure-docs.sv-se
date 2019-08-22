@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: spelluru
-ms.openlocfilehash: ef954f44799b1cf4103847b21ea78e0ac94a9021
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 8987a22d4546fe887d1dda9adff8f46afe667618
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640189"
+ms.locfileid: "69644991"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Få åtkomst till ett klassrumslabb i Azure Lab Services
 Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, visar alla labb som du kan komma åt, starta/stoppa en virtuell dator i labbet och ansluta till den virtuella datorn. 
@@ -37,7 +37,7 @@ Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, vis
 
         ![Virtuell dator i stoppat tillstånd](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
 
-## <a name="start-to-stop-the-vm"></a>Starta för att stoppa den virtuella datorn
+## <a name="start-or-stop-the-vm"></a>Starta eller stoppa den virtuella datorn
 1. **Starta** den virtuella datorn genom att välja den första knappen som visas i följande bild. Den här processen tar lite tid.  
 
     ![Starta den virtuella datorn](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)

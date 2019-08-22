@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera regler för telemetri i programmet Azure IoT Central | Microsoft Docs
-description: Azure IoT Central telemetri regler hjälper dig att övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skickar ett e-postmeddelande när regeln utlöses.
+title: Skapa och hantera regler för telemetri i ditt Azure IoT Central-program | Microsoft Docs
+description: Med regler för Azure IoT Central telemetri kan du övervaka dina enheter i nära real tid och automatiskt anropa åtgärder, till exempel skicka ett e-postmeddelande, när regeln utlöses.
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 06/09/2019
@@ -8,109 +8,111 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8684301b83e01989c745b63848995142cb766188
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3ac8e488de11abc3471df836ca852cf3dc85c82f
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052982"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877351"
 ---
-# <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera meddelanden med Azure IoT Central programmet
+# <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera aviseringar i ditt Azure IoT Central-program
 
 *Den här artikeln gäller för operatörer, kompilerare och administratörer.*
 
-Du kan använda Azure IoT Central för att fjärrövervaka dina anslutna enheter. Azure IoT Central-regler kan du övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skicka ett e-postmeddelande eller utlösa Microsoft Flow. Du kan definiera villkor som du vill övervaka din enhetsdata och konfigurera den motsvarande åtgärden med bara några klick. Den här artikeln beskriver hur du skapar regler för att övervaka telemetri som skickas av enheten.
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-Enheter kan använda telemetri mätning skicka numeriska data från enheten. En telemetri-regel utlöser när den valda enhetstelemetri överskrider ett angivet tröskelvärde.
+Du kan använda Azure IoT Central för att fjärrövervaka dina anslutna enheter. Med Azure IoT Central-regler kan du övervaka dina enheter i nära real tid och automatiskt anropa åtgärder, till exempel skicka ett e-postmeddelande eller utlösare Microsoft Flow. Med bara några klick kan du definiera villkoret för att övervaka enhets data och konfigurera motsvarande åtgärd. Den här artikeln beskriver hur du skapar regler för att övervaka telemetri som skickas av enheten.
 
-## <a name="create-a-telemetry-rule"></a>Skapa en regel för telemetri
+Enheter kan använda telemetri mått för att skicka numeriska data från enheten. En regel för telemetri utlöses när den valda enhetens telemetri korsar ett angivet tröskelvärde.
 
-Om du vill skapa en regel för telemetri måste mallen enheten ha minst en telemetri-mätning som definierats. Det här exemplet används en kylda Varuautomat-enhet som skickar telemetri om temperatur och fuktighet. Regeln övervakar temperaturen som rapporteras av enheten och skickar ett e-postmeddelande när den går över 80 grader.
+## <a name="create-a-telemetry-rule"></a>Skapa en telemetri-regel
 
-1. Med hjälp av den **enheten mallar** sidan, gå till enheten mallen som du lägger till regeln för.
+För att skapa en telemetri-regel måste enhets mal len ha minst en definierad telemetri mått. I det här exemplet används en kyld Vending-enhet som skickar telemetri för temperatur och fuktighet. Regeln övervakar temperaturen som rapporteras av enheten och skickar ett e-postmeddelande när det hamnar ovanför 80 grader.
 
-1. Om du inte skapat några regler ännu kan se du följande skärm:
+1. Använd sidan **enhetsspecifika** och navigera till den enhets mall som du lägger till regeln för.
+
+1. Om du inte har skapat några regler än visas följande skärm:
 
     ![Inga regler ännu](media/howto-create-telemetry-rules/rules_landing_page1.png)
 
-1. På den **regler** fliken **+ ny regel** att se vilka typer av regler som du kan skapa.
+1. På fliken **regler** väljer du **+ ny regel** för att se vilka typer av regler som du kan skapa.
 
-1. Välj **telemetri** att skapa en regel för att övervaka enheternas telemetri.
+1. Välj **telemetri** för att skapa en regel för att övervaka telemetri för enheter.
 
-    ![Regeltyper](media/howto-create-telemetry-rules/rule_types1.png)
+    ![Regel typer](media/howto-create-telemetry-rules/rule_types1.png)
 
-1. Ange ett namn som hjälper dig att identifiera regeln i den här mallen för enheten.
+1. Ange ett namn som hjälper dig att identifiera regeln i den här enhets mal len.
 
-1. Om du vill aktivera regeln för alla enheter som skapats för den här mallen omedelbart, växla **aktivera regeln för alla enheter för den här mallen**.
+1. Om du vill aktivera regeln direkt för alla enheter som skapats för den här mallen kan du växla **Aktivera regel för alla enheter för den här mallen**.
 
-   ![Information om regeln](media/howto-create-telemetry-rules/rule_detail1.png)
+   ![Regel information](media/howto-create-telemetry-rules/rule_detail1.png)
 
-    Regeln tillämpas automatiskt på alla enheter under mallen enheten.
+    Regeln gäller automatiskt för alla enheter under enhets mal len.
 
-### <a name="configure-the-rule-conditions"></a>Konfigurera villkor
+### <a name="configure-the-rule-conditions"></a>Konfigurera regel villkoren
 
-Villkoret definierar de kriterier som övervakas av regeln.
+Villkor definierar de kriterier som övervakas av regeln.
 
-1. Välj **+** bredvid **villkor** att lägga till ett nytt villkor.
+1. Välj **+** bredvid **villkor** för att lägga till ett nytt villkor.
 
-1. Välj den telemetri som du vill övervaka den **mätning** listrutan.
+1. Välj den telemetri som du vill övervaka från List rutan **mått** .
 
-1. Välj sedan **aggregering**, **operatorn**, och ange en **tröskelvärdet** värde.
-   - Aggregering är valfritt. Utan aggregering, regeln utlöses för varje datapunkt för telemetri som uppfyller villkoret. Till exempel om regeln är konfigurerad att utlösaren när temperaturen är över 80 sedan regeln utlöses nästan omedelbart när enheten rapporterar temperatur > 80.
-   - Om en mängdfunktion som genomsnitt, Min, Max, Count väljs sedan användaren måste ange en **sammanställd tidsfönster** över som villkoret måste utvärderas. Till exempel om du ställer in söker perioden som ”5 minuter” och regeln efter medeltemperaturen ovan 80, regeln utlöses när medeltemperaturen är över 80 för minst 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut.
+1. Välj sedan **agg regering**, **operator**och ange ett **tröskelvärde** .
+   - Aggregator är valfritt. Utan agg regering utlöser regeln för varje telemetri-datapunkt som uppfyller villkoret. Om regeln till exempel har kon figurer ATS för att utlösas när temperaturen är över 80, utlöses regeln nästan omedelbart när enheten rapporterar temperatur > 80.
+   - Om en mängd funktion som till exempel Average, min, Max, antal väljs, måste användaren ange ett **sammanställt tids fönster** som villkoret måste utvärderas över. Om du till exempel ställer in perioden "5 minuter" och regeln söker efter genomsnitts temperatur över 80, utlöses regeln när genomsnitts temperaturen är över 80 i minst 5 minuter. Regel utvärderings frekvensen är samma som den **sammanställda tids perioden**, vilket innebär att regeln utvärderas var femte minut i det här exemplet.
 
      ![Tillstånd](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
-     >Mer än en telemetri-mätning kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för regeln för att utlösa. Varje villkor får sällskap av en 'Och'-sats implicit. När du använder aggregering, måste varje mätning aggregeras.
+     >Mer än en mätning av telemetri kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för att regeln ska kunna utlösas. Varje conditon kopplas ihop med en AND-sats implicit. När du använder agg regering måste varje mått aggregeras.
 
 ### <a name="configure-actions"></a>Konfigurera åtgärder
 
-Det här avsnittet visar hur du ställer in åtgärder att vidta när regeln utlöses. Åtgärder hämta anropas när de villkor som angetts i regeln utvärderas till SANT.
+I det här avsnittet visas hur du konfigurerar åtgärder som ska vidtas när regeln utlöses. Åtgärder anropas när alla villkor som anges i regeln utvärderas till sant.
 
-1. Välj den **+** bredvid **åtgärder**. Här kan du se en lista över tillgängliga åtgärder.  
+1. Välj bredvid åtgärder. **+** Här visas en lista över tillgängliga åtgärder.  
 
     ![Lägg till åtgärd](media/howto-create-telemetry-rules/add_action1.png)
 
-1. Välj den **e-post** åtgärd, ange en giltig e-postadress i den **till** fältet och ange en kommentar ska visas i brödtexten i e-postmeddelandet när regeln utlöses.
+1. Välj **e-** poståtgärden, ange en giltig e-postadress i fältet **till** och ange en anteckning som visas i e-postmeddelandets brödtext när regeln utlöses.
 
     > [!NOTE]
-    > E-postmeddelanden skickas endast till de användare som har lagts till programmet och har loggat in minst en gång. Läs mer om [Användarhantering](howto-administer.md) i Azure IoT Central.
+    > E-postmeddelanden skickas endast till användare som har lagts till i programmet och har loggat in minst en gång. Lär dig mer om [användar hantering](howto-administer.md) i Azure IoT Central.
 
    ![Konfigurera åtgärd](media/howto-create-telemetry-rules/configure_action1.png)
 
-1. För att spara regeln, Välj **spara**. Regeln lanseras inom några minuter och börjar övervaka telemetri som skickas till ditt program. När villkoren som anges i regeln uppfylls utlöser regeln konfigurerade e poståtgärd.
+1. Spara regeln genom att välja **Spara**. Regeln går inom några minuter och börjar övervaka telemetri som skickas till ditt program. När villkoret som anges i regeln uppfylls utlöser regeln den konfigurerade e-poståtgärden.
 
-Du kan lägga till andra åtgärder för regeln, till exempel Microsoft Flow och webhooks. Du kan lägga till upp till 5 åtgärder per regel.
+Du kan lägga till andra åtgärder till regeln, till exempel Microsoft Flow och Webhooks. Du kan lägga till upp till 5 åtgärder per regel.
 
-- [Microsoft Flow-åtgärden](howto-add-microsoft-flow.md) sätta igång ett arbetsflöde i Microsoft Flow när en regel utlöses 
-- [Webhook-åtgärd](howto-create-webhooks.md) att meddela andra tjänster när en regel utlöses
+- [Microsoft Flow åtgärd](howto-add-microsoft-flow.md) för att starta ett arbets flöde i Microsoft Flow när en regel utlöses 
+- [Webhook-åtgärd](howto-create-webhooks.md) för att meddela andra tjänster när en regel utlöses
 
 ## <a name="parameterize-the-rule"></a>Parameterisera regeln
 
-Regler kan härleda vissa värdena från **enhetsegenskaper** som parametrar. Med parametrar är användbart i scenarier där telemetri tröskelvärden variera för olika enheter. När du skapar regeln väljer du en enhetsegenskap som anger tröskelvärdet som **perfekt maxgränsen**, i stället för att tillhandahålla ett absolut värde, till exempel 80 grader. När regeln körs, matchar enhetstelemetri med värdet som anges i enhetsegenskapen.
+Regler kan härleda vissa Vales från **enhets egenskaper** som parametrar. Att använda parametrar är användbart i scenarier där tröskelvärdena för telemetri varierar för olika enheter. När du skapar regeln väljer du en enhets egenskap som anger tröskelvärdet, till exempel **maximalt idealt tröskelvärde**, i stället för att tillhandahålla ett absolut värde, till exempel 80 grader. När regeln körs matchar den telemetri för enheten med värdet som anges i egenskapen enhet.
 
-Med parametrar är ett effektivt sätt att minska antalet regler för att hantera per enhet mall.
+Att använda parametrar är ett effektivt sätt att minska antalet regler som ska hanteras per enhets mall.
 
-Åtgärder kan också konfigureras med hjälp av **enhetsegenskap** som en parameter. Om en e-postadress lagras som en egenskap, så den kan användas när du definierar den **till** adress.
+Åtgärder kan också konfigureras med **egenskapen Device** som en parameter. Om en e-postadress lagras som en egenskap kan den användas när du definierar adressen **till** .
 
 ## <a name="delete-a-rule"></a>Ta bort en regel
 
-Om du inte längre behöver en regel kan ta du bort den genom att öppna regeln och välja **ta bort**. Tar bort regeln försvinner den från mallen enhet och alla associerade enheter.
+Om du inte längre behöver en regel tar du bort den genom att öppna regeln och välja **ta bort**. Om du tar bort regeln tas den bort från enhets mal len och alla tillhör ande enheter.
 
-## <a name="enable-or-disable-a-rule-for-a-device-template"></a>Aktivera eller inaktivera en regel för en mall för enhet
+## <a name="enable-or-disable-a-rule-for-a-device-template"></a>Aktivera eller inaktivera en regel för en enhets mall
 
-Gå till enheten och välj den regel du vill aktivera eller inaktivera. Visa/Dölj de **aktivera regeln för alla enheter av den här mallen** knappen regeln för att aktivera eller inaktivera regeln för alla enheter som är associerad med mallen för enheten.
+Navigera till enheten och välj den regel som du vill aktivera eller inaktivera. Aktivera eller inaktivera regeln för alla enheter som är associerade med enhets mal len genom att växla regeln **Aktivera regel för alla enheter med den här mallen** .
 
 ## <a name="enable-or-disable-a-rule-for-a-device"></a>Aktivera eller inaktivera en regel för en enhet
 
-Gå till enheten och välj den regel du vill aktivera eller inaktivera. Visa/Dölj de **aktivera regeln för den här enheten** knappen för att aktivera eller inaktivera regeln för enheten.
+Navigera till enheten och välj den regel som du vill aktivera eller inaktivera. Aktivera eller inaktivera regeln för enheten genom att växla till knappen **Aktivera regel för den här enheten** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du skapar regler i Azure IoT Central programmet, är här några nästa steg:
+Nu när du har lärt dig hur du skapar regler i ditt Azure IoT Central-program kan du använda följande steg:
 
-- [Lägg till Microsoft Flow-åtgärd i regler](howto-add-microsoft-flow.md)
-- [Lägg till Webhook-åtgärd i regler](howto-create-webhooks.md)
-- [Gruppera flera åtgärder som ska köras från en eller flera regler](howto-use-action-groups.md)
-- [Så här hanterar du dina enheter](howto-manage-devices.md)
+- [Lägg till Microsoft Flow åtgärd i regler](howto-add-microsoft-flow.md)
+- [Lägg till webhook-åtgärd i regler](howto-create-webhooks.md)
+- [Gruppera flera åtgärder för att köra från en eller flera regler](howto-use-action-groups.md)
+- [Hantera dina enheter](howto-manage-devices.md)

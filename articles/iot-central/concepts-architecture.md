@@ -1,6 +1,6 @@
 ---
-title: Arkitektoniska begrepp i Azure IoT Central | Microsoft Docs
-description: Den här artikeln beskriver viktiga begrepp gällande arkitekturen i Azure IoT Central
+title: Arkitektur koncept i Azure IoT Central | Microsoft Docs
+description: Den här artikeln beskriver viktiga begrepp som rör arkitekturen i Azure IoT Central
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/31/2019
@@ -8,105 +8,107 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4bc9a79576c3165585a4a2c897bd41bfb77c080c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43357bdeb444fed20f29107d10dc31a61857fccf
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693130"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877512"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central-arkitektur
 
-Den här artikeln innehåller en översikt över Microsoft Azure IoT Central-arkitektur.
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-![Översta arkitektur](media/concepts-architecture/architecture.png)
+Den här artikeln ger en översikt över Microsoft Azure IoT Central-arkitekturen.
+
+![Arkitektur på översta nivån](media/concepts-architecture/architecture.png)
 
 ## <a name="devices"></a>Enheter
 
-Enheter utbyta data med Azure IoT Central programmet. En enhet kan:
+Enheter utbyter data med ditt Azure IoT Central-program. En enhet kan:
 
-- Skicka mätning av faktisk användning, till exempel telemetri.
+- Skicka mått som telemetri.
 - Synkronisera inställningar med ditt program.
 
-De data som en enhet kan utbyta med ditt program har angetts i en mall för enheten i Azure IoT Central. Mer information om enheten mallar finns i [Metadata management](#metadata-management).
+I Azure IoT Central anges de data som en enhet kan utbyta med ditt program i en enhets mall. Mer information om enhetsspecifika finns i hantering av [metadata](#metadata-management).
 
-Läs mer om hur enheterna ska ansluta till Azure IoT Central programmet i [enhetsanslutning](concepts-connectivity.md).
+Mer information om hur enheter ansluter till ditt Azure IoT Central-program finns i [enhets anslutning](concepts-connectivity.md).
 
-## <a name="cloud-gateway"></a>Molngatewayen
+## <a name="cloud-gateway"></a>Cloud Gateway
 
-Azure IoT Central använder Azure IoT Hub som en molngateway som möjliggör anslutningar på enheten. IoT Hub kan:
+Azure IoT Central använder Azure IoT Hub som en molnbaserad gateway som aktiverar enhets anslutningen. IoT Hub aktiverar:
 
-- Datainmatning i stor skala i molnet.
-- Hantering av enheter.
-- Skydda enhetsanslutning.
+- Data inmatning i skala i molnet.
+- Enhets hantering.
+- Skydda enhets anslutningen.
 
-Läs mer om IoT Hub i [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+Mer information om IoT Hub finns i [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
-Mer information om enhetsanslutning i Azure IoT Central finns [enhetsanslutning](concepts-connectivity.md).
+Mer information om enhets anslutning i Azure IoT Central finns i [enhets anslutning](concepts-connectivity.md).
 
 ## <a name="data-stores"></a>Datalager
 
-Azure IoT Central lagrar programdata i molnet. Programdata lagras innehåller:
+Azure IoT Central lagrar program data i molnet. Program data som lagras innehåller:
 
-- Mallar för enheten.
-- Enhetsidentiteter.
-- Enhetens metadata.
-- Data för användaren och rollen.
+- Enhets mallar.
+- Enhets identiteter.
+- Metadata för enheten.
+- Användar-och roll data.
 
-Azure IoT Central använder en time series lagra för mätdata som skickas från dina enheter. Time series-data från enheter som används av analytics-tjänsten.
+Azure IoT Central använder ett tids serie lager för Mät data som skickas från dina enheter. Tids serie data från enheter som används av Analytics-tjänsten.
 
 ## <a name="analytics"></a>Analytics
 
-Analytics-tjänsten ansvarar för att skapa anpassade reporting data som visas i programmet. En operatör kan [anpassa analyser](howto-create-analytics.md) visas i programmet. Analytics-tjänsten är byggt ovanpå [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) och bearbetar mätdata som skickas från dina enheter.
+Analytics-tjänsten ansvarar för att skapa anpassade rapporterings data som visas i programmet. En operatör kan [Anpassa den analys](howto-create-analytics.md) som visas i programmet. Analytics-tjänsten bygger på [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) och bearbetar Mät data som skickas från dina enheter.
 
 ## <a name="rules-and-actions"></a>Regler och åtgärder
 
-[Regler och åtgärder](howto-create-telemetry-rules.md) samverkar att automatisera uppgifter i programmet. Hjälpverktyg kan definiera regler baserat på enhetstelemetri, till exempel temperaturen som överskrider ett angivet tröskelvärde. Azure IoT Central använder en stream-processor för att avgöra när villkor är uppfyllda. När en regelvillkor är uppfyllt, utlöser en åtgärd som definieras av tillverkaren. En åtgärd kan exempelvis skicka ett e-postmeddelande för att meddela en tekniker att temperaturen i en enhet är för högt.
+[Regler och åtgärder](howto-create-telemetry-rules.md) fungerar nära varandra för att automatisera uppgifter i programmet. Ett verktyg kan definiera regler baserat på enhets telemetri, till exempel temperaturen som överskrider ett definierat tröskelvärde. Azure IoT Central använder en Stream-processor för att fastställa när regel villkoren är uppfyllda. När ett regel villkor uppfylls utlöser den en åtgärd som definierats av verktyget. En åtgärd kan till exempel skicka ett e-postmeddelande för att meddela en tekniker om att temperaturen i en enhet är för hög.
 
 ## <a name="metadata-management"></a>Hantering av metadata
 
-I ett Azure IoT Central program definierar enheten mallar beteende och möjligheterna för typer av enheter. Exempelvis anger en kylskåp enheten mall telemetri kylskåp skickar till ditt program.
+I ett Azure IoT Central-program definierar enhets mallarna beteende och funktion för enhets typer. En mall för kyl skåps enhet anger till exempel vilken telemetri ett kyl skåp skickar till ditt program.
 
-![Mall-arkitektur](media/concepts-architecture/template_architecture.png)
+![Arkitektur för mall](media/concepts-architecture/template_architecture.png)
 
-I en mall för enheten:
+I en enhets mall:
 
-- **Mätning av faktisk användning** ange telemetri som enheten skickar till programmet.
-- **Inställningar för** anger de konfigurationer som en operatör kan ställa in.
-- **Egenskaper för** ange metadata som en operatör kan ställa in.
-- **Regler** automatisera beteende i appen baserat på data som skickas från en enhet.
-- **Instrumentpaneler** är anpassningsbara vyer för en enhet i programmet.
+- **Mått** anger vilken telemetri som enheten skickar till programmet.
+- **Inställningar** anger de konfigurationer som en operatör kan ange.
+- **Egenskaper** anger metadata som en operatör kan ange.
+- **Regler** automatisera beteendet i programmet baserat på data som skickas från en enhet.
+- **Instrument paneler** är anpassningsbara vyer av en enhet i programmet.
 
-Ett program kan ha en eller flera simulerade och verkliga enheter baserat på varje enhet-mall.
+Ett program kan ha en eller flera simulerade och riktiga enheter som baseras på varje enhets mall.
 
-## <a name="data-export"></a>Export av data
+## <a name="data-export"></a>Data export
 
-I ett Azure IoT Central program, kan du [kontinuerligt exportera dina data](howto-export-data-event-hubs-service-bus.md) din egen Azure Event Hubs och Azure Service Bus-instanser. Du kan också regelbundet exportera dina data till Azure Blob storage-kontot. IoT Central kan exportera mått, enheter och mallar för enheten.
+I ett Azure IoT Central-program kan du [kontinuerligt exportera dina data](howto-export-data-event-hubs-service-bus.md) till dina egna Azure-Event Hubs och Azure Service Bus instanser. Du kan också regelbundet exportera dina data till ditt Azure Blob Storage-konto. IoT Central kan exportera mått, enheter och mallar för enheter.
 
-## <a name="batch-device-updates"></a>Batch-enhetsuppdateringar
+## <a name="batch-device-updates"></a>Uppdateringar av batch-enhet
 
-I ett Azure IoT Central program, kan du [skapa och köra jobb](howto-run-a-job.md) att hantera anslutna enheter. Dessa jobb låter dig göra massuppdateringar enhetsegenskaper eller inställningar eller kör kommandon. Du kan till exempel skapa ett jobb för att öka hastigheten fläkt för flera kylda varuautomater.
+I ett Azure IoT Central-program kan du [skapa och köra jobb](howto-run-a-job.md) för att hantera anslutna enheter. Med de här jobben kan du göra Mass uppdateringar av enhets egenskaper eller inställningar eller köra kommandon. Du kan till exempel skapa ett jobb för att öka fläkt hastigheten för flera kylda Vending-datorer.
 
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
 
-En [administratören kan definiera åtkomstregler](howto-administer.md) för ett Azure IoT Central-program med hjälp av de fördefinierade rollerna. En administratör kan tilldela användare till roller som bestämmer vilka delar av programmet användaren har åtkomst till.
+En [administratör kan definiera åtkomst regler](howto-administer.md) för ett Azure IoT Central-program med hjälp av fördefinierade roller. En administratör kan tilldela användare till roller som fastställer vilka delar av programmet som användaren har åtkomst till.
 
 ## <a name="security"></a>Säkerhet
 
-Säkerhetsfunktionerna i Azure IoT Central omfattar:
+Säkerhetsfunktionerna i Azure IoT Central inkluderar:
 
-- Data krypteras vid överföring och i vila.
-- Autentisering tillhandahålls genom Azure Active Directory eller Account. Tvåfaktorsautentisering stöds.
-- Fullständig klientisolering.
-- Enheten på radnivå.
+- Data krypteras under överföring och i vila.
+- Autentisering tillhandahålls antingen av Azure Active Directory eller Microsoft-konto. Autentisering med två faktorer stöds.
+- Fullständig klient isolering.
+- Säkerhet på enhets nivå.
 
-## <a name="ui-shell"></a>UI-gränssnittet
+## <a name="ui-shell"></a>UI-gränssnitt
 
-UI-gränssnittet är en modern, dynamiskt, HTML5 webbläsarbaserade program.
-En administratör kan anpassa Användargränssnittet för programmet genom att använda anpassade teman och ändra hjälplänkar så att den pekar till dina egna anpassade hjälpresurser. Läs mer om anpassning av Användargränssnittet i [anpassa Azure IoT Central Användargränssnittet](howto-customize-ui.md) artikeln.
+UI Shell är ett modernt, överdrivet HTML5 webbläsarbaserat program.
+En administratör kan anpassa programmets användar gränssnitt genom att använda anpassade teman och ändra hjälp länkar så att de pekar på dina egna anpassade hjälp resurser. Mer information om hur du anpassar gränssnittet finns i artikeln [Anpassa Azure IoT Central UI](howto-customize-ui.md) .
 
-En operatör kan skapa instrumentpaneler för anpassade program. Du kan ha flera instrumentpaneler som visar olika data och växla mellan dem.
+En operatör kan skapa anpassade instrument paneler för program. Du kan ha flera instrument paneler som visar olika data och växlar mellan dem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om arkitekturen för Azure IoT Central, föreslagna nästa steg är att lära dig om [enhetsanslutning](concepts-connectivity.md) i Azure IoT Central.
+Nu när du har lärt dig om arkitekturen i Azure IoT Central, är det föreslagna nästa steg att lära dig om [enhets anslutning](concepts-connectivity.md) i Azure IoT Central.

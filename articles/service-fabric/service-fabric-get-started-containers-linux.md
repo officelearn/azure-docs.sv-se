@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: atsenthi
-ms.openlocfilehash: dde124a568581c53a4168b1c84e5df8a9d55155f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 2bb9a5e8e42901f22d9f68d691684614c7161620
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599564"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650655"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -181,28 +181,11 @@ Ange port mappning i lämpligt format. I den här artikeln måste du ange ```80:
 ![Service Fabric Yeoman-generator för containrar][sf-yeoman]
 
 ## <a name="configure-container-repository-authentication"></a>Konfigurera autentisering av container-lagringsplats
- Om containern behöver autentiseras med en privat lagringsplats lägger du till `RepositoryCredentials`. I den här artikeln lägger du till kontonamnet och lösenordet för containerregistret myregistry.azurecr.io. Se till att principen som läggs till under taggen ”ServiceManifestImport” motsvarar rätt tjänstepaket.
 
-```xml
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-   </ServiceManifestImport>
-``` 
-
-Vi rekommenderar att du krypterar lösen ordet för databasen. Instruktioner hittar du [i hantera krypterade hemligheter i Service Fabric-program](service-fabric-application-secret-management.md) .
-
-### <a name="configure-cluster-wide-credentials"></a>Konfigurera autentiseringsuppgifter för hela klustret
-[Läs dokumentationen här](
-service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
+Mer information om hur du konfigurerar olika typer av autentisering för hämtning av behållare avbildning finns i [autentisering av container](configure-container-repository-credentials.md)-lagringsplatsen.
 
 ## <a name="configure-isolation-mode"></a>Konfigurera isoleringsläge
-Med 6,3 runtime-versionen stöds VM-isolering för Linux-behållare, vilket ger stöd för två isolerings lägen för behållare: process och HyperV. I isolerings läget för HyperV är kernelerna isolerade mellan varje behållare och behållar värden. HyperV-isoleringen implementeras med hjälp av [Rensa behållare](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Isolerings läget anges för Linux-kluster i `ServicePackageContainerPolicy` elementet i applikations manifest filen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är process isolerings läge. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
+Med 6,3 runtime-versionen stöds VM-isolering för Linux-behållare, vilket ger stöd för två isolerings lägen för behållare: process och Hyper-V. I isolerings läget för Hyper-V isoleras kernelerna mellan varje behållare och behållar värden. Hyper-V-isolering implementeras med hjälp av [Rensa behållare](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Isolerings läget anges för Linux-kluster i `ServicePackageContainerPolicy` elementet i applikations manifest filen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är process isolerings läge. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
 
 ```xml
 <ServiceManifestImport>

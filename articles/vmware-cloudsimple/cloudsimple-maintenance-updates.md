@@ -3,25 +3,25 @@ title: Azure VMware-lösning av CloudSimple-CloudSimple-underhåll och uppdateri
 description: Beskriver CloudSimple-tjänstens process för schemalagt underhåll och uppdateringar
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5d6eeecbecc89995c25e687cc6808ed3b0c5dc5c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 92f02c0abef6755213d4c73189c7e0a593867ef6
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816213"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877939"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Underhåll och uppdateringar av CloudSimple
 
-Den privata moln miljön har utformats för att inte ha någon enskild felpunkt:
+Den privata moln miljön har utformats för att inte ha någon enskild felpunkt.
 
-* ESXi-kluster konfigureras med vSphere hög tillgänglighet. Det finns minst en reserv nod för återhämtning i klustret.
+* ESXi-kluster konfigureras med vSphere hög tillgänglighet (HA). Det finns minst en reserv nod för återhämtning i klustret.
 * Redundant primär lagring tillhandahålls av virtuellt San, vilket kräver minst tre noder för att ge skydd mot ett enskilt haveri. Virtuellt SAN kan konfigureras för att ge högre återhämtning för större kluster.
-* vCenter-, PSC-och NSX Manager-VM: ar konfigureras med RAID-10 Storage-principer för att skydda mot lagrings problem. De virtuella datorerna skyddas mot nod-/nätverks problem av vSphere HA.
+* vCenter-, PSC-och NSX Manager-VM: ar konfigureras med RAID-10-lagring för att skydda mot lagrings problem. De virtuella datorerna skyddas mot nod-/nätverks problem av vSphere HA.
 * ESXi-värdar har redundanta fläktar och nätverkskort.
 * Växlarna TOR och rygg har kon figurer ATS i HA par för att ge återhämtning.
 
@@ -57,9 +57,9 @@ CloudSimple säkerhetskopierar, underhåller och uppdaterar dessa VMware-element
 CloudSimple säkerhets kopiering inkluderar:
 
 * Stegvisa säkerhets kopieringar av vCenter-, PSC-och DVS-regler.
-* Använda vCenter-inbyggda API: er för att säkerhetskopiera komponenter i program skiktet.
-* Automatisk säkerhets kopiering före eventuell uppdatering eller uppgradering av VMware Management-programvaran.
-* Data kryptering vid källan, efter vCenter, innan data överföring via en krypterad TLS 1.2-kanal till Azure. Data lagras i en Azure-Blob där den replikeras mellan regioner.
+* vCenter inbyggda API: er för att säkerhetskopiera komponenter i program skiktet.
+* Automatisk säkerhets kopiering före uppdatering eller uppgradering av VMware Management-programvaran.
+* vCenter Data Encryption vid källan innan data överförs via en TLS 1.2-krypterad kanal till Azure. Data lagras i en Azure-Blob där den replikeras mellan regioner.
 
 Du kan begära en återställning genom att öppna en [supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -105,4 +105,4 @@ CloudSimple tillhandahåller kvartals Visa uppdateringar av VMware-programkompon
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Säkerhetskopiera virtuella arbets belastningar med Veeam](https://docs.azure.cloudsimple.com/backup-workloads-veeam/).
+[Säkerhetskopiera virtuella arbets belastnings datorer med Veeam](backup-workloads-veeam.md)

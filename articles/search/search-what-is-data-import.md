@@ -1,26 +1,26 @@
 ---
-title: Importera data för datainläsning till ett search-index – Azure Search
-description: Fyll i och ladda upp data till ett index i Azure Search från externa datakällor.
+title: Data import för data inmatning till ett sökindex – Azure Search
+description: Fylla i och ladda upp data till ett index i Azure Search från externa data källor.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b56a31a58937ddbea08ff22c3d1c0c71942f47f1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 71ee63dfbe880cbf6018f3dd13d360850ed994f9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445401"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647335"
 ---
-# <a name="data-import-overview---azure-search"></a>Importera data översikt – Azure Search
+# <a name="data-import-overview---azure-search"></a>Översikt över data import – Azure Search
 
-I Azure Search körs frågorna innehåll som lästs in i och sparas i en [sökindex](search-what-is-an-index.md). Den här artikeln går igenom två grundläggande sätt för att fylla ett index: *push* dina data till indexet programmässigt, eller peka en [Azure Search-indexerare](search-indexer-overview.md) på en datakälla som stöds till  *pull* i data.
+I Azure Search körs frågor över ditt innehåll som läses in i och sparas i [](search-what-is-an-index.md)ett sökindex. Den här artikeln går igenom de två grundläggande metoderna för att fylla ett index: *Skicka* data till indexet program mässigt eller peka en [Azure Search indexerare](search-indexer-overview.md) på en data källa som stöds för att *Hämta* data.
 
-Med antingen metoden målet är att *webbsidesinläsning* från en extern datakälla i ett Azure Search-index. Azure Search kan du skapa ett tomt index, men tills du skicka eller hämta data till den den är inte frågningsbar.
+Med båda metoderna är målet att *läsa in data* från en extern data källa till ett Azure Search-index. Med Azure Search kan du skapa ett tomt index, men tills du skickar eller hämtar data till det är det inte möjligt att fråga.
 
 ## <a name="pushing-data-to-an-index"></a>Skicka data till ett index
 Push-modellen, som används för att programmatiskt skicka data till Azure Search, är den mest flexibla metoden. För det första finns det inga begränsningar på vilken typ av datakälla som får användas. En datauppsättning som består av JSON-dokument kan skickas till ett Azure Search-index, förutsatt att alla dokument i datauppsättningen har fält som mappar till fälten som anges i indexschemat. För det andra finns det inga begränsningar på körningsfrekvensen. Du kan skicka ändringar till ett index så ofta du vill. För program som har mycket låga fördröjningskrav (t.ex. om det är viktigt att sökåtgärder är synkroniserade med dynamiska inventeringsdatabaser) är push-modellen ditt enda alternativ.
@@ -36,28 +36,28 @@ Du kan använda följande API:er för att läsa in ett eller flera dokument i et
 
 Det finns för närvarande inget verktygsstöd för att skicka data via portalen.
 
-En introduktion till varje metod finns i [snabbstarten: Skapa ett Azure Search-index med hjälp av PowerShell](search-create-index-rest-api.md) eller [ C# snabbstarten: Skapa ett Azure Search-index med .NET SDK](search-get-started-dotnet.md).
+En introduktion till varje metod finns i [snabb start: Skapa ett Azure Search-index med](search-create-index-rest-api.md) hjälp [ av PowerShell eller C# snabb start: Skapa ett Azure Search-index med .NET](search-get-started-dotnet.md)SDK.
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Indexering åtgärder: ladda upp, sammanfoga, mergeOrUpload, ta bort
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Indexerings åtgärder: Ladda upp, sammanfoga, mergeOrUpload, ta bort
 
-Du kan styra vilken indexeringsåtgärd på basis av per dokument, att ange om dokumentet ska överföras i full, sammanfogade med dokumentinnehåll eller har tagits bort.
+Du kan styra vilken typ av indexerings åtgärd som ska användas för varje dokument, ange om dokumentet ska överföras fullständigt, slås samman med befintligt dokument innehåll eller tas bort.
 
-Utfärda HTTP POST-förfrågningar i REST-API med JSON-begärandetext till slutpunkts-URL för ditt Azure Search-index. Varje JSON-objekt i matrisen ”value” innehåller dokumentets nyckel och anger om en indexeringsåtgärd lägger till, uppdaterar eller tar bort dokumentinnehåll. Finns ett kodexempel i [läsa in dokument](search-get-started-dotnet.md#load-documents).
+I REST API skickar du HTTP POST-begäranden med JSON-begäranden till Azure Search indexets slut punkts-URL. Varje JSON-objekt i "value"-matrisen innehåller dokumentets nyckel och anger om en indexerings åtgärd lägger till, uppdaterar eller tar bort dokument innehåll. Ett kod exempel finns i [läsa in dokument](search-get-started-dotnet.md#load-documents).
 
-I .NET SDK, packa upp data till en `IndexBatch` objekt. En `IndexBatch` kapslar in en samling `IndexAction` objekt, vart och ett innehåller ett dokument och en egenskap som meddelar Azure Search vilken åtgärd som ska utföras för dokumentet. Finns ett kodexempel i den [ C# snabbstarten](search-get-started-dotnet.md).
+I .NET SDK ska du paketera dina data i ett `IndexBatch` objekt. En `IndexBatch` kapslar in en `IndexAction` samling objekt som innehåller ett dokument och en egenskap som anger Azure Search vilken åtgärd som ska utföras i dokumentet. Ett kod exempel finns i [ C# snabb](search-get-started-dotnet.md)starten.
 
 
 | @search.action | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |En `upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det finns. |nyckel plus eventuella andra fält som du vill definiera |När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null. |
-| `merge` |Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. |nyckel plus eventuella andra fält som du vill definiera |Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. I .NET SDK, omfattar detta fält av typen `DataType.Collection(DataType.String)`. I REST API, omfattar detta fält av typen `Collection(Edm.String)`. Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags` `["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`. |
+| `merge` |Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. |nyckel plus eventuella andra fält som du vill definiera |Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. I .NET SDK omfattar detta fält av typen `DataType.Collection(DataType.String)`. I REST API innehåller detta fält av typen `Collection(Edm.String)`. Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags` `["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Den här åtgärden fungerar som `merge` om ett dokument med den angivna nyckeln redan finns i indexet. Om dokumentet inte finns fungerar den som `upload` med ett nytt dokument. |nyckel plus eventuella andra fält som du vill definiera |- |
 | `delete` |Tar bort det angivna dokumentet från indexet. |endast nyckel |Andra fält som du anger än nyckelfältet ignoreras. Om du vill ta bort ett enstaka fält från ett dokument använder du `merge` i stället och anger bara fältet till null. |
 
 ## <a name="decide-which-indexing-action-to-use"></a>Bestäm vilken indexeringsåtgärd som du vill använda
-Att importera data med .NET SDK, (ladda upp, sammanfoga, ta bort och mergeOrUpload). Beroende på vilken av åtgärderna nedan som du väljer måste endast vissa fält tas med för varje dokument:
+Importera data med hjälp av .NET SDK, (Ladda upp, sammanfoga, ta bort och mergeOrUpload). Beroende på vilken av åtgärderna nedan som du väljer måste endast vissa fält tas med för varje dokument:
 
 
 ### <a name="formulate-your-query"></a>Formulera frågan
@@ -87,12 +87,12 @@ Indexerarfunktioner exponeras på [Azure Portal](search-import-data-portal.md), 
 
 En fördel med att använda portalen är att Azure Search vanligtvis kan generera ett standardindexschema åt dig genom att läsa källdatauppsättningens metadata. Du kan ändra det genererade indexet tills indexet har bearbetats. Därefter är de enda schemaändringarna som tillåts de som inte kräver omindexering. Om de ändringar som du vill göra påverkar schemat direkt måste indexet återskapas. 
 
-## <a name="verify-data-import-with-search-explorer"></a>Verifiera dataimporten med Sökutforskaren
+## <a name="verify-data-import-with-search-explorer"></a>Verifiera data import med Sök Utforskaren
 
-Ett snabbt sätt att utföra en preliminär kontroll av dokumentöverföringen är att använda **Sökutforskaren** i portalen. Med utforskaren kan du köra frågor mot ett index utan att behöva skriva kod. Sökupplevelse baseras på standardinställningar, t.ex. [enkel syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) och [searchMode-frågeparametern](/rest/api/searchservice/search-documents). Resultaten returneras i JSON så att du kan gå igenom hela dokumentet.
+Ett snabbt sätt att utföra en preliminär kontroll av dokument överföringen är att använda **Sök Utforskaren** i portalen. Med utforskaren kan du köra frågor mot ett index utan att behöva skriva kod. Sökupplevelse baseras på standardinställningar, t.ex. [enkel syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) och [searchMode-frågeparametern](/rest/api/searchservice/search-documents). Resultaten returneras i JSON så att du kan gå igenom hela dokumentet.
 
 > [!TIP]
-> Många [Azure Search-kodexempel](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) innehåller inbäddade eller lättillgängliga datauppsättningar, som hjälper dig att snabbt komma igång. Portalen innehåller också en exempelindexerare och datakälla som består av en liten datauppsättning med fastighetsinformation (med namnet ”realestate-us-sample”). När du kör den förkonfigurerade indexeraren på datakällan exemplet skapas ett index och fylls med dokument som kan efterfrågas i Sökutforskaren eller med kod som du skriver.
+> Många [Azure Search-kodexempel](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) innehåller inbäddade eller lättillgängliga datauppsättningar, som hjälper dig att snabbt komma igång. Portalen innehåller också en exempelindexerare och datakälla som består av en liten datauppsättning med fastighetsinformation (med namnet ”realestate-us-sample”). När du kör den förkonfigurerade indexeraren i exempel data källan skapas ett index som läses in med dokument som sedan kan frågas i Sök Utforskaren eller efter kod som du skriver.
 
 ## <a name="see-also"></a>Se också
 

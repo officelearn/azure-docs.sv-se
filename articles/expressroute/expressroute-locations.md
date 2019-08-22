@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8be83391af6af5badfa56b52ad7ec7d15b589f74
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 88972afe1f1e998fc2fb731638332915bd8317b5
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562662"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891601"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -82,7 +82,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 
 | **Tjänstleverantör** | **Microsoft Azure** | **Office 365 och Dynamics 365** | **Platser** |
 | --- | --- | --- | --- |
-| **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Stöds |Stöds |Melbourne, Sydney |
+| **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Stöds |Stöds |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Stöds | Stöds | Chennai2, Mumbai2 |
 | **[Aryaka Networks](https://www.aryaka.com/)** |Stöds |Stöds |Amsterdam, Chicago, Borås, Hongkong SAR, Sao Paulo, Seattle, Silicon dal, Singapore, Tokyo, Washington DC |
 | **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Stöds |Stöds |Sao Paulo |
@@ -232,6 +232,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 | **[Chief](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** | Equinix | Hongkong SAR |
 | **[Cinia](https://www.cinia.fi/en/services/connectivity-services/direct-public-cloud-connection.html)** | Equinix, Megaport | Frankfurt, Hamburg |
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | Amsterdam | 
+| **[CMC telekom]( https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | Singapore | 
 | **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montreal, Toronto |
 | **[CoreAzure](http://coreazure.com/expressroute)**| Equinix | London |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | Dallas, Silicon Valley, Washington DC |

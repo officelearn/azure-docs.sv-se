@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 0e60607d50722a4496dc8f4ad7d609cdf9fd5792
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950528"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877174"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub kvoter och begränsning
 
@@ -25,6 +25,10 @@ Varje Azure-prenumeration kan ha högst 50 IoT-hubbar och högst en kostnads fri
 Varje IoT-hubb etableras med ett visst antal enheter på en specifik nivå. Nivån och antalet enheter avgör den högsta dagliga kvoten för meddelanden som du kan skicka. Den meddelande storlek som används för att beräkna den dagliga kvoten är 0,5 KB för en kostnads fri nivå hubb och 4KB för alla andra nivåer. Mer information finns i [priser för Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 Nivån avgör också de begränsnings gränser som IoT Hub tillämpas på alla åtgärder.
+
+### <a name="iot-plug-and-play"></a>IoT Plug and Play
+
+Under den allmänt tillgängliga för hands versionen kommer IoT Plug and Play-enheter att skicka separata meddelanden per gränssnitt, vilket kan öka antalet meddelanden som räknas mot din meddelande kvot.
 
 ## <a name="operation-throttles"></a>Åtgärds begränsningar
 

@@ -1,13 +1,13 @@
 ---
-title: Funktionsreferens för OData - search.in Azure Search
-description: OData search.in funktion i Azure Search-frågor.
+title: OData search.in-funktions referens – Azure Search
+description: OData search.in-funktionen i Azure Search frågor.
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,32 +19,32 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a61291e547021077341a5f1b3db7422afa5b9440
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8bac0205fa2de8378abaa4d9e8ba8e05ea69192e
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449975"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647928"
 ---
-# <a name="odata-searchin-function-in-azure-search"></a>OData `search.in` funktion i Azure Search
+# <a name="odata-searchin-function-in-azure-search"></a>OData `search.in` -funktion i Azure Search
 
-Ett vanligt scenario i [OData-filteruttryck](query-odata-filter-orderby-syntax.md) är att kontrollera om ett enskilt fält i varje dokument är lika med ett av många möjliga värden. Detta är till exempel hur vissa program implementera [säkerhetsoptimering](search-security-trimming-for-azure-search.md) --genom att markera ett fält som innehåller en eller flera principal-ID: N mot en lista över huvudkonto-ID: N som representerar den användare som utfärdade frågan. Ett sätt att skriva en fråga så här är att använda den [ `eq` ](search-query-odata-comparison-operators.md) och [ `or` ](search-query-odata-logical-operators.md) operatorer:
+Ett vanligt scenario i [OData filter-uttryck](query-odata-filter-orderby-syntax.md) är att kontrol lera om ett enskilt fält i varje dokument är lika med ett av många möjliga värden. Detta är till exempel hur vissa program implementerar [säkerhets trimning](search-security-trimming-for-azure-search.md) – genom att kontrol lera ett fält som innehåller ett eller flera huvud namns-ID: n mot en lista över huvud namns-ID: n som representerar den användare som utfärdar frågan. Ett sätt att skriva en fråga som detta är att använda [`eq`](search-query-odata-comparison-operators.md) operatorerna och: [`or`](search-query-odata-logical-operators.md)
 
     group_ids/any(g: g eq '123' or g eq '456' or g eq '789')
 
-Men det finns ett kortare sätt att skriva detta med hjälp av den `search.in` funktionen:
+Det finns dock ett kortare sätt att skriva på detta med hjälp `search.in` av funktionen:
 
     group_ids/any(g: search.in(g, '123, 456, 789'))
 
 > [!IMPORTANT]
-> Förutom att kortare och lättare att läsa med `search.in` innehåller också [prestandafördelarna](#bkmk_performance) och undvika vissa [storlek begränsningar av filter](search-query-odata-filter.md#bkmk_limits) när det finns hundratals eller tusentals värden ska ingå i filtret. Därför rekommenderar vi använder `search.in` i stället för en mer komplex disjunktion av likhet uttryck.
+> Förutom att vara kortare och enklare att läsa, `search.in` ger du också [prestanda för delar](#bkmk_performance) och undviker vissa [storleks begränsningar för filter](search-query-odata-filter.md#bkmk_limits) när det finns hundratals eller till och med tusentals värden som ska ingå i filtret. Av den anledningen rekommenderar vi starkt att du `search.in` använder i stället för en mer komplex disknutning av likhets uttryck.
 
 > [!NOTE]
-> Version 4.01 av OData-standarden har nyligen har introducerats i [ `in` operatorn](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), som har samma problem som den `search.in` funktionen i Azure Search. Men Azure Search stöder inte den här operatorn, så du måste använda den `search.in` i stället.
+> I version 4,01 av OData standard har nyligen lanserat [ `in` operatorn](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), som har `search.in` liknande beteende som funktionen i Azure Search. Azure Search stöder dock inte den här operatorn, så du måste använda `search.in` funktionen i stället.
 
 ## <a name="syntax"></a>Syntax
 
-Följande EBNF ([utökade Backus Naur formuläret](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar struktur av den `search.in` funktionen:
+Följande ebnf ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för `search.in` funktionen:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -53,60 +53,60 @@ search_in_call ::=
     'search.in(' variable ',' string_literal(',' string_literal)? ')'
 ```
 
-Det finns också ett diagram för interaktiva syntax:
+Ett interaktivt syntax diagram är också tillgängligt:
 
 > [!div class="nextstepaction"]
-> [OData-syntaxdiagrammet för Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#search_in_call)
+> [OData-syntax diagram för Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#search_in_call)
 
 > [!NOTE]
-> Se [OData-referens för uttryckssyntax för Azure Search](search-query-odata-syntax-reference.md) för fullständig EBNF.
+> Se [syntax för OData-uttryck för Azure Search](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-Den `search.in` funktion testar om ett visst strängfält eller intervall variabeln är lika med ett av en specifik lista med värden. Likheten mellan variabeln och varje värde i listan bestäms på ett skiftlägeskänsligt sätt, på samma sätt som för den `eq` operator. Därför ett uttryck som `search.in(myfield, 'a, b, c')` motsvarar `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, förutom att `search.in` resulterar i mycket bättre prestanda.
+`search.in` Funktionen testar om ett angivet sträng fält eller intervall variabel är lika med en av en specifik lista med värden. Likheten mellan variabeln och varje värde i listan bestäms av Skift läges känsligt, på samma sätt som för `eq` operatorn. Därför är ett uttryck `search.in(myfield, 'a, b, c')` som `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`motsvarar, men det `search.in` ger mycket bättre prestanda.
 
-Det finns två överlagringar av den `search.in` funktionen:
+Det finns två överlagringar av `search.in` funktionen:
 
 - `search.in(variable, valueList)`
 - `search.in(variable, valueList, delimiters)`
 
-Parametrarna har definierats i tabellen nedan:
+Parametrarna definieras i följande tabell:
 
-| Parameternamn | Type | Beskrivning |
+| Parameternamn | type | Beskrivning |
 | --- | --- | --- |
-| `variable` | `Edm.String` | En sträng fältreferens (eller en variabel för intervallet över ett strängfält samling i fall där `search.in` används inuti en `any` eller `all` uttryck). |
-| `valueList` | `Edm.String` | En sträng som innehåller en avgränsad lista med värdena för att matcha mot den `variable` parametern. Om den `delimiters` parametern inte anges, standard-avgränsarna är blanksteg och kommatecken. |
-| `delimiters` | `Edm.String` | En sträng där varje tecken behandlas som avgränsare vid parsning av den `valueList` parametern. Standardvärdet för den här parametern är `' ,'` vilket innebär att alla värden med blanksteg och/eller skrivas ut skiljs åt. Om du vill använda avgränsarna än blanksteg och kommatecken dina värden innehåller de tecken du kan ange alternativa avgränsare som `'|'` i den här parametern. |
+| `variable` | `Edm.String` | En sträng fält referens (eller en intervall variabel över ett sträng samlings fält i fallet där `search.in` används inuti ett `any` eller `all` -uttryck). |
+| `valueList` | `Edm.String` | En sträng som innehåller en avgränsad lista med värden som ska `variable` matchas mot parametern. `delimiters` Om parametern inte anges, är standard avgränsarna blank steg och kommatecken. |
+| `delimiters` | `Edm.String` | En sträng där varje tecken behandlas som en avgränsare när `valueList` parametern tolkas. Standardvärdet för den här parametern `' ,'` är vilket innebär att alla värden med blank steg och/eller kommatecken mellan dem kommer att separeras. Om du behöver använda andra avgränsare än blank steg och kommatecken eftersom värdena innehåller dessa tecken kan du ange alternativa avgränsare, som `'|'` i den här parametern. |
 
 <a name="bkmk_performance"></a>
 
-### <a name="performance-of-searchin"></a>Prestanda för `search.in`
+### <a name="performance-of-searchin"></a>Prestanda för`search.in`
 
-Om du använder `search.in`, du kan förvänta dig under en sekund svarstid när den andra parametern innehåller en lista över hundratals eller tusentals värden. Det finns ingen explicit gräns för hur många objekt du kan skicka till `search.in`, även om du fortfarande är begränsad av tillåtna storleken. Svarstiden kommer dock att växa när antalet värden växer.
+Om du använder `search.in`kan du förväntar dig svars tid under andra när den andra parametern innehåller en lista över hundratals eller tusentals värden. Det finns ingen uttrycklig gräns för antalet objekt som du kan skicka till `search.in`, även om du fortfarande är begränsad till den maximala storleken för begäran. Svars tiden kommer dock att växa när antalet värden växer.
 
 ## <a name="examples"></a>Exempel
 
-Hitta alla hotell med namn som är lika med ”Sea visa motel” eller ”Budget hotell'. Fraser innehåller blanksteg, vilket är en standard-avgränsare. Du kan ange ett alternativt avgränsare med enkla citattecken som den tredje parametern för frågesträngen:  
+Hitta alla hotell med namn som motsvarar antingen "Sea View Motel" eller "budget hotell". Fraser innehåller blank steg, vilket är en standard avgränsare. Du kan ange en alternativ avgränsare i enkla citat tecken som den tredje sträng parametern:  
 
     search.in(HotelName, 'Sea View motel,Budget hotel', ',')
 
-Hitta alla hotell med namn som är lika med ”Sea visa motel” eller ”Budget hotell, avgränsade med ' |'):
+Hitta alla hotell med namn som är lika med "Sea View Motel" eller "budget hotellet", separerade med "|"):
 
     search.in(HotelName, 'Sea View motel|Budget hotel', '|')
 
-Hitta alla hotels med rum som har taggen ”wifi' eller 'badkar”:
+Hitta alla hotell med rum som har taggen "WiFi" eller "tub":
 
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub')))
 
-Hitta en matchning på fraser i en samling, till exempel ”värmas upp handdukar rack' eller 'hairdryer ingår” i taggar.
+Hitta en matchning på fraser i en samling, t. ex. "uppvärmd hand duks-rack" eller "Hairdryer ingår" i taggar.
 
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 
-Hitta alla hotels utan taggen ”motel” eller ”utrustning”:
+Hitta alla hotell utan taggen ' Motel ' eller ' cabin':
 
     Tags/all(tag: not search.in(tag, 'motel, cabin'))
 
 ## <a name="next-steps"></a>Nästa steg  
 
 - [Filter i Azure Search](search-filters.md)
-- [OData-uttrycket Språköversikt för Azure Search](query-odata-filter-orderby-syntax.md)
-- [Referens för OData-uttryckssyntax för Azure Search](search-query-odata-syntax-reference.md)
-- [Söka efter dokument &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [OData uttrycks språk översikt för Azure Search](query-odata-filter-orderby-syntax.md)
+- [Syntax-referens för OData-uttryck för Azure Search](search-query-odata-syntax-reference.md)
+- [Sök efter &#40;dokument Azure Search tjänst REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

@@ -1,51 +1,51 @@
 ---
-title: REST API-anspråk utbyten - Azure Active Directory B2C
-description: Lägg till REST API anspråk utbyten i anpassade principer i Active Directory B2C.
+title: REST API Claims-börser – Azure Active Directory B2C
+description: Lägg till REST API åberopade anspråk till anpassade principer i Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42129870c6ab2bb5e58bdf9aaa323a3d64b479f8
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439003"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644912"
 ---
-# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Lägg till REST API anspråk utbyten i anpassade principer i Azure Active Directory B2C
+# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Lägg till REST API åberopade anspråk till anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Du kan lägga till interaktion med ett RESTful-API till din [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C. Den här artikeln visar hur du skapar en Azure AD B2C-användarresa som interagerar med RESTful-tjänster.
+Du kan lägga till interaktion med ett RESTful-API till dina [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C. Den här artikeln visar hur du skapar en Azure AD B2C användar resa som samverkar med RESTful-tjänster.
 
-Interaktionen innehåller ett anspråk utbyta information mellan REST API-anspråk och Azure AD B2C. Utbyten av anspråk har följande egenskaper:
+Interaktionen innehåller ett anspråk utbyte av information mellan REST API anspråk och Azure AD B2C. Anspråk byten har följande egenskaper:
 
-- Kan utformas som ett orchestration-steg.
-- Kan utlösa en extern åtgärd. Det kan exempelvis logga en händelse i en extern databas.
-- Kan användas för att hämta ett värde och sedan lagra den i databasen.
-- Kan ändra flödet av körningen.
+- Kan utformas som ett Orchestration-steg.
+- Kan utlösa en extern åtgärd. Den kan till exempel logga en händelse i en extern databas.
+- Kan användas för att hämta ett värde och sedan lagra det i användar databasen.
+- Kan ändra körnings flödet.
 
-Det scenario som representeras i den här artikeln innehåller följande åtgärder:
+Scenariot som representeras i den här artikeln innehåller följande åtgärder:
 
 1. Leta upp användaren i ett externt system.
-2. Hämta staden där användaren har registrerats.
-3. Returnera attributet för programmet som ett anspråk.
+2. Hämta staden där användaren är registrerad.
+3. Returnera attributet till programmet som ett anspråk.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md).
-- En REST API-slutpunkt för att interagera med. Den här artikeln använder en enkel Azure fungerar som ett exempel. För att skapa Azure-funktion, se [skapa din första funktion i Azure-portalen](../azure-functions/functions-create-first-azure-function.md).
+- Slutför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md).
+- En REST API slut punkt att interagera med. I den här artikeln används en enkel Azure-funktion som exempel. Information om hur du skapar Azure-funktionen finns i [skapa din första funktion i Azure Portal](../azure-functions/functions-create-first-azure-function.md).
 
-## <a name="prepare-the-api"></a>Förbereda API: et
+## <a name="prepare-the-api"></a>Förbered API
 
-I det här avsnittet ska du förbereda Azure-funktion som tar emot ett värde för `email`, och returnerar sedan värdet för `city` som kan användas av Azure AD B2C som ett anspråk.
+I det här avsnittet förbereder du Azure-funktionen för att ta emot ett `email`värde för och returnerar sedan värdet för `city` som kan användas av Azure AD B2C som ett anspråk.
 
-Ändra filen run.csx för Azure-funktion som du skapade för att använda följande kod:
+Ändra filen Run. CSX för den Azure-funktion som du skapade för att använda följande kod:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -82,11 +82,11 @@ public class ResponseContent
 }
 ```
 
-## <a name="configure-the-claims-exchange"></a>Konfigurera anspråksutbytet
+## <a name="configure-the-claims-exchange"></a>Konfigurera anspråk utbyte
 
-Tekniska profilen innehåller konfigurationen för anspråk för exchange.
+En teknisk profil innehåller konfigurationen för anspråks utbytet.
 
-Öppna den *TrustFrameworkExtensions.xml* filen och Lägg till följande **ClaimsProvider** XML-element inuti den **ClaimsProviders** element.
+Öppna filen *TrustFrameworkExtensions. XML* och Lägg till följande **ClaimsProvider** XML-element inuti **ClaimsProviders** -elementet.
 
 ```XML
 <ClaimsProvider>
@@ -97,8 +97,10 @@ Tekniska profilen innehåller konfigurationen för anspråk för exchange.
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
-        <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
@@ -113,11 +115,13 @@ Tekniska profilen innehåller konfigurationen för anspråk för exchange.
 </ClaimsProvider>
 ```
 
-Den **InputClaims** elementet definierar vilka anspråk som skickas till REST-tjänst. I det här exemplet anspråkets värde `givenName` skickas till REST-tjänst som anspråket `email`. Den **OutputClaims** elementet definierar vilka anspråk som förväntas från REST-tjänst.
+**InputClaims** -elementet definierar de anspråk som skickas till rest-tjänsten. I det här exemplet skickas värdet för anspråket `givenName` till rest-tjänsten som anspråket. `email` **OutputClaims** -elementet definierar de anspråk som förväntas från rest-tjänsten.
 
-## <a name="add-the-claim-definition"></a>Lägg till anspråksdefinitionen
+Kommentarerna ovan `AuthenticationType` och `AllowInsecureAuthInProduction` anger ändringar som du bör göra när du flyttar till en produktions miljö. Information om hur du skyddar dina RESTful-API: er för produktion finns i [skydda RESTful-API: er med grundläggande autentisering](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) och [säkra RESTful-API: er med certifikatbaserad autentisering](active-directory-b2c-custom-rest-api-netfw-secure-cert.md).
 
-Lägg till en definition för `city` inuti den **BuildingBlocks** element. Du hittar det här elementet i början av filen TrustFrameworkExtensions.xml.
+## <a name="add-the-claim-definition"></a>Lägg till anspråks definitionen
+
+Lägg till en definition `city` för i **BuildingBlocks** -elementet. Du kan hitta det här elementet i början av TrustFrameworkExtensions. XML-filen.
 
 ```XML
 <BuildingBlocks>
@@ -132,11 +136,11 @@ Lägg till en definition för `city` inuti den **BuildingBlocks** element. Du hi
 </BuildingBlocks>
 ```
 
-## <a name="add-an-orchestration-step"></a>Lägg till en orchestration-steg
+## <a name="add-an-orchestration-step"></a>Lägg till ett Orchestration-steg
 
-Det finns många användningsområden där REST API-anrop kan användas som ett orchestration-steg. Som ett orchestration-steg kan användas den som en uppdatering till ett externt system när en användare har genomgått en aktivitet, som registrering för första gången eller som en Profiluppdatering av för att synkronisera informationen. I det här fallet används det att utöka informationen till programmet när profilen har redigerat.
+Det finns många användnings fall där REST API-anropet kan användas som ett Orchestration-steg. Som ett Orchestration-steg kan det användas som en uppdatering av ett externt system när en användare har slutfört en aktivitet, t. ex. första registreringen eller som en profil uppdatering för att synkronisera information. I det här fallet används den för att utöka den information som ges till programmet efter profil redigeringen.
 
-Lägga till ett steg i användarresan för profilen redigera. När användaren har autentiserats (orchestration-steg 1-4 i följande XML) och användaren har tillhandahållit uppdaterade profilinformation (steg 5). Kopiera profilen Redigera användare resa XML-koden från den *TrustFrameworkBase.xml* filen till din *TrustFrameworkExtensions.xml* filen i den **UserJourneys** element. Sedan göra ändringen som steg 6.
+Lägg till ett steg i profilen redigera användar resa. När användaren har autentiserats (Orchestration steg 1-4 i följande XML) och användaren har angett den uppdaterade profil informationen (steg 5). Kopiera profilen redigera användar resans XML-kod från *TrustFrameworkBase. XML* -filen till din *TrustFrameworkExtensions. XML-* fil i **UserJourneys** -elementet. Gör sedan ändringen som steg 6.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
@@ -146,7 +150,7 @@ Lägga till ett steg i användarresan för profilen redigera. När användaren h
 </OrchestrationStep>
 ```
 
-Sista XML för användarresan bör se ut som i följande exempel:
+Den sista XML-koden för användar resan bör se ut som i det här exemplet:
 
 ```XML
 <UserJourney Id="ProfileEdit">
@@ -204,11 +208,11 @@ Sista XML för användarresan bör se ut som i följande exempel:
 </UserJourney>
 ```
 
-## <a name="add-the-claim"></a>Lägg till kravet
+## <a name="add-the-claim"></a>Lägg till anspråket
 
-Redigera den *ProfileEdit.xml* filen och Lägg till `<OutputClaim ClaimTypeReferenceId="city" />` till den **OutputClaims** element.
+Redigera filen *ProfileEdit. XML* och Lägg till `<OutputClaim ClaimTypeReferenceId="city" />` i **OutputClaims** -elementet.
 
-När du lägger till nytt anspråk den tekniska profilen ser ut som i följande exempel:
+När du har lagt till det nya anspråket ser den tekniska profilen ut som i det här exemplet:
 
 ```XML
 <TechnicalProfile Id="PolicyProfile">
@@ -223,15 +227,15 @@ När du lägger till nytt anspråk den tekniska profilen ser ut som i följande 
 </TechnicalProfile>
 ```
 
-## <a name="upload-your-changes-and-test"></a>Överföra dina ändringar och testa
+## <a name="upload-your-changes-and-test"></a>Ladda upp dina ändringar och testa
 
-1. (Optional:) Spara den befintliga versionen (genom att ladda ned) filer innan du fortsätter.
-2. Ladda upp den *TrustFrameworkExtensions.xml* och *ProfileEdit.xml* och välj att skriva över den befintliga filen.
+1. Valfritt Spara den befintliga versionen (genom att ladda ned) filerna innan du fortsätter.
+2. Ladda upp filen *TrustFrameworkExtensions. XML* och *ProfileEdit. XML* och välj att skriva över den befintliga filen.
 3. Välj **B2C_1A_ProfileEdit**.
-4. För **Välj program** på översiktssidan av den anpassade principen väljer du webbprogrammet med namnet *webapp1* som du tidigare har registrerat. Se till att den **svars-URL** är `https://jwt.ms`.
-4. Välj **kör nu**. Logga in med autentiseringsuppgifterna för ditt konto och klicka på **Fortsätt**.
+4. För **Välj program** på sidan Översikt i den anpassade principen väljer du det webb program som heter *webapp1* som du tidigare har registrerat. Se till att svars- **URL: en** är `https://jwt.ms`.
+4. Välj **Kör nu**. Logga in med autentiseringsuppgifterna för ditt konto och klicka på **Fortsätt**.
 
-Om allt är korrekt konfigurerad, token innehåller nytt anspråk `city`, med värdet `Redmond`.
+Om allt är korrekt konfigurerat, inkluderar token det nya anspråket `city`med värdet. `Redmond`
 
 ```JSON
 {
@@ -251,5 +255,13 @@ Om allt är korrekt konfigurerad, token innehåller nytt anspråk `city`, med v�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Du kan också utforma interaktion som en profil. Mer information finns i [genomgång: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering på indata från användaren](active-directory-b2c-rest-api-validation-custom.md).
-- [Ändra profilredigering för att samla in ytterligare information från användarna](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+Du kan också utforma interaktionen som en validerings profil. Mer information finns i [genom gång: Integrera REST API Claims-utbyten i Azure AD B2C användar resa som verifiering vid](active-directory-b2c-rest-api-validation-custom.md)användarindata.
+
+[Ändra profil redigeraren om du vill samla in ytterligare information från dina användare](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+
+[Förhållande RESTful teknisk profil](restful-technical-profile.md)
+
+Information om hur du skyddar dina API: er finns i följande artiklar:
+
+* [Skydda ditt RESTful-API med grundläggande autentisering (användar namn och lösen ord)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+* [Skydda ditt RESTful-API med klient certifikat](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

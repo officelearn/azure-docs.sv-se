@@ -1,6 +1,6 @@
 ---
-title: Skapa en dynamisk grupp och kontrollera status - Azure Active Directory | Microsoft Docs
-description: Hur du skapar en gruppmedlemskapsregel i Azure-portalen, kontrollera status.
+title: Skapa en dynamisk grupp och kontrol lera status-Azure Active Directory | Microsoft Docs
+description: Så här skapar du en regel för grupp medlemskap i Azure Portal kontrollerar du status.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,74 +9,74 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 08/12/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cb4f9d2f78857231d0ecd81a2538a75b4b8a2f74
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472178"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650310"
 ---
-# <a name="create-a-dynamic-group-and-check-status"></a>Skapa en dynamisk grupp och kontrollera status
+# <a name="create-a-dynamic-group-and-check-status"></a>Skapa en dynamisk grupp och kontrol lera status
 
-I Azure Active Directory (AD Azure), kan du använda regler för att fastställa gruppmedlemskap baserat på användar- eller egenskaper. Den här artikeln beskriver hur du konfigurerar en regel för en dynamisk grupp i Azure-portalen.
-Finns stöd för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper. När en gruppmedlemskapsregel används utvärderas användar- och attribut för matchningar med medlemskapsregeln för. När ett attribut ändras för en användare eller enhet, bearbetas alla dynamiska gruppregler i organisationen för ändringar i medlemskap. Användare och enheter läggs till eller tas bort om de uppfyller villkoren för en grupp.
+I Azure Active Directory (Azure AD) kan du använda regler för att fastställa grupp medlemskap baserat på användar-eller enhets egenskaper. Den här artikeln beskriver hur du konfigurerar en regel för en dynamisk grupp i Azure Portal.
+Dynamiskt medlemskap stöds för säkerhets grupper eller Office 365-grupper. När en grupp medlemskaps regel används utvärderas användar-och enhets attribut för matchningar med medlemskaps regeln. När ett attributändringar ändras för en användare eller enhet bearbetas alla dynamiska grupp regler i organisationen för medlemskaps ändringar. Användare och enheter läggs till eller tas bort om de uppfyller villkoren för en grupp. Säkerhets grupper kan användas för antingen enheter eller användare, men Office 365-grupper kan bara vara användar grupper.
 
-Exempel på syntax, egenskaper som stöds, operatorer och värden för en medlemskapsregel finns [regler för dynamiskt medlemskap för grupper i Azure Active Directory](groups-dynamic-membership.md).
+Exempel på syntax, stödda egenskaper, operatorer och värden för en medlemskaps regel finns i [regler för dynamiska medlemskap för grupper i Azure Active Directory](groups-dynamic-membership.md).
 
-## <a name="to-create-a-group-membership-rule"></a>Skapa en regel för medlemskap
+## <a name="to-create-a-group-membership-rule"></a>Så här skapar du en grupp medlemskaps regel
 
-1. Logga in på den [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är i Global administratör, Intune-administratör eller användarrollen administratör i klienten.
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som finns i rollen global administratör, Intune-administratör eller användar administratör i klienten.
 2. Välj **grupper**.
-3. Välj **alla grupper**, och välj **ny grupp**.
+3. Välj **alla grupper**och välj sedan **ny grupp**.
 
-   ![Välj kommandot för att lägga till ny grupp](./media/groups-create-rule/new-group-creation.png)
+   ![Välj kommandot för att lägga till en ny grupp](./media/groups-create-rule/new-group-creation.png)
 
-4. På den **grupp** anger du ett namn och beskrivning för den nya gruppen. Välj en **Medlemskapstyp** för användare eller enheter och välj sedan **Lägg till dynamisk fråga**. Du kan använda regeln builder för att skapa en enkel regel eller [skriva en medlemskapsregel själv](groups-dynamic-membership.md).
+4. På sidan **grupp** anger du ett namn och en beskrivning för den nya gruppen. Välj en **medlemskaps typ** för antingen användare eller enheter och välj sedan **Lägg till dynamisk fråga**. Regel verktyget stöder upp till fem uttryck. Om du vill lägga till ett sjätte eller efterföljande uttryck måste du använda text rutan.
 
-   ![Lägg till regel för medlemskap för en dynamisk grupp](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. Se anpassat tilläggs-egenskaper som är tillgängliga för din medlemskapsfråga
-   1. Välj **hämta anpassat tilläggs-egenskaper**
-   2. Ange program-ID och välj sedan **uppdatera egenskaper för**. 
-6. När du har skapat regeln, Välj **Lägg till fråga** längst ned på bladet.
-7. Välj **skapa** på den **grupp** bladet för att skapa gruppen.
+5. För att se de anpassade tilläggs egenskaper som är tillgängliga för din medlemskaps fråga
+   1. Välj **Hämta anpassade tilläggs egenskaper**
+   2. Ange program-ID och välj sedan **Uppdatera egenskaper**.
+6. När du har skapat regeln väljer du **Spara**.
+7. Skapa gruppen genom att välja **skapa** på sidan **ny grupp** .
 
-Om regeln som du angav är inte giltig visas en förklaring av varför det gick inte att bearbeta regeln i det övre högra hörnet i portalen. Läs den noggrant för att förstå hur du åtgärdar regeln.
+Om regeln du angav inte är giltig visas en förklaring av varför regeln inte kunde bearbetas i ett Azure-meddelande i portalen. Läs det noggrant och lär dig hur du åtgärdar regeln.
 
-## <a name="turn-on-or-off-welcome-email"></a>Aktivera eller inaktivera e-post
+## <a name="turn-on-or-off-welcome-email"></a>Aktivera eller inaktivera välkomst meddelande
 
-När en ny Office 365-grupp skapas skickas en Välkommen meddelandet de användare som läggs till i gruppen. Senare, om ett attribut för en användare eller enhet ändrar, bearbetas alla dynamiska gruppregler i organisationen för ändringar i medlemskap. Användare som läggs får sedan även Välkommen meddelandet. Du kan inaktivera det här beteendet i [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+När en ny Office 365-grupp skapas, skickas ett välkomst meddelande till de användare som läggs till i gruppen. Senare, om några attribut för en användare eller enhet ändras, bearbetas alla dynamiska grupp regler i organisationen för medlemskaps ändringar. Användare som läggs till får även välkomst meddelandet. Du kan inaktivera det här beteendet i [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
-## <a name="check-processing-status-for-a-rule"></a>Kontrollera Bearbetningsstatus för en regel för
+## <a name="check-processing-status-for-a-rule"></a>Kontrol lera bearbetnings status för en regel
 
-Du kan se medlemskapet bearbetning status och datum för senaste uppdatering på den **översikt** för gruppen.
+Du kan se status för medlemskaps bearbetning och senaste uppdaterade datum på **översikts** sidan för gruppen.
   
-  ![visning av dynamisk grupp-status](./media/groups-create-rule/group-status.png)
+  ![visning av status för dynamisk grupp](./media/groups-create-rule/group-status.png)
 
-Följande statusmeddelanden kan visas för **medlemskap bearbetning** status:
+Följande status meddelanden kan visas för status för **medlemskaps bearbetning** :
 
-* **Utvärdera**:  Gruppändringen har tagits emot och uppdateringarna utvärderas.
-* **Bearbetning av**: Uppdateringar som bearbetas.
+* **Utvärdera**:  Grupp ändringen har mottagits och uppdateringarna utvärderas.
+* **Bearbetar**: Uppdateringar bearbetas.
 * **Uppdateringen är klar**: Bearbetningen har slutförts och alla tillämpliga uppdateringar har gjorts.
-* **Fel vid bearbetning av**:  Bearbetning kunde inte slutföras på grund av ett fel vid utvärdering av medlemskapsregel.
-* **Uppdatera pausats**: Dynamiskt medlemskap har regel pausats av administratören. MembershipRuleProcessingState anges som ”pausad”.
+* **Bearbetnings fel**:  Det gick inte att slutföra bearbetningen på grund av ett fel när medlemskaps regeln utvärderades.
+* **Uppdateringen**har pausats: Uppdateringar av dynamiska medlemskaps regler har pausats av administratören. MembershipRuleProcessingState är inställd på pausad.
 
-Följande statusmeddelanden kan visas för **medlemskap senast uppdaterad** status:
+Följande status meddelanden kan visas för medlemskapets **senast uppdaterade** status:
 
-* &lt;**Datum och tid**&gt;: Senast medlemskap har uppdaterats.
-* **Pågår**: Uppdateringar pågår för tillfället.
-* **Okänd**: Det går inte att hämta den senaste uppdateringstiden. Gruppen kan vara ny.
+* &lt;**Datum och tid**&gt;: Den senaste gången som medlemskapet uppdaterades.
+* **Pågår**: Uppdateringar pågår just nu.
+* **Okänd**: Det går inte att hämta den senaste uppdaterings tiden. Gruppen kan vara ny.
 
-Om det uppstår ett fel vid bearbetning av medlemskapsregeln för en viss grupp, visas en avisering i den **översiktssidan** för gruppen. Om du inte väntar på dynamiskt medlemskap uppdateringar kan bearbetas för alla grupper i klienten för sedan 24 timmar, visas en avisering i **alla grupper**.
+Om ett fel inträffar när medlemskaps regeln för en grupp bearbetas visas en avisering överst på **sidan Översikt** för gruppen. Om inga väntande dynamiska medlemskaps uppdateringar kan bearbetas för alla grupper i klient organisationen för mer än 24 timmar, visas en avisering överst i **alla grupper**.
 
-![bearbetning av felmeddelanden för meddelande](./media/groups-create-rule/processing-error.png)
+![bearbetar aviseringar om fel meddelande](./media/groups-create-rule/processing-error.png)
 
-Dessa artiklar innehåller ytterligare information om grupper i Azure Active Directory.
+De här artiklarna innehåller ytterligare information om grupper i Azure Active Directory.
 
 * [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Skapa en ny grupp och lägga till medlemmar](../fundamentals/active-directory-groups-create-azure-portal.md)

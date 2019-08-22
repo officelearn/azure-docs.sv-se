@@ -1,6 +1,6 @@
 ---
-title: Installera Azure VM-agenten i offlineläge | Microsoft Docs
-description: Lär dig hur du installerar Azure VM-agenten i offlineläge.
+title: Installera Azure VM-agenten i offline-läge | Microsoft Docs
+description: Lär dig hur du installerar Azure VM-agenten i offline-läge.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -14,61 +14,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c282a739ad55d6f2c5fcbe3b3a1a69541a7350cd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 78be50d234605775bcef4ece2e6ff7c01ec0437f
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705786"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874233"
 ---
-# <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installera Azure VM-agenten i offlineläge 
+# <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installera Azure Virtual Machine-agenten i offline-läge 
 
-Azure VM-agenten (VM-agenten) ger användbara funktioner, till exempel återställning av lösenord för lokal administratör och skript som push-överföring. Den här artikeln visar hur du installerar VM-agenten för en offline Windows-dator (VM). 
+Agenten för virtuell Azure-dator (VM-agent) tillhandahåller användbara funktioner, till exempel återställning av lokalt administratörs lösen ord och skript. Den här artikeln visar hur du installerar VM-agenten för en virtuell Windows-dator (VM) offline. 
 
-## <a name="when-to-use-the-vm-agent-in-offline-mode"></a>När du ska använda VM-agenten i offlineläge
+## <a name="when-to-use-the-vm-agent-in-offline-mode"></a>När du ska använda VM-agenten i offline-läge
 
-Installera VM-agenten i offlineläge i följande scenarier:
+Installera VM-agenten i offline-läge i följande scenarier:
 
-- Den distribuerade virtuella Azure-datorn har inte VM-agenten installerad eller agenten fungerar inte.
-- Du har glömt administratörslösenordet för den virtuella datorn eller du kan inte komma åt den virtuella datorn.
+- Den distribuerade virtuella Azure-datorn har inte den virtuella dator agenten installerad eller också fungerar inte agenten.
+- Du har glömt administratörs lösen ordet för den virtuella datorn eller så har du inte åtkomst till den virtuella datorn.
 
-## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>Så här installerar du VM-agenten i offlineläge
+## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>Så här installerar du VM-agenten i offline-läge
 
-Använd följande steg för att installera VM-agenten i offlineläge.
+Använd följande steg för att installera VM-agenten i offline-läge.
 
-> [!NOTE]
-> Du kan automatisera processen för att installera VM-agenten i offlineläge.
-> Gör detta genom att använda den [Azure VM Recovery skript](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Om du väljer att använda Azure VM Recovery skript kan du använda följande process:
-> 1. Hoppa över steg 1 genom att använda skripten för att koppla OS-disken på den berörda virtuella datorn till en virtuell dator för återställning.
-> 2. Följ steg 2 – 10 om du vill tillämpa åtgärder.
-> 3. Hoppa över steg 11 med skripten för att återskapa den virtuella datorn.
-> 4. Följ steg 12.
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Steg 1: Koppla den virtuella datorns OS-disk till en annan virtuell dator som en datadisk
 
-### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Steg 1: Koppla OS-disken för den virtuella datorn till en annan virtuell dator som en datadisk
+1. Ta en ögonblicks bild för OS-disken för den berörda virtuella datorn, skapa en disk från ögonblicks bilden och Anslut sedan disken till en Felsök virtuell dator. Mer information finns i [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal](troubleshoot-recovery-disks-portal-windows.md). För den klassiska virtuella datorn tar du bort den virtuella datorn och behåller OS-disken och ansluter sedan OS-disken till fel söknings datorn.
 
-1.  Ta bort den virtuella datorn. Se till att välja den **behålla diskarna** när du tar bort den virtuella datorn.
-
-2.  Koppla OS-disken som en datadisk till en annan virtuell dator (kallas en _felsökare_ VM). Mer information finns i [ansluter en datadisk till en virtuell Windows-dator i Azure-portalen](../windows/attach-managed-disk-portal.md).
-
-3.  Anslut till felsökaren för virtuell dator. Öppna **Datorhantering** > **Diskhantering**. Kontrollera att OS-disken är online och att enhetsbeteckningar tilldelas diskpartitionerna.
+2.  Anslut till fel söknings datorn. Öppna**disk hantering**för **dator hantering** > . Bekräfta att OS-disken är online och att enhets beteckningarna är kopplade till diskpartitionerna.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Steg 2: Ändra OS-disken för att installera Azure VM-agenten
 
-1.  Se en fjärrskrivbordsanslutning till felsökaren för virtuell dator.
+1.  Upprätta en fjärr skrivbords anslutning till fel söknings datorn.
 
-2.  Bläddra till mappen \windows\system32\config på OS-disken bifogade. Kopiera alla filer i den här mappen som en säkerhetskopia, om en återställning.
+2.  I den virtuella datorns fel sökare bläddrar du till den OS-disk som du har bifogat, öppnar mappen \Windows\System32\Config. Kopiera alla filer i den här mappen som en säkerhets kopia, om det krävs en återställning.
 
-3.  Starta den **Registereditorn** (regedit.exe).
+3.  Starta **Registereditorn** (regedit. exe).
 
-4.  Välj den **HKEY_LOCAL_MACHINE** nyckel. På menyn, Välj **filen** > **Läs in registreringsdatafil**:
+4.  Välj **HKEY_LOCAL_MACHINE** -nyckel. På menyn väljer du **fil** > **läsnings registrerings data**fil:
 
-    ![Läsa in registreringsdata](./media/install-vm-agent-offline/load-hive.png)
+    ![Läs in registrerings data filen](./media/install-vm-agent-offline/load-hive.png)
 
-5.  Bläddra till mappen \windows\system32\config\SYSTEM på OS-disken bifogade. Namnet på hive, ange **BROKENSYSTEM**. Den nya registreringsdatafilen visas under den **HKEY_LOCAL_MACHINE** nyckel.
+5.  Bläddra till mappen \windows\system32\config\SYSTEM på den OS-disk som du har anslutit. Ange **BROKENSYSTEM**som namn på Hive. Den nya registrerings data filen visas under nyckeln **HKEY_LOCAL_MACHINE** .
 
-6.  Bläddra till mappen \windows\system32\config\SOFTWARE på OS-disken bifogade. Namnet på hive-programvara, ange **BROKENSOFTWARE**.
+6.  Bläddra till mappen \windows\system32\config\SOFTWARE på den OS-disk som du har anslutit. Skriv **BROKENSOFTWARE**som namn på Hive-programvaran.
 
-7. Om den anslutna OS-disken har VM-agenten installerad, utför du en säkerhetskopia av den aktuella konfigurationen. Om den inte har VM-agenten installerad, flytta till nästa steg.
+7. Om den anslutna OS-disken har VM-agenten installerad utför du en säkerhets kopia av den aktuella konfigurationen. Om den inte har någon VM-agent installerad går du vidare till nästa steg.
       
     1. Byt namn på mappen \windowsazure till \windowsazure.old.
 
@@ -77,49 +67,49 @@ Använd följande steg för att installera VM-agenten i offlineläge.
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.  Använda de befintliga filerna på felsökaren för virtuell dator som en lagringsplats för VM-agentinstallation. Utför följande steg:
+8.  Använd de befintliga filerna på den virtuella fel söknings datorn som en lagrings plats för den virtuella dator Agent installationen. Utför följande steg:
 
-    1. Exportera följande undernycklar i registret format (.reg) från felsökaren för virtuell dator: 
+    1. Exportera följande under nycklar i register format (. reg) från fel söknings datorn: 
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-          ![Exportera registernycklarna](./media/install-vm-agent-offline/backup-reg.png)
+          ![Exportera register under nycklarna](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Redigera registret. I varje fil, ändrar du värdet för posten **SYSTEM** till **BROKENSYSTEM** (som visas i följande avbildningar) och spara filen. Kom ihåg den **ImagePath** av den befintliga VM-agenten. Vi behöver du kopiera mappen motsvarande till den anslutna OS-disken. 
+    2. Redigera registerfilerna. I varje fil ändrar du värdet för post värde till **BROKENSYSTEM** (se följande bilder) och sparar filen. Kom ihåg **ImagePath** för den aktuella VM-agenten. Vi kommer att behöva kopiera motsvarande mapp till den anslutna OS-disken. 
 
-        ![Ändra undernycklar registervärden](./media/install-vm-agent-offline/change-reg.png)
+        ![Ändra värden för register under nyckeln](./media/install-vm-agent-offline/change-reg.png)
 
-    3. Importera registerfilerna till databasen genom att dubbelklicka på varje fil i registret.
+    3. Importera registerfilerna till lagrings platsen genom att dubbelklicka på varje register fil.
 
-    4. Bekräfta att följande tre undernycklar har importerats till den **BROKENSYSTEM** hive:
+    4. Bekräfta att följande tre under nycklar har importer ATS till **BROKENSYSTEM** Hive:
         - WindowsAzureGuestAgent
         - WindowsAzureTelemetryService
         - RdAgent
 
-    5. Kopiera installationsmappen för den befintliga VM-agenten till den anslutna OS-disken: 
+    5. Kopiera installationsmappen för den aktuella VM-agenten till den anslutna OS-disken: 
 
-        1.  Skapa en mapp med namnet Azure visade sig vara i rotsökvägen på OS-disken bifogade.
+        1.  På den OS-disk som du har bifogat skapar du en mapp med namnet WindowsAzure i rot Sök vägen.
 
-        2.  Gå till C:\WindowsAzure på felsökaren för virtuell dator ska du leta efter en mapp med namnet C:\WindowsAzure\GuestAgent_X.X.XXXX.XXX. Kopiera mappen GuestAgent med senaste versionsnumret från C:\WindowsAzure till mappen Azure visade sig vara i den anslutna OS-disken. Om du inte är säker på vilken mapp som ska kopieras kopiera alla GuestAgent mappar. Följande bild visar ett exempel på mappen GuestAgent som kopieras till den anslutna OS-disken.
+        2.  Gå till C:\WindowsAzure på den virtuella fel sökaren och leta efter en mapp med namnet C:\WindowsAzure\GuestAgent_X.X.XXXX.XXX. Kopiera mappen GuestAgent som har det senaste versions numret från C:\WindowsAzure till mappen WindowsAzure på den anslutna OS-disken. Kopiera alla GuestAgent-mappar om du inte är säker på vilken mapp som ska kopieras. Följande bild visar ett exempel på GuestAgent-mappen som kopieras till den anslutna OS-disken.
 
-             ![Kopiera GuestAgent mapp](./media/install-vm-agent-offline/copy-files.png)
+             ![Kopiera mappen GuestAgent](./media/install-vm-agent-offline/copy-files.png)
 
-9.  Välj **BROKENSYSTEM**. På menyn, väljer **filen** > **ta bort registreringsdata**.
+9.  Välj **BROKENSYSTEM**. Från menyn väljer du **Arkiv** > **ta bort Hive**.
 
-10.  Välj **BROKENSOFTWARE**. På menyn, väljer **filen** > **ta bort registreringsdata**.
+10.  Välj **BROKENSOFTWARE**. Från menyn väljer du **Arkiv** > **ta bort Hive**.
 
-11.  Koppla från OS-disken och sedan återskapa den virtuella datorn med hjälp av OS-disken.
+11.  Koppla från operativ system disken och [ändra sedan OS-disken för den virtuella datorn](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm). För den klassiska virtuella datorn skapar du en ny virtuell dator med hjälp av den reparerade OS-disken.
 
-12.  Åtkomst till den virtuella datorn. Observera att RdAgent körs och loggarna genereras.
+12.  Åtkomst till den virtuella datorn. Observera att RdAgent körs och loggarna skapas.
 
-Om du har skapat den virtuella datorn med hjälp av distributionsmodellen i Resource Manager kan är du klar.
+Om du har skapat den virtuella datorn med hjälp av distributions modellen Resource Manager är du klar.
 
 ### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>Använd egenskapen ProvisionGuestAgent för klassiska virtuella datorer
 
-Om du har skapat den virtuella datorn med hjälp av den klassiska modellen kan använda Azure PowerShell-modulen för att uppdatera den **ProvisionGuestAgent** egenskapen. Egenskapen meddelar Azure att den virtuella datorn har VM-agenten installerad.
+Om du har skapat den virtuella datorn med hjälp av den klassiska modellen använder du Azure PowerShell-modulen för att uppdatera egenskapen **ProvisionGuestAgent** . Egenskapen informerar Azure att VM-agenten är installerad på den virtuella datorn.
 
-Ange den **ProvisionGuestAgent** -egenskapen i Azure PowerShell kör du följande kommandon:
+Om du vill ange egenskapen **ProvisionGuestAgent** kör du följande kommandon i Azure PowerShell:
 
    ```powershell
    $vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
@@ -127,7 +117,7 @@ Ange den **ProvisionGuestAgent** -egenskapen i Azure PowerShell kör du följand
    Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>
    ```
 
-Kör sedan den `Get-AzureVM` kommando. Observera att den **GuestAgentStatus** egenskapen nu har fyllts med data:
+Kör `Get-AzureVM` sedan kommandot. Observera att egenskapen **GuestAgentStatus** nu fylls med data:
 
    ```powershell
    Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
@@ -136,5 +126,5 @@ Kör sedan den `Get-AzureVM` kommando. Observera att den **GuestAgentStatus** eg
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure VM-agenten](../extensions/agent-windows.md)
-- [Virtuella datorer, tillägg och funktioner för Windows](../extensions/features-windows.md)
+- [Översikt över Azure Virtual Machine agent](../extensions/agent-windows.md)
+- [Tillägg och funktioner för virtuella datorer för Windows](../extensions/features-windows.md)

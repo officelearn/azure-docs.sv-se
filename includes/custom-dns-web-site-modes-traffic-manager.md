@@ -4,14 +4,14 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 1432db2651ad08a9d261592f6b48fa875a5f1d5f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2c21b4e05b2cb5d9560286785205f0dd3613be9b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187916"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69657875"
 ---
-Ange ett anpassat domännamn för en webbapp som är integrerad med Traffic Manager är endast tillgänglig för den **Standard** prisnivå.  
+Det går bara att ange ett anpassat domän namn i en webbapp som är integrerad med Traffic Manager för **standard** pris nivån.  
 
-Mer information om App Service-prisnivåer, inklusive hur du ändrar din app är prisnivå, se [skala upp en app i Azure](../articles/app-service/web-sites-scale.md).
+Mer information om App Service pris nivåer, inklusive hur du ändrar appens pris nivå, finns i [skala upp en app i Azure](../articles/app-service/manage-scale-up.md).
 

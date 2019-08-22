@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/06/2018
+ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: c4f2994413fca07f4a168cf12ba7967b00b6b0e2
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 3594828ff3a79242e1cfd4663c415d8de502a329
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668111"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872772"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Schema-och sändnings jobb (.NET)
 
@@ -47,9 +47,12 @@ I slutet av den här självstudien har du två .NETC#()-konsol program:
 
 **ScheduleJob** som använder jobb för att anropa metoden **LockDoor** Direct och uppdatera enhetens dubbla önskade egenskaper på flera enheter.
 
-För att kunna genomföra den här kursen behöver du följande:
+## <a name="prerequisites"></a>Förutsättningar
 
-* Visual Studio.
+För att slutföra den här kursen behöver du:
+
+* Visual Studio. Den här självstudien använder Visual Studio 2017.
+
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
@@ -64,18 +67,18 @@ För att kunna genomföra den här kursen behöver du följande:
 
 I det här avsnittet skapar du en .NET-konsol app som svarar på en direkt metod som anropas av lösningens Server del.
 
-1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Ge projektet namnet **SimulateDeviceMethods**.
-   
+1. I Visual Studio lägger du till ett C# visuellt Windows klassiska Desktop-projekt till en ny eller befintlig lösning med hjälp av projekt mal len **konsol program** . Ge projektet namnet **SimulateDeviceMethods**.
+
     ![Ny Visual C# Windows klassisk Device-app](./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png)
-    
-2. I Solution Explorer högerklickar du på projektet **SimulateDeviceMethods** och klickar sedan på **Hantera NuGet-paket...** .
+
+2. I Solution Explorer högerklickar du på projektet **SimulateDeviceMethods** och väljer sedan **Hantera NuGet-paket...** .
 
 3. I fönstret **NuGet Package Manager** väljer du **Bläddra** och söker efter **Microsoft. Azure. devices. client**. Välj **Installera** för att installera **Microsoft. Azure. devices. client** -paketet och godkänn användnings villkoren. Den här proceduren hämtar, installerar och lägger till en referens till [Azure IoT Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet-paketet och dess beroenden.
-   
+
     ![NuGet paket hanterarens fönster klient program](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 
 4. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
-   
+
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Shared;
@@ -97,7 +100,7 @@ I det här avsnittet skapar du en .NET-konsol app som svarar på en direkt metod
         Console.WriteLine();
         Console.WriteLine("Locking Door!");
         Console.WriteLine("\nReturning response for method {0}", methodRequest.Name);
-            
+
         string result = "'Door was locked.'";
         return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
     }
@@ -115,7 +118,7 @@ I det här avsnittet skapar du en .NET-konsol app som svarar på en direkt metod
     ```
 
 8. Slutligen lägger du till följande kod i **main** -metoden för att öppna anslutningen till IoT-hubben och initiera metoden Listener:
-   
+
     ```csharp
     try
     {
@@ -140,12 +143,12 @@ I det här avsnittet skapar du en .NET-konsol app som svarar på en direkt metod
         Console.WriteLine("Error in sample: {0}", ex.Message);
     }
     ```
-        
-9. Spara ditt arbete och bygg din lösning.         
+
+9. Spara ditt arbete och bygg din lösning.
 
 > [!NOTE]
 > För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktions koden bör du implementera principer för omförsök (till exempel anslutnings försök), enligt vad som rekommenderas i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
-> 
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
@@ -161,14 +164,14 @@ I det här avsnittet skapar du en .NET-konsol app ( C#med) som använder jobb f�
 
     ![Nytt Visual C# Windows Classic Desktop-projekt](./media/iot-hub-csharp-csharp-schedule-jobs/createnetapp.png)
 
-2. I Solution Explorer högerklickar du på projektet **ScheduleJob** och klickar sedan på **Hantera NuGet-paket...** .
+2. I Solution Explorer högerklickar du på projektet **ScheduleJob** och väljer sedan **Hantera NuGet-paket...** .
 
 3. Välj **Bläddra**i fönstret **NuGet Package Manager** , Sök efter **Microsoft. Azure.** Devices, Välj **Installera** för att installera **Microsoft. Azure.** Devices-paketet och godkänn användnings villkoren. I det här steget hämtas, installeras och läggs en referens till i [Azure IoT service SDK NuGet-](https://www.nuget.org/packages/Microsoft.Azure.Devices/) paketet och dess beroenden.
 
     ![Fönstret för NuGet-pakethanteraren](./media/iot-hub-csharp-csharp-schedule-jobs/servicesdknuget.png)
 
 4. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
-    
+
     ```csharp
     using Microsoft.Azure.Devices;
     using Microsoft.Azure.Devices.Shared;
@@ -213,7 +216,7 @@ I det här avsnittet skapar du en .NET-konsol app ( C#med) som använder jobb f�
         CloudToDeviceMethod directMethod = 
           new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5), 
           TimeSpan.FromSeconds(5));
-       
+
         JobResponse result = await jobClient.ScheduleDeviceMethodAsync(jobId,
             $"DeviceId IN ['{deviceId}']",
             directMethod,
@@ -250,7 +253,7 @@ I det här avsnittet skapar du en .NET-konsol app ( C#med) som använder jobb f�
 
     > [!NOTE]
     > Mer information om frågesyntax finns i [IoT Hub frågespråk](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
-    > 
+    >
 
 10. Slutligen lägger du till följande rader till **Main**-metoden:
 
@@ -275,17 +278,17 @@ I det här avsnittet skapar du en .NET-konsol app ( C#med) som använder jobb f�
     Console.ReadLine();
     ```
 
-11. Spara ditt arbete och bygg din lösning. 
+11. Spara ditt arbete och bygg din lösning.
 
 ## <a name="run-the-apps"></a>Köra apparna
 
 Nu är det dags att köra apparna.
 
-1. Högerklicka på din lösning i Visual Studio-Solution Explorer och klicka sedan på **build**. **Flera start projekt**. Se till `SimulateDeviceMethods` att visas överst i listan följt av. `ScheduleJob` Ange båda åtgärderna för att **Starta** och klicka på **OK**.
+1. Högerklicka på din lösning i Visual Studio-Solution Explorer och välj **Ange start projekt**. Välj sedan **flera start projekt**. Kontrol lera att **SimulateDeviceMethods** är överst i listan följt av **ScheduleJob**. Ange båda åtgärderna för att **Starta** och välj **OK**.
 
-2. Kör projekten genom att klicka på **Start** eller gå till **Felsök** -menyn och klicka på **Starta fel sökning**.
+2. Kör projekten genom att välja **Start** eller genom att gå till **fel söknings** menyn och välja **Starta fel sökning**.
 
-3. Du ser utdata från både enhets-och backend-appar.
+3. Du ser utdata från både enhets-och backend-apparna.
 
     ![Kör apparna för att schemalägga jobb](./media/iot-hub-csharp-csharp-schedule-jobs/schedulejobs.png)
 

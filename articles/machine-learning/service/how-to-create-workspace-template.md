@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 0e78d9cfce59615a53534fe9815205e39f64853d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 89c24512e50dedbf10d145088ec77c2e6e303d1e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868839"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873157"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning-tjänsten
 
@@ -71,8 +71,6 @@ Mer information om mallar finns i följande artiklar:
    * Resursgrupp: Välj eller skapa en resurs grupp som innehåller tjänsterna.
    * Namn på arbets yta: Namnet som ska användas för Azure Machine Learning arbets ytan som ska skapas. Arbets ytans namn måste innehålla mellan 3 och 33 tecken. Det får bara innehålla alfanumeriska tecken och "-".
    * Plats: Välj den plats där resurserna ska skapas.
-
-     ![Mallparametrar i Azure Portal](media/how-to-create-workspace-template/template-parameters.png)
 
 Mer information finns i [distribuera resurser från en anpassad mall](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

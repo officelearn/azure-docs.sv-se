@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 2ed93846e0a1ab98b25bdfbe33b34779996da82b
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 6882476cabc3dc3a737f31eeeb4ccd92e5ea6ee0
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782647"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872750"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
@@ -26,7 +26,7 @@ I den här artikeln beskrivs arkitektur, komponenter och processer som används 
 
 De komponenter som ingår i haveri beredskap för virtuella Azure-datorer sammanfattas i följande tabell.
 
-**Komponent** | **Signaturkrav**
+**Komponent** | **Krav**
 --- | ---
 **Virtuella datorer i käll regionen** | En av flera virtuella Azure-datorer i en [käll region som stöds](azure-to-azure-support-matrix.md#region-support).<br/><br/> Virtuella datorer kan köra alla [operativ system som stöds](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **VM-lagring för källa** | Virtuella Azure-datorer kan hanteras eller låta icke-hanterade diskar spridas över lagrings konton.<br/><br/>[Läs mer om](azure-to-azure-support-matrix.md#replicated-machines---storage) Azure Storage som stöds.
@@ -74,7 +74,7 @@ Du kan hantera och ändra standardinställningarna för replikeringsprinciper en
 - Du kan ändra inställningarna när du aktiverar replikering.
 - Du kan när som helst skapa en replikeringsprincip och sedan använda den när du aktiverar replikering.
 
-### <a name="multi-vm-consistency"></a>Multi-VM-konsekvens
+### <a name="multi-vm-consistency"></a>Konsekvens för flera virtuella datorer
 
 Om du vill att virtuella datorer ska replikeras tillsammans och har delade krasch-konsekventa och programkonsekventa återställnings punkter vid redundans kan du samla ihop dem i en replikeringsgrupp. Konsekvens för flera virtuella datorer påverkar arbets Belastningens prestanda och bör endast användas för virtuella datorer som kör arbets belastningar som behöver konsekvens på alla datorer. 
 
@@ -95,13 +95,13 @@ Site Recovery tar ögonblicks bilder enligt följande:
 
 I följande tabell beskrivs olika typer av konsekvens.
 
-### <a name="crash-consistent"></a>Kraschkonsekvent
+### <a name="crash-consistent"></a>Krasch-konsekvent
 
 **Beskrivning** | **Detaljer** | **Rekommendationen**
 --- | --- | ---
 En krasch-konsekvent ögonblicks bild fångar upp data som fanns på disken när ögonblicks bilden togs. Det innehåller inte något i minnet.<br/><br/> Den innehåller motsvarigheten till data på disken som kan finnas om den virtuella datorn kraschade eller om ström sladden hämtades från servern vid det ögonblick då ögonblicks bilden togs.<br/><br/> En krasch konsekvens garanterar inte data konsekvens för operativ systemet eller för appar på den virtuella datorn. | Site Recovery skapar kraschbaserade återställnings punkter var femte minut som standard. Den här inställningen kan inte ändras.<br/><br/>  | Idag kan de flesta appar återställa sig väl från kraschbaserade punkter.<br/><br/> Kraschbaserade återställnings punkter är vanligt vis tillräckligt för replikering av operativ system och appar som DHCP-servrar och utskrifts servrar.
 
-### <a name="app-consistent"></a>Appkonsekvent
+### <a name="app-consistent"></a>Program – konsekvent
 
 **Beskrivning** | **Detaljer** | **Rekommendationen**
 --- | --- | ---
@@ -139,6 +139,7 @@ Om utgående åtkomst för virtuella datorer styrs med URL: er, Tillåt dessa UR
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Utgående anslutning för IP-adressintervall
 
 Tillåt de här adresserna för att kontrol lera utgående anslutningar för virtuella datorer med IP-adresser.
+Observera att information om nätverks anslutningens krav finns i [nätverks White Paper](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
 
 #### <a name="source-region-rules"></a>Käll regions regler
 

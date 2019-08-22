@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976986"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873185"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Meddelande anrikning för IoT Hub-meddelanden från enhet till moln (för hands version)
 
@@ -76,6 +76,8 @@ Information om hur du provar meddelande förvarningar finns i [själv studie kur
 
 * Den totala meddelande storleken, inklusive berikarna, får inte överstiga 256 KB. Om en meddelande storlek överskrider 256 KB ignoreras meddelandet av IoT Hub. Du kan använda [IoT Hub mått](iot-hub-metrics.md) för att identifiera och felsöka fel när meddelanden släpps. Du kan till exempel övervaka D2C. telemetri. utgående. ogiltig.
 
+* Meddelande anrikninger gäller inte för digitala dubbla ändrings händelser (en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md)).
+
 ## <a name="pricing"></a>Prissättning
 
 Meddelande anrikninger är tillgängliga utan extra kostnad. För närvarande debiteras du när du skickar ett meddelande till en IoT Hub. Du debiteras bara en gång för det meddelandet, även om meddelandet går till flera slut punkter.
@@ -87,6 +89,8 @@ Den här funktionen är tillgänglig i för hands version och är tillgänglig i
 ## <a name="next-steps"></a>Nästa steg
 
 Ta en titt på de här artiklarna om du vill ha mer information om routning av meddelanden till en IoT Hub:
+
+* [Själv studie kurs om meddelande förbättringar](tutorial-message-enrichments.md)
 
 * [Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter](iot-hub-devguide-messages-d2c.md)
 

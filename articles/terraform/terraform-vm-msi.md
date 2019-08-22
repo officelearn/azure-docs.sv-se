@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3aaf943b5eecd9ec1853c09ea36156b98560d3d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884499"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648710"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Använda en Azure Marketplace-avbildning till att skapa en virtuell Terraform Linux-dator med hanterade identiteter för Azure-resurser
 
@@ -24,7 +24,7 @@ Terraform Marketplace-avbildningen gör det enkelt att komma igång med Terrafor
 
 Det tillkommer inga programvaruavgifter för den Terraform VM-avbildningen. Du betalar bara för användningen av Azure-maskinvara som utvärderas utifrån storleken på den virtuella dator som etableras. Mer information om beräkningsavgifter finns på [sidan med priser för virtuella Linux-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan skapa en virtuell Linux Terraform-dator måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free/) om du inte redan har ett konto.  
 
 ## <a name="create-your-terraform-virtual-machine"></a>Skapa den virtuella Terraform-datorn 
@@ -85,7 +85,7 @@ Med deltagarbehörighet kan Hanterad tjänstidentitet på den virtuella datorn a
 
 `. ~/tfEnv.sh`
 
-Det föregående skriptet använder mekanismen [interaktiv inloggning med AZ CLI v 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) för att autentisera med Azure och tilldela den virtuella datorn deltagarbehörighet för hanterad identitet för hela prenumerationen. 
+Det föregående skriptet använder mekanismen [interaktiv inloggning med AZ CLI v 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#sign-in-interactively) för att autentisera med Azure och tilldela den virtuella datorn deltagarbehörighet för hanterad identitet för hela prenumerationen. 
 
  Den virtuella datorn ha en serverdel med Terraform Remote State. Om du vill aktivera den på Terraform-distributionen kopierar du filen remoteState.tf från katalogen tfTemplate till roten för Terraform-skripten.  
 

@@ -1,163 +1,163 @@
 ---
-title: Indexera JSON-blobar från Azure Blob-indexeraren för fulltextsökning – Azure Search
-description: Crawla Azure JSON-blobar för textinnehåll med Azure Search Blob-indexeraren. Indexerare automatisera datainmatning för valda datakällor som Azure Blob storage.
+title: Indexera JSON-blobbar från Azure Blob-indexeraren för full texts ökning – Azure Search
+description: Crawla Azure JSON-blobbar för text innehåll med hjälp av Azure Search BLOB-indexeraren. Indexerare automatiserar data inmatning för valda data källor som Azure Blob Storage.
 ms.date: 05/02/2019
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f60a41c48b3e78b860dca0e93d399420900dbd46
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d266f5edb85dd732cc39cfe98a64bee8019cdbd1
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485445"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656682"
 ---
-# <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search Blob-indexeraren
-Den här artikeln visar hur du konfigurerar en Azure Search-blob [indexeraren](search-indexer-overview.md) att extrahera strukturerat innehåll från JSON-dokument i Azure Blob storage och gör det sökbara i Azure Search. Det här arbetsflödet skapar ett Azure Search-index och läser in den med befintliga text som extraherats från JSON-blobar. 
+# <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Så här indexerar du JSON-blobbar med Azure Search BLOB-indexeraren
+Den här artikeln visar hur du konfigurerar en Azure Search BLOB [](search-indexer-overview.md) -indexerare för att extrahera strukturerat innehåll från JSON-dokument i Azure Blob Storage och göra det sökbart i Azure Search. Det här arbets flödet skapar ett Azure Search-index och läser in det med befintlig text som extraherats från JSON-blobbar. 
 
-Du kan använda den [portal](#json-indexer-portal), [REST API: er](#json-indexer-rest), eller [.NET SDK](#json-indexer-dotnet) att indexera JSON-innehåll. Gemensamma för alla metoder är att JSON-dokument finns i en blobbehållare i Azure Storage-kontot. Anvisningar för push-överför JSON-dokument från andra icke-Azure-plattformar finns i [dataimport i Azure Search](search-what-is-data-import.md).
+Du kan använda [portalen](#json-indexer-portal), [REST-API: er](#json-indexer-rest)eller [.NET SDK](#json-indexer-dotnet) för att indexera JSON-innehåll. Gemensamma för alla tillvägagångs sätt är att JSON-dokument finns i en BLOB-behållare i ett Azure Storage-konto. Vägledning om hur du skickar JSON-dokument från andra plattformar än Azure-plattformar finns [i data import i Azure Search](search-what-is-data-import.md).
 
-JSON-blobar i Azure Blob storage är vanligtvis antingen ett enda JSON-dokument eller en samling av JSON-entiteter. För JSON-samlingar blob kan ha en **matris** välformulerad JSON-element. Blobbar kan också bestå av flera enskilda JSON-enheter med en ny rad. Blob-indexeraren i Azure Search kan parsa sådana konstruktion, beroende på hur du ställer in den **parsingMode** parametern på begäran.
+JSON-blobar i Azure Blob Storage är vanligt vis antingen ett enda JSON-dokument eller en samling JSON-entiteter. För JSON-samlingar kan blobben ha en **matris** med välformulerade JSON-element. Blobbar kan också bestå av flera enskilda JSON-entiteter som skiljs åt av en ny rad. BLOB-indexeraren i Azure Search kan parsa en sådan konstruktion, beroende på hur du ställer in parametern **parsingMode** på begäran.
 
-Alla JSON-parsning lägen (`json`, `jsonArray`, `jsonLines`) är nu allmänt tillgängliga. 
+Alla JSON-tolknings lägen`json`( `jsonArray`, `jsonLines`,) är nu allmänt tillgängliga. 
 
 > [!NOTE]
-> Följ rekommendationerna indexeraren konfiguration i [indexering en-till-många](search-howto-index-one-to-many-blobs.md) att mata ut flera söka efter dokument från en Azure-blob.
+> Följ konfigurations rekommendationerna för indexeraren i [en-till-många-indexering](search-howto-index-one-to-many-blobs.md) för att skriva ut flera Sök dokument från en Azure-blob.
 
 <a name="json-indexer-portal"></a>
 
 ## <a name="use-the-portal"></a>Använda portalen
 
-Den enklaste metoden för att indexera JSON-dokument är att använda en guide i den [Azure-portalen](https://portal.azure.com/). Genom att parsa metadata i Azure blob-behållaren i [ **dataimport** ](search-import-data-portal.md) guiden kan skapa ett Standardindex mappar källfält till målfälten för index och läsa in index i en enda åtgärd. Du kan ha ett operational fulltext search-index på några minuter beroende på storleken och komplexiteten i källdata.
+Den enklaste metoden för att indexera JSON-dokument är att använda en guide i [Azure Portal](https://portal.azure.com/). Genom att parsa metadata i Azure Blob-behållaren kan guiden [**Importera data**](search-import-data-portal.md) skapa ett standard index, mappa käll fält till mål index fält och läsa in indexet i en enda åtgärd. Beroende på storleken och komplexiteten hos källdata kan du ha ett fullständigt texts öknings index på några minuter.
 
-Vi rekommenderar att du använder samma Azure-prenumeration för Azure Search och Azure storage, helst i samma region.
+Vi rekommenderar att du använder samma Azure-prenumeration för både Azure Search och Azure Storage, helst i samma region.
 
-### <a name="1---prepare-source-data"></a>1 – förbereda källdata
+### <a name="1---prepare-source-data"></a>1 – Förbered källdata
 
-1. [Logga in på Azure-portalen](https://portal.azure.com/).
+1. [Logga](https://portal.azure.com/)in på Azure Portal.
 
-1. [Skapa en blobbehållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller dina data. Offentlig åtkomstnivå kan ställas in till någon av dess giltiga värden.
+1. [Skapa en BLOB-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller dina data. Den offentliga åtkomst nivån kan anges till något av dess giltiga värden.
 
-Behöver du lagringskontonamn, behållarnamn och en åtkomstnyckel för att hämta dina data i den **dataimport** guiden.
+Du behöver lagrings kontots namn, behållar namn och en åtkomst nyckel för att hämta dina data i guiden **Importera data** .
 
-### <a name="2---start-import-data-wizard"></a>2 – starta guiden Importera data
+### <a name="2---start-import-data-wizard"></a>2-Starta guiden Importera data
 
-I översiktssidan för Azure Search-tjänsten, kan du [starta guiden](search-import-data-portal.md) från kommandofältet eller genom att klicka på **Lägg till Azure Search** i den **Blobtjänst** delen av din Storage-konto vänstra navigeringsfönstret.
+På sidan Översikt i Azure Searchs tjänsten kan du [starta guiden](search-import-data-portal.md) från kommando fältet eller genom att klicka på **Lägg till Azure Search** i avsnittet **BLOB service** i lagrings kontots vänstra navigerings fönster.
 
-   ![Kommandot Importera data i portalen](./media/search-import-data-portal/import-data-cmd2.png "starta guiden Importera data")
+   ![Importera data kommando i portalen](./media/search-import-data-portal/import-data-cmd2.png "Starta guiden Importera data")
 
-### <a name="3---set-the-data-source"></a>3 – Konfigurera datakällan
+### <a name="3---set-the-data-source"></a>3 – ange data källan
 
-I den **datakälla** sidan måste vara **Azure Blob Storage**, med följande specifikationer:
+På sidan **data källa** måste källan vara **Azure Blob Storage**, med följande specifikationer:
 
-+ **Data att extrahera** ska vara *innehåll och metadata*. Det här alternativet kan guiden härleda ett indexschema och mappa fält för import.
++ **Data som ska extraheras** bör vara *innehåll och metadata*. Genom att välja det här alternativet kan guiden härleda ett index schema och Mappa fälten för import.
    
-+ **Parsning läge** ska vara inställd på *JSON*, *JSON-matris* eller *JSON rader*. 
++ **Tolknings läget** ska vara inställt på *JSON*, *JSON-matris* eller *JSON-linjer*. 
 
-  *JSON* tydliggör varje blob som en enda dokumentsökningsoperationer dyker upp som ett fristående objekt i sökresultaten. 
+  *JSON* leder varje blob som ett enda sökdokument, som visas som ett oberoende objekt i Sök resultaten. 
 
-  *JSON-matris* är för blobbar som innehåller välformulerad JSON-data – välformulerad JSON motsvarar en matris med objekt eller har en egenskap som är en matris med objekt och du vill att varje element att vara uppvisat som en fristående, oberoende dokumentsökningsoperationer. Om BLOB-lagring är komplexa, och du inte väljer *JSON-matris* hela blob matas in som ett enskilt dokument.
+  *JSON-matris* är för blobbar som innehåller välformulerade JSON-data – det välformulerade JSON motsvarar en matris med objekt, eller har en egenskap som är en objekt mat ris och du vill att varje element ska ledas som ett fristående, oberoende sökdokument. Om blobbar är komplexa och du inte väljer JSON- *matris* , matas hela blobben in som ett enda dokument.
 
-  *JSON-rader* är för blobbar som består av flera JSON-entiteter som är avgränsade med en ny rad, där du vill att varje entitet till att uppvisat som ett fristående oberoende search-dokument. Om BLOB-lagring är komplexa, och du inte väljer *JSON rader* parsning läge och sedan hela blob matas in som ett enskilt dokument.
+  *JSON-linjer* är för blobbar som består av flera JSON-enheter, avgränsade med en ny rad, där du vill att varje entitet ska ledas som ett fristående, oberoende Sök dokument. Om blobbar är komplexa och du inte väljer JSON- *rader* tolknings läge, matas hela blobben in som ett enda dokument.
    
-+ **Lagringsbehållare** måste ange ditt storage-konto och behållare eller en anslutningssträng som matchas till behållaren. Du kan hämta anslutningssträngar på portalsidan för Blob service.
++ **Lagrings behållaren** måste ange ditt lagrings konto och din behållare, eller en anslutnings sträng som matchar behållaren. Du kan hämta anslutnings strängar på sidan Blob Service Portal.
 
-   ![BLOB definitionen för datakälla](media/search-howto-index-json/import-wizard-json-data-source.png)
+   ![Definition av BLOB-datakälla](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 – hoppa över ”Lägg till cognitive search”-sidan i guiden
+### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 – hoppa över sidan Lägg till kognitiv sökning i guiden
 
-Att lägga till kognitiva funktioner är inte nödvändigt för import av JSON-dokument. Om du inte har ett specifikt behov av att [innehåller API: er med Cognitive Services och transformeringar](cognitive-search-concept-intro.md) till din pipeline för fulltextindexering, bör du hoppa över det här steget.
+Det krävs inte att lägga till kognitiva kunskaper för import av JSON-dokument. Om du inte har ett särskilt behov av att [inkludera API:er för Cognitive Services och omvandlingar](cognitive-search-concept-intro.md) till din indexerings pipeline, bör du hoppa över det här steget.
 
-Om du vill hoppa över steg du först gå till nästa sida.
+Om du vill hoppa över steget går du först till nästa sida.
 
    ![Knappen Nästa sida för kognitiv sökning](media/search-get-started-portal/next-button-add-cog-search.png)
 
-Från sidan Gå du vidare till indexet anpassning.
+Från den sidan kan du gå vidare till index anpassning.
 
    ![Hoppa över steget Kognitiva kunskaper](media/search-get-started-portal/skip-cog-skill-step.png)
 
-### <a name="5---set-index-attributes"></a>5 – ange indexattribut
+### <a name="5---set-index-attributes"></a>5-Ange indexattribut
 
-I den **Index** bör du se en lista med fält med datatypen och en serie kryssrutorna för att ange indexattribut. Guiden kan skapa en fält-lista baserat på metadata och av sampling källdata. 
+På sidan **index** visas en lista med fält med data typen och en serie kryss rutor för att ställa in indexattribut. Guiden kan generera en fält lista baserat på metadata och genom att sampla data källan. 
 
-Du kan bulk-Välj attribut genom att klicka på kryssrutan högst upp i en attributkolumn. Välj **hämtningsbara** och **sökbar** för varje fält som ska returneras till en klientapp och föremål för fulltext search bearbetning. Lägg märke till att heltal inte är fulltext eller fuzzy sökbara (siffror utvärderas ordagrant och är ofta användbara i filter).
+Du kan massredigera attribut genom att klicka på kryss rutan överst i en Attribute-kolumn. Välj **hämtnings** **Bart** och sökbart för varje fält som ska returneras till en klient-app och för full texts öknings bearbetning. Du märker att heltal inte är full text eller fuzzy sökbar (tal utvärderas orda Grant och ofta är användbara i filter).
 
-Granska beskrivningen av [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) och [språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support) för mer information. 
+Granska beskrivningen av [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) och [språk analys](https://docs.microsoft.com/rest/api/searchservice/language-support) verktyg för mer information. 
 
-Ta en stund att granska dina val. När du kör guiden fysiska datastrukturer skapas och du kan inte redigera dessa fält utan att släppa och återskapa alla objekt.
+Ägna en stund åt att granska dina val. När du har kört guiden skapas fysiska data strukturer och du kan inte redigera dessa fält utan att släppa och återskapa alla objekt.
 
-   ![BLOB-indexdefinitionen](media/search-howto-index-json/import-wizard-json-index.png)
+   ![Definition av BLOB index](media/search-howto-index-json/import-wizard-json-index.png)
 
 ### <a name="6---create-indexer"></a>6 – skapa indexerare
 
-Fullständigt anges, skapas tre olika objekt i din söktjänst. Ett datakällobjekt och index objekt sparas som namngivna resurser i Azure Search-tjänsten. Det sista steget skapar ett indexer-objekt. Namngivning av indexeraren kan det finnas som en fristående-resurs som du kan schemalägga och hantera oberoende av index och källobjektet, skapas i samma följd i guiden.
+Fullständigt angivet skapar guiden tre distinkta objekt i din Sök tjänst. Ett data käll objekt och ett index objekt sparas som namngivna resurser i Azure Searchs tjänsten. Det sista steget skapar ett indexerare-objekt. Om du namnger indexeraren kan den finnas som en fristående resurs, som du kan schemalägga och hantera oberoende av indexet och datakällobjektet, vilket skapas i samma guide ordning.
 
-Om du inte är bekant med indexerare, en *indexeraren* är en resurs i Azure Search som crawlar en extern datakälla för sökbart innehåll. Utdata från den **dataimport** guiden är en indexerare som crawlar datakällan JSON, den extraherar sökbart innehåll och importerar den till ett index i Azure Search.
+Om du inte är bekant med indexerare är en *indexerare* en resurs i Azure Search som crawlar en extern data källa för sökbart innehåll. Utdata från guiden **Importera data** är en indexerare som crawlar din JSON-datakälla, extraherar sökbart innehåll och importerar det till ett index på Azure Search.
 
-   ![Definition av BLOB-indexeraren](media/search-howto-index-json/import-wizard-json-indexer.png)
+   ![Definition av BLOB-indexerare](media/search-howto-index-json/import-wizard-json-indexer.png)
 
-Klicka på **OK** att köra guiden och skapa alla objekt. Indexering inleds omedelbart.
+Klicka på **OK** för att köra guiden och skapa alla objekt. Indexeringen börjar omedelbart.
 
-Du kan övervaka dataimporten i portalens sidor. Förlopp meddelanden visar status för indexering och hur många dokument laddas upp. 
+Du kan övervaka data import på Portal sidorna. Förlopps meddelanden indikerar indexerings status och hur många dokument som laddas upp. 
 
-När indexering är klar kan du använda [Sökutforskaren](search-explorer.md) fråga ditt index.
+När indexeringen är klar kan du använda [Sök Utforskaren](search-explorer.md) för att fråga ditt index.
 
 > [!NOTE]
-> Om du inte ser de data du förväntar dig, kan du behöva ange fler attribut på flera fält. Ta bort index och indexerare som du just skapade och gå igenom guiden igen och ändra dina val för indexattribut i steg 5. 
+> Om du inte ser de data du förväntar dig kan du behöva ange fler attribut för fler fält. Ta bort indexet och indexeraren som du nyss skapade och gå igenom guiden igen och ändra dina val för indexattribut i steg 5. 
 
 <a name="json-indexer-rest"></a>
 
 ## <a name="use-rest-apis"></a>Använda REST-API:er
 
-Du kan använda REST API för att indexera JSON-blobar, följa ett arbetsflöde för tre delar som är gemensamma för alla indexerare i Azure Search: skapa en datakälla, skapa ett index, skapa en indexerare. Extrahering av data från blob storage inträffar när du skickar in begäran skapa et indexerare. När den här begäran har slutförts har du ett frågningsbart index. 
+Du kan använda REST API för att indexera JSON-blobbar, efter ett arbets flöde med tre delar som är gemensamt för alla indexerare i Azure Search: skapa en data källa, skapa ett index, skapa en indexerare. Data extrahering från Blob Storage sker när du skickar en begäran om att skapa indexerare. När den här begäran har avslut ATS har du ett index som kan anropas. 
 
-Du kan granska [REST-exempelkod](#rest-example) i slutet av det här avsnittet som visar hur du skapar alla tre objekt. Det här avsnittet innehåller även information om [JSON-parsning lägen](#parsing-modes), [enkel blobar](#parsing-single-blobs), [JSON-matriser](#parsing-arrays), och [kapslade matriser](#nested-json-arrays).
+Du kan granska [resten exempel kod](#rest-example) i slutet av det här avsnittet som visar hur du skapar alla tre objekten. Det här avsnittet innehåller också information om [JSON-parsningsfel](#parsing-modes), [enskilda blobbar](#parsing-single-blobs), JSON- [matriser](#parsing-arrays)och kapslade [matriser](#nested-json-arrays).
 
-Använd för kodbaserad JSON indexering, [Postman](search-get-started-postman.md) och REST-API för att skapa de här objekten:
+För kodbaserade JSON-indexering använder du [Postman](search-get-started-postman.md) och REST API för att skapa dessa objekt:
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [Datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [data Källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
++ [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-Operationernas kräver att du skapar och anropa objekt i den här ordningen. Till skillnad från portalen arbetsflödet, en kodmetoden kräver ett tillgängligt index accepterar JSON-dokument som skickas via den **skapa et indexerare** begäran.
+Ordningen på åtgärder kräver att du skapar och anropar objekt i den här ordningen. Till skillnad från Portal arbets flödet kräver en kod metod ett tillgängligt index för att acceptera JSON-dokumenten som skickas via begäran om att **skapa indexerare** .
 
-JSON-blobar i Azure Blob storage är vanligtvis antingen ett enda JSON-dokument eller en JSON ”matris”. Blob-indexeraren i Azure Search kan parsa antingen konstruktion, beroende på hur du ställer in den **parsingMode** parametern på begäran.
+JSON-blobar i Azure Blob Storage är vanligt vis antingen ett enda JSON-dokument eller en JSON-matris. BLOB-indexeraren i Azure Search kan tolka antingen konstruktion, beroende på hur du ställer in parametern **parsingMode** på begäran.
 
 | JSON-dokument | parsingMode | Beskrivning | Tillgänglighet |
 |--------------|-------------|--------------|--------------|
-| En per blob | `json` | Parsar JSON-blobar som ett enda segment med text. Varje JSON-blob blir ett enskilt dokument i Azure Search. | Allmänt tillgängliga i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Flera per blob | `jsonArray` | Tolkar en JSON-matris i blob där varje element i matrisen blir en separat Azure Search-dokument.  | Allmänt tillgängliga i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Flera per blob | `jsonLines` | Tolkar en blob som innehåller flera JSON entiteter (en ”matris”) avgränsade med en ny rad, där varje entitet blir en separat Azure Search-dokument. | Allmänt tillgängliga i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| En per BLOB | `json` | Parsar JSON-blobbar som ett enda text segment. Varje JSON-BLOB blir ett enda Azure Search-dokument. | Allmänt tillgänglig i både [rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Flera per BLOB | `jsonArray` | Parsar en JSON-matris i blobben där varje element i matrisen blir ett separat Azure Search-dokument.  | Allmänt tillgänglig i både [rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Flera per BLOB | `jsonLines` | Parsar en blob som innehåller flera JSON-entiteter (en "matris") som skiljs åt av en ny rad, där varje entitet blir ett separat Azure Search-dokument. | Allmänt tillgänglig i både [rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
-### <a name="1---assemble-inputs-for-the-request"></a>1 – Assemblera indata för begäran
+### <a name="1---assemble-inputs-for-the-request"></a>1 – Sammanställ indata för begäran
 
-För varje begäran måste du ange namnet på tjänsten och admin-nyckel för Azure Search (i rubriken POST) och lagringskontonamn och nyckel för blob storage. Du kan använda [Postman](search-get-started-postman.md) att skicka HTTP-begäranden till Azure Search.
+För varje begäran måste du ange tjänst namnet och administratörs nyckeln för Azure Search (i POST huvudet) och lagrings kontots namn och nyckel för Blob Storage. Du kan använda [Postman](search-get-started-postman.md) för att skicka HTTP-begäranden till Azure Search.
 
-Kopiera följande fyra värden till anteckningar så att du kan klistra in dem i en begäran:
+Kopiera följande fyra värden till anteckningar så att du kan klistra in dem i en förfrågan:
 
-+ Azure Search-tjänstnamn
-+ Azure Search-administratörsnyckel
-+ Azure storage-kontonamn
-+ Azure storage-kontonyckel
++ Azure Search tjänstens namn
++ Azure Search administratörs nyckel
++ Azure Storage-kontonamn
++ Nyckel för Azure Storage-konto
 
-Du hittar dessa värden i portalen:
+Du kan hitta dessa värden i portalen:
 
-1. Kopiera URL: en för search-tjänsten från sidan översikt på portalsidor för Azure Search.
+1. På Portal sidorna för Azure Search kopierar du URL: en för Sök tjänsten från översikts sidan.
 
-2. I det vänstra navigeringsfönstret klickar du på **nycklar** och kopierar sedan antingen den primära eller sekundära nyckeln (de är likvärdiga).
+2. I det vänstra navigerings fönstret klickar du på **nycklar** och kopierar antingen den primära eller sekundära nyckeln (de är motsvarande).
 
-3. Växla till portalsidor för ditt lagringskonto. I det vänstra navigeringsfönstret under **inställningar**, klickar du på **åtkomstnycklar**. Den här sidan innehåller både kontonamnet och nyckeln. Kopiera lagringskontonamn och en av nycklarna till anteckningar.
+3. Växla till Portal sidorna för ditt lagrings konto. I det vänstra navigerings fönstret, under **Inställningar**, klickar du på **åtkomst nycklar**. Den här sidan innehåller både konto namnet och nyckeln. Kopiera lagrings kontots namn och en av nycklarna till anteckningar.
 
-### <a name="2---create-a-data-source"></a>2 – Skapa en datakälla
+### <a name="2---create-a-data-source"></a>2 – Skapa en data Källa
 
-Det här steget beskriver anslutningsinformationen för datakällan används av indexeraren. Datakällan är en namngiven objekt i Azure Search som kvarstår anslutningsinformationen. Datakällans typ., `azureblob`, avgör vilka data extrahering beteenden anropas av indexeraren. 
+Det här steget ger anslutnings information för data källan som används av indexeraren. Data källan är ett namngivet objekt i Azure Search som behåller anslutnings informationen. Typen `azureblob`av data källa avgör vilka beteenden för data extrahering som anropas av indexeraren. 
 
-Ersätt giltiga värden för tjänstnamnet, admin-nyckel, storage-konto och kontot viktiga platshållare.
+Ersätt giltiga värden för tjänst namn, administratörs nyckel, lagrings konto och plats hållare för konto nycklar.
 
     POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -170,13 +170,13 @@ Ersätt giltiga värden för tjänstnamnet, admin-nyckel, storage-konto och kont
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
 
-### <a name="3---create-a-target-search-index"></a>3 – skapa en målsökindex 
+### <a name="3---create-a-target-search-index"></a>3 – skapa ett mål Sök index 
 
-Indexerare är kopplad till ett indexschema. Om du använder API: et (i stället för portalen) kan du förbereda ett index i förväg så att du kan ange det på indexeraren igen.
+Indexerare är kopplade till ett index schema. Om du använder API: et (i stället för portalen) förbereder du ett index i förväg så att du kan ange det för indexerings åtgärden.
 
-Indexet lagrar du sökbart innehåll i Azure Search. Ange ett schema som anger vilka fält i ett dokument, attribut och andra konstruktioner som formar sökupplevelsen för att skapa ett index. Om du skapar ett index som har samma fältnamn och datatyper som källa indexeraren kommer att matcha käll- och fält, vilket sparar arbete att uttryckligen Mappa fält.
+Indexet lagrar sökbart innehåll i Azure Search. Skapa ett index genom att ange ett schema som anger fälten i ett dokument, attribut och andra konstruktioner som formar Sök upplevelsen. Om du skapar ett index som har samma fält namn och data typer som källan kommer indexeraren att matcha käll-och mål fälten, vilket sparar arbetet för att explicit Mappa fälten.
 
-I följande exempel visas en [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) begäran. Indexet har ett sökbart `content` -fält som innehåller den text som extraherats från BLOB-objekt:   
+I följande exempel visas en begäran om att [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) . Indexet har ett sökbart `content` fält för att lagra texten som extraheras från blobbar:   
 
     POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
@@ -191,9 +191,9 @@ I följande exempel visas en [Create Index](https://docs.microsoft.com/rest/api/
     }
 
 
-### <a name="4---configure-and-run-the-indexer"></a>4 – konfigurera och köra indexeraren
+### <a name="4---configure-and-run-the-indexer"></a>4 – Konfigurera och kör indexeraren
 
-Som med ett index och en käll- och indexerare är också en namngiven objekt som du skapar och återanvända på en Azure Search-tjänst. En fullständigt angivna begäran om att skapa en indexerare kan se ut på följande sätt:
+Precis som med ett index och en data källa, och indexeraren också är ett namngivet objekt som du skapar och återanvänder på en Azure Search-tjänst. En fullständigt angiven begäran om att skapa en indexerare kan se ut så här:
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -207,20 +207,20 @@ Som med ett index och en käll- och indexerare är också en namngiven objekt so
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-Indexerarkonfiguration är i brödtexten i begäran. Det krävs en datakälla och ett tomt målindex som redan finns i Azure Search. 
+Indexerings konfigurationen är i bröd texten i begäran. Den kräver en data källa och ett tomt mål index som redan finns i Azure Search. 
 
-Schema och parametrar är valfria. Om du utelämnar dem indexeraren körs direkt, med hjälp av `json` som parsning läge.
+Schema och parametrar är valfria. Om du utelämnar dem körs indexeraren omedelbart med `json` som tolknings läge.
 
-Viss indexeraren inkluderar inte fältmappningar. Inom indexerardefinitionen, som du kan lämna **fältmappningar** om egenskaperna för käll-JSON-dokument överensstämmer med fälten för ditt mål search-index. 
+Den här specifika indexeraren innehåller inte fält mappningar. I index definitions definitionen kan du lämna **fält mappningar** om egenskaperna för käll-JSON-dokumentet matchar fälten i mål Sök indexet. 
 
 
 ### <a name="rest-example"></a>REST-exempel
 
-Det här avsnittet är en sammanfattning av alla begäranden som används för att skapa objekt. En beskrivning av komponenter, finns i föregående avsnitt i den här artikeln.
+Det här avsnittet är en sammanfattning av alla förfrågningar som används för att skapa objekt. En beskrivning av komponent delar finns i föregående avsnitt i den här artikeln.
 
-### <a name="data-source-request"></a>Begäran om källa
+### <a name="data-source-request"></a>Begäran om data Källa
 
-Alla indexerare kräver ett datakällobjekt som innehåller anslutningsinformationen till befintliga data. 
+Alla indexerare kräver ett data käll objekt som ger anslutnings information till befintliga data. 
 
     POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -234,9 +234,9 @@ Alla indexerare kräver ett datakällobjekt som innehåller anslutningsinformati
     }  
 
 
-### <a name="index-request"></a>Begäran om index
+### <a name="index-request"></a>Index förfrågan
 
-Alla indexerare kräver ett målindex som tar emot data. Brödtexten i begäran definierar indexschemat som består av fält, attributet för att stödja de önskade beteenden i ett sökbart index. Det här indexet får vara tom när du kör indexeraren. 
+Alla indexerare kräver ett mål index som tar emot data. Bröd texten i begäran definierar index schemat, som består av fält, attribut som stöder önskade beteenden i ett sökbart index. Detta index måste vara tomt när du kör indexeraren. 
 
     POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
@@ -251,11 +251,11 @@ Alla indexerare kräver ett målindex som tar emot data. Brödtexten i begäran 
     }
 
 
-### <a name="indexer-request"></a>Indexeraren begäran
+### <a name="indexer-request"></a>Indexerare-begäran
 
-Den här begäran visar ett fullständigt anges indexerare. Den innehåller fältmappningar som har utelämnats i föregående exempel. Kom ihåg att ”schema”, ”parametrar” och ”fieldMappings” är valfria så länge det finns en tillgänglig standard. Om du utesluter ”schemalägga” gör att indexeraren ska köras omedelbart. Om du utesluter ”parsingMode” gör i index för att använda standard ”json”.
+Den här begäran visar en fullständigt angiven indexerare. Den innehåller fält mappningar som utelämnats i föregående exempel. Kom ihåg att "schema", "parametrar" och "fieldMappings" är valfria så länge det finns ett tillgängligt standardvärde. Om du utelämnar "schema" körs indexeraren omedelbart. Att utelämna "parsingMode" gör att indexet använder standard-JSON.
 
-Skapa indexeraren för Azure Search utlöser dataimporten. Den körs direkt och därefter enligt ett schema om du har angett en.
+Att skapa indexeraren på Azure Search utlöser data import. Den körs omedelbart och därefter enligt ett schema om du har angett ett.
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -279,7 +279,7 @@ Skapa indexeraren för Azure Search utlöser dataimporten. Den körs direkt och 
 
 ## <a name="use-net-sdk"></a>Använd .NET SDK
 
-.NET SDK har fullständig paritet med REST API. Vi rekommenderar att du läser avsnittet ovan REST API för att lära dig begrepp, arbetsflöde och krav. Du kan referera till följande .NET API-referensdokumentation att implementera en JSON-indexerare i förvaltad kod.
+.NET SDK har fullständig paritet med REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -288,29 +288,29 @@ Skapa indexeraren för Azure Search utlöser dataimporten. Den körs direkt och 
 
 <a name="parsing-modes"></a>
 
-## <a name="parsing-modes"></a>Parsningslägen
+## <a name="parsing-modes"></a>Tolknings lägen
 
-JSON-blobar kan anta att flera formulär. Den **parsingMode** parametern på JSON-indexeraren avgör hur JSON-blobinnehåll parsas och strukturerade i ett Azure Search-index:
+JSON-blobbar kan anta flera formulär. Parametern **parsingMode** i JSON-indexeraren avgör hur JSON-BLOB-innehåll tolkas och struktureras i ett Azure Search index:
 
 | parsingMode | Beskrivning |
 |-------------|-------------|
 | `json`  | Indexera varje blob som ett enskilt dokument. Detta är standardinställningen. |
-| `jsonArray` | Välj det här läget om dina blobar består av JSON-matriser och du behöver varje element i matrisen blir en separat dokument i Azure Search. |
-|`jsonLines` | Välj det här läget om dina blobar ska bestå av flera JSON-entiteter som skiljs åt av en ny rad, och du behöver varje entitet blir en separat dokument i Azure Search. |
+| `jsonArray` | Välj det här läget om Blobbarna består av JSON-matriser och du behöver varje element i matrisen för att bli ett separat dokument i Azure Search. |
+|`jsonLines` | Välj det här läget om Blobbarna består av flera JSON-entiteter, som skiljs åt av en ny rad, och du behöver varje entitet för att bli ett separat dokument i Azure Search. |
 
-Du kan tänka dig ett dokument som ett enskilt objekt i sökresultaten. Om du vill att varje element i matrisen visas i sökresultaten som ett fristående objekt, använder du den `jsonArray` eller `jsonLines` alternativ efter behov.
+Du kan tänka dig ett dokument som ett enda objekt i Sök resultaten. Om du vill att varje element i matrisen ska visas i Sök resultat som ett oberoende objekt, använder du `jsonArray` alternativet eller `jsonLines` efter vad som är lämpligt.
 
-Inom indexerardefinitionen, kan du använda [fältmappningar](search-indexer-field-mappings.md) att välja vilka egenskaper i JSON-dokumentet källa används för att fylla i sökindexet mål. För `jsonArray` parsningsläge, om matrisen finns som en egenskap på lägre nivå, du kan ange en dokumentroten som anger där matrisen är placerad i blobben.
+Inom index definitions definitionen kan du välja att använda [fält mappningar](search-indexer-field-mappings.md) för att välja vilka egenskaper för käll-JSON-dokumentet som används för att fylla i mål Sök indexet. Om matrisen finns som en lågnivå egenskap i parsing-lägekanduangeendokumentrotsomangervarmatrisenplacerasiblobben.`jsonArray`
 
 > [!IMPORTANT]
-> När du använder `json`, `jsonArray` eller `jsonLines` parsningsläge, Azure Search förutsätter att alla blobar i datakällan innehåller JSON. Om du vill hantera en blandning av JSON och icke-JSON-blobar i samma datakälla kan berätta för oss på [UserVoice-webbplatsen](https://feedback.azure.com/forums/263029-azure-search).
+> När du använder `json`, `jsonArray` eller `jsonLines` tolknings läge, förutsätter Azure Search att alla blobbar i data källan innehåller JSON. Om du behöver stöd för en blandning av JSON-och icke-JSON-blobbar i samma data källa kan du berätta för oss på [vår UserVoice-webbplats](https://feedback.azure.com/forums/263029-azure-search).
 
 
 <a name="parsing-single-blobs"></a>
 
-## <a name="parse-single-json-blobs"></a>Parsa enda JSON-blobar
+## <a name="parse-single-json-blobs"></a>Parsa enkla JSON-blobbar
 
-Som standard [Azure Search blob-indexeraren](search-howto-indexing-azure-blob-storage.md) Parsar JSON-blobar som ett enda segment med text. Ofta vill du bevara strukturen för JSON-dokument. Anta exempelvis att du har följande JSON-dokument i Azure Blob storage:
+Som standard parsar [Azure Search BLOB-INDEXERA](search-howto-indexing-azure-blob-storage.md) JSON-blobbar som ett enda text segment. Ofta vill du behålla strukturen för dina JSON-dokument. Anta till exempel att du har följande JSON-dokument i Azure Blob Storage:
 
     {
         "article" : {
@@ -320,15 +320,15 @@ Som standard [Azure Search blob-indexeraren](search-howto-indexing-azure-blob-st
         }
     }
 
-Blob-indexeraren tolkar JSON-dokument i ett enda dokument i Azure Search. Indexeraren läser in ett index genom att matcha ”text”, ”datePublished” och ”taggar” från källan mot identiskt namngivna och skrivna index målfälten.
+BLOB-indexeraren parsar JSON-dokumentet till ett enda Azure Search-dokument. Indexeraren läser in ett index genom att matcha "text", "datePublished" och "Taggar" från källan mot identiska namngivna och angivna mål index fält.
 
-Enligt vad som anges, krävs inte fältmappningar. Får ett index med ”text” ”, datePublished och” taggar ”-fält, blobben som indexeraren kan hämta korrekt mappning utan ett fält som mappar finns i begäran.
+Som anges krävs inte fält mappningar. Med ett index med fälten "text", "datePublished" och "Taggar" kan BLOB-indexeraren härleda rätt mappning utan att det finns någon fält mappning i begäran.
 
 <a name="parsing-arrays"></a>
 
 ## <a name="parse-json-arrays"></a>Parsa JSON-matriser
 
-Du kan också använda alternativet JSON-matris. Det här alternativet är användbart när blobbarna innehåller en *objektmatris välformulerad JSON*, och du vill att varje element blir en separat Azure Search-dokument. Till exempel med följande JSON-blob kan du kan fylla i ditt Azure Search-index med tre separata dokument, var och en med fälten ”id” och ”text”.  
+Du kan också använda alternativet JSON-matris. Det här alternativet är användbart när blobbar innehåller en *matris med välformulerade JSON-objekt*, och du vill att varje element ska bli ett separat Azure Search-dokument. Om du till exempel har följande JSON-BLOB kan du fylla i Azure Search index med tre separata dokument, var och en med fälten "ID" och "text".  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -336,7 +336,7 @@ Du kan också använda alternativet JSON-matris. Det här alternativet är anvä
         { "id" : "3", "text" : "example 3" }
     ]
 
-För en JSON-matris bör att indexerarens definition likna följande exempel. Observera att parametern parsingMode anger den `jsonArray` parser. Ange rätt parsern och har rätt data indata krävs bara två matris-specifika för att indexera JSON-blobar.
+För en JSON-matris bör index definitions definitionen se ut ungefär som i följande exempel. Observera att parsingMode-parametern anger `jsonArray` parsern. Att ange rätt parser och ha rätt data inmatning är de enda två leverantörsspecifika kraven för indexera JSON-blobbar.
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -350,12 +350,12 @@ För en JSON-matris bör att indexerarens definition likna följande exempel. Ob
       "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
     }
 
-Observera återigen att fältmappningar kan utelämnas. Under förutsättning att ett index med identiskt namngivna ”id” och ”text”-fält, härleda blob-indexeraren korrekt mappning utan en mappning för explicit fältlistan.
+Observera återigen att fält mappningar kan utelämnas. Om du antar ett index med identiskt med namnet "ID" och "text", kan BLOB-indexeraren härleda rätt mappning utan en explicit fält mappnings lista.
 
 <a name="nested-json-arrays"></a>
 
 ## <a name="parse-nested-arrays"></a>Parsa kapslade matriser
-För JSON matriser med kapslade element, kan du ange en `documentRoot` att indikera en struktur med flera nivåer. Exempel: om dina blobar ska se ut så här:
+För JSON-matriser med kapslade element kan du ange `documentRoot` en för att ange en struktur på flera nivåer. Om dina blobbar till exempel ser ut så här:
 
     {
         "level1" : {
@@ -367,7 +367,7 @@ För JSON matriser med kapslade element, kan du ange en `documentRoot` att indik
         }
     }
 
-Använd den här konfigurationen för att indexera matrisen i den `level2` egenskapen:
+Använd den här konfigurationen för att indexera matrisen som `level2` finns i egenskapen:
 
     {
         "name" : "my-json-array-indexer",
@@ -375,15 +375,15 @@ Använd den här konfigurationen för att indexera matrisen i den `level2` egens
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-## <a name="parse-blobs-separated-by-newlines"></a>Parsa blobar avgränsade med nya rader
+## <a name="parse-blobs-separated-by-newlines"></a>Parsa blobbar avgränsade med newlines
 
-Om din blob innehåller flera JSON-entiteter som är avgränsade med en ny rad och du vill att varje element blir en separat Azure Search-dokument, kan du välja alternativet JSON rader. Till exempel få följande blob (där det finns tre olika JSON-enheter), kan du fylla i ditt Azure Search-index med tre separata dokument, var och en med fälten ”id” och ”text”.
+Om blobben innehåller flera JSON-enheter avgränsade med en ny rad och du vill att varje element ska bli ett separat Azure Search dokument, kan du välja alternativet JSON-linjer. Till exempel, med följande BLOB (där det finns tre olika JSON-enheter), kan du fylla i Azure Search-index med tre separata dokument, var och en med fälten "ID" och "text".
 
     { "id" : "1", "text" : "example 1" }
     { "id" : "2", "text" : "example 2" }
     { "id" : "3", "text" : "example 3" }
 
-För JSON linjer bör indexerardefinitionen likna följande exempel. Observera att parametern parsingMode anger den `jsonLines` parser. 
+För JSON-linjer bör index indefinitionen se ut ungefär som i följande exempel. Observera att parsingMode-parametern anger `jsonLines` parsern. 
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -397,15 +397,15 @@ För JSON linjer bör indexerardefinitionen likna följande exempel. Observera a
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
 
-Igen, Lägg märke till att fältmappningar kan vara utelämnas, vilket liknar den `jsonArray` parsningsläge.
+Observera återigen att fält mappningar kan utelämnas, liknande `jsonArray` tolknings läge.
 
-## <a name="add-field-mappings"></a>Lägg till fält-mappningar
+## <a name="add-field-mappings"></a>Lägg till fält mappningar
 
-När källa och mål fälten inte är justerade perfekt, kan du definiera ett avsnitt för mappning av fält i begärandetexten för explicit-fälten associationer.
+När käll-och mål fälten inte är perfekt justerade kan du definiera ett fält mappnings avsnitt i begär ande texten för explicita fält-till-fält-kopplingar.
 
-För närvarande kan Azure Search inte kan indexera godtyckliga JSON-dokument direkt eftersom den stöder endast primitiva datatyper, sträng-matriser och GeoJSON punkter. Du kan dock använda **fältmappningar** Välj delar av JSON-dokument och ”lyfta” dem till översta fälten för search-dokumentet. Läs om grunderna i fält-mappningar i [fältmappningar för Azure Search-indexerare](search-indexer-field-mappings.md).
+Azure Search kan för närvarande inte indexera valfria JSON-dokument direkt eftersom det endast stöder primitiva data typer, sträng matriser och interjson-punkter. Du kan dock använda **fält mappningar** för att välja delar av ditt JSON-dokument och "lyft" dem till översta fält i Sök dokumentet. Information om grundläggande fält mappningar finns [i fält mappningar i Azure Search indexerare](search-indexer-field-mappings.md).
 
-Gå tillbaka till vårt exempel JSON-dokument:
+Gå till vårt exempel JSON-dokument:
 
     {
         "article" : {
@@ -415,7 +415,7 @@ Gå tillbaka till vårt exempel JSON-dokument:
         }
     }
 
-Anta att en search-index med följande fält: `text` av typen `Edm.String`, `date` av typen `Edm.DateTimeOffset`, och `tags` av typen `Collection(Edm.String)`. Lägg märke till skillnaden mellan ”datePublished” i källan och `date` i indexet. Använd följande fältmappningar för att mappa din JSON till det önskade format:
+Anta ett sökindex med följande fält `text` : typ `date` `Edm.DateTimeOffset` `Edm.String`, typ och `tags` typ `Collection(Edm.String)`. Observera skillnaden mellan "datePublished" i källa och `date` fält i indexet. Använd följande fält mappningar för att mappa JSON till önskad form:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -423,20 +423,20 @@ Anta att en search-index med följande fält: `text` av typen `Edm.String`, `dat
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
 
-Namnen på källan i mappningarna anges med den [JSON-visare](https://tools.ietf.org/html/rfc6901) notation. Du börjar med ett snedstreck att referera till roten i JSON-dokument och sedan välja önskad egenskap (på valfri nivå av inkapsling) via vanlig snedstreck kommaavgränsade sökväg.
+Käll fält namnen i mappningarna anges med [JSON](https://tools.ietf.org/html/rfc6901) -pekarens notation. Du börjar med ett snedstreck för att referera till roten i JSON-dokumentet och sedan väljer du önskad egenskap (på valfri kapslings nivå) med hjälp av en snedstreck-separerad sökväg.
 
-Du kan även gå till enskilda matriselement med hjälp av ett Nollbaserat index. Till exempel använda en fältmappning så här för att välja det första elementet i matrisen ”taggar” från exemplet ovan:
+Du kan också referera till enskilda mat ris element genom att använda ett nollbaserat index. Om du till exempel vill välja det första elementet i matrisen "Taggar" från exemplet ovan använder du en fält mappning som detta:
 
     { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
 > [!NOTE]
-> Om ett källa fältnamn i en mappning fältsökväg refererar till en egenskap som inte finns i JSON, hoppas mappningen utan fel. Det gör du så att vi kan stödja dokument med ett annat schema (vilket är ett vanligt användningsfall). Eftersom det finns ingen validering, måste du tänka på att undvika skrivfel i din specifikation för mappning av fält.
+> Om ett käll fält namn i en sökväg för fält mappning refererar till en egenskap som inte finns i JSON, hoppas mappningen över utan fel. Detta görs så att vi kan stödja dokument med ett annat schema (som är ett vanligt användnings fall). Eftersom det inte finns någon validering måste du ta hand om att undvika skrivfel i specifikationen för fält mappning.
 >
 >
 
 ## <a name="see-also"></a>Se också
 
 + [Indexerare i Azure Search](search-indexer-overview.md)
-+ [Indexera Azure Blob Storage med Azure Search](search-howto-index-json-blobs.md)
-+ [Indexera CSV-blobar med Azure Search blob-indexeraren](search-howto-index-csv-blobs.md)
-+ [Självstudie: Söka efter halvstrukturerade data från Azure Blob storage](search-semi-structured-data.md)
++ [Indexera Azure-Blob Storage med Azure Search](search-howto-index-json-blobs.md)
++ [Indexera CSV-blobar med Azure Search BLOB-indexeraren](search-howto-index-csv-blobs.md)
++ [Självstudier: Sök i delvis strukturerade data från Azure Blob Storage](search-semi-structured-data.md)

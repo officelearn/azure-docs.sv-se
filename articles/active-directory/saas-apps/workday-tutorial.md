@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 08/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 217a51c1032f946e8aaf377627f30aa4faa83a86
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542703"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891964"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Workday
 
@@ -227,7 +227,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![SSO-konfiguration](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO-konfiguration")
 
-    a.  I text rutan **Service Provider-ID** skriver **https://www.workday.com** du.
+    a.  I text rutan **Service Provider-ID** skriver **http://www.workday.com** du.
 
     b. Välj **gör inte om den SP-initierade autentiseringsbegäran**.
 

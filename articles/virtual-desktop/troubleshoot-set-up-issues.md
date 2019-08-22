@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 7ab8ec9536af74102d2c9384ea3d0d0503f58f63
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: efc721f7852d50e431be38f52e27d72ad7f3ae76
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816491"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877570"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -348,7 +348,7 @@ Om du kör GitHub-mallen för Azure Resource Manager anger du värden för följ
 - Information om hur du felsöker problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [konfiguration av Session Host-dator](troubleshoot-vm-configuration.md).
 - Information om hur du felsöker problem med klient anslutningar för virtuella Windows-datorer finns i [fjärr skrivbords klient anslutningar](troubleshoot-client-connection.md).
 - Information om hur du felsöker problem när du använder PowerShell med Windows Virtual Desktop finns i [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Mer information om för hands versions tjänsten finns i [Windows Desktop Preview-miljö](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Mer information om för hands versions tjänsten finns i [Windows Virtual Desktop Preview Environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - Information om hur du går igenom en fel [söknings kurs finns i Självstudier: Felsök distributioner](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)av Resource Manager-mallar.
 - Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

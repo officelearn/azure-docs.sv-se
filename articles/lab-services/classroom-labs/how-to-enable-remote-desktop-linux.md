@@ -1,6 +1,6 @@
 ---
-title: Aktivera Fjärrskrivbord för Linux i Azure Lab Services | Microsoft Docs
-description: Lär dig mer om att aktivera Fjärrskrivbord för Linux-datorer i ett labb i Azure Lab Services.
+title: Aktivera fjärr skrivbord för Linux i Azure Lab Services | Microsoft Docs
+description: Lär dig hur du aktiverar fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,85 +11,69 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2019
+ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 389d467bd9672743d4a086e8a1c505fb0366dba7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d08105e78274300eb7ee0a8c0ad146a737d0ffa
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237127"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644958"
 ---
-# <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Aktivera och använda Fjärrskrivbord för Linux-datorer i ett labb i Azure Lab Services
-Den här artikeln visar hur du gör följande:
+# <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Aktivera fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services
+Den här artikeln visar hur du utför följande uppgifter:
 
-- Aktivera Fjärrskrivbord för Linux VM
-- Hur lärare kan ansluta till mallen för virtuell dator via Remote Desktop Connection (RDP).
-- Hur studenter ansluter till den virtuella datorn via RDP för studenten
+- Aktivera fjärr skrivbord för virtuell Linux-dator
+- Hur lärare kan ansluta till mallen VM via Anslutning till fjärrskrivbord (RDP).
 
-## <a name="enable-remote-desktop-for-linux-vm"></a>Aktivera Fjärrskrivbord för Linux VM
-När du skapar lab lärare kan aktivera **fjärrskrivbordsanslutning** för **Linux** bilder. Den **aktivera anslutning till fjärrskrivbord** alternativ visas när en Linux-avbildning har valts för mallen. När det här alternativet är aktiverat, kan lärare ansluta till mall för virtuell dator och student virtuella datorer via RDP (Remote Desktop). 
+## <a name="enable-remote-desktop-for-linux-vm"></a>Aktivera fjärr skrivbord för virtuell Linux-dator
+Under labb skapandet kan lärare aktivera **anslutning till fjärr skrivbord** för **Linux** -avbildningar. Alternativet **aktivera anslutning till fjärrskrivbord** visas när en Linux-avbildning väljs för mallen. När det här alternativet är aktiverat kan lärare ansluta till mallen VM och student virtuella datorer via RDP (fjärr skrivbord). 
 
-![Aktivera anslutning till fjärrskrivbord för en Linux-avbildning](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+![Aktivera anslutning till fjärr skrivbord för en Linux-avbildning](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
-På den **aktiverar anslutning till fjärrskrivbord** meddelanderutan väljer **Fortsätt med fjärrskrivbord**. 
+I rutan **aktivera anslutning till fjärrskrivbord** meddelande väljer du **Fortsätt med fjärr skrivbord**. 
 
-![Aktivera anslutning till fjärrskrivbord för en Linux-avbildning](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
+![Aktivera anslutning till fjärr skrivbord för en Linux-avbildning](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
-> Aktivera **fjärrskrivbordsanslutning** öppnas bara den **RDP** porten på Linux-datorer. Du som en lärare, ansluta till Linux-dator med hjälp av SSH för första gången och installera RDP och GUI-paket så att du kan ansluta till Linux-datorn med RDP senare. Sedan kan du **publicera** avbildningen så att studenter kan RDP i att student virtuella Linux-datorer. 
+> När du aktiverar **anslutning till fjärr skrivbord** öppnas **RDP** -porten på Linux-datorer. Som lärare ansluter du till Linux-datorn med hjälp av SSH för första gången och installerar RDP-och GUI-paket så att du kan ansluta till Linux-datorn med RDP senare. Sedan **publicerar** du avbildningen så att eleverna kan RDP i de virtuella student Linux-datorerna. 
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
-För närvarande stöds fjärrskrivbordsanslutningen för följande operativsystem:
+Anslutning till fjärr skrivbord stöds för följande operativ system:
 
-- openSUSE Leap 42.3
-- CentOS-baserade 7.5
-- Debian 9 ”Stretch”
-- Ubuntu Server 16.04 LTS
+- openSUSE skottår 42,3
+- CentOS-baserad 7,5
+- Debian 9 "sträckning"
+- Ubuntu Server 16,04 LTS
 
-## <a name="teachers-connecting-to-the-template-vm-using-rdp"></a>Lärare som ansluter till VM-mallen med RDP
-Lärare måste ansluta till VM-mallen med hjälp av SSH först och installera RDP och GUI-paket på den. Lärare kan sedan använda följande steg för att ansluta till den virtuella Linux-datorer med RDP: 
+## <a name="teachers-connecting-to-the-template-vm-using-rdp"></a>Lärare som ansluter till mallen VM med RDP
+Lärare måste ansluta till mallen VM med SSH först och installera RDP-och GUI-paket på den. Sedan kan lärarna använda följande steg för att ansluta till virtuella Linux-datorer med RDP: 
 
-Du ser den **fjärrskrivbord** alternativet för att ansluta till VM-mallen vid tidpunkten för skapat labbet. 
+Du ser alternativet **fjärr skrivbord** för att ansluta till mallen VM vid tidpunkten för att skapa labbet. 
 
-![Ansluta till mall via RDP när den skapas](../media/how-to-enable-remote-desktop-linux/connect-at-creation.png)
+![Anslut till Mall via RDP vid tidpunkten för skapandet](../media/how-to-enable-remote-desktop-linux/connect-at-creation.png)
 
-Du ser den **fjärrskrivbord** alternativet på den testmiljön startsida när du har skapat labbet och VM-mallen har startats. Starta VM-mallen om den inte redan startats. 
+Du ser alternativet **fjärr skrivbord** på Labbets start sida när labbet har skapats och mallen VM har startats. Starta mallen VM om den inte redan har startats. 
 
-![Ansluta till mall via RDP när labbet har skapats](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
+![Anslut till Mall via RDP när labbet har skapats](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
 
-Mer information om hur du ansluter till den virtuella datorn med SSH eller RDP finns i [Anslut med SSH eller RDP]((#connect-using-ssh-or-rdp). 
+Mer information om hur du ansluter till den virtuella datorn med SSH eller RDP finns i [Anslut med SSH eller RDP] ((#connect-using-SSH-eller-RDP). 
 
-## <a name="teachers-connecting-to-a-student-vm-using-rdp"></a>Lärare som ansluter till en student virtuell dator med RDP
-En lärare kan ansluta till en student VM genom att växla till den **virtuella datorer** visa och välja den **ansluta** ikon. Åtgärden lärare måste **publicera** mall-bild med RDP och GUI-paket som är installerade på den. 
+## <a name="teachers-connecting-to-a-student-vm-using-rdp"></a>Lärare som ansluter till en elev-VM med RDP
+En lärare/lärare kan ansluta till en elev-VM genom att växla till vyn **Virtual Machines** och välja ikonen **Anslut** . Innan detta måste lärare **publicera** mal Lav bildningen med RDP-och GUI-paket installerade på den. 
 
-![Lärare som ansluter till student VM](../media/how-to-enable-remote-desktop-linux/teacher-connect-to-student-vm.png)
+![Lärare som ansluter till den virtuella student datorn](../media/how-to-enable-remote-desktop-linux/teacher-connect-to-student-vm.png)
 
-Mer information om hur du ansluter till den virtuella datorn med SSH eller RDP finns i [Anslut med SSH eller RDP]((#connect-using-ssh-or-rdp). 
+Mer information om hur du ansluter till den virtuella datorn med SSH eller RDP finns i [Anslut med SSH eller RDP] ((#connect-using-SSH-eller-RDP). 
 
-## <a name="students-connecting-to-the-student-vm"></a>Studenter som ansluter till student VM
-Student kan RDP i sina virtuella Linux-datorer efter labbägare (lärare) **publicerar** mallen virtuell dator med RDP och GUI-paket som har installerats på datorn. Här är stegen: 
-
-1. När en student loggar in på portalen Labs direkt (`https://labs.azure.com`) eller genom att använda en registreringslänk (`https://labs.azure.com/register/<registrationCode>`), en panel för varje labb elevens har åtkomst till visas. 
-2. På panelen, väljer **starta** om den virtuella datorn stoppas. 
-3. Välj **Anslut**. Du ser två alternativ för att ansluta till den virtuella datorn: **SSH** och **fjärrskrivbord**.
-
-    ![Student VM - anslutningsalternativ](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
-
-## <a name="connect-using-ssh-or-rdp"></a>Ansluta med SSH eller RDP
-Om du väljer den **SSH** alternativet kan du se följande **Anslut till den virtuella datorn** dialogrutan:  
+## <a name="connect-using-ssh-or-rdp"></a>Anslut med SSH eller RDP
+Om du väljer **SSH** -alternativet visas följande dialog ruta **för att ansluta till din virtuella dator** :  
 
 ![SSH-anslutningssträng](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-Välj den **kopia** knappen bredvid textrutan för att kopiera den till Urklipp. Spara SSH-anslutningssträng. Använd den här anslutningssträngen från en SSH-terminalen (t.ex. [Putty](https://www.putty.org/)) att ansluta till den virtuella datorn.
+Välj **kopierings** knappen bredvid text rutan för att kopiera den till Urklipp. Spara SSH-anslutningssträngen. Använd den här anslutnings strängen från en SSH-Terminal (t. ex. [SparaTillFil](https://www.putty.org/)) för att ansluta till den virtuella datorn.
 
-Om du väljer den **RDP** hämtas en RDP-fil på din dator. Spara den och öppna den kan ansluta till datorn. 
+Om du väljer alternativet **RDP** laddas en RDP-fil ned till datorn. Spara den och öppna den för att ansluta till datorn. 
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar:
-
-- [Skapa och hantera labbkonton som administratör](how-to-manage-lab-accounts.md)
-- [Skapa och hantera labb som labbägare](how-to-manage-classroom-labs.md)
-- [Konfigurera och publicera mallar som labbägare](how-to-create-manage-template.md)
-- [Som en lab-användare åtkomst till labb för klassrum](how-to-use-classroom-lab.md)
-
+När en instruktör har aktiverat funktionen anslutning till fjärr skrivbord kan eleverna ansluta till sina virtuella datorer via RDP/SSH. Mer information finns i [använda fjärr skrivbord för virtuella Linux-datorer i ett klass rums labb](how-to-use-remote-desktop-linux-student.md). 

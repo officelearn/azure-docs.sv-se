@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 9cd754b1810595c3ae82a7e4edfd9a3abe145b3f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4f325d9fc512fd9f6776fcd799b720aaf60ce472
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816412"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876765"
 ---
 # <a name="remote-desktop-client-connections"></a>Anslutningar för fjärrskrivbordsklienten
 
@@ -135,7 +135,7 @@ Följ dessa allmänna fel söknings anvisningar för fel koder för klient anslu
     Time              : <Timestampt>
     ```
 
-### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Fel: O_ADD_USER_TO_GROUP_FAILED/kunde inte lägga till användare = ≤ användar namn ≥ till grupp = fjärr skrivbords användare. Orsak: Win32.ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Fel: O_ADD_USER_TO_GROUP_FAILED/kunde inte lägga till användare = ≤ användar namn ≥ till grupp = fjärr skrivbords användare. Pga Win32.ERROR_NO_SUCH_MEMBER
 
 **Orsak** Den virtuella datorn har inte anslutits till domänen där användar objekt är.
 
@@ -173,7 +173,7 @@ Om webb klienten används kontrollerar du att det inte finns några problem med 
 - Information om hur du felsöker problem när du skapar en klient och en adresspool i en Windows Virtual Desktop-miljö finns i [skapa innehavare och skapa värdar för pooler](troubleshoot-set-up-issues.md).
 - Information om hur du felsöker problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [konfiguration av Session Host-dator](troubleshoot-vm-configuration.md).
 - Information om hur du felsöker problem när du använder PowerShell med Windows Virtual Desktop finns i [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Mer information om för hands versions tjänsten finns i [Windows Desktop Preview-miljö](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?).
+- Mer information om för hands versions tjänsten finns i [Windows Virtual Desktop Preview Environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?).
 - Information om hur du går igenom en fel [söknings kurs finns i Självstudier: Felsök distributioner](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)av Resource Manager-mallar.
 - Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

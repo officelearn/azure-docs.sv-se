@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 412a3cb32663f5bd3bfad2d565b6797f92e26b75
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e5dc449dc51faccdd8c0e69337cc5f8ac19fa296
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641117"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874405"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -56,11 +56,13 @@ Den hanterade instansen har två tjänst nivåer: Generell användning och Affä
 | Maximal databasstorlek | Bestäms av den maximala lagrings storleken per instans | Bestäms av den maximala lagrings storleken per instans |
 | Maximalt antal databaser per instans | 100 | 100 |
 | Maximalt antal databasfiler per instans | Upp till 280 | 32 767 filer per databas |
+| Maximal fil storlek | 8 TB | 4 TB |
 | Data/logga IOPS (ungefärligt) | 500 – 7 500 per fil<br/>\*[Öka fil storleken för att få mer IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 k – 110 KB (1375/vCore)<br/>Lägg till fler virtuella kärnor för att få bättre IO-prestanda. |
 | Skriv gränsen för logg skrivnings data | 3 MB/s per vCore<br/>Högst 22 MB/s per instans | 4 MB/s per vCore<br/>Max 48 MB/s per instans|
 | Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[Öka fil storleken för att få bättre IO-prestanda](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Gäller inte |
 | IO-latens för lagring (ungefärligt) | 5-10 MS | 1-2 MS |
 | Maximal tempDB-storlek | 192 – 1 920 GB (24 GB per vCore)<br/>Lägg till fler virtuella kärnor för att få mer TempDB-utrymme. | Begränsas av maximal instans lagrings storlek. TempDB-logg fils storleken är för närvarande begränsad till 24GB/vCore. |
+| Minnesintern OLTP | Stöds inte | Tillgängligt |
 | Maximalt antal sessioner | 30000 | 30000 |
 
 > [!NOTE]

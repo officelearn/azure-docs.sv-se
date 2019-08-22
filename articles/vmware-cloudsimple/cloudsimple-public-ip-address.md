@@ -1,23 +1,23 @@
 ---
-title: VMware-lösning av CloudSimple – offentlig IP-adress för Azure
-description: Lär dig mer om offentliga IP-adresser och deras fördelar med VMware-lösningen av CloudSimple
+title: Azure VMware-lösning av CloudSimple-offentlig IP-adress
+description: Lär dig mer om offentliga IP-adresser och deras fördelar med Azure VMware-lösningen av CloudSimple
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 29d2bdb75a7f4409e6b3ffee2608cfe7adde6b1f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 147ab6b5ace4493e1a0b303c320cb2e81d829b29
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812534"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877687"
 ---
 # <a name="cloudsimple-public-ip-address-overview"></a>Översikt över CloudSimple offentlig IP-adress
 
-En offentlig IP-adress gör det möjligt för Internet resurser att kommunicera inkommande, till privata moln resurser på en privat IP-adress. Den privata IP-adressen är antingen en virtuell dator eller en belastningsutjämnare för program vara. Den privata IP-adressen finns i ditt privata moln vCenter. Med den offentliga IP-adressen kan du exponera tjänster som körs i ditt privata moln till Internet.
+En offentlig IP-adress gör det möjligt för Internet resurser att kommunicera inkommande till privata moln resurser på en privat IP-adress. Den privata IP-adressen är en virtuell dator eller en belastningsutjämnare för program vara i ditt privata moln vCenter. Med den offentliga IP-adressen kan du exponera tjänster som körs i ditt privata moln till Internet.
 
 Den offentliga IP-adressen är dedikerad till den privata IP-adressen tills du tar bort tilldelningen. En offentlig IP-adress kan bara tilldelas en privat IP-adress.
 
@@ -33,4 +33,4 @@ Genom att använda en offentlig IP-adress för att kommunicera inkommande tillha
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [allokerar en offentlig IP-adress](https://docs.azure.cloudsimple.com/public-ips/)
+* Lär dig hur du [allokerar en offentlig IP-adress](public-ips.md)

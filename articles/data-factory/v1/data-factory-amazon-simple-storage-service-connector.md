@@ -1,6 +1,6 @@
 ---
-title: Flytta data från Amazon Simple Storage Service med hjälp av Data Factory | Microsoft Docs
-description: Läs mer om hur du flyttar data från Amazon Simple Storage Service (S3) med hjälp av Azure Data Factory.
+title: Flytta data från Amazon Simple Storage-tjänsten med hjälp av Data Factory | Microsoft Docs
+description: Lär dig mer om hur du flyttar data från Amazon Simple Storage Service (S3) med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,60 +13,60 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e2468fdd44374343894416c8e39c263cecaa7d5
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ec44ae7956669ee4e16d2c6ca00794c566272037
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839552"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69892013"
 ---
-# <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Flytta data från Amazon Simple Storage Service med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+# <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Flytta data från Amazon Simple Storage-tjänsten med hjälp av Azure Data Factory
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-amazon-simple-storage-service-connector.md)
 > * [Version 2 (aktuell version)](../connector-amazon-simple-storage-service.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [Amazon S3-anslutning i V2](../connector-amazon-simple-storage-service.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [Amazon S3 Connector i v2](../connector-amazon-simple-storage-service.md).
 
-Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data från Amazon Simple Storage Service (S3). Den bygger på den [dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
+Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Data Factory för att flytta data från Amazon Simple Storage Service (S3). Det bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som visar en översikt över data förflyttning med kopierings aktiviteten.
 
-Du kan kopiera data från Amazon S3 till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data Factory stöder för närvarande endast flyttar data från Amazon S3 till datalager, men inte flyttar data från andra data lagrar till Amazon S3.
+Du kan kopiera data från Amazon S3 till alla mottagar data lager som stöds. En lista över data lager som stöds som mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Data Factory har för närvarande endast stöd för att flytta data från Amazon S3 till andra data lager, men inte flytta data från andra data lager till Amazon S3.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 För att kopiera data från Amazon S3, kontrollera att du har beviljats följande behörigheter:
 
-* `s3:GetObject` och `s3:GetObjectVersion` för Amazon S3-objektet.
-* `s3:ListBucket` för Amazon S3-Bucket-åtgärder. Om du använder guiden Data Factory kopiera `s3:ListAllMyBuckets` krävs också.
+* `s3:GetObject`och `s3:GetObjectVersion` för Amazon S3-objekt åtgärder.
+* `s3:ListBucket`för Amazon S3-Bucket-åtgärder. Om du använder Data Factory kopierings guiden `s3:ListAllMyBuckets` krävs även.
 
 Mer information om en fullständig lista över Amazon S3-behörigheter finns i [att ange behörigheter i en princip](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från en källa för Amazon S3 med hjälp av olika verktyg eller API: er.
+Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från en Amazon S3-källa med hjälp av olika verktyg eller API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. En snabb genomgång finns i [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
+Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. En snabb genom gång finns i [Självstudier: Skapa en pipeline med hjälp av guiden](data-factory-copy-data-wizard-tutorial.md)kopiera.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Stegvisa anvisningar om hur du skapar en pipeline med en Kopieringsaktivitet finns i den [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, **.NET API**och **REST API**. Stegvisa instruktioner för att skapa en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
+Oavsett om du använder verktyg eller API: er utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
-1. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik.
-2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen.
-3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata.
+1. Skapa **länkade tjänster** för att länka indata och utdata från data lager till din data fabrik.
+2. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden.
+3. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder verktyg eller API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format. Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för Amazon S3, finns det [JSON-exempel: Kopiera data från Amazon S3 till Azure Blob](#json-example-copy-data-from-amazon-s3-to-azure-blob-storage) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg eller API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet. Ett exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data från ett Amazon S3-data lager finns [i JSON-exemplet: Kopiera data från Amazon S3 till Azure Blob](#json-example-copy-data-from-amazon-s3-to-azure-blob-storage) i den här artikeln.
 
 > [!NOTE]
-> Mer information om fil- och komprimeringsformat de format som stöds för en Kopieringsaktivitet finns [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
+> Mer information om fil-och komprimerings format som stöds för en kopierings aktivitet finns [i fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
-Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för Amazon S3.
+I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för Amazon S3.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
-En länkad tjänst länkar ett datalager till en data factory. Du skapar en länkad tjänst av typen **AwsAccessKey** att länka ditt Amazon S3-datalager till datafabriken. Följande tabell innehåller beskrivning för JSON-element som är specifika för Amazon S3 (AwsAccessKey) länkad tjänst.
+En länkad tjänst länkar ett data lager till en data fabrik. Du skapar en länkad tjänst av typen **en awsaccesskey** för att länka ditt Amazon S3-data lager till din data fabrik. Följande tabell innehåller en beskrivning av JSON-element som är speciella för den länkade tjänsten Amazon S3 (en awsaccesskey).
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| accessKeyID |ID för den hemliga åtkomstnyckeln. |string |Ja |
-| secretAccessKey |Den hemliga åtkomstnyckeln själva. |Krypterad hemlighet sträng |Ja |
+| accessKeyID |ID för den hemliga åtkomstnyckeln. |sträng |Ja |
+| secretAccessKey |Den hemliga åtkomstnyckeln själva. |Krypterad hemlig sträng |Ja |
 
 >[!NOTE]
 >Den här anslutningen kräver åtkomstnycklarna för IAM-konto för att kopiera data från Amazon S3. [Tillfällig autentiseringsuppgift](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) stöds inte.
@@ -88,24 +88,24 @@ Här är ett exempel:
 ```
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
-Om du vill ange en datauppsättning som representerar indata i Azure Blob storage, ange typegenskapen på datauppsättningen till **AmazonS3**. Ange den **linkedServiceName** egenskap med namnet på Amazon S3 länkad tjänst. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [skapar datauppsättningar](data-factory-create-datasets.md). 
+Ange en data uppsättning som representerar indata i Azure Blob Storage genom att ange egenskapen type för data uppsättningen till **AmazonS3**. Ange egenskapen **linkedServiceName** för data uppsättningen till namnet på den länkade tjänsten Amazon S3. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [skapa data uppsättningar](data-factory-create-datasets.md). 
 
-Avsnitt som struktur, tillgänglighet och princip är liknande för alla datauppsättningstyper av (till exempel SQL database, Azure-blob och Azure-tabell). Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. Den **typeProperties** avsnittet för en datauppsättning av typen **AmazonS3** (som innehåller Amazon S3-datamängd) har följande egenskaper:
+Avsnitt som struktur, tillgänglighet och princip liknar varandra för alla typer av data uppsättningar (till exempel SQL Database, Azure blob och Azure Table). Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för en data uppsättning av typen **AmazonS3** (som innehåller Amazon S3-datauppsättningen) har följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| bucketName |S3-Bucketnamn. |String |Ja |
-| key |Objektnyckel S3. |String |Nej |
-| prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |String |Nej |
-| version |Versionen av S3-objektet, om S3 versionshantering är aktiverad. |String |Nej |
-| format | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som – är mellan filbaserade (binär kopia) att hoppa över avsnittet format i både inkommande och utgående datamängd definitioner. |Nej | |
-| compression | Ange typ och komprimeringsnivå för data. Typerna som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåerna som stöds är: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej | |
+| bucketName |S3-Bucketnamn. |Sträng |Ja |
+| key |S3-objektets nyckel. |Sträng |Nej |
+| prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |Sträng |Nej |
+| version |Versionen av S3-objektet, om S3 versionshantering är aktiverad. |Sträng |Nej |
+| format | Följande format typer stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som är mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. | |Nej |
+| compression | Ange typ och komprimeringsnivå för data. De typer som stöds är: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |Nej |
 
 
 > [!NOTE]
-> **bucketName + nyckeln** anger platsen för S3-objektet, där bucket är Rotbehållare för S3-objekt och nyckeln är den fullständiga sökvägen till S3-objektet.
+> **bucketName + Key** anger platsen för S3-objektet, där Bucket är rot behållaren för S3-objekt och nyckeln är den fullständiga sökvägen till S3-objektet.
 
-### <a name="sample-dataset-with-prefix"></a>Exempeldatauppsättningen med prefix
+### <a name="sample-dataset-with-prefix"></a>Exempel data uppsättning med prefix
 
 ```json
 {
@@ -128,7 +128,7 @@ Avsnitt som struktur, tillgänglighet och princip är liknande för alla dataupp
     }
 }
 ```
-### <a name="sample-dataset-with-version"></a>Exempeldatauppsättningen (med version)
+### <a name="sample-dataset-with-version"></a>Exempel data uppsättning (med version)
 
 ```json
 {
@@ -153,44 +153,44 @@ Avsnitt som struktur, tillgänglighet och princip är liknande för alla dataupp
 }
 ```
 
-### <a name="dynamic-paths-for-s3"></a>Dynamisk sökvägar för S3
-I föregående exempel använder fasta värden för den **nyckel** och **bucketName** egenskaper i Amazon S3-datamängd.
+### <a name="dynamic-paths-for-s3"></a>Dynamiska sökvägar för S3
+I föregående exempel används fasta värden för egenskaperna **Key** och **BucketName** i Amazon S3-datauppsättningen.
 
 ```json
 "key": "testFolder/test.orc",
 "bucketName": "testbucket",
 ```
 
-Du kan ha Data Factory beräknar egenskaperna dynamiskt vid körning, med hjälp av systemvariabler, till exempel SliceStart.
+Du kan låta Data Factory beräkna dessa egenskaper dynamiskt vid körning, genom att använda systemvariabler som SliceStart.
 
 ```json
 "key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
 "bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
 ```
 
-Du kan göra detsamma den **prefix** egenskapen för en Amazon S3-datamängd. En lista över funktioner som stöds och variabler finns i [Data Factory-funktioner och systemvariabler](data-factory-functions-variables.md).
+Du kan göra samma sak för egenskapen **prefix** för en Amazon S3-data uppsättning. En lista över funktioner som stöds och variabler finns i [Data Factory Functions and system Variables](data-factory-functions-variables.md).
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapa pipelines](data-factory-create-pipelines.md). Egenskaper, till exempel namn, beskrivning, indata och utdata tabeller och principer är tillgängliga för alla typer av aktiviteter. Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens varierar med varje aktivitetstyp av. För kopieringsaktiviteten varierar egenskaper beroende på vilka typer av källor och mottagare. När en källa i kopieringsaktiviteten är av typen **FileSystemSource** (som innehåller Amazon S3), följande egenskap är tillgänglig i **typeProperties** avsnittet:
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapa pipeliner](data-factory-create-pipelines.md). Egenskaper som namn, beskrivning, in-och utdata-tabeller och principer är tillgängliga för alla typer av aktiviteter. Vilka egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten varierar beroende på varje aktivitets typ. För kopierings aktiviteten varierar egenskaperna beroende på typerna av källor och mottagare. När en källa i kopierings aktiviteten är av typen **FileSystemSource** (som innehåller Amazon S3) är följande egenskap tillgängligt i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| recursive |Anger om rekursivt lista S3 objekt i katalogen. |SANT/FALSKT |Nej |
+| recursive |Anger om S3-objekt ska listas rekursivt under katalogen. |True/false |Nej |
 
-## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>JSON-exempel: Kopiera data från Amazon S3 till Azure Blob storage
-Detta exempel visar hur du kopierar data från Amazon S3 till Azure Blob storage. Dock datan kan kopieras direkt till [någon mottagare som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av kopieringsaktiviteten i Data Factory.
+## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>JSON-exempel: Kopiera data från Amazon S3 till Azure Blob Storage
+Det här exemplet visar hur du kopierar data från Amazon S3 till en Azure Blob Storage. Data kan dock kopieras direkt till [någon av de handfat som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av kopierings aktiviteten i Data Factory.
 
-Det innehåller JSON-definitioner för följande Data Factory-entiteter. Du kan använda dessa definitioner för att skapa en pipeline för att kopiera data från Amazon S3 till Blob storage med hjälp av den [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
+Exemplet innehåller JSON-definitioner för följande Data Factory entiteter. Du kan använda dessa definitioner för att skapa en pipeline för att kopiera data från Amazon S3 till Blob Storage med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
 
-* En länkad tjänst av typen [AwsAccessKey](#linked-service-properties).
+* En länkad tjänst av typen [en awsaccesskey](#linked-service-properties).
 * En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* Indata [datauppsättning](data-factory-create-datasets.md) av typen [AmazonS3](#dataset-properties).
-* Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [FileSystemSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+* En indata- [datauppsättning](data-factory-create-datasets.md) av typen [AmazonS3](#dataset-properties).
+* En utdata [](data-factory-create-datasets.md) -datauppsättning av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* En [pipeline](data-factory-create-pipelines.md) med kopierings aktivitet som använder [FileSystemSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Exemplet kopierar data från Amazon S3 till en Azure-blob varje timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
+Exemplet kopierar data från Amazon S3 till en Azure-Blob varje timme. De JSON-egenskaper som används i de här exemplen beskrivs i avsnitten som följer efter exemplen.
 
-### <a name="amazon-s3-linked-service"></a>Amazon S3 länkad tjänst
+### <a name="amazon-s3-linked-service"></a>Amazon S3-länkad tjänst
 
 ```json
 {
@@ -219,9 +219,9 @@ Exemplet kopierar data från Amazon S3 till en Azure-blob varje timme. JSON-egen
 }
 ```
 
-### <a name="amazon-s3-input-dataset"></a>Amazon S3 datauppsättningen för indata
+### <a name="amazon-s3-input-dataset"></a>Data uppsättning för Amazon S3-indata
 
-Ange **”external”: true** informerar Data Factory-tjänsten att datauppsättningen är extern till datafabriken. Ange egenskapen till true på en inkommande datamängd som inte kommer från en aktivitet i pipelinen.
+Inställningen **"extern": true** informerar den Data Factory tjänsten som data uppsättningen är extern för data fabriken. Ange den här egenskapen till true för en indata-datauppsättning som inte produceras av en aktivitet i pipelinen.
 
 ```json
     {
@@ -248,7 +248,7 @@ Ange **”external”: true** informerar Data Factory-tjänsten att datauppsätt
 
 ### <a name="azure-blob-output-dataset"></a>Utdatauppsättning för Azure-blobb
 
-Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökvägen till mappen för bloben utvärderas dynamiskt baserat på starttiden för den sektor som bearbetas. Sökvägen till mappen använder år, månad, dag och timmar delar av starttiden.
+Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsökvägen för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappsökvägen använder de delar av start tiden för år, månad, dag och timmar.
 
 ```json
 {
@@ -307,9 +307,9 @@ Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökv�
 ```
 
 
-### <a name="copy-activity-in-a-pipeline-with-an-amazon-s3-source-and-a-blob-sink"></a>Kopiera aktivitet i en pipeline med en Amazon S3-källa och mottagare blob
+### <a name="copy-activity-in-a-pipeline-with-an-amazon-s3-source-and-a-blob-sink"></a>Kopiera aktivitet i en pipeline med en Amazon S3-källa och en BLOB-mottagare
 
-Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **FileSystemSource**, och **mottagare** är **BlobSink**.
+Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **FileSystemSource**och **mottagar** typen är inställd på **BlobSink**.
 
 ```json
 {
@@ -357,12 +357,12 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
 }
 ```
 > [!NOTE]
-> Om du vill mappa kolumner från en källdatauppsättning till kolumner från en datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
+> Information om hur du mappar kolumner från en käll data uppsättning till kolumner från en Sink-datauppsättning finns [i mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-* Mer information om viktiga faktorer att påverka prestandan för dataflytt (Kopieringsaktivitet) i Data Factory och olika sätt att optimera den, finns det [kopiera aktivitet prestanda- och Justeringsguiden](data-factory-copy-activity-performance.md).
+* Information om viktiga faktorer som påverkar prestanda för data flytt (kopierings aktivitet) i Data Factory och olika sätt att optimera den finns i [guiden Kopiera aktivitets prestanda och justering](data-factory-copy-activity-performance.md).
 
-* Stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet finns i den [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* Stegvisa instruktioner för hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

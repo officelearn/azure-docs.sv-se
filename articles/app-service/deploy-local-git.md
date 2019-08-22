@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 4b2934c8b93ffb247661886cb2791c0719996aeb
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 47db310f6affa6317a74020d182c521d65cd32f3
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297188"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875230"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure App Service
 
@@ -156,7 +156,7 @@ Följande vanliga fel meddelanden kan visas när du använder Git för att publi
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Du har inte angett någon `git push`gren under eller så har du `push.default` inte angett värdet i `.gitconfig`.|Kör `git push` igen och ange huvud grenen: `git push azure master`.|
 |`src refspec [branchname] does not match any.`|Du försökte skicka till en annan gren än Master på Azure-fjärrplatsen.|Kör `git push` igen och ange huvud grenen: `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|Det här felet kan inträffa om du försöker skicka en stor git-lagringsplats via HTTPS.|Ändra git-konfigurationen på den lokala datorn så att den `postBuffer` blir större. Till exempel: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|Du har distribuerat en Node. js-app med en _Package. JSON_ -fil som anger ytterligare nödvändiga moduler.|`npm ERR!` Granska fel meddelandena före det här felet för mer information om felet. Följande är kända orsaker till det här felet och motsvarande `npm ERR!` meddelanden:<br /><br />**Skadad Package. JSON-fil**:`npm ERR! Couldn't read dependencies.`<br /><br />**Den ursprungliga modulen har ingen binär distribution för Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />eller <br />' NPM ERR! [modulename@version] för installation: \make || gmake\`|
+|`Error - Changes committed to remote repository but your web app not updated.`|Du har distribuerat en Node. js-app med en _Package. JSON_ -fil som anger ytterligare nödvändiga moduler.|`npm ERR!` Granska fel meddelandena före det här felet för mer information om felet. Följande är kända orsaker till det här felet och motsvarande `npm ERR!` meddelanden:<br /><br />**Skadad Package. JSON-fil**:`npm ERR! Couldn't read dependencies.`<br /><br />**Den ursprungliga modulen har ingen binär distribution för Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />eller <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

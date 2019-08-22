@@ -1,13 +1,13 @@
 ---
-title: OData geospatial funktionsreferens – Azure Search
-description: OData geospatiala funktioner, geo.distance och geo.intersects i Azure Search-frågor.
+title: OData geo-spatial funktions referens – Azure Search
+description: OData geo-spatiala funktioner, geo. Distance och geo. korsar, i Azure Search frågor.
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,22 +19,22 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0ce63ab1143c784eb3e10f47c20ef2b5034d63a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9585a9a7ea976ed32ccb8eed1e69877339196f87
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079800"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647565"
 ---
-# <a name="odata-geo-spatial-functions-in-azure-search---geodistance-and-geointersects"></a>OData geospatiala funktioner i Azure Search - `geo.distance` och `geo.intersects`
+# <a name="odata-geo-spatial-functions-in-azure-search---geodistance-and-geointersects"></a>OData geo-spatial-funktioner i Azure Search `geo.distance` -och`geo.intersects`
 
-Azure Search har stöd för geospatiala frågor i [OData-filteruttryck](query-odata-filter-orderby-syntax.md) via den `geo.distance` och `geo.intersects` funktioner. Den `geo.distance` funktionen returnerar avståndet mellan två punkter i kilometer, en som ett fält eller intervall variabeln och en som en konstant skickas som en del av filtret. Den `geo.intersects` returnerar `true` om en viss tidpunkt som ligger inom en viss polygon, där punkten är ett fält eller ett intervall variabel och polygonen har angetts som en konstant som skickas som en del av filtret.
+Azure Search stöder geo-spatiala frågor i [OData filter](query-odata-filter-orderby-syntax.md) -uttryck `geo.distance` via `geo.intersects` -och-funktionerna. `geo.distance` Funktionen returnerar avståndet i kilo meter mellan två punkter, ett fält eller en intervall variabel, och en är en konstant som ska skickas som en del av filtret. `geo.intersects` Funktionen returnerar`true` om en viss punkt är inom en viss polygon, där punkten är en fält-eller intervall variabel och polygonen anges som en konstant som skickas som en del av filtret.
 
-Den `geo.distance` funktionen kan också användas i den [ **$orderby** parametern](search-query-odata-orderby.md) kan sortera sökresultat genom avståndet från en viss tidpunkt. Syntaxen för `geo.distance` i **$orderby** är densamma som den tillhör **$filter**. När du använder `geo.distance` i **$orderby**, fältet som gäller måste vara av typen `Edm.GeographyPoint` och det måste också vara **sorterbar**.
+Funktionen kan också användas i [ **$OrderBy** -parametern](search-query-odata-orderby.md) för att sortera Sök Resultat efter avstånd från en viss punkt. `geo.distance` Syntaxen för `geo.distance` i **$OrderBy** är samma som i **$filter**. När du `geo.distance` använder i **$OrderBy**måste det fält som det gäller för vara av typen `Edm.GeographyPoint` och det måste också vara **sorterbart**.
 
 ## <a name="syntax"></a>Syntax
 
-Följande EBNF ([utökade Backus Naur formuläret](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar struktur av den `geo.distance` och `geo.intersects` funktioner, samt geospatiala värden där de fungerar:
+Följande ebnf ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken i `geo.distance` och `geo.intersects` -funktionerna, samt de geo-spatial-värden som de fungerar på:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -58,69 +58,69 @@ geo_polygon ::=
 lon_lat_list ::= lon_lat(',' lon_lat)*
 ```
 
-Det finns också ett diagram för interaktiva syntax:
+Ett interaktivt syntax diagram är också tillgängligt:
 
 > [!div class="nextstepaction"]
-> [OData-syntaxdiagrammet för Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#geo_distance_call)
+> [OData-syntax diagram för Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#geo_distance_call)
 
 > [!NOTE]
-> Se [OData-referens för uttryckssyntax för Azure Search](search-query-odata-syntax-reference.md) för fullständig EBNF.
+> Se [syntax för OData-uttryck för Azure Search](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-### <a name="geodistance"></a>GEO.Distance
+### <a name="geodistance"></a>Geo. Distance
 
-Den `geo.distance` funktionen tar två parametrar av typen `Edm.GeographyPoint` och returnerar ett `Edm.Double` värde som är avståndet mellan dem i kilometer. Detta skiljer sig från andra tjänster som stöder geospatial OData-åtgärder, som vanligtvis returnera avstånd i meter.
+Funktionen använder två parametrar av typen `Edm.GeographyPoint` och returnerar ett `Edm.Double` värde som är avståndet mellan dem i kilo meter. `geo.distance` Detta skiljer sig från andra tjänster som stöder OData geo-spatiala åtgärder, som vanligt vis returnerar avstånd i meter.
 
-En av parametrarna till `geo.distance` måste vara en konstant för geografisk plats och andra måste vara en fältsökväg (eller en variabel för adressintervallet om det finns ett filter iterera över ett fält av typen `Collection(Edm.GeographyPoint)`). Ordningen på de här parametrarna spelar ingen roll.
+En av parametrarna `geo.distance` måste vara en konstant med en geografisk punkt och den andra måste vara en fält Sök väg (eller en intervall variabel om ett filter ska itereras över ett fält av typen `Collection(Edm.GeographyPoint)`). Ordningen på dessa parametrar spelar ingen roll.
 
-Geografi punkt konstant är i formatet `geography'POINT(<longitude> <latitude>)'`, där longitud och latitud är numeriska konstanter.
+Geografisk punkts konstant är av formen `geography'POINT(<longitude> <latitude>)'`där longitud och latitud är numeriska konstanter.
 
 > [!NOTE]
-> När du använder `geo.distance` i ett filter måste du jämföra avståndet som returnerades av funktionen med ett konstant med `lt`, `le`, `gt`, eller `ge`. Operatorer `eq` och `ne` stöds inte när du jämför avstånd. Till exempel det här är en korrekt användning av `geo.distance`: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.
+> När du `geo.distance` använder i ett filter måste du jämföra avståndet som returneras av funktionen med en konstant med hjälp `lt`av `le`, `gt`, eller `ge`. Operatorerna `eq` och `ne` stöds inte när du jämför avstånd. Detta är till exempel en korrekt användning av `geo.distance`:. `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`
 
-### <a name="geointersects"></a>GEO.intersects
+### <a name="geointersects"></a>Geo. snitt
 
-Den `geo.intersects` funktionen använder en variabel av typen `Edm.GeographyPoint` och en konstant `Edm.GeographyPolygon` och returnerar ett `Edm.Boolean`  --  `true` om punkten befinner sig inom gränserna för polygon, `false` annars.
+`Edm.Boolean` `Edm.GeographyPolygon` `Edm.GeographyPoint` `true` `false` Funktionen tar en variabel av typen och en konstant och returnerar en  --  om punkten är inom gränserna för polygonen, annars. `geo.intersects`
 
-Polygonen är en tvådimensionella yta som lagras som en sekvens av punkter som definierar en omgivande ring (se den [exempel](#examples) nedan). Polygonen måste stängas, vilket innebär att först och sista punkt uppsättningar måste vara samma. [Punkterna i en polygon måste vara i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Polygonen är en tvådimensionell yta som lagras som en sekvens med punkter som definierar en avgränsnings ring (se [exemplen](#examples) nedan). Polygonen måste stängas, vilket innebär att de första och sista punkt uppsättningarna måste vara desamma. [Punkter i en polygon måste vara i moturs ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-### <a name="geo-spatial-queries-and-polygons-spanning-the-180th-meridian"></a>Geospatial frågor och polygoner utsträckning 180th kartmeridian
+### <a name="geo-spatial-queries-and-polygons-spanning-the-180th-meridian"></a>Geo-spatiala frågor och polygoner som sträcker sig över 180th-Meri Dian
 
-För många geospatial fråga bibliotek utformningen av en fråga som innehåller 180th kartmeridian (nära Datumgränsen) är antingen off-limits eller kräver en lösning, till exempel dela upp polygonen i två, en på endera sidan av kartmeridian.
+För många geo-spatiala fråge bibliotek skapas en fråga som innehåller 180th-Meri Dian (nära datum gränsen,) eller som kräver en lösning, t. ex. delning av polygonen i två, en på endera sidan av Meri Dian.
 
-I Azure Search, geospatiala frågor som innehåller 180 grader longitud fungerar som väntat om formen fråga är rektangulär och din koordinater justeras till en rutnätslayout längs longitud och latitud (till exempel `geo.intersects(location, geography'POLYGON((179 65, 179 66, -179 66, -179 65, 179 65))'`). I annat fall du dela polygon-metoden för icke-rektangulär eller feljusterade former.  
+I Azure Search fungerar geo-spatiala frågor som innehåller 180 graders longitud som förväntat om frågetexten är rektangulär och koordinaterna stämmer överens med en rutnäts layout längs longitud och latitud ( `geo.intersects(location, geography'POLYGON((179 65, 179 66, -179 66, -179 65, 179 65))'`till exempel). Annars, för icke-rektangulära eller ej justerade former, bör du tänka på metoden dela upp polygon.  
 
-### <a name="geo-spatial-functions-and-null"></a>Geospatiala funktioner och `null`
+### <a name="geo-spatial-functions-and-null"></a>Geo-spatiala funktioner och`null`
 
-Som alla andra icke-samlingen fält i Azure Search, fält av typen `Edm.GeographyPoint` kan innehålla `null` värden. När Azure Search utvärderar `geo.intersects` för ett fält som är `null`, resultatet alltid kommer att `false`. Beteendet för `geo.distance` i det här fallet beror på kontexten:
+Precis som alla andra icke-samlings fält i Azure Search kan fält `Edm.GeographyPoint` av typen `null` innehålla värden. När Azure Search utvärderas `geo.intersects` för ett fält `null`, är resultatet alltid `false`. Beteendet för `geo.distance` i det här fallet beror på kontexten:
 
-- I filter, `geo.distance` av en `null` fältet resulterar i `null`. Det innebär att dokumentet inte matchar eftersom `null` jämfört med alla icke-null-värde som utvärderas till `false`.
-- När du sorterar resultaten med hjälp av **$orderby**, `geo.distance` av en `null` fältet resulterar i största möjliga avstånd. Dokument med sådant fält du vill sortera lägre än alla andra när Sorteringsriktningen `asc` är används (standard), och det är högre än alla andra när riktningen är `desc`.
+- I filter, `geo.distance` för ett `null` fält resulterar i `null`. Det innebär att dokumentet inte överensstämmer eftersom `null` det jämförs med ett värde som inte är null `false`utvärderas till.
+- När du sorterar resultat med `geo.distance` hjälp av `null` **$OrderBy**, i ett fält resultat på maximalt möjligt avstånd. Dokument med sådana fält sorteras lägre än alla andra när sorterings riktningen `asc` används (standard) och högre än för alla andra när riktningen är. `desc`
 
 ## <a name="examples"></a>Exempel
 
-### <a name="filter-examples"></a>Filterexempel
+### <a name="filter-examples"></a>Filter exempel
 
-Hitta alla hotell inom 10 kilometer för en viss referenspunkt (där platsen är ett fält av typen `Edm.GeographyPoint`):
+Hitta alla hotell inom 10 kilo meter från en viss referens punkt (där platsen är ett fält av `Edm.GeographyPoint`typen):
 
     geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
 
-Hitta alla hotell inom en viss visningsområdet beskrivs som en polygon (där platsen är ett fält av typen `Edm.GeographyPoint`). Observera att polygonen är stängd (första och sista-mängder vara samma) och [punkterna måste anges i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Hitta alla hotell inom ett angivet visnings område som beskrivs som en polygon (där platsen är ett fält `Edm.GeographyPoint`av typen). Observera att polygonen är stängd (de första och sista punkt uppsättningarna måste vara identiska) och [punkterna måste anges i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
 
-### <a name="order-by-examples"></a>Sortering efter exempel
+### <a name="order-by-examples"></a>Ordning – exempel
 
-Sortera fallande efter hotell `rating`, sedan stigande efter avståndet från de angivna koordinaterna:
+Sortera hotell fallande efter `rating`, sedan stigande efter avstånd från givna koordinater:
 
     rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
 
-Sortera hotell i fallande ordning av `search.score` och `rating`, och sedan i stigande ordning efter avståndet från de angivna koordinaterna så att mellan två hotels med identiska betyg den närmaste som visas först:
+Sortera hotell i fallande ordning efter `search.score` och `rating`och sedan i stigande ordning efter avstånd från givna koordinater, så att de två hotellen med identiska klassificeringar visas först:
 
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
 
 ## <a name="next-steps"></a>Nästa steg  
 
 - [Filter i Azure Search](search-filters.md)
-- [OData-uttrycket Språköversikt för Azure Search](query-odata-filter-orderby-syntax.md)
-- [Referens för OData-uttryckssyntax för Azure Search](search-query-odata-syntax-reference.md)
-- [Söka efter dokument &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [OData uttrycks språk översikt för Azure Search](query-odata-filter-orderby-syntax.md)
+- [Syntax-referens för OData-uttryck för Azure Search](search-query-odata-syntax-reference.md)
+- [Sök efter &#40;dokument Azure Search tjänst REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

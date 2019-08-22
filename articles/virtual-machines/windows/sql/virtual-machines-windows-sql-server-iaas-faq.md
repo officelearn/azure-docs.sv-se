@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 80c90ceb0e2edac47d67b99e7fb7f03c1ab82fb1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5b3c65361f45c8ad5bdf3adf89dc3002c229d0d0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882361"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650414"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor och svar om SQL Server som körs på virtuella Windows-datorer i Azure
 
@@ -87,7 +87,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
    Om du vill ha en kostnads fri passiv licens för en sekundär tillgänglighets grupp i vänte läge eller en instans av redundanskluster måste du uppfylla alla följande kriterier som beskrivs i [licens guidens PDF](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf):
 
-   1. Du har [License Mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) genom [Software Assurance](https://www.microsoft.comlicensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
+   1. Du har [License Mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) genom [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
    1. Den passiva SQL Server-instansen hanterar inte SQL Server data till klienter eller kör aktiva SQL Server arbets belastningar. Den används endast för att synkronisera med den primära servern och upprätthålla annars den passiva databasen i ett varmt vänte läge. Om den betjänar data, till exempel rapporter till klienter som kör aktiva SQL Server arbets belastningar eller utför något "arbete", till exempel ytterligare säkerhets kopior från den sekundära servern, måste det vara en betald licensierad SQL Server-instans. 
    1. Den aktiva SQL Server-licensen omfattas av Software Assurance och tillåter **en** passiv sekundär SQL Server instans, med upp till samma beräknings mängd som den licensierade aktiva servern. 
    1. I den sekundära SQL Server VM används [licens modellen](virtual-machines-windows-sql-ahb.md)för att hämta din egen licens (BYOL) eller Azure Hybrid-förmån (AHB). 

@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 36efdb7db57d3acfa7384d904e9be8faad4c6534
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 35abb84f92ed9a7295c45afc69b673a3be46be15
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622078"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874120"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Webb inloggning med OpenID Connect i Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Azure AD B2C utökar standard OpenID Connect-protokollet för att göra mer än 
 
 När ditt webb program behöver autentisera användaren och köra ett användar flöde, kan användaren dirigera användaren till `/authorize` slut punkten. Användaren vidtar åtgärder beroende på användar flödet.
 
-I den här förfrågan anger klienten de behörigheter som krävs för att hämta från användaren i `scope` parametern och anger det användar flöde som ska köras. Tre exempel finns i följande avsnitt (med rad brytningar för läsbarhet). var och en använder ett annat användar flöde. För att få en känsla för hur varje begäran fungerar kan du försöka att klistra in begäran i en webbläsare och köra den. Du kan ersätta `fabrikamb2c` med namnet på din klient om du har ett och har skapat ett användar flöde. Du måste också ersätta `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`. Ersätt detta klient-ID med app-ID: t för den program registrering som du har skapat. Ändra också princip namnet (`{policy}`) till det princip namn som du har i din klient organisation, till exempel. `b2c_1_sign_in`
+I den här förfrågan anger klienten de behörigheter som krävs för att hämta från användaren i `scope` parametern och anger det användar flöde som ska köras. För att få en känsla för hur begäran fungerar kan du försöka att klistra in begäran i en webbläsare och köra den. Ersätt `{tenant}` med namnet på din klient. Ersätt `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` med app-ID: t för det program som du tidigare har registrerat i din klient. Ändra också princip namnet (`{policy}`) till det princip namn som du har i din klient organisation, till exempel. `b2c_1_sign_in`
 
 ```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
@@ -48,7 +48,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Parameter | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
 | innehav | Ja | Namnet på din Azure AD B2C-klient |
-| politik | Ja | Det användar flöde som körs. Det är namnet på ett användar flöde som skapas i Azure AD B2C klient organisationen. Namnet på användar flödet ska börja med `b2c_1_`. Till exempel: `b2c_1_sign_in`, `b2c_1_sign_up`, eller `b2c_1_edit_profile`. |
+| politik | Ja | Det användar flöde som ska köras. Ange namnet på ett användar flöde som du har skapat i Azure AD B2C klient organisationen. Till exempel: `b2c_1_sign_in`, `b2c_1_sign_up`, eller `b2c_1_edit_profile`. |
 | client_id | Ja | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program. |
 | Nnär | Ja | Ett värde som ingår i begäran (genereras av programmet) som ingår i det resulterande ID-token som ett anspråk. Programmet kan sedan kontrol lera det här värdet för att minimera omuppspelning av token. Värdet är vanligt vis en slumpmässig, unik sträng som kan användas för att identifiera ursprunget för begäran. |
 | response_type | Ja | Måste innehålla en ID-token för OpenID Connect. Om ditt webb program också behöver tokens för att anropa ett webb-API kan du använda `code+id_token`. |
@@ -274,14 +274,14 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | innehav | Ja | Namnet på din Azure AD B2C-klient |
 | politik | Ja | Det användar flöde som du vill använda för att signera användaren från ditt program. |
-| id_token_hint| Nej | En tidigare utfärdad ID-token för att skicka till utloggnings slut punkten som ett tips om slutanvändarens aktuella autentiserade session med klienten. |
-| post_logout_redirect_uri | Nej | URL: en som användaren ska omdirigeras till efter en lyckad utloggning. Om den inte är inkluderad visar Azure AD B2C användaren ett allmänt meddelande. |
+| id_token_hint| Nej | En tidigare utfärdad ID-token för att skicka till utloggnings slut punkten som ett tips om slutanvändarens aktuella autentiserade session med klienten. `id_token_hint` Säkerställer`post_logout_redirect_uri` att är en registrerad svars-URL i Azure AD B2C program inställningar. |
+| post_logout_redirect_uri | Nej | URL: en som användaren ska omdirigeras till efter en lyckad utloggning. Om den inte är inkluderad visar Azure AD B2C användaren ett allmänt meddelande. Om du inte anger `id_token_hint`något bör du inte registrera denna URL som en svars-URL i Azure AD B2C programmets inställningar. |
 | state | Nej | Om en `state` parameter ingår i begäran ska samma värde visas i svaret. Programmet bör kontrol lera att `state` värdena i begäran och svaret är identiska. |
 
-### <a name="require-id-token-hint-in-logout-request"></a>Kräv ID-token-tips i en utloggnings förfrågan
+### <a name="secure-your-logout-redirect"></a>Skydda din utloggnings omdirigering
 
 Efter utloggning omdirigeras användaren till den URI som anges i `post_logout_redirect_uri` parametern, oavsett vilka svars-URL: er som har angetts för programmet. Om ett giltigt `id_token_hint` värde skickas, verifierar Azure AD B2C dock att värdet för `post_logout_redirect_uri` matchar ett av programmets konfigurerade omdirigerings-URI: er innan omdirigeringen utförs. Om ingen matchande svars-URL har kon figurer ATS för programmet visas ett fel meddelande och användaren omdirigeras inte.
 
-### <a name="external-identity-provider-session"></a>Provider för extern identitetsprovider
+### <a name="external-identity-provider-sign-out"></a>Extern identitets leverantörs utloggning
 
 Om användaren dirigeras till `end_session` slut punkten raderas en del av användarens läge för enkel inloggning med Azure AD B2C, men användaren signerar inte användaren från sin IDP-session (social Identity Provider). Om användaren väljer samma IDP under en efterföljande inloggning, autentiseras de om utan att de anger sina autentiseringsuppgifter. Om en användare vill logga ut från programmet betyder det inte nödvändigt vis att de vill logga ut från sitt Facebook-konto. Men om lokala konton används avslutas användarens session korrekt.

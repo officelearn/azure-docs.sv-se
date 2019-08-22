@@ -1,6 +1,6 @@
 ---
-title: Ansluta en allmän Node.js-klientprogram till Azure IoT Central | Microsoft Docs
-description: Som utvecklare av enheten, hur du ansluter en allmän Node.js-enhet till Azure IoT Central programmet.
+title: Anslut ett allmänt Node. js-klientprogram till Azure IoT Central | Microsoft Docs
+description: Som enhets utvecklare, hur du ansluter en generisk Node. js-enhet till ditt Azure IoT Central-program.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/14/2019
@@ -8,139 +8,141 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 90e4a061e38fdd3a13a640363069fae3a18e0b49
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3b73344a233182fe8366795cfa111b706c6d06ac
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444222"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876227"
 ---
-# <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
+# <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klient program till ditt Azure IoT Central-program (Node. js)
 
-Den här artikeln beskrivs hur du som utvecklare enheten att ansluta ett allmänt Node.js-program som representerar en riktig enhet för ditt Microsoft Azure IoT Central program.
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+Den här artikeln beskriver hur, som en enhets utvecklare, för att ansluta ett allmänt Node. js-program som representerar en riktig enhet till ditt Microsoft Azure IoT Central-program.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-1. Ett Azure IoT Central program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
-1. En utvecklingsdator med [Node.js](https://nodejs.org/) version 4.0.0 eller senare installerat. Du kan köra `node --version` i kommandoraden för att kontrollera vilken version. Node.js är tillgängligt för många olika operativsystem.
+1. Ett Azure IoT Central-program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
+1. En utvecklings dator med [Node. js](https://nodejs.org/) version 4.0.0 eller senare installerad. Du kan köra `node --version` på kommando raden för att kontrol lera din version. Node.js är tillgängligt för många olika operativsystem.
 
-## <a name="create-a-device-template"></a>Skapa en mall för enhet
+## <a name="create-a-device-template"></a>Skapa en enhets mall
 
-I Azure IoT Central programmet behöver du en mall för enheten med de följande mått, enhetsegenskaper, inställningar och kommandon:
+I ditt Azure IoT Central-program behöver du en enhets mall med följande mått, enhets egenskaper, inställningar och kommandon:
 
-### <a name="telemetry-measurements"></a>Telemetri mätning av faktisk användning
+### <a name="telemetry-measurements"></a>Mått för telemetri
 
-Lägg till följande telemetri på den **mätningar** sidan:
+Lägg till följande telemetri på sidan **mått** :
 
-| Visningsnamn | Fältnamn  | Enheter | Min | Max | Antal decimaler |
+| Visningsnamn | Fältnamn  | Enheter | Min | Max | Decimaler |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
-| Temperatur  | temperatur | F     | 60  | 110 | 0              |
+| Temperatur  | temperatur | f     | 60  | 110 | 0              |
 | Fuktighet     | luftfuktighet    | %     | 0   | 100 | 0              |
-| Hög belastning     | tryck    | kPa   | 80  | 110 | 0              |
+| Tryck     | tryck    | 101,3   | 80  | 110 | 0              |
 
 > [!NOTE]
-> Datatypen för måttet telemetri är en flytande peka tal.
+> Data typen för måttet telemetri är ett flytt ALS nummer.
 
-Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande kod för enheten kan inte visas telemetri i programmet.
+Ange fält namn exakt som de visas i tabellen i enhets mal len. Om fält namnen inte matchar egenskaps namnen i motsvarande enhets kod, kan inte telemetri visas i programmet.
 
-### <a name="state-measurements"></a>Statliga mätning av faktisk användning
+### <a name="state-measurements"></a>Tillstånds mått
 
-Lägg till följande tillstånd på den **mätningar** sidan:
+Lägg till följande tillstånd på sidan **mått** :
 
-| Visningsnamn | Fältnamn  | Värdet 1 | Visningsnamn | Värdet 2 | Visningsnamn |
+| Visningsnamn | Fältnamn  | Värde 1 | Visningsnamn | Värde 2 | Visningsnamn |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Fläktläge     | fläktläge     | 1       | Körs      | 0       | Stoppad      |
 
 > [!NOTE]
-> Datatypen för måttet tillstånd är sträng.
+> Data typen för tillstånds måttet är sträng.
 
-Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande enhet koden kan tillståndet inte visas i programmet.
+Ange fält namn exakt som de visas i tabellen i enhets mal len. Om fält namnen inte matchar egenskaps namnen i motsvarande enhets kod, kan inte tillstånd visas i programmet.
 
-### <a name="event-measurements"></a>Händelsen mätning av faktisk användning
+### <a name="event-measurements"></a>Händelse mätningar
 
-Lägg till följande händelse på den **mätningar** sidan:
+Lägg till följande händelse på sidan **mått** :
 
-| Visningsnamn | Fältnamn  | Allvarsgrad |
+| Visningsnamn | Fältnamn  | severity |
 | ------------ | ----------- | -------- |
-| Överhettning  | överhettas    | Fel    |
+| Överhettning  | overheat    | Fel    |
 
 > [!NOTE]
-> Datatypen för måttet händelse är sträng.
+> Data typen för händelse mätningen är sträng.
 
-### <a name="location-measurements"></a>Plats mätning av faktisk användning
+### <a name="location-measurements"></a>Plats mått
 
-Lägg till följande plats måttet på de **mätningar** sidan:
+Lägg till följande plats mått på sidan **mått** :
 
 | Visningsnamn | Fältnamn  |
 | ------------ | ----------- |
 | Location     | location    |
 
-Plats-mätning datatyp består av två flytande punkt siffror för longitud och latitud och en valfri Flyttalsnummer för höjd.
+Data typen plats mätning består av två flytt ALS nummer för longitud och latitud, och ett valfritt flytt ALS nummer för höjd.
 
-Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande kod för enheten, kan platsen inte visas i programmet.
+Ange fält namn exakt som de visas i tabellen i enhets mal len. Om fält namnen inte matchar egenskaps namnen i motsvarande enhets kod, kan platsen inte visas i programmet.
 
 ### <a name="device-properties"></a>Enhetsegenskaper
 
-Lägg till följande enhetsegenskaper på den **egenskaper** sidan:
+Lägg till följande enhets egenskaper på sidan **Egenskaper** :
 
 | Visningsnamn        | Fältnamn        | Datatyp |
 | ------------------- | ----------------- | --------- |
 | Serienummer       | serieNummer      | text      |
-| Enhetstillverkare | tillverkare      | text      |
+| Enhets tillverkare | tillverkare      | text      |
 
-Ange namnen på exakt som de visas i tabellen i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande enhet koden kan egenskaperna inte visas i programmet.
+Ange fält namnen exakt som de visas i tabellen i enhets mal len. Om fält namnen inte matchar egenskaps namnen i motsvarande enhets kod, kan inte egenskaperna visas i programmet.
 
 ### <a name="settings"></a>Inställningar
 
-Lägg till följande **nummer** inställningarna på den **inställningar** sidan:
+Lägg till följande **nummer** inställningar på sidan **Inställningar** :
 
-| Visningsnamn    | Fältnamn     | Enheter | Decimals | Min | Max  | Inledande |
+| Visningsnamn    | Fältnamn     | Enheter | Decimaler | Min | Max  | Inledande |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
-| Fläkthastighet       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
-| Ange temperatur | angeTemperatur | F     | 0        | 20  | 200  | 80      |
+| Fläkt hastighet       | fanSpeed       | varvtal   | 0        | 0   | 3000 | 0       |
+| Ange temperatur | angeTemperatur | f     | 0        | 20  | 200  | 80      |
 
-Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande enhet koden inte enheten ta emot inställningens värde.
+Ange fält namnet exakt som det visas i tabellen i enhets mal len. Om fält namnen inte matchar egenskaps namnen i motsvarande enhets kod kan enheten inte ta emot inställning svärdet.
 
 ### <a name="commands"></a>Kommandon
 
-Lägg till följande kommando på den **kommandon** sidan:
+Lägg till följande kommando på sidan **kommandon** :
 
 | Visningsnamn    | Fältnamn     | Standardvärde för tidsgräns | Datatyp |
 | --------------- | -------------- | --------------- | --------- |
-| Nedräkning       | Nedräkning      | 30              | nummer    |
+| Tids       | tids      | 30              | nummer    |
 
-Lägg till följande indatafältet nedräkning-kommando:
+Lägg till följande ingångs fält i nedräknings kommandot:
 
-| Visningsnamn    | Fältnamn     | Datatyp | Värde |
+| Visningsnamn    | Fältnamn     | Datatyp | Value |
 | --------------- | -------------- | --------- | ----- |
 | Räkna från      | countFrom      | nummer    | 10    |
 
-Ange fältnamn exakt som de visas i tabellerna i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande enhet koden kan inte enheten bearbeta kommandot.
+Ange fält namn exakt som de visas i tabellerna i enhets mal len. Om fält namnen inte matchar egenskaps namnen i motsvarande enhets kod, kan enheten inte behandla kommandot.
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-Lägg till en riktig enhet för enhet-mallen som du skapade i föregående avsnitt i programmet Azure IoT Central.
+I ditt Azure IoT Central-program lägger du till en riktig enhet i enhets mal len som du skapade i föregående avsnitt.
 
-Följ sedan instruktionerna i guiden ”Lägg till en enhet” för att [Generera en anslutningssträng för den faktiska enheten](tutorial-add-device.md#generate-connection-string). Du kan använda den här anslutningssträngen i följande avsnitt:
+Följ sedan anvisningarna i självstudien Lägg till en enhet för att [skapa en anslutnings sträng för den riktiga enheten](tutorial-add-device.md#generate-connection-string). Du använder den här anslutnings strängen i följande avsnitt:
 
 ### <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 
-Följande steg visar hur du skapar ett klientprogram som implementerar en riktig enhet som du lade till programmet. Node.js-program representerar här riktig enhet. 
+Följande steg visar hur du skapar ett klient program som implementerar den riktiga enheten som du har lagt till i programmet. Här är det Node. js-programmet som representerar den riktiga enheten. 
 
-1. Skapa en mapp med namnet `connected-air-conditioner-adv` på datorn. Navigera till mappen i kommandoradsverktyget-miljön.
+1. Skapa en mapp med namnet `connected-air-conditioner-adv` på datorn. Navigera till mappen i din kommando rads miljö.
 
-1. För att initiera Node.js-projekt, kör du följande kommandon:
+1. Starta Node. js-projektet genom att köra följande kommandon:
 
     ```cmd/sh
     npm init
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. Skapa en fil med namnet **connectedAirConditionerAdv.js** i den `connected-air-conditioner-adv` mapp.
+1. Skapa en fil med namnet **connectedAirConditionerAdv. js** i `connected-air-conditioner-adv` mappen.
 
-1. Lägg till följande `require` instruktioner i början av den **connectedAirConditionerAdv.js** fil:
+1. Lägg till följande `require` -instruktioner i början av filen **connectedAirConditionerAdv. js** :
 
     ```javascript
     "use strict";
@@ -161,9 +163,9 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     var client = clientFromConnectionString(connectionString);
     ```
 
-    Uppdatera platshållaren `{your device connection string}` med den [enhetsanslutningssträngen](tutorial-add-device.md#generate-connection-string). I det här exemplet du initiera `targetTemperature` till noll och, du kan använda den aktuella läsningen från enheten eller ett värde från enhetstvillingen.
+    Uppdatera plats hållaren `{your device connection string}` med [enhets anslutnings strängen](tutorial-add-device.md#generate-connection-string). I det här exemplet initierar `targetTemperature` du till noll, du kan använda den aktuella läsningen från enheten eller ett värde från enheten.
 
-1. Om du vill skicka telemetri, tillstånd, händelse och mått för plats till Azure IoT Central programmet, lägger du till följande funktion i filen:
+1. Om du vill skicka mått för telemetri, tillstånd, händelser och platser till ditt Azure IoT Central-program lägger du till följande funktion i filen:
 
     ```javascript
     // Send device measurements.
@@ -191,7 +193,7 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     }
     ```
 
-1. Om du vill skicka enhetsegenskaper till programmet Azure IoT Central, lägger du till följande funktion i filen:
+1. Om du vill skicka enhets egenskaper till ditt Azure IoT Central-program lägger du till följande funktion i filen:
 
     ```javascript
     // Send device reported properties.
@@ -201,7 +203,7 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     }
     ```
 
-1. Lägg till följande definition för att definiera de inställningar som enheten svarar på:
+1. Lägg till följande definition för att definiera inställningarna som enheten svarar på:
 
     ```javascript
     // Add any settings your device supports,
@@ -227,7 +229,7 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     };
     ```
 
-1. Lägg till följande i filen för att hantera uppdaterade inställningarna från din Azure IoT Central-program:
+1. Lägg till följande i filen om du vill hantera uppdaterade inställningar från ditt Azure IoT Central-program:
 
     ```javascript
     // Handle settings changes that come from Azure IoT Central via the device twin.
@@ -254,7 +256,7 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     }
     ```
 
-1. Lägg till följande kod för att hantera en nedräkning för kommandot som skickades från programmet IoT Central:
+1. Lägg till följande kod för att hantera ett nedräknings kommando som skickas från IoT Central-programmet:
 
     ```javascript
     // Handle countdown command
@@ -327,36 +329,36 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     client.open(connectCallback);
     ```
 
-## <a name="run-your-nodejs-application"></a>Kör Node.js-programmet
+## <a name="run-your-nodejs-application"></a>Köra Node. js-programmet
 
-Kör följande kommando i miljön kommandoraden:
+Kör följande kommando i kommando rads miljön:
 
 ```cmd/sh
 node connectedAirConditionerAdv.js
 ```
 
-Som operatör i Azure IoT Central programmet för verkliga enheten kan du:
+Som operatör i ditt Azure IoT Central-program för din riktiga enhet kan du:
 
-* Visa telemetri på den **mätningar** sidan:
+* Visa telemetri på sidan **mått** :
 
     ![Visa telemetrin](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Visa på den **mätningar** sidan:
+* Visa platsen på sidan **mått** :
 
-    ![Visa plats mätning av faktisk användning](media/howto-connect-nodejs/viewlocation.png)
+    ![Visa plats mått](media/howto-connect-nodejs/viewlocation.png)
 
-* Visa enhet egenskapsvärden som skickas från din enhet den **egenskaper** sidan. Egenskapen paneler uppdaterats när enheten ansluter:
+* Visa de enhets egenskaps värden som skickas från enheten på sidan **Egenskaper** . Enhetens egenskaps paneler uppdateras när enheten ansluter:
 
-    ![Visa egenskaper för enhet](media/howto-connect-nodejs/viewproperties.png)
+    ![Visa enhets egenskaper](media/howto-connect-nodejs/viewproperties.png)
 
-* Ange fläkt hastighet och mål temperaturen från den **inställningar** sidan:
+* Ange Fläktens hastighet och mål temperatur på sidan **Inställningar** :
 
-    ![Hastighet för set-fläkt](media/howto-connect-nodejs/setfanspeed.png)
+    ![Ange fläkt hastighet](media/howto-connect-nodejs/setfanspeed.png)
 
-* Anropa kommandot nedräkning från den **kommandon** sidan:
+* Anropa kommandot nedräkning från kommando sidan:
 
-    ![Anropskommando för nedräkning](media/howto-connect-nodejs/callcountdown.png)
+    ![Kommandot anropa nedräkning](media/howto-connect-nodejs/callcountdown.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en allmän Node.js-klient till Azure IoT Central programmet föreslagna nästa steg är att lära dig hur du [konfigurera en anpassad enhet mall](howto-set-up-template.md) för dina egna IoT-enheter.
+Nu när du har lärt dig hur du ansluter en allmän Node. js-klient till ditt Azure IoT Central-program, är det föreslagna nästa steg att lära dig hur du [konfigurerar en anpassad enhets mall](howto-set-up-template.md) för din egen IoT-enhet.

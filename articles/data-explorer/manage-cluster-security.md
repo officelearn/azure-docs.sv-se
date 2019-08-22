@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/22/2019
-ms.openlocfilehash: 86350f21f5c530a00560c92cc0ae2fd58c9a2c57
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/20/2019
+ms.openlocfilehash: ad08bb19f96aadad42e973eebb8adce6875e07b1
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780043"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876598"
 ---
 # <a name="secure-your-cluster-in-azure-data-explorer"></a>Skydda ditt kluster i Azure Datautforskaren
 
@@ -29,6 +29,9 @@ Att aktivera [kryptering i vila](/azure/security/fundamentals/encryption-atrest)
 1. I fönstret **säkerhet** väljer du för säkerhets inställningen **disk kryptering** . 
 
 1. Välj **Spara**.
+ 
+> [!NOTE]
+> Krypteringen kan inaktive ras när den har Aktiver ATS.
 
 ## <a name="next-steps"></a>Nästa steg
 

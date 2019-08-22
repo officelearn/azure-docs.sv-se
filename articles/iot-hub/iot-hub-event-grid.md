@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0f8942d92958ee8add9645239cc5664a4a96bb33
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f411771fbf39a99642506253fc025d6b29840423
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533366"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648644"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder
 
@@ -72,7 +72,7 @@ I följande exempel visas schemat för en enhets ansluten händelse:
 
 ### <a name="device-telemetry-schema"></a>Schema för telemetri av enhet
 
-Telemetriprocessor för enheten måste vara i ett giltigt JSON-format med contentType inställt på JSON och contentEncoding inställd på UTF-8 i meddelande [systemets egenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Om detta inte anges kommer IoT Hub att skriva meddelanden i bas 64-kodat format.
+Telemetriprocessor för enheten måste vara i ett giltigt JSON-format med contentType inställd på **Application/JSON** och contentEncoding inställd på **UTF-8** i meddelande [systemets egenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Båda dessa egenskaper är Skift läges känsliga. Om innehålls kodningen inte har angetts skrivs meddelandena i bas 64-kodat format IoT Hub.
 
 Du kan utöka händelser för telemetri innan de publiceras till Event Grid genom att välja slut punkten som Event Grid. Mer information finns i [Översikt över meddelande översikt](iot-hub-message-enrichments-overview.md).
 
@@ -174,9 +174,9 @@ Syftet med IoT-händelser använder formatet:
 devices/{deviceId}
 ```
 
-Event Grid kan också filtrera efter attribut för varje händelse, inklusive data innehållet. På så sätt kan du välja vilka händelser som levereras baserat innehåll i telemetri-meddelandet. Se [avancerad filtrering](../event-grid/event-filtering.md#advanced-filtering) för att visa exempel. För filtrering i meddelande texten för telemetri måste du ange contentType till JSON och contentEncoding till UTF-8 i meddelande [systemets egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
+Event Grid kan också filtrera efter attribut för varje händelse, inklusive data innehållet. På så sätt kan du välja vilka händelser som levereras baserat innehåll i telemetri-meddelandet. Se [avancerad filtrering](../event-grid/event-filtering.md#advanced-filtering) för att visa exempel. För filtrering i meddelande texten för telemetri måste du ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties). Båda dessa egenskaper är Skift läges känsliga.
 
-För icke-telemetri-händelser som DeviceConnected, DeviceDisconnected, DeviceCreated och DeviceDeleted, kan Event Grid filtrering användas när du skapar prenumerationen. För telemetri-händelser kan användare förutom filtreringen i Event Grid även filtrera på enhets-och meddelande egenskaper och brödtext via meddelande cirkulations frågan. Vi skapar en standard [väg](iot-hub-devguide-messages-d2c.md) i IoT Hub baserat på din event Grid-prenumeration på telemetri för enheter. Den här enskilda vägen kan hantera alla Event Grid prenumerationer. Om du vill filtrera meddelanden innan telemetridata skickas kan du uppdatera din [cirkulations fråga](iot-hub-devguide-routing-query-syntax.md). Observera att cirkulations frågan bara kan användas i meddelande texten om texten är JSON. Du måste också ange contentType till JSON och contentEncoding till UTF-8 i meddelande systemets [Egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
+För icke-telemetri-händelser som DeviceConnected, DeviceDisconnected, DeviceCreated och DeviceDeleted, kan Event Grid filtrering användas när du skapar prenumerationen. För telemetri-händelser kan användare förutom filtreringen i Event Grid även filtrera på enhets-och meddelande egenskaper och brödtext via meddelande cirkulations frågan. Vi skapar en standard [väg](iot-hub-devguide-messages-d2c.md) i IoT Hub baserat på din event Grid-prenumeration på telemetri för enheter. Den här enskilda vägen kan hantera alla Event Grid prenumerationer. Om du vill filtrera meddelanden innan telemetridata skickas kan du uppdatera din [cirkulations fråga](iot-hub-devguide-routing-query-syntax.md). Observera att cirkulations frågan bara kan användas i meddelande texten om texten är JSON. Du måste också ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande systemets [Egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Begränsningar för enhet ansluten och avkopplade enhets händelser
 

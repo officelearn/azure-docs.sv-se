@@ -4,20 +4,20 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 4ab12a4ccb3aa4acecabd076c774558f904297a1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 21589b2a490a712ff65e09bd18802ca2bda86c9a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187915"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69657876"
 ---
-Den här artikeln är för Azure App Service (Webbappar, API Apps, Mobile Apps, Logic Apps); Cloud Services, se [konfigurera ett anpassat domännamn för en Azure cloud Services](../articles/cloud-services/cloud-services-custom-domain-name.md).
+Den här artikeln gäller Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps). Mer Cloud Services finns i [Konfigurera ett anpassat domän namn för en Azure-moln tjänst](../articles/cloud-services/cloud-services-custom-domain-name.md).
 
 > [!NOTE]
-> Om din app är belastningsutjämnad med [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), klickar du på väljaren överst i den här artikeln för att hämta specifika steg.
+> Om din app är belastningsutjämnad av [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)klickar du på väljaren överst i den här artikeln för att få detaljerade steg.
 > 
-> **Anpassad domän namn inte är aktiverat gratis nivå**. Du måste [skala upp till en högre prisnivå](../articles/app-service/web-sites-scale.md), som kan ändra hur mycket debiteras du för din prenumeration. 
-> Se [priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/) för mer information.
+> **Anpassade domän namn har inte Aktiver ATS för den kostnads fria nivån**. Du måste [skala upp till en högre pris nivå](../articles/app-service/manage-scale-up.md), vilket kan ändra hur mycket du debiteras för prenumerationen. 
+> Mer information finns i [App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/) .
 > 
 > 
 

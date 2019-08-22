@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 25275aeb6637d50379b7c71e87be9ecffce269db
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ea3779ce7d4d77e6b0a55b8a00374b701a073b66
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614683"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876440"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Bygg en .NET-konsol-app för att hantera data i Azure Cosmos DB SQL API-konto
 
@@ -323,7 +323,7 @@ Kör appen genom att välja **F5**.
 Grattis! Du har skapat två Azure Cosmos-objekt.  
 
 ## <a id="Query"></a>Steg 7: Köra frågor mot Azure Cosmos DB-resurser
-Azure Cosmos DB stöder [komplexa frågor](sql-api-sql-query.md) mot JSON-dokument som lagras i varje samling. I följande exempelkod visas hur du kör en fråga mot de objekt som vi infogade i det föregående steget.
+Azure Cosmos DB stöder omfattande [frågor](sql-api-sql-query.md) mot JSON-dokument som lagras i varje behållare. I följande exempelkod visas hur du kör en fråga mot de objekt som vi infogade i det föregående steget.
 
 1. Kopiera och klistra in **QueryItemsAsync** -metoden under din **AddItemsToContainerAsync** -metod.
 

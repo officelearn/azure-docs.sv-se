@@ -9,14 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d6ad7631ae32f8bd04812093a0fef4fa3d575864
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d716eb761ab406b65f10898b29775327a801ac45
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067399"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875464"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Självstudier: Använda Azure IoT Central för att övervaka dina enheter
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 I den här självstudien lär du dig att som operatör använda Microsoft Azure IoT Central-programmet för att övervaka enheter och ändra inställningar.
 
@@ -27,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Undersöka ett problem
 > * Lösa ett problem
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör byggaren skapa Azure IoT Central-programmet genom att slutföra de tre självstudierna för byggare:
 
@@ -55,7 +57,7 @@ Välj **Instrumentpanelen** om du vill se information om enheten.
 
 ![Instrumentpanel för enhet](media/tutorial-monitor-devices/initial_screen.png)
 
-Diagrammet på instrumentpanelen visar en kurva över enhetens temperatur. Du kan också se den aktuella temperaturen mål för enheten i den **enhetsegenskaper** panelen. Du anser att måltemperaturen är för hög.
+Diagrammet på instrumentpanelen visar en kurva över enhetens temperatur. Du kan också se aktuell mål temperatur för enheten i **enhetens egenskaps** panel. Du anser att måltemperaturen är för hög.
 
 ## <a name="remediate-an-issue"></a>Lösa ett problem
 

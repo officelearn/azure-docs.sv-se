@@ -1,60 +1,60 @@
 ---
-title: Facet-filter för söknavigering i appar – Azure Search
-description: Filtrera efter användaridentitet för säkerhet, geografiska plats eller numeriska värden att minska sökresultat på frågor i Azure Search, en värdbaserad molnsöktjänst på Microsoft Azure.
+title: Aspekt filter för Sök navigering i appar – Azure Search
+description: Filtrera villkor efter användarens säkerhets identitet, Geo-Location eller numeriska värden för att minska Sök resultaten för frågor i Azure Search, en värdbaserad Sök tjänst i molnet på Microsoft Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 88171487fd180931d4659390f0db3c8619fb2d62
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: a2fe29cf1d7c183aa62e6b86a4b29479d1f34ff8
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653461"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649870"
 ---
-# <a name="how-to-build-a-facet-filter-in-azure-search"></a>Hur du skapar ett facet-filter i Azure Search 
+# <a name="how-to-build-a-facet-filter-in-azure-search"></a>Så här skapar du ett aspekt filter i Azure Search 
 
-Aspektbaserad navigering används för automatiskt dirigerad filtrering på frågeresultaten i en app, där ditt program erbjuder UI-kontroller för gemensam sökning till grupper av dokument (till exempel kategorier eller varumärken) och Azure Search innehåller datastruktur för säkerhetskopiering i upplevelse. I den här artikeln du snabbt gå igenom de grundläggande stegen för att skapa en aspektbaserad navigeringsstruktur som backar upp sökupplevelsen som du vill ge. 
+Fasettisk navigering används för självriktad filtrering på frågeresultat i en Sökapp där ditt program erbjuder GRÄNSSNITTs kontroller för omfångs sökning till grupper av dokument (till exempel kategorier eller varumärken) och Azure Search tillhandahåller data strukturen för att återställa praktik. I den här artikeln går vi igenom de grundläggande stegen för att skapa en fasett-navigerings struktur som du kan använda för att återställa den Sök upplevelse som du vill tillhandahålla. 
 
 > [!div class="checklist"]
 > * Välj fält för filtrering och fasettering
-> * Ange attribut i fältet
-> * Skapa index och läsa in data
-> * Lägg till facet-filter till en fråga
+> * Ange attribut för fältet
+> * Bygga index och läsa in data
+> * Lägga till fasett-filter till en fråga
 > * Hantera resultat
 
-Fasetter är dynamiska och returnerade på en fråga. Sök efter svar ta med sig aspektkategorier som används för att gå till resultaten. Om du inte är bekant med fasetterna är i följande exempel en illustration av en struktur för aspektbaserad navigering.
+Facets är dynamiska och returneras i en fråga. Sök svaren tar med dem de aspekt kategorier som används för att navigera i resultaten. Om du inte är bekant med FACET, är följande exempel en illustration av en aspekt navigerings struktur.
 
   ![](./media/search-filters-facets/facet-nav.png)
 
-Nya för aspektbaserad navigering och vill ha mer information? Se [implementera aspektbaserad navigering i Azure Search](search-faceted-navigation.md).
+Är du nybörjare på att navigera och vill ha mer information? Se [hur du implementerar en aspektad navigering i Azure Search](search-faceted-navigation.md).
 
 ## <a name="choose-fields"></a>Välj fält
 
-Fasetter kan beräknas över enskilt värdefält samt samlingar. Fält som fungerar bäst i aspektbaserad navigering har låg kardinalitet: ett litet antal distinkta värden som upprepas under hela dokument i din sökkorpus (till exempel en lista över färger, länder/regioner eller varumärken). 
+FACET kan beräknas över enskilda värde fält och samlingar. Fält som fungerar bäst i fasetter-navigeringen har låg kardinalitet: ett litet antal distinkta värden som upprepas i alla dokument i Sök sökkorpus (till exempel en lista över färger, länder/regioner eller märkes namn). 
 
-Fasettering är aktiverat på basis av fält i taget när du skapar indexet genom att ange den `facetable` attributet `true`. Bör Allmänt också ange den `filterable` attributet `true` för, till exempel fält så att ditt sökprogram kan filtrera på dessa fält baserat på fasetterna som användaren väljer. 
+Fasettering aktive ras baserat på fält när du skapar indexet genom att ange `facetable` attributet till. `true` Du bör vanligt vis också ställa `filterable` in attributet `true` på för sådana fält så att ditt sökprogram kan filtrera efter de fälten baserat på FACET som slutanvändaren väljer. 
 
-När du skapar ett index med hjälp av REST API, valfri [fälttyp](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) som eventuellt skulle kunna användas i aspektbaserad navigering är markerad som `facetable` som standard:
+När du skapar ett index med hjälp av REST API, markeras alla [fält typer](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) som kan användas i fasetten navigering som `facetable` standard:
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
 + `Edm.Boolean`
-+ Numeriskt fälttyper: `Edm.Int32`, `Edm.Int64`, `Edm.Double`
-+ Samlingar av ovanstående typer (till exempel `Collection(Edm.String)` eller `Collection(Edm.Double)`)
++ Numeriska fält typer: `Edm.Int32`, `Edm.Int64`,`Edm.Double`
++ Samlingar av ovanstående typer (till exempel `Collection(Edm.String)` eller) `Collection(Edm.Double)`
 
-Du kan inte använda `Edm.GeographyPoint` eller `Collection(Edm.GeographyPoint)` fält i aspektbaserad navigering. Fasetter fungerar bäst på fält med låg kardinalitet. Det är ovanligt att alla två uppsättningar koordinater är lika med i den angivna datauppsättningen på grund av av lösningen på geo-koordinater. Fasetter har därför inte stöd för geo-koordinater. Du behöver ett fält för ort eller region i aspekten efter plats.
+Du kan inte `Edm.GeographyPoint` använda `Collection(Edm.GeographyPoint)` eller fält i en fasett-navigering. FACET fungerar bäst på fält med låg kardinalitet. På grund av upplösningen av geo-koordinater är det sällsynt att två uppsättningar av co-koordinater kommer att vara identiska i en specifik data uppsättning. Därför stöds inte FACET för geo-koordinater. Du behöver ett stads-eller region fält för att fasetta efter plats.
 
 ## <a name="set-attributes"></a>Ange attribut
 
-Indexattribut som styr hur ett fält används läggs till enskilda fältdefinitioner i indexet. I följande exempel fält med låg kardinalitet, användbara för aspekter, som består av: `category` (hotell, motel, hostel), `tags`, och `rating`. Dessa fält har den `filterable` och `facetable` attribut set uttryckligen i följande exempel som illustration. 
+Indexera attribut som styr hur ett fält används läggs till i definitioner för enskilda fält i indexet. I följande exempel kan fält med låg kardinalitet, vara användbara för fasettering, bestå av: `category` (hotell, Motel, Hostel), `tags`och `rating`. Dessa fält har `filterable` attributen `facetable` och anges uttryckligen i följande exempel för att illustrera vad som är avsett. 
 
 > [!Tip]
-> Som bästa praxis för prestanda och lagringsoptimering, inaktivera fasettering för fält som ska aldrig användas som ett fasettvärde. I synnerhet strängfält för unika värden, till exempel ett ID eller produkt-namn ska vara inställd på `"facetable": false` att förhindra användningen oavsiktlig (och ineffektiv) i aspektbaserad navigering.
+> Som bästa praxis för prestanda-och lagrings optimering kan du inaktivera fasettering för fält som aldrig ska användas som aspekt. I synnerhet bör sträng fält för unika värden, t. ex. ett ID eller ett produkt namn, ställas in på `"facetable": false` för att förhindra att deras oavsiktliga (och ineffektiva) användning används i en fasett-navigering.
 
 
 ```json
@@ -78,15 +78,15 @@ Indexattribut som styr hur ett fält används läggs till enskilda fältdefiniti
 ```
 
 > [!Note]
-> Den här indexdefinitionen kopieras från [skapa ett Azure Search-index med REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Det är identiska förutom ytlig skillnader i fältdefinitioner. Den `filterable` och `facetable` attribut läggs till explicit på `category`, `tags`, `parkingIncluded`, `smokingAllowed`, och `rating` fält. I praktiken `filterable` och `facetable` aktiveras som standard på dessa fält när du använder REST-API. När du använder .NET SDK, måste dessa attribut aktiveras explicit.
+> Den här index definitionen kopieras från [skapa ett Azure Search-index med hjälp av REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Det är identiskt med undantag för ytliga skillnader i fält definitionerna. `facetable` `category` `tags` Attributen`smokingAllowed`och läggs uttryckligen till i `rating` fälten,,, och. `parkingIncluded` `filterable` I praktiken `filterable` och `facetable` aktive ras som standard i de här fälten när du använder REST API. När du använder .NET SDK måste dessa attribut aktive ras explicit.
 
-## <a name="build-and-load-an-index"></a>Skapa och läsa in ett index
+## <a name="build-and-load-an-index"></a>Bygga och läsa in ett index
 
-Ett mellanliggande (och kanske uppenbara) steg är att du behöver [skapa och Fyll i indexet](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) innan utformningen av en fråga. Vi nämna det här steget för fullständighetens skull. Ett sätt att avgöra om indexet är tillgänglig är genom att kontrollera listan den [portal](https://portal.azure.com).
+Ett mellanliggande (och eventuellt uppenbart) steg är att du måste [bygga och fylla i indexet](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) innan du skapar en fråga. Vi nämner detta steg för att slutföra. Ett sätt att avgöra om indexet är tillgängligt är genom att kontrol lera listan index i [portalen](https://portal.azure.com).
 
-## <a name="add-facet-filters-to-a-query"></a>Lägg till facet-filter till en fråga
+## <a name="add-facet-filters-to-a-query"></a>Lägga till fasett-filter till en fråga
 
-I programkoden, skapar du en fråga som anger alla delar av en giltig fråga, inklusive sökuttryck, fasetter, filter, bedömning profiler – allt används för att formulera en begäran. I följande exempel skapas en begäran som skapar aspekten navigering beroende på vilken typ av logi, klassificering och andra bekvämligheterna.
+I program kod skapar du en fråga som anger alla delar av en giltig fråga, inklusive Sök uttryck, ansikts, filter, bedömnings profiler – allt som används för att formulera en begäran. I följande exempel skapas en begäran som skapar aspekt navigering baserat på typen av logi, klassificering och andra bekvämligheterna.
 
 ```csharp
 var sp = new SearchParameters()
@@ -97,33 +97,33 @@ var sp = new SearchParameters()
 };
 ```
 
-### <a name="return-filtered-results-on-click-events"></a>Returnera filtrerade resultat på klickar du på händelser
+### <a name="return-filtered-results-on-click-events"></a>Returnera filtrerade resultat vid klicknings händelser
 
-När användaren klickar på ett fasettvärde, bör hanteraren för click-händelse använda ett filteruttryck för att upptäcka användarens avsikt. Får en `category` aspekten, klicka på kategorin ”motel” implementeras med en `$filter` som väljer boende av den typen. När en användare klickar på ”motel” för att indikera att endast motell ska visas i nästa fråga som programmet skickar innehåller `$filter=category eq 'motel'`.
+När slutanvändaren klickar på ett fasett-värde, ska hanteraren för händelsen Klickning använda ett filter uttryck för att använda ett filter uttryck för att realisera användarens avsikt. Om du `category` har fått en aspekt klickar du på kategorin "Motel" implementeras med ett uttryck som väljer en `$filter` typ av anpassningar. När en användare klickar på "Motel" för att ange att endast Motels ska visas, innehåller `$filter=category eq 'motel'`nästa fråga som programmet skickar.
 
-Följande kodavsnitt lägger till kategorin filtret om användaren väljer ett värde från kategori-aspekten.
+Följande kodfragment lägger till kategori till filtret om en användare väljer ett värde från kategori aspekten.
 
 ```csharp
 if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-Om användaren klickar på ett fasettvärde för en samling fält som `tags`, till exempel värdet ”pool” ditt program bör använda följande filter syntax: `$filter=tags/any(t: t eq 'pool')`
+Om användaren klickar på ett fasett-värde för ett samlings fält `tags`, till exempel värdet "pool", ska programmet använda följande syntax:`$filter=tags/any(t: t eq 'pool')`
 
-## <a name="tips-and-workarounds"></a>Tips och tillfälliga lösningar
+## <a name="tips-and-workarounds"></a>Tips och lösningar
 
-### <a name="initialize-a-page-with-facets-in-place"></a>Initiera en sida med fasetter på plats
+### <a name="initialize-a-page-with-facets-in-place"></a>Initiera en sida med ansikte på plats
 
-Om du vill initiera en sida med fasetter på plats kan du skicka en fråga som en del av initieringen av sidan att seeda sida med en inledande aspekten struktur.
+Om du vill initiera en sida med ansikte på plats kan du skicka en fråga som en del av sid initieringen för att dirigera sidan med en inledande aspekt struktur.
 
-### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Bevara en struktur för aspektbaserad navigering asynkront av filtrerade resultat
+### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Bevara en aspekt navigerings struktur asynkront av filtrerade resultat
 
-En av utmaningarna med aspekten navigering i Azure Search är att det finns fasetterna för aktuella resultaten. I praktiken är det vanligt att behålla en statisk uppsättning fasetter så att användaren kan navigera bakåt följa tillbaka steg för att utforska alternativa vägar via Sök efter innehåll. 
+En av utmaningarna med aspekt navigering i Azure Search är att Facet bara finns för aktuella resultat. I praktiken är det vanligt att behålla en statisk uppsättning Faces, så att användaren kan navigera i omvänd ordning, spåra steg för att utforska alternativa sökvägar med hjälp av Sök innehåll. 
 
-Även om det här är ett vanligt användningsfall, är det inte något struktur för aspektbaserad navigering innehåller för närvarande out-of the box. Utvecklare som vill statiska fasetter vanligtvis runt begränsningen genom att utfärda två filtrerade frågor: en begränsad till resultatet, den andra används för att skapa en statisk lista över fasetterna för navigering.
+Även om detta är ett vanligt användnings fall är det inte något som finns i aspekt navigerings strukturen för närvarande. Utvecklare som vill ha statiska FACET kan vanligt vis kringgå begränsningen genom att skicka två filtrerade frågor: en omfattning av resultaten, den andra som används för att skapa en statisk lista över fasetter för navigerings syfte.
 
 ## <a name="see-also"></a>Se också
 
 + [Filter i Azure Search](search-filters.md)
-+ [Skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [Söka efter dokument REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Skapa index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)

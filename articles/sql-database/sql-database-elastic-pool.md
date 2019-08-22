@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 305a35d1d40d94d1ce8e463b4af51eb84278bc3f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 0b0a6bec7916c056c187ed9e588dd3ac8fea8d84
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510255"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876410"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastiska pooler hjälper dig att hantera och skala flera Azure SQL-databaser
 
@@ -155,8 +155,14 @@ Pooldatabaser stöder generellt sett samma [funktioner för affärskontinuitet](
 
 Det finns två sätt att skapa en elastisk pool i Azure Portal.
 
-1. Du kan skapa en elastisk pool genom att söka i den **elastiska SQL-poolen** i **Marketplace** eller klicka på **+ Lägg till** på bladet för elastiska SQL-pooler. Du kan ange en ny eller befintlig server genom detta arbets flöde för etablering av pooler.
-2. Du kan också skapa en elastisk pool genom att gå till en befintlig SQL Server och klicka på **Skapa pool** för att skapa en pool direkt till den servern. Den enda skillnaden här är att du hoppar över steget där du anger servern under etablerings arbets flödet för poolen.
+1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om Azure SQL inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan.
+2. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information om elastiska pooler genom att välja **Visa information** på panelen **databaser** .
+3. På panelen **databaser** väljer du **elastisk pool** i list rutan **resurs typ** och väljer sedan **skapa**:
+
+   ![Skapa en elastisk pool](./media/sql-database-elastic-pool/create-elastic-pool.png)
+
+
+1. Du kan också skapa en elastisk pool genom att gå till en befintlig Azure SQL-Server och klicka på **+ ny pool** för att skapa en pool direkt till den servern.
 
 > [!NOTE]
 > Du kan skapa flera pooler på en server, men du kan inte lägga till databaser från olika servrar i samma pool.

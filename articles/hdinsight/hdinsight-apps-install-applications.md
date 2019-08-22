@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 38b37b45964dd724b18f22a478be0d85a7036ce7
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 9b96294362400891113812e308ff59bd0e438b90
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946956"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873354"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installera från tredje part Apache Hadoop-program på Azure HDInsight
 
@@ -37,7 +37,7 @@ I följande lista visas de publicerade programmen:
 |[Stjärn explosion Presto för Azure HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto är en snabb och skalbar distribuerad SQL-frågemotor. Byggt för uppdelning av lagring och beräkning, är Presto perfekt för att fråga efter data i Azure Data Lake Storage, Azure Blob Storage, SQL och NoSQL-databaser och andra datakällor. |
 |[StreamSets data insamlare för HDInsight-moln](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop, HBase, Spark, Kafka |StreamSets data Collector är en lätt, kraftfull motor som strömmar data i real tid. Använd data insamlaren för att dirigera och bearbeta data i dina data strömmar. Den levereras med en 30-dagars utvärderings licens. |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifacta.tr01) |Hadoop, Spark, HBase |Trifacta Wrangler Enterprise för HDInsight stöder data datatransformering i hela företaget för alla data skalor. Kostnaden för att köra Trifacta på Azure är en kombination av Trifacta prenumerations kostnader plus Azures infrastruktur kostnader för de virtuella datorerna. |
-|[Förenar data plattform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-catalog) |Hadoop, HBase, Storm, Spark |Den smidiga data plattformen är ett sömlöst integrerat utbud av självbetjänings data verktyg som är utformade för att ge affärs användaren möjlighet att ta itu med data utmaningar som ökar intäkterna, minska kostnaderna eller drifts komplexiteten. |
+|[Förenar data plattform](https://unifisoftware.com/platform/) |Hadoop, HBase, Storm, Spark |Den smidiga data plattformen är ett sömlöst integrerat utbud av självbetjänings data verktyg som är utformade för att ge affärs användaren möjlighet att ta itu med data utmaningar som ökar intäkterna, minska kostnaderna eller drifts komplexiteten. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Unravel data app för HDInsight Spark-kluster. |
 |[Vatten linje AI-driven Data Catalog](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waterline_data.waterline_data) |Spark |Vatten linje kataloger, ordnar och styr data med hjälp av AI för att automatiskt tagga data med affärs villkor. Vattenlinjens företag literate catalog är en kritisk, lyckades-komponent för självbetjäning analys, efterlevnad och styrning och IT-hantering initiativ. |
 
@@ -83,7 +83,7 @@ På portalen kan du visa en lista över de installerade HDInsight-programmen fö
     |Egenskap | Beskrivning |
     |---|---|
     |Appnamn |Program namn. |
-    |Status |Program status. |
+    |State |Program status. |
     |Webbsida |URL: en för det webb program som du har distribuerat till Edge-noden. Autentiseringsuppgifterna är samma som HTTP-autentiseringsuppgifterna som du har konfigurerat för klustret. |
     |SSH-slutpunkt |Du kan använda SSH för att ansluta till Edge-noden. SSH-autentiseringsuppgifterna är samma som SSH-autentiseringsuppgifterna som du har konfigurerat för klustret. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight). |
     |Beskrivning | Programbeskrivning. |

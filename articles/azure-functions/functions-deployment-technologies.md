@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 9f40ec658fc6725f381300d967c9d7cd61c3a218
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: a0c34fcc70d92f98a6d72e4cd2fc78d34d863d55
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624153"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650458"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
 
@@ -60,7 +60,7 @@ När du ändrar någon av utlösarna måste funktions infrastrukturen vara medve
 
 ### <a name="remote-build"></a>Fjärrversion
 
-Azure Functions kan utföra versioner automatiskt på den kod som den tar emot efter zip-distributioner. Dessa versioner fungerar annorlunda beroende på om din app körs på Windows eller Linux. Fjärran slutet utförs inte när en app tidigare har ställts in att köras i [Kör från paket](run-functions-from-deployment-package.md) läge. 
+Azure Functions kan utföra versioner automatiskt på den kod som den tar emot efter zip-distributioner. Dessa versioner fungerar annorlunda beroende på om din app körs på Windows eller Linux. Fjärran slutet utförs inte när en app tidigare har ställts in att köras i [Kör från paket](run-functions-from-deployment-package.md) läge. Om du vill lära dig hur du använder fjärran sluten version går du till [zip Deploy](#zip-deploy).
 
 > [!NOTE]
 > Om du har problem med fjärran sluten version kan det bero på att din app skapades innan funktionen gjordes tillgänglig (1 augusti 2019). Försök att skapa en ny function-app.
@@ -85,11 +85,11 @@ När appar har skapats via fjärr anslutning i Linux [körs de från distributio
 
 ##### <a name="consumption-preview-plan"></a>Förbruknings plan (för hands version)
 
-Linux Function-appar som körs i förbruknings planen har ingen SCM/kudu-plats, vilket begränsar distributions alternativen. Men Function-appar på Linux som körs i förbruknings planen stöder fjärran slutna versioner. Dessa fjärrversioner använder [Oryx](https://github.com/microsoft/Oryx).
+Linux Function-appar som körs i förbruknings planen har ingen SCM/kudu-plats, vilket begränsar distributions alternativen. Men Function-appar på Linux som körs i förbruknings planen stöder fjärran slutna versioner.
 
 ##### <a name="dedicated-and-premium-preview-plans"></a>Dedikerade och Premium (för hands version)-planer
 
-Function-appar som körs på Linux i [dedikerade (App Service) plan](functions-scale.md#app-service-plan) och [Premium-planen](functions-scale.md#premium-plan) har också en begränsad SCM/kudu-plats, som i sin tur drar nytta av [Oryx](https://github.com/microsoft/Oryx).
+Function-appar som körs på Linux i [dedikerade (App Service) plan](functions-scale.md#app-service-plan) och [Premium-planen](functions-scale.md#premium-plan) har också en begränsad SCM/kudu-plats.
 
 ## <a name="deployment-technology-details"></a>Information om distributions teknik
 
@@ -111,7 +111,7 @@ Använd zip Deploy för att skicka en. zip-fil som innehåller din Function-app 
 
 >__Så här använder du den:__ Distribuera med hjälp av ditt favorit klient verktyg: [Vs Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)eller [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Om du vill distribuera en. zip-fil manuellt till Function-appen följer du anvisningarna i [distribuera från en. zip-fil eller URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
-Använd följande [Core tools](functions-run-local.md) -kommando för att utföra en zip-distribution med en fjärran sluten version:
+Använd följande [Core tools](functions-run-local.md) -kommando för att utföra en zip-distribution med en [fjärran sluten version](#remote-build):
 
 ```bash
 func azure functionapp publish <app name> --build remote

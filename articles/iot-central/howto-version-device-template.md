@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 638be5e62c523c478f139f13185edeb24995ab3f
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: c718794528989fbc46b404617f16d3a91ade6011
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848990"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877311"
 ---
 # <a name="create-a-new-device-template-version"></a>Skapa en ny version av enhets mal len
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Med Azure IoT Central kan du snabbt utveckla IoT-program. Du kan snabbt iterera över dina mallar för enhets mal len genom att lägga till, redigera eller ta bort mätningar, inställningar eller egenskaper. Några av de här ändringarna kan vara påträngande för de enheter som är anslutna för tillfället. Azure IoT Central identifierar dessa ändringar och gör det möjligt att distribuera uppdateringarna till enheterna på ett säkert sätt.
 

@@ -1,6 +1,6 @@
 ---
-title: Ansluta en Windows IoT Core-enhet till Azure IoT Central programmet | Microsoft Docs
-description: Lär dig hur du ansluter en enhet för MXChip IoT DevKit till Azure IoT Central programmet som utvecklare enheten.
+title: Ansluta en Windows IoT Core-enhet till ditt Azure IoT Central-program | Microsoft Docs
+description: Som enhets utvecklare lär du dig att ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program.
 author: miriambrus
 ms.author: miriamb
 ms.date: 04/05/2019
@@ -8,90 +8,92 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dca0146cc16ea63e0621eff8f508f15e0046b63b
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510331"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877393"
 ---
-# <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
+# <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Ansluta en Windows IoT Core-enhet till ditt Azure IoT Central-program
 
-Den här artikeln beskrivs hur du som utvecklare enheten att ansluta en Windows IoT Core-enhet till din Microsoft Azure IoT Central program.
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+Den här artikeln beskriver hur, som enhets utvecklare, för att ansluta en Windows IoT Core-enhet till din Microsoft Azure IoT Central program.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-- Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
+- Ett Azure IoT Central-program som skapats från programmallen **exempel Devkits** . Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 
-- En enhet som kör operativsystemet Windows 10 IoT Core. Mer information finns i [ställer in din enhet för Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
+- En enhet som kör operativ systemet Windows 10 IoT Core. Mer information finns i [Konfigurera din Windows 10 IoT Core-enhet](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
-- En utvecklingsdator med [Node.js](https://nodejs.org/) version 8.0.0 eller senare installerat. Du kan köra `node --version` i kommandoraden för att kontrollera vilken version. Node.js är tillgängligt för många olika operativsystem.
+- En utvecklings dator med [Node. js](https://nodejs.org/) version 8.0.0 eller senare installerad. Du kan köra `node --version` på kommando raden för att kontrol lera din version. Node.js är tillgängligt för många olika operativsystem.
 
-## <a name="the-sample-devkits-application"></a>Exemplet Devkits programmet
+## <a name="the-sample-devkits-application"></a>Devkits-programmet för exempel
 
-Ett program som skapats från den **exempel Devkits** programmall innehåller en **Windows IoT Core** enheten mallen med följande egenskaper:
+Ett program som har skapats från **Devkits** program mal len innehåller en mall för **Windows IoT Core** -enheter med följande egenskaper:
 
-- Telemetri mätning av faktisk användning för enheten: **Fuktighet**, **temperatur**, och **tryck**.
-- Inställningen för att styra **fläkthastighet**.
-- En enhetsegenskap **dör nummer** och en cloud-egenskap **plats**.
+- Mått för telemetri för enheten: **Fuktighet**, **temperatur**och **tryck**.
+- Inställning för att kontrol lera **fläkt hastigheten**.
+- Ett tärnings **nummer** för enhets egenskapen och en **plats**för moln egenskaper.
 
-Fullständig information om konfigurationen av enheten mallen finns i [Windows IoT Core-enhet mallinformationen](#device-template-details).
+Fullständig information om konfigurationen av enhets mal len finns i [information om Windows IoT Core-enhetens mall](#device-template-details).
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-I programmets Azure IoT Central använder den **Device Explorer** sidan för att lägga till en riktig enhet från den **Windows 10 IoT Core** enheten mall. Anteckna enheten anslutningsinformation (**Scopeid**, **enhets-ID**, och **primärnyckel**). Mer information finns i [anslutningsinformation](howto-generate-connection-string.md#get-connection-information).
+I ditt Azure IoT Central-program använder du sidan **Device Explorer** för att lägga till en riktig enhet från mallen **Windows 10 IoT Core** Device. Anteckna enhetens anslutnings information (**scope-ID**, enhets **-ID**och **primär nyckel**). Mer information finns i [Hämta anslutnings information](howto-generate-connection-string.md#get-connection-information).
 
 ## <a name="prepare-the-device"></a>Förbered enheten
 
-För att enheten ansluter till IoT Central, krävs en anslutningssträng.
+För att enheten ska kunna ansluta till IoT Central måste den ha en anslutnings sträng.
 
 [!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-Koden för enheten att åtkomst till anslutningssträngen, spara den i en fil med namnet **connection.string.iothub** i mappen `C:\Data\Users\DefaultAccount\Documents\` på din Windows 10 IoT Core-enhet.
+För enhets koden för att få åtkomst till anslutnings strängen sparar du den i en fil med namnet **Connection. String. iothub** i mappen `C:\Data\Users\DefaultAccount\Documents\` på din Windows 10 IoT Core-enhet.
 
-Kopiera den **connection.string.iothub** fil från din stationära dator till den `C:\Data\Users\DefaultAccount\Documents\` mapp på din enhet som du kan använda den [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal):
+Om du vill kopiera filen **Connection. String. iothub** från din station ära dator `C:\Data\Users\DefaultAccount\Documents\` till mappen på enheten kan du använda [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal):
 
-1. Använda webbläsaren för att navigera till Windows Device Portal på din enhet.
-1. För att bläddra bland filer på enheten, Välj **appar > Utforskaren**.
-1. Gå till **användaren Folders\Documents**. Ladda sedan upp den **connection.string.iothub** fil:
+1. Använd webbläsaren för att navigera till Windows Device Portal på din enhet.
+1. Om du vill bläddra bland filerna på enheten väljer du **appar >** Utforskaren.
+1. Navigera till **User Folders\Documents**. Ladda sedan upp filen **Connection. String. iothub** :
 
-    ![Ladda upp anslutningssträng](media/howto-connect-windowsiotcore/device-portal.png)
+    ![Ladda upp anslutnings sträng](media/howto-connect-windowsiotcore/device-portal.png)
 
 ## <a name="deploy-and-run"></a>Distribuera och köra
 
-Du kan använda för att distribuera och kör exempelprogrammet på din enhet, den [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal):
+Om du vill distribuera och köra exempel programmet på enheten kan du använda [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal):
 
-1. Använda webbläsaren för att navigera till Windows Device Portal på din enhet.
-1. Att distribuera och köra den **Azure IoT Hub Client** program, Välj **appar > Snabbstart och kör exempel**. Välj sedan **Azure IoT Hub Client**.
-1. Välj sedan **distribuera och köra**.
+1. Använd webbläsaren för att navigera till Windows Device Portal på din enhet.
+1. Om du vill distribuera och köra **klient programmet Azure IoT Hub** väljer du **appar > snabb körnings exempel**. Välj sedan **Azure IoT Hub-klienten**.
+1. Välj sedan **distribuera och kör**.
 
     ![Distribuera och köra](media/howto-connect-windowsiotcore/quick-run.png)
 
-Du kan även efter ett par minuter visa telemetri från din enhet i ditt IoT Central-program.
+Efter ett par minuter kan du Visa Telemetrin från enheten i ditt IoT Central program.
 
-Den [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) innehåller verktyg som du kan använda för att felsöka enheten:
+[Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) innehåller verktyg som du kan använda för att felsöka enheten:
 
-- Den **appar manager** sidan kan du kontrollera de appar som körs på din enhet.
-- Om du inte har en Övervakare som är ansluten till din enhet kan du använda den **Enhetsinställningar** sidan för att hämta skärmbilder från din enhet. Exempel:
+- På sidan **Apps Manager** kan du styra vilka appar som körs på enheten.
+- Om du inte har en övervakare ansluten till din enhet kan du använda sidan **enhets inställningar** för att avbilda skärm bilder från enheten. Exempel:
 
-    ![Skärmbild av App](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
+    ![Bild skärm för app](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
-## <a name="download-the-source-code"></a>Ladda ned källkoden
+## <a name="download-the-source-code"></a>Ladda ned käll koden
 
-Om du vill utforska och ändra källkoden för klientprogrammet kan du hämta det från den [Windows-iotcore-samples GitHub-lagringsplatsen](https://github.com/Microsoft/Windows-iotcore-samples/blob/master/Samples/Azure/IoTHubClients).
+Om du vill utforska och ändra käll koden för klient programmet kan du hämta den från [Windows-iotcore-samples GitHub-lagringsplatsen](https://github.com/Microsoft/Windows-iotcore-samples/blob/master/Samples/Azure/IoTHubClients).
 
-## <a name="device-template-details"></a>Mallen enhetsinformation
+## <a name="device-template-details"></a>Information om enhets mal len
 
-Ett program som skapats från den **exempel Devkits** programmall innehåller en **Windows IoT Core** enheten mallen med följande egenskaper:
+Ett program som har skapats från **Devkits** program mal len innehåller en mall för **Windows IoT Core** -enheter med följande egenskaper:
 
-### <a name="telemetry-measurements"></a>Telemetri mätning av faktisk användning
+### <a name="telemetry-measurements"></a>Mått för telemetri
 
 | Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
 | luftfuktighet       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
+| styr           | °C     | -40     | 120     | 0              |
 | tryck       | hPa    | 260     | 1260    | 0              |
 
 ### <a name="settings"></a>Inställningar
@@ -100,15 +102,15 @@ Numeriska inställningar
 
 | Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Inledande |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Fläkthastighet    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+| Fläkt hastighet    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-### <a name="properties"></a>Egenskaper
+### <a name="properties"></a>properties
 
-| Typ            | Visningsnamn | Fältnamn | Datatyp |
+| type            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
-| Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
+| Enhets egenskap | Tärnings nummer   | dieNumber  | nummer    |
 | Text            | Location     | location   | Gäller inte       |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en Windows IoT Core-enhet till Azure IoT Central programmet föreslagna nästa steg är att lära dig hur du [konfigurera en anpassad enhet mall](howto-set-up-template.md) för dina egna IoT-enheter.
+Nu när du har lärt dig hur du ansluter en Windows IoT Core-enhet till ditt Azure IoT Central-program är det föreslagna nästa steg att lära dig hur du [konfigurerar en anpassad enhets mall](howto-set-up-template.md) för din egen IoT-enhet.

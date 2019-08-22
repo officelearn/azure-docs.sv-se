@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 92d6f005018040e20c2df72dbc608a47bc8d9f08
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: e7c0f0abdf4a96f4af904f76549bdebd62b803cd
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849029"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877326"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Utlös Azure Functions att använda Webhooks i Azure IoT Central
 
 *Det här avsnittet gäller för byggare och administratörer.*
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Använd Azure Functions för att köra Server lös kod på webhook-utdata från IoT Centrals regler. Du behöver inte etablera en virtuell dator eller publicera en webbapp för att använda Azure Functions, men i stället kan du köra den här koden utan server. Använd Azure Functions för att transformera webhook-nyttolasten innan du skickar den till det slutliga målet, till exempel en SQL-databas eller Event Grid.
 

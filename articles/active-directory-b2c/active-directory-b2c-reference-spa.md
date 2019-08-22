@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1196f3b186abcd914c409db06b52654f82f4158b
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: e3cc95c908ea81d21b6f32bed8b754feb5d724ff
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377313"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874167"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Logga in på en enda sida med det implicita flödet för OAuth 2,0 i Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Många moderna program har en app-klient med en enda sida som skrivits främst i
 
 För att stödja dessa program använder Azure Active Directory B2C (Azure AD B2C) det implicita flödet för OAuth 2,0. Det implicita beviljande flödet för OAuth 2,0-auktorisering beskrivs i [avsnittet 4,2 i OAuth 2,0](https://tools.ietf.org/html/rfc6749)-specifikationen. I implicit flöde tar appen emot token direkt från Azure Active Directory (Azure AD) auktorisera slut punkt, utan server-till-Server-utbyte. All autentiserings-och sessionshantering utförs helt i JavaScript-klienten med antingen en Omdirigerad sida eller en popup-ruta.
 
-Azure AD B2C utökar standard OAuth 2,0-det implicita flödet till mer än enkel autentisering och auktorisering. Azure AD B2C introducerar [princip parametern](active-directory-b2c-reference-policies.md). Med princip parametern kan du använda OAuth 2,0 för att lägga till principer till appen, till exempel registrering, inloggning och profil hantering användar flöden. I exemplet HTTP-begäranden i den här artikeln används **fabrikamb2c.onmicrosoft.com** som exempel. Du kan ersätta `fabrikamb2c` med namnet på din klient om du har ett och har skapat ett användar flöde.
+Azure AD B2C utökar standard OAuth 2,0-det implicita flödet till mer än enkel autentisering och auktorisering. Azure AD B2C introducerar [princip parametern](active-directory-b2c-reference-policies.md). Med princip parametern kan du använda OAuth 2,0 för att lägga till principer till appen, till exempel registrering, inloggning och profil hantering användar flöden. I exempel-HTTP-begärandena i den här artikeln används **{Tenant}. onmicrosoft. com** som exempel. Ersätt `{tenant}` med namnet på din klient om du har ett och har även skapat ett användar flöde.
 
 Det implicita inloggnings flödet ser ut ungefär som på följande bild. Varje steg beskrivs i detalj senare i artikeln.
 
@@ -37,12 +37,10 @@ Det implicita inloggnings flödet ser ut ungefär som på följande bild. Varje 
 
 När ditt webb program behöver autentisera användaren och köra ett användar flöde, kan användaren dirigera användaren till `/authorize` slut punkten. Användaren vidtar åtgärder beroende på användar flödet.
 
-I den här förfrågan anger klienten de behörigheter som krävs för att hämta från användaren i `scope` parametern och användar flödet som ska köras `p` i parametern. Tre exempel finns i följande avsnitt (med rad brytningar för läsbarhet). var och en använder ett annat användar flöde. För att få en känsla för hur varje begäran fungerar kan du försöka att klistra in begäran i en webbläsare och köra den. Du kan ersätta `fabrikamb2c` med namnet på din klient om du har ett och har skapat ett användar flöde.
+I den här förfrågan anger klienten de behörigheter som krävs för att hämta från användaren i `scope` parametern och användar flödet som ska köras. För att få en känsla för hur begäran fungerar kan du försöka att klistra in begäran i en webbläsare och köra den. Ersätt `{tenant}` med namnet på din Azure AD B2C-klient. Ersätt `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` med app-ID: t för det program som du tidigare har registrerat i din klient. Ersätt `{policy}` med namnet på en princip som du har skapat i din klient organisation, till `b2c_1_sign_in`exempel.
 
-### <a name="use-a-sign-in-user-flow"></a>Använd ett användar flöde för inloggning
-
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+```HTTP
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -50,37 +48,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &scope=openid%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
-&p=b2c_1_sign_in
-```
-
-### <a name="use-a-sign-up-user-flow"></a>Använd ett användar flöde för registrering
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=id_token+token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=fragment
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_sign_up
-```
-
-### <a name="use-an-edit-profile-user-flow"></a>Använd ett användar flöde för Edit-Profile
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=id_token+token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=fragment
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_edit_profile
 ```
 
 | Parameter | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
+|innehav| Ja | Namnet på din Azure AD B2C-klient|
+|politik| Ja| Det användar flöde som ska köras. Ange namnet på ett användar flöde som du har skapat i Azure AD B2C klient organisationen. Till exempel: `b2c_1_sign_in`, `b2c_1_sign_up`, eller `b2c_1_edit_profile`. |
 | client_id | Ja | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program. |
 | response_type | Ja | Måste inkludera `id_token` för OpenID Connect-inloggning. Den kan även innehålla svars typen `token`. Om du använder `token`kan din app omedelbart ta emot en åtkomsttoken från den auktoriserade slut punkten, utan att göra en andra begäran till behörighets slut punkten.  Om du använder `token` svars typen `scope` måste parametern innehålla ett definitions område som anger vilken resurs som ska utfärda token för. |
 | redirect_uri | Nej | Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du har registrerat i portalen, förutom att den måste vara URL-kodad. |
@@ -88,7 +61,6 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope | Ja | En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. `openid` Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av ID-token. `offline_access` Omfånget är valfritt för Web Apps. Det anger att appen behöver en uppdateringstoken för att få åtkomst till resurser med lång livs längd. |
 | state | Nej | Ett värde som ingår i begäran som också returneras i token-svaret. Det kan vara en sträng med innehåll som du vill använda. Vanligt vis används ett slumpmässigt genererat unikt värde för att förhindra förfalsknings attacker på begäran från en annan plats. Statusen används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan. |
 | Nnär | Ja | Ett värde som ingår i begäran (genereras av appen) som ingår i det resulterande ID-token som ett anspråk. Appen kan sedan verifiera det här värdet för att minimera omuppspelning av token. Normalt är värdet en slumpmässig, unik sträng som kan användas för att identifiera ursprunget för begäran. |
-| p | Ja | Den princip som ska köras. Det är namnet på en princip (användar flöde) som skapas i Azure AD B2C klient organisationen. Princip namn svärdet ska börja med **B2C\_1\_** . |
 | visas | Nej | Typ av användar interaktion som krävs. För närvarande är `login`det enda giltiga värdet. Den här parametern tvingar användaren att ange sina autentiseringsuppgifter för denna begäran. Enkel inloggning träder inte i kraft. |
 
 Nu uppmanas användaren att slutföra principens arbets flöde. Användaren kan behöva ange sitt användar namn och lösen ord, logga in med en social identitet, registrera dig för katalogen eller något annat antal steg. Användar åtgärder är beroende av hur användar flödet definieras.
@@ -98,7 +70,7 @@ När användaren har slutfört användar flödet returnerar Azure AD ett svar ti
 ### <a name="successful-response"></a>Lyckat svar
 Ett lyckat svar som `response_mode=fragment` använder `response_type=id_token+token` och ser ut ungefär så här, med rad brytningar för läsbarhet:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
@@ -120,7 +92,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### <a name="error-response"></a>Fel svar
 Fel svar kan också skickas till omdirigerings-URI: n så att appen kan hantera dem på rätt sätt:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -141,11 +113,15 @@ Många bibliotek med öppen källkod är tillgängliga för validering av JWTs, 
 
 Azure AD B2C har en slut punkt för OpenID Connect-metadata. En app kan använda slut punkten för att hämta information om Azure AD B2C vid körning. Den här informationen omfattar slut punkter, token innehåll och signerings nycklar för token. Det finns ett JSON-Metadatadokumentet för varje användar flöde i din Azure AD B2C klient. Till exempel finns Metadatadokumentet för användar flödet b2c_1_sign_in i fabrikamb2c.onmicrosoft.com-klienten på:
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/.well-known/openid-configuration
+```
 
 En av egenskaperna för detta konfigurations dokument är `jwks_uri`. Värdet för samma användar flöde skulle vara:
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
+```
 
 För att avgöra vilket användar flöde som användes för att signera en ID-token (och var du hämtar metadata från) har du två alternativ. Först ingår användar flödes namnet i `acr` anspråket i. `id_token` Information om hur du tolkar anspråk från en ID-token finns i [referens för Azure AD B2C](active-directory-b2c-reference-tokens.md)-token. Ditt andra alternativ är att koda användar flödet i värdet för `state` parametern när du utfärdar begäran. Avkoda `state` sedan parametern för att avgöra vilket användar flöde som användes. Antingen är metoden giltig.
 
@@ -175,8 +151,8 @@ Nu när du har loggat in användaren i en app med en enda sida kan du hämta åt
 
 I ett typiskt webb program flöde skulle du göra en begäran till `/token` slut punkten. Slut punkten stöder dock inte CORS-begäranden, så gör AJAX-anrop för att hämta en uppdateringstoken inte ett alternativ. I stället kan du använda det implicita flödet i ett dolt HTML iframe-element för att hämta nya token för andra webb-API: er. Här är ett exempel med rad brytningar för läsbarhet:
 
-```
-https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+```HTTP
+https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -185,11 +161,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
 &prompt=none
-&p=b2c_1_sign_in
 ```
 
-| Parameter | Obligatorisk? | Beskrivning |
+| Parameter | Krävs? | Beskrivning |
 | --- | --- | --- |
+|innehav| Obligatorisk | Namnet på din Azure AD B2C-klient|
+politik| Obligatorisk| Det användar flöde som ska köras. Ange namnet på ett användar flöde som du har skapat i Azure AD B2C klient organisationen. Till exempel: `b2c_1_sign_in`, `b2c_1_sign_up`, eller `b2c_1_edit_profile`. |
 | client_id |Obligatorisk |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com). |
 | response_type |Obligatorisk |Måste inkludera `id_token` för OpenID Connect-inloggning.  Den kan även innehålla svars typen `token`. Om du använder `token` detta kan din app omedelbart ta emot en åtkomsttoken från den auktoriserade slut punkten, utan att göra en andra begäran till behörighets slut punkten. Om du använder `token` svars typen `scope` måste parametern innehålla ett definitions område som anger vilken resurs som ska utfärda token för. |
 | redirect_uri |Rekommenderas |Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i portalen, förutom att den måste vara URL-kodad. |
@@ -206,7 +183,7 @@ Genom att `prompt=none` ange parametern slutförs eller Miss lyckas denna begär
 ### <a name="successful-response"></a>Lyckat svar
 Ett lyckat svar med `response_mode=fragment` hjälp av ser ut som i det här exemplet:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_sent_earlier
@@ -226,7 +203,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### <a name="error-response"></a>Fel svar
 Fel svar kan också skickas till omdirigerings-URI: n så att appen kan hantera dem på rätt sätt.  För `prompt=none`, ser ett förväntat fel ut som i det här exemplet:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
@@ -247,16 +224,17 @@ När du vill signera användaren från appen omdirigerar du användaren till Azu
 
 Du kan helt enkelt omdirigera användaren till den `end_session_endpoint` som anges i samma OpenID för Connect-metadata som beskrivs i [validera ID-token](#validate-the-id-token). Exempel:
 
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
-p=b2c_1_sign_in
-&post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
+```HTTP
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parameter | Obligatorisk? | Beskrivning |
-| --- | --- | --- |
-| p |Obligatorisk |Den princip som ska användas för att signera användaren från ditt program. |
-| post_logout_redirect_uri |Rekommenderas |URL: en som användaren ska omdirigeras till efter lyckad utloggning. Om den inte är inkluderad visar Azure AD B2C ett allmänt meddelande till användaren. |
+| Parameter | Obligatorisk | Beskrivning |
+| --------- | -------- | ----------- |
+| innehav | Ja | Namnet på din Azure AD B2C-klient |
+| politik | Ja | Det användar flöde som du vill använda för att signera användaren från ditt program. |
+| post_logout_redirect_uri | Nej | URL: en som användaren ska omdirigeras till efter en lyckad utloggning. Om den inte är inkluderad visar Azure AD B2C användaren ett allmänt meddelande. |
+| state | Nej | Om en `state` parameter ingår i begäran ska samma värde visas i svaret. Programmet bör kontrol lera att `state` värdena i begäran och svaret är identiska. |
+
 
 > [!NOTE]
 > Genom att dirigera användaren till `end_session_endpoint` raderas en del av användarens läge för enkel inloggning med Azure AD B2C. Den signerar dock inte användaren från användarens session med den sociala identitetsprovider. Om användaren väljer samma identitets leverantör under en efterföljande inloggning, autentiseras användaren igen utan att ange sina autentiseringsuppgifter. Om en användare vill logga ut från ditt Azure AD B2C-program, innebär det inte nödvändigt vis att de helt inte vill logga ut från sitt Facebook-konto, till exempel. För lokala konton avslutas dock användarens session på rätt sätt.

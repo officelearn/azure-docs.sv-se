@@ -1,6 +1,6 @@
 ---
 title: Jämför Event Grid, routning för IoT Hub | Microsoft Docs
-description: IoT Hub ger en egen tjänst för händelsedirigering meddelandet, men är integrerat med Event Grid för publicering av händelser. Jämför de två funktionerna.
+description: IoT Hub erbjuder sin egen routing-tjänst för meddelanden, men integrerar även med Event Grid för händelse publicering. Jämför de två funktionerna.
 author: kgremban
 manager: philmea
 ms.service: iot-hub
@@ -8,73 +8,73 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: c6d395d878d38ab48b95ca82d94d2a222428bae1
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 067293f76ac4894ca73f4e74cb01db65ae8d1fba
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274938"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876922"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Jämför meddelanderoutning och Event Grid för IoT Hub
 
-Azure IoT Hub ger möjlighet att strömma data från dina anslutna enheter och integrera data i dina affärsprogram. IoT Hub har två metoder för att integrera IoT-händelser i andra Azure-tjänster eller program. Den här artikeln beskriver de två funktionerna som ger den här funktionen så att du kan välja vilket alternativ som passar bäst för ditt scenario.
+Azure IoT Hub ger möjlighet att strömma data från dina anslutna enheter och integrera dessa data i dina företags program. IoT Hub erbjuder två metoder för att integrera IoT-händelser i andra Azure-tjänster eller affärs program. Den här artikeln beskriver de två funktioner som tillhandahåller den här funktionen, så att du kan välja vilket alternativ som passar bäst för ditt scenario.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-**[IoT Hub meddelanderoutning](iot-hub-devguide-messages-d2c.md)** : Den här IoT Hub-funktionen kan du dirigera meddelanden från enheten till molnet till tjänstslutpunkter som Azure Storage-behållare, Event Hubs, Service Bus-köer och Service Bus-ämnen. Routning innehåller också en förfrågningar till möjlighet att filtrera data innan du skicka det till slutpunkterna. Förutom telemetridata för enheten, kan du även skicka [icke telemetrihändelser](iot-hub-devguide-messages-d2c.md#non-telemetry-events) som kan användas för att utlösa åtgärder. 
+**[IoT Hub](iot-hub-devguide-messages-d2c.md)** meddelanderoutning: Med den här IoT Hub funktionen kan användare dirigera meddelanden från enhet till moln till tjänst slut punkter som Azure Storage behållare, Event Hubs, Service Bus köer och Service Bus ämnen. Routning tillhandahåller också en fråge funktion för att filtrera data innan de dirigeras till slut punkterna. Förutom telemetri-data kan du även skicka [icke-telemetri-händelser](iot-hub-devguide-messages-d2c.md#non-telemetry-events) som kan användas för att utlösa åtgärder. 
 
-**IoT Hub-integrering med Event Grid**: Azure Event Grid är en fullständigt hanterad tjänst för händelsedirigering som använder en Publicera-prenumerera modellen. IoT Hub och Event Grid arbetar tillsammans för att [integrera IoT Hub-händelser i Azure och Azure-tjänster](iot-hub-event-grid.md), i nära realtid. IoT Hub publicerar [enhetshändelser](iot-hub-event-grid.md#event-types), som är allmänt tillgängliga och publicerar nu även telemetrihändelser, vilket är i offentlig förhandsversion.
+**IoT Hub integration med event Grid**: Azure Event Grid är en helt hanterad tjänst för händelse dirigering som använder en publicerings prenumerations modell. IoT Hub och Event Grid samar beta för att [integrera IoT Hub-händelser i Azure och icke-Azure-tjänster](iot-hub-event-grid.md), i nära real tid. IoT Hub publicerar [enhets händelser](iot-hub-event-grid.md#event-types), som är allmänt tillgängliga och publicerar nu också telemetri-händelser, som finns i offentlig för hands version.
 
-## <a name="differences"></a>Skillnader
+## <a name="differences"></a>Grund
 
-Aktivera varningskonfigurationen meddelanderoutning och Event Grid, finns men det några huvudsakliga skillnader mellan två. Se tabellen nedan för mer information:
+Både meddelanderoutning och Event Grid aktivera aviserings konfiguration, finns det några viktiga skillnader mellan de två. Mer information finns i följande tabell:
 
-| Funktion | IoT Hub meddelanderoutning | IoT Hub-integrering med Event Grid |
+| Funktion | IoT Hub meddelanderoutning | IoT Hub integration med Event Grid |
 | ------- | --------------- | ---------- |
-| **Meddelanden från enheten och händelser** | Ja, meddelanderoutning användas för telemetridata, och twin ändras och Livscykelhändelser för enhet. | Ja, Event Grid kan användas för telemetridata men även rapportera när enheter skapas, tas bort, ansluten, och kopplas bort från IoT Hub |
-| **Ordning** | Ja, sorteringen av händelser underhålls.  | Nej, ordningen för händelser är inte säkert. | 
-| **Filtrering** | Omfattande filtrering på meddelandet programegenskaper, meddelande Systemegenskaper, meddelandetexten, device twin taggar och enheten twin egenskaper. Exempel finns i [meddelande frågesyntax för routning](iot-hub-devguide-routing-query-syntax.md). | Filtrering baserat på händelsetyp, ämnestyp och attribut i varje händelse. Exempel finns i [förstå Filtrera händelser i Event Grid-prenumerationer](../event-grid/event-filtering.md). Prenumerera på händelser, kan du använda ytterligare filter på data att filtrera på meddelandeegenskaper, meddelande brödtext och device twin i din IoT-hubb innan du publicerar till Event Grid. Se [så här filtrerar du händelser](../iot-hub/iot-hub-event-grid.md#filter-events). |
-| **Slutpunkter** | <ul><li>Event Hubs</li> <li>Azure Blob Storage</li> <li>Service Bus-kö</li> <li>Service Bus-ämnen</li></ul><br>Betalda IoT Hub SKU: er (S1, S2 och S3) är begränsade till 10 anpassade slutpunkter. 100 vägar kan skapas per IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Anpassade ämnen</li> <li>Queue Storage</li> <li>Microsoft Flow</li> <li>Tjänster från tredje part via WebHooks</li></ul><br>500 slutpunkter per IoT Hub stöds. Den senaste listan över slutpunkter, se [Event Grid händelsehanterare](../event-grid/overview.md#event-handlers). |
-| **Kostnad** | Det finns ingen avgift för meddelanderoutning. Endast inkommande telemetri till IoT Hub debiteras. Om du har ett meddelande som dirigeras till tre olika slutpunkter kan debiteras du till exempel för bara ett meddelande. | Det är kostnadsfritt från IoT Hub. Event Grid erbjuder de första 100 000 åtgärderna per månad utan kostnad, och sedan $0,60 per miljon operationer efteråt. |
+| **Enhets meddelanden och händelser** | Ja, meddelanderoutning kan användas för telemetridata, rapportera enhetens dubbla ändringar, livs cykel händelser för enheten och digitala dubbla ändrings händelser (en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md)). | Ja, Event Grid kan användas för telemetridata, men kan också rapportera när enheter skapas, tas bort, anslutas och kopplas från IoT Hub |
+| **Ordning** | Ja, beställningen av händelser upprätthålls.  | Nej, ordningen på händelser är inte garanterad. | 
+| **Filtrering** | Omfattande filtrering av egenskaper för meddelande program, meddelande system egenskaper, meddelande text, enhetens dubbla Taggar och enhetens dubbla egenskaper. Filtrering tillämpas inte på digitala dubbla ändrings händelser. Exempel finns i syntax för meddelanderoutning för [meddelanden](iot-hub-devguide-routing-query-syntax.md). | Filtrering baserat på händelse typ, ämnes typ och attribut i varje händelse. Exempel finns i [förstå filtrerings händelser i Event Grid prenumerationer](../event-grid/event-filtering.md). När du prenumererar på telemetri-händelser kan du använda ytterligare filter för data för att filtrera på meddelande egenskaper, meddelande text och enhet i IoT Hub, innan du publicerar till Event Grid. Se [Filtrera händelser](../iot-hub/iot-hub-event-grid.md#filter-events). |
+| **Slut punkter** | <ul><li>Event Hubs</li> <li>Azure Blob Storage</li> <li>Service Bus-kö</li> <li>Service Bus-ämnen</li></ul><br>Betalda IoT Hub SKU: er (S1, S2 och S3) är begränsade till 10 anpassade slut punkter. 100 vägar kan skapas per IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Anpassade ämnen</li> <li>Queue Storage</li> <li>Microsoft Flow</li> <li>Tjänster från tredje part via Webhooks</li></ul><br>500 slut punkter per IoT Hub stöds. Den senaste listan över slut punkter finns i [Event Grid händelse hanterare](../event-grid/overview.md#event-handlers). |
+| **Kostnad** | Det finns ingen separat avgift för meddelanderoutning. Endast ingress av telemetri till IoT Hub debiteras. Om du till exempel har ett meddelande dirigerat till tre olika slut punkter debiteras du bara för ett meddelande. | Det kostar inget att IoT Hub. Event Grid erbjuder de första 100 000 åtgärderna per månad kostnads fritt och sedan $0,60 per miljon åtgärder efteråt. |
 
 ## <a name="similarities"></a>Likheter
 
-Meddelanderoutning i IoT Hub och Event Grid har likheter för, vilket beskrivs i följande tabell:
+IoT Hub meddelanderoutning och Event Grid har liknande likheter, varav vissa beskrivs i följande tabell:
 
-| Funktion | IoT Hub meddelanderoutning | IoT Hub-integrering med Event Grid |
+| Funktion | IoT Hub meddelanderoutning | IoT Hub integration med Event Grid |
 | ------- | --------------- | ---------- |
-| **Största meddelandestorlek** | 256 KB enhet-till-moln | 256 KB enhet-till-moln |
-| **Tillförlitlighet** | Hög: Levererar meddelandena till slutpunkten minst en gång för varje väg. Upphör att gälla på alla meddelanden som inte levereras inom en timme. | Hög: Levererar meddelandena till webhooken minst en gång för varje prenumeration. Upphör att gälla alla händelser som inte levereras inom 24 timmar. | 
-| **Skalbarhet** | Hög: Optimerat stöd för miljontals simultant kopplade enheter som skickar miljarder meddelanden. | Hög: Kompatibla routning 10 000 000 händelser per sekund per region. |
-| **Svarstid** | Låg: Nästan i realtid. | Låg: Nästan i realtid. |
-| **Skicka till flera slutpunkter** | Ja, skicka ett enda meddelande till flera slutpunkter. | Ja, skicka ett enda meddelande till flera slutpunkter.  
-| **Säkerhet** | IOT Hub innehåller identitet per enhet och kan återkallas access control. Mer information finns i den [IoT Hub-åtkomstkontroll](iot-hub-devguide-security.md). | Event Grid ger verifiering på tre platser: händelseprenumerationer, publicering av händelser och webhook-händelseleverans. Mer information finns i [Event Grid säkerhet och autentisering](../event-grid/security-authentication.md). |
+| **Maximal meddelande storlek** | 256 KB, enhet till moln | 256 KB, enhet till moln |
+| **Tillförlitlighet** | Högt Levererar varje meddelande till slut punkten minst en gång för varje väg. Förfaller alla meddelanden som inte har levererats inom en timme. | Högt Levererar varje meddelande till webhooken minst en gång för varje prenumeration. Förfaller alla händelser som inte levereras inom 24 timmar. | 
+| **Skalbarhet** | Högt Optimerad för att stödja miljon tals samtidigt anslutna enheter som skickar miljarder meddelanden. | Högt Kan dirigera 10 000 000 händelser per sekund per region. |
+| **Svarstid** | Börjar Nära real tid. | Börjar Nära real tid. |
+| **Skicka till flera slut punkter** | Ja, skicka ett enda meddelande till flera slut punkter. | Ja, skicka ett enda meddelande till flera slut punkter.  
+| **Säkerhet** | IoT Hub ger identitets-och revocable åtkomst kontroll per enhet. Mer information finns i [IoT Hub åtkomst kontroll](iot-hub-devguide-security.md). | Event Grid tillhandahåller verifiering vid tre punkter: händelse prenumerationer, händelse publicering och leverans av webhook-händelser. Mer information finns i [Event Grid säkerhet och autentisering](../event-grid/security-authentication.md). |
 
 ## <a name="how-to-choose"></a>Välj så här
 
-Meddelanderoutning i IoT Hub och IoT Hub-integrering med Event Grid kan du utföra olika åtgärder för att få liknande resultat. De både tar information från din lösning för IoT Hub och skickar den så att andra tjänster kan reagera. Hur avgör du vilken jag ska använda? Tänk på följande frågor för att guida dig: 
+IoT Hub meddelanderoutning och IoT Hub-integration med Event Grid utföra olika åtgärder för att uppnå liknande resultat. Båda tar med information från din IoT Hub-lösning och skickar den så att andra tjänster kan reagera. Hur vill du bestämma vilken av dem som ska användas? Tänk på följande frågor för att hjälpa dig med ditt beslut: 
 
-* **Vilken typ av data du skickar till slutpunkterna?**
+* **Vilken typ av data skickar du till slut punkterna?**
 
-   Använd IoT Hub meddelanderoutning när du behöver skicka telemetridata till andra tjänster. Meddelanderoutning även aktiverar frågor till meddelandeegenskaper för program och system, meddelandetexten, device twin taggar och tvillingegenskaper.
+   Använd IoT Hub meddelanderoutning när du måste skicka telemetridata till andra tjänster. Med meddelanderoutning kan du också skicka frågor till meddelande program och system egenskaper, meddelande text, enhets dubbla Taggar och enhetens dubbla egenskaper.
 
-   IoT Hub-integrering med Event Grid fungerar med händelser som inträffar i IoT Hub-tjänsten. Dessa IoT Hub-händelser innehåller telemetridata, enheten skapas, tas bort, ansluten och kopplas från. Prenumerera på händelser, kan du använda ytterligare filter på data att filtrera på meddelandeegenskaper, meddelande brödtext och device twin i din IoT-hubb innan du publicerar till Event Grid. Se [så här filtrerar du händelser](../iot-hub/iot-hub-event-grid.md#filter-events).
+   IoT Hub-integrering med Event Grid fungerar med händelser som inträffar i IoT Hubs tjänsten. Dessa IoT Hub händelser inkluderar telemetridata, enheten har skapats, tagits bort, anslutits och kopplats från. När du prenumererar på telemetri-händelser kan du använda ytterligare filter för data för att filtrera på meddelande egenskaper, meddelande text och enhet i IoT Hub, innan du publicerar till Event Grid. Se [Filtrera händelser](../iot-hub/iot-hub-event-grid.md#filter-events).
 
-* **Vilka slutpunkter måste ta emot den här informationen?**
+* **Vilka slut punkter behöver få den här informationen?**
 
-   IoT Hub meddelanderoutning stöder begränsat antal unika slutpunkter och typer av slutpunkter, men du kan skapa anslutningar för att omdirigera data och händelser till ytterligare slutpunkter. En fullständig lista över slutpunkter som stöds finns i tabellen i föregående avsnitt. 
+   IoT Hub meddelanderoutning stöder ett begränsat antal unika slut punkter och slut punkts typer, men du kan bygga kopplingar för att dirigera om data och händelser till ytterligare slut punkter. En fullständig lista över slut punkter som stöds finns i tabellen i föregående avsnitt. 
 
-   IoT Hub-integrering med Event Grid stöder 500 slutpunkter per IoT Hub och en större mängd typer av slutpunkter. Den kan integreras internt med Azure Functions, Logic Apps, lagring och Service Bus-köer och fungerar även med webhooks för att utöka skickar data utanför ekosystemet för Azure-tjänst och till program från tredje part.
+   IoT Hub-integrering med Event Grid stöder 500-slutpunkter per IoT Hub och en större mängd olika slut punkts typer. Den integreras internt med Azure Functions, Logic Apps, lagrings-och Service Bus köer och fungerar också med Webhooks för att utöka sändningen av data utanför Azure-tjänstens eko system och företags program från tredje part.
 
-* **Spelar det någon roll om dina data tas emot i ordning?**
+* **Spelar det någon roll om dina data kommer i ordning?**
 
-   Meddelanderoutning i IoT Hub underhåller den ordning som meddelanden skickas, så att de tas emot på samma sätt.
+   IoT Hub meddelanderoutning är den ordning i vilken meddelanden skickas, så att de tas emot på samma sätt.
 
-   Event Grid garanterar inte att slutpunkter visas händelser i samma ordning som de inträffade. För de fall där absolut ordningen för meddelanden är betydande och/eller som en konsument måste en tillförlitlig Unik identifierare för meddelanden, bör du använda meddelanderoutning. 
+   Event Grid garanterar inte att slut punkterna tar emot händelser i samma ordning som de har inträffat. I de fall där den absoluta ordningen av meddelanden är betydande och/eller där en konsument behöver en tillförlitlig unik identifierare för meddelanden, rekommenderar vi att du använder meddelanderoutning. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [meddelanderoutning för IoT Hub](iot-hub-devguide-messages-d2c.md) och [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md).
+* Läs mer om [IoT Hub](iot-hub-devguide-messages-d2c.md) meddelanderoutning och [IoT Hub slut punkter](iot-hub-devguide-endpoints.md).
 * Läs mer om [Azure Event Grid](../event-grid/overview.md).
-* Läs hur du skapar meddelandevägar i den [Process IoT Hub enhet-till-moln-meddelanden med vägar](../iot-hub/tutorial-routing.md) självstudien.
-* Prova att använda Event Grid-integrationen av [skicka e-postaviseringar om Azure IoT Hub-händelser med hjälp av Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
+* Information om hur du skapar meddelande vägar finns i avsnittet [Process IoT Hub enhet-till-moln-meddelanden med hjälp av väg](../iot-hub/tutorial-routing.md) guiden.
+* Testa Event Grid-integrering genom att [skicka e-postaviseringar om Azure IoT Hub-händelser med hjälp av Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).

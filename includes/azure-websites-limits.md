@@ -4,19 +4,19 @@ ms.service: billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: 203f0eda7e2e9d1545e7bf5cc2bb6eff9c2c3c55
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1080e3488483610af0f0c9afadaf000895021821
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68936909"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69657877"
 ---
 | Resource | Lediga | Delad | Basic | Standard | Premium (v2) | Isolerad </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Webb-, mobil-eller API-appar](https://azure.microsoft.com/services/app-service/) per [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup>|
 | [App Service-plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp|
 | Beräknings instans typ |Delad |Delad |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup></p> |Dedikerad<sup>3</sup>|
-| [Skala ut](../articles/app-service/web-sites-scale.md) (maximalt antal instanser) |1 delad |1 delad |3 dedikerad<sup>3</sup> |10 dedikerat<sup>3</sup> |20 dedikerad<sup>3</sup>|100 dedikerat<sup>4</sup>|
+| [Skala ut](../articles/app-service/manage-scale-up.md) (maximalt antal instanser) |1 delad |1 delad |3 dedikerad<sup>3</sup> |10 dedikerat<sup>3</sup> |20 dedikerad<sup>3</sup>|100 dedikerat<sup>4</sup>|
 | Lagring<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
 | PROCESSOR tid (5 minuter)<sup>6</sup> |3 minuter |3 minuter |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a>|
 | CPU-tid (dag)<sup>6</sup> |60 minuter |240 minuter |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |
@@ -31,7 +31,7 @@ ms.locfileid: "68936909"
 | Integrerad belastningsutjämnare | |X |X |X |X |X<sup>9</sup> |
 | [Always on](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Schemalagda säkerhets kopieringar](../articles/app-service/manage-backup.md) | | | | Schemalagda säkerhets kopieringar varje 2 timme, högst 12 säkerhets kopior per dag (manuellt + schemalagd) | Schemalagda säkerhets kopieringar varje timme, högst 50 säkerhets kopior per dag (manuellt + schemalagd) | Schemalagda säkerhets kopieringar varje timme, högst 50 säkerhets kopior per dag (manuellt + schemalagd) |
-| [Automatisk skalning](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
+| [Automatisk skalning](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md) <sup>8</sup> |X |X |X |X |X |X |
 | Stöd för [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |X |
 | [Slutpunktsövervakning](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |

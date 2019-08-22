@@ -8,16 +8,18 @@ ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: d9d7b2d189c6a1533be2d1cae4989669787c3f2a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: ad5f660ff72eceecbb6db2e9557b023ed2c6ea99
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848998"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875816"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Gruppera flera åtgärder för att köra från en eller flera regler
 
 *Den här artikeln gäller för byggare och administratörer.*
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 I Azure IoT Central skapar du regler för att köra åtgärder när ett villkor uppfylls. Regler baseras på telemetri eller händelser på enheten. Du kan till exempel meddela en operatör när temperaturen i en enhet överskrider ett tröskelvärde. Den här artikeln beskriver hur du använder [Azure Monitor](../azure-monitor/overview.md) *Åtgärds grupper* för att koppla flera åtgärder till en IoT Central-regel. Du kan koppla en åtgärds grupp till flera regler. En [Åtgärds grupp](../azure-monitor/platform/action-groups.md) är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration.
 
@@ -37,7 +39,7 @@ En åtgärds grupp kan:
 
 Följande skärm bild visar en åtgärds grupp som skickar e-post och SMS-meddelanden och anropar en webhook:
 
-![Åtgärds grupp](media/howto-use-action-groups/actiongroup.png)
+![Åtgärdsgrupp](media/howto-use-action-groups/actiongroup.png)
 
 Om du vill använda en åtgärds grupp i en IoT Central regel måste åtgärds gruppen finnas i samma Azure-prenumeration som IoT Central programmet.
 

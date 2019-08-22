@@ -5,18 +5,18 @@ author: rkmanda
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/21/2019
 ms.author: philmea
-ms.openlocfilehash: 32caebf8ea216050427f4400102cf56ffc657b55
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f1944e06989844528a55c89f82c3db3b3a28dca1
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875253"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876900"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hög tillgänglighet och haveri beredskap
 
-Som ett första steg mot att implementera en elastisk IoT-lösning måste arkitekter, utvecklare och företags ägare definiera drift tiden för de lösningar som de skapar. Dessa mål kan definieras främst baserat på specifika affärs mål för varje scenario. I det här sammanhanget beskriver artikeln [Azure-affärskontinuitet teknisk vägledning](https://docs.microsoft.com/azure/architecture/resiliency/) ett allmänt ramverk som hjälper dig att tänka på verksamhets kontinuitet och haveri beredskap. [Haveri beredskap och hög tillgänglighet för Azure](https://msdn.microsoft.com/library/dn251004.aspx) -programpapper ger arkitektur vägledning om strategier för Azure-program för att uppnå hög tillgänglighet (ha) och haveri beredskap (Dr).
+Som ett första steg mot att implementera en elastisk IoT-lösning måste arkitekter, utvecklare och företags ägare definiera drift tiden för de lösningar som de skapar. Dessa mål kan definieras främst baserat på specifika affärs mål för varje scenario. I det här sammanhanget beskriver artikeln [Azure-affärskontinuitet teknisk vägledning](https://docs.microsoft.com/azure/architecture/resiliency/) ett allmänt ramverk som hjälper dig att tänka på verksamhets kontinuitet och haveri beredskap. [Haveri beredskap och hög tillgänglighet för Azure](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) -programpapper ger arkitektur vägledning om strategier för Azure-program för att uppnå hög tillgänglighet (ha) och haveri beredskap (Dr).
 
 Den här artikeln beskriver de HA och DR-funktioner som erbjuds specifikt av IoT Hubs tjänsten. De breda områden som beskrivs i den här artikeln är:
 
@@ -41,7 +41,7 @@ IoT Hubs tjänsten ger till gång till flera regioner genom att implementera red
 
 Det kan finnas sällsynta situationer när ett Data Center upplever utökade avbrott på grund av strömavbrott eller andra problem som involverar fysiska till gångar. Sådana händelser är sällsynta under vilka den region som har beviljats inom regioner som beskrivs ovan inte alltid bidrar till det. IoT Hub tillhandahåller flera lösningar för att få en återställning från sådana utökade avbrott. 
 
-De återställnings alternativ som är tillgängliga för kunder i en sådan situation är "Microsoft-initierad redundans" och "manuell redundans". Den grundläggande skillnaden mellan de två är att Microsoft initierar den tidigare och användaren initierar den senare. Manuell redundans ger också ett mindre återställnings tids mål (RTO) jämfört med alternativet Microsoft-initierad redundans. De angivna återställnings tider som erbjuds med varje alternativ beskrivs i avsnitten nedan. Om något av dessa alternativ för att utföra redundans av en IoT-hubb från dess primära region används, blir hubben helt funktionell i motsvarande [Azure geo-kopplade region](../best-practices-availability-paired-regions.md).
+De återställnings alternativ som är tillgängliga för kunder i en sådan situation är att [Microsoft-initierar redundans](#microsoft-initiated-failover) och [manuell redundans](#manual-failover). Den grundläggande skillnaden mellan de två är att Microsoft initierar den tidigare och användaren initierar den senare. Manuell redundans ger också ett mindre återställnings tids mål (RTO) jämfört med alternativet Microsoft-initierad redundans. De angivna återställnings tider som erbjuds med varje alternativ beskrivs i avsnitten nedan. Om något av dessa alternativ för att utföra redundans av en IoT-hubb från dess primära region används, blir hubben helt funktionell i motsvarande [Azure geo-kopplade region](../best-practices-availability-paired-regions.md).
 
 Båda dessa alternativ för redundans erbjuder följande mål för återställnings punkter (återställnings punkter):
 
@@ -55,26 +55,24 @@ Båda dessa alternativ för redundans erbjuder följande mål för återställni
 | Meddelanden om åtgärds övervakning |Alla olästa meddelanden går förlorade |
 | Meddelanden från moln till enhet-feedback |Alla olästa meddelanden går förlorade |
 
-<sup>1</sup> Meddelanden från moln till enhet och överordnade jobb återställs inte som en del av manuell redundansväxling i för hands versions erbjudandet för den här funktionen.
+<sup>1</sup> Meddelanden från moln till enhet och överordnade jobb återställs inte som en del av manuell redundans.
 
-När redundansväxlingen för IoT Hub har slutförts förväntas alla åtgärder från enhets-och backend-programmen fortsätta att fungera utan att det krävs någon manuell åtgärd.
+När redundansväxlingen för IoT Hub har slutförts förväntas alla åtgärder från enhets-och backend-programmen fortsätta att fungera utan att det krävs någon manuell åtgärd. Det innebär att meddelanden från enhet till molnet bör fortsätta att fungera och hela enhets registret är intakt. Händelser som skickas via Event Grid kan förbrukas via samma prenumeration (er) som kon figurer ATS tidigare så länge som de Event Grid prenumerationerna fortsätter att vara tillgängliga.
 
 > [!CAUTION]
 > - Det Event Hub-kompatibla namnet och slut punkten för den IoT Hub inbyggda händelse slut punkten ändras efter redundansväxlingen. När du tar emot telemetri-meddelanden från den inbyggda slut punkten med hjälp av Event Hub-klienten eller händelse processor värden bör du [använda IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) -anslutningssträngen för att upprätta anslutningen. Detta säkerställer att dina backend-program fortsätter att fungera utan att behöva utföra manuella åtgärder efter redundansväxlingen. Om du använder det Event Hub-kompatibla namnet och slut punkten i ditt backend-program direkt måste du konfigurera om programmet genom [att hämta det nya Event Hub-kompatibla namnet och slut punkten](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) efter redundansväxlingen för att fortsätta.
 >
-> - Efter redundansväxlingen kan de händelser som skickas via Event Grid förbrukas via samma prenumeration (er) som kon figurer ATS tidigare så länge som de Event Grid prenumerationerna fortsätter att vara tillgängliga.
->
 > - Vid routning till Blob Storage rekommenderar vi att du skapar en lista över Blobbarna och sedan går över dem, för att se till att alla behållare är lästa utan att behöva göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en Microsoft-initierad redundans eller manuell redundans. Information om hur du räknar upp listan över blobbar finns i [routning till Blob Storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
-### <a name="microsoft-initiated-failover"></a>Microsoft-initierad redundans
+## <a name="microsoft-initiated-failover"></a>Microsoft-initierad redundans
 
 Microsoft-initierad redundans utnyttjas av Microsoft i sällsynta fall för att redundansväxla alla IoT-hubbar från en berörd region till motsvarande geo-kopplade region. Den här processen är ett standard alternativ (inget sätt för användare att avanmäla) och kräver ingen åtgärd från användaren. Microsoft förbehåller sig rätten att fastställa när det här alternativet kommer att användas. Den här mekanismen omfattar inte användarens medgivande innan användarens hubb har redundansväxlats. Microsoft-initierad redundans har ett återställnings tids mål (RTO) på 2-26 timmar. 
 
 Den stora RTO är att Microsoft måste utföra redundansväxlingen på uppdrag av alla berörda kunder i den regionen. Om du kör en mindre viktig IoT-lösning som kan ha en stillestånds tid på ungefär en dag, är det OK att du kan ta ett beroende på det här alternativet för att uppfylla de totala haveri återställnings målen för din IoT-lösning. Den totala tiden för körnings åtgärder som ska utföras fullständigt när den här processen har utlösts beskrivs i avsnittet "tid att återställa".
 
-### <a name="manual-failover-preview"></a>Manuell redundans (för hands version)
+## <a name="manual-failover"></a>Manuell redundansväxling
 
-Om dina affärs drifts mål inte är uppfyllda av RTO som Microsoft har initierat redundans, bör du överväga att använda manuell redundans för att utlösa redundansväxlingen själv. RTO med det här alternativet kan vara var som helst mellan 10 minuter och ett par timmar. RTO är för närvarande en funktion i antalet enheter som registrerats mot IoT Hub-instansen som har redundansväxlats. Du kan vänta på att RTO för ett nav som är värd för cirka 100 000 enheter är i ungefärligt på 15 minuter. Den totala tiden för körnings åtgärder som ska utföras fullständigt när den här processen har utlösts beskrivs i avsnittet "tid att återställa".
+Om dina affärs drifts mål inte uppfylls av RTO som Microsoft har initierat redundans, bör du överväga att använda manuell redundans för att utlösa redundansväxlingen själv. RTO med det här alternativet kan vara var som helst mellan 10 minuter och ett par timmar. RTO är för närvarande en funktion i antalet enheter som registrerats mot IoT Hub-instansen som har redundansväxlats. Du kan vänta på att RTO för ett nav som är värd för cirka 100 000 enheter är i ungefärligt på 15 minuter. Den totala tiden för körnings åtgärder som ska utföras fullständigt när den här processen har utlösts beskrivs i avsnittet "tid att återställa".
 
 Alternativet Manuell redundans är alltid tillgängligt för användning oavsett om den primära regionen drabbas av nertid eller inte. Det innebär att det här alternativet kan användas för att utföra planerade redundansväxlingen. Ett exempel på användningen av planerade redundanser är att utföra regelbunden granskning av redundans. Ett ord med försiktighets åtgärder är att en planerad redundansväxling resulterar i en stillestånds tid för hubben för den period som definieras av RTO för det här alternativet, och resulterar också i en data förlust som definieras i tabellen tabellen ovan. Du kan överväga att konfigurera en instans av en test-IoT Hub så att du kan använda alternativet för planerad redundans med jämna mellanrum för att få en bättre tillförlitlighet i din förmåga att komma igång med dina heltäckande lösningar när en riktig katastrof inträffar.
 
@@ -83,18 +81,18 @@ Alternativet Manuell redundans är alltid tillgängligt för användning oavsett
 >
 > - Manuell redundans ska inte användas som en mekanism för att permanent migrera hubben mellan Azure geo-kopplade regioner. Detta skulle orsaka en ökad svars tid för de åtgärder som utförs mot hubben från enheter som är hemifrån i den gamla primära regionen.
 
-### <a name="failback"></a>Återställning efter fel
+## <a name="failback"></a>Återställning efter fel
 
 Det går inte att återställa till den gamla primära regionen genom att utlösa Redundansåtgärden en annan gången. Om den ursprungliga redundansväxlingen utfördes för att återställa från ett utökat avbrott i den ursprungliga primära regionen, rekommenderar vi att hubben inte kan återställas till den ursprungliga platsen när platsen har återställts från avbrott-situationen.
 
 > [!IMPORTANT]
 > - Användare får endast utföra 2 lyckade redundansväxling och 2 lyckade återställnings åtgärder per dag.
 >
-> - Tillbaka till redundansväxling/failback-åtgärder är inte tillåtna. Användarna måste vänta i en timme mellan de här åtgärderna.
+> - Tillbaka till redundansväxling/failback-åtgärder är inte tillåtna. Du måste vänta i 1 timme mellan dessa åtgärder.
 
-### <a name="time-to-recover"></a>Tid för återställning
+## <a name="time-to-recover"></a>Tid för återställning
 
-Även om det fullständiga domän namnet (och därmed anslutnings strängen) för IoT Hub-instansen förblir samma post-redundansväxling, kommer den underliggande IP-adressen att ändras. Den totala tiden för körnings åtgärder som utförs mot din IoT Hub-instans för att bli fullt fungerande När redundansväxlingen utlöses kan uttryckas med hjälp av följande funktion.
+Även om det fullständiga domän namnet (och därmed anslutnings strängen) för IoT Hub-instansen fortfarande är samma efter redundansväxlingen, ändras den underliggande IP-adressen. Den totala tiden för körnings åtgärder som utförs mot din IoT Hub-instans för att bli fullt fungerande När redundansväxlingen utlöses kan uttryckas med hjälp av följande funktion.
 
 Tid för återställning = RTO [10 min-2 timmar för manuell redundansväxling | 2-26 timmar för Microsoft-initierad redundans] + DNS-spridning fördröjning + den tid det tar för klient programmet att uppdatera alla cachelagrade IoT Hub IP-adresser.
 
@@ -125,15 +123,14 @@ För att förenkla det här steget bör du använda idempotenta-åtgärder. Idem
 
 Här är en sammanfattning av de HA/DR-alternativ som visas i den här artikeln som kan användas som referens ram för att välja rätt alternativ som passar din lösning.
 
-| HA/DR-alternativ | RTO | BEGÄRT | Krävs manuell åtgärd? | Implementerings komplexitet | Ytterligare kostnads påverkan|
+| HA/DR-alternativ | RTO | Mål för återställningspunkt | Krävs manuell åtgärd? | Implementerings komplexitet | Ytterligare kostnads påverkan|
 | --- | --- | --- | --- | --- | --- |
 | Microsoft-initierad redundans |2-26 timmar|Referera till tabellen återställnings punkt ovan|Nej|Inga|Inga|
-| Manuell redundans |10 min – 2 timmar|Referera till tabellen återställnings punkt ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Inga|
+| Manuell redundansväxling |10 min – 2 timmar|Referera till tabellen återställnings punkt ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Inga|
 | Flera regioner HA |< 1 min|Beror på replikeringsfrekvens för din anpassade HA-lösning|Nej|Hög|> 1x kostnaden för 1 IoT Hub|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ dessa länkar om du vill veta mer om Azure IoT Hub:
-
-* [Kom igång med IoT Hub (snabb start)](quickstart-send-telemetry-dotnet.md)
 * [Vad är Azure IoT Hub?](about-iot-hub.md)
+* [Kom igång med IoT Hub (snabb start)](quickstart-send-telemetry-dotnet.md)
+* [Självstudier: Utföra manuell redundans för en IoT-hubb](tutorial-manual-failover.md)

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 24e340d25cb57f9a35f06f6dbd5a394d60a14fad
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/20/2019
+ms.openlocfilehash: 7ff7712130372dcfd277750e881cccce23b36465
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566433"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648349"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -118,6 +118,12 @@ Etablering och borttagning under synkroniseringsgruppen, uppdatering och borttag
 ### <a name="general-requirements"></a>Allmänna krav
 
 - Varje tabell måste ha en primärnyckel. Ändra inte värdet för den primära nyckeln i en rad. Om du måste ändra värdet för en primärnyckel, ta bort rad och återskapa den med det nya värdet för primär nyckel. 
+
+> [!IMPORTANT]
+> Att ändra värdet för en befintlig primär nyckel leder till följande fel beteende:   
+>   - Data mellan hubb och medlem kan gå förlorade även om synkroniseringen inte rapporterar några problem.
+> - Det går inte att synkronisera eftersom spårnings tabellen inte har en befintlig rad från källan på grund av den primära nyckel ändringen.
+
 - Ögonblicksbildisolering måste aktiveras. Mer information finns i [ögonblicksbildisolering i SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Allmänna begränsningar

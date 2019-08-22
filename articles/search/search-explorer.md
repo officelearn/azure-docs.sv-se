@@ -1,7 +1,7 @@
 ---
 title: Verktyget search Explorer för att fråga efter data i Azure Portal-Azure Search
 description: Använd Azure Portal-verktyg som Sök Utforskaren för att fråga index i Azure Search. Ange Sök termer eller fullständigt kvalificerade Sök strängar med avancerad syntax.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 87e5ec82299ef9ddc8bc8756196bb2ace3d1f6f3
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e941e487adaac38c4ec3bd61a58b4b0c61f4c80a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414236"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649958"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Sök Utforskaren för att köra frågor mot data i Azure Search 
 
@@ -142,7 +142,7 @@ Tips för att söka i **Sök Utforskaren**:
 
 + Resultat returneras som utförliga JSON-dokument så att du kan se dokument konstruktion och innehåll, i sin helhet. Du kan använda frågeuttryck, som visas i exemplen, för att begränsa vilka fält som returneras.
 
-+ Dokument består av alla fält som har marker  ATS som hämtnings bara i indexet. Om du vill visa indexattribut i portalen klickar du på *realestate-US-Sample* i listan **index** på sidan Sök översikt.
++ Dokument består av alla fält som har marker ATS som hämtnings bara i indexet. Om du vill visa indexattribut i portalen klickar du på *realestate-US-Sample* i listan **index** på sidan Sök översikt.
 
 + Kostnads fria frågor, som liknar vad du kan ange i en kommersiell webbläsare, är användbara för att testa en slut användar upplevelse. Om du till exempel antar det inbyggda realestate exempel indexet, kan du ange "Seattle lägenheter Lake Washington" och sedan använda Ctrl-F för att hitta termer inom Sök resultaten. 
 

@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Yahnoosh
 ms.author: jlembicz
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 25edc52be90b6133ec0a0f0b5e8ea525d75d4800
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0cd2cf4b7847b767bac391f2547c0a5c3e3a9135
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881521"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891561"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Lägga till anpassade analys verktyg i ett Azure Search-index
 
@@ -213,7 +213,7 @@ Indexera attribut varierar beroende på om du använder fördefinierade eller an
 
 |||  
 |-|-|  
-|Namn|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
+|Name|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
 |type|Analys typ i listan över analyser som stöds. Se kolumnen **analyzer_type** i tabellen [analyserare](#AnalyzerTable) nedan.|  
 |Alternativ|Måste vara giltiga alternativ för en fördefinierad analys som anges i [analys](#AnalyzerTable) tabellen nedan.|  
 
@@ -221,7 +221,7 @@ Indexera attribut varierar beroende på om du använder fördefinierade eller an
 
 |||  
 |-|-|  
-|Namn|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
+|Name|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
 |type|Måste vara "#Microsoft. Azure. search. CustomAnalyzer".|  
 |CharFilters|Ange antingen ett av de fördefinierade char-filtren i tabellen [char filter](#char-filters-reference) eller ett anpassat char-filter som anges i index definitionen.|  
 |Tokenizer|Obligatoriskt. Ange antingen en av de fördefinierade tokenizers som anges i tabellen [tokenizers](#Tokenizers) nedan eller en anpassad tokenizer som anges i index definitionen.|  
@@ -238,7 +238,7 @@ Indexera attribut varierar beroende på om du använder fördefinierade eller an
 
 |||  
 |-|-|  
-|Namn|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
+|Name|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
 |type|Tecken filter typ från listan med tecken filter som stöds. Se kolumnen **char_filter_type** i tabellen [char filters](#char-filters-reference) nedan.|  
 |Alternativ|Måste vara giltiga alternativ för en specifik typ av [char filter](#char-filters-reference) .|  
 
@@ -251,7 +251,7 @@ En anpassad analys kan använda en fördefinierad tokenizer med antingen standar
 
 |||  
 |-|-|  
-|Namn|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
+|Name|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
 |type|Tokenizer-namn i listan över tokenizers som stöds. Se kolumnen **tokenizer_type** i tabellen [Tokenizers](#Tokenizers) nedan.|  
 |Alternativ|Måste vara giltiga alternativ för en angiven tokenizer-typ som anges i tabellen [Tokenizers](#Tokenizers) nedan.|  
 
@@ -262,7 +262,7 @@ Du kan ha flera token-filter i en anpassad analys. Token-filter körs i den ordn
 
 |||  
 |-|-|  
-|Namn|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
+|Name|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
 |type|Token filter-namn från listan över token-filter som stöds. Se kolumnen **token_filter_type** i tabellen [token filter](#TokenFilters) nedan.|  
 |Alternativ|Måste vara [token filter](#TokenFilters) för en specifik token filter-typ.|  
 
@@ -279,7 +279,7 @@ Det här avsnittet innehåller giltiga värden för attribut som anges i definit
 |**analyzer_name**|**analyzer_type** <sup>1</sup>|**Beskrivning och alternativ**|  
 |-|-|-|  
 |[följt](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)| (typen gäller endast när alternativen är tillgängliga) |Behandlar hela innehållet i ett fält som en enda token. Detta är användbart för data som post nummer, ID: n och vissa produkt namn.|  
-|[ofta](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Flexibelt separerar text till termer via ett reguljärt uttrycks mönster.<br /><br /> **Alternativ**<br /><br /> gemener (typ: bool) – anger om termerna är små. Standardvärdet är true.<br /><br /> [mönster](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (typ: sträng) – ett mönster för reguljära uttryck för att matcha token-avgränsare. Standardvärdet är \w +.<br /><br /> [flaggor](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (typ: sträng) – reguljära uttrycks flaggor. Standardvärdet är en tom sträng. Tillåtna värden: CANON_EQ, CASE_INSENSITIVE, KOMMENTARER, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stoppord (typ: sträng mat ris) – en lista över stoppord. Standardvärdet är en tom lista.|  
+|[ofta](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Flexibelt separerar text till termer via ett reguljärt uttrycks mönster.<br /><br /> **Alternativ**<br /><br /> gemener (typ: bool) – anger om termerna är små. Standardvärdet är true.<br /><br /> [mönster](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (typ: sträng) – ett mönster för reguljära uttryck för att matcha token-avgränsare. Standardvärdet är \w +.<br /><br /> [flaggor](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (typ: sträng) – reguljära uttrycks flaggor. Standardvärdet är en tom sträng. Tillåtna värden: CANON_EQ, CASE_INSENSITIVE, KOMMENTARER, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stoppord (typ: sträng mat ris) – en lista över stoppord. Standardvärdet är en tom lista.|  
 |[gång](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/SimpleAnalyzer.html)|(typen gäller endast när alternativen är tillgängliga) |Delar upp text på icke-bokstäver och konverterar dem till gemener. |  
 |[standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) <br />(Kallas även standard. Lucene)|StandardAnalyzer|Standard Lucene Analyzer, som består av standard tokenizer, gemena filter och stopp filter.<br /><br /> **Alternativ**<br /><br /> maxTokenLength (typ: int) – maximal längd på token. Standardvärdet är 255. Token som är längre än den maximala längden delas. Maximal längd på token som kan användas är 300 tecken.<br /><br /> stoppord (typ: sträng mat ris) – en lista över stoppord. Standardvärdet är en tom lista.|  
 |standardasciifolding. Lucene|(typen gäller endast när alternativen är tillgängliga) |Standard Analyzer med ASCII-filter. |  
@@ -313,18 +313,18 @@ I tabellen nedan är de tokenizers som implementeras med Apache Lucene länkade 
 
 |**tokenizer_name**|**tokenizer_type** <sup>1</sup>|**Beskrivning och alternativ**|  
 |-|-|-|  
-|[form](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|Grammatikbaserade tokenizer som lämpar sig för att bearbeta de flesta dokument på europeisk språk.<br /><br /> **Alternativ**<br /><br /> maxTokenLength (typ: int) – maximal längd på token. Standard: 255, Max: 300. Token som är längre än den maximala längden delas.|  
+|[form](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|Grammatikbaserade tokenizer som lämpar sig för att bearbeta de flesta dokument på europeisk språk.<br /><br /> **Alternativ**<br /><br /> maxTokenLength (typ: int) – maximal längd på token. Objekt 255, Max: 300. Token som är längre än den maximala längden delas.|  
 |[edgeNGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html)|EdgeNGramTokenizer|Tokenizes inmatat från en kant till n g av den eller de angivna storlekarna.<br /><br /> **Alternativ**<br /><br /> minGram (typ: int)-standard: 1, Max: 300.<br /><br /> maxGram (typ: int)-standard: 2, Max: 300. Måste vara större än minGram.<br /><br /> tokenChars (typ: sträng mat ris) – tecken klasser som ska behållas i tokens. Tillåtna värden: <br />"Letter", "siffror", "blank steg", "skiljetecken", "symbol". Standardvärdet är en tom matris – behåller alla tecken. |  
-|[keyword_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html)|KeywordTokenizerV2|Genererar hela indatamängden som en token.<br /><br /> **Alternativ**<br /><br /> maxTokenLength (typ: int) – maximal längd på token. Standard: 256, Max: 300. Token som är längre än den maximala längden delas.|  
+|[keyword_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html)|KeywordTokenizerV2|Genererar hela indatamängden som en token.<br /><br /> **Alternativ**<br /><br /> maxTokenLength (typ: int) – maximal längd på token. Objekt 256, Max: 300. Token som är längre än den maximala längden delas.|  
 |[letter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LetterTokenizer.html)|(typen gäller endast när alternativen är tillgängliga)  |Delar upp text på icke-bokstäver. Tokens som är längre än 255 tecken delas.|  
 |[versal](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseTokenizer.html)|(typen gäller endast när alternativen är tillgängliga)  |Delar upp text på icke-bokstäver och konverterar dem till gemener. Tokens som är längre än 255 tecken delas.|  
 | microsoft_language_tokenizer| MicrosoftLanguageTokenizer| Delar upp text med språkspecifika regler.<br /><br /> **Alternativ**<br /><br /> maxTokenLength (typ: int) – maximal token-längd, standard: 255, Max: 300. Token som är längre än den maximala längden delas. Tokens som är längre än 300 tecken delas upp i tokens med längden 300 och sedan delas var och en av dessa token samman baserat på maxTokenLength-uppsättningen.<br /><br />isSearchTokenizer (typ: bool) – ange värdet sant om det används som Sök-tokenizer, ange värdet FALSE om det används som index tokenizer. <br /><br /> språk (typ: sträng) – språk som ska användas, standard "engelska". Tillåtna värden är:<br />"Bangla", "bulgariska", "katalanska", "chineseSimplified", "chineseTraditional", "kroatiska", "tjeckiska", "danska", "nederländska", "engelska", "franska", "tyska", "grekiska", "hindi", "isländska", "indonesiska", "italienska", "Kannada", " Koreanska "," malajiska "," Malayalam "," Marathi "," norwegianBokmaal "," polska "," portugisiska "," portugueseBrazilian "," punjabi "," rumänska "," ryska "," serbianCyrillic "," serbianLatin "," slovensk "," spanska "," svenska "," Telugu "," Thai "," ukrainska, "urdu", "vietnamesisk" |
 | microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| Delar upp text med språkspecifika regler och minskar ord till deras bas formulär<br /><br /> **Alternativ**<br /><br />maxTokenLength (typ: int) – maximal token-längd, standard: 255, Max: 300. Token som är längre än den maximala längden delas. Tokens som är längre än 300 tecken delas upp i tokens med längden 300 och sedan delas var och en av dessa token samman baserat på maxTokenLength-uppsättningen.<br /><br /> isSearchTokenizer (typ: bool) – ange värdet sant om det används som Sök-tokenizer, ange värdet FALSE om det används som index tokenizer.<br /><br /> språk (typ: sträng) – språk som ska användas, standard "engelska". Tillåtna värden är:<br />"arabiska", "Bangla", "bulgariska", "katalanska," kroatiska "," tjeckiska "," danska "," nederländska "," engelska "," estniska "," finska "," franska "," tyska "," grekiska "," Gujarati "," hindi "," isländska "," isländska "," italienska "," Kannada "," Lettiska "," litauiska "," malajiska "," Malayalam "," Marathi "," norwegianBokmaal "," polska "," portugisiska "," portugueseBrazilian "," punjabi "," rumänska "," ryska "," serbianCyrillic "," serbianLatin "," slovakiska "," slovensk "," spanska "," svenska "," Tamil "," Telugu "," turkiska "," ukrainsk "," urdu " |
 |[nGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|Tokenizes in i n-gram av de angivna storlekarna.<br /><br /> **Alternativ**<br /><br /> minGram (typ: int)-standard: 1, Max: 300.<br /><br /> maxGram (typ: int)-standard: 2, Max: 300. Måste vara större än minGram. <br /><br /> tokenChars (typ: sträng mat ris) – tecken klasser som ska behållas i tokens. Tillåtna värden: "Letter", "siffror", "blank steg", "skiljetecken", "symbol". Standardvärdet är en tom matris – behåller alla tecken. |  
-|[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|Tokenizer för sökvägar till hierarkier.<br /><br /> **Alternativ**<br /><br /> avgränsare (typ: sträng)-standard:/.<br /><br /> ersättnings (typ: sträng) – om den anges ersätter avgränsnings tecken. Standardvärdet för avgränsare.<br /><br /> maxTokenLength (typ: int) – maximal längd på token. Standard: 300, Max: 300. Sökvägar som är längre än maxTokenLength ignoreras.<br /><br /> omvänd (typ: bool)-om värdet är true genererar token i omvänd ordning. Standard: falskt.<br /><br /> hoppa över (typ: bool) – inledande token som ska hoppas över. Standardvärdet är 0.|  
+|[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|Tokenizer för sökvägar till hierarkier.<br /><br /> **Alternativ**<br /><br /> avgränsare (typ: sträng)-standard:/.<br /><br /> ersättnings (typ: sträng) – om den anges ersätter avgränsnings tecken. Standardvärdet för avgränsare.<br /><br /> maxTokenLength (typ: int) – maximal längd på token. Objekt 300, Max: 300. Sökvägar som är längre än maxTokenLength ignoreras.<br /><br /> omvänd (typ: bool)-om värdet är true genererar token i omvänd ordning. Standard: falskt.<br /><br /> hoppa över (typ: bool) – inledande token som ska hoppas över. Standardvärdet är 0.|  
 |[ofta](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|I den här tokenizer används regex-mönster matchning för att skapa distinkta tokens.<br /><br /> **Alternativ**<br /><br /> [mönster](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (typ: sträng) – mönster för reguljära uttryck. Standardvärdet är \w +. <br /><br /> [flaggor](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (typ: sträng) – reguljära uttrycks flaggor. Standardvärdet är en tom sträng. Tillåtna värden: CANON_EQ, CASE_INSENSITIVE, KOMMENTARER, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> grupp (typ: int) – vilken grupp som ska extraheras till token. Standardvärdet är-1 (Split).|
-|[standard_v2](http://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Delar upp text efter [Unicodes regler för text segmentering](https://unicode.org/reports/tr29/).<br /><br /> **Alternativ**<br /><br /> maxTokenLength (typ: int) – maximal längd på token. Standard: 255, Max: 300. Token som är längre än den maximala längden delas.|  
-|[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|Tokenizes-URL: er och e-postmeddelanden som en token.<br /><br /> **Alternativ**<br /><br /> maxTokenLength (typ: int) – maximal längd på token. Standard: 255, Max: 300. Token som är längre än den maximala längden delas.|  
+|[standard_v2](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Delar upp text efter [Unicodes regler för text segmentering](https://unicode.org/reports/tr29/).<br /><br /> **Alternativ**<br /><br /> maxTokenLength (typ: int) – maximal längd på token. Objekt 255, Max: 300. Token som är längre än den maximala längden delas.|  
+|[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|Tokenizes-URL: er och e-postmeddelanden som en token.<br /><br /> **Alternativ**<br /><br /> maxTokenLength (typ: int) – maximal längd på token. Objekt 255, Max: 300. Token som är längre än den maximala längden delas.|  
 |[blank steg](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(typen gäller endast när alternativen är tillgängliga) |Delar upp text i blank steg. Tokens som är längre än 255 tecken delas.|  
 
  <sup>1</sup> Tokenizer-typer har alltid prefixet "#Microsoft. Azure. search", så att "ClassicTokenizer" faktiskt anges som "#Microsoft. Azure. search. ClassicTokenizer". Vi har tagit bort prefixet för att minska tabellens bredd, men kom ihåg att ta med det i koden. Observera att tokenizer_type endast anges för tokenizers som kan anpassas. Om det inte finns några alternativ, vilket är fallet med bokstaven tokenizer, finns det ingen associerad #Microsoft. Azure. search-typ.
@@ -354,7 +354,7 @@ I tabellen nedan är de token-filter som implementeras med Apache Lucene länkad
 |[keyword_marker](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/KeywordMarkerFilter.html)|KeywordMarkerTokenFilter|Markerar termer som nyckelord.<br /><br /> **Alternativ**<br /><br /> Nyckelord (typ: sträng mat ris) – en lista med ord som ska markeras som nyckelord. Standardvärdet är en tom lista. Obligatoriskt.<br /><br /> ignoreCase (typ: bool) – om värdet är true, gemener först. Standardvärdet är false.|  
 |[keyword_repeat](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/KeywordRepeatFilter.html)|(typen gäller endast när alternativen är tillgängliga)  |Avger varje inkommande token två gånger som nyckelord och en gång som icke-nyckelord. |  
 |[kstem](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/en/KStemFilter.html)|(typen gäller endast när alternativen är tillgängliga)  |Ett kstem filter med höga prestanda för engelska. |  
-|[length](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/LengthFilter.html)|LengthTokenFilter|Tar bort ord som är för långa eller för korta.<br /><br /> **Alternativ**<br /><br /> min (typ: int) – minsta antal. Standard: 0, Max: 300.<br /><br /> Max (typ: int) – maximalt antal. Standard: 300, Max: 300.|  
+|[length](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/LengthFilter.html)|LengthTokenFilter|Tar bort ord som är för långa eller för korta.<br /><br /> **Alternativ**<br /><br /> min (typ: int) – minsta antal. Objekt 0, Max: 300.<br /><br /> Max (typ: int) – maximalt antal. Objekt 300, Max: 300.|  
 |[gränserna](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/LimitTokenCountFilter.html)|Microsoft.Azure.Search.LimitTokenFilter|Begränsar antalet tokens vid indexering.<br /><br /> **Alternativ**<br /><br /> maxTokenCount (typ: int) – högsta antal tokens som ska skapas. Standardvärdet är 1.<br /><br /> consumeAllTokens (typ: bool) – om alla tokens från indatamängden måste förbrukas även om maxTokenCount har nåtts. Standardvärdet är false.|  
 |[versal](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html)|(typen gäller endast när alternativen är tillgängliga)  |Normaliserar token-text till gemener. |  
 |[nGram_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenFilter.html)|NGramTokenFilterV2|Genererar n-g av de tilldelade storlekarna.<br /><br /> **Alternativ**<br /><br /> minGram (typ: int)-standard: 1, Max: 300.<br /><br /> maxGram (typ: int)-standard: 2, högsta 300. Måste vara större än minGram.|  

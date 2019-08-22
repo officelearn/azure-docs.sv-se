@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d2d4d39cc7b330794094745851856365ef54b42f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828196"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877195"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter
 
@@ -39,7 +39,7 @@ Du kan använda standard [Event Hubs integration och SDK](iot-hub-devguide-messa
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-IoT Hub stöder skrivning av data till Azure Blob Storage i [Apache Avro](https://avro.apache.org/) -format samt i JSON-format. Möjligheten att koda JSON-format är allmänt tillgänglig i alla regioner där IoT Hub är tillgängligt. Standardvärdet är AVRO. Kodnings formatet kan bara anges när Blob Storage-slutpunkten har kon figurer ATS. Det går inte att redigera formatet för en befintlig slut punkt. När du använder JSON-kodning måste du ange contentType till JSON och contentEncoding till UTF-8 i meddelande [systemets egenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Om detta inte anges kommer IoT Hub att skriva meddelanden i bas 64-kodat format. Du kan välja kodnings formatet med IoT Hub skapa eller uppdatera REST API, särskilt [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Följande diagram visar hur du väljer kodnings formatet i Azure Portal.
+IoT Hub stöder skrivning av data till Azure Blob Storage i [Apache Avro](https://avro.apache.org/) -format samt i JSON-format. Möjligheten att koda JSON-format är allmänt tillgänglig i alla regioner där IoT Hub är tillgängligt. Standardvärdet är AVRO. Kodnings formatet kan bara anges när Blob Storage-slutpunkten har kon figurer ATS. Det går inte att redigera formatet för en befintlig slut punkt. När du använder JSON-kodning måste du ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Båda dessa värden är Skift läges känsliga. Om innehålls kodningen inte har angetts skrivs meddelandena i bas 64-kodat format IoT Hub. Du kan välja kodnings formatet med IoT Hub skapa eller uppdatera REST API, särskilt [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Följande diagram visar hur du väljer kodnings formatet i Azure Portal.
 
 ![Slut punkts kodning för Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -53,7 +53,7 @@ IoT Hub batchar meddelanden och skriver data till en BLOB när batchen når en v
 
 Du kan använda valfri fil namns konvention, men du måste använda alla listade tokens. IoT Hub skrivs till en tom BLOB om det inte finns några data att skriva.
 
-Vid routning till Blob Storage rekommenderar vi att du skapar en lista över Blobbarna och sedan går över dem, för att se till att alla behållare är lästa utan att behöva göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en [Microsoft-initierad redundansväxling](iot-hub-ha-dr.md#microsoft-initiated-failover) eller IoT Hub [manuell redundans](iot-hub-ha-dr.md#manual-failover-preview). Du kan använda [list-BLOB-API: et](https://docs.microsoft.com/rest/api/storageservices/list-blobs) för att räkna upp listan över blobbar. Se följande exempel som vägledning.
+Vid routning till Blob Storage rekommenderar vi att du skapar en lista över Blobbarna och sedan går över dem, för att se till att alla behållare är lästa utan att behöva göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en [Microsoft-initierad redundansväxling](iot-hub-ha-dr.md#microsoft-initiated-failover) eller IoT Hub [manuell redundans](iot-hub-ha-dr.md#manual-failover). Du kan använda [list-BLOB-API: et](https://docs.microsoft.com/rest/api/storageservices/list-blobs) för att räkna upp listan över blobbar. Se följande exempel som vägledning.
 
    ```csharp
         public void ListBlobsInContainer(string containerName, string iothub)
@@ -103,7 +103,7 @@ Du kan aktivera/inaktivera återställnings vägen på bladet Azure Portal-> med
 
 ## <a name="non-telemetry-events"></a>Händelser som inte är telemetri
 
-Förutom telemetri, aktiverar meddelanderoutning även överföring av enhets dubbla ändrings händelser och enhets livs cykel händelser. Om en väg till exempel skapas med data källa inställt på **enhet dubbla ändrings händelser**skickar IoT Hub meddelanden till slut punkten som innehåller ändringen i enheten. På samma sätt kommer IoT Hub att skicka ett meddelande som anger om enheten har tagits bort eller skapats, om en väg skapas med data källa inställt på **enhetens livs cykel händelser**. 
+Förutom telemetri, möjliggör meddelanderoutning även sändning av enhets dubbla ändrings händelser, livs cykel händelser för enheter och digitala dubbla ändrings händelser (i offentlig för hands version). Om en väg till exempel skapas med data källa inställt på **enhet dubbla ändrings händelser**skickar IoT Hub meddelanden till slut punkten som innehåller ändringen i enheten. På liknande sätt skickar IoT Hub ett meddelande som anger om enheten har tagits bort eller skapats, om en väg skapas med data källa inställt på **enhetens livs cykel händelser**. Som en del av IoT- [Plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md)kan en utvecklare skapa vägar med data källa inställt på **digitala dubbla ändrings händelser** och IoT Hub skicka meddelanden när en digital delad [egenskap](../iot-pnp/iot-plug-and-play-glossary.md) har ställts in eller ändrats, en [digital, dubbel ](../iot-pnp/iot-plug-and-play-glossary.md)byts ut eller när en ändrings händelse inträffar för den underliggande enheten.
 
 [IoT Hub integreras också med Azure Event Grid](iot-hub-event-grid.md) för att publicera enhets händelser som stöder real tids integrering och automatisering av arbets flöden baserat på dessa händelser. Se viktiga [skillnader mellan meddelanderoutning och event Grid](iot-hub-event-grid-routing-comparison.md) för att se vilka som fungerar bäst för ditt scenario.
 

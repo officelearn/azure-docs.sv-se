@@ -1,6 +1,6 @@
 ---
 title: Notification Hubs säkerhet
-description: Det här avsnittet beskriver säkerhet för Azure notification hub.
+description: I det här avsnittet beskrivs säkerheten för Azure Notification Hub.
 services: notification-hubs
 documentationcenter: .net
 author: jwargo
@@ -14,42 +14,40 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: jowargo
-ms.openlocfilehash: 3f5b23028094b545262e9c01640890f2c0b989ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73a6d0eaab286dec9d02bb55eb75f0781bcffcc4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431248"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891573"
 ---
 # <a name="notification-hubs-security"></a>Notification Hubs säkerhet
 
 ## <a name="overview"></a>Översikt
 
-Det här avsnittet beskriver säkerhetsmodellen i Azure Notification Hubs.
+I det här avsnittet beskrivs säkerhets modellen för Azure Notification Hubs.
 
-## <a name="shared-access-signature-security-sas"></a>Säkerhet över signatur för delad åtkomst (SAS)
+## <a name="shared-access-signature-security-sas"></a>Signatur säkerhet för delad åtkomst (SAS)
 
-Notification Hubs implementerar en på entitetsnivå säkerhetsschema kallas SAS (signatur för delad åtkomst). Det här schemat kan meddelandeentiteter deklarera upp till 12 auktoriseringsregler i deras beskrivning som beviljas rättigheter på denna entitet.
+Notification Hubs implementerar ett säkerhets schema på enhets nivå som kallas SAS (signatur för delad åtkomst). Varje regel innehåller ett namn, ett nyckel värde (delad hemlighet) och en uppsättning rättigheter, enligt beskrivningen i [säkerhets anspråk](#security-claims). När du skapar en Notification Hub skapas två regler automatiskt: en med **avlyssnings** rättigheter (som klient programmet använder) och en med **alla** rättigheter (som används av appens Server del).
 
-Varje regel innehåller ett namn, ett nyckelvärde (delad hemlighet) och en uppsättning rättigheter, som beskrivs i [säkerhetsanspråk](#security-claims). När du skapar en Meddelandehubb, två regler skapas automatiskt: en med **lyssna** rättigheter (kamerans klienten) och en med **alla** rättigheter (som använder app-serverdel).
+När du utför registrerings hantering från-klient program, om informationen som skickas via meddelanden inte är känslig (t. ex. väder uppdateringar), är ett vanligt sätt att komma åt en Notification Hub att ge nyckelvärdet för regeln lyssnings åtkomst till klient programmet. och för att ge nyckel värdet för regeln fullständig åtkomst till appens Server del.
 
-När du utför registreringshantering från klient apps om informationen som skickas meddelanden är inte känsliga (t.ex, väder uppdateringar), ett vanligt sätt att få åtkomst till en Meddelandehubb är att ge nyckelvärdet för regeln endast lyssna till klientapp och för att ge nyckelvärdet för regeln fullständig åtkomst till app-serverdel.
+Appar ska inte bädda in nyckelvärdet i Windows Store-klientprogram, i stället måste klient programmet hämta det från appens Server del vid start.
 
-Appar bör inte bädda in nyckelvärdet i Windows Store-klientprogram, i stället har klientappen hämtar du den från appserverdelen vid start.
+Med den här nyckeln med avlyssnings åtkomst kan en klient app registrera sig för alla Taggar. Om din app måste begränsa registreringen till vissa taggar till vissa klienter (till exempel när taggar representerar användar-ID), måste appens Server del utföra registreringarna. Mer information finns i [registrerings hantering](notification-hubs-push-notification-registration-management.md). Observera att på det här sättet kommer klient programmet inte att ha direkt åtkomst till Notification Hubs.
 
-Nyckeln med **lyssna** åtkomst kan ett klientprogram att registrera dig för en tagg. Om din app måste begränsa registreringar till särskilda taggar för specifika klienter (till exempel när taggar representerar användar-ID), måste appens serverdel utföra registreringarna. Mer information finns i [Registreringshantering](notification-hubs-push-notification-registration-management.md). Observera att på så sätt kan klientappen inte kommer ha direkt åtkomst till Notification Hubs.
+## <a name="security-claims"></a>Säkerhets anspråk
 
-## <a name="security-claims"></a>Säkerhetsanspråk
-
-Precis som andra entiteter, Notification Hub åtgärder tillåts för tre säkerhetsanspråk: **Lyssna**, **skicka**, och **hantera**.
+På samma sätt som andra entiteter tillåts Notification Hub-åtgärder för tre säkerhets anspråk: **Lyssna**, **Skicka**och **Hantera**.
 
 | Begäran   | Beskrivning                                          | Tillåtna åtgärder |
 | ------- | ---------------------------------------------------- | ------------------ |
-| Lyssna  | Skapa/uppdatera, läsa och radera enda registreringar | Skapa/uppdatera registrering<br><br>Läsa registrering<br><br>Läsa alla registreringar för en referens<br><br>Ta bort registrering |
-| Skicka    | Skicka meddelanden till meddelandehubben                | Skicka meddelande |
-| Hantera  | CRUDs om Meddelandehubbar (inklusive uppdaterar PNS-autentiseringsuppgifter och säkerhetsnycklar) och Läs registreringar baserat på taggar |Skapa/uppdatera/läsa/ta bort notification hub<br><br>Läs registreringar efter tagg |
+| Lyssna  | Skapa/uppdatera, läsa och ta bort enstaka registreringar | Skapa/uppdatera registrering<br><br>Läs registrering<br><br>Läs alla registreringar för en referens<br><br>Ta bort registrering |
+| Skicka    | Skicka meddelanden till Notification Hub                | Skicka meddelande |
+| Hantera  | CRUDs på Notification Hubs (inklusive uppdatering av PNS-autentiseringsuppgifter och säkerhets nycklar) och Läs registreringar baserat på Taggar |Skapa/uppdatera/läsa/ta bort Notification Hub<br><br>Läs registreringar efter tagg |
 
-Notification Hubs accepterar signatur token genererades med delade nycklar inställt direkt på Meddelandehubben.
+Notification Hubs accepterar token för signaturer som genereras med delade nycklar som kon figurer ATS direkt i Notification Hub.
 
-Det går inte att skicka ett meddelande till mer än ett namnområde. Namnområden är en logisk behållare för meddelandehubbar och ingår inte skicka meddelanden.
-Namnområdesnivå åtkomstprinciper (autentiseringsuppgifter) kan användas för namnområdesnivån åtgärder, till exempel: visa en lista över meddelandehubbar, skapa eller ta bort notification Hub, osv. Endast åtkomstprinciper hub på servernivå skulle kan du skicka meddelanden.
+Det går inte att skicka ett meddelande till fler än ett namn område. Namn områden är logiska behållare för Notification Hub och är inte involverade för att skicka meddelanden.
+Åtkomst principer för namn områdes nivå (autentiseringsuppgifter) kan användas för åtgärder på namn områdes nivå, till exempel: Visa meddelande hubbar, skapa eller ta bort Notification Hub osv. Du kan bara skicka meddelanden med åtkomst principerna på NAV-nivå.

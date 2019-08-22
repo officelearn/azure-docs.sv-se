@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b7157cd58abc7f1fecf288e72b0232c8a67b7ee
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 4aa948a785153dd0d70a9af41ae0ed25036827f8
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512584"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656275"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
@@ -43,7 +43,7 @@ Det allmänna arbets flödet för att skapa en klient som använder en Machine L
 * `auth_enabled`– Om Key Authentication har Aktiver ATS `True`, `False`annars,.
 * `token_auth_enabled`– Om token-autentisering är `True`aktiverat, annars `False`,.
 * `scoring_uri` – REST API-adress.
-
+* `swagger_uri`– Adressen till OpenAPI-specifikationen. Denna URI är tillgänglig om du har aktiverat automatiskt skapande av schema. Mer information finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md#schema).
 
 Det finns tre sätt att hämta den här informationen för distribuerade webbtjänster:
 
@@ -56,6 +56,7 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
                                            image_config=image_config,
                                            workspace=ws)
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 * Du kan använda `Webservice.list` att hämta en lista över distribuerade webbtjänster för modeller i din arbetsyta. Du kan lägga till filter för att begränsa listan med information som returneras. Mer information om vad som kan filtreras finns i referens dokumentationen för [WebService. list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) .
@@ -63,6 +64,7 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
+    print(services[0].swagger_uri)
     ```
 
 * Om du känner till namnet på den distribuerade tjänsten kan du skapa en ny instans av `Webservice`och ange arbets ytan och tjänstens namn som parametrar. Det nya objektet innehåller information om den distribuerade tjänsten.
@@ -70,11 +72,12 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
     ```python
     service = Webservice(workspace=ws, name='myservice')
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 ### <a name="authentication-for-services"></a>Autentisering för tjänster
 
-Azure Machine Learning ger dig möjlighet att styra åtkomsten till dina webb tjänster på två sätt. 
+Azure Machine Learning ger dig möjlighet att styra åtkomsten till dina webb tjänster på två sätt.
 
 |Autentiseringsmetod|ACI|AKS|
 |---|---|---|

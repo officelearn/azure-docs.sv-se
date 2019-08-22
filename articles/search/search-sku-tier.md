@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: a874c8a1fe2e8a81e2f42b2c88447fd52b47f3ad
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1c86649a989b16d928a46d322af3d805b6fbf832
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611961"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647350"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en pris nivå för Azure Search
 
@@ -53,10 +53,10 @@ Du kan få mer information om olika nivåer på [sidan prissättning](https://az
 
 En lösning som bygger på Azure Search kan ådra sig kostnaderna på följande sätt:
 
-+ Bas kostnad för tjänst vid minimal konfiguration
-+ Stegvis kostnad vid skalning (lägga till repliker eller partitioner)
-+ Bandbredds avgifter för utgående data överföring
-+ Kognitiv sökning utnyttjar Cognitive Services resurser
++ Bas kostnad för tjänst vid lägsta konfiguration (skapa en tjänst)
++ Stegvis kostnad vid skalning (Lägg till repliker eller partitioner)
++ Bandbredds avgifter (utgående data överföring) 
++ Kognitiv sökning (bifoga Cognitive Services för AI-anrikning, Azure Storage för kunskaps lager)
 
 ### <a name="service-costs"></a>Tjänste kostnader
 

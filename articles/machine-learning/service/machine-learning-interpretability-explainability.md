@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: 1e742c278b9356c7501964541802e0c96dc74b09
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2e8eb79c4baebebb1974a977394215545ef944db
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358658"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872394"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Modell tolkning med Azure Machine Learning tjänst
 
@@ -69,7 +69,7 @@ __Direkta förklaringar__ kommer från integrerade bibliotek. SDK: n omsluter al
 * **Förklaring till Viktighets funktion**för permutationer: Permutations funktionens betydelse är en teknik som används för att förklara klassificerings-och Regressions modeller som inspireras av Breiman-bladet för [slumpmässiga skogar](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sättet som det fungerar genom att slumpmässigt blandning data en funktion i taget för hela data uppsättningen och att beräkna hur mycket prestanda måttet för räntan minskar. Ju större ändringen är, desto viktigare är funktionen.
 
 * **Lime-förklaring** (`contrib`): Baserat på LIME används den avancerade oberoende förklaringar (kalk) för att skapa lokala surrogat modeller med hjälp av lime-algoritmen. Till skillnad från globala surrogat modeller fokuserar kalk på att träna lokala surrogat modeller för att förklara enskilda förutsägelser.
-* **Text förklaring för han** (`contrib`): Text förklaring för HAN använder ett hierarkiskt Attention-nätverk för att få modell förklaringar från text data för en specifik text modell i svart ruta. Vi tränar den HAN surrogat-modellen på en viss lärares modells förväntade utdata. Efter att ha tränat över texten sökkorpus har vi lagt till ett fin justerings steg för ett särskilt dokument för att förbättra noggrannheten i förklaringarna. HAN använder en dubbelriktad RNN med två åtgärds lager, för mening och ord uppmärksamhet. När DNN har tränats i lärarens modell och finjusteras för ett specifikt dokument kan vi extrahera ordets betydelse från Attention-lagren. Vi har funnit att HAN är mer exakt än kalk eller SHAP för text data, men mer kostsamma vad gäller inlärnings tiden. Vi har dock gjort förbättringar i utbildnings tiden genom att ge användaren möjlighet att initiera nätverket med assisterad Word-inbäddningar, även om det fortfarande är långsamt. Inlärnings tiden kan förbättras avsevärt genom att köra HAN på en virtuell dator med Azure GPU. Implementeringen av HAN beskrivs i "hierarkiska Attention-nätverk för dokument klassificering (Yang et al., 2016)"[https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)().
+* **Text förklaring för han** (`contrib`): Text förklaring för HAN använder ett hierarkiskt Attention-nätverk för att få modell förklaringar från text data för en specifik text modell i svart ruta. Vi tränar den HAN surrogat-modellen på en viss lärares modells förväntade utdata. Efter att ha tränat över texten sökkorpus har vi lagt till ett fin justerings steg för ett särskilt dokument för att förbättra noggrannheten i förklaringarna. HAN använder en dubbelriktad RNN med två åtgärds lager, för mening och ord uppmärksamhet. När DNN har tränats i lärarens modell och finjusteras för ett specifikt dokument kan vi extrahera ordets betydelse från Attention-lagren. Vi har funnit att HAN är mer exakt än kalk eller SHAP för text data, men mer kostsamma vad gäller inlärnings tiden. Vi har dock gjort förbättringar i utbildnings tiden genom att ge användaren möjlighet att initiera nätverket med assisterad Word-inbäddningar, även om det fortfarande är långsamt. Inlärnings tiden kan förbättras avsevärt genom att köra HAN på en virtuell dator med Azure GPU. Implementeringen av HAN beskrivs i ["hierarkiska Attention-nätverk för dokument klassificering (Yang et al., 2016)"](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification).
 
 
 __Meta-förklaringar__ väljer automatiskt en lämplig direkt förklaring och genererar den bästa förklarings informationen baserat på den aktuella modellen och data uppsättningar. Meta-förklaringarna utnyttjar alla bibliotek (SHAP, kalk, härma osv.) som vi har integrerat eller utvecklat. Följande är de meta-förklaringar som är tillgängliga i SDK:

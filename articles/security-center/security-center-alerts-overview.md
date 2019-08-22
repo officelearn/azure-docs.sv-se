@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 91dd397095718b3b43e41767af422801fd50b7f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 25fb94afdfe68510c66cff130a3abc8b74d7311d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295689"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647310"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Säkerhets aviseringar i Azure Security Center
 
@@ -50,7 +50,7 @@ I följande avsnitt förklaras hur Security Center utnyttjar olika telemetri som
 
 ## <a name="what-are-alert-incidents"></a>Vad är varnings incidenter?
 
-En säkerhets incident är en samling relaterade aviseringar i stället för att lista varje avisering individuellt. Security Center använder fusion för att korrelera olika aviseringar och låg åter givning av signaler till säkerhets incidenter.
+En säkerhets incident är en samling relaterade aviseringar i stället för att lista varje avisering individuellt. Security Center använder [Cloud Smart Alert-korrelation](security-center-alerts-cloud-smart.md) för att korrelera olika aviseringar och låg åter givning av signaler till säkerhets incidenter.
 
 Med hjälp av incidenter ger Security Center en enda vy över en angrepps kampanj och alla relaterade aviseringar. Med den här vyn kan du snabbt förstå vilka åtgärder som angriparen tog och vilka resurser som påverkas. Mer information finns i [Cloud Smart Alert-korrelation](security-center-alerts-cloud-smart.md).
 

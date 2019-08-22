@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d95760745dc3554bc63271cedc63dcf3bf017c5c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 59b5138950e0fb94ea0051fa9cfe9aa75cd7d770
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855219"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877793"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatisera hanterings uppgifter på virtuella Azure-datorer med hjälp av tillägget SQL Server IaaS-agent
 > [!div class="op_single_selector"]
@@ -88,14 +88,17 @@ Här följer kraven för att använda SQL Server IaaS agent Extension på den vi
 Du kan visa det aktuella läget för SQL Server IaaS-agenten med hjälp av PowerShell: 
 
   ```powershell-interactive
-     //Get the SqlVirtualMachine
+     #Get the SqlVirtualMachine
      $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
      $sqlvm.Properties.sqlManagement
   ```
 
-För SQL Server virtuella datorer som har tillägget noagent eller Lightweight IaaS installerat kan du uppgradera läget till fullständigt med hjälp av Azure Portal. Det går inte att nedgradera. För att göra det måste du avinstallera SQL Server IaaS-tillägget fullständigt och installera det igen. 
+SQL Server virtuella datorer som har tillägget *Lightweight* IaaS installerat kan uppgradera läget till _full_ med hjälp av Azure Portal. SQL Server virtuella datorer i _no-agent-_ läge kan uppgraderas till _full_ efter att operativ systemet har uppgraderats till Windows 2008 R2 och senare. Det går inte att nedgradera – om du vill göra det måste du avinstallera SQL IaaS-tillägget fullständigt och installera det igen. 
 
 Så här uppgraderar du agentens läge till fullständigt: 
+
+
+# <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Gå till resursen för [virtuella SQL-datorer](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) . 
@@ -108,8 +111,33 @@ Så här uppgraderar du agentens läge till fullständigt:
 
     ![Kryss ruta för att komma överens om att starta om SQL Server tjänsten på den virtuella datorn](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
 
+# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+
+Kör följande AZ CLI-kodfragment:
+
+  ```azurecli-interactive
+  # Update to full mode
+
+  az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
+  ```
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+Kör följande PowerShell-kodfragment:
+
+  ```powershell-interactive
+  # Update to full mode
+
+  $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
+  $SqlVm.Properties.sqlManagement="Full"
+  $SqlVm | Set-AzResource -Force
+  ```
+
+---
+
+
 ##  <a name="installation"></a>Installation
-Tillägget SQL Server IaaS installeras när du registrerar din SQL Server VM med providern för [SQL VM-resurs](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-the-sql-vm-resource-provider). Om det behövs kan du installera SQL Server IaaS-agenten manuellt med hjälp av läget fullständig eller förenklad. 
+Tillägget SQL Server IaaS installeras när du registrerar din SQL Server VM med providern för [SQL VM-resurs](virtual-machines-windows-sql-register-with-resource-provider.md). Om det behövs kan du installera SQL Server IaaS-agenten manuellt med hjälp av läget fullständig eller förenklad. 
 
 SQL Server IaaS agent extension i fullständigt läge installeras automatiskt när du etablerar en SQL Server virtuell dator med Azure Marketplace-avbildningar med hjälp av Azure Portal. 
 
@@ -119,10 +147,10 @@ Det fullständiga läget för SQL Server IaaS-tillägget ger fullständig hanter
 Installera SQL Server IaaS-agenten med fullständigt läge med hjälp av PowerShell:
 
   ```powershell-interactive
-     // Get the existing compute VM
+     #Get the existing compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register the SQL Server VM with 'Full' SQL Server IaaS agent
+     #Register the SQL Server VM with 'Full' SQL Server IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='Full'}  
@@ -158,10 +186,10 @@ Installera SQL Server IaaS-agenten med lättviktigt läge med hjälp av PowerShe
 
 
   ```powershell-interactive
-     // Get the existing  Compute VM
+     /#Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register the SQL Server VM with the 'Lightweight' SQL IaaS agent
+     #Register the SQL Server VM with the 'Lightweight' SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  

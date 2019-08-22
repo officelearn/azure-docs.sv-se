@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric-behållaren application manifest-exempel | Microsoft Docs
-description: Lär dig hur du konfigurerar programmet och tjänstinställningar manifestet för en Service Fabric-program med flera behållare.
+title: Exempel på Azure Service Fabric container Application-manifest | Microsoft Docs
+description: Lär dig hur du konfigurerar inställningar för program-och tjänst manifest för ett Service Fabric program med flera behållare.
 services: service-fabric
 documentationcenter: na
 author: peterpogorski
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 622e6f7552d91cdb9ccf3668c302496c68a5920f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ece0b763a2dbe501b0f46d026c59e1294a448c59
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719251"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650609"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exempel på program med flera behållare och tjänstmanifest
-Här följer några exempel på manifest för program och tjänster för en Service Fabric-program med flera behållare. Syftet med de här exemplen är att visa vilka inställningar är tillgängliga och hur de används. Dessa program och tjänstens manifest baseras på den [Windows Server 2016 behållare exempel](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifest.
+Följande är exempel på program-och tjänst manifest för ett Service Fabric program med flera behållare. Syftet med dessa exempel är att visa vilka inställningar som är tillgängliga och hur de används. Dessa program-och tjänst manifest baseras på [Windows Server 2016-exempel](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifest för behållare.
 
 Följande funktioner visas:
 
 |Manifest|Funktioner|
 |---|---|
-|[Programmanifest](#application-manifest)| [åsidosätt miljövariabler](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [konfigurerar du mappning av behållare till värd](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [konfigurera autentisering av behållarregister](service-fabric-get-started-containers.md#configure-container-registry-authentication), [resursstyrning](service-fabric-resource-governance.md), [Anger isoleringsläge](service-fabric-get-started-containers.md#configure-isolation-mode), [ange OS build-specifika behållaravbildningar](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
-|[FrontEndService tjänstmanifestet](#frontendservice-service-manifest)| [Ange miljövariabler](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [konfigurerar en slutpunkt](service-fabric-get-started-containers.md#configure-communication), skicka kommandon till behållaren, [importera ett certifikat till en behållare](service-fabric-securing-containers.md)| 
-|[BackEndService tjänstmanifestet](#backendservice-service-manifest)|[Ange miljövariabler](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [konfigurerar en slutpunkt](service-fabric-get-started-containers.md#configure-communication), [Konfigurera drivrutiner för volym](service-fabric-containers-volume-logging-drivers.md)| 
+|[Programmanifest](#application-manifest)| [Åsidosätt miljövariabler](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [konfigurera mappning av behållarens port-till-värd](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [Konfigurera autentisering av container register](service-fabric-get-started-containers.md#configure-container-repository-authentication), [resurs styrning](service-fabric-resource-governance.md), [Ange isolerings läge](service-fabric-get-started-containers.md#configure-isolation-mode), [Ange OS-programspecifika behållare bilder](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
+|[FrontEndService-tjänst manifest](#frontendservice-service-manifest)| [Ange miljövariabler](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [Konfigurera en slut punkt](service-fabric-get-started-containers.md#configure-communication), skicka kommandon till behållaren, [Importera ett certifikat till en behållare](service-fabric-securing-containers.md)| 
+|[BackEndService-tjänst manifest](#backendservice-service-manifest)|[Ange miljövariabler](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [Konfigurera en slut punkt](service-fabric-get-started-containers.md#configure-communication), [Konfigurera volym driv rutin](service-fabric-containers-volume-logging-drivers.md)| 
 
-Se [manifest programelement](#application-manifest-elements), [FrontEndService manifest delar](#frontendservice-service-manifest-elements), och [BackEndService manifest delar](#backendservice-service-manifest-elements) mer information om specifika XML-element.
+Se [program manifest](#application-manifest-elements)element, [FrontEndService tjänst manifest element](#frontendservice-service-manifest-elements)och [BackEndService tjänst manifest element](#backendservice-service-manifest-elements) för mer information om specifika XML-element.
 
 ## <a name="application-manifest"></a>Programmanifest
 
@@ -165,7 +165,7 @@ Se [manifest programelement](#application-manifest-elements), [FrontEndService m
 </ApplicationManifest>
 ```
 
-## <a name="frontendservice-service-manifest"></a>FrontEndService tjänstmanifestet
+## <a name="frontendservice-service-manifest"></a>FrontEndService-tjänst manifest
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -215,7 +215,7 @@ Se [manifest programelement](#application-manifest-elements), [FrontEndService m
 </ServiceManifest>
 ```
 
-## <a name="backendservice-service-manifest"></a>BackEndService tjänstmanifestet
+## <a name="backendservice-service-manifest"></a>BackEndService-tjänst manifest
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -264,157 +264,157 @@ Se [manifest programelement](#application-manifest-elements), [FrontEndService m
 </ServiceManifest>
 ```
 
-## <a name="application-manifest-elements"></a>Application manifest element
-### <a name="applicationmanifest-element"></a>ApplicationManifest Element
-Beskriver deklarativt programtypen och versionen. Refererar till en eller flera tjänstmanifest dessa tjänster om du ska skapa en typ av program. Konfigurationsinställningarna för dessa tjänster kan åsidosättas med hjälp av parametriserade programinställningar. Som standard tjänster, tjänstmallar, säkerhetsobjekt, principer, ställa in diagnostik och certifikat kan också deklarerats på programnivå. Mer information finns i [ApplicationManifest Element](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)
+## <a name="application-manifest-elements"></a>Program manifest element
+### <a name="applicationmanifest-element"></a>ApplicationManifest-element
+I den här artikeln beskrivs program typen och versionen. En eller flera tjänst manifest för komponent tjänsterna refereras till för att skapa en program typ. Konfigurations inställningar för komponent tjänsterna kan åsidosättas med hjälp av parametriserade program inställningar. Standard tjänster, tjänstmallar, huvud konton, principer, konfiguration av diagnostik och certifikat kan också deklareras på program nivå. Mer information finns i [ApplicationManifest-element](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)
 
-### <a name="parameters-element"></a>Parametrarna-Element
-Anger de parametrar som används i den här programmanifestet. Värdet för dessa parametrar kan anges när programmet instantieras och kan användas för att åsidosätta programmet eller tjänsten konfigurationsinställningar. Mer information finns i [parametrar Element](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
+### <a name="parameters-element"></a>Parameter element
+Deklarerar de parametrar som används i det här applikations manifestet. Värdet för dessa parametrar kan anges när programmet instansieras och kan användas för att åsidosätta program-eller tjänst konfigurations inställningar. Mer information finns i [elementet Parameters](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
 
-### <a name="parameter-element"></a>Parameterelement
-En program-parameter som ska användas i manifestet. Parametervärdet kan ändras under programmet instansiering eller, om inget värde anges används standardvärdet. Mer information finns i [parameterelement](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)
+### <a name="parameter-element"></a>Parameter element
+En program parameter som ska användas i det här manifestet. Parametervärdet kan ändras när programmet instansieras, eller om inget värde anges används standardvärdet. Mer information finns i [parameter element](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)
 
-### <a name="servicemanifestimport-element"></a>ServiceManifestImport Element
-Importerar ett tjänstmanifest som skapats av tjänsten-utvecklare. Ett tjänstmanifest måste importeras för varje konstituerande tjänst i programmet. Åsidosätter konfigurationen och principer kan deklareras för tjänstmanifestet. Mer information finns i [ServiceManifestImport Element](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
+### <a name="servicemanifestimport-element"></a>Service manifest import-element
+Importerar ett tjänst manifest som skapats av tjänste utvecklaren. Ett tjänst manifest måste importeras för varje komponent tjänst i programmet. Konfigurations åsidosättningar och principer kan deklareras för tjänst manifestet. Mer information finns i [service manifest import-element](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
 
 ### <a name="servicemanifestref-element"></a>ServiceManifestRef Element
-Importerar tjänstmanifestet med referens. För närvarande måste tjänstmanifestfilen (ServiceManifest.xml) finnas i build-paketet. Mer information finns i [ServiceManifestRef Element](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)
+Importerar tjänst manifestet efter referens. För närvarande måste tjänst manifest filen (ServiceManifest. xml) finnas i build-paketet. Mer information finns i [ServiceManifestRef-element](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)
 
-### <a name="policies-element"></a>Policies Element
-Beskriver principer (slutpunkt för bindning, delning, kör som-paketet och säkerhet åtkomst) som ska tillämpas på importerade tjänstmanifestet. Mer information finns i [principer Element](service-fabric-service-model-schema-elements.md#PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement)
+### <a name="policies-element"></a>Princip element
+Beskriver principer (slut punkts bindning, paket delning, kör som och säkerhets åtkomst) som ska tillämpas på det importerade tjänst manifestet. Mer information finns i [princip element](service-fabric-service-model-schema-elements.md#PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="servicepackageresourcegovernancepolicy-element"></a>ServicePackageResourceGovernancePolicy Element
-Definierar principen för resurs-styrning som tillämpas på nivån för hela tjänstpaketet. Mer information finns i [ServicePackageResourceGovernancePolicy Element](service-fabric-service-model-schema-elements.md#ServicePackageResourceGovernancePolicyElementServicePackageResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType)
+Definierar den resurs styrnings princip som tillämpas på hela tjänst paketets nivå. Mer information finns i [ServicePackageResourceGovernancePolicy-element](service-fabric-service-model-schema-elements.md#ServicePackageResourceGovernancePolicyElementServicePackageResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType)
 
 ### <a name="resourcegovernancepolicy-element"></a>ResourceGovernancePolicy Element
-Anger resursgränser för ett kodpaket. Mer information finns i [ResourceGovernancePolicy Element](service-fabric-service-model-schema-elements.md#ResourceGovernancePolicyElementResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedEndpointelement)
+Anger resurs gränser för ett kod paket. Mer information finns i [ResourceGovernancePolicy-element](service-fabric-service-model-schema-elements.md#ResourceGovernancePolicyElementResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedEndpointelement)
 
-### <a name="containerhostpolicies-element"></a>ContainerHostPolicies Element
-Anger principer för att aktivera behållare-värdar. Mer information finns i [ContainerHostPolicies Element](service-fabric-service-model-schema-elements.md#ContainerHostPoliciesElementContainerHostPoliciesTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
+### <a name="containerhostpolicies-element"></a>ContainerHostPolicies-element
+Anger principer för att aktivera behållar värdar. Mer information finns i [ContainerHostPolicies-element](service-fabric-service-model-schema-elements.md#ContainerHostPoliciesElementContainerHostPoliciesTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
 
-### <a name="repositorycredentials-element"></a>RepositoryCredentials Element
-Autentiseringsuppgifter för behållaren avbildningslagringsplatsen för pull-avbildningar från. Mer information finns i [RepositoryCredentials Element](service-fabric-service-model-schema-elements.md#RepositoryCredentialsElementRepositoryCredentialsTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+### <a name="repositorycredentials-element"></a>RepositoryCredentials-element
+Autentiseringsuppgifter för behållar avbildnings lagrings plats att hämta avbildningar från. Mer information finns i [RepositoryCredentials-element](service-fabric-service-model-schema-elements.md#RepositoryCredentialsElementRepositoryCredentialsTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
-### <a name="portbinding-element"></a>PortBinding Element
-Anger vilken slutpunktsresurs som ska binda till behållaren exponerade port. Mer information finns i [PortBinding Element](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInServicePackageContainerPolicyTypecomplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+### <a name="portbinding-element"></a>PortBinding-element
+Anger vilken slut punkts resurs som ska bindas till den exponerade container porten. Mer information finns i [PortBinding-element](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInServicePackageContainerPolicyTypecomplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
-### <a name="volume-element"></a>Volume Element
-Anger volymen som ska bindas till behållaren. Mer information finns i [volymelement](service-fabric-service-model-schema-elements.md#VolumeElementContainerVolumeTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+### <a name="volume-element"></a>Volym element
+Anger den volym som ska bindas till behållaren. Mer information finns i [volym element](service-fabric-service-model-schema-elements.md#VolumeElementContainerVolumeTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
-### <a name="driveroption-element"></a>DriverOption Element
-Drivrutiner som ska skickas till drivrutinen. Mer information finns i [DriverOption Element](service-fabric-service-model-schema-elements.md#DriverOptionElementDriverOptionTypeComplexTypeDefinedInContainerLoggingDriverTypecomplexTypeDefinedInContainerVolumeTypecomplexType)
+### <a name="driveroption-element"></a>DriverOption-element
+Driv rutins alternativ som ska skickas till driv rutinen. Mer information finns i [DriverOption-element](service-fabric-service-model-schema-elements.md#DriverOptionElementDriverOptionTypeComplexTypeDefinedInContainerLoggingDriverTypecomplexTypeDefinedInContainerVolumeTypecomplexType)
 
-### <a name="imageoverrides-element"></a>ImageOverrides Element
-Windows Server-behållare kan inte vara kompatibla mellan olika versioner av Operativsystemet.  Du kan ange flera operativsystemsavbildningar per behållare och tagga dem med build-versioner av Operativsystemet. Hämta build-versionen av Operativsystemet genom att köra ”winver” i en kommandotolk i Windows. Om det underliggande Operativsystemet är version version 16299 (Windows Server version 1709), Service Fabric används den behållaravbildning som taggats med Os = ”16299”. En ej taggad behållaravbildning antas fungerar i alla versioner av Operativsystemet och åsidosätter den avbildning som angetts i tjänstmanifestet. Mer information finns i [ImageOverrides Element](service-fabric-service-model-schema-elements.md#ImageOverridesElementImageOverridesTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+### <a name="imageoverrides-element"></a>ImageOverrides-element
+Windows Server-behållare kanske inte är kompatibla i olika versioner av operativ systemet.  Du kan ange flera OS-avbildningar per behållare och tagga dem med build-versioner av operativ systemet. Hämta build-versionen av operativ systemet genom att köra "winver" i kommando tolken i Windows. Om det underliggande operativ systemet är version 16299 (Windows Server version 1709) väljer Service Fabric behållar avbildningen som taggats med OS = "16299". En otaggade behållar avbildning antas fungera i alla versioner av operativ systemet och åsidosätter avbildningen som anges i tjänst manifestet. Mer information finns i [ImageOverrides-element](service-fabric-service-model-schema-elements.md#ImageOverridesElementImageOverridesTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
-### <a name="image-element"></a>Image Element
-Behållaravbildning som motsvarar OS build-versionsnumret som ska startas. Om Os-attributet inte anges, antas fungerar i alla versioner av Operativsystemet behållaravbildningen och åsidosätter den avbildning som angetts i tjänstmanifestet. Mer information finns i [bildelement](service-fabric-service-model-schema-elements.md#ImageElementImageTypeComplexTypeDefinedInImageOverridesTypecomplexType)
+### <a name="image-element"></a>Bild element
+Behållar avbildning som motsvarar OS-Build-versions numret som ska startas. Om attributet OS inte anges antas behållar avbildningen fungera i alla versioner av operativ systemet och åsidosätter avbildningen som anges i tjänst manifestet. Mer information finns i [bild element](service-fabric-service-model-schema-elements.md#ImageElementImageTypeComplexTypeDefinedInImageOverridesTypecomplexType)
 
-### <a name="environmentoverrides-element"></a>EnvironmentOverrides Element
- Mer information finns i [EnvironmentOverrides Element](service-fabric-service-model-schema-elements.md#EnvironmentOverridesElementEnvironmentOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
+### <a name="environmentoverrides-element"></a>EnvironmentOverrides-element
+ Mer information finns i [EnvironmentOverrides-element](service-fabric-service-model-schema-elements.md#EnvironmentOverridesElementEnvironmentOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
 
-### <a name="environmentvariable-element"></a>EnvironmentVariable Element
-Miljövariabeln. Mer information finns i [EnvironmentVariable Element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
+### <a name="environmentvariable-element"></a>EnvironmentVariable-element
+Miljö variabel. Mer information finns i [EnvironmentVariable-element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
-### <a name="certificateref-element"></a>CertificateRef Element
-Anger information om en X509 certifikat som ska göras tillgänglig för behållarmiljön. Certifikatet måste vara installerad på arkivet LocalMachine för alla klusternoder.
-När programmet startas, läser certifikatet körningen och genererar en PFX-fil och lösenord (Windows) eller en PEM-fil (på Linux).
-PFX-filen och lösenordet är tillgängliga i behållaren med hjälp av miljövariablerna Certificates_ServicePackageName_CodePackageName_CertName_PFX och Certificates_ServicePackageName_CodePackageName_CertName_Password. PEM-filen är tillgänglig i behållaren med miljövariabler Certificates_ServicePackageName_CodePackageName_CertName_PEM och Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey. Mer information finns i [CertificateRef Element](service-fabric-service-model-schema-elements.md#CertificateRefElementContainerCertificateTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+### <a name="certificateref-element"></a>CertificateRef-element
+Anger information om ett X509-certifikat som ska exponeras för behållar miljön. Certifikatet måste vara installerat i LocalMachine-arkivet för alla klusternoder.
+När programmet startar läser körnings programmet certifikatet och genererar en PFX-fil och ett lösen ord (i Windows) eller en PEM-fil (på Linux).
+PFX-filen och-lösen ordet är tillgängliga i behållaren med hjälp av Certificates_ServicePackageName_CodePackageName_CertName_PFX-och Certificates_ServicePackageName_CodePackageName_CertName_Password-miljövariablerna. PEM-filen är tillgänglig i behållaren med hjälp av variablerna Certificates_ServicePackageName_CodePackageName_CertName_PEM och Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey-miljövariabeln. Mer information finns i [CertificateRef-element](service-fabric-service-model-schema-elements.md#CertificateRefElementContainerCertificateTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
-### <a name="defaultservices-element"></a>DefaultServices Element
-Anger instanser av tjänsten som skapas automatiskt när ett program instantieras mot den här typen. Mer information finns i [DefaultServices Element](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)
+### <a name="defaultservices-element"></a>DefaultServices-element
+Deklarerar tjänst instanser som skapas automatiskt när ett program instansieras mot den här program typen. Mer information finns i [DefaultServices-element](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)
 
-### <a name="service-element"></a>Service Element
-Deklarerar en tjänst som ska skapas automatiskt när programmet instantieras. Mer information finns i [Service Element](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)
+### <a name="service-element"></a>Tjänst element
+Deklarerar en tjänst som skapas automatiskt när programmet instansieras. Mer information finns i [tjänst element](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)
 
-### <a name="statelessservice-element"></a>StatelessService Element
-Definierar en tillståndslös tjänst. Mer information finns i [StatelessService Element](service-fabric-service-model-schema-elements.md#StatelessServiceElementStatelessServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)
+### <a name="statelessservice-element"></a>StatelessService-element
+Definierar en tillstånds lös tjänst. Mer information finns i [StatelessService-element](service-fabric-service-model-schema-elements.md#StatelessServiceElementStatelessServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)
 
 
-## <a name="frontendservice-service-manifest-elements"></a>FrontEndService service manifest element
-### <a name="servicemanifest-element"></a>ServiceManifest Element
-Beskriver deklarativt tjänsttyp och version. Den visar oberoende av varandra kan uppgraderas kod, konfiguration och data-paket som tillsammans utgör inget tjänstepaket för att stödja en eller flera typer av tjänster. Resurser, inställningarna för startdiagnostik och tjänstmetadata, till exempel typ av tjänst, health egenskaper och mätvärden för Utjämning av nätverksbelastning, också anges. Mer information finns i [ServiceManifest Element](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
+## <a name="frontendservice-service-manifest-elements"></a>Manifest element för FrontEndService-tjänst
+### <a name="servicemanifest-element"></a>ServiceManifest-element
+I den här artikeln beskrivs tjänst typen och versionen. Den innehåller en lista över oberoende uppgraderings bara kod, konfiguration och data paket som tillsammans skapar ett tjänst paket för att stödja en eller flera tjänst typer. Resurser, diagnostikinställningar och tjänstens metadata, till exempel tjänst typ, hälso egenskaper och belastnings Utjämnings mått, anges också. Mer information finns i [ServiceManifest-element](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
 
-### <a name="servicetypes-element"></a>ServiceTypes Element
-Definierar vilka typer av tjänster som stöds av en CodePackage i manifestet. När en tjänst instantieras mot en av dessa typer av tjänster, aktiveras alla kodpaket som deklarerats i manifestet genom att köra sina startpunkter. Tjänsttyper deklareras i manifestet nivå och inte kodnivå för paketet. Mer information finns i [ServiceTypes Element](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
+### <a name="servicetypes-element"></a>ServiceTypes-element
+Definierar vilka tjänst typer som stöds av en CodePackage i det här manifestet. När en tjänst instansieras mot någon av dessa tjänst typer aktive ras alla kod paket som deklarerats i det här manifestet genom att de startas. Tjänst typer deklareras på manifest nivå och inte på kod paket nivå. Mer information finns i [ServiceTypes-element](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
 
-### <a name="statelessservicetype-element"></a>StatelessServiceType Element
-Beskriver en typ av tillståndslösa. Mer information finns i [StatelessServiceType Element](service-fabric-service-model-schema-elements.md#StatelessServiceTypeElementStatelessServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
+### <a name="statelessservicetype-element"></a>StatelessServiceType-element
+Beskriver en tillstånds lös tjänst typ. Mer information finns i [StatelessServiceType-element](service-fabric-service-model-schema-elements.md#StatelessServiceTypeElementStatelessServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
 
 ### <a name="codepackage-element"></a>CodePackage Element
-Beskriver ett kodpaket som har stöd för en definierad tjänsttyp. När en tjänst instantieras mot en av dessa typer av tjänster, aktiveras alla kodpaket som deklarerats i manifestet genom att köra sina startpunkter. De resulterande processerna förväntas registrera stöds tjänsttyper vid körning. När det finns flera kodpaket, aktiveras de alla varje gång systemet söker efter någon av de deklarerade tjänsttyper. Mer information finns i [CodePackage Element](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
+Beskriver ett kod paket som stöder en definierad tjänst typ. När en tjänst instansieras mot någon av dessa tjänst typer aktive ras alla kod paket som deklarerats i det här manifestet genom att de startas. De resulterande processerna förväntas registrera de tjänst typer som stöds vid körning. När det finns flera kod paket aktive ras alla när systemet söker efter en av de deklarerade tjänst typerna. Mer information finns i [CodePackage-element](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
 
-### <a name="entrypoint-element"></a>EntryPoint Element
-Den körbara filen som anges av EntryPoint är vanligtvis tjänstevärden tidskrävande. Förekomsten av en separat konfigurationsstartpunkten innebär att du slipper att köra tjänstevärden med höga privilegier för längre tid. Den körbara filen som anges av EntryPoint körs när SetupEntryPoint har avslutas. Resulterande processen övervakas och startas om (början igen med SetupEntryPoint) om det skulle avslutas eller kraschar. Mer information finns i [EntryPoint Element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
+### <a name="entrypoint-element"></a>EntryPoint-element
+Den körbara filen som anges av EntryPoint är vanligt vis den tids krävande tjänst värden. Om du har en separat installations start punkt kan du undvika att behöva köra tjänst värden med hög behörighet under längre tid. Den körbara filen som anges av EntryPoint körs när SetupEntryPoint har avslut ATS. Den resulterande processen övervakas och startas om (börjar med SetupEntryPoint) om den skulle stängas av eller kraschar. Mer information finns i [EntryPoint-element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
-### <a name="containerhost-element"></a>ContainerHost Element
- Mer information finns i [ContainerHost Element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
+### <a name="containerhost-element"></a>ContainerHost-element
+ Mer information finns i [ContainerHost-element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
-### <a name="imagename-element"></a>ImageName Element
-Lagringsplatsen och avbildning på https://hub.docker.com eller Azure Container Registry. Mer information finns i [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+### <a name="imagename-element"></a>ImageName-element
+Lagrings platsen och avbildningen på https://hub.docker.com eller Azure Container Registry. Mer information finns i [ImageName-element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
-### <a name="environmentvariables-element"></a>EnvironmentVariables-Element
-Skicka miljövariabler till din behållare eller EXE-filen.  Mer information finns i [EnvironmentVariables-Element](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
+### <a name="environmentvariables-element"></a>EnvironmentVariables-element
+Skicka miljövariabler till din behållare eller exe-miljö.  Mer information finns i [EnvironmentVariables-element](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
-### <a name="environmentvariable-element"></a>EnvironmentVariable Element
-Miljövariabeln. Mer information finns i [EnvironmentVariable Element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
+### <a name="environmentvariable-element"></a>EnvironmentVariable-element
+Miljö variabel. Mer information finns i [EnvironmentVariable-element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage Element
-Deklarerar en mapp med namnet av attributet namn, som innehåller en Settings.xml fil. Den här filen innehåller avsnitt av inställningar för användardefinierade, nyckel / värde-par som processen kan läsa tillbaka vid körning. Vid en uppgradering om det bara ConfigPackage version har ändrats startas sedan processen inte. I stället meddelar en motringning den process som konfigurationsinställningarna har ändrats så att de kan läsas dynamiskt. Mer information finns i [ConfigPackage Element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
+Deklarerar en mapp som heter med namnattributet, som innehåller en Settings. XML-fil. Den här filen innehåller avsnitt med användardefinierade, nyckel värdes par inställningar som processen kan läsa tillbaka vid körning. Om endast ConfigPackage-versionen har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Mer information finns i [ConfigPackage-element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
 ### <a name="datapackage-element"></a>DataPackage Element
-Anger en mapp med namnet av attributet namn som innehåller statiska datafiler. Service Fabric kommer Papperskorgen alla exe-filerna och DLLHOSTs som anges i paket som värd och support när data-paket som anges i tjänstmanifestet uppgraderas. Mer information finns i [DataPackage-Element](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)
+Deklarerar en mapp som heter med namnattributet, som innehåller statiska datafiler. Service Fabric kommer att återvinna alla EXEs och DLLHOSTs som anges i värd-och support paketen när något av de data paket som anges i tjänst manifestet uppgraderas. Mer information finns i [DataPackage-element](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)
 
-### <a name="resources-element"></a>Resurser-Element
-Beskriver de resurser som används av den här tjänsten, som kan vara deklarerats utan att ändra kompilerad kod och ändras när tjänsten har distribuerats. Åtkomst till dessa resurser styrs via huvudnamn och principer för avsnitt i programmanifestet. Mer information finns i [resurser Element](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
+### <a name="resources-element"></a>Resurs element
+Beskriver de resurser som används av den här tjänsten, som kan deklareras utan att ändra kompilerad kod och ändras när tjänsten distribueras. Åtkomst till dessa resurser styrs via avsnitten principer och principer i applikations manifestet. Mer information finns i avsnittet [](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType) Resources
 
-### <a name="endpoints-element"></a>Slutpunkter Element
-Definierar slutpunkter för tjänsten. Mer information finns i [slutpunkter Element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
+### <a name="endpoints-element"></a>Slut punkts element
+Definierar slut punkter för tjänsten. Mer information finns i avsnittet [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
 
-### <a name="endpoint-element"></a>Slutpunktselement
-Mer information finns i [Endpoint Element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
+### <a name="endpoint-element"></a>Slut punkts element
+Mer information finns i [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
 
 
-## <a name="backendservice-service-manifest-elements"></a>BackEndService service manifest element
-### <a name="servicemanifest-element"></a>ServiceManifest Element
-Beskriver deklarativt tjänsttyp och version. Den visar oberoende av varandra kan uppgraderas kod, konfiguration och data-paket som tillsammans utgör inget tjänstepaket för att stödja en eller flera typer av tjänster. Resurser, inställningarna för startdiagnostik och tjänstmetadata, till exempel typ av tjänst, health egenskaper och mätvärden för Utjämning av nätverksbelastning, också anges. Mer information finns i [ServiceManifest Element](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
+## <a name="backendservice-service-manifest-elements"></a>Manifest element för BackEndService-tjänst
+### <a name="servicemanifest-element"></a>ServiceManifest-element
+I den här artikeln beskrivs tjänst typen och versionen. Den innehåller en lista över oberoende uppgraderings bara kod, konfiguration och data paket som tillsammans skapar ett tjänst paket för att stödja en eller flera tjänst typer. Resurser, diagnostikinställningar och tjänstens metadata, till exempel tjänst typ, hälso egenskaper och belastnings Utjämnings mått, anges också. Mer information finns i [ServiceManifest-element](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
 
-### <a name="servicetypes-element"></a>ServiceTypes Element
-Definierar vilka typer av tjänster som stöds av en CodePackage i manifestet. När en tjänst instantieras mot en av dessa typer av tjänster, aktiveras alla kodpaket som deklarerats i manifestet genom att köra sina startpunkter. Tjänsttyper deklareras i manifestet nivå och inte kodnivå för paketet. Mer information finns i [ServiceTypes Element](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
+### <a name="servicetypes-element"></a>ServiceTypes-element
+Definierar vilka tjänst typer som stöds av en CodePackage i det här manifestet. När en tjänst instansieras mot någon av dessa tjänst typer aktive ras alla kod paket som deklarerats i det här manifestet genom att de startas. Tjänst typer deklareras på manifest nivå och inte på kod paket nivå. Mer information finns i [ServiceTypes-element](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
 
-### <a name="statelessservicetype-element"></a>StatelessServiceType Element
-Beskriver en typ av tillståndslösa. Mer information finns i [StatelessServiceType Element](service-fabric-service-model-schema-elements.md#StatelessServiceTypeElementStatelessServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
+### <a name="statelessservicetype-element"></a>StatelessServiceType-element
+Beskriver en tillstånds lös tjänst typ. Mer information finns i [StatelessServiceType-element](service-fabric-service-model-schema-elements.md#StatelessServiceTypeElementStatelessServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
 
 ### <a name="codepackage-element"></a>CodePackage Element
-Beskriver ett kodpaket som har stöd för en definierad tjänsttyp. När en tjänst instantieras mot en av dessa typer av tjänster, aktiveras alla kodpaket som deklarerats i manifestet genom att köra sina startpunkter. De resulterande processerna förväntas registrera stöds tjänsttyper vid körning. När det finns flera kodpaket, aktiveras de alla varje gång systemet söker efter någon av de deklarerade tjänsttyper. Mer information finns i [CodePackage Element](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
+Beskriver ett kod paket som stöder en definierad tjänst typ. När en tjänst instansieras mot någon av dessa tjänst typer aktive ras alla kod paket som deklarerats i det här manifestet genom att de startas. De resulterande processerna förväntas registrera de tjänst typer som stöds vid körning. När det finns flera kod paket aktive ras alla när systemet söker efter en av de deklarerade tjänst typerna. Mer information finns i [CodePackage-element](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
 
-### <a name="entrypoint-element"></a>EntryPoint Element
-Den körbara filen som anges av EntryPoint är vanligtvis tjänstevärden tidskrävande. Förekomsten av en separat konfigurationsstartpunkten innebär att du slipper att köra tjänstevärden med höga privilegier för längre tid. Den körbara filen som anges av EntryPoint körs när SetupEntryPoint har avslutas. Resulterande processen övervakas och startas om (början igen med SetupEntryPoint) om det skulle avslutas eller kraschar. Mer information finns i [EntryPoint Element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
+### <a name="entrypoint-element"></a>EntryPoint-element
+Den körbara filen som anges av EntryPoint är vanligt vis den tids krävande tjänst värden. Om du har en separat installations start punkt kan du undvika att behöva köra tjänst värden med hög behörighet under längre tid. Den körbara filen som anges av EntryPoint körs när SetupEntryPoint har avslut ATS. Den resulterande processen övervakas och startas om (börjar med SetupEntryPoint) om den skulle stängas av eller kraschar. Mer information finns i [EntryPoint-element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
-### <a name="containerhost-element"></a>ContainerHost Element
-Mer information finns i [ContainerHost Element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
+### <a name="containerhost-element"></a>ContainerHost-element
+Mer information finns i [ContainerHost-element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
-### <a name="imagename-element"></a>ImageName Element
-Lagringsplatsen och avbildning på https://hub.docker.com eller Azure Container Registry. Mer information finns i [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+### <a name="imagename-element"></a>ImageName-element
+Lagrings platsen och avbildningen på https://hub.docker.com eller Azure Container Registry. Mer information finns i [ImageName-element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
-### <a name="commands-element"></a>Kommandon Element
-Skicka en kommaavgränsad lista över kommandon till behållaren. Mer information finns i [kommandon Element](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+### <a name="commands-element"></a>Kommando element
+Skicka en kommaavgränsad lista med kommandon till behållaren. Mer information finns i [kommandon element](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
-### <a name="environmentvariables-element"></a>EnvironmentVariables-Element
-Skicka miljövariabler till din behållare eller EXE-filen.  Mer information finns i [EnvironmentVariables-Element](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
+### <a name="environmentvariables-element"></a>EnvironmentVariables-element
+Skicka miljövariabler till din behållare eller exe-miljö.  Mer information finns i [EnvironmentVariables-element](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
-### <a name="environmentvariable-element"></a>EnvironmentVariable Element
-Miljövariabeln. Mer information finns i [EnvironmentVariable Element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
+### <a name="environmentvariable-element"></a>EnvironmentVariable-element
+Miljö variabel. Mer information finns i [EnvironmentVariable-element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage Element
-Deklarerar en mapp med namnet av attributet namn, som innehåller en Settings.xml fil. Den här filen innehåller avsnitt av inställningar för användardefinierade, nyckel / värde-par som processen kan läsa tillbaka vid körning. Vid en uppgradering om det bara ConfigPackage version har ändrats startas sedan processen inte. I stället meddelar en motringning den process som konfigurationsinställningarna har ändrats så att de kan läsas dynamiskt. Mer information finns i [ConfigPackage Element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
+Deklarerar en mapp som heter med namnattributet, som innehåller en Settings. XML-fil. Den här filen innehåller avsnitt med användardefinierade, nyckel värdes par inställningar som processen kan läsa tillbaka vid körning. Om endast ConfigPackage-versionen har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Mer information finns i [ConfigPackage-element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
-### <a name="resources-element"></a>Resurser-Element
-Beskriver de resurser som används av den här tjänsten, som kan vara deklarerats utan att ändra kompilerad kod och ändras när tjänsten har distribuerats. Åtkomst till dessa resurser styrs via huvudnamn och principer för avsnitt i programmanifestet. Mer information finns i [resurser Element](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
+### <a name="resources-element"></a>Resurs element
+Beskriver de resurser som används av den här tjänsten, som kan deklareras utan att ändra kompilerad kod och ändras när tjänsten distribueras. Åtkomst till dessa resurser styrs via avsnitten principer och principer i applikations manifestet. Mer information finns i avsnittet [](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType) Resources
 
-### <a name="endpoints-element"></a>Slutpunkter Element
-Definierar slutpunkter för tjänsten. Mer information finns i [slutpunkter Element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
+### <a name="endpoints-element"></a>Slut punkts element
+Definierar slut punkter för tjänsten. Mer information finns i avsnittet [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
 
-### <a name="endpoint-element"></a>Slutpunktselement
- Mer information finns i [Endpoint Element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
+### <a name="endpoint-element"></a>Slut punkts element
+ Mer information finns i [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
 

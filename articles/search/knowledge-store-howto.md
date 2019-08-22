@@ -1,7 +1,7 @@
 ---
 title: Komma igång med Knowledge Store (för hands version) – Azure Search
 description: Lär dig stegen för att skicka berikade dokument som skapats av AI indexerings pipelines i Azure Search till ett kunskaps lager på ditt Azure Storage-konto. Därifrån kan du Visa, ändra form på och använda berikade dokument i Azure Search och i andra program.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: 7539481105e1c1fd3b6816778e31e6edde8842d3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: d6cecdce9bc4f7fee9ec936ac73b6accc77084c4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840808"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648826"
 ---
 # <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Så här kommer du igång med kunskaps lager i Azure Search
 

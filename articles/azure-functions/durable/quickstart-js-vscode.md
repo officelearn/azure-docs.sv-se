@@ -65,7 +65,7 @@ Skapa först en HTTP-utlöst funktion som startar en orkestrering av beständig 
 
     ![Välj den HTTP-starter-mallen](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Lämna standardnamnet som `DurableFunctionsHttpStart` och tryck på *** RETUR ** och välj sedan **anonym** autentisering.
+3. Lämna standardnamnet som `DurableFunctionsHttpStart` och tryck på ** **RETUR** och välj sedan **anonym** autentisering.
 
     ![Välj anonym autentisering](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 

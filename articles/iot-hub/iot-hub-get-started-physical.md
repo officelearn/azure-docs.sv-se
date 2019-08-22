@@ -1,29 +1,28 @@
 ---
-title: Kom igång ansluter fysiska enheter till Azure IoT Hub | Microsoft Docs
-description: Lär dig hur du ansluter fysiska enheter och anslagstavlor till Azure IoT Hub. Dina enheter kan skicka telemetri till IoT Hub och IoT Hub kan övervaka och hantera dina enheter.
+title: Kom igång med att ansluta fysiska enheter till Azure IoT Hub | Microsoft Docs
+description: Lär dig hur du ansluter fysiska enheter och kort till Azure IoT Hub. Dina enheter kan skicka telemetri till IoT Hub och IoT Hub kan övervaka och hantera dina enheter.
 author: wesmc7777
 manager: timlt
-keywords: självstudie för Azure iot hub
+keywords: Självstudie om Azure IoT Hub
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: f2af216dc199de7a49546a903b929a17cbddfe9f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e70ee8843e467af152eedefdf7e03a4ea869e4a6
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60398690"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638240"
 ---
-# <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT Hub Kom igång med fysiska enheter självstudier
+# <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT Hub kom igång med självstudier för fysiska enheter
 
-De här självstudierna beskrivs Azure IoT Hub och SDK: er för enheter. Självstudier beskriver vanliga IoT-scenarier för att demonstrera funktionerna i IoT Hub. Självstudierna visar också hur du kombinerar IoT Hub med andra Azure-tjänster och verktyg för att skapa mer kraftfulla IoT-lösningar. Självstudier som visas i följande tabell visar hur du skapar fysiska IoT-enheter.
+I de här självstudierna introducerar du Azure IoT Hub och enhets-SDK: er. Självstudierna beskriver vanliga IoT-scenarier för att demonstrera funktionerna i IoT Hub. Självstudierna illustrerar också hur du kombinerar IoT Hub med andra Azure-tjänster och-verktyg för att bygga mer kraftfulla IoT-lösningar. I självstudierna som visas i följande tabell visas hur du skapar fysiska IoT-enheter.
 
-| IoT-enheter                       | Programmeringsspråk |
+| IoT-enhet                       | Programmeringsspråk |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md), [C](iot-hub-raspberry-pi-kit-c-get-started.md)  |
-| IoT DevKit                      | [Arduino i VSCode](iot-hub-arduino-iot-devkit-az3166-get-started.md)     |
-| Adafruit Feather HUZZAH ESP8266 | [Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)              |
+| Raspberry Pi                    | [Node. js](iot-hub-raspberry-pi-kit-node-get-started.md), [C](iot-hub-raspberry-pi-kit-c-get-started.md)  |
+| IoT-DevKit                      | [Arduino i VSCode](iot-hub-arduino-iot-devkit-az3166-get-started.md)     |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]

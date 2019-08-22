@@ -52,7 +52,7 @@ Dekryptering via kuvert tekniken fungerar på följande sätt:
 Lagrings klient biblioteket använder [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) för att kryptera användar data. Särskilt [CBC-läge (cipher block Chaining)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) med AES. Varje tjänst fungerar något annorlunda, så vi diskuterar var och en av dem här.
 
 ### <a name="blobs"></a>Blobar
-Klient biblioteket har för närvarande endast stöd för kryptering av hela blobbar. Mer specifikt stöds kryptering när användarna använder metoderna **create***. För hämtningar stöds både fullständig och intervall hämtningar, och parallellisering av både överföring och nedladdning är tillgängligt.
+Klient biblioteket har för närvarande endast stöd för kryptering av hela blobbar. Mer specifikt stöds kryptering när användarna använder metoderna **create** *. För hämtningar stöds både fullständig och intervall hämtningar, och parallellisering av både överföring och nedladdning är tillgängligt.
 
 Under krypteringen genererar klient biblioteket en slumpmässig initierings vektor (IV) av 16 byte, tillsammans med en slumpmässig innehålls krypterings nyckel (CEK) på 32 byte och utför kuvert kryptering av BLOB-data med hjälp av den här informationen. Den omslutna CEK och vissa ytterligare krypterings-metadata lagras sedan som BLOB-metadata tillsammans med den krypterade blobben i tjänsten.
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 08/19/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73033f91e9d20c56fedc6b4faf26dcf312fce1e1
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: fe0a3c8cbee92be85fe415a4d44d5493940bb45a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321101"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638629"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Anvisningar: Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten med certifikat
 
@@ -49,6 +49,9 @@ Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Skapa huvudnamn för tjänsten med självsignerade certifikat
 
 Följande exempel visar ett enkelt scenario. Den använder [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) för att skapa ett huvud namn för tjänsten med ett självsignerat certifikat och använder [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) för att tilldela [deltagar](../../role-based-access-control/built-in-roles.md#contributor) rollen till tjänstens huvud namn. Rolltilldelningen är begränsad till den valda Azure-prenumerationen. Om du vill välja en annan prenumeration använder du [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+
+> [!NOTE]
+> Cmdleten New-SelfSignedCertificate och PKI-modulen stöds för närvarande inte i PowerShell Core. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `

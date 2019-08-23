@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/11/2019
 ms.author: angrobe
-ms.openlocfilehash: 7c41b09c35de7ef8694f9215b8f3dc271e243de2
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 158819792243234ab6f2efc549a3e70166706a50
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780495"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970860"
 ---
 # <a name="azure-security-documentation"></a>Dokumentation om Azure-s채kerhet
 
@@ -195,7 +195,7 @@ S채kerheten 채r integrerad i alla aspekter av Azure. Azure erbjuder dig unika s�
                                 <a class="barLink" href="/azure/security/fundamentals/threat-detection">Avancerad hotidentifiering i Azure</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/fundamentals/abstract-network-security>Azure network security"</a>
+                                <a class="barLink" href="/azure/security/fundamentals/abstract-network-security">Azure-n채tverkss채kerhet</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/fundamentals/abstract-develop-secure-apps">Utveckla s채kra program p책 Azure</a>

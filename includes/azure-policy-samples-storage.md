@@ -5,15 +5,15 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 08/21/2019
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: fe6c6d461fd6b99ce2ce57ebdd61a3f3e961489c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 42e965b188db2b84579ab322fbe19781000dff7e
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187506"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69894077"
 ---
 ## <a name="storage"></a>Storage
 
@@ -24,4 +24,3 @@ ms.locfileid: "67187506"
 | [Neka lågfrekvent åtkomstnivå för lagringskonton](../articles/governance/policy/samples/deny-cool-access-tiering.md) | Förbjuder användning av lågfrekvent åtkomstnivå för Blob Storage-konton.  |
 | [Garantera endast https-trafik för lagringskonto](../articles/governance/policy/samples/ensure-https-storage-account.md) | Kräver att lagringskonton använder HTTPS-trafik.  |
 | [Garantera kryptering för lagringsfil](../articles/governance/policy/samples/ensure-storage-file-encryption.md) | Kräver att filkryptering är aktiverat för lagringskonton.  |
-| [Kräv kryptering för lagringskonto](../articles/governance/policy/samples/require-storage-account-encryption.md) | Kräver att lagringskontot använder blobkryptering.  |

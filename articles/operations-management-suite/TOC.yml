@@ -2,7 +2,7 @@
   items:
     - name: Agentövervakning
       href: ../monitoring/index.md
-- name: Kom igång
+- name: Komma igång
   items:
     - name: Azure Monitor-loggar
       href: ../log-analytics/log-analytics-get-started.md
@@ -74,8 +74,6 @@
               items:
                 - name: Användning
                   href: ../azure-monitor/insights/service-map.md
-                - name: Konfigurera
-                  href: ../azure-monitor/insights/service-map-configure.md
                 - name: Integration med Operations Manager
                   href: ../azure-monitor/insights/service-map-scom.md
             - name: SQL-bedömning

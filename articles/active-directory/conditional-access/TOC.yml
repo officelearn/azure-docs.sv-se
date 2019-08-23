@@ -42,7 +42,7 @@
       href: plan-conditional-access.md
     - name: Bästa praxis
       href: best-practices.md
-    - name: Vanliga principmallar
+    - name: Vanliga principer för villkorlig åtkomst
       items:
         - name: Kräv MFA för administratörer
           href: howto-conditional-access-policy-admin-mfa.md

@@ -1,21 +1,21 @@
 ---
-title: Lär dig mer om Azure SQL Data Warehouse operations | Microsoft Docs
+title: Läs mer om Azure SQL Data Warehouse åtgärder | Microsoft Docs
 description: 'Elasticiteten i SQL Data Warehouse låter dig öka, minska eller pausa beräkningskraft med hjälp av en glidande skala för informationslagerenheter (DWU:er). Den här artikeln förklarar måtten i informationslager och hur de relaterar till DWU:er. '
 services: sql-data-warehouse
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47e04cb6b58a185e84120fe73a8468834d2e57fd
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531190"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907926"
 ---
 # <a name="data-warehouse-workload"></a>Arbetsbelastning i informationslager
 En arbetsbelastning i ett informationslager innefattar alla åtgärder som utförs mot informationslagret. Arbetsbelastningen i informationslagret innefattar hela processen med att läsa in data i lagret, genomföra analys och rapportering av informationslagret, hantera data i informationslagret och exportera data från informationslagret. Hur djupa och breda de här komponenterna är, står ofta i proportion till åldern på informationslagret.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: c04d5fc5b455c798ffc8cb4a88948deaea0cf348
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0e8be1675dd2b400f89ab17fe85c037066302409
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927936"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906022"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure
 Den här artikeln beskriver rekommenderade säkerhets metoder för virtuella datorer och operativ system.
@@ -182,7 +182,7 @@ När du använder Azure Disk Encryption kan du uppfylla följande affärs behov:
 **Information**: Använd RBAC för att säkerställa att endast den centrala nätverks gruppen har behörighet till nätverks resurser.
 
 **Bästa praxis**: Identifiera och åtgärda exponerade virtuella datorer som tillåter åtkomst från alla käll-IP-adresser.   
-**Information**: Använd Azure Security Center. Security Center rekommenderar att du begränsar åtkomst via Internet-riktade slut punkter om någon av dina nätverks säkerhets grupper har en eller flera regler för inkommande trafik som tillåter åtkomst från alla käll-IP-adresser. Security Center rekommenderar att du redigerar dessa inkommande regler för att [begränsa åtkomsten](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) till käll-IP-adresser som faktiskt behöver åtkomst.
+**Information**: Använd Azure Security Center. Security Center rekommenderar att du begränsar åtkomst via Internet-riktade slut punkter om någon av dina nätverks säkerhets grupper har en eller flera regler för inkommande trafik som tillåter åtkomst från alla käll-IP-adresser. Security Center rekommenderar att du redigerar dessa inkommande regler för att [begränsa åtkomsten](../../security-center/security-center-network-recommendations.md) till käll-IP-adresser som faktiskt behöver åtkomst.
 
 **Bästa praxis**: Begränsa hanterings portar (RDP, SSH).   
 **Information**: [Just-in-Time (JIT) VM-åtkomst](../../security-center/security-center-just-in-time.md) kan användas för att låsa inkommande trafik till dina virtuella Azure-datorer, vilket minskar exponeringen för attacker och ger enkel åtkomst till att ansluta till virtuella datorer när det behövs. När JIT är aktiverat kan Security Center låsa inkommande trafik till dina virtuella Azure-datorer genom att skapa en regel för nätverks säkerhets grupper. Du väljer portarna på den virtuella datorn till vilken inkommande trafik ska låsas. Dessa portar styrs av JIT-lösningen.

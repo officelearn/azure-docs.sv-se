@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: bed95c070649785a701f9d08a98faf29c8ee1413
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 98ab93bbec8da17dde93c9c343703838b0279994
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990694"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900432"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med .NET (för hands version)
 
@@ -44,7 +44,7 @@ Om du vill autentisera med Azure AD-autentiseringsuppgifter via klient bibliotek
 
 Om du vill skapa ett huvud namn för tjänsten med Azure CLI och tilldela en RBAC-roll, anropar du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Ange en Azure Storage data åtkomst roll som ska tilldelas det nya huvud namnet för tjänsten. Rollen måste omfatta åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Mer information om de inbyggda roller som finns för Azure Storage finns [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
 
-Ange dessutom omfånget för roll tilldelningen. Tjänstens huvud namn skapar användar Delegerings nyckeln, som är en åtgärd som utförs på lagrings kontots nivå, så att roll tilldelningen ska begränsas på lagrings kontots, resurs gruppens eller prenumerationens nivå. Mer information om RBAC-behörigheter för att skapa en användar Delegerings-SAS finns i avsnittet **tilldela behörigheter med RBAC** i [skapa en användar delegering SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas).
+Ange dessutom omfånget för roll tilldelningen. Tjänstens huvud namn skapar användar Delegerings nyckeln, som är en åtgärd som utförs på lagrings kontots nivå, så att roll tilldelningen ska begränsas på lagrings kontots, resurs gruppens eller prenumerationens nivå. Mer information om RBAC-behörigheter för att skapa en användar Delegerings-SAS finns i avsnittet **tilldela behörigheter med RBAC** i [skapa en användar delegering SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
 Om du inte har tillräcklig behörighet för att tilldela en roll till tjänstens huvud namn kan du behöva be kontots ägare eller administratör att utföra roll tilldelningen.
 
@@ -276,4 +276,4 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 ## <a name="see-also"></a>Se också
 
 - [Hämta åtgärd för användar Delegerings nyckel](/rest/api/storageservices/get-user-delegation-key)
-- [Skapa en användar Delegerings-SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Skapa en användar Delegerings-SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)

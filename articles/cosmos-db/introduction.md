@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 07/23/2019
 ms.author: rimman
-ms.openlocfilehash: ee863b6003444ec099753a6488f3fe4078338e60
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 5e53a671c866b9482296622d19d4ad6bec46829d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384132"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905296"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -23,6 +23,11 @@ Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cos
 
 > [!div class="nextstepaction"]
 > [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/)
+
+Du kan också använda [Start programmet Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/) för att påskynda skapandet eller migreringen av dina program på Azure Cosmos dB. När du registrerar dig för det här programmet tilldelas Azure Cosmos DB tekniker för att hjälpa till med ditt projekt och de kan hjälpa dig att migrera dina data till Azure Cosmos DB eller skapa nya appar på Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Registrera dig för Start programmet för Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ![Azure Cosmos DB är Microsofts globalt distribuerade databastjänst med elastisk utskalning, garanterat låga svarstider, fem konsekvensmodeller och omfattande garanterade serviceavtal](./media/introduction/azure-cosmos-db.png)
 

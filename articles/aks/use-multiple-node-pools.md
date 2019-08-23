@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 514098368c38c6d61bc192f5ba0f0450dc05776c
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 656934f00879b47669fac4deaac5156cb100e159
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533485"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898756"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>För hands version – skapa och hantera flera resurspooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -90,7 +90,7 @@ När den här funktionen är i för hands version gäller följande ytterligare 
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-Kom igång genom att skapa ett AKS-kluster med en enda Node-pool. I följande exempel används kommandot [AZ Group Create][az-group-create] för att skapa en resurs grupp med namnet *myResourceGroup* i regionen *östra* . Ett AKS-kluster med namnet *myAKSCluster* skapas sedan med kommandot [AZ AKS Create][az-aks-create] . A *--Kubernetes-versionen* av *1.13.9* används för att visa hur du uppdaterar en Node-pool i ett följande steg. Du kan ange en [Kubernetes-version som stöds][supported-versions].
+Kom igång genom att skapa ett AKS-kluster med en enda Node-pool. I följande exempel används kommandot [AZ Group Create][az-group-create] för att skapa en resurs grupp med namnet *myResourceGroup* i regionen *östra* . Ett AKS-kluster med namnet *myAKSCluster* skapas sedan med kommandot [AZ AKS Create][az-aks-create] . A *--Kubernetes-versionen* av *1.13.10* används för att visa hur du uppdaterar en Node-pool i ett följande steg. Du kan ange en [Kubernetes-version som stöds][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -103,7 +103,7 @@ az aks create \
     --enable-vmss \
     --node-count 1 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.9
+    --kubernetes-version 1.13.10
 ```
 
 Det tar några minuter att skapa klustret.
@@ -154,7 +154,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -163,30 +163,30 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ```
 
 > [!TIP]
-> Om ingen *OrchestratorVersion* eller *VmSize* anges när du lägger till en Node-pool, skapas noderna baserat på standardvärdena för AKS-klustret. I det här exemplet var Kubernetes version *1.13.9* och Node-storlek för *Standard_DS2_v2*.
+> Om ingen *OrchestratorVersion* eller *VmSize* anges när du lägger till en Node-pool, skapas noderna baserat på standardvärdena för AKS-klustret. I det här exemplet var Kubernetes version *1.13.10* och Node-storlek för *Standard_DS2_v2*.
 
 ## <a name="upgrade-a-node-pool"></a>Uppgradera en Node-pool
 
 > [!NOTE]
 > Uppgraderings-och skalnings åtgärder i ett kluster eller en Node-pool kan inte anges samtidigt. Det går inte att ha ett kluster eller en Node-pool samtidigt för uppgradering och skalning. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Läs mer om detta i vår [fel söknings guide](https://aka.ms/aks-pending-upgrade).
 
-När ditt AKS-kluster skapades i det första steget angavs `--kubernetes-version` en av *1.13.9* . Detta anger Kubernetes-versionen för både kontroll planet och den första noden. Det finns olika kommandon för att uppgradera Kubernetes-versionen av kontroll planet och Node-poolen. Kommandot används för att uppgradera kontroll planet, `az aks nodepool upgrade` medan används för att uppgradera en enskild Node-pool. `az aks upgrade`
+När ditt AKS-kluster skapades i det första steget angavs `--kubernetes-version` en av *1.13.10* . Detta anger Kubernetes-versionen för både kontroll planet och den första noden. Det finns olika kommandon för att uppgradera Kubernetes-versionen av kontroll planet och Node-poolen. Kommandot används för att uppgradera kontroll planet, `az aks nodepool upgrade` medan används för att uppgradera en enskild Node-pool. `az aks upgrade`
 
-Nu ska vi uppgradera *mynodepool* till Kubernetes *1.13.9*. Använd kommandot [Uppgradera AZ AKS Node pool][az-aks-nodepool-upgrade] för att uppgradera Node-poolen, som visas i följande exempel:
+Nu ska vi uppgradera *mynodepool* till Kubernetes *1.13.10*. Använd kommandot [Uppgradera AZ AKS Node pool][az-aks-nodepool-upgrade] för att uppgradera Node-poolen, som visas i följande exempel:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.13.9 \
+    --kubernetes-version 1.13.10 \
     --no-wait
 ```
 
 > [!Tip]
-> Om du vill uppgradera kontroll planet till *1.14.5*kör `az aks upgrade -k 1.14.5`du.
+> Om du vill uppgradera kontroll planet till *1.14.6*kör `az aks upgrade -k 1.14.6`du.
 
-Ange status för dina nodkonfigurationer igen med kommandot [AZ AKS Node pool List][az-aks-nodepool-list] . I följande exempel visas att *mynodepool* är i *uppgraderings* läge till *1.13.9*:
+Ange status för dina nodkonfigurationer igen med kommandot [AZ AKS Node pool List][az-aks-nodepool-list] . I följande exempel visas att *mynodepool* är i *uppgraderings* läge till *1.13.10*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -197,7 +197,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -209,7 +209,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -260,7 +260,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Scaling",
     ...
@@ -272,7 +272,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -310,7 +310,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Deleting",
     ...
@@ -322,7 +322,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -363,7 +363,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "gpunodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Creating",
     ...
@@ -375,7 +375,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -395,8 +395,8 @@ Nu har du två noder i klustret – standardpoolen som ursprungligen skapades oc
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.9
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.9
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.10
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.10
 ```
 
 Kubernetes Scheduler kan använda utsmakar och tolereras för att begränsa vilka arbets belastningar som kan köras på noder.
@@ -473,7 +473,7 @@ När du använder en Azure Resource Manager mall för att skapa och hanterade re
 Skapa en mall som `aks-agentpools.json` och klistra in följande exempel manifest. I den här exempel mal len konfigureras följande inställningar:
 
 * Uppdaterar *Linux* -agenttjänsten med namnet *myagentpool* för att köra tre noder.
-* Ställer in noderna i Node-poolen att köra Kubernetes-version *1.13.9*.
+* Ställer in noderna i Node-poolen att köra Kubernetes-version *1.13.10*.
 * Definierar nodens storlek som *Standard_DS2_v2*.
 
 Redigera de här värdena som behövs för att uppdatera, lägga till eller ta bort noder i pooler efter behov:
@@ -538,7 +538,7 @@ Redigera de här värdena som behövs för att uppdatera, lägga till eller ta b
             "storageProfile": "ManagedDisks",
       "type": "VirtualMachineScaleSets",
             "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-            "orchestratorVersion": "1.13.9"
+            "orchestratorVersion": "1.13.10"
       }
     }
   ]

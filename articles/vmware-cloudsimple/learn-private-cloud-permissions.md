@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f07ab41e0e495783a2d9592230336818b4a54d05
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ab74b37fa8adc58f8641893b4168f71c453b0fdd
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619539"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972709"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>CloudSimple privata moln behörighets modell för VMware vCenter
 
@@ -30,7 +30,7 @@ När du skapar ett privat moln skapas en **CloudOwner** -användare i domänen f
 
 En grupp som kallas **moln ägar grupp** skapas vid distributionen av ett privat moln. Användare i den här gruppen kan administrera olika delar av vSphere-miljön i det privata molnet. Den här gruppen tilldelas automatiskt **moln-ägar-roll-** privilegier och **CloudOwner** -användaren läggs till som medlem i den här gruppen.  CloudSimple skapar ytterligare grupper med begränsade behörigheter för enkel hantering.  Du kan lägga till vilken användare som helst i de grupper som skapats i förväg och de behörigheter som definieras nedan tilldelas användare i grupperna automatiskt.
 
-### <a name="pre-created-groups"></a>Tidigare skapade grupper
+### <a name="pre-created-groups"></a>I förväg skapade grupper
 
 | Gruppnamn | Syfte | Role |
 | -------- | ------- | ------ |

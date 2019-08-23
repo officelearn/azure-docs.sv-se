@@ -1,10 +1,10 @@
 ---
-title: Felsök autentiseringsfel när du använder RDP för att ansluta till virtuell Azure-dator | Microsoft Docs
+title: Felsöka autentiseringsfel när du använder RDP för att ansluta till den virtuella Azure-datorn | Microsoft Docs
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: cshepard,csscontent
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,83 +14,83 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 68037ab55918a76567f2dfee7cbda1d84d0c442e
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60594929"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69908005"
 ---
-# <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Felsök autentiseringsfel när du använder RDP för att ansluta till virtuella Azure-datorer
+# <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Felsöka autentiseringsfel när du använder RDP för att ansluta till den virtuella Azure-datorn
 
-Den här artikeln kan hjälpa dig att felsöka autentiseringsfel som uppstår när du använder Remote Desktop Protocol (RDP)-anslutning för att ansluta till en Azure-dator (VM).
+Den här artikeln kan hjälpa dig att felsöka autentiseringsfel som inträffar när du använder Remote Desktop Protocol-anslutning (RDP) för att ansluta till en virtuell Azure-dator (VM).
 
 ## <a name="symptoms"></a>Symtom
 
-Du kan avbilda en skärmbild av en Azure-dator som visas på välkomstskärmen och indikerar att operativsystemet är igång. Men när du försöker ansluta till den virtuella datorn med hjälp av anslutning till fjärrskrivbord visas något av följande felmeddelanden.
+Du fångar en skärm bild av en virtuell Azure-dator som visar välkomst skärmen och indikerar att operativ systemet körs. Men när du försöker ansluta till den virtuella datorn med hjälp av Anslutning till fjärrskrivbord får du ett av följande fel meddelanden.
 
-### <a name="error-message-1"></a>Felmeddelande 1
+### <a name="error-message-1"></a>Fel meddelande 1
 
-**Ett autentiseringsfel inträffade. Det går inte att kontakta den lokala säkerhetskontrollen.**
+**Ett autentiseringsfel har inträffat. Det går inte att kontakta den lokala säkerhets kontrollen.**
 
-### <a name="error-message-2"></a>Felmeddelande 2
+### <a name="error-message-2"></a>Fel meddelande 2
 
-**Den fjärrdator som du försöker ansluta till kräver autentisering på nätverksnivå (NLA), men det går inte att kontakta din Windows-domänkontrollant om du vill utföra NLA. Om du är administratör på fjärrdatorn kan inaktivera du NLA med hjälp av alternativen på fliken Fjärrsessioner i dialogrutan Systemegenskaper.**
+**Den fjärrdator som du försöker ansluta till kräver autentisering på nätverksnivå (NLA), men det går inte att kontakta Windows-domänkontrollanten för att utföra NLA. Om du är administratör på fjärrdatorn kan du inaktivera NLA genom att använda alternativen på fliken Fjärr i dialog rutan system egenskaper.**
 
-### <a name="error-message-3-generic-connection-error"></a>Felmeddelande 3 (allmän anslutningsfel)
+### <a name="error-message-3-generic-connection-error"></a>Fel meddelande 3 (allmänt anslutnings fel)
 
-**Den här datorn kan inte ansluta till fjärrdatorn. Försök ansluta igen, om problemet kvarstår, kontakta ägaren till fjärrdatorn eller nätverksadministratören.**
+**Datorn kan inte ansluta till fjärrdatorn. Försök ansluta igen. om problemet kvarstår kan du kontakta ägaren till fjärrdatorn eller nätverks administratören.**
 
 ## <a name="cause"></a>Orsak
 
-Det finns flera orsaker till varför NLA kan blockera RDP-åtkomst till en virtuell dator.
+Det finns flera orsaker till att NLA kan blockera RDP-åtkomsten till en virtuell dator.
 
 ### <a name="cause-1"></a>Orsak 1
 
-Den virtuella datorn inte kan kommunicera med domänkontrollanten (DC). Det här problemet kan förhindra att en RDP-session från att komma åt en virtuell dator med hjälp av autentiseringsuppgifter för domänen. Du kan dock fortfarande att kunna logga in med autentiseringsuppgifter för lokal administratör. Det här problemet kan inträffa i följande situationer:
+Den virtuella datorn kan inte kommunicera med domänkontrollanten (DC). Det här problemet kan förhindra att en RDP-session får åtkomst till en virtuell dator med hjälp av domänautentiseringsuppgifter. Men du kan fortfarande logga in med hjälp av autentiseringsuppgifterna för lokal administratör. Det här problemet kan uppstå i följande situationer:
 
-1. Active Directory-säkerhetskanal mellan den här virtuella datorn och domänkontrollanten har brutits.
+1. Active Directory säkerhets kanal mellan den här virtuella datorn och DOMÄNKONTROLLANTen är bruten.
 
-2. Den virtuella datorn har en gammal kopia av lösenordet för och domänkontrollanten har en nyare kopia.
+2. Den virtuella datorn har en gammal kopia av konto lösen ordet och DOMÄNKONTROLLANTen har en nyare kopia.
 
-3. Domänkontrollanten som ansluter till den här virtuella datorn är felfri.
+3. Den DOMÄNKONTROLLANT som den här virtuella datorn ansluter till är inte felfri.
 
 ### <a name="cause-2"></a>Orsak 2
 
-Krypteringsnivå för den virtuella datorn är högre än det som används av datorn.
+Den virtuella datorns krypterings nivå är högre än den som används av klient datorn.
 
 ### <a name="cause-3"></a>Orsak 3
 
-TLS 1.0, 1.1 eller 1.2 (server)-protokoll är inaktiverade på den virtuella datorn.
+TLS 1,0-, 1,1-eller 1,2-protokollen (Server) är inaktiverade på den virtuella datorn.
 
 ### <a name="cause-4"></a>Orsak 4
 
-Den virtuella datorn har ställts in för att inaktivera loggning för med hjälp av autentiseringsuppgifter för domänen och Local Security Authority (LSA) är konfigurerad på rätt sätt.
+Den virtuella datorn har kon figurer ATS för att inaktivera inloggning genom att använda domänautentiseringsuppgifter och den lokala säkerhets kontrollen (LSA) har kon figurer ATS felaktigt.
 
 ### <a name="cause-5"></a>Orsak 5
 
-Den virtuella datorn har ställts in för att acceptera endast FIPS Federal Information Processing Standard ()-kompatibel algoritm anslutningar. Detta görs normalt med hjälp av Grupprincip i Active Directory. Detta är en sällsynt konfiguration, men FIPS kan tillämpas för endast anslutningar till fjärrskrivbord.
+Den virtuella datorn har kon figurer ATS för att endast godkänna anslutningar för Federal Information Processing Standard (FIPS)-kompatibla algoritmer. Detta görs vanligt vis genom att använda Active Directory princip. Detta är en sällsynt konfiguration, men FIPS kan endast tillämpas för fjärr skrivbords anslutningar.
 
-## <a name="before-you-troubleshoot"></a>Innan du felsöka
+## <a name="before-you-troubleshoot"></a>Innan du felsöker
 
-### <a name="create-a-backup-snapshot"></a>Skapa en ögonblicksbild
+### <a name="create-a-backup-snapshot"></a>Skapa en ögonblicks bild av säkerhets kopia
 
-Om du vill skapa en ögonblicksbild, följer du stegen i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
+Om du vill skapa en ögonblicks bild av säkerhets kopia följer du stegen i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
 
-### <a name="connect-to-the-vm-remotely"></a>Fjärransluta till den virtuella datorn
+### <a name="connect-to-the-vm-remotely"></a>Fjärrans luta till den virtuella datorn
 
-För att ansluta till den virtuella datorn via en fjärranslutning, kan du använda någon av metoderna i [så Använd verktyg för att felsöka problem med Azure Virtuella](remote-tools-troubleshoot-azure-vm-issues.md).
+Om du vill ansluta till den virtuella datorn via fjärr anslutning använder du någon av metoderna i [hur du använder fjärrverktyg för att felsöka problem med virtuella Azure-datorer](remote-tools-troubleshoot-azure-vm-issues.md).
 
-### <a name="group-policy-client-service"></a>Tjänsten för klienten
+### <a name="group-policy-client-service"></a>Klient tjänst för grup princip
 
-Om det här är en domänansluten VM först stoppa tjänsten grupprincipklient för att förhindra att en Active Directory-princip skriver över ändringarna. Gör detta genom att köra följande kommando:
+Om det här är en domänansluten virtuell dator stoppar du först grupprincip-klient tjänsten för att förhindra att någon Active Directorys princip skriver över ändringarna. Gör detta genom att köra följande kommando:
 
 ```cmd
 REM Disable the member server to retrieve the latest GPO from the domain upon start
 REG add "HKLM\SYSTEM\CurrentControlSet\Services\gpsvc" /v Start /t REG_DWORD /d 4 /f
 ```
 
-När problemet är löst, återställa möjligheten för den här virtuella datorn att kontakta domänen för att hämta senaste Grupprincipobjektet från domänen. Gör detta genom att köra följande kommandon:
+När problemet har åtgärd ATS återställer du möjligheten för den här virtuella datorn att kontakta domänen för att hämta det senaste GRUPPRINCIPOBJEKTet från domänen. Det gör du genom att köra följande kommandon:
 
 ```cmd
 sc config gpsvc start= auto
@@ -99,11 +99,11 @@ sc start gpsvc
 gpupdate /force
 ```
 
-Om ändringen återställs, innebär det att problemet orsakas av en princip för Active Directory. 
+Om ändringen återställs innebär det att en Active Directory princip orsakar problemet. 
 
 ### <a name="workaround"></a>Lösning:
 
-Undvik det här problemet, kör du följande kommandon i kommandofönstret att inaktivera NLA:
+Undvik det här problemet genom att köra följande kommandon i kommando fönstret för att inaktivera NLA:
 
 ```cmd
 REM Disable the Network Level Authentication
@@ -114,7 +114,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 
 Starta sedan om den virtuella datorn.
 
-Om du vill återaktivera NLA, kör du följande kommando och starta sedan om den virtuella datorn:
+Om du vill återaktivera NLA kör du följande kommando och startar sedan om den virtuella datorn:
 
 ```cmd
 REG add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v disabledomaincreds /t REG_DWORD /d 0 /f
@@ -128,99 +128,99 @@ REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 
 ### <a name="for-domain-joined-vms"></a>För domänanslutna virtuella datorer
 
-Om du vill felsöka problemet du först kontrollera om den virtuella datorn kan ansluta till en Domänkontrollant och om domänkontrollanten har statusen ”felfri” och kan hantera förfrågningar från den virtuella datorn.
+Om du vill felsöka det här problemet måste du först kontrol lera om den virtuella datorn kan ansluta till en DOMÄNKONTROLLANT och om DOMÄNKONTROLLANTen har statusen "felfri" och kan hantera begär Anden från den virtuella datorn.
 
 >[!Note] 
->Om du vill testa DC-hälsotillstånd, kan du använda en annan virtuell dator på samma virtuella nätverk och undernät som delar samma inloggningsservern.
+>Om du vill testa DC-hälso tillståndet kan du använda en annan virtuell dator i samma VNET och undernät som delar samma inloggnings Server.
 
-Anslut till den virtuella datorn som har problem med hjälp av Seriell konsol, remote CMD eller fjärr-PowerShell enligt anvisningarna i avsnittet ”ansluta till den virtuella datorn via en fjärranslutning”.
+Anslut till den virtuella datorn som har problemet genom att använda Seriell konsol, fjärr-CMD eller fjärr-PowerShell, enligt stegen i avsnittet "ansluta till den virtuella datorn via fjärr anslutning".
 
-För att avgöra vilken Domänkontrollant som ansluter till den virtuella datorn, kör du följande kommando i konsolen: 
+För att avgöra vilken DOMÄNKONTROLLANT som den virtuella datorn ansluter till kör du följande kommando i-konsolen: 
 
 ```cmd
 set | find /i "LOGONSERVER"
 ```
 
-Kontrollera hälsotillståndet för säker kanal mellan den virtuella datorn och domänkontrollanten. Gör detta genom att köra följande kommando i en upphöjd PowerShell-instans. Det här kommandot returnerar en boolesk flagga som anger om den säkra kanalen är igång:
+Kontrol lera sedan hälsan för den säkra kanalen mellan den virtuella datorn och DOMÄNKONTROLLANTen. Det gör du genom att köra följande kommando i en upphöjd PowerShell-instans. Det här kommandot returnerar en boolesk flagga som anger om den säkra kanalen är aktiv:
 
 ```powershell
 Test-ComputerSecureChannel -verbose
 ```
 
-När kanalen har brutits, kör du följande kommando för att reparera den:
+Om kanalen är bruten kör du följande kommando för att reparera den:
 
 ```powershell
 Test-ComputerSecureChannel -repair
 ```
 
-Kontrollera att lösenordet för datorkontot i Active Directory har uppdaterats på den virtuella datorn och domänkontrollanten:
+Kontrol lera att lösen ordet för dator kontot i Active Directory uppdateras på den virtuella datorn och DOMÄNKONTROLLANTen:
 
 ```powershell
 Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDENTIAL WITH DOMAIN ADMIN LEVEL>
 ```
 
-Om kommunikationen mellan domänkontrollanten och den virtuella datorn är bra, men domänkontrollanten inte är felfri att öppna en RDP-session, kan du försöka starta om domänkontrollanten.
+Om kommunikationen mellan DOMÄNKONTROLLANTen och den virtuella datorn är god, men DOMÄNKONTROLLANTen inte är tillräckligt felfri för att öppna en RDP-session, kan du försöka starta om DOMÄNKONTROLLANTen.
 
-Om föregående kommandon inte löste problemet kommunikation till domänen, kan du återansluta till den här virtuella datorn till domänen. Det gör du genom att följa dessa steg:
+Om föregående kommandon inte löste kommunikations problemet till domänen kan du ansluta den till domänen igen. Det gör du genom att följa dessa steg:
 
-1. Skapa ett skript som heter Unjoin.ps1 med följande innehåll och sedan distribuera skriptet som ett anpassat skripttillägg på Azure portal:
+1. Skapa ett skript som heter unjoin. ps1 med hjälp av följande innehåll och distribuera skriptet som ett anpassat skript tillägg på Azure Portal:
 
     ```cmd
     cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force"
     ```
     
-    Det här skriptet tar den virtuella datorn från domänen tvång och startar om den 10 sekunder senare. Du måste sedan rensa datorobjekt på domän-sidan.
+    Det här skriptet tar den virtuella datorn från domänen tvång och startar om den 10 sekunder senare. Sedan måste du rensa dator-objektet på domän sidan.
 
-2.  När rensningen är klar kan du återansluta till den här virtuella datorn till domänen. Om du vill göra detta måste skapa ett skript som heter JoinDomain.ps1 med följande innehåll och distribuera skriptet som ett anpassat skripttillägg på Azure portal: 
+2.  När rensningen är färdig ansluter du den här virtuella datorn till domänen. Det gör du genom att skapa ett skript som heter JoinDomain. ps1 med hjälp av följande innehåll och sedan distribuera skriptet som ett anpassat skript tillägg på Azure Portal: 
 
     ```cmd
     cmd /c "netdom join <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10"
     ```
 
     >[!Note] 
-    >Detta kopplar den virtuella datorn på domänen med hjälp av de angivna autentiseringsuppgifterna.
+    >Detta ansluter den virtuella datorn till domänen med hjälp av de angivna autentiseringsuppgifterna.
 
-Om Active Directory-kanalen är felfri, uppdateras lösenordet för datorn och domänkontrollanten fungerar som förväntat, kan du prova följande steg.
+Om Active Directory-kanalen är felfri uppdateras datorns lösen ord och domänkontrollanten fungerar som förväntat, prova följande steg.
 
-Om problemet kvarstår kontrollerar du om autentiseringsuppgifter för domänen är inaktiverad. Om du vill göra detta, öppna en upphöjd kommandotolk och kör sedan följande kommando för att avgöra om den virtuella datorn har ställts in att inaktivera domänkonton för att logga in på den virtuella datorn:
+Om problemet kvarstår kontrollerar du om domän autentiseringsuppgiften är inaktive rad. Det gör du genom att öppna en kommando tolk med förhöjd behörighet och sedan köra följande kommando för att avgöra om den virtuella datorn har kon figurer ATS för att inaktivera domän konton för att logga in på den virtuella datorn:
 
 ```cmd
 REG query "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v disabledomaincreds
 ```
 
-Om nyckeln är inställt på **1**, det innebär att servern har ställts in upp till att inte tillåta autentiseringsuppgifter för domänen. Ändra den här nyckeln till **0**.
+Om nyckeln har angetts till **1**innebär det att servern har kon figurer ATS för att inte tillåta domänautentiseringsuppgifter. Ändra den här nyckeln till **0**.
 
 ### <a name="for-standalone-vms"></a>För fristående virtuella datorer
 
-#### <a name="check-minencryptionlevel"></a>Kontrollera MinEncryptionLevel
+#### <a name="check-minencryptionlevel"></a>Kontrol lera MinEncryptionLevel
 
-I en CMD-instans, kör du följande kommando för att fråga den **MinEncryptionLevel** registervärdet:
+Kör följande kommando i en CMD-instans för att fråga efter registervärdet **MinEncryptionLevel** :
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel
 ```
 
-Baserat på registervärdet, Följ dessa steg:
+Följ dessa steg baserat på registervärdet:
 
-* 4 (FIPS): Gå till [Kontrollera FIPs-kompatibla algoritmer anslutningar](#fips-compliant).
+* 4 (FIPS): Gå till [kontrol lera FIPs-kompatibla algoritmer-anslutningar](#fips-compliant).
 
-* 3 (128-bitars kryptering): Ange allvarlighetsgraden **2** genom att köra följande kommando:
+* 3 (128-bitars kryptering): Ange allvarlighets grad till **2** genom att köra följande kommando:
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 2 /f
     ```
 
-* 2 (högsta kryptering möjligt, enligt klienten): Du kan försöka att ange krypteringen till det lägsta värdet på **1** genom att köra följande kommando:
+* 2 (högsta möjliga krypterings nivå, som det styrs av klienten): Du kan försöka ställa in krypteringen till det lägsta värdet **1** genom att köra följande kommando:
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 1 /f
     ```
     
-Starta om den virtuella datorn så att ändringar i registret gälla.
+Starta om den virtuella datorn så att ändringarna i registret börjar gälla.
 
 #### <a name="tls-version"></a>TLS-version
 
-Beroende på systemet använder RDP TLS 1.0, 1.1 eller 1.2 (server)-protokollet. Om du vill fråga hur dessa protokoll har ställts in på den virtuella datorn, öppna en CMD-instans och kör sedan följande kommandon:
+Beroende på systemet använder RDP protokollet TLS 1,0, 1,1 eller 1,2 (Server). Om du vill fråga hur dessa protokoll är inställda på den virtuella datorn öppnar du en CMD-instans och kör sedan följande kommandon:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled
@@ -228,7 +228,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled
 ```
 
-Om de returnerade värdena inte är alla **1**, det innebär att protokollet är inaktiverat. Om du vill aktivera dessa protokoll, kör du följande kommandon:
+Om de värden som returneras inte är **1**betyder det att protokollet är inaktiverat. Om du vill aktivera dessa protokoll kör du följande kommandon:
 
 ```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
@@ -236,7 +236,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protoc
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
 ```
 
-För andra protokollversioner kan du köra följande kommandon:
+För andra protokoll versioner kan du köra följande kommandon:
 
 <pre lang="bat">
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS <i>x.x</i>\Server" /v Enabled
@@ -244,40 +244,40 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 </pre>
 
 > [!Note]
-> Hämta SSH/TLS version x.x från loggarna för gästoperativsystemet på SCHANNEL-fel.
+> Hämta SSH/TLS-versionen x. x från gäst operativ system loggarna på SCHANNEL-felen.
 
-#### <a name="fips-compliant"></a> Kontrollera anslutningen för FIPs-kompatibla algoritmer
+#### <a name="fips-compliant"></a>Kontrol lera anslutningar för FIPs-kompatibla algoritmer
 
-Fjärrskrivbord kan tillämpas för att använda endast FIPs-kompatibel algoritm anslutningar. Detta kan ställas in med hjälp av en registernyckel. Du gör detta, öppna en upphöjd kommandotolk och frågar sedan följande nycklar:
+Fjärr skrivbord kan tillämpas för att endast använda FIPs-kompatibla algoritm anslutningar. Detta kan anges med hjälp av en register nyckel. Det gör du genom att öppna ett kommando tolks fönster med förhöjd behörighet och sedan fråga följande nycklar:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy" /v Enabled
 ```
 
-Om kommandot returnerar **1**, ändra registervärdet för att **0**.
+Om kommandot returnerar **1**ändrar du registervärdet till **0**.
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy" /v Enabled /t REG_DWORD /d 0
 ```
 
-Kontrollera vilken är den aktuella MinEncryptionLevel på den virtuella datorn:
+Kontrol lera vilken som är den aktuella MinEncryptionLevel på den virtuella datorn:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel
 ```
 
-Om kommandot returnerar **4**, ändra registervärdet för att **2**
+Om kommandot returnerar **4**ändrar du registervärdet till **2**
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 2
 ```
 
-Starta om den virtuella datorn så att ändringar i registret gälla.
+Starta om den virtuella datorn så att ändringarna i registret börjar gälla.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[SetEncryptionLevel-metoden i klassen Win32_TSGeneralSetting](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
+[SetEncryptionLevel-metoden för Win32_TSGeneralSetting-klassen](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
 
-[Konfigurera Server-autentisering och krypteringsnivåer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
+[Konfigurera serverns autentiserings-och krypterings nivåer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
 
 [Win32_TSGeneralSetting-klass](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting)

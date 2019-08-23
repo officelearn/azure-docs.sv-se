@@ -5,22 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: ba8af55f7467e361136e4b0c57c97b4fa187cec0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: 1a799823a71fcbc4aebf4b869a3fd0dd9fc66de1
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304963"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907858"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Hur du skapar och hanterar Läs repliker i Azure Database för MySQL med Azure CLI
 
 I den här artikeln får lära du dig att skapa och hantera skrivskyddade kopior på samma Azure-region som hanterare i tjänsten Azure Database for MySQL med Azure CLI.
 
 > [!IMPORTANT]
-> Du kan skapa en skrivskyddad replik i samma region som din huvudservern eller i alla andra Azure-regioner valfri. Replikering över flera regioner är för närvarande i offentlig förhandsversion.
+> Du kan skapa en Läs replik i samma region som din huvud server eller i valfri annan Azure-region som du väljer. Replikering mellan regioner är för närvarande en offentlig för hands version.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - En [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-portal.md) som ska användas som huvudserver. 
@@ -44,11 +44,14 @@ Den `az mysql server replica create` kommandot kräver följande parametrar:
 | namn | mydemoreplicaserver | Namnet på den nya replikservern som skapas. |
 | source-server | mydemoserver | Namn eller ID på den befintliga huvudservern för att replikera från. |
 
-Skapa en cross region läsas repliken, Använd den `--location` parametern. CLI-exemplet nedan skapar repliken i västra USA.
+Använd parametern om du vill skapa en skrivskyddad replik `--location` av en kors region. CLI-exemplet nedan skapar repliken i USA, västra.
 
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
+
+> [!NOTE]
+> Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md). 
 
 > [!NOTE]
 > Läs repliker skapas med samma serverkonfiguration som huvudserver. Serverkonfigurationen repliken kan ändras när den har skapats. Du rekommenderas att repliken serverkonfigurationen bör hållas lika med eller större värden än huvudservern så repliken kan hålla jämna steg med huvudservern.

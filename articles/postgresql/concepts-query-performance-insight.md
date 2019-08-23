@@ -1,46 +1,49 @@
 ---
-title: Query Performance Insight i Azure Database för PostgreSQL – enskild Server
-description: Den här artikeln beskriver Query Performance Insight-funktionen i Azure Database för PostgreSQL – enskild Server.
+title: Query Performance Insight i Azure Database for PostgreSQL-enskild server
+description: I den här artikeln beskrivs Query Performance Insight funktionen i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: d45b79e2ca3b3d478102bebdcff3c8892bef2cb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: cd07656ab4e6e0f684eecf35d241eac539b7a552
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067543"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907471"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
-**Gäller för:** Azure Database för PostgreSQL – enskild Server 9.6 och 10
+**Gäller för:** Azure Database for PostgreSQL-enskild server 9,6 och 10
 
-Query Performance Insight hjälper dig att snabbt identifiera vilka körs längst frågorna är hur den ändras över tid och vilka väntar påverkar dem.
+Query Performance Insight hjälper dig att snabbt identifiera vad dina längsta kör frågor är, hur de ändras med tiden och vilka vänte tider som påverkar dem.
 
 ## <a name="permissions"></a>Behörigheter
 Behörighet för **ägare** eller **deltagare** krävs för att visa texten för frågorna i Query Performance Insight. **Läsaren** kan visa diagram och tabeller men inte frågetext.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-För Query Performance Insight ska fungera, data måste finnas i den [Query Store](concepts-query-store.md).
+## <a name="prerequisites"></a>Förutsättningar
+För att Query Performance Insight ska fungera måste data finnas i [frågearkivet](concepts-query-store.md).
 
-## <a name="viewing-performance-insights"></a>Visa prestandainsikter
+## <a name="viewing-performance-insights"></a>Visa prestanda insikter
 På [Query Performance Insight](concepts-query-performance-insight.md)-vyn i Azure-portalen visas visualiseringar av nyckelinformation från Query Store. 
 
-På sidan portal för din Azure Database for PostgreSQL-server väljer **frågeprestandan Insight** under den **Intelligent prestanda** delen av menyraden.
+På Portal-sidan på Azure Database for PostgreSQL-servern väljer du **fråga prestanda** insikter under avsnittet **intelligent prestanda** i meny raden.
 
-![Query Performance Insight tidskrävande frågor](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+![Query Performance Insight tids krävande frågor](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-Den **tidskrävande frågor** fliken visar de fem främsta frågorna efter Genomsnittlig varaktighet per körning, aggregeras med 15 minuters intervall. Du kan visa fler frågor genom att välja dem i den nedrullningsbara listrutan för **Antal frågor**. Diagrammets färger kan ändras för ett specifikt fråge-ID när du gör detta.
+På fliken **tids krävande frågor** visas de fem främsta frågorna med genomsnittlig varaktighet per körning, sammanställt i 15-minuters intervall. Du kan visa fler frågor genom att välja dem i den nedrullningsbara listrutan för **Antal frågor**. Diagrammets färger kan ändras för ett specifikt fråge-ID när du gör detta.
 
-Du kan klicka och dra i diagrammet för att begränsa till ett specifikt tidsfönster. Du kan också använda Zooma in och ut ikoner för att visa en mindre eller större tidsperiod respektive.
+Du kan klicka och dra i diagrammet för att begränsa till ett specifikt tidsfönster. Du kan också använda ikonerna zooma in och ut för att visa en kortare eller större tids period.
 
-I tabellen nedan diagrammet ger mer information om tidskrävande frågor under den tidsperioden.
+Tabellen nedanför diagrammet innehåller mer information om tids krävande frågor i fönstret.
 
 Välj fliken **Väntestatistik** för att visa motsvarande visualiseringar av vänttillfällen på servern.
 
-![Query Performance Insight väntar statistik](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+![Query Performance Insight väntar på statistik](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+
+## <a name="considerations"></a>Överväganden
+* Query Performance Insight är inte tillgängligt för [läsning](concepts-read-replicas.md)av repliker.
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [övervakning och justering](concepts-monitoring.md) i Azure Database for PostgreSQL.

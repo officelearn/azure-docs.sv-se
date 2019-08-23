@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 07/19/2019
+ms.date: 08/23/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 1349e07662504564fdf48a53f24525c4a16aa477
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f65b1d62a9c0e6835421c2ae796f9ea390407c9a
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326906"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971605"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -57,7 +57,7 @@ Du kan begränsa utgående HTTP/S-trafik eller Azure SQL-trafik (för hands vers
 
 Du kan centralt skapa nätverksfiltreringsreglerna *tillåt* eller *neka* efter källans och målets IP-adress, port och protokoll. Azure Firewall är helt tillståndskänslig så att den kan identifiera legitima paket för olika typer av anslutningar. Regler tillämpas och loggas i flera prenumerationer och virtuella nätverk.
 
-## <a name="fqdn-tags"></a>FQDN-taggar
+## <a name="fqdn-tags"></a>Taggar för fullständigt domännamn
 
 FQDN-taggar gör det enkelt att tillåta välkänd Azure-tjänstnätverkstrafik via brandväggen. Anta exempelvis att du vill tillåta Windows Update-nätverkstrafik via brandväggen. Du skapar en programregel och inkluderar Windows Update-taggen. Nätverkstrafik från Windows Update kan nu flöda genom brandväggen.
 
@@ -112,6 +112,7 @@ Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll (till exempel ICMP) fung
 |Tillgänglighets zoner kan bara konfigureras under distributionen.|Tillgänglighets zoner kan bara konfigureras under distributionen. Du kan inte konfigurera Tillgänglighetszoner när en brand vägg har distribuerats.|Det här är avsiktligt.|
 |SNAT på inkommande anslutningar|Förutom DNAT är anslutningar via den offentliga brand Väggs adressen (inkommande) SNATed till en av brand väggens privata IP-adresser. Detta krav idag (även för aktiva/aktiva NVA) för att säkerställa symmetrisk routning.|Överväg att använda [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) -rubriker för att bevara den ursprungliga källan för http/S. Du kan till exempel använda en tjänst som till exempel [Azure-frontend](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) framför brand väggen. Du kan också lägga till WAF som en del av Azures frontend-dörr och-kedja i brand väggen.
 |Stöd för SQL-FQDN-filtrering i proxyläge (port 1433)|För Azure SQL Database, Azure SQL Data Warehouse och Azure SQL-hanterad instans:<br><br>Under förhands granskningen stöds SQL-FQDN-filtrering endast i proxy-läge (port 1433).<br><br>För Azure SQL-IaaS:<br><br>Om du använder portar som inte är standard kan du ange dessa portar i program reglerna.|För SQL i omdirigeringsläge, som är standard om du ansluter inifrån Azure, kan du i stället Filtrera åtkomst med SQL-tjänstprogrammet som en del av nätverks reglerna i Azure Firewall.
+|Utgående trafik på TCP-port 25 tillåts inte| Utgående SMTP-anslutningar som använder TCP-port 25 blockeras. Port 25 används främst för oautentiserad e-postleverans. Detta är standard beteendet för plattformen för virtuella datorer. Mer information finns i mer [fel sökning av utgående SMTP-anslutningsproblem i Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Till skillnad från virtuella datorer är det dock inte möjligt för tillfället att aktivera den här funktionen i Azure-brandväggen.|Följ den rekommenderade metoden för att skicka e-post enligt beskrivningen i artikeln om SMTP-felsökning. Du kan också undanta den virtuella datorn som behöver utgående SMTP-åtkomst från din standard väg till brand väggen, och i stället konfigurera utgående åtkomst direkt till Internet.
 
 ## <a name="next-steps"></a>Nästa steg
 

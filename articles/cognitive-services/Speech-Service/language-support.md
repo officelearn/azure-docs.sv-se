@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abff902dc62ad7ae48f2ecedfbd52aeb96719093
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815271"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970371"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Språk-och region stöd för tal tjänsterna
 
@@ -24,40 +24,40 @@ Olika språk stöds för olika funktioner i tal tjänster. Följande tabeller sa
 
 ## <a name="speech-to-text"></a>Tal till text
 
-Både Microsoft Speech igenkänning SDK och REST API stöder följande språk (lokala). Olika typer av anpassningar är tillgängliga för varje språk.
+Både Microsoft Speech igenkänning SDK och REST API stöder följande språk (lokala). För att förbättra noggrannheten erbjuds anpassning för en delmängd av språken genom uppladdning av ljud + mänskligt avskrifter eller relaterad text: Meningar.  Uttal-anpassning är för närvarande bara tillgänglig för en-US och de-DE. Läs mer om anpassning [här](how-to-custom-speech.md).
 
-  Kod | Språk | [Akustisk anpassning](how-to-customize-acoustic-models.md) | [Språk-anpassning](how-to-customize-language-model.md) | [Uttal av anpassning](how-to-customize-pronunciation.md)
- ------|----------|---------------------|---------------------|-------------------------
- ar-t.ex. | Arabiska (Egypten), moderna standard | Nej | Ja | Nej
- CA-ES | Katalanska | Nej | Nej | Nej
- da-DK | Danska (Danmark) | Nej | Nej | Nej
- de-DE | Tyska (Tyskland) | Ja | Ja | Ja
- SV-Australien | Engelska (Australien) | Nej | Ja | Nej
- en CA: N | Engelska (Kanada) | Nej | Ja | Nej
- en-GB | Engelska (Storbritannien) | Nej | Ja | Nej
- en Indien | English (India) | Ja | Ja | Nej
- en NZ | Engelska (Nya Zeeland) | Nej | Ja | Nej 
- en-US | Engelska (USA) | Ja | Ja | Ja
- es-ES | Spanska (Spanien) | Ja | Ja | Nej
- es-MX | Spanska (Mexiko) | Nej | Ja | Nej
- fi-FI | Finska (Finland) | Nej | Nej | Nej
- fr-CA | Franska (Kanada) | Nej | Ja | Nej
- fr-FR | Franska (Frankrike) | Ja | Ja | Nej
- Hej Indien | Hindi (Indien) | Nej | Ja | Nej
- IT-IT | Italienska (Italien) | Ja | Ja | Nej
- ja-JP | Japanska (Japan) | Nej | Ja | Nej
- ko-KR | Koreanska (Korea) | Nej | Ja | Nej
- NB-NO | Norska (Bokmål) (Norge) | Nej | Nej | Nej
- NL-NL | Nederländska (Nederländerna) | Nej | Ja | Nej
- pl-PL | Polska (Polen) | Nej | Nej | Nej
- pt-BR | Portugisiska (Brasilien) | Ja | Ja | Nej
- PT-PT | Portugisiska (Portugal) | Nej | Ja | Nej
- ru-RU | Ryska (Ryssland) | Ja | Ja | Nej
- SV-SE | Svenska (Sverige) | Nej | Nej | Nej
- zh-CN | Kinesiska (Mandarin, förenklad) | Ja | Ja | Nej
- zh-HK | Kinesiska (kantonesiska, traditionell) | Nej | Ja | Nej
- zh-TW | Kinesiska (Mandarin Taiwanesiska) | Nej | Ja | Nej
- TH-TH | Thailändska (Thailand) | Nej | Nej | Nej
+  Kod | Språk | Stöds | Anpassningsbar
+ ------|----------|---------------------|---------------------
+ ar-t.ex. | Arabiska (Egypten), moderna standard | Ja | Ja
+ CA-ES | Katalanska | Ja | Nej
+ da-DK | Danska (Danmark) | Ja | Nej
+ de-DE | Tyska (Tyskland) | Ja | Ja
+ SV-Australien | Engelska (Australien) | Ja | Ja
+ en CA: N | Engelska (Kanada) | Ja | Ja
+ en-GB | Engelska (Storbritannien) | Ja | Ja
+ en Indien | English (India) | Ja | Ja
+ en NZ | Engelska (Nya Zeeland) | Ja | Ja
+ en-US | Engelska (USA) | Ja | Ja
+ es-ES | Spanska (Spanien) | Ja | Ja
+ es-MX | Spanska (Mexiko) | Ja | Ja
+ fi-FI | Finska (Finland) | Ja | Nej
+ fr-CA | Franska (Kanada) | Ja | Ja
+ fr-FR | Franska (Frankrike) | Ja | Ja
+ Hej Indien | Hindi (Indien) | Ja | Ja
+ IT-IT | Italienska (Italien) | Ja | Ja
+ ja-JP | Japanska (Japan) | Ja | Ja
+ ko-KR | Koreanska (Korea) | Ja | Ja
+ NB-NO | Norska (Bokmål) (Norge) | Ja | Nej
+ NL-NL | Nederländska (Nederländerna) | Ja | Ja
+ pl-PL | Polska (Polen) | Ja | Nej
+ pt-BR | Portugisiska (Brasilien) | Ja | Ja
+ PT-PT | Portugisiska (Portugal) | Ja | Ja
+ ru-RU | Ryska (Ryssland) | Ja | Ja
+ SV-SE | Svenska (Sverige) | Ja | Nej
+ zh-CN | Kinesiska (Mandarin, förenklad) | Ja | Ja
+ zh-HK | Kinesiska (kantonesiska, traditionell) | Ja | Ja
+ zh-TW | Kinesiska (Mandarin Taiwanesiska) | Ja | Ja
+ TH-TH | Thailändska (Thailand) | Ja | Nej 
 
 
 ## <a name="text-to-speech"></a>Text till tal

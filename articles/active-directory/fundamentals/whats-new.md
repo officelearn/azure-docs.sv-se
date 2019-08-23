@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50f2f1f7f5d8509a28557e9704bc178be465b1ee
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 93327091d0065a67d441dd56cadd83f4f7d2d1f2
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648664"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970386"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -114,7 +114,7 @@ Mer information finns i [Vad är nytt för autentisering?](https://docs.microsof
 
 Azure AD-kunder kan nu ange principer för att hantera FIDO2 säkerhets nycklar för deras organisations användare och grupper. Slutanvändare kan även registrera sina säkerhets nycklar med hjälp av nycklarna för att logga in på sina Microsoft-konton på webbplatser på FIDO enheter, samt logga in på sina Azure AD-anslutna Windows 10-enheter.
 
-Mer information finns i [Aktivera lösen ords lös inloggning för Azure AD (för hands version)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) för administratörs information och [Konfigurera säkerhets information för att använda en säkerhets nyckel (för hands version)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-security-key) för information om slutanvändare.
+Mer information finns i [Aktivera lösen ords lös inloggning för Azure AD (för hands version)](/azure/active-directory/authentication/concept-authentication-passwordless) för administratörs information och [Konfigurera säkerhets information för att använda en säkerhets nyckel (för hands version)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-security-key) för information om slutanvändare.
 
 ---
 
@@ -388,7 +388,7 @@ Mer information om hur du konfigurerar din företags anpassning finns i [lägga 
 **Tjänste kategori:** MFA  
 **Produkt kapacitet:** & Skydd för identitets säkerhet
 
-Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication i organisationen måste nu använda molnbaserad Azure Multi-Factor Authentication. Kunder som aktiverade MFA Server tidigare än 1 juli ser ingen ändring. Du kommer fortfarande att kunna ladda ned den senaste versionen, Hämta framtida uppdateringar och generera autentiseringsuppgifter för aktivering.
+Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication i organisationen måste nu använda molnbaserad Azure-Multi-Factor Authentication. Kunder som aktiverade MFA Server tidigare än 1 juli ser ingen ändring. Du kommer fortfarande att kunna ladda ned den senaste versionen, Hämta framtida uppdateringar och generera autentiseringsuppgifter för aktivering.
 
 Mer information finns i [komma igång med Azure Multi-Factor Authentication Server](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy). Mer information om molnbaserad Azure Multi-Factor Authentication finns i [Planera en molnbaserad Azure Multi-Factor Authentication-distribution](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted).
 

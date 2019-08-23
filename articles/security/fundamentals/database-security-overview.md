@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 9053866b76ec1cc409c3f00d0af59bf3761d3936
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e5ed60ea59dc8cf19b8f9ca7e96777dbc6980171
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927987"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906049"
 ---
 # <a name="azure-database-security-overview"></a>Översikt över Azure Database-säkerhet
 
@@ -206,7 +206,7 @@ SQL Advanced Threat Protection (ATP) innehåller en uppsättning avancerade SQL-
 
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Den ger integrerad säkerhetsövervakning och princip hantering i dina Azure-prenumerationer. Den hjälper till att upptäcka hot som annars kan gå vidare och fungerar med ett brett eko system med säkerhetslösningar.
 
-[Security Center](../../security-center/security-center-sql-database.md) hjälper dig att skydda data i SQL Database genom att ge insyn i säkerheten för alla dina servrar och databaser. Med Security Center kan du:
+[Security Center](../../security-center/security-center-alerts-data-services.md) hjälper dig att skydda data i SQL Database genom att ge insyn i säkerheten för alla dina servrar och databaser. Med Security Center kan du:
 
 - Definiera principer för SQL Database kryptering och granskning.
 - Övervaka säkerheten för SQL Database resurser i alla dina prenumerationer.

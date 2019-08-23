@@ -1,166 +1,166 @@
 ---
-title: Förstå hur arbetet aviseringar i mått i Azure Monitor.
-description: Få en översikt över vad du kan göra med måttaviseringar och hur de fungerar i Azure Monitor.
+title: Förstå hur mått varningar fungerar i Azure Monitor.
+description: Få en översikt över vad du kan göra med mått aviseringar och hur de fungerar i Azure Monitor.
 author: snehithm
 ms.author: snmuvva
 ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: ce65d87142df64a9f0c27f3acdb4d6f25e86fb8a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4dd95d32bad76a610b88a4362e7887efdfaf6af0
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071634"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972065"
 ---
-# <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur arbetet aviseringar i mått i Azure Monitor
+# <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur mått varningar fungerar i Azure Monitor
 
-Måttaviseringar i Azure Monitor ovanpå flerdimensionella mått. De här måtten kan vara [plattform mått](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [anpassade mått](../../azure-monitor/platform/metrics-custom-overview.md), [populära loggar från Azure Monitor konverteras till mått](../../azure-monitor/platform/alerts-metric-logs.md) och Application Insights-mått. Måttaviseringar utvärderar med jämna mellanrum för att kontrollera om villkoren på en eller flera mått time series-är SANT och meddelar dig när utvärderingarna är uppfyllda. Måttaviseringar är tillståndskänsliga, det vill säga de endast skicka ut meddelanden när tillståndet ändras.
+Mått varningar i Azure Monitor fungerar ovanpå flerdimensionella mått. Dessa mått kan vara [plattforms mått](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [anpassade mått](../../azure-monitor/platform/metrics-custom-overview.md), [populära loggar från Azure Monitor konverteras till mått](../../azure-monitor/platform/alerts-metric-logs.md) och Application Insights mått. Mått varningar utvärderas med jämna mellanrum för att kontrol lera om villkoren på en eller flera metriska tids serier är sanna och meddelar dig när utvärderingarna är uppfyllda. Mått varningar är tillstånds känsliga, det vill säga de skickar bara meddelanden när tillstånd ändras.
 
-## <a name="how-do-metric-alerts-work"></a>Hur fungerar måttaviseringar?
+## <a name="how-do-metric-alerts-work"></a>Hur fungerar mått varningar?
 
-Du kan definiera en måttaviseringsregel genom att ange en målresurs som ska övervakas, Måttnamn, typ av villkor (statisk eller dynamisk), och villkoret (en operator och ett tröskelvärde/känslighet) och en åtgärdsgrupp att utlösas när aviseringsregeln utlöses. Villkorstyper påverkar tröskelvärden bestäms. [Mer information om tröskelvärden för dynamiska villkor typ och känslighet alternativ](alerts-dynamic-thresholds.md).
+Du kan definiera en regel för mått varningar genom att ange en mål resurs som ska övervakas, Metric-namn, villkors typ (statisk eller dynamisk) och villkoret (en operator och ett tröskelvärde/känslighet) och en åtgärds grupp som ska utlösas när varnings regeln utlöses. Villkors typer påverkar hur tröskelvärdena bestäms. [Läs mer om villkors typ och känslighets alternativ för dynamisk tröskel](alerts-dynamic-thresholds.md).
 
-### <a name="alert-rule-with-static-condition-type"></a>Aviseringsregel med statiska Villkorstyp
+### <a name="alert-rule-with-static-condition-type"></a>Varnings regel med statisk villkors typ
 
-Anta att du har skapat en enkelt statiskt tröskelvärde måttaviseringsregel på följande sätt:
+Anta att du har skapat en varnings regel för enkel statisk tröskel enligt följande:
 
-- Målresurs (Azure-resursen du vill övervaka): myVM
-- Mått: Procent CPU
-- Typ av villkor: Statisk
-- Tidsmängd (statistik som körs över råa måttvärden. Aggregeringar stöds tid är Min, Max, Avg, totalt antal, antal): Medel
-- Period (titt tillbaka fönstret över vilka mått värden kontrolleras): Under de senaste 5 minuterna
-- Frequency (frekvens som kontrollerar metrisk varning om villkoren uppfylls): 1 min
-- Operator: Större än
-- Tröskelvärde för: 70
+- Mål resurs (den Azure-resurs som du vill övervaka): myVM
+- Kostnads Procent CPU
+- Villkors typ: Statisk
+- Tids agg regering (statistik som körs över rå metriska värden. Tids agg regeringar som stöds är min, Max, AVG, total, Count): Average
+- Period (fönstret för att se vilka metriska värden är markerade): Under de senaste 5 minuterna
+- Frekvens (den frekvens med vilken måttets avisering kontrollerar om villkoren är uppfyllda): 1 min
+- Operator Större än
+- Fastställd 70
 
-Från den tidpunkt som regeln har skapats körs var 1 min övervakaren och tittar på måttvärden under de senaste 5 minuterna och kontrollerar om medelvärdet för de här värdena överskrider 70. Om villkoret är uppfyllt det vill säga, den genomsnittliga CPU procent under de senaste 5 minuterna överskrider 70, aviseringsregeln utlöses ett meddelande om aktiverad. Om du har konfigurerat ett e-postmeddelande eller en web hook-åtgärd i åtgärdsgruppen som associeras med varningsregeln, får du ett meddelande som är aktiverad på båda.
+När aviserings regeln skapas körs övervakaren var 1: e minut och tittar på mått värden under de senaste 5 minuterna och kontrollerar om genomsnittet för dessa värden överstiger 70. Om villkoret är uppfyllt, är den genomsnittliga procent andelen för de senaste 5 minuterna längre än 70, varnings regeln utlöser ett aktiverat meddelande. Om du har konfigurerat ett e-postmeddelande eller en webhook-åtgärd i den åtgärds grupp som är associerad med varnings regeln får du ett aktiverat meddelande på båda.
 
-När du använder flera villkor i en regel, regeln ”ands” villkoren tillsammans.  Det vill säga utlöses aviseringen när alla villkor i aviseringen utvärderas som true och att matcha när ett av villkoren inte längre är sant. Och exempel på den här typen av avisering är Avisera när ”CPU högre än 90%” och ”Kölängden är mer än 300 objekt”. 
+När du använder flera villkor i en regel, "ands" villkoren tillsammans.  Det vill säga att aviseringen utlöses när alla villkor i aviseringen utvärderas som sant och löses när ett av villkoren inte längre är sant. Och exempel på den här typen av avisering skulle vara en avisering när "CPU som är högre än 90%" och "Queue length är över 300-objekt". 
 
-### <a name="alert-rule-with-dynamic-condition-type"></a>Aviseringsregel med dynamiska Villkorstyp
+### <a name="alert-rule-with-dynamic-condition-type"></a>Varnings regel med dynamisk villkors typ
 
-Anta att du har skapat en enkel dynamiska tröskelvärden måttaviseringsregel på följande sätt:
+Anta att du har skapat en mått regel för enkla dynamiska tröskelvärden enligt följande:
 
-- Målresurs (Azure-resursen du vill övervaka): myVM
-- Mått: Procent CPU
-- Typ av villkor: Dynamisk
-- Tidsmängd (statistik som körs över råa måttvärden. Aggregeringar stöds tid är Min, Max, Avg, totalt antal, antal): Medel
-- Period (titt tillbaka fönstret över vilka mått värden kontrolleras): Under de senaste 5 minuterna
-- Frequency (frekvens som kontrollerar metrisk varning om villkoren uppfylls): 1 min
-- Operator: Större än
-- Känslighet: Medel
-- Titt tillbaka perioder: 4
+- Mål resurs (den Azure-resurs som du vill övervaka): myVM
+- Kostnads Procent CPU
+- Villkors typ: Dynamisk
+- Tids agg regering (statistik som körs över rå metriska värden. Tids agg regeringar som stöds är min, Max, AVG, total, Count): Average
+- Period (fönstret för att se vilka metriska värden är markerade): Under de senaste 5 minuterna
+- Frekvens (den frekvens med vilken måttets avisering kontrollerar om villkoren är uppfyllda): 1 min
+- Operator Större än
+- Normal Medel
+- Se tillbaka-perioder: 4
 - Antal överträdelser: 4
 
-När regeln har skapats kan den dynamiska tröskelvärden maskininlärningsalgoritmen ska hämta historiska data som är tillgänglig, beräkna tröskelvärde som passar bäst för metriska serien beteendemönster och kommer kontinuerligt Läs baserat på nya data att göra det tröskelvärdet mer exakta.
+När varnings regeln har skapats, kommer Machine Learning-algoritmen för dynamiska tröskelvärden att hämta historiska data som är tillgängliga, beräkna tröskel som bäst passar mått seriens beteende mönster och kommer kontinuerligt att lära sig utifrån nya data för att göra tröskelvärdet är mer exakt.
 
-Från den tid som regeln skapades övervakaren körs var 1 min och tittar på måttvärden under de senaste 20 minuterna som grupperas i 5 minuter perioder, och kontrollerar om medelvärdet för tröskelperiodvärden i var och en av de 4 punkter överskrider tröskelvärdet förväntade. Om villkoret är uppfyllt det vill säga, den genomsnittliga procent CPU under de senaste 20 minuterna (fyra 5 minuter perioder) avvikit från fyra gånger är förväntat, aviseringsregeln utlöses ett meddelande om aktiverad. Om du har konfigurerat ett e-postmeddelande eller en web hook-åtgärd i åtgärdsgruppen som associeras med varningsregeln, får du ett meddelande som är aktiverad på båda.
+När aviserings regeln skapas körs övervakaren var 1: e minut och tittar på mått värden under de senaste 20 minuterna grupperade i 5 minuters perioder och kontrollerar om genomsnittet för period värden i var och en av de 4 perioderna överstiger det förväntade tröskelvärdet. Om villkoret är uppfyllt, vilket är den genomsnittliga procent andelen av processorn under de senaste 20 minuterna (fyra 5 minuter) som avviker från förväntat beteende fyra gånger, utlöses aviserings regeln av ett aktiverat meddelande. Om du har konfigurerat ett e-postmeddelande eller en webhook-åtgärd i den åtgärds grupp som är associerad med varnings regeln får du ett aktiverat meddelande på båda.
 
-### <a name="view-and-resolution-of-fired-alerts"></a>Visa och upplösning aktiverade aviseringar
+### <a name="view-and-resolution-of-fired-alerts"></a>Visa och matcha utlösta aviseringar
 
-Ovanstående exempel på aviseringsregler aktiveringen kan även visas i Azure-portalen i den **alla aviseringar** bladet.
+Ovanstående exempel på utlösare för varnings regler kan också visas i Azure Portal på bladet **alla aviseringar** .
 
-Anta att användningen på ”myVM” fortsätter att tröskelvärdet i efterföljande kontroller, aviseringsregeln utlöses inte igen förrän villkor som har åtgärdats.
+Anta att användningen på "myVM" fortsätter att ligga över tröskelvärdet i efterföljande kontroller, att varnings regeln inte utlöses igen förrän villkoren har lösts.
 
-Om en stund om användningen på ”myVM” kommer tillbaka ned till normal går det vill säga under tröskeln. Varningsregeln övervakar villkoret för två gånger, skicka ut en löst avisering. Varningsregeln skickar ut ett meddelande som löst/inaktiveras när aviseringstillståndet inte uppfylls för tre punkter att minska bruset vid växlar villkor.
+Efter en stund kommer användningen av "myVM" att gå tillbaka till normal (hamnar under tröskelvärdet). Varnings regeln övervakar villkoret i två gånger för att skicka ett löst meddelande. Varnings regeln skickar ut ett löst/inaktiverat meddelande när varnings villkoret inte är uppfyllt under tre efterföljande perioder för att minska bruset i händelse av växlar-villkor.
 
-Som lösts meddelandet skickas via webhooks eller e-postmeddelandet, anges status för aviseringsinstansen (kallas övervakningstillstånd) i Azure-portalen också till löst.
+När det lösta meddelandet skickas ut via Webhooks eller e-post, anges även status för varnings instansen (kallas övervaknings tillstånd) i Azure Portal till löst.
 
-### <a name="using-dimensions"></a>Med hjälp av dimensioner
+### <a name="using-dimensions"></a>Använda dimensioner
 
-Måttaviseringar i Azure Monitor stöder även övervakning av flera kombinationer av dimensioner värden med en regel. Låt oss se varför du kanske använder flera dimensionskombinationer av med hjälp av ett exempel.
+Mått varningar i Azure Monitor också stöd för övervakning av flera dimensions värde kombinationer med en regel. Nu ska vi ta reda på varför du kan använda flera dimensions kombinationer med hjälp av ett exempel.
 
-Anta att du har en apptjänstplan för din webbplats. Du vill övervaka CPU-användningen på flera instanser som kör appen/webbplatsen. Du kan göra det med en måttaviseringsregel enligt följande:
+Anta att du har en App Service plan för din webbplats. Du vill övervaka CPU-användning på flera instanser som kör webbplatsen/appen. Du kan göra det med en regel för mått varningar enligt följande:
 
-- Målresurs: myAppServicePlan
-- Mått: Procent CPU
-- Typ av villkor: Statisk
+- Mål resurs: myAppServicePlan
+- Kostnads Procent CPU
+- Villkors typ: Statisk
 - Dimensioner
-  - Instans = InstanceName1 InstanceName2
-- Tidsmängd: Medel
-- Period: Under de senaste 5 minuterna
-- Frekvens: 1 min
-- Operator: GreaterThan
-- Tröskelvärde för: 70
+  - Instans = InstanceName1, InstanceName2
+- Tids mängd: Average
+- Gått Under de senaste 5 minuterna
+- Frekvens 1 min
+- Operator GreaterThan
+- Fastställd 70
 
-Som innan den här regeln övervakar om den genomsnittliga CPU-användningen under de senaste 5 minuterna överskrider 70%. Du kan dock övervaka två instanser som kör din webbplats med samma regel. Varje instans kommer få övervakas individuellt och du får meddelanden individuellt.
+Precis som tidigare övervakar den här regeln om den genomsnittliga CPU-användningen för de senaste 5 minuterna överstiger 70%. Men med samma regel kan du övervaka två instanser som kör din webbplats. Varje instans kommer att övervakas individuellt och du får meddelanden individuellt.
 
-Anta att du har en webbapp som ser enorma begäran och du behöver du lägga till fler instanser. Ovanstående övervakar fortfarande bara två instanser. Du kan dock skapa en regel på följande sätt:
+Anta att du har en webbapp som kan se enorma behov och du behöver lägga till fler instanser. Regeln ovan övervakar fortfarande bara två instanser. Du kan dock skapa en regel på följande sätt:
 
-- Målresurs: myAppServicePlan
-- Mått: Procent CPU
-- Typ av villkor: Statisk
-- Dimensioner
-  - Instans = *
-- Tidsmängd: Medel
-- Period: Under de senaste 5 minuterna
-- Frekvens: 1 min
-- Operator: GreaterThan
-- Tröskelvärde för: 70
-
-Den här regeln kommer automatiskt att övervaka alla värden för instans-dvs Du kan övervaka dina instanser när de uppstår utan att behöva ändra dina måttaviseringsregel igen.
-
-När du övervakar flera dimensioner, skräddarsydda dynamiska tröskelvärden för aviseringar regel kan skapa tröskelvärden för hundratals mått serien i taget. Dynamiska tröskelvärden resulterar i färre Varningsregler att hantera och mycket tid som sparas på hanterings- och skapande av regler för aviseringar.
-
-Anta att du har en webbapp med många instanser och du inte vet vad som är mest lämpligt tröskelvärde. Av ovanstående använder alltid tröskelvärdet på 70%. Du kan dock skapa en regel på följande sätt:
-
-- Målresurs: myAppServicePlan
-- Mått: Procent CPU
-- Typ av villkor: Dynamisk
+- Mål resurs: myAppServicePlan
+- Kostnads Procent CPU
+- Villkors typ: Statisk
 - Dimensioner
   - Instans = *
-- Tidsmängd: Medel
-- Period: Under de senaste 5 minuterna
-- Frekvens: 1 min
-- Operator: GreaterThan
-- Känslighet: Medel
-- Titt tillbaka perioder: 1
+- Tids mängd: Average
+- Gått Under de senaste 5 minuterna
+- Frekvens 1 min
+- Operator GreaterThan
+- Fastställd 70
+
+Den här regeln övervakar automatiskt alla värden för instansen, dvs. Du kan övervaka dina instanser när de kommer igång utan att behöva ändra måttet för mått aviseringen igen.
+
+När du övervakar flera dimensioner kan aviserings regeln för dynamiska tröskelvärden skapa skräddarsydda tröskelvärden för hundratals mått serier i taget. Dynamiska tröskelvärden ger färre varnings regler för att hantera och betydande tid att spara vid hantering och skapande av aviserings regler.
+
+Anta att du har en webbapp med många instanser och att du inte vet vad det bästa tröskelvärdet är. Reglerna ovan kommer alltid att använda tröskelvärdet 70%. Du kan dock skapa en regel på följande sätt:
+
+- Mål resurs: myAppServicePlan
+- Kostnads Procent CPU
+- Villkors typ: Dynamisk
+- Dimensioner
+  - Instans = *
+- Tids mängd: Average
+- Gått Under de senaste 5 minuterna
+- Frekvens 1 min
+- Operator GreaterThan
+- Normal Medel
+- Se tillbaka-perioder: 1
 - Antal överträdelser: 1
 
-Den här regeln övervakar om den genomsnittliga CPU-användningen under de senaste 5 minuterna överskrider förväntat beteende för varje instans. Samma regel som du kan övervaka instanser när de uppstår utan att behöva ändra dina måttaviseringsregel igen. Varje instans ska få ett tröskelvärde som passar mått serien beteendemönster och kontinuerligt ska ändras baserat på nya data att göra det mer exakta tröskelvärdet. Som innan varje instans som ska övervakas individuellt och du får meddelanden individuellt.
+Den här regeln övervakar om den genomsnittliga CPU-användningen för de senaste 5 minuterna överskrider det förväntade beteendet för varje instans. Samma regel du kan övervaka instanser när de kommer igång utan att behöva ändra mått varnings regeln igen. Varje instans får ett tröskelvärde som passar mått seriens beteende mönster och kommer kontinuerligt att ändras baserat på nya data för att göra tröskelvärdet mer exakt. Precis som tidigare övervakas varje instans individuellt och du får meddelanden individuellt.
 
-Öka titt bak perioder och antal överträdelser kan det också filtrera aviseringarna till bara aviseringen på din definition av en stor avvikelse. [Mer information om dynamiska tröskelvärden avancerade alternativ](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
+Om du ökar antalet återställnings perioder och antalet överträdelser kan du också tillåta filtrerings aviseringar enbart för aviseringar i definitionen av en betydande avvikelse. [Lär dig mer om avancerade alternativ för dynamiska tröskelvärden](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
-## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Övervakning i stor skala med måttaviseringar i Azure Monitor
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Övervakning i skala med hjälp av mått varningar i Azure Monitor
 
-Hittills har du sett hur en enda metrisk varning kan användas för att övervaka en eller flera mått time series-relaterade till en enda Azure-resurs. Många gånger du samma avisering regeln ska gälla för många resurser. Azure Monitor stöder även övervakning av flera resurser med en måttaviseringsregel. Den här funktionen stöds för närvarande endast på virtuella datorer. En enda metrisk varning kan också övervaka resurser i en Azure-region.
+Hittills har du sett hur du kan använda en enda mått avisering för att övervaka en eller flera metriska tids serier som är relaterade till en enda Azure-resurs. Många gånger kanske du vill att samma varnings regel ska tillämpas på många resurser. Azure Monitor också stöd för övervakning av flera resurser med en mått varnings regel. Den här funktionen stöds för närvarande bara på virtuella datorer. Dessutom kan en enda mått avisering övervaka resurser i en Azure-region.
 
-Du kan ange omfånget för övervakning av en enda metrisk varning på något av tre sätt:
+Du kan ange omfattningen för övervakning av en enda mått avisering på något av tre sätt:
 
 - som en lista över virtuella datorer i en Azure-region inom en prenumeration
-- alla virtuella datorer (inom en Azure-region) i en eller flera resursgrupper i en prenumeration
+- alla virtuella datorer (i en Azure-region) i en eller flera resurs grupper i en prenumeration
 - alla virtuella datorer (i en Azure-region) i en prenumeration
 
-Skapa måttvarningsregler som övervakar flera resurser liknar [skapar metrisk varning](alerts-metric.md) som övervakar en enskild resurs. Endast skillnaden är att du skulle välja alla resurser som du vill övervaka. Du kan också skapa reglerna via [Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Du får enskilda meddelanden för varje virtuell dator.
+Skapa mått varnings regler som övervakar flera resurser, till exempel att [skapa alla andra mått varningar](alerts-metric.md) som övervakar en enskild resurs. Den enda skillnaden är att du väljer alla resurser som du vill övervaka. Du kan också skapa dessa regler genom att [Azure Resource Manager mallar](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Du kommer att få enskilda meddelanden för varje virtuell dator.
 
-## <a name="typical-latency"></a>Typisk svarstid
+## <a name="typical-latency"></a>Typisk svars tid
 
-För måttaviseringar, vanligtvis meddelas du inom 5 minuter om du ställer in frekvensen varningsregeln ska vara 1 min. Du kan se en längre svarstid i fall av hård belastning för meddelandesystem.
+För mått aviseringar visas vanligt vis att du får ett meddelande under 5 minuter om du ställer in frekvensen för varnings regeln på 1 min. Vid tung belastning för aviserings system kan du se längre svars tid.
 
-## <a name="supported-resource-types-for-metric-alerts"></a>Resurstyper som stöds för måttaviseringar
+## <a name="supported-resource-types-for-metric-alerts"></a>Resurs typer som stöds för mått aviseringar
 
-Du hittar en fullständig lista över resurstyper som stöds i den här [artikeln](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+Du hittar en fullständig lista över resurs typer som stöds i den här [artikeln](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-Om du använder klassiska måttaviseringar idag och vill ha mer information om måttaviseringar stöder alla resurstyperna du använder, i följande tabell visas resursen typer som stöds av klassiska måttaviseringar och om de stöds av måttaviseringar idag eller inte.
+Om du använder klassiska metriska aviseringar idag och vill se om mått aviseringarna stöder alla resurs typer som du använder, visar följande tabell de resurs typer som stöds av klassiska mått varningar och om de stöds av metriska aviseringar idag eller inte.
 
-|Resurstyp som stöds av klassiska måttaviseringar | Stöds av måttaviseringar |
+|Resurs typ som stöds av klassiska mått varningar | Stöds av mått varningar |
 |-------------------------------------------------|----------------------------|
 | Microsoft.ApiManagement/service | Ja |
 | Microsoft.Batch/batchAccounts| Ja|
 |Microsoft.Cache/redis| Ja |
 |Microsoft.ClassicCompute/virtualMachines | Nej |
-|Microsoft.ClassicCompute/domainNames/slots/roles | Nej|
+|Microsoft. ClassicCompute/domän namn/platser/roller | Nej|
 |Microsoft.CognitiveServices/accounts | Nej |
 |Microsoft.Compute/virtualMachines | Ja|
 |Microsoft.Compute/virtualMachineScaleSets| Ja|
 |Microsoft.ClassicStorage/storageAccounts| Nej |
-|Microsoft.DataFactory/datafactories | Ja|
-|Microsoft.DBforMySQL/servers| Ja|
+|Microsoft. DataFactory/datafactories | Ja|
+|Microsoft. DBforMySQL/servers| Ja|
 |Microsoft.DBforPostgreSQL/servers| Ja|
 |Microsoft.Devices/IotHubs | Nej|
-|Microsoft.DocumentDB/databaseAccounts| Ja|
+|Microsoft. DocumentDB/databaseAccounts| Ja|
 |Microsoft.EventHub/namespaces | Ja|
 |Microsoft.Logic/workflows | Ja|
 |Microsoft.Network/loadBalancers |Ja|
@@ -173,15 +173,15 @@ Om du använder klassiska måttaviseringar idag och vill ha mer information om m
 |Microsoft.Storage/storageAccounts | Ja|
 |Microsoft.StreamAnalytics/streamingjobs| Ja|
 |Microsoft.TimeSeriesInsights/environments | Ja|
-|Microsoft. Web/servergrupper | Ja |
-|Microsoft. -/ Webbplatser (exklusive funktioner) | Ja|
-|Microsoft. Web/hostingEnvironments/multiRolePools | Nej|
-|Microsoft. Web/hostingEnvironments/workerPools| Nej |
-|Microsoft.SQL/Servers | Nej |
+|Microsoft. Webb-/Server grupper | Ja |
+|Microsoft. Webb/platser (exklusive funktioner) | Ja|
+|Microsoft. Webb-/hostingEnvironments/multiRolePools | Nej|
+|Microsoft. Webb-/hostingEnvironments/workerPools| Nej |
+|Microsoft. SQL/Servers | Nej |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig att skapa, visa och hantera aviseringar för mått i Azure](alerts-metric.md)
-- [Lär dig hur du distribuerar måttaviseringar med hjälp av Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-metric-create-templates.md)
-- [Läs mer om åtgärdsgrupper](action-groups.md)
-- [Mer information om dynamiska tröskelvärden Villkorstyp](alerts-dynamic-thresholds.md)
+- [Lär dig hur du skapar, visar och hanterar mått varningar i Azure](alerts-metric.md)
+- [Lär dig hur du distribuerar mått aviseringar med hjälp av Azure Resource Manager mallar](../../azure-monitor/platform/alerts-metric-create-templates.md)
+- [Läs mer om åtgärds grupper](action-groups.md)
+- [Läs mer om villkors typen för dynamiska tröskelvärden](alerts-dynamic-thresholds.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 90e3121c3f036d1abc8ca372ee349aef3485d07b
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: cfd4d65b07cf255ac2b60d6bf8376723a997374e
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69625046"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972938"
 ---
 # <a name="azure-network-connections-overview"></a>Översikt över Azure nätverks anslutningar
 
@@ -44,7 +44,6 @@ Privata moln kan anslutas till dina Azure-resurser med hjälp av ExpressRoute.  
 Du kan ansluta din befintliga Azure ExpressRoute-krets till din CloudSimple-region. ExpressRoute-funktionen Global Reach används för att ansluta de två kretsarna med varandra.  En anslutning upprättas mellan lokala och CloudSimple ExpressRoute-kretsar.  Med den här anslutningen kan du utöka ditt lokala nätverk till ett privat moln nätverk. Vägar från ditt CloudSimple-nätverk kommer att bytas via BGP med ditt lokala nätverk.
 
 ![Anslutning till lokalt ExpressRoute – Global Reach](media/cloudsimple-global-reach-connection.png)
-
 
 ## <a name="connection-to-on-premises-network-and-azure-virtual-network"></a>Anslutning till lokalt nätverk och Azure Virtual Network
 

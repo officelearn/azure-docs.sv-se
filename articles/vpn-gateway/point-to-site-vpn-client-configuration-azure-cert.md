@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 79e7027d308d389aa672d164de91df61b1142e32
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 07d48ed195f74c9aef5d34de1925ab8fc2a3ae21
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534166"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899876"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera konfigurationsfiler för VPN-klienten för interna P2S-konfigurationer för Azure-certifikatautentisering
 
@@ -133,13 +133,13 @@ Följande instruktioner skapades på Ubuntu 18.0.4. Ubuntu-16.0.10 stöder inte 
    ```
    sudo apt install network-manager-strongswan
    ```
-2. Välj ikonen **Network Manager** (UPPIL/NEDPIL) och välj sedan **Redigera anslutningar**.
+2. Välj **Inställningar** och välj sedan **nätverk**.
 
    ![redigera anslutningar](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Klicka på knappen **Lägg till** för att skapa en ny anslutning.
+3. Klicka på **+** knappen för att skapa en ny anslutning.
 
    ![Lägg till en anslutning](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. Välj **IPSec/IKEv2 (strongswan)** på den nedrullningsbara menyn och klicka sedan på **skapa**. Du kan byta namn på anslutningen i det här steget.
+4. Välj **IPSec/IKEv2 (strongSwan)** på menyn och dubbelklicka på. Du kan ge anslutningen ett namn i det här steget.
 
    ![Välj en Anslutnings typ](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. Öppna filen **VpnSettings. XML** från den **allmänna** mappen som finns i hämtade konfigurationsfiler för klienter. Hitta taggen med namnet **VpnServer** och kopiera namnet, från och med "azuregateway" och sluta med ". cloudapp.net".
@@ -148,8 +148,8 @@ Följande instruktioner skapades på Ubuntu 18.0.4. Ubuntu-16.0.10 stöder inte 
 6. Klistra in det här namnet i fältet **adress** i den nya VPN-anslutningen i **Gateway** -avsnittet. Sedan väljer du mappikonen i slutet av fältet **certifikat** , bläddrar till den **allmänna** mappen och väljer filen **VpnServerRoot** .
 7. I avsnittet **klient** i anslutningen, för **autentisering**, väljer du **certifikat/privat nyckel**. För **certifikat** och **privat nyckel**väljer du certifikatet och den privata nyckeln som skapades tidigare. I **alternativ**väljer du **begär en inre IP-adress**. Klicka sedan på **Lägg till**.
 
-   ![begär en inre IP-adress](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
-8. Klicka på ikonen **Network Manager** (uppåt-nedåtpil/nedåtpil) och hovra över **VPN-anslutningar**. Du ser VPN-anslutningen som du skapade. Klicka om du vill initiera anslutningen.
+   ![begär en inre IP-adress](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
+8. Aktivera anslutningen.
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 

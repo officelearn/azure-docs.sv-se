@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 853d7f7bf9950640a824eee4ae3e044265b518f7
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 5345bbf2514c8b06ab80d4563227725a398f9407
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016971"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898345"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -290,6 +290,10 @@ Information om Azure Maps-API: er som används i den här självstudien finns i:
 En fullständig lista över Azure Maps REST API: er finns i:
 
 * [Azure Maps REST-API: er](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
+
+Mer information om IoT Plug and Play finns i:
+
+* [IoT-Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
 
 Om du vill hämta en lista över enheter som är Azure-certifierade för IoT går du till:
 

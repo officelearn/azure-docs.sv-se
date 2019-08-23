@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7cf87c3a146f51666a2c24c7cd0d6e9425159225
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228935"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905227"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -244,8 +244,7 @@ Så här installerar du agenten på en Linux-dator:
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Installera MMA-agenten på en dator som övervakas av Operations Manager
 
-För datorer som övervakas av System Center Operations Manager 2012 R2 eller senare behöver du inte installera MMA-agenten. Tjänstkarta integreras med Operations Manager-MMA för att samla in nödvändiga beroende data. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Beroende agenten måste vara installerad.
-
+För datorer som övervakas med System Center Operations Manager 2012 R2 eller senare behöver du inte installera MMA-agenten. Tjänstkarta integreras med Operations Manager-MMA för att samla in nödvändiga beroende data. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Beroende agenten måste vara installerad.
 
 ### <a name="install-the-dependency-agent"></a>Installera beroendeagenten
 
@@ -254,9 +253,11 @@ För datorer som övervakas av System Center Operations Manager 2012 R2 eller se
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- Läs mer om stöd för beroende agent för operativ systemen [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) och [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) .
-- [Läs mer](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) om hur du kan använda skript för att installera beroende agenten.
+- Läs mer om [stöd för beroende agent](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) för operativ systemen Windows och Linux.
+- [Läs mer](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) om hur du kan använda skript för att installera beroende agenten.
 
+>[!NOTE]
+> Azure Monitor for VMs artikel som refereras till för att ge en översikt över system kraven och metoderna för att distribuera beroende agenten gäller även för Tjänstkarta-lösningen.
 
 ### <a name="create-a-group-with-dependency-mapping"></a>Skapa en grupp med beroende mappning
 
@@ -293,7 +294,7 @@ Beroende data som samlas in av Tjänstkarta är tillgängliga för frågor i arb
 Så här kör du Kusto-frågorna:
 
 1. När du har installerat agenterna går du till portalen och klickar på **Översikt**.
-2. I **Översikt**går du till  avsnittet Essentials i projektet och klickar på arbets ytans namn bredvid **OMS**-arbetsytan.
+2. I **Översikt**går du till avsnittet Essentials i projektet och klickar på arbets ytans namn bredvid **OMS**-arbetsytan.
 3. Klicka på **allmänna** > **loggar**på sidan Log Analytics arbets yta.
 4. Skriv din fråga för att samla in beroende data med Azure Monitor loggar. Sök efter exempel frågor i nästa avsnitt.
 5. Kör frågan genom att klicka på Kör. 

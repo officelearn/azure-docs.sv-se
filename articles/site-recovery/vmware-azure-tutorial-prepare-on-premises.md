@@ -6,19 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7a61edc01a87be8996b4d7dd5093f9d3554e6585
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 315d4daf7155bc33235507f39b5cce8869db5aa6
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417766"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972163"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala VMware-servrar på haveriberedskap till Azure
 
-Den här artikeln beskriver hur du förbereder en lokal VMware-servrar på haveriberedskap till Azure med hjälp av den [Azure Site Recovery](site-recovery-overview.md) tjänster. 
+Den här artikeln beskriver hur du förbereder lokala VMware-servrar för haveri beredskap till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md) -tjänsterna. 
 
 Det här är den fjärde kursen i en serie som illustrerar hur du konfigurerar haveriberedskap i Azure för lokala virtuella VMware-datorer. I den första självstudien [konfigurerade vi de Azure-komponenter](tutorial-prepare-azure.md) som krävs för katastrofåterställning för VMware.
 
@@ -26,17 +26,17 @@ Det här är den fjärde kursen i en serie som illustrerar hur du konfigurerar h
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Förbereda ett konto på vCenter-servern eller vSphere ESXi-värden, att automatisera VM-identifiering.
-> * Förbereda ett konto för automatisk installation av mobilitetstjänsten på virtuella VMware-datorer.
-> * Granska VMware-servern och kraven för virtuella datorer och support.
-> * Förbered för att ansluta till virtuella Azure-datorer efter redundans.
+> * Förbered ett konto på vCenter-servern eller vSphere ESXi-värden för att automatisera VM-identifiering.
+> * Förbereda ett konto för automatisk installation av mobilitets tjänsten på virtuella VMware-datorer.
+> * Granska krav och support för VMware Server och VM.
+> * Förbered för att ansluta till virtuella Azure-datorer efter redundansväxling.
 
 > [!NOTE]
-> Självstudier visar den enklaste distribution sökvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikel i avsnittet How To i Site Recovery i innehållsförteckningen.
+> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Kontrollera att du har förberett Azure enligt beskrivningen i den [första kursen i den här serien](tutorial-prepare-azure.md).
+Se till att du har för berett Azure enligt beskrivningen i den [första självstudien i den här serien](tutorial-prepare-azure.md).
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Förbereda ett konto för automatisk identifiering
 
@@ -82,7 +82,7 @@ Kontrollera att VMware-servrar och virtuella datorer uppfyller kraven.
 3. Kontrollera stödet för lokalt [nätverk](vmware-physical-azure-support-matrix.md#network) och [lagring](vmware-physical-azure-support-matrix.md#storage). 
 4. Kontrollera vad som stöds när det gäller [Azure-nätverk](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [lagring](vmware-physical-azure-support-matrix.md#azure-storage) och [compute](vmware-physical-azure-support-matrix.md#azure-compute) efter redundansväxling.
 5. Dina lokala virtuella datorer som du replikerar till Azure måste uppfylla [kraven för virtuella Azure-datorer](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
-6. I virtuella Linux-datorer så ska enhetsnamn eller monteringspunktsnamn vara unika. Kontrollera att inga två enheter/monteringspunkter har samma namn. Observera att namnet är inte skiftlägeskänsliga. Det är till exempel inte tillåtet att namnge två enheter för samma virtuella dator som _enhet1_ och _Enhet1_.
+6. I virtuella Linux-datorer så ska enhetsnamn eller monteringspunktsnamn vara unika. Kontrollera att inga två enheter/monteringspunkter har samma namn. Observera att namnet inte är Skift läges känsligt. Det är till exempel inte tillåtet att namnge två enheter för samma virtuella dator som _enhet1_ och _Enhet1_.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
@@ -96,7 +96,7 @@ Om du vill ansluta till virtuella Windows-datorer med RDP efter en redundans, g�
     - Innan redundans, aktiverar du RDP på den lokala datorn.
     - RDP ska tillåtas i **Windows-brandväggen** -> **Tillåtna appar och funktioner** för nätverken **Domän och privat**.
     - Kontrollera att operativsystemets SAN-princip har angetts till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).
-- Det får inte finnas några väntande Windows-uppdateringar på den virtuella datorn när du utlöser en redundans. Om det finns, kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
+- Det får inte finnas några väntande Windows-uppdateringar på den virtuella datorn när du utlöser en redundans. I så fall kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
 - Efter en redundans av en virtuell Windows Azure-dator, kontrollerar du att **Startdiagnostik** visar en skärmbild av den virtuella datorn. Om du inte kan ansluta kontrollerar du att den virtuella datorn körs. Granska sedan dessa [felsökningstips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Om du vill ansluta till virtuella Linux-datorer med SSH efter en redundans, gör du följande:
@@ -109,13 +109,13 @@ Om du vill ansluta till virtuella Linux-datorer med SSH efter en redundans, gör
 
 
 ## <a name="failback-requirements"></a>Krav för återställning efter fel
-Om du planerar att växla tillbaka till din lokala plats, det finns ett antal [krav för återställning efter fel](vmware-azure-reprotect.md##before-you-begin). Du kan förbereda dem nu, men du behöver inte. Du kan förbereda när du redundansväxlar till Azure.
+Om du planerar att växla tillbaka till din lokala plats finns det ett antal [krav för återställning efter fel](vmware-azure-reprotect.md##before-you-begin). Du kan förbereda dessa nu, men du behöver inte. Du kan förbereda dig efter att du har växlat över till Azure.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ställ in katastrofåterställning. Om du replikerar flera virtuella datorer, planera kapacitet.
+Konfigurera katastrof återställning. Om du replikerar flera virtuella datorer bör du planera kapaciteten.
 > [!div class="nextstepaction"]
-> [Konfigurera katastrofåterställning till Azure för virtuella VMware-datorer](vmware-azure-tutorial.md)
-> [Utför kapacitetsplanering](site-recovery-deployment-planner.md).
+> [Konfigurera katastrof återställning till Azure för virtuella VMware-datorer](vmware-azure-tutorial.md)
+> [utför kapacitets planering](site-recovery-deployment-planner.md).

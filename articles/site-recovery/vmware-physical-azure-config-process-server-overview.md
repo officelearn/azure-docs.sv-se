@@ -1,55 +1,55 @@
 ---
-title: Om Azure Site Recovery-konfiguration, process och huvudmålservrar | Microsoft Docs
-description: Den här artikeln innehåller en översikt över konfiguration, process och huvudmålservern servrar med hjälp av när du konfigurerar haveriberedskap för lokala virtuella VMware-datorer till Azure med Azure Site Recovery
+title: Om konfigurations-, process-och huvud mål servrar för Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över konfigurations-, bearbetnings-och huvud mål servrarna med när du konfigurerar haveri beredskap för lokala virtuella VMware-datorer till Azure med Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 8b3815fc9dc44484779a70b51ebff4802265d53a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d835eda044c2a6d1e0e7c678073711e45fde7395
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417733"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972151"
 ---
-# <a name="about-site-recovery-components-configuration-process-master-target"></a>Om Site Recovery-komponenter (konfiguration, process, huvudmålserver)
+# <a name="about-site-recovery-components-configuration-process-master-target"></a>Om Site Recovery-komponenter (konfiguration, process, huvud mål)
 
-Den här artikeln beskrivs den konfiguration, process och huvudmålservrar som används för att replikera virtuella VMware-datorer och fysiska servrar till Azure med den [Site Recovery](site-recovery-overview.md) service.
+I den här artikeln beskrivs konfigurations-, process-och huvud mål servrar som används vid replikering av virtuella VMware-datorer och fysiska servrar till Azure med tjänsten [Site Recovery](site-recovery-overview.md) .
 
-## <a name="configuration-server"></a>Konfigurationsservern
+## <a name="configuration-server"></a>Konfigurationsserver
 
-För haveriberedskap för lokala virtuella VMware-datorer och fysiska servrar, behöver du ett Site Recovery konfigurationsserver distribuerat lokalt.
-
-**Inställning** | **Detaljer** | **Länkar**
---- | --- | ---
-**Komponenter**  | Den configuration server-datorn kör alla lokala Site Recovery-komponenter, bland annat konfigurationsservern, processervern och huvudmålservern.<br/><br/> När du ställer in konfigurationsservern installeras alla komponenter automatiskt. | [Läs](vmware-azure-common-questions.md#configuration-server) konfigurationsservern vanliga frågor och svar.
-**Roll** | Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering. | Mer information om arkitekturen för [VMware](vmware-azure-architecture.md) och [fysisk server](physical-azure-architecture.md) haveriberedskap till Azure.
-**VMware-kraven** | För haveriberedskap för lokala virtuella VMware-datorer, måste du installera och kör konfigurationsservern som en lokal, högtillgänglig VMware VM. | [Lär dig mer om](vmware-azure-deploy-configuration-server.md#prerequisites) kraven.
-**VMware-distribution** | Vi rekommenderar att du distribuerar konfigurationsservern med hjälp av en nedladdad OVA-mall. Den här metoden ger ett enkelt sätt att konfigurera en konfigurationsserver som uppfyller alla krav och förutsättningar.<br/><br/> Om det inte går att distribuera en VMware-VM med en mall för OVA av någon anledning, kan du ställa in configuration server-datorer manuellt, enligt beskrivningen nedan för katastrofåterställning för fysisk dator. | [Distribuera](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) med en OVA-mall.
-**Krav för fysisk server** | För haveriberedskap på lokala fysiska servrar distribuerade konfigurationsservern manuellt. | [Lär dig mer om](physical-azure-set-up-source.md#prerequisites) kraven.
-**Fysisk server-distribution** | Om den inte kan installeras som en VMware-VM, kan du installera den på en fysisk server. | [Distribuera](physical-azure-set-up-source.md#set-up-the-source-environment) konfigurationsservern manuellt.
-
-
-## <a name="process-server"></a>Processervern
+För haveri beredskap för lokala virtuella VMware-datorer och fysiska servrar behöver du en Site Recovery konfigurations server som har distribuerats lokalt.
 
 **Inställning** | **Detaljer** | **Länkar**
 --- | --- | ---
-**Distribution**  | För haveriberedskap och replikeringen av lokala virtuella VMware-datorer och fysiska servrar, behöver du en processerver lokalt. Som standard installeras processervern på konfigurationsservern när du distribuerar den. | [Läs mer](vmware-azure-architecture.md?#architectural-components).
-**Rollen (lokalt** | -Tar emot replikeringsdata från datorer som har aktiverats för replikering.<br/> -Optimerar replikeringsdata med cachelagring, komprimering och kryptering och skickar dem till Azure Storage.<br/> -Utför en push-installation av Site Recovery-Mobilitetstjänsten på den lokala virtuella VMware-datorer och fysiska servrar som du vill replikera.<br/> -Utför automatisk identifiering av lokala datorer. | [Läs mer](vmware-physical-azure-config-process-server-overview.md#process-server). 
-**Rollen (återställning efter fel från Azure)** | Efter redundansväxlingen från din lokala plats är som du en processerver i Azure, Azure-dator, hantera återställning efter fel på din lokala plats.<br/><br/> Processerver i Azure är tillfällig. Azure VM kan tas bort när återställningen är klar. | [Läs mer](vmware-azure-set-up-process-server-azure.md).
-**Skalning** | För större distributioner lokala du kan ställa in ytterligare, skala ut processervrar. Ytterligare servrar skala ut kapacitet, genom att hantera större antal replikering av datorer och större mängder replikeringstrafik.<br/><br/> Du kan flytta datorer mellan två servrar i processen, för att belastningsutjämna trafik för replikering. | [Läs mer](vmware-azure-set-up-process-server-scale.md),
+**Delarna**  | Configuration Server-datorn kör alla lokala Site Recovery-komponenter, som innehåller konfigurations servern, processervern och huvud mål servern.<br/><br/> När du konfigurerar konfigurations servern installeras alla komponenter automatiskt. | [Läs](vmware-azure-common-questions.md#configuration-server) vanliga frågor och svar om konfigurations servern.
+**Roll** | Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering. | Lär dig mer om arkitekturen för haveri beredskap för [VMware](vmware-azure-architecture.md) och [fysisk server](physical-azure-architecture.md) till Azure.
+**Krav för VMware** | För haveri beredskap för lokala virtuella VMware-datorer måste du installera och köra konfigurations servern som en lokal, virtuell VMware-dator med hög tillgänglighet. | [Läs mer om](vmware-azure-deploy-configuration-server.md#prerequisites) kraven.
+**VMware-distribution** | Vi rekommenderar att du distribuerar konfigurations servern med hjälp av en Hämtad mall för ägg. Den här metoden ger dig ett enkelt sätt att konfigurera en konfigurations server som uppfyller alla krav och förutsättningar.<br/><br/> Om du av någon anledning inte kan distribuera en virtuell VMware-dator med en ägg-mall kan du konfigurera konfigurations serverns datorer manuellt, enligt beskrivningen nedan för haveri beredskap för fysiska datorer. | [Distribuera](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) med en ägg mall.
+**Krav för fysisk server** | Vid haveri beredskap på lokala fysiska servrar distribuerar du konfigurations servern manuellt. | [Läs mer om](physical-azure-set-up-source.md#prerequisites) kraven.
+**Distribution av fysisk server** | Om den inte kan installeras som en virtuell VMware-dator kan du installera den på en fysisk server. | [Distribuera](physical-azure-set-up-source.md#set-up-the-source-environment) konfigurations servern manuellt.
 
 
-## <a name="master-target-server"></a>Huvudmålservern
+## <a name="process-server"></a>Processerver
+
+**Inställning** | **Detaljer** | **Länkar**
+--- | --- | ---
+**Distribution**  | För haveri beredskap och replikering av lokala virtuella VMware-datorer och fysiska servrar behöver du en processerver lokalt. Som standard installeras processervern på konfigurations servern när du distribuerar den. | [Läs mer](vmware-azure-architecture.md?#architectural-components).
+**Roll (lokalt** | – Tar emot replikeringsdata från datorer som har Aktiver ATS för replikering.<br/> – Optimerar replikeringsdata med cachelagring, komprimering och kryptering och skickar dem till Azure Storage.<br/> -Utför en push-installation av Site Recovery mobilitets tjänsten på lokala virtuella VMware-datorer och fysiska servrar som du vill replikera.<br/> -Utför automatisk identifiering av lokala datorer. | [Läs mer](vmware-physical-azure-config-process-server-overview.md#process-server). 
+**Roll (återställning efter fel från Azure)** | Efter redundansväxlingen från den lokala platsen ställer du in en processerver i Azure som en virtuell Azure-dator för att hantera återställning efter fel till din lokala plats.<br/><br/> Processervern i Azure är tillfällig. Den virtuella Azure-datorn kan tas bort efter att återställning efter fel har gjorts. | [Läs mer](vmware-azure-set-up-process-server-azure.md).
+**Skalning** | För större distributioner kan du konfigurera ytterligare och skalbara process servrar på plats. Ytterligare servrar skalar ut kapacitet genom att hantera ett större antal replikerings datorer och större volymer av replikeringstrafik.<br/><br/> Du kan flytta datorer mellan två processervern, för att belastningsutjämna replikeringstrafik. | [Läs mer](vmware-azure-set-up-process-server-scale.md),
+
+
+## <a name="master-target-server"></a>Huvud mål Server
 
 Huvudmålservern hanterar replikeringsdata vid återställning efter fel från Azure.
 
-- Den installeras som standard på konfigurationsservern.
-- För stora distributioner, kan du lägga till en ytterligare, separat huvudmålserver för återställning efter fel.
+- Den installeras som standard på konfigurations servern.
+- För stora distributioner kan du lägga till ytterligare en separat huvud mål server för återställning efter fel.
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Granska den [arkitektur](vmware-azure-architecture.md) för haveriberedskap för virtuella VMware-datorer och fysiska servrar.
-- Granska den [krav och förutsättningar](vmware-physical-azure-support-matrix.md) för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure. 
+- Granska [arkitekturen](vmware-azure-architecture.md) för haveri beredskap för virtuella VMware-datorer och fysiska servrar.
+- Granska [kraven och förutsättningarna](vmware-physical-azure-support-matrix.md) för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure. 

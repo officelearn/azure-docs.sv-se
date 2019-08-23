@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a622aa85d1d0a9dcd5d5ad9b2b30e7a3120ea974
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d58cec644c75baaac37862f445477da92075c44d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878014"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907351"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-preview-features"></a>Självstudier: Definiera en ny enhets typ i ditt Azure IoT Central-program (för hands versions funktioner)
 
@@ -90,11 +90,11 @@ Följande steg visar hur du importerar kapacitets modellen för en **miljö sens
 
 1. Om du vill lägga till en ny enhets mall väljer du **+ ny** på sidan **mallar för enheter** .
 
-1. Välj **anpassad** från listan över enhets kapacitets modeller.
+1. Välj **anpassad** från listan med mallar.
 
 1. Ange **miljö sensor** som namn på enhets mal len.
 
-1. Välj **import kapacitets modell** för att skapa en ny enhets kapacitets modell från en JSON-fil. Navigera till mappen där du sparade filen **EnvironmentalSensorInline. capabilitymodel. JSON** på den lokala datorn. Välj filen **EnvironmentalSensorInline. capabilitymodel. JSON** och välj sedan importera. Miljö sensorns funktions modell innehåller gränssnitten **miljö sensor** och **enhets information** :
+1. Välj **import kapacitets modell** för att skapa en ny enhets kapacitets modell från en JSON-fil. Navigera till mappen där du sparade filen **EnvironmentalSensorInline. capabilitymodel. JSON** på den lokala datorn. Välj filen **EnvironmentalSensorInline. capabilitymodel. JSON** och välj sedan **Öppna**. Miljö sensorns funktions modell innehåller gränssnitten **miljö sensor** och **enhets information** :
 
     ![Funktions modell för miljö sensor enhet](./media/tutorial-define-device-type-pnp/newdevicecapabilitymodel.png)
 
@@ -147,7 +147,7 @@ När du har valt **generera standardvyer**läggs de automatiskt till i avsnittet
 
 En instrument panel för enheter låter en operatör visualisera en enhet med hjälp av diagram och mått. Som byggare kan du definiera vilken information som ska visas på en enhetsinstrumentpanel. Du kan definiera flera instrument paneler för enheter. Om du vill skapa en instrument panel för att visualisera telemetri för miljö sensorer väljer du **vyer** och visualiserar sedan **enheten**:
 
-1. Alla enhets egenskaper, moln egenskaper, telemetri och statiska alternativ visas i den högra panelen. Du kan dra och släppa något av dessa objekt i vyn. Dra ut en egenskap till vyn. Du kan konfigurera panelen med hjälp av kugg hjuls ikonen.
+1. Alla enhets egenskaper, moln egenskaper, telemetri och statiska alternativ visas under **Egenskaper**. Du kan dra och släppa något av dessa objekt i vyn. Dra egenskapen för **ljus styrke nivå** till vyn. Du kan konfigurera panelen med hjälp av kugg hjuls ikonen.
 
 1. Om du vill lägga till ett diagram som ritar telemetri väljer du **fuktighet** och **temperatur**och väljer sedan **kombinera**. Om du vill visa det här diagrammet i ett annat format, t. ex. ett cirkel diagram eller ett stapeldiagram, väljer du knappen **ändra visualisering** överst i panelen.
 
@@ -161,7 +161,7 @@ Ett enhets formulär låter en operatör redigera skrivbara enhets egenskaper oc
 
 Skapa ett formulär för att visa och redigera egenskaper för miljö sensorer:
 
-1. Välj panelen **Redigera enhet och moln data** .
+1. Navigera till **vyer** i **miljö sensor** mal len. Välj panelen **Redigera enhet och moln data** för att lägga till en ny vy.
 
 1. Ange formulär namn **Egenskaper för miljö sensor**.
 
@@ -169,10 +169,9 @@ Skapa ett formulär för att visa och redigera egenskaper för miljö sensorer:
 
 1. Välj Egenskaper för **ljus styrke nivå** och **enhets tillstånd** . Välj sedan **Lägg till avsnitt**. Redigera titeln på avsnittet som ska vara **sensor egenskaper**. Välj **Använd**.
 
-1. Välj enhets egenskaperna **återstående batteri**, **enhets modell**, **version av inbyggd program vara**, **tillverkare**och **serie nummer** . Välj sedan **Lägg till avsnitt**. Redigera rubriken för avsnittet som ska vara **enhets egenskaper**. Välj **Använd**.
+1. Välj **enhets modell**, **program version**, **tillverkare**och processor egenskaper för **tillverkaren** . Välj sedan **Lägg till avsnitt**. Redigera rubriken för avsnittet som ska vara **enhets egenskaper**. Välj **Använd**.
 
 1. Välj **Spara** för att spara vyn.
-
 
 ## <a name="publish-device-template"></a>Publicera enhets mal len
 

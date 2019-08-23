@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 734ad263356ab9f91c7cb92ab174a14e0c5dd867
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: daf7b01725a931b8fa76be14e06e2b32cffe5da6
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775178"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900636"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Utveckla en C# IoT Edge-modul för att flytta filer på data Box Edge
 
@@ -127,8 +127,10 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
 2. Längst upp i FileCopyModule- **namnområdet**lägger du till följande using-instruktioner för typer som används senare. **Microsoft. Azure. devices. client. transport. MQTT** är ett protokoll för att skicka meddelanden till IoT Edge Hub.
 
     ```
-    using Microsoft.Azure.Devices.Client.Transport.Mqtt;
-    using Newtonsoft.Json;
+    namespace FileCopyModule
+    {
+        using Microsoft.Azure.Devices.Client.Transport.Mqtt;
+        using Newtonsoft.Json;
     ```
 3. Lägg till variabeln **InputFolderPath** och **OutputFolderPath** i program klassen.
 
@@ -140,7 +142,7 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. Lägg till **FileEvent** -klassen för att definiera meddelande texten.
+4. Direkt efter föregående steg lägger du till **FileEvent** -klassen för att definiera meddelande texten.
 
     ```
     /// <summary>
@@ -156,7 +158,7 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
     }
     ```
 
-5. I metoden **Init** skapar och konfigurerar koden ett **ModuleClient**-objekt. Med det här objektet kan modulen ansluta till den lokala Azure IoT Edge runtime med hjälp av MQTT-protokollet för att skicka och ta emot meddelanden. Anslutnings strängen som används i init-metoden anges till modulen av IoT Edge Runtime. Koden registrerar ett FileCopy-återanrop för att ta emot meddelanden från en IoT Edge hubb via **INPUT1** -slutpunkten.
+5. I **init-metoden**skapar och konfigurerar koden ett **ModuleClient** -objekt. Med det här objektet kan modulen ansluta till den lokala Azure IoT Edge runtime med hjälp av MQTT-protokollet för att skicka och ta emot meddelanden. Anslutnings strängen som används i init-metoden anges till modulen av IoT Edge Runtime. Koden registrerar ett FileCopy-återanrop för att ta emot meddelanden från en IoT Edge hubb via **INPUT1** -slutpunkten. Ersätt **init-metoden** med följande kod.
 
     ```
     /// <summary>
@@ -178,11 +180,11 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
     }
     ```
 
-6. Infoga koden för **FileCopy**.
+6. Ta bort koden för **pipe-metoden** och infoga koden för **FileCopy**i dess ställe.
 
     ```
         /// <summary>
-        /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
+        /// This method is called whenever the module is sent a message from the IoT Edge Hub.
         /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
         /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
         /// </summary>
@@ -236,6 +238,7 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
     ```
 
 7. Spara filen.
+8. Du kan också [Hämta ett befintligt kod exempel](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) för det här projektet. Du kan sedan validera filen som du sparade mot filen **program.cs** i det här exemplet.
 
 ## <a name="build-your-iot-edge-solution"></a>Skapa din IoT Edge-lösning
 
@@ -246,7 +249,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i FileC
 
     `docker login <ACR login server> -u <ACR username>`
 
-    Använd den inloggnings Server och det användar namn som du kopierade från behållar registret. 
+    Använd den inloggnings Server och det användar namn som du kopierade från behållar registret.
 
     ![Lösning för att bygga och push IoT Edge](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-1.png)
 

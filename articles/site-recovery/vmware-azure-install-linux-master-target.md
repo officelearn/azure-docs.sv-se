@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 062ed5e408317e95b36d6d0dfa395311ed4afe7f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261420"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904401"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvud mål server för återställning efter fel
 När du har växlat över dina virtuella datorer till Azure kan du återställa de virtuella datorerna till den lokala platsen. Om du vill återställa den virtuella datorn från Azure till den lokala platsen måste du återställa den virtuella datorn från Azure. För den här processen behöver du en lokal huvud mål server för att ta emot trafiken. 
@@ -214,12 +214,11 @@ Om du vill ladda ned det med Linux skriver du:
 
 ### <a name="apply-custom-configuration-changes"></a>Använd anpassade konfigurations ändringar
 
-Använd följande steg för att tillämpa anpassade konfigurations ändringar:
-
+Använd följande steg som rot användare om du vill använda anpassade konfigurations ändringar:
 
 1. Kör följande kommando för att untar binärfilen.
 
-    `tar -zxvf latestlinuxmobsvc.tar.gz`
+    `tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![Skärm bild av kommandot som ska köras](./media/vmware-azure-install-linux-master-target/image16.png)
 
@@ -341,7 +340,7 @@ Kör installations programmet. Den identifierar automatiskt att agenten är inst
 `cat /usr/local/.vx_version`
 
 
-Du ser att versions  fältet innehåller versions numret för huvud mål servern.
+Du ser att versions fältet innehåller versions numret för huvud mål servern.
 
 ## <a name="common-issues"></a>Vanliga problem
 

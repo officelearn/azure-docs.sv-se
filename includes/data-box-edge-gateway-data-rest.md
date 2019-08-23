@@ -2,19 +2,18 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a6ceee0f7db4b7b368dce1a28c8edc0b2b11180
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: eb55d993ad8960f821c2b72f0a53602166b7cc7e
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187985"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900614"
 ---
 För vilande data:
 
-- BitLocker XTS-AES 256-bitars kryptering används för att skydda lokala data.
-- Åtkomst till data som lagras i resurser begränsas.
+- Åtkomst till data som lagras i resurser är begränsad.
 
-    - SMB-klienter som har åtkomst till att dela data behöver användarens autentiseringsuppgifter som är kopplade till resursen. Dessa autentiseringsuppgifter definieras när resursen har skapats.
-    - IP-adresserna för NFS-klienter som har åtkomst till en resurs måste läggas till när resursen har skapats.
+    - SMB-klienter som har åtkomst till resurs data måste ha användarautentiseringsuppgifter kopplade till resursen. Autentiseringsuppgifterna definieras när resursen skapas.
+    - IP-adresserna för NFS-klienter som har åtkomst till en resurs måste läggas till när resursen skapas.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: dadab604e95c375e6f963f2d5eb9b619ddad7880
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: e0dea5fcc7860e8653d542653e279010f8ede200
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018847"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898853"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Självstudier: Distribuera ett AKS-kluster (Azure Kubernetes Service)
 
@@ -115,7 +115,7 @@ Om du vill kontrol lera anslutningen till klustret kör du kommandot [kubectl ge
 $ kubectl get nodes
 
 NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.9
+aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
 ```
 
 ## <a name="next-steps"></a>Nästa steg

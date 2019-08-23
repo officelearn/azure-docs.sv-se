@@ -8,21 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 08/12/2019
+ms.date: 08/19/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: b1f794b833d228d5903859f8cc75a51fc6ef2fe0
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1ed753e9fe24b729f2efeb32bd99f5a721a57083
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968526"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906477"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text"></a>Snabbstart: Använda Translator Text API till translittererad till text
 
 I den här snabb starten får du lära dig att omvandla text från ett skript till ett annat med hjälp av Translator Text REST API. I det angivna exemplet translittereras japanska till det latinska alfabetet.
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
+
+[!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 

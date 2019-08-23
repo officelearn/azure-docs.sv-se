@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 671b7de8852b0aac30e35b76d89eb4489a206f91
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 61c404abc9c0b00512014d4ebf3450023699507b
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708550"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69908000"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Självstudier: Övervaka virtuella Linux-datorer i Azure Security Center
 
@@ -72,7 +72,7 @@ Så här ställer du in en säkerhetsprincip för en hel prenumeration:
 
 ## <a name="view-vm-configuration-health"></a>Visa konfigurationshälsa för virtuella datorer
 
-När du har aktiverat datainsamling och angett en säkerhetsprincip börjar Security Center att skicka aviseringar och rekommendationer. Datainsamlingsagenterna installeras i takt med att de virtuella datorerna distribueras. Security Center fylls sedan med data från de nya virtuella datorerna. Detaljerad information om konfigurationshälsa för virtuella datorer finns i [Protect your VMs in Security Center](../../security-center/security-center-virtual-machine-recommendations.md) (Skydda dina virtuella datorer i Security Center). 
+När du har aktiverat datainsamling och angett en säkerhetsprincip börjar Security Center att skicka aviseringar och rekommendationer. Datainsamlingsagenterna installeras i takt med att de virtuella datorerna distribueras. Security Center fylls sedan med data från de nya virtuella datorerna. Detaljerad information om konfigurationshälsa för virtuella datorer finns i [Protect your VMs in Security Center](../../security-center/security-center-virtual-machine-protection.md) (Skydda dina virtuella datorer i Security Center). 
 
 När data samlats in sammanställs information om resurshälsa för varje virtuell dator och relaterad Azure-resurs. Informationen visas i ett lättförståeligt diagram. 
 

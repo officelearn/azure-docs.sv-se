@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/01/2019
-ms.openlocfilehash: a5fd376a6da70ed68baedf44fd4c2cc47e68d3cf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: ada2a19de12c2f3f6b23fcc3d759afb0c747d37d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872375"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897417"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 
@@ -108,11 +108,11 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
 
 1. Välj arbets ytan Azure Machine Learning från [Azure Portal](https://portal.azure.com). I avsnittet __Översikt__ använder du __register__ länken för att komma åt Azure Container Registry för arbets ytan.
 
-    ![Skärm bild av översikten över arbets ytan](media/how-to-deploy-app-service/workspace-overview.png)
+    [![Skärm bild av översikten över arbets ytan](media/how-to-deploy-app-service/workspace-overview.png)](media/how-to-deploy-app-service/workspace-overview-expanded.png)
 
 2. Från Azure Container Registry väljer du __databaser__och väljer sedan det avbildnings __namn__ som du vill distribuera. För den version som du vill distribuera väljer du posten __...__ och __distribuerar sedan till Web App__.
 
-    ![Skärm bild av distribution från ACR till en webbapp](media/how-to-deploy-app-service/deploy-to-web-app.png)
+    [![Skärm bild av distribution från ACR till en webbapp](media/how-to-deploy-app-service/deploy-to-web-app.png)](media/how-to-deploy-app-service/deploy-to-web-app-expanded.png)
 
 3. Skapa webbappen genom att ange ett plats namn, en prenumeration, en resurs grupp och välj App Service-plan/plats. Välj slutligen __skapa__.
 
@@ -122,7 +122,7 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
 
 Från [Azure Portal](https://portal.azure.com)väljer du den webbapp som skapades i föregående steg. I avsnittet __Översikt__ kopierar du __URL: en__. Det här värdet är __bas-URL:__ en för tjänsten.
 
-![Skärm bild av översikten över webb programmet](media/how-to-deploy-app-service/web-app-overview.png)
+[![Skärm bild av översikten över webb programmet](media/how-to-deploy-app-service/web-app-overview.png)](media/how-to-deploy-app-service/web-app-overview-expanded.png)
 
 Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score`. Till exempel `https://mywebapp.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
 

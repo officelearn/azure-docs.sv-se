@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: magoedte
-ms.openlocfilehash: 1f06345995e30f4d7f165230f4292c560c89e2e8
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 98bf38a6c293f6d339413b5395bb32d74bcb30c0
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68489774"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905718"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Använda Tjänstkarta lösning i Azure
-Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkarta kan du visa dina servrar på samma sätt som du ser på dem: som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer, inkommande och utgående anslutningssvarstid, samt portar i valfri TCP-ansluten arkitektur, utan att det krävs någon konfiguration förutom installationen av en agent.
+
+Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkarta kan du se dina servrar på samma sätt som du tänker på dem, dvs. som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer, inkommande och utgående anslutningssvarstid, samt portar i valfri TCP-ansluten arkitektur, utan att det krävs någon konfiguration förutom installationen av en agent.
 
 I den här artikeln beskrivs hur du onboarding och använder Tjänstkarta. Information om hur du konfigurerar krav för den här lösningen finns i [aktivera Azure Monitor for VMS översikt](vminsights-enable-overview.md#prerequisites). För att sammanfatta behöver du följande:
 
@@ -407,7 +408,7 @@ Varje RemoteIp-egenskap i *VMConnection* -tabellen kontrol leras mot en uppsätt
 | `ReportReferenceLink` |Länkar till rapporter som är relaterade till en bestämd som kan observeras. |
 | `AdditionalInformation` |Innehåller ytterligare information om det observerade hotet. |
 
-### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL-poster
+### <a name="servicemapcomputer_cl-records"></a>ServiceMapComputer_CL-poster
 
 Poster med en typ av *ServiceMapComputer_CL* har inventerings data för servrar med tjänstkarta agenter. Dessa poster har egenskaper i följande tabell:
 
@@ -433,7 +434,7 @@ Poster med en typ av *ServiceMapComputer_CL* har inventerings data för servrar 
 | `VirtualMachineName_s` | Namnet på den virtuella datorn |
 | `BootTime_t` | Start tiden |
 
-### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL-typ poster
+### <a name="servicemapprocess_cl-type-records"></a>ServiceMapProcess_CL-typ poster
 
 Poster med en typ av *ServiceMapProcess_CL* har inventerings data för TCP-anslutna processer på servrar med tjänstkarta agenter. Dessa poster har egenskaper i följande tabell:
 
@@ -554,16 +555,57 @@ Microsoft samlar automatiskt in användnings- och data till din användning av t
 
 Mer information om insamling och användning finns i den [sekretesspolicyn för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [loggs ökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att hämta data som samlas in av tjänstkarta.
 
-
 ## <a name="troubleshooting"></a>Felsökning
 
-Mer information finns i [fel söknings avsnittet i konfigurera tjänstkarta dokument]( service-map-configure.md#troubleshooting).
+Om du får problem med installeras eller köras Tjänstkarta kan i det här avsnittet hjälpa dig. Kontakta Microsoft Support om du fortfarande inte kan lösa problemet.
 
+### <a name="dependency-agent-installation-problems"></a>Problem med beroende agenten installationen
+
+#### <a name="installer-prompts-for-a-reboot"></a>Installationsprogrammet frågar efter en omstart
+Beroende agenten kräver *vanligt vis* ingen omstart vid installation eller borttagning. I vissa sällsynta fall kräver dock Windows Server startas om för att fortsätta med en installation. Detta inträffar när ett beroende, vanligt vis krävs en omstart C++ av Microsoft Visual Redistributable Library på grund av en låst fil.
+
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Meddelandet "Det gick inte att installera beroende agenten: Det gick inte att installera Visual Studio runtime-bibliotek (kod = [code_number]) "visas
+
+Agenten Microsoft Dependency bygger på bibliotek för Microsoft Visual Studio-körning. Du får ett meddelande om ett problem har uppstått under installationen av biblioteken. 
+
+Installationsprogram för runtime-biblioteket skapar loggarna i mappen %LOCALAPPDATA%\temp. Filen är `dd_vcredist_arch_yyyymmddhhmmss.log`, där " *båge* " `x86` är `amd64` eller och *yyyymmddhhmmss* är datum och tid (24-timmarsformat) när loggen skapades. Loggen innehåller information om problem som blockerar installation.
+
+Det kan vara praktiskt att installera de [senaste körnings biblioteken](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) först.
+
+I följande tabell visas kodnummer och rekommenderade lösningar.
+
+| Kod | Beskrivning | Lösning |
+|:--|:--|:--|
+| 0x17 | Installationsprogrammet biblioteket kräver en Windows-uppdatering som inte är installerad. | Titta i den senaste biblioteket installer-loggen.<br><br>Om en referens till `Windows8.1-KB2999226-x64.msu` följs av en rad `Error 0x80240017: Failed to execute MSU package,` uppfyller du inte kraven för att installera KB2999226. Följ anvisningarna i avsnittet krav i [Universal C runtime i Windows](https://support.microsoft.com/kb/2999226) -artikeln. Du kan behöva köra Windows Update och starta om flera gånger för att kunna installera nödvändiga komponenter.<br><br>Kör installationsprogrammet för Microsoft Dependency agenten igen. |
+
+### <a name="post-installation-issues"></a>Efter installationen problem
+
+#### <a name="server-doesnt-appear-in-service-map"></a>Servern visas inte i Tjänstkarta
+
+Om beroende Agent installationen lyckades, men du inte ser datorn i Tjänstkarta-lösningen:
+* Beroendeagenten installeras? Du kan kontrollera detta genom att markera om du vill se om tjänsten är installerad och körs.<br><br>
+**Windows**: Sök efter tjänsten **Microsoft Dependency agent**.
+**Linux**: Leta efter processen **Microsoft-Dependency-agent**som körs.
+
+* Är du på den [Log Analytics kostnads fria nivån](https://azure.microsoft.com/pricing/details/monitor/)? Den kostnads fria planen tillåter upp till fem unika Tjänstkarta datorer. Eventuella efterföljande datorer visas inte i Tjänstkarta, även om de fem föregående fem inte längre skickar data.
+
+* Skickar servern logg-och perf-data till Azure Monitor loggar? Gå till Azure-Monitor\Logs och kör följande fråga för datorn: 
+
+    ```kusto
+    Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    ```
+
+Fick du en rad olika händelser i resultaten? Är data de senaste? I så fall fungerar din Log Analytics-agenten som den ska och kommunicerar med arbets ytan. Om inte, kontrollerar du agenten på datorn: [Log Analytics agent för Windows fel sökning](../platform/agent-windows-troubleshoot.md) eller [Log Analytics agent för Linux-felsökning](../platform/agent-linux-troubleshoot.md).
+
+#### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servern visas i Service Map men innehåller inga processer
+
+Om du ser datorn i Tjänstkarta, men inte har någon process-eller anslutnings data, som anger att beroende agenten är installerad och körs, men kernel-drivrutinen inte lästes in. 
+
+`/var/opt/microsoft/dependency-agent/log/service.log file` Kontrol lera `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) eller (Linux). De sista raderna i filen ska indikera varför kernel lästes inte in. Till exempel kanske kernel inte kan användas i Linux om du har uppdaterat din kernel.
 
 ## <a name="feedback"></a>Feedback
 

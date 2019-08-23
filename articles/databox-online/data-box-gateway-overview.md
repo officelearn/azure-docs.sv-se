@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 07/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 1b749df7c5b3badbc6e7eccd885cb953ab3d0afa
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b8c6b4085f56bc12b67bf87177ba33b82c6a6db9
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277390"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900592"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Vad är Azure Data Box Gateway?
 
@@ -57,7 +57,6 @@ Data Box Gateway har följande funktioner:
 |Snabb åtkomst     | Lokal cache på enheten för snabb åtkomst till de senast använda filerna.|
 |Offlineuppladdning     | Frånkopplat läge stöder scenarier med offlineuppladdning.|
 |Datauppdatering     | Möjlighet att uppdatera lokala filer med det senaste från molnet.|
-|Kryptering    | BitLocker-stöd för lokal kryptering av data och skydda dataöverföring till molnet via *https*       |
 |Återhämtning     | Inbyggd nätverksåterhämtning        |
 
 
@@ -70,7 +69,7 @@ Den virtuella Data Box-Gateway-enheten har följande specifikationer:
 | Virtuella processorer (kärnor)   | Minst 4 |
 | Minne  |Minst 8 GB|
 | Tillgänglighet|Enkel nod|
-| Diskar|OS-disk: 250 GB <br> Datadisk: minst 2 TB, tunt allokerad och måste backas upp av SSD-enheter|
+| Diskar|OS-disk: 250 GB <br> Datadisk: minst 2 TB, tunt allokerad och måste backas upp av SSD-enheter|
 | Nätverksgränssnitt |Minst 1 virtuellt nätverksgränssnitt|
 | Interna fildelningsprotokoll|SMB och NFS  |
 | Säkerhet|Autentisering för att låsa upp åtkomst till enhet och data <br> Data-in-flight-krypterad med AES-256-bitarskryptering|

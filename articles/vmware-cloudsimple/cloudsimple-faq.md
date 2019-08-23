@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ed1d28bbc58256b4c73e5a8f6662dba505cce98
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: d1cbca20b9f1ee1d5f7eefb760ed60fa4d019050
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563142"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972856"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Vanliga frågor om VMware-lösning av CloudSimple
 
-## <a name="cloudsimple-service"></a>CloudSimple Service
+## <a name="cloudsimple-service"></a>CloudSimple-tjänst
 
 **Vad är Azure VMware-lösning av CloudSimple?**
 

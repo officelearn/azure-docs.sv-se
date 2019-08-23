@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: fb91d6a9cdc56c88b424b7e0382f283c8b55dac9
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 6dfd3bd86e55d19bf1c15486a502a4cbab3c96a8
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234319"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905306"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Skydda nätverks resurserna i Azure Security Center
 Azure Security Center fort löp ande analyserar säkerhets läget för dina Azure-resurser för metod tips för nätverks säkerhet. När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
@@ -33,7 +33,7 @@ Den här artikeln beskriver rekommendationer som gäller för dina Azure-resurse
 Sidan **nätverk** ger en översikt över de avsnitt som du kan ta del av för att få mer information om hälso tillståndet för dina nätverks resurser:
 
 - Nätverks karta (endast Azure Security Center standard nivå)
-- Anpassningsbar nätverkshärdning
+- Adaptiv nätverkshärdning
 - Rekommendationer för nätverks säkerhet.
 - Bladet äldre **nätverk** (det tidigare nätverks bladet) 
  
@@ -134,7 +134,7 @@ På den tredje nivån visas virtuella datorer, vilket liknar det som beskrivs ov
 
 ## <a name="network-recommendations"></a>Nätverksrekommendationer
 
-|Rekommendations namn|Beskrivning|Severity|Säkerhetspoäng|Resurstyp|
+|Rekommendations namn|Beskrivning|severity|Säkerhetspoäng|Resurstyp|
 |----|----|----|----|----|----|
 |Nätverks säkerhets grupper på under näts nivån måste vara aktiverade|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst till resurser som har distribuerats i dina undernät.|Hög/medel|30|Subnet|
 |Virtuella datorer ska associeras med en nätverks säkerhets grupp|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst för dina virtuella datorer.|Hög/medel|30|Virtuell dator|
@@ -152,7 +152,7 @@ DDoS Protection standard ska vara aktive rad|Skydda virtuella nätverk som inneh
 ## <a name="see-also"></a>Se också
 Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:
 
-* [Skydda virtuella datorer i Azure Security Center](security-center-virtual-machine-recommendations.md)
+* [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
 * [Skydda program i Azure Security Center](security-center-application-recommendations.md)
 * [Skydda din Azure SQL-tjänst i Azure Security Center](security-center-sql-service-recommendations.md)
 

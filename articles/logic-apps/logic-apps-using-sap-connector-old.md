@@ -1,6 +1,6 @@
 ---
 title: Ansluta till SAP-system – Azure Logic Apps | Microsoft Docs
-description: Så här att komma åt och hantera SAP-resurser genom att automatisera arbetsflöden med Azure Logic Apps
+description: Så här får du åtkomst till och hanterar SAP-resurser genom att automatisera arbets flöden med Azure Logic Apps
 author: ecfan
 ms.author: estfan
 ms.date: 05/31/2018
@@ -10,165 +10,165 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31f6a3fc281b8dc309ddcd237246c870c85ae20b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60847480"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971630"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
 > [!NOTE]
-> Den här SAP-anslutningsappen har schemalagts för utfasningen. Använd eller migrera till den [senare och mer avancerade SAP-anslutningsappen](./logic-apps-using-sap-connector.md). 
+> Denna SAP-koppling är schemalagd för utfasning. Använd eller migrera till en [nyare och mer avancerad SAP-anslutning](./logic-apps-using-sap-connector.md). 
 
-Den här artikeln visar hur du kan komma åt dina SAP-resurser i en logikapp med SAP-programservern och SAP Message Server-anslutningar. På så sätt kan du automatisera uppgifter, processer och arbetsflöden som hanterar dina SAP-data och resurser genom att skapa logikappar.
+Den här artikeln visar hur du kan komma åt dina SAP-resurser inifrån en Logic-app med hjälp av SAP Application Server och SAP Message Server-kopplingar. På så sätt kan du automatisera uppgifter, processer och arbets flöden som hanterar dina SAP-data och-resurser genom att skapa Logic Apps.
 
-Det här exemplet används en logikapp som du kan utlösa med en HTTP-begäran. Logikappen skickar ett mellanliggande dokument (IDoc) till en SAP-server och returnerar ett svar till den begärande som kallas logikappen.
-De aktuella SAP-kopplingarna har åtgärder, men inte utlösare, så det här exemplet används den [HTTP-begäran-utlösaren](../connectors/connectors-native-reqres.md) som det första steget i att logic app-arbetsflöde. Se dessa referensartiklar SAP specifika teknisk information: 
+I det här exemplet används en Logic-app som du kan utlösa med en HTTP-begäran. Logic-appen skickar ett mellanliggande dokument (IDoc) till en SAP-server och returnerar ett svar till den begär Ande som anropade Logic-appen.
+De aktuella SAP-anslutningarna har åtgärder, men inte utlösare, så det här exemplet använder [http-begäran](../connectors/connectors-native-reqres.md) utlösare som det första steget i Logic app-arbetsflödet. Information om SAP Connector-teknisk information finns i följande referens artiklar: 
 
-* <a href="https://docs.microsoft.com/connectors/sapapplicationserver/" target="blank">SAP-programservern-anslutningsappen</a>
-* <a href="https://docs.microsoft.com/connectors/sapmessageserver/" target="blank">SAP Message Server-anslutningsappen</a>
+* <a href="https://docs.microsoft.com/connectors/sap" target="blank">SAP Application Server-anslutning</a>
+* <a href="https://docs.microsoft.com/connectors/sap/#send-message-to-sap" target="blank">Anslutning till SAP Message Server</a>
 
-Om du inte har en Azure-prenumeration än, <a href="https://azure.microsoft.com/free/" target="_blank">registrera dig för ett kostnadsfritt konto</a>.
+Om du inte har någon Azure-prenumeration ännu kan du <a href="https://azure.microsoft.com/free/" target="_blank">Registrera dig för ett kostnads fritt Azure-konto</a>.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa den här artikeln behöver du följande objekt:
+Om du vill följa med i den här artikeln behöver du följande objekt:
 
-* Logikapp från där du vill komma åt dina SAP-system och en utlösare som startar logikappens arbetsflöde. SAP-anslutningsappar innehåller för närvarande endast åtgärder. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabbstarten: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Den Logic-app från vilken du vill komma åt SAP-systemet och en utlösare som startar din Logic app-arbetsflöde. SAP-kopplingarna tillhandahåller för närvarande endast åtgärder. Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app.
 
-* Din <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP-programservern</a> eller <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP Message Server</a>
+* Din <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP</a> -Programserver eller <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP Message Server</a>
 
-* Ladda ned och installera senast [lokal datagateway](https://www.microsoft.com/download/details.aspx?id=53127) på en lokal dator. Kontrollera att du konfigurerar din gateway i Azure-portalen innan du fortsätter. Gatewayen hjälper dig att på ett säkert sätt få åtkomst till data och resurser som är lokalt. Mer information finns i [installera den lokala datagatewayen för Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+* Hämta och installera den senaste [lokala](https://www.microsoft.com/download/details.aspx?id=53127) datagatewayen på en lokal dator. Se till att konfigurera din gateway i Azure Portal innan du fortsätter. Gatewayen hjälper dig att få säker åtkomst till data och resurser lokalt. Mer information finns i [Installera lokal datagateway för Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
-* Ladda ned och installera det senaste SAP-klientbiblioteket, som för närvarande är <a href="https://softwaredownloads.sap.com/file/0020000000086282018" target="_blank">SAP Connector (NCo) 3.0.20.0 för Microsoft .NET Framework 4.0 och Windows 64-bitars (x64)</a>, på samma dator som den lokala datagatewayen. Installera den här versionen eller senare av följande skäl:
+* Hämta och installera det senaste SAP-klientcertifikatet, som för närvarande är <a href="https://softwaredownloads.sap.com/file/0020000000086282018" target="_blank">SAP Connector (NCo) 3.0.20.0 för Microsoft .NET Framework 4,0 och Windows 64-bitars (x64)</a>, på samma dator som den lokala datagatewayen. Installera den här versionen eller senare av följande anledningar:
 
-  * Tidigare versioner av SAP NCo kan bli ett dödläge när mer än en IDoc-meddelanden skickas på samma gång. 
-  Det här tillståndet blockerar alla senare meddelanden som skickas till SAP-mål, orsakar meddelanden uppnår en tidsgräns.
+  * Tidigare SAP NCo-versioner kan bli död när fler än ett IDoc-meddelande skickas på samma gång. 
+  Det här villkoret blockerar alla senare meddelanden som skickas till SAP-målet, vilket leder till timeout.
 
   * Den lokala datagatewayen körs bara på 64-bitars system. 
-  I annat fall får du felet ”felaktig avbildning” eftersom tjänsten data gateway har inte stöd för 32-bitars sammansättningar.
+  Annars får du fel meddelandet "felaktig avbildning" eftersom värd tjänsten för data Gateway inte stöder 32-bitars sammansättningar.
 
-  * Använda .NET Framework 4.5 både tjänsten data gateway och Microsoft SAP-Adapter. SAP-NCo för .NET Framework 4.0 fungerar med processer som använder .NET-runtime 4.0 4.7.1. 
-  SAP-NCo för .NET Framework 2.0 fungerar med processer som använder .NET-runtime 2.0 3.5 och inte längre fungerar med den senaste lokala datagatewayen.
+  * Både data Gateway-värdservern och Microsoft SAP-adaptern använder .NET Framework 4,5. SAP-NCo för .NET Framework 4,0 fungerar med processer som använder .NET Runtime 4,0 till 4.7.1. 
+  SAP-NCo för .NET Framework 2,0 fungerar med processer som använder .NET Runtime 2,0 till 3,5 och fungerar inte längre med den senaste lokala datagatewayen.
 
-* Meddelandeinnehåll som du kan skicka till din SAP-server, t.ex ett exempel IDoc-fil. Det här innehållet måste vara i XML-format och innehålla namnområdet för SAP-åtgärd som du vill använda.
+* Meddelande innehåll som du kan skicka till din SAP-server, till exempel en IDoc-fil. Innehållet måste vara i XML-format och innehålla namn området för den SAP-åtgärd som du vill använda.
 
 <a name="add-trigger"></a>
 
-## <a name="add-http-request-trigger"></a>Lägg till HTTP-begäran-utlösare
+## <a name="add-http-request-trigger"></a>Lägg till utlösare för HTTP-begäran
 
-I Azure Logic Apps varje logikapp måste börja med en [utlösaren](../logic-apps/logic-apps-overview.md#logic-app-concepts), som utlöses när en specifik händelse sker eller när ett specifikt villkor uppfylls. Varje gång utlösaren Logic Apps-motorn skapar en logikappinstans och börjar köras appens arbetsflöde.
+I Azure Logic Apps måste varje Logi Kap par starta med en [](../logic-apps/logic-apps-overview.md#logic-app-concepts)utlösare som utlöses när en enskild händelse inträffar eller när ett särskilt villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en Logic App-instans och börjar köra appens arbets flöde.
 
-I det här exemplet skapar du en logikapp med en slutpunkt i Azure så att du kan skicka *HTTP POST-begäranden* i logikappen. När logikappen tar emot dessa HTTP-begäranden, utlöses utlösaren och kör nästa steg i arbetsflödet.
+I det här exemplet skapar du en Logic-app med en slut punkt i Azure så att du kan skicka *http post-begäranden* till din Logic app. När din Logic app tar emot dessa HTTP-förfrågningar utlöses utlösaren och kör nästa steg i arbets flödet.
 
-1. Skapa en tom logikapp som öppnas Logic App Designer i Azure-portalen. 
+1. I Azure Portal skapar du en tom Logic-app som öppnar Logic Apps designer. 
 
-2. Ange ”http-begäran” i sökrutan som filter. Välj den här utlösaren från listan över utlösare: **Begäran - när en HTTP-begäran tas emot**
+2. I rutan Sök anger du "http-begäran" som filter. Välj den här utlösaren i listan utlösare: **Förfrågan – när en HTTP-begäran tas emot**
 
-   ![Lägg till HTTP-begäran-utlösare](./media/logic-apps-using-sap-connector-old/add-trigger.png)
+   ![Lägg till utlösare för HTTP-begäran](./media/logic-apps-using-sap-connector-old/add-trigger.png)
 
-3. Spara din logikapp nu så att du kan generera en slutpunkts-URL för din logikapp.
+3. Spara din Logic app så att du kan skapa en slut punkts-URL för din Logic app.
 Välj **Spara** i designerverktygsfältet. 
 
-   Slutpunkten URL visas nu i utlösaren, till exempel:
+   Slut punkts-URL: en visas nu i utlösaren, till exempel:
 
-   ![Skapa en Webbadress för slutpunkt](./media/logic-apps-using-sap-connector-old/generate-http-endpoint-url.png)
+   ![Generera URL för slut punkt](./media/logic-apps-using-sap-connector-old/generate-http-endpoint-url.png)
 
 <a name="add-action"></a>
 
 ## <a name="add-sap-action"></a>Lägg till SAP-åtgärd
 
-I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är ett steg i arbetsflödet som följer en utlösare eller en annan åtgärd. Om du har inte lagt till en utlösare i logikappen ännu och vill följa det här exemplet [Lägg till utlösare som beskrivs i det här avsnittet](#add-trigger).
+I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) ett steg i arbets flödet som följer en utlösare eller en annan åtgärd. Om du inte har lagt till en utlösare i din Logic app och vill följa det här exemplet lägger du till utlösaren som [beskrivs i det här avsnittet](#add-trigger).
 
-1. I Logikappdesignern under utlösaren väljer **nytt steg** > **Lägg till en åtgärd**.
+1. I Logic App Designer går du till utlösaren och väljer **nytt steg** > **Lägg till en åtgärd**.
 
    ![Lägga till en åtgärd](./media/logic-apps-using-sap-connector-old/add-action.png) 
 
-2. I sökrutan anger du ”sap-server” som filter. Välj åtgärden för din SAP-server från åtgärdslistan över: 
+2. I rutan Sök anger du "SAP-server" som filter. I listan åtgärder väljer du åtgärden för din SAP-server: 
 
-   * **SAP-programservern - skicka till SAP**
-   * **SAP-Server för meddelande – Skicka till SAP**
+   * **SAP-program Server – skicka till SAP**
+   * **SAP-meddelande Server – skicka till SAP**
 
-   Det här exemplet använder den här åtgärden: **SAP-programservern - skicka till SAP**
+   I det här exemplet används den här åtgärden: **SAP-program Server – skicka till SAP**
 
-   ![Välj ”SAP-programservern” eller ”SAP Message Server”](media/logic-apps-using-sap-connector-old/select-sap-action.png)
+   ![Välj "SAP-program Server" eller "SAP Message Server"](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 
-3. Skapa nu din SAP-anslutning om du uppmanas att ange anslutningsinformation. I annat fall om anslutningen redan finns, Fortsätt med nästa steg så att du kan ställa in din SAP-åtgärd. 
+3. Om du uppmanas att ange anslutnings information skapar du din SAP-anslutning nu. Annars, om anslutningen redan finns, Fortsätt med nästa steg så att du kan konfigurera din SAP-åtgärd. 
 
-   **Skapa en lokal SAP-anslutning**
+   **Skapa lokal SAP-anslutning**
 
-   1. För **gatewayer**väljer **Anslut via lokal datagateway** så att den lokala anslutningsegenskaper visas.
+   1. För **gateways**väljer du **Anslut via lokal datagateway** så att egenskaperna för den lokala anslutningen visas.
 
-   2. Ange anslutningsinformation för SAP-server. 
-   För den **gateway** egenskapen, Välj den datagateway som du skapade i Azure-portalen för din gatewayinstallationen, till exempel:
+   2. Ange anslutnings informationen för din SAP-server. 
+   För egenskapen **Gateway** väljer du den datagateway som du skapade i Azure Portal för gateway-installationen, till exempel:
 
-      **SAP-programservern**
+      **SAP-program Server**
 
-      ![Skapa serveranslutning för SAP-program](./media/logic-apps-using-sap-connector-old/create-SAP-app-server-connection.png)  
+      ![Skapa SAP Application Server-anslutning](./media/logic-apps-using-sap-connector-old/create-SAP-app-server-connection.png)  
 
-      **SAP Message Server**
+      **SAP-meddelande Server**
 
-      ![Skapa SAP meddelande serveranslutning](media/logic-apps-using-sap-connector-old/create-SAP-message-server-connection.png) 
+      ![Skapa anslutning till SAP Message Server](media/logic-apps-using-sap-connector-old/create-SAP-message-server-connection.png) 
 
    2. När du är klar väljer du **Skapa**.
 
-      Logic Apps konfigurerar och testar anslutningen, se till att anslutningen fungerar korrekt.
+      Logic Apps konfigurerar och testar anslutningen och kontrollerar att anslutningen fungerar korrekt.
 
-4. Nu hitta och välja en åtgärd från din SAP-server. 
+4. Nu hittar och väljer du en åtgärd från SAP-servern. 
 
-   1. I den **SAP åtgärd** väljer du mappikonen. 
-   Hitta och välj den åtgärd som du vill använda från listan. 
+   1. I rutan **SAP-åtgärd** väljer du mappikonen. 
+   I mapplistan söker du efter och väljer den åtgärd som du vill använda. 
 
-      Det här exemplet väljer den **IDOC** kategori för IDoc-åtgärden. 
+      I det här exemplet väljs kategorin **iDOC** för åtgärden iDOC. 
 
-      ![Hitta och välj IDoc-åtgärden](./media/logic-apps-using-sap-connector-old/SAP-app-server-find-action.png)
+      ![Sök och Välj åtgärden IDoc](./media/logic-apps-using-sap-connector-old/SAP-app-server-find-action.png)
 
-      Om du inte hittar den åtgärd som du vill kan ange du manuellt en sökväg, till exempel:
+      Om du inte hittar den åtgärd du vill ha kan du ange en sökväg manuellt, till exempel:
 
-      ![Manuellt ange sökvägen till IDoc-åtgärd](./media/logic-apps-using-sap-connector-old/SAP-app-server-manually-enter-action.png)
+      ![Ange sökväg till IDoc-åtgärden manuellt](./media/logic-apps-using-sap-connector-old/SAP-app-server-manually-enter-action.png)
 
-      Läs mer om IDoc-åtgärder, [meddelande scheman för IDOC-åtgärder](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
+      Mer information om IDoc-åtgärder finns i [meddelande scheman för iDOC-åtgärder](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
 
-   2. Klicka i den **indatameddelande** så att den dynamiska innehållslistan visas. 
-   I listan under **när en HTTP-begäran tas emot**väljer den **brödtext** fält. 
+   2. Klicka i rutan **inmatat meddelande** så att listan med dynamiskt innehåll visas. 
+   Välj fältet **brödtext** under **när en http-begäran tas emot**i listan. 
 
-      Det här steget omfattar brödtext i från din HTTP-begäran-utlösare och skickar som skickas till din SAP-server.
+      Det här steget inkluderar bröd innehållet från din HTTP Request-utlösare och skickar utdata till SAP-servern.
 
-      ![Välj fältet ”Body”](./media/logic-apps-using-sap-connector-old/SAP-app-server-action-select-body.png)
+      ![Välj fältet brödtext](./media/logic-apps-using-sap-connector-old/SAP-app-server-action-select-body.png)
 
-      När du är klar ut din SAP-åtgärd som det här exemplet:
+      När du är klar ser din SAP-åtgärd ut som i det här exemplet:
 
-      ![Fullständig SAP-åtgärd](./media/logic-apps-using-sap-connector-old/SAP-app-server-complete-action.png)
+      ![Slutför SAP-åtgärd](./media/logic-apps-using-sap-connector-old/SAP-app-server-complete-action.png)
 
 6. Spara din logikapp. Välj **Spara** i designerverktygsfältet.
 
 <a name="add-response"></a>
 
-## <a name="add-http-response-action"></a>Lägg till åtgärd för HTTP-svar
+## <a name="add-http-response-action"></a>Lägg till HTTP-svars åtgärd
 
-Lägg till en svarsåtgärd logikappens arbetsflöde och innehåller utdata från SAP-åtgärd. På så sätt kan logikappen returnerar resultatet från SAP-server till förfrågningskällan. 
+Lägg nu till en svars åtgärd i din Logic Apps-arbetsflöde och inkludera utdata från SAP-åtgärden. På så sätt returnerar din Logic-app resultatet från din SAP-server till den ursprungliga begär Ande. 
 
-1. I Logic App Designer, SAP-åtgärd väljer **nytt steg** > **Lägg till en åtgärd**.
+1. I Logic Apps designer, under SAP-åtgärden, väljer du **nytt steg** > **Lägg till en åtgärd**.
 
-2. I sökrutan anger du ”svar” som filter. Välj den här åtgärden från åtgärdslistan över: **Begäran - svar**
+2. I rutan Sök anger du "Response" som filter. I listan åtgärder väljer du den här åtgärden: **Request-Response**
 
-3. Klicka i den **brödtext** så att den dynamiska innehållslistan visas. Från listan under **skicka till SAP**väljer den **brödtext** fält. 
+3. Klicka i rutan **brödtext** så att listan med dynamiskt innehåll visas. I listan, under **Skicka till SAP**, väljer du fältet **brödtext** . 
 
-   ![Fullständig SAP-åtgärd](./media/logic-apps-using-sap-connector-old/select-sap-body-for-response-action.png)
+   ![Slutför SAP-åtgärd](./media/logic-apps-using-sap-connector-old/select-sap-body-for-response-action.png)
 
 4. Spara din logikapp. 
 
-## <a name="test-your-logic-app"></a>Testa din logikapp
+## <a name="test-your-logic-app"></a>Testa din Logic app
 
-1. Om logikappen inte är redan aktiverat på logikappmenyn, Välj **översikt**. I verktygsfältet, välja **aktivera**. 
+1. Om din Logic app inte redan är aktive rad väljer du **Översikt**på din Logic app-meny. Välj **Aktivera**i verktygsfältet. 
 
-2. Välj Logic App Designer-verktygsfältet **kör**. Det här steget startar logikappen manuellt.
+2. I verktygsfältet Logic App Designer väljer du **Kör**. Det här steget startar din Logic app manuellt.
 
-3. Utlösa logikappen genom att skicka en HTTP POST-begäran till URL: en i din HTTP-begäran-utlösare och innehåller meddelandet innehåll med din begäran. Skicka begäran, kan du använda ett verktyg som [Postman](https://www.getpostman.com/apps). 
+3. Utlös din Logic app genom att skicka en HTTP POST-begäran till URL: en i din HTTP Request-utlösare och inkludera ditt meddelande innehåll med din begäran. Du kan använda ett verktyg som Postman för att skicka begäran. [](https://www.getpostman.com/apps) 
 
-   I den här artikeln skickar begäran en IDoc-fil, som måste vara i XML-format och innehålla namnområdet för SAP-åtgärd som du använder, till exempel: 
+   I den här artikeln skickar begäran en IDoc-fil som måste vara i XML-format och innehålla namn området för den SAP-åtgärd som du använder, till exempel: 
 
    ``` xml
    <?xml version="1.0" encoding="UTF-8" ?>
@@ -179,19 +179,19 @@ Lägg till en svarsåtgärd logikappens arbetsflöde och innehåller utdata frå
    </Send>
    ```
 
-4. När du skickar HTTP-begäran, vänta på svar från din logikapp.
+4. När du har skickat din HTTP-begäran väntar du på svaret från din Logic app.
 
 > [!NOTE]
-> Din logikapp kan timeout om alla steg som krävs för svaret inte slutförs inom den [tidsgränsen för begäran](./logic-apps-limits-and-config.md). Om det här tillståndet inträffar kan blockeras begäranden. För att hjälpa dig att diagnostisera problem, lär du dig hur du kan [kontrollera och övervaka dina logikappar](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+> Din Logi Kap par kan ta lång tid om alla steg som krävs för svaret inte slutförs inom [tids gränsen för begäran](./logic-apps-limits-and-config.md). Om det här tillståndet inträffar kan begär Anden blockeras. För att hjälpa dig att diagnostisera problem kan du läsa mer om hur du kan [kontrol lera och övervaka dina Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
-Grattis, nu har du skapat en logikapp som kan kommunicera med dina SAP-server. Nu när du har konfigurerat en anslutning för SAP för din logikapp, kan du utforska andra tillgängliga SAP-åtgärder, till exempel BAPI och RFC.
+Grattis, nu har du skapat en logisk app som kan kommunicera med din SAP-server. Nu när du har konfigurerat en SAP-anslutning för din Logic app kan du utforska andra tillgängliga SAP-åtgärder, till exempel BAPI och RFC.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om anslutningen som beskrivs av de kopplingar Swagger-filerna finns i dessa referensartiklar: 
+Teknisk information om anslutningen enligt beskrivningen i anslutningens Swagger-filer, finns i följande referens artiklar: 
 
-* [SAP-programservern](/connectors/sapapplicationserver/)
-* [SAP Message Server](/connectors/sapmessageserver/)
+* [SAP-program Server](/connectors/sap)
+* [SAP-meddelande Server](/connectors/sap/#send-message-to-sap)
 
 ## <a name="get-support"></a>Få support
 
@@ -200,6 +200,6 @@ Teknisk information om anslutningen som beskrivs av de kopplingar Swagger-filern
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ansluta till lokala system](../logic-apps/logic-apps-gateway-connection.md) från logikappar
-* Lär dig att verifiera, omvandla och andra meddelandeåtgärder med den [Enterprise-Integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* [Ansluta till lokala system](../logic-apps/logic-apps-gateway-connection.md) från Logic Apps
+* Lär dig hur du verifierar, transformerar och andra meddelande åtgärder med [Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 5a56744173974b470999f846da49d144f2013fbb
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 55ad3591a8c2e7d5de6d1efe255e0f3a4b3c11bd
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968645"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907056"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
-* [Json.NET NuGet-paket](https://www.nuget.org/packages/Newtonsoft.Json/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
-* En Azure-prenumerationsnyckel för Translator Text
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-net-core-project"></a>Skapa ett .NET Core-projekt
 
@@ -46,6 +43,31 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
+## <a name="get-subscription-information-from-environment-variables"></a>Hämta prenumerations information från miljövariabler
+
+Lägg till följande rader i `Program` -klassen. Dessa rader läser din prenumerations nyckel och slut punkt från miljövariabler och genererar ett fel om du stöter på problem.
+
+```csharp
+private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
+private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+
+private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
+private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
+
+static Program()
+{
+    if (null == subscriptionKey)
+    {
+        throw new Exception("Please set/export the environment variable: " + key_var);
+    }
+    if (null == endpoint)
+    {
+        throw new Exception("Please set/export the environment variable: " + endpoint_var);
+    }
+}
+// The code in the next section goes here.
+```
+
 ## <a name="create-a-function-to-get-alternate-translations"></a>Skapa en funktion för att få alternativa översättningar
 
 I klassen `Program` skapar du en funktion med namnet `AltTranslation`. Den här klassen kapslar in den kod som används för att anropa Dictionary-resursen och skriver ut resultatet till konsolen.
@@ -60,14 +82,14 @@ static void AltTranslation()
 }
 ```
 
-## <a name="set-the-subscription-key-host-name-and-path"></a>Ange prenumerationsnyckeln, värddatornamnet och sökvägen
+## <a name="construct-the-uri"></a>Konstruera URI
 
-Lägg till följande rader i funktionen `AltTranslation`. Du ser då att `api-version` samt två ytterligare parametrar har lags till i `route`. Dessa parametrar används för att ange indata och utdata för översättning. I det här exemplet är dessa engelska (`en`) och spanska (`es`).
+Lägg till följande rader i funktionen `AltTranslation`. Du kommer att märka att tillsammans med `api-version`de två ytterligare parametrarna har deklarerats. Dessa parametrar används för att ange indata och utdata för översättning. I det här exemplet är dessa engelska (`en`) och spanska (`es`).
 
 ```csharp
-string host = "https://api.cognitive.microsofttranslator.com";
-string route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
-string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+string route = "/dictionary/lookup?api-version=3.0";
+static string params_ = "from=en&to=es";
+static string uri = endpoint + path + params_;
 ```
 
 Sedan behöver vi skapa och serialisera det JSON-objekt som innehåller den text du vill översätta. Du kan skicka fler än ett objekt i `body`-matrisen.
@@ -76,8 +98,6 @@ Sedan behöver vi skapa och serialisera det JSON-objekt som innehåller den text
 System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
-
-
 
 ## <a name="instantiate-the-client-and-make-a-request"></a>Instansiera klienten och göra en begäran
 
@@ -109,7 +129,7 @@ Lägg till den här koden i `HttpRequestMessage`:
 request.Method = HttpMethod.Post;
 
 // Construct the full URI
-request.RequestUri = new Uri(host + route);
+request.RequestUri = new Uri(uri);
 
 // Add the serialized JSON object to your request
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
@@ -142,7 +162,8 @@ Det sista steget är att anropa `AltTranslation()` i funktionen `Main`. Leta upp
 
 ```csharp
 AltTranslation();
-Console.ReadLine();
+Console.WriteLine("Press any key to continue.");
+Console.ReadKey();
 ```
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen

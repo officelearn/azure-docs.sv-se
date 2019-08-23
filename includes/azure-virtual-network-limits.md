@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 1fd08efd12e723a16445eba1d341f017a86a212e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e55b191e937b6c9f8183b3878b264eb50401b3f1
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68481576"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903884"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Nätverks gränser – Azure Resource Manager följande begränsningar gäller endast för nätverks resurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visar din aktuella resursanvändning mot dina prenumerations gränser](../articles/networking/check-usage-against-limits.md).
 
@@ -78,7 +78,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Resource | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Virtuella nätverk |100 |100 |
-| Lokala nätverksplatser |20 |Kontakta supporten. |
+| Lokala nätverksplatser |20 |50 |
 | DNS-servrar per virtuellt nätverk |20 |20 |
 | Privata IP-adresser per virtuellt nätverk |4 096 |4 096 |
 | Samtidiga TCP-eller UDP-flöden per nätverkskort för en virtuell dator eller roll instans |500 000, upp till 1 000 000 för två eller flera nätverkskort. |500 000, upp till 1 000 000 för två eller flera nätverkskort. |

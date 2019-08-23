@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: e076d6fed8cb3baf6b62dc3ede6ddd34732ed7a2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 95df72875338b6964f42075404cf9c30ba132f9d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562074"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900213"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -253,9 +253,11 @@ När du tar bort en logikapp instantieras inga nya körningar. Alla pågående o
 
 ## <a name="firewall-configuration-ip-addresses"></a>Brandväggskonfiguration: IP-adresser
 
-Alla Logic Apps i samma region använder samma IP-adressintervall. För att stödja anrop som dina Logi Kap par direkt gör med [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)och andra HTTP-förfrågningar, ställer du in brand väggarna med *alla* [inkommande](#inbound) *och* [utgående](#outbound) IP-adresser som används av den Logic Apps tjänsten , baserat på de regioner där dina Logic Apps finns. De här adresserna visas under de **inkommande** och **utgående** rubrikerna i det här avsnittet och sorteras efter region.
+Alla Logic Apps i samma region använder samma IP-adressintervall. För att stödja anrop som dina Logi Kap par direkt gör med [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)och andra HTTP-förfrågningar, ställer du in brand väggarna med *alla* [inkommande](#inbound) *och* [utgående](#outbound) IP-adresser som används av den Logic Apps tjänsten , baserat på de regioner där dina Logic Apps finns. De här adresserna visas under de **inkommande** och **utgående** rubrikerna i det här avsnittet och sorteras efter region. 
 
 För att stödja anrop som [Microsoft-hanterade anslutningar](../connectors/apis-list.md) gör ställer du in brand väggen med alla [utgående](#outbound) IP-adresser som används av de här anslutningarna, baserat på de regioner där dina Logic Apps finns. De här adresserna visas under den **utgående** rubriken i det här avsnittet och sorteras efter region.
+
+För logi Kap par som körs i en integrerings tjänst miljö (ISE) ser du till att du [öppnar dessa portar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
 För [Azure Government](../azure-government/documentation-government-overview.md) och [Azure Kina 21Vianet](https://docs.microsoft.com/azure/china/)är reserverade IP-adresser för anslutningar inte tillgängliga för tillfället.
 

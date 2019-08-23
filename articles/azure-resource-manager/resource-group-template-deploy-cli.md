@@ -4,14 +4,14 @@ description: Använd Azure Resource Manager och Azure CLI för att distribuera r
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/12/2019
+ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 93b1b16776bac6cb24996d6fa08a547318802f32
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: bd43e919cc0b2bcf1d130c7e616b7da064abcc65
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853838"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971015"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 
@@ -133,7 +133,7 @@ Den angivna distributionen måste ha slutförts.
 
 ## <a name="parameters"></a>Parametrar
 
-Om du vill skicka parameter värden kan du använda antingen infogade parametrar eller en parameter fil. I föregående exempel i den här artikeln visas infogade parametrar.
+Om du vill skicka parameter värden kan du använda antingen infogade parametrar eller en parameter fil.
 
 ### <a name="inline-parameters"></a>Infogade parametrar
 
@@ -172,23 +172,7 @@ Formatet arrayContent. JSON är:
 
 I stället för att skicka parametrar som infogade värden i skriptet, kan det vara lättare att använda en JSON-fil som innehåller parameter värden. Parameter filen måste vara en lokal fil. Externa parameter-filer stöds inte med Azure CLI.
 
-Parameter filen måste ha följande format:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-Observera att avsnittet Parameters innehåller ett parameter namn som matchar den parameter som definierats i din mall (storageAccountType). Parameter filen innehåller ett värde för parametern. Det här värdet skickas automatiskt till mallen under distributionen. Du kan skapa mer än en parameter fil och sedan skicka in rätt parameter fil för scenariot. 
-
-Kopiera föregående exempel och spara den som en fil med namnet `storage.parameters.json`.
+Mer information om parameter filen finns i [create Resource Manager parameter File](resource-manager-parameter-files.md).
 
 Om du vill skicka en lokal parameter fil `@` använder du för att ange en lokal fil med namnet Storage. Parameters. JSON.
 
@@ -198,18 +182,6 @@ az group deployment create \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json
-```
-
-### <a name="parameter-precedence"></a>Parameter prioritet
-
-Du kan använda infogade parametrar och en lokal parameter fil i samma distributions åtgärd. Du kan till exempel ange vissa värden i den lokala parameter filen och lägga till andra värden i den under distributionen. Om du anger värden för en parameter i både den lokala parameter filen och den infogade värdet, prioriteras det infogade värdet.
-
-```azurecli
-az group deployment create \
-  --resource-group testgroup \
-  --template-file demotemplate.json \
-  --parameters @demotemplate.parameters.json \
-  --parameters exampleArray=@arrtest.json
 ```
 
 ## <a name="test-a-template-deployment"></a>Testa en mall distribution
@@ -223,7 +195,7 @@ az group deployment validate \
   --parameters @storage.parameters.json
 ```
 
-Om inga fel upptäcks returnerar kommandot information om test distributionen. Observera särskilt att **felvärdet** är null.
+Om inga fel upptäcks returnerar kommandot information om test distributionen. Observera särskilt att felvärdet är null.
 
 ```azurecli
 {

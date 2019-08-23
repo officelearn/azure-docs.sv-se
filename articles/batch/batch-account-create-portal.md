@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e1543d578e6812fd270bd76ec18bdfe8fe5ba6a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d4bf7b894a23f0054485ddb6dbb91c4df2122222
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324042"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907331"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Skapa ett Batch-konto med Azure Portal
 
@@ -115,7 +115,7 @@ I användarprenumerationsläge krävs ett Azure-nyckelvalv som tillhör samma re
 
 När du skapar batch-kontot i användar prenumerations läge använder du resurs gruppen för nyckel valvet. Ange **användar prenumeration** som poolens fördelnings läge, Välj nyckel valvet och markera kryss rutan för att bevilja Azure Batch åtkomst till nyckel valvet. 
 
-Om du vill bevilja åtkomst till nyckel valvet manuellt går du till avsnittet **åtkomst principer** i nyckel valvet och väljer **Microsoft Azure Batch**. Konfigurera de **hemliga behörigheterna** med den nedrullningsbara menyn. Azure Batch måste ges minst behörigheterna **Get**, **list**, **set**och **Delete** .
+Om du vill bevilja åtkomst till nyckel valvet manuellt går du till avsnittet **åtkomst principer** i nyckel valvet och väljer **Lägg till åtkomst princip** och söker efter **Microsoft Azure Batch**. När du har valt det här alternativet måste du konfigurera de **hemliga behörigheterna** med hjälp av den nedrullningsbara menyn. Azure Batch måste ges minst behörigheterna **Get**, **list**, **set**och **Delete** .
 
 ![Hemliga behörigheter för Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
 

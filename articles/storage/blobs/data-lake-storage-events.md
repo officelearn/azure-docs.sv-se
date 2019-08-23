@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
-ms.openlocfilehash: ce132c6a6859156b209a26b5950eb6a509f446fc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 5a85e3b16a5a93fedd6a2257f5601b0673f825ad
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657599"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904666"
 ---
 # <a name="tutorial-use-azure-data-lake-storage-gen2-events-to-update-a-databricks-delta-table"></a>Självstudier: Använd Azure Data Lake Storage Gen2 händelser för att uppdatera en Databricks delta tabell
 
@@ -140,10 +140,9 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 
     spark.conf.set("fs.azure.account.auth.type", "OAuth")
     spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-    spark.conf.set("fs.azure.account.oauth2.client.id", "<appId")
+    spark.conf.set("fs.azure.account.oauth2.client.id", "<appId>")
     spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
     spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant>/oauth2/token")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
 
     adlsPath = 'abfss://data@contosoorders.dfs.core.windows.net/'
     inputPath = adlsPath + dbutils.widgets.get('source_file')
@@ -151,6 +150,9 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
     ```
 
     Den här koden skapar en widget med namnet **source_file**. Senare kommer du att skapa en Azure-funktion som anropar den här koden och skickar en fil Sök väg till widgeten.  Den här koden autentiserar också tjänstens huvud namn med lagrings kontot och skapar vissa variabler som du kommer att använda i andra celler.
+
+    > [!NOTE]
+    > I en produktionsinställning bör du överväga att lagra din autentiseringsnyckel i Azure Databricks. Sedan lägger du till en lookup-nyckel i kodblocket i stället för autentiseringsnyckeln. <br><br>I stället för att använda den här kodraden: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`använder du till exempel följande rad med kod:. `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))` <br><br>När du har slutfört den här kursen kan du se exempel på den här metoden i [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artikeln på Azure Databricks webbplats.
 
 2. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
@@ -309,7 +311,7 @@ Skapa en Azure-funktion som kör jobbet.
         log.LogInformation(eventGridEvent.Data.ToString());
 
         if (eventGridEvent.EventType == "Microsoft.Storage.BlobCreated" | | eventGridEvent.EventType == "Microsoft.Storage.FileRenamed") {
-            var fileData = ((JObject)(eventGridEvent.Data)) .ToObject<StorageBlobCreatedEventData>();
+            var fileData = ((JObject)(eventGridEvent.Data)).ToObject<StorageBlobCreatedEventData>();
             if (fileData.Api == "FlushWithClose") {
                 log.LogInformation("Triggering Databricks Job for file: " + fileData.Url);
                 var fileUrl = new Uri(fileData.Url);
@@ -382,6 +384,27 @@ I det här avsnittet ska du skapa en Event Grid-prenumeration som anropar Azure-
    Den returnerade tabellen visar den senaste posten.
 
    Den ![senaste posten visas i tabellen] Den (./media/data-lake-storage-events/final_query.png "senaste posten visas i tabellen")
+
+6. Om du vill uppdatera posten skapar du en fil `customer-order-update.csv`med namnet, klistrar in följande information i filen och sparar den på den lokala datorn.
+
+   ```
+   InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
+   536371,99999,EverGlow Single,22,1/1/2018 9:01,33.85,20993,Sierra Leone
+   ```
+
+   Den här CSV-filen är nästan identisk med den föregående, förutom antalet order som har ändrats från `228` till `22`.
+
+7. I Storage Explorer laddar du upp den här filen till mappen indata för ditt lagrings konto.
+
+8. `select` Kör frågan igen för att visa den uppdaterade delta tabellen.
+
+   ```
+   %sql select * from customer_data
+   ```
+
+   Den returnerade tabellen visar den uppdaterade posten.
+
+   Den ![uppdaterade posten visas i tabellen] Den (./media/data-lake-storage-events/final_query-2.png "uppdaterade posten visas i tabellen")
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

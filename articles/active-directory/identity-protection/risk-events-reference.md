@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08e27052c3583ddea7a2fb6fe96fa6b48cd6c372
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 5d2247aab872a71f250bd0b4b52714e402d2102d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333878"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905200"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referens för Azure Active Directory Identity Protection risk händelser
 
@@ -24,7 +24,7 @@ De flesta säkerhets överträdelser sker när angripare får åtkomst till en m
 
 ## <a name="anonymous-ip-address"></a>Anonym IP-adress
 
-**Identifierings typ:** Realtid  
+**Identifierings typ:** Real tids  
 **Gammalt namn:** Inloggningar från anonym IP-adress
 
 Den här typen av risk händelse indikerar inloggningar från en anonym IP-adress (till exempel Tor webbläsare, Anonymizer VPN).
@@ -61,9 +61,9 @@ När tjänsten hämtar autentiseringsuppgifter från den mörka webben, klistrar
 
 Den här typen av risk händelse indikerar inloggningar från IP-adresser som är infekterade med skadlig kod som är kända för att kommunicera med en bot-Server. Detta bestäms genom att IP-adresserna för användarens enhet korreleras mot IP-adresser som var i kontakt med en bot-server medan bot-servern var aktiv.
 
-## <a name="unfamiliar-sign-in-properties"></a>Obekanta inloggningsegenskaper
+## <a name="unfamiliar-sign-in-properties"></a>Okända inloggnings egenskaper
 
-**Identifierings typ:** Realtid  
+**Identifierings typ:** Real tids  
 **Gammalt namn:** Inloggningar från okända platser
 
 Den här risk händelse typen tar hänsyn till tidigare inloggnings historik (IP, latitud/longitud och ASN) för att söka efter avvikande inloggningar. Systemet lagrar information om tidigare platser som används av en användare och betraktar dessa "välkända" platser. Risk händelsen utlöses när inloggningen sker från en plats som inte redan finns i listan över välkända platser. Nyligen skapade användare är i "inlärnings läge" under en tids period då okända inloggnings egenskaper risk händelser inaktive ras medan algoritmerna lär sig användarens beteende. Varaktigheten för utbildnings läge är dynamisk och beror på hur lång tid det tar för algoritmen att samla in tillräckligt med information om användarens inloggnings mönster. Den minsta varaktigheten är fem dagar. En användare kan gå tillbaka till inlärnings läget efter en lång tids inaktivitet. Systemet ignorerar också inloggningar från välbekanta enheter och platser som är geografiskt nära en bekant plats. 
@@ -76,3 +76,8 @@ Vi kör även den här identifieringen för grundläggande autentisering (eller 
 **Gammalt namn:** Den här identifieringen visas i de äldre Azure AD Identity Protections rapporterna (användare som har flaggats för risk, risk händelser) som "användare med läckta autentiseringsuppgifter"
 
 Den här typen av risk händelse indikerar användar aktivitet som är ovanlig för den aktuella användaren eller som är konsekvent med kända angrepps mönster baserade på Microsofts interna och externa hot informations källor.
+
+## <a name="admin-confirmed-user-compromised"></a>Administratörsbekräftad användare komprometterad
+
+**Identifierings typ:** Offline <br>
+Den här identifieringen anger att en administratör har valt "bekräfta användare som har komprometterats" i användar gränssnittet för riskfyllda användare eller med riskyUsers-API. Om du vill se vilken administratör som har bekräftat att den här användaren har fått problem, kontrollerar du användarens risk historik (via UI eller API).

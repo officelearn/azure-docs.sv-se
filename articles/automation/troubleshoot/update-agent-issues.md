@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: bbccb9beab374a4a514d527c22b3861f0752d5fd
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 956e31c157c667acd2f830702467249d869648cb
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782390"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971278"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Förstå kontroll resultatet av Windows-agenten i Uppdateringshantering
 
@@ -107,7 +107,9 @@ Mer information om den här händelsen finns i [fel söknings guiden](hybrid-run
 
 ## <a name="troubleshoot-offline"></a>Felsöka offline
 
-Du kan använda fel sökaren på en Hybrid Runbook Worker offline genom att köra skriptet lokalt. Du kan hämta skriptet, [Felsöka-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), i PowerShell-galleriet. Utdata från det här skriptet ser ut som i följande exempel:
+Du kan använda fel sökaren på en Hybrid Runbook Worker offline genom att köra skriptet lokalt. Du kan hämta skriptet, [Felsöka-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), i PowerShell-galleriet. Du måste ha WMF 4,0 eller senare installerat för att kunna köra skriptet. Information om hur du hämtar den senaste versionen av PowerShell finns i [installera olika versioner av PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell).
+
+Utdata från det här skriptet ser ut som i följande exempel:
 
 ```output
 RuleId                      : OperatingSystemCheck

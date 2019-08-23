@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b1fa24f919888e4454096e1ef84d2ba2948b865a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
-ms.translationtype: MT
+ms.openlocfilehash: c316e55700fc8a28ed39bea960a9fe2b2bbd4df1
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774299"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900374"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en virtuell Windows SQL Server-dator i Azure Portal
 
@@ -122,7 +122,7 @@ Konfigurera disk alternativen på fliken **diskar** .
 * Under **Avancerat**väljer du **ja** under Använd **Managed disks**.
 
    > [!NOTE]
-   > Microsoft rekommenderar Managed Disks för SQL Server. Managed Disks hanterar lagring i bakgrunden. När virtuella datorer med Managed Disks finns i samma tillgänglighetsuppsättning, distribuerar Azure dessutom lagringsresurser för att tillhandahålla rätt redundans. Mer information finns i [Azure Managed Disks Overview] [.. /managed-disks-overview.md). Information om hanterade diskar i en tillgänglighets uppsättning finns i [använda hanterade diskar för virtuella datorer i tillgänglighets uppsättningen] (.. /manage-availability.md.
+   > Microsoft rekommenderar Managed Disks för SQL Server. Managed Disks hanterar lagring i bakgrunden. När virtuella datorer med Managed Disks finns i samma tillgänglighetsuppsättning, distribuerar Azure dessutom lagringsresurser för att tillhandahålla rätt redundans. Mer information finns i [Azure Managed Disks Overview] [.. /managed-disks-overview.md). Mer information om hanterade diskar i en tillgänglighetsuppsättning finns i [Använda hanterade diskar för virtuella datorer i tillgänglighetsuppsättning](../manage-availability.md).
 
 ![Disk inställningar för virtuell SQL-dator](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   

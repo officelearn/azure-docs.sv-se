@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1ce71665a924c6681af418075d8cc635c73f8a1a
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 3dc20036ead29c62d47b4a628d7ce8101b9d31f4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717678"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972524"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -24,6 +24,27 @@ Om du har förslag på Site Recovery funktioner, vill vi gärna [höra dina synp
 ## <a name="installing-updates"></a>Installera uppdateringar
 
 [Läs den här artikeln](service-updates-how-to.md) för Site Recovery uppdaterings support och anvisningar.
+
+## <a name="updates-august-2019"></a>Uppdateringar (augusti 2019)
+
+### <a name="update-rollup-39"></a>Samlad uppdatering 39
+
+Samlad [uppdatering 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) innehåller följande uppdateringar.
+
+**Uppdatering** | **Detaljer**
+--- | ---
+**Leverantörer och agenter** | Uppdateringar av Site Recovery agenter och providers (enligt beskrivningen i den samlade uppdateringen)
+**Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
+
+
+### <a name="azure-vm-disaster-recovery"></a>Haveri beredskap för Azure VM
+
+Nya funktioner för haveri beredskap för virtuella Azure-datorer sammanfattas i tabellen.
+
+**Funktion** | **Detaljer**
+--- | ---
+**Kryptering utan Azure AD** | Kryptering utan en Azure AD-app stöds nu för Azure VM-replikering till hanterade diskar som kör Windows.
+**Nätverks resurser för redundans** | När du växlar över till en annan region kan du nu koppla nätverks resurs inställningar (NSG: er, belastnings utjämning, offentlig IP-adress) till en virtuell dator. 
 
 ## <a name="updates-july-2019"></a>Uppdateringar (juli 2019)
 

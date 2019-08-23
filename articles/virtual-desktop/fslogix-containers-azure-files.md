@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 54d3f175e74b9f94c7845725e3d8f4531750df57
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: HT
+ms.openlocfilehash: fe45adc3eb65631c0b127872240f8d76400f9102
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877560"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899665"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profilcontainrar och Azure-filer
 
@@ -98,7 +98,7 @@ Använd följande guider för att skapa en Windows-miljö för virtuella skriv b
 
 - Om du vill börja skapa en lösning för Skriv bords virtualisering läser du [skapa en klient i Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 - Information om hur du skapar en adresspool i din Windows-klient för virtuella datorer finns i [skapa en adresspool med Azure Marketplace](create-host-pools-azure-marketplace.md).
-- Information om hur du konfigurerar fullständigt hanterade fil resurser i molnet finns i [konfigurera Azure Files-resurs](/articles/storage/files/storage-files-active-directory-enable.md).
+- Information om hur du konfigurerar fullständigt hanterade fil resurser i molnet finns i [konfigurera Azure Files-resurs](/azure/storage/files/storage-files-active-directory-enable).
 - Information om hur du konfigurerar FSLogix profil behållare finns i [skapa en profil behållare för en värd-pool med en fil resurs](create-host-pools-user-profile.md).
 - Information om hur du tilldelar användare till en adresspool finns i [Hantera app-grupper för Windows Virtual Desktop](manage-app-groups.md).
 - För att få åtkomst till dina Windows-resurser för virtuella skriv bord från en webbläsare, se [Anslut till Windows Virtual Desktop](connect-web.md).

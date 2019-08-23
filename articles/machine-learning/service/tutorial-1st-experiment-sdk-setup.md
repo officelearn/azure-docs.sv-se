@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: cc16f3c8ea287e78d7b7b4d9a56f5a2e82c26f01
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 54fc87f02ca058e17de3a65627bc76fd7d9cac11
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515336"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971556"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>Självstudier: Kom igång med att skapa ditt första ML-experiment
 
@@ -73,7 +73,9 @@ När den virtuella datorn har körts använder du avsnittet **Notebook VM** : ar
     > [!TIP]
     > Den här mappen finns på [lagrings behållaren](concept-workspace.md#resources) på din arbets yta i stället för på själva Notebook-datorn.  Du kan ta bort den virtuella Notebook-datorn och fortsätta att ha allt ditt arbete.  När du skapar en ny Notebook VM senare, kommer den att läsa in samma mapp. Om du delar din arbets yta med andra, kommer de att se din mapp och du ser dem.
 
-1. Öppna under katalogen och öppna `tutorials/tutorial-1st-experiment-sdk-train.ipynb` sedan för att köra **del två** av självstudien. `samples-*`
+1. `samples-*` Öppna under katalogen och öppna sedan`tutorials/tutorial-1st-experiment-sdk-train.ipynb` 
+
+I **del två** av självstudien kör du koden i `tutorial-1st-experiment-sdk-train.ipynb` för att träna en maskin inlärnings modell.
 
 ## <a name="end"></a>Rensa resurser
 

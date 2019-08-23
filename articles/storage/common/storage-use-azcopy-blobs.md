@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: eead4436a7135f6f74528cde52883ea247360fc6
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: a95e643d6561f425484a21b5032b1df585d0460b
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648780"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900330"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob Storage
 
@@ -195,7 +195,7 @@ Det här avsnittet innehåller följande exempel:
 
 ## <a name="synchronize-files"></a>Synkronisera filer
 
-Du kan synkronisera innehållet i ett lokalt fil system med en BLOB-behållare. Synkroniseringen är enkelriktad. Med andra ord kan du välja vilken av dessa två slut punkter som är källan och vilken som är målet.
+Du kan synkronisera innehållet i ett lokalt fil system med en BLOB-behållare. Synkroniseringen är enkelriktad. Med andra ord kan du välja vilken av dessa två slut punkter som är källan och vilken som är målet. Synkronisering använder också server-till-Server-API: er.
 
 > [!NOTE]
 > För närvarande stöds det här scenariot endast för konton som inte har ett hierarkiskt namn område. Den aktuella versionen av AzCopy synkroniseras inte mellan andra källor och mål (till exempel: AWS (File Storage) eller Amazon Web Services () S3-buckets).

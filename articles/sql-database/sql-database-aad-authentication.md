@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: b99dbd403de0de948527fbe74b7e1205316822c0
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019682"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897002"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Använd Azure Active Directory autentisering för autentisering med SQL
 
@@ -116,8 +116,9 @@ Om du vill skapa en innesluten databas användare i Azure SQL Database, hanterad
 
 Azure Active Directory-autentisering stöder följande metoder för att ansluta till en databas med hjälp av Azure AD-identiteter:
 
-- Använda integrerad Windows-autentisering
-- Använda ett huvud namn och lösen ord för Azure AD
+- Azure Active Directory lösen ord
+- Azure Active Directory integrerad
+- Azure Active Directory universell med MFA
 - Använda autentisering med program-token
 
 Följande autentiseringsmetoder stöds för Azure AD server-Huvudkonton (inloggningar) (**offentlig för hands version**):
@@ -125,7 +126,6 @@ Följande autentiseringsmetoder stöds för Azure AD server-Huvudkonton (inloggn
 - Azure Active Directory lösen ord
 - Azure Active Directory integrerad
 - Azure Active Directory universell med MFA
-- Azure Active Directory interaktiva
 
 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på

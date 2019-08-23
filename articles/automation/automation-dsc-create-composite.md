@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9e76532d41e23cba376755ca524ca6911385204
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: d830b8e27bb6f66a533b8106cbec53eeca4ca139
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559486"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970724"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Konvertera konfigurationer till sammansatta resurser
 
@@ -49,7 +49,7 @@ Cmdleten läser in innehållet i konfigurationen, hämtar listan över parametra
 
 När du har genererat en modul kan du öka versionen och lägga till viktig information varje gång du gör ändringar och publicera den till din egen [PowerShellGet-lagringsplats](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
-När du har skapat en sammansatt resurspool som innehåller din konfiguration (eller flera konfigurationer) kan du använda dem i den sammanställnings bara [redigerings upplevelsen](/azure/automation/compose-configurationwithcompositeresources) i Azure, eller lägga till dem i [DSC-konfigurations skript](/powershell/dsc/resources/configurations) för att generera MOF-filer och [Ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+När du har skapat en sammansatt resurspool som innehåller din konfiguration (eller flera konfigurationer) kan du använda dem i den sammanställnings bara [redigerings upplevelsen](/azure/automation/compose-configurationwithcompositeresources) i Azure, eller lägga till dem i [DSC-konfigurations skript](/powershell/dsc/configurations/configurations) för att generera MOF-filer och [Ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) eller [i Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) för att hämta konfigurationer.
 Den senaste uppdateringen av projektet har också publicerat [Runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples) för att Azure Automation automatisera processen med att importera konfigurationer från PowerShell-galleriet.
 

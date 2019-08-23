@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 08/14/2019
-ms.openlocfilehash: 6a29d1e001d4c647d5b975b7e746eced29962ee4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 08/22/2019
+ms.openlocfilehash: 481419a5db6efd600d74851238cd1a12d8766186
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637253"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972537"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Resurs gränser för enskilda databaser med den vCore-baserade inköps modellen
 
@@ -301,7 +301,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |I/o-svarstid (ungefärlig)|Ska fastställas|Ska fastställas|Ska fastställas|Ska fastställas|Ska fastställas|Ska fastställas|Ska fastställas|Ska fastställas|
 |Maximalt antal samtidiga arbetare (begär Anden)|200|400|800|1600|2400|3200|4000|8000|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
-|Antal repliker|2|2|2|2|2|2|2|2|
+|Sekundära repliker|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Läs skalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad säkerhets kopierings lagring |7|7|7|7|7|7|7|7|

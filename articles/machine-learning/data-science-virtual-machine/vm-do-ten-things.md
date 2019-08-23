@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: vijetaj
-ms.openlocfilehash: ee63f7aae70e93dfbe857b8680d2b4a477600d72
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: MT
+ms.openlocfilehash: cd4acdd4009a94b51807a536c28b138b86d2aced
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575104"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971932"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker som du kan göra på den Windows virtuell dator för datavetenskap
 
@@ -64,10 +64,6 @@ För Python, kan du använda en IDE som Visual Studio Community Edition, som har
 * Skapa anpassade miljöer för varje version genom att gå till **verktyg** -> **Python Tools** -> **Python-miljöer** och sedan klicka på ” **+ Anpassad**”i Visual Studio Community Edition
 * Ge en beskrivning och ange miljö prefixsökvägen som *c:\anaconda\envs\python2* för Anaconda Python 2.7
 * Klicka på **automatisk identifiering** och sedan **tillämpa** att spara miljön.
-
-Här är vad inställningen för anpassad miljö ser ut som i Visual Studio.
-
-![Skärmbild av Visual Studio med Python Tools för Visual Studio som valts](./media/vm-do-ten-things/PTVSSetup.png)
 
 Se den [dokumentationen till PTVS](https://aka.ms/ptvsdocs) för ytterligare information om hur du skapar Python-miljöer.
 
@@ -219,7 +215,7 @@ För att administrera din Azure-prenumeration och moln resurser har du två alte
 + **Azure PowerShell**: Använd Windows PowerShell-skript. Kör Azure PowerShell från en genväg på Skriv bordet eller från Start-menyn med namnet "Microsoft Azure PowerShell". I [Microsoft Azure PowerShell-dokumentationen](../../powershell-azure-resource-manager.md) finns fullständig information. 
 
 ## <a name="5-extend-storage-with-shared-file-systems"></a>5. Utöka lagring med delade fil system
-Dataexperter kan dela stora datauppsättningar, kod eller andra resurser i teamet. DSVM själva har cirka 45GB tillgängligt utrymme. Du kan använda Azure File Service för att utöka din lagring och antingen montera den på en eller flera instanser av DSVM eller åtkomst till den via ett REST-API.  Du kan också använda [Azure-portalen](../../virtual-machines/windows/attach-managed-disk-portal.md) eller Använd [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) att lägga till extra dedikerade datadiskar. 
+Dataexperter kan dela stora datauppsättningar, kod eller andra resurser i teamet. DSVM själva har cirka 45GB tillgängligt utrymme. Du kan använda Azure File Service för att utöka din lagring och antingen montera den på en eller flera instanser av DSVM eller åtkomst till den via ett REST-API.  Du kan också använda [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) eller använda [Azure PowerShell](../../virtual-machines/windows/attach-disk-ps.md) för att lägga till extra dedikerade data diskar. 
 
 > [!NOTE]
 > Det maximala utrymmet Azure File Service-resursen är 5 TB och storleksgränsen för enskilda filer är 1 TB. 
@@ -295,8 +291,6 @@ För att flytta data mellan din lokala filer och blob storage med AzCopy kan du 
     AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
 Ersätt **C:\myfolder** till den sökväg där filen lagras, **mystorageaccount** till ditt blob storage-kontonamn, **mycontainer** till behållarens namn **lagringskontonyckel** till din åtkomstnyckel för blob storage. Du kan hitta autentiseringsuppgifterna för ditt lagringskonto i [Azure-portalen](https://portal.azure.com).
-
-![Skärmbild som visar lagringskontonycklar och information för behållare i Azure portal](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 Kör AzCopy-kommandot i PowerShell eller från en kommandotolk. Här är några exempel på användning av AzCopy-kommandot:
 
@@ -393,9 +387,7 @@ Azure Data Lake Storage är en storskalig lagringsplats för stordataanalyser oc
 
 **Flytta data från virtuell dator till Data Lake: Azure Data Lake Explorer**
 
-Du kan använda **Azure Data Lake Explorer** att överföra data från de lokala filerna i den virtuella datorn till Data Lake-lagring.
-
-![Skärmbild på hur du använder Data Lake Explorer för att ladda upp filer](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+Du kan använda **Azure Data Lake Explorer** för att [överföra data från de lokala filerna på den virtuella datorn till data Lake lagring](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 Du kan också skapa en datapipeline för att operationalisera dina data flyttas till eller från Azure Data Lake med hjälp av den [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Referera till denna [artikeln](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) att guida dig genom stegen för att skapa data pipelines.
 
@@ -406,8 +398,6 @@ Om dina data finns i Azure Blob storage, kan du direkt läsa data från Azure st
 ![Skärmbild av dialogrutan Lägg till datakälla](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 I Visual Studio kan du läsa data från blob storage, göra vissa datamanipulering, funktionstekniker och den resulterande utdata till Azure Data Lake eller Azure Blob Storage. När du refererar till data i blob storage, använda **wasb: / /** ; när du refererar till data i Azure Data Lake, Använd **swbhdfs: / /**
-
-![Skärmbild av frågan med posten WASB markerat](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 Du kan använda följande U-SQL-frågor i Visual Studio:
 
@@ -486,7 +476,7 @@ Azure HDInsight är en hanterad Apache Hadoop, Spark, HBase och Storm-tjänst i 
 
 ![Aktivera fjärråtkomst till HDInsight-kluster](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-* Skapa en Azure Machine Learning-arbetsyta. Machine Learning-experiment lagras i den här Machine Learning-arbetsytan. Välj de markerade alternativ i portalen, enligt följande skärmbild:
+* Skapa en Azure Machine Learning-arbetsyta. Machine Learning-experiment lagras i den här Machine Learning-arbetsytan. Välj de markerade alternativen i portalen som du ser på följande skärm bild:
 
 ![Skapa en Azure Machine Learning-arbetsyta](./media/vm-do-ten-things/Create_ML_Space.PNG)
 
@@ -880,9 +870,7 @@ Nu har du data i Power BI-datamodell. Power BI desktop ska visas på följande s
 
 ![Power BI desktop](./media/vm-do-ten-things/PowerBIVolcanoData.png)
 
-Du kan börja skapa rapporter och visualiseringar med datamodellen. Du kan följa stegen i den här [Power BI-artikeln](../../cosmos-db/powerbi-visualize.md#build-the-reports) att skapa en rapport. Utdata är en rapport som ser ut som följande.
-
-![Power BI Desktop rapportvyn - anslutningsprogrammet för Powerbi](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
+Du kan börja skapa rapporter och visualiseringar med datamodellen. Du kan följa stegen i den här [Power BI-artikeln](../../cosmos-db/powerbi-visualize.md#build-the-reports) att skapa en rapport.
 
 ## <a name="9-dynamic-dsvm-scaling"></a>9. Dynamisk DSVM skalning 
 Du kan skala upp och ned DSVM som uppfyller dina behov för projektet. Om du inte behöver använda den virtuella datorn på kvällar eller helger, kan du bara att stänga av den virtuella datorn från den [Azure-portalen](https://portal.azure.com).
@@ -894,9 +882,7 @@ Du kan skala upp och ned DSVM som uppfyller dina behov för projektet. Om du int
 
 Om du behöver att hantera storskaliga analyser och behöver mer CPU eller minne eller disk-kapacitet kan du hitta ett stort urval av VM-storlekar när det gäller processorkärnor, GPU-baserade instanser för djupinlärning, minneskapaciteten och disktyper (inklusive SSD-enheter) som uppfyller dina beräknings- och budgeten behov. En fullständig lista över virtuella datorer tillsammans med deras per timme beräkningspriser är tillgänglig på den [prissättning för Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/) sidan.
 
-På samma sätt, om ditt behov av VM-bearbetningskapacitet minskar (till exempel: du flyttat en större arbetsbelastning till ett Hadoop- eller ett Spark-kluster), du kan skala ned klustret från den [Azure-portalen](https://portal.azure.com) och gå till inställningar för VM-instansen. Här är en skärmbild.
-
-![Inställningar för VM-instans](./media/vm-do-ten-things/VMScaling.PNG)
+På samma sätt, om ditt behov av VM-bearbetningskapacitet minskar (till exempel: du flyttat en större arbetsbelastning till ett Hadoop- eller ett Spark-kluster), du kan skala ned klustret från den [Azure-portalen](https://portal.azure.com) och gå till inställningar för VM-instansen. 
 
 ## <a name="10-add-more-tools"></a>10. Lägg till fler verktyg
 Det finns flera verktyg som är färdiga i DSVM som kan lösa många av de vanliga data analytics behöver. Detta sparar tid genom att inte behöva installera och konfigurera dina miljöer i taget och spara pengar genom att betala endast för resurser som du använder.

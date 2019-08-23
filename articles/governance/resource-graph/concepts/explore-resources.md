@@ -1,33 +1,33 @@
 ---
 title: Utforska dina Azure-resurser
-description: Lär dig att använda Resource Graph-frågespråk för att utforska dina resurser och Upptäck hur de är anslutna.
+description: Lär dig att använda det aktuella resurs diagrammets frågespråk för att utforska dina resurser och identifiera hur de är anslutna.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/23/2019
+ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0b4a75558f5e82b707ae5d012acef4d2c5c4b7a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c6fdebad3cd84699e1ac7d06bb58a33d1522af1
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723806"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972319"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Utforska dina Azure-resurser med resursgrafer
 
-Azure Resource Graph ger möjlighet att utforska och identifiera dina Azure-resurser, snabbt och skalenligt. Utformad för snabba svar, är det ett bra sätt att lära dig om din miljö och även om de egenskaper som utgör din Azure-resurser.
+Azure Resource Graph ger möjlighet att utforska och upptäcka dina Azure-resurser snabbt och i stor skala. Utformad för snabba svar är det ett bra sätt att lära dig om din miljö och även om de egenskaper som utgör dina Azure-resurser.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="explore-virtual-machines"></a>Utforska virtuella datorer
 
-En gemensam resurs i Azure är en virtuell dator. Virtuella datorer har ett antal egenskaper som kan efterfrågas som en resurstyp. Varje egenskap innehåller ett alternativ för filtrering eller hitta exakt den resurs som du letar efter.
+En gemensam resurs i Azure är en virtuell dator. Som resurs typ har virtuella datorer många egenskaper som kan frågas. Varje egenskap innehåller ett alternativ för att filtrera eller hitta exakt den resurs som du letar efter.
 
 ### <a name="virtual-machine-discovery"></a>Identifiering av virtuell dator
 
-Låt oss börja med en enkel fråga för att hämta en enda virtuell dator från vår miljö och titta på egenskaperna som returneras.
+Vi börjar med en enkel fråga för att hämta en enskild virtuell dator från vår miljö och tittar på de egenskaper som returneras.
 
 ```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -43,9 +43,9 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit
 ```
 
 > [!NOTE]
-> Azure PowerShell `Search-AzGraph` cmdlet returnerar en **PSCustomObject** som standard. Ha utdata ser likadana ut som det som returneras av Azure CLI, den `ConvertTo-Json` cmdlet används. Standardvärdet för **djup** är _2_. Ange värdet till _100_ ska konvertera alla returnerade nivåer.
+> Azure PowerShell `Search-AzGraph` cmdleten returnerar en **PSCustomObject** som standard. Om du vill att utdata ska se ut på samma sätt som det som returneras av `ConvertTo-Json` Azure CLI, används cmdleten. Standardvärdet för **djup** är _2_. Om du ställer in det på _100_ ska alla returnerade nivåer konverteras.
 
-JSON-resultaten är strukturerade liknar följande exempel:
+JSON-resultatet är strukturerat på samma sätt som i följande exempel:
 
 ```json
 [
@@ -110,11 +110,11 @@ JSON-resultaten är strukturerade liknar följande exempel:
 ]
 ```
 
-Berätta mer om den virtuella datorresursen, allt från SKU: N, OS, diskar, taggar, egenskaper och resursgrupp och prenumeration är medlem i.
+Egenskaperna anger ytterligare information om den virtuella dator resursen, allt från SKU, OS, diskar, taggar och resurs gruppen och prenumerationen som den är medlem i.
 
 ### <a name="virtual-machines-by-location"></a>Virtuella datorer efter plats
 
-Vi tar vad vi lärt oss om resursen för virtuella datorer kan använda den **plats** egenskapen du räknar alla virtuella datorer efter plats. Om du vill uppdatera frågan vi ta bort gränsen och sammanfatta antalet värden för platsen.
+Vi tar med det som vi lärt dig om den virtuella dator resursen. Använd egenskapen **location** för att räkna alla virtuella datorer efter plats. För att uppdatera frågan tar vi bort gränsen och sammanfattar antalet plats värden.
 
 ```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -129,7 +129,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize
 Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
 ```
 
-JSON-resultaten är strukturerade liknar följande exempel:
+JSON-resultatet är strukturerat på samma sätt som i följande exempel:
 
 ```json
 [
@@ -148,11 +148,11 @@ JSON-resultaten är strukturerade liknar följande exempel:
 ]
 ```
 
-Vi kan nu se hur många virtuella datorer har vi i varje Azure-region.
+Nu kan vi se hur många virtuella datorer som finns i varje Azure-region.
 
-### <a name="virtual-machines-by-sku"></a>Virtuella datorer av SKU: N
+### <a name="virtual-machines-by-sku"></a>Virtuella datorer efter SKU
 
-Vi går tillbaka till den ursprungliga virtuella datorns egenskaper, försök att hitta alla virtuella datorer som har en SKU-storlek på **Standard_B2s**. Titta på JSON returneras, ser vi att den är lagrad i **properties.hardwareprofile.vmsize**. Vi uppdaterar fråga för att hitta alla virtuella datorer som matchar den här storleken och returnera bara namnet på den virtuella datorn och region.
+För att gå tillbaka till de ursprungliga egenskaperna för den virtuella datorn försöker vi hitta alla virtuella datorer som har en SKU-storlek på **Standard_B2s**. När du tittar på den JSON som returneras ser vi att den är lagrad i **egenskaperna. hardwareprofile. vmsize**. Vi uppdaterar frågan för att hitta alla virtuella datorer som matchar den här storleken och returnerar bara namnet på den virtuella datorn och regionen.
 
 ```kusto
 where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
@@ -167,9 +167,9 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' and propert
 Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
-### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Virtuella datorer är anslutna till premium managed disks
+### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Virtuella datorer som är anslutna till Premium-hanterade diskar
 
-Om vi vill hämta information om premium-hanterade diskar som är kopplade till dessa **Standard_B2s** virtuella datorer, kan vi Expandera fråga för att ge oss resurs-ID för dessa hanterade diskar.
+Om vi ville hämta information om Premium-hanterade diskar som är kopplade till dessa virtuella **Standard_B2s** -datorer kan vi utöka frågan så att den ger oss resurs-ID för de hanterade diskarna.
 
 ```kusto
 where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
@@ -179,7 +179,7 @@ where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile
 ```
 
 > [!NOTE]
-> Ett annat sätt att hämta SKU: N skulle ha varit med hjälp av den **alias** egenskapen **Microsoft.Compute/virtualMachines/sku.name**. Se den [Visa alias](../samples/starter.md#show-aliases) och [Visa alias distinkta värden](../samples/starter.md#distinct-alias-values) exempel.
+> Ett annat sätt att hämta SKU: n skulle ha varit genom att använda **alias** -egenskapen **Microsoft. Compute/virtualMachines/SKU. name**. Se exempel på [Visa alias](../samples/starter.md#show-aliases) och [Visa distinkta värden för Ali Aset](../samples/starter.md#distinct-alias-values) .
 
 ```azurecli-interactive
 az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
@@ -189,13 +189,13 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and propert
   Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
-Resultatet är en lista över disk-ID: N.
+Resultatet är en lista över disk-ID: n.
 
 ### <a name="managed-disk-discovery"></a>Identifiering av hanterad disk
 
-Vi kommer den första posten från den föregående frågan för att utforska de egenskaper som finns på den hantera disken som har kopplats till den första virtuella datorn. Den uppdaterade frågan använder disk-ID och ändrar typen.
+Med den första posten från föregående fråga kommer vi att utforska de egenskaper som finns på den hanterade disk som var kopplad till den första virtuella datorn. Den uppdaterade frågan använder disk-ID och ändrar typen.
 
-Exempel utdata från den föregående frågan till exempel:
+Exempel på utdata från föregående fråga till exempel:
 
 ```json
 [
@@ -209,11 +209,11 @@ Exempel utdata från den föregående frågan till exempel:
 where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Innan du kör frågan, hur vi visste den **typ** nu bör vara **Microsoft.Compute/disks**?
-Om du tittar på det fullständiga ID: T visas **/providers/Microsoft.Compute/disks/** som en del av strängen. Den här strängen fragment ger en ledtråd om vilken typ som eftersöks. En alternativ metod är att ta bort gränsen efter typ och i stället bara söka efter ID-fältet. Eftersom det ID: T är unik, bara en post skulle returneras och **typ** egenskap på den innehåller den information.
+Innan du kör frågan vet vi att **typen** borde nu vara **Microsoft. Compute/disks**?
+Om du tittar på det fullständiga ID: t visas **/providers/Microsoft.Compute/disks/** som en del av strängen. Detta sträng fragment ger dig en ledtråd för vilken typ av sökning du vill söka efter. En alternativ metod är att ta bort gränsen efter typ och i stället bara söka efter fältet ID. Eftersom ID: t är unikt returneras bara en post och **typ** egenskapen i den innehåller information.
 
 > [!NOTE]
-> I det här exemplet ska fungera måste du ersätta ID-fältet med ett resultat från din egen miljö.
+> För att det här exemplet ska fungera måste du ersätta ID-fältet med ett resultat från din egen miljö.
 
 ```azurecli-interactive
 az graph query -q "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
@@ -223,7 +223,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/disks' and id == '/subscript
 Search-AzGraph -Query "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
 ```
 
-JSON-resultaten är strukturerade liknar följande exempel:
+JSON-resultatet är strukturerat på samma sätt som i följande exempel:
 
 ```json
 [
@@ -259,17 +259,25 @@ JSON-resultaten är strukturerade liknar följande exempel:
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>Utforska virtuella datorer för att hitta offentliga IP-adresser
 
-Den här Azure CLI uppsättning frågor först söker efter och lagrar alla nätverksgränssnitt (NIC)-resurser som är anslutna till virtuella datorer. Sedan använder listan över nätverkskort för att hitta varje IP-adressresurs som är en offentlig IP-adress och lagra dessa värden. Slutligen innehåller den en lista över offentliga IP-adresser.
+Den här uppsättningen med frågor söker först efter och lagrar alla nätverks gränssnitts resurser (NIC) som är anslutna till virtuella datorer. Sedan använder frågorna listan med nätverkskort för att hitta varje IP-adressresurs som är en offentlig IP-adress och lagra dessa värden. Slutligen tillhandahåller frågorna en lista över offentliga IP-adresser.
 
 ```azurecli-interactive
-# Use Resource Graph to get all NICs and store in the 'nic' variable
+# Use Resource Graph to get all NICs and store in the 'nics.txt' file
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20" --output table | tail -n +3 > nics.txt
 
 # Review the output of the query stored in 'nics.txt'
 cat nics.txt
 ```
 
-Använd den `nics.txt` filen i nästa fråga att hämta relaterade nätverksgränssnittet resurser information där det finns en offentlig IP-adress som är kopplade till nätverkskortet.
+```azurepowershell-interactive
+# Use Resource Graph to get all NICs and store in the $nics variable
+$nics = Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20"
+
+# Review the output of the query stored in the variable
+$nics.nic
+```
+
+Använd filen (Azure CLI) eller variabeln (Azure PowerShell) i nästa fråga för att hämta information om relaterade nätverks gränssnitts resurser där det finns en offentlig IP-adress som är ansluten till NÄTVERKSKORTet.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file
@@ -279,15 +287,28 @@ az graph query -q="where type =~ 'Microsoft.Network/networkInterfaces' | where i
 cat ips.txt
 ```
 
-Senaste, Använd listan över offentliga IP-adressresurser lagras i `ips.txt` skaffa faktiska offentliga IP-adress från dem och visa.
+```azurepowershell-interactive
+# Use Resource Graph  with the $nics variable to get all related public IP addresses and store in $ips variable
+$ips = Search-AzGraph -Query "where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$($nics.nic -join "','")') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp"
+
+# Review the output of the query stored in the variable
+$ips.publicIp
+```
+
+Senast använder du listan över offentliga IP-adressresurser som lagras i filen (Azure CLI) eller variabeln (Azure PowerShell) för att hämta den faktiska offentliga IP-adressen från det relaterade objektet och Visa.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'ips.txt' file to get the IP address of the public IP address resources
 az graph query -q="where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$(awk -vORS="','" '{print $0}' ips.txt | sed 's/,$//')') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip" --output table
 ```
 
+```azurepowershell-interactive
+# Use Resource Graph with the $ips variable to get the IP address of the public IP address resources
+Search-AzGraph -Query "where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [frågespråket](query-language.md)
-- Se språket som användes i [Starter frågor](../samples/starter.md)
-- Se avancerade använder i [avancerade frågor](../samples/advanced.md)
+- Se språket som används i [Start frågor](../samples/starter.md)
+- Se avancerade användnings områden i [avancerade frågor](../samples/advanced.md)

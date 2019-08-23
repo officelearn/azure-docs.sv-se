@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 5174b46bae5bbcc18f5a2575fb68cce1305507a3
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a1a97e7521e9772b1d13049d42e67d7ac318fffc
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826720"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907369"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Kopiera data från en Azure Blob Storage till en SQL-databas med Azure Data Factory
 I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här datafabriken kopierar data från Azure Blob Storage till en SQL-databas. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -172,6 +172,9 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 1. Gå till fliken med pipelinen och kontrollera i **Sink Dataset** (Datauppsättning för mottagare) att **OutputSqlDataset** har valts.
 
     ![Fliken Pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
+
+Du kan också mappa schemat för källan till motsvarande mål schema genom att följa [schema mappning i kopierings aktiviteten](copy-activity-schema-and-type-mapping.md)
+    
 ## <a name="validate-the-pipeline"></a>Verifiera pipeline
 Verifiera pipelinen genom att välja **Verifiera** i verktygsfältet.
  

@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: e169d7734776f9319685d97f941b3fc11eec8298
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1e35baf24b59e7864982d131f44f79458e0d9015
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656249"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971497"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -89,9 +89,18 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
   + **azureml – widgetar**
     + Förbättrade diagram för förvirrings mat ris för klassificerings träning.
 
+### <a name="azure-machine-learning-data-prep-sdk-v1112"></a>Azure Machine Learning data prep SDK v 1.1.12
++ **Nya funktioner**
+  + Listor över strängar kan nu skickas in som inmatade `read_*` metoder.
+
++ **Fel korrigeringar och förbättringar**
+  + Prestanda för `read_parquet` har förbättrats avsevärt vid körning i Spark.
+  + Ett problem har åtgärd `column_type_builder` ATS där det inte gick att skapa en enskild kolumn med tvetydiga datum format.
+
 ### <a name="azure-portal"></a>Azure Portal
 + **Förhands gransknings funktion**
   + Logg-och utdatafilen är nu tillgängliga för att köra informations sidor. Filerna strömmar uppdateringar i real tid när växling vid förhands visning är aktive rad.
+  + Möjligheten att ange kvot på en arbets ytans nivå släpps i för hands versionen. AmlCompute kvoter tilldelas på prenumerations nivå, men nu kan du distribuera den kvoten mellan arbets ytor och tilldela den till en rättvis delning och styrning. Klicka bara på bladet **användning och kvoter** i det vänstra navigerings fältet på arbets ytan och välj fliken **Konfigurera kvoter** . Observera att du måste vara prenumerations administratör för att kunna ange kvoter på arbets ytans nivå eftersom detta är en åtgärd över arbets ytan.
 
 ## <a name="2019-08-05"></a>2019-08-05
 

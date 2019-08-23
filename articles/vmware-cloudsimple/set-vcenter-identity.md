@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6229e78958fdc4995153d99ad02a15804330f1b
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: d314cc55096f681d1bcf66d33c4c30a4060751e9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544570"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972658"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Konfigurera vCenter-identitets källor som ska använda Active Directory
 
@@ -63,7 +63,7 @@ Använd informationen i följande tabell när du konfigurerar din Active Directo
 När du har informationen i föregående tabell kan du lägga till din lokala Active Directory som en identitets källa för enkel inloggning på vCenter.
 
 > [!TIP]
-> Du hittar mer information om identitets källor för enkel inloggning på <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html" target="_blank">sidan VMware-dokumentation</a>.
+> Du hittar mer information om identitets källor för enkel inloggning på [sidan VMware-dokumentation](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
 ## <a name="set-up-new-active-directory-on-a-private-cloud"></a>Konfigurera nya Active Directory i ett privat moln
 
@@ -83,7 +83,7 @@ Detaljerade anvisningar finns i [installera en ny Windows Server 2012 Active Dir
 
 När du har konfigurerat Active Directory skog och domän kan du [lägga till en identitets källa på vCenter](#add-an-identity-source-on-vcenter) för den nya Active Directory.
 
-### <a name="new-active-directory-domain-in-an-existing-active-directory-forest"></a>Nya Active Directory-domän i en befintlig Active Directory skog
+### <a name="new-active-directory-domain-in-an-existing-active-directory-forest"></a>Ny Active Directory domän i en befintlig Active Directory skog
 
 Om du vill konfigurera en ny Active Directory domän i en befintlig Active Directory skog behöver du:
 

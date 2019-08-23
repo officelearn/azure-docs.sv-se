@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 015318b1695f76121662b82e94b37de1ddb63b1b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5573eea4e7a5322c762665d2db8e3fbed1f585a1
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952943"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970445"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt data Center eller moln genom att använda Hybrid Runbook Worker
 
@@ -47,6 +47,7 @@ Du kan använda två metoder för att installera och konfigurera en Windows-Hybr
 Granska [informationen för att planera nätverket](#network-planning) innan du börjar distribuera en hybrid Runbook Worker. När du har distribuerat arbetaren granskar du [Kör Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md) för att lära dig hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller annan moln miljö.
 
 Datorn kan läggas till i en Hybrid Runbook Worker grupp i ditt Automation-konto så att den stöder Automation-runbooks så länge du använder samma konto för både lösningen och Hybrid Runbook Worker grupp medlemskapet. Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.
+
 ## <a name="remove-a-hybrid-runbook-worker"></a>Ta bort en Hybrid Runbook Worker
 
 Du kan ta bort en eller flera hybrid Runbook Worker från en grupp, eller så kan du ta bort gruppen, beroende på dina behov. Gör så här om du vill ta bort en Hybrid Runbook Worker från en lokal dator:
@@ -106,7 +107,7 @@ Om du använder en proxyserver för kommunikation mellan agenten och tjänsten A
 
 Följande port och URL-adresser krävs för att Hybrid Runbook Worker-rollen ska kunna kommunicera med Automation:
 
-* Port: Endast TCP 443 krävs för utgående Internet åtkomst.
+* Lastning Endast TCP 443 krävs för utgående Internet åtkomst.
 * Global URL: *. azure-automation.net
 * Global URL för US Gov, Virginia: *. azure-automation.us
 * Agent tjänst: https://\<workspaceId\>. agentsvc.Azure-Automation.net

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450183"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907846"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Front Door-domän
 
@@ -79,13 +79,19 @@ Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en
 1. Azure Key Vault: Du måste ha ett aktivt Azure Key Vault-konto under samma prenumeration som den Front Door där du vill aktivera anpassad HTTPS. Skapa ett Azure Key Vault-konto om du inte redan har ett.
 
 > [!WARNING]
-> Azure ytterdörren-tjänsten stöder för närvarande endast Key Vault-konton i samma prenumeration som ytterdörren-konfiguration. Om du väljer ett Key Vault under en annan prenumeration än din Front Door inträffar ett fel.
+> Azures frontend-tjänst har för närvarande endast stöd för Key Vault konton i samma prenumeration som konfigurationen av den främre dörren. Om du väljer ett Key Vault under en annan prenumeration än din Front Door inträffar ett fel.
 
-2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan även skapa ett nytt certifikat direkt via Azure Key Vault från en av de partnercertifikatutfärdare som Azure Key Vault integreras med.
+2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan även skapa ett nytt certifikat direkt via Azure Key Vault från en av de partnercertifikatutfärdare som Azure Key Vault integreras med. Ladda upp certifikatet som ett **certifikat** objekt, i stället för en **hemlighet**.
+
+> [!IMPORTANT]
+> Du måste överföra certifikatet i PFX-format **utan** lösen ords skydd.
 
 #### <a name="register-azure-front-door-service"></a>Registrera Azure Front Door Service
 
 Registrera tjänstens huvudnamn för Azure Front Door Service som en app i din Azure Active Directory via PowerShell.
+
+> [!NOTE]
+> Den här åtgärden behöver bara utföras **en gång** per klient.
 
 1. Om det behövs installerar du [Azure PowerShell](/powershell/azure/install-az-ps) i PowerShell på den lokala datorn.
 
@@ -95,18 +101,19 @@ Registrera tjänstens huvudnamn för Azure Front Door Service som en app i din A
 
 #### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Bevilja Azure Front Door Service åtkomst till ditt nyckelvalv
  
-Bevilja Azure Front Door Service behörighet att komma åt certifikaten i Hemligheter i ditt Azure Key Vault-konto.
+Ge Azures tjänst för front dörr behörighet att komma åt certifikaten i ditt Azure Key Vault-konto.
 
 1. I nyckelvalvskonto under INSTÄLLNINGAR väljer du **Åtkomstprinciper** och sedan **Lägg till nytt** för att skapa en ny princip.
 
 2. I **Välj huvudkonto** söker du efter **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** och väljer **Microsoft.Azure.Frontdoor**. Klicka på **Välj**.
 
+3. I **hemliga behörigheter**väljer du **Hämta** för att tillåta front dörr att hämta certifikatet.
 
-3. I **Hemliga behörigheter** väljer du **Hämta** för att Front Door ska kunna utföra dessa behörigheter att hämta och visa en certifikatlista. 
+4. I **certifikat behörigheter**väljer du **Hämta** för att tillåta front dörren att hämta certifikatet.
 
-4. Välj **OK**. 
+5. Välj **OK**. 
 
-    Azure Front Door Service har nu åtkomst till nyckelvalvet och certifikaten (hemligheterna) som lagras i nyckelvalvet.
+    Azure frontend-tjänsten kan nu komma åt den här Key Vault och de certifikat som lagras i den här Key Vault.
  
 #### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Välj det certifikat som Azure Front Door Service ska distribuera
  
@@ -140,13 +147,13 @@ Domänverifiering krävs inte om du använder ett eget certifikat.
 
 CNAME-posten ska ha följande format, där *Namn* är namnet på ditt anpassade domännamn och *Värde* är din Front Doors .azurefd.net-standardvärdnamn:
 
-| Namn            | Typ  | Värde                 |
+| Name            | Typ  | Value                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
 Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
-Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och skapar ett dedikerat certifikat för domännamnet. DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och kommer att malltillägg innan den upphör. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
+Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och skapar ett dedikerat certifikat för domännamnet. DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör att gälla. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
 
 Den automatiska verifieringen tar vanligtvis några minuter. Öppna ett supportärende om domänen inte har verifierats inom en timme.
 
@@ -169,7 +176,7 @@ webmaster@&lt;dittdomännamn.com&gt;
 hostmaster@&lt;dittdomännamn.com&gt;  
 postmaster@&lt;dittdomännamn.com&gt;  
 
-Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräppostfilter kan du lägga till admin@digicert.com till sin lista över tillåtna. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
+Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräp post filter, Lägg admin@digicert.com till i listan över tillåtna. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
 
 När du klickar på godkännandelänken dirigeras du till ett formulär för godkännande online. Följ instruktionerna i formuläret. Du har två verifieringsalternativ:
 
@@ -177,7 +184,7 @@ När du klickar på godkännandelänken dirigeras du till ett formulär för god
 
 - Du kan bara godkänna det specifika värdnamn som används i den här begäran. Ytterligare godkännande krävs för efterföljande begäranden.
 
-Efter godkännandet slutför DigiCert skapandet av certifikatet för det anpassade domännamnet. Certifikatet är giltigt i ett år och kommer att malltillägg innan det upphör.
+Efter godkännandet slutför DigiCert skapandet av certifikatet för det anpassade domännamnet. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör att gälla.
 
 ## <a name="wait-for-propagation"></a>Vänta på spridning
 

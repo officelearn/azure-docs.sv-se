@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: ebecb69e57c620b2eb84568757c8e3e6f1cb1663
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 510f58cc0b71fb75ac6f5e15fc883c3caf4a8f9a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946396"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897898"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Företags säkerhet för Azure Machine Learning-tjänsten
 
@@ -31,7 +31,7 @@ Multi Factor Authentication stöds om Azure Active Directory (Azure AD) har kon 
 * Klienten presenterar token för att Azure Resource Manager & alla Azure Machine Learning tjänster
 * Azure Machine Learning tjänsten tillhandahåller en Azure Machine Learning token för användar beräkningen. Till exempel Machine Learning-beräkning. Denna token används av användar beräkning för att anropa i Azure Machine Learning-tjänsten (gränser omfång till arbets yta) när körningen har slutförts.
 
-![Skärm bild som visar hur autentisering fungerar i Azure Machine Learning-tjänsten](./media/enterprise-readiness/authentication.png)
+[![Skärm bild som visar hur autentisering fungerar i Azure Machine Learning-tjänsten](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>Autentisering för webb tjänst distribution
 
@@ -185,7 +185,7 @@ Varje arbets yta har en associerad systemtilldelad hanterad identitet (med samma
 
 Azure Monitor Mät värden kan användas för att visa och övervaka mått för arbets ytan för Azure Machine Learnings tjänsten. Från [Azure Portal](https://portal.azure.com)väljer du din arbets yta och använder sedan länken __mått__ .
 
-![Skärm bild som visar exempel mått för en arbets yta](./media/enterprise-readiness/workspace-metrics.png)
+[![Skärm bild som visar exempel mått för en arbets yta](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 Mått innehåller information om körningar, distributioner och registreringar.
 
@@ -197,7 +197,7 @@ Du kan se aktivitets loggen under arbets ytan för att se olika åtgärder som u
 
 Följande skärm bild visar aktivitets loggen för en arbets yta:
 
-![Skärm bild som visar aktivitets loggen under en arbets yta](./media/enterprise-readiness/workspace-activity-log.png)
+[![Skärm bild som visar aktivitets loggen under en arbets yta](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 Information om bedömnings förfrågningar lagras i program insikter, som skapas i användarens prenumeration när arbets ytan skapas. Loggad information innehåller fält som HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, varaktighet osv.
 
@@ -220,14 +220,14 @@ Användaren loggar in på Azure AD från någon av de Azure Machine Learning tj�
 
 Andra beräkningar som är kopplade till en arbets yta (Azure Kubernetes service, VM osv.) kan också tillhandahållas av kunder vid behov.
 
-![Skärm bild som visar arbets ytan skapa arbets yta](./media/enterprise-readiness/create-workspace.png)
+[![Skärm bild som visar arbets ytan skapa arbets yta](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### <a name="save-source-code-training-scripts"></a>Spara käll kod (tränings skript)
 
 Följande diagram visar arbets flödet för kod ögonblicks bilder.
 Kopplade till en Azure Machine Learning service-arbetsyta är kataloger (experiment) som innehåller käll koden (utbildnings skript).  Dessa skript lagras på kundens lokala dator och i molnet (i Azure-Blob Storage under kund prenumerationen). Kod ögonblicks bilderna används för körning eller inspektion för historisk granskning.
 
-![Skärm bild som visar arbets ytan skapa arbets yta](./media/enterprise-readiness/code-snapshot.png)
+[![Skärm bild som visar arbets ytan skapa arbets yta](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
 ### <a name="training"></a>Utbildning
 
@@ -253,7 +253,7 @@ I följande diagram visas arbets flödet för utbildning.
 
 Det här steget visas i flödet där inlärnings beräkning skriver tillbaka *körnings måtten* till den Azure Machine Learning tjänsten varifrån den lagras i Cosmos dB. Klienter kan anropa Azure Machine Learning tjänst som i sin tur tar emot pull-mått från Cosmos DB och tillbaka tillbaka till klienten.
 
-![Skärm bild som visar arbets ytan skapa arbets yta](./media/enterprise-readiness/training-and-metrics.png)
+[![Skärm bild som visar arbets ytan skapa arbets yta](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### <a name="creating-web-services"></a>Skapar webb tjänster
 
@@ -267,7 +267,7 @@ Se information nedan:
 * Information om bedömnings förfrågningar lagras i program insikter, som finns i användarens prenumeration
 * Telemetri skickas vidare till Microsoft/Azure-prenumerationen
 
-![Skärm bild som visar arbets ytan skapa arbets yta](./media/enterprise-readiness/inferencing.png)
+[![Skärm bild som visar arbets ytan skapa arbets yta](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

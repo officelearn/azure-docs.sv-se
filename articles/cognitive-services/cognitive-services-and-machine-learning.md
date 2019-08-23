@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 570429a2d5332e7d951271b36b79d9d16df174c0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: b0345773956a0adc5c7f403195c496a3ea5e6fd6
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535214"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982331"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services och Machine Learning
 
@@ -65,7 +65,7 @@ I allmänhet är mål grupperna olika:
 
 En kognitiv tjänst tillhandahåller en tränad modell åt dig. Detta ger data och en algoritm tillsammans, som är tillgänglig från en REST API eller SDK. Du kan implementera den här tjänsten inom några minuter, beroende på ditt scenario.  En kognitiv tjänst ger svar på allmänna problem, till exempel nyckel fraser i text-eller objekt identifiering i bilder. 
 
-Machine Learning är en process som vanligt vis kräver en längre tids period för att kunna implementeras. Den här tiden används för insamling, rensning, omvandling, val av algoritm, modell utbildning och distribution för att komma till samma funktions nivå som en kognitiv tjänst. Med Machine Learning är det möjligt att ge svar på alla typer av problem, inklusive mycket specialiserade eller specifika problem. De här maskin inlärnings problemen kräver att du är bekant med ett eller flera av följande: ämne, maskin inlärning, data vetenskap.
+Machine Learning är en process som vanligt vis kräver en längre tids period för att kunna implementeras. Den här tiden används för insamling, rensning, omvandling, val av algoritm, modell utbildning och distribution för att komma till samma funktions nivå som en kognitiv tjänst. Med Machine Learning är det möjligt att ge svar på mycket specialiserade och/eller specifika problem. Maskin inlärnings problem kräver att du känner till det speciella ämnet och data om problemet, samt kunskaper om data vetenskap.
 
 ## <a name="what-kind-of-data-do-you-have"></a>Vilken typ av data har du?
 

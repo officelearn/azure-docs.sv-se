@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: 356b430e0bb9170999398eb8eb68ad31f2d5eeb6
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017314"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899694"
 ---
-# <a name="deploy-the-diagnostics-tool"></a>Distribuera verktyget diagnostik
+# <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
 Så här kan du använda diagnostikverktyget för virtuella Windows-datorer:
 
@@ -106,7 +106,7 @@ Så här konfigurerar du de rekommenderade prestanda räknarna manuellt:
     -   Processor information (\*)\\processor tid
     -   Fördröjning för användarindata per session (\*)\\Max fördröjning för indata
 
-Läs mer om prestanda räknare [i prestanda data källor för Windows och Linux i Azure Monitor](/articles/azure-monitor/platform/data-sources-performance-counters.md).
+Läs mer om prestanda räknare [i prestanda data källor för Windows och Linux i Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
 >[!NOTE]
 >Eventuella ytterligare räknare som du konfigurerar visas inte i själva diagnostikverktyget. Om du vill att det ska visas i diagnostikverktyget måste du konfigurera verktygets konfigurations fil. Instruktioner för hur du gör detta med avancerad administration blir tillgängligt i GitHub vid ett senare tillfälle.
@@ -150,7 +150,7 @@ För att kunna visa hälso tillståndet för virtuella datorer måste du aktiver
 4. Välj namnet på den virtuella dator som du vill ansluta till.
 5. Välj **Anslut**.
 
-## <a name="deploy-the-diagnostics-tool"></a>Distribuera verktyget diagnostik
+## <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
 Distribuera Azures resurs hanterings mall för diagnostikverktyget:
 
@@ -189,7 +189,7 @@ Ange omdirigerings-URI: n:
 
 Innan du gör diagnostikverktyget tillgängligt för dina användare måste du kontrol lera att de har följande behörigheter:
 
-- Användare behöver Läs behörighet för Log Analytics. Mer information finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Användare behöver Läs behörighet för Log Analytics. Mer information finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
 -  Användare behöver också Läs behörighet för den virtuella Windows-klienten för fjärr skrivbord (RDS-läsar rollen). Mer information finns i [delegerad åtkomst i för hands versionen av Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
 Du måste också ge användarna följande information:
@@ -229,22 +229,22 @@ Du kan också interagera med användare på värd för sessionen:
 - Logisk disk (\*)\|% ledigt utrymme:
 
     - Visar procent andelen av det totala användbara utrymmet på den logiska disken som är kostnads fri.
-    - Tröskelvärde: Mindre än 20% har marker ATS som ohälsosamt.
+    - Fastställd Mindre än 20% har marker ATS som ohälsosamt.
 
 - Logisk disk (C:)\\Gmsn. Diskkölängd:
 
     - Representerar lagrings systemets villkor.
-    - Tröskelvärde: Högre än 5 har marker ATS som ohälsosamt.
+    - Fastställd Högre än 5 har marker ATS som ohälsosamt.
 
 - Tillgängligt minne\*(\\) megabyte:
 
     - Systemets tillgängliga minne.
-    - Tröskelvärde: Mindre än 500 megabyte har marker ATS som ohälsosamt.
+    - Fastställd Mindre än 500 megabyte har marker ATS som ohälsosamt.
 
 - Processor information (\*)\\processor tid:
 
-    - Tröskelvärde: Högre än 80% har marker ATS som ohälsosam.
+    - Fastställd Högre än 80% har marker ATS som ohälsosam.
 
 - [Fördröjning av användarindata per session (\*)\\högsta fördröjning](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
-    - Tröskelvärde: Högre än 2000 MS har marker ATS som ohälsosamt.
+    - Fastställd Högre än 2000 MS har marker ATS som ohälsosamt.

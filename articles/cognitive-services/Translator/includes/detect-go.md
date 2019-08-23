@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: efb314b788f7718bef1dbf1588c87ba133229552
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c2408d8ea8fb6458761ef1d853d5dde52ac2311
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968771"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907163"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [Prerequisites](prerequisites-go.md)]
 
-För den här snabbstarten krävs:
-
-* [Go](https://golang.org/doc/install)
-* En Azure-prenumerationsnyckel för Translator Text
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
@@ -38,28 +35,33 @@ import (
 
 ## <a name="create-the-main-function"></a>Skapa Main-funktionen
 
-Det här exemplet kommer att försöka läsa din Translator Text-prenumerationsnyckel från miljövariabeln `TRANSLATOR_TEXT_KEY`. Om du inte känner till miljövariabler kan du ange `subscriptionKey` som en sträng och kommentera bort den villkorliga instruktionen.
+Det här exemplet försöker läsa Translator text prenumerations nyckel och slut punkt från följande miljövariabler: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera ut villkors satserna.
 
 Kopiera den här koden till projektet:
 
 ```go
 func main() {
     /*
-     * Read your subscription key from an env variable.
-     * Please note: You can replace this code block with
-     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables. If so, be sure to delete the "os" import.
-     */
-    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
-    if subscriptionKey == "" {
-       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
+    * Read your subscription key from an env variable.
+    * Please note: You can replace this code block with
+    * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+    * want to use env variables. If so, be sure to delete the "os" import.
+    */
+    if "" == os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY") {
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_SUBSCRIPTION_KEY.")
     }
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY")
+    if "" == os.Getenv("TRANSLATOR_TEXT_ENDPOINT") {
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_ENDPOINT.")
+    }
+    endpoint := os.Getenv("TRANSLATOR_TEXT_ENDPOINT")
+    uri := endpoint + "/detect?api-version=3.0"
     /*
-     * This calls our detect function, which we'll
+     * This calls our breakSentence function, which we'll
      * create in the next section. It takes a single argument,
      * the subscription key.
      */
-    detect(subscriptionKey)
+    detect(subscriptionKey, uri)
 }
 ```
 
@@ -68,7 +70,7 @@ func main() {
 Nu ska vi skapa en funktion för att identifiera textens språk. Den här funktionen använder ett enda argument, din Translator Text-prenumerationsnyckel.
 
 ```go
-func detect(subscriptionKey string) {
+func detect(subscriptionKey string, uri string) {
     /*  
      * In the next few sections, we'll add code to this
      * function to make a request and handle the response.
@@ -82,7 +84,7 @@ Kopiera den här koden till funktionen `detect`.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/detect?api-version=3.0")
+u, _ := url.Parse(uri)
 q := u.Query()
 u.RawQuery = q.Encode()
 ```
@@ -114,7 +116,7 @@ req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
 if err != nil {
     log.Fatal(err)
 }
-// Add required headers
+// Add required headers to the request
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 

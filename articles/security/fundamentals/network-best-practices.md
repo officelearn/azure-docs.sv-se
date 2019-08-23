@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 09caffcfdad4b132858b6ec52b36fe037f488b3a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4bc4e8e02c5b44c63ee531a295f2b59e91c056bd
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934712"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900471"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Metod tips för Azure för nätverks säkerhet
 I den här artikeln beskrivs en samling Azure Best Practices för att förbättra nätverks säkerheten. Dessa bästa metoder är härledda från vår erfarenhet av Azure-nätverk och våra kunders upplevelser som du själv har.
@@ -114,7 +114,7 @@ Azure Network Security-enheter kan ge bättre säkerhet än vad kontroller på n
 Om du vill hitta tillgängliga Azure Virtual Network Security-enheter går du till [Azure Marketplace](https://azure.microsoft.com/marketplace/) och söker efter "säkerhet" och "nätverks säkerhet".
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Distribuera perimeternätverk för säkerhets zoner
-Ett [perimeternätverk](./https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (kallas även DMZ) är ett fysiskt eller logiskt nätverks segment som ger ett extra säkerhets lager mellan dina till gångar och Internet. Specialiserade enheter för nätverks åtkomst kontroll på kanten av ett perimeternätverk tillåter endast önskad trafik till det virtuella nätverket.
+Ett [perimeternätverk](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (kallas även DMZ) är ett fysiskt eller logiskt nätverks segment som ger ett extra säkerhets lager mellan dina till gångar och Internet. Specialiserade enheter för nätverks åtkomst kontroll på kanten av ett perimeternätverk tillåter endast önskad trafik till det virtuella nätverket.
 
 Perimeternätverk är användbara eftersom du kan fokusera din hantering av nätverks åtkomst kontroll, övervakning, loggning och rapportering av enheterna vid gränsen för ditt virtuella Azure-nätverk. Ett perimeternätverk är där du normalt aktiverar DDoS-skydd (distributed denial of Service), intrångs identifiering/skydd mot intrång (ID/IP-adresser), brand Väggs regler och principer, webb filtrering, nätverks program mot skadlig kod och mycket annat. Nätverks säkerhetsenheterna hamnar mellan Internet och ditt virtuella Azure-nätverk och har ett gränssnitt i båda nätverken.
 

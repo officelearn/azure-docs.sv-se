@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c78c2c8279972108aee12b9b386175d0f27b7fee
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 339b13201934b1ba5cd4f53c21d50b62814c36eb
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310417"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905383"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Självstudier: Kör ett arbets flöde för flera steg i molnet när du allokerar käll koden
 
@@ -332,7 +332,7 @@ az acr task create \
     --name example2 \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --branch master \
-    --file taskmulti-image.yaml \
+    --file taskmulti-multiregistry.yaml \
     --git-access-token $GIT_PAT \
     --set regDate=mycontainerregistrydate.azurecr.io
 ```
@@ -363,7 +363,7 @@ Som i föregående exempel för att testa multi-Step-aktiviteten utlöser du den
 az acr task run --registry $ACR_NAME --name example2
 ```
 
-Som standard strömmar kommandot `az acr task run` loggens utdata till konsolen när du kör kommandot. Som tidigare visar utdata förloppet för att köra varje aktivitets steg. Utdata komprimeras för att Visa viktiga steg
+Som standard strömmar kommandot `az acr task run` loggens utdata till konsolen när du kör kommandot. Som tidigare visar utdata förloppet för att köra varje aktivitets steg. Utdata komprimeras för att Visa viktiga steg.
 
 Resultat:
 

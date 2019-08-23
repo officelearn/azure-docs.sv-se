@@ -1,6 +1,6 @@
 ---
-title: Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion) Snabbstart
-description: Snabbstart för att skapa och fråga distribuerade tabeller på Azure Database för PostgreSQL Hyperscale (Citus) (förhandsversion).
+title: Snabb start för Azure Database for PostgreSQL – storskalig (citus) (för hands version)
+description: Snabb start för att skapa och fråga distribuerade tabeller på Azure Database for PostgreSQL citus (för hands version).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,34 +8,34 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: efc3801ab03f739761a41bec754f975fe43dcd8e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e9e7d884b7580d7655921134a7ab63b0b1b0dd6
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792011"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899988"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Snabbstart: Skapa en Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion) i Azure portal
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Snabbstart: Skapa en Azure Database for PostgreSQL-storskalig (citus) (för hands version) i Azure Portal
 
-Azure Database för PostgreSQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Den här snabbstarten visar hur du skapar en Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion) servergrupp med hjälp av Azure portal. Du kommer att utforska distribuerade data: horisontell partitionering tabeller över noder, mata in exempeldata och köra frågor som körs på flera noder.
+Azure Database för PostgreSQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Den här snabb starten visar hur du skapar en Server grupp för Azure Database for PostgreSQL disscale (citus) (för hands version) med hjälp av Azure Portal. Du kommer att utforska distribuerade data: horisontell partitionering tabeller över flera noder, mata in exempel data och köra frågor som körs på flera noder.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="create-and-distribute-tables"></a>Skapa och distribuera tabeller
 
-När du är ansluten till koordinatornoden hyperskala med psql, kan du utföra några grundläggande uppgifter.
+När du har anslutit till noden för den storskaliga koordinatorn med psql kan du utföra några grundläggande uppgifter.
 
-I hyperskala finns servrar det tre typer av tabeller:
+Det finns tre typer av tabeller i storskaliga servrar:
 
-- Distribuerade eller shardade tabeller (sprida ut för att skalning för prestanda och parallellisering)
-- Referenstabeller (flera kopior underhålls)
-- Lokala tabeller (som ofta används för interna admin tabeller)
+- Distribuerade eller shardade tabeller (Sprid ut för att hjälpa till med skalning för prestanda och parallellisering)
+- Referens tabeller (flera kopior finns kvar)
+- Lokala tabeller (används ofta för interna administratörs tabeller)
 
-I den här snabbstarten kommer vi främst fokusera på distribuerade tabeller och få bekant med dem.
+I den här snabb starten fokuserar vi främst på distribuerade tabeller och bekanta dig med dem.
 
-Vi kommer att arbeta med datamodellen är enkel: användar- och event data från GitHub. Händelserna inkluderar skapa en förgrening, git-skrivningar relaterade till en organisation och mycket mer.
+Data modellen som vi ska arbeta med är enkel: användar-och händelse data från GitHub. Händelser omfattar att skapa gaffel, git-incheckningar som är relaterade till en organisation och mer.
 
-När du har anslutit via psql kan vi skapa våra tabeller. I psql-konsolen kör:
+När du har anslutit via psql ska vi skapa våra tabeller. I psql-konsolen kör du:
 
 ```sql
 CREATE TABLE github_events
@@ -62,30 +62,30 @@ CREATE TABLE github_users
 );
 ```
 
-Den `payload` i `github_events` har datatypen JSONB. JSONB är JSON-datatypen i binär form i Postgres. Datatypen gör det enkelt att lagra ett flexibelt schema i en enda kolumn.
+`payload` Fältet i`github_events` har en JSONB-datatype. JSONB är JSON-datatypen i binär form i postgres. Datatype gör det enkelt att lagra ett flexibelt schema i en enda kolumn.
 
-Postgres kan skapa en `GIN` indexet för den här typen som indexerar varje nyckel och värde i den. Med ett index, blir det snabbt och enkelt att fråga nyttolasten med olika villkor. Vi går vidare och skapa några index innan vi läser in våra data. I psql:
+Postgres kan skapa ett `GIN` index av den här typen, vilket kommer att indexera varje nyckel och värde i den. Med ett index blir det snabbt och enkelt att fråga nytto lasten med olika villkor. Nu ska vi gå vidare och skapa ett par index innan vi läser in våra data. I psql:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Sedan vi ikläd koordinatornoden dessa Postgres-tabeller och berätta hyperskala till shard dem över ”arbetarna”. Om du vill göra det vi kommer att köra en fråga för varje tabell som anger nyckeln till shard det på. I det aktuella exemplet kommer vi att fragment både händelser och användare tabellen på `user_id`:
+Härnäst ska vi ta dessa postgres-tabeller på koordinator-noden och meddela att de kan Shard dem över arbets tagarna. För att göra det kör vi en fråga för varje tabell som anger nyckeln för att Shard den. I det aktuella exemplet ska vi Shard både händelse-och användar tabellen på `user_id`:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
 
-Vi är redo att läsa in data. I psql fortfarande, shell ska hämta filerna:
+Vi är redo att läsa in data. I psql kan du fortfarande ladda ned filerna:
 
 ```sql
 \! curl -O https://examples.citusdata.com/users.csv
 \! curl -O https://examples.citusdata.com/events.csv
 ```
 
-Därefter in data från filer i de distribuerade tabellerna:
+Läs sedan in data från filerna i de distribuerade tabellerna:
 
 ```sql
 \copy github_events from 'events.csv' WITH CSV
@@ -94,13 +94,13 @@ Därefter in data från filer i de distribuerade tabellerna:
 
 ## <a name="run-queries"></a>Köra frågor
 
-Nu är det dags för roligt del, som faktiskt kör några frågor. Låt oss börja med en enkel `count (*)` att se hur mycket data som har blivit inläst:
+Nu är det dags för den roliga delen, som faktiskt kör några frågor. Vi börjar med en enkel `count (*)` för att se hur mycket data vi läst in:
 
 ```sql
 SELECT count(*) from github_events;
 ```
 
-Som fungerade ett snyggt sätt. Vi ska gå tillbaka till den typ av aggregering om en stund, men nu ska vi titta på några andra frågor. I JSONB `payload` kolumnen det är en bra bit data, men det varierar beroende på händelsetyp. `PushEvent` händelser som innehåller en storlek som innehåller antalet distinkta incheckningar för push-meddelandet. Vi kan använda den för att hitta det totala antalet skrivningar per timme:
+Det fungerade snyggt. Vi kommer tillbaka till den sortens agg regering i en bit, men nu ska vi titta på några andra frågor. I kolumnen JSONB `payload` finns det en utmärkt mängd data, men den varierar beroende på händelse typ. `PushEvent`händelser innehåller en storlek som inkluderar antalet distinkta incheckningar för push. Vi kan använda den för att hitta det totala antalet incheckningar per timme:
 
 ```sql
 SELECT date_trunc('hour', created_at) AS hour,
@@ -111,29 +111,29 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Så här långt frågorna hade det inneburit github\_händelser exklusivt, men vi kan kombinera den här informationen med github\_användare. Eftersom vi shardade både användare och händelser på samma identifierare (`user_id`), raderna i båda tabellerna med matchande användar-ID kommer att [samordnat](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) på samma databas noder och kan enkelt kopplas.
+Hittills har frågorna involverade GitHub\_-händelserna exklusivt, men vi kan kombinera den här informationen med GitHub\_-användare. Eftersom vi shardade både användare och händelser på samma identifierare (`user_id`), kommer raderna i båda tabellerna med matchande användar-ID att samplaceras på samma databasnoder och kan enkelt anslutas. [](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation)
 
-Om vi går med på `user_id`, storskaliga kan skicka join-körningen horisontellt för körning av parallella på arbetsnoderna. Exempelvis kan vi hitta de användare som skapade det högsta antalet databaser:
+Om vi ansluter till `user_id`kan skalningen av anslutningen gå över till Shards för körning parallellt på arbetsnoder. Vi kan till exempel hitta de användare som skapade det största antalet databaser:
 
 ```sql
-SELECT login, count(*)
-FROM github_events ge
-JOIN github_users gu
-ON ge.user_id = gu.user_id
-WHERE event_type = 'CreateEvent' AND
-      payload @> '{"ref_type": "repository"}'
-GROUP BY login
-ORDER BY count(*) DESC;
+SELECT gu.login, count(*)
+  FROM github_events ge
+  JOIN github_users gu
+    ON ge.user_id = gu.user_id
+ WHERE ge.event_type = 'CreateEvent'
+   AND ge.payload @> '{"ref_type": "repository"}'
+ GROUP BY gu.login
+ ORDER BY count(*) DESC;
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I föregående steg skapade du Azure-resurser i en servergrupp. Om du inte tror att du behöver dessa resurser i framtiden kan du ta bort servergruppen. Tryck på den **ta bort** knappen i den **översikt** sidan för din servergrupp. När du uppmanas att göra på en popup-sida bekräfta namnet på servergruppen och klickar på sista **ta bort** knappen.
+I föregående steg skapade du Azure-resurser i en Server grupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort Server gruppen. Tryck på knappen **ta bort** på sidan **Översikt** för Server gruppen. När du uppmanas till ett popup-fönster bekräftar du namnet på Server gruppen och klickar på knappen slutlig **borttagning** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du etablerar en servergrupp i hyperskala (Citus). Du är ansluten till den med psql, skapas ett schema och distribuerade data.
+I den här snabb starten har du lärt dig hur du etablerar en Server grupp för storskaliga (citus). Du är ansluten till den med psql, skapat ett schema och distribuerade data.
 
-Därefter Följ en självstudie för att bygga skalbara program för flera innehavare.
+Sedan följer du en självstudie för att bygga skalbara program för flera klienter.
 > [!div class="nextstepaction"]
 > [Utforma en databas för flera innehavare](https://aka.ms/hyperscale-tutorial-multi-tenant)

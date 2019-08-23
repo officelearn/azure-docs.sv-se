@@ -1,21 +1,19 @@
 ---
 title: Utveckla Azure Functions med Visual Studio | Microsoft Docs
 description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av Azure Functions verktyg för Visual Studio 2019.
-services: functions
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 6040552ccee5269e4a04d8b7a1ee072400a8506d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593260"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905683"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure Functions med Visual Studio  
 
@@ -102,7 +100,7 @@ Så här anger du anslutnings strängen för lagrings kontot:
 
 2. Öppna filen Local. Settings. json i projektet och ange värdet för **AzureWebJobsStorage** -nyckeln till den anslutnings sträng som du kopierade.
 
-3. Upprepa föregående steg för att lägga till unika nycklar i **matrisen** Arrays för alla andra anslutningar som krävs av dina funktioner. 
+3. Upprepa föregående steg för att lägga till unika nycklar i matrisen Arrays för alla andra anslutningar som krävs av dina funktioner. 
 
 ## <a name="add-a-function-to-your-project"></a>Lägg till en funktion i projektet
 
@@ -212,6 +210,9 @@ Dialog rutan **program inställningar** för Function-appen visas där du kan l�
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
 **Local** representerar ett inställnings värde i den lokala. Settings. JSON-filen och **Remote** är den aktuella inställningen i Function-appen i Azure.  Välj **Lägg till inställning** för att skapa en ny app-inställning. Använd **värdet infoga värde från lokal** länk för att kopiera ett inställnings värde till fältet **Remote** . Väntande ändringar skrivs till den lokala inställnings filen och Function-appen när du väljer **OK**.
+
+> [!NOTE]
+> Som standard kontrol leras inte filen Local. Settings. json i käll kontrollen. Det innebär att när du klonar ett lokalt Functions-projekt från käll kontrollen har projektet ingen lokal. Settings. JSON-fil. I så fall måste du skapa den lokala. Settings. JSON-filen manuellt i projekt roten så att dialog rutan **program inställningar** fungerar som förväntat. 
 
 Du kan också hantera program inställningar på något av följande sätt:
 

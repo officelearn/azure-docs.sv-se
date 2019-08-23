@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 44dea072b9871d0be6e18549896456af2a4989f6
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 5a0be55df9be67fcf6ff5d53e18e3eb2b0e69d7f
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558760"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904468"
 ---
 # <a name="get-started-with-device-management-net"></a>Kom igång med enhets hantering (.NET)
 
@@ -34,7 +34,9 @@ I slutet av den här självstudiekursen har du två .NET-konsolappar:
 
 * **TriggerReboot**. Den här appen anropar en direkt metod i den simulerade Device-appen, visar svaret och visar uppdaterade egenskaper som rapporteras.
 
-För att slutföra den här självstudien, finns följande förhandskrav:
+## <a name="prerequisites"></a>Förutsättningar
+
+För att slutföra den här kursen behöver du:
 
 * Visual Studio.
 
@@ -81,7 +83,7 @@ I det här avsnittet skapar du en .NET-konsol app med C#, som initierar en fjär
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med IoT Hub anslutnings strängen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
+1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med IoT Hub anslutnings strängen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen. `{iot hub connection string}`
 
    ```csharp
    static RegistryManager registryManager;
@@ -133,7 +135,7 @@ I det här avsnittet skapar du en .NET-konsol app med C#, som initierar en fjär
 
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 
-I det här avsnittet utför du följande åtgärder:
+I det här avsnittet får du:
 
 * Skapa en .NET-konsol app som svarar på en direkt metod som anropas av molnet.
 
@@ -164,11 +166,10 @@ Följ dessa steg om du vill skapa en simulerad enhets app:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med enhets anslutnings strängen som du antecknade i föregående avsnitt.
+1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med enhets anslutnings strängen som du noterade tidigare i [Registrera en ny enhet i IoT Hub.](#register-a-new-device-in-the-iot-hub) `{device connection string}`
 
     ```csharp
-    static string DeviceConnectionString = 
-      "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static string DeviceConnectionString = "{device connection string}";
     static DeviceClient Client = null;
     ```
 
@@ -233,7 +234,7 @@ Följ dessa steg om du vill skapa en simulerad enhets app:
    }
    ```
 
-1. Högerklicka på din lösning i Solution Explorer och välj **Ange start projekt**. 
+1. Högerklicka på din lösning i Solution Explorer och välj **Ange start projekt**.
 
 1. För **vanliga egenskaper** > **Start projekt**väljer du **enstaka start projekt**och väljer sedan **SimulateManagedDevice** -projektet. Spara ändringarna genom att välja **OK**.
 
@@ -244,7 +245,7 @@ Följ dessa steg om du vill skapa en simulerad enhets app:
 
 ## <a name="run-the-apps"></a>Köra apparna
 
-Nu är det dags att köra apparna.
+Du är nu redo att köra apparna.
 
 1. Om du vill köra .NET-enhets appens **SimulateManagedDevice**högerklickar du på projektet **SimulateManagedDevice** i Solution Explorer, väljer **Felsök**och väljer sedan **Starta ny instans**. Appen ska börja lyssna efter metod anrop från IoT Hub.
 

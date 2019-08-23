@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/22/2019
+ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 52d7b84fe6210d8a4d46814ad6749bed0463478e
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: a0b0df9110f062b5f9c23840cb21308b634c9c81
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405644"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898161"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -76,6 +76,11 @@ När du har skapat en åtgärds grupp visas den i avsnittet **Åtgärds grupper*
 > [!NOTE]
 > Se [begränsningar för prenumerations tjänsten för övervakning](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) av numeriska gränser för varje objekt nedan.  
 
+### <a name="automation-runbook"></a>Automation Runbook
+Se begränsningar för [Azure-prenumerations tjänsten](../../azure-subscription-service-limits.md) för begränsningar i Runbook-nyttolaster.
+
+Du kan ha ett begränsat antal Runbook-åtgärder i en åtgärds grupp. 
+
 ### <a name="azure-app-push-notifications"></a>Push-meddelanden för Azure-appar
 Du kan ha ett begränsat antal Azure App-åtgärder i en åtgärds grupp.
 
@@ -87,6 +92,16 @@ E-postmeddelanden kommer att skickas från följande e-postadresser. Kontrol ler
 
 Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
+### <a name="email-azure-resource-manager-role"></a>E-posta Azure Resource Manager-rollen
+Skicka e-post till medlemmarna i prenumerationens roll.
+
+Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
+
+### <a name="function"></a>Funktion
+Funktions tangenterna för Function-appar som kon figurer ATS som åtgärder läses via Functions-API: t, som för närvarande krävs v2-funktions program för att konfigurera app-inställningen "AzureWebJobsSecretStorageType" till "Files". Mer information finns i [ändringar av nyckel hantering i functions v2]( https://aka.ms/funcsecrets).
+
+Du kan ha ett begränsat antal funktions åtgärder i en åtgärds grupp.
+
 ### <a name="itsm"></a>ITSM
 ITSM-åtgärden kräver en ITSM-anslutning. Lär dig hur du skapar en [ITSM-anslutning](../../azure-monitor/platform/itsmc-overview.md).
 
@@ -95,51 +110,7 @@ Du kan ha ett begränsat antal ITSM-åtgärder i en åtgärds grupp.
 ### <a name="logic-app"></a>Logikapp
 Du kan ha ett begränsat antal Logic app-åtgärder i en åtgärds grupp.
 
-### <a name="function"></a>Funktion
-Funktions tangenterna för Function-appar som kon figurer ATS som åtgärder läses via Functions-API: t, som för närvarande krävs v2-funktions program för att konfigurera app-inställningen "AzureWebJobsSecretStorageType" till "Files". Mer information finns i [ändringar av nyckel hantering i functions v2]( https://aka.ms/funcsecrets).
-
-Du kan ha ett begränsat antal funktions åtgärder i en åtgärds grupp.
-
-### <a name="automation-runbook"></a>Automation Runbook
-Se begränsningar för [Azure-prenumerations tjänsten](../../azure-subscription-service-limits.md) för begränsningar i Runbook-nyttolaster.
-
-Du kan ha ett begränsat antal Runbook-åtgärder i en åtgärds grupp. 
-
-### <a name="sms"></a>SMS
-Mer viktig information finns i [frekvens begränsa information](./../../azure-monitor/platform/alerts-rate-limiting.md) och [SMS](../../azure-monitor/platform/alerts-sms-behavior.md) -aviseringar.
-
-Du kan ha ett begränsat antal SMS-åtgärder i en åtgärds grupp.  
-
-### <a name="voice"></a>Röst
-Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
-
-Du kan ha ett begränsat antal röst åtgärder i en åtgärds grupp.
-
-### <a name="webhook"></a>Webhook
-Webhook-försök görs med följande regler. Webhook-anropet görs om högst 2 gånger när följande HTTP-status koder returneras: 408, 429, 503, 504, eller om HTTP-slutpunkten inte svarar. Det första återförsöket görs efter 10 sekunder. Det andra återförsöket sker efter 100 sekunder. Efter två haveri anropar ingen åtgärds grupp slut punkten i 30 minuter. 
-
-Käll-IP-adressintervall
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
-
-Om du vill ta emot uppdateringar om ändringar av dessa IP-adresser rekommenderar vi att du konfigurerar en Service Health avisering, som övervakar informations meddelanden om tjänsten åtgärds grupper.
-
-Du kan ha ett begränsat antal webhook-åtgärder i en åtgärds grupp.
-
-#### <a name="secure-webhook"></a>Säker webhook
+### <a name="secure-webhook"></a>Säker webhook
 **Den säkra webhook-funktionen är för närvarande en för hands version.**
 
 Med åtgärden åtgärds grupper webhook kan du dra nytta av Azure Active Directory för att skydda anslutningen mellan din åtgärds grupp och din skyddade webb-API (webhook-slutpunkt). Det övergripande arbets flödet för att dra nytta av den här funktionen beskrivs nedan. En översikt över Azure AD-program och tjänst huvud namn finns i [Översikt över Microsoft Identity Platform (v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
@@ -156,12 +127,12 @@ Med åtgärden åtgärds grupper webhook kan du dra nytta av Azure Active Direct
     - Ändra PowerShell-skriptets variabel $myAzureADApplicationObjectId att använda objekt-ID: t för ditt Azure AD-program
     - Kör det ändrade skriptet.
     
-1. Konfigurera åtgärds gruppens webhook-åtgärd.
+1. Konfigurera åtgärds gruppens säkra webhook-åtgärd.
     - Kopiera värdet $myApp. ObjectId från skriptet och ange det i fältet program objekt-ID i definition av webhook-åtgärd.
     
     ![Säker webhook-åtgärd](./media/action-groups/action-groups-secure-webhook.png)
 
-##### <a name="secure-webhook-powershell-script"></a>Secure webhook PowerShell-skript
+#### <a name="secure-webhook-powershell-script"></a>Secure webhook PowerShell-skript
 
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
@@ -229,6 +200,41 @@ Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
+
+### <a name="sms"></a>SMS
+Mer viktig information finns i [frekvens begränsa information](./../../azure-monitor/platform/alerts-rate-limiting.md) och [SMS](../../azure-monitor/platform/alerts-sms-behavior.md) -aviseringar.
+
+Du kan ha ett begränsat antal SMS-åtgärder i en åtgärds grupp.  
+
+### <a name="voice"></a>Röst
+Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
+
+Du kan ha ett begränsat antal röst åtgärder i en åtgärds grupp.
+
+### <a name="webhook"></a>Webhook
+Webhook-försök görs med följande regler. Webhook-anropet görs om högst 2 gånger när följande HTTP-status koder returneras: 408, 429, 503, 504, eller om HTTP-slutpunkten inte svarar. Det första återförsöket görs efter 10 sekunder. Det andra återförsöket sker efter 100 sekunder. Efter två haveri anropar ingen åtgärds grupp slut punkten i 30 minuter. 
+
+Käll-IP-adressintervall
+ - 13.72.19.232
+ - 13.106.57.181
+ - 13.106.54.3
+ - 13.106.54.19
+ - 13.106.38.142
+ - 13.106.38.148
+ - 13.106.57.196
+ - 13.106.57.197
+ - 52.244.68.117
+ - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
+ - 51.4.138.199
+ - 51.5.148.86
+ - 51.5.149.19
+
+Om du vill ta emot uppdateringar om ändringar av dessa IP-adresser rekommenderar vi att du konfigurerar en Service Health avisering, som övervakar informations meddelanden om tjänsten åtgärds grupper.
+
+Du kan ha ett begränsat antal webhook-åtgärder i en åtgärds grupp.
+
 
 
 ## <a name="next-steps"></a>Nästa steg

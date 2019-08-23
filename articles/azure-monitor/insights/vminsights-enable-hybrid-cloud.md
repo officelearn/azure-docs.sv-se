@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: e8241069a8671919b70dfbe44fe28c99a05358c5
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: b06fe477f551977b1357f3b1b185cb340a948052
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489738"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905487"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Aktivera Azure Monitor for VMs (för hands version) för en hybrid miljö
 
@@ -26,7 +26,7 @@ ms.locfileid: "68489738"
 
 I den här artikeln förklaras hur du aktiverar Azure Monitor for VMs (för hands version) för virtuella datorer eller fysiska datorer som finns i ditt data Center eller i annan moln miljö. I slutet av den här processen kommer du att ha börjat övervaka dina virtuella datorer i din miljö och lära dig om de har problem med prestanda eller tillgänglighet. 
 
-Innan du börjar bör du läsa igenom [kraven och kontrol](vminsights-enable-overview.md) lera att din prenumeration och dina resurser uppfyller kraven. Granska kraven och distributionsmetoder för den [Log Analytics Linux och Windows-agenten](../../log-analytics/log-analytics-agent-overview.md).
+Innan du börjar bör du läsa igenom kraven och kontrol [](vminsights-enable-overview.md) lera att din prenumeration och dina resurser uppfyller kraven. Granska kraven och distributionsmetoder för den [Log Analytics Linux och Windows-agenten](../../log-analytics/log-analytics-agent-overview.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -42,6 +42,9 @@ Stegen för att slutföra den här uppgiften sammanfattas på följande sätt:
 3. Aktivera insamling av prestandaräknare.
 
 4. Distribuera Azure Monitor för virtuella datorer.
+
+>[!NOTE]
+>Den information som beskrivs i den här artikeln för att distribuera beroende agenten gäller även för den [tjänstkarta lösningen](service-map.md).  
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Installera beroendeagenten på Windows
 

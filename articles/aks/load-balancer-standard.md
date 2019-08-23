@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 68968c1f846a1052600a8ed108f4d40fd9d8f2cb
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 422189952096ef25b69e62aa2708c59385b0637a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534722"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898947"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>För hands version – Använd en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
@@ -166,7 +166,7 @@ Följande exempelutdata visar den enskilda nod som skapades i föregående steg.
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.9
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.10
 ```
 
 ## <a name="verify-your-cluster-uses-the-standard-sku"></a>Verifiera att klustret använder *standard* -SKU: n

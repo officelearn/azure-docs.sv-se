@@ -6,25 +6,20 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/13/2019
+ms.date: 08/21/2019
 ms.author: heidist
-ms.openlocfilehash: 1f3e4d69d3fdba8eba2e7d3cadc3c29703bffcaf
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 204951f725c2885fe9f8bf33fffe83e55628dd34
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558606"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899690"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
 
-Azure Search är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program. Din anpassade kod anropar data inmatningen (indexering), utfärdar fråge förfrågningar och hanterar svar. Sök funktionen definieras i klient koden med hjälp av funktionen från Azure Search, med frågekörningen över ett beständigt index som du skapar, äger och lagrar på Azure Search.
+Azure Search är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program. Din anpassade kod anropar data inmatning (indexering) för att skapa och läsa in ett index. På den andra sidan utfärdar din program kod frågor om begär Anden och hanterar svar. Sök funktionen definieras i-klienten med hjälp av funktioner från Azure Search, med frågekörningen över ett beständigt index som du skapar, äger och lagrar på Azure Search.
 
 ![Azure Search arkitektur](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search arkitektur")
-
-<!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
-+ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
-+ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
-+ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search. -->
 
 Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [.NET-SDK](search-howto-dotnet-sdk.md) som maskerar den inbyggda komplexiteten i informationshämtning. Förutom API:er tillhandahåller Azure Portal stöd för administration och innehållshantering, med verktyg för indexprototyper och -frågor. Eftersom tjänsten körs i molnet hanteras infrastruktur och tillgänglighet av Microsoft.
 
@@ -36,7 +31,7 @@ Azure Search passar bra för följande program scenarier:
 
 + Enkel implementering av sökrelaterade funktioner. Azure Search-API: er fören klar frågornas konstruktion, fasett navigering, filter (inklusive geo-spatial sökning), synonym mappning, typeahead-frågor och relevans-justering. Med hjälp av inbyggda funktioner kan du tillgodose förväntningar på slutanvändare för en Sök upplevelse som liknar de kommersiella sökmotorer för Webbs ökning.
 
-+ Indexera ostrukturerad text eller extrahera text och information från bildfiler. Funktionen kognitiv sökning i Azure Search lägger till AI-bearbetning till en indexerings pipeline. Några vanliga användnings fall är OCR över skannade dokument, enhets igenkänning och nyckel fras extrahering över stora dokument, språk identifiering och text översättning och sentiment analys.
++ Indexera ostrukturerad text eller extrahera text och information från bildfiler. Funktionen [kognitiv sökning](cognitive-search-concept-intro.md) i Azure Search lägger till AI-bearbetning till en indexerings pipeline. Några vanliga användnings fall är OCR över skannade dokument, enhets igenkänning och nyckel fras extrahering över stora dokument, språk identifiering och text översättning och sentiment analys.
 
 + Språkliga krav uppfylls med hjälp av anpassade och språk analys verktyg för Azure Search. Om du har ett annat innehåll än engelska, stöder Azure Search både Lucene-analyser och Microsofts naturliga språk processorer. Du kan också konfigurera analys verktyg för att uppnå specialiserad bearbetning av rå data, till exempel att filtrera ut dia kritiska tecken.
 
@@ -93,7 +88,9 @@ Med pull-modellen hämtas data från externa datakällor. Den stöds med hjälp 
 Push-modellen tillhandahålls via SDK eller REST API:er, som används för att skicka uppdaterade dokument till ett index. Du kan skicka data från i princip valfri datamängd med JSON-format. Mer information om hur du läser in data finns i [Lägga till, uppdatera och ta bort dokument](/rest/api/searchservice/addupdate-or-delete-documents) och [Använda .NET-SDK](search-howto-dotnet-sdk.md).
 
 ### <a name="step-4-search"></a>Steg 4: Search
-När du har fyllt i ett index kan du [utfärda sökfrågor](/rest/api/searchservice/Search-Documents) till tjänstens slutpunkt med hjälp av enkla HTTP-begäranden med REST API eller .NET-SDK.
+När du har fyllt i ett index kan du [utfärda Sök frågor](search-query-overview.md) till tjänstens slut punkt med hjälp av enkla HTTP-begäranden med [REST API](/rest/api/searchservice/Search-Documents) eller [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations).
+
+Stega genom att [skapa din första Sökapp](tutorial-csharp-create-first-app.md) för att skapa och utöka en webb sida som samlar in användarindata och hanterar resultat. Du kan också använda [Postman för interaktiva rest](search-get-started-postman.md) -anrop eller den inbyggda [sök Utforskaren](search-explorer.md) i Azure Portal om du vill fråga ett befintligt index.
 
 ## <a name="how-it-compares"></a>Jämförelse
 

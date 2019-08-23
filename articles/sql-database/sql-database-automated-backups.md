@@ -10,13 +10,14 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 06/27/2019
-ms.openlocfilehash: 1afe8a2e9179c768fd639b4a208de98b0789a53f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+manager: craigg
+ms.date: 08/22/2019
+ms.openlocfilehash: 551c2c02af7b996a34a138586fd91a77a0455d92
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569466"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904325"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -32,10 +33,10 @@ Du kan använda dessa säkerhets kopior för att:
 
 - **Återställ en befintlig databas till en** tidpunkt som redan har passerat under kvarhållningsperioden med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API. I en enkel databas och elastiska pooler skapar den här åtgärden en ny databas i samma server som den ursprungliga databasen. I en hanterad instans kan den här åtgärden Skapa en kopia av databasen eller samma eller en annan hanterad instans under samma prenumeration.
   - **[Ändra kvarhållning av säkerhets kopior](#how-to-change-the-pitr-backup-retention-period)** mellan 7 och 35 dagar för att konfigurera säkerhets kopierings principen.
-  - **Ändra principen för långsiktig kvarhållning upp till 10 år** på enkel databas och elastiska pooler med hjälp [av Azure Portal](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) eller [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
+  - **Ändra principen för långsiktig kvarhållning upp till 10 år** på enkel databas och elastiska pooler med hjälp [av Azure Portal](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) eller [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups).
 - **Återställ en borttagen databas till den tidpunkt då den togs bort eller var** som helst under kvarhållningsperioden. Den borttagna databasen kan bara återställas på samma logiska Server eller hanterade instans där den ursprungliga databasen skapades.
 - **Återställ en databas till en annan geografisk region**. Med geo-återställning kan du återställa från en geografisk katastrof när du inte har åtkomst till servern och databasen. Den skapar en ny databas på en befintlig server var som helst i världen.
-- **Återställ en databas från en speciell långsiktig säkerhets kopia** på Enkel databas eller elastisk pool om databasen har kon figurer ATS med en långsiktig bevarande princip (brv). Med LTR kan du återställa en gammal version av databasen med hjälp [av Azure Portal](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) eller [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups) för att uppfylla en begäran om efterlevnad eller köra en gammal version av programmet. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
+- **Återställ en databas från en speciell långsiktig säkerhets kopia** på Enkel databas eller elastisk pool om databasen har kon figurer ATS med en långsiktig bevarande princip (brv). Med LTR kan du återställa en gammal version av databasen med hjälp [av Azure Portal](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) eller [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups) för att uppfylla en begäran om efterlevnad eller köra en gammal version av programmet. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 - Information om hur du utför en återställning finns i [återställa databasen från säkerhets kopior](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -46,7 +47,7 @@ Du kan prova några av de här åtgärderna med hjälp av följande exempel:
 | | Azure Portal | Azure PowerShell |
 |---|---|---|
 | Ändra kvarhållning av säkerhets kopior | [Enkel databas](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [Hanterad instans](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [Enkel databas](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Ändra långsiktig kvarhållning av säkerhets kopior | [Enkel databas](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Hanterad instans-saknas  | [Enkel databas](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)<br/>Hanterad instans-saknas  |
+| Ändra långsiktig kvarhållning av säkerhets kopior | [Enkel databas](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Hanterad instans-saknas  | [Enkel databas](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Hanterad instans-saknas  |
 | Återställ databas från tidpunkt | [Enkel databas](sql-database-recovery-using-backups.md#point-in-time-restore) | [Enkel databas](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | Återställa borttagen databas | [Enkel databas](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [Enkel databas](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | Återställa databasen från Azure Blob Storage | Enkel databas-ej tillämpligt <br/>Hanterad instans-saknas  | Enkel databas-ej tillämpligt <br/>[Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
@@ -81,7 +82,7 @@ Precis som PITR är säkerhets kopiorna för säkerhets kopian geo-redundanta oc
 Mer information finns i [långsiktig kvarhållning av säkerhets kopior](sql-database-long-term-retention.md).
 
 ## <a name="storage-costs"></a>Lagringskostnader
-Automatiserade säkerhetskopieringar för sju dagar av dina databaser kopieras till RA-GRS standardbloblagring som standard. Lagringsutrymmet används av veckovisa, fullständiga säkerhetskopior, dagliga differentiella säkerhetskopior och säkerhetskopior av transaktionsloggar var femte minut. Storleken på transaktions loggen beror på ändrings takten för databasen. En minimimängd lagringsutrymme motsvarande 100 procent av databasens storlek tillhandahålls utan extra kostnad. Ytterligare förbrukning av lagringsenhet för säkerhetskopior debiteras för GB/månad.
+För enskilda databaser tillhandahålls ett minsta antal säkerhets kopierings lagrings utrymme som är lika med 100% av databasens storlek utan extra kostnad. För elastiska pooler tillhandahålls minst 100% av det allokerade data lagrings utrymmet för poolen utan extra kostnad. Ytterligare förbrukning av lagringsenhet för säkerhetskopior debiteras för GB/månad. Den här ytterligare förbrukningen är beroende av arbets belastningen och storleken på de enskilda databaserna.
 
 Mer information om lagrings priser finns på sidan med [priser](https://azure.microsoft.com/pricing/details/sql-database/single/) . 
 
@@ -155,7 +156,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 #### <a name="sample-response"></a>Exempelsvar
 
-Statuskod: 200
+Status kod: 200
 
 ```json
 {

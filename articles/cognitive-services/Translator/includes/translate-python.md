@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 32a784d0b359c21aa17c7ed73081c01a37f01e90
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 648842e86410985e3a6fb21f474b9df9d14e109d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968680"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906717"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-För den här snabbstarten krävs:
-
-* Python 2.7.x eller 3.x
-* En Azure-prenumerationsnyckel för Translator Text
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
@@ -24,10 +21,7 @@ Skapa ett nytt Python-projekt med valfri IDE eller redigeringsprogram. Kopiera s
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -35,27 +29,25 @@ import json
 
 Den första kommentaren instruerar Python-tolken att använda UTF-8-kodning. Sedan importeras de moduler som krävs för att läsa prenumerationsnyckeln från en miljövariabel, skapa HTTP-begäran, skapa en unik identifierare samt hantera det JSON-svar som returneras av Translator Text API.
 
-## <a name="set-the-subscription-key-base-url-and-path"></a>Ange prenumerationsnyckeln, bas-URL och sökvägen
+## <a name="set-the-subscription-key-endpoint-and-path"></a>Ange prenumerations nyckel, slut punkt och sökväg
 
-Det här exemplet kommer att försöka läsa din Translator Text-prenumerationsnyckel från miljövariabeln `TRANSLATOR_TEXT_KEY`. Om du inte känner till miljövariabler kan du ange `subscriptionKey` som en sträng och kommentera bort den villkorliga instruktionen.
+Det här exemplet försöker läsa Translator text prenumerations nyckel och slut punkt från miljövariablerna: `TRANSLATOR_TEXT_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscription_key` och `endpoint` som en sträng och kommentera ut villkors satserna.
 
 Kopiera den här koden till projektet:
 
 ```python
-# Checks to see if the Translator Text subscription key is available
-# as an environment variable. If you are setting your subscription key as a
-# string, then comment these lines out.
-if 'TRANSLATOR_TEXT_KEY' in os.environ:
-    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
-else:
-    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
-    exit()
-# If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
+key_var_name = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
 ```
 
-Den globala slutpunkten för Translator Text anges som `base_url`. `path` anger `translate`-vägen och identifierar att vi vill nå version 3 av API:et.
+Den globala slutpunkten för Translator Text anges som `endpoint`. `path` anger `translate`-vägen och identifierar att vi vill nå version 3 av API:et.
 
 `params` används till att ange utdataspråken. I det här exemplet översätter vi från engelska till italienska och tyska: `it` och `de`.
 
@@ -63,10 +55,9 @@ Den globala slutpunkten för Translator Text anges som `base_url`. `path` anger 
 > Mer information om slutpunkter, vägar och att begära parametrar finns i [Translator Text API 3.0: Översätt](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/translate?api-version=3.0'
 params = '&to=de&to=it'
-constructed_url = base_url + path + params
+constructed_url = endpoint + path + params
 ```
 
 ## <a name="add-headers"></a>Lägga till sidhuvuden
@@ -77,7 +68,7 @@ Kopiera det här kodavsnittet till projektet:
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Key': subscription_key,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }

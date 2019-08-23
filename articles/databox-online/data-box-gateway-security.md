@@ -1,97 +1,97 @@
 ---
-title: Azure Data Box Gateway-säkerhet | Microsoft Docs
-description: Beskriver de funktioner för säkerhet och sekretess som skyddar dina Azure Data Box Gateway virtuella enheten och tjänsten data, både lokalt och i molnet.
+title: Azure Data Box Gateway säkerhet | Microsoft Docs
+description: Beskriver funktioner för säkerhet och sekretess som skyddar din Azure Data Box Gateway virtuella enhet, tjänst och data lokalt och i molnet.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 230d1a28ba15a8736e46c02cb08217a28fc18599
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89f981fcda8f40daff49ebdf796b896d90ce1754
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695190"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900610"
 ---
-# <a name="azure-data-box-gateway-security-and-data-protection"></a>Säkerhet och dataskydd i Azure Data Box-Gateway
+# <a name="azure-data-box-gateway-security-and-data-protection"></a>Azure Data Box Gateway säkerhet och data skydd
 
-Säkerhet är av stor betydelse när du en ny teknik, särskilt om tekniken används med konfidentiell eller upphovsrättsskyddad information. Azure Data Box-Gateway kan du se till att endast behöriga entiteter kan visa, ändra eller ta bort dina data.
+Säkerhet är ett viktigt problem när du använder en ny teknik, särskilt om tekniken används med konfidentiell eller patentskyddad information. Azure Data Box Gateway hjälper dig att se till att endast auktoriserade entiteter kan visa, ändra eller ta bort dina data.
 
-Den här artikeln beskriver de säkerhetsfunktionerna i Azure Data Box-Gateway som skyddar alla komponenter och data som lagras i dem.
+I den här artikeln beskrivs Azure Data Box Gateway säkerhetsfunktioner som skyddar varje lösnings komponent och de data som lagras i dem.
 
-Data Box Gateway-lösningen består av fyra huvudsakliga komponenter som interagerar med varandra:
+Data Box Gateway lösningen består av fyra huvud komponenter som interagerar med varandra:
 
-- **Data Box-Gateway-tjänsten som finns i Azure**. Resursen för hantering som används för att skapa enhet-order konfigurera enheten och sedan spåra ordningen för slutförande.
-- **Data Box-gatewayenhet**. Den virtuella enheten som du etablerar i hypervisor-programmet för systemet som du anger. Den här virtuella enheten används för att importera dina lokala data till Azure.
-- **Klienter/värdar som är anslutna till enheten**. Klienter i din infrastruktur som ansluter till Data Box-Gateway-enheten och innehåller data som måste skyddas.
-- **Molnlagring**. Plats i Azure-molnplattformen där data lagras. Den här platsen är vanligtvis storage-konto som är kopplat till Data Box Gateway-resursen som du skapar.
+- **Data Box Gateway tjänst som finns i Azure**. Hanterings resursen som du använder för att skapa enhets ordningen, konfigurera enheten och sedan spåra beställningen.
+- **Data Box gateway enhet**. Den virtuella enhet som du etablerar i hypervisor-systemet som du anger. Den här virtuella enheten används för att importera dina lokala data till Azure.
+- **Klienter/värdar som är anslutna till enheten**. Klienterna i din infrastruktur som ansluter till Data Box Gateway-enheten och innehåller data som behöver skyddas.
+- **Moln lagring**. Platsen i Azure Cloud Platform där data lagras. Den här platsen är vanligt vis det lagrings konto som är kopplat till Data Box Gateway resurs som du skapar.
 
 
-## <a name="data-box-gateway-service-protection"></a>Box-Gateway-tjänsten för dataskydd
+## <a name="data-box-gateway-service-protection"></a>Data Box Gateway tjänst skydd
 
-Data Box-Gateway-tjänsten är en management-tjänst som ligger i Azure. Tjänsten används för att konfigurera och hantera enheten.
+Tjänsten Data Box Gateway är en hanterings tjänst som finns i Azure. Tjänsten används för att konfigurera och hantera enheten.
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
+[!INCLUDE [data-box-edge-gateway-service-protection](../../includes/data-box-edge-gateway-service-protection.md)]
 
-## <a name="data-box-gateway-device-protection"></a>Skydd för data Box-Gateway-enhet
+## <a name="data-box-gateway-device-protection"></a>Data Box Gateway enhets skydd
 
-Data Box-Gateway-enheten är en virtuell enhet som har etablerats i ett lokalt system som du anger hypervisor-program. Enheten kan skicka data till Azure. Din enhet:
+Den Data Box Gateway enheten är en virtuell enhet som är etablerad i hypervisorn för ett lokalt system som du anger. Enheten hjälper till att skicka data till Azure. Din enhet:
 
-- Behöver en aktiveringsnyckel åtkomst till Data Box Edge/Data Box Gateway-tjänsten.
-- Skyddas vid alla tidpunkter av enhetens lösenord.
+- Behöver en aktiverings nyckel för att få åtkomst till tjänsten Data Box Edge/Data Box Gateway.
+- Skyddas hela tiden av ett enhets lösen ord.
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->
 
-### <a name="protect-the-device-via-activation-key"></a>Skydda enheten via aktiveringsnyckeln
+### <a name="protect-the-device-via-activation-key"></a>Skydda enheten via aktiverings nyckeln
 
-Endast en auktoriserad Data Box-Gateway-enhet får ansluta till Data Box-Gateway-tjänsten som du skapar i Azure-prenumerationen. Du måste använda en aktivering för att aktivera enheten med Data Box-Gateway-tjänsten för att auktorisera en enhet.
+Endast en auktoriserad Data Box Gateway enhet får ansluta till den Data Box Gateways tjänst som du skapar i din Azure-prenumeration. Om du vill auktorisera en enhet måste du använda en aktiverings nyckel för att aktivera enheten med Data Box Gateway tjänsten.
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
+[!INCLUDE [data-box-edge-gateway-activation-key](../../includes/data-box-edge-gateway-activation-key.md)]
 
-Mer information finns i [få en aktiveringsnyckel](data-box-gateway-deploy-prep.md#get-the-activation-key).
+Mer information finns i [Hämta en aktiverings nyckel](data-box-gateway-deploy-prep.md#get-the-activation-key).
 
-### <a name="protect-the-device-via-password"></a>Skydda enheten via lösenord
+### <a name="protect-the-device-via-password"></a>Skydda enheten via lösen ord
 
-Lösenord Se till att endast behöriga användare kan komma åt dina data. Data Box Gateway enheter startar upp en låst.
+Lösen ord se till att endast behöriga användare kan komma åt dina data. Data Box Gateway enheter startar i låst tillstånd.
 
 Du kan:
 
-- Ansluta till det lokala webbgränssnittet på enheten via en webbläsare och ange sedan ett lösenord för att logga in på enheten.
-- Fjärransluta till enhetens PowerShell-gränssnittet via HTTP. Fjärrhantering är aktiverat som standard. Du kan sedan ange lösenordet för enheten att logga in på enheten. Mer information finns i [Anslut via en fjärranslutning till din Data Box-gatewayenhet](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Anslut till det lokala webb gränssnittet på enheten via en webbläsare och ange ett lösen ord för att logga in på enheten.
+- Fjärrans luta till enhetens PowerShell-gränssnitt över HTTP. Fjärrhantering är aktiverat som standard. Du kan sedan ange enhetens lösen ord för att logga in på enheten. Mer information finns i fjärrans [luta till din data Box gateway-enhet](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-password-best-practices.md)]
-- Använd lokalt webbgränssnitt till [ändra lösenordet](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Om du ändrar lösenordet, måste du meddela alla fjärranslutna användare så att de inte har problem med att logga.
+[!INCLUDE [data-box-edge-gateway-password-best-practices](../../includes/data-box-edge-gateway-password-best-practices.md)]
+- Använd det lokala webb gränssnittet för att [ändra lösen ordet](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Om du ändrar lösen ordet ska du se till att meddela alla fjärråtkomst-användare så att de inte har problem med att logga in.
 
 
 ## <a name="protect-your-data"></a>Skydda dina data
 
-Det här avsnittet beskrivs säkerhetsfunktioner för Data Box-Gateway som skyddar data under överföring och lagras.
+I det här avsnittet beskrivs Data Box Gateway säkerhetsfunktioner som skyddar data som överförs och lagras.
 
 ### <a name="protect-data-at-rest"></a>Skydda data i vila
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-data-rest.md)]
 
-### <a name="protect-data-in-flight"></a>Skydda data som rör sig
+### <a name="protect-data-in-flight"></a>Skydda data i flygningen
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-data-flight.md)]
+[!INCLUDE [data-box-edge-gateway-data-flight](../../includes/data-box-edge-gateway-data-flight.md)]
 
-### <a name="protect-data-via-storage-accounts"></a>Skydda data via storage-konton
+### <a name="protect-data-via-storage-accounts"></a>Skydda data via lagrings konton
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
-- Rotera och sedan [synkronisera dina lagringskontonycklar](data-box-gateway-manage-shares.md#sync-storage-keys) regelbundet för att skydda ditt lagringskonto från obehöriga användare.
+[!INCLUDE [data-box-edge-gateway-data-storage-accounts](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
+- Rotera och [Synkronisera dina lagrings konto nycklar](data-box-gateway-manage-shares.md#sync-storage-keys) regelbundet för att hjälpa till att skydda ditt lagrings konto från obehöriga användare.
 
 ## <a name="manage-personal-information"></a>Hantera personlig information
 
-Data Box-Gateway-tjänsten samlar in personlig information i följande scenarier:
+Tjänsten Data Box Gateway samlar in personlig information i följande scenarier:
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-manage-personal-data.md)]
+[!INCLUDE [data-box-edge-gateway-manage-personal-data](../../includes/data-box-edge-gateway-manage-personal-data.md)]
 
-Om du vill visa listan över användare som kan få åtkomst till eller ta bort en resurs, följer du stegen i [hantera resurser på Data Box-Gateway](data-box-gateway-manage-shares.md).
+Om du vill visa en lista över användare som har åtkomst till eller tar bort en resurs följer du stegen i [Hantera resurser på data Box Gateway](data-box-gateway-manage-shares.md).
 
-Mer information finns i Microsofts sekretesspolicy på den [Säkerhetscenter](https://www.microsoft.com/trustcenter).
+Mer information hittar du i sekretess policyn för Microsoft på [säkerhets Center](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera din Data Box-Gateway-enhet](data-box-gateway-deploy-prep.md)
+[Distribuera din Data Box Gateway-enhet](data-box-gateway-deploy-prep.md)

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd451f4c7ada3c062862098d4cda5314152be0c0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d819479c5e4bdbf8287dc7408c0f7813f5e32b13
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881997"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900182"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Spåra mått och distribuera modeller med MLflow och Azure Machine Learning tjänsten (för hands version)
 
@@ -27,6 +27,8 @@ Den här artikeln visar hur du aktiverar MLflow för spårnings-och loggnings-AP
 + Distribuera dina MLflow-experiment som en Azure Machine Learning-webbtjänst. Genom att distribuera som en webb tjänst kan du använda funktionerna för att identifiera Azure Machine Learning övervakning och data avkänning i dina produktions modeller. 
 
 [MLflow](https://www.mlflow.org) är ett bibliotek med öppen källkod för hantering av livs cykeln för maskin inlärnings experiment. MLFlow-spårning är en komponent i MLflow som loggar och spårar din utbildning kör mått och modell artefakter, oavsett experimentets miljö – lokalt, på en virtuell dator, fjärrberäknings kluster, även på Azure Databricks.
+
+Följande diagram illustrerar att med MLflow spårning kan du ta alla experiment – oavsett om det är på ett fjärrberäknings mål på en virtuell dator, lokalt på din dator eller på ett Azure Databricks kluster – och spåra körnings mått och data lagrings modell artefakter i din Azure Machine Learning-arbetsyta.
 
 ![mlflow med Azure Machine Learning-diagram](media/how-to-use-mlflow/mlflow-diagram-track.png)
 
@@ -139,9 +141,11 @@ run = exp.submit(src)
 
 ## <a name="track-azure-databricks-runs"></a>Spåra Azure Databricks körningar
 
-Genom MLflow-spårning med Azure Machine Learning tjänst kan du lagra de inloggade måtten och artefakterna från dina Databrick-körningar i Azure Machine Learning-arbetsytan.
+Genom MLflow-spårning med Azure Machine Learning service kan du lagra de inloggade måtten och artefakterna från dina Databricks-körningar i Azure Machine Learning-arbetsytan.
 
-Om du vill köra dina Mlflow-experiment med Azure Databricks måste du först skapa en [Azure Databricks arbets yta och ett kluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). I klustret, se till att installera biblioteket *azureml-mlflow* från PyPi, för att säkerställa att klustret har åtkomst till de nödvändiga funktionerna och klasserna.
+Om du vill köra dina Mlflow-experiment med Azure Databricks måste du först skapa en [Azure Databricks arbets yta och ett kluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+
+I klustret, se till att installera biblioteket *azureml-mlflow* från PyPi, för att säkerställa att klustret har åtkomst till de nödvändiga funktionerna och klasserna.
 
 ### <a name="install-libraries"></a>Installera bibliotek
 
@@ -210,10 +214,13 @@ ws.get_details()
 
 Genom att distribuera dina MLflow-experiment som en Azure Machine Learning-webbtjänst kan du använda funktionerna för hantering av Azure Machine Learning-modell och data avkänning och tillämpa dem i dina produktions modeller.
 
+Följande diagram visar att med MLflow distributions-API: t kan du distribuera dina befintliga MLflow-modeller som en Azure Machine Learning webb tjänst, trots deras ramverk – PyTorch, Tensorflow, scikit – lära, ONNX, osv. och hantera dina produktions modeller i din arbets yta.
+
 ![mlflow med Azure Machine Learning-diagram](media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
 ### <a name="log-your-model"></a>Logga din modell
-Innan vi kan distribuera bör du se till att din modell sparas så att du kan referera till den och dess sökväg för distribution. I utbildnings skriptet bör det finnas en kod som liknar följande [mlflow. sklearn. log _model ()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) -metod som sparar din modell i den angivna katalogen med utdata. 
+
+Innan du kan distribuera måste du se till att din modell sparas så att du kan referera till den och dess sökväg för distribution. I utbildnings skriptet bör det finnas en kod som liknar följande [mlflow. sklearn. log _model ()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) -metod som sparar din modell i den angivna katalogen med utdata. 
 
 ```python
 # change sklearn to pytorch, tensorflow, etc. based on your experiment's framework 
@@ -227,7 +234,7 @@ mlflow.sklearn.log_model(regression_model, model_save_path)
 
 ### <a name="retrieve-model-from-previous-run"></a>Hämta modell från föregående körning
 
-För att hämta önskad körning behöver vi körnings-ID och sökvägen i körnings historiken för den plats där modellen sparades. 
+Om du vill hämta önskad körning behöver du körnings-ID och sökvägen i körnings historiken för var modellen sparades. 
 
 ```python
 # gets the list of runs for your experiment as an array
@@ -244,7 +251,7 @@ model_save_path = 'model'
 
 `mlflow.azureml.build_image()` Funktionen skapar en Docker-avbildning från den sparade modellen i ett Ramverks medveten sätt. Det skapar automatiskt den Framework-/regionsspecifika inferencing omslutnings koden och anger paket beroenden för dig. Ange modell Sök vägen, din arbets yta, kör ID och andra parametrar.
 
-I följande kod skapar vi en Docker-avbildning med hjälp av *kör:/< kör. id >/Model* som model_uri-sökväg för ett Scikit-test.
+Följande kod skapar en Docker-avbildning med hjälp av *kör:/< kör. id >/Model* som model_uri-sökväg för ett Scikit-test.
 
 ```python
 import mlflow.azureml
@@ -290,9 +297,9 @@ webservice.wait_for_deployment(show_output=True)
 ```
 #### <a name="deploy-to-aks"></a>Distribuera till AKS
 
-För att distribuera till AKS måste du skapa ett AKS-kluster och ta över Docker-avbildningen som du vill distribuera. I det här exemplet hämtar vi den tidigare skapade avbildningen från vår ACI-distribution.
+För att distribuera till AKS måste du skapa ett AKS-kluster och ta över Docker-avbildningen som du vill distribuera. I det här exemplet ska du ta över den tidigare skapade avbildningen från ACI-distributionen.
 
-Vi använder klassen [image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) för att hämta avbildningen från den tidigare ACI-distributionen. 
+Använd avbildnings klassen för att hämta avbildningen från den [](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) tidigare ACI-distributionen. 
 
 ```python
 from azureml.core.image import Image

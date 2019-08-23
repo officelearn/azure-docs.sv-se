@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2fa9db20554df813e5da94e2bbea122ac6cc9b60
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946532"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899944"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Handlingsplan för säkerhet och efterlevnad i Azure – IaaS-webbprogram på tre nivåer för Storbritannien och EUT
 
@@ -186,7 +186,7 @@ Dessa virtuella nätverk hanteras fortfarande som separata resurser, men visas s
 
 [Rikt linjer för att distribuera Windows Server Active Directory på Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Active Directory-integrering**: Som ett alternativ till en dedikerad AD DS-arkitektur kan kunderna vilja använda [Azure Active Directory](/azure/architecture/reference-architectures/identity.md) -integrering eller [Active Directory i Azure som är ansluten till en lokal skog](/azure/architecture/reference-architectures/identity.md).
+**Active Directory-integrering**: Som ett alternativ till en dedikerad AD DS-arkitektur kan kunderna vilja använda [Azure Active Directory](/azure/architecture/reference-architectures/identity) -integrering eller [Active Directory i Azure som är ansluten till en lokal skog](/azure/architecture/reference-architectures/identity).
 
 ### <a name="security"></a>Säkerhet
 
@@ -200,9 +200,9 @@ Kunder kan också överväga att använda en [förbättrad säkerhets modell](ht
 
 **IP-intervall**: IP-intervallen i arkitekturen är föreslagna intervall. Kunderna bör överväga sin egen miljö och använda lämpliga intervall.
 
-**Hybrid anslutning**: Molnbaserade arbets belastningar är anslutna till det lokala data centret via IPSEC VPN med hjälp av Azure-VPN Gateway. Kunderna bör se till att de använder en lämplig VPN Gateway för att ansluta till Azure. Exempel – [VPN gateway Resource Manager-mall](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Kunder som kör storskaliga affärs kritiska arbets belastningar med Big data-krav kan vilja överväga en hybrid nätverks arkitektur med [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute.md) för privat nätverks anslutning till Microsofts moln tjänster.
+**Hybrid anslutning**: Molnbaserade arbets belastningar är anslutna till det lokala data centret via IPSEC VPN med hjälp av Azure-VPN Gateway. Kunderna bör se till att de använder en lämplig VPN Gateway för att ansluta till Azure. Exempel – [VPN gateway Resource Manager-mall](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Kunder som kör storskaliga affärs kritiska arbets belastningar med Big data-krav kan vilja överväga en hybrid nätverks arkitektur med [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) för privat nätverks anslutning till Microsofts moln tjänster.
 
-**Separering av problem**: Den här referens arkitekturen separerar virtuella nätverk för hanterings åtgärder och affärs åtgärder. Separata virtuella nätverk och undernät tillåter trafik hantering, inklusive trafik ingångs-och utgångs begränsningar, genom att använda NSG: er mellan nätverks segment som följer [Microsofts moln tjänster och](/azure/architecture/vdc/networking-virtual-datacenter.md) Metod tips för nätverks säkerhet.
+**Separering av problem**: Den här referens arkitekturen separerar virtuella nätverk för hanterings åtgärder och affärs åtgärder. Separata virtuella nätverk och undernät tillåter trafik hantering, inklusive trafik ingångs-och utgångs begränsningar, genom att använda NSG: er mellan nätverks segment som följer [Microsofts moln tjänster och](/azure/architecture/vdc/networking-virtual-datacenter) Metod tips för nätverks säkerhet.
 
 **Resurs hantering**: Azure-resurser, till exempel virtuella datorer, virtuella nätverk och belastningsutjämnare hanteras genom att gruppera dem tillsammans i [Azure-resurs grupper](../../azure-resource-manager/resource-group-overview.md). Resursbaserade Access Control roller kan sedan tilldelas till varje resurs grupp för att begränsa åtkomsten till endast behöriga användare.
 

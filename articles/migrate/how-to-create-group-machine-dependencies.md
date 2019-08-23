@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 4130bb746a4faa4907353654d16f7c20c0cc7817
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c48323bb4c8798a0f36d3fda99a4c659187e0e81
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598943"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906379"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Konfigurera beroende visualisering för utvärdering
 
@@ -37,9 +37,9 @@ Beroende mappning hjälper dig att visualisera beroenden mellan datorer som du v
 **Funktioner** | **Obs!**
 --- | ---
 Tillgänglighet | Beroende visualisering är inte tillgänglig i Azure Government.
-Tjänstkarta | Beroende visualisering använder Tjänstkarta lösning i Azure Monitor loggar. [Tjänstkarta](../azure-monitor/insights/service-map-configure.md) identifierar och visar automatiskt anslutningar mellan servrar.
-Agenter | Om du vill använda beroende visualisering installerar du ett par agenter på datorer som du vill mappa:<br/> - [Azure Log Analytics](../azure-monitor/platform/log-analytics-agent.md) agent (kallades tidigare för Microsoft Monitoring Agent (MMA).<br/> -Tjänstkarta beroende agent.<br/><br/> Om du vill automatisera Agent installationen kan du använda ett distributions verktyg som System Center Configuration Manager eller ett partner verktyg, till exempel [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), som har en agent distributions lösning för Azure Migrate.
-Dependency Agent | Granska stöd för beroende agent för [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) och [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).<br/><br/> [Läs mer](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) om hur du använder skript för att installera beroende agenten.
+Tjänstkarta | Beroende visualisering använder Tjänstkarta lösning i Azure Monitor. [Tjänstkarta](../azure-monitor/insights/service-map.md) identifierar och visar automatiskt anslutningar mellan servrar.
+Agenter | Om du vill använda beroende visualisering installerar du följande agenter på datorer som du vill mappa:<br/> - [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) agent (kallades tidigare för Microsoft Monitoring Agent (MMA).<br/> - [Tjänstkarta beroende agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Om du vill automatisera Agent installationen kan du använda ett distributions verktyg som System Center Configuration Manager eller ett partner verktyg, till exempel [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), som har en agent distributions lösning för Azure Migrate.
+Dependency Agent | Granska [stöd för beroende agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) för Windows och Linux.<br/><br/> [Läs mer](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) om hur du använder skript för att installera beroende agenten.
 Log Analytics agent (MMA) | [Läs mer](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) om installations metoder för MMA.<br/><br/> För datorer som övervakas av System Center Operations Manager 2012 R2 eller senare behöver du inte installera MMA-agenten. Tjänstkarta integreras med Operations Manager. Du kan aktivera integreringen med hjälp av vägledningen [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Observera dock att beroende agenten måste vara installerad på de här datorerna.<br/><br/> [Granska](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) Linux-operativsystemen som stöds av Log Analytics agenten.
 Utvärderings grupper | Grupper som du vill visualisera beroenden för får inte innehålla fler än 10 datorer. Om du har fler än 10 datorer delar du in dem i mindre grupper för att visualisera beroenden.
 

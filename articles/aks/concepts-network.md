@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 459c11448280b63bafdfd54c13a6cad5983ef1b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 967ca233169e2a2a213534d5b60bef2e3f44b6a9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615883"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69969652"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -55,7 +55,7 @@ För att förenkla nätverks konfigurationen för program arbets belastningar an
 
 IP-adressen för belastningsutjämnare och tjänster kan tilldelas dynamiskt, eller så kan du ange en befintlig statisk IP-adress som ska användas. Både interna och externa statiska IP-adresser kan tilldelas. Den här befintliga statiska IP-adressen är ofta kopplad till en DNS-post.
 
-Både *interna* och *externa* belastningsutjämnare kan skapas. Interna belastningsutjämnare tilldelas bara en privat IP-adress, så det går inte att komma åt dem från Internet.
+Både *interna* och *externa* belastningsutjämnare kan skapas. Interna belastningsutjämnare tilldelas bara en privat IP-adress, så de kan inte nås från Internet.
 
 ## <a name="azure-virtual-networks"></a>Azures virtuella nätverk
 

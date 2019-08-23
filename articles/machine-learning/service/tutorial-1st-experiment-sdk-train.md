@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 17fee1f01bf883aa2a9845fe4f2817fb806056dd
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: aa3a9bdb51e1137cde2ca29e2b5db55ba621cf8c
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516236"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972495"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudier: Träna din första ML-modell
 
@@ -31,11 +31,13 @@ I den här självstudien kommer du att lära dig följande:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den enda förutsättningen är att köra föregående självstudie, [installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
+Den enda förutsättningen är att köra en del av den här självstudien, [installations miljön och arbets ytan](tutorial-1st-experiment-sdk-setup.md).
+
+I den här delen av självstudien kör du koden i exempel Jupyter Notebook som öppnades i slutet av del en. Den här artikeln vägleder dig genom samma kod som finns i antecknings boken.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Anslut arbets ytan och skapa experiment
 
-Importera- `config.json` `from_config().` klassen och Läs in din prenumerations information från filen med funktionen som söker efter JSON-filen i den aktuella katalogen som standard, men du kan också ange en Sök vägs parameter för att peka på filen `Workspace` använda `from_config(path="your/file/path")`. Om du kör den här antecknings boken i en molnbaserad Notebook-server i din arbets yta, är filen automatiskt i rot katalogen.
+Importera- `config.json` `from_config().` klassen och Läs in din prenumerations information från filen med funktionen som söker efter JSON-filen i den aktuella katalogen som standard, men du kan också ange en Sök vägs parameter för att peka på filen `Workspace` använda `from_config(path="your/file/path")`. I en molnbaserad Notebook-Server är filen automatiskt i rot katalogen.
 
 Om följande kod frågar efter ytterligare autentisering, klistrar du bara in länken i en webbläsare och anger autentiseringstoken.
 

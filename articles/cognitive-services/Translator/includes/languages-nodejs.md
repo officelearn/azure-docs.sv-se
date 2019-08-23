@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6b1fff913defce20aff41f685c5b96f0547faaca
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: fd8b4ae06018de1d03ca60e836534a535c8f5df8
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968757"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906929"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
-För den här snabbstarten krävs:
-
-* [Nod 8.12.x eller senare](https://nodejs.org/en/)
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
@@ -31,6 +29,14 @@ const uuidv4 = require('uuid/v4');
 
 De här modulerna krävs för att skapa HTTP-begäran och skapa en unik identifierare för `'X-ClientTraceId'`-sidhuvudet.
 
+## <a name="set-the-endpoint"></a>Ange slut punkten
+
+Det här exemplet försöker läsa Translator Text slut punkten från en miljö variabel: `TRANSLATOR_TEXT_ENDPOINT`. Om du inte känner till miljövariabler kan du ange `endpoint` som en sträng och kommentera bort den villkorliga instruktionen.
+
+```javascript
+lorum ipsum
+```
+
 ## <a name="configure-the-request"></a>Konfigurera begäran
 
 Metoden `request()`, som görs tillgänglig via begärandemodulen, gör att vi kan skicka HTTP-metoden, URL:en, begärandeparametrarna, sidhuvudena och JSON-brödtexten som ett `options`-objekt. I det här kodavsnittet konfigurerar vi begäran:
@@ -41,7 +47,7 @@ Metoden `request()`, som görs tillgänglig via begärandemodulen, gör att vi k
 ```javascript
 let options = {
     method: 'GET',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: endpoint,
     url: 'languages',
     qs: {
       'api-version': '3.0',

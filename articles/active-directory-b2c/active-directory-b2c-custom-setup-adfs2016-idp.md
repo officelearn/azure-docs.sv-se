@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 595f8a174e615fb08a042b0e9c4cfe6da6ac1b7e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 5dffba9106493e60b35538a5210a51cead7fb135
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68773431"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899636"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till ADFS som en SAML Identity Provider med anpassade principer i Azure Active Directory B2C
 
@@ -27,6 +27,7 @@ Den här artikeln visar hur du aktiverar inloggning för ett ADFS-användarkonto
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Se till att du har åtkomst till en Certificate. pfx-fil med en privat nyckel. Du kan skapa ett eget signerat certifikat och överföra det till Azure AD B2C. Azure AD B2C använder det här certifikatet för att signera SAML-begäran som skickats till din SAML Identity-Provider.
+- För att Azure ska kunna godkänna. pfx-filens lösen ord måste lösen ordet vara krypterat med alternativet TripleDES-SHA1 i export verktyget för Windows Certificate Store i stället för AES256-SHA256.
 
 ## <a name="create-a-policy-key"></a>Skapa en princip nyckel
 

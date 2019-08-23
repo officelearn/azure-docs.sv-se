@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: a6c12a2fdc8616dd6f7107d11e8f6c77401811fb
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8a567dbbd8c5e752b8d9294623a5f4d3f37e5a05
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968575"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906842"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [Prerequisites](prerequisites-java.md)]
 
-* [JDK 7 eller senare](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Gradle](https://gradle.org/install/)
-* En Azure-prenumerationsnyckel för Translator Text
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="initialize-a-project-with-gradle"></a>Initiera ett projekt med Gradle
 
@@ -44,7 +42,7 @@ plugins {
     application
 }
 application {
-    mainClassName = "LengthSentence"
+    mainClassName = "BreakSentence"
 }
 repositories {
     mavenCentral()
@@ -65,11 +63,11 @@ Nu skapar vi en mapp för din exempelapp. Kör följande från arbetskatalogen:
 mkdir -p src/main/java
 ```
 
-Skapa sedan en fil med namnet `LengthSentence.java` i den här mappen.
+Skapa sedan en fil med namnet `BreakSentence.java` i den här mappen.
 
 ## <a name="import-required-libraries"></a>Importera obligatoriska bibliotek
 
-Öppna `LengthSentence.java` och lägg till följande importinstruktioner:
+Öppna `BreakSentence.java` och lägg till följande importinstruktioner:
 
 ```java
 import java.io.*;
@@ -85,22 +83,23 @@ import com.squareup.okhttp.*;
 Först behöver du skapa en offentlig klass för projektet:
 
 ```java
-public class LengthSentence {
+public class BreakSentence {
   // All project code goes here...
 }
 ```
 
-Lägg till följande rader i klassen `LengthSentence`. Observera att du utöver `api-version` kan definiera indataspråket. I det här exemplet är det engelska.
+Lägg till följande rader i klassen `BreakSentence`. Först läses prenumerations nyckeln och slut punkten in från miljövariabler. Sedan märker du att du kan definiera indatamängds språket tillsammans med `api-version`. I det här exemplet är det engelska.
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0&language=en";
+private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
+String url = endpoint + "/breaksentence?api-version=3.0&language=en";
 ```
 Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta `Ocp-Apim-Subscription-Region` med i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)-prenumerationen.
 
 ## <a name="create-a-client-and-build-a-request"></a>Skapa en klient och en begäran
 
-Lägg till följande rad i klassen `LengthSentence` för att instansiera `OkHttpClient`:
+Lägg till följande rad i klassen `BreakSentence` för att instansiera `OkHttpClient`:
 
 ```java
 // Instantiates the OkHttpClient.
@@ -145,8 +144,8 @@ Det sista steget är att göra en begäran och få ett svar. Lägg till följand
 ```java
 public static void main(String[] args) {
     try {
-        LengthSentence lengthSentenceRequest = new LengthSentence();
-        String response = lengthSentenceRequest.Post();
+        BreakSentence breakSentenceRequest = new BreakSentence();
+        String response = BreakSentenceRequest.Post();
         System.out.println(prettify(response));
     } catch (Exception e) {
         System.out.println(e);

@@ -3,30 +3,31 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 06/19/2019
+ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: ffa48d55703347883edf96a0a27ee52d19189976
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d19e21edd31be461ba30e8985e80c4651bbbb02d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935013"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69894104"
 ---
-I det här steget ska du skapa en resurs grupp och en Azure SQL Database enskild databas.
+I det här steget ska du skapa en Azure SQL Database enskild databas. 
 
 > [!IMPORTANT]
-> Se till att konfigurera brand Väggs regler för att använda den offentliga IP-adressen för den dator där du utför stegen i den här artikeln. 
+> Se till att konfigurera brand Väggs regler för användning av den offentliga IP-adressen för den dator som du använder för att slutföra den här artikeln.
 >
-> Mer information finns i skapa en brand [Väggs regel på databas nivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) eller för att fastställa vilken IP-adress som används för brand Väggs regeln på server nivå för datorn se [skapa en brand vägg på server nivå](../sql-database-server-level-firewall-rule.md).  
+> Mer information finns i [skapa en brand Väggs regel på databas nivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) eller för att fastställa vilken IP-adress som används för brand Väggs regeln på server nivå för datorn se [skapa en brand vägg på server nivå](../sql-database-server-level-firewall-rule.md).  
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
 
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
-2. Välj **databaser** och välj sedan **SQL Database** för att öppna sidan **skapa SQL Database** .
+1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan.
+2. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa ytterligare information om de olika databaserna genom att välja **Visa information** på panelen **databaser** .
+3. Välj **skapa**:
 
-   ![Skapa en enkel databas](../media/sql-database-get-started-portal/create-database-1.png)
+   ![Skapa en enkel databas](../media/sql-database-get-started-portal/create-single-database.png)
 
 3. På fliken **grundläggande** i avsnittet **projekt information** skriver eller väljer du följande värden:
 

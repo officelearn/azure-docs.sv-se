@@ -1,100 +1,100 @@
 ---
-title: Övervaka Azure Site Recovery processervern
-description: Den här artikeln beskriver hur du övervakar processervern för Azure Site Recovery.
+title: Övervaka Azure Site Recovery processerver
+description: Den här artikeln beskriver hur du övervakar Azure Site Recovery processerver.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d746385a034fdf742b8958b3d1fe51ea2a3c5cf
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418280"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972177"
 ---
-# <a name="monitor-the-process-server"></a>Övervaka processerver
+# <a name="monitor-the-process-server"></a>Övervaka processervern
 
-Den här artikeln beskrivs hur du övervakar den [Site Recovery](site-recovery-overview.md) processervern.
+Den här artikeln beskriver hur du övervakar [Site Recovery](site-recovery-overview.md) processerver.
 
-- Processervern används när du konfigurerar haveriberedskap för lokala virtuella VMware-datorer och fysiska servrar till Azure.
-- Som standard körs processervern på konfigurationsservern. Den installeras som standard när du distribuerar konfigurationsservern.
-- Du kan också distribuera ytterligare, skala ut processervrar att skala och hantera större antal replikerade datorer och större mängder replikeringstrafik.
+- Processervern används när du konfigurerar haveri beredskap för lokala virtuella VMware-datorer och fysiska servrar till Azure.
+- Som standard körs processervern på konfigurations servern. Den installeras som standard när du distribuerar konfigurations servern.
+- Om du vill skala och hantera större antal replikerade datorer och större volymer av replikeringstrafik kan du distribuera ytterligare, skalbara process servrar.
 
-[Läs mer](vmware-physical-azure-config-process-server-overview.md) roll och distribution av processervrar.
+[Lär dig mer](vmware-physical-azure-config-process-server-overview.md) om rollen och distributionen av processervern.
 
 ## <a name="monitoring-overview"></a>Övervakningsöversikt
 
-Eftersom processervern har så många roller, särskilt i replikerade datacachelagring, komprimering och överföring till Azure, är det viktigt att övervaka hälsa för processen servern med jämna mellanrum.
+Eftersom processervern har så många roller, särskilt i replikerade datacachelagring, komprimering och överföring till Azure, är det viktigt att övervaka process Server hälsa kontinuerligt.
 
-Det finns ett antal situationer som ofta påverkar processen serverprestanda. Problem som påverkar prestanda har en sammanhängande effekt på VM-hälsa, så småningom skicka både processervern och dess replikerade datorer till ett kritiskt tillstånd. Situationer är:
+Det finns ett antal situationer som ofta påverkar process serverns prestanda. Problem som påverkar prestandan har en överlappande effekt på VM-hälsa, och på så sätt kan du skicka både processervern och dess replikerade datorer till ett kritiskt tillstånd. Exempel på situationer:
 
-- Väldigt många virtuella datorer använder en processerver närmar sig eller överstiger rekommenderade begränsningar.
-- Virtuella datorer med hjälp av processervern har en hög omsättningsfrekvensen.
-- Dataflöde i nätverket mellan virtuella datorer och processervern räcker inte att ladda upp replikeringsdata till processervern.
-- Dataflöde i nätverket mellan processervern och Azure är inte tillräckliga för att ladda upp replikeringsdata från processervern till Azure.
+- Ett stort antal virtuella datorer använder en processerver, närmar sig eller överskrider rekommenderade begränsningar.
+- Virtuella datorer som använder processervern har en hög omsättnings taxa.
+- Nätverks data flödet mellan virtuella datorer och processervern är inte tillräckligt för att ladda upp replikeringsdata till processervern.
+- Nätverks data flöde mellan processervern och Azure räcker inte för att ladda upp replikeringsdata från processervern till Azure.
 
-Alla dessa problem kan påverka återställningspunkt (RPO) av virtuella datorer. 
+Alla dessa problem kan påverka återställnings punkt målet för virtuella datorer. 
 
-**Varför?** Eftersom du skapar en återställningspunkt för en virtuell dator kräver att alla diskar på den virtuella datorn ha en gemensam tidpunkt. Om en disk har en hög omsättning frekvens, replikeringen går långsamt eller processervern inte optimalt, påverkar hur effektivt återställningspunkter skapas.
+**Varför?** Eftersom generering av en återställnings punkt för en virtuell dator kräver att alla diskar på den virtuella datorn har en gemensam punkt. Om en disk har hög omsättnings tid är replikeringen långsam eller eftersom processervern inte är optimal, vilket påverkar hur effektivt återställnings punkter skapas.
 
 ## <a name="monitor-proactively"></a>Övervaka proaktivt
 
-För att undvika problem med processervern, är det viktigt att:
+För att undvika problem med processervern är det viktigt att:
 
-- Förstå särskilda krav för processervrar med [kapacitet och ändra storlek på vägledning](site-recovery-plan-capacity-vmware.md#capacity-considerations), och kontrollera att processervrar distribueras och körs enligt rekommendationerna.
-- Övervaka aviseringar och felsöka problem när de inträffar, att hålla processervrar kör effektivt.
+- Förstå särskilda krav för process servrar med hjälp av kapacitets- [och storleks vägledning](site-recovery-plan-capacity-vmware.md#capacity-considerations)och se till att process servrar distribueras och körs enligt rekommendationer.
+- Övervaka aviseringar och Felsök problem när de inträffar, för att hålla process servrarna igång effektivt.
 
 
-## <a name="process-server-alerts"></a>Bearbeta serveraviseringar
+## <a name="process-server-alerts"></a>Bearbeta Server aviseringar
 
-Processervern genererar ett antal hälsovarningar sammanfattas i tabellen nedan.
+Processervern genererar ett antal hälso aviseringar som sammanfattas i följande tabell.
 
-**Typ av avisering** | **Detaljer**
+**Aviserings typ** | **Detaljer**
 --- | ---
-![Felfri][green] | Processervern är ansluten och felfri.
-![Varning][yellow] | CPU-användning > 80% för de senaste 15 minuterna
-![Varning][yellow] | Minne användning > 80% för de senaste 15 minuterna
-![Varning][yellow] | Cachemapp ledigt utrymme < 30% under de senaste 15 minuterna
-![Varning][yellow] | Processervertjänsterna körs inte under de senaste 15 minuterna
+![Felfri][green] | Processervern är ansluten och felfritt.
+![Varning][yellow] | CPU-användning > 80% under de senaste 15 minuterna
+![Varning][yellow] | Minnes användning > 80% under de senaste 15 minuterna
+![Varning][yellow] | Ledigt utrymme i cache-mappen < 30% under de senaste 15 minuterna
+![Varning][yellow] | Process Server-tjänsterna körs inte under de senaste 15 minuterna
 ![Kritiskt][red] | CPU-användning > 95% under de senaste 15 minuterna
-![Kritiskt][red] | Minne användning > 95% under de senaste 15 minuterna
-![Kritiskt][red] | Cachemapp ledigt utrymme < 25% under de senaste 15 minuterna
-![Kritiskt][red] | Inget pulsslag från processervern under 15 minuter.
+![Kritiskt][red] | Minnes användning > 95% under de senaste 15 minuterna
+![Kritiskt][red] | Ledigt utrymme i cache-mappen < 25% under de senaste 15 minuterna
+![Kritiskt][red] | Inget pulsslag från processervern i 15 minuter.
 
-![tabellnyckel](./media/vmware-physical-azure-monitor-process-server/table-key.png)
+![Tabell nyckel](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 
 > [!NOTE]
-> Övergripande hälsostatus processervern baseras på det sämsta avisering som genererats.
+> Process serverns övergripande hälso status är baserad på den värsta varningen som genereras.
 
 
 
-## <a name="monitor-process-server-health"></a>Övervakare för hälsa för processen-server
+## <a name="monitor-process-server-health"></a>Övervaka process Server hälsa
 
-Du kan övervaka hälsotillståndet för din processervrar på följande sätt: 
+Du kan övervaka hälso tillståndet för dina process servrar på följande sätt: 
 
-1. Övervaka replikering hälsotillstånd och status på en replikerad dator och dess processerver i valvet > **replikerade objekt**, klicka på den dator som du vill övervaka.
-2. I **Replikeringshälsa**, du kan övervaka hälsotillståndet för virtuella datorer. Klicka på status och öka detaljnivån för felinformation.
+1. Om du vill övervaka hälso tillståndet och statusen för en replikerad dator, och dess processerver, i valv > **replikerade objekt**, klickar du på den dator som du vill övervaka.
+2. I **replikeringstillståndet**kan du övervaka hälso tillståndet för den virtuella datorn. Klicka på status för att öka detalj nivån för fel information.
 
-    ![Hälsa för processen server i VM-instrumentpanelen](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
+    ![Bearbeta Server hälsa på VM-instrumentpanelen](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
 
-4. I **hälsa för processen Server**, du kan övervaka status för processervern. Granska nedåt för mer information.
+4. I **process Server hälsa**kan du övervaka process serverns status. Öka detalj nivån för mer information.
 
-    ![Information om processervern i VM-instrumentpanelen](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
+    ![Information om processerver på VM-instrumentpanelen](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
 
-5. Hälsa kan övervakas med hjälp av en grafisk representation på sidan virtuell dator.
-    - En skalbar processerver är markerade i orange om det finns varningar som är kopplade till den och röd om den har alla kritiska problem. 
-    - Om processervern körs i standard-distributionen på konfigurationsservern, kommer sedan configuration server att markeras.
-    - Om du vill granska nedåt, klickar du på konfigurationsservern eller processervern. Observera att eventuella problem, och alla rekommenderade åtgärder.
+5. Hälso tillståndet kan också övervakas med hjälp av den grafiska representationen på den virtuella dator sidan.
+    - En skalbar processerver markeras i orange om det finns varningar som är kopplade till den, och rött om det har allvarliga problem. 
+    - Om processervern körs i standard distributionen på konfigurations servern markeras konfigurations servern i enlighet därmed.
+    - Klicka på konfigurations servern eller processervern för att öka detalj nivån. Anteckna eventuella problem och eventuella reparations rekommendationer.
 
-Du kan också övervaka bearbeta servrar i valvet under **Site Recovery-infrastruktur**. I **hantera infrastrukturen för Site Recovery**, klickar du på **Konfigurationsservrar**. Välj configuration server som är associerade med processervern och gå ned till information om processervern.
+Du kan också övervaka process servrar i valvet under **Site Recovery-infrastruktur**. I **Hantera din Site Recovery-infrastruktur klickar du**på **konfigurations servrar**. Välj den konfigurations server som är kopplad till processervern och öka detalj nivån till process Server.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du har några bearbeta servrar problem, följ vår [felsökningsanvisningar](vmware-physical-azure-troubleshoot-process-server.md)
-- Om du behöver mer hjälp kan du ställa din fråga i den [Azure Site Recovery-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+- Om du har problem med process servrar följer du vår [fel söknings vägledning](vmware-physical-azure-troubleshoot-process-server.md)
+- Om du behöver mer hjälp kan du publicera din fråga i [Azure Site Recovery-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png

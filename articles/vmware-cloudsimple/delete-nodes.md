@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9dbe1751ac77f370991af75ea161247c21700ff2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 122e0636f54e066ae86ed2d19cefe5863b026293
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886993"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972819"
 ---
-# <a name="delete-nodes-from-vmware-solution-by-cloudsimple---azure"></a>Ta bort noder från VMware-lösningen av CloudSimple – Azure
+# <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>Ta bort noder från Azure VMware-lösningen av CloudSimple
 
-CloudSimple-noder mäts när de väl har skapats.  Noder måste tas bort för att stoppa datamätningen av noderna.  Du tar bort de noder som inte används från Azure Portal. 
+CloudSimple-noder mäts när de väl har skapats.  Noder måste tas bort för att stoppa datamätningen av noderna.  Du tar bort de noder som inte används från Azure Portal.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -25,7 +25,6 @@ En nod kan bara tas bort under följande omständigheter:
 
 * Ett privat moln som skapats med noderna tas bort.  Information om hur du tar bort ett privat moln finns i [ta bort en Azure VMware-lösning från ett privat CloudSimple-moln](delete-private-cloud.md).
 * Noden har tagits bort från det privata molnet genom att minska det privata molnet.  Information om hur du krymper ett privat moln finns i [minska Azure VMware-lösningen med CloudSimple Private Cloud](shrink-private-cloud.md).
-
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

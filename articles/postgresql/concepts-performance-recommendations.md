@@ -1,23 +1,23 @@
 ---
-title: Prestandarekommendationer i Azure Database för PostgreSQL – enskild Server
-description: Den här artikeln beskriver funktionen rekommendation för prestanda i Azure Database för PostgreSQL – enskild Server.
+title: Prestanda rekommendationer i Azure Database for PostgreSQL-enskild server
+description: I den här artikeln beskrivs funktionen prestanda rekommendation i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 31d8c0fdf1b4df3ee00f3652c933b4b738384bea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: e1e9e998c2ac4695d955a546d0f02fbc2b517d5e
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068847"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907483"
 ---
-# <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Prestandarekommendationer i Azure Database för PostgreSQL – enskild Server
+# <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Prestanda rekommendationer i Azure Database for PostgreSQL-enskild server
 
-**Gäller för:** Azure Database för PostgreSQL – enskild Server 9.6 och 10
+**Gäller för:** Azure Database for PostgreSQL-enskild server 9,6 och 10
 
-Funktionen Prestandarekommendationer analyserar dina databaser för att skapa anpassade förslag för bättre prestanda. Analysen tittar på olika databasen egenskaper, inklusive schema för att generera rekommendationerna. Aktivera [Query Store](concepts-query-store.md) på servern för att kunna utnyttja funktionen Prestandarekommendationer fullt ut. När du implementerar en rekommendation för prestanda, bör du testa prestanda för att utvärdera effekten av ändringarna. 
+Funktionen prestanda rekommendationer analyserar dina databaser för att skapa anpassade förslag för bättre prestanda. För att skapa rekommendationerna tittar analysen på olika databas egenskaper, inklusive schema. Aktivera [frågearkivet](concepts-query-store.md) på servern för att utnyttja funktionen prestanda rekommendationer fullt ut. När du har implementerat en prestanda rekommendation bör du testa prestanda för att utvärdera effekterna av ändringarna. 
 
 ## <a name="permissions"></a>Behörigheter
 Behörighet som **ägare** eller **deltagare** krävs för att köra analys med funktionen Prestandarekommendationer.
@@ -25,29 +25,30 @@ Behörighet som **ägare** eller **deltagare** krävs för att köra analys med 
 ## <a name="performance-recommendations"></a>Prestandarekommendationer
 Funktionen [Prestandarekommendationer](concepts-performance-recommendations.md) analyserar arbetsbelastningar på din server för att identifiera index med potential för att förbättra prestandan.
 
-Öppna **Prestandarekommendationer** från den **Intelligent prestanda** delen av menyraden på sidan för Azure portal för din PostgreSQL-server.
+Öppna **prestanda rekommendationer** från avsnittet **intelligent prestanda** i meny raden på Azure Portal sidan för din postgresql-server.
 
 ![Landningssida för prestandarekommendationer](./media/concepts-performance-recommendations/performance-recommendations-page.png)
 
-Välj **analysera** och välj en databas, som börjar analysen. Beroende på arbetsbelastningen, kan th analys ta flera minuter att slutföra. När analysen är klar, visas ett meddelande i portalen. Analys utför en djupgående undersökning av din databas. Vi rekommenderar att du utför analysis under perioder med låg. 
+Välj **analysera** och välj en databas som kommer att påbörja analysen. Det kan ta flera minuter att slutföra analysen beroende på din arbets belastning. När analysen är klar, visas ett meddelande i portalen. Analysen utför en djup granskning av din databas. Vi rekommenderar att du utför analyser under perioder med låg belastning. 
 
-Den **rekommendationer** i fönstret visas en lista över rekommendationer om några.
+I fönstret **rekommendationer** visas en lista med rekommendationer om de hittades.
 
-![Ny sida för prestanda-rekommendationer](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+![Ny sida med prestanda rekommendationer](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 
-Rekommendationer tillämpas inte automatiskt. Om du vill tillämpa rekommendationen kopiera frågetexten och köra den från klienten väljer. Kom ihåg att testa och övervaka för att utvärdera rekommendationen. 
+Rekommendationerna tillämpas inte automatiskt. Om du vill tillämpa rekommendationen kopierar du frågetexten och kör den från din valda klient. Kom ihåg att testa och övervaka för att utvärdera rekommendationen. 
 
-## <a name="recommendation-types"></a>Rekommendationen typer
+## <a name="recommendation-types"></a>Rekommendations typer
 
-För närvarande stöds två typer av rekommendationer: *Skapa Index* och *Drop Index*.
+För närvarande stöds två typer av rekommendationer: *Skapa index* och *släpp index*.
 
-### <a name="create-index-recommendations"></a>Skapa indexrekommendationer
-*Skapa Index* rekommendationer föreslå nya index för att snabba upp de mest kör eller tidskrävande frågor i belastningen. Den här typen av rekommendation kräver [Query Store](concepts-query-store.md) aktiveras. Query Store samlar in frågeinformation om och ger detaljerad fråga runtime och frekvens statistik som används i analysen för att göra rekommendationen.
+### <a name="create-index-recommendations"></a>Skapa index rekommendationer
+*Skapa index* rekommendationer föreslå nya index för att påskynda de vanligaste frågorna för körning eller tids krävande frågor i arbets belastningen. Den här rekommendations typen kräver att [query Store](concepts-query-store.md) är aktiverat. Query Store samlar in frågedata och ger detaljerad information om fråge körning och frekvens statistik som används av analysen för att göra rekommendationen.
 
-### <a name="drop-index-recommendations"></a>Ta bort indexrekommendationer
-Förutom identifierar index som saknas, analyserar prestanda för befintliga index i Azure Database for PostgreSQL. Om ett index är data som sällan används eller redundant, rekommenderar analysatorn släppa den.
+### <a name="drop-index-recommendations"></a>Ta bort index rekommendationer
+Förutom att identifiera saknade index, Azure Database for PostgreSQL analysera prestanda för befintliga index. Om ett index antingen används sällan eller är redundant, rekommenderar analysen att släppa det.
 
-
+## <a name="considerations"></a>Överväganden
+* Prestanda rekommendationer är inte tillgängliga för [Läs repliker](concepts-read-replicas.md).
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [övervakning och justering](concepts-monitoring.md) i Azure Database for PostgreSQL.
 

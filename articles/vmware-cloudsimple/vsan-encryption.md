@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 288a05fc09e0c59a01a8d4c9940c0d51cabdd28f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640949"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972337"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Konfigurera virtuellt San-kryptering för CloudSimple privat moln
 
 Du kan konfigurera funktionen för program kryptering i virtuellt San så att ditt CloudSimple privata moln kan arbeta med en nyckel hanterings server som körs i ditt virtuella Azure-nätverk.
 
-VMware kräver att du använder en extern KMIP 1,1-kompatibel server för nyckel hanterings Server (KMS) från tredje part när du använder virtuellt San-kryptering. Du kan utnyttja alla KMS-certifikat som stöds och som certifierats av VMware och är tillgänglig för Azure. 
+VMware kräver att du använder en extern KMIP 1,1-kompatibel server för nyckel hanterings Server (KMS) från tredje part när du använder virtuellt San-kryptering. Du kan utnyttja alla KMS-certifikat som stöds och som certifierats av VMware och är tillgänglig för Azure.
 
 Den här guiden beskriver hur du använder HyTrust-KMS-KMS som körs i ett virtuellt Azure-nätverk. En liknande metod kan användas för alla andra certifierade KMS-lösningar från tredje part för virtuellt San.
 

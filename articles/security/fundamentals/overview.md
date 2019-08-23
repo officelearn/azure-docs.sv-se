@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e87fc74b3fa989471f9074a33fc66d8cb8250aa0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 2cc8f4f81ad95376dcbc10c2952c1b2ed95ffe42
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927842"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907915"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -270,6 +270,7 @@ Brand väggen för webbaserade program är en funktion i [Azure Application Gate
 
 
 En centraliserad brandvägg mot webbattacker underlättar säkerhetshanteringen och håller programmet bättre skyddat mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en programgateway med brandvägg för webbprogram.
+
 ### <a name="traffic-manager"></a>Traffic Manager
 Med Microsoft [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) kan du styra distributionen av användar trafik för tjänst slut punkter i olika data Center. Tjänst slut punkter som stöds av Traffic Manager inkluderar virtuella Azure-datorer, Web Apps och moln tjänster. Du kan även använda Traffic Manager med externa slutpunkter som inte tillhör Azure. Traffic Manager använder Domain Name System (DNS) för att dirigera klient begär anden till den lämpligaste slut punkten baserat på en [Traffic-routningsmetod](../../traffic-manager/traffic-manager-routing-methods.md) och tillståndet för slut punkterna.
 
@@ -295,18 +296,8 @@ Du kan aktivera följande diagnostiska logg kategorier för NSG: er:
 -   Regel räknare: Innehåller poster för hur många gånger varje NSG-regel används för att neka eller tillåta trafik.
 
 ### <a name="azure-security-center"></a>Azure Security Center
-Security Center hjälper dig att förhindra, identifiera och svara på hot, och ger dig ökad insyn i och kontroll över säkerheten för dina Azure-resurser. Den ger integrerad säkerhetsövervakning och princip hantering över dina Azure-prenumerationer, hjälper till att upptäcka hot som annars kan gå vidare och fungerar med ett brett eko system med säkerhetslösningar. Nätverks rekommendationer Center kring brand väggar, nätverks säkerhets grupper, konfiguration av inkommande trafik regler med mera.
 
-Tillgängliga nätverks rekommendationer är följande:
-
--   [Lägg till en nästa generations brand vägg](../../security-center/security-center-add-next-generation-firewall.md) Rekommenderar att du lägger till en nästa generations brand vägg (NGFW) från en Microsoft-partner för att öka säkerhets skyddet
-
--   [Dirigera trafik endast genom NGFW](../../security-center/security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) Rekommenderar att du konfigurerar regler för nätverks säkerhets grupper (NSG) som tvingar inkommande trafik till den virtuella datorn via din NGFW.
-
--   [Aktivera nätverks säkerhets grupper på undernät eller virtuella datorer](../../security-center/security-center-enable-network-security-groups.md) Rekommenderar att du aktiverar NSG: er på undernät eller virtuella datorer.
-
--   [Begränsa åtkomst via slut punkt mot Internet](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) Rekommenderar att du konfigurerar regler för inkommande trafik för NSG: er.
-
+[Azure Security Center](../../security-center/security-center-intro.md) fort löp ande analyserar säkerhets läget för dina Azure-resurser för metod tips för nätverks säkerhet. När Security Center identifierar potentiella säkerhets risker skapar den [rekommendationer](../../security-center/security-center-recommendations.md) som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
 
 ## <a name="compute"></a>Compute
 
@@ -354,7 +345,7 @@ Att skydda system, program och data börjar med identitetsbaserade åtkomst kont
 Microsoft använder flera säkerhets metoder och tekniker för sina produkter och tjänster för att hantera identitet och åtkomst.
 -   [Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) kräver att användare använder flera metoder för åtkomst, lokalt och i molnet. Den ger stark autentisering med en rad enkla verifierings alternativ, samtidigt som användarna får en enkel inloggnings process.
 
--   [Microsoft Authenticator](https://aka.ms/authenticator) ger en användarvänlig Multi-Factor Authentication-upplevelse som fungerar med både Microsoft Azure Active Directory-och Microsoft-konton och har stöd för wearables-och finger avtrycks-baserade godkännanden.
+-   [Microsoft Authenticator](https://aka.ms/authenticator) ger en användarvänlig Multi-Factor Authentication upplevelse som fungerar med både Microsoft Azure Active Directory-och Microsoft-konton och har stöd för wearables-och finger avtrycks-baserade godkännanden.
 
 -   [Tvång av lösen ords principer](https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/) ökar säkerheten för traditionella lösen ord genom att krav på längd och komplexitet, framtvingad regelbunden rotation och konto utelåsning efter misslyckade autentiseringsförsök gjordes.
 
@@ -387,7 +378,7 @@ Microsoft använder flera säkerhets metoder och tekniker för sina produkter oc
 - [Azure Active Directory-programproxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) ger enkel inloggning och säker fjärråtkomst för webb program som finns lokalt.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Komma igång med Microsoft Azure säkerhet](./https://docs.microsoft.com/azure/security)
+- [Komma igång med Microsoft Azure säkerhet](https://docs.microsoft.com/azure/security)
 
 Azure-tjänster och -funktioner som du kan använda för att skydda dina tjänster och data i Azure
 

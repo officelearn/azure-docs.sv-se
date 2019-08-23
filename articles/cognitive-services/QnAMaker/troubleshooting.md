@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/21/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 85c6ff59b5f73e88c82ee8b788bd9f35d18bc0ed
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b91adc9dd5f221a6d354a98bdc0f4a7fd4483ecb
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697956"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982357"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
@@ -136,9 +136,25 @@ Disk utrymmet för App Service kan vara fullt. Steg för att åtgärda disk utry
 
 Nej, du behöver inte använda [bot Framework](https://github.com/Microsoft/botbuilder-dotnet) med QNA Maker. QnA Maker erbjuds dock som en av flera mallar i [Azure bot service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service erbjuder snabb, intelligent bot-utveckling via Microsoft Bot Framework och det körs i en miljö utan server.
 
-### <a name="how-can-i-create-a-bot-with-qna-maker"></a>Hur kan jag skapa en robot med QnA Maker?
+### <a name="how-can-i-create-a-new-bot-with-qna-maker"></a>Hur gör jag för att skapa en ny robot med QnA Maker?
 
 Följ instruktionerna i [detta](./Tutorials/create-qna-bot.md) dokumentationen för att skapa din robot med Azure Bot Service.
+
+### <a name="how-do-i-use-a-different-knowledge-base-with-an-existing-azure-bot-service"></a>Hur gör jag för att använda en annan kunskaps bas med en befintlig Azure bot-tjänst?
+
+Du måste ha följande information om din kunskaps bas:
+
+* Kunskaps bas-ID.
+* Namnet på den publicerade slut punkten för kunskaps basen hittades på sidan **Inställningar** när du har publicerat.
+* Kunskaps basens publicerade slut punkts nyckel finns på inställnings sidan när du har publicerat. 
+
+Med den här informationen går du till appens robots App Service i Azure Portal. Under **Inställningar-> konfiguration – inställningar för > program**, ändra dessa värden.  
+
+Kunskaps basens slut punkts nyckel är `QnAAuthkey` märkt i ABS-tjänsten. 
+
+### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>Kan två eller flera klient program dela en kunskaps bas? 
+
+Ja, kunskaps basen kan frågas från valfritt antal klienter. Om svaret från kunskaps basen verkar vara långsamt eller tids gräns, bör du överväga att uppgradera tjänst nivån för App Service som är associerad med kunskaps basen.
 
 ### <a name="how-do-i-embed-the-qna-maker-service-in-my-website"></a>Hur bäddar jag in QnA Maker-tjänsten på min webbplats?
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/02/2019
-ms.openlocfilehash: 0139b3471eb9117830180088498eb14efd6ab661
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 61b646ca1ec5a4826ac6418c1b80b88a89266012
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781303"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972552"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Förskotts betalning för SQL Database beräknings resurser med Azure SQL Database reserverad kapacitet
 
@@ -70,6 +70,10 @@ Du kan avbryta, byta ut eller återbetala reservationer med vissa begränsningar
 ## <a name="vcore-size-flexibility"></a>flexibilitet för vCore-storlek
 
 vCore storleks flexibilitet hjälper dig att skala upp eller ned i en prestanda nivå och region, utan att förlora den reserverade kapacitets förmånen. SQL Database reserverad kapacitet ger också flexibiliteten att tillfälligt flytta dina aktiva databaser mellan pooler och enkla databaser som en del av din normala verksamhet (inom samma region och prestanda nivå) utan att förlora den reserverade kapaciteten lönsamhet. Genom att behålla en icke-tillämpad buffert i din reservation kan du effektivt hantera prestanda toppar utan att överskrida budgeten.
+
+## <a name="limitation"></a>Begränsning
+
+Det går inte att reservera DTU-baserade (Basic-, standard-eller Premium) SQL-databaser.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 

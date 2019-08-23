@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect-synkronisering: Functions-referens | Microsoft Docs'
-description: Referens för uttryck för deklarativ etablering i Azure AD Connect-synkronisering.
+title: 'Azure AD Connect synkronisering: Funktions referens | Microsoft Docs'
+description: Referens för deklarativ etablerings uttryck i Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,39 +16,39 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21c5f8630598a4b7117d23ad7c8da46de07d2fa
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204500"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900048"
 ---
-# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: Referens för funktioner
-I Azure AD Connect används funktioner för att ändra ett attributvärde under synkroniseringen.  
+# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect synkronisering: Referens för funktioner
+I Azure AD Connect används funktioner för att manipulera ett attributvärde under synkroniseringen.  
 Syntaxen för funktionerna uttrycks i följande format:  
 `<output type> FunctionName(<input type> <position name>, ..)`
 
-Om en funktion är överbelastad och accepterar flera syntax, visas alla giltig syntax.  
-Funktionerna är starkt typbestämd och de bekräftar att typ som skickades i matchar typen dokumenterade.  
-Om typen inte matchar, genereras ett fel.
+Om en funktion är överbelastad och accepterar flera syntaxer visas alla giltiga syntaxer.  
+Funktionerna är starkt skrivna och kontrollerar att den typ som skickades matchar den dokumenterade typen.  
+Om typen inte matchar genereras ett fel.
 
 Typerna uttrycks med följande syntax:
 
-* **bin** – binära
-* **bool** – booleskt
+* **bin** – binär
+* **bool** – boolesk
 * **DT** – UTC-datum/tid
 * **Enum** – uppräkning av kända konstanter
-* **EXP** – uttryck, som ska utvärderas till ett booleskt värde
-* **mvbin** – multivärdes binära
-* **mvstr** – multivärdes sträng
-* **mvref** – multivärdes-referens
+* **exp** – Expression, som förväntas utvärderas till ett booleskt värde
+* **mvbin** – multi-Value Binary
+* **mvstr** – multi-Value-sträng
+* **mvref** – multi-Value reference
 * **NUM** – numeriskt
-* **REF** – referens
-* **str** – String
-* **var** – en variant (nästan) någon annan typ
-* **Annullera** – inte returnerar ett värde
+* **Ref** – referens
+* **Str** – sträng
+* **var** – en variant av (nästan) någon annan typ
+* **void** – returnerar inte ett värde
 
-Funktioner med vilka **mvbin**, **mvstr**, och **mvref** fungerar bara på flera värden attribut. Fungerar med **bin**, **str**, och **ref** arbetet med både enstaka och flera värden.
+Funktionerna med typerna **mvbin**, **mvstr**och **mvref** kan bara användas med flervärdesattribut. Funktioner med **bin**-, **Str**-och **Ref** -arbete på både enkelvärdesattribut och attribut med flera värden.
 
 ## <a name="functions-reference"></a>Referens för funktioner
 
@@ -61,68 +61,68 @@ Funktioner med vilka **mvbin**, **mvstr**, och **mvref** fungerar bara på flera
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
 | [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
 [CertVersion](#certversion) |[IsCert](#iscert) | | | |
-| **Konvertering** | | | | |
+| **Räkning** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
 | [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
-| **Datum / tid** | | | | |
-| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[nu](#now) | |
+| **Datum/tid** | | | | |
+| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Vidare](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
-| **Directory** | | | | |
+| **Katalogen** | | | | |
 | [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
-| **Utvärdering** | | | | |
+| **Version** | | | | |
 | [IsBitSet](#isbitset) |[IsDate](#isdate) |[IsEmpty](#isempty) |[IsGuid](#isguid) | |
 | [IsNull](#isnull) |[IsNullOrEmpty](#isnullorempty) |[IsNumeric](#isnumeric) |[IsPresent](#ispresent) | |
 | [IsString](#isstring) | | | | |
-| **Matematiska** | | | | |
+| **Uttrycket** | | | | |
 | [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
-| **Flera värden** | | | | |
-| [innehåller](#contains) |[Antal](#count) |[Objekt](#item) |[ItemOrNull](#itemornull) | |
-| [Anslut dig](#join) |[RemoveDuplicates](#removeduplicates) |[Split](#split) | | |
-| **Programflöde** | | | | |
-| [Fel](#error) |[IIF](#iif) |[Välj](#select) |[Switch](#switch) | |
-| [där](#where) |[med](#with) | | | |
+| **Multi-Value** | | | | |
+| [Ingår](#contains) |[Reparationer](#count) |[Objekt](#item) |[ItemOrNull](#itemornull) | |
+| [Anslut dig](#join) |[RemoveDuplicates](#removeduplicates) |[Del](#split) | | |
+| **Program flöde** | | | | |
+| [Fels](#error) |[IIF](#iif) |[Välj](#select) |[Byta](#switch) | |
+| [Vilken](#where) |[För](#with) | | | |
 | **Text** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Vänster](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
-| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Ersätt](#replace) | |
-| [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
+| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Bytt](#replace) | |
+| [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Reducera](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
 ---
 ### <a name="bitand"></a>BitAnd
 **Beskrivning:**  
-Funktionen BitAnd anger angivna bits på ett värde.
+Funktionen BitAnd anger angivna bitar i ett värde.
 
 **Syntax:**  
 `num BitAnd(num value1, num value2)`
 
-* value1, value2: numeriska värden som ska vara AND'ed tillsammans
+* värde1, värde2: numeriska värden som ska AND'ed tillsammans
 
-**Anmärkning:**  
-Den här funktionen konverterar båda parametrarna till binär representation och anger lite till:
+**!**  
+Den här funktionen konverterar båda parametrarna till den binära representationen och anger en bit till:
 
-* 0 – om en eller båda motsvarande bitar i *mask* och *flaggan* är 0
-* 1 – om båda motsvarande bits är 1.
+* 0 – om en eller båda av motsvarande bitar i *Värde1* och *värde2* är 0
+* 1 – om båda motsvarande bitar är 1.
 
-Med andra ord, returnerar 0, utom när de motsvarande delarna av båda parametrarna är 1.
+Med andra ord returneras 0 i samtliga fall, förutom när motsvarande bitar i båda parametrarna är 1.
 
 **Exempel:**  
 `BitAnd(&HF, &HF7)`  
-Returnerar 7 eftersom hexadecimala ”F” och ”F7” utvärderas till det här värdet.
+Returnerar 7 eftersom det hexadecimala "F" och "F7" utvärderas till det här värdet.
 
 ---
 ### <a name="bitor"></a>BitOr
 **Beskrivning:**  
-Funktionen BITOR-anger angivna bits på ett värde.
+Funktionen BitOr anger angivna bitar i ett värde.
 
 **Syntax:**  
 `num BitOr(num value1, num value2)`
 
-* value1, value2: numeriska värden som ska vara sammansatta med or tillsammans
+* värde1, värde2: numeriska värden som ska OR'ed tillsammans
 
-**Anmärkning:**  
-Den här funktionen konverterar båda parametrarna till binär representation och anger lite 1 om en eller båda motsvarande bitar i mask och flaggan är mellan 1 och 0 om båda motsvarande bits är 0. Med andra ord, returnerar 1, utom där de motsvarande delarna av båda parametrarna är 0.
+**!**  
+Den här funktionen konverterar båda parametrarna till den binära representationen och anger en bit till 1 om en eller båda av motsvarande bitar i masken och flaggan är 1, och till 0 om båda motsvarande bitar är 0. Med andra ord returneras 1 i samtliga fall, förutom om motsvarande bitar i båda parametrarna är 0.
 
 ---
 ### <a name="cbool"></a>CBool
@@ -132,52 +132,52 @@ Funktionen CBool returnerar ett booleskt värde baserat på det utvärderade utt
 **Syntax:**  
 `bool CBool(exp Expression)`
 
-**Anmärkning:**  
-Om uttrycket utvärderas till ett annat värde och sedan CBool returnerar True, annars returneras False.
+**!**  
+Om uttrycket utvärderas till ett värde som inte är noll returnerar CBool True, annars returneras FALSKT.
 
 **Exempel:**  
 `CBool([attrib1] = [attrib2])`  
 
-Returnerar True om båda attribut har samma värde.
+Returnerar true om båda attributen har samma värde.
 
 ---
 ### <a name="cdate"></a>CDate
 **Beskrivning:**  
-Funktionen CDate returnerar en UTC-datum/tid från en sträng. DateTime är inte en intern Attributtyp som är synkroniserade men används av vissa funktioner.
+Funktionen CDate returnerar en UTC-DateTime från en sträng. DateTime är inte en typ av ursprungligt attribut i Sync men används av vissa funktioner.
 
 **Syntax:**  
 `dt CDate(str value)`
 
-* Värde: En sträng med ett datum, tid och du kan också tidszon
+* Värde: En sträng med datum, tid och eventuellt tidszon
 
-**Anmärkning:**  
+**!**  
 Den returnerade strängen är alltid i UTC.
 
 **Exempel:**  
 `CDate([employeeStartTime])`  
-Returnerar ett datetime-värde baserat på medarbetarens starttid
+Returnerar ett datum/tid baserat på medarbetarens start tid
 
 `CDate("2013-01-10 4:00 PM -8")`  
-Returnerar ett datum/tid som representerar ”2013-01-11 12:00 AM”
+Returnerar en DateTime som representerar "2013-01-11 12:00 AM"
 
 
 ---
 ### <a name="certextensionoids"></a>CertExtensionOids
 **Beskrivning:**  
-Returnerar Oid-värden för alla kritiska tillägg av ett certifikatobjekt.
+Returnerar OID-värden för alla kritiska tillägg för ett certifikat objekt.
 
 **Syntax:**  
 `mvstr CertExtensionOids(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certformat"></a>CertFormat
 **Beskrivning:**  
-Returnerar namnet på formatet för den här X.509v3-certifikat.
+Returnerar namnet på formatet för X. 509v3-certifikatet.
 
 **Syntax:**  
 `str CertFormat(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certfriendlyname"></a>CertFriendlyName
@@ -186,153 +186,153 @@ Returnerar det associerade aliaset för ett certifikat.
 
 **Syntax:**  
 `str CertFriendlyName(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certhashstring"></a>CertHashString
 **Beskrivning:**  
-Returnerar SHA1-hash-värdet för X.509v3-certifikat som en hexadecimal sträng.
+Returnerar SHA1-hash-värdet för X. 509v3-certifikatet som en hexadecimal sträng.
 
 **Syntax:**  
 `str CertHashString(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certissuer"></a>CertIssuer
 **Beskrivning:**  
-Returnerar namnet på den certifikatutfärdare som utfärdade X.509v3-certifikat.
+Returnerar namnet på den certifikat utfärdare som utfärdade X. 509v3-certifikatet.
 
 **Syntax:**  
 `str CertIssuer(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certissuerdn"></a>CertIssuerDN
 **Beskrivning:**  
-Returnerar det unika namnet på certifikatutfärdaren.
+Returnerar det unika namnet för certifikat utfärdaren.
 
 **Syntax:**  
 `str CertIssuerDN(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certissueroid"></a>CertIssuerOid
 **Beskrivning:**  
-Returnerar Oid för certifikatutfärdaren.
+Returnerar OID för certifikat utfärdaren.
 
 **Syntax:**  
 `str CertIssuerOid(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
 **Beskrivning:**  
-Returnerar nyckelalgoritm-information för den här X.509v3-certifikat som en sträng.
+Returnerar information om nyckelalgoritm för det här X. 509v3-certifikatet som en sträng.
 
 **Syntax:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
 **Beskrivning:**  
-Returnerar nyckelalgoritm parametrarna för X.509v3-certifikat som en hexadecimal sträng.
+Returnerar Key algorithm-parametrarna för X. 509v3-certifikatet som en hexadecimal sträng.
 
 **Syntax:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certnameinfo"></a>CertNameInfo
 **Beskrivning:**  
-Returnerar ämne och Utfärdarens namn från ett certifikat.
+Returnerar ämnes-och utfärdarens namn från ett certifikat.
 
 **Syntax:**  
 `str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
-*   X509NameType: X509NameType värdet för ämnet.
-*   includesIssuerName: true att inkludera Utfärdarens namn; Annars, FALSKT.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
+*   X509NameType: X509NameType-värdet för ämnet.
+*   includesIssuerName: sant om du vill inkludera utfärdarens namn. annars FALSE.
 
 ---
 ### <a name="certnotafter"></a>CertNotAfter
 **Beskrivning:**  
-Returnerar datum i lokal tid efter vilken en certifikatet inte längre är giltigt.
+Returnerar det datum i lokal tid som ett certifikat inte längre är giltigt.
 
 **Syntax:**  
 `dt CertNotAfter(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certnotbefore"></a>CertNotBefore
 **Beskrivning:**  
-Returnerar datum i lokal tid som ett certifikat börjar gälla.
+Returnerar det datum i lokal tid som ett certifikat börjar gälla.
 
 **Syntax:**  
 `dt CertNotBefore(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
 **Beskrivning:**  
-Returnerar Oid för den offentliga nyckeln för X.509v3-certifikat.
+Returnerar OID för den offentliga nyckeln för X. 509v3-certifikatet.
 
 **Syntax:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
 **Beskrivning:**  
-Returnerar Oid för offentlig nyckel parametrarna för X.509v3-certifikat.
+Returnerar OID för parametrarna för den offentliga nyckeln för X. 509v3-certifikatet.
 
 **Syntax:**  
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certserialnumber"></a>CertSerialNumber
 **Beskrivning:**  
-Returnerar serienumret för X.509v3-certifikat.
+Returnerar serie numret för X. 509v3-certifikatet.
 
 **Syntax:**  
 `str CertSerialNumber(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
 **Beskrivning:**  
-Returnerar Oid av algoritmen som används för att skapa signaturen för ett certifikat.
+Returnerar OID för algoritmen som används för att skapa signaturen för ett certifikat.
 
 **Syntax:**  
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certsubject"></a>CertSubject
 **Beskrivning:**  
-Hämtar det unika ämnesnamnet från ett certifikat.
+Hämtar det unika ämnes namnet från ett certifikat.
 
 **Syntax:**  
 `str CertSubject(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
 **Beskrivning:**  
-Returnerar det unika ämnesnamnet från ett certifikat.
+Returnerar det unika ämnes namnet från ett certifikat.
 
 **Syntax:**  
 `str CertSubjectNameDN(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
 **Beskrivning:**  
-Returnerar Oid för ämnesnamnet från ett certifikat.
+Returnerar OID för ämnes namnet från ett certifikat.
 
 **Syntax:**  
 `str CertSubjectNameOid(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certthumbprint"></a>CertThumbprint
@@ -341,119 +341,119 @@ Returnerar tumavtrycket för ett certifikat.
 
 **Syntax:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="certversion"></a>CertVersion
 **Beskrivning:**  
-Returnerar X.509-Formatversion för ett certifikat.
+Returnerar formatet X. 509-versionen av ett certifikat.
 
 **Syntax:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 
 ---
 ### <a name="cguid"></a>CGuid
 **Beskrivning:**  
-Funktionen CGuid konverterar strängrepresentation av en GUID till dess binär representation.
+Funktionen CGuid konverterar sträng representationen av ett GUID till dess binära representation.
 
 **Syntax:**  
 `bin CGuid(str GUID)`
 
-* En sträng formaterad i det här mönstret: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx eller {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
+* En sträng formaterad i det här mönstret: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX eller {XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}
 
 ---
 ### <a name="contains"></a>innehåller
 **Beskrivning:**  
-Contains-funktionen returnerar en sträng inuti ett flervärdesattribut
+Funktionen contains hittar en sträng inuti ett multi-värde-attribut
 
 **Syntax:**  
-`num Contains (mvstring attribute, str search)` -skiftlägeskänsligt  
+`num Contains (mvstring attribute, str search)`– Skift läges känsligt  
 `num Contains (mvstring attribute, str search, enum Casetype)`  
-`num Contains (mvref attribute, str search)` -skiftlägeskänsligt
+`num Contains (mvref attribute, str search)`– Skift läges känsligt
 
-* attributet: attributet med flera värden för att söka.
+* attribut: det multi-värde-attribut som ska genomsökas.
 * Sök: sträng att söka efter i attributet.
 * Casetype: CaseInsensitive eller CaseSensitive.
 
-Returnerar index i attributet med flera värden där strängen hittades. 0 returneras om strängen inte hittas.
+Returnerar index i multi-Value-attributet där strängen hittades. 0 returneras om strängen inte hittas.
 
-**Anmärkning:**  
-Söker efter delsträngar i värdena för flera värden strängattribut sökningen.  
-Sökt sträng måste exakt matcha värdet för att anses vara en matchning för referensattribut.
+**!**  
+För flervärdesattribut med flera värden hittar sökningen del strängar i värdena.  
+För referens-attribut måste den genomsökta strängen exakt matcha värdet som ska anses vara en matchning.
 
 **Exempel:**  
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
-Om attributet proxyAddresses har en primär e-postadress (anges med versaler ”SMTP”:), returnerar proxyAddress-attribut, annars returneras ett fel.
+Om attributet proxyAddresses har en primär e-postadress (anges med versaler "SMTP:"), returnerar proxyAddress-attributet, annars returneras ett fel.
 
 ---
 ### <a name="convertfrombase64"></a>ConvertFromBase64
 **Beskrivning:**  
-Funktionen ConvertFromBase64 konverterar det angivna base64-kodad värdet till en vanlig sträng.
+Funktionen ConvertFromBase64 konverterar det angivna base64-kodade värdet till en vanlig sträng.
 
 **Syntax:**  
-`str ConvertFromBase64(str source)` -förutsätter Unicode för kodning  
+`str ConvertFromBase64(str source)`– antar Unicode för kodning  
 `str ConvertFromBase64(str source, enum Encoding)`
 
-* Källa: Base64-kodad sträng  
-* Encoding: Unicode, ASCII, UTF8
+* källicensservern Base64-kodad sträng  
+* Inställning Unicode, ASCII, UTF8
 
 **Exempel**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
 `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Båda exemplen ger ”*Hello world!* ”
+Båda exemplen returnerar "*Hello World!* "
 
 ---
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
 **Beskrivning:**  
-Funktionen ConvertFromUTF8Hex konverterar det angivna UTF8 Hex-kodade-värdet till en sträng.
+Funktionen ConvertFromUTF8Hex konverterar det angivna UTF8 hex-kodade värdet till en sträng.
 
 **Syntax:**  
 `str ConvertFromUTF8Hex(str source)`
 
-* Källa: UTF8 2-bytes kodade förekomster av textsträngen
+* källicensservern UTF8, 2 – byte-kodad STING
 
-**Anmärkning:**  
-Skillnaden mellan den här funktionen och ConvertFromBase64([],UTF8) i att resultatet är eget för attributet DN.  
-Det här formatet används av Azure Active Directory som unikt namn.
+**!**  
+Skillnaden mellan den här funktionen och ConvertFromBase64 ([], UTF8) i som resultatet är läsvänlig för attributet DN.  
+Det här formatet används av Azure Active Directory som DN.
 
 **Exempel:**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
-Returnerar ”*Hello world!* ”
+Returnerar "*Hello World!* "
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
 **Beskrivning:**  
 Funktionen ConvertToBase64 konverterar en sträng till en Unicode base64-sträng.  
-Konverterar värdet för en matris av heltal till dess motsvarande strängrepresentation som är kodat med Base64-siffror.
+Konverterar värdet för en matris med heltal till motsvarande sträng representation som är kodad med bas-64 siffror.
 
 **Syntax:**  
 `str ConvertToBase64(str source)`
 
 **Exempel:**  
 `ConvertToBase64("Hello world!")`  
-Returns "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
+Returnerar "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 ---
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
 **Beskrivning:**  
-Funktionen ConvertToUTF8Hex konverterar en sträng till ett värde för UTF8 Hex-kodade.
+Funktionen ConvertToUTF8Hex konverterar en sträng till ett hexadecimalt värde för UTF8-kodning.
 
 **Syntax:**  
 `str ConvertToUTF8Hex(str source)`
 
-**Anmärkning:**  
-Utdataformatet för den här funktionen används av Azure Active Directory som DN Attributformat.
+**!**  
+Utdataformatet för den här funktionen används av Azure Active Directory som attribut för DN-attribut.
 
 **Exempel:**  
 `ConvertToUTF8Hex("Hello world!")`  
-Returns 48656C6C6F20776F726C6421
+Returnerar 48656C6C6F20776F726C6421
 
 ---
-### <a name="count"></a>Antal
+### <a name="count"></a>Count
 **Beskrivning:**  
-Count-funktionen returnerar antalet element i ett flervärdesattribut
+Funktionen COUNT returnerar antalet element i ett multi-värde-attribut
 
 **Syntax:**  
 `num Count(mvstr attribute)`
@@ -469,7 +469,7 @@ Funktionen CNum tar en sträng och returnerar en numerisk datatyp.
 ---
 ### <a name="cref"></a>CRef
 **Beskrivning:**  
-Konverterar en sträng till ett referensattribut
+Konverterar en sträng till ett referens-attribut
 
 **Syntax:**  
 `ref CRef(str value)`
@@ -480,49 +480,49 @@ Konverterar en sträng till ett referensattribut
 ---
 ### <a name="cstr"></a>CStr
 **Beskrivning:**  
-Funktionen CStr konverteras till datatypen string.
+Funktionen CStr konverterar till en sträng data typ.
 
 **Syntax:**  
 `str CStr(num value)`  
 `str CStr(ref value)`  
 `str CStr(bool value)`  
 
-* Värde: Kan vara ett numeriskt värde, referensattribut eller booleskt värde.
+* värde Kan vara ett numeriskt värde, ett referens-eller Boolean-attribut.
 
 **Exempel:**  
 `CStr([dn])`  
-Kan returnera ”cn = Joe, dc = contoso, dc = com”
+Kan returnera "CN = Johan, DC = contoso, DC = com"
 
 ---
 ### <a name="dateadd"></a>DateAdd
 **Beskrivning:**  
-Returnerar ett datum som innehåller ett datum som ett angivet tidsintervall har lagts till.
+Returnerar ett datum som innehåller ett datum som har lagts till ett angivet tidsintervall.
 
 **Syntax:**  
 `dt DateAdd(str interval, num value, dt date)`
 
-* intervall: Stränguttryck som är tidsintervallet som du vill lägga till. Strängen måste ha något av följande värden:
-  * åååå år
-  * q Quarter
-  * miljoner månad
-  * y-dag på året
+* intervall Sträng uttryck som är det tidsintervall som du vill lägga till. Strängen måste ha ett av följande värden:
+  * yyyy-år
+  * q kvartal
+  * m månad
+  * y-dagen på året
   * d dag
   * w veckodag
-  * ww vecka
+  * WW-veckan
   * h timme
   * n minut
-  * s andra
-* Värde: Antal enheter som du vill lägga till. Det kan vara positivt (för att hämta framtida datum) eller negativt (för att hämta tidigare datum).
-* datum: Datum/tid som representerar som intervallet ska läggas till.
+  * s sekund
+* värde Antalet enheter som du vill lägga till. Det kan vara positivt (för att få datum i framtiden) eller negativa (för att hämta datum tidigare).
+* ikraftträdande Datum/tid som representerar det datum som intervallet läggs till.
 
 **Exempel:**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
-Lägger till tre månader och returnerar ett datetime-värde som representerar ”2001-04-01”.
+Lägger till 3 månader och returnerar en DateTime som representerar "2001-04-01".
 
 ---
 ### <a name="datefromnum"></a>DateFromNum
 **Beskrivning:**  
-Funktionen DateFromNum konverterar ett värde i Active Directorys datum-format till ett DateTime-typen.
+Funktionen DateFromNum konverterar ett värde i ADs datum format till en DateTime-typ.
 
 **Syntax:**  
 `dt DateFromNum(num value)`
@@ -530,92 +530,92 @@ Funktionen DateFromNum konverterar ett värde i Active Directorys datum-format t
 **Exempel:**  
 `DateFromNum([lastLogonTimestamp])`  
 `DateFromNum(129699324000000000)`  
-Returnerar ett datetime-värde som representerar 2012-01-01 23:00:00
+Returnerar en DateTime som representerar 2012-01-01 23:00:00
 
 ---
 ### <a name="dncomponent"></a>DNComponent
 **Beskrivning:**  
-DNComponent returneras värdet för en angiven DN-komponent som kommer från vänster.
+Funktionen DNComponent returnerar värdet för en angiven DN-komponent som går från vänster.
 
 **Syntax:**  
 `str DNComponent(ref dn, num ComponentNumber)`
 
-* DN: referensattribut att tolka
-* ComponentNumber: Komponenten i det unika namnet ska returneras
+* DN: det referens-attribut som ska tolkas
+* ComponentNumber: Komponenten i DN att returnera
 
 **Exempel:**  
 `DNComponent(CRef([dn]),1)`  
-Om dn är ”cn = Joe, ou =...”, returneras Joe
+Om DN är "CN = Johan, OU =..." returneras Joe
 
 ---
 ### <a name="dncomponentrev"></a>DNComponentRev
 **Beskrivning:**  
-DNComponentRev returneras värdet för en angiven DN-komponent som kommer från höger (slut).
+Funktionen DNComponentRev returnerar värdet för en angiven DN-komponent som går från höger (End).
 
 **Syntax:**  
 `str DNComponentRev(ref dn, num ComponentNumber)`  
 `str DNComponentRev(ref dn, num ComponentNumber, enum Options)`
 
-* DN: referensattribut att tolka
-* ComponentNumber - komponenten i det unika namnet ska returneras
-* Alternativ: DC – Ignorera alla komponenter med ”dc =”
+* DN: det referens-attribut som ska tolkas
+* ComponentNumber – komponenten i DN att returnera
+* Sätt DC – ignorera alla komponenter med "DC ="
 
 **Exempel:**  
-If dn is "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" then  
+Om DN är "CN = Johan, OU = Atlanta, OU = GA, OU = US, DC = contoso, DC = com" och  
 `DNComponentRev(CRef([dn]),3)`  
 `DNComponentRev(CRef([dn]),1,"DC")`  
-Båda att returnera oss.
+Båda returnerar oss.
 
 ---
 ### <a name="error"></a>Fel
 **Beskrivning:**  
-Fel-funktionen används för att returnera ett anpassat fel.
+Fel funktionen används för att returnera ett anpassat fel.
 
 **Syntax:**  
 `void Error(str ErrorMessage)`
 
 **Exempel:**  
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
-Om attributet accountName inte är tillgänglig, returnerade ett fel på objektet.
+Om attributet accountName inte finns genererar du ett fel på objektet.
 
 ---
 ### <a name="escapedncomponent"></a>EscapeDNComponent
 **Beskrivning:**  
-Funktionen EscapeDNComponent tar en komponent i ett unikt namn och lämnar den så att den kan visas i LDAP.
+Funktionen EscapeDNComponent tar en komponent i ett DN och avmarkerar den så att den kan representeras i LDAP.
 
 **Syntax:**  
 `str EscapeDNComponent(str value)`
 
 **Exempel:**  
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
-Ser till att objektet kan skapas i en LDAP-katalog, även om attributet visningsnamn har tecken måste undantas i LDAP.
+Kontrollerar att objektet kan skapas i en LDAP-katalog även om attributet displayName innehåller tecken som måste undantas i LDAP.
 
 ---
 ### <a name="formatdatetime"></a>formatDateTime
 **Beskrivning:**  
-Funktionen FormatDateTime används för att formatera ett datetime-värde till en sträng med ett angivet format
+Funktionen FormatDateTime används för att formatera en DateTime till en sträng med ett angivet format
 
 **Syntax:**  
 `str FormatDateTime(dt value, str format)`
 
 * värde: ett värde i DateTime-format
-* format: en sträng som representerar format för att konvertera till.
+* format: en sträng som representerar det format som ska konverteras till.
 
-**Anmärkning:**  
-De möjliga värdena för formatet finns här: [Anpassat datum och tid-format för funktionen FORMAT](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
+**!**  
+Möjliga värden för formatet hittar du här: [Anpassade datum-och tids format för funktionen format](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Exempel:**  
 
 `FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")`  
-Resultat i ”2007-12-25”.
+Resulterar i "2007-12-25".
 
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
-Kan leda till ”20140905081453.0Z”
+Kan resultera i "20140905081453.0 Z"
 
 ---
 ### <a name="guid"></a>Guid
 **Beskrivning:**  
-Funktionen Guid genererar en ny, slumpmässig GUID
+Funktions-GUID genererar ett nytt slumpmässigt GUID
 
 **Syntax:**  
 `str Guid()`
@@ -623,23 +623,23 @@ Funktionen Guid genererar en ny, slumpmässig GUID
 ---
 ### <a name="iif"></a>IIF
 **Beskrivning:**  
-Funktionen returnerar ett av en uppsättning möjliga värden baserat på ett angivet villkor.
+Funktionen IIF returnerar en uppsättning möjliga värden baserat på ett angivet villkor.
 
 **Syntax:**  
 `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 * villkor: ett värde eller uttryck som kan utvärderas till true eller false.
-* värdeomsant: Om villkoret utvärderas till SANT, det returnerade värdet.
-* valueIfFalse: Om villkoret utvärderas till false, värdet som returneras.
+* valueIfTrue: Om villkoret utvärderas till sant returneras det returnerade värdet.
+* valueIfFalse: Om villkoret utvärderas till false returneras det returnerade värdet.
 
 **Exempel:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
- Om användaren är en intern, returnerar du alias för en användare med ”t-” läggs till i början av det, annan returnerar användarens alias skick.
+ Om användaren är en intern, returnerar alias för en användare med "t-" tillagd i början av den, annars returneras användarens alias som det är.
 
 ---
 ### <a name="instr"></a>InStr
 **Beskrivning:**  
-InStr funktionen söker efter den första förekomsten av en understräng i en sträng
+Funktionen InStr söker efter den första förekomsten av en del sträng i en sträng
 
 **Syntax:**  
 
@@ -647,38 +647,38 @@ InStr funktionen söker efter den första förekomsten av en understräng i en s
 `num InStr(str stringcheck, str stringmatch, num start)`  
 `num InStr(str stringcheck, str stringmatch, num start , enum compare)`
 
-* stringcheck: strängen som ska sökas igenom
+* stringcheck: strängen som ska genomsökas
 * stringmatch: strängen som ska hittas
-* Starta: startposition för att hitta delsträngen
-* compare: vbTextCompare or vbBinaryCompare
+* Start: Start position för att hitta del strängen
+* Jämför: vbTextCompare eller vbBinaryCompare
 
-**Anmärkning:**  
-Returnerar positionen där delsträngen hittades eller 0 om hittades inte.
+**!**  
+Returnerar positionen där under strängen hittades eller 0 om den inte hittades.
 
 **Exempel:**  
 `InStr("The quick brown fox","quick")`  
 Evalues till 5
 
 `InStr("repEated","e",3,vbBinaryCompare)`  
-Utvärderar till 7
+Utvärderas till 7
 
 ---
 ### <a name="instrrev"></a>InStrRev
 **Beskrivning:**  
-Funktionen InStrRev söker efter den sista förekomsten av en understräng i en sträng
+Funktionen InStrRev söker efter den sista förekomsten av en del sträng i en sträng
 
 **Syntax:**  
 `num InstrRev(str stringcheck, str stringmatch)`  
 `num InstrRev(str stringcheck, str stringmatch, num start)`  
 `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
-* stringcheck: strängen som ska sökas igenom
+* stringcheck: strängen som ska genomsökas
 * stringmatch: strängen som ska hittas
-* Starta: startposition för att hitta delsträngen
-* compare: vbTextCompare or vbBinaryCompare
+* Start: Start position för att hitta del strängen
+* Jämför: vbTextCompare eller vbBinaryCompare
 
-**Anmärkning:**  
-Returnerar positionen där delsträngen hittades eller 0 om hittades inte.
+**!**  
+Returnerar positionen där under strängen hittades eller 0 om den inte hittades.
 
 **Exempel:**  
 `InStrRev("abbcdbbbef","bb")`  
@@ -687,40 +687,40 @@ Returnerar 7
 ---
 ### <a name="isbitset"></a>IsBitSet
 **Beskrivning:**  
-Funktionen IsBitSet nätverkstester om en stund har angetts eller inte
+Funktionen IsBitSet testar om en bit har angetts eller inte
 
 **Syntax:**  
 `bool IsBitSet(num value, num flag)`
 
-* värde: ett numeriskt värde som är evaluated.flag: ett numeriskt värde som bitar som ska utvärderas
+* värde: ett numeriskt värde som utvärderas. flagga: ett numeriskt värde som har den bit som ska utvärderas
 
 **Exempel:**  
 `IsBitSet(&HF,4)`  
-Returnerar SANT eftersom ”4”-biten är aktiverad i det hexadecimala värdet ”F”
+Returnerar true eftersom bit "4" är inställt på det hexadecimala värdet "F"
 
 ---
 ### <a name="isdate"></a>IsDate
 **Beskrivning:**  
-Om uttrycket kan vara utvärderar som en DateTime-typ, och sedan funktionen IsDate utvärderas till SANT.
+Om uttrycket kan utvärderas som en DateTime-typ, utvärderar funktionen IsDate till true.
 
 **Syntax:**  
 `bool IsDate(var Expression)`
 
-**Anmärkning:**  
-Används för att avgöra om CDate() kan genomföras.
+**!**  
+Används för att avgöra om CDate () kan lyckas.
 
 ---
 ### <a name="iscert"></a>IsCert
 **Beskrivning:**  
-Returnerar SANT om rådata kan serialiseras i .NET X509Certificate2 certifikat-objekt.
+Returnerar sant om rå data kan serialiseras i .NET X509Certificate2-certifikat objekt.
 
 **Syntax:**  
 `bool CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
+*   certificateRawData: Byte mat ris representation av ett X. 509-certifikat. Byte mat ris kan vara binära (DER) kodade eller Base64-kodade X. 509-data.
 ---
 ### <a name="isempty"></a>IsEmpty
 **Beskrivning:**  
-Om attributet finns i CS eller MV men utvärderas till en tom sträng, och sedan funktionen IsEmpty utvärderas till SANT.
+Om attributet finns i CS eller MV, men utvärderas till en tom sträng, evalueras funktionen IsEmpty till true.
 
 **Syntax:**  
 `bool IsEmpty(var Expression)`
@@ -728,83 +728,83 @@ Om attributet finns i CS eller MV men utvärderas till en tom sträng, och sedan
 ---
 ### <a name="isguid"></a>IsGuid
 **Beskrivning:**  
-Om strängen kunde konverteras till ett GUID, utvärderas funktionen IsGuid till true.
+Om strängen kan konverteras till ett GUID, utvärderas funktionen IsGuid till true.
 
 **Syntax:**  
 `bool IsGuid(str GUID)`
 
-**Anmärkning:**  
-Ett GUID som har definierats som en sträng som följa en av dessa mönster: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx eller {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
+**!**  
+Ett GUID definieras som en sträng enligt något av följande mönster: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX eller {XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}
 
-Används för att avgöra om CGuid() kan genomföras.
+Används för att avgöra om CGuid () kan lyckas.
 
 **Exempel:**  
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
-Om StrAttribute har ett GUID-format, returnerar en binär representation, annars returnerar Null.
+Om StrAttribute har ett GUID-format returnerar du en binär representation, annars returnerar ett null-värde.
 
 ---
 ### <a name="isnull"></a>IsNull
 **Beskrivning:**  
-Om uttrycket utvärderas till Null, returnerar funktionen IsNull true.
+Om uttrycket utvärderas till null returnerar funktionen IsNull True.
 
 **Syntax:**  
 `bool IsNull(var Expression)`
 
-**Anmärkning:**  
-Ett null-värde uttrycks av att attributet för ett attribut.
+**!**  
+För ett-attribut uttrycks ett null-värde av frånvaron av attributet.
 
 **Exempel:**  
 `IsNull([displayName])`  
-Returnerar True om attributet inte finns i CS eller MV.
+Returnerar true om attributet inte finns i CS eller MV.
 
 ---
 ### <a name="isnullorempty"></a>IsNullOrEmpty
 **Beskrivning:**  
-Om uttrycket är null eller en tom sträng, returnerar funktionen IsNullOrEmpty true.
+Om uttrycket är null eller en tom sträng returnerar funktionen IsNullOrEmpty värdet true.
 
 **Syntax:**  
 `bool IsNullOrEmpty(var Expression)`
 
-**Anmärkning:**  
-För ett attribut, skulle detta utvärderas till SANT om attributet finns inte eller finns men är en tom sträng.  
-Inversen till den här funktionen har namnet IsPresent.
+**!**  
+För ett-attribut utvärderar detta till sant om attributet saknas eller finns, men är en tom sträng.  
+Inversen till den här funktionen heter IsPresent.
 
 **Exempel:**  
 `IsNullOrEmpty([displayName])`  
-Returnerar True om attributet finns inte eller är en tom sträng i CS eller MV.
+Returnerar true om attributet inte finns eller är en tom sträng i CS eller MV.
 
 ---
 ### <a name="isnumeric"></a>IsNumeric
 **Beskrivning:**  
-IsNumeric-funktionen returnerar ett booleskt värde som anger om ett uttryck kan utvärderas som en nummertypen.
+Funktionen IsNumeric returnerar ett booleskt värde som anger om ett uttryck kan utvärderas som en siffer typ.
 
 **Syntax:**  
 `bool IsNumeric(var Expression)`
 
-**Anmärkning:**  
-Används för att avgöra om CNum() kan vara att parsa uttrycket.
+**!**  
+Används för att avgöra om CNum () kan lyckas parsa uttrycket.
 
 ---
 ### <a name="isstring"></a>IsString
 **Beskrivning:**  
-Om det kan utvärderas till en strängtyp, utvärderar funktionen IsString till True.
+Om uttrycket kan utvärderas till en sträng typ, utvärderar funktionen IsString till true.
 
 **Syntax:**  
 `bool IsString(var expression)`
 
-**Anmärkning:**  
-Används för att avgöra om CStr() kan vara att parsa uttrycket.
+**!**  
+Används för att avgöra om CStr () kan lyckas parsa uttrycket.
 
 ---
 ### <a name="ispresent"></a>IsPresent
 **Beskrivning:**  
-Om uttrycket utvärderas till en sträng som inte är Null och inte är tom, returnerar funktionen IsPresent true.
+Om uttrycket utvärderas till en sträng som inte är null och inte är tomt, returnerar funktionen IsPresent True.
 
 **Syntax:**  
 `bool IsPresent(var expression)`
 
-**Anmärkning:**  
-Inversen till den här funktionen har namnet IsNullOrEmpty.
+**!**  
+Inversen till den här funktionen heter IsNullOrEmpty.
 
 **Exempel:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
@@ -812,18 +812,18 @@ Inversen till den här funktionen har namnet IsNullOrEmpty.
 ---
 ### <a name="item"></a>Objekt
 **Beskrivning:**  
-Funktionen Item returnerar ett objekt från en sträng/flervärdesattribut.
+Funktionen item returnerar ett objekt från en multi-valueion String/Attribute.
 
 **Syntax:**  
 `var Item(mvstr attribute, num index)`
 
-* attributet: flervärdesattribut
-* index: index till ett objekt i strängen med flera värden.
+* attribut: multi-Value-attribut
+* index: indexet till ett objekt i multi-Value-strängen.
 
-**Anmärkning:**  
-Funktionen Item är användbar tillsammans med funktionen innehåller eftersom funktionen senare returnerar indexet för ett objekt i attributet med flera värden.
+**!**  
+Funktionen item är användbar tillsammans med funktionen contains eftersom den senare funktionen returnerar indexet till ett objekt i multi-Value-attributet.
 
-Genererar ett fel om indexet är utanför intervallet.
+Genererar ett fel om indexet ligger utanför intervallet.
 
 **Exempel:**  
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
@@ -832,78 +832,78 @@ Returnerar den primära e-postadressen.
 ---
 ### <a name="itemornull"></a>ItemOrNull
 **Beskrivning:**  
-ItemOrNull-funktionen returnerar ett objekt från en sträng/flervärdesattribut.
+Funktionen ItemOrNull returnerar ett objekt från en multi-Value-sträng/-attribut.
 
 **Syntax:**  
 `var ItemOrNull(mvstr attribute, num index)`
 
-* attributet: flervärdesattribut
-* index: index till ett objekt i strängen med flera värden.
+* attribut: multi-Value-attribut
+* index: indexet till ett objekt i multi-Value-strängen.
 
-**Anmärkning:**  
-ItemOrNull-funktionen är användbar tillsammans med funktionen innehåller eftersom funktionen senare returnerar indexet för ett objekt i attributet med flera värden.
+**!**  
+ItemOrNull-funktionen är användbar tillsammans med funktionen contains eftersom den senare funktionen returnerar indexet till ett objekt i multi-Value-attributet.
 
-Om indexet är utanför intervallet, returnerar du värdet Null.
+Om index ligger utanför intervallet returnerar värdet null.
 
 ---
-### <a name="join"></a>Anslut
+### <a name="join"></a>Slå ihop
 **Beskrivning:**  
-Join-funktionen tar en sträng med flera värden och returnerar en enstaka sträng med angiven avgränsare infogas mellan varje element.
+Funktionen Join tar en multi-Value-sträng och returnerar en ensiffrig sträng med angiven avgränsare som infogas mellan varje objekt.
 
 **Syntax:**  
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* attribut: Flervärdesattribut som innehåller strängar som ska anslutas.
-* avgränsare: Valfri sträng, som används för att avgränsa delsträngar i den returnerade strängen. Om detta utelämnas blir blanksteg (””) används. Om avgränsare är en tom sträng (””) eller något, alla objekt i listan är sammanfogat med utan avgränsare.
+* basattributet Multi-Value-attribut som innehåller strängar som ska anslutas.
+* avgränsare En sträng som används för att avgränsa del strängarna i den returnerade strängen. Om det utelämnas används blank tecken (""). Om avgränsaren är en tom sträng ("") eller inget, kombineras alla objekt i listan utan avgränsare.
 
 **Kommentarer**  
-Det finns paritet mellan funktionerna koppling och dela. Join-funktionen tar en matris med strängar och kopplar ihop dem med hjälp av en avgränsare sträng för att returnera en sträng. Funktionen Split tar en sträng och skiljer den på avgränsare att returnera en matris med strängar. En viktig skillnad är dock att Join kan konkatenera strängar med valfri avgränsare sträng, dela kan endast separata strängar med avgränsaren ett enskilt tecken.
+Det finns en paritet mellan funktionerna Join och Split. Funktionen Join tar en matris med strängar och kopplar dem med hjälp av en avgränsnings sträng, för att returnera en enskild sträng. Funktionen Split tar en sträng och avgränsar den i avgränsaren för att returnera en sträng mat ris. En viktig skillnad är dock att kopplingen kan sammanfoga strängar med valfri avgränsnings sträng, delning kan bara separera strängar med en enda tecken avgränsare.
 
 **Exempel:**  
 `Join([proxyAddresses],",")`  
-Kan returnera ”:SMTP:john.doe@contoso.com,smtp:jd@contoso.com”
+Kan returnera: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 
 ---
 ### <a name="lcase"></a>LCase
 **Beskrivning:**  
-Funktionen LCase konverterar alla tecken i en textsträng till gemener.
+Funktionen LCase konverterar alla tecken i en sträng till gemener.
 
 **Syntax:**  
 `str LCase(str value)`
 
 **Exempel:**  
 `LCase("TeSt")`  
-Returnerar ”test”.
+Returnerar "test".
 
 ---
 ### <a name="left"></a>Vänster
 **Beskrivning:**  
-Funktionen vänster returnerar ett angivet antal tecken från vänster i en sträng.
+Funktionen Left returnerar ett angivet antal tecken från vänster i en sträng.
 
 **Syntax:**  
 `str Left(str string, num NumChars)`
 
-* sträng: strängen som ska returnera tecken från
-* NumChars: ett nummer som identifierar antalet tecken att returnera från början (vänster) av sträng
+* sträng: strängen att returnera tecken från
+* NumChars: ett tal som identifierar antalet tecken som ska returneras från början (vänster) av sträng
 
-**Anmärkning:**  
-En sträng som innehåller de första numChars tecken i strängen:
+**!**  
+En sträng som innehåller de första numChars tecknen i strängen:
 
-* Om numChars = 0, returneras en tom sträng.
-* Om numChars < 0, returnerar Indatasträngen.
-* Om strängen är null returnera tom sträng.
+* Om numChars = 0 returneras en tom sträng.
+* Om numChars < 0, returnerar du Indatasträngen.
+* Om strängen är null returneras en tom sträng.
 
-Om strängen innehåller färre tecken än nummer anges i numChars, returneras en sträng som är identisk med sträng (som är, som innehåller alla tecken i parameter 1).
+Om strängen innehåller färre tecken än det tal som anges i numChars returneras en sträng som är identisk med sträng (dvs. med alla tecken i parameter 1).
 
 **Exempel:**  
 `Left("John Doe", 3)`  
-Returnerar ”Joh”.
+Returnerar "Joh".
 
 ---
 ### <a name="len"></a>Len
 **Beskrivning:**  
-Funktionen Len returnerar antalet tecken i en sträng.
+Funktionen len returnerar antalet tecken i en sträng.
 
 **Syntax:**  
 `num Len(str value)`
@@ -915,50 +915,50 @@ Returnerar 8
 ---
 ### <a name="ltrim"></a>LTrim
 **Beskrivning:**  
-LTrim-funktionen tar bort inledande blanksteg från en sträng.
+Funktionen LTrim tar bort inledande blank steg från en sträng.
 
 **Syntax:**  
 `str LTrim(str value)`
 
 **Exempel:**  
 `LTrim(" Test ")`  
-Returnerar ”Test”
+Returnerar "test"
 
 ---
 ### <a name="mid"></a>Mid
 **Beskrivning:**  
-Mid-funktionen returnerar ett angivet antal tecken från en angiven position i en sträng.
+Funktionen MID returnerar ett angivet antal tecken från en angiven position i en sträng.
 
 **Syntax:**  
 `str Mid(str string, num start, num NumChars)`
 
-* sträng: strängen som ska returnera tecken från
-* Starta: ett nummer som identifierar Start position i strängen att returnera tecken från
-* NumChars: ett nummer som identifierar antalet tecken att returnera från positionen i strängen
+* sträng: strängen att returnera tecken från
+* Start: ett tal som identifierar start positionen i strängen för att returnera tecken från
+* NumChars: ett tal som identifierar antalet tecken som ska returneras från positionen i strängen
 
-**Anmärkning:**  
-Returnera numChars tecken med början från positionen start i strängen.  
-En sträng som innehåller numChars tecken från position start i strängen:
+**!**  
+Returnera numChars tecken som börjar från positionen börjar i strängen.  
+En sträng som innehåller numChars tecken från positionen börjar i strängen:
 
-* Om numChars = 0, returneras en tom sträng.
-* Om numChars < 0, returnerar Indatasträngen.
-* Om starta > hur lång sträng, returnerar Indatasträngen.
-* Om starta < = 0, returnerar Indatasträngen.
-* Om strängen är null returnera tom sträng.
+* Om numChars = 0 returneras en tom sträng.
+* Om numChars < 0, returnerar du Indatasträngen.
+* Om Start > längden på strängen returnerar du Indatasträngen.
+* Om start < = 0 returnerar du Indatasträngen.
+* Om strängen är null returneras en tom sträng.
 
-Om det inte numChar tecken returneras kvar i strängen position, så många tecken som möjligt.
+Om det inte finns några numChar tecken kvar i strängen från positions Start, returneras så många tecken som möjligt.
 
 **Exempel:**  
 `Mid("John Doe", 3, 5)`  
-Returnerar ”hn gör”.
+Returnerar "HN gör".
 
 `Mid("John Doe", 6, 999)`  
-Returnerar ”Berg”
+Returnerar "berg"
 
 ---
-### <a name="now"></a>nu
+### <a name="now"></a>Nu
 **Beskrivning:**  
-Funktionen nu returnerar ett datetime-värde som anger aktuellt datum och tid, beroende på datorns systemdatum och tid.
+Funktionen Now returnerar en DateTime som anger aktuellt datum och tid, enligt datorns system datum och tid.
 
 **Syntax:**  
 `dt Now()`
@@ -966,157 +966,157 @@ Funktionen nu returnerar ett datetime-värde som anger aktuellt datum och tid, b
 ---
 ### <a name="numfromdate"></a>NumFromDate
 **Beskrivning:**  
-NumFromDate-funktionen returnerar ett datum i Active Directorys datumformat.
+Funktionen NumFromDate returnerar ett datum i datum formatet för AD.
 
 **Syntax:**  
 `num NumFromDate(dt value)`
 
 **Exempel:**  
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
-Returns 129699324000000000
+Returnerar 129699324000000000
 
 ---
-### <a name="padleft"></a>padLeft
+### <a name="padleft"></a>PadLeft
 **Beskrivning:**  
-De PadLeft funktionen vänster-Pad en sträng till en angiven längd med en angiven utfyllnadstecknet.
+PadLeft-funktionen vänsterjusteras – fyller en sträng med en angiven längd med hjälp av ett angivet utfyllnads tecken.
 
 **Syntax:**  
 `str PadLeft(str string, num length, str padCharacter)`
 
-* sträng: strängen utfyllnad.
-* längd: Ett heltal som representerar den önskade längden på strängen.
-* padCharacter: En sträng som består av ett enskilt tecken som används som pad tecken
+* sträng: strängen som ska padas.
+* krävande Ett heltal som representerar önskad sträng längd.
+* padCharacter: En sträng som består av ett enda tecken som ska användas som pad-tecken
 
-**Anmärkning:**
+**!**
 
-* Om längden på strängen är mindre än längden, läggs upprepade gånger padCharacter i början (vänster) av sträng tills den har en längd lika med längden.
-* PadCharacter kan vara ett blanksteg, men den kan inte vara ett null-värde.
-* Om längden på strängen är lika med eller större än längden, returneras sträng oförändrade.
-* Om strängen har en längd som är större än eller lika med längden, returneras en sträng som är identisk med sträng.
-* Om längden på strängen är mindre än längden, returneras en ny sträng med längden som innehåller strängen fylls ut med en padCharacter.
+* Om längden på strängen är mindre än längd läggs padCharacter flera gånger till i början (vänster) av strängen tills den har en längd som är lika med längd.
+* PadCharacter kan vara ett blank stegs tecken, men det får inte vara ett null-värde.
+* Om längden på strängen är lika med eller större än längden returneras strängen oförändrad.
+* Om strängen har en längd som är större än eller lika med längd returneras en sträng som är identisk med en sträng.
+* Om längden på strängen är mindre än längd returneras en ny sträng med den önskade längden som innehåller strängen utfyllnad med en padCharacter.
 * Om strängen är null returnerar funktionen en tom sträng.
 
 **Exempel:**  
 `PadLeft("User", 10, "0")`  
-Returnerar ”000000User”.
+Returnerar "000000User".
 
 ---
 ### <a name="padright"></a>PadRight
 **Beskrivning:**  
-De PadRight funktionen höger-Pad en sträng till en angiven längd med en angiven utfyllnadstecknet.
+PadRight-funktionen Högerjusterar en sträng till en angiven längd med hjälp av ett angivet utfyllnads tecken.
 
 **Syntax:**  
 `str PadRight(str string, num length, str padCharacter)`
 
-* sträng: strängen utfyllnad.
-* längd: Ett heltal som representerar den önskade längden på strängen.
-* padCharacter: En sträng som består av ett enskilt tecken som används som pad tecken
+* sträng: strängen som ska padas.
+* krävande Ett heltal som representerar önskad sträng längd.
+* padCharacter: En sträng som består av ett enda tecken som ska användas som pad-tecken
 
-**Anmärkning:**
+**!**
 
-* Om längden på strängen är mindre än längden, sedan läggs padCharacter upprepade gånger till (höger) slutet av strängen förrän den har en längd som är lika med längden.
-* PadCharacter kan vara ett blanksteg, men den kan inte vara ett null-värde.
-* Om längden på strängen är lika med eller större än längden, returneras sträng oförändrade.
-* Om strängen har en längd som är större än eller lika med längden, returneras en sträng som är identisk med sträng.
-* Om längden på strängen är mindre än längden, returneras en ny sträng med längden som innehåller strängen fylls ut med en padCharacter.
+* Om längden på strängen är mindre än längden läggs padCharacter upprepade gånger till slutet av strängen tills den har en längd som är lika med längd.
+* padCharacter kan vara ett blank stegs tecken, men det får inte vara ett null-värde.
+* Om längden på strängen är lika med eller större än längden returneras strängen oförändrad.
+* Om strängen har en längd som är större än eller lika med längd returneras en sträng som är identisk med en sträng.
+* Om längden på strängen är mindre än längd returneras en ny sträng med den önskade längden som innehåller strängen utfyllnad med en padCharacter.
 * Om strängen är null returnerar funktionen en tom sträng.
 
 **Exempel:**  
 `PadRight("User", 10, "0")`  
-Returnerar ”User000000”.
+Returnerar "User000000".
 
 ---
 ### <a name="pcase"></a>PCase
 **Beskrivning:**  
-Funktionen PCase konverterar det första tecknet i varje blankstegsavgränsad ord i en sträng till versal och alla andra tecken omvandlas till gemener.
+Funktionen PCase konverterar det första tecknet i varje blankstegsavgränsad ord i en sträng till versaler, och alla andra tecken konverteras till gemener.
 
 **Syntax:**  
 `String PCase(string)`
 
-**Anmärkning:**
+**!**
 
-* Den här funktionen ger inte rätt skiftläge för att konvertera ett ord som är helt och hållet versaler, till exempel en förkortning för närvarande.
+* Den här funktionen ger för närvarande inte rätt Skift läge för att konvertera ett ord som är helt versalt, till exempel en akronym.
 
 **Exempel:**  
 `PCase("TEsT")`  
-Returnerar ”Test”.
+Returnerar "test".
 
 `PCase(LCase("TEST"))`  
-Returnerar ”Test”
+Returnerar "test"
 
 ---
 ### <a name="randomnum"></a>RandomNum
 **Beskrivning:**  
-RandomNum-funktionen returnerar ett slumptal mellan ett visst intervall.
+Funktionen RandomNum returnerar ett slumpmässigt tal mellan ett angivet intervall.
 
 **Syntax:**  
 `num RandomNum(num start, num end)`
 
-* Starta: ett nummer som identifierar den undre gränsen för slumpmässigt värde att generera
-* End: ett nummer som identifierar den övre gränsen för slumpmässigt värde att generera
+* Start: ett tal som identifierar den nedre gränsen för det slumpmässiga värdet som ska genereras
+* End: ett tal som identifierar den övre gränsen för det slumpmässiga värdet som ska genereras
 
 **Exempel:**  
 `Random(100,999)`  
-Returnera 734.
+Kan returnera 734.
 
 ---
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **Beskrivning:**  
-Funktionen RemoveDuplicates tar en sträng med flera värden och kontrollera att alla värden är unikt.
+Funktionen RemoveDuplicates använder en sträng med flera värden och ser till att varje värde är unikt.
 
 **Syntax:**  
 `mvstr RemoveDuplicates(mvstr attribute)`
 
 **Exempel:**  
 `RemoveDuplicates([proxyAddresses])`  
-Returnerar ett språkoberoende proxyAddress-attribut där alla dubblettvärden har tagits bort.
+Returnerar ett sanerat proxyAddress-attribut där alla dubblettvärden har tagits bort.
 
 ---
 ### <a name="replace"></a>Ersätt
 **Beskrivning:**  
-Ersätt funktionen ersätter alla förekomster av en textsträng till en annan sträng.
+Funktionen REPLACE ersätter alla förekomster av en sträng med en annan sträng.
 
 **Syntax:**  
 `str Replace(str string, str OldValue, str NewValue)`
 
-* sträng: En sträng att ersätta värdena i.
-* OldValue: Sträng att söka efter och ersätta.
-* NewValue: Strängen som ska ersätta till.
+* nollängd En sträng för att ersätta värden i.
+* Gammalt Strängen att söka efter och ersätta.
+* NewValue Strängen som ska ersättas.
 
-**Anmärkning:**  
+**!**  
 Funktionen identifierar följande särskilda monikers:
 
-* \n – New Line
-* \r – Carriage Return
-* \t – fliken
+* \n – ny rad
+* \r – vagn retur
+* \t – Tab
 
 **Exempel:**  
 `Replace([address],"\r\n",", ")`  
-Ersätter CRLF med ett kommatecken och ett blanksteg och kan leda till ”en Microsoft sätt, Redmond, WA, USA”
+Ersätter CRLF med kommatecken och blank steg och kan leda till "One Microsoft Way, Redmond, WA, USA"
 
 ---
 ### <a name="replacechars"></a>ReplaceChars
 **Beskrivning:**  
-Funktionen ReplaceChars ersätter alla förekomster av tecken i strängen ReplacePattern.
+Funktionen ReplaceChars ersätter alla förekomster av tecken som finns i ReplacePattern-strängen.
 
 **Syntax:**  
 `str ReplaceChars(str string, str ReplacePattern)`
 
-* sträng: En sträng som ska ersätta tecken i.
-* ReplacePattern: en sträng som innehåller en ordlista med tecken som ska ersättas.
+* nollängd En sträng som ska ersätta tecken i.
+* ReplacePattern: en sträng som innehåller en ord lista med tecken som ska ersättas.
 
-Formatet är {källa1}: {target1}, {källa2}: {target2}, {källan}, {targetN} där källan är tecknet för att hitta och rikta in strängen som ska ersättas med.
+Formatet är {source1}: {target1}, {SOURCE2}: {TARGET2}, {source '}, {targetn} där källa är det tecken som ska hittas och som är mål strängen som ska ersättas med.
 
-**Anmärkning:**
+**!**
 
-* Funktionen tar varje förekomst av definierade källor och ersätter dem med mål.
-* Måste vara exakt 1 (unicode) tecken.
-* Källan kan inte vara tomt eller längre än ett tecken (parsningsfel).
-* Målet kan ha flera tecken, till exempel ö:oe, β:ss.
-* Målet kan anges som anger att tecknet ska tas bort.
-* Källan är skiftlägeskänsligt och måste vara en exakt matchning.
-* (Kommatecken) och: (kolon) är reserverade tecken som inte kan ersättas med hjälp av den här funktionen.
-* Blanksteg och andra vit tecken i strängen ReplacePattern ignoreras.
+* Funktionen tar varje förekomst av definierade källor och ersätter dem med målen.
+* Källan måste vara exakt ett (Unicode) tecken.
+* Källan får inte vara tom eller längre än ett Character (parsningsfel).
+* Målet kan ha flera tecken, till exempel ö: OE, β: SS.
+* Målet kan vara tomt som anger att specialtecknet ska tas bort.
+* Källan är Skift läges känslig och måste vara en exakt matchning.
+* , (Komma) och: (kolon) är reserverade tecken och kan inte ersättas med den här funktionen.
+* Blank steg och andra vita tecken i ReplacePattern-strängen ignoreras.
 
 **Exempel:**  
 `%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o`
@@ -1125,85 +1125,85 @@ Formatet är {källa1}: {target1}, {källa2}: {target2}, {källan}, {targetN} d�
 Returnerar Raksmorgas
 
 `ReplaceChars("O’Neil",%ReplaceString%)`  
-Returnerar ”ONeil”, enskild skalstreck definieras till att tas bort.
+Returnerar "ONeil" och det enskilda skalet definieras som ska tas bort.
 
 ---
 ### <a name="right"></a>Höger
 **Beskrivning:**  
-Funktionen höger returnerar ett angivet antal tecken från höger (end) i en sträng.
+Funktionen Right returnerar ett angivet antal tecken från höger (End) i en sträng.
 
 **Syntax:**  
 `str Right(str string, num NumChars)`
 
-* sträng: strängen som ska returnera tecken från
-* NumChars: ett nummer som identifierar antalet tecken att returnera från (höger) slutet av strängen
+* sträng: strängen att returnera tecken från
+* NumChars: ett tal som identifierar antalet tecken som ska returneras från slutet (till höger) av sträng
 
-**Anmärkning:**  
-NumChars tecken som ska returneras från den sista positionen för strängen.
+**!**  
+NumChars-tecken returneras från den sista positionen i strängen.
 
-En sträng som innehåller de senaste numChars tecken i strängen:
+En sträng som innehåller de sista numChars tecknen i strängen:
 
-* Om numChars = 0, returneras en tom sträng.
-* Om numChars < 0, returnerar Indatasträngen.
-* Om strängen är null returnera tom sträng.
+* Om numChars = 0 returneras en tom sträng.
+* Om numChars < 0, returnerar du Indatasträngen.
+* Om strängen är null returneras en tom sträng.
 
-Om strängen innehåller färre tecken än nummer anges i NumChars, returneras en sträng som är identisk med sträng.
+Om strängen innehåller färre tecken än det tal som anges i NumChars returneras en sträng som är identisk med en sträng.
 
 **Exempel:**  
 `Right("John Doe", 3)`  
-Returnerar ”Berg”.
+Returnerar "berg".
 
 ---
 ### <a name="rtrim"></a>RTrim
 **Beskrivning:**  
-RTrim-funktionen tar bort avslutande blanksteg från en sträng.
+Funktionen RTrim tar bort avslutande blank steg från en sträng.
 
 **Syntax:**  
 `str RTrim(str value)`
 
 **Exempel:**  
 `RTrim(" Test ")`  
-Returnerar ”Test”.
+Returnerar "test".
 
 ---
-### <a name="select"></a>Välj
+### <a name="select"></a>Markera
 **Beskrivning:**  
-Processen för alla värden i en med flera värden attribut (eller resultatet av ett uttryck) baserat på funktionen som anges.
+Bearbeta alla värden i ett multi-Value-attribut (eller utdata från ett uttryck) baserat på angiven funktion.
 
 **Syntax:**  
 `mvattr Select(variable item, mvattr attribute, func function)`  
 `mvattr Select(variable item, exp expression, func function)`
 
-* item: Representerar ett element i attributet med flera värden
-* attributet: attributet med flera värden
-* uttryck: ett uttryck som returnerar en uppsättning värden
+* konfigurationsobjektet Representerar ett element i multi-valuet-attributet
+* attribut: multi-Value-attribut
+* uttryck: ett uttryck som returnerar en mängd värden
 * villkor: alla funktioner som kan bearbeta ett objekt i attributet
 
 **Exempel:**  
 `Select($item,[otherPhone],Replace($item,"-",""))`  
-Returnera alla värden i flervärdesattribut Annantelefon när bindestreck (-) har tagits bort.
+Returnera alla värden i otherPhone efter bindestreck (-) som har tagits bort.
 
 ---
-### <a name="split"></a>dela upp
+### <a name="split"></a>Delat
 **Beskrivning:**  
-Funktionen Split tar en sträng som avgränsas med en avgränsare och gör den till en sträng med flera värden.
+Funktionen Split tar en sträng separerad med en avgränsare och gör den till en sträng med flera värden.
 
 **Syntax:**  
 `mvstr Split(str value, str delimiter)`  
 `mvstr Split(str value, str delimiter, num limit)`
 
-* värde: sträng med ett avgränsningstecken för att avgränsa.
-* avgränsare: tecken som ska användas som avgränsare.
-* gränsen: maximalt antal värden som kan returnera.
+* värde: strängen med ett avgränsnings tecken att separera.
+* avgränsare: ett enskilt tecken som ska användas som avgränsare.
+* gräns: högsta antal värden som kan returneras.
 
 **Exempel:**  
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
-Returnerar en sträng som har flera värden med 2 element användbart för proxyAddress-attribut.
+Returnerar en multi-Value-sträng med 2 element som är användbara för attributet proxyAddress.
 
 ---
 ### <a name="stringfromguid"></a>StringFromGuid
 **Beskrivning:**  
-Funktionen GUIDFromString tar en binär GUID och konverterar den till en sträng
+Funktionen StringFromGuid tar ett binärt GUID och konverterar den till en sträng
 
 **Syntax:**  
 `str StringFromGuid(bin GUID)`
@@ -1211,7 +1211,7 @@ Funktionen GUIDFromString tar en binär GUID och konverterar den till en sträng
 ---
 ### <a name="stringfromsid"></a>StringFromSid
 **Beskrivning:**  
-Funktionen StringFromSid konverterar en bytematris som innehåller en säkerhetsidentifierare till en sträng.
+Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhets identifierare till en sträng.
 
 **Syntax:**  
 `str StringFromSid(bin ObjectSID)`  
@@ -1219,46 +1219,46 @@ Funktionen StringFromSid konverterar en bytematris som innehåller en säkerhets
 ---
 ### <a name="switch"></a>Växel
 **Beskrivning:**  
-Funktionen växeln används för att returnera ett enstaka värde baserat på utvärderade villkoren.
+Funktionen switch används för att returnera ett enskilt värde baserat på utvärderade villkor.
 
 **Syntax:**  
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
-* uttryck: Varianten uttryck som du vill utvärdera.
-* Värde: Värde som ska returneras om motsvarande uttrycket är sant.
+* uttrycks Det Variant-uttryck som du vill utvärdera.
+* värde Värdet som ska returneras om motsvarande uttryck är sant.
 
-**Anmärkning:**  
-Argumentlistan växel funktionen består av par med uttryck och värden. Uttryck som utvärderas från vänster till höger och returneras värdet som är associerade med det första uttrycket ska utvärderas till SANT. Om delarna inte korrekt tillsammans ger inträffar ett fel.
+**!**  
+Argument listan för Switch-funktionen består av par med uttryck och värden. Uttrycken utvärderas från vänster till höger och värdet som associeras med det första uttrycket som ska utvärderas till True returneras. Om delarna inte är korrekt kopplade uppstår ett körnings fel.
 
-Om Uttr1 är SANT returnerar växel value1. Om uttryck-1 är False, men uttryck-2 är sant, returnerar växel värdet 2 och så vidare.
+Om till exempel Uttr1 är sant returnerar switch value1. Om expr-1 är falskt, men uttr-2 är true, returnerar switch värdet-2 och så vidare.
 
-Växeln returnerar en ingenting om:
+Växeln returnerar ett Nothing om:
 
-* Ingen av uttryck som är sant.
-* Det första SANT uttrycket har ett motsvarande värde som är Null.
+* Inget av uttrycken är sant.
+* Det första sanna uttrycket har ett motsvarande värde som är null.
 
-Växeln utvärderar alla uttryck, trots att den returnerar endast en av dem. Därför bör du se för oönskade sidoeffekter. Utvärderingen av ett uttryck som resulterar i en division med noll-fel, inträffar ett fel.
+Växeln utvärderar alla uttryck, även om den bara returnerar en av dem. Av den anledningen bör du se efter om det finns oönskade sido effekter. Om exempelvis utvärderingen av ett uttryck resulterar i en division med noll uppstår ett fel.
 
-Värdet kan också vara funktionen fel som returneras en anpassad sträng.
+Värdet kan också vara fel funktionen, som returnerar en anpassad sträng.
 
 **Exempel:**  
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
-Returnerar det språk som talas i vissa större städer, annars returneras ett fel.
+Returnerar det språk som talas i några större städer, annars returnerar ett fel.
 
 ---
-### <a name="trim"></a>trim
+### <a name="trim"></a>Trimma
 **Beskrivning:**  
-Rensa-funktionen tar bort inledande och avslutande blanksteg från en sträng.
+Funktionen trim tar bort inledande och avslutande blank steg från en sträng.
 
 **Syntax:**  
 `str Trim(str value)`  
 
 **Exempel:**  
 `Trim(" Test ")`  
-Returnerar ”Test”.
+Returnerar "test".
 
 `Trim([proxyAddresses])`  
-Tar bort inledande och avslutande blanksteg för varje värde i proxyAddress-attribut.
+Tar bort inledande och avslutande blank steg för varje värde i attributet proxyAddress.
 
 ---
 ### <a name="ucase"></a>UCase
@@ -1270,70 +1270,70 @@ Funktionen UCase konverterar alla tecken i en sträng till versaler.
 
 **Exempel:**  
 `UCase("TeSt")`  
-Returnerar ”TEST”.
+Returnerar "TEST".
 
 ---
-### <a name="where"></a>Var
+### <a name="where"></a>Där
 
 **Beskrivning:**  
-Returnerar en delmängd av värden från ett med flera värden attribut (eller resultatet av ett uttryck) som baserat på specifika villkor.
+Returnerar en delmängd av värden från ett multi-Value-attribut (eller utdata av ett uttryck) baserat på ett angivet villkor.
 
 **Syntax:**  
 `mvattr Where(variable item, mvattr attribute, exp condition)`  
 `mvattr Where(variable item, exp expression, exp condition)`  
-* item: Representerar ett element i attributet med flera värden
-* attributet: attributet med flera värden
-* villkor: ett uttryck som kan utvärderas till true eller false
-* uttryck: ett uttryck som returnerar en uppsättning värden
+* konfigurationsobjektet Representerar ett element i multi-valuet-attributet
+* attribut: multi-Value-attribut
+* villkor: alla uttryck som kan utvärderas till true eller false
+* uttryck: ett uttryck som returnerar en mängd värden
 
 **Exempel:**  
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
-Returnera certifikatvärden i den flervärdesattribut userCertificate som inte har upphört att gälla.
+Returnera certifikat värden i multi-Value-attributet userCertificate som inte har upphört att gälla.
 
 ---
 ### <a name="with"></a>Med
 **Beskrivning:**  
-Med funktionen är ett sätt att förenkla ett komplext uttryck med hjälp av en variabel som representerar en underuttryck som visas en eller flera gånger i ett komplext uttryck.
+With-funktionen är ett sätt att förenkla ett komplext uttryck genom att använda en variabel som representerar en under uttryck som visas en eller flera gånger i det komplexa uttrycket.
 
 **Syntax:** 
 `With(var variable, exp subExpression, exp complexExpression)`  
-* variabel: Representerar underuttryck.
-* underuttryck: underuttryck som representeras av variabeln.
+* variabel Representerar under uttryck.
+* under uttryck: under uttryck representeras av variabeln.
 * complexExpression: Ett komplext uttryck.
 
 **Exempel:**  
 `With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
-Har samma funktioner:  
+Fungerar som likvärdigt med:  
 `IIF (Count(Where($item,[userCertificate],CertNotAfter($item)>Now()))>0, Where($item,[userCertificate],CertNotAfter($item)>Now()),NULL)`  
-Som returnerar endast läggs certifikatvärden i userCertificate-attributet.
+Som endast returnerar inaktuella certifikat värden i attributet userCertificate.
 
 
 ---
 ### <a name="word"></a>Word
 **Beskrivning:**  
-Word-funktionen returnerar ett ord som ingår i en sträng som baseras på parametrar som beskriver avgränsarna som ska användas och word-nummer för att returnera.
+Funktionen ord returnerar ett ord som finns i en sträng, baserat på parametrar som beskriver avgränsarna som ska användas och ord numret som ska returneras.
 
 **Syntax:**  
 `str Word(str string, num WordNumber, str delimiters)`
 
-* sträng: strängen som ska returnera ett ord från.
-* WordNumber: ett nummer som identifierar vilka word tal ska returnera.
-* avgränsare: en sträng som representerar delimiter(s) som ska användas för att identifiera ord
+* sträng: strängen som ett ord ska returneras från.
+* WordNumber: ett tal som identifierar vilket ord nummer som ska returneras.
+* avgränsare: en sträng som representerar de avgränsare som ska användas för att identifiera ord
 
-**Anmärkning:**  
-Varje sträng med tecken i strängen avgränsade med något av tecknen i avgränsare identifieras som ord:
+**!**  
+Varje sträng med tecken i strängen avgränsade med ett av tecknen i avgränsare identifieras som ord:
 
-* Om nummer < 1, returnerar tom sträng.
-* Om strängen är null returnerar tom sträng.
+* Om talet < 1 returneras en tom sträng.
+* Om strängen är null returnerar en tom sträng.
 
-Om strängen innehåller mindre än antalet ord, eller strängen innehåller inte några ord som identifieras av avgränsare, returneras en tom sträng.
+Om strängen innehåller färre än tal ord, eller om strängen inte innehåller ord som identifieras av avgränsare returneras en tom sträng.
 
 **Exempel:**  
 `Word("The quick brown fox",3," ")`  
-Returnerar ”brown”
+Returnerar "brun"
 
 `Word("This,string!has&many separators",3,",!&#")`  
-Returnerar ”har”
+Returnerar "har"
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Förstå uttryck för deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)

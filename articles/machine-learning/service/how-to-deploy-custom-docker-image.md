@@ -1,7 +1,7 @@
 ---
-title: Distribuera modeller med hjälp av en anpassad Docker-avbildning
+title: Distribuera modeller med en anpassad Docker-bas avbildning
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder en anpassad Docker-avbildning när du distribuerar Azure Machine Learning tjänst modeller. När du distribuerar en utbildad modell skapas en Docker-avbildning som värd för avbildningen, webb servern och andra komponenter som behövs för att köra tjänsten. Medan Azure Machine Learning tjänsten tillhandahåller en standard avbildning åt dig kan du också använda en egen avbildning.
+description: Lär dig hur du använder en anpassad Docker-bas avbildning när du distribuerar Azure Machine Learning tjänst modeller. När du distribuerar en utbildad modell distribueras en bas behållar avbildning för att köra din modell för härledning. Azure Machine Learning tjänsten tillhandahåller en standard bas avbildning åt dig, kan du också använda en egen bas avbildning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,25 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/11/2019
-ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/22/2019
+ms.openlocfilehash: a86dd021d8f9cfe275b3af3f0cb71b99857c26d7
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990533"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971521"
 ---
-# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>Distribuera en modell med hjälp av en anpassad Docker-avbildning
+# <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
 
-Lär dig hur du använder en anpassad Docker-avbildning när du distribuerar utbildade modeller med Azure Machine Learning-tjänsten.
+Lär dig hur du använder en anpassad Docker-bas avbildning när du distribuerar utbildade modeller med Azure Machine Learning-tjänsten.
 
-När du distribuerar en utbildad modell till en webb tjänst eller IoT Edge enhet skapas en Docker-avbildning. Den här avbildningen innehåller modellen, Conda-miljön och till gångar som behövs för att använda modellen. Den innehåller också en webb server som hanterar inkommande begär anden när den distribueras som en webb tjänst och komponenter som behövs för att arbeta med Azure IoT Hub.
+När du distribuerar en utbildad modell till en webb tjänst eller IoT Edge enhet skapas ett paket som innehåller en webb server för att hantera inkommande begär Anden.
 
-Azure Machine Learning tjänsten innehåller en standard Docker-avbildning så att du inte behöver oroa dig för att skapa en. Du kan också använda en anpassad avbildning som du skapar som en _bas avbildning_. En bas avbildning används som start punkt när en avbildning skapas för en distribution. Det tillhandahåller underliggande operativ system och komponenter. Distributions processen lägger sedan till ytterligare komponenter, till exempel din modell, Conda-miljö och andra till gångar, till avbildningen innan du distribuerar den.
+Azure Machine Learning tjänsten tillhandahåller en standard Docker-bas avbildning så att du inte behöver oroa dig för att skapa en. Du kan också använda en anpassad bas avbildning som du skapar som en _bas avbildning_. 
 
-Normalt skapar du en anpassad avbildning när du vill kontrol lera komponent versioner eller spara tid under distributionen. Du kanske till exempel vill standardisera en speciell version av python, Conda eller andra komponenter. Du kanske också vill installera program vara som krävs av din modell, där installations processen tar lång tid. Installation av program varan när du skapar bas avbildningen innebär att du inte behöver installera den för varje distribution.
+En bas avbildning används som start punkt när en avbildning skapas för en distribution. Det tillhandahåller underliggande operativ system och komponenter. Distributions processen lägger sedan till ytterligare komponenter, till exempel din modell, Conda-miljö och andra till gångar, till avbildningen innan du distribuerar den.
+
+Normalt skapar du en anpassad bas avbildning när du vill använda Docker för att hantera dina beroenden, bibehålla bättre kontroll över komponent versioner eller spara tid under distributionen. Du kanske till exempel vill standardisera en speciell version av python, Conda eller andra komponenter. Du kanske också vill installera program vara som krävs av din modell, där installations processen tar lång tid. Installation av program varan när du skapar bas avbildningen innebär att du inte behöver installera den för varje distribution.
 
 > [!IMPORTANT]
 > När du distribuerar en modell kan du inte åsidosätta kärn komponenter som webb server eller IoT Edge-komponenter. Dessa komponenter tillhandahåller en känd arbets miljö som testas och stöds av Microsoft.
@@ -35,8 +37,8 @@ Normalt skapar du en anpassad avbildning när du vill kontrol lera komponent ver
 
 Det här dokumentet är uppdelat i två delar:
 
-* Skapa en anpassad avbildning: Innehåller information till administratörer och DevOps om hur du skapar en anpassad avbildning och konfigurerar autentisering till en Azure Container Registry med hjälp av Azure CLI och Machine Learning CLI.
-* Använd en anpassad avbildning: Innehåller information till data vetenskaps-och DevOps/MLOps med anpassade avbildningar när du distribuerar en utbildad modell från python SDK eller ML CLI.
+* Skapa en anpassad bas avbildning: Innehåller information till administratörer och DevOps om hur du skapar en anpassad avbildning och konfigurerar autentisering till en Azure Container Registry med hjälp av Azure CLI och Machine Learning CLI.
+* Distribuera en modell med en anpassad bas avbildning: Innehåller information till data vetenskaps-och DevOps/ML-tekniker som använder anpassade avbildningar när du distribuerar en utbildad modell från python SDK eller ML CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -47,7 +49,7 @@ Det här dokumentet är uppdelat i två delar:
 * En [Azure Container Registry](/azure/container-registry) eller ett annat Docker-register som är tillgängligt på Internet.
 * Stegen i det här dokumentet förutsätter att du är van vid att skapa och använda ett konfigurations objekt för konfigurations objekt som en del av modell distributionen. Mer information finns i avsnittet "förbereda distribution" i [var du ska distribuera och hur](how-to-deploy-and-where.md#prepare-to-deploy).
 
-## <a name="create-a-custom-image"></a>Skapa en anpassad avbildning
+## <a name="create-a-custom-base-image"></a>Skapa en anpassad bas avbildning
 
 Informationen i det här avsnittet förutsätter att du använder en Azure Container Registry för att lagra Docker-avbildningar. Använd följande check lista när du planerar att skapa anpassade avbildningar för Azure Machine Learning-tjänsten:
 
@@ -109,7 +111,7 @@ Om du redan har tränat eller distribuerat modeller med hjälp av tjänsten Azur
 
     `<registry_name>` Värdet är namnet på Azure Container Registry för din arbets yta.
 
-### <a name="build-a-custom-image"></a>Bygg en anpassad avbildning
+### <a name="build-a-custom-base-image"></a>Bygg en anpassad bas avbildning
 
 Stegen i det här avsnittet beskriver hur du skapar en anpassad Docker-avbildning i din Azure Container Registry.
 
@@ -162,7 +164,7 @@ Mer information om hur du skapar avbildningar med en Azure Container Registry fi
 
 Mer information om hur du överför befintliga avbildningar till en Azure Container Registry finns i [skicka din första avbildning till ett privat Docker-behållarobjekt](/azure/container-registry/container-registry-get-started-docker-cli).
 
-## <a name="use-a-custom-image"></a>Använda en anpassad avbildning
+## <a name="use-a-custom-base-image"></a>Använd en anpassad bas avbildning
 
 Om du vill använda en anpassad avbildning behöver du följande information:
 
@@ -174,7 +176,7 @@ Om du vill använda en anpassad avbildning behöver du följande information:
 
     Om du inte har den här informationen kan du prata med administratören för den Azure Container Registry som innehåller din avbildning.
 
-### <a name="publicly-available-images"></a>Offentligt tillgängliga bilder
+### <a name="publicly-available-base-images"></a>Offentligt tillgängliga bas avbildningar
 
 Microsoft tillhandahåller flera Docker-avbildningar på en offentligt tillgänglig lagrings plats som kan användas med stegen i det här avsnittet:
 

@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 64bedef3cf52451d145a97385937ae2adc9b2b0c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 63c524880a47c6e519649bd871a6216d6faeefce
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968624"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907023"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [Prerequisites](prerequisites-java.md)]
 
-* [JDK 7 eller senare](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Gradle](https://gradle.org/install/)
-* En Azure-prenumerationsnyckel för Translator Text
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="initialize-a-project-with-gradle"></a>Initiera ett projekt med Gradle
 
@@ -90,11 +88,12 @@ public class AltTranslation {
 }
 ```
 
-Lägg till följande rader i klassen `AltTranslation`. Du ser då att `api-version` samt två ytterligare parametrar har lags till i `url`. Dessa parametrar används för att ange indata och utdata för översättning. I det här exemplet är dessa engelska (`en`) och spanska (`es`).
+Lägg till följande rader i klassen `AltTranslation`. Först läses prenumerations nyckeln och slut punkten in från miljövariabler. Sedan kommer du att märka att tillsammans med de `api-version`två ytterligare parametrarna har lagts `url`till i. Dessa parametrar används för att ange indata och utdata för översättning. I det här exemplet är dessa engelska (`en`) och spanska (`es`).
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-String url = "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es";
+private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
+String url = endpoint + "/dictionary/lookup?api-version=3.0&from=en&to=es";
 ```
 
 Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta `Ocp-Apim-Subscription-Region` med i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)-prenumerationen.

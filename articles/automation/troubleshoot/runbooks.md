@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 759422ea8c327ae67278354217dac4c60b32f7a9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c6b526cdd317e8b075d28e0fb9018501148c731c
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850324"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971297"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med Runbooks
 
@@ -31,11 +31,23 @@ När du har problem med att köra Runbooks i Azure Automation kan du använda f�
    - **Syntaxfel**
    - **Logic-fel**
 
-2. **Se till att noderna och automation-arbetsytan har de moduler som krävs:** Om din Runbook importerar några moduler, se till att de är tillgängliga i ditt Automation-konto med hjälp av stegen som anges i [importera moduler](../shared-resources/modules.md#import-modules). Mer information finns i [Felsöka moduler](shared-resources.md#modules).
+2. Leta efter specifika meddelanden i runbook-[felströmmar](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) och jämför dem med nedanstående fel.
+
+3. **Se till att noderna och automation-arbetsytan har de moduler som krävs:** Om din Runbook importerar några moduler, se till att de är tillgängliga i ditt Automation-konto med hjälp av stegen som anges i [importera moduler](../shared-resources/modules.md#import-modules). Uppdatera dina moduler till den senaste versionen genom att följa anvisningarna under [Uppdatera Azure-moduler i Azure Automation](..//automation-update-azure-modules.md). Mer felsöknings information finns i [Felsöka moduler](shared-resources.md#modules).
+
+### <a name="if-the-runbook-is-suspended-or-unexpectedly-failed"></a>Om runbooken har pausats eller misslyckatsat
+
+Det finns flera orsaker till varför en runbook kan pausas eller misslyckas:
+
+* [Jobb status](https://docs.microsoft.com/azure/automation/automation-runbook-execution#job-statuses) definierar Runbook-status och vissa möjliga orsaker.
+* [Lägg till ytterligare utdata](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) till runbooken för att identifiera vad som händer innan runbooken pausas.
+* [Hantera eventuella undantag](https://docs.microsoft.com/azure/automation/automation-runbook-execution#handling-exceptions) som genereras av ditt jobb.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Autentiseringsfel vid arbete med Azure Automation runbooks
 
 ### <a name="login-azurerm"></a>Situationen Kör login-AzureRMAccount för inloggning
+
+Det här felet kan inträffa när du inte använder ett RunAs-konto eller om RunAs-kontot har upphört att gälla. Se [hantera Azure Automation runas-konton](https://docs.microsoft.com/azure/automation/manage-runas-account).
 
 #### <a name="issue"></a>Problem
 
@@ -574,6 +586,97 @@ Det finns två sätt att lösa det här felet:
 * Om din Runbook har det här fel meddelandet kan du köra det på en Hybrid Runbook Worker
 
 Mer information om det här beteendet och andra beteenden för Azure Automation runbooks finns i [Runbook-beteende](../automation-runbook-execution.md#runbook-behavior).
+
+## <a name="other"></a>: Mitt problem visas inte ovan
+
+I avsnitten nedan visas andra vanliga fel utöver support dokumentationen som hjälper dig att lösa problemet.
+
+### <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Hybrid Runbook Worker-jobb kör inte jobb eller svarar inte
+
+Om du kör jobb med en hybrid Worker i stället för i Azure Automation kan du behöva [Felsöka själva hybrid Worker](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
+
+### <a name="runbook-fails-with-no-permission-or-some-variation"></a>Runbook misslyckas med ”Ingen behörighet” eller liknande
+
+RunAs-konton kan inte ha samma behörigheter mot Azure-resurser som ditt aktuella konto. Kontrollera att RunAs-kontot [har behörighet att komma åt alla resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) som används i ditt skript.
+
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbooks fungerade men stoppades plötsligt
+
+* Om Runbooks kördes tidigare men stoppades, [Se till att runas-kontot inte har upphört att gälla](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
+* Om du använder webhooks för att starta runbooks [kontrollerar du att webhooken inte har upphört](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
+
+### <a name="issues-passing-parameters-into-webhooks"></a>Problem med att skicka parametrar till Webhooks
+
+Information om hur du skickar parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+
+### <a name="issues-using-az-modules"></a>Problem med AZ-moduler
+
+Användning av Az-moduler och AzureRM-moduler i samma Automation-konto stöds inte. Mer information finns i [AZ-moduler i Runbooks](https://docs.microsoft.com/azure/automation/az-modules) .
+
+### <a name="runbook-job-completed-but-with-unexpected-results-or-errors"></a>Runbook-jobbet har slutförts men med oväntade resultat eller fel
+
+Specifika problem och lösningar finns nedan, men vi rekommenderar starkt att du provar de här två åtgärderna först:
+
+* Försök [köra runbooken lokalt](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#runbook-fails) innan du kör den i Azure Automation. Detta kan tydliggöra om problemet är en bugg i runbook eller om det är ett problem med Azure Automation.
+* Leta efter specifika meddelanden i runbook-[felströmmar](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) och jämför dem med nedanstående fel.
+* Lägg till [ytterligare utdata](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) till runbooken för att identifiera var felet inträffar.
+
+### <a name="inconsistent-behavior-in-runbooks"></a>Inkonsekvent beteende i runbooks
+
+Följ riktlinjerna i [Runbook-körning](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) för att undvika problem med samtidiga jobb, resurser som skapas flera gånger eller annan logik i runbooks som kräver tidsprecision.
+
+### <a name="switching-between-multiple-subscriptions-in-a-runbook"></a>Växla mellan flera prenumerationer i en runbook
+
+Följ rikt linjerna i [arbeta med flera prenumerationer](https://docs.microsoft.com/azure/automation/automation-runbook-execution#working-with-multiple-subscriptions).
+
+### <a name="runbook-fails-with-error-the-subscription-cannot-be-found"></a>Runbook Miss lyckas med felet: Det går inte att hitta prenumerationen
+
+Det här problemet kan inträffa när runbook inte använder ett RunAs-konto för att få åtkomst till Azure-resurser. För att lösa problemet följer du stegen i scenariot [: Det gick inte att hitta Azure-prenumerationen](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#unable-to-find-subscription).
+
+### <a name="error-your-azure-credentials-have-not-been-set-up-or-have-expired-please-run-connect-azurermaccount-to-set-up-your-azure-credentials"></a>Fel: Dina Azure-autentiseringsuppgifter har inte kon figurer ATS eller har upphört att gälla, kör Connect-azureRmAccount för att konfigurera dina autentiseringsuppgifter för Azure
+
+Det här felet kan inträffa när du inte använder ett RunAs-konto eller om RunAs-kontot har upphört att gälla. Se [hantera Azure Automation runas-konton](https://docs.microsoft.com/azure/automation/manage-runas-account).
+
+### <a name="error-run-login-azurermaccount-to-login"></a>Fel: Kör login-AzureRmAccount för inloggning
+
+Det här felet kan inträffa när du inte använder ett RunAs-konto eller om RunAs-kontot har upphört att gälla. Se [hantera Azure Automation runas-konton](https://docs.microsoft.com/azure/automation/manage-runas-account).
+
+### <a name="runbook-fails-with-error-strong-authentication-enrollment-is-required"></a>Runbook Miss lyckas med felet: Registrering av stark autentisering krävs
+
+Se [autentisering till Azure misslyckades eftersom Multi-Factor Authentication har Aktiver ATS](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#auth-failed-mfa) i fel söknings guiden för Runbook.
+
+### <a name="runbook-fails-with-the-errors-no-permission-forbidden-403-or-some-variation"></a>Runbook Miss lyckas med felen: Ingen behörighet, förbjuden, 403 eller viss variation
+
+RunAs-konton kan inte ha samma behörigheter mot Azure-resurser som ditt aktuella konto. Se till att ditt RunAs-konto har [åtkomst behörighet till alla resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) som används i skriptet.
+
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbooks fungerade men stoppades plötsligt
+
+* Om Runbooks kördes tidigare men stoppades, se till att RunAs-kontot [inte har upphört att gälla](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
+* Om du använder Webhooks för att starta Runbooks kontrollerar du att webhooken [inte har upphört att gälla](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
+
+### <a name="passing-parameters-into-webhooks"></a>Skicka parametrar till webhooks
+
+Information om hur du skickar parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+
+### <a name="error-the-term-is-not-recognized"></a>Fel: Termen känns inte igen
+
+Följ stegen i cmdleten som [inte känns igen](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#cmdlet-not-recognized) i fel söknings guiden för Runbook
+
+### <a name="errors-about-typedata"></a>Fel om TypeData
+
+Om du får fel om TypeData beror det på att du kör ett PowerShell-arbetsflöde med moduler som inte har stöd för arbetsflödet. Du måste ändra runbooktypen till PowerShell. Mer information finns i [Runbook-typer](https://docs.microsoft.com/azure/automation/automation-runbook-types#powershell-runbooks) .
+
+### <a name="using-az-modules"></a>Använda Az-moduler
+
+Användning av Az-moduler och AzureRM-moduler i samma Automation-konto stöds inte. Mer information finns i [AZ-moduler i Runbooks](https://docs.microsoft.com/azure/automation/az-modules) .
+
+### <a name="using-self-signed-certificates"></a>Använda självsignerade certifikat
+
+Om du vill använda självsignerade certifikat måste du följa guiden när du [skapar ett nytt certifikat](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
+
+## <a name="recommended-documents"></a>Rekommenderade dokument
+
+* [Starta en Runbook i Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
+* [Runbook-körning i Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 
 ## <a name="next-steps"></a>Nästa steg
 

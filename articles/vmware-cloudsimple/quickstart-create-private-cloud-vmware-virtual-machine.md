@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4e1642366d41906035e1ba1b7f75d0ad875c739b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8d4712ca57801c15510ffcaf54852ce9287d343b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574757"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972403"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Skapa virtuella VMware-datorer i ditt privata moln
 
@@ -143,7 +143,7 @@ På nätverks sidorna i CloudSimple-portalen kan du ange konfigurationen för br
 
     ![Offentlig IP](media/quick-create-pc-public-ip.png)
 
-Uppgiften att allokera den offentliga IP-adressen börjar. Du kan kontrol lera status för aktiviteten på sidan **aktiviteter > uppgifter** . När allokeringen är klar visas den nya posten på sidan offentliga IP-adresser. 
+Uppgiften att allokera den offentliga IP-adressen börjar. Du kan kontrol lera status för aktiviteten på sidan **aktiviteter > uppgifter** . När allokeringen är klar visas den nya posten på sidan offentliga IP-adresser.
 
 Den virtuella dator som den här IP-adressen måste mappas till måste konfigureras med den lokala adress som anges ovan. Proceduren för att konfigurera en IP-adress är speciell för operativ systemet för den virtuella datorn. Mer information finns i dokumentationen för operativ systemet för virtuella datorer.
 
@@ -205,7 +205,7 @@ eller
 ```
 python3 -m http.server 80
 ```
-Starta en webbläsare på Skriv bordet och peka på port 80 för den offentliga IP-adressen för att bläddra bland filerna på den virtuella datorn. 
+Starta en webbläsare på Skriv bordet och peka på port 80 för den offentliga IP-adressen för att bläddra bland filerna på den virtuella datorn.
 
 ### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Standard brand Väggs regler för offentlig IP-CloudSimple
 

@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: overview
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: 89c56496ed1f356ffedf4df93f1728bd4acda323
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 4987c17eabf5d9e140352e3581b38a7d29049c5f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639961"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899967"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Vad är "kognitiv sökning" i Azure Search?
 
@@ -51,7 +51,7 @@ Kognitiv sökning, med färdiga kunskaper, passar bra för följande program sce
 
   Dessutom kan förskapade kunskaper också användas för att omstrukturera innehåll genom text delning, sammanslagning och form åtgärder.
 
-Anpassade kunskaper kan stödja mer komplexa scenarier, till exempel igenkänning av formulär eller anpassad identifiering av entiteter med hjälp av en modell som du anger och omsluter i det [anpassade webb gränssnittet för kompetens](cognitive-search-custom-skill-interface.md). Flera exempel på anpassade kunskaper är [formulär igenkänning](), integrering av [API för entitetsökning i Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)och [anpassad enhets igenkänning](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+Anpassade kunskaper kan stödja mer komplexa scenarier, till exempel igenkänning av formulär eller anpassad identifiering av entiteter med hjälp av en modell som du anger och omsluter i det [anpassade webb gränssnittet för kompetens](cognitive-search-custom-skill-interface.md). Flera exempel på anpassade kunskaper är [formulär igenkänning](/azure/cognitive-services/form-recognizer/overview), integrering av [API för entitetsökning i Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)och [anpassad enhets igenkänning](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
 
 ## <a name="component-pipeline-of-cognitive-search"></a>Komponent pipeline för kognitiv sökning

@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 1c60c4b868854952771ba297107904762a2357d8
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ef51a1b130323a8799d5334d8d043fda08fcc7ef
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032996"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896967"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure CLI (för hands version)
 
@@ -49,7 +49,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Mer information om de inbyggda roller som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** finns i [inbyggda roller för Azure-resurser](/role-based-access-control/built-in-roles).
+Mer information om de inbyggda roller som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** finns i [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Använd Azure AD-autentiseringsuppgifter för att skydda en SAS
 
@@ -63,7 +63,7 @@ När du `--auth-mode login` skapar en användar Delegerings- `--as-user paramete
 
 Om du vill skapa en användar Delegerings-SAS för en behållare med Azure CLI anropar du kommandot [AZ Storage container generate-SAS](/cli/azure/storage/container#az-storage-container-generate-sas) .
 
-Behörigheter som stöds för en användar Delegerings-SAS i en behållare inkluderar Lägg till, skapa, ta bort, lista, läsa och skriva. Behörigheter kan anges med enkel eller kombinerad. Mer information om dessa behörigheter finns i [skapa en användar](/rest/api/storageservices/create-a-user-delegation-sas)Delegerings-SAS.
+Behörigheter som stöds för en användar Delegerings-SAS i en behållare inkluderar Lägg till, skapa, ta bort, lista, läsa och skriva. Behörigheter kan anges med enkel eller kombinerad. Mer information om dessa behörigheter finns i [skapa en användar](/rest/api/storageservices/create-user-delegation-sas)Delegerings-SAS.
 
 I följande exempel returneras en användar Delegerings-SAS-token för en behållare. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
@@ -87,7 +87,7 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 Om du vill skapa en användar Delegerings-SAS för en blob med Azure CLI anropar du kommandot [AZ Storage BLOB generate-SAS](/cli/azure/storage/blob#az-storage-blob-generate-sas) .
 
-Behörigheter som stöds för en användar Delegerings-SAS på en BLOB inkluderar Lägg till, skapa, ta bort, läsa och skriva. Behörigheter kan anges med enkel eller kombinerad. Mer information om dessa behörigheter finns i [skapa en användar](/rest/api/storageservices/create-a-user-delegation-sas)Delegerings-SAS.
+Behörigheter som stöds för en användar Delegerings-SAS på en BLOB inkluderar Lägg till, skapa, ta bort, läsa och skriva. Behörigheter kan anges med enkel eller kombinerad. Mer information om dessa behörigheter finns i [skapa en användar](/rest/api/storageservices/create-user-delegation-sas)Delegerings-SAS.
 
 Följande syntax returnerar en användar Delegerings-SAS för en blob. I exemplet anges `--full-uri` parametern, som returnerar BLOB-URI: n med den SAS-token som lagts till. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
@@ -115,5 +115,5 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en användar Delegerings-SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Skapa en användar Delegerings-SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
 - [Hämta åtgärd för användar Delegerings nyckel](/rest/api/storageservices/get-user-delegation-key)

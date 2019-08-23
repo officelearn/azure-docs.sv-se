@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 50d896f2a835136316945b26a3191861125faa25
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0ed7fbf5e2b4f7f9b554f718d88c62e7a266f4ad
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68306134"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903905"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distributioner och drivrutiner som stöds
 
@@ -34,7 +34,7 @@ Microsoft distribuerar NVIDIA GRID-drivrutiner installations program för virtue
 
 | Distribution | Drivrutin |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,0 till 7,6<br/><br/>CentOS-baserad 7,0 till 7,6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA-rutnät 9,0, driv rutins gren R430|
+|Ubuntu 18,04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,0 till 7,6<br/><br/>CentOS-baserad 7,0 till 7,6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA-rutnät 9,0, driv rutins gren R430|
 
 > [!WARNING] 
 > Installation av tredjepartsprogramvara på Red Hat-produkter kan påverka supportvillkoren för Red Hat. Läs [Knowledgebase-artikeln om Red Hat](https://access.redhat.com/articles/1067).

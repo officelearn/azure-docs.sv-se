@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3946690b24ec4123df1bb19deb05143189fd5aa5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: def218564511b65809e776f97d0962b72f72adc2
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596037"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898140"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Självstudier: Använda hälso kontroll i Azure Deployment Manager (offentlig för hands version)
 
@@ -90,7 +90,7 @@ Verifiera och testa Azure-funktionen:
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Ersätt `{healthStatus}` i URL: en med en status kod. I den här självstudien **använder du** fel för att testa fel scenariot och använda antingen **felfri** eller **Varning** för att testa det felfria scenariot. Skapa två URL: er, en med felaktig status och den andra med felfri status. Exempel:
+    Ersätt `{healthStatus}` i URL: en med en status kod. I den här självstudien använder du fel för att testa fel scenariot och använda antingen **felfri** eller **Varning** för att testa det felfria scenariot. Skapa två URL: er, en med felaktig status och den andra med felfri status. Exempel:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
@@ -235,8 +235,8 @@ Syftet med det här avsnittet är att visa hur du inkluderar ett hälso kontroll
 
 För att förenkla självstudien delas topologin och artefakterna på följande platser så att du inte behöver förbereda din egen kopia. Om du vill använda din egen, följer du anvisningarna i [själv studie kursen: Använd Azure Deployment Manager med Resource Manager-](./deployment-manager-tutorial.md)mallar.
 
-* Topologi: \ https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
-* Artefakter-lagring: \ https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Topologi:\\[https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json](https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json)
+* Artefakt lager:\\[https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore](https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore)
 
 Om du vill distribuera topologin väljer du **prova** att öppna Cloud Shell och klistra in PowerShell-skriptet.
 
@@ -265,8 +265,8 @@ Kontrollera att tjänsttopologin och de angivna resurserna har skapats på Azure
 
 För att förenkla självstudien delas den ändrade distributions mal len på följande platser så att du inte behöver förbereda din egen kopia. Om du vill använda din egen, följer du anvisningarna i [själv studie kursen: Använd Azure Deployment Manager med Resource Manager-](./deployment-manager-tutorial.md)mallar.
 
-* Topologi: \ https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
-* Artefakter-lagring: \ https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Topologi:\\[https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json](https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json)
+* Artefakt lager:\\[https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore](https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore)
 
 Använd den felaktiga status-URL som du skapade i [skapa en tjänst Simulator för hälso kontroll](#create-a-health-check-service-simulator). Information om **managedIdentityID**finns i [skapa den hanterade identiteten som användaren tilldelats](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
 

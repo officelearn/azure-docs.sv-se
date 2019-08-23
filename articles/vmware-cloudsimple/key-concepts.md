@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e434065feb218b0a46220b95cc6bfd9a7033de30
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 120ab94ce62010acf4e742bd5220405961dad6db
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816105"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972728"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solution-by-cloudsimple"></a>Viktiga begrepp för administration av Azure VMware-lösningar från CloudSimple
 
@@ -34,7 +34,6 @@ Läs mer om [CloudSimple-tjänsten](cloudsimple-service.md).
 ## <a name="cloudsimple-node"></a>CloudSimple-nod
 
 En CloudSimple-nod är en dedikerad, Bare Metal, konvergerad beräknings-och lagrings värd där VMware ESXi hypervisor-modulen distribueras. Den här noden ingår sedan i VMware vSphere-, vCenter-, virtuellt San-och NSX-plattformarna. CloudSimple Networking Services och Edge Networking Services är också aktiverade. Varje nod fungerar som en enhet med beräknings-och lagrings kapacitet som du kan etablera för att skapa [CloudSimple privata moln](cloudsimple-private-cloud.md). Du etablerar eller reserverar noder i en region där CloudSimple-tjänsten är tillgänglig.
-
 
 Läs mer om [CloudSimple-noder](cloudsimple-node.md).
 

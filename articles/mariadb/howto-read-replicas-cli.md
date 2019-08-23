@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: ce68e3ae7728108126b2994a0e065ac84eb894bb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7944f985f2317690f3a13add783192c49acbe22f
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641934"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907648"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med Azure CLI
 
@@ -49,6 +49,9 @@ Använd parametern om du vill skapa en skrivskyddad replik `--location` av en ko
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
+
+> [!NOTE]
+> Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md). 
 
 > [!NOTE]
 > Läs repliker skapas med samma serverkonfiguration som huvudserver. Serverkonfigurationen repliken kan ändras när den har skapats. Du rekommenderas att repliken serverkonfigurationen bör hållas lika med eller större värden än huvudservern så repliken kan hålla jämna steg med huvudservern.

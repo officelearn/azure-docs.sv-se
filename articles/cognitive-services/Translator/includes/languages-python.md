@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 62a90e30b281a7a9b0d1369893cf58fb12086a0b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 7f14a12d5de64206f64e8c7205beb2c59c4f1f2a
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968729"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906920"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-För den här snabbstarten krävs:
-
-* Python 2.7.x eller 3.x
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
@@ -23,10 +21,7 @@ Skapa ett nytt Python-projekt med valfri IDE eller redigeringsprogram. Kopiera s
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -34,17 +29,25 @@ import json
 
 Den första kommentaren instruerar Python-tolken att använda UTF-8-kodning. Sedan importeras de moduler som krävs för att läsa prenumerationsnyckeln från en miljövariabel, skapa HTTP-begäran, skapa en unik identifierare samt hantera det JSON-svar som returneras av Translator Text API.
 
-## <a name="set-the-base-url-and-path"></a>Ange bas-url och sökvägen
+## <a name="set-the-endpoint-and-path"></a>Ange slut punkt och sökväg
 
-Den globala slutpunkten för Translator Text anges som `base_url`. `path` anger `languages`-vägen och identifierar att vi vill nå version 3 av API:et.
+Det här exemplet försöker läsa Translator Text slut punkten från en miljö variabel: `TRANSLATOR_TEXT_ENDPOINT`. Om du inte känner till miljövariabler kan du ange `endpoint` som en sträng och kommentera bort den villkorliga instruktionen.
+
+```python
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
+```
+
+Den globala slutpunkten för Translator Text anges som `endpoint`. `path` anger `languages`-vägen och identifierar att vi vill nå version 3 av API:et.
 
 >[!NOTE]
 > Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/languages?api-version=3.0'
-constructed_url = base_url + path
+constructed_url = endpoint + path
 ```
 
 ## <a name="add-headers"></a>Lägga till sidhuvuden

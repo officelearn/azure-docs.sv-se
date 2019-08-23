@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7838fd30869629298c5b44cc4b3e5c1e5daa7051
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: ef5a605fb0190e67de8b2bb95bbccfd8fd3cf279
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520002"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906044"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Självstudier: Konfigurera Signagelive för automatisk användar etablering
 
@@ -56,8 +56,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 Innan du konfigurerar Signagelive för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering på Signagelive.
 
-1.  Kontakta [Signagelive](mailto:development@signagelive.com) för att få den hemliga token som krävs för att konfigurera scim-etablering.
-
+  Kontakta [Signagelive](mailto:development@signagelive.com) för att få den hemliga token som krävs för att konfigurera scim-etablering.
 
 ## <a name="add-signagelive-from-the-gallery"></a>Lägg till Signagelive från galleriet
 
@@ -86,7 +85,7 @@ Om du vill konfigurera Signagelive för automatisk användar etablering med Azur
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Signagelive baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
->  Du kan också välja att aktivera SAML-baserad enkel inloggning för BitaBIZ genom att följa anvisningarna i självstudien om [enkel inloggning med Signagelive](Signagelive-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
+>  Du kan också välja att aktivera SAML-baserad enkel inloggning för Signagelive genom att följa anvisningarna i självstudien om [enkel inloggning med Signagelive](Signagelive-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="to-configure-automatic-user-provisioning-for-signagelive--in-azure-ad"></a>Konfigurera automatisk användar etablering för Signagelive i Azure AD:
 
@@ -106,7 +105,8 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet admin credentials, inmatat ` https://samlapi.signagelive.com/scim/v2` i klient- **URL**. I fältet **hemlig token** anger du det värde för Bearer- **token** som tillhandahålls av teknik utvecklings teamet. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Signagelive. Om anslutningen Miss lyckas kontrollerar du att Signagelive-kontot har administratörs behörighet och ![försöker igen klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
+5. Under avsnittet admin credentials, inmatat ` https://samlapi.signagelive.com/scim/v2` i klient- **URL**. I fältet **hemlig token** anger du det värde för Bearer- **token** som tillhandahålls av teknik utvecklings teamet. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Signagelive. Om anslutningen Miss lyckas kontrollerar du att Signagelive-kontot har administratörs behörighet och försöker igen.
+    ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
@@ -144,9 +144,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Signagelive.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare och/eller grupper att etablera finns i [hur lång tid det tar att etablera användare](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users). 
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Du kan använda avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Signagelive. Mer information finns i [kontrol lera status för användar etablering](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

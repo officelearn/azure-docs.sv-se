@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 37624c79a345f956de9a289c672340e391199e2f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 584b9fdde33d14650c36c44b9b457a25f8a1d6f9
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650690"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900118"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -153,23 +153,9 @@ Genom att aktivera test enheten uppmanas du att konfigurera en demonstrations mi
 
 ## <a name="connect-lead-management"></a>Anslut lead-hantering
 
-Anslut till kunder direkt genom att ange ditt erbjudande i Marketplace och koppla upp ditt kund Relations hanterings system (CRM) så att du kan ta emot kund kontakt uppgifter direkt efter att en kund har ett intresse eller distribuerar din momsproduktbokföringsmallar.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-- **Välj ett mål för lead** (nedrullningsbar meny): Ange anslutnings information till det CRM-system där du vill att vi ska skicka kund leads. 
-
-Partner Center stöder följande CRM-system för hantering av leads. Välj länken för installations anvisningar.
-
-- Azure Blob – ange e-postadressen för kontakt, container namn och lagrings konto anslutnings sträng. 
-- [Azure-tabell](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – ange anslutnings sträng för kontakt-och lagrings konto. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – ange e-postadress till kontakt, URL och autentiseringsläge (Office 365 eller Azure Active Directory).
-- [Https-slutpunkt](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – ange URL för kontakt-e-postadress och HTTPS-slutpunkt. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – ange e-postadress, formulär-ID, Munchkin-konto-ID och Server-ID.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) – ange kontakt-e-post och organisations-ID. 
-
-#### <a name="additional-lead-management-resources"></a>Ytterligare resurser för ledar hantering
-- [Vanliga frågor och svar om lead management](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Vanliga konfigurations fel för lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Översikt över ledar hantering en personsökare](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+Mer information finns i [Översikt över hantering](./commercial-marketplace-get-customer-leads.md) av leads.
 
 Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
 

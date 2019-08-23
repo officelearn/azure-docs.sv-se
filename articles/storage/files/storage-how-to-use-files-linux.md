@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8d0de6c68800b1a37e57aa259fd6884ee91752b5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9674df346ff0b5c046df26fe85bf7ba0bbb802e6
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699564"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900315"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 
@@ -40,9 +40,11 @@ ms.locfileid: "68699564"
 | Ubuntu Server | 14.04 + | 16.04 + |
 | RHEL | 7+ | 7.5 + |
 | CentOS | 7+ |  7.5 + |
-| Debian | 8+ |   |
+| Debian | 8+ | 9 +<sup>*</sup> |
 | openSUSE | 13.2 + | 42.3 + |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+<sup>*</sup>Användningen av en omkopplad kernel kan krävas. Du kan installera det med `sudo apt-get install linux-image-cloud-amd64`.
 
 Om din Linux-distribution inte visas här kan du kontrol lera att Linux-kernel-versionen visas med följande kommando:
 

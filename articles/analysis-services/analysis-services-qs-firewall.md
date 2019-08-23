@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e78dd093c4bbf0cf1bdbd5280ffaa63286e585d4
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 52ccaa17b9994751bb9dfd54848e20aef90146c3
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537127"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905887"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Snabbstart: Konfigurera serverbrandväggen – portalen
 
@@ -23,6 +23,7 @@ Den här snabbstarten hjälper dig att konfigurera en brandvägg för Azure Anal
 
 - En Analysis Services-server i din prenumeration. Mer information finns i [Snabbstart: Skapa en server – portalen](analysis-services-create-server.md) eller [Snabbstart: Skapa en server – PowerShell](analysis-services-create-powershell.md)
 - Ett eller flera IP-adressintervall för klientdatorer (om så behövs).
+- Observera att det inte finns stöd för import scenariot från Power BI Premium.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal 
 
@@ -33,7 +34,7 @@ Den här snabbstarten hjälper dig att konfigurera en brandvägg för Azure Anal
 1. Öppna sidan Översikt genom att klicka på servern. 
 2. Klicka på **På** i **INSTÄLLNINGAR** > **Brandvägg** > **Aktivera brandvägg**.
 3. Klicka på **På** i **Tillåt åtkomst från Power BI** om du vill ge DirectQuery åtkomst från Power BI-tjänsten.  
-4. (Valfritt) Ange ett eller flera IP-adressintervall. Ange ett namn, och start- och slut-IP-adress för varje intervall. Namn på brandväggsregler ska vara begränsad till 128 tecken och får bara innehålla versaler, gemener, siffror, understreck och bindestreck. Blanksteg och andra specialtecken tillåts inte.
+4. (Valfritt) Ange ett eller flera IP-adressintervall. Ange ett namn, och start- och slut-IP-adress för varje intervall. Brand Väggs regelns namn får inte vara längre än 128 tecken och får bara innehålla versaler, gemener, siffror, under streck och bindestreck. Blank steg och andra specialtecken är inte tillåtna.
 5. Klicka på **Spara**.
 
      ![Brandväggsinställningar](./media/analysis-services-qs-firewall/aas-qs-firewall.png)

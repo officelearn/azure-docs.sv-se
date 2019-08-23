@@ -1,86 +1,86 @@
 ---
-title: Konfigurera haveriberedskap för virtuella VMware-datorer eller fysiska servrar till en sekundär plats med Azure Site Recovery | Microsoft Docs
-description: Lär dig hur du konfigurerar haveriberedskap för VMware-datorer eller Windows och Linux fysiska servrar till en sekundär plats med Azure Site Recovery.
+title: Konfigurera katastrof återställning av virtuella VMware-datorer eller fysiska servrar till en sekundär plats med Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du konfigurerar haveri beredskap för virtuella VMware-datorer eller fysiska Windows-och Linux-servrar till en sekundär plats med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 9a1cb63bd2a209c72af608d23515723a63b180e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a87abfdd70db07e4310dc6a39a280e12f664d03b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417723"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972098"
 ---
-# <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurera haveriberedskap för lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
+# <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurera haveri beredskap för lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
-InMage Scout i [Azure Site Recovery](site-recovery-overview.md) ger i realtid replikering mellan lokala VMware-webbplatser. InMage Scout ingår i Azure Site Recovery service-prenumerationer.
+InMage Scout i [Azure Site Recovery](site-recovery-overview.md) tillhandahåller replikering i real tid mellan lokala VMware-platser. InMage Scout ingår i Azure Site Recovery tjänst prenumerationer.
 
-## <a name="end-of-support-announcement"></a>Support upphör meddelande
+## <a name="end-of-support-announcement"></a>Slut på support meddelande
 
-Azure Site Recovery-scenario för replikering mellan den lokala VMware eller fysiska Datacenter når support upphör.
+Azure Site Recovery scenariot för replikering mellan lokala VMware-eller fysiska data Center når slut för and support.
 
--   Från augusti 2018 scenariot inte kan konfigureras i Recovery Services-valvet och InMage Scout-programvaran kan inte hämtas från valvet. Befintliga distributioner kommer att stödjas. 
--   Scenariot från December 31 2020, kommer inte att stödas.
-- Befintliga partners kan registrera nya kunder till scenariot tills support upphör.
+-   Från augusti 2018 går det inte att konfigurera scenariot i Recovery Services-valvet och InMage Scout-programvaran kan inte laddas ned från valvet. Befintliga distributioner kommer att stödjas. 
+-   Från december 31 2020 stöds inte scenariot.
+- Befintliga partners kan publicera nya kunder till scenariot tills supporten upphör.
 
-Under 2018 och 2019 släpps två uppdateringar: 
+Under 2018 och 2019 publiceras två uppdateringar: 
 
--   Uppdatering 7: Åtgärdar problem med konfiguration och efterlevnad av nätverket och ger stöd för TSL 1.2.
--   Uppdatera 8: Lägger till stöd för Linux-operativsystem RHEL/CentOS 7.3/7.4/7.5 och SUSE 12
+-   Uppdatering 7: Åtgärdar nätverks konfiguration och kompatibilitetsproblem och ger stöd för TLS 1,2.
+-   Uppdatering 8: Lägger till stöd för Linux-operativsystem RHEL/CentOS 7.3/7.4/7.5 och för SUSE 12
 
-Efter uppdatering 8, ingen ytterligare släpps uppdateringar. Det blir begränsad snabbkorrigering stöd för de operativsystem som har lagts till i uppdatering 8 och felkorrigeringar baserat på bästa prestanda.
+Efter uppdatering 8 kommer inga ytterligare uppdateringar att släppas. Det finns ett begränsat stöd för snabb korrigeringar för de operativ system som har lagts till i uppdatering 8 och fel korrigeringar baserade på bästa möjliga ansträngning.
 
-Azure Site Recovery har fortfarande till innovationer genom att VMware och Hyper-V-kunder en sömlös och klassens bästa DRaaS-lösning med Azure som en plats för katastrofåterställning. Microsoft rekommenderar att befintliga InMage / ASR Scout kunder överväga att använda Azure Site Recovery-VMware till Azure-scenariot för kontinuitet för företag behöver. Azure Site Recovery-VMware till Azure-scenariot är en katastrofåterställningslösning i företagsklass för VMware-program, som erbjuder RPO och RTO minuter, stöd för flera virtuella datorer programmet replikering och återställning, sömlös integrering omfattande övervakning och stor TCO fördel.
+Azure Site Recovery fortsätter att utveckla genom att tillhandahålla VMware-och Hyper-V-kunder en sömlös och förstklassig DRaaS-lösning med Azure som en katastrof återställnings plats. Microsoft rekommenderar att befintliga InMage/ASR Scout-kunder förväntar sig att använda Azure Site Recoverys VMware-till-Azure-scenario för företagets kontinuitets behov. Azure Site Recovery s scenario för VMware till Azure är en DR-lösning i företags klass för VMware-program, som erbjuder återställnings-och RTO på minuter, stöd för replikering av flera virtuella datorer och återställning, sömlös onboarding, omfattande övervakning och stor TCO-fördel.
 
-### <a name="scenario-migration"></a>Scenario-migrering
-Som ett alternativ rekommenderar vi att konfigurera haveriberedskap för lokala virtuella VMware-datorer och fysiska datorer genom att replikera dem till Azure. Gör detta på följande sätt:
+### <a name="scenario-migration"></a>Scenario migrering
+Alternativt rekommenderar vi att du konfigurerar haveri beredskap för lokala virtuella VMware-datorer och fysiska datorer genom att replikera dem till Azure. Gör detta på följande sätt:
 
-1.  Granska snabb jämförelsen nedan. Innan du kan replikera lokala datorer, behöver du kontrollera att de uppfyller [krav](./vmware-physical-azure-support-matrix.md#replicated-machines) för replikering till Azure. Om du replikerar virtuella VMware-datorer, rekommenderar vi att du läser igenom [riktlinjerna för kapacitetsplanering](./site-recovery-plan-capacity-vmware.md), och kör den [planeringsverktyget](./site-recovery-deployment-planner.md) till kapacitetskrav för identitet, och kontrollera efterlevnad.
-2.  När du har kört Kapacitetsplaneraren, du kan konfigurera replikering: o för virtuella VMware-datorer, följer du de här självstudierna att [förbereda Azure](./tutorial-prepare-azure.md), [förbereda lokala VMware-miljö](./vmware-azure-tutorial-prepare-on-premises.md), och [konfigurera haveriberedskap](./vmware-azure-tutorial-prepare-on-premises.md).
-o för fysiska datorer, följ den här [självstudien](./physical-azure-disaster-recovery.md).
-3.  När datorer replikeras till Azure, kan du köra en [programåterställningstest](./site-recovery-test-failover-to-azure.md) att kontrollera att allt fungerar som förväntat.
+1.  Granska snabb jämförelsen nedan. Innan du kan replikera lokala datorer måste du kontrol lera att de uppfyller [kraven](./vmware-physical-azure-support-matrix.md#replicated-machines) för replikering till Azure. Om du replikerar virtuella VMware-datorer, rekommenderar vi att du går igenom [rikt linjerna för kapacitets planering](./site-recovery-plan-capacity-vmware.md)och kör [distributions planerings verktyget](./site-recovery-deployment-planner.md) till identitets kapacitets krav och kontrollerar efterlevnad.
+2.  När du har kört distributions planeraren kan du konfigurera replikering: o för virtuella VMware-datorer, följa de här självstudierna för att [förbereda Azure](./tutorial-prepare-azure.md), [förbereda din lokala VMware-miljö](./vmware-azure-tutorial-prepare-on-premises.md)och [Konfigurera haveri beredskap](./vmware-azure-tutorial-prepare-on-premises.md).
+o för fysiska datorer följer du den [](./physical-azure-disaster-recovery.md)här självstudien.
+3.  När datorerna har repliker ATS till Azure kan du köra en [haveri beredskap](./site-recovery-test-failover-to-azure.md) för att kontrol lera att allt fungerar som förväntat.
 
 ### <a name="quick-comparison"></a>Snabb jämförelse
 
-**Funktion** | **Replikering till Azure** |**Replikering mellan datacenter i VMware**
+**Funktion** | **Replikering till Azure** |**Replikering mellan VMware-datacenter**
 --|--|--
-**Nödvändiga komponenter** |Mobilitetstjänsten på replikerade datorer. Den lokala konfigurationsservern, processervern och huvudmålservern. Tillfällig processerver i Azure för återställning efter fel.|Mobilitetstjänsten Processervern, konfigurationsservern och Huvudmålservern
-**Konfiguration och dirigering** |Recovery Services-valv i Azure portal | Med hjälp av vContinuum 
-**Replikerade** |Disk (Windows och Linux) |Volume-Windows<br> Disk-Linux
-**Delad klusterdisk** |Stöds inte|Stöds
-**Dataomsättning begränsningar (genomsnitt)** |10 MB/s data per disk<br> 25MB/s data per VM<br> [Läs mer](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s data per disk  <br> > 25 MB/s data per VM
-**Övervakning** |Från Azure-portalen|Från CX (konfigurationsserver)
-**Stödmatris** | [Klicka här för information](./vmware-physical-azure-support-matrix.md)|[Ladda ned ASR Scout kompatibel matris](https://aka.ms/asr-scout-cm)
+**Nödvändiga komponenter** |Mobilitets tjänsten på replikerade datorer. Lokal konfigurations Server, processerver, huvud mål server. Tillfällig processerver i Azure för återställning efter fel.|Mobilitets tjänst, Processerver, konfigurations Server och huvud mål
+**Konfiguration och dirigering** |Recovery Services valv i Azure Portal | Använda vContinuum 
+**Replikeras** |Disk (Windows och Linux) |Volym – Windows<br> Disk-Linux
+**Delat disk kluster** |Stöds inte|Stöds
+**Data omsättnings gränser (genomsnitt)** |10 MB/s data per disk<br> 25MB/s-data per virtuell dator<br> [Läs mer](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s data per disk  <br> > 25 MB/s data per VM
+**Övervakning** |Från Azure Portal|Från CX (konfigurations Server)
+**Support mat ris** | [Klicka här om du vill ha mer information](./vmware-physical-azure-support-matrix.md)|[Ladda ned ASR Scout-kompatibel matris](https://aka.ms/asr-scout-cm)
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här självstudien behöver du:
 
-- [Granska](vmware-physical-secondary-support-matrix.md) kraven för stöd för alla komponenter.
-- Se till att de datorer som du vill replikera följer [replikerade datorn support](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
+- [Granska](vmware-physical-secondary-support-matrix.md) support kraven för alla komponenter.
+- Se till att de datorer som du vill replikera följer den replikerade [datorns support](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
-## <a name="download-and-install-component-updates"></a>Hämta och installera Komponentuppdateringar
+## <a name="download-and-install-component-updates"></a>Hämta och installera komponent uppdateringar
 
- Granska och installera senast [uppdateringar](#updates). Uppdateringar ska installeras på servrar i följande ordning:
+ Granska och installera de senaste [uppdateringarna](#updates). Uppdateringar bör installeras på servrar i följande ordning:
 
-1. RX-server (om tillämpligt)
-2. Konfigurationsservrar
-3. Processervrar
-4. Master Target-servrar
+1. RX-Server (om tillämpligt)
+2. Konfigurations servrar
+3. Process servrar
+4. Huvud mål servrar
 5. vContinuum-servrar
-6. Källservern (både Windows och Linux-servrar)
+6. Käll Server (både Windows-och Linux-servrar)
 
-Installera uppdateringar på följande sätt:
+Installera uppdateringarna på följande sätt:
 
 > [!NOTE]
->Alla Scout-komponenterna filversion uppdatering kanske inte är samma i update .zip-filen. Den äldre versionen betyda att det finns ingen ändring i komponenten sedan tidigare uppdateringen till den här uppdateringen.
+>Alla Scout-komponenters fil uppdaterings version får inte vara samma i Update. zip-filen. Den äldre versionen indikerar att det inte finns någon ändring i komponenten sedan tidigare uppdatering av den här uppdateringen.
 
-Ladda ned den [uppdatera](https://aka.ms/asr-scout-update7) .zip-filen och [MySQL och PHP uppgradera](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) konfigurationsfiler. Uppdatera ZIP-filen innehåller alla base binärfiler och ackumulerad uppgradering binärfilerna för följande komponenter: 
+Hämta [Update](https://aka.ms/asr-scout-update7) . zip-filen och konfigurationsfiler för [MySQL och php-uppgraderingen](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) . Filen Update. zip innehåller alla de grundläggande binärfilerna och de ackumulerade uppgraderings binärfilerna för följande komponenter: 
 - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
 - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
 - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
@@ -117,231 +117,231 @@ Ladda ned den [uppdatera](https://aka.ms/asr-scout-update7) .zip-filen och [MySQ
 - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
 - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
 - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
-  1. Extrahera .zip-filer.
-  2. **RX server**: Kopiera **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** till RX-servern och extrahera den. I den extrahera mappen kör **/Install**.
-  3. **Konfigurationsservern och processervern**: Kopiera **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** till konfigurationsservern och processervern. Dubbelklicka för att köra den.<br>
-  4. **Windows-huvudmålservern**: Om du vill uppdatera enhetlig agenten, kopiera **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** till servern. Dubbelklicka på den för att köra den. Samma fil kan också användas för helt ny installation. Samma enhetlig agentuppdatering gäller även för källservern.
-  Uppdateringen behöver inte tillämpa på Huvudmålservern mål förbereds med **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** eftersom det här är den nya GA installer med de senaste ändringarna.
-  5. **vContinuum-server**:  Kopiera **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** till servern.  Kontrollera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
-  6. **Linux huvudmålserver**: Om du vill uppdatera enhetlig agenten, kopiera **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** till Linux Master Target-servern och extrahera den. I den extrahera mappen kör **/Install**.
-  7. **Windows-källservern**: Om du vill uppdatera enhetlig agenten, kopiera **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** till källservern. Dubbelklicka på filen för att köra den. 
-  8. **Linux-källservern**: Kopiera motsvarande version av agentfilen enhetlig till Linux-servern för att uppdatera enhetlig agenten och extrahera den. I den extrahera mappen kör **/Install**.  Exempel: För RHEL 6.7 64-bitars server, kopiera **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** till servern, och extrahera den. I den extrahera mappen kör **/Install**.
-  9. När du har uppgraderat konfigurationsservern, Processervern och RX-server med de ovan nämnda installationsprogram, PHP och MySQL-bibliotek måste uppgraderas manuellt med stegen i avsnittet 7.4 i den [snabb installationsguide](https://aka.ms/asr-scout-quick-install-guide).
+  1. Extrahera zip-filerna.
+  2. **RX-Server**: Kopiera **rx_ 8.0.7.0 _ga_update_7_2965621_28dec18. tar. gz** till RX-servern och extrahera den. Kör **/install**i den extraherade mappen.
+  3. **Konfigurations Server och processerver**: Kopiera **cx_windows_ 8.0.7.0 _ga_update_7_2965621_28dec18. exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
+  4. **Windows huvud mål server**: Om du vill uppdatera Unified agent kopierar du **inmage_ua_ 8.0.7.0 _windows_ga_27dec2018_release. exe** till-servern. Dubbelklicka på den för att köra den. Samma fil kan också användas för en ny installation. Samma enhetliga agent uppdatering gäller även för käll servern.
+  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **inmage_scout_vcontinuum_mt_ 8.0.7.0 _windows_ga_27dec2018_release. exe** eftersom det här är ett nytt ga-installationsprogram med alla de senaste ändringarna.
+  5. **vContinuum-Server**:  Kopiera **inmage_scout_vcontinuum_mt_ 8.0.7.0 _windows_ga_27dec2018_release. exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
+  6. **Linux-huvud mål server**: Om du vill uppdatera Unified agent kopierar du **inmage_ua_ 8.0.7.0 _rhel6-64_ga_03dec2018_release. tar. gz** till Linux-huvud mål servern och extraherar den. Kör **/install**i den extraherade mappen.
+  7. **Windows-käll Server**: Om du vill uppdatera Unified agent kopierar du **inmage_ua_ 8.0.7.0 _windows_ga_27dec2018_release. exe** till käll servern. Dubbelklicka på filen för att köra den. 
+  8. **Linux-käll Server**: Om du vill uppdatera Unified agent kopierar du motsvarande version av den enhetliga agent filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: För RHEL 6,7 64-bitars server kopierar du **inmage_ua_ 8.0.7.0 _rhel6-64_ga_03dec2018_release. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
+  9. När du har uppgraderat konfigurations servern, processervern och RX-servern med ovanstående installations program måste PHP-och MySQL-biblioteken uppgraderas manuellt med de steg som beskrivs i avsnitt 7,4 i [snabb installations guiden](https://aka.ms/asr-scout-quick-install-guide).
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
-1. Konfigurera replikering mellan källa och mål VMware-webbplatser.
-2. Se följande dokument för mer information om installation, skydd och återställning:
+1. Konfigurera replikering mellan käll-och mål VMware-platser.
+2. Läs mer om installation, skydd och återställning i följande dokument:
 
    * [Viktig information](https://aka.ms/asr-scout-release-notes)
-   * [Kompatibilitetsöversikten](https://aka.ms/asr-scout-cm)
-   * [Användarhandbok](https://aka.ms/asr-scout-user-guide)
-   * [Användarhandbok för RX](https://aka.ms/asr-scout-rx-user-guide)
-   * [Snabb installationsguide](https://aka.ms/asr-scout-quick-install-guide)
-   * [Uppgradera MYSQL och PHP-bibliotek](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
+   * [Kompatibilitet mat ris](https://aka.ms/asr-scout-cm)
+   * [Användar guide](https://aka.ms/asr-scout-user-guide)
+   * [Användar handbok för RX](https://aka.ms/asr-scout-rx-user-guide)
+   * [Snabb installations guide](https://aka.ms/asr-scout-quick-install-guide)
+   * [Uppgradera MYSQL-och PHP-bibliotek](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
 
 ## <a name="updates"></a>Uppdateringar
 
-### <a name="site-recovery-scout-801-update-7"></a>Site Recovery Scout 8.0.1 uppdatering 7 
-Uppdaterad: Ladda ned den 31 december 2018 [Scout uppdatering 7](https://aka.ms/asr-scout-update7).
-Scout uppdatering 7 är en fullständig installer som kan användas för nyinstallation samt att uppgradera befintliga agenter/MT på tidigare uppdateringar (från Update 1 till uppdatering 6). Den innehåller alla korrigeringar från uppdatering 1 för uppdatering 6 plus de nya korrigeringar och förbättringar som beskrivs nedan.
+### <a name="site-recovery-scout-801-update-7"></a>Site Recovery Scout 8.0.1 Update 7 
+Uppdaterad: 31 december 2018 Hämta [Scout Update 7](https://aka.ms/asr-scout-update7).
+Scout Update 7 är ett fullständigt installations program som kan användas för en ny installation samt för att uppgradera befintliga agenter/MT som finns på tidigare uppdateringar (från uppdatering 1 till uppdatering 6). Den innehåller alla korrigeringar från uppdatering 1 för uppdatering 6 plus de nya korrigeringarna och förbättringarna som beskrivs nedan.
  
 #### <a name="new-features"></a>Nya funktioner
-* PCI-efterlevnad
-* TLS version 1.2-stöd
+* PCI-kompatibilitet
+* Stöd för TLS v 1.2
 
-#### <a name="bug-and-security-fixes"></a>Programfel och säkerhetskorrigeringar
-* Åtgärdat: Windows kluster/fristående datorer har felaktig IP-konfiguration vid återställning/DR-test.
-* Åtgärdat: Lägg till disk åtgärden misslyckas ibland för V2V-kluster.
-* Åtgärdat: vContinuum guiden fastnar under fasen för återställning om Huvudmålet är Windows Server 2016
-* Åtgärdat: Säkerhetsproblem för MySQL-skriptkommandot genom att uppgradera MySQL till version 5.7.23
+#### <a name="bug-and-security-fixes"></a>Fel-och säkerhets korrigeringar
+* Fastsatt Windows-kluster/fristående datorer har felaktig IP-konfiguration vid återställning/DR-Test.
+* Fastsatt Ibland går det inte att lägga till disk åtgärder för V2V-kluster.
+* Åtgärdat: vContinuum-guiden har fastnat under återställnings fasen om huvud målet är Windows Server 2016
+* Fastsatt Säkerhets problem i MySQL begränsas genom uppgradering av MySQL till version 5.7.23
 
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Manuell uppgradering för PHP och MySQL på CS, PS och RX
-PHP-skriptplattform bör uppgraderas till version 7.2.10 på konfigurationsservern, Processervern och RX-Server.
-MySQL-databashanteringssystem bör uppgraderas till version 5.7.23 på konfigurationsservern, Processervern och RX-Server.
-Följ de manuella stegen som anges i den [snabb installationsguide](https://aka.ms/asr-scout-quick-install-guide) till uppgraderingar PHP och MySQL.
+PHP skript plattform bör uppgraderas till version 7.2.10 på konfigurations servern, processervern och RX-servern.
+Databas hanterings systemet MySQL bör uppgraderas till version 5.7.23 på konfigurations servern, processervern och RX-servern.
+Följ de manuella stegen i [snabb installations guiden](https://aka.ms/asr-scout-quick-install-guide) för att uppgradera php-och MySQL-versioner.
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
 Uppdaterad: 12 oktober 2017
 
-Ladda ned [Scout uppdatering 6](https://aka.ms/asr-scout-update6).
+Hämta [Scout uppdatering 6](https://aka.ms/asr-scout-update6).
 
-Scout uppdatering 6 är en ackumulerad uppdatering. Den innehåller alla korrigeringar från uppdatering 1 för uppdatering 5 plus de nya korrigeringar och förbättringar som beskrivs nedan. 
+Scout Update 6 är en kumulativ uppdatering. Den innehåller alla korrigeringar från uppdatering 1 till uppdatering 5 plus de nya korrigeringarna och förbättringarna som beskrivs nedan. 
 
-#### <a name="new-platform-support"></a>Stöd för nya plattformar
-* Stöd har lagts till för källa Windows Server 2016
-* Stöd har lagts till för följande Linux-operativsystem:
+#### <a name="new-platform-support"></a>Nytt plattforms stöd
+* Stöd har lagts till för käll-Windows Server 2016
+* Stöd har lagts till för följande Linux-operativ system:
     - Red Hat Enterprise Linux (RHEL) 6,9
-    - CentOS 6.9
-    - Oracle Linux 5.11
-    - Oracle Linux 6.8
-* Stöd har lagts till för VMware Center 6.5
+    - CentOS 6,9
+    - Oracle Linux 5,11
+    - Oracle Linux 6,8
+* Support har lagts till för VMware Center 6,5
 
-Installera uppdateringar på följande sätt:
+Installera uppdateringarna på följande sätt:
 
 > [!NOTE]
->Alla Scout-komponenterna filversion uppdatering kanske inte är samma i update .zip-filen. Den äldre versionen betyda att det finns ingen ändring i komponenten sedan tidigare uppdateringen till den här uppdateringen.
+>Alla Scout-komponenters fil uppdaterings version får inte vara samma i Update. zip-filen. Den äldre versionen indikerar att det inte finns någon ändring i komponenten sedan tidigare uppdatering av den här uppdateringen.
 
-Ladda ned den [uppdatera](https://aka.ms/asr-scout-update6) .zip-filen. Filen innehåller följande komponenter: 
+Hämta filen [Update](https://aka.ms/asr-scout-update6) . zip. Filen innehåller följande komponenter: 
 - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
 - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
 - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
 - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- UA update4 bitar för RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-  1. Extrahera .zip-filer.
-  2. **RX server**: Kopiera **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** till RX-servern och extrahera den. I den extrahera mappen kör **/Install**.
-  3. **Konfigurationsservern och processervern**: Kopiera **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** till konfigurationsservern och processervern. Dubbelklicka för att köra den.<br>
-  4. **Windows-huvudmålservern**: Om du vill uppdatera enhetlig agenten, kopiera **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** till servern. Dubbelklicka på den för att köra den. Samma enhetlig agentuppdatering gäller även för källservern. Om källan inte har uppdaterats till uppdatering 4, bör du uppdatera enhetlig agenten.
-  Uppdateringen behöver inte tillämpa på Huvudmålservern mål förbereds med **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** eftersom det här är den nya GA installer med de senaste ändringarna.
-  5. **vContinuum-server**:  Kopiera **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** till servern.  Kontrollera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
-  Uppdateringen behöver inte tillämpa på Huvudmålet förberedd med **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** eftersom det här är den nya GA installer med de senaste ändringarna.
-  6. **Linux huvudmålserver**: Om du vill uppdatera enhetlig agenten, kopiera **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** till huvudservern målserver och extrahera den. I den extrahera mappen kör **/Install**.
-  7. **Windows-källservern**: Om du vill uppdatera enhetlig agenten, kopiera **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** till källservern. Dubbelklicka på filen för att köra den. 
-  Du behöver inte installera uppdatering 5-agenten på källservern om den redan har uppdaterats till uppdatering 4 eller källagent installeras med installationsprogrammet för senaste grundläggande **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-  8. **Linux-källservern**: Kopiera motsvarande version av agentfilen enhetlig till Linux-servern för att uppdatera enhetlig agenten och extrahera den. I den extrahera mappen kör **/Install**.  Exempel: För RHEL 6.7 64-bitars server, kopiera **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** till servern, och extrahera den. I den extrahera mappen kör **/Install**.
+- UA Update4 bitar för RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  1. Extrahera zip-filerna.
+  2. **RX-Server**: Kopiera **rx_ 8.0.4.0 _ga_update_4_8725872_16sep16. tar. gz** till RX-servern och extrahera den. Kör **/install**i den extraherade mappen.
+  3. **Konfigurations Server och processerver**: Kopiera **cx_windows_ 8.0.6.0 _ga_update_6_13746667_18sep17. exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
+  4. **Windows huvud mål server**: Om du vill uppdatera Unified agent kopierar du **ua_windows_ 8.0.5.0 _ga_update_5_11525802_20apr17. exe** till-servern. Dubbelklicka på den för att köra den. Samma enhetliga agent uppdatering gäller även för käll servern. Om källan inte har uppdaterats till uppdatering 4, bör du uppdatera den enhetliga agenten.
+  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **inmage_scout_vcontinuum_mt_ 8.0.1.0 _windows_ga_10oct2017_release. exe** eftersom det här är ett nytt ga-installationsprogram med alla de senaste ändringarna.
+  5. **vContinuum-Server**:  Kopiera **vcon_windows_ 8.0.6.0 _ga_update_6_11525767_21sep17. exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
+  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **inmage_scout_vcontinuum_mt_ 8.0.1.0 _windows_ga_10oct2017_release. exe** eftersom det här är ett nytt ga-installationsprogram med alla de senaste ändringarna.
+  6. **Linux-huvud mål server**: Om du vill uppdatera Unified agent kopierar du **ua_rhel6-64_ 8.0.4.0 _ga_update_4_9035261_26sep16. tar. gz** till huvud mål servern och extraherar den. Kör **/install**i den extraherade mappen.
+  7. **Windows-käll Server**: Om du vill uppdatera Unified agent kopierar du **ua_windows_ 8.0.5.0 _ga_update_5_11525802_20apr17. exe** till käll servern. Dubbelklicka på filen för att köra den. 
+  Du behöver inte installera uppdatering 5-agenten på käll servern om den redan har uppdaterats till uppdatering 4 eller käll agenten har installerats med den senaste bas installations **inmage_ua_ 8.0.1.0 _windows_ga_28sep2017_release. exe**.
+  8. **Linux-käll Server**: Om du vill uppdatera Unified agent kopierar du motsvarande version av den enhetliga agent filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: För RHEL 6,7 64-bitars server kopierar du **ua_rhel6-64_ 8.0.4.0 _ga_update_4_9035261_26sep16. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
 
 
 > [!NOTE]
-> * Grundläggande Unified Agent(UA) installationsprogrammet för Windows har uppdaterats till support för Windows Server 2016. Det nya installationsprogrammet **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** paketeras med grundläggande Scout GA-paketet (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Samma installationsprogrammet ska användas för alla Windows-version som stöds. 
-> * Basera Windows vContinuum & Huvudmålet installer har uppdaterats till support för Windows Server 2016. Det nya installationsprogrammet **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** paketeras med grundläggande Scout GA-paketet (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Samma installationsprogrammet används för att distribuera Windows 2016 Master Target och Huvudmålserver för Windows 2012 R2.
-> * Windows server 2016 på fysisk server stöds inte av ASR Scout. Det stöder endast Windows Server 2016 VMware-dator. 
+> * Installations programmet för grundläggande Unified agent (UA) för Windows har uppdaterats för att ge stöd för Windows Server 2016. Det nya installations programmet **inmage_ua_ 8.0.1.0 _windows_ga_28sep2017_release. exe** är paketerat med Base Scout ga-paketet (**inmage_scout_standard_ 8.0.1 ga-Oct17. zip**). Samma installations program kommer att användas för alla Windows-versioner som stöds. 
+> * Grundläggande Windows-vContinuum & huvud mål installations programmet har uppdaterats för att ge stöd för Windows Server 2016. Det nya installations programmet **inmage_scout_vcontinuum_mt_ 8.0.1.0 _windows_ga_10oct2017_release. exe** är paketerat med Base Scout ga-paketet (**inmage_scout_standard_ 8.0.1 ga-Oct17. zip**). Samma installations program kommer att användas för att distribuera Windows 2016 huvud mål och Windows 2012R2 huvud mål.
+> * Windows Server 2016 på fysisk server stöds inte av ASR Scout. Den stöder endast Windows Server 2016 VMware VM. 
 >
 
-#### <a name="bug-fixes-and-enhancements"></a>Felkorrigeringar och förbättringar
-- Återställning efter fel skydd misslyckas för Linux VM med listan över diskar som ska replikeras är tom i slutet av konfiguration.
+#### <a name="bug-fixes-and-enhancements"></a>Fel korrigeringar och förbättringar
+- Återställning efter fel för virtuella Linux-datorer med en lista över diskar som ska replikeras är tom i slutet av konfigurationen.
 
-### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 Update 5
-Scout uppdatering 5 är en ackumulerad uppdatering. Den innehåller alla korrigeringar från uppdatering 1 till uppdatering 4 och de nya ändringarna som beskrivs nedan.
-- Korrigeringar från Site Recovery Scout uppdatering 4 för uppdatering 5 är avsedda för mål- och vContinuum huvudkomponenter.
-- Om källservrar, huvudmålservern, konfiguration, process och RX servrar redan kör uppdatering 4, därefter tillämpa det endast på huvudmålservern. 
+### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 uppdatering 5
+Scout uppdatering 5 är en kumulativ uppdatering. Den innehåller alla korrigeringar från uppdatering 1 till uppdatering 4 och de nya korrigeringarna som beskrivs nedan.
+- Korrigeringar från Site Recovery Scout uppdatering 4 till uppdatering 5 är specifika för huvud mål-och vContinuum-komponenterna.
+- Om käll servrar kör huvud mål, konfiguration, process och RX-servrar redan uppdatering 4, och Använd den bara på huvud mål servern. 
 
-#### <a name="new-platform-support"></a>Stöd för nya plattformar
-* SUSE Linux Enterprise Server 11 Service Pack-4(SP4)
-* SLES 11 SP4 64 bitars **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** paketeras med grundläggande Scout GA-paketet (**InMage_Scout_Standard_8.0.1 GA.zip**). Ladda ned GA-paketet från portalen, enligt beskrivningen i Skapa ett valv.
+#### <a name="new-platform-support"></a>Nytt plattforms stöd
+* SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
+* SLES 11 SP4 64 bit **inmage_ua_ 8.0.1.0 _sles11-SP4-64_ga_13apr2017_release. tar. gz** paketeras med bas paketet för bas Scout ga (**inmage_scout_standard_ 8.0.1 ga. zip**). Ladda ned GA-paketet från portalen, enligt beskrivningen i skapa ett valv.
 
 
-#### <a name="bug-fixes-and-enhancements"></a>Felkorrigeringar och förbättringar
+#### <a name="bug-fixes-and-enhancements"></a>Fel korrigeringar och förbättringar
 
-* Korrigeringar för ökad Windows-kluster stöder tillförlitlighet:
-    * Fast – vissa av P2V-MSCS klusterdiskar blir RAW efter återställningen.
-    * Fixed-P2V MSCS-kluster återställningen misslyckas på grund av ett matchningsfel för disk-beställning.
-    * Fast - The MSCS-kluster att lägga till diskar misslyckas med ett diskfel storlek matchningsfel.
-    * Fast tjänsten beredskapskontrollen för källan MSCS-kluster med RDM-LUN-mappningen utförs inte i storlek verifiering.
-    * Fixed-enkel nod kluster skyddet fungerar inte på grund av ett matchningsfel SCSI-problem. 
-    * Det går inte att fixed-nytt skydd av P2V-Windows-klusterserver om mål-klusterdiskar finns. 
+* Korrigeringar för ökad Windows-kluster support tillförlitlighet:
+    * Fast-några av P2V MSCS-kluster diskarna blir råa efter återställningen.
+    * Den fasta P2V-kluster återställningen Miss lyckas på grund av en felaktig disk ordning.
+    * Fast – MSCS-klustrets åtgärd för att lägga till diskar Miss lyckas med fel matchning av disk storlek.
+    * Fast-beredskaps kontroll för käll MSCS-kluster med mappning av LUN-LUN för RDM Miss lyckas vid storleks verifiering.
+    * Kluster skydd med en enskild nod Miss lyckas på grund av ett problem med SCSI-matchning. 
+    * Fast skydd av P2V-Windows-klusterresursen Miss lyckas om det finns mål kluster diskar. 
     
-* Åtgärdat: Vid återställning efter fel skydd om den markerade mallen målserver inte på samma ESXi-server som den skyddade källa datorn (under vanlig skydd), och sedan vContinuum hämtar fel huvudmålservern under återställning efter fel återställning och återställning åtgärden misslyckas.
+* Fastsatt Om den valda huvud mål servern inte finns på samma ESXi-server som den skyddade käll datorn (vid Forward-skydd) i återställnings skydd för återställning efter fel, hämtar vContinuum fel huvud mål servern under återställning efter fel och återställningen åtgärden kunde inte utföras.
 
 > [!NOTE]
-> * Korrigeringar för P2V-kluster gäller endast fysiska MSCS-kluster som nyligen skyddats med Site Recovery Scout uppdatering 5. Installera kluster-korrigeringar på skyddade P2V MSCS-kluster med äldre uppdateringar enligt uppgradera stegen som beskrivs i avsnittet 12 i den [viktig för Site Recovery Scout](https://aka.ms/asr-scout-release-notes).
-> * Om samma uppsättning diskar är aktiva på alla noder i klustret vid tidpunkten för nytt skydd som de visades när skyddade från början, återanvänder befintliga måldiskarna endast i nytt skydd för fysiska MSCS-kluster. Om inte, använder du de manuella stegen i avsnittet 12 i [viktig för Site Recovery Scout](https://aka.ms/asr-scout-release-notes), för att flytta sida måldiskarna till rätt datastore-sökväg till återanvändning vid nytt skydd. Om du skyddar MSCS-kluster i P2V läge utan att följa Uppgraderingsstegen skapas en ny disk på ESXi-målservern. Du måste ta bort de gamla diskarna manuellt från databasen.
-> * När en SLES11 eller SLES11 (med alla servicepack) källserver startas utan problem, sedan manuellt vill markera det **rot** disk replikering par för omsynkronisering. Det finns inget meddelande i CX-gränssnittet. Om du inte markerar disken rot för omsynkronisering, märker du problem med dataintegriteten.
+> * De här korrigeringarna för P2V-kluster gäller endast för fysiska MSCS-kluster som nyligen skyddas med Site Recovery Scout uppdatering 5. Om du vill installera kluster korrigeringarna på skyddade P2V MSCS-kluster med äldre uppdateringar följer du de uppgraderings steg som anges i avsnitt 12 i [versions kommentarerna för Site Recovery Scout](https://aka.ms/asr-scout-release-notes).
+> * om samma uppsättning diskar är aktiva på var och en av klusternoderna när skyddet ursprungligen skyddades, så kan åter skyddet av ett fysiskt MSCS-kluster bara återanvända befintliga mål diskar. Om inte, använder du de manuella stegen i avsnitt 12 i [Site Recovery Scout-versions anteckningar](https://aka.ms/asr-scout-release-notes)för att flytta mål sid diskarna till rätt data lager Sök väg för åter användning under återskydd. Om du skyddar MSCS-klustret i P2V-läge utan att följa uppgraderings stegen skapas en ny disk på mål ESXi-servern. Du måste manuellt ta bort de gamla diskarna från data lagret.
+> * När en SLES11-eller SLES11-Server (med alla service pack) startas om på ett smidigt sätt markerar du **rot** diskens replikeringsinställningar manuellt för omsynkronisering. Det finns inget meddelande i CX-gränssnittet. Om du inte markerar rot disken för omsynkronisering kan du märka problem med data integriteten.
 
 
-### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4
-Scout uppdatering 4 är en ackumulerad uppdatering. Den innehåller alla korrigeringar från uppdatering 1 till uppdatering 3 och de nya ändringarna som beskrivs nedan.
+### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 uppdatering 4
+Scout Update 4 är en kumulativ uppdatering. Den innehåller alla korrigeringar från uppdatering 1 till uppdatering 3, och de nya korrigeringarna som beskrivs nedan.
 
-#### <a name="new-platform-support"></a>Stöd för nya plattformar
+#### <a name="new-platform-support"></a>Nytt plattforms stöd
 
-* Stöd har lagts till för vCenter-/ vSphere 6.0, 6.1 och 6.2
-* Stöd har lagts till för de här Linux-operativsystem:
-  * Red Hat Enterprise Linux (RHEL) 7.0, 7.1 och 7.2
-  * CentOS 7.0, 7.1 och 7.2
-  * Red Hat Enterprise Linux (RHEL) 6.8
-  * CentOS 6.8
-
-> [!NOTE]
-> RHEL/CentOS 7 64-bitars **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** paketeras med grundläggande Scout GA-paketet **InMage_Scout_Standard_8.0.1 GA.zip**. Ladda ned Scout GA-paketet från portalen enligt beskrivningen i Skapa ett valv.
-
-#### <a name="bug-fixes-and-enhancements"></a>Felkorrigeringar och förbättringar
-
-* Förbättrad avstängning hantering för följande Linux-operativsystem och klonar att förhindra oönskade omsynkroniseringen problem:
-    * Red Hat Enterprise Linux (RHEL) 6.x
-    * Oracle Linux (OL) 6.x
-* För Linux är nu åtkomstbehörigheter för alla mappar i installationskatalogen för enhetlig agenten begränsade till den lokala användaren.
-* På Windows, en korrigering av en tidsgräns uppnås problem som uppstod vid utfärdande av den vanliga distribuerade konsekvens bokmärken överbelastad på distribuerade program, till exempel SQL Server och SharePoint-kluster.
-* En logg relaterade korrigering i grundläggande installationsprogrammet för configuration server.
-* En nedladdningslänk till VMware vCLI 6.0 lades till i Windows huvudmålservern grundläggande installationsprogrammet.
-* Ytterligare kontroller och loggar har lagts till, för nätverket konfigurationsändringar under redundans och disaster recovery-test.
-* Lösa ett problem som orsakade bevarandeinformationen inte ska rapporteras till konfigurationsservern.  
-* Fysiska kluster kan lösa ett problem som orsakade volymstorleksändring om du vill återställa i guiden vContinuum när minska storleken på källvolymen.
-* Lösa ett problem för klustret skydd som misslyckades med felet: ”Det gick inte att hitta disksignaturen”, när klusterdisken är en PRDM-disk.
-* En korrigering av en cxps transport server kraschar eller på grund av ett utanför det tillåtna intervallet-undantag.
-* Servernamn och IP-adresskolumner är nu ändras i den **Push-Installation av** i guiden vContinuum.
-* Förbättringar av RX-API:
-  * De fem senaste tillgängliga vanliga konsekvensen pekar nu tillgängliga (endast garanterad taggar).
-  * Kapacitet och ledigt utrymme informationen visas för alla skyddade enheter.
-  * Tillstånd för Scout-drivrutinen på källservern är tillgänglig.
+* Support har lagts till för vCenter/vSphere 6,0, 6,1 och 6,2
+* Stöd har lagts till för dessa Linux-operativ system:
+  * Red Hat Enterprise Linux (RHEL) 7,0, 7,1 och 7,2
+  * CentOS 7,0, 7,1 och 7,2
+  * Red Hat Enterprise Linux (RHEL) 6,8
+  * CentOS 6,8
 
 > [!NOTE]
-> * **InMage_Scout_Standard_8.0.1_GA.zip** grundläggande paketet innehåller:
->     * Ett grundläggande installationsprogram för uppdaterade konfigurationen-server (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
->     * Ett grundläggande installationsprogram för Windows-huvudmålservern (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
->     * Använd nya konfigurationsservern och Windows huvudmålservern GA bits för alla nya installationer.
+> RHEL/CentOS 7 64 bitars **inmage_ua_ 8.0.1.0 _rhel7-64_ga_06oct2016_release. tar. gz** paketeras med Base Scout ga-paketet **inmage_scout_standard_ 8.0.1 ga. zip**. Hämta Scout GA-paketet från portalen enligt beskrivningen i skapa ett valv.
+
+#### <a name="bug-fixes-and-enhancements"></a>Fel korrigeringar och förbättringar
+
+* Förbättrad avslutnings hantering för följande Linux-operativsystem och kloner, för att förhindra oönskade omsynkroniseringar:
+    * Red Hat Enterprise Linux (RHEL) 6. x
+    * Oracle Linux (OL) 6. x
+* För Linux är alla åtkomst behörigheter för mappar i den enhetliga agent installations katalogen begränsad till endast den lokala användaren.
+* I Windows, en korrigering för ett tids gräns problem som uppstod vid utfärdande av vanliga distribuerade konsekvens bok märken, på kraftigt laddade distribuerade program som SQL Server-och delnings punkt kluster.
+* En logg relaterad korrigering i konfigurations serverns grundläggande installations program.
+* En nedladdnings länk till VMware vCLI 6,0 har lagts till i bas installations programmet för Windows huvud mål.
+* Ytterligare kontroller och loggar har lagts till för nätverks konfigurations ändringar under redundansväxling och haveri beredskap.
+* En korrigering för ett problem som orsakade att kvarhållning av information inte rapporteras till konfigurations servern.  
+* För fysiska kluster är det en korrigering av ett problem som gjorde att volym storleks ändringar inte kan utföras i guiden vContinuum vid krympning av käll volymen.
+* En korrigering för ett kluster skydds problem som misslyckades med felet: "Det gick inte att hitta disksignaturen", när kluster disken är en PRDM-disk.
+* En korrigering för en CXPS-Transport Server krasch, som orsakas av ett undantag utanför intervallet.
+* Nu kan du ändra storlek på Server namn och IP-adress kolumner på sidan **push-installation** i guiden vContinuum.
+* Förbättringar i RX-API:
+  * De fem senaste tillgängliga vanliga konsekvens punkterna är nu tillgängliga (endast garanterade taggar).
+  * Information om kapacitet och ledigt utrymme visas för alla skyddade enheter.
+  * Det finns ett tillgängligt driv rutins tillstånd för Scout på käll servern.
+
+> [!NOTE]
+> * **Inmage_scout_standard_ 8.0.1 _ga. zip** Base Package har:
+>     * Ett uppdaterat bas installations program för konfigurations servern (**inmage_cx_ 8.0.1.0 _windows_ga_26feb2015_release. exe**)
+>     * Ett grundläggande installations program för Windows-huvud (**inmage_scout_vcontinuum_mt_ 8.0.1.0 _windows_ga_26feb2015_release. exe**).
+>     * För alla nya installationer använder du den nya konfigurations servern och Windows huvud mål GA-bitar.
 > * Uppdatering 4 kan tillämpas direkt på 8.0.1 GA.
-> * Konfigurationsservern och RX uppdateringar kan inte återställas när de har tillämpats.
+> * Konfigurations servern och RX-uppdateringar kan inte återställas när de har tillämpats.
 
 
 ### <a name="azure-site-recovery-scout-801-update-3"></a>Azure Site Recovery Scout 8.0.1 Update 3
 
-Alla Site Recovery-uppdateringar är kumulativa. Update 3 innehåller alla korrigeringar från uppdatering 1 och uppdatering 2. Uppdatering 3 kan tillämpas direkt på 8.0.1 GA. Konfigurationsservern och RX uppdateringar kan inte återställas när de har tillämpats.
+Alla Site Recovery uppdateringar är kumulativa. Uppdatering 3 innehåller alla korrigeringar från uppdatering 1 och uppdatering 2. Uppdatering 3 kan tillämpas direkt på 8.0.1 GA. Konfigurations servern och RX-uppdateringar kan inte återställas när de har tillämpats.
 
-#### <a name="bug-fixes-and-enhancements"></a>Felkorrigeringar och förbättringar
+#### <a name="bug-fixes-and-enhancements"></a>Fel korrigeringar och förbättringar
 Uppdatering 3 åtgärdar följande problem:
 
-* Konfigurationsservern och RX inte är registrerad i valvet när de är bakom proxyn.
-* Antalet timmar som mål för återställningspunkt (RPO) inte har nått uppdateras inte i hälsorapporten.
-* Konfigurationsservern är inte synkroniseras med RX när information om ESX-maskinvara eller nätverksinformation, innehålla UTF-8-tecken.
-* Windows Server 2008 R2-domänkontrollanter starta inte efter återställningen.
+* Konfigurations servern och RX är inte registrerade i valvet när de ligger bakom proxyservern.
+* Antalet timmar där återställnings punkt mål (återställnings punkt mål) inte nåddes har inte uppdaterats i hälso rapporten.
+* Konfigurations servern synkroniseras inte med RX när det finns information om ESX-maskinvara, eller nätverksinformation, som innehåller UTF-8-tecken.
+* Domänkontrollanter i Windows Server 2008 R2 startar inte efter återställningen.
 * Offlinesynkronisering fungerar inte som förväntat.
-* Efter redundansväxling av virtuella datorer framsteg inte replikering par borttagning inom configuration server-konsolen under en längre tid. Användare kan inte slutföra återställningen eller återuppta åtgärder.
-* Övergripande ögonblicksbild-aktiviteter med konsekvensjobbet har optimerats, minska programmet kopplas från, till exempel SQL Server-klienter.
-* Konsekvens verktyget (VACP.exe) prestanda har förbättrats. Användning av minne krävs för att skapa ögonblicksbilder på Windows har minskats.
-* Push-meddelandet installera kraschar när lösenordet är större än 16 tecken.
-* vContinuum inte kontrollera och ange nya inloggningsuppgifter för vCenter, om autentiseringsuppgifterna ändras.
-* Huvudmålservern Cachehanteraren (cachemgr) är inte på Linux, ladda ned filer från processervern. Detta resulterar i replikering par begränsning.
-* När fysiska failover-kluster (MSCS) diskbeställning inte på samma sätt på alla noder, replikering har inte angetts för några av volymerna som klustret. Klustret måste att återaktivera skyddet för att dra nytta av den här snabbkorrigeringen.  
-* SMTP-funktioner fungerar inte som förväntat när RX har uppgraderats från Scout 7.1 till Scout 8.0.1.
-* Mer statistik har lagts till i loggen för återställningsåtgärd att spåra den tid det tar att slutföra den.
-* Stöd har lagts till för Linux-operativsystem på källservern:
+* Efter den virtuella datorn går det inte att ta bort replikeringen i konfigurations Server konsolen under en längre tid. Användare kan inte slutföra återställnings-eller återställnings åtgärder.
+* De övergripande ögonblicks bild åtgärderna för konsekvens jobbet har optimerats för att hjälpa till att minska program från koppling, till exempel SQL Server klienter.
+* Prestandan för konsekvens verktyget (VACP. exe) har förbättrats. Den minnes användning som krävs för att skapa ögonblicks bilder i Windows har minskat.
+* Push-installations tjänsten kraschar när lösen ordet är större än 16 tecken.
+* vContinuum kontrollerar inte och efterfrågar inga nya vCenter-autentiseringsuppgifter när autentiseringsuppgifterna ändras.
+* I Linux laddar inte Master Target cache Manager (cachemgr) filer från processervern. Detta resulterar i en begränsning av replikeringstrafiken.
+* När MSCS-disken (Physical failover Cluster) inte är samma på alla noder har replikering inte angetts för några av kluster volymerna. Klustret måste skyddas om för att kunna utnyttja den här korrigeringen.  
+* SMTP-funktionen fungerar inte som förväntat, efter att RX har uppgraderats från Scout 7,1 till Scout 8.0.1.
+* Mer statistik har lagts till i loggen för återställnings åtgärden för att spåra den tid det tar att slutföra den.
+* Stöd har lagts till för Linux-operativsystem på käll servern:
   * Red Hat Enterprise Linux (RHEL) 6 uppdatering 7
   * CentOS 6 uppdatering 7
-* Konfigurationsservern och RX konsoler nu visa aviseringar för paret som gäller bitmappsläge.
-* Följande säkerhetskorrigeringar har lagts till i RX:
-    * Auktorisering kringgå via parametern manipulation: Begränsad åtkomst till användare som inte är tillämpliga.
-    * Förfalskning av begäran: Sidan token konceptet implementerades och genereras slumpmässigt för varje sida. Det innebär att det finns en enda inloggning instans för samma användare och sidan uppdatering fungerar inte. I stället omdirigerar till instrumentpanelen.
-    * Ladda upp skadliga filer: Filer är begränsade till specifika tillägg: z, aiff, asf, avi, bmp, csv, dokument, docx, FLA-, flv, gif, gz, gzip, jpeg, jpg, log, mid mov, mp3, mp4, mpc, mpeg, mpg, ods odt, pdf, png, ppt, pptx, pxd, qt, RAM-minne, rar, rm, rmi, rmvb, rtf, sdc, sitd, SWF- , sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml och zip.
-    * Beständiga cross site scripting: Inkommande verifieringar har lagts till.
+* Konfigurations servern och RX-konsolerna visar nu meddelanden för paret, som går in i bitmappsläge.
+* Följande säkerhets korrigeringar har lagts till i RX:
+    * Kringgå auktorisering via parameter manipulation: Begränsad åtkomst till icke-tillämpliga användare.
+    * Förfalskning av begäran mellan webbplatser: Page-token-konceptet implementerades och genereras slumpmässigt för varje sida. Det innebär att det bara finns en enda inloggnings instans för samma användare och att sid uppdateringen inte fungerar. I stället omdirigeras den till instrument panelen.
+    * Överföring av skadlig fil: Filerna är begränsade till vissa tillägg: z, AIFF, ASF, AVI, BMP, CSV, doc, docx, FLA, FLV, GIF, GZ, gzip, JPEG, jpg, log, Mid, MOV, MP3, MP4, MPC, MPEG, MPG, ODS, ODT, PDF, PNG, ppt, pptx, PXD, QT, ram, rar, RM, RMI, RMVB, RTF, SDC, SITD, SWF , SXC, SXW, tar, TGZ, TIF, TIFF, txt, VSD, WAV, WMA, WMV, xls, xlsx, XML och zip.
+    * Beständiga skript för Cross-Site: Ogiltiga indatatyper har lagts till.
 
 ### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
 
-Korrigeringar i uppdatering 2 omfattar:
+Korrigeringar i uppdatering 2 inkluderar:
 
-* **Konfigurationsservern**: Problem som förhindrade 31 dagar kostnadsfria Avläsning av funktion inte fungerar som förväntat när konfigurationsservern registrerades till Azure Site Recovery-valv.
-* **Enhetlig agenten**: Åtgärda ett problem i uppdatering 1 som resulterade i uppdateringen inte installeras på huvudmålservern, vid uppgradering från version 8.0 8.0.1.
+* **Konfigurations Server**: Problem som förhindrade den 30 dagars kostnads fria mätnings funktionen fungerar som förväntat, när konfigurations servern registrerades till Azure Site Recovery valv.
+* **Enhetlig agent**: Korrigera ett problem i uppdatering 1 som ledde till att uppdateringen inte installeras på huvud mål servern, under uppgradering från version 8,0 till 8.0.1.
 
-### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 Update 1
-Uppdatering 1 innehåller följande felkorrigeringar och nya funktioner:
+### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 uppdatering 1
+Uppdatering 1 innehåller följande fel korrigeringar och nya funktioner:
 
-* kostnadsfria skydd per serverinstans 31 dagar. På så sätt kan du testa funktionen eller ställa in proof-of-concept.
-* Alla åtgärder på servern, inklusive redundans och återställning efter fel, är kostnadsfria under de första 31 dagarna. Tiden startar när en server först skyddas med Site Recovery Scout. Från den 32: a dagen debiteras varje skyddad server enligt priset för standard-instans för Site Recovery-skydd till en plats som ägs av kunden.
-* När som helst, antalet skyddade servrar för närvarande debiteras är tillgänglig på den **instrumentpanelen** i valvet.
-* Stöd har lagts till för vSphere-kommandoradsgränssnittet (vCLI) 5.5 uppdatering 2.
-* Stöd har lagts till för de här Linux-operativsystem på källservern:
+* 31 dagars kostnads fritt skydd per Server instans. På så sätt kan du testa funktioner eller ställa in ett koncept bevis.
+* Alla åtgärder på servern, inklusive redundans och återställning, är kostnads fria under de första 31 dagarna. Tiden börjar när en server först skyddas med Site Recovery Scout. Från 32nd-dagen debiteras varje skyddad Server enligt standard instans frekvensen för Site Recovery skydd till en kundägda webbplats.
+* När som helst är antalet skyddade servrar som debiteras för närvarande tillgängligt på **instrument panelen** i valvet.
+* Stöd har lagts till för vSphere kommando rads gränssnitt (vCLI) 5,5 uppdatering 2.
+* Stöd har lagts till för de här Linux-operativ systemen på käll servern:
     * RHEL 6 uppdatering 6
     * RHEL 5 uppdatering 11
     * CentOS 6 uppdatering 6
     * CentOS 5 uppdatering 11
-* Felkorrigeringar för att åtgärda följande problem:
-  * Valvet registreringen misslyckas för konfigurationsservern eller RX-server.
-  * Klustervolymer visas inte som förväntat när klustrade virtuella datorerna åter skyddats som de återupptas.
-  * Det går inte att återställning efter fel när huvudmålservern finns på en annan ESXi-server från produktionen för lokala virtuella datorer.
-  * Filen konfigurationsbehörighet ändras när du uppgraderar till 8.0.1. Den här ändringen påverkar skydd och åtgärder.
-  * Tröskelvärde för omsynkronisering är inte aktiv som förväntat, orsakar inkonsekvent replikering beteende.
-  * RPO-inställningar visas inte korrekt i konsolen för configuration server. Värdet för okomprimerade data visar felaktigt det komprimerade värdet.
-  * Borttagningsåtgärden ta bort inte som förväntat i guiden vContinuum och replikering tas bort inte från konsolen configuration server.
-  * I guiden vContinuum disken är omarkerade automatiskt när du klickar på **information** i vyn disken vid skydd av MSCS virtuella datorer.
-  * Fysisk till virtuell (P2V) för scenariot flyttas nödvändiga HP-tjänster (till exempel CIMnotify och CqMgHost) inte till manuell i VM-återställning. Det här problemet resulterar i ytterligare starttiden.
-  * Linux VM-skyddet fungerar inte när det finns fler än 26 diskar på huvudmålservern.
+* Fel korrigeringar för att åtgärda följande problem:
+  * Valv registreringen misslyckades för konfigurations servern eller RX-servern.
+  * Kluster volymer visas inte som förväntat när klustrade virtuella datorer skyddas när de återupptas.
+  * Det går inte att återställa efter fel när huvud mål servern finns på en annan ESXi-server än den lokala produktions-VM: en.
+  * Konfigurations filens behörigheter ändras när du uppgraderar till 8.0.1. Den här ändringen påverkar skydd och åtgärder.
+  * Tröskelvärdet för omsynkronisering tillämpas inte som förväntat, vilket orsakar inkonsekvent replikering.
+  * Inställningarna för återställningen visas inte korrekt i konfigurations Server konsolen. Det okomprimerade datavärdet visar felaktigt det komprimerade värdet.
+  * Åtgärden ta bort tas inte bort som förväntat i guiden vContinuum och replikeringen tas inte bort från konsolen för konfigurations servern.
+  * I guiden vContinuum avmarkeras disken automatiskt när du klickar på **information** i vyn disk, under skyddet av virtuella MSCS-datorer.
+  * I scenariot för fysisk till virtuell (P2V) är nödvändiga HP-tjänster (till exempel CIMnotify och CqMgHost) inte flyttade till manuell i VM-återställning. Det här problemet resulterar i ytterligare start tid.
+  * Linux VM-skydd Miss lyckas när det finns fler än 26 diskar på huvud mål servern.
 

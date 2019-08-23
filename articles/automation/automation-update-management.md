@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 393c66f57cd4a7621ad660774a95502c0f5ad8c4
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: b9fcf06caf2abf116a2f2b99f26ead6277f7ad50
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534719"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970555"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -76,7 +76,7 @@ I följande tabell visas en lista över operativ system som stöds:
 |Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Stöder endast uppdaterings bedömningar.         |
-|Windows Server 2008 R2 SP1 och senare.  |.NET Framework 4.5.1 eller senare krävs. ([Hämta .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4,0 eller senare krävs. ([Hämta WMF 4,0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5,1 rekommenderas för ökad tillförlitlighet.  ([Hämta WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2019 (Data Center/Data Center Core/standard)<br><br>Windows Server 2016 (Data Center/Data Center Core/standard)<br><br>Windows Server 2012 R2 (Data Center/standard)<br><br>Windows Server 2008 R2 (RTM och SP1 standard)|.NET Framework 4.5.1 eller senare krävs. ([Hämta .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4,0 eller senare krävs. ([Hämta WMF 4,0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5,1 rekommenderas för ökad tillförlitlighet.  ([Hämta WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats. Klassificerings baserad uppdatering kräver ' yum ' för att returnera säkerhets data som CentOS inte har gjort i rutan. Mer information om klassificerings-baserad uppdatering på CentOS finns i [uppdaterings klassificeringar på Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
@@ -371,7 +371,7 @@ Följande adresser krävs specifikt för Uppdateringshantering. Kommunikationen 
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
 
-För Windows-datorer måste du också tillåta trafik till alla slut punkter som krävs av Windows Update.  Du hittar en uppdaterad lista med nödvändiga endoints i [problem som rör http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Om du har en lokal [Windows Update-Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)måste du också tillåta trafik till servern som anges i [WSUS-nyckeln](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+För Windows-datorer måste du också tillåta trafik till alla slut punkter som krävs av Windows Update.  Du hittar en uppdaterad lista med nödvändiga slut punkter i [problem som rör http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Om du har en lokal [Windows Update-Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)måste du också tillåta trafik till servern som anges i [WSUS-nyckeln](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
 För Red Hat Linux-datorer kan du se [IP-adresserna för RHUI Content Delivery servers](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) för obligatoriska slut punkter. Andra Linux-distributioner finns i leverantörens dokumentation.
 

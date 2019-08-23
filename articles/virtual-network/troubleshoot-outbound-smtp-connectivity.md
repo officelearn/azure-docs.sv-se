@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: e21788dbf30b6fa3b37f84dd07d54b89bc91f17f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 64cf633d50fc81ae8d53f2b4ee2a9975a756f0c7
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935376"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972485"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Felsök problem med utgående SMTP-anslutningar i Azure
 
@@ -38,7 +38,7 @@ Om du registrerade dig före den 15 november 2017 för erbjudandet betala per an
 
 För att betala per användning eller Microsoft Partner Network prenumerationer som skapats efter den 15 november 2017 kommer det att finnas tekniska begränsningar som blockerar e-post som skickas direkt från virtuella datorer i dessa prenumerationer. Om du vill kunna skicka e-post från virtuella Azure-datorer direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du göra en begäran om att ta bort begränsningen. Förfrågningarna granskas och godkänns enligt Microsofts gottfinnande, och de beviljas endast när ytterligare skydd mot bedrägerier görs. Om du vill göra en förfrågan öppnar du ett support ärende med följande typ av problem: **Teknisk** > **Virtual Network** **-anslutning**kan inte skicka e-post (SMTP/port 25). >  >  Se till att du lägger till information om varför din distribution måste skicka e-post direkt till e-postleverantörer i stället för att använda ett autentiserat relä.
 
-När en "betala per användning"-prenumeration eller Microsoft Partner Network prenumeration är undantagen och de virtuella datorerna har stoppats & har startats från Azure Portal, kommer alla virtuella datorer i den prenumerationen att undantas. Undantaget gäller endast för den begärda prenumerationen.
+När en "betala per användning"-prenumeration eller Microsoft Partner Network prenumeration är undantagen och de virtuella datorerna har stoppats & har startats från Azure Portal, kommer alla virtuella datorer i den prenumerationen att undantas. Undantaget gäller endast för den begärda prenumerationen och gäller endast för virtuella dator trafik som dirigeras direkt till Internet. Routning av port 25-trafik via Azure PaaS Services, t. ex. [Azure-brandväggen](https://azure.microsoft.com/services/azure-firewall/) , stöds inte.
 
 > [!NOTE]
 > Microsoft förbehåller sig rätten att återkalla detta undantag om det fastställs att en överträdelse av tjänst villkoren har inträffat.

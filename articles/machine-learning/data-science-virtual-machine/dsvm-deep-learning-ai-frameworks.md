@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2019
 ms.author: vijetaj
-ms.openlocfilehash: de407f4b4de58abebf87b82ff6f76342a0e9f7e0
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: adf6a68d6da4236874dce403bb4d7043087049b2
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575043"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970352"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Ramverk för djupinlärning och AI
 [Data science Virtual Machine](https://aka.ms/dsvm) (DSVM) stöder ett antal djup inlärnings ramverk som hjälper dig att bygga AI-program (artificiell intelligens) med förutsägelse analyser och kognitiva funktioner som bild-och språk förståelse.

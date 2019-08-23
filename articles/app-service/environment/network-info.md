@@ -1,6 +1,6 @@
 ---
-title: Nätverksöverväganden med App Service Environment - Azure
-description: 'Förklarar ASE-nätverkstrafik och hur du ställer in NSG: er och udr: er med din ASE'
+title: Nätverks överväganden med App Service-miljön – Azure
+description: 'Förklarar ASE nätverks trafik och hur du ställer in NSG: er och UDR med din ASE'
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -14,216 +14,216 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3f80f3c6be747cf84aa9d8b2c386c0568a7511ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 01a7c4e41dd628ec8671555daf828b67bebba23e
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069384"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898672"
 ---
-# <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för App Service Environment #
+# <a name="networking-considerations-for-an-app-service-environment"></a>Nätverks överväganden för en App Service-miljön #
 
 ## <a name="overview"></a>Översikt ##
 
- Azure [App Service Environment] [ Intro] är en distribution av Azure App Service till ett undernät i Azure-nätverk (VNet). Det finns två distributionstyper för en App Service environment (ASE):
+ Azure [App Service-miljön][Intro] är en distribution av Azure App Service till ett undernät i ditt virtuella Azure-nätverk (VNet). Det finns två distributions typer för en App Services miljö (ASE):
 
-- **Extern ASE**: Exponerar apparna ASE som värd på en internet-tillgänglig IP-adress. Mer information finns i [skapar en extern ASE][MakeExternalASE].
-- **ILB ASE**: Exponerar apparna ASE som värd på en IP-adress i det virtuella nätverket. Den interna slutpunkten är en intern belastningsutjämnare (ILB), vilket är anledningen till det kallas en ILB ASE. Mer information finns i [skapa och använda en ILB ASE][MakeILBASE].
+- **Externa ASE**: Exponerar de ASE-appar som finns på en IP-adress med Internet åtkomst. Mer information finns i [skapa en extern ASE][MakeExternalASE].
+- **ILB ASE**: Exponerar de ASE-appar som finns på en IP-adress i ditt VNet. Den interna slut punkten är en intern belastningsutjämnare (ILB), vilket är anledningen till att den kallas för ett ILB-ASE. Mer information finns i [skapa och använda en ILB-ASE][MakeILBASE].
 
-Alla ase-miljöer, externa och interna Belastningsutjämnaren, har en offentlig VIP som används för inkommande hanteringstrafik och som den från-adress vid anrop från ase: N till internet. Anrop från en ASE som går till internet lämna det virtuella nätverket igenom den VIP som tilldelats för ASE. Offentliga IP-Adressen för den här VIP är IP-källan för alla anrop från ase: N som går till internet. Om appar i din ASE göra anrop till resurser i ditt virtuella nätverk eller i en VPN-anslutning, är en av IP-adresser i undernätet som används av din ASE käll-IP. Eftersom ASE är inom det virtuella nätverket, kan det också komma åt resurser i det virtuella nätverket utan någon ytterligare konfiguration. Om det virtuella nätverket är anslutet till ditt lokala nätverk, appar i din ASE även att ha åtkomst till resurser det utan ytterligare konfiguration.
+Alla ASE, externa och ILB har en offentlig VIP som används för inkommande hanterings trafik och som från-adressen när du gör anrop från ASE till Internet. Anrop från en ASE som går till Internet lämnar VNet via den VIP som tilldelats för ASE. Den offentliga IP-adressen för denna VIP är käll-IP för alla anrop från ASE som går till Internet. Om apparna i din ASE gör anrop till resurser i ditt VNet eller via VPN, är käll-IP: en av IP-adresserna i under nätet som används av din ASE. Eftersom ASE är i det virtuella nätverket kan det också komma åt resurser inom VNet utan ytterligare konfiguration. Om det virtuella nätverket är anslutet till ditt lokala nätverk har appar i din ASE också åtkomst till resurser där utan ytterligare konfiguration.
 
 ![Extern ASE][1] 
 
-Om du har en extern ASE är också det offentliga VIP slutpunkten att dina appar i ASE matcha för:
+Om du har en extern ASE är den offentliga VIP också den slut punkt som dina ASE-appar matchar till för:
 
 * HTTP/S 
 * FTP/S
-* Webbdistribution
+* Webb distribution
 * Fjärrfelsökning
 
 ![ILB ASE][2]
 
-Om du har en ILB ASE är adressen för ILB-adressen slutpunkten för HTTP/S, FTP/S, webbdistribution och fjärrfelsökning.
+Om du har en ILB-ASE är adressen till ILB-adressen slut punkten för HTTP/S, FTP/S, webb distribution och fjärrfelsökning.
 
-## <a name="ase-subnet-size"></a>Storleken för ASE-undernätet ##
+## <a name="ase-subnet-size"></a>ASE under näts storlek ##
 
-Kan inte ändras storleken på det undernät som används som värd för en ASE när ASE har distribuerats.  ASE använder en adress för varje infrastrukturrollen samt för varje instans för isolerad App Service-plan.  Det finns dessutom fem adresser som används av Azure Networking för varje undernät som har skapats.  En ASE med inga App Service-planer använder alls 12 adresser innan du skapar en app.  Om det är en ILB ASE, kommer den använda 13-adresser innan du skapar en app i denna ASE. När du skalar ut din ASE läggs infrastrukturroller varje multipel av 15 och 20 i din App Service-planinstanser.
+Storleken på det undernät som används som värd för en ASE kan inte ändras efter att ASE har distribuerats.  ASE använder en adress för varje infrastruktur roll samt för varje isolerad App Service plan instans.  Det finns även fem adresser som används av Azure-nätverk för varje undernät som skapas.  En ASE som inte har några App Services planer kommer att använda 12 adresser innan du skapar en app.  Om det är en ILB-ASE använder den 13 adresser innan du skapar en app i den ASE. När du skalar dina ASE läggs infrastruktur roller till varje multipel av 15 och 20 av dina App Service plan instanser.
 
    > [!NOTE]
-   > Inget annat kan finnas i undernätet men ASE. Var noga med att välja ett adressutrymme som tillåts för framtida tillväxt. Du kan inte ändra den här inställningen senare. Vi rekommenderar en storlek på `/24` med 256-adresser.
+   > Inget annat kan finnas i under nätet, men ASE. Se till att välja ett adress utrymme som möjliggör framtida tillväxt. Du kan inte ändra den här inställningen senare. Vi rekommenderar en storlek på `/24` med 256 adresser.
 
-När du skalar upp eller ned, nya roller av rätt storlek har lagts till och sedan dina arbetsbelastningar migreras från den aktuella storleken till målstorleken. Ursprungligt virtuella datorer bort bara när arbetsbelastningarna som har migrerats. Om du har en ASE med 100 ASP-instanser, skulle det vara en punkt där du behöver dubbelt så många virtuella datorer.  Det är därför som vi rekommenderar användning av en ”/ 24” för alla ändringar som du kan behöva.  
+När du skalar upp eller ned läggs nya roller i rätt storlek till och sedan migreras arbets belastningarna från den aktuella storleken till mål storleken. De ursprungliga virtuella datorerna togs bort först när arbets belastningarna har migrerats. Om du har en ASE med 100 ASP-instanser, kan det finnas en period där du behöver dubbla antalet virtuella datorer.  Det beror på att vi rekommenderar att du använder "/24" för att hantera eventuella ändringar som du kan behöva.  
 
 ## <a name="ase-dependencies"></a>ASE-beroenden ##
 
 ### <a name="ase-inbound-dependencies"></a>ASE inkommande beroenden ###
 
-Ase: N kräver följande portar vara öppna för ASE ska fungera:
+För att ASE ska fungera kräver ASE att följande portar är öppna:
 
 | Användning | Från | Till |
 |-----|------|----|
-| Hantering | Hanteringsadresser för App Service | ASE-undernät: 454, 455 |
-|  ASE intern kommunikation | ASE-undernät: Alla portar | ASE-undernät: Alla portar
-|  Tillåt Azure-belastningsutjämnare inkommande | Azure-lastbalanserare | ASE-undernät: 16001
+| Hantering | App Service hanterings adresser | ASE-undernät: 454, 455 |
+|  Intern kommunikation med ASE | ASE-undernät: Alla portar | ASE-undernät: Alla portar
+|  Tillåt inkommande Azure Load Balancer | Azure-lastbalanserare | ASE-undernät: 16001
 
-Det finns 2 portar som kan visa vara öppna på en port-sökning, 7654 och 1221. De svara med en IP-adress och inget mer. De kan blockeras om du vill. 
+Det finns två andra portar som kan visas som öppna på en ports ökning, 7654 och 1221. De svarar med en IP-adress och inget annat. De kan blockeras om du vill. 
 
-Inkommande hanteringstrafik ger kontroll av ASE förutom systemövervakning. Käll-adresserna för den här trafiken finns i den [ASE Management adresser] [ ASEManagement] dokumentet. Nätverkssäkerhetskonfigurationen måste tillåta åtkomst från hanteringsadresserna ASE på port 454 och 455. Om du blockerar åtkomst från dessa adresser kan din ASE blir ohälsosamt och sedan blir pausas. TCP-trafik som kommer in på port 454 och 455 måste gå tillbaka ut från samma VIP eller du har ett problem med asymmetrisk routning. 
+Inkommande hanterings trafik tillhandahåller kommando-och kontroll över ASE, förutom system övervakning. Käll adresserna för den här trafiken visas i dokumentet [ASE Management addresses][ASEManagement] . Nätverks säkerhets konfigurationen måste tillåta åtkomst från ASE-hanterings adresserna på portarna 454 och 455. Om du blockerar åtkomst från de här adresserna blir ASE felaktiga och pausas sedan. TCP-trafiken som kommer in på portarna 454 och 455 måste gå tillbaka från samma VIP eller så har du ett problem med asymmetrisk routning. 
 
-Det finns många portar som används för komponentkommunikation i intern i ASE-undernät och de kan ändra. Detta kräver att alla portar i ASE-undernät är tillgänglig från ASE-undernät. 
+I ASE-undernätet finns många portar som används för intern komponent kommunikation och de kan ändras. Detta kräver att alla portar i ASE-undernätet kan nås från ASE-undernätet. 
 
-För kommunikationen mellan Azure-belastningsutjämnaren och på ASE-undernätet är de portar som måste vara öppna minst 454 och 455 16001. 16001 port används för keep alive trafik mellan belastningsutjämnare och ASE. Om du använder en ILB ASE, så du kan låsa trafik till bara 454, 455, 16001 portar.  Om du använder en extern ASE, måste du ta hänsyn till åtkomstportar vanlig app.  
+För kommunikationen mellan Azure Load Balancer och ASE-undernätet är de lägsta portarna som måste vara öppna 454, 455 och 16001. 16001-porten används för att föra Alive-trafik mellan belastningsutjämnaren och ASE. Om du använder en ILB-ASE kan du låsa trafiken ned till bara 454, 455, 16001 portar.  Om du använder en extern ASE måste du ta hänsyn till de vanliga portarna för åtkomst till appar.  
 
-De portar som du behöver avse själv med är programportar:
+De andra portarna som du behöver för dig själv med är program portarna:
 
 | Användning | Portar |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
-|  Visual Studio fjärrfelsökning  |  4020, 4022, 4024 |
-|  Distribuera webbtjänsten | 8172 |
+|  Visual Studio Remote-felsökning  |  4020, 4022, 4024 |
+|  Webb distributions tjänst | 8172 |
 
-Om du blockerar programportar din ASE kan fungera, men appen kan inte.  Om du använder appen tilldelade IP-adresser med en extern ASE, behöver du som tillåter trafik från IP-adresser tilldelade till dina appar till ASE-undernät på de portar som visas i ASE-portalen > sidan IP-adresser.
+Om du blockerar program portarna kan ASE fortfarande fungera, men appen kanske inte är det.  Om du använder tilldelade IP-adresser med en extern ASE måste du tillåta trafik från de IP-adresser som har tilldelats dina appar till ASE-undernätet på de portar som visas på sidan ASE Portal > IP-adresser.
 
-### <a name="ase-outbound-dependencies"></a>Utgående ASE-beroenden ###
+### <a name="ase-outbound-dependencies"></a>ASE utgående beroenden ###
 
-En ASE beror på flera externa system för utgående åtkomst. Många av dessa systemberoenden definieras med DNS-namn och mappas inte till en fast uppsättning IP-adresser. Därför kräver ASE utgående åtkomst från ASE-undernät till alla externa IP-adresser i olika portar. 
+För utgående åtkomst är en ASE beroende av flera externa system. Många av dessa system beroenden definieras med DNS-namn och mappas inte till en fast uppsättning IP-adresser. Det innebär att ASE kräver utgående åtkomst från ASE-undernätet till alla externa IP-adresser över flera olika portar. 
 
-ASE kommunicerar ut att komma åt internet-adresser på följande portar:
+ASE kommunicerar ut till Internet-tillgängliga adresser på följande portar:
 
 | Användningsområden | Portar |
 |-----|------|
 | DNS | 53 |
 | NTP | 123 |
-| 8CRL, uppdateringar för Windows, Linux beroenden, Azure-tjänster | 80/443 |
+| 8CRL, Windows-uppdateringar, Linux-beroenden, Azure-tjänster | 80/443 |
 | Azure SQL | 1433 | 
 | Övervakning | 12000 |
 
-Utgående beroenden listas i dokument som beskriver [låsa utgående trafik för App Service Environment](./firewall-integration.md). Om ASE förlorar åtkomst till dess beroenden, slutar fungera. När det sker tillräckligt länge inaktiveras ASE. 
+De utgående beroendena visas i det dokument som beskriver hur du [låser App Service-miljön utgående trafik](./firewall-integration.md). Om ASE förlorar åtkomsten till dess beroenden slutar den att fungera. När detta sker tillräckligt länge är ASE inaktiverat. 
 
-### <a name="customer-dns"></a>Kunden DNS ###
+### <a name="customer-dns"></a>Kund-DNS ###
 
-Om det virtuella nätverket konfigureras med en kunddefinierad DNS-server kan använda den för klienternas arbetsbelastningar. ASE använder Azure DNS för hanteringsändamål. Om det virtuella nätverket har konfigurerats med en kund har valt DNS-server, måste DNS-server kunna nås från det undernät som innehåller ASE.
+Om VNet har kon figurer ATS med en kunddefinierad DNS-Server använder klient arbets belastningarna. ASE använder Azure DNS i hanterings syfte. Om det virtuella nätverket har kon figurer ATS med en kundvald DNS-server måste DNS-servern gå att gå att komma åt från det undernät som innehåller ASE.
 
-Om du vill testa DNS-matchningen från ditt program, kan du använda kommandot konsolen *nameresolver*. Gå till felsökningsfönstret i scm-webbplatsen för din app eller gå till appen i portalen och välj konsolen. Från shell-prompten kan du utfärda kommandot *nameresolver* tillsammans med DNS-namn som du vill söka efter. Du kommer tillbaka resultatet är samma som din app skulle få när du gjorde samma sökning. Om du använder nslookup, gör du en sökning med Azure DNS i stället.
+Om du vill testa DNS-matchning från din webbapp kan du använda konsol kommandot *nameresolver*. Gå till fel söknings fönstret på SCM-platsen för din app eller gå till appen i portalen och välj konsol. I Shell-prompten kan du utfärda kommandot *nameresolver* tillsammans med det DNS-namn som du vill söka efter. Resultatet du får tillbaka är detsamma som vad appen skulle få när du utför samma sökning. Om du använder nslookup gör du en sökning med Azure DNS i stället.
 
-Om du ändrar DNS-inställningen för det virtuella nätverk som din ASE är i kommer du behöva starta om din ASE. Om du vill undvika att starta om din ASE, rekommenderar vi starkt att du konfigurerar DNS-inställningarna för ditt virtuella nätverk innan du skapar din ASE.  
+Om du ändrar DNS-inställningen för det virtuella nätverk som din ASE finns i måste du starta om din ASE. För att undvika att starta om ASE, rekommenderar vi starkt att du konfigurerar dina DNS-inställningar för ditt VNet innan du skapar din ASE.  
 
 <a name="portaldep"></a>
 
-## <a name="portal-dependencies"></a>Portalen beroenden ##
+## <a name="portal-dependencies"></a>Portal beroenden ##
 
-Förutom funktionella beroenden ASE finns några extra objekt som är relaterade till en Portal. Några av funktionerna i Azure-portalen är beroende av direkt åtkomst till _SCM-webbplatsen_. Det finns två URL: er för varje app i Azure App Service. Första Webbdressen är att få åtkomst till din app. URL som andra är att få åtkomst till SCM-webbplatsen, som också kallas den _Kudu-konsolen_. Funktioner som använder SCM-webbplatsen:
+Förutom de ASE funktionella beroendena finns det några extra objekt relaterade till Portal upplevelsen. Några av funktionerna i Azure Portal är beroende av direkt åtkomst till _SCM-webbplatsen_. Det finns två URL: er för varje app i Azure App Service. Den första URL: en är för att komma åt din app. Den andra URL: en är åtkomst till SCM-webbplatsen, som även kallas _kudu-konsolen_. Funktioner som använder SCM-platsen är:
 
--   Webbjobb
--   Functions
+-   Webb jobb
+-   Funktioner
 -   Loggströmning
 -   Kudu
 -   Tillägg
 -   Processutforskaren
--   Konsolen
+-   Konsol
 
-När du använder en ILB ASE är SCM-webbplatsen inte tillgängligt utanför det virtuella nätverket. Vissa funktioner fungerar inte från app-portalen eftersom de kräver åtkomst till SCM-webbplatsen för en app. Du kan ansluta till SCM-webbplatsen direkt i stället för med hjälp av portalen. 
+När du använder en ILB-ASE går det inte att komma åt SCM-platsen utanför VNet. Vissa funktioner fungerar inte från App-portalen eftersom de behöver åtkomst till SCM-platsen för en app. Du kan ansluta till SCM-platsen direkt i stället för att använda portalen. 
 
-Om din ILB ASE har domännamnet *contoso.appserviceenvironnment.net* och appnamnet på din är *testapp*, appen har nåtts på *testapp.contoso.appserviceenvironment.net*. SCM-webbplatsen som medföljer den uppnås vid *testapp.scm.contoso.appserviceenvironment.net*.
+Om din ILB-ASE är domän namnet *contoso.appserviceenvironment.net* och ditt app-namn är *testapp*, nås appen på *testapp.contoso.appserviceenvironment.net*. Den SCM-webbplats som hör till nås på *testapp.scm.contoso.appserviceenvironment.net*.
 
-## <a name="ase-ip-addresses"></a>ASE-IP-adresser ##
+## <a name="ase-ip-addresses"></a>ASE IP-adresser ##
 
-En ASE har några IP-adresser känna till. De är:
+En ASE har några IP-adresser att vara medveten om. De är:
 
-- **Offentliga inkommande IP-adressen**: Används för trafik i en extern ASE och hanteringstrafik i både en extern ASE och en ILB ASE.
-- **Utgående offentliga IP-Adressen**: Används som ”från”-IP för utgående anslutningar från ase: N som lämnar det virtuella nätverket, vilket inte dirigeras ned en VPN-anslutning.
-- **ILB-IP-adress**: ILB-IP-adressen finns bara i en ILB ASE.
-- **App-tilldelad IP-baserad SSL-adresser**: Bara kan utföras med en extern ASE och när IP-baserad SSL har konfigurerats.
+- **Offentlig inkommande IP-adress**: Används för app-trafik i en extern ASE och hanterings trafik i både en extern ASE och en ILB-ASE.
+- **Utgående offentlig IP-adress**: Används som "från"-IP för utgående anslutningar från ASE som lämnar det virtuella nätverket, som inte dirigerar en VPN.
+- **ILB IP-adress**: IP-adressen ILB finns bara i en ILB-ASE.
+- **App-tilldelade IP-baserade SSL-adresser**: Endast möjlig med en extern ASE och när IP-baserad SSL har kon figurer ATS.
 
-Dessa IP-adresser är synliga i Azure-portalen från ASE UI. Om du har en ILB ASE, visas den IP-Adressen för den interna Belastningsutjämnaren.
+Alla dessa IP-adresser visas i Azure Portal från användar gränssnittet för ASE. Om du har en ILB-ASE visas IP-adressen för ILB.
 
    > [!NOTE]
-   > Dessa IP-adresser ändras inte så länge din ASE är igång.  Om din ASE blir har pausats och återställas, ändras de adresser som används av din ASE. Den normala orsaken till en ase-miljö ska bli uppehåll är om du blockerar inkommande åtkomst eller blockera åtkomst till en ASE-beroende. 
+   > De här IP-adresserna ändras inte så länge din ASE håller på att vara igång.  Om din ASE blir pausad och återställs, kommer de adresser som används av din ASE att ändras. Den normala orsaken till att en ASE blir pausad är om du blockerar inkommande hanterings åtkomst eller blockerar åtkomsten till ett ASE-beroende. 
 
 ![IP-adresser][3]
 
-### <a name="app-assigned-ip-addresses"></a>App-tilldelad IP-adresser ###
+### <a name="app-assigned-ip-addresses"></a>App-tilldelade IP-adresser ###
 
-Du kan tilldela IP-adresser till enskilda appar med en extern ASE. Du kan inte göra det med en ILB ASE. Läs mer om hur du konfigurerar din app om du vill ha sin egen IP-adress, [binda ett befintligt anpassat SSL-certifikat till Azure App Service](../app-service-web-tutorial-custom-ssl.md).
+Med en extern ASE kan du tilldela IP-adresser till enskilda appar. Du kan inte göra det med en ILB-ASE. Mer information om hur du konfigurerar din app så att den har sin egen IP-adress finns i [BIND ett befintligt anpassat SSL-certifikat till Azure App Service](../app-service-web-tutorial-custom-ssl.md).
 
-När en app har sin egen IP-baserad SSL-adress, reserverar ASE två portar för att mappa till IP-adress. En port är för HTTP-trafik, och den andra porten för HTTPS. De portarna som listas i ASE UI i avsnittet IP-adresser. Trafik måste kunna nå dessa portar från VIP eller apparna är otillgängligt. Det här kravet är viktigt att komma ihåg när du konfigurerar Nätverkssäkerhetsgrupper (NSG).
+När en app har sin egen IP-baserade SSL-adress reserverar ASE två portar för att mappa till den IP-adressen. En port är för HTTP-trafik och den andra porten är för HTTPS. Dessa portar anges i ASE-ANVÄNDARGRÄNSSNITTET i avsnittet IP-adresser. Trafiken måste kunna nå dessa portar från VIP: en eller så är apparna inte tillgängliga. Detta krav är viktigt att komma ihåg när du konfigurerar nätverks säkerhets grupper (NSG: er).
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper ##
 
-[Nätverkssäkerhetsgrupper] [ NSGs] ger möjlighet att styra åtkomsten till nätverket inom ett virtuellt nätverk. När du använder portalen finns en implicit neka-regeln med lägsta prioritet att neka allt. Du skapar är din tillåter regler.
+[Nätverks säkerhets grupper][NSGs] ger möjlighet att styra nätverks åtkomst i ett VNet. När du använder portalen finns det en implicit neka-regel som lägst prioritet för att neka allt. Det du skapar är dina tillåtna regler.
 
-I en ASE har du inte åtkomst till de virtuella datorerna som används som värd för ASE själva. De är i en Microsoft-hanterad prenumeration. Om du vill begränsa åtkomsten till appar på ASE ange NSG: er på ASE-undernät. På så sätt kan uppmärksamma noggrann i ASE-beroenden. Om du blockerar eventuella beroenden slutar ASE fungera.
+I en ASE har du inte åtkomst till de virtuella datorer som används som värd för själva ASE. De är i en Microsoft-hanterad prenumeration. Om du vill begränsa åtkomsten till apparna på ASE anger du NSG: er i ASE-undernätet. När du gör detta bör du vara noggrann med ASE-beroendena. Om du blockerar eventuella beroenden slutar ASE att fungera.
 
-NSG: er kan konfigureras via Azure portal eller via PowerShell. Informationen här visar Azure-portalen. Du skapar och hanterar NSG: er i portalen som en resurs på toppnivå under **nätverk**.
+NSG: er kan konfigureras via Azure Portal eller via PowerShell. Informationen här visar Azure Portal. Du skapar och hanterar NSG: er i portalen som en resurs på den översta nivån under **nätverk**.
 
-Det finns några poster i en Nätverkssäkerhetsgrupp för en ASE ska fungera som tillåter trafik:
+De obligatoriska posterna i en NSG, för att en ASE ska fungera, är att tillåta trafik:
 
-**Inkommande**
-* från IP-Adressen servicetagg AppServiceManagement på portar 454,455
+**Åtgående**
+* från IP-AppServiceManagement på portarna 454 455
 * från belastningsutjämnaren på port 16001
-* från ASE-undernät till ASE-undernät på alla portar
+* från ASE-undernätet till ASE-undernätet på alla portar
 
-**Utgående**
-* till alla IP-adresser på porten 123
+**Utgå**
+* till alla IP-adresser på port 123
 * till alla IP-adresser på portarna 80, 443
-* till IP-Adressen servicetagg AzureSQL på port 1433
+* IP-AzureSQL på portarna 1433
 * till alla IP-adresser på port 12000
-* ASE-undernätet på alla portar
+* till ASE-undernätet på alla portar
 
-DNS-port behöver inte enligt trafik till DNS inte påverkas av NSG-regler. De här portarna omfattar inte de portar som dina appar kräver för att använda. Åtkomstportar vanlig app är:
+DNS-porten behöver inte läggas till eftersom trafik till DNS inte påverkas av NSG-regler. Dessa portar omfattar inte de portar som dina appar behöver för att kunna användas. De normala port åtkomst portarna är:
 
 | Användning | Portar |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
-|  Visual Studio fjärrfelsökning  |  4020, 4022, 4024 |
-|  Distribuera webbtjänsten | 8172 |
+|  Visual Studio Remote-felsökning  |  4020, 4022, 4024 |
+|  Webb distributions tjänst | 8172 |
 
-När kraven på inkommande och utgående beaktas, bör NSG: erna likna NSG: er som visas i det här exemplet. 
+När de inkommande och utgående kraven tas i beaktande bör NSG: er se ut ungefär som NSG: er som visas i det här exemplet. 
 
-![Ingående säkerhetsregler][4]
+![Ingående säkerhetsregel][4]
 
-En standardregel kan IP-adresser i det virtuella nätverket kan kommunicera med ASE-undernät. En annan standardregel som gör det möjligt för belastningsutjämnaren, även känt som det offentliga VIP, att kommunicera med ASE. Om du vill se standardreglerna **standardregler** bredvid den **Lägg till** ikon. Om du placerar en neka allt annat regeln innan standardreglerna du förhindra att trafik mellan VIP och ASE. Lägga till egna regel som tillåter inkommande för att förhindra att trafik som kommer från i det virtuella nätverket. Använda en källa som är lika med AzureLoadBalancer med valfri målplats **alla** och ett portintervall för **\*** . Eftersom NSG-regel används på ASE-undernät, behöver du inte vara specifikt i målet.
+En standard regel gör att IP-adresser i det virtuella nätverket kan kommunicera med ASE-undernätet. En annan standard regel aktiverar belastningsutjämnaren, även kallat offentlig VIP, för att kommunicera med ASE. Om du vill se standard reglerna väljer du **standard regler** bredvid ikonen **Lägg till** . Om du anger en neka alla Else-regler innan standard reglerna förhindras trafik mellan VIP-och ASE. Om du vill förhindra trafik som kommer inifrån VNet lägger du till en egen regel för att tillåta inkommande. Använd en källa som är lika med AzureLoadBalancer med målet och ett port intervall för **\*** . Eftersom NSG-regeln används för ASE-undernätet behöver du inte vara särskilt i målet.
 
-Om du har tilldelat en IP-adress till din app, kontrollera att du behåller portarna öppna. Om du vill se portarna som **App Service Environment** > **IP-adresser**.  
+Om du har tilldelat en IP-adress till din app, se till att du behåller portarna öppna. Om du vill se portarna väljer du **App Service-miljön** > **IP-adresser**.  
 
-Alla objekt som visas i följande regler för utgående behövs, förutom det sista objektet. De gör att nätverksåtkomsten till ASE-beroenden som noterades tidigare i den här artikeln. Om du blockerar någon av dem kan slutar din ASE fungera. Det sista objektet i listan kan din ASE att kommunicera med andra resurser i ditt virtuella nätverk.
+Alla objekt som visas i följande utgående regler behövs, förutom det sista objektet. De ger nätverks åtkomst till ASE-beroenden som nämnts tidigare i den här artikeln. Om du blockerar någon av dem slutar ASE att fungera. Det sista objektet i listan gör att ASE kan kommunicera med andra resurser i ditt VNet.
 
 ![Utgående säkerhetsregler][5]
 
-När dina NSG: er har definierats kan du tilldela dem till det undernät som ASE är på. Om du inte kommer ihåg ASE VNet eller undernät kan se du den i ASE-portalsidan. Tilldela undernätets NSG: N genom att gå till undernätet Användargränssnittet och välj NSG: N.
+När dina NSG: er har definierats tilldelar du dem till det undernät som din ASE är på. Om du inte kommer ihåg ASE VNet eller under nätet kan du se det från ASE Portal-sidan. Om du vill tilldela NSG till ditt undernät går du till under nätets användar gränssnitt och väljer NSG.
 
 ## <a name="routes"></a>Vägar ##
 
-Tvingad tunneltrafik är när du ställer in vägar i ditt virtuella nätverk så att den utgående trafiken inte gå direkt till internet men någon annanstans som en ExpressRoute-gateway eller en virtuell installation.  Om du vill konfigurera din ASE i ett sådant kan läsa dokumentet på [konfigurera App Service Environment med Tvingad tunneltrafik][forcedtunnel].  Det här dokumentet om alternativ som fungerar med ExpressRoute och Tvingad tunneltrafik.
+Tvingad tunnel trafik är när du ställer in vägar i ditt VNet så att utgående trafik inte går direkt till Internet, utan någon annan som en ExpressRoute gateway eller en virtuell installation.  Om du behöver konfigurera ASE på ett sådant sätt kan du läsa dokumentet om hur du [konfigurerar app service-miljön med Tvingad tunnel trafik][forcedtunnel].  I det här dokumentet får du veta vilka alternativ som finns tillgängliga för att arbeta med ExpressRoute och Tvingad tunnel trafik.
 
-När du skapar en ASE i portalen skapa vi också en uppsättning routningstabeller i det undernät som har skapats med ASE.  Dessa vägar anta att bara skicka utgående trafik direkt till internet.  
+När du skapar en ASE i portalen skapar vi också en uppsättning routningstabeller i under nätet som skapas med ASE.  De vägarna säger bara att du skickar utgående trafik direkt till Internet.  
 Följ dessa steg om du vill skapa samma vägar manuellt:
 
-1. Gå till Azure Portal. Välj **nätverk** > **routningstabeller**.
+1. Gå till Azure Portal. Välj **nätverks** > **väg tabeller**.
 
-2. Skapa en ny routningstabell i samma region som ditt virtuella nätverk.
+2. Skapa en ny routningstabell i samma region som ditt VNet.
 
-3. Från din routningstabellen-Gränssnittet väljer **vägar** > **Lägg till**.
+3. I användar gränssnittet för din routningstabell väljer du **vägar** > **Lägg till**.
 
-4. Ange den **nästa hopptyp** till **Internet** och **adressprefix** till **0.0.0.0/0**. Välj **Spara**.
+4. Ange **nästa hopp typ** till **Internet** och **adressprefixet** till **0.0.0.0/0**. Välj **Spara**.
 
-    Då visas något som liknar följande:
+    Sedan ser du något som liknar följande:
 
     ![Funktionella vägar][6]
 
-5. När du har skapat den nya routningstabellen går du till det undernät som innehåller din ASE. Välj din routningstabellen i listan i portalen. När du har sparat ändringen visas sedan NSG: er och vägar som anges med ditt undernät.
+5. När du har skapat den nya routningstabellen går du till det undernät som innehåller din ASE. Välj routningstabellen från listan i portalen. När du har sparat ändringen bör du se NSG: er och vägarna som antecknas med ditt undernät.
 
-    ![NSG: er och flöden][7]
+    ![NSG: er och vägar][7]
 
 ## <a name="service-endpoints"></a>Serviceslutpunkter ##
 
-Med tjänstens slutpunkter kan du begränsa åtkomsten för tjänster med flera innehavare till en uppsättning virtuella Azure-nätverk och undernät. Du kan läsa mer om tjänstslutpunkter i dokumentationen [Tjänstslutpunkter för virtuellt nätverk][serviceendpoints]. 
+Med tjänstens slutpunkter kan du begränsa åtkomsten för tjänster med flera innehavare till en uppsättning virtuella Azure-nätverk och undernät. Du kan läsa mer om tjänstens slut punkter i dokumentationen för [Virtual Network tjänst slut punkter][serviceendpoints] . 
 
-När du aktiverar tjänstens slutpunkter för en resurs, finns det vägar som skapats med högre prioritet än andra vägar. Om du använder tjänstslutpunkter på valfri Azure-tjänst, med Tvingad tunneltrafik för ASE, trafiken till de tjänsterna som inte ska tvingas tunneltrafik. 
+När du aktiverar tjänstens slutpunkter för en resurs, finns det vägar som skapats med högre prioritet än andra vägar. Om du använder tjänst slut punkter på en Azure-tjänst, med en Tvingad tunnel ASE, kommer trafiken till dessa tjänster inte att tvingas tunnel trafik. 
 
-När tjänstens slutpunkter är aktiverade på ett undernät med en Azure SQL-instans, måste alla Azure SQL-instanser som är anslutna från undernätet ha aktiverat tjänstens slutpunkter. Om du vill ha åtkomst till flera Azure SQL-instanser från samma undernät kan du inte aktivera tjänstens slutpunkter på en Azure SQL-instans och inte på en annan. Inga andra Azure-tjänster fungerar som Azure SQL med avseende på Tjänsteslutpunkter. När du aktiverar tjänstens slutpunkter med Azure Storage kan du låsa åtkomsten till resursen från undernätet, men du kan ändå använda andra Azure Storage-konton även om de inte har aktiverat tjänstens slutpunkter.  
+När tjänstens slutpunkter är aktiverade på ett undernät med en Azure SQL-instans, måste alla Azure SQL-instanser som är anslutna från undernätet ha aktiverat tjänstens slutpunkter. Om du vill ha åtkomst till flera Azure SQL-instanser från samma undernät kan du inte aktivera tjänstens slutpunkter på en Azure SQL-instans och inte på en annan. Ingen annan Azure-tjänst fungerar som Azure SQL med avseende på tjänst slut punkter. När du aktiverar tjänstens slutpunkter med Azure Storage kan du låsa åtkomsten till resursen från undernätet, men du kan ändå använda andra Azure Storage-konton även om de inte har aktiverat tjänstens slutpunkter.  
 
 ![Serviceslutpunkter][8]
 

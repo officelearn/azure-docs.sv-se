@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f7f90c5ecb3c53792ca819eeba98b5f21f548473
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 973b097224b639a70d0904f1f82f2d95e3786d1f
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987485"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69969577"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klient bibliotek för anslutning till Azure Analysis Services
 
@@ -66,7 +66,7 @@ Klient bibliotek för klient anslutningar skiljer sig från data leverantörer s
 
  ADOMD.NET är ett klient bibliotek för hanterade data som används för att skicka frågor till Analysis Services data. Den installeras och används av verktyg och klient program. 
   
- När du ansluter till en databas är egenskaperna för anslutnings strängen för alla tre bibliotek likartade. Nästan vilken anslutnings sträng som helst som du definierar för ADOMD.NET med hjälp av [Microsoft. AnalysisServices. AdomdClient. AdomdConnection. ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) fungerar även för AMO och Analysis Services OLE DB-Provider (MSOLAP). Mer information finns i [Egenskaper &#40;för anslutnings sträng Analysis Services&#41;](https://docs.microsoft.com/analysis-services/instances/connection-string-properties-analysis-servicess).  
+ När du ansluter till en databas är egenskaperna för anslutnings strängen för alla tre bibliotek likartade. Nästan vilken anslutnings sträng som helst som du definierar för ADOMD.NET med hjälp av [Microsoft. AnalysisServices. AdomdClient. AdomdConnection. ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) fungerar även för AMO och Analysis Services OLE DB-Provider (MSOLAP). Mer information finns i [Egenskaper &#40;för anslutnings sträng Analysis Services&#41;](https://docs.microsoft.com/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
 ##  <a name="bkmk_LibUpdate"></a>Så här fastställer du klient biblioteks versionen   

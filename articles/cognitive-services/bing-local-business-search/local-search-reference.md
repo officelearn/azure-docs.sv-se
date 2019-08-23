@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 9030d85ff5bc83bb54f4a67a9f319a1670a6c2ad
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c9ebaeb66bc46132160c77c09f93fc2921dc8961
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881853"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906337"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>V7-referens för Bing Local Business Search API
 
@@ -70,7 +71,7 @@ Följande är huvuden som en begäran och ett svar kan innehålla.
 Begäran kan innehålla följande frågeparametrar. Se kolumnen obligatorisk för obligatoriska parametrar. Du måste URL-koda parametrarna för frågan.  
   
   
-|Namn|Value|type|Obligatorisk|  
+|Name|Value|type|Obligatorisk|  
 |----------|-----------|----------|--------------|
 |<a name="count" />reparationer|Antalet resultat som ska returneras, med början på det index som anges av `offset` parametern.|Sträng|Nej|   
 |<a name="localCategories" />localCategories|Lista med alternativ som definierar Sök efter affärs kategori.  Se [Sök efter lokala affärs kategorier](local-categories.md)|Sträng|Nej|  
@@ -107,7 +108,7 @@ Definierar det fel som inträffat.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objektet på den översta nivån som svaret innehåller när begäran Miss lyckas.  
   
-|Namn|Value|type|  
+|Name|Value|type|  
 |----------|-----------|----------|  
 |_type|Typ tips.|Sträng|  
 |<a name="errors" />kompileringsfel|En lista med fel som beskriver orsakerna till att begäran misslyckades.|[Fel](#error) []|  
@@ -117,7 +118,7 @@ Objektet på den översta nivån som svaret innehåller när begäran Miss lycka
 ### <a name="license"></a>Licens  
 Definierar under vilken licens texten eller fotot kan användas.  
   
-|Namn|Value|type|  
+|Name|Value|type|  
 |----------|-----------|----------|  
 |name|Namnet på licensen.|Sträng|  
 |url|URL: en till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namnet och URL: en för att skapa en hyperlänk.|Sträng|  
@@ -126,7 +127,7 @@ Definierar under vilken licens texten eller fotot kan användas.
 ### <a name="link"></a>Länka  
 Definierar komponenterna i en hyperlänk.  
   
-|Namn|Value|type|  
+|Name|Value|type|  
 |----------|-----------|----------|  
 |_type|Typ tips.|Sträng|  
 |text|Visnings texten.|Sträng|  
@@ -140,7 +141,7 @@ Definierar en utgivare.
   
 Observera att en utgivare kan ange sitt namn eller deras webbplats eller både och.  
   
-|Namn|Value|type|  
+|Name|Value|type|  
 |----------|-----------|----------|  
 |name|Utgivarens namn.|Sträng|  
 |url|URL: en till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan tillhandahålla en webbplats.|Sträng|  
@@ -150,7 +151,7 @@ Observera att en utgivare kan ange sitt namn eller deras webbplats eller både o
 ### <a name="place"></a>Plats  
 Definierar information om en lokal verksamhet, till exempel en restaurang eller hotell.  
   
-|Namn|Value|type|  
+|Name|Value|type|  
 |----------|-----------|----------|  
 |_type|Typ tips, som kan ställas in på något av följande:<br /><br /><ul><li>Hotell</li><li>LocalBusiness<br /></li><li>Restaurang</ul><li>|Sträng|  
 |adress|Post adressen till den plats där entiteten finns.|PostalAddress|  
@@ -174,21 +175,21 @@ Definierar den frågeterm som Bing används för begäran.
 
 ### <a name="identifiable"></a>Särskilj
 
-|Namn|Value|type|  
+|Name|Value|type|  
 |-------------|-----------------|----------|
 |id|Ett resurs-ID|Sträng|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definierar en Sök Resultat grupp, till exempel Mainline.
 
-|Namn|Value|type|  
+|Name|Value|type|  
 |-------------|-----------------|----------|
 |items|En lista med Sök resultat som ska visas i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett Sök Resultat objekt som ska visas.
 
-|Namn|Value|type|  
+|Name|Value|type|  
 |-------------|-----------------|----------|
 |resultIndex|Ett nollbaserat index för objektet i svaret som ska visas. Om objektet inte innehåller det här fältet, visar du alla objekt i svaret. Du kan till exempel Visa alla nyhets artiklar i svaret på diskussions gruppen.|Integer|
 |answerType|Svaret som innehåller objektet som ska visas. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse-fält.<br /><br /> Använd bara svars typen om det här objektet innehåller fältet värde. Annars kan du ignorera det.|Sträng|
@@ -198,7 +199,7 @@ Definierar ett Sök Resultat objekt som ska visas.
 ### <a name="rankingresponse"></a>RankingResponse  
 Definierar var på sidan med Sök Resultat sidans innehåll ska placeras och i vilken ordning.  
   
-|Namn|Value|  
+|Name|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Sök resultaten som ska visas i Mainline.|  
 |<a name="ranking-pole" />Polen|Sök resultaten som ska få den mest synliga behandlingen (till exempel, som visas ovanför Mainline och sido panelen).|  
@@ -209,7 +210,7 @@ Definierar objektet på den översta nivån som svaret innehåller när begäran
   
 Observera att om tjänsten misstänker en denial of service-attack kommer begäran att lyckas (HTTP-statuskod är 200 OK). bröd texten i svaret är dock tom.  
   
-|Namn|Value|type|  
+|Name|Value|type|  
 |----------|-----------|----------|  
 |_type|Typ tips, som är inställt på SearchResponse.|Sträng|  
 |platser|En lista med entiteter som är relevanta för Sök frågan.|JSON-objekt|  

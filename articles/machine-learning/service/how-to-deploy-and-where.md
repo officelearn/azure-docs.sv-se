@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7bfbec194733f2f8422eef45236a64e45bb553c7
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: acb3717f0e71ca1e67f1ddec79a259935f6cc539
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656368"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897700"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -723,7 +723,7 @@ Du kan distribuera modeller kontinuerligt med Machine Learning-tillägget för [
 
 1. Använd __tjänst anslutningar__ för att konfigurera en tjänstens huvud namns anslutning till din Azure Machine Learning tjänst arbets yta för att få åtkomst till alla dina artefakter. Gå till projekt inställningar, klicka på tjänst anslutningar och välj Azure Resource Manager.
 
-    ![Visa-tjänst-anslutning](media/how-to-deploy-and-where/view-service-connection.png) 
+    [![Visa-tjänst-anslutning](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png) 
 
 1. Definiera AzureMLWorkspace som omfångs __nivå__ och fyll i de efterföljande parametrarna.
 
@@ -731,11 +731,11 @@ Du kan distribuera modeller kontinuerligt med Machine Learning-tillägget för [
 
 1. För att kontinuerligt distribuera din Machine Learning-modell med Azure-pipelines väljer du __släpp__i pipelines. Lägg till en ny artefakt, Välj AzureML modell artefakt och den tjänst anslutning som skapades i föregående steg. Välj modell och version för att utlösa en distribution. 
 
-    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+    [![Select-AzureMLmodel-artefakt](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
 1. Aktivera modell utlösaren i modell artefakten. Genom att aktivera utlösaren, varje gång den angivna versionen (dvs. den senaste versionen) av modellen registreras i din arbets yta, en Azure DevOps release-pipeline utlöses. 
 
-    ![Aktivera-modell-utlösare](media/how-to-deploy-and-where/set-modeltrigger.png)
+    [![Aktivera-modell-utlösare](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
 Fler exempel projekt och exempel finns i följande exempel databaser:
 

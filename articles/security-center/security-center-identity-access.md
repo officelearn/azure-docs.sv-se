@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: v-mohabe
-ms.openlocfilehash: 73480c6e24ab13b7764c5b72280c19971eb3d039
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 1ef4d8e76b54b995a09decdfaf9974f0929c8ed9
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296480"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905347"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Övervaka identitet och åtkomst i Azure Security Center (för hands version)
 Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
@@ -47,7 +47,7 @@ Security Center kan inte köra identitets rekommendationer mot en CSP-partners (
 Se [rekommendationer](security-center-identity-access.md#recommendations) för en lista över identitets-och åtkomst rekommendationer som tillhandahålls av Security Center.
 
 ## <a name="monitoring-security-health"></a>Övervakning av säkerhetshälsa
-Du kan övervaka dina resursers säkerhetstillstånd på den **Security Center – översikt** instrumentpanelen. Avsnittet  Resources är en hälso indikator som visar allvarlighets graderna för varje resurs typ.
+Du kan övervaka dina resursers säkerhetstillstånd på den **Security Center – översikt** instrumentpanelen. Avsnittet Resources är en hälso indikator som visar allvarlighets graderna för varje resurs typ.
 
 Du kan visa en lista över alla problem genom att välja **rekommendationer**. Under **resurser**kan du Visa en lista med problem som är specifika för beräkning & appar, data säkerhet, nätverk eller identitets & åtkomst. Mer information om hur du utför rekommendationerna finns i [utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
 
@@ -79,7 +79,7 @@ Under **Översikt**finns det en lista över rekommendationer. Den första kolumn
 1. Välj en prenumeration i listan om du vill ha mer information.
 
 ### <a name="subscriptions-section"></a>Avsnittet prenumerationer
-Det finns en lista över prenumerationer under prenumerationer. Den första kolumnen visar prenumerationerna. Den andra kolumnen visar det totala antalet rekommendationer för varje prenumeration. Den tredje kolumnen visar allvarlighets graden för problemen.
+Detfinns en lista över prenumerationer under prenumerationer. Den första kolumnen visar prenumerationerna. Den andra kolumnen visar det totala antalet rekommendationer för varje prenumeration. Den tredje kolumnen visar allvarlighets graden för problemen.
 
 ![Prenumerationens flik][4]
 
@@ -128,7 +128,7 @@ Använd tabellen nedan som referens för att hjälpa dig att förstå tillgängl
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:
 
-- [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-recommendations.md)
+- [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
 - [Skydda nätverket i Azure Security Center](security-center-network-recommendations.md)
 - [Skydda din Azure SQL-tjänst och data i Azure Security Center](security-center-sql-service-recommendations.md)
 

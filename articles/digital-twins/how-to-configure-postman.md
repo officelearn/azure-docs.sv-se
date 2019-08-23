@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/21/2019
 ms.author: v-adgera
-ms.openlocfilehash: 66dbfd09ef07740c07ddb010b73e33e783340e5a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a39663adedfdb9c00c4429f65ec1bd27286cb136
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873664"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904287"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för digital Azures dubbla
 
@@ -35,9 +35,9 @@ Med Postman-klienten kan Solutions-utvecklare ange typen av HTTP-begäran (*post
 
 Konfigurera Azure Active Directory-appen så att den använder det implicita bidrags flödet OAuth 2,0.
 
-1. Följ stegen i [den här snabb](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) starten för att skapa ett internt Azure AD-program av typen Native. Eller så kan du återanvända en befintlig intern app-registrering.
+1. Följ stegen i [vår snabb start](./quickstart-view-occupancy-dotnet.md) för att skapa ett Azure AD-program. Eller skapa en [inbyggd app med hjälp av det äldre AAD](./how-to-use-legacy-aad.md)-bladet.
 
-1. Under **nödvändiga behörigheter**väljer du **Lägg till** och anger **Azure Digitals DUBBLAre** under **Lägg till API-åtkomst**. Om sökningen inte hittar API:et söker du efter **Azure Smart Spaces** i stället. Välj sedan **bevilja behörigheter > delegerade behörigheter** och **färdig**.
+1. Under **API-behörigheter**väljer du **Lägg till en behörighet**. Sedan använder **Azure Digitals dubblare** under- **API: er som används i organisationen**. Om sökningen inte hittar API:et söker du efter **Azure Smart Spaces** i stället. Välj sedan **delegerade behörigheter**, **Läs** > **läsa. Skriv**och **Lägg till behörighet**.
 
     [![Azure Active Directory app-registreringar Lägg till API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
@@ -75,7 +75,7 @@ Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-to
     | Beviljandetyp | `Implicit` |
     | Motringnings-URL | `https://www.getpostman.com/oauth2/callback` |
     | URL för autentisering | Använd **URL:** en för auktorisering från steg 2 |
-    | Klientorganisations-ID | Använd **program-ID:** t för den Azure Active Directory app som skapades eller återanvändas från föregående avsnitt |
+    | Klientorganisations-ID | Använd **program-ID:** t för den Azure Active Directory-app som skapades eller återanvändas från föregående avsnitt |
     | Omfång | Lämna tomt |
     | State | Lämna tomt |
     | Klientautentisering | `Send as Basic Auth header` |

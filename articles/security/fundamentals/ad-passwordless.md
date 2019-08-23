@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 38c850f167287fe5e1a444c8670e359c4d2b6b90
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e702a5921e785100c5971057d1652db9aab26acf
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934823"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899958"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>En värld utan lösen ord med Azure Active Directory
 
@@ -150,7 +150,7 @@ Eftersom de flesta användare bara är vana vid att använda lösen ord för att
 
 Innan Microsoft Authenticator-appen kan användas som en lösen ords lös lösning för att logga in på ett Azure AD-konto måste steg utföras av både administratörer och slutanvändarna.
 
-Först måste administratören [aktivera användningen av appen som autentiseringsuppgifter](../../active-directory/authentication/howto-authentication-passwordless-phone.md) i klienten med hjälp av Windows PowerShell. Administratören måste också aktivera slutanvändare för Azure Multi-Factor Authentication (Azure MFA) och konfigurera Microsoft Authenticator-appen som en av verifierings [metoderna](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
+Först måste administratören [aktivera användningen av appen som autentiseringsuppgifter](../../active-directory/authentication/howto-authentication-passwordless-phone.md) i klienten med hjälp av Windows PowerShell. Administratören måste också aktivera slutanvändare för Azure Multi-Factor Authentication (Azure MFA) och konfigurera Microsoft Authenticator-appen som en av [verifierings metoderna](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
 
 Slutanvändare måste [Ladda ned och installera](../../active-directory/user-help/user-help-auth-app-download-install.md) Microsoft Authenticator-appen och [Konfigurera sitt konto](../../active-directory/user-help/security-info-setup-auth-app.md) för att använda Microsoft Authenticator-appen som en av verifierings metoderna.
 
@@ -226,9 +226,9 @@ Vi rekommenderar också att varje organisation skapar ett protokoll för använd
 
 #### <a name="user-sets-up-fido2-security-key"></a>Användare ställer in säkerhets nyckel för FIDO2
 
-Administratörer kan [manuellt etablera nycklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) och distribuera dem till slutanvändare, och etablering och aktivering av FIDO2 på Windows 10-Lås-skärmen kommer att stödjas via [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Administratörer måste också använda [Azure Portal](https://portal.azure.com/) för att aktivera maskinvaru-token-enheter som en metod för lösen ords lös autentisering.
+Administratörer kan [manuellt etablera nycklar](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) och distribuera dem till slutanvändare, och etablering och aktivering av FIDO2 på Windows 10-Lås-skärmen kommer att stödjas via [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Administratörer måste också använda [Azure Portal](https://portal.azure.com/) för att aktivera maskinvaru-token-enheter som en metod för lösen ords lös autentisering.
 
-Att distribuera FIDO2 säkerhets nycklar kräver också att användarna registrerar sina nycklar med hjälp av [kombinerad registrering](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Azure Multi-Factor Authentication och återställning av lösen ord för enkel inloggning (SSPR).
+Att distribuera FIDO2 säkerhets nycklar kräver också att användarna registrerar sina nycklar med hjälp av [kombinerad registrering](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Azure Multi-Factor Authentication och lösen ords återställning med enkel inloggning (SSPR).
 
 Förutom att välja maskinvaru-token som standard metod för Multi-Factor Authentication, rekommenderar vi att du även väljer ett ytterligare verifierings alternativ.
 
@@ -343,4 +343,4 @@ Införandet av modern Multi-Factor Authentication-teknik, till exempel biometrik
 ## <a name="next-steps"></a>Nästa steg
 
 * En översikt över [vad som är lösen ord?](../../active-directory/authentication/concept-authentication-passwordless.md)
-* [Så här aktiverar du ett lösen ord i Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)
+* [Så här aktiverar du ett lösen ord i Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)

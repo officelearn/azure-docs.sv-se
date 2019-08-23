@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b9060ecbb9ca9e77d994a8f20378e2c53927586a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 8e8ea11da0339103375009709be8795cdede2448
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617379"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972935"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Använd Azure AD som identitets leverantör för vCenter på CloudSimple privata moln
 
@@ -98,4 +98,4 @@ Du kan också konfigurera andra funktioner i Azure AD.  Dessa krävs inte för a
 
 3. Logga in i ditt privata moln vCenter när behörigheterna har eskalerats.
 4. Följ anvisningarna i [lägga till en identitets källa på vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) med värdena från föregående steg för att konfigurera Azure Active Directory som identitets källa.
-5. Lägg till användare/grupper från Azure AD till vCenter-grupper enligt beskrivningen i VMware-avsnittet <a href="https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html" target="_blank">lägga till medlemmar i en vCenter-grupp för enkel inloggning</a>.
+5. Lägg till användare/grupper från Azure AD till vCenter-grupper enligt beskrivningen i VMware-avsnittet [lägga till medlemmar i en vCenter-grupp för enkel inloggning](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).

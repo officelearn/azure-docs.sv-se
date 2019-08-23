@@ -1,124 +1,124 @@
 ---
-title: Stöd matrix för haveriberedskap för virtuella VMware-datorer eller fysiska servrar till en sekundär VMware-plats med Azure Site Recovery | Microsoft Docs
-description: Sammanfattar stödet för haveriberedskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats med Azure Site Recovery.
+title: Stöd mat ris för haveri beredskap för virtuella VMware-datorer eller fysiska servrar till en sekundär VMware-plats med Azure Site Recovery | Microsoft Docs
+description: Sammanfattar stödet för haveri beredskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418251"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972084"
 ---
-# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats
 
-Den här artikeln sammanfattar vad som stöds när du använder den [Azure Site Recovery](site-recovery-overview.md) -tjänsten för haveriberedskap för virtuella VMware-datorer eller Windows-/ Linux fysiska servrar till en sekundär VMware-plats.
+I den här artikeln sammanfattas vad som stöds när du använder [Azure Site Recovery](site-recovery-overview.md) tjänsten för haveri beredskap för virtuella VMware-datorer eller fysiska Windows/Linux-servrar till en sekundär VMware-plats.
 
-- Om du vill replikera virtuella VMware-datorer eller fysiska servrar till Azure kan du läsa [supportmatris för den här](vmware-physical-azure-support-matrix.md).
-- Om du vill replikera Hyper-V-datorer till en sekundär plats kan du läsa [supportmatris för den här](hyper-v-azure-support-matrix.md).
+- Om du vill replikera virtuella VMware-datorer eller fysiska servrar till Azure läser du [denna support mat ris](vmware-physical-azure-support-matrix.md).
+- Om du vill replikera virtuella Hyper-V-datorer till en sekundär plats läser du [denna support mat ris](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
-> Replikering av lokala virtuella VMware-datorer och fysiska servrar tillhandahåller InMage Scout. InMage Scout ingår i prenumeration för Azure Site Recovery-tjänsten.
+> Replikering av lokala virtuella VMware-datorer och fysiska servrar tillhandahålls av InMage Scout. InMage Scout ingår i Azure Site Recovery tjänst prenumerationen.
 
 
-## <a name="host-servers"></a>Värdservrar
-
-**Operativsystem** | **Detaljer**
---- | ---
-vCenter-server | vCenter 5.5, 6.0 och 6.5<br/><br/> Om du kör 6.0 eller 6.5, Observera att endast 5.5 funktioner som stöds.
-
-
-## <a name="replicated-vm-support"></a>Replikerade support för virtuella datorer
-
-I följande tabell sammanfattas operativsystem för datorer som replikeras med Site Recovery. Alla arbetsbelastningar kan köras på operativsystemet som stöds.
+## <a name="host-servers"></a>Värd servrar
 
 **Operativsystem** | **Detaljer**
 --- | ---
-Windows Server | 64-bitars Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1.
-Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
+vCenter Server | vCenter 5,5, 6,0 och 6,5<br/><br/> Observera att endast 5,5-funktioner stöds om du kör 6,0 eller 6,5.
 
 
-## <a name="linux-machine-storage"></a>Lagring för Linux-dator
+## <a name="replicated-vm-support"></a>Stöd för replikerad virtuell dator
 
-Endast Linux-datorer med följande storage kan replikeras:
+I följande tabell sammanfattas stöd för operativ system för datorer som replikeras med Site Recovery. Alla arbets belastningar kan köras på det operativ system som stöds.
 
-- File system (EXT3, ETX4, ReiserFS, XFS).
-- Upptäcka programvara-enheter med mappning.
-- Volymhanterare (LVM2).
-- Fysiska servrar med HP CCISS controller lagring stöds inte.
-- Filsystemet ReiserFS stöds endast på SUSE Linux Enterprise Server 11 SP3.
+**Operativsystem** | **Detaljer**
+--- | ---
+Windows Server | 64-bitars Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med minst SP1.
+Linux | Red Hat Enterprise Linux 6,7, 6,8, 6,9, 7,1, 7,2 <br/><br/> CentOS 6,5, 6,6, 6,7, 6,8, 6,9, 7,0, 7,1, 7,2 <br/><br/> Oracle Enterprise Linux 6,4, 6,5, 6,8 som kör Red Hat-kompatibel kernel eller Enterprise kernel release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
 
-## <a name="network-configuration---hostguest-vm"></a>Nätverkskonfigurationen - värd/gäst VM
+
+## <a name="linux-machine-storage"></a>Linux-dator lagring
+
+Endast Linux-datorer med följande lagring kan replikeras:
+
+- Fil system (EXT3, ETX4, ReiserFS, XFS).
+- Multipath program vara-enhets mappning.
+- Volym hanteraren (LVM2).
+- Fysiska servrar med HP CCISS Controller-lagring stöds inte.
+- Fil systemet ReiserFS stöds endast på SUSE Linux Enterprise Server 11 SP3.
+
+## <a name="network-configuration---hostguest-vm"></a>Nätverks konfiguration – värd/gäst-VM
 
 **Konfiguration** | **Stöds**  
 --- | --- 
-Värd - NIC-teamindelning | Ja 
-Host - VLAN | Ja 
+Värd-NIC-teamning | Ja 
+Värd-VLAN | Ja 
 Host - IPv4 | Ja 
-Host - IPv6 | Nej 
-Gäst VM - NIC-teamindelning | Nej
-Guest VM - IPv4 | Ja
-Gäst VM - IPv6 | Nej
-Gäst VM-Windows / Linux - statisk IP-adress | Ja
-Gäst VM - med flera nätverkskort | Ja
+Värd-IPv6 | Nej 
+Gäst-VM – NIC Teaming | Nej
+Gäst-VM – IPv4 | Ja
+Gäst-VM-IPv6 | Nej
+Gäst-VM – Windows/Linux-statisk IP-adress | Ja
+Gäst-VM-Multi-NIC | Ja
 
 
 ## <a name="storage"></a>Storage
 
-### <a name="host-storage"></a>Värdlagring
+### <a name="host-storage"></a>Värd lagring
 
 **Lagring (värd)** | **Stöds** 
 --- | --- 
 NFS | Ja 
 SMB 3.0 | Gäller inte 
 SAN (ISCSI) | Ja 
-Flera sökvägar (MPIO) | Ja 
+Multipath (MPIO) | Ja 
 
-### <a name="guest-or-physical-server-storage"></a>Gäst eller fysisk lagring
+### <a name="guest-or-physical-server-storage"></a>Gäst eller fysisk server lagring
 
 **Konfiguration** | **Stöds** 
 --- | --- 
 VMDK | Ja 
 VHD/VHDX | Gäller inte 
-Gen 2 VM | Gäller inte 
-Delad klusterdisk | Ja 
+Generation 2 VM | Gäller inte 
+Delad kluster disk | Ja 
 Krypterad disk | Nej 
 UEFI| Ja 
 NFS | Nej 
 SMB 3.0 | Nej 
 RDM | Ja 
 Disk > 1 TB | Ja 
-Volymen med stripe-disk > 1 TB<br/><br/> LVM | Ja 
-Lagringsutrymmen | Nej 
-Frekvent Lägg till/ta bort disk | Ja 
+Volym med Striped disk > 1 TB<br/><br/> LVM | Ja 
+Lagrings utrymmen | Nej 
+Snabb Lägg till/ta bort disk | Ja 
 Uteslut disk | Ja 
-Flera sökvägar (MPIO) | Gäller inte 
+Multipath (MPIO) | Gäller inte 
 
 ## <a name="vaults"></a>Valv
 
 **Åtgärd** | **Stöds** 
 --- | --- 
-Flytta valv mellan resursgrupper (inom eller mellan prenumerationer) | Nej 
-Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper (inom eller mellan prenumerationer) | Nej 
+Flytta valv över resurs grupper (inom eller mellan prenumerationer) | Nej 
+Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper (inom eller mellan prenumerationer) | Nej 
 
-## <a name="mobility-service-and-updates"></a>Mobilitetstjänsten och uppdateringar
+## <a name="mobility-service-and-updates"></a>Mobilitets tjänsten och uppdateringar
 
-Mobilitetstjänsten samordnar replikering mellan lokala VMware-servrar eller fysiska servrar och den sekundära platsen. När du konfigurerar replikering ska du kontrollera att du har den senaste versionen av mobilitetstjänsten och andra komponenter.
+Mobilitets tjänsten samordnar replikering mellan lokala VMware-servrar eller fysiska servrar och den sekundära platsen. När du konfigurerar replikering bör du kontrol lera att du har den senaste versionen av mobilitets tjänsten och andra komponenter.
 
 | **Uppdatering** | **Detaljer** |
 | --- | --- |
-|Scout uppdateringar | Scout uppdateringar är kumulativa. <br/><br/> [Lär dig och ladda ned](vmware-physical-secondary-disaster-recovery.md#updates) de senaste uppdateringarna för Scout |
-|Komponentuppdateringar | Scout uppdateringar innehåller uppdateringar för alla komponenter, inklusive RX server, konfigurationsservern, process och huvudmålservrar, vContinuum servrar och källservrar som du vill skydda.<br/><br/> [Läs mer](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
+|Scout-uppdateringar | Uppdateringar för Scout är kumulativa. <br/><br/> [Lär dig mer om och hämta](vmware-physical-secondary-disaster-recovery.md#updates) de senaste Scout-uppdateringarna |
+|Komponent uppdateringar | I Scout-uppdateringarna ingår uppdateringar för alla komponenter, inklusive RX-Server, konfigurations Server, process-och huvud mål servrar, vContinuum-servrar och käll servrar som du vill skydda.<br/><br/> [Läs mer](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ladda ned den [InMage Scout-användarhandboken](https://aka.ms/asr-scout-user-guide)
+Hämta [användar handboken för InMage Scout](https://aka.ms/asr-scout-user-guide)
 
-- [Replikera Hyper-V-datorer i VMM-moln till en sekundär plats](tutorial-vmm-to-vmm.md)
+- [Replikera virtuella Hyper-V-datorer i VMM-moln till en sekundär plats](tutorial-vmm-to-vmm.md)
 - [Replikera virtuella VMware-datorer och fysiska servrar till en sekundär plats](tutorial-vmware-to-vmware.md)

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5095e680eb7fd33d28acb2d187f83d86db1b46bf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 8e535fc581e186abd032206c2bbf78623d95967f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656632"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899776"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Hur du utnyttjar ett Service Fabric programmets hanterade identitet för att få åtkomst till Azure-tjänster (för hands version)
 
@@ -23,7 +23,7 @@ Service Fabric program kan dra nytta av hanterade identiteter för att få åtko
 > En hanterad identitet representerar associationen mellan en Azure-resurs och ett huvud namn för tjänsten i motsvarande Azure AD-klient som är associerad med den prenumeration som innehåller resursen. I samband med Service Fabric stöds hanterade identiteter endast för program som distribueras som Azure-resurser. 
 
 > [!IMPORTANT]
-> Innan du använder den hanterade identiteten för ett Service Fabric-program måste klient programmet beviljas åtkomst till den skyddade resursen. Se listan över [Azure-tjänster som stöder Azure AD-autentisering](/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-managed-identities-for-azure-resources) för att kontrol lera om det finns stöd och till respektive tjänsts dokumentation för specifika steg för att ge en identitets åtkomst till resurser av intresse. 
+> Innan du använder den hanterade identiteten för ett Service Fabric-program måste klient programmet beviljas åtkomst till den skyddade resursen. Se listan över [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) för att kontrol lera om det finns stöd och till respektive tjänsts dokumentation för specifika steg för att ge en identitets åtkomst till resurser av intresse. 
 
 ## <a name="acquiring-an-access-token-using-rest-api"></a>Skaffa en åtkomsttoken med hjälp av REST API
 I kluster som är aktiverade för hanterad identitet exponerar Service Fabric runtime en localhost-slutpunkt som program kan använda för att hämta åtkomsttoken. Slut punkten är tillgänglig på varje nod i klustret och är tillgänglig för alla entiteter på den noden. Auktoriserade anropare kan hämta åtkomsttoken genom att anropa den här slut punkten och presentera en autentiseringsnyckel. koden genereras av Service Fabric runtime för varje distinkt service code-aktivering och är kopplad till livs längden för processen som är värd för tjänst kods paketet.

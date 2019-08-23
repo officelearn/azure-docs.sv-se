@@ -3,16 +3,16 @@ title: Felsöka vanliga fel
 description: Lär dig hur du felsöker problem med frågor till Azure-resurser med Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/24/2019
+ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 511d170f90e8ed34b00a3960d084223ec73d99dd
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3c59b5c4b580604c65572364d29d4e5d10a26820
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480558"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900015"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Felsöka fel med Azure Resource Graph
 
@@ -36,7 +36,7 @@ Azure CLI och PowerShell vidarebefordrar bara de första 1000 prenumerationerna 
 
 #### <a name="resolution"></a>Lösning
 
-Batch-begäranden för frågan med en delmängd av prenumerationerna kvar under prenumerations gränsen på 1000. Lösningen använder prenumerations parametern  i PowerShell.
+Batch-begäranden för frågan med en delmängd av prenumerationerna kvar under prenumerations gränsen på 1000. Lösningen använder prenumerations parametern i PowerShell.
 
 ```azurepowershell-interactive
 # Replace this query with your own
@@ -60,6 +60,33 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 # View the completed results of the query on all subscriptions
 $response
 ```
+
+### <a name="rest-contenttype"></a>Situationen REST-rubriken av innehålls typ stöds inte
+
+#### <a name="issue"></a>Problem
+
+Kunder som frågar Azure Resource Graph REST API får ett _500_ -svar (internt Server fel) returnerat.
+
+#### <a name="cause"></a>Orsak
+
+Azures resurs diagram REST API bara stöd för `Content-Type` en av **program/JSON**. Vissa REST verktyg eller agenter som standard är **text/plain**, vilket inte stöds av REST API.
+
+#### <a name="resolution"></a>Lösning
+
+Kontrol lera att verktyget eller agenten som du använder för att fråga Azure Resource Graph har REST API `Content-Type` huvud som kon figurer ATS för **Application/JSON**.
+### <a name="rest-403"></a>Situationen Ingen Läs behörighet för alla prenumerationer i listan
+
+#### <a name="issue"></a>Problem
+
+Kunder som uttryckligen skickar en lista över prenumerationer med en Azure-resurs Graph-fråga får ett _403_ -svar (förbjuden).
+
+#### <a name="cause"></a>Orsak
+
+Om kunden inte har Läs behörighet till alla angivna prenumerationer, nekas begäran på grund av brist på rätt behörighet.
+
+#### <a name="resolution"></a>Lösning
+
+Inkludera minst en prenumeration i prenumerations listan som kunden som kör frågan har minst Läs behörighet till. Mer information finns i [behörigheter i Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 
 ## <a name="next-steps"></a>Nästa steg
 

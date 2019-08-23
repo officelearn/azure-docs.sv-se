@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 34ecbf8b326972f76767648e6a162b57667484f8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a7715577936b0e95392f2d561e4b492b20c9dbf5
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968799"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906961"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
-* [Json.NET NuGet-paket](https://www.nuget.org/packages/Newtonsoft.Json/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-net-core-project"></a>Skapa ett .NET Core-projekt
 
@@ -45,9 +43,26 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
+## <a name="get-endpoint-information-from-an-environment-variable"></a>Hämta slut punkts information från en miljö variabel
+
+Lägg till följande rader i `Program` -klassen. Dessa rader läser din prenumerations nyckel och slut punkt från miljövariabler och genererar ett fel om du stöter på problem.
+
+```csharp
+private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
+private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
+
+static Program()
+{
+    if (null == endpoint)
+    {
+        throw new Exception("Please set/export the environment variable: " + endpoint_var);
+    }
+}
+```
+
 ## <a name="create-a-function-to-get-a-list-of-languages"></a>Skapa en funktion för att hämta en lista över språk
 
-I klassen `Program` skapar du en funktion med namnet `GetLanguages`. Den här klassen kapslar in den kod som används för att anropa Languages-resursen och skriver ut resultatet till konsolen.
+I- `GetLanguages`klassen skapar du en funktion som heter. `Program` Den här klassen kapslar in den kod som används för att anropa Languages-resursen och skriver ut resultatet till konsolen.
 
 ```csharp
 static void GetLanguages()
@@ -59,12 +74,11 @@ static void GetLanguages()
 }
 ```
 
-## <a name="set-the-host-name-and-path"></a>Ange värdnamnet och sökvägen
+## <a name="set-the-route"></a>Ange vägen
 
 Lägg till följande rader i funktionen `GetLanguages`.
 
 ```csharp
-string host = "https://api.cognitive.microsofttranslator.com";
 string route = "/languages?api-version=3.0";
 ```
 
@@ -96,7 +110,7 @@ Lägg till den här koden i `HttpRequestMessage`:
 // Set the method to GET
 request.Method = HttpMethod.Get;
 // Construct the full URI
-request.RequestUri = new Uri(host + route);
+request.RequestUri = new Uri(endpoint + route);
 // Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
@@ -108,7 +122,8 @@ Console.WriteLine("Press any key to continue.");
 Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta `Ocp-Apim-Subscription-Region` med i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)-prenumerationen.
 
 Om du vill skriva ut svaret med "ganska utskrift" (formatering för svaret) lägger du till den här funktionen i program klassen:
-```
+
+```csharp
 static string PrettyPrint(string s)
 {
     return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);

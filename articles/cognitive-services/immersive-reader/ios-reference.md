@@ -1,20 +1,20 @@
 ---
 title: Avancerad läsare för iOS SDK-referens
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Referens för iOS SDK för avancerad läsare
 services: cognitive-services
-author: MeganRoach
+author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
-ms.author: t-meroa
-ms.openlocfilehash: acdaaf0bf08644053e86343ae4b002002fee6a84
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.author: metan
+ms.openlocfilehash: 615c09dd8a7287918bb009ce11854278b21554c1
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966602"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899418"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Avancerad läsare SDK-referens
 
@@ -34,13 +34,13 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 
 #### <a name="parameters"></a>Parametrar
 
-| Namn | Typ | Beskrivning |
+| Name | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | `navController` | UINavigationController | Navigerings styrenheten för iOS-programmet som funktionen anropas från. |
 | `token` | Sträng | Azure AD-autentiseringstoken. Se [Azure AD-autentiseringen How-to](./azure-active-directory-authentication.md). |
 | `subdomain` | Sträng | Den anpassade under domänen för den fördjupade läsar resursen i Azure. Se [Azure AD-autentiseringen How-to](./azure-active-directory-authentication.md). |
 | `content` | [Innehåll](#content) | Ett objekt som innehåller det innehåll som ska visas i den fördjupade läsaren. |
-| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfri. |
+| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfritt. |
 | `onSuccess` | ()-> void | En avslutning som anropas när den fördjupade läsaren har startat. |
 | `onFailure` | (_ fel: [Fel](#error)) -> void | En avslutning som anropas när den fördjupade läsaren inte kan läsas in. Den här stängningen [`Error`](#error) returnerar ett objekt som representerar en felkod och ett fel meddelande som är kopplat till felet. Mer information finns i [fel koderna](#error-codes). |
 

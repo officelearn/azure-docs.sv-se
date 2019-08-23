@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/29/2019
-ms.openlocfilehash: 78dff1b9d9db4e54ab1a8f7203088753e206c610
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 08/21/2019
+ms.openlocfilehash: 635b7adb8753b7e9490e8f14a0699c09297fdbbb
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641960"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899086"
 ---
 # <a name="scenario-apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Scenario: Apache Spark jobbet körs långsamt när Azure Storage-behållaren innehåller många filer i Azure HDInsight
 
@@ -26,8 +26,6 @@ När du kör ett HDInsight-kluster blir det Apache Spark jobbet som skriver till
 Detta är ett känt Spark-problem. Den långsammaheten kommer från `ListBlob` åtgärderna och `GetBlobProperties` när Spark-jobbet körs.
 
 För att spåra partitioner måste Spark underhålla en `FileStatusCache` som innehåller information om katalog strukturen. Med den här cachen kan Spark parsa Sök vägarna och vara medvetna om tillgängliga partitioner. Fördelen med att spåra partitioner är att Spark bara vidrör de nödvändiga filerna när du läser data. För att den här informationen ska vara aktuell när du skriver nya data, måste Spark lista alla filer i katalogen och uppdatera denna cache.
-
-Varje gång du uppdaterar katalogen i Spark 1,6 (1) rensar du cachen (2) rekursivt lista alla filer och (3) uppdatera hela cacheminnet. Detta leder till att många List åtgärder används.
 
 I Spark 2,1, medan vi inte behöver uppdatera cachen efter varje skrivning, kommer Spark att kontrol lera om en befintlig partitionstabell matchar den föreslagna i den aktuella skrivbegäran, så att den även leder till att åtgärder visas i början av varje skrivning.
 

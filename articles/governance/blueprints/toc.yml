@@ -101,6 +101,22 @@
         - name: Distributionssteg
           displayName: 'standards, uk official, uk nhs'
           href: ./samples/ukofficial/deploy.md
+    - name: CAF Foundation
+      items:
+        - name: Översikt
+          displayName: 'caf, foundation'
+          href: ./samples/caf-foundation/index.md
+        - name: Distributionssteg
+          displayName: 'caf, foundation, deploy'
+          href: ./samples/caf-foundation/deploy.md
+    - name: CAF Migrate-landningszon
+      items:
+        - name: Översikt
+          displayName: 'caf, migrate, landing zone'
+          href: ./samples/caf-migrate-landing-zone/index.md
+        - name: Distributionssteg
+          displayName: 'caf, migrate, landing zone, deploy'
+          href: ./samples/caf-migrate-landing-zone/deploy.md
 - name: Begrepp
   items:
     - name: Livscykeln för en skiss

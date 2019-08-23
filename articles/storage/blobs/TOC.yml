@@ -599,6 +599,8 @@
           href: ../blobs/data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight'
           href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Infoga data i Databricks Delta-tabeller med hjälp av Event Grid
+          href: ../blobs/data-lake-storage-events.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Begrepp
       items:
         - name: Åtkomst för flera protokoll

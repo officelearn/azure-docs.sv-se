@@ -1,0 +1,83 @@
+- name: Dokumentation om IoT Plug and Play
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är IoT Plug and Play?
+      href: overview-iot-plug-and-play.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Använda en enhetskapacitetsmodell för att skapa en enhet
+      href: quickstart-create-pnp-device.md
+    - name: Ansluta en enhet till IoT Hub
+      href: quickstart-connect-pnp-device.md
+    - name: Ansluta en enhet till IoT Central
+      href: 'https://aka.ms/iot-central-connect-qs'
+    - name: Ansluta till en enhet i din lösning
+      href: quickstart-connect-pnp-device-solution.md
+- name: Självstudier
+  items:
+    - name: Skapa en enhet med hjälp av VS Code
+      href: tutorial-pnp-visual-studio-code.md
+    - name: Bygga en enhet som är redo för certifiering
+      href: tutorial-build-device-certification.md
+    - name: Certifiera enheten
+      href: tutorial-certification-test.md
+- name: Begrepp
+  items:
+    - name: Ordlista
+      href: iot-plug-and-play-glossary.md
+    - name: Utvecklarguide
+      href: concepts-developer-guide.md
+    - name: Vanliga gränssnitt
+      href: concepts-common-interfaces.md
+    - name: Modellidentifiering
+      href: concepts-model-discovery.md
+    - name: Begränsningar och kvoter
+      href: concepts-limits-quotas.md
+- name: Instruktionsguider
+  items:
+    - name: Använda IoT Device Workbench
+      href: howto-use-iot-device-workbench.md
+    - name: Installera IoT Explorer
+      href: howto-install-iot-explorer.md
+    - name: Registrera till IoT-portalen
+      href: howto-onboard-portal.md
+    - name: Hantera modeller
+      href: howto-manage-models.md
+    - name: Ansluta till och interagera med en enhet
+      href: howto-develop-solution.md
+- name: Referens
+  items:
+    - name: REST
+      href: 'https://aka.ms/iot-pnp-rest'
+    - name: Generera en REST-säkerhetstoken
+      href: howto-generate-sas-token.md
+- name: Relaterat
+  items:
+    - name: Lösningar
+      items:
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-accelerators
+    - name: Plattformstjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: 'SDK:er för IoT-tjänster'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Kartor
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: IoT Edge
+      items:
+        - name: Azure IoT Edge
+          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

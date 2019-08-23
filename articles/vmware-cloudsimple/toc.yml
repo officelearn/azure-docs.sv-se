@@ -42,7 +42,7 @@
           href: cloudsimple-account.md
         - name: Aktivitetsledning
           href: cloudsimple-activity.md
-        - name: VMware i privata moln
+        - name: VMware i privat moln
           href: vmware-components.md
         - name: Säkerhetsöversikt
           href: cloudsimple-security.md
@@ -66,7 +66,7 @@
               href: create-nodes.md
             - name: Ta bort noder
               href: delete-nodes.md
-        - name: Hantera resurser för privata moln
+        - name: Hantera resurser för privat moln
           items:
             - name: Skapa ett privat moln
               href: create-private-cloud.md
@@ -105,7 +105,7 @@
             - name: Visa listan över användare
               href: users.md
             - name: Konfigurera en virtuell nätverksanslutning till det privata molnet
-              href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
+              href: virtual-network-connection.md
             - name: Redigera din användarprofil
               href: 'https://docs.azure.cloudsimple.com/editprofile/'
         - name: Konfigurera virtuella VMware-datorer för det privata molnet
@@ -124,8 +124,8 @@
               href: escalate-privileges.md
             - name: DNS- och DHCP-konfiguration för arbetsbelastning
               href: dns-dhcp-setup.md
-            - name: NSX Layer 2-VPN för migrering
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn'
+            - name: Migrera arbetsbelastningar med hjälp av stretchade Layer 2-nätverk
+              href: migration-layer-2-vpn.md
         - name: Privata nätverk i molnet
           items:
             - name: VPN-anslutning mellan lokala och privata moln
@@ -142,27 +142,31 @@
               href: set-vcenter-identity.md
             - name: Azure Application Gateway med virtuella VMware-datorer
               href: azure-application-gateway.md
-            - name: Konfigurera vCenter-server för privat moln som vRealize-automatiseringsslutpunkt
+            - name: Konfigurera vCenter-server för privat moln som vRealize-automationsslutpunkt
               href: configure-server-vrealize-automation-endpoint.md
-            - name: Migrera arbetsbelastning för virtuella datorer till ett privat moln
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
+            - name: Migrera virtuella arbetsbelastningsdatorer till ett privat moln
+              href: migrate-workloads.md
             - name: Säkerställa hög tillgänglighet för program i VMware på Azure
               href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
+            - name: Välja en lösning för belastningsutjämning
+              href: load-balancers.md
         - name: VMware-ekosystem
           items:
             - name: Säkerhetskopiera virtuella datorer med arbetsbelastningar
               href: backup-workloads-veeam.md
+            - name: Konfigurera privat moln som en haveriberedskapsplats med hjälp av Zerto
+              href: disaster-recovery-zerto.md
             - name: Lösningsguide för VMware Horizon
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
             - name: Konfigurera vSAN-kryptering för ditt privata moln
               href: vsan-encryption.md
-            - name: Oracle RAC-distribution på privat CloudSimple-moln
-              href: 'https://docs.azure.cloudsimple.com/oracle-rac/'
+            - name: Optimera ditt privata moln för Oracle RAC
+              href: oracle-real-application-clusters.md
         - name: Azure Core-integrering
           items:
             - name: Azure AD-identitetskälla på privat moln i vCenter
               href: azure-ad.md
             - name: Lokal nätverksanslutning med ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: Lokal nätverksanslutning med ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'
+              href: azure-expressroute-connection.md

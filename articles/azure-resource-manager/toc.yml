@@ -97,9 +97,6 @@
         - name: Modularisera mallar
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
-        - name: Hantera hemligheter
-          displayname: key vault
-          href: resource-manager-keyvault-parameter.md
         - name: Skapa flera instanser
           href: resource-group-create-multiple.md
         - name: Använda malltillägg
@@ -124,6 +121,13 @@
           href: secure-template-with-sas-token.md
         - name: Distribuera till flera resursgrupper eller prenumerationer
           href: resource-manager-cross-resource-group-deployment.md
+    - name: Ange parametrar
+      items:
+        - name: Skapa parameterfil
+          href: resource-manager-parameter-files.md
+        - name: Skicka känsliga värden
+          displayname: key vault
+          href: resource-manager-keyvault-parameter.md
     - name: CI/CD
       items:
         - name: VS-projekt med pipelines

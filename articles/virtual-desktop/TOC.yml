@@ -34,8 +34,10 @@
       href: create-host-pools-powershell.md
     - name: Använd Windows-licens för Windows Virtual Desktop-sessionsvärdar
       href: apply-windows-license.md
-    - name: Skapa en användarprofilresurs för en värdpool
+    - name: Skapa en profilcontainer för en värdpool med hjälp av en filresurs
       href: create-host-pools-user-profile.md
+    - name: Skapa en profilcontainer för en värdpool med hjälp av Azure NetApp Files
+      href: create-fslogix-profile-container.md
     - name: Konfigurera metoden för belastningsutjämning för Windows Virtual Desktop
       href: configure-host-pool-load-balancing.md
     - name: Förbereda och anpassa en VHD-huvudavbildning

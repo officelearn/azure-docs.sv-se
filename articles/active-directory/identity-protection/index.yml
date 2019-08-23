@@ -1,40 +1,55 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure AD Identity Protection
+### YamlMime:Landing
+title: Dokumentation om Azure AD Identity Protection
+summary: Lär dig hur du använder Identity Protection för att identifiera och åtgärda identitetsrisker i din organisation
 metadata:
-  document_id: null
-  title: 'Dokumentation för Azure Active Directory Identity Protection – snabbstarter, begrepp, referenser | Microsoft Docs'
-  description: Se hur du konfigurerar och testar Azure Active Directory Identity Protection.
+  title: Dokumentation om Azure AD Identity Protection
+  description: Lär dig hur du använder Identity Protection för att identifiera och åtgärda identitetsrisker i din organisation
   services: active-directory
-  ms.subservice: identity-protection
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: identity-protection
   ms.topic: landing-page
-  ms.date: 09/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 'Se hur identifieringen av potentiellt komprometterade identiteter fungerar och hur du implementerar automatiska åtgärder för att ta hand om dem. Azure Active Directory Identity Protection är en funktion i Azure AD Premium P2-versionen som gör att du kan:<ul><li>Identifiera potentiella sårbarheter som påverkar organisationens identiteter</li><li>Konfigurera principer för villkorsstyrd åtkomst för att automatiskt åtgärda misstänkt aktivitet relaterad till organisationens identiteter</li><li>Undersöka misstänkta incidenter och vidta lämpliga åtgärder för att lösa dem</li></ul><br> Följande resurser hjälper dig att komma igång snabbt.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/video.png
-      width: 246
-    title: Introduktion till Azure AD Identity Protection
-    href: 'https://www.youtube.com/watch?v=zI3jn_G0_Ns'
-    width: 246
-sections:
-  - title: Snabbstarter på fem minuter
-    items:
-      - type: paragraph
-        text: Se hur du konfigurerar inloggningsriskprinciper för villkorsstyrd åtkomst för vanliga åtkomstscenarier.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Blockera åtkomst när en sessionsrisk identifieras
-            href: quickstart-sign-in-risk-policy.md
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: 5f69dff8568c308d7a8eb9d80e247ef7cfc58acd
+  ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/21/2019
+  ms.locfileid: "69874114"
+landingContent:
+- title: Om Identity Protection
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Identity Protection?
+      url: overview-v2.md
+    - text: Introduktion till säkerhetsöversikten
+      url: security-overview.md
+- title: Undersöka riskhändelser
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera riskprinciper
+      url: howto-configure-risk-policies.md
+    - text: Undersöka riskfyllda användare och inloggningar
+      url: howto-investigate-risky-users-signins.md
+  - linkListType: reference
+    links:
+    - text: Typer av händelser
+      url: risk-events-reference.md
+- title: Upplevelsen i Identity Protection
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Inloggning
+      url: flows.md
+  - linkListType: how-to-guide
+    links:
+    - text: Simulera riskhändelser
+      url: playbook.md
+  - linkListType: quickstart
+    links:
+    - text: Blockera åtkomst när en sessionsrisk identifieras
+      url: quickstart-sign-in-risk-policy.md

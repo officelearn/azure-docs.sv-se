@@ -195,25 +195,27 @@
   items:
     - name: Lösningar
       items:
-        - name: IoT-lösningsacceleratorer
-          href: /azure/iot-suite
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-accelerators
     - name: Plattformstjänster
       items:
         - name: IoT Hub
           href: /azure/iot-hub
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
         - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
+        - name: 'SDK:er för IoT-tjänster'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Kartor
           href: /azure/azure-maps
-        - name: 'Tjänst-SDK:er'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Azure IoT Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: Azure IoT Edge
           href: /azure/iot-edge
         - name: 'SDK:er för IoT-enheter'
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

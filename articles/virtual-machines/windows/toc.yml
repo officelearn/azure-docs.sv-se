@@ -251,6 +251,8 @@
           href: mitigate-se.md
         - name: Schemalagda händelser
           href: scheduled-events.md
+        - name: Övervaka schemalagda händelser
+          href: scheduled-event-service.md
         - name: Övervaka metadata
           href: instance-metadata-service.md
         - name: Aktivera kapslad virtualisering

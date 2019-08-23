@@ -5,14 +5,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 06/26/2019
+ms.date: 08/20/2019
 ms.author: dacoulte
-ms.openlocfilehash: e1bafdaa2883afb44aa3c609c0ccba0ce9d0a4ab
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 884777bce761f6b16581a28038bf9a28ce6a3801
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934165"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650531"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints-exempel
 
@@ -22,14 +23,26 @@ Följande tabell innehåller länkar till exempel för Azure Blueprints. Alla ex
 
 |  |  |
 |---------|---------|
-|[IRS 1075](./irs-1075/index.md)| Tillhandahåller efterlevnadsriktlinjer för ISO 1075.|
+| [IRS 1075](./irs-1075/index.md) | Tillhandahåller efterlevnadsriktlinjer för ISO 1075.|
 | [ISO 27001](./iso27001/index.md) | Tillhandahåller efterlevnadsriktlinjer för ISO 27001. |
 | [ISO 27001 Delade tjänster](./iso27001-shared/index.md) | Tillhandahåller en uppsättning kompatibla infrastrukturmönster och principriktlinjer som hjälper dig med attesteringen för ISO 27001. |
 | [ISO 27001 App Service-miljön/SQL Database-arbetsbelastning](./iso27001-ase-sql-workload/index.md) | Tillhandahåller ytterligare infrastruktur för skissexemplet [ISO 27001 Delade tjänster](./iso27001-shared/index.md). |
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | Tillhandahåller efterlevnadsriktlinjer för NIST SP 800-53 R4. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Innehåller en uppsättning principer som hjälp för efterlevnad av PCI-DSS v3.2.1. |
 | [Styrning av UK OFFICIAL och UK NHS](./ukofficial/index.md) | Tillhandahåller en uppsättning kompatibla infrastruktursmönster och principriktlinjer som hjälper dig med attesteringen för UK OFFICIAL och UK NHS. |
+| [CAF Foundation](./caf-foundation/index.md) | Innehåller en uppsättning kontroller som hjälper dig att hantera din molnegendom i enlighet med [Microsoft Cloud adoption Framework för Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index.md). |
+| [CAF Migrate-landningszonen](./caf-migrate-landing-zone/index.md) | Innehåller en uppsättning kontroller som hjälper dig att förbereda migrering av din första arbetsbelastning samt hantera din molnegendom i enlighet med [Microsoft Cloud adoption Framework för Azure (CAF)](/azure/architecture/cloud-adoption/migrate/index.md). |
 
+## <a name="samples-strategy"></a>Exempelstrategi
+
+![Strategi för skissexempel](../media/blueprint-samples-strategy.png)
+
+Skisserna för CAF Foundation och CAF Migrate-landningszonen förutsätter att kunden förbereder en befintlig, ren enstaka prenumeration för migrering av lokala tillgångar/arbetsbelastningar till Azure.
+(Region A och B i bilden ovan).  
+
+Det finns en möjlighet att iterera genom exempelskisserna och leta efter mönster för anpassningar som en kund använder. Det finns även möjligheten att proaktivt hantera ritningar som är branschspecifika, till exempel finansiella tjänster och näthandel (övre delen av region B). På ett liknande sätt tänker vi oss skapande av skisser för komplexa arkitektoniska överväganden såsom flera prenumerationer, hög tillgänglighet, resurser mellan flera regioner samt kunder som implementerar kontroller över flera prenumerationer och resurser (region C och D).
+
+Det finns exempelskisser som rör det kundscenario där efterlevnadskraven är höga och den arkitektoniska komplexiteten är hög (region E i bilden ovan). Region F ovan kommer att åtgärdas av kunder och partner som utnyttjar exempelskisserna och anpassar dem till sina unika behov.
 
 ## <a name="next-steps"></a>Nästa steg
 

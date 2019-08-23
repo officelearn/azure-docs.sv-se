@@ -1,56 +1,71 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation till Azure AD villkorsstyrd åtkomst
+### YamlMime:Landing
+title: Dokumentation om villkorsstyrd åtkomst för Azure AD
+summary: Lär dig hur du konfigurerar och testar villkorsstyrd åtkomst för Azure Active Directory
 metadata:
-  document_id: null
-  title: 'Dokumentation för villkorsstyrd åtkomst i Azure Active Directory – självstudier, begrepp, referenser | Microsoft Docs'
-  description: Se hur du konfigurerar och testar villkorsstyrd åtkomst för Azure Active Directory.
+  title: Dokumentation om villkorsstyrd åtkomst för Azure AD
+  description: Lär dig hur du konfigurerar och testar villkorsstyrd åtkomst för Azure Active Directory
   services: active-directory
-  ms.subservice: conditional-access
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: conditional-access
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 'Se hur du klarar balansen mellan säkerhet och produktivitet genom att konfigurera villkorsstyrd åtkomst för Azure AD. Med principer för villkorsstyrd åtkomst kan du ta med åtkomsten till dina molnappar i dina åtkomstbeslut. Du kan till exempel besvara följande frågor inför dina åtkomstbeslut:<ul><li>Vilken är användarens nätverksplats?</li><li>Gjordes åtkomstförsöket från en hanterad enhet?</li><li>Från vilken klientapp gjordes åtkomstförsöket?</li><li>Har ett åtkomstförsök gjorts från en riskabel inloggning?</li></ul>Följande resurser hjälper dig att komma igång snabbt.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/video.png
-      width: 246
-    title: Förklaring av villkorsstyrd åtkomst
-    href: 'https://www.youtube.com/watch?v=XruceejcCKQ'
-    width: 246
-sections:
-  - title: Snabbstarter på fem minuter
-    items:
-      - type: paragraph
-        text: Se hur du konfigurerar principer för villkorsstyrd åtkomst för vanliga åtkomstscenarier.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Kräv MFA för specifika appar
-            href: app-based-mfa.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Blockera åtkomst när en sessionsrisk identifieras
-            href: app-sign-in-risk.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Kräv att användningsvillkoren godkänns
-            href: require-tou.md
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Se hur du migrerar dina klassiska principer för villkorsstyrd åtkomst.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Migrera en klassisk princip som kräver multifaktorautentisering</a>
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: 39f9cf3e64e343c2da98f2c4f4b403ccdc0f3f20
+  ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/21/2019
+  ms.locfileid: "69874267"
+landingContent:
+- title: Om villkorsstyrd åtkomst
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är villkorsstyrd åtkomst?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Vad är villkor?
+      url: conditions.md
+    - text: Hur definierar jag platser?
+      url: location-condition.md
+    - text: Vad är kontroller?
+      url: controls.md
+    - text: Tjänstberoenden för villkorsstyrd åtkomst
+      url: service-dependencies.md
+- title: Distribuera villkorsstyrd åtkomst
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planera en distribution av villkorsstyrd åtkomst
+      url: plan-conditional-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: Blockera äldre autentisering
+      url: block-legacy-authentication.md
+    - text: Felsöka med hjälp av What If-verktyget
+      url: troubleshoot-conditional-access-what-if.md
+- title: Vanliga principer för villkorlig åtkomst
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vanliga principer för villkorlig åtkomst
+      url: concept-conditional-access-policy-common.md
+  - linkListType: how-to-guide
+    links:
+    - text: Kräv MFA för administratörer
+      url: howto-conditional-access-policy-admin-mfa.md
+    - text: Kräv MFA för Azure-hantering
+      url: howto-conditional-access-policy-azure-management.md
+    - text: Blockera äldre autentisering
+      url: howto-conditional-access-policy-block-legacy.md
+    - text: Riskbaserade villkorsstyrd åtkomst (kräver Azure AD Premium P2)
+      url: howto-conditional-access-policy-risk.md
+    - text: Kräv betrodd plats för MFA-registrering
+      url: howto-conditional-access-policy-registration.md
+    - text: Blockera åtkomst efter plats
+      url: howto-conditional-access-policy-location.md
+    - text: Kräv kompatibel enhet
+      url: howto-conditional-access-policy-compliant-device.md

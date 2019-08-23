@@ -102,7 +102,9 @@
           items:
             - name: Skapa en dynamisk grupp
               href: groups-create-rule.md
-            - name: Dynamiska gruppregler
+            - name: Uppdatera en medlemskapsregel
+              href: groups-update-rule.md
+            - name: Dynamiska gruppregler och syntax
               href: groups-dynamic-membership.md
             - name: Ändra typ av gruppmedlemskap
               href: groups-change-type.md

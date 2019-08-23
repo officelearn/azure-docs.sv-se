@@ -82,7 +82,7 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Bifoga eller ta bort ett delat bildgalleri
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-        - name: Skapa och konfigurera klassrumslabb (lärare)
+        - name: Skapa och konfigurera klassrumslabb (instruktör)
           items:
             - name: Skapa och hantera klassrumslabb
               href: classroom-labs/how-to-manage-classroom-labs.md
@@ -104,6 +104,10 @@
           items:
             - name: Åtkomst till klassrumslabb
               href: classroom-labs/how-to-use-classroom-lab.md
+            - name: Använda fjärrskrivbordsanslutning för virtuella Linux-datorer
+              href: classroom-labs/how-to-use-remote-desktop-linux-student.md
+            - name: Ange eller återställa lösenord för virtuella datorer
+              href: classroom-labs/how-to-set-virtual-machine-passwords-student.md
     - name: DevTest Labs
       items:
         - name: Konfigurera ett labb

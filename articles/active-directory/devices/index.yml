@@ -1,35 +1,59 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure AD-enhetsidentitet
+summary: Lär dig hur du konfigurerar och hanterar enhetsidentiteter i Azure AD.
 metadata:
-  document_id: null
-  title: 'Dokumentation om hantering av enhetsidentitet i Azure Active Directory – Självstudier, begrepp och referenser | Microsoft Docs'
+  title: Dokumentation om Azure AD-enhetsidentitet
   description: Lär dig hur du konfigurerar och hanterar enhetsidentiteter i Azure AD.
   services: active-directory
-  ms.subservice: devices
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: devices
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: Via enheter i Azure AD får dina användare åtkomst till företagstillgångar. För att skydda företagstillgångar vill du som IT-administratör hantera enhetsidentiteterna i Azure AD. På så sätt kan du se till att användarna får åtkomst till resurserna från enheter som uppfyller dina krav för säkerhet och efterlevnad.<br>Hantering av enhetsidentitet utgör även grunden för enhetsbaserad villkorsstyrd åtkomst. Med enhetsbaserad villkorsstyrd åtkomst kan du se till att endast hanterade enheter kan komma åt resurserna i miljön.
-sections:
-  - title: Stegvisa självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du integrerar dina lokala AD-anslutna enheter med Azure AD.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Hanterade domäner
-            href: hybrid-azuread-join-managed-domains.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Federerade domäner
-            href: hybrid-azuread-join-federated-domains.md
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: e26be2206ba63fa4721ced7ed1a2f35ddc63a5fd
+  ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/20/2019
+  ms.locfileid: "69648931"
+landingContent:
+- title: Om enhetsidentitet
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är en enhetsidentitet?
+      url: overview.md
+    - text: Vad är Enterprise State Roaming?
+      url: enterprise-state-roaming-overview.md
+  - linkListType: concept
+    links:
+    - text: Azure AD-registrerade enheter
+      url: concept-azure-ad-register.md
+    - text: Azure AD-anslutna enheter
+      url: concept-azure-ad-join.md
+    - text: Hybrid Azure AD-anslutna enheter
+      url: concept-azure-ad-join-hybrid.md
+    - text: Enkel inloggning till lokala resurser
+      url: azuread-join-sso.md
+    - text: Primära uppdateringstoken
+      url: concept-primary-refresh-token.md
+- title: Konfigurera och hantera Azure AD-anslutna enheter
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Planera implementeringen av Azure AD-anslutningen
+      url: azureadjoin-plan.md
+    - text: Hantera gruppen med lokala administratörer på Azure AD-anslutna enheter
+      url: assign-local-admin.md
+    - text: Hitta och hantera inaktuella enheter i Azure AD
+      url: manage-stale-devices.md
+- title: Konfigurera och hantera Azure AD-anslutna hybridenheter
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Planera implementering av Azure AD-anslutningshybriden
+      url: hybrid-azuread-join-plan.md
+    - text: Felsöka Azure AD-anslutna hybridenheter
+      url: troubleshoot-hybrid-join-windows-current.md

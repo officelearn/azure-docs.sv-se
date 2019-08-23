@@ -356,6 +356,8 @@
       href: service-fabric-concept-resource-model.md
     - name: Hanterad identitet (förhandsversion)
       href: concepts-managed-identity.md
+    - name: Konfigurera autentiseringsuppgifter för containerlagringsplats
+      href: configure-container-repository-credentials.md
 - name: Instruktionsguider
   items:
     - name: Ställt in din utvecklingsmiljö

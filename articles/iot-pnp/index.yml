@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om IoT Plug and Play-förhandsversion
+metadata:
+  title: Dokumentation om IoT Plug and Play-förhandsversion – självstudier och API-referens | Microsoft Docs
+  description: 'Lär dig hur du använder IoT Plug and Play med hjälp av självstudier, API-referenser, videor och annan dokumentation.'
+  author: dominicbetts
+  manager: philmea
+  ms.service: iot-pnp
+  services: iot-pnp
+  ms.topic: landing-page
+  ms.date: 07/23/2019
+  ms.author: dobett
+abstract:
+  description: 'Lär dig hur du använder IoT Plug and Play-förhandsversionen för att definiera en enhetsmodell som gör att molnlösningar automatiskt kan förstå din enhet och börja interagera med den – du behöver inte skriva någon enhetskod. Självstudier, API-referenser, videor och annan dokumentation hjälper dig att ansluta enheter till molnlösningar såsom Azure IoT Central eller partnerprogram.'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/index/video-thumb-pnp-introduction.png
+      width: 250
+    title: 'Introduktion till IoT Plug and Play. (11:54)'
+    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player'
+    width: 250
+sections:
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: Lär dig hur du <a href="quickstart-create-pnp-device">använder en enhetskapacitetsmodell för att skapa en enhet</a>.
+      - type: paragraph
+        text: Lär dig hur du <a href="quickstart-connect-pnp-device-solution">ansluter en enhet till din lösning</a>.
+  - title: Steg för steg-självstudier
+    items:
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-pnp-visual-studio-code">Skapa en enhet med hjälp av Visual Studio Code</a>
+          - html: <a href="tutorial-build-device-certification">Bygga en enhet som är redo för certifiering</a>
+          - html: <a href="tutorial-certification-test">Certifiera enheten</a>

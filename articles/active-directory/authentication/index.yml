@@ -1,43 +1,87 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om Azure AD-autentisering
+### YamlMime:Landing
+title: Dokumentation om Azure Active Directory-autentisering
+summary: Lär dig hur du hanterar och distribuerar Azure Active Directory-lösenordsåterställning via självbetjäning, Multi-Factor Authentication, listor över anpassade förbjudna lösenord och smart utlåsning.
 metadata:
-  document_id: null
   title: Dokumentation om Azure Active Directory-autentisering
-  description: 'Lär dig hur du hanterar och distribuerar Azure Active Directory-lösenordsåterställning via självbetjäning, Multi-Factor Authentication, listor över anpassade förbjudna lösenord och smart utlåsning.'
+  description: Lär dig hur du hanterar och distribuerar Azure Active Directory-lösenordsåterställning via självbetjäning, Multi-Factor Authentication, listor över anpassade förbjudna lösenord och smart utlåsning.
   services: active-directory
-  ms.subservice: authentication
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: authentication
   ms.topic: landing-page
-  ms.date: 07/19/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 'Lär dig hur du distribuerar och hanterar Azure Active Directory-lösenordsåterställning via självbetjäning, Multi-Factor Authentication, listor över anpassade förbjudna lösenord och smart utlåsning. Dessa funktioner tillsammans ger stark autentisering med en mängd verifieringsmetoder och en enkel inloggningsprocess för organisationen.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Lär dig hur du aktiverar lösenordsåterställning via självbetjäning för att minska antalet samtal från användarna till supportavdelningen.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_protect.png
-            text: Aktivera lösenordsåterställning via självbetjäning
-            href: 'https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr'
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du aktiverar en enkel och säker inloggningsprocess för organisationen.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">Aktivera pilot för lösenordsåterställning via självbetjäning</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Kräv MFA för Azure-portalen</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">Aktivera lösenordsåterställning via självbetjäning för lokal integration</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">Aktivera Windows 10-lösenordsåterställning</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">Integrera med Azure Identity Protection</a>
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: 4ae9515bf7926eca305f77eff4bae3ab53d1dfa0
+  ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/21/2019
+  ms.locfileid: "69874388"
+landingContent:
+- title: Om autentisering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är autentisering?
+      url: overview-authentication.md
+    - text: Vad är autentiseringsmetoder?
+      url: concept-authentication-methods.md
+    - text: Registrering av säkerhetsinformation
+      url: concept-registration-mfa-sspr-combined.md
+    - text: Vad är lösenordsfritt?
+      url: concept-authentication-passwordless.md
+- title: Distribuera återställning av lösenord via självbetjäning
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Så fungerar självbetjäning av lösenordsåterställning
+      url: concept-sspr-howitworks.md
+    - text: Tillbakaskrivning av lösenord
+      url: concept-sspr-writeback.md
+  - linkListType: quickstart
+    links:
+    - text: Snabbstart för självbetjäning av lösenordsåterställning
+      url: quickstart-sspr.md
+  - linkListType: deploy
+    links:
+    - text: Distribuera självbetjäning av lösenordsåterställning för Azure AD
+      url: howto-sspr-deployment.md
+    - text: Aktivera tillbakaskrivning av lösenord
+      url: howto-sspr-writeback.md
+    - text: Aktivera återställning av lösenord från Windows-inloggningsskärmen
+      url: howto-sspr-windows.md
+- title: Aktivera Azure Multi-Factor Authentication
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Så fungerar Azure Multi-Factor Authentication
+      url: concept-mfa-howitworks.md
+  - linkListType: tutorial
+    links:
+    - text: Pilottesta Azure MFA för specifika program
+      url: tutorial-mfa-applications.md
+    - text: Använda riskhändelser för att utlösa multifaktorautentisering och lösenordsändringar
+      url: tutorial-risk-based-sspr-mfa.md
+  - linkListType: deploy
+    links:
+    - text: Distribuera Azure Multi-Factor Authentication
+      url: howto-mfa-getstarted.md
+    - text: Använda NPS-tillägget för att integrera lokala program
+      url: howto-mfa-nps-extension.md
+- title: Distribuera Azure AD-lösenordsskydd
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Eliminera svaga lösenord i molnet
+      url: concept-password-ban-bad.md
+    - text: Eliminera svaga lösenord lokalt
+      url: concept-password-ban-bad-on-premises.md
+  - linkListType: get-started
+    links:
+    - text: Konfigurera listan med förbjudna lösenord
+      url: howto-password-ban-bad-configure.md
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuera Azure AD-lösenordsskydd
+      url: howto-password-ban-bad-on-premises-deploy.md

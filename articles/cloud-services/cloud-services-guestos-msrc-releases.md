@@ -10,17 +10,72 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/2/2019
+ms.date: 8/19/2019
 ms.author: raiye
-ms.openlocfilehash: 6f7fc27674ad26d8de8dd5d0c6c801b269b0e686
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c27438dbbeffc0837c3d71d9bb532803655538b8
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941714"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637532"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
+
+
+## <a name="august-2019-guest-os"></a>Gäst operativ system augusti 2019
+
+>[!NOTE]
+>Gäst operativ systemet i augusti distribueras för närvarande till virtuella datorer i moln tjänsten som har kon figurer ATS för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringsfiler ingår i augusti gäst operativ system. Den här listan kan ändras.
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
+| --- | --- | --- | --- | --- |
+|  Rel 19-08   |  [4512482]  |  Windows-säkerhet   |  3,76  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4494175]  |  Uppdatering av mikrokoder   |  5,34  |  Jun 18, 2019  |
+|  Rel 19-08   |  [4512517]  |  Senaste kumulativa uppdateringen   |  5,34  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4494174]  |  Uppdatering av mikrokoder   |  6.1  |  Jun 18, 2019  |
+|  Rel 19-08   |  [4511553]  |  Senaste kumulativa uppdateringen   |  6.1  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4512486]  |  Windows-säkerhet   |  2,89  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4512489]  |  Windows-säkerhet   |  4,69  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  2,89, 3,76, 4,69  |  Aug 15, 2019  |
+|  Rel 19-08   |  [4507449]  |  Ej säkerhet   |  2,89  |  9 juli 2019  |
+|  Rel 19-08   |  [4507000]  |  .NET 4.5.2 icke-säkerhet   |  3,76  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507002]  |  .NET 3,5 icke-säkerhet   |  3,76  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507462]  |  Ej säkerhet   |  3,76  |  9 juli 2019  |
+|  Rel 19-08   |  [4506999]  |  .NET 4.5.2 icke-säkerhet    |  4,69  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507005]  |  .NET 3,5 icke-säkerhet    |  4,69  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507448]  |  Ej säkerhet   |  4,69  |  9 juli 2019  |
+|  Rel 19-08   |  [4509091]  |  Uppdatering av underhålls stack   |  5,34  |  9 juli 2019  |
+|  Rel 19-08   |  [4509095]  |  Uppdatering av underhålls stack   |  6.1  |  9 juli 2019  |
+|  Rel 19-08   |  [4512937]  |  Uppdatering av underhålls stack   |  6.1  |  29 juli 2019  |
+|  Rel 19-08   |  [4507004]  |  .NET 3.5.1 icke-säkerhet    |  2,89  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4504418]  |  Uppdatering av underhålls stack   |  3,76, 4,69  |  11 juli 2019  |
+|  Rel 19-08   |  [4507001]  |  .NET 4.5.2 icke-säkerhet   |  2,89  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507704]  |  Sommar tids inställningar i Windows för Brasilien och Marocko   |  2,89, 3,76, 4,69, 5,34  |  Aug 13, 2019  |
+
+[4512482]: https://support.microsoft.com/kb/4512482
+[4494175]: https://support.microsoft.com/kb/4494175
+[4512517]: https://support.microsoft.com/kb/4512517
+[4494174]: https://support.microsoft.com/kb/4494174
+[4511553]: https://support.microsoft.com/kb/4511553
+[4512486]: https://support.microsoft.com/kb/4512486
+[4512489]: https://support.microsoft.com/kb/4512489
+[4511872]: https://support.microsoft.com/kb/4511872
+[4507449]: https://support.microsoft.com/kb/4507449
+[4507000]: https://support.microsoft.com/kb/4507000
+[4507002]: https://support.microsoft.com/kb/4507002
+[4507462]: https://support.microsoft.com/kb/4507462
+[4506999]: https://support.microsoft.com/kb/4506999
+[4507005]: https://support.microsoft.com/kb/4507005
+[4507448]: https://support.microsoft.com/kb/4507448
+[4509091]: https://support.microsoft.com/kb/4509091
+[4509095]: https://support.microsoft.com/kb/4509095
+[4512937]: https://support.microsoft.com/kb/4512937
+[4507004]: https://support.microsoft.com/kb/4507004
+[4504418]: https://support.microsoft.com/kb/4504418
+[4507001]: https://support.microsoft.com/kb/4507001
+[4507704]: https://support.microsoft.com/kb/4507704
+
 
 ## <a name="july-2019-guest-os"></a>Juli 2019 gäst operativ system
 

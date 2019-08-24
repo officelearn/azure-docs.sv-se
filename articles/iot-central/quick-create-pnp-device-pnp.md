@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 152e373f3a340a8abe3d8bc54d6515296d95efba
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 48161f56a8885239525587b764c4a116ffc8539f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878322"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997737"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Snabbstart: Använd en modell för enhets kapacitet för att skapa en IoT Plug and Play-enhet och ansluta den till ditt IoT Central-program
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-En _enhets kapacitets modell_ (DCM) beskriver funktionerna i en [IoT plug and Play](https://aka.ms/iot-pnp-docs) -enhet. IoT Central kan använda ett DCM för att skapa en enhets mall och visualiseringar för en enhet när enheten ansluter för första gången. I den här snabbstarten får du veta hur du:
+En _enhets kapacitets modell_ (DCM) beskriver funktionerna i en [IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md) -enhet. IoT Central kan använda ett DCM för att skapa en enhets mall och visualiseringar för en enhet när enheten ansluter för första gången. I den här snabbstarten får du veta hur du:
 
 * Använd Visual Studio Code för att skapa en IoT Plug and Play-enhet med hjälp av ett DCM.
 * Kör enhets koden i Windows och se att den är ansluten till ditt IoT Central-program.

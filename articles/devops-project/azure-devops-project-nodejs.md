@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: dadc394e9c9ddb152923095de10b8f727310d3f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eeab0433310892f27b9cb2d2eb6f64e17e6f14ef
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554837"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991727"
 ---
 #  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för Node.js med Azure DevOps Projects 
 
@@ -54,9 +54,9 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 
 1. Skapa en ny Azure DevOps-organisation eller använd en befintlig organisation. 
 
-    a. Välj ett namn för projektet. 
+    a. Ange ett namn för projektet.
 
-    b. Välj din Azure-prenumeration och plats, välj ett namn för programmet och välj sedan **Klar**.  
+    b. Välj din Azure-prenumeration och plats, ange ett namn för programmet och välj sedan **Klar**.  
     Efter några minuter visas DevOps Projects-instrumentpanelen i Azure-portalen. Ett exempelprogram konfigureras i en lagringsplats i din Azure DevOps-organisation, en version körs och programmet distribueras till Azure. Den här instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och ditt program i Azure.
      
 3. Visa ditt körande program genom att välja **Bläddra**.
@@ -78,7 +78,7 @@ Den här länken öppnar en vy till den nyligen skapade Git-lagringsplatsen.
 1. På vänster sida i webbläsaren går du till filen **views/index.pug**.
 
 1. Välj **Redigera** och gör en ändring i h2-rubriken.  
-    Du kan till exempel skriva **Komma igång direkt med Azure DevOps-projekt** eller göra någon annan ändring.
+    Ange till exempel **Kom igång direkt med Azure DevOps Projects** eller gör några andra ändringar.
 
 1. Välj **Checka in** och spara sedan ändringarna.
 
@@ -154,6 +154,6 @@ När du konfigurerade CI/CD-processen skapades bygg- och versionspipelines autom
 > [!div class="nextstepaction"]
 > [Anpassa CD-process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Videor
 
 > [!VIDEO https://www.youtube.com/embed/3etwjubReJs]

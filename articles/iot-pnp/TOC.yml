@@ -12,7 +12,7 @@
     - name: Ansluta en enhet till IoT Hub
       href: quickstart-connect-pnp-device.md
     - name: Ansluta en enhet till IoT Central
-      href: 'https://aka.ms/iot-central-connect-qs'
+      href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: Ansluta till en enhet i din lösning
       href: quickstart-connect-pnp-device-solution.md
 - name: Självstudier
@@ -50,7 +50,7 @@
 - name: Referens
   items:
     - name: REST
-      href: 'https://aka.ms/iot-pnp-rest'
+      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel'
     - name: Generera en REST-säkerhetstoken
       href: howto-generate-sas-token.md
 - name: Relaterat
@@ -58,7 +58,7 @@
     - name: Lösningar
       items:
         - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /azure/iot-central
         - name: IoT-lösningsacceleratorer
           href: /azure/iot-accelerators
     - name: Plattformstjänster

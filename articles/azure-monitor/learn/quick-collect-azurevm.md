@@ -1,5 +1,5 @@
 ---
-title: Samla in data om virtuella datorer i Azure | Microsoft Docs
+title: Samla in data från en virtuell Azure-dator med Azure Monitor | Microsoft Docs
 description: Lär dig hur du aktiverar Log Analytics-agentens tillägg för virtuella datorer och hur du aktiverar insamling av data från virtuella datorer i Azure med Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 1a61c0f96f62712bbd2500b2e80fd08565990bbe
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8e44908baea506efa488899c90e9022acc6e30b8
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874892"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992155"
 ---
-# <a name="collect-data-about-azure-virtual-machines"></a>Samla in data om virtuella datorer i Azure
+# <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Samla in data från en virtuell Azure-dator med Azure Monitor
 
-Med [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) kan du samla in data direkt från virtuella datorer i Azure och från andra resurser i din miljö till en enda lagringsplats för detaljerad analys och korrelation. Den här snabbstarten visar hur du konfigurerar och samlar in data från virtuella Linux- eller Windows-datorer i Azure med några enkla steg.  
+[Azure Monitor](../overview.md) kan samla in data direkt från dina virtuella Azure-datorer till en Log Analytics arbets yta för detaljerad analys och korrelation. Genom att installera Log Analytics VM-tillägget för [Windows](../../virtual-machines/extensions/oms-windows.md) och [Linux](../../virtual-machines/extensions/oms-linux.md) kan Azure Monitor samla in data från dina virtuella Azure-datorer. Den här snabb starten visar hur du konfigurerar och samlar in data från dina virtuella Azure Linux-eller Windows-datorer med hjälp av VM-tillägget med några få enkla steg.  
  
 För den här snabbstarten förutsätts det att du har en befintlig virtuell dator i Azure. Om du inte har det kan du [skapa en virtuell Windows-dator](../../virtual-machines/windows/quick-create-portal.md) eller [skapa en virtuell Linux-dator](../../virtual-machines/linux/quick-create-cli.md) med hjälp av våra snabbstarter för virtuella datorer.
 
@@ -33,7 +33,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 
     ![Azure Portal](media/quick-collect-azurevm/azure-portal-01.png)<br>  
 
@@ -55,7 +55,7 @@ När informationen har verifierats och arbetsytan skapas, kan du spåra förlopp
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-För virtuella Windows- och Linux-datorer som redan har distribuerats i Azure installerar du Log Analytics-agenten med Log Analytics-tillägget för virtuella datorer. Med hjälp av tillägget förenklas installationen och agenten konfigureras automatiskt att skicka data till den Log Analytics-arbetsyta som du anger. Agenten uppgraderas också automatiskt så att du alltid har de senaste funktionerna och korrigeringarna. Kontrollera att den virtuella datorn körs innan du fortsätter, annars misslyckas processen.  
+För virtuella Windows- och Linux-datorer som redan har distribuerats i Azure installerar du Log Analytics-agenten med Log Analytics-tillägget för virtuella datorer. Med hjälp av tillägget förenklas installationen och agenten konfigureras automatiskt att skicka data till den Log Analytics-arbetsyta som du anger. Agenten uppgraderas också automatiskt när en nyare version släpps, vilket säkerställer att du har de senaste funktionerna och korrigeringarna. Kontrollera att den virtuella datorn körs innan du fortsätter, annars misslyckas processen.  
 
 >[!NOTE]
 >Log Analytics-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics-arbetsyta. 
@@ -74,7 +74,7 @@ För virtuella Windows- och Linux-datorer som redan har distribuerats i Azure in
 
 ## <a name="collect-event-and-performance-data"></a>Samla in data om händelser och prestanda
 
-Log Analytics kan samla in händelser från Windows-händelseloggar eller Linux Syslog och prestandaräknare som du anger för analys och rapportering på längre sikt samt vidta åtgärder när ett visst villkor har identifierats. Följ dessa steg om du vill konfigurera insamling av händelser från Windows systemlogg och Linux Syslog och flera vanliga prestandaräknare till att börja med.  
+Azure Monitor kan samla in händelser från Windows-händelseloggen eller Linux syslog och prestanda räknare som du anger för analys och rapportering på längre sikt samt vidta åtgärder när ett visst villkor har identifierats. Följ dessa steg om du vill konfigurera insamling av händelser från Windows systemlogg och Linux Syslog och flera vanliga prestandaräknare till att börja med.  
 
 ### <a name="data-collection-from-windows-vm"></a>Insamling av data från virtuella Windows-datorer
 
@@ -124,15 +124,15 @@ Log Analytics kan samla in händelser från Windows-händelseloggar eller Linux 
 
 Nu när du har aktiverat insamling av data kan du köra en enkel loggsökning för att se vissa data från de virtuella måldatorerna.  
 
-1. Gå till Azure Portal, navigera till Log Analytics och välj den arbetsyta du skapade tidigare.
+1. I den valda arbets ytan väljer du **loggar**i den vänstra rutan.
 
-2. Välj panelen **loggs ökning** och gå till fönstret loggs ökning, i fältet `Perf` frågetyp och tryck sedan på RETUR eller Välj Sök knappen till höger om fältet fråga.
+2. På sidan loggar fråga skriver `Perf` du i Frågeredigeraren och väljer **Kör**.
 
-    ![Exempel på loggsökningsfråga i Log Analytics](./media/quick-collect-azurevm/log-analytics-portal-perf-query.png) 
+    ![Exempel på loggsökningsfråga i Log Analytics](./media/quick-collect-windows-computer/log-analytics-portal-queryexample.png) 
 
-Frågan i följande bild returnerar till exempel 735 prestandaposter.  Ditt resultatet blir mycket mindre.
+    Frågan i följande bild returnerade till exempel 10 000 prestanda poster. Ditt resultatet blir mycket mindre.
 
-![Resultat av loggsökning i Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
+    ![Resultat av loggsökning i Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea247907aebc241fb8f1b266ad55bc2fc983607f
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: c971e84a12b23625326d63b3493395f1d1381937
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853994"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996900"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-app i Azure App Service i Linux (förhandsversion)
 
@@ -41,7 +41,7 @@ Skapa en snabbstartskatalog i Cloud Shell och ändra sedan till den.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Kör sedan följande kommando för att klona lagringsplatsen för exempelprogrammet till din snabbstartskatalog.
@@ -165,7 +165,7 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den inbyggda Python-avbildningen i App Service på Linux är nu i förhandsversion, och du kan anpassa kommandot som används för att starta appen. Du kan även skapa Python-appar för produktion med en anpassad container istället.
+Den inbyggda python-avbildningen i App Service på Linux är för närvarande en för hands version och du kan anpassa kommandot som används för att starta appen. Du kan även skapa Python-appar för produktion med en anpassad container istället.
 
 > [!div class="nextstepaction"]
 > [Självstudier: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)

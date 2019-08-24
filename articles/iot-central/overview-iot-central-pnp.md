@@ -9,19 +9,19 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 0675be988e7e9560560dd07338563c9fa22fcb4c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: af5b16448a39e0106dbc04724607ff603483484c
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878294"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997751"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Vad är Azure IoT Central (för hands versions funktioner)?
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 > [!WARNING]
-> [IoT plug and Play](https://aka.ms/iot-pnp-docs) -funktionerna i Azure IoT Central finns för närvarande i en offentlig för hands version. Använd inte ett IoT-Plug and Play aktiverat IoT Central program för produktions arbets belastningar. För produktions miljöer används ett IoT Central-program som skapats från en aktuell, allmänt tillgänglig program mal len.
+> [IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md) -funktionerna i Azure IoT Central finns för närvarande i en offentlig för hands version. Använd inte ett IoT-Plug and Play aktiverat IoT Central program för produktions arbets belastningar. För produktions miljöer används ett IoT Central-program som skapats från en aktuell, allmänt tillgänglig program mal len.
 
 Azure IoT Central är en fullständigt hanterad IoT-lösning för program vara som en tjänst som gör det enkelt att skapa produkter som ansluter till fysiska och digitala världar. Du kan förverkliga din vision för anslutna produkter genom att:
 
@@ -95,7 +95,7 @@ Den här enhets mal len innehåller:
 
 ### <a name="create-device-templates"></a>Skapa mallar för enheter
 
-[IoT plug and Play](https://aka.ms/iot-pnp-docs) gör det möjligt för IoT Central att integrera enheter utan att du behöver skriva någon inbäddad enhets kod. I IoT-Plug and Play är ett modell schema för enhets kapacitet som beskriver enhets funktioner. I ett IoT Central för hands versions program använder enhets mallarna de här IoT-Plug and Play enhets kapacitets modeller.
+[IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md) gör det möjligt för IoT Central att integrera enheter utan att du behöver skriva någon inbäddad enhets kod. I IoT-Plug and Play är ett modell schema för enhets kapacitet som beskriver enhets funktioner. I ett IoT Central för hands versions program använder enhets mallarna de här IoT-Plug and Play enhets kapacitets modeller.
 
 Som ett verktyg har du flera alternativ för att skapa enhets mallar:
 
@@ -151,4 +151,4 @@ Nu när du har en översikt över Azure IoT Central föreslår vi nästa steg:
   - [som byggare – lägga till regler för att automatisera din lösning](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [som operatör – övervaka dina enheter](tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [Lägg till en enhet i lösningen som en operatör](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- Lär dig mer om [IoT plug and Play](https://aka.ms/iot-pnp-docs)
+- Lär dig mer om [IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md)

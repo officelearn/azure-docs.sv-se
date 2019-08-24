@@ -127,6 +127,8 @@
       href: how-to-event-domains.md
     - name: Implementera redundans på klientsidan
       href: custom-disaster-recovery.md
+    - name: Felsöka fel
+      href: troubleshoot-errors.md
 - name: Referens
   items:
     - name: Azure CLI

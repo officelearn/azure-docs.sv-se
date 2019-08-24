@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
-ms.openlocfilehash: 2f39678e9fa0ed665863a94767240e2e37eace39
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
-ms.translationtype: HT
+ms.openlocfilehash: f0d63b9e01b7e39b03e6a3b1e310b5fae0f8d25f
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906119"
+ms.locfileid: "69982851"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure-portalen
 
@@ -43,7 +43,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
    | Egenskap | Value | Beskrivning |
    |----------|-------|-------------|
-   | **Namn** | <*logic-app-name*> | Ditt Logic app-namn, som endast får innehålla `-`bokstäver, siffror eller tecknen `)`, `(` `_`,,, `.` och. I det här exemplet används "min-First-Logic-app". |
+   | **Namn** | <*logic-app-name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "min-First-Logic-app". |
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Ditt Azure-prenumerations namn |
    | **Resursgrupp** | <*Azure-resource-group-name*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". |
    | **Location** | <*Azure-region*> | Den region där du vill lagra information om din Logic Apps. I det här exemplet används "västra USA". |

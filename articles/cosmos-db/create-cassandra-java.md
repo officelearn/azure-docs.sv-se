@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: seo-java-august2019
-ms.openlocfilehash: 7a76ed943a9c3f7312653d1ea4d714e4c02a5294
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 6463a578d514a7bcc9fb703e34f94381e1e9cf65
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615626"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981776"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med SDK Java och Azure Cosmos DB
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>Snabbstart: Bygg en Java-app för att hantera Azure Cosmos DB API för Cassandra data
 
 > [!div class="op_single_selector"]
 > * [NET](create-cassandra-dotnet.md)

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
+ms.date: 08/23/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 38d353541b233f3cd9466e8dcf6c2b84083bd859
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6c198b6d5e9ecfed3f36ddc3be831af85a913ca5
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515789"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995837"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Lathund för Azure SQL Data Warehouse
 Med den här lathunden får du praktiska tips och bästa metoder för att skapa dina Azure SQL Data Warehouse-lösningar. Innan du börjar bör du lära dig mer om varje steg genom att läsa om [mönster och antimönster i arbetsbelastningar i Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns), där det står vad SQL Data Warehouse är och vad det inte är.
@@ -41,7 +41,7 @@ Läs först in dina data till [Azure Data Lake Store](https://docs.microsoft.com
 |:--- |:--- |
 | Distribution | Resursallokering |
 | Indexering | Heap |
-| Partitionering | Ingen |
+| Partitionering | Inga |
 | Resursklass | largerc eller xlargerc |
 
 Läs mer om [datamigrering], [datainläsning] och [ELT-processen (Extract, Load, and Transform)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
@@ -50,7 +50,7 @@ Läs mer om [datamigrering], [datainläsning] och [ELT-processen (Extract, Load,
 
 Använd följande strategier, beroende på tabellens egenskaper:
 
-| Type | Passar bra för...| Se upp om...|
+| type | Passar bra för...| Se upp om...|
 |:--- |:--- |:--- |
 | Replikerad | • Små dimensionstabeller i ett star-schema med mindre än 2 GB lagring efter komprimering (~5x komprimering) |•  Det finns många skrivtransaktioner i tabellen (som infoga, upsert, ta bort, uppdatera)<br></br>• Du ändrar DWU-etablering (Data Warehouse Units) ofta<br></br>• Du endast använder 2–3 kolumner men tabellen har många kolumner<br></br>•  Du indexerar en replikerad tabell |
 | Resursallokering (standard) | • Tillfällig/mellanlagringstabell<br></br> • Ingen uppenbar kopplingsnyckel eller kolumn för bra kandidater |• Prestanda går långsamt på grund av dataförflyttning |
@@ -70,7 +70,7 @@ Läs mer om [replikerade tabeller] och [distribuerade tabeller].
 
 Indexering är bra när du vill läsa tabeller snabbt. Det finns en unik uppsättning tekniker som du kan använda utifrån dina behov:
 
-| Type | Passar bra för... | Se upp om...|
+| type | Passar bra för... | Se upp om...|
 |:--- |:--- |:--- |
 | Heap | • Mellanlagrings-/temporär tabell<br></br>• Små tabeller med små sökningar |• Sökningar som genomsöker hela tabellen |
 | Grupperat index | • Tabeller med upp till 100 miljoner rader<br></br>• Stora tabeller (över 100 miljoner rader) där endast 1–2 kolumner används mycket |•  Används på en replikerad tabell<br></br>•    Du har avancerade frågor som omfattar flera kopplingsåtgärder och Gruppera efter-åtgärder<br></br>•  Du gör uppdateringar för de indexerade kolumnerna: det kräver minne |
@@ -96,9 +96,11 @@ Läs mer om [partitioner].
 
 ## <a name="incremental-load"></a>Stegvis inläsning
 
-Om du ska läsa in data stegvis ska du först kontrollera att du allokerar större resursklasser för att läsa in dina data. Vi rekommenderar att du använder PolyBase och ADF V2 för att automatisera dina ELT-pipelines i SQL Data Warehouse.
+Om du ska läsa in data stegvis ska du först kontrollera att du allokerar större resursklasser för att läsa in dina data.  Detta är särskilt viktigt när du läser in i tabeller med grupperade columnstore-index.  Se [resurs klasser](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) för mer information.  
 
-För en stor grupp med uppdateringar i dina historiska data bör du först ta bort berörda data. Gör sedan en massinfogning av nya data. Den här metoden för tvåstegsverifiering är effektivare.
+Vi rekommenderar att du använder PolyBase och ADF V2 för att automatisera dina ELT-pipelines i SQL Data Warehouse.
+
+Överväg att använda en [CTAs](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) för att skriva de data som du vill behålla i en tabell i stället för att använda Infoga, uppdatera och ta bort för en stor batch med uppdateringar i historiska data.
 
 ## <a name="maintain-statistics"></a>Underhålla statistik
  Tills automatisk statistik är allmänt tillgänglig kräver SQL Data Warehouse manuell underhåll av statistik. Det är viktigt att uppdatera statistik när viktiga dataändringar görs. Detta hjälper till att optimera dina frågeplaner. Om du tycker att det tar för lång tid att behålla all statistik kan du vara mer selektiv med vilka kolumner som ska ha statistik. 
@@ -157,7 +159,7 @@ Distribuera dina ekrar med ett klick i SQL-databaser från SQL Data Warehouse:
 <!--Other Web references-->
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[datamigrering]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+[datamigrering]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 [Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql

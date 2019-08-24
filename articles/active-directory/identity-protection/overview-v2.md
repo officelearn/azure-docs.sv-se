@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2987f8fb116bfcbb1698335c3aca6f1fd8eb633e
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: f2f7e26e2f32ba02db9afc0676a99003717ff585
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717291"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991081"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Vad är Azure Active Directory Identity Protection (uppdaterat)?
 
@@ -49,19 +49,19 @@ Azure AD Identity Protection identifierar följande risk händelser:
 | Typ av riskhändelse | Beskrivning | Identifieringstyp |
 | --- | --- | --- |
 | Ovanlig resa | Logga in från en ovanlig-plats baserat på användarens senaste inloggningar. | Offline |
-| Anonym IP-adress | Logga in från en anonym IP-adress (till exempel: Tor webbläsare, Anonymizer VPN-nätverk). | Realtid |
-| Obekanta inloggningsegenskaper | Logga in med egenskaper som vi inte har sett nyligen för den angivna användaren. | Realtid |
+| Anonym IP-adress | Logga in från en anonym IP-adress (till exempel: Tor webbläsare, Anonymizer VPN-nätverk). | Real tids |
+| Okända inloggnings egenskaper | Logga in med egenskaper som vi inte har sett nyligen för den angivna användaren. | Real tids |
 | IP-adress länkad till skadlig kod | Logga in från en länkad IP-adress med skadlig kod | Offline |
-| Läckta autentiseringsuppgifter | Den här riskhändelsen risk anger att användarens giltiga autentiseringsuppgifter har avslöjats | Offline |
+| Läckta autentiseringsuppgifter | Den här risk händelsen anger att användarens giltiga autentiseringsuppgifter har läckts | Offline |
 
 ## <a name="types-of-risk"></a>Typer av risker 
 
 Identitets skydd baseras på två typer av risker:
 
-- Inloggningsrisk
+- Inloggnings risk
 - Användarrisk
 
-### <a name="sign-in-risk"></a>Inloggningsrisk
+### <a name="sign-in-risk"></a>Inloggnings risk
 
 En inloggnings risk representerar sannolikheten att en begäran om autentisering inte har behörighet av identitets ägaren.
 
@@ -145,13 +145,17 @@ Mer information finns i [tilldela administratörs roller i Azure Active Director
 >[!NOTE]
 > Under den allmänt tillgängliga för hands versionen av identitets skydd (uppdateras), kommer endast Azure AD Premium P2-kunder att ha åtkomst till rapporten riskfyllda användare och riskfyllda inloggningar.
 
-| Funktion | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/kostnads fri |
-| --- | --- | --- | --- |
-| Riskprincip för användare | Ja | Nej | Nej |
-| Riskprincip för inloggning | Ja | Nej | Nej |
-| Rapport om riskanvändare | Fullständig åtkomst | Begränsad information | Begränsad information |
-| Rapport över riskfyllda inloggningar | Fullständig åtkomst | Begränsad information | Begränsad information |
-| MFA-registreringsprincip | Ja | Nej | Nej |
+| Funktion | Information | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/kostnads fri |
+| --- | --- | --- | --- | --- |
+| Risk principer | Användar risk princip (via identitets skydd) | Ja | Nej | Nej |
+| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst) | Ja | Nej | Nej |
+| Säkerhetsrapporter | Översikt | Ja | Nej | Nej |
+| Säkerhetsrapporter | Riskfyllda användare | Fullständig åtkomst | Begränsad information | Begränsad information |
+| Säkerhetsrapporter | Riskfyllda inloggningar | Fullständig åtkomst | Begränsad information | Begränsad information |
+| Säkerhetsrapporter | Risk identifieringar | Fullständig åtkomst | Begränsad information | Nej |
+| Aviseringar | Användare i farozonen identifierade aviseringar | Ja | Nej | Nej |
+| Aviseringar | Veckosammandrag | Ja | Nej | Nej |
+| | MFA-registreringsprincip | Ja | Nej | Nej |
 
 ## <a name="next-steps"></a>Nästa steg 
 

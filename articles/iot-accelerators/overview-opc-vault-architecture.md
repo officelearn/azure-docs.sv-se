@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 151eb535e70bd485c978ac21539c784bbea0a532
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9331473402ddd22180df3b404824969360d48164
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973235"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995823"
 ---
 # <a name="opc-vault-architecture"></a>Arkitektur för OPC Vault
 
@@ -88,3 +88,10 @@ För att stödja en global identifierings Server för fabriks nätverk kan OPC V
 ## <a name="yet-unsupported-features"></a>Funktioner som ännu inte stöds
 
 **(*)** stöds inte ännu.
+
+## <a name="next-steps"></a>Nästa steg
+
+Nu när du har lärt dig om OPC Vault-arkitekturen, här är det föreslagna nästa steg:
+
+> [!div class="nextstepaction"]
+> [Bygg och distribuera OPC-valv](howto-opc-vault-deploy.md)

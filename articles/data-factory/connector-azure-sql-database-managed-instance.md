@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/21/2019
 ms.author: jingwang
-ms.openlocfilehash: 1baa28dd1c9cc323e3dc7ca6fc5fbe2eac54652a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 0cc7313531e92aa0f57b09a9252902848297bdbf
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68829156"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996652"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database Hanterad instans med Azure Data Factory
 
@@ -126,31 +126,33 @@ För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel
 
 Följ dessa steg om du vill använda en tjänst objekts Azure AD-baserad autentisering av Azure AD-programtoken:
 
-1. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) från Azure Portal. Anteckna namnet på programmet och följande värden som definierar den länkade tjänsten:
+1. Följ stegen för att [etablera en Azure Active Directory administratör för din hanterade instans](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+
+2. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) från Azure Portal. Anteckna namnet på programmet och följande värden som definierar den länkade tjänsten:
 
     - Program-ID:t
     - Programnyckel
     - Klient-ID:t
 
-2. [Skapa inloggningar](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) för den Azure Data Factory hanterade identiteten. I SQL Server Management Studio (SSMS) ansluter du till din hanterade instans med ett SQL Server konto som är en **sysadmin**. I **Master** -databasen kör du följande T-SQL:
+3. [Skapa inloggningar](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) för den Azure Data Factory hanterade identiteten. I SQL Server Management Studio (SSMS) ansluter du till din hanterade instans med ett SQL Server konto som är en **sysadmin**. I **Master** -databasen kör du följande T-SQL:
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-2. [Skapa inneslutna databas användare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) för den Azure Data Factory hanterade identiteten. Anslut till den databas som du vill kopiera data från eller kör följande T-SQL: 
+4. [Skapa inneslutna databas användare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) för den Azure Data Factory hanterade identiteten. Anslut till den databas som du vill kopiera data från eller kör följande T-SQL: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-3. Ge den Data Factory hanterade identiteten nödvändiga behörigheter som du vanligt vis använder för SQL-användare och andra. Kör följande kod. Fler alternativ finns i [det här dokumentet](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+5. Ge den Data Factory hanterade identiteten nödvändiga behörigheter som du vanligt vis använder för SQL-användare och andra. Kör följande kod. Fler alternativ finns i [det här dokumentet](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
     ```
 
-4. Konfigurera en länkad Azure SQL Database Hanterad instans-tjänst i Azure Data Factory.
+6. Konfigurera en länkad Azure SQL Database Hanterad instans-tjänst i Azure Data Factory.
 
 **Exempel: Använd tjänstens huvud namns autentisering**
 
@@ -185,25 +187,27 @@ En data fabrik kan associeras med en [hanterad identitet för Azure-resurser](da
 
 Följ dessa steg om du vill använda hanterad identitets autentisering.
 
-1. [Skapa inloggningar](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) för den Azure Data Factory hanterade identiteten. I SQL Server Management Studio (SSMS) ansluter du till din hanterade instans med ett SQL Server konto som är en **sysadmin**. I **Master** -databasen kör du följande T-SQL:
+1. Följ stegen för att [etablera en Azure Active Directory administratör för din hanterade instans](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+
+2. [Skapa inloggningar](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) för den Azure Data Factory hanterade identiteten. I SQL Server Management Studio (SSMS) ansluter du till din hanterade instans med ett SQL Server konto som är en **sysadmin**. I **Master** -databasen kör du följande T-SQL:
 
     ```sql
     CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-2. [Skapa inneslutna databas användare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) för den Azure Data Factory hanterade identiteten. Anslut till den databas som du vill kopiera data från eller kör följande T-SQL: 
+3. [Skapa inneslutna databas användare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) för den Azure Data Factory hanterade identiteten. Anslut till den databas som du vill kopiera data från eller kör följande T-SQL: 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-3. Ge den Data Factory hanterade identiteten nödvändiga behörigheter som du vanligt vis använder för SQL-användare och andra. Kör följande kod. Fler alternativ finns i [det här dokumentet](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+4. Ge den Data Factory hanterade identiteten nödvändiga behörigheter som du vanligt vis använder för SQL-användare och andra. Kör följande kod. Fler alternativ finns i [det här dokumentet](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
     ```
 
-4. Konfigurera en länkad Azure SQL Database Hanterad instans-tjänst i Azure Data Factory.
+5. Konfigurera en länkad Azure SQL Database Hanterad instans-tjänst i Azure Data Factory.
 
 **Exempel: använder hanterad identitets autentisering**
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 63d0196609e432b081e91a49b5b1410431223632
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: MT
+ms.openlocfilehash: da5a71c75485f929ba9c4f510066df84d7a31996
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323627"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992168"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
@@ -48,6 +48,7 @@ Visa alla mått för Batch-konto:
 1. I portalen klickar du på **alla tjänster** > **Batch-konton**, och klicka sedan på namnet på ditt Batch-konto.
 2. Under **övervakning**, klickar du på **mått**.
 3. Välj en eller flera av mått. Om du vill välja ytterligare Resursmått med hjälp av den **prenumerationer**, **resursgrupp**, **resurstyp**, och **Resource** listrutor.
+    * Använd "genomsnittlig" agg regering för beräknings mått (t. ex. "dedikerat antal" eller "antal med låg prioritet"). Använd agg regeringen "count" för händelsebaserade mått (t. ex. att ändra storlek på slutförda händelser för pool).
 
     ![Batch-mått](media/batch-diagnostics/metrics-portal.png)
 

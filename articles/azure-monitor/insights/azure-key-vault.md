@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
-ms.openlocfilehash: b7d9ff760bac06602d8d770a358c8a2e22a72c81
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849202"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997690"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
 
@@ -103,28 +103,28 @@ När du klickar på panelen **Key Vault-analys** kan du Visa sammanfattningar av
 ## <a name="azure-monitor-log-records"></a>Azure Monitor logg poster
 Azure Key Vault-lösningen analyserar poster som har en typ av nyckel **valv** som samlas in från [AuditEvent-loggar](../../key-vault/key-vault-logging.md) i Azure-diagnostik.  Egenskaperna för dessa poster finns i följande tabell:  
 
-| Egenskap | Description |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| type |*AzureDiagnostics* |
-| SourceSystem |*Azure* |
-| CallerIpAddress |IP-adressen för den klient som gjorde begäran |
-| Category | *AuditEvent* |
-| CorrelationId |Ett valfritt GUID som klienten kan skicka för att korrelera loggar på klientsidan med loggar på tjänstsidan (Key Vault). |
-| . Durationms |Hur lång tid i millisekunder som det tog att utföra REST-API-begäran. Den här tiden omfattar inte nätverks svars tiden, så den tid som du mäter på klient sidan kanske inte matchar den här tiden. |
-| httpStatusCode_d |HTTP-statuskod som returnerades av begäran (till exempel *200*) |
-| id_s |Unikt ID för begäran |
-| identity_claim_appid_g | GUID för program-ID |
-| OperationName |Åtgärdens namn, enligt beskrivningen i [Azure Key Vault loggning](../../key-vault/key-vault-logging.md) |
-| OperationVersion |REST API version som begärs av klienten (till exempel *2015-06-01*) |
-| requestUri_s |URI för begäran |
-| Resource |Nyckel valvets namn |
-| ResourceGroup |Nyckel valvets resurs grupp |
-| ResourceId |Azure Resource Manager Resource-ID. För Key Vault loggar är detta Key Vault resurs-ID. |
-| ResourceProvider |*UTFORSKAREN. KEYVAULT* |
-| Resurstyp | *VAULTS* |
-| ResultSignature |HTTP-status (till exempel *OK*) |
-| ResultType |Resultat av REST API begäran (till exempel *lyckad*) |
-| SubscriptionId |Prenumerations-ID för Azure som innehåller Key Vault |
+| `Type` |*AzureDiagnostics* |
+| `SourceSystem` |*Azure* |
+| `CallerIpAddress` |IP-adressen för den klient som gjorde begäran |
+| `Category` | *AuditEvent* |
+| `CorrelationId` |Ett valfritt GUID som klienten kan skicka för att korrelera loggar på klientsidan med loggar på tjänstsidan (Key Vault). |
+| `DurationMs` |Hur lång tid i millisekunder som det tog att utföra REST-API-begäran. Den här tiden omfattar inte nätverks svars tiden, så den tid som du mäter på klient sidan kanske inte matchar den här tiden. |
+| `httpStatusCode_d` |HTTP-statuskod som returnerades av begäran (till exempel *200*) |
+| `id_s` |Unikt ID för begäran |
+| `identity_claim_appid_g` | GUID för program-ID |
+| `OperationName` |Åtgärdens namn, enligt beskrivningen i [Azure Key Vault loggning](../../key-vault/key-vault-logging.md) |
+| `OperationVersion` |REST API version som begärs av klienten (till exempel *2015-06-01*) |
+| `requestUri_s` |URI för begäran |
+| `Resource` |Nyckel valvets namn |
+| `ResourceGroup` |Nyckel valvets resurs grupp |
+| `ResourceId` |Azure Resource Manager Resource-ID. För Key Vault loggar är detta Key Vault resurs-ID. |
+| `ResourceProvider` |*UTFORSKAREN. KEYVAULT* |
+| `ResourceType` | *VAULTS* |
+| `ResultSignature` |HTTP-status (till exempel *OK*) |
+| `ResultType` |Resultat av REST API begäran (till exempel *lyckad*) |
+| `SubscriptionId` |Prenumerations-ID för Azure som innehåller Key Vault |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migrera från den gamla Key Vaults lösningen
 I januari 2017 har det stödda sättet att skicka loggar från Key Vault till Log Analytics ändrats. Dessa ändringar ger följande fördelar:

@@ -1,65 +1,65 @@
 ---
-title: CI/CD med Azure Pipelines och Resource Manager-mallar
-description: Beskriver hur du ställer in kontinuerlig integration i Azure-Pipelines med projekt för distribution av Azure-resursgrupp i Visual Studio för att distribuera Resource Manager-mallar.
+title: CI/CD med Azure-pipelines och Resource Manager-mallar
+description: Beskriver hur du konfigurerar en kontinuerlig integrering i Azure-pipeline med hjälp av distributions projekt i Azure Resource Group i Visual Studio för att distribuera Resource Manager-mallar.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: b70b38904c0373c53c3731dd0442511116d9c4de
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: ae896fa0820fbd25ed3f2d29c89fbcd56e7fd6f5
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191465"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982446"
 ---
-# <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Integrera Resource Manager-mallar med Azure-Pipelines
+# <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Integrera Resource Manager-mallar med Azure-pipeline
 
-Visual Studio har Azure-resursgrupp-projekt för att skapa mallar och distribuera dem till din Azure-prenumeration. Du kan integrera det här projektet med Azure Pipelines för kontinuerlig integrering och kontinuerlig distribution (CI/CD).
+Visual Studio tillhandahåller Azure Resource Group-projektet för att skapa mallar och distribuera dem till din Azure-prenumeration. Du kan integrera det här projektet med Azure-pipelines för kontinuerlig integrering och kontinuerlig distribution (CI/CD).
 
-Det finns två sätt att distribuera mallar med Azure Pipelines:
+Det finns två sätt att distribuera mallar med Azure-pipeliner:
 
-* **Lägg till aktivitet som kör ett Azure PowerShell-skript**. Det här alternativet har fördelen med att tillhandahålla konsekvens i hela livscykeln för utveckling, eftersom du använder samma skript som ingår i Visual Studio-projekt (distribuera AzureResourceGroup.ps1). Skriptet faser artefakter från projektet till ett lagringskonto som har åtkomst till Resource Manager. Artefakter finns objekt i projektet som länkade mallar, skript och binärfilerna för programmet. Skriptet distribuerar sedan mallen.
+* **Lägg till aktivitet som kör ett Azure PowerShell-skript**. Det här alternativet har fördelen att tillhandahålla konsekvens under utvecklings livs cykeln eftersom du använder samma skript som ingår i Visual Studio-projektet (Deploy-AzureResourceGroup. ps1). Skript stegen artefakter från ditt projekt till ett lagrings konto som Resource Manager har åtkomst till. Artefakter är objekt i projektet, till exempel länkade mallar, skript och binärfiler för program. Sedan distribuerar skriptet mallen.
 
-* **Lägga till aktiviteter för att kopiera och distribuera uppgifter**. Det här alternativet är ett praktiskt alternativ till projekt-skriptet. Du kan konfigurera två aktiviteter i pipelinen. En aktivitet skapar etapper artefakter och den andra aktiviteten distribuerar mallen.
+* **Lägg till aktiviteter för att kopiera och distribuera uppgifter**. Det här alternativet erbjuder ett användbart alternativ till projekt skriptet. Du konfigurerar två aktiviteter i pipelinen. En uppgift steg för artefakterna och den andra aktiviteten distribuerar mallen.
 
 Den här artikeln visar båda metoderna.
 
 ## <a name="prepare-your-project"></a>Förbered ditt projekt
 
-Den här artikeln förutsätter Visual Studio-projekt och Azure DevOps-organisation är redo för att skapa pipelinen. Följande steg visar hur du kontrollerar att du är klar:
+Den här artikeln förutsätter att Visual Studio-projektet och Azure DevOps-organisationen är redo att skapa pipelinen. Följande steg visar hur du kan se till att du är redo:
 
-* Du har en Azure DevOps-organisation. Om du inte har någon, [skapa ett gratis](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). Om det finns redan en Azure DevOps-organisation, kontrollera att du är administratör för Azure DevOps-projektet som du vill använda för ditt team.
+* Du har en Azure DevOps-organisation. Om du inte har ett kan du [skapa ett kostnads fritt](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). Om ditt team redan har en Azure DevOps-organisation, se till att du är administratör för det Azure DevOps-projekt som du vill använda.
 
-* Du har konfigurerat en [anslutning tjänst](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) på Azure-prenumerationen. Aktiviteterna i pipelinen kör under identiteten för tjänstens huvudnamn. Anvisningar om att skapa anslutningen finns i [skapar du ett DevOps-projekt](resource-manager-tutorial-use-azure-pipelines.md#create-a-devops-project).
+* Du har konfigurerat en [tjänst anslutning](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) till din Azure-prenumeration. Aktiviteterna i pipelinen körs under identiteten för tjänstens huvud namn. Anvisningar för hur du skapar anslutningen finns i [skapa ett DevOps-projekt](resource-manager-tutorial-use-azure-pipelines.md#create-a-devops-project).
 
-* Du har ett Visual Studio-projekt som har skapats med den **Azure-resursgrupp** Startmall. Information om hur du skapar den typ av projekt som finns i [skapa och distribuera Azure-resursgrupper via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* Du har ett Visual Studio-projekt som har skapats från start mal len för **Azure Resource Group** . Information om hur du skapar den typen av projekt finns i [skapa och Distribuera Azure-resurs grupper via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-* Visual Studio-projektet är [är ansluten till ett Azure DevOps-projekt](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
+* Ditt Visual Studio-projekt är [anslutet till ett Azure DevOps-projekt](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
 
 ## <a name="create-pipeline"></a>Skapa pipeline
 
-1. Om du inte har lagt till en pipeline tidigare, måste du skapa en ny pipeline. Välj din Azure DevOps-organisation **Pipelines** och **ny pipeline**.
+1. Om du inte har lagt till en pipeline tidigare måste du skapa en ny pipeline. Välj pipeliner och **ny pipeline**från din Azure DevOps-organisation.
 
    ![Lägg till ny pipeline](./media/vs-resource-groups-project-devops-pipelines/new-pipeline.png)
 
-1. Ange var din kod ska lagras. Följande bild visar att välja **Azure lagringsplatser Git**.
+1. Ange var koden lagras. Följande bild visar hur du väljer **Azure databaser git**.
 
-   ![Välj Kodkälla för](./media/vs-resource-groups-project-devops-pipelines/select-source.png)
+   ![Välj kod källa](./media/vs-resource-groups-project-devops-pipelines/select-source.png)
 
-1. Välj den databas som har kod för ditt projekt från denna källa.
+1. Från den källan väljer du den lagrings plats som innehåller koden för projektet.
 
    ![Välj databas](./media/vs-resource-groups-project-devops-pipelines/select-repo.png)
 
-1. Välj typ av pipeline för att skapa. Du kan välja **Starter pipeline**.
+1. Välj den typ av pipeline som ska skapas. Du kan välja **starter pipeline**.
 
    ![Välj pipeline](./media/vs-resource-groups-project-devops-pipelines/select-pipeline.png)
 
-Nu kan du antingen lägga till en aktivitet för Azure PowerShell eller kopieringsfil och distribuera uppgifter.
+Du är redo att antingen lägga till en Azure PowerShell uppgift eller kopiera filen och distribuera uppgifter.
 
-## <a name="azure-powershell-task"></a>Azure PowerShell-aktivitet
+## <a name="azure-powershell-task"></a>Azure PowerShell aktivitet
 
-Det här avsnittet visar hur du konfigurerar kontinuerlig distribution med hjälp av en aktivitet som kör PowerShell-skript i projektet. Följande YAML-fil skapar en [Azure PowerShell-uppgift](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops):
+I det här avsnittet visas hur du konfigurerar kontinuerlig distribution med hjälp av en enda aktivitet som kör PowerShell-skriptet i projektet. Följande YAML-fil skapar en [Azure PowerShell-aktivitet](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops):
 
 ```yaml
 pool:
@@ -75,41 +75,41 @@ steps:
     azurePowerShellVersion: LatestVersion
 ```
 
-När du anger aktiviteten till `AzurePowerShell@3`, pipelinen använder kommandon från AzureRM-modulen för att autentisera anslutningen. Som standard använder AzureRM-modulen i PowerShell-skriptet i Visual Studio-projektet. Om du har uppdaterat dina skript om du vill använda den [Az modulen](/powershell/azure/new-azureps-module-az), ge aktiviteten `AzurePowerShell@4`.
+När du anger uppgiften till `AzurePowerShell@3`, använder pipelinen kommandon från AzureRM-modulen för att autentisera anslutningen. PowerShell-skriptet i Visual Studio-projektet använder som standard AzureRM-modulen. Om du har uppdaterat skriptet för att använda [AZ-modulen](/powershell/azure/new-azureps-module-az)anger du uppgiften till `AzurePowerShell@4`.
 
 ```yaml
 steps:
 - task: AzurePowerShell@4
 ```
 
-För `azureSubscription`, ange namnet på den tjänstanslutning som du skapade.
+För `azureSubscription`, anger du namnet på den tjänst anslutning som du har skapat.
 
 ```yaml
 inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-För `scriptPath`, den relativa sökvägen från filen pipeline i skriptet. Du kan leta i centrallagret till finns i sökvägen.
+För `scriptPath`anger du den relativa sökvägen från pipeline-filen till skriptet. Du kan titta på lagrings platsen för att se sökvägen.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
 ```
 
-Om du inte behöver scenen artefakter kan bara skicka namn och platsen för en resursgrupp som ska användas för distribuering. Visual Studio-skript skapar resursgruppen om den inte redan finns.
+Om du inte behöver mellanlagra artefakter kan du bara skicka namn och plats för en resurs grupp som ska användas för distribution. Visual Studio-skriptet skapar resurs gruppen om den inte redan finns.
 
 ```yaml
 ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>'
 ```
 
-Om du behöver scenen artefakter till ett befintligt lagringskonto kan använda:
+Om du behöver mellanlagra artefakter till ett befintligt lagrings konto använder du:
 
 ```yaml
 ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName '<your-storage-account>'
 ```
 
-Nu, att du förstår hur du skapar uppgiften, ska vi gå igenom stegen för att redigera pipelinen.
+Nu när du förstår hur du skapar uppgiften ska vi gå igenom stegen för att redigera pipelinen.
 
-1. Öppna din pipeline och Ersätt innehållet med dina YAML:
+1. Öppna din pipeline och ersätt innehållet med din YAML:
 
    ```yaml
    pool:
@@ -129,19 +129,19 @@ Nu, att du förstår hur du skapar uppgiften, ska vi gå igenom stegen för att 
 
    ![Spara pipeline](./media/vs-resource-groups-project-devops-pipelines/save-pipeline.png)
 
-1. Ange ett meddelande för genomförandet och spara direkt till **master**.
+1. Ange ett meddelande för incheckning och spara direkt till **Master**.
 
-1. När du väljer **spara**, build-pipelinen körs automatiskt. Gå tillbaka till sammanfattning för build-pipeline och titta på statusen.
+1. När du väljer **Spara**körs Bygg pipelinen automatiskt. Gå tillbaka till sammanfattningen för din build-pipeline och se status.
 
    ![Visa resultat](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
 
-Du kan välja att visa information om uppgifterna som körs för tillfället pipelinen. När den är klar visas resultaten för varje steg.
+Du kan välja den pipeline som körs för tillfället för att se information om aktiviteterna. När den är klar visas resultaten för varje steg.
 
 ## <a name="copy-and-deploy-tasks"></a>Kopiera och distribuera uppgifter
 
-Det här avsnittet visar hur du konfigurerar kontinuerlig distribution med hjälp av två saker att mellanlagra artefakter och distribuera mallen. 
+I det här avsnittet visas hur du konfigurerar kontinuerlig distribution genom att använda två aktiviteter för att mellanlagra artefakterna och distribuera mallen. 
 
-I följande YAML-visas den [aktiviteter i Azure file copy](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
+Följande YAML visar [Azure File Copy-aktiviteten](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
 
 ```yaml
 - task: AzureFileCopy@3
@@ -157,26 +157,26 @@ I följande YAML-visas den [aktiviteter i Azure file copy](/azure/devops/pipelin
     sasTokenTimeOutInMinutes: '240'
 ```
 
-Det finns flera olika delar av den här aktiviteten för att ändra för din miljö. Den `SourcePath` platsen för artefakter i förhållande till pipeline-filen. I det här exemplet filerna finns i en mapp med namnet `AzureResourceGroup1` som var namnet på projektet.
+Det finns flera delar av den här uppgiften att ändra för din miljö. `SourcePath` Anger platsen för artefakterna i förhållande till pipelin filen. I det här exemplet finns filerna i en mapp med namnet `AzureResourceGroup1` som är namnet på projektet.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
 ```
 
-För `azureSubscription`, ange namnet på den tjänstanslutning som du skapade.
+För `azureSubscription`, anger du namnet på den tjänst anslutning som du har skapat.
 
 ```yaml
 azureSubscription: '<your-connection-name>'
 ```
 
-Ange namnen på lagringskontot och behållaren som du vill använda för att lagra artefakter för lagring och behållare. Lagringskontot måste finnas.
+För lagrings-och behållar namn anger du namnen på det lagrings konto och den behållare som du vill använda för att lagra artefakterna. Lagrings kontot måste finnas.
 
 ```yaml
 storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
-I följande YAML-visas den [distributionsuppgift för Azure-resurs grupp](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops):
+Följande YAML visar distributions [uppgiften Azure-resurs grupp](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops):
 
 ```yaml
 - task: AzureResourceGroupDeployment@2
@@ -191,24 +191,24 @@ I följande YAML-visas den [distributionsuppgift för Azure-resurs grupp](/azure
     overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
 ```
 
-Det finns flera olika delar av den här aktiviteten för att ändra för din miljö. För `azureSubscription`, ange namnet på den tjänstanslutning som du skapade.
+Det finns flera delar av den här uppgiften att ändra för din miljö. För `azureSubscription`, anger du namnet på den tjänst anslutning som du har skapat.
 
 ```yaml
 azureSubscription: '<your-connection-name>'
 ```
 
-För `resourceGroupName` och `location`, ange namn och plats för resursgruppen som du vill distribuera till. Uppgiften skapas en resursgrupp om det inte finns.
+För `resourceGroupName` och`location`anger du namn och plats för den resurs grupp som du vill distribuera till. Aktiviteten skapar resurs gruppen om den inte finns.
 
 ```yaml
 resourceGroupName: '<resource-group-name>'
 location: '<location>'
 ```
 
-Aktivitetslänkar för distribution till en mall med namnet `WebSite.json` och en parameterfil med namnet WebSite.parameters.json. Använda namnen på din mall- och parameterfilerna filer.
+Distributions aktiviteten länkar till en mall med `WebSite.json` namnet och en parameter fil med namnet webbplats. Parameters. JSON. Använd namnen på din mall och parameter-filer.
 
-Nu, att du förstår hur du skapar aktiviteterna, vi ska gå igenom stegen för att redigera pipelinen.
+Nu när du förstår hur du skapar aktiviteterna ska vi gå igenom stegen för att redigera pipelinen.
 
-1. Öppna din pipeline och Ersätt innehållet med dina YAML:
+1. Öppna din pipeline och ersätt innehållet med din YAML:
 
    ```yaml
    pool:
@@ -240,14 +240,14 @@ Nu, att du förstår hur du skapar aktiviteterna, vi ska gå igenom stegen för 
 
 1. Välj **Spara**.
 
-1. Ange ett meddelande för genomförandet och spara direkt till **master**.
+1. Ange ett meddelande för incheckning och spara direkt till **Master**.
 
-1. När du väljer **spara**, build-pipelinen körs automatiskt. Gå tillbaka till sammanfattning för build-pipeline och titta på statusen.
+1. När du väljer **Spara**körs Bygg pipelinen automatiskt. Gå tillbaka till sammanfattningen för din build-pipeline och se status.
 
    ![Visa resultat](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
 
-Du kan välja att visa information om uppgifterna som körs för tillfället pipelinen. När den är klar visas resultaten för varje steg.
+Du kan välja den pipeline som körs för tillfället för att se information om aktiviteterna. När den är klar visas resultaten för varje steg.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För steg hur du använder Azure-Pipelines med Resource Manager-mallar, se [självstudien: Kontinuerlig integration av Azure Resource Manager-mallar med Azure Pipelines](resource-manager-tutorial-use-azure-pipelines.md).
+Steg för steg-processen för att använda Azure-pipeliner med Resource Manager-mallar finns [i självstudie: Kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipeliner](resource-manager-tutorial-use-azure-pipelines.md).

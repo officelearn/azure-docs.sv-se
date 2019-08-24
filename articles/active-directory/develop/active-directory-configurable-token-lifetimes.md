@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 08/22/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f6aa209b6e99be406634e01be47c6dd9572d62a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 95c337501c46dd9b30ff20d71a9363ab03fdb608
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853436"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980448"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara livstider för token i Azure Active Directory (för hands version)
 
@@ -81,15 +81,15 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 ### <a name="configurable-token-lifetime-properties"></a>Egenskaper för konfigurerbar token-livstid
 | Egenskap | Princip egenskaps sträng | Nätverk | Standard | Minimum | Maximal |
 | --- | --- | --- | --- | --- | --- |
-| Livstid för åtkomsttoken |AccessTokenLifetime<sup>4</sup> |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
+| Livstid för åtkomsttoken |AccessTokenLifetime<sup>2</sup> |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
 | Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
 | Högsta ålder för token för enkel uppdatering |MaxAgeSingleFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 | Högsta ålder för Multi-Factor Refresh-token |MaxAgeMultiFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
-| Högsta ålder för token för token för en session |MaxAgeSessionSingleFactor<sup>2</sup> |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
-| Högsta ålder för Multi-Factor session |MaxAgeSessionMultiFactor<sup>3</sup> |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
+| Högsta ålder för token för token för en session |MaxAgeSessionSingleFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
+| Högsta ålder för Multi-Factor session |MaxAgeSessionMultiFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 
 * <sup>1</sup>365 dagar är den maximala explicita längden som kan anges för dessa attribut.
-* <sup>4</sup> För att Microsoft Teams webb klienten ska fungera, rekommenderar vi att du ställer in AccessTokenLifetime till fler än 15 minuter för Microsoft Teams.
+* <sup>2</sup> För att Microsoft Teams webb klienten ska fungera, rekommenderar vi att du ställer in AccessTokenLifetime till fler än 15 minuter för Microsoft Teams.
 
 ### <a name="exceptions"></a>Undantag
 | Egenskap | Nätverk | Standard |

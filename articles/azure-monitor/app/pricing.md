@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/19/2019
+ms.date: 08/22/2019
 ms.author: dalek
-ms.openlocfilehash: c3da37d89da8c70f6acdfb1b5ab9c5b10edb86f0
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 45a8f8a7ee4d887503aeaf8e0e285c45a21c4bcc
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624411"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982622"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -65,30 +65,43 @@ Application Insights avgifter läggs till på din Azure-faktura. Du kan se infor
 
 ![På den vänstra menyn väljer du fakturering](./media/pricing/02-billing.png)
 
-## <a name="data-rate"></a>Data hastighet
-Den data volym som du skickar är begränsad på tre sätt:
+## <a name="managing-your-data-volume"></a>Hantera din data volym 
 
-* **Sampling**: Du kan använda sampling för att minska mängden telemetri som skickas från servern och klientens appar, med minimal snedvridning av mått. Sampling är det primära verktyget som du kan använda för att justera mängden data som du skickar. Lär dig mer om [samplings funktioner](../../azure-monitor/app/sampling.md). 
-* **Dagligt tak**: När du skapar en Application Insights-resurs i Azure Portal är den dagliga gränsen inställd på 100 GB/dag. När du skapar en Application Insights resurs i Visual Studio är standardvärdet liten (endast 32,3 MB/dag). Standardvärdet för dagligt tak är inställt för att under lätta testning. Det är avsett att användaren får den dagliga gränsen innan du distribuerar appen till produktion. 
-
-    Den största gränsen är 1 000 GB/dag om du inte begär en högre gräns för ett program med hög trafik. 
-
-    Använd försiktighet när du anger den dagliga gränsen. Avsikten bör vara att *aldrig träffa den dagliga*gränsen. Om du når den dagliga gränsen förlorar du data för resten av dagen och du kan inte övervaka ditt program. Om du vill ändra den dagliga begränsningen använder du alternativet för **daglig volym begränsning** . Du kan komma åt det här alternativet i fönstret **användning och uppskattade kostnader** (detta beskrivs mer detaljerat längre fram i artikeln).
-    Vi har tagit bort begränsningen för vissa prenumerations typer som har kredit som inte kan användas för Application Insights. Om prenumerationen har en utgifts gräns har den dagliga Cap-dialog rutan instruktioner för att ta bort utgifts gränsen och göra det möjligt att öka den dagliga gränsen för mer än 32,3 MB/dag.
-* **Begränsning**: Begränsning begränsar data hastigheten till 32 000 händelser per sekund, i genomsnitt över 1 minut per Instrumentation-nyckel.
-
-*Vad händer om min app överskrider begränsnings frekvensen?*
-
-* Den data mängd som din app skickar utvärderas varje minut. Om det överstiger den per sekund som genomsnitts priset under minuten, vägrar-servern vissa begär Anden. SDK buffrar data och försöker sedan skicka det igen. Den sprider en överspänning på flera minuter. Om din app kontinuerligt skickar data med mer än begränsnings frekvensen kommer vissa data att tas bort. (ASP.NET-, Java-och JavaScript-SDK: er försöker skicka data på det här sättet igen. andra SDK: er kanske bara släpper begränsade data.) Om det uppstår en begränsning visas en varning om att ett meddelande har inträffat.
-
-*Hur gör jag för att veta hur mycket data min app skickar?*
-
-Du kan använda något av följande alternativ för att se hur mycket data appen skickar:
+För att förstå hur mycket data din app skickar kan du:
 
 * Gå till fönstret **användning och uppskattad kostnad** för att se diagrammet över dagliga data volymer. 
 * I Metrics Explorer lägger du till ett nytt diagram. För diagram måttet väljer du **data punkts volym**. Aktivera **gruppering**och gruppera sedan efter **datatyp**.
+* `systemEvents` Använd data typen. Om du till exempel vill se data volymen som matats in under den senaste dagen skulle frågan bli:
 
-## <a name="reduce-your-data-rate"></a>Minska din data hastighet
+```kusto
+systemEvents 
+| where timestamp >= ago(1d)
+| where type == "Billing" 
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes)
+```
+
+Den här frågan kan användas i en [Azure logg avisering](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) för att konfigurera aviseringar på data volymer. 
+
+Mängden data som du skickar kan hanteras på tre sätt:
+
+* **Sampling**: Du kan använda sampling för att minska mängden telemetri som skickas från servern och klientens appar, med minimal snedvridning av mått. Sampling är det primära verktyget som du kan använda för att justera mängden data som du skickar. Lär dig mer om [samplings funktioner](../../azure-monitor/app/sampling.md).
+ 
+* **Dagligt tak**: När du skapar en Application Insights-resurs i Azure Portal är den dagliga gränsen inställd på 100 GB/dag. När du skapar en Application Insights resurs i Visual Studio är standardvärdet liten (endast 32,3 MB/dag). Standardvärdet för dagligt tak är inställt för att under lätta testning. Det är avsett att användaren får den dagliga gränsen innan du distribuerar appen till produktion. 
+
+    Den största gränsen är 1 000 GB/dag om du inte begär en högre gräns för ett program med hög trafik. 
+    
+    Varnings meddelanden om den dagliga gränsen skickas till konton som är medlemmar i dessa roller för din Application Insights-resurs: "ServiceAdmin", "AccountAdmin", "medadministratör", "ägare".
+
+    Använd försiktighet när du anger den dagliga gränsen. Avsikten bör vara att *aldrig träffa den dagliga*gränsen. Om du når den dagliga gränsen förlorar du data för resten av dagen och du kan inte övervaka ditt program. Om du vill ändra den dagliga begränsningen använder du alternativet för **daglig volym begränsning** . Du kan komma åt det här alternativet i fönstret **användning och uppskattade kostnader** (detta beskrivs mer detaljerat längre fram i artikeln).
+    
+    Vi har tagit bort begränsningen för vissa prenumerations typer som har kredit som inte kan användas för Application Insights. Om prenumerationen har en utgifts gräns har den dagliga Cap-dialog rutan instruktioner för att ta bort utgifts gränsen och göra det möjligt att öka den dagliga gränsen för mer än 32,3 MB/dag.
+    
+* **Begränsning**: Begränsning begränsar data hastigheten till 32 000 händelser per sekund, i genomsnitt över 1 minut per Instrumentation-nyckel. Den data mängd som din app skickar utvärderas varje minut. Om det överstiger den per sekund som genomsnitts priset under minuten, vägrar-servern vissa begär Anden. SDK buffrar data och försöker sedan skicka det igen. Den sprider en överspänning på flera minuter. Om din app kontinuerligt skickar data med mer än begränsnings frekvensen kommer vissa data att tas bort. (ASP.NET-, Java-och JavaScript-SDK: er försöker skicka data på det här sättet igen. andra SDK: er kanske bara släpper begränsade data.) Om det uppstår en begränsning visas en varning om att ett meddelande har inträffat.
+
+## <a name="reduce-your-data-volume"></a>Minska din data volym
+
 Här följer några saker som du kan göra för att minska din data volym:
 
 * Använd [sampling](../../azure-monitor/app/sampling.md). Den här tekniken minskar data hastigheten utan att skeva måtten. Du förlorar inte möjligheten att navigera mellan relaterade objekt i sökningen. I Server appar fungerar samplingen automatiskt.

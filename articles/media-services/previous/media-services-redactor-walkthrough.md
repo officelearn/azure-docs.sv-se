@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 3f40c69900b0d7f1c3bf446c1153e21dd7fd4d1b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014929"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997678"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Bortredigering-ansikten med Azure-medieanalys genom gång
 
@@ -40,7 +40,7 @@ Det enklaste sättet att komma igång med bortredigering är att använda AMSE-v
 
 ### <a name="download-and-setup"></a>Hämta och konfigurera
 
-1. Hämta AMSE-verktyget härifrån [](https://github.com/Azure/Azure-Media-Services-Explorer).
+1. Hämta AMSE för AMS v2-verktyget härifrån [](https://aka.ms/amseforv2).
 1. Logga in på ditt Media Services-konto med hjälp av tjänst nyckeln.
 
     Hämta kontonamn och viktig information genom att gå till [Azure Portal](https://portal.azure.com/) och välja AMS-kontot. Välj sedan Inställningar > nycklar. I fönstret Hantera nycklar visas kontonamnet och de primära och sekundära nycklarna. Kopiera värdena för kontonamnet och den primära nyckeln.

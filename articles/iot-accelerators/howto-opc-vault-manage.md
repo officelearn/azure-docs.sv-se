@@ -1,5 +1,5 @@
 ---
-title: Så här hanterar du OPC Vault Certificate Management Service – Azure | Microsoft Docs
+title: Så här hanterar du OPC Vault Certificate service – Azure | Microsoft Docs
 description: Hantera OPC-valvets rot certifikat och användar behörigheter.
 author: mregen
 ms.author: mregen
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6e53914b16bc126cdab7300d918dbb7b6b868728
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 4420e5b0d895f8ea30dbd39fc50dd7480d57d086
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973810"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995999"
 ---
-# <a name="how-to-manage-the-opc-ua-certificate-service"></a>Hantera OPC UA Certificate service
+# <a name="how-to-manage-the-opc-vault-certificate-service"></a>Hantera certifikat tjänsten OPC Vault
 
-I den här artikeln beskrivs administrativa uppgifter för OPC UA Certificate Management-tjänsten i Azure, hur du förnyar certifikat utfärdares certifikat för certifikat utfärdare, hur du förnyar listan över återkallade certifikat (CRL) och hur du tilldelar och återkallar användar åtkomst.
+I den här artikeln förklaras de administrativa uppgifterna för certifikat hanterings tjänsten för OPC Vault i Azure, hur du förnyar certifikat för certifikat UTFÄRDAre, hur du förnyar listan över återkallade certifikat (CRL) och hur du tilldelar och återkallar användar åtkomst.
 
 ## <a name="create-or-renew-the-root-ca-certificate"></a>Skapa eller förnya rot certifikat utfärdarens certifikat
 
@@ -56,7 +56,7 @@ I följande arbets flöde återkallas alla certifikat begär anden i de borttagn
 4. Klicka på `Update CRL Revocation List(CRL)` knappen för att utfärda en uppdaterad lista över återkallade certifikat för alla aktiva utfärdarcertifikat i OPC Vault-lagringen.
 5. Efter några sekunder `Certificate Details` visas. Tryck `Issuer` på `Crl` eller för att ladda ned det senaste ca-certifikatet och CRL för distribution till dina OPC UA-program.
 
-## <a name="manage-user-roles"></a>Hantera användar roller
+## <a name="manage-user-roles"></a>Hantera användarroller
 
 Användar roller för mikrotjänsten i OPC Vault hanteras i Azure Active Directory Enterprise-programmet.
 

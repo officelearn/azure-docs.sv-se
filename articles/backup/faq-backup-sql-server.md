@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: a600c50e97f0d069443112a59d529c0d6f6fecad
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6e3ce21419e131ceef65939202eb70a98f10b040
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737066"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982439"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor om SQL Server databaser som körs på en virtuell Azure-säkerhetskopiering
 
@@ -37,9 +37,10 @@ Under vissa omständigheter utlöser tjänsten Azure Backup tjänsten återstäl
 Auto-läka som en funktion aktive ras för alla användare som standard. Om du väljer att inte göra det kan du dock utföra följande:
 
   * På SQL Server-instansen i mappen *C:\Program Files\Azure arbets belastning Backup\bin* skapar eller redigerar du filen **ExtensionSettingsOverrides. JSON** .
-  * I **ExtensionSettingsOverrides. JSON**anger du *{"EnableAutoHealer": false}* .
+  * I **ExtensionSettingsOverrides. JSON**anger du *{"EnableAutoHealer": false}* .
   * Spara ändringarna och Stäng filen.
-  * Öppna **uppgiften hantera** på SQL Server-instansen och starta sedan om **AzureWLBackupCoordinatorSvc** -tjänsten.  
+  * Öppna **uppgiften hantera** på SQL Server-instansen och starta sedan om **AzureWLBackupCoordinatorSvc** -tjänsten.
+   
 
 ## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>Kan jag kontrol lera hur många samtidiga säkerhets kopieringar som körs på SQL-servern?
 
@@ -71,12 +72,12 @@ Nej. Lyckade säkerhetskopieringsjobb genererar inte aviseringar. Aviseringar sk
 Menyn **säkerhets kopierings jobb** visar bara ad hoc-säkerhetskopierade jobb. För schemalagt jobb använder du [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Läggs framtida databaser automatiskt till för säkerhets kopiering?
-Ja, du kan få den här funktionen med [automatiskt skydd](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
+Ja, du kan få den här funktionen med [automatiskt skydd](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Vad händer med säkerhets kopior om jag tar bort en databas från en skyddad instans?
 Om en databas bryts från en skyddad instans, görs fortfarande databas säkerhets kopiorna. Detta innebär att den borttagna databasen börjar visas som ohälsosam under **säkerhets kopierings objekt** och fortfarande är skyddad.
 
-Det korrekta sättet att sluta skydda den här databasen är att **stoppa säkerhets kopieringen** med **ta bort data** på den här databasen.  
+Det korrekta sättet att sluta skydda den här databasen är att **stoppa säkerhets kopieringen** med **ta bort data** på den här databasen.  
 
 ## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Vad händer om jag avbryter säkerhets kopieringen av en automatiskt skyddad databas?
 Om du **stoppar säkerhets kopiering med Behåll data**, kommer inga framtida säkerhets kopieringar att äga rum och de befintliga återställnings punkterna förblir intakta. Databasen kommer fortfarande att anses vara skyddad och visas under **säkerhets kopierings objekt**.

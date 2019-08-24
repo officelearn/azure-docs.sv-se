@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: efc721f7852d50e431be38f52e27d72ad7f3ae76
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 93f111eb4439b89ac367ad7e7b951e26cecb86e4
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877570"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981095"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -53,7 +53,7 @@ Exempel på RAW-fel:
 
 **Orsak** Användaren som är inloggad har inte tilldelats rollen TenantCreator i sina Azure Active Directory.
 
-**Fix:** Följ instruktionerna i [tilldela program rollen TenantCreator till en användare i din Azure Active Directory-klient](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). När du har följt anvisningarna får du en användare som tilldelats rollen TenantCreator.
+**Fix:** Följ instruktionerna i [tilldela program rollen TenantCreator till en användare i din Azure Active Directory-klient](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role). När du har följt anvisningarna får du en användare som tilldelats rollen TenantCreator.
 
 ![Skärm bild av TenantCreator-rollen har tilldelats.](media/TenantCreatorRoleAssigned.png)
 

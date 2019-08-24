@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 2fd9ccff68eb368107a299af02a54ae6fc6cc0e2
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: edb9e50cceed95d8ca77567e7c1228704b5f177d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946150"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982365"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision Node.js SDK
 
@@ -45,7 +45,7 @@ Skapa en ny fil med namnet *sample.js* i den projektkatalog som du vill använda
 
 ### <a name="create-the-custom-vision-service-project"></a>Skapa Custom Vision Service-projektet
 
-Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner.
+Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerations nycklar i lämpliga definitioner och ange värdet för sampleDataRoot sökväg till din mappsökväg. Se till att slut punkt svärdet matchar den utbildning och de förutsägelse slut punkter som du har skapat på [Customvision.AI](https://www.customvision.ai/).
 
 ```javascript
 const util = require('util');

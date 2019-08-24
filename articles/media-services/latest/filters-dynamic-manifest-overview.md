@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: bbbb570cc042d5faa16b66c42aef9792b24fdb12
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: dc9f59894da071e956283591cf7206bc371650b7
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854059"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991434"
 ---
 # <a name="pre-filtering-manifests-by-using-dynamic-packager"></a>För filtrering av manifest med hjälp av dynamisk Paketeraren
 
@@ -107,7 +107,7 @@ Här är den filtrerade till gången:
 
 ## <a name="adjusting-the-presentation-window-dvr"></a>Justera presentations fönstret (DVR)
 
-Azure Media Services erbjuder för närvarande ett cirkulärt arkiv där varaktigheten kan konfigureras mellan 5 minuter och 25 timmar. Manifest filtrering kan användas för att skapa ett rullande DVR-fönster överst i arkivet, utan att ta bort mediet. Det finns många scenarier där sändningarna vill ge ett begränsat DVR-fönster att flyttas med Live Edge och samtidigt behålla ett större Arkiv fönster. En utsändare kan vilja använda de data som finns utanför DVR-fönstret för att markera klipp, eller så kanske de vill ge olika DVR-fönster för olika enheter. De flesta av de mobila enheterna hanterar till exempel inte stora DVR-fönster (du kan ha ett DVR-fönster på 2 minuter för mobila enheter och 1 timme för Skriv bords klienter).
+Azure Media Services erbjuder för närvarande ett cirkulärt arkiv där varaktigheten kan konfigureras mellan 1 minut-25 timmar. Manifest filtrering kan användas för att skapa ett rullande DVR-fönster överst i arkivet, utan att ta bort mediet. Det finns många scenarier där sändningarna vill ge ett begränsat DVR-fönster att flyttas med Live Edge och samtidigt behålla ett större Arkiv fönster. En utsändare kan vilja använda de data som finns utanför DVR-fönstret för att markera klipp, eller så kanske de vill ge olika DVR-fönster för olika enheter. De flesta av de mobila enheterna hanterar till exempel inte stora DVR-fönster (du kan ha ett DVR-fönster på 2 minuter för mobila enheter och en timme för Skriv bords klienter).
 
 ![DVR-fönster][dvr_filter]
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 32c903e5d469a9a3e7b98bd406b5512d752bb210
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
-ms.translationtype: MT
+ms.openlocfilehash: 0ebf18fe2dc6906bc2c06d94388d126fb55c6024
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017798"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981420"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Lagrings köer och Service Bus köer – jämförelse och kontrast
 I den här artikeln analyseras skillnaderna och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: Lagrings köer och Service Bus köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -68,7 +68,7 @@ I det här avsnittet jämförs några av de grundläggande köernas funktioner s
 | Jämförelse villkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
 | Beställ garanti |**Nej** <br/><br>Mer information finns i den första kommentaren i avsnittet "Ytterligare information".</br> |**Ja-första-först-ut (FIFO)**<br/><br>(genom att använda messaging-sessioner) |
-| Leverans garanti |**Minst en gång** |**Minst en gång**<br/><br/>**Högst en gång** |
+| Leverans garanti |**Minst en gång** |**Minst en gång** (använder PeekLock Receive-läge – det här är standardinställningen) <br/><br/>**Högst en gång** (med ReceiveAndDelete Receive mode) <br/> <br/> Läs mer om olika [mottagnings lägen](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Stöd för atomiska åtgärder |**Nej** |**Ja**<br/><br/> |
 | Mottagnings beteende |**Icke-blockerande**<br/><br/>(Slutför omedelbart om det inte finns något nytt meddelande) |**Blockerar med/utan tids gräns**<br/><br/>(erbjuder lång avsökning eller ["Comet-teknik"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Icke-blockerande**<br/><br/>(genom att endast använda .NET Managed API) |
 | API för push-format |**Nej** |**Ja**<br/><br/>.NET API för [motringningen OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) och **motringningen OnMessage** -sessioner. |

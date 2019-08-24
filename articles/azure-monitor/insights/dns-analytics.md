@@ -1,6 +1,6 @@
 ---
-title: DNS Analytics-lösningen i Azure Monitor | Microsoft Docs
-description: Konfigurera och använda DNS Analytics-lösning i Azure Monitor för att samla in insikter om DNS-infrastrukturen på säkerhet, prestanda och åtgärder.
+title: DNS-analys lösning i Azure Monitor | Microsoft Docs
+description: Konfigurera och Använd DNS-analys-lösningen i Azure Monitor för att samla in insikter om säkerhet, prestanda och åtgärder i DNS-infrastrukturen.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 6dd5872d5ec3e79e3c76b1807aea946015fb0eac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9fac349657340486674e4a899b21821b45cc0703
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60496499"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982588"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in information om DNS-infrastrukturen med förhandsversionen av DNS Analytics-lösning
 
 ![Symbol för DNS-analys](./media/dns-analytics/dns-analytics-symbol.png)
 
-Den här artikeln beskriver hur du ställer in och använda Azure DNS Analytics-lösning i Azure Monitor för att samla in insikter om DNS-infrastrukturen på säkerhet, prestanda och åtgärder.
+Den här artikeln beskriver hur du konfigurerar och använder Azure DNS Analytics-lösningen i Azure Monitor för att samla in insikter om säkerhet, prestanda och åtgärder i DNS-infrastrukturen.
 
 DNS Analytics hjälper dig att:
 
@@ -44,19 +44,19 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | --- | --- | --- |
 | [Windows-agenter](../platform/agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
 | [Linux-agenter](../learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in DNS-information från direkt Linux-agenter. |
-| [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direktanslutning från Operations Manager-agenten till Azure Monitor krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
+| [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
 | [Azure Storage-konto](../platform/collect-azure-metrics-logs.md) | Nej | Azure storage används inte av lösningen. |
 
 ### <a name="data-collection-details"></a>Information om insamling av data
 
-Lösningen samlar in DNS-inventering och DNS-händelse-relaterade data från DNS-servrar där en Log Analytics-agenten är installerad. Dessa data är sedan överförs till Azure Monitor och visas i instrumentpanelen för lösningen. Inventeringsrelaterade data, till exempel antalet DNS-servrar, zoner och resursposter som samlas in genom att köra DNS PowerShell-cmdlets. Data uppdateras en gång varannan dag. Händelse-relaterade data samlas nära realtid från den [analytiska och granskningsloggar](https://technet.microsoft.com/library/dn800669.aspx#enhanc) tillhandahålls av förbättrad DNS-loggning och diagnostik i Windows Server 2012 R2.
+Lösningen samlar in DNS-inventering och DNS-händelse-relaterade data från DNS-servrar där en Log Analytics-agenten är installerad. Dessa data överförs sedan till Azure Monitor och visas i instrument panelen för lösningen. Inventeringsrelaterade data, till exempel antalet DNS-servrar, zoner och resursposter som samlas in genom att köra DNS PowerShell-cmdlets. Data uppdateras en gång varannan dag. Händelse-relaterade data samlas nära realtid från den [analytiska och granskningsloggar](https://technet.microsoft.com/library/dn800669.aspx#enhanc) tillhandahålls av förbättrad DNS-loggning och diagnostik i Windows Server 2012 R2.
 
 ## <a name="configuration"></a>Konfiguration
 
 Använd följande information för att konfigurera lösningen:
 
 - Du måste ha en [Windows](../platform/agent-windows.md) eller [Operations Manager](../platform/om-agents.md) agenten på varje DNS-server som du vill övervaka.
-- Du kan lägga till DNS Analytics-lösningen i Log Analytics-arbetsytan från den [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Du kan också använda metoden som beskrivs i [lägga till Azure Monitor-lösningar från lösningsgalleriet](solutions.md).
+- Du kan lägga till DNS Analytics-lösningen i Log Analytics-arbetsytan från den [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Du kan också använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](solutions.md).
 
 Lösningen börjar samla in data utan behov av ytterligare konfiguration. Du kan dock använda följande konfiguration för att anpassa datainsamling.
 
@@ -64,7 +64,7 @@ Lösningen börjar samla in data utan behov av ytterligare konfiguration. Du kan
 
 Klicka på instrumentpanelen för lösningen **Configuration** att öppna sidan konfiguration av DNS Analytics. Det finns två typer av konfigurationsändringar som du kan göra:
 
-- **Godkänd domännamn**. Lösningen bearbetar inte sökning-frågor. Den upprätthåller en lista över tillåtna domännamnssuffix. Sökning-frågor som matchar de domännamn som matchar domännamnssuffixen i den här listan bearbetas inte av lösningen. Icke-bearbetning av listan över godkända domännamn som hjälper dig för att optimera data som skickas till Azure Monitor. Standardlistan över tillåtna objekt omfattar populära offentliga domännamn, t.ex www.google.com och www.facebook.com. Du kan visa listan över slutförts genom att bläddra.
+- **Godkänd domännamn**. Lösningen bearbetar inte sökning-frågor. Den upprätthåller en lista över tillåtna domännamnssuffix. Sökning-frågor som matchar de domännamn som matchar domännamnssuffixen i den här listan bearbetas inte av lösningen. Om du inte bearbetar vit listas domän namn kan du optimera data som skickas till Azure Monitor. Standardlistan över tillåtna objekt omfattar populära offentliga domännamn, t.ex www.google.com och www.facebook.com. Du kan visa listan över slutförts genom att bläddra.
 
   Du kan ändra listan för att lägga till alla domänens namnsuffix som du vill visa sökning insikter för. Du kan också ta bort alla domänens namnsuffix som du inte vill visa sökning insikter för.
 
@@ -76,11 +76,11 @@ Klicka på instrumentpanelen för lösningen **Configuration** att öppna sidan 
 
 Om du använder Microsoft Monitoring Agent för att ansluta till Log Analytics-arbetsytan installeras följande hanteringspaket:
 
-- Microsoft DNS Data Collector Intelligence Pack (Microsoft.IntelligencePacks.Dns)
+- Microsoft DNS data Collector Intelligence Pack (Microsoft. IntelligencePacks. DNS)
 
 Om din hanteringsgrupp för Operations Manager är ansluten till Log Analytics-arbetsytan kan installeras följande hanteringspaket i Operations Manager när du lägger till den här lösningen. Det finns ingen konfiguration som krävs eller underhåll av dessa hanteringspaket:
 
-- Microsoft DNS Data Collector Intelligence Pack (Microsoft.IntelligencePacks.Dns)
+- Microsoft DNS data Collector Intelligence Pack (Microsoft. IntelligencePacks. DNS)
 - Konfiguration av Microsoft System Center Advisor DNS Analytics (Microsoft.IntelligencePack.Dns.Configuration)
 
 Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../platform/om-agents.md).
@@ -90,7 +90,7 @@ Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Op
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
 
-DNS-panelen innehåller antalet DNS-servrar där data samlas in. Den innehåller också antalet begäranden som görs av klienter du löser skadliga domäner under de senaste 24 timmarna. När du klickar på panelen öppnas instrumentpanelen för lösningen.
+Panelen DNS innehåller antalet DNS-servrar där data samlas in. Den innehåller också antalet begäranden som görs av klienter du löser skadliga domäner under de senaste 24 timmarna. När du klickar på panelen öppnas instrumentpanelen för lösningen.
 
 ![DNS Analytics-ikonen](./media/dns-analytics/dns-tile.png)
 
@@ -182,11 +182,8 @@ På sidan Log Search kan du skapa en fråga. Du kan filtrera sökresultaten geno
 
 ## <a name="feedback"></a>Feedback
 
-Det finns två sätt som du kan ge feedback:
-
-- **UserVoice**. Publicera idéer om DNS Analytics-funktioner att arbeta med. Gå till den [Log Analytics UserVoice-sida](https://aka.ms/dnsanalyticsuservoice).
-- **Ansluta till vår kohort**. Vi är alltid intresserade med nya kunder ansluta till vår kohorter för att få snabb åtkomst till nya funktioner och hjälp oss att förbättra DNS-analys. Om du vill ansluta till vår kohorter fyller [den här snabba undersökningen](https://aka.ms/dnsanalyticssurvey).
+Om du vill ge feedback kan du gå till [sidan Log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) och publicera idéer för DNS-analys funktioner att arbeta med. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Fråga loggar](../log-query/log-query-overview.md) att visa detaljerad DNS-poster.
+[Fråga loggar](../log-query/log-query-overview.md) om du vill visa detaljerade DNS-loggfiler.

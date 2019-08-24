@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-java-august2019
-ms.openlocfilehash: d1eade1b5bdbbce2bc47c5e6177d21c7ff835936
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8425710f19c789aa0912ccc813d85f154a0d28f5
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933940"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981652"
 ---
-# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med Java och Azure Cosmos DB
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Snabbstart: Bygg en Java-app för att hantera Azure Cosmos DB Tabell-API data
 
 > [!div class="op_single_selector"]
 > * [NET](create-table-dotnet.md)

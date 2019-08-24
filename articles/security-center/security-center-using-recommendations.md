@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 13d6eb64b2089cf93f08c294cc9b6a2034b64fa0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640865"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990549"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använd Azure Security Center rekommendationer för att förbättra säkerheten
 Du kan minska risken för en betydande säkerhets händelse genom att konfigurera en säkerhets princip och sedan implementera de rekommendationer som tillhandahålls av Azure Security Center. Den här artikeln visar hur du använder säkerhets principer och rekommendationer i Security Center för att minimera en säkerhets attack. 
@@ -75,6 +75,6 @@ Jeff fortsätter att gå igenom rekommendationerna med hög prioritet och medelh
 ## <a name="next-steps"></a>Nästa steg
 Se till att du har en övervaknings process på plats, där du regelbundet kontrollerar rekommendationerna i Security Center så att du kan se till att dina resurser är säkra över tid.
 
-I det här scenariot visar vi hur du använder säkerhets principer och rekommendationer i Security Center för att minimera en säkerhets attack. Se scenariot med [incident svar](security-center-incident-response.md) för att lära dig hur du får en incident svars plan på plats innan en attack äger rum.
+I det här scenariot visar vi hur du använder säkerhets principer och rekommendationer i Security Center för att minimera en säkerhets attack.
 
-Lär dig hur du svarar på hot med [incident svar](security-center-incident-response.md).
+Lär dig hur du svarar på hot med [att hantera och svara på säkerhets aviseringar](security-center-managing-and-responding-alerts.md).

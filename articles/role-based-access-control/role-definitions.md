@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ece5d8f9733dde57c2990bfbb6bb90305d8bc37d
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 2ec3872b9e11830f7891e98f5fc0182b99e1586d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977190"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997331"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Förstå roll definitioner för Azure-resurser
 
@@ -88,7 +88,7 @@ Rollbaserad åtkomst kontroll för hanterings åtgärder anges i `Actions` -och 
 - Skapa, uppdatera eller ta bort en BLOB-behållare
 - Ta bort en resurs grupp och alla dess resurser
 
-Hanterings åtkomsten ärvs inte för dina data. Denna separation förhindrar att roller med jokertecken`*`() får obegränsad åtkomst till dina data. Om en användare till exempel har en [läsar](built-in-roles.md#reader) roll för en prenumeration kan de Visa lagrings kontot, men som standard kan de inte Visa underliggande data.
+Hanterings åtkomst ärvs inte till dina data förutsatt att autentiseringsmetoden för behållar metoden är inställd på "Azure AD-användarkonto" och inte "åtkomst nyckel". Denna separation förhindrar att roller med jokertecken`*`() får obegränsad åtkomst till dina data. Om en användare till exempel har en [läsar](built-in-roles.md#reader) roll för en prenumeration kan de Visa lagrings kontot, men som standard kan de inte Visa underliggande data.
 
 Tidigare användes inte rollbaserad åtkomst kontroll för data åtgärder. Auktorisering för data åtgärder som varierar mellan olika resurs leverantörer. Samma rollbaserade auktoriserings modell för åtkomst kontroll som används för hanterings åtgärder har utökats till data åtgärder.
 

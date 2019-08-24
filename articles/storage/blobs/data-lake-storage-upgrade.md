@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 850d580d4eb1ca41932a28005d3375ced709db60
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 7c018ad15ee653bcdc903492028ec5ed058dbd14
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016381"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992240"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Uppgradera dina Big data Analytics-lösningar från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2
 
@@ -235,7 +235,7 @@ Observera att det finns tredje parter som kan hantera Data Lake Storage Gen1 fö
 
 * Om du använder ett verktyg som inte kopierar ACL: er eller om du inte vill kopiera över ACL: er så kommer du behöver ange ACL: er på målet manuellt på den översta nivån som är lämpliga. Du kan göra det genom att använda Storage Explorer. Kontrollera att dessa ACL: er är standard-ACL: er så att de filer och mappar som du kopierar du över ärver dem.
 
-* I Data Lake Storage Gen1 är den högsta nivån som du kan ange ACL: er i roten för kontot. I Data Lake Storage Gen2 är det dock högsta nivån som du kan ange ACL: er i rotmappen i ett fil system, inte hela kontot. Om du vill använda standard-ACL: er på kontonivå, måste du därför att duplicera de över alla filsystem i ditt Data Lake Storage Gen2-konto.
+* I Data Lake Storage Gen1 är den högsta nivån som du kan ange ACL: er i roten för kontot. I Data Lake Storage Gen2 är det dock högsta nivån som du kan ställa in ACL: er i rotmappen i en behållare, inte hela kontot. Om du vill använda standard-ACL: er på kontonivå, måste du därför att duplicera de över alla filsystem i ditt Data Lake Storage Gen2-konto.
 
 * Filen namngivningsbegränsningar skiljer sig mellan de två systemen för lagring. Dessa skillnader särskilt om när du kopierar från Data Lake Storage Gen2 till Data Lake Storage Gen1 eftersom det senare har mer begränsad begränsningar.
 

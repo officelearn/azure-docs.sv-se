@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ba9cda5aeebaf0764068a463cdb55f3ef5542ea3
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928031"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997809"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning 
 
@@ -66,6 +66,9 @@ Autentiserings systemet kan ge ytterligare avancerade autentiseringskrav. Exempe
 I följande avsnitt får du hjälp att avgöra vilken autentiseringsmetod som passar dig bäst genom att använda ett besluts träd. Det hjälper dig att avgöra om du ska distribuera moln eller federerad autentisering för din Azure AD hybrid Identity-lösning.
 
 ## <a name="decision-tree"></a>Beslutsträd
+
+> [!NOTE]
+> PTA fungerar bara med ett alternativt ID när UserPrincipalName väljs som alternativ-ID. Sedan kommer det lokala UserPrincipalName att synkroniseras från AD till AAD. Mer information finns i ["alternativ-ID för direktautentisering" som användar namn, i stället för "userPrincipalName"?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
 
 ![Besluts träd för Azure AD-autentisering](./media/choose-ad-authn/azure-ad-authn-image1.png)
 
@@ -176,7 +179,7 @@ Följande diagram innehåller en översikt över de hög nivå arkitektur kompon
 
 |Beaktas|Password-hash-synkronisering + sömlös SSO|Direktautentisering + sömlös SSO|Federation med AD FS|
 |:-----|:-----|:-----|:-----|
-|Var sker autentiseringen?|I molnet|I molnet efter ett säkert utbyte av lösen ords verifiering med den lokala Autentiseringstjänsten|Lokalt|
+|Var sker autentiseringen?|I molnet|I molnet efter ett säkert utbyte av lösen ords verifiering med den lokala Autentiseringstjänsten|Lokal|
 |Vilka är kraven på lokal server utöver etablerings systemet: Azure AD Connect?|Inga|En server för varje ytterligare Authentication agent|Två eller flera AD FS-servrar<br><br>Två eller flera WAP-servrar i perimeternätverket/DMZ-nätverket|
 |Vilka är kraven för lokal Internet och nätverk utöver etablerings systemet?|Inga|[Utgående Internet åtkomst](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) från servrar som kör autentiseringsprinciper|[Inkommande Internet åtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande nätverks åtkomst till AD FS servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
 |Finns det ett krav för SSL-certifikat?|Nej|Nej|Ja|

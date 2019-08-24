@@ -1,23 +1,20 @@
 ---
 title: Vägledning för att utveckla Azure Functions | Microsoft Docs
 description: Lär dig Azure Functions koncept och tekniker som du behöver för att utveckla funktioner i Azure, i alla programmeringsspråk och bindningar.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: Guide för utvecklare, Azure Functions, functions, Event Processing, Webhooks, dynamisk beräkning, Server lös arkitektur
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 2715aeae5d10241703fa876557d1edcea1723874
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c60fedfe855cc803ee2f4b1c463e2b0614239c04
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874963"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982641"
 ---
 # <a name="azure-functions-developers-guide"></a>Guide för Azure Functions utvecklare
 I Azure Functions delar specifika funktioner några viktiga tekniska koncept och komponenter, oavsett vilket språk eller vilken bindning du använder. Innan du hoppar till inlärnings information som är specifik för ett specifikt språk eller en bindning bör du läsa igenom den här översikten som gäller för alla.
@@ -44,7 +41,7 @@ Function. JSON-filen definierar funktionens utlösare, bindningar och andra konf
 }
 ```
 
-Fler exempel finns i [wiki-sidan för function. JSON](https://github.com/Azure/azure-functions-host/wiki/function.json).
+Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
 `bindings` Egenskapen är den plats där du konfigurerar både utlösare och bindningar. Varje bindning delar några vanliga inställningar och vissa inställningar som är specifika för en viss typ av bindning. Varje bindning kräver följande inställningar:
 
@@ -55,7 +52,7 @@ Fler exempel finns i [wiki-sidan för function. JSON](https://github.com/Azure/a
 | `name` |sträng |Namnet som används för de data som är kopplade till funktionen. För C#, är detta ett argument namn. för Java Script är det nyckeln i en nyckel/värde-lista. |
 
 ## <a name="function-app"></a>Funktionsapp
-En Function-app tillhandahåller en körnings kontext i Azure där dina funktioner körs. En Function-app består av en eller flera enskilda funktioner som hanteras, distribueras och skalas tillsammans. Alla funktioner i en Function-app delar samma pris plan, kontinuerlig distribution och körnings version. Tänk på en Function-app som ett sätt att ordna och hantera dina funktioner gemensamt. 
+En Function-app tillhandahåller en körnings kontext i Azure där dina funktioner körs. Därför är det enheten för distribution och hantering av dina funktioner. En Function-app består av en eller flera enskilda funktioner som hanteras, distribueras och skalas tillsammans. Alla funktioner i en Function-app delar samma pris plan, distributions metod och körnings version. Tänk på en Function-app som ett sätt att ordna och hantera dina funktioner gemensamt. Mer information finns i [hantera en Function-app](functions-how-to-use-azure-function-app-settings.md). 
 
 > [!NOTE]
 > Alla funktioner i en Function-app måste ha skapats på samma språk. I [tidigare versioner](functions-versions.md) av Azure Functions runtime krävdes detta inte.

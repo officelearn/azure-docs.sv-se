@@ -6,23 +6,23 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.openlocfilehash: a77310d0e45f095260d77ead0cfe14a3ce0ebd8e
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.date: 08/22/2019
+ms.openlocfilehash: 03bea7b9df929914e25ca97b382dc5c120b5a769
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623850"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983024"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
 
-Vi introducerar några viktiga ändringar för att ge stöd för mer detaljerad rollbaserad åtkomst för att få känslig information. Som en del av dessa ändringar **kan en åtgärd krävas** om du använder en av de [berörda entiteterna/scenarierna](#am-i-affected-by-these-changes).
+Vi introducerar några viktiga ändringar för att ge stöd för mer detaljerad rollbaserad åtkomst för att få känslig information. Som en del av dessa ändringar kan en del åtgärd krävas **senast den 3 September 2019** om du använder en av de [berörda entiteterna/scenarierna](#am-i-affected-by-these-changes).
 
 ## <a name="what-is-changing"></a>Vad ändras?
 
 Tidigare kunde hemligheter erhållas via HDInsight-API: t av kluster användare som har rollen ägare, deltagare eller Reader [RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), som de var tillgängliga för alla med `*/read` behörigheten. Hemligheter definieras som värden som kan användas för att få mer utökad åtkomst än en användares roll ska tillåtas. Detta inkluderar värden som till exempel kluster-gatewayens HTTP-autentiseringsuppgifter, lagrings konto nycklar och autentiseringsuppgifter för databasen.
 
-Om `Microsoft.HDInsight/clusters/configurations/action` du går vidare måste du komma åt dessa hemligheter, vilket innebär att de inte längre kan nås av användare med rollen läsare. Rollerna som har den här behörigheten är deltagare, ägare och den nya rollen för HDInsight-klustret (mer information nedan).
+Från och med den 3 september 2019 krävs `Microsoft.HDInsight/clusters/configurations/action` behörigheten för att komma åt dessa hemligheter, vilket innebär att de inte längre kan nås av användare med rollen läsare. Rollerna som har den här behörigheten är deltagare, ägare och den nya rollen för HDInsight-klustret (mer information nedan).
 
 Vi introducerar också en ny roll för [HDInsight-kluster](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) som kommer att kunna hämta hemligheter utan att ha behörighet som deltagares eller ägares administrativa behörigheter. Att sammanfatta:
 
@@ -59,13 +59,13 @@ Följande API: er kommer att ändras eller föråldras:
 
 - [**Hämta/Configurations/{ConfigurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (känslig information borttagen)
     - Användes tidigare för att hämta enskilda konfigurations typer (inklusive hemligheter).
-    - Det här API-anropet returnerar nu enskilda konfigurations typer med hemligheter utelämnade. Om du vill hämta alla konfigurationer, inklusive hemligheter, använder du det nya inlägget/Configurations-anropet. Om du bara vill ha Gateway-inställningar använder du det nya inlägget/getGatewaySettings-anropet.
+    - Från och med den 3 september 2019 kommer det här API-anropet att returnera enskilda konfigurations typer med hemligheter utelämnade. Om du vill hämta alla konfigurationer, inklusive hemligheter, använder du det nya inlägget/Configurations-anropet. Om du bara vill ha Gateway-inställningar använder du det nya inlägget/getGatewaySettings-anropet.
 - [**Hämta/Configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) föråldrad
     - Användes tidigare för att hämta alla konfigurationer (inklusive hemligheter)
-    - Det här API-anropet kommer inte längre att stödjas. Om du vill hämta alla konfigurationer som går framåt använder du det nya inlägget/Configurations-anropet. Om du vill hämta konfigurationer med känsliga parametrar utelämnade använder du GET/configurations/{configurationName}-anropet.
+    - Från och med den 3 september 2019 är API-anropet inaktuellt och stöds inte längre. Om du vill hämta alla konfigurationer som går framåt använder du det nya inlägget/Configurations-anropet. Om du vill hämta konfigurationer med känsliga parametrar utelämnade använder du GET/configurations/{configurationName}-anropet.
 - [**Publicera/Configurations/{ConfigurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) föråldrad
     - Användes tidigare för att uppdatera Gateway-autentiseringsuppgifter.
-    - Detta API-anrop är inaktuellt och stöds inte längre. Använd det nya inlägget/updateGatewaySettings i stället.
+    - Från och med den 3 september 2019 är API-anropet inaktuellt och stöds inte längre. Använd det nya inlägget/updateGatewaySettings i stället.
 
 Följande ersättnings-API: er har lagts till:</span>
 
@@ -201,7 +201,7 @@ Om det fortfarande inte fungerar kontaktar du AAD-administratören för att få 
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>Vad händer om jag inte vidtar någon åtgärd?
 
-Anropen `POST /configurations/gateway` `GET /configurations/{configurationName}` och kommer inte längre att returnera någon information och anropet kommer inte längre att returnera känsliga parametrar, till exempel lagrings konto nycklar eller kluster lösen ord. `GET /configurations` Samma sak gäller för motsvarande SDK-metoder och PowerShell-cmdletar.
+Från den 3 september 2019 `GET /configurations` och `POST /configurations/gateway` anrop kommer inte längre att `GET /configurations/{configurationName}` returnera någon information och anropet kommer inte längre att returnera känsliga parametrar, t. ex. lagrings konto nycklar eller kluster lösen ord. Samma sak gäller för motsvarande SDK-metoder och PowerShell-cmdletar.
 
 Om du använder en äldre version av ett av verktygen för Visual Studio, VSCode, IntelliJ eller Sol förmörkelse som nämns ovan, fungerar de inte längre förrän du uppdaterar.
 

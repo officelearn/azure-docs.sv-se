@@ -1,6 +1,6 @@
 ---
-title: Hantering för företagsappar i Azure Active Directory för användaretablering | Microsoft Docs
-description: Lär dig att hantera användarens kontoetablering för enterprise-appar som använder Azure Active Directory
+title: Hantering av användar etablering för företags program i Azure Active Directory | Microsoft Docs
+description: Lär dig hur du hanterar användar konto etablering för företags program med hjälp av Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,86 +15,80 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b6d42c961054927581e7cc43b6f467e5d3e23c4e
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807626"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996732"
 ---
-# <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto etablering för företagsappar i Azure portal
+# <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera användar konto etablering för företags program i Azure Portal
 
-Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera etablering av automatisk användarkonto och avetablering för program som stöder den. Läs mer om automatisk användarkontoetablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md).
+Den här artikeln beskriver hur du använder [Azure Portal](https://portal.azure.com) för att hantera automatisk etablering av användar konton och avetablering för program som stöder det. Mer information om automatisk etablering av användar konton och hur det fungerar finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Hitta dina appar i portalen
 
-Använda Azure Active Directory-portalen för att visa och hantera alla program som har konfigurerats för enkel inloggning i en katalog. Enterprise-appar är appar som distribueras och används i din organisation. Följ stegen nedan för att visa och hantera dina företagsprogram:
+Använd Azure Active Directory Portal för att visa och hantera alla program som är konfigurerade för enkel inloggning i en katalog. Företags program är appar som distribueras och används i din organisation. Följ dessa steg om du vill visa och hantera dina företags program:
 
-1. Öppna den [Azure Active Directory-portalen](https://aad.portal.azure.com).
-1. Välj **företagsprogram** i den vänstra rutan. En lista över alla konfigurerade appar visas, inklusive appar som har lagts till från galleriet.
-1. Välj en app för att läsa in dess resource fönstret där du kan visa rapporter och hantera appinställningar.
-1. Välj **etablering** att hantera användarkonto etableringsinställningar för den valda appen.
+1. Öppna [Azure Active Directory-portalen](https://aad.portal.azure.com).
+1. Välj **företags program** i det vänstra fönstret. En lista över alla konfigurerade appar visas, inklusive appar som har lagts till från galleriet.
+1. Välj en app för att läsa in resurs fönstret där du kan visa rapporter och hantera inställningar för appar.
+1. Välj **etablering** för att hantera inställningar för etablering av användar konto för den valda appen.
 
-   ![Etablering av skärmen för att hantera användarkonto etableringsinställningar](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Etablerings skärmen för att hantera inställningar för användar konto etablering](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
-## <a name="provisioning-modes"></a>Etablering lägen
+## <a name="provisioning-modes"></a>Etablerings lägen
 
-Den **etablering** fönstret börjar med en **läge** meny som visar etablering lägen som stöds för ett företagsprogram och låter dig konfigurera dem. De tillgängliga alternativen är:
+**Etablerings** fönstret börjar med menyn **läge** , som visar de etablerings lägen som stöds för ett företags program och låter dig konfigurera dem. De tillgängliga alternativen är:
 
-* **Automatisk** – det här alternativet visas om Azure AD stöder automatisk API-baserad etablering eller inaktivering av användarkonton till det här programmet. Välj det här läget för att visa ett gränssnitt som hjälper administratörer att:
+* **Automatiskt** – det här alternativet visas om Azure AD stöder automatisk API-baserad etablering eller inaktive ring av användar konton i det här programmet. Välj det här läget för att visa ett gränssnitt som hjälper administratörerna:
 
-  * Konfigurera Azure AD för att ansluta till programmets API för användarhantering
-  * Skapa mappningar och arbetsflöden som definierar hur användare kontodata ska flöda mellan Azure AD och appen
-  * Hantera Azure AD provisioning-tjänst
+  * Konfigurera Azure AD för att ansluta till programmets API för användar hantering
+  * Skapa konto mappningar och arbets flöden som definierar hur användar konto data ska flöda mellan Azure AD och appen
+  * Hantera Azure AD Provisioning-tjänsten
 
-* **Manuell** – det här alternativet visas om Azure AD inte stöder automatisk etablering av användarkonton till det här programmet. I detta fall använder måste användarkontot poster som lagras i programmet hanteras med hjälp av en extern process, baserat på användare hantering och etablering funktioner som tillhandahålls av programmet (som kan innehålla SAML just etablering).
+* **Manuellt** – det här alternativet visas om Azure AD inte stöder automatisk etablering av användar konton i det här programmet. I det här fallet måste användar konto poster som lagras i programmet hanteras med hjälp av en extern process, baserat på användar hanterings-och etablerings funktionerna i programmet (som kan inkludera SAML just-in-Time-etablering).
 
-## <a name="configuring-automatic-user-account-provisioning"></a>Konfigurera automatisk användarens kontoetablering
+## <a name="configuring-automatic-user-account-provisioning"></a>Konfigurera automatisk etablering av användar konto
 
-Välj den **automatisk** alternativet för att ange inställningar för autentiseringsuppgifter som administratör, mappningar, starta och stoppa, och synkronisering.
+Välj det **automatiska** alternativet om du vill ange inställningar för administratörs behörighet, mappningar, starta och stoppa och synkronisering.
 
-### <a name="admin-credentials"></a>Autentiseringsuppgifter som administratör
+### <a name="admin-credentials"></a>Autentiseringsuppgifter för administratör
 
-Expandera **administratörsautentiseringsuppgifter** att ange de autentiseringsuppgifter som krävs för Azure AD för att ansluta till programmets API för användarhantering. Indata som krävs varierar beroende på programmet. Läs om autentiseringstyper och krav för specifika program i den [självstudierna för konfiguration för det specifika programmet](user-provisioning.md).
+Expandera **administratörsautentiseringsuppgifter** för att ange de autentiseringsuppgifter som krävs för att Azure AD ska kunna ansluta till programmets användar hanterings-API. Vilka indatatyper som krävs varierar beroende på programmet. Information om vilka typer av autentiseringsuppgifter som krävs för specifika program finns i [konfigurations guiden för det specifika programmet](user-provisioning.md).
 
-Välj **Testanslutning** för att testa autentiseringsuppgifterna genom att låta Azure AD-försök att ansluta till appen etablering app med hjälp av de angivna autentiseringsuppgifterna.
+Välj **test anslutning** för att testa autentiseringsuppgifterna genom att låta Azure AD försöka ansluta till appens etablerings app med de angivna autentiseringsuppgifterna.
 
 ### <a name="mappings"></a>Mappningar
 
-Expandera **mappningar** att visa och redigera användarattribut som flödar mellan Azure AD och målprogrammet när användarkonton etableras eller uppdateras.
+Expandera **mappningar** för att visa och redigera användarattribut som flödar mellan Azure AD och mål programmet när användar konton har skapats eller uppdaterats.
 
-Det finns en förkonfigurerad uppsättning mappningar mellan Azure AD-användarobjekt och objekt för varje SaaS-app. Vissa appar hantera andra typer av objekt, till exempel grupper eller kontakter. Välj en avbildning i tabell för att öppna Redigeraren för mappning till höger, där du kan visa och anpassa dem.
+Det finns en förkonfigurerad uppsättning mappningar mellan användar objekt i Azure AD och varje SaaS-Apps användar objekt. Vissa appar hanterar andra typer av objekt, t. ex. grupper eller kontakter. Välj en mappning i tabellen för att öppna mappnings redigeraren till höger, där du kan visa och anpassa dem.
 
-![Visar skärmen attributmappning](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Visar skärmen för mappning av attribut](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Anpassningar som stöds är:
 
-* Aktivera och inaktivera mappningar för specifika objekt, till exempel Azure AD-användarobjektet med SaaS-appens användarobjektet.
-* Redigera attribut som flödar från Azure AD-användarobjektet till appens användarobjektet. Läs mer på attributmappning [förstå mappning attributtyper](customize-application-attributes.md#understanding-attribute-mapping-types).
-* Filtrering etablering åtgärderna som Azure AD som körs på det aktuella programmet. Du kan begränsa de åtgärder som utförs i stället för att Azure AD fullt Synkronisera objekt.
+* Aktivera och inaktivera mappningar för särskilda objekt, till exempel Azure AD-användarobjektet till SaaS-appens användar objekt.
+* Redigera attributen som flödar från Azure AD-användarobjektet till appens User-objekt. Mer information om mappning av attribut finns i [förstå attribut mappnings typer](customize-application-attributes.md#understanding-attribute-mapping-types).
+* Filtrera de etablerings åtgärder som Azure AD kör i mål programmet. I stället för att låta Azure AD synkronisera objekt fullständigt kan du begränsa åtgärderna som körs.
 
-  Exempelvis kan bara välja **uppdatering** och Azure AD endast säkerhetsuppdateringar befintliga konton i ett program men inte skapa nya. Välj bara **skapa** och Azure endast skapar nya användarkonton men inte uppdatera befintliga. Den här funktionen kan administratörer skapa olika mappningar för skapande av konto och uppdatera arbetsflöden.
+  Om du till exempel bara väljer **Uppdatera** och Azure AD uppdateras bara befintliga användar konton i ett program, men inga nya skapas. Välj endast **skapa** och Azure skapar bara nya användar konton, men uppdatera inte befintliga. Med den här funktionen kan administratörer skapa olika mappningar för skapande av konton och uppdatera arbets flöden.
 
-* Lägger till en ny attributmappning. Välj **Lägg till ny mappning** längst ned på den **attributmappning** fönstret. Fyll i **redigera attributet** formuläret och välj **Ok** att lägga till ny mappning i listan.
+* Lägger till en ny attributmappning. Välj **Lägg till ny mappning** längst ned i fönstret **Mappning av attribut** . Fyll i formuläret **Redigera attribut** och välj **OK** för att lägga till den nya mappningen i listan.
 
 ### <a name="settings"></a>Inställningar
 
-Du kan starta och stoppa den Azure AD-etableringstjänsten för det valda programmet i den **inställningar** område i den **etablering** skärmen. Du kan också välja att rensa cacheminnet för etablering och starta om tjänsten.
+Du kan starta och stoppa Azure AD Provisioning-tjänsten för det valda programmet i **Inställningar** -avsnittet på **etablerings** skärmen. Du kan också välja att rensa etablerings-cachen och starta om tjänsten.
 
-Etablering har aktiverats för första gången för ett program, aktivera tjänsten genom att ändra den **Etableringsstatus** till **på**. Den här ändringen gör den Azure AD-etableringtjänsten att köra en inledande synkronisering. Det läser de användare som tilldelats i den **användare och grupper** avsnittet frågar målprogrammet för dem och kör sedan etablering åtgärder som definierats i Azure AD **mappningar** avsnittet. Under den här processen lagrar etableringstjänsten cachelagrade data om vilka användarkonton som hanteras så att icke-hanterade konton i målprogram som har aldrig inom omfånget för tilldelning inte påverkas av avetableringsförbättringar åtgärder. Efter den inledande synkroniseringen synkroniserar etableringstjänsten automatiskt användarobjektet och gruppobjektet med tio minuters intervall.
+Om etableringen aktive ras för första gången för ett program aktiverar du tjänsten genom att ändra **etablerings statusen** till **på**. Den här ändringen gör att Azure AD Provisioning-tjänsten kör en inledande synkronisering. Den läser de användare som tilldelats i avsnittet **användare och grupper** , frågar mål programmet för dem och kör sedan de etablerings åtgärder som definierats i avsnittet Azure AD- **mappningar** . Under den här processen lagrar etablerings tjänsten cachelagrade data om vilka användar konton den hanterar, så icke-hanterade konton i mål programmen som aldrig fanns i omfattningen för tilldelningen påverkas inte av inetablerings åtgärder. Efter den inledande synkroniseringen synkroniserar etablerings tjänsten automatiskt användar-och grupp objekt i ett intervall om tio minuter.
 
-Ändra den **Etableringsstatus** till **av** att pausa etableringstjänsten. I det här tillståndet Azure inte skapa, uppdatera eller ta bort användare eller gruppobjekt i appen. Ändra tillståndet tillbaka till **på** och tjänsten hämtar där den avbröts.
+Ändra **etablerings statusen** till **av** för att pausa etablerings tjänsten. I det här läget skapar inte Azure, uppdaterar eller tar bort användar-eller grupp objekt i appen. Ändra statusen tillbaka till **på** och tjänsten hämtar var den slutade.
 
-Välj den **Avmarkera aktuell status och starta om synkronisering** kryssrutan och välj **spara** till:
+Markera kryss rutan **Rensa aktuell status och starta om synkronisering** och välj **Spara** till:
 
-* Stoppa etableringstjänsten
-* Dumpa cachelagrade data om vilka konton som hanterar Azure AD
-* Starta om tjänsterna och köra den första synkroniseringen igen
+* Stoppa etablerings tjänsten
+* Dumpa cachelagrade data om vilka konton som Azure AD hanterar
+* Starta om tjänsterna och kör den första synkroniseringen igen
 
-Det här alternativet kan användas av administratörer etablering distributionsprocessen börja om från början igen.
-
-### <a name="synchronization-details"></a>Synkroniseringsinformation
-
-Det här avsnittet innehåller ytterligare information om driften av etableringstjänsten, inklusive de första och sista etableringstjänsten körde programmet och hur många användare och gruppobjekt som den hanterar.
-
-En länk till den **etablering aktivitetsrapporten**, som innehåller en logg över alla användare och grupper skapade, uppdaterade och borttagna mellan Azure AD och målprogrammet. Finns också en länk till den **etablering felrapport**, vilket ger mer detaljerade felmeddelanden för användare och grupp-objekt som inte kunde läsas, skapas, uppdateras eller tas bort.
+Med det här alternativet kan administratörer starta distributions processen för etablering igen.

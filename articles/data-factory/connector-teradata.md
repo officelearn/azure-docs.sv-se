@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 134302bffdadc27cf202a43e7dc4cc94704bb5b3
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: ddce94cab0067c34ad056a40251d79c5470ba460
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69557865"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996574"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Kopiera data från Teradata med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -189,7 +189,7 @@ Det här avsnittet innehåller en lista över egenskaper som stöds av Teradata-
 ### <a name="teradata-as-source"></a>Teradata som källa
 
 >[!TIP]
->Information om hur du kan läsa in data från Teradata effektivt genom att använda data partitionering finns i avsnittet [parallell kopia från Teradata](#parallel-copy-from-teradata) .
+>Om du vill läsa in data från Teradata effektivt genom att använda data partitionering kan du läsa mer från [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet.
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från Teradata:
 
@@ -245,9 +245,9 @@ Data Factory Teradata-anslutaren tillhandahåller inbyggd data partitionering f�
 
 ![Skärm bild av partitionsalternativ](./media/connector-teradata/connector-teradata-partition-options.png)
 
-När du aktiverar partitionerad kopiering körs Data Factory parallella frågor mot din Teradata-källa för att läsa in data med partitioner. Den parallella graden styrs av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. Om du till exempel anger `parallelCopies` fyra Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar. Varje fråga hämtar en del av data från Teradata-databasen.
+När du aktiverar partitionerad kopiering körs Data Factory parallella frågor mot din Teradata-källa för att läsa in data med partitioner. Den parallella graden styrs av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. Om du till exempel anger `parallelCopies` fyra Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar, och varje fråga hämtar en del av data från Teradata-databasen.
 
-Det är en bra idé att aktivera parallell kopiering med data partitionering, särskilt när du läser in stora mängder data från Teradata-databasen. Följande är föreslagna konfigurationer för olika scenarier:
+Det är en bra idé att aktivera parallell kopiering med data partitionering, särskilt när du läser in stora mängder data från Teradata-databasen. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat data lager, skrivs de om för att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 
 | Scenario                                                     | Föreslagna inställningar                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

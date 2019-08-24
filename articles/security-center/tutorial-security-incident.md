@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12ea21a3f61404c2e031909adda28f8e1e768cd0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612732"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992072"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Självstudier: Reagera på säkerhetsincidenter
 Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med avancerad analys och hotinformation för att varna dig om skadlig aktivitet. Dessutom kan du integrera varningar från andra säkerhetsprodukter och -tjänster i Security Center och skapa anpassade varningar utifrån dina egna indikatorer eller intelligenskällor. När en varning har genererats krävs snabba åtgärder för att undersöka och åtgärda. I den här självstudien får du lära dig hur man:
@@ -34,6 +34,28 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
+
+## <a name="scenario"></a>Scenario
+Contoso migrerade nyligen några av sina lokala resurser till Azure, inklusive vissa virtuella datorbaserade branschspecifika arbetsbelastningar och SQL-databaser. För närvarande har Contosos team som ansvarar för datorsäkerheten, CSIRT (Computer Security Incident Response Team) svårt att undersöka säkerhetsproblem på grund av bristande integrering av säkerhetsfunktionerna i de aktuella incidenthanteringsverktygen. Bristen på integrering utgör ett problem vid identifiering (det blir för många falska positiva resultat), samt vid utvärderings- och diagnostiseringsstegen. Som en del av den här migreringen beslutar de att välja Security Center för att lösa problemet.
+
+Den första fasen i migreringen slutförs när alla resurser har integreras och alla säkerhetsrekommendationer från Security Center har hanterats. Contoso CSIRT är huvudresursen för att hantera säkerhetsincidenter. Gruppen består av en grupp personer med ansvar för att hantera en alla säkerhetsincidenter. Gruppmedlemmarna har tydligt definierade uppgifter som säkerställer att inget område lämnas utan åtgärd.
+
+I det här scenariot ska vi fokusera på rollerna för följande personer som ingår i Contoso CSIRT:
+
+![Livscykel för incidenthantering](./media/tutorial-security-incident/security-center-incident-response.png)
+
+Johanna, som arbetar med säkerheten. Deras ansvar omfattar:
+
+* Övervakning och hantering av säkerhetshot dygnet runt.
+* Eskalering till molnets arbetsbelastningsägare eller säkerhetsanalytiker vid behov.
+
+Sam är en säkerhetsanalytiker och deras ansvar omfattar:
+
+* Undersöka attacker.
+* Åtgärda aviseringar.
+* Arbeta med arbetsbelastningsägare för att fastställa och tillämpa åtgärder.
+
+Som du kan se har Johanna och Sam olika ansvarsområden och de måste samarbeta för att dela informationen från Security Center.
 
 ## <a name="triage-security-alerts"></a>Prioritera säkerhetsvarningar
 Security Center tillhandahåller en enhetlig vy över alla säkerhetsvarningar. Säkerhetsvarningar rankas beroende på allvarlighetsgrad och när det är möjligt kombineras relaterade varningar till en säkerhetsincident. När du sorterar varningar och hot ska du:

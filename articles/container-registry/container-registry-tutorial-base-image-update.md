@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1a6f73841550c64e93fa09fe0a1b033f840c9752
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
-ms.translationtype: HT
+ms.openlocfilehash: 7cd278143ffe482cb51f76b1019413e97a777a3a
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971383"
+ms.locfileid: "69981818"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Självstudie: Automatisera containeravbildningsversioner när en basavbildning uppdateras i ett Azure-containerregister 
 
@@ -82,7 +82,7 @@ När en basavbildning har uppdaterats kan du behöva återskapa containeravbildn
 
 * Om du vill aktivera en ACR-uppgift för att fastställa och spåra en behållar avbildnings beroenden – som inkluderar dess bas avbildning, måste du först utlösa uppgiften **minst en gång**. Utlös till exempel uppgiften manuellt med kommandot [AZ ACR Task Run][az-acr-task-run] .
 
-* För att utlösa en aktivitet på grund avbildnings uppdatering måste bas avbildningen ha en *stabil* tagg, till `node:9-alpine`exempel. Den här märkningen är typisk för en bas avbildning som uppdateras med OS-och Framework-korrigeringsfiler till en senaste stabil utgåva. Om bas avbildningen uppdateras med en ny versions tagg utlöses inte en uppgift. Mer information om bild taggning finns i [rikt linjer för bästa praxis](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/). 
+* För att utlösa en aktivitet på grund avbildnings uppdatering måste bas avbildningen ha en *stabil* tagg, till `node:9-alpine`exempel. Den här märkningen är typisk för en bas avbildning som uppdateras med OS-och Framework-korrigeringsfiler till en senaste stabil utgåva. Om bas avbildningen uppdateras med en ny versions tagg utlöses inte en uppgift. Mer information om bild taggning finns i [rikt linjer för bästa praxis](container-registry-image-tag-version.md). 
 
 ### <a name="base-image-update-scenario"></a>Uppdateringsscenario för basavbildningar
 

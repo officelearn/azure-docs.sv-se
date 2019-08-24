@@ -1,5 +1,5 @@
 ---
-title: Introduktion till djup inlärning eller Machine Learning
+title: Djup inlärning eller Machine Learning
 titleSuffix: Azure Machine Learning service
 description: Lär dig mer om relationen mellan djup inlärning och Machine Learning och hur de passar in i kategorin artificiell intelligens. Den här artikeln beskriver hur djup inlärningen löser scenarier, till exempel bedrägeri identifiering, röst-och ansikts igenkänning, sentiment analys och tids serie prognoser.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 186ba03142e01c4b9340fc5b492621cc17575104
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5301be493ef22fc2d74cc337d88b04caf391fdaa
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934280"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982816"
 ---
-# <a name="introduction-to-deep-learning-vs-machine-learning"></a>Introduktion till djup inlärning eller Machine Learning
+# <a name="deep-learning-vs-machine-learning"></a>Djup inlärning eller Machine Learning
 
 Den här artikeln hjälper dig att förstå förhållandet mellan djup inlärning och Machine Learning. Du lär dig hur de två begreppen jämför och hur de passar in i den bredare kategorin av artificiell intelligens. Slutligen beskriver artikeln Hur djup inlärning kan tillämpas på verkliga scenarier, till exempel bedrägeri identifiering, röst-och ansikts igenkänning, sentiment analys och tids serie prognoser.
 

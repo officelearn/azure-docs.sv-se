@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: v-mohabe
 ms.custom: seodec18
-ms.openlocfilehash: 0504da45cbbd60629954d3e3ca3230e05761c1d6
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e22e05618c8b8977ba8b03afd3b654d27d4fa6bd
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640358"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981736"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Avancerat skydd för Azure Cosmos DB
 
 Avancerat skydd för Azure Cosmos DB ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja Azure Cosmos DB-konton. Det här skydds lagret gör att du kan åtgärda hot, även utan att vara säkerhets expert, och integrera dem med centrala säkerhets övervaknings system.
 
-Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. Dessa säkerhets aviseringar är integrerade med  [Azure Security Center](https://azure.microsoft.com/services/security-center/)och skickas också via e-post till prenumerations administratörer med information om den misstänkta aktiviteten och rekommendationer om hur du undersöker och åtgärdar hoten.
+Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. Dessa säkerhets aviseringar är integrerade med [Azure Security Center](https://azure.microsoft.com/services/security-center/)och skickas också via e-post till prenumerations administratörer med information om den misstänkta aktiviteten och rekommendationer om hur du undersöker och åtgärdar hoten.
 
 > [!NOTE]
 >
@@ -31,16 +31,16 @@ För en fullständig utredning av säkerhets aviseringar rekommenderar vi att du
 
 ### <a name="set-up-atp-using-the-portal"></a>Konfigurera ATP med portalen
 
-1. Starta Azure Portal på  [https://portal.azure.com](https://portal.azure.com/).
+1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
 
 2. Från Azure Cosmos DB-kontot går du till menyn **Inställningar** och väljer **avancerad säkerhet**.
 
     ![Konfigurera ATP](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png)
 
-3. På bladet **Avancerad säkerhets** konfiguration:
+3. På bladet **Avancerad säkerhets** konfiguration:
 
     * Klicka på alternativet **Avancerat skydd** för att ställa in det på **på**.
-    * Klicka på **Spara** för att spara den nya eller uppdaterade Advanced Threat Protection-principen.   
+    * Klicka på **Spara** för att spara den nya eller uppdaterade Advanced Threat Protection-principen.   
 
 ### <a name="set-up-atp-using-rest-api"></a>Konfigurera ATP med REST API
 
@@ -75,5 +75,5 @@ Ett e-postmeddelande skickas också med aviserings information och rekommenderad
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [diagnostisk loggning i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
-* Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Lär dig mer om [diagnostisk loggning i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
+* Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

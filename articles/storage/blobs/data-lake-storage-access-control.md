@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: aa2cfbee6feeacf46003fdc244f0aeea5df0f41a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 51a51e63f1d45d67cda63d4491a3bac572434dc0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847349"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991917"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomst kontroll i Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ Information om hur du tilldelar roller till säkerhets objekt i omfånget för d
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>Effekten av roll tilldelningar på fil-och katalog nivå listor för åtkomst kontroll
 
-När du använder RBAC-roll tilldelningar är en kraftfull mekanism för att kontrol lera åtkomst behörighet, men det är en mycket kornig mekanism i förhållande till ACL: er. Den minsta granularitet för RBAC är på fil system nivå och detta kommer att utvärderas med högre prioritet än ACL: er. Om du tilldelar en roll till ett säkerhets objekt i omfånget för ett fil system är det därför säkerhets objektets autentiseringsnivå som associeras med rollen för alla kataloger och filer i fil systemet, oavsett ACL-tilldelningar.
+När du använder RBAC-roll tilldelningar är en kraftfull mekanism för att kontrol lera åtkomst behörighet, men det är en mycket kornig mekanism i förhållande till ACL: er. Den minsta granularitet för RBAC är på behållar nivån och detta kommer att utvärderas med högre prioritet än ACL: er. Om du tilldelar en roll till ett säkerhets objekt i omfånget för en behållare, är det därför säkerhets objektets autentiseringsnivå som associeras med rollen för alla kataloger och filer i behållaren, oavsett ACL-tilldelningar.
 
 När ett säkerhets objekt beviljas RBAC-databehörighet via en [inbyggd roll](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)eller via en anpassad roll, utvärderas dessa behörigheter först när en begäran auktoriseras. Om den begärda åtgärden auktoriseras av säkerhets objektets RBAC-tilldelningar, löses auktoriseringen omedelbart och inga ytterligare ACL-kontroller utförs. Alternativt, om säkerhetsobjektet inte har en RBAC-tilldelning eller om begärans åtgärd inte matchar den tilldelade behörigheten, utförs ACL-kontroller för att avgöra om säkerhets objekt har behörighet att utföra den begärda åtgärden.
 
@@ -81,7 +81,7 @@ Både åtkomst-ACL: er och standard-ACL: er har samma struktur.
 
 ### <a name="levels-of-permission"></a>Behörighets nivåer
 
-Behörigheterna för ett fil system objekt är **läsa**, **skriva**och **köra**och de kan användas på filer och kataloger som visas i följande tabell:
+Behörigheterna för ett behållar objekt är **läsa**, **skriva**och **köra**och de kan användas på filer och kataloger som visas i följande tabell:
 
 |            |    Fil     |   Katalog |
 |------------|-------------|----------|
@@ -90,7 +90,7 @@ Behörigheterna för ett fil system objekt är **läsa**, **skriva**och **köra*
 | **Köra (X)** | Betyder inte något i samband med Data Lake Storage Gen2 | Krävs för att bläddra bland de underordnade objekten i en katalog |
 
 > [!NOTE]
-> Om du beviljar behörigheter genom att endast använda ACL: er (ingen RBAC), så måste du ge tjänstens huvud namn Läs-eller Skriv behörighet till fil systemet, och för varje mapp i hierarkin för mappar som leda till filen.
+> Om du beviljar behörigheter genom att endast använda ACL: er (ingen RBAC), så behöver du ge tjänstens huvud namn Läs-eller Skriv behörighet till en fil, och för varje mapp i hierarkin för mappar som leda till filen.
 
 #### <a name="short-forms-for-permissions"></a>Kortformat för behörigheter
 
@@ -154,7 +154,7 @@ I POSIX-ACL: erna är alla användare kopplade till en *primär grupp*. Använda
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Tilldela ägande grupp för en ny fil eller katalog
 
-* **Fall 1**: Rot katalogen "/". Katalogen skapas när ett Data Lake Storage Gen2 fil system skapas. I det här fallet anges den ägande gruppen till den användare som skapade fil systemet om den gjordes med OAuth. Om fil systemet har skapats med hjälp av delad nyckel, en konto säkerhets Association eller en tjänst-SAS, är ägaren och ägande gruppen inställt på **$superuser**.
+* **Fall 1**: Rot katalogen "/". Den här katalogen skapas när en Data Lake Storage Gen2-behållare skapas. I det här fallet anges den ägande gruppen till den användare som skapade behållaren om den gjordes med OAuth. Om behållaren har skapats med hjälp av delad nyckel, en konto säkerhets Association eller en tjänst-SAS, är ägaren och ägande gruppen inställt på **$superuser**.
 * **Fall 2** (Alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade katalogen.
 
 ##### <a name="changing-the-owning-group"></a>Ändra den ägande gruppen
@@ -216,13 +216,13 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 Som illustreras i algoritmen för åtkomst kontroll begränsar masken åtkomsten för namngivna användare, ägande grupp och namngivna grupper.  
 
 > [!NOTE]
-> För ett nytt Data Lake Storage Gen2 fil system är masken för åtkomst-ACL: en för rot katalogen ("/") standardvärdet 750 för kataloger och 640 för filer. Filerna tar inte emot X-biten eftersom det är irrelevant för filer i ett system för endast lagring.
+> För en ny Data Lake Storage Gen2-behållare är masken för åtkomst-ACL: en för rot katalogen ("/") standardvärdet 750 för kataloger och 640 för filer. Filerna tar inte emot X-biten eftersom det är irrelevant för filer i ett system för endast lagring.
 >
 > Masken kan anges per anrop. Detta gör att olika användnings system, till exempel kluster, har olika effektiva masker för deras fil åtgärder. Om en mask anges för en viss begäran, åsidosätter den fullständigt standard masken.
 
 #### <a name="the-sticky-bit"></a>Sticky bit
 
-Trögheten bit är en mer avancerad funktion i ett POSIX-filsystem. I samband med Data Lake Storage Gen2 är det osannolikt att det behövs. I sammanfattning, om trögheten är aktive rad i en katalog, kan ett underordnat objekt bara tas bort eller byta namn av det underordnade objektets ägande användare.
+Trögheten bit är en mer avancerad funktion i en POSIX-behållare. I samband med Data Lake Storage Gen2 är det osannolikt att det behövs. I sammanfattning, om trögheten är aktive rad i en katalog, kan ett underordnat objekt bara tas bort eller byta namn av det underordnade objektets ägande användare.
 
 Trögheten bit visas inte i Azure Portal.
 
@@ -291,7 +291,7 @@ Eller
 
 ### <a name="who-is-the-owner-of-a-file-or-directory"></a>Vem är ägaren till en fil eller katalog?
 
-Skaparen av en fil eller katalog blir ägare. Om det gäller rot katalogen är detta identiteten för den användare som skapade fil systemet.
+Skaparen av en fil eller katalog blir ägare. Om det gäller rot katalogen är detta identiteten för den användare som skapade behållaren.
 
 ### <a name="which-group-is-set-as-the-owning-group-of-a-file-or-directory-at-creation"></a>Vilken grupp anges som den ägande gruppen för en fil eller katalog när den skapas?
 
@@ -320,7 +320,7 @@ När du har rätt OID för tjänstens huvud namn går du till sidan Storage Expl
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Stöder Data Lake Storage Gen2 arv av ACL: er?
 
-Azure RBAC-tilldelningar ärver. Tilldelnings flödet från prenumerations-, resurs grupps-och lagrings konto resurser till fil system resursen.
+Azure RBAC-tilldelningar ärver. Tilldelnings flödet från prenumerations-, resurs grupps-och lagrings konto resurser till behållar resursen.
 
 ACL: er ärver inte. Standard-ACL: er kan dock användas för att ange ACL: er för underordnade under kataloger och filer som skapats under den överordnade katalogen. 
 

@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2019
+ms.date: 08/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a8033448c2db2ca30ece54b3367ecb60ecf12c3d
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706241"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990709"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden riktar sig till IT-tekniker, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer i organisationer där man planerar att börja använda Azure Security Center.
@@ -87,21 +87,21 @@ Med utgångspunkt i de fiktiva personer som beskrivs i diagrammet ovan krävs f�
 
 **Jens (arbetsbelastningsägare)**
 
-* Resursgrupp ägare/deltagare
+* Resurs grupp ägare/deltagare
 
 **Daniel (IT-säkerhetsansvarig)**
 
-* Prenumeration ägare/deltagare eller säkerhetsadministratör
+* Prenumerationens ägare/deltagare eller säkerhets administratör
 
 **Selma (säkerhetsmedarbetare)**
 
 * Läsare i prenumeration eller Security-läsare för att kunna se aviseringar
-* Prenumeration ägare/deltagare eller säkerhetsadministratör för att kunna avvisa aviseringar
+* Prenumerations ägare/deltagare eller säkerhets administratör som krävs för att ignorera aviseringar
 
 **Sami (säkerhetsanalytiker)**
 
 * Läsare i prenumeration för att kunna se aviseringar
-* Prenumeration ägare/deltagare för att kunna avvisa aviseringar
+* Prenumerationens ägare/deltagare krävs för att ignorera aviseringar
 * Åtkomst till arbetsytan kan krävas
 
 Tänk även på följande:
@@ -121,7 +121,7 @@ En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastni
 
 Security Center-principer innehåller följande komponenter:
 - [Datainsamling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agentetablering och datainsamlingsinställningar.
-- [Säkerhetsprincip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure Policy](../governance/policy/overview.md) som avgör vilka kontroller som övervakas och rekommenderas av Security Center eller använda Azure Policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer med hanteringsgrupper.
+- [Säkerhets princip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure policy](../governance/policy/overview.md) som avgör vilka kontroller som övervakas och rekommenderas av Security Center, eller Använd Azure policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer över hanterings grupper.
 - [E-postmeddelanden](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): säkerhetskontakter och inställningar för meddelanden.
 - [Prisnivå](https://docs.microsoft.com/azure/security-center/security-center-pricing): val av kostnadsfritt eller standardpris, som bestämmer vilka Security Center-funktioner som är tillgängliga för resurser i omfattningen (kan anges för prenumerationer, resursgrupper och arbetsytor).
 
@@ -134,7 +134,7 @@ Security Center skapar automatiskt en standardsäkerhetsprincip för var och en 
 Innan du börjar konfigurera säkerhetsprinciper går du igenom de olika [säkerhetsrekommendationerna](https://docs.microsoft.com/azure/security-center/security-center-recommendations) och avgör om dessa principer passar dina olika prenumerationer och resursgrupper. Det är också viktigt att förstå vilka åtgärder som vidtas för att hantera säkerhetsrekommendationer och vem i din organisation är ansvarig för att övervaka nya rekommendationer och vidta nödvändiga åtgärder.
 
 ## <a name="data-collection-and-storage"></a>Datainsamling och datalagring
-Azure Security Center använder Microsoft Monitoring Agent – det här är samma agent används av tjänsten Azure Monitor – för att samla in säkerhetsdata från dina virtuella datorer. [Data som samlas in](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) från den här agenten kommer att lagras i Log Analytics-arbetsytor.
+Azure Security Center använder Microsoft Monitoring Agent – det här är samma agent som används av Azure Monitor-tjänsten – för att samla in säkerhets data från dina virtuella datorer. [Data som samlas in](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) från den här agenten kommer att lagras i Log Analytics-arbetsytor.
 
 ### <a name="agent"></a>agent
 
@@ -156,7 +156,7 @@ Data som samlas in från Microsoft Monitoring Agent (för Azure Security Center)
 
 Du kan bläddra om du vill se en lista över dina logganalysarbetsytor, inklusive alla som skapats av Azure Security Center i Azure-portalen. En relaterad resursgrupp skapas för nya arbetsytor. Både följer namnkonventionen:
 
-* Arbetsyta: *DefaultWorkspace-[subscription-ID]-[geo]*
+* Platsen *DefaultWorkspace-[subscription-ID]-[geo]*
 * Resursgrupp: *DefaultResourceGroup-[geo]*
 
 För arbetsytor som skapats av Azure Security Center sparas data i 30 dagar. För befintliga arbetsytor baseras kvarhållningen på arbetsytans prisnivå. Om du vill kan du även använda en befintlig arbetsyta.
@@ -246,7 +246,7 @@ När du har identifierat det drabbade systemet kan du köra [strategiböcker fö
 I videoklippet [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Använda Azure Security Center och Microsoft Operations Management Suite för incidenthantering) kan du se några demonstrationer som beskriver hur Security Center kan användas i var och en av dessa faser.
 
 > [!NOTE]
-> Läs [Använda Azure Security Center vid incidenthantering](security-center-incident-response.md) om du vill ha mer information om hur du ska använda Security Center-funktionerna för att få hjälp under incidenthanteringsprocessen.
+> Läs [Hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) om du vill ha mer information om hur du använder Security Center funktioner för att hjälpa dig under incident svars processen.
 >
 >
 

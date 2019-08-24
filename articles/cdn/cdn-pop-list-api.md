@@ -1,6 +1,6 @@
 ---
-title: Hämta den aktuella Verizon POP-listan för Azure CDN | Microsoft Docs
-description: Lär dig hur du hämtar den aktuella Verizon POP-listan med hjälp av REST-API.
+title: Hämta den aktuella POP IP-listan för Azure CDN | Microsoft Docs
+description: Lär dig hur du hämtar den aktuella POP-listan.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -12,25 +12,38 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
-ms.author: kumud
+ms.date: 08/22/2019
+ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: c8316b994dac6b859f019bea1aac6b6a5c2c5b2d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: bc8e8219c8f8de75b01c584a2a5ce13cc1429fec
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593568"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991779"
 ---
-# <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Hämta den aktuella Verizon POP-listan för Azure CDN
+# <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella Verizon POP IP-listan för Azure CDN
 
-Du kan använda REST API för att hämta uppsättning IP-adresser för Verizons närvaro (POP) servrar. Dessa POP-servrar gör förfrågningar till ursprungsservrar som är associerade med Azure Content Delivery Network (CDN) slutpunkter på en Verizon-profil (**Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**). Observera att den här uppsättningen med IP-adresser skiljer sig från IP-adresser som en klient skulle se vid begäranden till POP: erna. 
+Du kan använda REST API för att hämta en uppsättning IP-adresser för Verizons Point of Presence (POP)-servrar. Dessa POP-servrar utför förfrågningar till ursprungs servrar som är associerade med Azure Content Delivery Network-slutpunkter (CDN) i en Verizon-profil (**Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**). Observera att den här uppsättningen IP-adresser skiljer sig från de IP-adresser som en klient kan se när de gör förfrågningar till pop. 
 
-Syntaxen för REST API-åtgärd för hämtning av POP-listan, se [Kantnoder - listan](https://docs.microsoft.com/rest/api/cdn/edgenodes/list).
+Syntaxen för REST API-åtgärden för att hämta POP-listan finns i [Edge Nodes-List](https://docs.microsoft.com/rest/api/cdn/edgenodes/list).
+
+# <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella listan med Microsoft POP IP-adresser för Azure CDN
+
+Om du vill låsa ditt program för att endast acceptera trafik från Azure CDN från Microsoft måste du konfigurera IP ACL: er för Server delen. Du kan också begränsa mängden godkända värden för rubriken "X-forwarded-Host" som skickas av Azure CDN från Microsoft. De här stegen beskrivs nedan:
+
+Konfigurera IP-ACLing för dina Server delar för att acceptera trafik från Azure CDN från Microsofts server dels IP-adressutrymme och Azures infrastruktur tjänster. 
+
+* Azure CDN från Microsofts IPv4-backend-IP-utrymme: 147.243.0.0/16
+* Azure CDN från Microsofts IP-utrymme för IPv6-Server delen: 2a01:111:2050::/44
+
+IP-adressintervall och service märken för Microsoft-tjänster hittar du [här](https://www.microsoft.com/download/details.aspx?id=56519)
+
+Filtrera på värdena för det inkommande huvudet X-forwarded-Host som skickats av Azure CDN från Microsoft. De enda tillåtna värdena för rubriken måste vara alla slut punkts värdar som definieras i CDN-konfigurationen. I själva verket är det bara de värdnamn för vilka du vill acceptera trafik från, på detta specifika ursprung.
 
 ## <a name="typical-use-case"></a>Vanligt användningsfall
 
-Du kan använda den här IP-listan för att genomdriva att begäranden till ursprungsservern görs endast från en giltig Verizon POP av säkerhetsskäl. Om någon identifieras värdnamnet eller IP-adress för en CDN-slutpunkt ursprungsservern, göra någon till exempel begäranden direkt till ursprungsservern därför kringgår den skalning och säkerhetsfunktioner som tillhandahålls av Azure CDN. Det här scenariot kan förhindras genom att ange de IP-adresserna i den returnerade listan som den enda tillåtna IP-adresser på en ursprungsserver. För att säkerställa att du har den senaste POP-listan, hämta minst en gång om dagen. 
+Av säkerhets synpunkt kan du använda den här IP-listan för att genomdriva att förfrågningar till din ursprungs Server endast görs från en giltig Verizon POP. Om någon till exempel har identifierat värd namnet eller IP-adressen för en CDN-slutpunkts ursprungs Server, kan en begäran skickas direkt till ursprungs servern, och därför kringgås de skalnings-och säkerhets funktioner som tillhandahålls av Azure CDN. Det här scenariot kan förhindras genom att ange IP-adresser i den returnerade listan som de enda tillåtna IP-adresserna på en ursprungs Server. Se till att du har den senaste POP-listan genom att hämta den minst en gång om dagen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

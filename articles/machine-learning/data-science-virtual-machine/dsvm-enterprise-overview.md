@@ -16,34 +16,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: vijetaj
-ms.openlocfilehash: 40b8f101d968514ac599b43a79b7e62b7fd837a4
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 5f34498fbdacf7fc6e62788913c795ab70ceef23
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779469"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991621"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine-baserade team analys och AI-miljö 
-Den [Data Science Virtual Machine](overview.md) (DSVM) tillhandahåller en omfattande miljö i Azure-plattformen med färdiga programvara för artificiell intelligens (AI) och dataanalys. 
+[Data science Virtual Machine](overview.md) (DSVM) innehåller en omfattande miljö på Azure-plattformen, med fördefinierad program vara för artificiell intelligens (AI) och data analys.
 
-Traditionellt har DSVM används som en enskild analysskrivbord. Enskilda dataforskare få produktivitet med den här delade begreppet deras färdiga analytics-miljö. När stora analytics team planerar sina miljöer för analys för datatekniker och AI-utvecklare, är återkommande tema en delad analytics-infrastruktur för utveckling och experimentering. Den här infrastrukturen hanteras i enlighet med enterprise IT principer som även underlätta samarbete och konsekvens i data science/analytics team. 
+Traditionellt har DSVM används som en enskild analysskrivbord. Enskilda data forskare får produktivitet med den här delade, färdiga analys miljön. Eftersom stora analys team planerar miljöer för sina data experter och AI-utvecklare, är ett av de återkommande teman en delad analys infrastruktur för utveckling och experimentering. Den här infrastrukturen hanteras i enlighet med företagets IT-principer som också fören klar samarbetet och konsekvensen mellan data vetenskap och analys team.
 
-En delad infrastruktur kan också IT-avdelningen att bättre utnyttja analytics-miljö. Vissa organisationer anropa teambaserad data science-/ analysinfrastruktur en ”analytics sandlåda”. Det gör det möjligt för dataexperter att få åtkomst till olika datatillgångar för att snabbt förstå data, köra experiment, verifiera hypoteser och skapa förutsägande modeller utan att påverka produktionsmiljön. 
+En delad infrastruktur ger bättre IT-användning i analys miljön. Vissa organisationer kallar den teambaserade infrastrukturen för data vetenskap/analys i ett *Analytics-läge*. Det gör det möjligt för data experter att få åtkomst till olika data till gångar för att snabbt förstå data. Den här sandbox-miljön hjälper också data experter att köra experiment, validera Hypotheses och skapa förutsägande modeller utan att påverka produktions miljön.
 
-Eftersom DSVM arbetar på nivån Azure-infrastrukturen kan kan IT-administratörer lätt konfigurera DSVM att fungera med IT-principer för företaget. DSVM erbjuder fullständig flexibilitet implementera olika arkitekturer för delning med åtkomst till företagets datatillgångar på ett kontrollerat sätt. 
+Eftersom DSVM arbetar på nivån Azure-infrastrukturen kan kan IT-administratörer lätt konfigurera DSVM att fungera med IT-principer för företaget. DSVM erbjuder full flexibilitet i att implementera olika delnings arkitekturer samtidigt som du erbjuder åtkomst till företags data till gångar på ett kontrollerat sätt.
 
-Det här avsnittet beskrivs vissa mönster och riktlinjer som du kan använda för att distribuera DSVM teambaserad data science infrastruktur. Byggstenarna för dessa mönster kommer från Azure-infrastruktur som en tjänst (IaaS), så att de gäller för alla virtuella Azure-datorer. Fokus i den här artikelserien är för att använda dessa funktioner för standard Azure-infrastrukturen till den virtuella datorn för datavetenskap. 
+Det här avsnittet beskrivs vissa mönster och riktlinjer som du kan använda för att distribuera DSVM teambaserad data science infrastruktur. Eftersom Bygg stenarna för dessa mönster kommer från Azure Infrastructure as a Service (IaaS), gäller de för alla virtuella Azure-datorer. Den här serien med artiklar fokuserar på att tillämpa dessa standard funktioner för Azure-infrastrukturen på DSVM.
 
-Några av de viktigaste byggstenarna i en företagsmiljö team analytics är:
+Viktiga Bygg stenar i en Enterprise team Analytics-miljö är:
 
-* [Autoscaled pool av virtuella datorer för datavetenskap](dsvm-pools.md)
+* [En pool med autoskalning av Dsvm](dsvm-pools.md)
 * [Vanliga identitet och åtkomst till en arbetsyta från någon av Dsvm i poolen](dsvm-common-identity.md)
 * [Säker åtkomst till datakällor](dsvm-secure-access-keys.md)
 
 
-Den här artikelserien ger vägledning och pekare för var och en av ovanstående objekt. Det täcker inte alla överväganden och behov distribuera DSVM i stort företag konfigurationer. Här är andra Azure-dokumentation som du kan använda när du implementerar DSVM-instanser i ditt företag: 
+Den här serien ger vägledning och pekare för vart och ett av föregående avsnitt. Det beskriver inte alla överväganden och krav för att distribuera Dsvm i stora företags konfigurationer. Här följer några andra Azure-resurser som du kan använda när du implementerar DSVM-instanser i företaget:
 
-* [Nätverks säkerhet] (https://docs.microsoft.com/azure/security/fundamentals/network-security
+* [Nätverkssäkerhet](https://docs.microsoft.com/azure/security/fundamentals/network-security)
 * [Övervakning av](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) och [management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
 * [Loggning och granskning](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
 * [Rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/overview)
@@ -52,4 +52,4 @@ Den här artikelserien ger vägledning och pekare för var och en av ovanståend
 * [Kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Identifiering och styrning](https://docs.microsoft.com/azure/data-catalog/)
 
-Den [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) ger en detaljerad slutpunkt till slutpunkt-arkitektur och mönster för att skapa och hantera din infrastruktur för molnbaserad analys. 
+Slutligen tillhandahåller [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) en detaljerad arkitektur och modeller från slut punkt till slut punkt för att skapa och hantera en molnbaserad analys infrastruktur.

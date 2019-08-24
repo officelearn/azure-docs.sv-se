@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 3a283f6cbcf4dc345a8c55192507c461f33244d6
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 66394600963cf154b3cb1fe661968f4ded2ec225
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855433"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992270"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Självstudier: Få åtkomst till Data Lake Storage Gen2-data med Azure Databricks med hjälp av Spark
 
@@ -124,18 +124,18 @@ Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage G
 2. Kopiera data från *.csv*-filen med följande kommando.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
    * Ersätt placeholder-värdet med sökvägen till *. csv* -filen. `<csv-folder-path>`
 
    * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
 
-   * Ersätt platshållaren `<file-system-name>` med ett namn som du vill ge ditt filsystem.
+   * `<container-name>` Ersätt plats hållaren med ett namn som du vill ge din behållare.
 
-## <a name="create-a-file-system-and-mount-it"></a>Skapa ett filsystem och montera det
+## <a name="create-a-container-and-mount-it"></a>Skapa en behållare och montera den
 
-I det här avsnittet skapar du ett filsystem och en mapp i lagringskontot.
+I det här avsnittet ska du skapa en behållare och en mapp i ditt lagrings konto.
 
 1. Gå till Azure Databricks-tjänsten du skapade i [Azure Portal](https://portal.azure.com) och välj **Starta arbetsyta**.
 
@@ -158,12 +158,12 @@ I det här avsnittet skapar du ett filsystem och en mapp i lagringskontot.
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
     dbutils.fs.mount(
-    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    source = "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/folder1",
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
 
-18. I det här kodblocket ersätter du platshållarvärdena `appId`, `password`, `tenant` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. `file-system-name` Ersätt placeholder-värdet med det namn som du gav till fil systemet ADLS i föregående steg.
+18. I det här kodblocket ersätter du platshållarvärdena `appId`, `password`, `tenant` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. `container-name` Ersätt placeholder-värdet med det namn som du gav till behållaren i föregående steg.
 
 Använd de här värdena för att ersätta de nämnda plats hållarna.
 
@@ -173,7 +173,7 @@ Använd de här värdena för att ersätta de nämnda plats hållarna.
 
    * `storage-account-name` är namnet på ditt Azure Data Lake Storage Gen2-lagringskonto.
 
-   * Ersätt platshållaren `file-system-name` med ett namn som du vill ge ditt filsystem.
+   * `container-name` Ersätt plats hållaren med ett namn som du vill ge din behållare.
 
    > [!NOTE]
    > I en produktions inställning bör du överväga att lagra lösen ordet i Azure Databricks. Lägg sedan till en uppslags nyckel i kod blocket i stället för lösen ordet. När du har slutfört den här snabbstarten kan du läsa artikeln [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen för att se exemplen för den här metoden.

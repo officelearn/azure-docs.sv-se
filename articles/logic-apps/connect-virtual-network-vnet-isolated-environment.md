@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 5991aec681b00583a9c66328aed601593c864c63
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: ce663dec47f99b6ba4751e23e7ac7f13de866a5d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517203"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982972"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 
@@ -67,7 +67,7 @@ När du använder en ISE med ett befintligt virtuellt nätverk har ett vanligt i
 
 Om du har skapat ett nytt virtuellt nätverk och undernät utan begränsningar behöver du inte konfigurera [nätverks säkerhets grupper (NSG: er)](../virtual-network/security-overview.md) i det virtuella nätverket så att du kan styra trafiken mellan undernät. För ett befintligt virtuellt nätverk kan du *välja* att konfigurera NSG: er genom att [filtrera nätverks trafik över undernät](../virtual-network/tutorial-filter-network-traffic.md). Om du väljer den här vägen ser du till att din ISE öppnar vissa portar, enligt beskrivningen i följande tabell, i det virtuella nätverk som har NSG: er. För befintliga NSG: er eller brand väggar i det virtuella nätverket måste du därför se till att de öppnar dessa portar. På så sätt förblir din ISE tillgänglig och kan fungera korrekt så att du inte förlorar åtkomsten till din ISE. Om några av de portar som krävs inte är tillgängliga, slutar även din ISE att fungera.
 
-Den här tabellen beskriver de portar i ditt virtuella nätverk som används av ISE och var dessa portar används. [Resource Manager-tjänstens Taggar](../virtual-network/security-overview.md#service-tags) representerar en grupp IP-adressprefix som bidrar till att minimera komplexiteten när du skapar säkerhets regler.
+I den här tabellen beskrivs de portar i ditt virtuella nätverk som används av ISE och var dessa portar används. [Resource Manager-tjänstens Taggar](../virtual-network/security-overview.md#service-tags) representerar en grupp IP-adressprefix som bidrar till att minimera komplexiteten när du skapar säkerhets regler.
 
 > [!IMPORTANT]
 > För intern kommunikation i dina undernät kräver ISE att du öppnar alla portar i dessa undernät.
@@ -117,7 +117,7 @@ I rutan Sök anger du "integration service Environment" som filter.
    |----------|----------|-------|-------------|
    | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumerationen som ska användas för din miljö |
    | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Den Azure-resurs grupp där du vill skapa din miljö |
-   | **Integration Service Environment namn** | Ja | <*miljö namn*> | Namnet för att ge din miljö |
+   | **Namn på integrerings tjänst miljö** | Ja | <*miljö namn*> | Ditt ISE-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`) och punkter (`.`). |
    | **Location** | Ja | <*Azure-datacenter-region*> | Azure Data Center-regionen där du distribuerar din miljö |
    | **SKU** | Ja | **Premium** eller **Developer (service avtal)** | ISE-SKU: n för att skapa och använda. För skillnader mellan dessa SKU: er, se [ISE SKU: er](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Viktigt**: Det här alternativet är endast tillgängligt vid skapande av ISE och kan inte ändras senare. |
    | **Ytterligare kapacitet** | Premium: <br>Ja <p><p>Utvecklare: <br>Inte tillämpligt | Premium: <br>0 till 10 <p><p>Utvecklare: <br>Inte tillämpligt | Antalet ytterligare bearbetnings enheter som ska användas för denna ISE-resurs. Information om hur du lägger till kapacitet när du har skapat finns i [lägga till ISE-kapacitet](#add-capacity) |
@@ -136,7 +136,7 @@ I rutan Sök anger du "integration service Environment" som filter.
 
    * Använder [CIDR-format (Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) och ett klass B-adressutrymme.
 
-   * Använder minst ett `/27` i adress utrymmet eftersom varje undernät måste ha *minst* 32 adresser som *minst.* Exempel:
+   * Använder minst ett `/27` i adress utrymmet eftersom varje undernät måste ha *minst* 32 adresser som minst. Exempel:
 
      * `10.0.0.0/27`har 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32.
 

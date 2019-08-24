@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory-verktyget kopieringsdata | Microsoft Docs
-description: Innehåller information om verktyget kopieringsdata i Azure Data Factory-användargränssnitt
+title: Kopiera datas verktyget Azure Data Factory | Microsoft Docs
+description: Innehåller information om Kopiera data-verktyget i Azure Data Factory UI
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -11,76 +11,76 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 144a991eb911fa6a337b6711515bd5760456fc10
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787739"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996392"
 ---
-# <a name="copy-data-tool-in-azure-data-factory"></a>Kopiera Data-verktyg i Azure Data Factory
-Verktyget kopieringsdata för Azure Data Factory förenklar och optimerar processen att mata in data i en datasjö som vanligtvis är ett första steg i ett scenario för integrering från slutpunkt till slutpunkt.  Det sparar tid, särskilt när du använder Azure Data Factory att mata in data från en datakälla för första gången. Några av fördelarna med att använda det här verktyget är:
+# <a name="copy-data-tool-in-azure-data-factory"></a>Kopiera datas verktyget i Azure Data Factory
+Med verktyget Azure Data Factory Kopiera data kan du enkelt och optimera processen med att mata in data i en data Lake, som vanligt vis är ett första steg i ett slut punkt till slut punkts data integrerings scenario.  Det sparar tid, särskilt när du använder Azure Data Factory för att mata in data från en data källa för första gången. Några av fördelarna med att använda det här verktyget är:
 
-- När du använder verktyget kopieringsdata för Azure Data Factory kan behöver du inte förstår Data Factory-definitioner för länkade tjänster, datauppsättningar, pipelines, aktiviteter och utlösare. 
-- Flödet av verktyget kopieringsdata är intuitivt för inläsning av data i en datasjö. Verktyget skapar automatiskt alla Data Factory-resurser för att kopiera data från den valda källdatalagringen till datalagret valda destination/mottagare. 
-- Verktyget kopieringsdata hjälper dig att validera data som matas vid tidpunkten för redigering, vilket hjälper dig att undvika alla eventuella fel i början själva.
-- Om du vill implementera komplexa affärslogiken för att läsa in data i en datasjö kan redigera du fortfarande Data Factory-resurser som skapas av verktyget kopieringsdata med hjälp av per aktivitet redigering i Användargränssnittet för Data Factory. 
+- När du använder Azure Data Factory Kopiera data-verktyget behöver du inte förstå Data Factory definitioner för länkade tjänster, data uppsättningar, pipeliner, aktiviteter och utlösare. 
+- Flödet av Kopiera data verktyg är intuitivt för att läsa in data i en data Lake. Verktyget skapar automatiskt alla nödvändiga Data Factory resurser för att kopiera data från det valda käll data lagret till det valda data lagret för destination/mottagare. 
+- Med verktyget Kopiera data kan du verifiera de data som matas in vid tidpunkten för redigering, vilket hjälper dig att undvika eventuella fel i början.
+- Om du behöver implementera komplex affärs logik för att läsa in data i en data Lake kan du fortfarande redigera Data Factory-resurser som skapats av Kopiera data-verktyget genom att använda redigering per aktivitet i Data Factory användar gränssnitt. 
 
-Följande tabell innehåller information om när du ska använda verktyget kopieringsdata jämfört med per aktivitet redigering i Användargränssnittet för Data Factory: 
+Följande tabell ger vägledning om när du ska använda Kopiera data-verktyget eller redigering per aktivitet i Data Factory användar gränssnitt: 
 
-| Kopiera data-verktyg | Per aktivitet (kopieringsaktiviteten) Redigering |
+| Kopiera data-verktyg | Redigering per aktivitet (kopierings aktivitet) |
 | -------------- | -------------------------------------- |
-| Du vill skapa enkelt en datainläsning utan lära dig mer om Azure Data Factory-entiteter (länkade tjänster, datauppsättningar, pipeliner osv.) | Du vill implementera komplexa och flexibla logik för att läsa in data i sjön. |
-| Vill du snabbt läsa in ett stort antal dataartifakter i en datasjö. | Du vill länka Kopieringsaktivitet med efterföljande aktiviteter för rengöring eller bearbeta data. |
+| Du vill enkelt bygga en data inläsnings uppgift utan att lära dig om Azure Data Factory entiteter (länkade tjänster, data uppsättningar, pipeliner osv.) | Du vill implementera komplex och flexibel logik för att läsa in data till sjö. |
+| Du vill snabbt läsa in ett stort antal data artefakter i ett data Lake. | Du vill kedja kopierings aktiviteten med efterföljande aktiviteter för rengöring eller bearbetning av data. |
 
-Starta verktyget kopieringsdata genom att klicka på den **kopieringsdata** panelen på startsidan på din datafabrik.
+Starta Kopiera data-verktyget genom att klicka på panelen **Kopiera data** på Start sidan för din data fabrik.
 
-![Startsidan - länk till verktyget kopieringsdata](./media/copy-data-tool/get-started-page.png)
+![Kom igång-sidan – länka till Kopiera data-verktyget](./media/copy-data-tool/get-started-page.png)
 
 
-## <a name="intuitive-flow-for-loading-data-into-a-data-lake"></a>Intuitiv flödet för att läsa in data i en datasjö
-Det här verktyget kan du enkelt flytta data från en mängd olika källor till mål på några minuter med en intuitiv flöde:  
+## <a name="intuitive-flow-for-loading-data-into-a-data-lake"></a>Intuitivt flöde för inläsning av data i en data Lake
+Med det här verktyget kan du enkelt flytta data från en mängd olika källor till destinationer på några minuter med ett intuitivt flöde:  
 
-1. Konfigurera inställningar för den **källa**.
-2. Konfigurera inställningar för den **mål**. 
-3. Konfigurera **avancerade inställningar** för kopieringen som kolumnmappning, prestandainställningarna och fault toleransinställningar. 
-4. Ange en **schema** för datainläsning uppgift. 
-5. Granska **sammanfattning** av Data Factory-entiteter som ska skapas. 
-6. **Redigera** pipeline för att uppdatera inställningarna för kopieringsaktiviteten efter behov. 
+1. Konfigurera inställningar för **källan**.
+2. Konfigurera inställningar för **målet**. 
+3. Konfigurera **Avancerade inställningar** för kopierings åtgärden, till exempel kolumn mappning, prestanda inställningar och inställningar för fel tolerans. 
+4. Ange ett **schema** för data inläsnings aktiviteten. 
+5. Granska **sammanfattningen** av Data Factory entiteter som ska skapas. 
+6. **Redigera** pipelinen för att uppdatera inställningarna för kopierings aktiviteten vid behov. 
 
-   Verktyget har utformats med stordata i åtanke från starten med stöd för olika data och objekt av typen. Du kan använda den för att flytta hundratals mappar, filer eller tabeller. Verktyget stöder automatisk förhandsgranskning, schemat avbildning och automatisk mappning och data samt filtrering.
+   Verktyget är utformat med Big data i åtanke från Start, med stöd för olika data-och objekt typer. Du kan använda den för att flytta hundratals mappar, filer eller tabeller. Verktyget har stöd för automatisk data förhands granskning, schema insamling och automatisk mappning och även data filtrering.
 
 ![Kopiera data-verktyg](./media/copy-data-tool/copy-data-tool.png)
 
-## <a name="automatic-data-preview"></a>Automatisk förhandsgranskning
-Du kan förhandsgranska vissa data från den valda källdatalager, där du kan verifiera data som ska kopieras. Om datakällan finns i en textfil, tolkar verktyget kopieringsdata dessutom textfil för att automatiskt identifiera rad- och Radavgränsare och schema.
+## <a name="automatic-data-preview"></a>Automatisk data förhands granskning
+Du kan förhandsgranska en del av data från det valda käll data lagret, vilket gör att du kan verifiera de data som kopieras. Om käll informationen finns i en textfil tolkar verktyget Kopiera data text filen för att automatiskt identifiera rad-och kolumn avgränsare och schema.
 
-![Filinställningar](./media/copy-data-tool/file-format-settings.png)
+![Fil inställningar](./media/copy-data-tool/file-format-settings.png)
 
-Efter identifiering:
+Efter identifieringen:
 
-![Identifierade filinställningar och preview](./media/copy-data-tool/after-detection.png)
+![Identifierade fil inställningar och för hands version](./media/copy-data-tool/after-detection.png)
 
-## <a name="schema-capture-and-automatic-mapping"></a>Schema-avbildning och automatisk mappning
-Schemat för datakällan kan inte vara detsamma som schemat för datamålet i många fall. Du behöver mappa kolumner från datakällans schema till kolumner från målschema i det här scenariot.
+## <a name="schema-capture-and-automatic-mapping"></a>Schema insamling och automatisk mappning
+Schemat för data källan får inte vara detsamma som data målets schema i många fall. I det här scenariot måste du mappa kolumner från käll schemat till kolumner från mål schemat.
 
-Verktyget kopieringsdata övervakar och lär sig dina beteende när du mappar kolumner mellan käll-och mål. När du väljer en eller några kolumner från källdatalagret och mappa den till målschema, startar verktyget kopieringsdata att analysera mönster för kolumn-par som du valt från båda sidor. Sedan gäller det samma mönster för resten av kolumnerna. Därför kan se du alla kolumnerna som har mappats till målet på ett sätt som du vill att bara när du har flera klick.  Om du inte är nöjd med valet av kolumnmappning som tillhandahålls av verktyget kopieringsdata kan du ignorera det och fortsätta med att mappa kolumnerna manuellt. Under tiden kan verktyget kopieringsdata lär sig ständigt och uppdaterar mönstret och slutligen når rätt mönstret för kolumnmappningen som du vill uppnå. 
+Verktyget Kopiera data övervakar och lär dig hur du mappar kolumner mellan käll-och mål lager. När du har valt en eller några få kolumner från käll data lagret och mappar dem till mål schemat, börjar verktyget Kopiera data att analysera mönstret för kolumn par som du har valt från båda sidor. Sedan tillämpas samma mönster på resten av kolumnerna. Därför kan du se att alla kolumner har mappats till målet på ett sätt som du vill precis efter flera klick.  Om du inte är nöjd med valet av kolumn mappning som tillhandahålls av Kopiera data-verktyget kan du ignorera det och fortsätta att mappa kolumnerna manuellt. Under tiden lär sig Kopiera data-verktyget hela tiden att lära sig och uppdatera mönstret och når slutligen det högra mönstret för den kolumn mappning som du vill uppnå. 
 
 > [!NOTE]
-> När du kopierar data från SQL Server eller Azure SQL Database till Azure SQL Data Warehouse, om tabellen inte finns i målarkivet för, stöder verktyget kopieringsdata skapandet av tabellen automatiskt med hjälp av datakällans schema. 
+> Om tabellen inte finns i mål lagret när du kopierar data från SQL Server eller Azure SQL Database till Azure SQL Data Warehouse, stöder Kopiera datas verktyget att tabellen skapas automatiskt med hjälp av käll schemat. 
 
 ## <a name="filter-data"></a>Filtrera data
-Du kan filtrera källdata för att välja endast de data som ska kopieras till de mottagande datalagren. Filtrering minskar mängden data som ska kopieras till de mottagande datalagren och därmed förbättrar dataflödet för kopieringen. Kopiera Data verktyget ger ett flexibelt sätt att filtrera data i en relationsdatabas med hjälp av SQL-frågespråket eller filer i en Azure blobbmapp. 
+Du kan filtrera källdata om du bara vill välja de data som behöver kopieras till mottagar data lagret. Filtrering minskar mängden data som ska kopieras till Sink-datalagret och ökar därför data flödet för kopierings åtgärden. Kopiera data-verktyget är ett flexibelt sätt att filtrera data i en Relations databas med hjälp av SQL-frågespråket eller filer i en Azure Blob-mapp. 
 
 ### <a name="filter-data-in-a-database"></a>Filtrera data i en databas
-I följande skärmbild visas en SQL-fråga för att filtrera data.
+Följande skärm bild visar en SQL-fråga för att filtrera data.
 
 ![Filtrera data i en databas](./media/copy-data-tool/filter-data-in-database.png)
 
-### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrera data i en Azure blobbmapp
-Du kan använda variabler i sökvägen till mappen för att kopiera data från en mapp. Variablerna som stöds är: **{year}** , **{month}** , **{day}** , **{hour}** , och **{minute}** . Till exempel: inputfolder / {year} / {month} / {day}. 
+### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrera data i en Azure Blob-mapp
+Du kan använda variabler i mappsökvägen för att kopiera data från en mapp. Variabler som stöds är: **{Year**}, **{Month}** , **{Day}** , **{Hour}** och **{minut**}. Exempel: inputfolder/{year}/{month}/{Day}. 
 
-Anta att du har anger mappar i följande format: 
+Anta att du har inmatade mappar i följande format: 
 
 ```
 2016/03/01/01
@@ -89,25 +89,25 @@ Anta att du har anger mappar i följande format:
 ...
 ```
 
-Klicka på den **Bläddra** för **fil eller mapp**, bläddra till någon av dessa mappar (exempel: 2016 -> 03 -> 02-01 >), och klicka på **Välj**. Du bör se 2016/03/01/02 i textrutan. 
+Klicka på knappen **Bläddra** för **filen eller mappen**, bläddra till någon av dessa mappar (till exempel 2016-> 03-> 01-> 02) och klicka på **Välj**. Du bör se 2016/03/01/02 i text rutan. 
 
-Ersätt sedan **2016** med **{year}** , **03** med **{month}** , **01** med **{day}** , och **02** med **{hour}** , och tryck på den **fliken** nyckel. Du bör se listrutorna för att välja formatet för dessa fyra variabler:
+Ersätt sedan **2016** med **{Year}** , **03** med **{Month}** , **01** med **{Day}** och **02** med **{Hour}** och tryck på **TABB** -tangenten. Du bör se List rutor för att välja formatet för dessa fyra variabler:
 
-![Filtret fil eller mapp](./media/copy-data-tool/filter-file-or-folder.png)
+![Filtrera fil eller mapp](./media/copy-data-tool/filter-file-or-folder.png)
 
-Verktyget kopieringsdata genererar parametrar med uttryck, funktioner och systemvariabler som kan användas för att representera {year}, {month} {day} {hour} och {minute} när du skapar en pipeline. Mer information finns i den [hur att läsa eller skriva partitionerade data](how-to-read-write-partitioned-data.md) artikeln.
+Verktyget Kopiera data genererar parametrar med uttryck, funktioner och systemvariabler som kan användas för att representera {Year}, {Month}, {Day}, {Hour} och {minut} när pipelinen skapas.
 
-## <a name="scheduling-options"></a>Alternativ för schemaläggning
-Du kan köra kopieringen en gång eller enligt ett schema (varje timme, varje dag, och så vidare). Dessa alternativ kan användas för anslutningarna mellan olika miljöer, inklusive lokala, moln och lokala skrivbord. 
+## <a name="scheduling-options"></a>Schemaläggnings alternativ
+Du kan köra kopierings åtgärden en gång eller enligt ett schema (varje timme, varje dag och så vidare). Dessa alternativ kan användas för anslutningarna i olika miljöer, inklusive lokalt, molnet och lokalt skriv bord. 
 
-Flyttning av data från en källa till ett mål kan bara en gång i en enstaka kopieringsåtgärd. Det gäller för data av valfri storlek och ett format som stöds. Schemalagd kopiering låter dig kopiera data på en upprepning som du anger. Du kan använda omfattande inställningar (t.ex. Försök igen, tidsgräns och aviseringar) för att konfigurera schemalagda kopia.
+En enstaka kopierings åtgärd gör det möjligt att flytta data från en källa till ett mål bara en gång. Den gäller för data av valfri storlek och alla format som stöds. Med den schemalagda kopian kan du kopiera data på en upprepning som du anger. Du kan använda avancerade inställningar (t. ex. återförsök, tids gräns och aviseringar) för att konfigurera den schemalagda kopian.
 
-![Alternativ för schemaläggning](./media/copy-data-tool/scheduling-options.png)
+![Schemaläggnings alternativ](./media/copy-data-tool/scheduling-options.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
-Prova de här självstudierna som använder du verktyget kopieringsdata:
+Prova de här självstudierna som använder Kopiera data-verktyget:
 
-- [Snabbstart: skapa en datafabrik med hjälp av verktyget kopieringsdata](quickstart-create-data-factory-copy-data-tool.md)
-- [Självstudier: kopiera data i Azure med hjälp av verktyget kopieringsdata](tutorial-copy-data-tool.md) 
-- [Självstudier: kopiera lokala data till Azure med hjälp av verktyget kopieringsdata](tutorial-hybrid-copy-data-tool.md)
+- [Snabb start: skapa en data fabrik med hjälp av Kopiera data-verktyget](quickstart-create-data-factory-copy-data-tool.md)
+- [Självstudie: kopiera data i Azure med hjälp av Kopiera data-verktyget](tutorial-copy-data-tool.md) 
+- [Självstudie: Kopiera lokala data till Azure med hjälp av Kopiera data-verktyget](tutorial-hybrid-copy-data-tool.md)

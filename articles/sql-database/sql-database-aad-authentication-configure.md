@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: b6414ac41b1bb43e3fe1470a7ae2b1358126003a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a14926dea576e0331cb8c0f8010f060f47faa3e7
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68569680"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991162"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory autentisering med SQL
 
@@ -327,7 +327,7 @@ För att bekräfta att Azure AD-administratören är korrekt konfigurerad anslut
 Om du vill etablera en Azure AD-baserad databas användare (förutom Server administratören som äger databasen) ansluter du till databasen med en Azure AD-identitet som har åtkomst till databasen.
 
 > [!IMPORTANT]
-> Stöd för Azure Active Directory-autentisering är tillgängligt med [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) och [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) i Visual Studio 2015. 2016-versionen från augusti innehåller även stöd för Active Directory Universal Authentication, som gör att administratörer kan kräva Multi-Factor Authentication med ett telefonsamtal, textmeddelande, smartkort med PIN-kod eller ett meddelande om mobilapp.
+> Stöd för Azure Active Directory-autentisering är tillgängligt med [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) och [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) i Visual Studio 2015. 2016-versionen från augusti innehåller även stöd för Active Directory Universal-autentisering, vilket gör att administratörer kan kräva Multi-Factor Authentication att använda ett telefonsamtal, SMS, smartkort med PIN-kod eller ett meddelande om mobilapp.
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Använda en Azure AD-identitet för att ansluta med SSMS eller SSDT
 
@@ -412,6 +412,9 @@ Mer information finns i [SQL Server Security Blogg](https://blogs.msdn.microsoft
 ### <a name="sqlcmd"></a>sqlcmd
 
 Följande instruktioner är Anslut med version 13,1 av SQLCMD, som är tillgänglig från [Download Center](https://go.microsoft.com/fwlink/?LinkID=825643).
+
+> [!NOTE]
+> `sqlcmd``-G` med kommandot fungerar inte med system identiteter och kräver en användares huvud inloggning.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 4a37345cf33cbb02a6bd9a70b0253a55ee4c9478
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035599"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989927"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Hantera stora meddelanden med segment i Azure Logic Apps
 
@@ -128,7 +128,7 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
    | Rubrik fält för slut punkts svar | type | Obligatoriskt | Beskrivning |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Nej | Den föreslagna segment storleken i byte |
-   | **Location** | String | Nej | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
+   | **Location** | Sträng | Ja | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
    ||||
 
 3. Din Logi Kap par skapar och skickar uppföljning av HTTP-meddelanden – var och en med den här informationen:
@@ -148,7 +148,7 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
    | Rubrik fält för slut punkts svar | type | Obligatoriskt | Beskrivning |
    |--------------------------------|------|----------|-------------|
-   | **Intervall** | Sträng | Ja | Byte-intervallet för innehåll som har tagits emot av slut punkten, till exempel: "byte = 0-1023" |   
+   | **Område** | Sträng | Ja | Byte-intervallet för innehåll som har tagits emot av slut punkten, till exempel: "byte = 0-1023" |   
    | **x-ms-chunk-size** | Integer | Nej | Den föreslagna segment storleken i byte |
    ||||
 

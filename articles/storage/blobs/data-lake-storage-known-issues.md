@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 369069ef9a9c562ef6ba88a46dc0ef82c4debba1
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 951b1f3749807ac6aee78a96ae7eb38877ca6acc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950687"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991811"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -32,7 +32,7 @@ API: er för Blob Storage inaktive ras för att förhindra Operability problem s
 
 Om någon av dessa använder BLOB-API: er och du vill använda dem för att arbeta med allt innehåll som du överför till ditt konto, har du två alternativ.
 
-* **Alternativ 1**: Aktivera inte ett hierarkiskt namn område på ditt Blob Storage-konto förrän BLOB-API: er blir kompatibla med Azure Data Lake Gen2-API: er. Om du använder ett lagrings konto utan ett hierarkiskt namn område har du inte åtkomst till Data Lake Storage Gen2 vissa funktioner, till exempel katalog-och fil Systems åtkomst kontrol listor.
+* **Alternativ 1**: Aktivera inte ett hierarkiskt namn område på ditt Blob Storage-konto förrän BLOB-API: er blir kompatibla med Azure Data Lake Gen2-API: er. Om du använder ett lagrings konto utan ett hierarkiskt namn område har du inte åtkomst till Data Lake Storage Gen2 vissa funktioner, till exempel åtkomst kontrol listor för kataloger och behållare.
 
 * **Alternativ 2**: Registrera dig för den offentliga för hands versionen av [åtkomst till flera protokoll på data Lake Storage](data-lake-storage-multi-protocol-access.md). Verktyg och program som anropar BLOB-API: er, samt funktioner för blob-lagring, till exempel diagnostikloggar, kan arbeta med konton som har ett hierarkiskt namn område.
 

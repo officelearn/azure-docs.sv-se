@@ -4,17 +4,17 @@ description: Använda en Azure IoT Edge-enhet som en transparent gateway som kan
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 08/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91860e9ec8d503a01d079925466093d19bbbccf
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e61ddd6cb51795fad564b6246fb24ea4ce48f028
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698611"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982965"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway
 
@@ -52,8 +52,6 @@ Följande steg vägleder dig genom processen att skapa certifikaten och installe
 En Azure IoT Edge-enhet för att konfigurera som en gateway. Använd IoT Edge installations steg för något av följande operativ system:
   * [Windows](how-to-install-iot-edge-windows.md)
   * [Linux](how-to-install-iot-edge-linux.md)
-
-Den här artikeln hänvisar till *Gateway* -värdnamnet på flera punkter. Gateway-värdnamnet deklareras i parametern **hostname** i filen config. yaml på den IoT Edge gateway-enheten. Den används för att skapa certifikaten i den här artikeln och det hänvisas till anslutnings strängen för de underordnade enheterna. Gateway-värdnamnet måste matchas till en IP-adress, antingen med DNS eller en värd fil post.
 
 ## <a name="generate-certificates-with-windows"></a>Generera certifikat med Windows
 
@@ -142,15 +140,18 @@ I det här avsnittet ska du skapa tre certifikat och Anslut dem i en kedja. Plac
    Det här skript kommandot skapar flera certifikat och viktiga filer, men vi ska referera till ett i synnerhet i den här artikeln:
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-2. Skapa IoT Edge enhetens CA-certifikat och privata nyckel med följande kommando. Ange Gateway-värdnamnet, som du hittar i iotedge\config.yaml-filen på gateway-enheten. Gateway-värdnamnet används för att namnge filerna och under genereringen av certifikatet. 
+2. Skapa IoT Edge enhetens CA-certifikat och privata nyckel med följande kommando. Ange ett namn för CA-certifikatet, till exempel **MyEdgeDeviceCA**. Namnet används för att namnge filerna och under genereringen av certifikatet. 
 
    ```powershell
-   New-CACertsEdgeDevice "<gateway hostname>"
+   New-CACertsEdgeDeviceCA "MyEdgeDeviceCA"
    ```
 
    Det här skript kommandot skapar flera certifikat och viktiga filer, inklusive två som vi ska referera till senare i den här artikeln:
-   * `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
+   * `<WRKDIR>\certs\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * `<WRKDIR>\private\iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
+
+   >[!TIP]
+   >Om du anger ett annat namn än **MyEdgeDeviceCA**, kommer de certifikat och nycklar som skapas med det här kommandot att återspegla det namnet. 
 
 Nu när du har certifikaten kan du gå vidare till [Installera certifikat på gatewayen](#install-certificates-on-the-gateway)
 
@@ -193,6 +194,8 @@ I det här avsnittet ska du skapa tre certifikat och Anslut dem i en kedja. Plac
 
 1. Skapa rot certifikat utfärdarens certifikat och ett mellanliggande certifikat. Dessa certifikat är placerade i  *\<WRKDIR >* .
 
+   Kör inte det här skriptet igen om du redan har skapat rot-och mellanliggande certifikat i den här arbets katalogen. Om du kör det här skriptet skrivs befintliga certifikat över. Fortsätt i stället till nästa steg. 
+
    ```bash
    ./certGen.sh create_root_and_intermediate
    ```
@@ -200,15 +203,18 @@ I det här avsnittet ska du skapa tre certifikat och Anslut dem i en kedja. Plac
    Skriptet skapar flera certifikat och nycklar. Anteckna ett, som vi ska referera till i nästa avsnitt:
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`
 
-2. Skapa IoT Edge enhetens CA-certifikat och privata nyckel med följande kommando. Ange Gateway-värdnamnet, som du hittar i filen iotedge/config. yaml på gateway-enheten. Gateway-värdnamnet används för att namnge filerna och under genereringen av certifikatet. 
+2. Skapa IoT Edge enhetens CA-certifikat och privata nyckel med följande kommando. Ange ett namn för CA-certifikatet, till exempel **MyEdgeDeviceCA**. Namnet används för att namnge filerna och under genereringen av certifikatet. 
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<gateway hostname>"
+   ./certGen.sh create_edge_device_ca_certificate "MyEdgeDeviceCA"
    ```
 
    Skriptet skapar flera certifikat och nycklar. Anteckna två, som vi ska referera till i nästa avsnitt: 
-   * `<WRKDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * `<WRKDIR>/private/iot-edge-device-<gateway hostname>.key.pem`
+   * `<WRKDIR>/certs/iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * `<WRKDIR>/private/iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
+
+   >[!TIP]
+   >Om du anger ett annat namn än **MyEdgeDeviceCA**, kommer de certifikat och nycklar som skapas med det här kommandot att återspegla det namnet. 
 
 ## <a name="install-certificates-on-the-gateway"></a>Installera certifikat på gateway
 
@@ -216,8 +222,8 @@ Nu när du har gjort en certifikatkedja, måste du installera den på IoT Edge-g
 
 1. Kopiera följande filer från  *\<WRKDIR >* . Spara dem var som helst på din IoT Edge-enhet. Vi ska referera till målkatalogen på IoT Edge-enhet som  *\<CERTDIR >* . 
 
-   * Enhets-CA-certifikat –  `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * Enhets-CA-privata nyckel – `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
+   * Enhets-CA-certifikat –  `<WRKDIR>\certs\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * Enhets-CA-privata nyckel – `<WRKDIR>\private\iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
    * Rot-CA-`<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
    Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.  Om du har genererat certifikaten på själva enheten för IoT Edge kan du hoppa över det här steget och använda sökvägen till arbets katalogen.
@@ -233,16 +239,16 @@ Nu när du har gjort en certifikatkedja, måste du installera den på IoT Edge-g
 
       ```yaml
       certificates:
-        device_ca_cert: "<CERTDIR>\\certs\\iot-edge-device-<gateway hostname>-full-chain.cert.pem"
-        device_ca_pk: "<CERTDIR>\\private\\iot-edge-device-<gateway hostname>.key.pem"
+        device_ca_cert: "<CERTDIR>\\certs\\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>\\private\\iot-edge-device-ca-MyEdgeDeviceCA.key.pem"
         trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
       ```
    
    * Linux: 
       ```yaml
       certificates:
-        device_ca_cert: "<CERTDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem"
-        device_ca_pk: "<CERTDIR>/private/iot-edge-device-<gateway hostname>.key.pem"
+        device_ca_cert: "<CERTDIR>/certs/iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>/private/iot-edge-device-ca-MyEdgeDeviceCA.key.pem"
         trusted_ca_certs: "<CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem"
       ```
 

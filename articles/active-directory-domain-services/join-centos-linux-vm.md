@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f28933623100ed18320df37741c7c1e82ccffa9f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 183f1190e4ccbd730600290305a5847f83853c39
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612845"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990731"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Anslut en virtuell CentOS Linux-dator till en hanterad domän
 Den här artikeln visar hur du ansluter en virtuell CentOS Linux-dator i Azure till en Azure AD Domain Services hanterad domän.
@@ -84,7 +84,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
 1. Identifiera den hanterade domänen för AAD Domain Services. Skriv följande kommando i SSH-terminalen:
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -100,7 +100,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
     > * Ange domän namnet med versala bokstäver, annars Miss lyckas kinit.
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. Anslut datorn till domänen. Skriv följande kommando i SSH-terminalen:
@@ -111,7 +111,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
     > Om den virtuella datorn inte kan ansluta till domänen ser du till att den virtuella datorns nätverks säkerhets grupp tillåter utgående Kerberos-trafik på TCP + UDP-port 464 till det virtuella nätverkets undernät för din Azure AD DS-hanterade domän.
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM'
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM'
     ```
 
 Du bör få ett meddelande ("den registrerade datorn i sfären") när datorn har anslutits till den hanterade domänen.
@@ -120,10 +120,10 @@ Du bör få ett meddelande ("den registrerade datorn i sfären") när datorn har
 ## <a name="verify-domain-join"></a>Verifiera domän anslutning
 Kontrol lera om datorn har anslutits till den hanterade domänen. Anslut till den domänanslutna CentOS-datorn med en annan SSH-anslutning. Använd ett domän användar konto och kontrol lera sedan för att se om användar kontot har lösts korrekt.
 
-1. I SSH-terminalen skriver du följande kommando för att ansluta till den domänanslutna virtuella CentOS-datorn med SSH. Använd ett domän konto som tillhör den hanterade domänen (till exempel "bob@contoso.COM" i det här fallet.)
+1. I SSH-terminalen skriver du följande kommando för att ansluta till den domänanslutna virtuella CentOS-datorn med SSH. Använd ett domän konto som tillhör den hanterade domänen (till exempel "bob@CONTOSO.COM" i det här fallet.)
     
     ```console
-    ssh -l bob@contoso.COM contoso-centos.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-centos.contoso.com
     ```
 
 2. I SSH-terminalen skriver du följande kommando för att se om arbets katalogen har initierats korrekt.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b2cacc8cc6d7c22a93f46007e8150a4e55dc7650
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b2fb7496f16359f01ddbbe6db31b2d047a2ab4df
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967715"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012817"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Snabbstart: Skapa en kunskaps bas med hjälp av API för QnA Maker service portal
 
@@ -45,24 +45,21 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     ![Set-datakällor](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
-    - Ge din tjänst en **namn.** Dubblettnamn och specialtecken stöds.
-    - Lägg till URL: er för data som du vill extrahera. Se mer information om vilka typer av datakällor som stöds [här](../Concepts/data-sources-supported.md).
-    - Ladda upp filer för data som du vill extrahera. Se den [prisinformation](https://aka.ms/qnamaker-pricing) att se hur många dokument som du kan lägga till.
-    - Om du vill lägga till kunskapsbaser manuellt kan du hoppa över **steg 4** visas i föregående bild.
+1. Ge din tjänst ett **namn** , till `my first kb`exempel. Dubblettnamn och specialtecken stöds.
 
-1. Lägg till **Chit-chatt** till din KB. Välj att lägga till stöd för CHI2TEST för din robot genom att välja någon av dina personliga. 
+1. Lägg till sidan QNA Maker fel sökning som en URL `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`: och välj `+ Add URL`sedan. Se mer information om vilka typer av datakällor som stöds [här](../Concepts/data-sources-supported.md). I den här snabb starten **laddar du inte upp filer** för data som du vill extrahera. Se den [prisinformation](https://aka.ms/qnamaker-pricing) att se hur många dokument som du kan lägga till.
 
-    ![Lägga till en CHI2TEST-chatt i KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+1. Lägg till  **_Professional_ CHI2TEST-chatt** till din KB. 
 
 1. Välj **skapa din Kunskapsbas**.
 
     ![Skapa KB](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-1. Det tar några minuter innan data ska extraheras.
+1. Det kan ta några minuter för data att extraheras.
 
     ![Extrahering](../media/qnamaker-how-to-create-kb/hang-tight-extraction.png)
 
-1. När din kunskapsbas har skapats, omdirigeras du till den **kunskapsbas** sidan.
+1. När din kunskaps bas har skapats omdirigeras du till sidan **kunskaps bas** .
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

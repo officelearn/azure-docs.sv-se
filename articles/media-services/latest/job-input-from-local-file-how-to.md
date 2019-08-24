@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure Media Services-jobb från en lokal fil | Microsoft Docs
-description: Det här avsnittet visar hur du skapar en jobbindata från en lokal fil.
+title: Skapa en Azure Media Services jobb-indata från en lokal fil | Microsoft Docs
+description: I det här avsnittet visas hur du skapar ett jobb indata från en lokal fil.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,26 +11,32 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: 399f6724b8948c8e507bc50622a4fb65b2262491
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 94ac332867d46deb426672fbc40cc72cc121fe64
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653942"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998137"
 ---
-# <a name="create-a-job-input-from-a-local-file"></a>Skapa en jobbindata från en lokal fil
+# <a name="create-a-job-input-from-a-local-file"></a>Skapa ett jobb indata från en lokal fil
 
-När du skickar in jobb för att bearbeta videor i Media Services v3 måste du informera Media Services om var indatavideo finns. Indatavideon kan lagras som en Media Service-tillgång då du skapar en indatatillgången som baseras på en fil (som lagras lokalt eller i Azure Blob storage). Det här avsnittet visar hur du skapar en jobbindata från en lokal fil. Ett fullständigt exempel finns i den här [GitHub-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
+När du skickar in jobb för att bearbeta videor i Media Services v3 måste du informera Media Services om var indatavideo finns. Indataporten kan lagras som en medie tjänst till gång, i vilket fall du skapar en indata-till gång baserat på en fil (lagras lokalt eller i Azure Blob Storage). I det här avsnittet visas hur du skapar ett jobb indata från en lokal fil. Ett fullständigt exempel finns i det här [GitHub-exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
 
 ## <a name="net-sample"></a>.NET-exempel
 
-Följande kod visar hur du skapar en indatatillgången och använder den som indata för jobbet. Funktionen CreateInputAsset utför följande åtgärder:
+Följande kod visar hur du skapar en inmatad till gång och använder den som inmatad för jobbet. Funktionen CreateInputAsset utför följande åtgärder:
 
-* Skapar tillgången
+* Skapar till gången
 * Hämtar en skrivbar [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) till tillgångens [container i lagringen](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
 * Laddar upp filen till containern i lagringen med hjälp av SAS-URL:en
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
+
+Följande kodfragment skapar en output-till gång om det inte redan finns:
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAssetAsync)]
+
+Följande kodfragment skickar ett kodnings jobb:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
 
@@ -40,4 +46,4 @@ Se [Felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa en jobbindata från en HTTPS-URL](job-input-from-http-how-to.md).
+[Skapa ett jobb inmatat från en HTTPS-URL](job-input-from-http-how-to.md).

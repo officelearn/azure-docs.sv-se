@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: e4b7de3931c0d3508e5af6aa6bf85dfa18641aee
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 059a614dff7fc0eab5419e3e2ffdeaeecb79ad99
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624975"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981372"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Självstudier: Lägga till en SQL Database Hanterad instans i en failover-grupp
 
@@ -47,7 +47,7 @@ I det här steget ska du skapa resurs gruppen och den primära hanterade instans
 1. Välj **skapa** för att starta sidan för skapande av **SQL-hanterad instans** . 
 1. På sidan **skapa Azure SQL Database Hanterad instans** på fliken **grundläggande**
     1. Under **projekt information**väljer du din **prenumeration** i list rutan och väljer sedan att skapa en **ny** resurs grupp. Ange ett namn för resurs gruppen, till exempel `myResourceGroup`. 
-    1. Under **information om hanterade instanser**anger du namnet på den hanterade instansen och den region där du vill distribuera din hanterade instans. Se till att välja en region med en [kopplad region](/azure/best-practices-availability-paired-regions). Lämna kvar **beräkningen + lagringen** med standardvärdena. 
+    1. Under **information om hanterade instanser**anger du namnet på den hanterade instansen och den region där du vill distribuera din hanterade instans. Lämna kvar **beräkningen + lagringen** med standardvärdena. 
     1. Under **administratörs konto**anger du en Administratörs inloggning, `azureuser`till exempel och ett komplext administratörs lösen ord. 
 
     ![Skapa primär MI](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
@@ -79,7 +79,7 @@ Följ dessa steg om du vill skapa ett virtuellt nätverk:
     | **Namn** |  Namnet på det virtuella nätverk som ska användas av den sekundära hanterade instansen, `vnet-sql-mi-secondary`till exempel. |
     | **Adressutrymme** | Adress utrymmet för det virtuella nätverket, till exempel `10.128.0.0/16`. | 
     | **Prenumeration** | Den prenumeration där den primära hanterade instansen och resurs gruppen finns. |
-    | **Region** | Den plats där du ska distribuera den sekundära hanterade instansen. Detta ska finnas i en [kopplad region](/azure/best-practices-availability-paired-regions) till den primära hanterade instansen.  |
+    | **Region** | Den plats där du ska distribuera den sekundära hanterade instansen. |
     | **Undernät** | Namnet på under nätet. `default`tillhandahålls som standard. |
     | **Adressintervall**| Adress intervallet för ditt undernät. Detta måste vara ett annat än det under näts adress intervall som används av den primära hanterade instansens virtuella nätverk `10.128.0.0/24`, till exempel.  |
     | &nbsp; | &nbsp; |
@@ -92,7 +92,6 @@ I det här steget ska du skapa en sekundär hanterad instans i Azure Portal, vil
 
 Din andra hanterade instans måste:
 - Vara tomt. 
-- Ligga inom en [kopplad region](/azure/best-practices-availability-paired-regions) med motsvarande motsvarighet till den primära hanterade instansen. 
 - Ha ett annat undernät och IP-intervall än den primära hanterade instansen. 
 
 Följ dessa steg om du vill skapa en sekundär hanterad instans: 
@@ -108,7 +107,7 @@ Följ dessa steg om du vill skapa en sekundär hanterad instans:
     | **Prenumeration** |  Den prenumeration där din primära hanterade instans är. |
     | **Resursgrupp**| Resurs gruppen där den primära hanterade instansen finns. |
     | **Namn på hanterad instans** | Namnet på den nya sekundära hanterade instansen, till exempel`sql-mi-secondary`  | 
-    | **Region**| Den [kopplade regionens](/azure/best-practices-availability-paired-regions) plats för din sekundära hanterade instans.  |
+    | **Region**| Platsen för den sekundära hanterade instansen.  |
     | **Administratörsinloggning för hanterad instans** | Den inloggning som du vill använda för den nya sekundära hanterade instansen `azureuser`, till exempel. |
     | **Lösenord** | Ett komplext lösen ord som ska användas av administratörs inloggningen för den nya sekundära hanterade instansen.  |
     | &nbsp; | &nbsp; |

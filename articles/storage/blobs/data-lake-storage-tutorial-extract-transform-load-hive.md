@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 344dddb4e16f23ae40028c090c499d210adb8837
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f58785b17a1e6236636744c32dac07a6c9ed138d
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855455"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992256"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Apache Hive i Azure HDInsight
 
@@ -92,26 +92,26 @@ I det här avsnittet laddar du upp data till ditt HDInsight-kluster och kopierar
 
    Kommandot extraherar en **.csv**-fil.
 
-4. Använd följande kommando för att skapa Data Lake Storage Gen2-filsystemet.
+4. Använd följande kommando för att skapa Data Lake Storage Gen2 containern.
 
    ```bash
-   hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+   hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
    ```
 
-   Ersätt platshållaren `<file-system-name>` med det namn som du vill ge filsystemet.
+   `<container-name>` Ersätt plats hållaren med det namn som du vill ge din behållare.
 
    Ersätt platshållaren `<storage-account-name>` med namnet på ditt lagringskonto.
 
 5. Använd följande kommando för att skapa en katalog.
 
    ```bash
-   hdfs dfs -mkdir -p abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data
+   hdfs dfs -mkdir -p abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data
    ```
 
 6. Använd följande kommando för att kopiera *.csv*-filen till katalogen:
 
    ```bash
-   hdfs dfs -put "<file-name>.csv" abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data/
+   hdfs dfs -put "<file-name>.csv" abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data/
    ```
 
    Använd citattecken runt filnamnet om filnamnet innehåller blanksteg eller specialtecken.
@@ -128,7 +128,7 @@ Som en del av Apache Hive-jobbet importerar du data från CSV-filen till en Apac
    nano flightdelays.hql
    ```
 
-2. Ändra följande text genom att ersätta platshållarna `<file-system-name>` och `<storage-account-name>` med namnen på ditt filsystem och lagringskonto. Kopiera och klistra sedan in texten i nano-konsolen genom att trycka på Skift-tangenten tillsammans med höger musknapp.
+2. Ändra följande text genom att `<container-name>` ersätta plats hållarna och `<storage-account-name>` med namnet på din behållare och ditt lagrings konto. Kopiera och klistra sedan in texten i nano-konsolen genom att trycka på Skift-tangenten tillsammans med höger musknapp.
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -160,14 +160,14 @@ Som en del av Apache Hive-jobbet importerar du data från CSV-filen till en Apac
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE
-    LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data';
+    LOCATION 'abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data';
 
     -- Drop the delays table if it exists
     DROP TABLE delays;
     -- Create the delays table and populate it with data
     -- pulled in from the CSV file (via the external table defined previously)
     CREATE TABLE delays
-    LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
+    LOCATION 'abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
     AS
     SELECT YEAR AS year,
         FL_DATE AS flight_date,
@@ -218,7 +218,7 @@ Som en del av Apache Hive-jobbet importerar du data från CSV-filen till en Apac
     GROUP BY origin_city_name;
     ```
 
-   Frågan returnerar en lista över städer som berörs av förseningar på grund av vädret samt genomsnittlig förseningstid och sparar det till `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. Senare läser Sqoop data från den här platsen och exporterar dem till Azure SQL Database.
+   Frågan returnerar en lista över städer som berörs av förseningar på grund av vädret samt genomsnittlig förseningstid och sparar det till `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. Senare läser Sqoop data från den här platsen och exporterar dem till Azure SQL Database.
 
 7. Om du vill avsluta Beeline skriver du `!quit` vid uppmaningen.
 
@@ -300,7 +300,7 @@ Du behöver namnet på servern från SQL-databasen för den här åtgärden. Slu
 
 ## <a name="export-and-load-the-data"></a>Exportera och läsa in data
 
-I föregående avsnitt kopierade du transformerade data på platsen `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. I det här avsnittet använder du Sqoop för att exportera data från `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` till tabellen du skapade i Azure SQL-databasen.
+I föregående avsnitt kopierade du transformerade data på platsen `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. I det här avsnittet använder du Sqoop för att exportera data från `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` till tabellen du skapade i Azure SQL-databasen.
 
 1. Använd följande kommando för att verifiera att Sqoop kan se din SQL-databas:
 
@@ -313,7 +313,7 @@ I föregående avsnitt kopierade du transformerade data på platsen `abfs://<fil
 2. Använd följande kommando för att exportera data från tabellen **hivesampletable** till tabellen **delays**:
 
    ```bash
-   sqoop export --connect 'jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433;database=<DATABASE_NAME>' --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD> --table 'delays' --export-dir 'abfs://<file-system-name>@.dfs.core.windows.net/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+   sqoop export --connect 'jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433;database=<DATABASE_NAME>' --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD> --table 'delays' --export-dir 'abfs://<container-name>@.dfs.core.windows.net/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
    ```
 
    Sqoop ansluter till databasen som innehåller tabellen **delays** och exporterar data från `/tutorials/flightdelays/output`-katalogen till tabellen **delays**.

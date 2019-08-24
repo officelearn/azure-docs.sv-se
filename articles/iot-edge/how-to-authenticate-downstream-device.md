@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4d6c7665d281ff7c27fd8b61537804b6803b3b43
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 1634d7cd3dfe8d118e220fa8620ef6467c15ea2c
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360163"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983009"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autentisera en underordnad enhet på Azure IoT Hub
 
@@ -29,6 +29,12 @@ Det finns tre allmänna steg för att konfigurera en lyckad transparent Gateway-
 Underordnade enheter kan autentiseras med IoT Hub med hjälp av någon av tre metoder: symmetriska nycklar (kallas ibland för delade åtkomst nycklar), X. 509 självsignerade certifikat eller certifikat från X. 509 certifikat utfärdare (CA) signerade certifikat. Stegen för autentisering liknar de steg som används för att konfigurera en icke-IoT-Edge-enhet med IoT Hub, med små skillnader för att deklarera Gateway-relationen.
 
 Stegen i den här artikeln visar manuell enhets etablering, inte automatisk etablering med Azure-IoT Hub Device Provisioning Service. 
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Slutför stegen i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent Gateway](how-to-create-transparent-gateway.md).
+
+Den här artikeln hänvisar till *Gateway* -värdnamnet på flera punkter. Gateway-värdnamnet deklareras i parametern **hostname** i filen config. yaml på den IoT Edge gateway-enheten. Den används för att skapa certifikaten i den här artikeln och det hänvisas till anslutnings strängen för de underordnade enheterna. Gateway-värdnamnet måste matchas till en IP-adress, antingen med DNS eller en värd fil post.
 
 ## <a name="symmetric-key-authentication"></a>Autentisering med symmetrisk nyckel
 
@@ -133,7 +139,7 @@ Det enklaste sättet att testa det här scenariot är att använda samma dator s
    * `<WRKDIR>\certs\iot-device-<device name>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device name>*.key.pem`
 
-   Du refererar till de här filerna i de löv enhets program som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [säker kopia av protoco](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
+   Du refererar till de här filerna i de löv enhets program som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
 
 Du kan använda [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) för att slutföra samma enhets skapande åtgärd. I följande exempel skapas en ny IoT-enhet med en självsignerad X. 509-autentisering och tilldelar en överordnad enhet: 
 
@@ -187,7 +193,7 @@ Det enklaste sättet att testa det här scenariot är att använda samma dator s
    * `<WRKDIR>\certs\iot-device-<device id>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device id>*.key.pem`
 
-   Du refererar till de här filerna i de löv enhets program som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [säker kopia av protoco](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
+   Du refererar till de här filerna i de löv enhets program som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
 
 Du kan använda [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) för att slutföra samma enhets skapande åtgärd. I följande exempel skapas en ny IoT-enhet med X. 509 CA-signerad autentisering och tilldelar en överordnad enhet: 
 

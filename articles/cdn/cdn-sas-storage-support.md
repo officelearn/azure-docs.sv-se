@@ -1,6 +1,6 @@
 ---
 title: Använda Azure CDN med SAS | Microsoft Docs
-description: Azure CDN stöder användning av signatur för delad åtkomst (SAS) att bevilja begränsad åtkomst till privata storage-behållare.
+description: Azure CDN stöder användning av signaturen för delad åtkomst (SAS) för att ge begränsad åtkomst till privata lagrings behållare.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 999bffe9650f3d2f2a04dba728a9aa41fa46a6b0
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e7a170eaf74531cf4bd8c28aafaa5873f2459d0b
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593413"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982417"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Använda Azure CDN med SAS
 
-När du ställer in ett storage-konto för Azure CDN Content Delivery Network () du använder för att cachelagra innehåll som standard som skickas till URL: er för storage-behållare kan komma åt de filer som du har överfört. För att skydda filer i ditt storage-konto kan ange du åtkomst till ditt storage-behållare från offentligt till privat. Om du gör det kommer ingen att kunna komma åt dina filer. 
+När du konfigurerar ett lagrings konto för Azure Content Delivery Network (CDN) som ska användas för cachelagring av innehåll, kan alla som känner till URL: er för dina lagrings behållare komma åt filerna som du har laddat upp. För att skydda filerna i ditt lagrings konto kan du ange åtkomsten till dina lagrings behållare från offentlig till privat. Men om du gör det kommer ingen att kunna komma åt dina filer. 
 
-Om du vill ge begränsad åtkomst till privata lagringscontainrar kan du använda funktionen SAS (signatur för delad åtkomst) för Azure-lagringskontot. En SAS är en URI som ger begränsad åtkomst till dina Azure-lagringsresurser utan att du exponerar din kontonyckel. Du kan ange en SAS för klienter som du inte litar med din lagringskontonyckel men som du vill delegera åtkomst till vissa lagringskontoresurserna. Genom att distribuera en signatur för delad åtkomst URI: N till dessa klienter ger du dem åtkomst till en resurs för en angiven tidsperiod.
+Om du vill ge begränsad åtkomst till privata lagringscontainrar kan du använda funktionen SAS (signatur för delad åtkomst) för Azure-lagringskontot. En SAS är en URI som ger begränsad åtkomst till dina Azure-lagringsresurser utan att du exponerar din kontonyckel. Du kan tillhandahålla en SAS till klienter som du inte litar på med din lagrings konto nyckel men som du vill delegera åtkomst till till vissa lagrings konto resurser. Genom att distribuera en URI för signaturer för delad åtkomst till dessa klienter ger du dem åtkomst till en resurs under en angiven tids period.
  
-Du kan använda en SAS för att definiera olika parametrar för åtkomst till en blob som start-och förfallodatum, behörigheter (Läs/Skriv) och IP-intervall. Den här artikeln beskriver hur du använder SAS tillsammans med Azure CDN. Läs mer om SAS, inklusive hur du skapar den och dess parameteralternativ [använda signaturer för delad åtkomst (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Med en SAS kan du definiera olika parametrar för åtkomst till en BLOB, till exempel start-och förfallo tider, behörigheter (Läs/skriv) och IP-intervall. I den här artikeln beskrivs hur du använder SAS tillsammans med Azure CDN. Mer information om SAS, inklusive hur du skapar den och dess parameter alternativ finns i [använda signaturer för delad åtkomst (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
 
-## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>Ställa in Azure CDN för att arbeta med SAS-lagring
-Följande tre alternativ rekommenderas för att använda SAS med Azure CDN. Alla alternativ förutsätter att du redan har skapat ett fungerande SAS (se krav). 
+## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>Konfigurera Azure CDN för att arbeta med lagrings-SAS
+Följande tre alternativ rekommenderas för att använda SAS med Azure CDN. Alla alternativ förutsätter att du redan har skapat en fungerande SAS (se krav). 
  
 ### <a name="prerequisites"></a>Förutsättningar
-Skapa ett lagringskonto för att starta, och sedan skapa en SAS för tillgången. Du kan skapa två typer av signaturer lagrade åtkomst: tjänst-SAS eller ett SAS-konto. Mer information finns i [typer av signaturer för delad åtkomst](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
+Starta genom att skapa ett lagrings konto och sedan skapa en SAS för din till gång. Du kan generera två typer av lagrade Access-signaturer: en tjänst-SAS eller en konto säkerhets Association. Mer information finns i [typer av signaturer för delad åtkomst](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
 
-När du har genererat en SAS-token kan du komma åt din blob storage-fil genom att lägga till `?sv=<SAS token>` till din URL. Denna URL har följande format: 
+När du har skapat en SAS-token kan du komma åt Blob Storage-filen genom `?sv=<SAS token>` att lägga till i URL: en. URL: en har följande format: 
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
@@ -44,40 +44,40 @@ Exempel:
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
-Mer information om inställningen parametrar finns i [SAS parametern överväganden](#sas-parameter-considerations) och [parametrar för delad åtkomst signaturer](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#shared-access-signature-parameters).
+Mer information om hur du ställer in parametrar finns i avsnittet överväganden för [SAS-parametrar](#sas-parameter-considerations) och [signaturer för delad åtkomst](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works).
 
-![CDN SAS-inställningar](./media/cdn-sas-storage-support/cdn-sas-settings.png)
+![SA-inställningar för CDN](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Alternativ 1: Med hjälp av SAS med direkt till blob storage från Azure CDN
+### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Alternativ 1: Använda SAS med direkt lagring till Blob Storage från Azure CDN
 
-Det här alternativet är den enklaste och använder en enda SAS-token som skickas från Azure CDN till ursprungsservern.
+Det här alternativet är det enklaste och använder en enkel SAS-token, som skickas från Azure CDN till ursprungs servern.
  
-1. Välj en slutpunkt, Välj **Cachelagringsregler**och välj sedan **cachelagra varje unik URL** från den **cachelagring av frågesträngar i frågan** lista.
+1. Välj en slut punkt, Välj **regler**för cachelagring och välj sedan **cache varje unik URL** från listan **frågesträng caching** .
 
-    ![CDN-cachelagringsregler](./media/cdn-sas-storage-support/cdn-caching-rules.png)
+    ![Regler för CDN-cachelagring](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
-2. När du har skapat SAS på ditt lagringskonto måste du använda SAS-token med CDN-slutpunkten och det ursprungliga server URL: er för åtkomst till filen. 
+2. När du har konfigurerat SAS på ditt lagrings konto måste du använda SAS-token med URL: en för CDN-slutpunkten och ursprungs servern för att komma åt filen. 
    
-   Resulterande CDN-slutpunktens URL har följande format: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
+   Den resulterande CDN-slutpunktens URL har följande format:`https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
    Exempel:   
    ```
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    
-3. Finjustera cachelagringens varaktighet med hjälp av cachelagringsregler eller genom att lägga till `Cache-Control` rubriker på den ursprungliga servern. Eftersom Azure CDN behandlar SAS-token som en vanlig frågesträng, som bästa praxis bör du ställa in en lagringstiden som upphör att gälla från och med den SAS upphör att gälla. I annat fall om en fil cachelagras under en längre tid än SAS är aktiv och kanske filen är tillgängligt från Azure CDN ursprungsservern förfallotiden för SAS har förflutit. Om den här situationen uppstår och du vill isolera cachelagrade filen, måste du utföra en rensning-åtgärden på filen för att radera den från cachen. Information om hur du anger cachelagringens varaktighet på Azure CDN finns i [Kontrollera Cachelagringsbeteendet med cachelagringsregler](cdn-caching-rules.md).
+3. Finjustera cachens varaktighet genom att använda regler för cachelagring eller genom att `Cache-Control` lägga till sidhuvud på ursprungs servern. Eftersom Azure CDN behandlar SAS-token som en enkel frågesträng rekommenderar vi att du ställer in en varaktighet för cachelagring som upphör att gälla vid eller före förfallo tiden för SAS. Annars, om en fil cachelagras under en längre tid än vad SAS är aktiv, kan filen vara tillgänglig från Azure CDN ursprungs servern efter att förfallo tiden för SAS har förflutit. Om den här situationen inträffar och du vill göra den cachelagrade filen otillgänglig, måste du utföra en rensnings åtgärd på filen för att ta bort den från cachen. Information om hur du ställer in cachens varaktighet på Azure CDN finns i [kontroll Azure CDN cachelagring med regler](cdn-caching-rules.md)för cachelagring.
 
-### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Alternativ 2: Dolda CDN SAS-token med hjälp av en omskrivningsregel
+### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Alternativ 2: Dold CDN SAS-token med en Rewrite-regel
  
-Det här alternativet är endast tillgänglig för **Azure CDN Premium från Verizon** profiler. Med det här alternativet kan du skydda bloblagringen vid den ursprungliga servern. Du kanske vill använda det här alternativet om du inte behöver specifika åtkomstbegränsningar för filen, men vill hindra användare från att komma åt storage ursprunget direkt för att förbättra Azure CDN-avlastning gånger. SAS-token som är okända för användaren, krävs för vem som helst komma åt filer i den angivna behållaren för den ursprungliga servern. Men på grund av URL-Omskrivningsregler-regeln krävs SAS-token inte för CDN-slutpunkt.
+Det här alternativet är endast tillgängligt för **Azure CDN Premium från Verizon** -profiler. Med det här alternativet kan du skydda blob-lagringen på ursprungs servern. Du kanske vill använda det här alternativet om du inte behöver vissa åtkomst begränsningar för filen, men vill hindra användare från att komma åt lagrings ursprunget direkt för att förbättra Azure CDN avläsnings tider. SAS-token, som är okänd för användaren, krävs för alla som har åtkomst till filer i den angivna behållaren för ursprungs servern. Men på grund av den här regeln för URL-omskrivning krävs ingen SAS-token på CDN-slutpunkten.
  
-1. Använd den [regelmotor](cdn-rules-engine.md) att skapa en regel för URL-Omskrivningsregler. Nya regler ta upp till fyra timmar att sprida.
+1. Använd [regel motorn](cdn-rules-engine.md) för att skapa en Rewrite-regel för URL. Det tar upp till 4 timmar att sprida nya regler.
 
-   ![CDN hantera knappen](./media/cdn-sas-storage-support/cdn-manage-btn.png)
+   ![Knappen Hantera CDN](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
-   ![CDN regelmotor – knappen](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
+   ![Motor knapp för CDN-regler](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   Följande exempel URL-Omskrivningsregler regel använder ett mönster för reguljärt uttryck med en hämtad grupp och en slutpunkt med namnet *sasstoragedemo*:
+   Följande exempel på URL-omskrivning använder ett mönster för reguljära uttryck med en samlad grupp och en slut punkt med namnet *sasstoragedemo*:
    
    Källa:   
    `(container1\/.*)`
@@ -86,24 +86,24 @@ Det här alternativet är endast tillgänglig för **Azure CDN Premium från Ver
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL-Omskrivningsregler regel - vänster](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL-Omskrivningsregler regel - höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![CDN URL för att skriva om regel](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   -Left![CDN URL, Skriv om regel-höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. När den nya regeln aktiveras, alla kan komma åt filer i den angivna behållaren för CDN-slutpunkt, oavsett om de använder en SAS-token i Webbadressen. Här är formatet: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. När den nya regeln blir aktiv, kan vem som helst komma åt filer i den angivna behållaren på CDN-slutpunkten oavsett om de använder en SAS-token i URL: en. Här är formatet:`https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Exempel:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
-3. Finjustera cachelagringens varaktighet med hjälp av cachelagringsregler eller genom att lägga till `Cache-Control` rubriker på den ursprungliga servern. Eftersom Azure CDN behandlar SAS-token som en vanlig frågesträng, som bästa praxis bör du ställa in en lagringstiden som upphör att gälla från och med den SAS upphör att gälla. I annat fall om en fil cachelagras under en längre tid än SAS är aktiv och kanske filen är tillgängligt från Azure CDN ursprungsservern förfallotiden för SAS har förflutit. Om den här situationen uppstår och du vill isolera cachelagrade filen, måste du utföra en rensning-åtgärden på filen för att radera den från cachen. Information om hur du anger cachelagringens varaktighet på Azure CDN finns i [Kontrollera Cachelagringsbeteendet med cachelagringsregler](cdn-caching-rules.md).
+3. Finjustera cachens varaktighet genom att använda regler för cachelagring eller genom att `Cache-Control` lägga till sidhuvud på ursprungs servern. Eftersom Azure CDN behandlar SAS-token som en enkel frågesträng rekommenderar vi att du ställer in en varaktighet för cachelagring som upphör att gälla vid eller före förfallo tiden för SAS. Annars, om en fil cachelagras under en längre tid än vad SAS är aktiv, kan filen vara tillgänglig från Azure CDN ursprungs servern efter att förfallo tiden för SAS har förflutit. Om den här situationen inträffar och du vill göra den cachelagrade filen otillgänglig, måste du utföra en rensnings åtgärd på filen för att ta bort den från cachen. Information om hur du ställer in cachens varaktighet på Azure CDN finns i [kontroll Azure CDN cachelagring med regler](cdn-caching-rules.md)för cachelagring.
 
-### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Alternativ 3: Med en omskrivningsregel tokenautentisering för CDN säkerhet
+### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Alternativ 3: Använda autentisering med CDN-säkerhetstoken med en Rewrite-regel
 
-Om du vill använda Azure CDN token autentisering, måste du ha en **Azure CDN Premium från Verizon** profil. Det här alternativet är säker och anpassningsbara. Klientåtkomst baseras på de parametrar som du angett för säkerhetstoken. När du har skapat och ställa in säkerhetstoken, behöver den på alla webbadresser för CDN-slutpunkten. Men på grund av URL-Omskrivningsregler-regeln krävs SAS-token inte för CDN-slutpunkt. Om SAS-token senare blir ogiltig, kommer Azure CDN inte längre att kunna verifiera innehållet från den ursprungliga servern.
+Om du vill använda autentisering med Azure CDN säkerhetstoken måste du ha ett **Azure CDN Premium från Verizon** -profilen. Det här alternativet är det säkraste och anpassningsbara. Klient åtkomst baseras på de säkerhets parametrar som du anger i säkerhetstoken. När du har skapat och konfigurerat säkerhetstoken krävs det i alla URL: er för CDN-slutpunkter. Men på grund av den här regeln för URL-omskrivning krävs ingen SAS-token på CDN-slutpunkten. Om SAS-token senare blir ogiltig kommer Azure CDN inte längre att kunna verifiera innehållet från ursprungs servern.
 
-1. [Skapa en Azure CDN-säkerhetstoken](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) och aktivera den med hjälp av regelmotorn för CDN-slutpunkten och sökväg där användarna kan komma åt filen.
+1. [Skapa en Azure CDN säkerhetstoken](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) och aktivera den med hjälp av regel motorn för CDN-slutpunkten och sökvägen där användarna kan komma åt filen.
 
-   En security token slutpunkts-URL har följande format:   
+   En URL för säkerhetstoken har följande format:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
    Exempel:   
@@ -111,11 +111,11 @@ Om du vill använda Azure CDN token autentisering, måste du ha en **Azure CDN P
    https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
-   Parameteralternativ för en token säkerhetsautentisering skiljer sig från parameteralternativ för en SAS-token. Om du väljer att använda en förfallotid när du skapar en säkerhetstoken, bör du ange den till samma värde som förfallotiden för SAS-token. På så sätt att förfallotiden är förutsägbara. 
+   Parameter alternativen för autentisering av säkerhetstoken skiljer sig från parameter alternativen för en SAS-token. Om du väljer att använda en förfallo tid när du skapar en säkerhetstoken bör du ange samma värde som förfallo tid för SAS-token. Detta säkerställer att förfallo tiden är förutsägbar. 
  
-2. Använd den [regelmotor](cdn-rules-engine.md) att skapa en URL-Omskrivningsregler regel om du vill aktivera SAS-token åtkomst till alla blobar i behållaren. Nya regler ta upp till fyra timmar att sprida.
+2. Använd [regel motorn](cdn-rules-engine.md) för att skapa en regel för att skriva över en URL för att ge SAS-åtkomsttoken åtkomst till alla blobbar i behållaren. Det tar upp till 4 timmar att sprida nya regler.
 
-   Följande exempel URL-Omskrivningsregler regel använder ett mönster för reguljärt uttryck med en hämtad grupp och en slutpunkt med namnet *sasstoragedemo*:
+   Följande exempel på URL-omskrivning använder ett mönster för reguljära uttryck med en samlad grupp och en slut punkt med namnet *sasstoragedemo*:
    
    Källa:   
    `(container1\/.*)`
@@ -124,26 +124,26 @@ Om du vill använda Azure CDN token autentisering, måste du ha en **Azure CDN P
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL-Omskrivningsregler regel - vänster](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL-Omskrivningsregler regel - höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![CDN URL för att skriva om regel](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   -Left![CDN URL, Skriv om regel-höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-3. Om du förnyar SAS, se till att du uppdatera Webbadressomskrivning regeln med den nya SAS-token. 
+3. Om du förnyar SAS, se till att du uppdaterar regeln för att skapa en ny URL med den nya SAS-token. 
 
-## <a name="sas-parameter-considerations"></a>Överväganden för SAS-parameter
+## <a name="sas-parameter-considerations"></a>Överväganden för SAS-parametrar
 
-Eftersom SAS-parametrar inte är synliga för Azure CDN kan kan inte Azure CDN ändra dess leveransbeteende utifrån dem. Definierad parameter begränsningar gäller endast för förfrågningar som Azure CDN gör till den ursprungliga servern, inte för förfrågningar från klienten till Azure CDN. Skillnaden är viktigt att tänka på när du ställer in SAS-parametrar. Om dessa avancerade funktioner som krävs och du använder [alternativ 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule), ange lämpliga begränsningar för Azure CDN-säkerhetstoken.
+Eftersom SAS-parametrar inte är synliga för Azure CDN kan Azure CDN inte ändra leverans beteendet baserat på dem. De definierade parameter begränsningarna gäller endast för begär Anden som Azure CDN gör till ursprungs servern, inte för förfrågningar från klienten till Azure CDN. Den här skillnaden är viktig att tänka på när du anger SAS-parametrar. Om dessa avancerade funktioner krävs och du använder [Alternativ 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule), anger du lämpliga begränsningar för Azure CDN säkerhetstoken.
 
-| SAS-parameternamn | Beskrivning |
+| SAS-parameter namn | Beskrivning |
 | --- | --- |
-| Start | Den tid som Azure CDN kan börja komma åt blob-fil. På grund av klockan förskjuta (när en signal klockan anländer vid olika tidpunkter för olika komponenter), Välj en tid 15 minuter tidigare om du vill att tillgången ska vara tillgängliga omedelbart. |
-| slutpunkt | Den tid då Azure CDN inte längre har åtkomst till blobbfilen. Tidigare är cachelagrade filer på Azure CDN fortfarande tillgängliga. För att styra förfallotiden fil, ange rätt förfallotiden för Azure CDN-säkerhetstoken eller rensa tillgången. |
-| Tillåtna IP-adresser | Valfri. Om du använder **Azure CDN från Verizon**, du kan ställa in den här parametern till de intervall som har definierats i [Azure CDN från Verizon Edge Server IP-intervall](/azure/cdn/cdn-pop-list-api). Om du använder **Azure CDN från Akamai**, du kan inte ange parametern IP-adressintervall eftersom de inte statisk IP-adresser.|
-| Tillåtna protokoll | De protokoll som tillåts för en förfrågan gjord med kontot med delad Åtkomstsignatur. HTTPS-inställningen rekommenderas.|
+| Start | Den tid som Azure CDN kan börja komma åt BLOB-filen. På grund av klock skillnaden (när en klock signal anländer vid olika tidpunkter för olika komponenter), väljer du en tid 15 minuter innan du vill att till gången ska vara tillgänglig direkt. |
+| slutpunkt | Tiden efter vilken Azure CDN inte längre kan komma åt BLOB-filen. Tidigare cachelagrade filer på Azure CDN är fortfarande tillgängliga. Om du vill kontrol lera förfallo tiden för filen anger du antingen lämplig förfallo tid för Azure CDN säkerhetstoken eller rensar till gången. |
+| Tillåtna IP-adresser | Valfritt. Om du använder **Azure CDN från Verizon**kan du ange den här parametern till de intervall som definieras i [Azure CDN från IP-intervall för Verizon Edge Server](/azure/cdn/cdn-pop-list-api). Om du använder **Azure CDN från Akamai**kan du inte ange parametern IP-intervall eftersom IP-adresserna inte är statiska.|
+| Tillåtna protokoll | De protokoll som tillåts för en begäran som görs med kontots SAS. HTTPS-inställningen rekommenderas.|
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om SAS finns i följande artiklar:
 - [Använda signaturer för delad åtkomst (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Signaturer för delad åtkomst, del 2: Skapa och använda en SAS med Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [Signaturer för delad åtkomst, del 2: Skapa och använda en SAS med Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
-Läs mer om hur du konfigurerar autentisering med enhetstoken [skydda Azure Content Delivery Network-resurser med tokenautentisering](https://docs.microsoft.com/azure/cdn/cdn-token-auth).
+Mer information om hur du ställer in token-autentisering finns i [skydda Azure Content Delivery Network-tillgångar med token-autentisering](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

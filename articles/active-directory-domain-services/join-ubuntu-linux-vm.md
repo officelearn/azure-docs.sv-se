@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: c782629d422eb8846b209fed7ab6b5a5c015de25
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80dbb4f3d0c8b993beab5f6344d6034d6c2b6895
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612289"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990578"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Ansluta en virtuell Ubuntu-dator i Azure till en hanterad domän
 Den här artikeln visar hur du ansluter en Ubuntu Linux virtuell dator till en Azure AD Domain Services hanterad domän.
@@ -88,7 +88,7 @@ Installera sedan paket som krävs för domän anslutning på den virtuella dator
 3. Under Kerberos-installationen ser du en rosa skärm. Installationen av paketet "krb5-user" efterfrågar sfär namnet (i alla VERSALer). Installationen skriver [Realm] och [domain_realm]-avsnitten i/etc/krb5.conf.
 
     > [!TIP]
-    > Om namnet på din hanterade domän är contoso.com anger du contoso.COM som sfär. Kom ihåg att sfär namnet måste anges i VERSALer.
+    > Om namnet på din hanterade domän är contoso.com anger du CONTOSO.COM som sfär. Kom ihåg att sfär namnet måste anges i VERSALer.
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Konfigurera NTP-inställningarna (Network Time Protocol) på den virtuella Linux-datorn
@@ -121,7 +121,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
 1. Identifiera den hanterade domänen för AAD Domain Services. Skriv följande kommando i SSH-terminalen:
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -138,7 +138,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
     >
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. Anslut datorn till domänen. Skriv följande kommando i SSH-terminalen:
@@ -149,7 +149,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
     > Om den virtuella datorn inte kan ansluta till domänen ser du till att den virtuella datorns nätverks säkerhets grupp tillåter utgående Kerberos-trafik på TCP + UDP-port 464 till det virtuella nätverkets undernät för din Azure AD DS-hanterade domän.
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM' --install=/
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM' --install=/
     ```
 
 Du bör få ett meddelande ("den registrerade datorn i sfären") när datorn har anslutits till den hanterade domänen.
@@ -192,10 +192,10 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## <a name="verify-domain-join"></a>Verifiera domän anslutning
 Kontrol lera om datorn har anslutits till den hanterade domänen. Anslut till den domänanslutna Ubuntu-datorn med en annan SSH-anslutning. Använd ett domän användar konto och kontrol lera sedan för att se om användar kontot har lösts korrekt.
 
-1. I SSH-terminalen skriver du följande kommando för att ansluta till den domänanslutna virtuella Ubuntu-datorn med SSH. Använd ett domän konto som tillhör den hanterade domänen (till exempel "bob@contoso.COM" i det här fallet.)
+1. I SSH-terminalen skriver du följande kommando för att ansluta till den domänanslutna virtuella Ubuntu-datorn med SSH. Använd ett domän konto som tillhör den hanterade domänen (till exempel "bob@CONTOSO.COM" i det här fallet.)
     
     ```console
-    ssh -l bob@contoso.COM contoso-ubuntu.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-ubuntu.contoso.com
     ```
 
 2. I SSH-terminalen skriver du följande kommando för att se om arbets katalogen har initierats korrekt.

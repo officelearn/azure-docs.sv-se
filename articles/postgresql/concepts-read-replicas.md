@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 0884120c15b2e48566d1889400197e316bac9021
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 82c286ce60751775308d0f2c197d86785c4f0a14
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907450"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991586"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database for PostgreSQL-enskild server
 
@@ -45,7 +45,7 @@ Du kan alltid skapa en Läs replik i någon av följande regioner, oavsett var h
 
 
 ### <a name="paired-regions"></a>Länkade regioner
-Förutom Universal Replica-regioner kan du skapa en Läs replik i den Azure-kopplade regionen på huvud servern. Om du inte känner till din regions par kan du läsa mer i [artikeln Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Förutom Universal Replica-regioner kan du skapa en Läs replik i den Azure-kopplade regionen på huvud servern. Om du inte känner till din regions par kan du läsa mer i [artikeln Azure-kopplade regioner](../best-practices-availability-paired-regions.md).
 
 Om du använder repliker över flera regioner för att planera haveri beredskap rekommenderar vi att du skapar repliken i den kopplade regionen i stället för någon av de andra regionerna. Kopplade regioner förhindrar samtidiga uppdateringar och prioriterar fysisk isolering och data placering.  
 
@@ -124,19 +124,21 @@ När du stoppar replikering förlorar repliken alla länkar till sin tidigare hu
 
 Lär dig hur du [stoppar replikering till en replik](howto-read-replicas-portal.md).
 
-## <a name="fail-over"></a>Redundans
+## <a name="failover"></a>Redundans
 Det finns ingen automatisk redundans mellan huvud-och replik servrar. 
 
-Eftersom replikeringen är asynkron finns det en fördröjning mellan huvud servern och repliken. Antalet fördröjningar beror på hur tung arbets belastningen som körs på huvud servern är. I de flesta fall är replik fördröjningen mellan några sekunder till några minuter. Du kan spåra den faktiska replikeringens fördröjning med hjälp av mått *replik fördröjningen*, som är tillgänglig för varje replik. Det här måttet visar tiden sedan den senaste återspelade transaktionen. Vi rekommenderar att du identifierar den genomsnittliga fördröjningen genom att iaktta din replik fördröjning under en viss tids period. Du kan ställa in en avisering på replik fördröjningen, så att om den går utanför det förväntade intervallet kan du vidta åtgärder.
+Eftersom replikeringen är asynkron finns det en fördröjning mellan huvud servern och repliken. Mängden fördröjning kan påverkas av ett antal faktorer, t. ex. hur mycket hög belastningen på huvud servern som körs på huvud servern och fördröjningen mellan data Center. I de flesta fall är replik fördröjningen mellan några sekunder till några minuter. Du kan spåra den faktiska replikeringens fördröjning med hjälp av mått *replik fördröjningen*, som är tillgänglig för varje replik. Det här måttet visar tiden sedan den senaste återspelade transaktionen. Vi rekommenderar att du identifierar den genomsnittliga fördröjningen genom att iaktta din replik fördröjning under en viss tids period. Du kan ställa in en avisering på replik fördröjningen, så att om den går utanför det förväntade intervallet kan du vidta åtgärder.
 
 > [!Tip]
-> Om du växlar över till repliken kommer fördröjningen vid den tidpunkt då du tar bort repliken från huvud servern att indikera hur mycket data som förloras.
+> Om du redundansväxlas till repliken kommer fördröjningen vid den tidpunkt då du avlänkar repliken från huvud servern att indikera hur mycket data som förloras.
 
 När du har valt att du vill redundansväxla till en replik, 
 
-1. Stoppa replikering till repliken det här steget är nödvändigt för att replik servern ska kunna godkänna skrivningar. Som en del av den här processen kommer replik servern att startas om och kopplas bort från huvud servern. När du har initierat stoppa replikeringen tar det vanligt vis ungefär 2 minuter att slutföra backend-processen. Läs mer om att [stoppa replikering](#stop-replication).
+1. Stoppa replikering till repliken<br/>
+   Det här steget är nödvändigt för att göra replik servern tillgänglig för skrivningar. Som en del av den här processen kommer replik servern att startas om och kopplas bort från huvud servern. När du har initierat stoppa replikeringen tar det vanligt vis ungefär 2 minuter att slutföra backend-processen. Se avsnittet [stoppa replikering](#stop-replication) i den här artikeln för att förstå konsekvenserna av den här åtgärden.
     
-2. Peka ditt program till den (tidigare) repliken varje server har en unik anslutnings sträng. Uppdatera programmet så att det pekar på den (tidigare) repliken i stället för huvud servern.
+2. Peka ditt program till den (tidigare) repliken<br/>
+   Varje server har en unik anslutnings sträng. Uppdatera programmet så att det pekar på den (tidigare) repliken i stället för huvud servern.
     
 När ditt program har bearbetat läsningar och skrivningar har du slutfört redundansväxlingen. Hur lång tid det tar för program upplevelser att vara beroende av när du upptäcker ett problem och Slutför steg 1 och 2 ovan.
 
@@ -155,7 +157,7 @@ En Läs replik skapas som en ny Azure Database for PostgreSQL Server. Det går i
 En replik skapas med samma beräknings-och lagrings inställningar som huvud servern. När en replik har skapats kan flera inställningar ändras oberoende från huvud servern: beräknings generering, virtuella kärnor, lagring och kvarhållning av säkerhets kopior. Pris nivån kan också ändras oberoende, förutom till eller från Basic-nivån.
 
 > [!IMPORTANT]
-> Innan en huvud inställning uppdateras till ett nytt värde uppdaterar du replik konfigurationen till ett lika eller högre värde. Den här åtgärden säkerställer att repliken kan behålla alla ändringar som görs i huvud repliken.
+> Innan en huvud inställning uppdateras till ett nytt värde uppdaterar du replik konfigurationen till ett lika eller högre värde. På så sätt säkerställer du att repliken klarar alla ändringar som görs på huvudservern.
 
 PostgreSQL kräver att värdet för `max_connections` parametern på Läs repliken är större än eller lika med huvudets värde, annars startar inte repliken. I Azure Database for PostgreSQL `max_connections` baseras parametervärdet på SKU: n. Mer information finns i [gränser i Azure Database for PostgreSQL](concepts-limits.md). 
 

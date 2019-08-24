@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 7b47aadc28a5e2ea6dbf2a7a8a23cdb713a0b981
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ecdd560997391a4dfed8b01f30825eb9b3845792
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839879"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996702"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon Simple Storage Service med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -24,6 +24,8 @@ ms.locfileid: "68839879"
 > * [Aktuell version](connector-amazon-simple-storage-service.md)
 
 Den här artikeln beskriver hur du kopierar data från Amazon Simple Storage Service (Amazon S3). Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
+
+Om du vill använda ett scenario för datamigrering från Amazon S3 till Azure Storage, lär du dig att [använda Azure Data Factory för att migrera data från Amazon S3 till Azure Storage](data-migration-guidance-s3-azure-storage.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 142c99b2471a9010a00bf9b5d50549c5e84548f1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9c27b81717c32ccf4c78143a3d3d31de7181c5fe
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966452"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996629"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -198,7 +198,7 @@ Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-k�
 ### <a name="oracle-as-source"></a>Oracle som källa
 
 >[!TIP]
->Om du vill läsa in data från Oracle effektivt genom att använda data partitionering, se [parallell kopiering från Oracle](#parallel-copy-from-oracle).
+>Om du vill läsa in data från Oracle effektivt genom att använda data partitionering kan du läsa mer från [parallell kopiering från Oracle](#parallel-copy-from-oracle).
 
 Om du vill kopiera data från Oracle anger du käll typen i kopierings aktiviteten `OracleSource`till. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
 
@@ -293,9 +293,9 @@ Data Factory Oracle-anslutaren tillhandahåller inbyggd data partitionering för
 
 ![Skärm bild av partitionsalternativ](./media/connector-oracle/connector-oracle-partition-options.png)
 
-När du aktiverar partitionerad kopiering körs Data Factory parallella frågor mot din Oracle-källa för att läsa in data efter partitioner. Den parallella graden styrs av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. Om du till exempel anger `parallelCopies` fyra Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar. Varje fråga hämtar en del av data från Oracle-databasen.
+När du aktiverar partitionerad kopiering körs Data Factory parallella frågor mot din Oracle-källa för att läsa in data efter partitioner. Den parallella graden styrs av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. Om du till exempel anger `parallelCopies` fyra Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar, och varje fråga hämtar en del av data från Oracle-databasen.
 
-Det är en bra idé att aktivera parallell kopiering med data partitionering, särskilt när du läser in stora mängder data från Oracle-databasen. Följande är föreslagna konfigurationer för olika scenarier:
+Det är en bra idé att aktivera parallell kopiering med data partitionering, särskilt när du läser in stora mängder data från Oracle-databasen. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat data lager, skrivs de om för att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 
 | Scenario                                                     | Föreslagna inställningar                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

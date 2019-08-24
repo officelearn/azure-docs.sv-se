@@ -1,90 +1,115 @@
 ---
-title: 'Azure Active Directory Domain Services: Distributionsscenarier | Microsoft Docs'
-description: Distributionsscenarier för Azure AD Domain Services
+title: Vanliga distributions scenarier för Azure AD Domain Services | Microsoft Docs
+description: Lär dig mer om några vanliga scenarier och användnings fall för Azure Active Directory Domain Services att tillhandahålla värde och uppfylla affärs behov.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/21/2017
+ms.date: 08/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 9e8ac5e83fa3cc9b1e266a9009bad86f41233ed8
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6f81bc2ccf11cbcc3621dc1149879864c88cf0cf
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472656"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980506"
 ---
-# <a name="deployment-scenarios-and-use-cases"></a>Distributionsscenarier och användningsfall
-I det här avsnittet ska titta vi på några scenarier och användningsfall som har nytta av Azure Active Directory (AD) Domain Services.
+# <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Vanliga användnings fall och scenarier för Azure Active Directory Domain Services
 
-## <a name="secure-easy-administration-of-azure-virtual-machines"></a>Säker och enkel administration av Azure-datorer
-Du kan använda Azure Active Directory Domain Services för att hantera dina Azure-datorer i ett förenklat sätt. Azure-datorer kan kopplas till den hanterade domänen, vilket gör att du kan använda företagets AD autentiseringsuppgifter för inloggning. Den här metoden hjälper till att undvika credential management problem, till exempel underhålla lokala administratörskonton på alla virtuella datorer i Azure.
+Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade domän tjänster som domän anslutning, grup princip, LDAP och Kerberos/NTLM-autentisering. Azure AD DS integreras med din befintliga Azure AD-klient, vilket gör det möjligt för användarna att logga in med sina befintliga autentiseringsuppgifter. Du kan använda dessa domän tjänster utan att behöva distribuera, hantera och korrigera domänkontrollanter i molnet, vilket ger en smidigare ökning och växling av lokala resurser till Azure.
 
-Server-datorer som är anslutna till den hanterade domänen kan också hanteras och skyddas med hjälp av en Grupprincip. Du kan använda den begärda baslinjer för virtuella datorer i Azure och låsa dem i enlighet med företagets riktlinjer. Du kan till exempel använda funktioner för hantering av grupp-princip för att begränsa vilka typer av program som kan startas på de virtuella datorerna.
+Den här artikeln beskriver några vanliga affärs scenarier där Azure AD DS tillhandahåller värde och uppfyller dessa krav.
 
-![Effektiv administration av Azure-datorer](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
+## <a name="secure-administration-of-azure-virtual-machines"></a>Säker administration av virtuella Azure-datorer
 
-Som servrar och annan infrastruktur når slutet på sin livscykel, flyttar Contoso många program som för närvarande finns lokalt och i molnet. Deras aktuella IT-standard mandat att servrar som är värd för företagets program måste vara ansluten till domänen och hanterade med hjälp av en Grupprincip. Contosos IT-administratören föredrar att domänen till virtuella datorer som distribueras i Azure, för att underlätta administration. Därför kan kan administratörer och användare logga in med sina företagsuppgifter. Datorer kan konfigureras för att uppfylla nödvändiga säkerheten med hjälp av en Grupprincip på samma gång. Contoso vill inte behöva distribuera, övervaka och hantera domänkontrollanter i Azure för att skydda Azure-datorer. Azure AD Domain Services är Därför passade bra för det här användningsfallet.
+För att du ska kunna använda en enda uppsättning AD-autentiseringsuppgifter kan virtuella Azure-datorer (VM) anslutas till en hanterad Azure AD DS-domän. Den här metoden minskar problem med hantering av autentiseringsuppgifter, till exempel underhåll av lokala administratörs konton på varje virtuell dator eller separata konton och lösen ord mellan miljöer.
 
-**Distributionsanteckningar**
+Virtuella datorer som är anslutna till en hanterad Azure AD DS-domän kan också hanteras och skyddas med hjälp av grupprincip. Nödvändiga säkerhets bas linjer kan tillämpas på virtuella datorer för att låsa dem i enlighet med företags säkerhets rikt linjerna. Du kan till exempel använda funktioner för hantering av grup princip för att begränsa vilka typer av program som kan startas på den virtuella datorn.
 
-Tänk på följande viktiga för det här distributionsscenariot:
+![Effektiv administration av virtuella Azure-datorer](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-* Hanterade domäner som tillhandahålls av Azure AD Domain Services ger en enkel fast (organisationsenhet) organisationsenhetsstruktur som standard. Alla domänanslutna datorer finns i en enstaka fast Organisationsenhet. Du kan dock välja att skapa anpassade organisationsenheter.
-* Azure AD Domain Services har stöd för enkel Grupprincip i form av en inbyggda Grupprincipobjektet varje för användare och datorer behållare. Du kan skapa anpassade grupprincipobjekt och rikta dem till anpassade organisationsenheter.
-* Azure AD Domain Services har stöd för det grundläggande AD dator objektet schemat. Du kan inte utöka schemat för den datorobjekt.
+Nu ska vi titta på ett vanligt exempel scenario. När servrar och annan infrastruktur når sitt livs längd vill contoso flytta program som för närvarande finns lokalt i molnet. Deras aktuella IT-standardmandat som servrar som är värdar för företags program måste vara domänanslutna och hanterade med hjälp av grup princip. Contosos IT-administratör föredrar domän anslutning till virtuella datorer som distribuerats i Azure för att förenkla administrationen eftersom användarna sedan kan logga in med sina företags uppgifter. Vid domänanslutna kan virtuella datorer också konfigureras för att uppfylla de nödvändiga säkerhets bas linjerna med hjälp av grupprincip. Contoso föredrar inte att distribuera, övervaka och hantera sina egna domänkontrollanter i Azure.
 
-## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>Lift and shift ett lokalt program som använder LDAP-bindningsautentisering till Azure Infrastructure Services
+Azure AD DS passar bra för det här användnings fallet. Med en Azure AD DS-hanterad domän kan du ansluta virtuella datorer till domän, använda en enda uppsättning autentiseringsuppgifter och tillämpa grup principer. Som en hanterad domän behöver du inte konfigurera och underhålla domän kontrol Lanterna själv.
+
+### <a name="deployment-notes"></a>Distributions anteckningar
+
+Följande distributions överväganden gäller för det här exemplet:
+
+* Azure AD DS-hanterade domäner använder en enda, plan struktur för organisationsenheter (OU) som standard. Alla domänanslutna virtuella datorer finns i en enda ORGANISATIONSENHET. Om du vill kan du skapa anpassade organisationsenheter.
+* Azure AD DS använder ett inbyggt grup princip objekt för behållare för användare och datorer. För ytterligare kontroll kan du skapa anpassade grup princip objekt och rikta dem mot anpassade organisationsenheter.
+* Azure AD DS stöder det grundläggande AD-datorns objekt schema. Det går inte att utöka schemat för dator objekt.
+
+## <a name="lift-and-shift-on-premises-applications-that-use-ldap-bind-authentication"></a>Lyft och byta lokala program som använder autentisering med LDAP-bindning
+
+Som ett exempel scenario har contoso ett lokalt program som har köpts från en ISV för många år sedan. Programmet är för närvarande i underhålls läge av ISV och vi begär ändringar i programmet är prohibitively dyra. Det här programmet har en webbaserad klient klient som samlar in användarautentiseringsuppgifter med ett webb formulär och sedan autentiserar användare genom att utföra en LDAP-bindning till den lokala AD DS-miljön.
+
 ![LDAP-bindning](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
-Contoso har ett lokalt program som köpts från en oberoende Programvaruleverantör många år sedan. Programmet för närvarande är i underhållsläge av Programvaruutvecklaren och begär ändringar i programmet är oöverkomligt dyra för Contoso. Det här programmet har en webbaserad klientdel som samlar in autentiseringsuppgifter för användare via ett webbformulär och autentiserar användare genom att utföra en LDAP-bindning till företagets Active Directory. Contoso vill flytta över det här programmet till Azure Infrastructure Services. Det är önskvärt att programmet fungerar som är, utan några ändringar. Dessutom kan användare ska kunna autentiseras med hjälp av sina befintliga inloggningsuppgifter och utan att behöva omtrimning av användare för att göra saker på olika sätt. Med andra ord slutanvändare bör vara oblivious av där programmet körs och migreringen ska vara transparenta till dem.
+Contoso vill migrera det här programmet till Azure. Programmet bör fortsätta att fungera som det är, utan några ändringar som behövs. Dessutom bör användare kunna autentisera med sina befintliga företags uppgifter och utan ytterligare utbildning. Den bör vara transparent för slutanvändare där programmet körs.
 
-**Distributionsanteckningar**
+I det här scenariot låter Azure AD DS program utföra LDAP-bindningar som en del av autentiseringsprocessen. Äldre lokala program kan lyfta och byta till Azure och fortsätta att sömlöst autentisera användare utan någon förändring i konfigurationen eller användar upplevelsen.
 
-Tänk på följande viktiga för det här distributionsscenariot:
+### <a name="deployment-notes"></a>Distributions anteckningar
 
-* Se till att programmet inte behöver ändra/skrivning till katalogen. LDAP-skrivåtkomst till hanterade domäner som tillhandahålls av Azure AD Domain Services stöds inte.
-* Du kan inte ändra lösenord direkt mot den hanterade domänen. Användarna kan ändra sina lösenord antingen med hjälp av Azure Active Directorys lösenord för självbetjäning ändringen mekanism eller mot en lokal katalog. Dessa ändringar är automatiskt synkroniserats och finns tillgängliga i den hanterade domänen.
+Följande distributions överväganden gäller för det här exemplet:
 
-## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-read-to-access-the-directory-to-azure-infrastructure-services"></a>Lift and shift ett lokalt program som använder LDAP läsa för att gå till katalogen till Azure Infrastructure Services
-Contoso har ett lokalt line-of-business (LOB) program som har utvecklats specifikt nästan ett årtionde sedan. Det här programmet är directory medveten och har utformats för att arbeta med Windows Server AD. Programmet använder LDAP (Lightweight Directory Access Protocol) för att läsa information/attribut om användare från Active Directory. Programmet inte ändra attribut och annars skriva till katalogen. Contoso vill migrera det här programmet till Azure Infrastructure Services och dra tillbaka föråldras lokal maskinvara som för närvarande som är värd för det här programmet. Programmet kan inte skrivas över om du vill använda moderna directory API: er som REST-baserad Azure AD Graph API. Ett lift and shift-alternativ är därför det önskade innebär att programmet kan migreras för att köras i molnet, utan att ändra koden eller skriva om programmet.
+* Kontrol lera att programmet inte behöver ändra/skriva till katalogen. Det finns inte stöd för att skriva åtkomst till en Azure AD DS-hanterad domän.
+* Du kan inte ändra lösen ord direkt mot en Azure AD DS-hanterad domän. Slutanvändare kan ändra sina lösen ord antingen med hjälp av funktionen för lösen ords ändring i Azure AD eller mot den lokala katalogen. Dessa ändringar synkroniseras sedan automatiskt och är tillgängliga i den hanterade Azure AD DS-domänen.
 
-**Distributionsanteckningar**
+## <a name="lift-and-shift-on-premises-applications-that-use-ldap-read-to-access-the-directory"></a>Lyft och byta lokala program som använder LDAP Read för att få åtkomst till katalogen
 
-Tänk på följande viktiga för det här distributionsscenariot:
+Precis som i föregående exempel scenario antar vi att contoso har ett lokalt LOB-program (Line-of-Business) som utvecklades nästan för varje år sedan. Det här programmet är katalog medvetet och har utformats för att använda LDAP (Lightweight Directory Access Protocol) för att läsa information/attribut om användare från AD DS. Programmet ändrar inte attribut eller skriver på annat sätt till katalogen.
 
-* Se till att programmet inte behöver ändra/skrivning till katalogen. LDAP-skrivåtkomst till hanterade domäner som tillhandahålls av Azure AD Domain Services stöds inte.
-* Se till att programmet inte behöver en anpassad/utökat Active Directory-schemat. Schematillägg stöds inte i Azure AD Domain Services.
+Contoso vill migrera det här programmet till Azure och dra tillbaka den lokala maskin vara som är värd för det här programmet. Programmet kan inte skrivas om för att använda moderna katalog-API: er, till exempel den REST-baserade Azure AD-Graph API. Ett alternativ för att lyfta och byta är att önska var programmet kan migreras för att köras i molnet, utan att ändra kod eller skriva om programmet.
 
-## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure-infrastructure-services"></a>Migrera en den lokala tjänsten eller daemon program till Azure Infrastructure Services
-Vissa program består av flera nivåer, där en av nivåerna behöver utföra autentiserade anrop till en backend-nivå, till exempel en databasnivå. Active Directory-tjänstkonton används ofta för dessa användningsområden. Du kan lift-and-shift sådana program på Azure Infrastructure Services och använda Azure AD Domain Services för identitet behov av dessa program. Du kan välja att använda samma konto som ska synkroniseras från din lokala katalog till Azure AD. Alternativt kan du först skapa en anpassad Organisationsenhet och sedan skapa ett separat tjänstkonto i denna Organisationsenhet för att distribuera sådana program.
+För att hjälpa dig med det här scenariot låter Azure AD DS program utföra LDAP-läsningar mot den hanterade domänen för att hämta den attributinformation som krävs. Programmet behöver inte skrivas om, så en hiss-och-Shift i Azure låter användarna fortsätta att använda appen utan att göra en ändring i där den körs.
 
-![Tjänstkonto som använder WIA](./media/active-directory-domain-services-scenarios/wia-service-account.png)
+### <a name="deployment-notes"></a>Distributions anteckningar
 
-Contoso har skapats specifikt vault programvara som innehåller en frontwebb, en SQLServer och backend FTP-servern. Windows-integrerad autentisering av tjänstkonton används för att autentisera klientdelen till FTP-servern. Klientdelen har ställts in att köras som ett tjänstkonto. Backend-servern är konfigurerad för att godkänna åtkomst från kontot för klientdelen. Contoso föredrar att inte ska distribuera en domain controller virtuell dator i molnet för att flytta programmet till Azure Infrastructure Services. Contosos IT-administratören kan distribuera de servrar som är värd för klientdelen, SQLServer och FTP-servern till Azure-datorer. Dessa datorer kopplas sedan till en Azure AD Domain Services-hanterad domän. De kan sedan använda samma tjänstkonto i sina lokala katalog för appens autentisering. Det här tjänstkontot synkroniseras till den hanterade domänen i Azure AD Domain Services och är tillgänglig för användning.
+Följande distributions överväganden gäller för det här exemplet:
 
-**Distributionsanteckningar**
+* Kontrol lera att programmet inte behöver ändra/skriva till katalogen. Det finns inte stöd för att skriva åtkomst till en Azure AD DS-hanterad domän.
+* Kontrol lera att programmet inte behöver ett anpassat/utökat Active Directory schema. Schema utökningar stöds inte i Azure AD DS.
 
-Tänk på följande viktiga för det här distributionsscenariot:
+## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure"></a>Migrera en lokal tjänst eller ett daemon-program till Azure
 
-* Kontrollera att programmet använder användarnamn/lösenord för autentisering. Certifikat/smartkort-baserad autentisering stöds inte av Azure AD Domain Services.
-* Du kan inte ändra lösenord direkt mot den hanterade domänen. Användarna kan ändra sina lösenord antingen med hjälp av Azure Active Directorys lösenord för självbetjäning ändringen mekanism eller mot en lokal katalog. Dessa ändringar är automatiskt synkroniserats och finns tillgängliga i den hanterade domänen.
+Vissa program innehåller flera nivåer där en av nivåerna måste utföra autentiserade anrop till en backend-nivå, till exempel en databas. AD-tjänstekonton används ofta i dessa scenarier. När du lyfter och växlar program till Azure kan du med Azure AD DS fortsätta att använda tjänst konton på samma sätt. Du kan välja att använda samma tjänst konto som synkroniseras från din lokala katalog till Azure AD eller skapa en anpassad ORGANISATIONSENHET och sedan skapa ett separat tjänst konto i ORGANISATIONSENHETen. Med båda metoderna fortsätter program att fungera på samma sätt för att göra autentiserade anrop till andra nivåer och tjänster.
 
-## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Windows Server Remote desktop services-distributioner i Azure
-Du kan använda Azure AD Domain Services för att förse din fjärrskrivbordsservrar som distribueras i Azure hanterade AD DS.
+![Tjänst konto med WIA](./media/active-directory-domain-services-scenarios/wia-service-account.png)
 
-Läs mer om det här distributionsscenariot, hur du [integrera Azure AD Domain Services med RDS-distribution](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
+I det här exempel scenariot har contoso ett anpassat program för program varu valv som innehåller en front webb, en SQL Server och en server dels-FTP-server. Windows-integrerad autentisering med hjälp av tjänst konton autentiserar webb klient delen till FTP-servern. Webb klient delen är konfigurerad att köras som ett tjänst konto. Backend-servern är konfigurerad för att bevilja åtkomst från tjänst kontot för webb klient delen. Contoso vill inte distribuera och hantera sina egna virtuella domänkontrollanter i molnet för att flytta det här programmet till Azure.
 
+I det här scenariot kan servrarna som är värdar för front webb, SQL Server och FTP-servern migreras till virtuella Azure-datorer och anslutas till en hanterad Azure AD DS-domän. De virtuella datorerna kan sedan använda samma tjänst konto i sina lokala kataloger för appens autentisering, som synkroniseras via Azure AD med hjälp av Azure AD Connect.
 
-## <a name="domain-joined-hdinsight-clusters-preview"></a>Domänanslutna HDInsight-kluster (förhandsversion)
-Du kan ställa in ett Azure HDInsight-kluster som är ansluten till en Azure AD Domain Services-hanterad domän med Apache Ranger aktiverat. Skapa och tillämpa principer för Hive via Apache Ranger och ge användare (till exempel dataexperter) för att ansluta till Hive med hjälp av ODBC-baserade verktyg, till exempel Excel, bland annat Tableau osv. Microsoft arbetar på att lägga till andra arbetsbelastningar, till exempel HBase, Spark- och Storm, i domänanslutna HDInsight snart.
+### <a name="deployment-notes"></a>Distributions anteckningar
 
-Läs mer om det här distributionsscenariot, hur du [konfigurera domänanslutna HDInsight-kluster](../hdinsight/domain-joined/apache-domain-joined-configure.md)
+Följande distributions överväganden gäller för det här exemplet:
+
+* Kontrol lera att programmen använder ett användar namn och lösen ord för autentisering. Certifikat-eller smartkort-baserad autentisering stöds inte av Azure AD DS.
+* Du kan inte ändra lösen ord direkt mot en Azure AD DS-hanterad domän. Slutanvändare kan ändra sina lösen ord antingen med hjälp av funktionen för lösen ords ändring i Azure AD eller mot den lokala katalogen. Dessa ändringar synkroniseras sedan automatiskt och är tillgängliga i den hanterade Azure AD DS-domänen.
+
+## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Windows Server-distributioner för fjärr skrivbords tjänster i Azure
+
+Du kan använda Azure AD DS för att tillhandahålla hanterade domän tjänster till fjärr skrivbords servrar som distribuerats i Azure. Mer information om det här distributions scenariot finns i [så här integrerar du Azure AD Domain Services med din RDS-distribution][windows-rds].
+
+## <a name="domain-joined-hdinsight-clusters-preview"></a>Domänanslutna HDInsight-kluster (för hands version)
+
+Du kan konfigurera ett Azure HDInsight-kluster som är anslutet till en hanterad Azure AD DS-domän med Apache Ranger aktiverat. Den här funktionen är för närvarande en förhandsversion. Du kan skapa och använda Hive-principer via Apache Ranger och tillåta användare, till exempel data experter, att ansluta till Hive med hjälp av ODBC-baserade verktyg som Excel eller Tableau. Vi fortsätter att arbeta med att lägga till andra arbets belastningar, till exempel HBase, Spark och Storm för domänanslutna HDInsight.
+
+Mer information om det här distributions scenariot finns i [så här konfigurerar du domänanslutna HDInsight-kluster][hdinsight]
+
+## <a name="next-steps"></a>Nästa steg
+
+Kom igång genom att [skapa och konfigurera en Azure Active Directory Domain Services-instans][tutorial-create-instance]
+
+<!-- INTERNAL LINKS -->
+[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md
+[tutorial-create-instance]: tutorial-create-instance.md
+
+<!-- EXTERNAL LINKS -->
+[windows-rds]: /windows-server/remote/remote-desktop-services/rds-azure-adds

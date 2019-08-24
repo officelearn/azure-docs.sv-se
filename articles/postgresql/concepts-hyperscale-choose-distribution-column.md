@@ -1,78 +1,78 @@
 ---
-title: Välj distributionskolumner i Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion)
-description: Bra val för distributionskolumner i vanliga scenarier i hyperskala
+title: Välj distributions kolumner i Azure Database for PostgreSQL – storskalig (citus)
+description: Lämpliga alternativ för distributions kolumner i vanliga storskaliga scenarier
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: e9fba14b8979f739fd29bc277e32fb544221d08a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0d1f343aa9b125ab0a5a9ab559d0788253037aa
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65078992"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998195"
 ---
-# <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Välj distributionskolumner i Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion)
+# <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Välj distributions kolumner i Azure Database for PostgreSQL – storskalig (citus)
 
-Är att välja varje tabell distributionskolumn **något av de viktigaste** modellering beslut. Hyperskala lagrar rader i fragment som baseras på värdet för de rader distributionskolumn.
+Att välja varje tabells distributions kolumn är en av de viktigaste modell beslut som du gör. Azure Database for PostgreSQL-för hands versionen av citus (för hands version) lagrar rader i Shards baserat på värdet för radernas distributions kolumn.
 
-De rätta val grupperna relaterade data samlas på samma fysiska noder, vilket gör frågor snabba och lägger till stöd för alla SQL-funktioner. Ett felaktigt val blir systemet körs långsamt och inte stöder alla SQL-funktioner för noder.
+Rätt alternativ grupper relaterade data tillsammans på samma fysiska noder, vilket gör att frågor snabbt och lägger till stöd för alla SQL-funktioner. Ett felaktigt val gör att systemet körs långsamt och inte stöder alla SQL-funktioner på noderna.
 
-Det här avsnittet ger distribution kolumnen tips för de två vanligaste scenarierna hyperskala.
+Den här artikeln innehåller tips för distributions kolumner för de två vanligaste citus-scenarierna.
 
 ### <a name="multi-tenant-apps"></a>Appar för flera klienter
 
-Arkitektur med flera klienter använder en form av hierarkisk databas modellering för att distribuera frågor över noder i servergruppen.  Överst i data-hierarkin kallas den *klient-ID*, och som inte ska lagras i en kolumn i varje tabell.
+Arkitekturen för flera innehavare använder en form av hierarkisk databas modellering för att distribuera frågor över noder i Server gruppen. Överst i Datahierarkin kallas *klient-ID* och måste lagras i en kolumn i varje tabell.
 
-Hyperskala inspekterar frågor för att se vilka klient-ID de omfattar och söker efter den matchande tabell sharden. Frågan dirigeras till en enskild worker-nod som innehåller fragmentet. Köra en fråga med alla relevanta data placeras på samma nod kallas samordning.
+Citus (storskalig) kontrollerar frågor för att se vilket klient-ID de inkluderar och hittar matchande tabell-Shard. Den dirigerar frågan till en enda arbetsnoden som innehåller Shard. Att köra en fråga med alla relevanta data som placeras på samma nod kallas samplacering.
 
-Följande diagram illustrerar samordning i datamodellen för flera innehavare. Den innehåller tabellerna, konton och kampanjer, var och en distribuerad av `account_id`. De skuggade rutorna representerar shards, vars färg representerar vilka arbetsnod innehåller den. Grön shards lagras tillsammans på en underordnad nod och blå på en annan. Observera hur en join-fråga mellan konton och kampanjer skulle ha alla nödvändiga data tillsammans på en nod när du begränsar båda tabellerna på samma konto\_id.
+Följande diagram illustrerar samplacering i data modellen för flera innehavare. Den innehåller två tabeller, konton och kampanjer, som var och `account_id`en distribueras av. De skuggade rutorna representerar Shards. Gröna Shards lagras tillsammans på en arbetsnoden och blå Shards lagras på en annan arbetsnod. Observera att en kopplings fråga mellan konton och kampanjer har alla data som krävs tillsammans på en nod när båda tabellerna är begränsade till samma konto\_-ID.
 
-![samordning av flera innehavare](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
+![Samplacering för flera klienter](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
-Identifiera vad som utgör en klient i ditt program om du vill använda den här designen i ditt eget schema. Vanliga instanser omfattar företaget, konto, organisation eller kund. Kolumnnamnet blir något som liknar `company_id` eller `customer_id`. Undersöka var och en av dina frågor och fråga dig själv: skulle det fungera om den hade ytterligare WHERE-satserna att begränsa alla tabeller som ingår till rader med samma klient-ID?
-Frågorna i modellen för flera innehavare är begränsade till en klient, till exempel frågor om försäljning eller inventering skulle vara begränsad inom ett visst Arkiv.
+Om du vill använda den här designen i ditt eget schema, identifierar du vad som utgör en klient i ditt program. Vanliga instanser är företag, konto, organisation eller kund. Kolumn namnet kommer att vara något som `company_id` liknar `customer_id`eller. Undersök var och en av dina frågor och fråga dig själv, så fungerar det om det hade ytterligare WHERE-satser för att begränsa alla tabeller som ingår i rader med samma klient-ID?
+Frågor i modellen för flera klienter är begränsade till en klient. Till exempel är frågor om försäljning eller lager begränsade inom en viss butik.
 
-#### <a name="best-practices"></a>Metodtips
+#### <a name="best-practices"></a>Bästa praxis
 
--   **Partition distribuerade tabeller av en gemensam klient\_id-kolumnen.** Till exempel på ett SaaS-program där klienter är företag, klienten\_id kommer sannolikt att företagets\_id.
--   **Konvertera små tabeller för flera klienter till referenstabeller.** När flera klienter delar en liten tabell med information kan du distribuera den som en tabell.
--   **Begränsa filtrera alla programmet frågar efter klient\_id.** Varje fråga bör begära information för en klient i taget.
+-   **Partitionera distribuerade tabeller med en gemensam\_klient-ID-kolumn.** I ett SaaS-program där klienter är företag, är klient\_-ID: t sannolikt företags\_-ID: t.
+-   **Konvertera små kors klient tabeller till referens tabeller.** När flera klienter delar en liten tabell med information distribuerar du den som en referens tabell.
+-   **Begränsa filtreringen av alla program frågor\_efter klient-ID.** Varje fråga bör begära information för en klient i taget.
 
-Läs den [flera innehavare självstudien](./tutorial-design-database-hyperscale-multi-tenant.md) ett exempel på att skapa den här typen av program.
+Läs [själv studie kursen om flera innehavare](./tutorial-design-database-hyperscale-multi-tenant.md) för ett exempel på hur du skapar den här typen av program.
 
-### <a name="real-time-apps"></a>Appar i realtid
+### <a name="real-time-apps"></a>Appar i real tid
 
-Arkitektur med flera innehavare introducerar en hierarkisk struktur och använder data samordning som dirigerar frågor per klient. Däremot beror i realtid arkitekturer på specifik distribution egenskaper för sina data att uppnå hög parallell bearbetning.
+Arkitekturen för flera innehavare introducerar en hierarkisk struktur och använder data på samma plats för att dirigera frågor per klient. I motsatsen är real tids arkitekturer beroende av vissa distributions egenskaper för data för att uppnå hög parallell bearbetning.
 
-Vi använder ”entitets-ID” som en term för distributionskolumner i modellen i realtid. Vanliga entiteter är användare, värdar eller enheter.
+Vi använder "entitets-ID" som en term för distributions kolumner i real tids modellen. Typiska entiteter är användare, värdar eller enheter.
 
-Förfrågningar i realtid be vanligtvis för numeriska mängder grupperade efter datum eller kategori. Hyperskala skickar dessa frågor till varje shard för ofullständiga resultat och monterar det slutliga svaret på koordinatornoden. Frågor köras snabbaste när många noder bidra som möjligt och när ingen enskild nod måste göra en oproportionerlig mängd arbete.
+Real tids frågor efterfrågar vanligt vis numeriska mängder grupperade efter datum eller kategori. Citus (storskalig) skickar dessa frågor till varje Shard för partiella resultat och sammanställer det slutliga svaret på koordinator-noden. Frågor körs snabbast när så många noder bidrar som möjligt, och när ingen enskild nod måste göra en oproportionerlig mängd arbete.
 
-#### <a name="best-practices"></a>Metodtips
+#### <a name="best-practices"></a>Bästa praxis
 
--   **Välj en kolumn med hög kardinalitet som kolumnen distribution.** Jämförelse, en \"status\" fältet på en order-tabell med värden som ”nytt”, ”avgiftsbelagt” och ”levereras” är ett dåligt val av distributionskolumn. Den förutsätter att endast de få värdena, vilket begränsar antalet shards som kan innehålla data och antalet noder som kan bearbeta den. Det är bra dessutom för att välja de som används ofta i group by-satser eller som koppling nycklar mellan kolumner med hög kardinalitet.
--   **Välj en kolumn med jämn fördelning.** Om du distribuerar en tabell på en kolumn som påverkas av att vissa gemensamma värden, kommer data i tabellen tenderar att ackumuleras i vissa fragment. Noder som innehåller dessa fragment ska få göra mer arbete än andra noder.
--   **Distribuera fakta- och dimensionstabeller tabeller på deras gemensamma kolumner.**
-    Din faktatabell kan ha endast en distributionsnyckeln. Tabeller som ansluter till på en annan nyckel kan inte samordnat med faktatabellen. Välj en dimension samplacera baserat på hur ofta den är ansluten och storleken på de anslutande raderna.
--   **Ändra vissa dimensionstabeller i referenstabeller.** Om en dimensionstabell kan inte samplaceras med faktatabellen, kan du förbättra frågeprestanda genom att distribuera kopior av dimensionstabell till alla noder i form av en tabell.
+-   **Välj en kolumn med hög kardinalitet som distributions kolumn.** För jämförelse är ett status fält i en order tabell med värdena New, betald och levererad ett dåligt val av distributions kolumn. Det förutsätter bara dessa få värden, vilket begränsar antalet Shards som kan innehålla data och antalet noder som kan bearbeta det. Mellan kolumner med hög kardinalitet är det också bäst att välja de kolumner som ofta används i Group by-satser eller som kopplings nycklar.
+-   **Välj en kolumn med jämn fördelning.** Om du distribuerar en tabell i en kolumn som skevas till vissa vanliga värden, kommer data i tabellen att kunna ackumuleras i vissa Shards. Noderna som innehåller dessa Shards Slutför mer arbete än andra noder.
+-   **Distribuera fakta-och dimensions tabeller på sina vanliga kolumner.**
+    Fakta tabellen kan bara ha en distributions nyckel. Tabeller som är kopplade till en annan nyckel samplaceras inte med fakta tabellen. Välj en dimension som ska samplaceras baserat på hur ofta den är ansluten och storleken på de kopplade raderna.
+-   **Ändra vissa dimensions tabeller till referens tabeller.** Om en dimensions tabell inte kan befinna sig i fakta tabellen kan du förbättra frågeresultaten genom att distribuera kopior av dimensions tabellen till alla noder i form av en referens tabell.
 
-Läs den [realtidsinstrumentpanel självstudien](./tutorial-design-database-hyperscale-realtime.md) ett exempel på att skapa den här typen av program.
+I självstudierna i [real tids instrument panelen](./tutorial-design-database-hyperscale-realtime.md) finns ett exempel på hur du skapar den här typen av program.
 
-### <a name="timeseries-data"></a>Din
+### <a name="time-series-data"></a>Time Series-data
 
-I en time series-arbetsbelastning fråga program och aktuell information under arkivering gammal information.
+I en tids serie arbets belastning frågar programmet efter den senaste informationen när de arkiverar gammal information.
 
-De vanligaste fel i modellering din information i hyperskala använder tidsstämpeln sig själv som en distributionskolumn. En hash-distribution som baseras på tiden kommer att distribuera gånger till synes slumpmässigt i olika shards i stället för att hålla intervall tid tillsammans i fragment. Frågor som rör tid vanligtvis refererar till adressintervallen tid (till exempel de senaste data), så hash utdelningen skulle leda till nätverks-overhead.
+Det vanligaste misstaget vid modellering av Time-Series-information i storskaliga (citus) är att använda själva tidsstämpeln som en distributions kolumn. En hash-distribution baserad på tid distribuerar tider som är ganska slumpmässiga i olika Shards, i stället för att hålla tidsintervallen sammantaget i Shards. Frågor som avser tid vanligt vis referens tider, till exempel de senaste data. Den här typen av hash-distribution leder till nätverks kostnader.
 
-#### <a name="best-practices"></a>Metodtips
+#### <a name="best-practices"></a>Bästa praxis
 
--   **Välj inte en tidsstämpel som kolumnen distribution.** Välj en annan distributionsplats kolumn. I en app för flera klienter med klient-ID eller i en i realtid app använder entitets-ID.
--   **Använd PostgreSQL Tabellpartitionering för tid i stället.** Använd Tabellpartitionering för att dela upp en stor tabell tidsordnad data i flera ärvda tabeller med var och en som innehåller olika tidsintervall.  Distribuera en Postgres-partitionerad tabell i hyperskala skapar fragment för ärvda tabeller.
+-   **Välj inte en tidstämpel som distributions kolumn.** Välj en annan distributions kolumn. I en app för flera klient organisationer använder du klient-ID: t eller i en app i real tid använder du entitets-ID: t.
+-   **Använd PostgreSQL Table partitioning för tid i stället.** Använd tabell partitionering för att dela upp en stor tabell med tidsordnade data i flera ärvda tabeller med varje tabell som innehåller olika tidsintervall. Genom att distribuera en postgres tabell i citus () skapas Shards för de ärvda tabellerna.
 
-Läs den [timeseries självstudien](https://aka.ms/hyperscale-tutorial-timeseries) ett exempel på att skapa den här typen av program.
+I [själv studie kursen om tids serier](https://aka.ms/hyperscale-tutorial-timeseries) finns ett exempel på hur du skapar den här typen av program.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur [samordning](concepts-hyperscale-colocation.md) mellan distribuerade data hjälper till att frågor körs snabbt
+- Lär dig [](concepts-hyperscale-colocation.md) hur samplaceringen mellan distribuerade data hjälper frågor att köras snabbt.

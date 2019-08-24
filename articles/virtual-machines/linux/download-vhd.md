@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 5639571739f3eb6263f62444e7ab02186e2ca945
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 21720ead788a505f86c4d35eb5a39943ff4a2e12
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742584"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981009"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Ladda ned en Linux-VHD från Azure
 
@@ -58,9 +58,9 @@ Slutför följande steg för att använda den virtuella hård disken som en avbi
 Slutför följande steg för att använda den virtuella hård disken som en disk för en ny instans av en befintlig virtuell dator eller data disk:
 
 1.  Logga in på [Azure Portal](https://portal.azure.com/).
-2.  Klicka på **Virtual Machines** på navmenyn.
+2.  På den vänstra menyn väljer du **Virtual Machines**.
 3.  Välj den virtuella datorn i listan.
-4.  Klicka på **stoppa**på bladet för den virtuella datorn.
+4.  På sidan för den virtuella datorn väljer du **stoppa**.
 
     ![Stoppa virtuell dator](./media/download-vhd/export-stop.png)
 
@@ -68,21 +68,21 @@ Slutför följande steg för att använda den virtuella hård disken som en disk
 
 Om du vill hämta VHD-filen måste du generera en URL för [signatur för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . När URL: en genereras tilldelas URL: en förfallo tid.
 
-1.  På menyn på bladet för den virtuella datorn klickar du på **diskar**.
-2.  Välj operativ system disk för den virtuella datorn och klicka sedan på **disk export**.
-3.  Klicka på **skapa URL**.
+1.  På menyn på sidan för den virtuella datorn väljer du **diskar**.
+2.  Välj operativ system disk för den virtuella datorn och välj sedan **disk export**.
+3.  Välj **skapa URL**.
 
     ![Skapa webbadress](./media/download-vhd/export-generate.png)
 
 ## <a name="download-vhd"></a>Hämta VHD
 
-1.  Under den URL som genererades klickar du på Hämta VHD-filen.
-
+1.  Under den URL som genererades väljer du **Hämta VHD-filen**.
+**
     ![Hämta VHD](./media/download-vhd/export-download.png)
 
-2.  Du kan behöva klicka på **Spara** i webbläsaren för att starta nedladdningen. Standard namnet för VHD-filen är *ABCD*.
+2.  Du kan behöva välja **Spara** i webbläsaren för att starta nedladdningen. Standard namnet för VHD-filen är *ABCD*.
 
-    ![Klicka på Spara i webbläsaren](./media/download-vhd/export-save.png)
+    ![Välj Spara i webbläsaren](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

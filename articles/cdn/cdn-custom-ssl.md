@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: f22273a28d5e4207712bdba71ef788629d51916e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0ad01d76e93c731ed5faed268a0537cada787952
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321674"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996817"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -130,7 +130,7 @@ Ge Azure CDN behörighet att komma åt certifikaten (hemligheterna) på ditt Azu
 
     ![Åtkomstprincipinställningar](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. I **Hemliga behörigheter** väljer du **Hämta** för att CDN ska kunna utföra dessa behörigheter att hämta och visa en certifikatlista. 
+3. Välj **Hämta hemliga behörigheter** och hämta och lista **certifikat behörigheter** för att tillåta CDN att utföra dessa behörigheter för att hämta och lista certifikaten. 
 
 4. Välj **OK**. 
 
@@ -174,7 +174,7 @@ Domänverifiering krävs inte om du använder ett eget certifikat.
 
 CNAME-posten ska ha följande format, där *Namn* är namnet på din anpassade domän och *Värde* är CDN-slutpunktens värdnamn:
 
-| Namn            | Typ  | Value                 |
+| Name            | Typ  | Value                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 

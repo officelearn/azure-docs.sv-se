@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b626f906738e3a6e65053408cfdc2002d459a6e2
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
-ms.translationtype: MT
+ms.openlocfilehash: 347e7c2aa2ff4fb4f188847b81d03006c1909166
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973862"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997652"
 ---
-# <a name="build-and-deploy-the-opc-ua-certificate-management-service"></a>Bygg och distribuera OPC UA Certificate Management-tjänsten
+# <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Bygga och distribuera certifikat hanterings tjänsten för OPC Vault
 
-I den här artikeln förklaras hur du distribuerar tjänsten OPC UA Certificate Management i Azure.
+Den här artikeln förklarar hur du distribuerar OPC-valvet för certifikat hantering i Azure.
 
 > [!NOTE]
 > Mer information om distributions information och instruktioner finns i GitHub [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service)-lagringsplatsen.
@@ -59,20 +59,20 @@ eller ange en fullständig kommando rad:
 7. Om du planerar att utveckla med den här distributionen lägger `-development 1` du till för att aktivera Swagger-användargränssnittet och distribuera fel söknings versioner.
 6. Följ instruktionerna i skriptet för att logga in på prenumerationen och ange ytterligare information.
 9. När du har skapat och distribuerat en lyckad åtgärd bör du se följande meddelande:
+   ```
+   To access the web client go to:
+   https://myResourceGroup.azurewebsites.net
 
-```
-To access the web client go to:
-https://myResourceGroup.azurewebsites.net
+   To access the web service go to:
+   https://myResourceGroup-service.azurewebsites.net
 
-To access the web service go to:
-https://myResourceGroup-service.azurewebsites.net
+   To start the local docker GDS server:
+   .\myResourceGroup-dockergds.cmd
 
-To start the local docker GDS server:
-.\myResourceGroup-dockergds.cmd
+   To start the local dotnet GDS server:
+   .\myResourceGroup-gds.cmd
+   ```
 
-To start the local dotnet GDS server:
-.\myResourceGroup-gds.cmd
-```
 Om du stöter på problem följer du stegen [nedan](#troubleshooting-deployment-failures).
 
 8. Öppna din favorit webbläsare och öppna program sidan:`https://myResourceGroup.azurewebsites.net`
@@ -86,7 +86,7 @@ Det går också att distribuera om bara webbappens binärfiler. Med parameterns 
 
 När distributionen är klar är du välkommen att börja använda tjänsterna: [Så här hanterar du certifikat hanterings tjänsten för OPC Vault](howto-opc-vault-manage.md)
 
-## <a name="delete-the-certificate-management-services-from-the-subscription"></a>Ta bort certifikat hanterings tjänsterna från prenumerationen
+## <a name="delete-the-certificate-management-service-from-the-subscription"></a>Ta bort certifikat hanterings tjänsten från prenumerationen
 
 1. Logga in på Azure Portal: `https://portal.azure.com`.
 2. Gå till resurs gruppen där tjänsten distribuerades.

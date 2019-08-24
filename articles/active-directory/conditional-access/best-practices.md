@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 29a30e466e78c3a71764b36bf8337aaeae8981f7
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963452"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980503"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metod tips för villkorlig åtkomst i Azure Active Directory
 
@@ -87,7 +87,9 @@ För varje inloggning utvärderar Azure Active Directory alla principer och säk
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Fungerar villkorlig åtkomst med Exchange ActiveSync?
 
-Ja, du kan använda Exchange ActiveSync i en princip för villkorlig åtkomst med vissa [begränsningar](block-legacy-authentication.md). 
+Ja, du kan använda Exchange ActiveSync i en princip för villkorlig åtkomst.
+
+Vissa molnappar som SharePoint Online och Exchange Online stöder även bakåtkompatibla autentiseringsprotokoll. När ett klient program kan använda ett äldre autentiseringsprotokoll för att få åtkomst till en molnbaserad app, kan inte Azure AD tillämpa en princip för villkorlig åtkomst för det här åtkomst försöket. För att förhindra att en klient app kringgår verk ställandet av principer bör du kontrol lera om det är möjligt att endast aktivera modern autentisering för de berörda molnappar.
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Hur ska du konfigurera villkorlig åtkomst med Office 365-appar?
 

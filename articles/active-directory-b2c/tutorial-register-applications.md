@@ -1,60 +1,63 @@
 ---
 title: Självstudie – registrera ett program – Azure Active Directory B2C
-description: Lär dig mer om att registrera ett webbprogram i Azure Active Directory B2C med Azure portal.
+description: Lär dig hur du registrerar ett webb program i Azure Active Directory B2C med hjälp av Azure Portal.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 08/23/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5c46d3153bdc5768836bce198af115f82e8469f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 651c15c8206f7956bb35520f9c5837cb0c9308f9
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056293"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980693"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Självstudier: Registrera ett program i Azure Active Directory B2C
 
-Innan din [program](active-directory-b2c-apps.md) kan interagera med Azure Active Directory (Azure AD) B2C, måste de vara registrerade i en klient som du hanterar. Den här självstudien visar hur du registrerar ett webbprogram med Azure-portalen.
+Innan dina [program](active-directory-b2c-apps.md) kan interagera med Azure Active Directory-B2C (Azure AD) måste de registreras i en klient som du hanterar. Den här självstudien visar hur du registrerar ett webb program med hjälp av Azure Portal.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Registrera ett webbprogram
-> * Skapa en klienthemlighet
+> * Skapa en klient hemlighet
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte redan har skapat dina egna [Azure AD B2C-klient](tutorial-create-tenant.md), skapa en nu. Du kan använda en befintlig Azure AD B2C-klient.
+Om du inte redan har skapat din egen [Azure AD B2C-klient](tutorial-create-tenant.md)skapar du en nu. Du kan använda en befintlig Azure AD B2C klient.
 
 ## <a name="register-a-web-application"></a>Registrera ett webbprogram
 
-1. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
-2. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-3. Välj **Program** och därefter **Lägg till**.
-4. Ange ett namn på programmet. Till exempel *webapp1*.
-5. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
-6. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. Du kan till exempel ange den att lyssna lokalt på `https://localhost:44316`. Om du inte ännu vet portnumret, kan du ange ett platshållarvärde och ändra den senare.
+1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+1. Välj **Program** och därefter **Lägg till**.
+1. Ange ett namn på programmet. Till exempel *webapp1*.
+1. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
+1. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. Du kan till exempel ange att den ska lyssna lokalt på `https://localhost:44316`. Om du inte känner till port numret än kan du ange ett värde för plats hållare och ändra det senare.
 
-    I testsyfte som den här självstudien kan du ange den till `https://jwt.ms` som visar innehållet i en token för granskning. För den här självstudiekursen ställer du in den **svars-URL** till `https://jwt.ms`.
+    För testnings ändamål som den här själv studie kursen kan `https://jwt.ms` du ange det som visar innehållet i en token för att kontrol lera. I den här självstudien anger du svars- **URL** till `https://jwt.ms`.
 
-    Svars-URL: en måste börja med schemat `https`, och alla svars-URL-värden måste dela en enda DNS-domän. Exempel: om programmet har en svars-URL för `https://login.contoso.com`, du kan lägga till data som den här URL: en `https://login.contoso.com/new`. Eller du kan referera till DNS-underdomänen av `login.contoso.com`, till exempel `https://new.login.contoso.com`. Om du vill ha ett program med `login-east.contoso.com` och `login-west.contoso.com` som svars-URL: er, måste du lägga till dessa-URL: Svarswebbadresser i den här ordningen: `https://contoso.com`, `https://login-east.contoso.com`, `https://login-west.contoso.com`. Du kan lägga till två senare eftersom de är underdomäner i den första svars-URL `contoso.com`.
+    Följande begränsningar gäller för svars-URL: er:
 
-7. Klicka på **Skapa**.
+    * Svars-URL: en måste börja `https`med schemat.
+    * Svars-URL: en är Skift läges känslig. Dess fall måste matcha fallet med URL-sökvägen till det program som körs. Om ditt program t. ex. ingår som en del av `.../abc/response-oidc`sökvägen ska du inte `.../ABC/response-oidc` ange i svars-URL: en. Eftersom webbläsaren behandlar sökvägar som Skift läges känsliga, `.../abc/response-oidc` kan cookies som är kopplade till uteslutas om de omdirigeras till den Skift läges fel `.../ABC/response-oidc` matchnings bara URL: en.
 
-## <a name="create-a-client-secret"></a>Skapa en klienthemlighet
+1. Slutför program registreringen genom att klicka på **skapa** .
 
-Om ditt program utbyter en kod för en token, måste du skapa en programhemlighet.
+## <a name="create-a-client-secret"></a>Skapa en klient hemlighet
 
-1. I den **Azure AD B2C - program** väljer du det program du skapade, till exempel *webapp1*.
-2. Välj **nycklar** och välj sedan **skapa nycklar**.
-3. Välj **spara** att visa nyckeln. Anteckna **appnyckel**-värdet. Du använder det här värdet som programhemlighet i programkoden.
+Om programmet utbyter en kod för en token måste du skapa en program hemlighet.
+
+1. På sidan **Azure AD B2C-program** väljer du det program som du skapade, till exempel *webapp1*.
+1. Välj **nycklar** och välj sedan **generera nyckel**.
+1. Välj **Spara** för att Visa nyckeln. Anteckna **appnyckel**-värdet. Du använder det här värdet som program hemlighet i programmets kod.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -62,9 +65,9 @@ I den här artikeln lärde du dig att:
 
 > [!div class="checklist"]
 > * Registrera ett webbprogram
-> * Skapa en klienthemlighet
+> * Skapa en klient hemlighet
 
-Därefter lär du dig hur du skapar användarflöden så att användarna att registrera, logga in och hanterar sina profiler.
+Nu ska du lära dig hur du skapar användar flöden för att göra det möjligt för användarna att registrera sig, logga in och hantera sina profiler.
 
 > [!div class="nextstepaction"]
-> [Skapa användarflöden i Azure Active Directory B2C >](tutorial-create-user-flows.md)
+> [Skapa användar flöden i Azure Active Directory B2C >](tutorial-create-user-flows.md)

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b08358680793ccdadca27c5f2aa57fbffe89b53a
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: f35836f60fae11c0955c128e96a4cea188681942
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973797"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997666"
 ---
-# <a name="how-to-run-the-opc-ua-certificate-management-service-securely"></a>Så här kör du OPC UA Certificate Management-tjänsten på ett säkert sätt
+# <a name="how-to-run-the-opc-vault-certificate-management-service-securely"></a>Så här kör du OPC Vault Certificate Management-tjänsten på ett säkert sätt
 
-Den här artikeln förklarar hur du kör OPC-tjänsten för hantering av certifikat på ett säkert sätt i Azure och andra säkerhets rikt linjer.
+Den här artikeln förklarar hur du kör OPC-valvet för certifikat hantering på ett säkert sätt i Azure och andra säkerhets rikt linjer.
 
 ## <a name="roles"></a>Roller
 
@@ -32,7 +32,7 @@ Mikrotjänsten i OPC Vault har kon figurer ATS för att tillåta särskilda roll
 
 ### <a name="certificate-management-service-roles"></a>Tjänst roller för certifikat hantering
 
-Mikrotjänsten definierar följande roller:
+OPC Vault-mikrotjänsten definierar följande roller:
 
 - **Läsare**: Som standard har alla autentiserade användare i klienten Läs behörighet. 
   - Läs åtkomst till program och certifikat begär Anden. Kan lista och fråga efter program-och certifikat begär Anden. Dessutom är enhets identifierings information och offentliga certifikat tillgängliga med Läs behörighet.
@@ -132,14 +132,14 @@ För IoT Edge enheter ska värd namnen och IP-adresserna dokumenteras.
 
 Dokumentationen för CA-hierarkin måste innehålla alla drivna ca: er, inklusive alla relaterade underordnade certifikat utfärdare, överordnade certifikat utfärdare och rot certifikat utfärdare, även när de inte hanteras av tjänsten. En fullständig uppsättning CA-certifikat som inte har upphört att gälla kan anges i stället för formell dokumentation.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Exempel programmet OPC Vault stöder hämtning av alla certifikat som används och produceras i tjänsten för dokumentation.
 
 ### <a name="document-the-issued-certificates-by-all-certification-authorities-cas"></a>Dokumentera de utfärdade certifikaten från alla certifikat utfärdare
 
 En fullständig uppsättning av alla certifikat som utfärdats under de senaste 12 månaderna bör tillhandahållas för dokumentation.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Exempel programmet OPC Vault stöder hämtning av alla certifikat som används och produceras i tjänsten för dokumentation.
 
 ### <a name="document-the-sop-for-securely-deleting-cryptographic-keys"></a>Dokumentera SOP för säker borttagning av kryptografiska nycklar
@@ -220,7 +220,7 @@ SOP för OPC Vault-mikrotjänsten beskrivs i [översikten](overview-opc-vault-ar
 
 Återkallnings processen för certifikat beskrivs i [översikten](overview-opc-vault-architecture.md) och [hur du hanterar](howto-opc-vault-manage.md) dokument.
     
-### <a name="document-certification-authority-key-generation-ceremony"></a>Dokumentera certifikat utfärdarens nyckel generations ceremoni 
+### <a name="document-certification-authority-ca-key-generation-ceremony"></a>Dokumentera certifikat utfärdarens (CA) nyckel för att skapa ceremoni 
 
 Genereringen av utfärdarens CA-nyckel i OPC Vault-mikrotjänsten förenklas på grund av den säkra lagringen i Azure-valv och beskrivs i dokumentationen [för att hantera](howto-opc-vault-manage.md) dokumentationen.
 

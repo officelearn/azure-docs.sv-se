@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/2/2019
+ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 444d5ca996c014bdbf2e62cacf2563c7b63372e4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 19d3fe4285cf6bf316a0d445e49a398ed5d66a35
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69015724"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991789"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalerar Timed metadata i Live Streaming 
 
-Senast uppdaterad: 2019-07-02
+Senast uppdaterad: 2019-08-22
 
 ### <a name="conformance-notation"></a>Överensstämmelse notation
 
@@ -74,6 +74,7 @@ Följande dokument innehåller bestämmelser, som till följd av referens i denn
 | [AMF0]            | ["Åtgärds meddelande format AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf) |
 | [BINDESTRECK-IF-IOP]     | Utlinjes sällskap interop-vägledning v 4,2[https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html) |
 | [HLS-TMD]         | Tidsbaserade metadata för HTTP Live Streaming-[https://developer.apple.com/streaming](https://developer.apple.com/streaming) |
+| [CMAF-ID3]         | [Timed metadata i det vanliga medie program formatet (CMAF)](https://aomediacodec.github.io/av1-id3/)
 | [ID3v2]           | ID3-tagg version 2.4.0[http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure) |
 | [ISO-14496-12]    | ISO/IEC 14496-12: Del 12 ISO Base-filformat för media, FourthEdition 2012-07-15  |
 | [MPEGDASH]        | Informations teknik – dynamisk anpassningsbar strömning via HTTP (streck) – del 1: Beskrivning av medie presentation och segment format. Maj 2014. Delade. ADRESSER https://www.iso.org/standard/65274.html |
@@ -95,23 +96,148 @@ Följande dokument innehåller bestämmelser, som till följd av referens i denn
 
 ## <a name="2-timed-metadata-ingest"></a>2. Inmatning av Timed metadata
 
-## <a name="21-rtmp-ingest"></a>2,1 RTMP-inmatning
+Azure Media Services stöder real tids inlösnings-metadata för både [RTMP] och Smooth Streaming [MS-SSTR-insugning]-protokoll. Real tids metadata kan användas för att definiera anpassade händelser, med dina egna unika anpassade scheman (JSON, Binary, XML), samt bransch definierade format som ID3 eller SCTE-35 för AD-signalering i en broadcast-dataström. 
 
-[RTMP] tillåter att Timed metadata signaler skickas som [AMF0] Cue-meddelanden inbäddade i [RTMP]-strömmen. Stack-meddelanden kan skickas någon gång innan den faktiska händelsen eller [SCTE35] AD splice-signalen måste utföras. För att stödja det här scenariot skickas den faktiska tiden för händelsen i stack-meddelandet. Mer information finns i [AMF0].
+Den här artikeln innehåller information om hur du skickar i anpassade metadata-signaler med hjälp av de inmatnings protokoll som stöds av Media Services. Artikeln beskriver också hur manifesten för HLS, bindestreck och Smooth Streaming dekoreras med de tidsvisade metadata-signalerna, samt hur den transporteras i band när innehållet levereras med CMAF (MP4-fragment) eller transport data ström (TS) segment för HLS. 
+
+Vanliga användnings fall för Timed metadata inkluderar:
+
+ - SCTE – 35 AD-signaler för att utlösa AD-avbrott i en Live-händelse eller linjär sändning
+ - Anpassade ID3-metadata som kan utlösa händelser i ett klient program (webbläsare, iOS eller Android)
+ - Anpassade JSON-, Binary-eller XML-metadata för att utlösa händelser i ett klient program
+ - Telemetri från en Live Encoder, IP-kamera eller drönare
+ - Händelser från en IP-kamera som rörelse, ansikts igenkänning osv.
+ - Geografisk positions information från en åtgärd kamera, drönare eller rörlig enhet
+ - Sång texter
+ - Program gränser i en linjär live-feed
+ - Bilder eller förstärkta metadata som ska visas i en live-feed
+ - Sport poäng eller information om spel klock håll
+ - Interaktiva annonserings paket som ska visas bredvid videon i webbläsaren
+ - Frågor eller avsökningar
+  
+Azure Media Services Live-händelser och Paketeraren kan ta emot dessa tidsbaserade metadata signaler och omvandla dem till en data ström med metadata som kan komma åt klient program med hjälp av standardbaserade protokoll som HLS och bindestreck.
+
+
+## <a name="21-rtmp-timed-metadata"></a>2,1 RTMP Timed metadata
+
+Med [RTMP]-protokollet kan du skicka Timed metadata-signaler för olika scenarier, inklusive anpassade metadata och SCTE-35 AD-signaler. 
+
+Annonserings signaler (Cue-meddelanden) skickas som [AMF0] Cue-meddelanden inbäddade i [RTMP]-strömmen. Stack-meddelanden kan skickas någon gång innan den faktiska händelsen eller [SCTE35] AD splice-signalen måste utföras. För att stödja det här scenariot skickas den faktiska tiden för händelsen i stack-meddelandet. Mer information finns i [AMF0].
+
+Följande [AMF0]-kommandon stöds av Azure Media Services för RTMP-inmatning:
+
+- **onUserDataEvent** – används för anpassade metadata eller [ID3v2] Timed metadata
+- **onAdCue** – används främst för att signalera en möjlighet att placera reklam i Live Stream. Två former av stack-ikonen stöds, ett enkelt läge och ett "SCTE-35"-läge. 
+- **onCuePoint** – stöds av vissa lokala maskin varu kodare, till exempel grundämne Live Encoder, för att signalera [SCTE35]-meddelanden. 
+  
 
 I följande tabeller beskrivs formatet på den AMF meddelande nytto last som Media Services kommer att mata in för både "enkla" och [SCTE35]-meddelande lägen.
 
 Namnet på [AMF0]-meddelandet kan användas för att särskilja flera händelse strömmar av samma typ.  För både [SCTE-35]-meddelanden och läget "Simple" måste namnet på AMF-meddelandet vara "onAdCue", vilket krävs i [Adobe-Primetime]-specifikationen.  Fält som inte anges nedan ignoreras av Azure Media Services vid inmatning.
 
-## <a name="211-rtmp-signal-syntax"></a>2.1.1 RTMP-signal-syntax
+## <a name="211-rtmp-with-custom-metadata-using-onuserdataevent"></a>2.1.1 RTMP med anpassade metadata med hjälp av "onUserDataEvent"
+
+Om du vill tillhandahålla anpassade metadata från din överordnade kodare, IP-kamera, drönare eller enhet med hjälp av RTMP-protokollet använder du kommando typen "onUserDataEvent" [AMF0] data meddelande.
+
+Data meddelande kommandot **"onUserDataEvent"** måste ha en meddelande nytto last med följande definition för att kunna fångas in av Media Services och paketeras i fil formatet in-band samt manifesten för HLS, bindestreck och utjämna.
+Vi rekommenderar att skicka meddelanden med Time-metadata som inte ofta förekommer oftare än en gång var 0,5 sekund (500ms). Varje meddelande kan aggregera metadata från flera ramar om du behöver ange metadata för bildskärms nivå. Om du skickar strömmar med flera bit hastigheter rekommenderar vi att du även ger metadata på en enskild bit hastighet för att minska bandbredden och undvika störningar i video/ljud-bearbetning. 
+
+Nytto lasten för **"onUserDataEvent"** ska vara ett [MPEGDASH] EventStream XML-formaterat meddelande. Detta gör det enkelt att skicka in anpassade scheman som kan utföras i "EMSG"-nytto laster på band för CMAF [MPEGCMAF]-innehåll som levereras över HLS-eller tank strecks protokoll. Varje streck händelse Stream-meddelande innehåller en schemeIdUri som fungerar som en identifierare för URN-meddelande scheman och definierar nytto lasten för meddelandet. Vissa scheman som "https://aomedia.org/emsg/ID3" för [ID3v2] eller **urn: scte: scte35:2013: bin** för [scte-35] är standardiserade av bransch konsortier för interoperabilitet. Alla programproviders kan definiera egna anpassade scheman med en URL som de styr (ägs domän) och kan tillhandahålla en specifikation på denna URL om de väljer. Om en spelare har en hanterare för det definierade schemat, är det den enda komponenten som behöver förstå nytto lasten och protokollet.
+
+Schemat för [MPEG-streck] EventStream XML-nyttolasten definieras som (utdrag från streck ISO-IEC-23009-1-tredje utgåva). Observera att endast en "EventType" per "EventStream" stöds för tillfället. Endast det första **händelse** elementet kommer att bearbetas om flera händelser finns i **EventStream**.
+
+```xml
+  <!-- Event Stream -->
+  <xs:complexType name="EventStreamType">
+    <xs:sequence>
+      <xs:element name="Event" type="EventType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute ref="xlink:href"/>
+    <xs:attribute ref="xlink:actuate" default="onRequest"/>
+    <xs:attribute name="schemeIdUri" type="xs:anyURI" use="required"/>
+    <xs:attribute name="value" type="xs:string"/>
+    <xs:attribute name="timescale" type="xs:unsignedInt"/>
+  </xs:complexType>
+  <!-- Event  -->
+  <xs:complexType name="EventType">
+    <xs:sequence>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="presentationTime" type="xs:unsignedLong" default="0"/>
+    <xs:attribute name="duration" type="xs:unsignedLong"/>
+    <xs:attribute name="id" type="xs:unsignedInt"/>
+    <xs:attribute name="contentEncoding" type="ContentEncodingType"/>
+    <xs:attribute name="messageData" type="xs:string"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+```
+
+
+### <a name="example-xml-event-stream-with-id3-schema-id-and-base64-encoded-data-payload"></a>Exempel på XML-dataström med ID3-schema-ID och Base64-kodad data nytto Last.  
+```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <EventStream schemeIdUri="https://aomedia.org/emsg/ID3">
+         <Event contentEncoding="Base64">
+          -- base64 encoded ID3v2 full payload here per [CMAF-TMD] --
+         </Event>
+   <EventStream>
+```
+
+### <a name="example-event-stream-with-custom-schema-id-and-base64-encoded-binary-data"></a>Exempel händelse ström med anpassat schema-ID och base64-kodade binära data  
+```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <EventStream schemeIdUri="urn:example.org:custom:binary">
+         <Event contentEncoding="Base64">
+          -- base64 encoded custom binary data message --
+         </Event>
+   <EventStream>
+```
+
+### <a name="example-event-stream-with-custom-schema-id-and-custom-json"></a>Exempel händelse ström med anpassat schema-ID och anpassad JSON  
+```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <EventStream schemeIdUri="urn:example.org:custom:JSON">
+         <Event>
+          [
+            {"key1" : "value1"},
+            {"key2" : "value2"}
+          ]
+         </Event>
+   <EventStream>
+```
+
+### <a name="built-in-supported-scheme-id-uris"></a>Inbyggda schema-ID: n som stöds
+| Schema-ID-URI                 |  Beskrivning                                             |
+|-------------------------------|----------------------------------------------------------|
+| https://aomedia.org/emsg/ID3   | Beskriver hur [ID3v2] metadata kan överföras som tids bara metadata i en CMAF-kompatibel [MPEGCMAF]-fragmenterad MP4. Mer information finns i de tidsspecifika [metadata i det vanliga medie program formatet (cmaf)](https://aomediacodec.github.io/av1-id3/) |
+
+### <a name="event-processing-and-manifest-signaling"></a>Händelse bearbetning och manifest signalering
+
+Vid mottagande av en giltig **"onUserDataEvent"** -händelse kommer Azure Media Services att söka efter en giltig XML-nyttolast som matchar EventStreamType (definieras i [MPEGDASH]), PARSA XML-nyttolasten och konvertera den till ett [MPEGCMAF] MP4-fragment ' EMSG ' version 1 box för lagring i Live-arkivet och överföring till Media Services Paketeraren.   Paketeraren identifierar rutan "EMSG" i Live Stream och:
+
+- (a) "paketera" det i TS-segment för leverans till HLS-klienter i enlighet med HLS-specifikationen för tidsbaserad metadata [HLS-TMD], eller
+- (b) skicka det via för leverans i CMAF-fragment via HLS eller tank streck, eller 
+- (c) konvertera den till en renullad spår signal för leverans via Smooth Streaming [MS-SSTR].
+
+Förutom "EMSG"-formatet CMAF eller TS PARAMETERENTITETER-paket för HLS, innehåller manifesten för streck (MPD) och Smooth Streaming innehålla en referens till händelse strömmar för inband (även kallat re Stream-spår i Smooth Streaming). 
+
+Enskilda händelser eller deras data nytto laster matas inte ut direkt i HLS, bindestreck eller smidiga manifest. 
+
+### <a name="additional-informational-constraints-and-defaults-for-onuserdataevent-events"></a>Ytterligare information begränsningar och standardvärden för onUserDataEvent-händelser
+
+- Om tids skalan inte har ställts in i EventStream-elementet används RTMP 1Khz-tidsskalan som standard
+- Leverans av ett onUserDataEvent-meddelande är begränsat till en gång varje 500ms max. Om du skickar händelser oftare kan det påverka bandbredden och stabiliteten hos Live-matningen
+
+## <a name="212-rtmp-ad-cue-signaling-with-oncuepoint"></a>2.1.2 RTMP AD Cue-signalering med "onCuePoint"
 
 Azure Media Services kan lyssna efter och svara på flera [AMF0]-meddelande typer som kan användas för att signalera olika synkroniserade metadata i real tid i Live Stream.  [Adobe-Primetime]-specifikationen definierar två Cue-typer som kallas "enkelt" och "SCTE-35"-läge. För "enkelt" läge stöder Media Services ett enda AMF-Cue-meddelande med namnet "onAdCue" med en nytto last som matchar tabellen nedan definierad för signalen "enkel läge".  
 
 I följande avsnitt visas en "enkel" läge "-nytto last som kan användas för att signalera en grundläggande" spliceOut "AD-signal som överförs till klient manifestet för HLS, tank streck och Microsoft Smooth Streaming. Detta är användbart för scenarier där kunden inte har ett komplext SCTE-35-baserat AD-signalerande distributions-eller infognings system och använder en grundläggande lokal kodare för att skicka i Cue-meddelandet via ett API. Den lokala kodaren har vanligt vis stöd för ett REST-baserat API för att utlösa den här signalen, som även kommer att "splice-Condition" video strömmen genom att infoga en IDR-ram i videon och starta en ny GOP.
 
-## <a name="212--simple-mode-ad-signaling-with-rtmp"></a>2.1.2 enkel läge AD Signaling med RTMP
+## <a name="213--rtmp-ad-cue-signaling-with-oncuepoint---simple-mode"></a>2.1.3 RTMP AD Cue-signalering med "onCuePoint" – enkelt läge
 
-| Fältnamn | Fälttyp | Obligatorisk? | Beskrivningar                                                                                                             |
+| Fältnamn | Fälttyp | Krävs? | Beskrivningar                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | utlösare        | Sträng     | Obligatorisk | Händelse meddelandet.  Måste vara "SpliceOut" för att ange en enkel läges splice.                                              |
 | id         | Sträng     | Obligatorisk | En unik identifierare som beskriver splice eller-segmentet. Identifierar den här instansen av meddelandet                            |
@@ -121,7 +247,7 @@ I följande avsnitt visas en "enkel" läge "-nytto last som kan användas för a
 
 ---
  
-## <a name="213-scte-35-mode-ad-signaling-with-rtmp"></a>2.1.3 SCTE – 35-läge AD Signaling med RTMP
+## <a name="214-rtmp-ad-cue-signaling-with-oncuepoint---scte-35-mode"></a>2.1.4 RTMP AD Cue-signalering med "onCuePoint"-SCTE-35-läge
 
 När du arbetar med ett mer avancerat arbets flöde för sändnings produktion som kräver ett fullständigt SCTE-35-nyttolast-meddelande som ska överföras till HLS-eller streck manifestet, är det bäst att använda "SCTE-35 mode" i [Adobe-Primetime]-specifikationen.  Det här läget stöder in-band-SCTE-35-signaler som skickas direkt till en lokal Live-kodare, som sedan kodar signaler ut till RTMP-dataströmmen med "SCTE-35-läge" som anges i [Adobe-Primetime]-specifikationen. 
 
@@ -129,7 +255,7 @@ Vanligt vis kan SCTE-35-meddelanden endast visas i TS-indata (MPEG-2 transport s
 
 I det här scenariot måste följande nytto Last skickas från den lokala kodaren med meddelande typen **"onAdCue"** [AMF0].
 
-| Fältnamn | Fälttyp | Obligatorisk? | Beskrivningar                                                                                                             |
+| Fältnamn | Fälttyp | Krävs? | Beskrivningar                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | utlösare        | Sträng     | Obligatorisk | Händelse meddelandet.  För [SCTE-35]-meddelanden måste detta vara den base64-kodade [RFC4648] binära splice_info_section () för att meddelanden ska kunna skickas till HLS-, utjämna-och streck-klienter.                                              |
 | type       | Sträng     | Obligatorisk | En URN eller URL som identifierar meddelande schemat. För [SCTE-35]-meddelanden **ska** detta vara **"scte35"** för att meddelanden ska kunna skickas till HLS-, utjämna-och streck-klienter, i enlighet med [Adobe-Primetime]. Alternativt kan URN "urn: scte: scte35:2013: bin" också användas för att signalera ett [SCTE-35]-meddelande. |
@@ -139,7 +265,7 @@ I det här scenariot måste följande nytto Last skickas från den lokala kodare
 | time       | Number     | Obligatorisk | Presentations tiden för händelsen eller AD-splice.  Presentationens tid och varaktighet **bör** justeras mot Stream-åtkomst punkter (SAP) av typ 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga I. För HLS utgående, tid och varaktighet **bör** justeras mot segment gränser. Presentations tiden och varaktigheten för olika händelse meddelanden inom samma händelse ström får inte överlappa varandra. Enheter är bråkiska sekunder.
 
 ---
-## <a name="214-elemental-live-oncuepoint-ad-markers-with-rtmp"></a>2.1.4S grundämne Live "onCuePoint" AD-markörer med RTMP
+## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>2.1.5 RTMP AD signalerar med "onCuePoint" för grundämne Live
 
 Den fördefinierade Live-kodarens lokala kodare stöder AD-markörer i RTMP-signalen. Azure Media Services stöder för närvarande bara AD-markör typen "onCuePoint" för RTMP.  Detta kan aktive ras i Adobe RTMP Group-inställningarna i inställningarna för Media Live Encoder eller API genom att ange "**ad_markers**" till "onCuePoint".  Mer information finns i Live-dokumentationen för grundämne. Om du aktiverar den här funktionen i RTMP-gruppen skickas SCTE-35-signaler till de Adobe RTMP-utdata som ska bearbetas av Azure Media Services.
 
@@ -156,7 +282,7 @@ Meddelande typen "onCuePoint" definieras i [Adobe-Flash-AS] och har följande ny
 
 När det här läget för AD-markör används liknar HLS-Manifestets utdata samma som i Adobe "Simple"-läge. 
 
-### <a name="215-cancellation-and-updates"></a>2.1.5 för annullering och uppdateringar
+### <a name="216-cancellation-and-updates"></a>2.1.6 för annullering och uppdateringar
 
 Meddelanden kan avbrytas eller uppdateras genom att skicka flera meddelanden med samma presentations tid och ID. Presentations tiden och ID: t identifierar händelsen unikt och det senaste meddelandet togs emot för en speciell presentations tid som uppfyller för insamlade begränsningar är det meddelande som har åtgärd ATS. Den uppdaterade händelsen ersätter alla tidigare mottagna meddelanden. För registrerings begränsningen är fyra sekunder. Meddelanden som mottagits minst fyra sekunder innan presentations tiden kommer att behandlas.
 
@@ -465,6 +591,13 @@ När meddelandet har det format som beskrivs ovan skickas de till HLS-, utjämna
 När du testar din implementering med Azure Media Services plattform börjar du testa med en "direkt" LiveEvent innan du går vidare till testning på en kodnings LiveEvent.
 
 ---
+
+## <a name="change-history"></a>Ändrings historik
+
+| Date     | Ändringar                                                                            |
+|----------|------------------------------------------------------------------------------------|
+| 07/2/19  | Reviderad RTMP-inmatning för SCTE35-stöd, har lagt till RTMP "onCuePoint" för grundämne Live | 
+| 08/22/19 | Uppdaterat för att lägga till OnUserDataEvent i RTMP för anpassade metadata                         |
 
 ## <a name="next-steps"></a>Nästa steg
 Visa Media Services utbildnings vägar.

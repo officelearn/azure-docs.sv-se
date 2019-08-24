@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-ms.date: 08/06/2019
-ms.openlocfilehash: c7092b2cbcef01ef71261b6f5498cde56a40c358
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 08/22/2019
+ms.openlocfilehash: 476b8cff23d09d81fe356a6445e27794b267d9a2
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857253"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998109"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Felsöka kluster skapande fel med Azure HDInsight
 
@@ -29,7 +29,7 @@ Följande problem är de vanligaste orsakerna till kluster skapande fel:
 
 ## <a name="permissions-issues"></a>Problem med behörigheter
 
-Om du använder Data Lake Storage gen 2, se till att den tilldelade hanterade identiteten som tilldelats ditt HDInsight-kluster finns i rollen **Storage BLOB data Contributor** eller i **rollen Storage BLOB data-ägare**. Läs mer i [använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) för fullständiga installations anvisningar.
+Om du använder Azure Data Lake Storage gen 2 och får felet "denna begäran har inte behörighet att utföra den här åtgärden med hjälp av den här behörigheten" öppnar du Azure Portal, går till ditt lagrings konto och under Access Control (IAM) kontrollerar du att **lagrings-bloben Rollen data deltagare** eller **rollen** som lagrings-BLOB-dataägare har tilldelat åtkomst till **användaren tilldelade hanterade identiteter** för prenumerationen. Detaljerade anvisningar finns i [Konfigurera behörigheter för den hanterade identiteten på data Lake Storage Gen2-kontot](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) .
 
 Om du använder Data Lake Storage gen 1, se installations-och konfigurations anvisningar [här](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage gen 1 stöds inte för HBase-kluster och stöds inte i HDInsight version 4,0.
 
@@ -73,6 +73,8 @@ Se till att du använder en [version av Azure HDInsight](../hdinsight-component-
 ## <a name="storage-account-name-restrictions"></a>Begränsningar för lagrings konto namn
 
 Lagrings konto namn får inte vara längre än 24 tecken och får inte innehålla specialtecken. Dessa begränsningar gäller även för standardnamnet för containrar i lagringskontot.
+
+Andra namngivnings begränsningar gäller även för skapande av kluster. Mer information finns i [begränsningar för kluster namn](../hdinsight-hadoop-provision-linux-clusters.md#cluster-name).
 
 ## <a name="service-outages"></a>Drift avbrott för tjänsten
 

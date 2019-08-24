@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6e29e0f89d9270a143d48cf6e85b479813e19d9d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: a73d048a66c70eaf22caf6b33c4a495df6d730dd
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013648"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997923"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 
@@ -206,6 +206,8 @@ De tre olika `task` parametervärdena bestämmer listan över algoritmer som ska
 
 ### <a name="primary-metric"></a>Primär mått
 Primärt mått. som du ser i exemplen ovan bestäms måttet som ska användas vid modell träning för optimering. Det primära måttet du kan välja avgörs av den aktivitets typ som du väljer. Nedan visas en lista över tillgängliga mått.
+
+Lär dig mer om de olika definitionerna av dessa för att [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
 
 |Klassificering | Regression | Prognosticering för tids serier
 |-- |-- |--
@@ -401,7 +403,7 @@ Använd de här två API: erna i det första steget i den monterade modellen fö
   >[!Note]
   >Använd ' timeseriestransformer ' för aktiviteten = ' Prognosticering ', Använd annars ' datatransformer ' för uppgiften ' regression ' eller ' klassificering '.
 
-  Utdata:
+  Resultat:
   ```
   [{'RawFeatureName': 'A',
     'TypeDetected': 'Numeric',

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: ce6fc5d32fc9e17499a56cec7f4db2849370a1ec
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d9d70444adee26eab77c0e3d256cd8f340a1b4c8
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566713"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981153"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Storskalig tjänste nivå för upp till 100 TB
 
@@ -110,7 +110,7 @@ Med möjligheten att snabbt kunna sätta upp eller ned ytterligare skrivskyddade
 
 En storskalig databas kan skapas med hjälp av [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Storskaliga databaser är bara tillgängliga med den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md).
 
-Följande T-SQL-kommando skapar en storskalig databas. Du måste ange både versions-och tjänst målet i `CREATE DATABASE` instruktionen. Se [resurs gränserna](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier) för en lista över giltiga tjänst mål.
+Följande T-SQL-kommando skapar en storskalig databas. Du måste ange både versions-och tjänst målet i `CREATE DATABASE` instruktionen. Se [resurs gränserna](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier-for-provisioned-compute) för en lista över giltiga tjänst mål.
 
 ```sql
 -- Create a HyperScale Database
@@ -232,7 +232,7 @@ Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från
 | Elastiska pooler |  Elastiska pooler stöds för närvarande inte med SQL Database storskalig.|
 | Migrering till storskalig skalning är för närvarande en enkelriktad åtgärd | När en databas har migrerats till storskalig kan den inte migreras direkt till en icke-storskalig tjänst nivå. Det enda sättet att migrera en databas från storskalig till icke-storskalig är att exportera/importera med hjälp av en BACPAC-fil.|
 | Migrering av databaser med beständiga minnes objekt | Storskaligt stöder endast icke-beständiga minnes objekt (tabell typer, inbyggda SPs och funktioner).  Permanenta InMemory-tabeller och andra objekt måste släppas och återskapas som icke-minnesbaserade objekt innan migreringen av en databas till den storskaliga tjänst nivån.|
-| Ändra data spårning | Du kommer inte att kunna använda ändrings data spårning med storskaliga databaser. |
+| Spårning av ändringar | Du kommer inte att kunna använda Ändringsspårning med storskaliga databaser. |
 | Geo-replikering  | Du kan inte konfigurera geo-replikering för Azure SQL Database storskaligt.  Du kan utföra geo-Restore (återställa databasen i en annan geografi, för DR eller andra syfte) |
 | TDE/AKV-integrering | Transparent databas kryptering med hjälp av Azure Key Vault (kallas ofta för att hämta egna nycklar eller BYOK) stöds ännu inte för Azure SQL Database storskalig, men TDE med tjänst hanterade nycklar stöds fullt ut. |
 |Intelligenta databas funktioner | 1. Skapa index, släpp index rådgivare modeller har inte tränats för databaser med stor skala. <br/>2. Schema problem, DbParameterization-nyligen tillagda rådgivare stöds inte för storskalig databas.|

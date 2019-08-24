@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: abc09ac1a13537c31fe96fae14edefd0d06b6aef
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: fab65828228bdea8f0367f8928b83934bf0a7a4f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880259"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995874"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central Architecture (för hands versions funktioner)
 
@@ -73,7 +73,7 @@ I ett Azure IoT Central-program definierar enhets mallarna beteende och funktion
 
 I en IoT Central för hands version av program enhet:
 
-- **Enhets kapacitets modeller** anger funktioner för en enhet, till exempel den telemetri som skickas, egenskaper som definierar enhetens tillstånd och de kommandon som enheten svarar på. Enhetens kapacitet är indelat i ett eller flera gränssnitt. Mer information om enhets kapacitets modeller finns i [IoT plug and Play](https://aka.ms/iot-pnp-docs) -dokumentationen.
+- **Enhets kapacitets modeller** anger funktioner för en enhet, till exempel den telemetri som skickas, egenskaper som definierar enhetens tillstånd och de kommandon som enheten svarar på. Enhetens kapacitet är indelat i ett eller flera gränssnitt. Mer information om enhets kapacitets modeller finns i [IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md) -dokumentationen.
 - **Moln egenskaper** ange egenskaper IoT Central arkiv för en enhet. Dessa egenskaper lagras endast i IoT Central och skickas aldrig till en enhet.
 - **Vyer** anger vilka instrument paneler och formulär som Builder skapar för att låta operatören övervaka och hantera enheterna.
 - **Anpassningar** gör att verktyget åsidosätter vissa av definitionerna i enhetens kapacitets modell för att göra dem mer relevanta för det IoT Central programmet.

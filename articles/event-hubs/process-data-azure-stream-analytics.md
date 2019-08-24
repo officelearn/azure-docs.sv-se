@@ -8,18 +8,15 @@ ms.author: spelluru
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: 003e68b36ff71fb2991cf087ef33f72aba73a8be
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233963"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991949"
 ---
-# <a name="process-data-from-your-event-hub-using-azure-stream-analytics-preview"></a>Bearbeta data från händelsehubben med Azure Stream Analytics (för hands version)
+# <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Bearbeta data från händelsehubben med hjälp av Azure Stream Analytics 
 Med tjänsten Azure Stream Analytics kan du enkelt mata in, bearbeta och analysera strömmande data från Azure Event Hubs, vilket möjliggör kraftfulla insikter för att köra real tids åtgärder. Med den här integreringen kan du snabbt skapa en pipeline för snabb Sök väg analys. Du kan använda Azure Portal för att visualisera inkommande data och skriva en Stream Analytics fråga. När din fråga är klar kan du flytta den till produktion på bara några få klick. 
-
-> [!NOTE]
-> Den här funktionen är för närvarande en förhandsversion. 
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 Här är de viktigaste fördelarna med Azure Event Hubs och Azure Stream Analytics-integrering: 
@@ -40,7 +37,7 @@ Här är de viktigaste fördelarna med Azure Event Hubs och Azure Stream Analyti
 1. Du ser en frågenod med värden som redan har angetts för följande fält:
     1. **Händelsehubben** som inmatad för frågan.
     1. Exempel på **SQL-fråga** med SELECT-instruktion. 
-    1. Ett **kolumnalias** för att referera till dina fråge test resultat. 
+    1. Ett kolumnalias för att referera till dina fråge test resultat. 
 
         ![Frågeredigeraren](./media/process-data-azure-stream-analytics/query-editor.png)
         
@@ -80,7 +77,7 @@ Här är de viktigaste fördelarna med Azure Event Hubs och Azure Stream Analyti
 ## <a name="known-limitations"></a>Kända begränsningar
 När du testar din fråga tar test resultaten ungefär 6 sekunder att läsa in. Vi arbetar med att förbättra testningens prestanda. Men när det distribueras i produktion har Azure Stream Analytics under en längre tid.
 
-## <a name="streaming-units"></a>Strömningsenheter
+## <a name="streaming-units"></a>Direktuppspelande enheter
 Ditt Azure Stream Analytics jobb har standardvärdet tre enheter för strömning (SUs). Om du vill ändra den här inställningen väljer du **skala** på den vänstra menyn på sidan **Stream Analytics jobb** i Azure Portal. Mer information om strömnings enheter finns i [förstå och justera strömnings enheter](../stream-analytics/stream-analytics-streaming-unit-consumption.md).
 
 ![Skala enheter för strömning](./media/process-data-azure-stream-analytics/scale.png)

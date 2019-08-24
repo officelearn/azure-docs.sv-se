@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: a5bfc664c412c93bbf3e522b01528e8247be3291
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016060"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991875"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Metod tips för att använda Azure Data Lake Storage Gen2
 
@@ -31,11 +31,11 @@ När en säkerhets grupp har tilldelats behörigheter behöver inte några uppda
 
 ### <a name="security-for-groups"></a>Säkerhet för grupper
 
-När du eller dina användare behöver åtkomst till data i ett lagrings konto med hierarkiskt namn område aktiverat, är det bäst att använda Azure Active Directory säkerhets grupper. Vissa rekommenderade grupper att starta med kan vara **ReadOnlyUsers**, **WriteAccessUsers**och **FullAccessUsers** för roten i fil systemet och även separera dem för nyckel under kataloger. Om det finns andra förväntade grupper av användare som kan läggas till senare, men ännu inte har identifierats, kan du överväga att skapa dummy-säkerhetsgrupper som har åtkomst till vissa mappar. Med hjälp av säkerhets gruppen ser du till att du kan undvika lång bearbetnings tid när du tilldelar nya behörigheter till tusentals filer.
+När du eller dina användare behöver åtkomst till data i ett lagrings konto med hierarkiskt namn område aktiverat, är det bäst att använda Azure Active Directory säkerhets grupper. Vissa rekommenderade grupper att starta med kan vara **ReadOnlyUsers**, **WriteAccessUsers**och **FullAccessUsers** för roten i behållaren och till och med separera dem för nyckel under kataloger. Om det finns andra förväntade grupper av användare som kan läggas till senare, men ännu inte har identifierats, kan du överväga att skapa dummy-säkerhetsgrupper som har åtkomst till vissa mappar. Med hjälp av säkerhets gruppen ser du till att du kan undvika lång bearbetnings tid när du tilldelar nya behörigheter till tusentals filer.
 
 ### <a name="security-for-service-principals"></a>Säkerhet för tjänstens huvud namn
 
-Azure Active Directory tjänstens huvud namn används vanligt vis av tjänster som Azure Databricks för att få åtkomst till data i Data Lake Storage Gen2. För många kunder kan ett enda Azure Active Directory tjänstens huvud namn vara tillräckligt, och det kan ha fullständig behörighet i roten i Data Lake Storage Gen2 fil systemet. Andra kunder kan kräva flera kluster med olika tjänst huvud namn där ett kluster har fullständig åtkomst till data och ett annat kluster med enbart Läs behörighet. 
+Azure Active Directory tjänstens huvud namn används vanligt vis av tjänster som Azure Databricks för att få åtkomst till data i Data Lake Storage Gen2. För många kunder kan ett enda Azure Active Directory tjänstens huvud namn vara tillräckligt, och det kan ha fullständig behörighet i roten i Data Lake Storage Gen2 containern. Andra kunder kan kräva flera kluster med olika tjänst huvud namn där ett kluster har fullständig åtkomst till data och ett annat kluster med enbart Läs behörighet. 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Aktivera Data Lake Storage Gen2 brand vägg med åtkomst till Azure-tjänsten
 

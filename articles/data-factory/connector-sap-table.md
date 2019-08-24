@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: da7dbdee4a376d88219a7a621ed7e3867873a37c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8d98405cfbabdff25c40d41b209d79761e699396
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967395"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996597"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiera data från en SAP-tabell med hjälp av Azure Data Factory
 
@@ -223,7 +223,7 @@ Följande egenskaper stöds för att kopiera data från en SAP-tabell:
 <br/>
 >`maxPartitionsNumber` `partitionLowerBound` `partitionUpperBound` Med följande formel beräknas antalet rader i varje partition: (totalt antal rader som faller mellan och)/. `partitionOption` `partitionOnInt`<br/>
 <br/>
->Om du vill läsa in datapartitioner parallellt för att påskynda kopieringen styrs parallell [`parallelCopies`](copy-activity-performance.md#parallel-copy) graden av inställningen för kopierings aktiviteten. Om du till exempel anger `parallelCopies` fyra Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar, och varje fråga hämtar en del av data från SAP-tabellen. Vi rekommenderar starkt att `maxPartitionsNumber` du gör en multipel av `parallelCopies` egenskapens värde.
+>Om du vill läsa in datapartitioner parallellt för att påskynda kopieringen styrs parallell [`parallelCopies`](copy-activity-performance.md#parallel-copy) graden av inställningen för kopierings aktiviteten. Om du till exempel anger `parallelCopies` fyra Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar, och varje fråga hämtar en del av data från SAP-tabellen. Vi rekommenderar starkt att `maxPartitionsNumber` du gör en multipel av `parallelCopies` egenskapens värde. När du kopierar data till ett filbaserat data lager, skrivs det också om att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 
 I `rfcTableOptions`kan du använda följande vanliga SAP-fråge operatorer för att filtrera raderna:
 

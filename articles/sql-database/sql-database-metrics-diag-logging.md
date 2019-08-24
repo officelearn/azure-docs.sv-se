@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: a1475188d2e1ab0db3dfd9775fc37d3fc0a17158
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b35533eeb4c4a364588dbea11f74e8d6b76df3b
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567265"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998228"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database mått och diagnostikloggning
 
@@ -344,9 +344,12 @@ Det enklaste sättet att konfigurera var databaser registrerar mått är genom a
 
 Om du använder elastiska pooler eller hanterade instanser, måste du också konfigurera diagnostikinställningar i dessa resurser för att aktivera telemetri för att strömma till arbets ytan.
 
-### <a name="use-the-sql-analytics-solution"></a>Använd SQL Analytics-lösningen
+### <a name="use-the-sql-analytics-solution-for-monitoring-and-alerting"></a>Använd SQL Analytics-lösningen för övervakning och avisering
 
-Du kan använda SQL Analytics som en hierarkisk instrument panel för att visa dina SQL Database-resurser. Information om hur du använder SQL Analytics-lösningen finns i [övervaka SQL Database med hjälp av SQL Analytics-lösningen](../log-analytics/log-analytics-azure-sql.md).
+Du kan använda SQL Analytics som en hierarkisk instrument panel för att visa dina SQL Database-resurser.
+
+- Information om hur du använder SQL Analytics-lösningen finns i [övervaka SQL Database med hjälp av SQL Analytics-lösningen](../log-analytics/log-analytics-azure-sql.md).
+- Information om hur du ställer in aviseringar för SQL Database och hanterad instans baserat på SQL Analytics finns i [skapa aviseringar för SQL Database och hanterad instans](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
 
 ## <a name="stream-into-event-hubs"></a>Strömma till Event Hubs
 
@@ -715,3 +718,7 @@ Läs mer om Event Hubs:
 
 - [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+
+Information om hur du ställer in aviseringar baserat på telemetri från Log Analytics finns i:
+
+- [Skapa aviseringar för SQL Database och hanterad instans](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)

@@ -11,44 +11,44 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/29/2019
+ms.date: 08/22/2019
 ms.author: juliako
-ms.openlocfilehash: 5979e34e7c186a0484c8db2d432a3c57a5ed1d15
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 352b42099bcd832792aad2fa24dca3e14525dc06
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679161"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990632"
 ---
 # <a name="dynamic-packaging"></a>Dynamisk paketering
 
-Microsoft Azure Media Services kan användas för att leverera många medie käll fil format, medie direkt uppspelnings format och innehålls skydds format till en mängd olika klient tekniker (till exempel iOS och XBOX). Dessa klienter förstår olika protokoll, till exempel om iOS kräver ett HTTP Live Streaming-format (HLS) och Xbox kräver Smooth Streaming. Om du har en uppsättning MP4-filer med anpassningsbar bit hastighet (ISO-Base 14496-12) eller en uppsättning anpassade bit hastighets Smooth Streaming filer som du vill ska fungera för klienter som förstår HLS, MPEG-streck eller Smooth Streaming, kan du dra nytta av *dynamisk Paketering*. Förpackningen är oberoende till video upplösningen, SD/HD/UHD-4K stöds.
+Microsoft Azure Media Services kan användas för att koda många fil format för medie källor och leverera dem via olika strömnings protokoll, med eller utan innehålls skydd, för att nå alla större enheter (t. ex. iOS-och Android-enheter). Dessa klienter förstår olika protokoll, t. ex. om iOS kräver att strömmar levereras i HTTP Live Streaming-format (HLS) och Android-enheter stöder HLS samt MPEG-streck. För att förbereda dina källfiler för leverans av direkt uppspelning med anpassningsbar bit hastighet måste [](encoding-concept.md) de kodas till en uppsättning med flera bit hastigheter (kallas även för adaptiv bit hastighet) MP4-filer (ISO Base Media 14496-12). Från den här uppsättningen MP4-filer kan du leverera video via HLS eller MPEG-tank streck eller Smooth Streaming protokoll med hjälp av **dynamisk paketering**.
 
 I Media Services representerar en [slut punkt för direkt uppspelning](streaming-endpoint-concept.md) en dynamisk (just-in-Time)-paketering och ursprungs tjänst som kan leverera Live och på begäran-innehåll direkt till ett klient program med hjälp av ett av de vanliga protokollen för strömmande media (HLS eller STRECK). Dynamisk paketering är en funktion som levereras som standard på alla **slut punkter för direkt uppspelning** (standard eller Premium). 
 
-Om du vill dra nytta av dynamisk paketering behöver du en [till gång](assets-concept.md) med en uppsättning MP4-filer med anpassningsbar bit hastighet och strömmande konfigurationsfiler (. ISM,. ismc,. mpi osv.). Ett sätt att hämta filerna är att koda din mezzaninfil (källa) med Media Services. Om du vill göra videor i kodad till gång tillgängliga för klienter för uppspelning måste du skapa [](streaming-locators-concept.md) en strömmande lokaliserare och bygga direkt uppspelnings-URL: er. Sedan, baserat på det angivna formatet i det strömmande klient manifestet (HLS, bindestreck eller utjämna), får du data strömmen i det protokoll som du har valt.
+Om du vill dra nytta av **dynamisk paketering**måste du ha en **till gång** med en uppsättning MP4-filer med anpassningsbar bit hastighet och strömmande konfigurationsfiler som krävs för Media Services dynamisk paketering. Ett sätt att hämta filerna är att koda din mezzaninfil (källa) med Media Services. Om du vill göra videor i kodad till gång tillgängliga för klienter för uppspelning måste du skapa en strömmande lokaliserare och bygga direkt uppspelnings-URL: er. Sedan, baserat på det angivna formatet i klient manifestet för strömning (HLS, MPEG-datastreck eller Smooth Streaming), får du data strömmen i det protokoll som du har valt.
 
 Detta innebär att du bara behöver lagra och betala för filerna i ett enda lagringsformat, och Media Services-tjänsten skapar och ger lämplig respons baserat på begäranden från en klient. 
 
-I Media Services används dynamisk paketering om du strömmar Live eller på begäran. 
+I Media Services används dynamisk paketering oavsett om du direktuppspelar Live-eller video på begäran. 
 
 > [!NOTE]
 > För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
 
 ## <a name="on-demand-streaming-workflow"></a>Arbets flöde för strömning på begäran
 
-Här är ett vanligt arbets flöde för Media Services strömning på begäran med dynamisk paketering:
+Följande är ett vanligt Media Services strömnings arbets flöde där dynamisk paketering används tillsammans med Standard-kodaren i Azure Media Services.
 
-1. Ladda upp en indata-eller käll fil (kallas en *mezzaninfil* -fil). Exempel på detta är en MP4-, MOV-eller MXF-fil. 
-1. Koda din mezzaninfil-fil till H. 264 MP4-anpassade bit hastighets uppsättningar. 
+1. Ladda upp en indatafil, till exempel en QuickTime-/MOV-eller MXF-fil (för listan över format som stöds, se [format som stöds av Media Encoder Standard](media-encoder-standard-formats.md). Detta kallas även för mezzaninfil eller käll filen.
+1. [Koda](#encode-to-adaptive-bitrate-mp4s) din mezzaninfil-fil till en inställd H. 264/AAC MP4 anpassad bit hastighet. 
 1. Publicera den utgående till gången som innehåller MP4-uppsättningen med anpassad bit hastighet. Du publicerar genom att skapa en strömmande Locator.
-1. Bygg webb adresser som riktar sig mot olika format (HLS, MPEG-streck och Smooth Streaming). Slut punkten för direkt uppspelningen tar hand om att betjäna rätt manifest och begär Anden för de olika formaten.
+1. Bygg webb adresser som riktar sig mot olika format (HLS, MPEG-streck och Smooth Streaming). **Slut punkten för direkt uppspelningen** tar hand om att betjäna rätt manifest och begär Anden för alla dessa olika format.
 
-Det här diagrammet visar arbets flödet för strömning på begäran med dynamisk paketering:
+I följande diagram visas strömning på begäran med det dynamiska arbets flödet för paketering.
 
 ![Diagram över ett arbets flöde för strömning på begäran med dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
-### <a name="encoding-to-adaptive-bitrate-mp4s"></a>Kodning till hastigheter med anpassad bit hastighet
+### <a name="encode-to-adaptive-bitrate-mp4s"></a>Koda till hastigheter för anpassad bit hastighet
 
 Följande artiklar innehåller exempel på [hur du kodar en video med Media Services](encoding-concept.md):
 
@@ -93,14 +93,15 @@ Du kan använda dessa leverans protokoll för ditt innehåll i Media Services dy
 |MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
-## <a name="delivery-codecs-support"></a>Support för leverans-codec 
-
-### <a name="video-codecs"></a>Video-codec
+## <a name="video-codecs-supported-by-dynamic-packaging"></a>Video-codec som stöds av dynamisk paketering
 
 Dynamisk paketering stöder följande video-codec:
 * MP4-filer som innehåller video som är kodad med [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC eller avc1) eller [H. 265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (hevc, hev1 eller hvc1).
 
-### <a name="audio-codecs"></a>Ljud-codec
+> [!NOTE]
+> Upplösningar på upp till 4K och bild hastigheter på upp till 60 bild rutor per sekund har testats med dynamisk paketering. [Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) -kodaren stöder kodning till H. 265, via äldre v2-API: er. Kontakta amshelp@microsoft.com om du har frågor om det här ämnet. 
+
+## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Ljud-codec som stöds av dynamisk paketering
 
 Dynamisk paketering stöder följande ljud protokoll som beskrivs nedan:
 
@@ -109,7 +110,10 @@ Dynamisk paketering stöder följande ljud protokoll som beskrivs nedan:
 
 Dynamisk paketering stöder inte filer som innehåller [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) -ljud (AC3) (det är en äldre codec).
 
-#### <a name="mp4-files"></a>MP4-filer
+> [!NOTE]
+> [Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) -kodaren stöder kodning till Dolby Digital Plus, via äldre v2-API: er. Kontakta amshelp@microsoft.com om du har frågor om det här ämnet. 
+
+### <a name="mp4-files"></a>MP4-filer
 
 Dynamisk paketering stöder MP4-filer som innehåller ljud som är kodat med följande protokoll: 
 
@@ -126,7 +130,7 @@ Dynamisk paketering stöder MP4-filer som innehåller ljud som är kodat med fö
     * DTS Express (dtse)
     * DTS-HD-förstörande (ingen kärna) (DTSL)
 
-#### <a name="multiple-audio-tracks"></a>Flera ljud spår
+### <a name="multiple-audio-tracks"></a>Flera ljud spår
 
 Dynamisk paketering stöder flera ljud spår för HLS-utdata (version 4 eller senare) för strömnings till gångar som har flera ljud spår med flera codecenheter och språk.
 

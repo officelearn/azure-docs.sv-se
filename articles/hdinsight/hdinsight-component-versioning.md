@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 30eb922e17810ddd53166a702b5fc513684f2140
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b451769f5f98bf64ca340504c983f16d1db36647
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742378"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991560"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vilka Apache Hadoops komponenter och versioner är tillgängliga med HDInsight?
 
@@ -178,6 +178,9 @@ Avsnittet innehåller länkar till viktig information för Hortonworks Data Plat
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Standardkonfiguration av noder och storlekar för virtuella datorer för kluster
 
 I följande tabeller visas standard storlekarna för virtuella datorer för HDInsight-kluster.  Det här diagrammet är nödvändigt för att förstå de VM-storlekar som ska användas när du skapar PowerShell-eller Azure CLI-skript för att distribuera HDInsight-kluster.
+
+> [!NOTE]
+> De enda kluster typerna som innehåller data diskar är Kafka-och HBase-kluster med funktionen för accelererade skrivningar aktiverade. HDInsight stöder P30-och S30 disk storlekar i dessa scenarier.
 
 > [!IMPORTANT]  
 > Om du behöver fler än 32 arbetsnoder i ett kluster måste du välja en huvudnods storlek med minst 8 kärnor och 14 GB RAM.

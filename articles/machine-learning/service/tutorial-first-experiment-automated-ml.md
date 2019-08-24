@@ -10,39 +10,38 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 08/14/2019
-ms.openlocfilehash: e53cd92a9dfd8f823918fb38e14c2b73c2ce071f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 01228dc01b8006a0a2476ddbbd6fa8ff430e280a
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534431"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982763"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudier: Skapa din första klassificerings modell med automatisk maskin inlärning
 
 I den här självstudien får du lära dig att skapa ditt första automatiserade maskin inlärnings experiment i Azure Portal (för hands version) utan att skriva en enda rad kod. I det här exemplet skapas en klassificerings modell för att förutsäga om en klient kommer att prenumerera på en fast term insättning med ett finansiellt institut.
 
-Genom att använda de automatiserade maskin inlärnings funktionerna i Azure Machine Learnings tjänsten och Azure Portal startar du den automatiserade maskin inlärnings processen. Valet av val och inställning för min parameter görs åt dig. Den automatiserade maskininlärningsmetoden itererar i många kombinationer av algoritmer och hyperparametrar tills den hittar den bästa modellen utifrån dina kriterier.
+Med automatisk maskin inlärning kan du automatisera tids krävande uppgifter. Automatisk maskin inlärning itererar snabbt över många kombinationer av algoritmer och egenskaper för att hjälpa dig att hitta den bästa modellen utifrån ett lyckat mått på hur du väljer.
 
-I den här självstudien kommer du att lära dig följande:
+I den här självstudien får du lära dig hur du utför följande uppgifter:
 
 > [!div class="checklist"]
-> * Konfigurera en Azure Machine Learning-tjänstarbetsyta.
-> * Skapa ett experiment.
-> * Automatisk träna en klassificerings modell.
-> * Visa information om tränings körningar.
+> * Skapa en Azure Machine Learning service-arbetsyta.
+> * Kör ett automatiserat maskin inlärnings experiment.
+> * Visa experiment information.
 > * Distribuera modellen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
-* Hämta data filen [ **bankmarketing_train. csv** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . **Y** -kolumnen visar om en kund prenumererar på en fast term insättning, som senare identifieras som mål kolumn för förutsägelser i den här självstudien. 
+* Hämta data filen [**bankmarketing_train. csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . **Y** -kolumnen visar om en kund prenumererar på en fast term insättning, som senare identifieras som mål kolumn för förutsägelser i den här självstudien. 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-an-experiment"></a>Skapa ett experiment
+## <a name="create-and-run-the-experiment"></a>Skapa och kör experimentet
 
 De här stegen vägleder dig genom experimentering från data urvalet för att välja primärt mått och modell typ. 
 
@@ -50,8 +49,6 @@ De här stegen vägleder dig genom experimentering från data urvalet för att v
 Skärmen **Välkommen till automatiserat Machine Learning** visas, eftersom det första experimentet med automatiserade Machine Learning.
 
     ![Azure Portal navigerings fönster](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
-
-
 
 1. Välj **Skapa experiment**. Ange sedan **mitt-1st-automl-experiment** som namn på experimentet.
 
@@ -72,14 +69,11 @@ Skärmen **Välkommen till automatiserat Machine Learning** visas, eftersom det 
 
 1. Välj **överför** och välj filen **bankmarketing_train. csv** från den lokala datorn för att överföra den till standard behållaren. Den offentliga för hands versionen stöder endast lokala fil överföringar och Azure Blob Storage-konton. När uppladdningen är klar väljer du filen i listan. 
 
-    [![Välj datafil](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
-
 1. På fliken för **hands version** kan vi ytterligare konfigurera våra data för det här experimentet.
 
     På fliken **förhands granskning** anger du att data innehåller rubriker. Tjänsten använder som standard alla funktioner (kolumner) för utbildning. I det här exemplet ska du bläddra till höger och **Ignorera** funktionen **day_of_week** .
 
     ![Konfiguration av fliken för hands version](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
-
 
     >[!NOTE]
     > Data profilering är inte tillgängligt med beräkningar som har noll lägsta noder.
@@ -103,9 +97,7 @@ Skärmen **Välkommen till automatiserat Machine Learning** visas, eftersom det 
 
 1. Välj **Starta** för att köra experimentet.
 
-   När experimentet startar visas en tom körnings **informations** skärm med följande status överst. 
-
-      ![Kör förberedelse](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
+   När experimentet startar visas en tom körnings **informations** skärm med följande status överst.
       
 Experiment förberedelse processen tar några minuter. När processen har slutförts **körs**status meddelandet för körningen.
 
@@ -137,11 +129,9 @@ I den här experiment kontexten betraktas **VotingEnsemble** som den bästa mode
     
 1. Välj **Distribuera**.
 
-    Följande meddelande visas när distributionen har slutförts:
-
-    ![Distributionen är klar](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
+    Ett meddelande om slutförd distribution visas när distributionen har slutförts.
     
-    Nu har du en fungerande webb tjänst för att generera förutsägelser.
+Nu har du en fungerande webb tjänst för att generera förutsägelser.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -167,7 +157,6 @@ I den här automatiska självstudien om Machine Learning använde du Azure Porta
 
 > [!div class="nextstepaction"]
 > [Använda en webb tjänst](how-to-consume-web-service.md)
-
 
 + Läs mer om för [bearbetning](how-to-create-portal-experiments.md#preprocess).
 + Läs mer om [data profilering](how-to-create-portal-experiments.md#profile).

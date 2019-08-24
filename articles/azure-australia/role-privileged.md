@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: a9451b5dcd572eee27809cf66df889f06da960ed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e2a94f82e4830bd1e9c96039f5ef8fe6546b0d0b
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571502"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982664"
 ---
 # <a name="role-based-access-control-rbac-and-privileged-identity-management-pim"></a>Rollbaserad Access Control (RBAC) och Privileged Identity Management (PIM)
 
@@ -27,7 +27,7 @@ Implementera RBAC kräver tre komponenter på hög nivå:
 
 ![RBAC-översikt](media/rbac-overview.png)
 
-* **Säkerhets objekt**: Ett säkerhets objekt kan vara något av följande: en användare, en grupp, [tjänstens huvud namn eller en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Säkerhets objekt bör tilldelas behörigheter med hjälp av Azure Active Directory grupper.
+* **Säkerhets objekt**: Ett säkerhets objekt kan vara något av följande: en användare, en grupp, [tjänstens huvud namn](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)eller en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Säkerhets objekt bör tilldelas behörigheter med hjälp av Azure Active Directory grupper.
 
 * **Roll definitioner**: En roll definition, som även kallas en roll, är en samling behörigheter. Dessa behörigheter definierar de åtgärder som kan utföras av de säkerhets objekt som tilldelats roll definitionen. Den här funktionen tillhandahålls av Azures resurs roller och Azure Active Directory administratörs roller. Azure levereras med en uppsättning inbyggda roller (länk) som kan utökas med anpassade roller.
 

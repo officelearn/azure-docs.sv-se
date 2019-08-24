@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.openlocfilehash: a01f6cbb20d084864d3a7f64aa8c90d2bc3405f2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 08/21/2019
+ms.openlocfilehash: 8cfda202e57dcee4f7a783de893fb712501dfd26
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977077"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992187"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Läs repliker i Azure Database for MariaDB
 
@@ -50,7 +50,7 @@ Du kan alltid skapa en Läs replik i någon av följande regioner, oavsett var h
 
 
 ### <a name="paired-regions"></a>Länkade regioner
-Förutom Universal Replica-regioner kan du skapa en Läs replik i den Azure-kopplade regionen på huvud servern. Om du inte känner till din regions par kan du läsa mer i [artikeln Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Förutom Universal Replica-regioner kan du skapa en Läs replik i den Azure-kopplade regionen på huvud servern. Om du inte känner till din regions par kan du läsa mer i [artikeln Azure-kopplade regioner](../best-practices-availability-paired-regions.md).
 
 Om du använder repliker över flera regioner för att planera haveri beredskap rekommenderar vi att du skapar repliken i den kopplade regionen i stället för någon av de andra regionerna. Kopplade regioner förhindrar samtidiga uppdateringar och prioriterar fysisk isolering och data placering.  
 
@@ -126,7 +126,7 @@ En Läs replik skapas som en ny Azure Database for MariaDB Server. Det går inte
 En replik skapas med samma server konfiguration som huvud servern. När en replik har skapats kan flera inställningar ändras oberoende från huvud servern: beräknings generation, virtuella kärnor, lagring, kvarhållning av säkerhets kopior och MariaDB motor version. Pris nivån kan också ändras oberoende, förutom till eller från Basic-nivån.
 
 > [!IMPORTANT]
-> Innan en huvud Server konfiguration uppdateras till nya värden uppdaterar du replik konfigurationen till samma eller högre värden. Den här åtgärden säkerställer att repliken kan behålla alla ändringar som görs i huvud repliken.
+> Uppdatera replikkonfigurationen till samma eller högre värden innan en huvudserverkonfiguration uppdateras till nya värden. På så sätt säkerställer du att repliken klarar alla ändringar som görs på huvudservern.
 
 ### <a name="stopped-replicas"></a>Stoppade repliker
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: acb3717f0e71ca1e67f1ddec79a259935f6cc539
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a4146e20efae87287b77687e4a1d3b0196cb1c95
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897700"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997937"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -416,7 +416,20 @@ def run(request):
 
 Konfigurations konfigurationen beskriver hur du konfigurerar modellen för att göra förutsägelser. Den här konfigurationen ingår inte i ditt Entry-skript. den refererar till ditt Entry-skript och används för att hitta alla resurser som krävs för distributionen. Den används senare när modellen distribueras.
 
-Följande exempel visar hur du skapar en konfigurations konfiguration. Den här konfigurationen anger körnings miljön, start skriptet och (valfritt) Conda-miljöfilen:
+Konfiguration av en konfigurations miljö kan använda Azure Machine Learning miljöer för att definiera de program beroenden som behövs för distributionen. Med miljöer kan du skapa, hantera och återanvända program beroenden som krävs för utbildning och distribution. I följande exempel visas hur du läser in en miljö från arbets ytan och sedan använder den med konfigurations konfigurationen:
+
+```python
+from azureml.core import Environment
+from azureml.core.model import InferenceConfig
+
+deploy_env = Environment.get(workspace=ws,name="myenv",version="1")
+inference_config = InferenceConfig(entry_script="x/y/score.py",
+                                   environment=deploy_env)
+```
+
+Mer information om miljöer finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
+
+Du kan också ange beroenden direkt utan att använda en miljö. Följande exempel visar hur du skapar en konfigurations konfiguration som laddar program varu beroenden från en Conda-fil:
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -468,10 +481,40 @@ Var och en av dessa klasser för lokala, ACI och AKS webb tjänster kan importer
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-> [!TIP]
-> Innan du distribuerar din modell som en tjänst kanske du vill profilera den för att fastställa optimala processor-och minnes krav. Du kan profilera din modell med antingen SDK eller CLI. Mer information finns i [profilen profil ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) och [AZ ml modell profil](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile) .
->
-> Modell profilerings resultaten genereras som ett `Run` -objekt. Mer information finns i klass referens för [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py) .
+#### <a name="profiling"></a>Profilering
+
+Innan du distribuerar din modell som en tjänst kanske du vill profilera den för att fastställa optimala processor-och minnes krav. Du kan profilera din modell med antingen SDK eller CLI. I följande exempel visas hur du använder profilering från SDK:
+
+> [!IMPORTANT]
+> När du använder profilering kan den konfiguration av den konfiguration som du anger inte referera till en Azure Machine Learning-miljö. Definiera i stället program beroendena med hjälp `conda_file` av-parametern `InferenceConfig` för objektet.
+
+```python
+import json
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10]
+]})
+
+profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
+profile.wait_for_profiling(true)
+profiling_results = profile.get_results()
+print(profiling_results)
+```
+
+Den här koden visar ett resultat som liknar följande text:
+
+```python
+{'cpu': 1.0, 'memoryInGB': 0.5}
+```
+
+Modell profilerings resultaten genereras som ett `Run` -objekt.
+
+Information om hur du använder profilering från CLI finns i [AZ ml modell Profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
+
+Mer information finns i följande referens dokument:
+
+* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
+* [profil ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--model~s--inference-config--input-data-)
+* [Fil schema för konfigurations härledning](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>Distribuera till mål
 
@@ -742,7 +785,136 @@ Fler exempel projekt och exempel finns i följande exempel databaser:
 * [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
+## <a name="package-models"></a>Paket modeller
+
+I vissa fall kanske du vill skapa en Docker-avbildning utan att distribuera modellen. Till exempel när du planerar [att distribuera till Azure App Service](how-to-deploy-app-service.md). Eller så kanske du vill ladda ned avbildningen och köra den på en lokal Docker-installation. Du kanske till och med vill ladda ned filerna som används för att bygga avbildningen, inspektera dem, ändra dem och bygga den manuellt.
+
+Med modell paketering kan du göra båda. Den hanterar alla till gångar som krävs för att vara värd för en modell som en webb tjänst och gör att du kan ladda ned antingen en helt inbyggd Docker-avbildning eller de filer som behövs för att skapa en. Det finns två sätt att använda modell förpackningar:
+
+* __Ladda ned paketerad modell__: Du hämtar en Docker-avbildning som innehåller modellen och andra filer som behövs för att vara värd för den som en webb tjänst.
+* __Generera Dockerfile__: Du kan ladda ned Dockerfile, modell, Entry-skript och andra till gångar som behövs för att bygga en Docker-avbildning. Du kan sedan granska filerna eller göra ändringar innan du skapar avbildningen lokalt.
+
+Båda paketen kan användas för att hämta en lokal Docker-avbildning. 
+
+> [!TIP]
+> Att skapa ett paket liknar att distribuera en modell, eftersom den använder en registrerad modell och en konfiguration för konfigurations härledning.
+
+> [!IMPORTANT]
+> Funktioner som att hämta en helt skapad avbildning eller skapa en avbildning lokalt kräver en fungerande [Docker](https://www.docker.com) -installation i utvecklings miljön.
+
+### <a name="download-a-packaged-model"></a>Ladda ned en packad modell
+
+Följande exempel visar hur du skapar en avbildning, som är registrerad i Azure Container Registry för din arbets yta:
+
+```python
+package = Model.package(ws, [model], inference_config)
+package.wait_for_creation(show_output=True)
+```
+
+När du har skapat ett paket kan du `package.pull()` använda för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Till exempel `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. När du har hämtat använder `docker images` du kommandot för att lista de lokala avbildningarna:
+
+```text
+REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
+myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
+```
+
+Starta en lokal behållare med hjälp av den här avbildningen genom att använda följande kommando för att starta en namngiven behållare från gränssnittet eller kommando raden. Ersätt värdet med det bild-ID som returnerades `docker images` från kommandot: `<imageid>`
+
+```bash
+docker run -p 6789:5001 --name mycontainer <imageid>
+```
+
+Det här kommandot startar den senaste versionen av avbildningen `myimage`med namnet. Den mappar den lokala porten 6789 till porten i behållaren som webb tjänsten lyssnar på (5001). Det tilldelar också namnet `mycontainer` till behållaren, vilket gör det enklare att stoppa. När du har startat kan du skicka begär `http://localhost:6789/score`anden till.
+
+### <a name="generate-dockerfile-and-dependencies"></a>Generera Dockerfile och beroenden
+
+Följande exempel visar hur du hämtar Dockerfile, modellen och andra till gångar som behövs för att bygga avbildningen lokalt. `generate_dockerfile=True` Parametern indikerar att vi vill ha filerna, inte en helt skapad avbildning:
+
+```python
+package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
+package.wait_for_creation(show_output=True)
+# Download the package
+package.save("./imagefiles")
+# Get the Azure Container Registry that the model/dockerfile uses
+acr=package.get_container_registry()
+print("Address:", acr.address)
+print("Username:", acr.username)
+print("Password:", acr.password)
+```
+
+Den här koden laddar ned de filer som krävs för att bygga `imagefiles` avbildningen till katalogen. Dockerfile som ingår i Spara filer refererar till en bas avbildning som lagras i en Azure Container Registry. När du skapar avbildningen på den lokala Docker-installationen måste du använda adressen, användar namnet och lösen ordet för att autentisera till registret. Använd följande steg för att bygga avbildningen med hjälp av en lokal Docker-installation:
+
+1. Använd följande kommando i en Shell-eller kommando rads-session för att autentisera Docker med Azure Container Registry. Ersätt `<address>`, `<username>` `package.get_container_registry()`och meddevärdensomhämtatsmed`<password>` :
+
+    ```bash
+    docker login <address> -u <username> -p <password>
+    ```
+
+2. Använd följande kommando för att bygga avbildningen. Ersätt `<imagefiles>` med sökvägen till katalogen där `package.save()` filerna sparades:
+
+    ```bash
+    docker build --tag myimage <imagefiles>
+    ```
+
+    Det här kommandot anger avbildningens namn `myimage`till.
+
+Verifiera att avbildningen har skapats genom att använda `docker images` kommandot. Du bör se `myimage` avbildningen i listan:
+
+```text
+REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
+<none>          <none>              2d5ee0bf3b3b        49 seconds ago      1.43GB
+myimage         latest              739f22498d64        3 minutes ago       1.43GB
+```
+
+Om du vill starta en ny behållare baserat på den här avbildningen använder du följande kommando:
+
+```bash
+docker run -p 6789:5001 --name mycontainer myimage:latest
+```
+
+Det här kommandot startar den senaste versionen av avbildningen `myimage`med namnet. Den mappar den lokala porten 6789 till porten i behållaren som webb tjänsten lyssnar på (5001). Det tilldelar också namnet `mycontainer` till behållaren, vilket gör det enklare att stoppa. När du har startat kan du skicka begär `http://localhost:6789/score`anden till.
+
+### <a name="example-client-to-test-the-local-container"></a>Exempel klient för att testa den lokala behållaren
+
+Följande kod är ett exempel på en python-klient som kan användas med behållaren:
+
+```python
+import requests
+import json
+
+# URL for the web service
+scoring_uri = 'http://localhost:6789/score'
+
+# Two sets of data to score, so we get two results back
+data = {"data":
+        [
+            [ 1,2,3,4,5,6,7,8,9,10 ],
+            [ 10,9,8,7,6,5,4,3,2,1 ]
+        ]
+        }
+# Convert to JSON string
+input_data = json.dumps(data)
+
+# Set the content type
+headers = {'Content-Type': 'application/json'}
+
+# Make the request and display the response
+resp = requests.post(scoring_uri, input_data, headers=headers)
+print(resp.text)
+```
+
+Fler exempel klienter i andra programmeringsspråk finns i [använda modeller som distribuerats som webb tjänster](how-to-consume-web-service.md).
+
+### <a name="stop-the-docker-container"></a>Stoppa Docker-behållaren
+
+Om du vill stoppa behållaren använder du följande kommando från ett annat gränssnitt eller en annan kommando rad:
+
+```bash
+docker kill mycontainer
+```
+
 ## <a name="clean-up-resources"></a>Rensa resurser
+
 Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.
 Ta bort registrerade modellen genom att använda `model.delete()`.
 

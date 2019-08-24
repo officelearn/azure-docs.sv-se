@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
-ms.openlocfilehash: e749138cd28f7bd8faf10ca1087a73f323533a25
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.date: 08/20/2019
+ms.openlocfilehash: d9a1c76e8ac386b954c68f16e2189df4e6c0e1b7
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335664"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996327"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Ta bort aktivitet i Azure Data Factory
 
@@ -44,6 +44,7 @@ Här följer några rekommendationer för att använda borttagnings aktiviteten:
 -   [Azure Blob Storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+-   [Azure File Storage](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>Fil system data lager
 
@@ -51,6 +52,7 @@ Här följer några rekommendationer för att använda borttagnings aktiviteten:
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
+-   [Google Cloud Storage](connector-google-cloud-storage.md)
 
 ## <a name="syntax"></a>Syntax
 
@@ -115,7 +117,7 @@ Det finns två platser där du kan se och övervaka resultaten av aktiviteten Ta
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Exempel logg fil för borttagnings aktiviteten
 
-| Namn | Category | Status | Fel |
+| Name | Category | State | Fel |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.json | Fil | Borttagen |  |
 | TEST2/hello789. txt | Fil | Borttagen |  |
@@ -564,7 +566,7 @@ Data uppsättning för data mål som används av kopierings aktiviteten.
 }
 ```
 
-Du kan också få mallen att flytta filer [härifrån.](solution-template-move-files.md)
+Du kan också få mallen att flytta filer härifrån. [](solution-template-move-files.md)
 
 ## <a name="known-limitation"></a>Känd begränsning
 

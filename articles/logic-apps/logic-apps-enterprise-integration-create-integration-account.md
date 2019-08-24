@@ -11,12 +11,12 @@ manager: carmonm
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: cffcfe53cf30d8fc34fdb27e50ef74e71700125a
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 55843f9acaafa0c5963cfac735fdb92eeeacdc02
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607013"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982932"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>Skapa och hantera integrations konton för B2B-lösningar med hjälp av Azure Logic Apps
 
@@ -60,7 +60,7 @@ För den här uppgiften kan du använda antingen Azure Portal genom att följa s
 
    | Egenskap | Obligatorisk | Value | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Namn** | Ja | <*integration-account-name*> | Namnet på ditt integrations konto, till exempel "Fabrikam-integration" |
+   | **Namn** | Ja | <*integration-account-name*> | Integrations kontots namn, som endast får innehålla bokstäver`-`, siffror, bindestreck (), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "Fabrikam-integration". |
    | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumerationens namn |
    | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) som ska användas för att organisera relaterade resurser. I det här exemplet skapar du en ny resurs grupp med namnet "FabrikamIntegration-RG". |
    | **Prisnivå** | Ja | <*pris nivå*> | Pris nivån för integrations kontot, som du kan ändra senare. I det här exemplet väljer du **kostnads fri**. Mer information finns i följande avsnitt: <p>- [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps priser](https://azure.microsoft.com/pricing/details/logic-apps/) |

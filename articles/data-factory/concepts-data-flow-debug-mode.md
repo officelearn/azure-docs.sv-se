@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 945d123c0901722a527e7cc8181c91f09e4e95ec
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014512"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991928"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mappa fel söknings läge för data flöde
 
@@ -53,7 +53,14 @@ Vid fel sökning på visas fliken Data förhands granskning på den nedre panele
 
 ![Data för hands version](media/data-flow/datapreview.png "Data för hands version")
 
+> [!NOTE]
+> Fil källor begränsar bara de rader som visas, inte raderna som läses. För mycket stora data mängder rekommenderar vi att du tar en liten del av filen och använder den för testning. Du kan välja en temporär fil i fel söknings inställningar för varje källa som är en fil data uppsättnings typ.
+
 När du kör i fel söknings läge i data flöde kommer dina data inte att skrivas till omvandlingen av mottagare. En felsökningssession är avsedd att fungera som ett test-nät för dina transformeringar. Sinks krävs inte under fel sökning och ignoreras i ditt data flöde. Om du vill testa att skriva data i din mottagare kör du data flödet från en Azure Data Factory pipeline och använder fel söknings körningen från en pipeline.
+
+### <a name="testing-join-conditions"></a>Testa kopplings villkor
+
+Se till att du använder en liten uppsättning kända data för ditt test när du vill testa kopplingar, finns eller söka omvandlingar. Du kan använda alternativet för fel söknings inställningar ovan för att ange en temporär fil som ska användas för testningen. Detta är nödvändigt eftersom när du begränsar eller raderar rader från en stor data uppsättning kan du inte förutsäga vilka rader och vilka nycklar som ska läsas in i flödet för testning. Resultatet är icke-deterministiskt, vilket innebär att anslutnings villkoren inte kan fungera.
 
 ### <a name="quick-actions"></a>Snabbåtgärder
 

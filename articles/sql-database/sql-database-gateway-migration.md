@@ -1,5 +1,5 @@
 ---
-title: Meddelande om Gateway-migrering för Azure SQL Database från Gen2 till Gen3 | Microsoft Docs
+title: Meddelande om migrering av Gateway-trafik för Azure SQL Database | Microsoft Docs
 description: Artikeln innehåller information om migrering av Azure SQL Database Gateway-IP-adresser
 services: sql-database
 ms.service: sql-database
@@ -10,23 +10,23 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 85691464684ff327c01a85bf357514f447564dd7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1fc6c054b32c62fbebaa2af738e25ef0dec362ac
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568117"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981292"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
 
-När Azure-infrastrukturen förbättras kommer Microsoft regelbundet att uppdatera maskin varan så att vi ger bästa möjliga kund upplevelse. Under de kommande månaderna planerar vi att lägga till gatewayer som bygger på nyare maskin varu generationer och avställnings bara gatewayer som bygger på äldre maskin vara i vissa regioner.  
+När Azure-infrastrukturen förbättras kommer Microsoft regelbundet att uppdatera maskin varan så att vi ger bästa möjliga kund upplevelse. Under de kommande månaderna planerar vi att lägga till gatewayer som skapats på nyare maskin varu generationer, migrera trafik till dem och sedan göra inprovisionade gatewayer byggda på äldre maskin vara i vissa regioner.  
 
 Kunderna får ett meddelande via e-post och i Azure Portal väl i förväg om eventuella ändringar av gatewayer som är tillgängliga i varje region. Den senaste informationen kommer att behållas i tabellen [Azure SQL Database Gateway IP-adresser](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) .
 
 ## <a name="impact-of-this-change"></a>Effekt av den här ändringen
 
-Den första rundan av Gateway-avställningen är schemalagd för den 1 september 2019 i följande regioner:
-
+Den första avrundingen av trafikmigrering till nyare gateways har schemalagts för den **14 oktober 2019** i följande regioner:
+- Södra Brasilien
 - Västra USA
 - Västra Europa
 - East US
@@ -40,12 +40,14 @@ Den första rundan av Gateway-avställningen är schemalagd för den 1 september
 - USA, östra 2
 - Östasien
 
-Den inaktiverade IP-adressen slutar att acceptera trafik och eventuella nya anslutnings försök dirigeras till en av Gatewayerna i regionen.
+Trafikmigreringen kommer att ändra den offentliga IP-adress som DNS matchar för SQL Database.
+Du kommer att påverkas om du har
+- Hårdkoda IP-adressen för en viss gateway i din lokala brand vägg
+- Undernät som använder Microsoft. SQL som en tjänst slut punkt men inte kan kommunicera med IP-adresser för gateway
 
-Där du inte ser effekten av den här ändringen:
-
-- Kunder som använder omdirigering som anslutnings princip ser inte någon påverkan.
-- Anslutningar till SQL Database inifrån Azure och användningen av service märken påverkas inte.
+Du påverkas inte om du har 
+- Omdirigering som anslutnings princip
+- Anslutningar till SQL Database inifrån Azure och med service märken
 - Anslutningar som görs med stödda versioner av JDBC-drivrutinen för SQL Server kommer inte att se någon påverkan. Information om vilka JDBC-versioner som stöds finns i [Hämta Microsoft JDBC-drivrutin för SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>Vad du gör om du påverkas

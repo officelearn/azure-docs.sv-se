@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 14bbbb6581d3e6d00db532e343f8362fc44d0044
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c7251b24ccd15971a704b6b47288f49168b27039
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876343"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980887"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installera och konfigurera terraform för att etablera virtuella datorer och annan infrastruktur i Azure
  
@@ -47,10 +47,10 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Om du vill aktivera terraform för att etablera resurser i Azure skapar du ett [tjänst huvud namn för Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli). Tjänstens huvud namn ger dina terraform-skript för att etablera resurser i din Azure-prenumeration.
 
-Om du har flera Azure-prenumerationer ska du först fråga ditt konto med [AZ-konto att Visa](/cli/azure/account#az-account-show) en lista över prenumerations-ID och klient-ID-värden:
+Om du har flera Azure-prenumerationer ska du först fråga ditt konto med [AZ-konto lista](/cli/azure/account#az-account-list) för att hämta en lista över prenumerations-ID och klient-ID-värden:
 
 ```azurecli-interactive
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 Om du vill använda en vald prenumeration ställer du in prenumerationen på den här sessionen med [AZ-kontot](/cli/azure/account#az-account-set). Ställ in miljövariabeln så att den innehåller värdet för `id` det returnerade fältet från den prenumeration som du vill använda: `SUBSCRIPTION_ID`

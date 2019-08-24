@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d58cec644c75baaac37862f445477da92075c44d
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 877769041d1587c6c1b0f4dbaff51d5a1a7924b5
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907351"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997715"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-preview-features"></a>Självstudier: Definiera en ny enhets typ i ditt Azure IoT Central-program (för hands versions funktioner)
 
@@ -70,7 +70,7 @@ Så här skapar du ett nytt Azure IoT Central-program som använder för hands v
 
     Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-Du behöver också en lokal kopia av filen **EnvironmentalSensorInline. capabilitymodel. JSON** som innehåller IoT- [Plug and Play](https://aka.ms/iot-pnp-docs) enhetens kapacitets modell. Du kan ladda ned det [här](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Högerklicka på sidan och välj **Spara som**.
+Du behöver också en lokal kopia av filen **EnvironmentalSensorInline. capabilitymodel. JSON** som innehåller IoT- [Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) enhetens kapacitets modell. Du kan ladda ned det [här](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Högerklicka på sidan och välj **Spara som**.
 
 När du har hämtat filen öppnar du den i en text redigerare och ersätter de båda instanserna av `<YOUR_COMPANY_NAME_HERE>` med ditt namn. Använd bara tecknen a-z, A-Z, 0-9 och under streck.
 

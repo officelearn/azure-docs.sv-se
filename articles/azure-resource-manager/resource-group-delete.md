@@ -1,24 +1,86 @@
 ---
 title: Ta bort resursgruppen och resurser – Azure Resource Manager
-description: Beskriver hur Azure Resource Manager beställningar borttagningen av resurser när en tar bort en resursgrupp. Beskriver svarskoder samt hur Resource Manager hanterar dem för att fastställa om borttagningen lyckades.
+description: Beskriver hur du tar bort resurs grupper och resurser. Det beskriver hur Azure Resource Manager beställer borttagningen av resurser när en resurs grupp tas bort. Beskriver svarskoder samt hur Resource Manager hanterar dem för att fastställa om borttagningen lyckades.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 08/22/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 18990b51b5ff2184197db48fd139d63750626663
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 75cdeb88a68dece59d6b037592f7212fa895e821
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204207"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991703"
 ---
-# <a name="azure-resource-manager-resource-group-deletion"></a>Azure Resource Manager resource borttagning av
+# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager resurs grupp och borttagning av resurs
 
-Den här artikeln beskriver hur Azure Resource Manager beställningar borttagningen av resurser när du tar bort en resursgrupp.
+Den här artikeln visar hur du tar bort resurs grupper och resurser. Det beskriver hur Azure Resource Manager beställer borttagningen av resurser när du tar bort en resurs grupp.
 
-## <a name="determine-order-of-deletion"></a>Fastställa ordningen för borttagning
+## <a name="delete-resource-group"></a>Ta bort resursgrupp
+
+Använd någon av följande metoder för att ta bort resurs gruppen.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name <resource-group-name>
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az group delete --name <resource-group-name>
+```
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+1. I [portalen](https://portal.azure.com)väljer du den resurs grupp som du vill ta bort.
+
+1. Välj **Ta bort resursgrupp**.
+
+   ![Ta bort resursgrupp](./media/resource-group-delete/delete-group.png)
+
+1. Bekräfta borttagningen genom att skriva namnet på resurs gruppen
+
+---
+
+## <a name="delete-resource"></a>Ta bort resurs
+
+Använd någon av följande metoder för att ta bort en resurs.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResource `
+  -ResourceGroupName ExampleResourceGroup `
+  -ResourceName ExampleVM `
+  -ResourceType Microsoft.Compute/virtualMachines
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az resource delete \
+  --resource-group ExampleResourceGroup \
+  --name ExampleVM \
+  --resource-type "Microsoft.Compute/virtualMachines"
+```
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+1. I [portalen](https://portal.azure.com)väljer du den resurs som du vill ta bort.
+
+1. Välj **Ta bort**. Följande skärm bild visar hanterings alternativen för en virtuell dator.
+
+   ![Ta bort resurs](./media/resource-group-delete/delete-resource.png)
+
+1. Bekräfta borttagningen när du uppmanas att göra det.
+
+---
+
+## <a name="how-order-of-deletion-is-determined"></a>Hur borttagnings ordningen bestäms
 
 När du tar bort en resursgrupp, anger Resource Manager den för att ta bort resurser. Den använder följande ordning:
 
@@ -27,8 +89,6 @@ När du tar bort en resursgrupp, anger Resource Manager den för att ta bort res
 2. Resurser som hanterar andra resurser tas bort nästa. En resurs kan ha den `managedBy` egenskapen in för att ange att en annan resurs hanterar den. När den här egenskapen anges tas den resurs som hanterar andra resursen bort innan de övriga resurserna.
 
 3. De återstående resurserna tas bort efter de föregående två kategorierna.
-
-## <a name="resource-deletion"></a>Resursborttagning
 
 När ordningen bestäms utfärdar en borttagningsåtgärd för varje resurs i Resource Manager. Det väntar några beroenden som ska slutföras innan du fortsätter.
 

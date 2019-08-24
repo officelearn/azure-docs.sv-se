@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b0c9d55846a0240dde92de16ea17e9403a112c3e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9264aa6d24256b991abefe35b41045caa2e76d67
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699217"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997786"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrera Mass data till Azure File Sync
 Du kan migrera Mass data till Azure File Sync på två sätt:
@@ -22,9 +22,10 @@ Du kan migrera Mass data till Azure File Sync på två sätt:
 
 Den här artikeln förklarar hur du migrerar filer offline på ett sätt som är kompatibelt med Azure File Sync. Följ dessa anvisningar för att undvika fil konflikter och bevara åtkomst kontrol listorna för filer och mappar (ACL: er) och tidsstämplar när du har aktiverat synkroniseringen.
 
-## <a name="online-migration-tools"></a>Migreringsverktyg för online
-Processen som vi beskriver i den här artikeln fungerar inte bara för Data Box-enhet utan även för andra verktyg för offline-migrering. Det fungerar även för online verktyg som AzCopy, Robocopy, eller partner verktyg och tjänster. Du kan dock lösa den inledande uppladdnings utmaningen, följa stegen i den här artikeln för att använda dessa verktyg på ett sätt som är kompatibelt med Azure File Sync.
+## <a name="migration-tools"></a>Migreringsverktyg
+Processen som vi beskriver i den här artikeln fungerar inte bara för Data Box-enhet utan även för andra verktyg för offline-migrering. Det fungerar också med verktyg som AzCopy, Robocopy, eller partner verktyg och tjänster som fungerar direkt via Internet. Men för att lösa den inledande uppladdnings utmaningen följer du stegen i den här artikeln för att använda dessa verktyg på ett sätt som är kompatibelt med Azure File Sync.
 
+I vissa fall måste du flytta från en Windows-Server till en annan Windows-Server innan du börjar använda Azure File Sync. [Tjänsten för lagringsmigrering](https://aka.ms/storagemigrationservice) (SMS) kan hjälpa dig med det. Oavsett om du behöver migrera till en server-OS-version som stöds av Azure File Sync (Windows Server-2012R2 och uppåt) eller om du bara behöver migrera eftersom du köper ett nytt system för Azure File Sync, har SMS många funktioner och fördelar som hjälper dig att få din migr ållsplats sker smidigt.
 
 ## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>Fördelar med att använda ett verktyg för att överföra data offline
 Här är de främsta fördelarna med att använda ett överförings verktyg som Data Box-enhet för migrering offline:
@@ -71,7 +72,7 @@ Azure File Sync säkerställer att ACL: er för filer och mappar synkroniseras f
 När du aktiverar synkroniseringen bestämmer serverns innehåll formen för namn området. Om filerna tas bort från den lokala servern efter att Data Box-enhet ögonblicks bilden och migreringen är slutförd, flyttas dessa filer inte till Live och synkronisering av namn området. De finns kvar i mellanlagrings resursen, men de kopieras inte. Detta är nödvändigt eftersom synkroniseringen behåller namn området enligt Live-servern. Data Box-enhet *ögonblicks bilden* är bara ett mellanlagrings underlag för effektiv fil kopiering. Det är inte auktoritet för formen på det aktiva namn området.
 
 ## <a name="cleaning-up-after-bulk-migration"></a>Rensa efter Mass migrering 
-När servern har slutfört den första synkroniseringen av namn rummet använder Data Box-enhet Mass-migrerade filer den mellanlagrings fil resursen. På bladet **Server slut punkt egenskaper** i Azure Portal i avsnittet **offline-dataöverföring** ändras **statusen från** pågår till slutförd. 
+När servern har slutfört den första synkroniseringen av namn rummet använder Data Box-enhet Mass-migrerade filer den mellanlagrings fil resursen. På bladet **Server slut punkt egenskaper** i Azure Portal i avsnittet **offline-dataöverföring** ändras statusen från pågår till slutförd. 
 
 ![Skärm bild av bladet Server slut punkts egenskaper där status och inaktivera kontroller för data överföring offline finns](media/storage-sync-files-offline-data-transfer/data-box-integration-3-444.png)
 

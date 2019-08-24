@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: e94c4f179174a3957aef8828687ebf1fbb299903
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c4a70f337166a304bd8664da2180fcda29ca8ac
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967422"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996646"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse via öppen hubb med Azure Data Factory
 
@@ -174,7 +174,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från SAP BW öppna hubb, anger du käll typen i kopierings aktiviteten till **SapOpenHubSource**. Det krävs inga ytterligare typ-/regionsspecifika egenskaper i avsnittet för kopierings aktivitetens **källa** .
 
-För att påskynda data inläsningen kan du ställa [`parallelCopies`](copy-activity-performance.md#parallel-copy) in på kopierings aktiviteten för att läsa in data från SAP BW öppen hubb parallellt. Om du till exempel ställer in `parallelCopies` till fyra kör Data Factory samtidigt fyra RFC-anrop, och varje RFC-anrop hämtar en del av data från SAP BW öppna Hub-tabellen partitionerad med ID för DTP-begäran och paket-ID. Detta gäller när antalet unika ID för DTP-begäran och paket-ID är större än värdet för `parallelCopies`.
+För att påskynda data inläsningen kan du ställa [`parallelCopies`](copy-activity-performance.md#parallel-copy) in på kopierings aktiviteten för att läsa in data från SAP BW öppen hubb parallellt. Om du till exempel ställer in `parallelCopies` till fyra kör Data Factory samtidigt fyra RFC-anrop, och varje RFC-anrop hämtar en del av data från SAP BW öppna Hub-tabellen partitionerad med ID för DTP-begäran och paket-ID. Detta gäller när antalet unika ID för DTP-begäran och paket-ID är större än värdet för `parallelCopies`. När du kopierar data till ett filbaserat data lager, skrivs det också om att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 
 **Exempel:**
 

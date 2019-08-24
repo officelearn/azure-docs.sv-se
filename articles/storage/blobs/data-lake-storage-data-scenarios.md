@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cafe761d2b566a7bddce503765c11bf9f8e00f2a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2954f0bfcfe78243c2df12182f45034f46c8391d
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847444"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991894"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen2 för Big data-krav
 
@@ -25,7 +25,7 @@ Det finns fyra viktiga steg i stor data bearbetning:
 > * Hämtar data
 > * Visualisera data
 
-Börja med att skapa ett lagrings konto och ett fil system. Ge sedan åtkomst till data. De första avsnitten i den här artikeln hjälper dig att utföra dessa uppgifter. I de återstående avsnitten ska vi markera alternativen och verktygen för varje bearbetnings fas.
+Börja med att skapa ett lagrings konto och en behållare. Ge sedan åtkomst till data. De första avsnitten i den här artikeln hjälper dig att utföra dessa uppgifter. I de återstående avsnitten ska vi markera alternativen och verktygen för varje bearbetnings fas.
 
 ## <a name="create-a-data-lake-storage-gen2-account"></a>Skapa ett Data Lake Storage Gen2 konto
 
@@ -33,16 +33,16 @@ Ett Data Lake Storage Gen2 konto är ett lagrings konto som har ett hierarkiskt 
 
 Information om hur du skapar [en finns i snabb start: Skapa ett Azure Data Lake Storage Gen2 lagrings](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)konto.
 
-## <a name="create-a-file-system"></a>Skapa ett filsystem
+## <a name="create-a-container"></a>Skapa en container
 
-Ett *fil system* är en behållare för mappar och filer. Du behöver minst en av dem för att börja mata in data i ditt lagrings konto.  Här är en lista med verktyg som du kan använda för att skapa dem.
+Här är en lista med verktyg som du kan använda för att skapa en behållare för dina filer.
 
 |Verktyg | Riktlinjer |
 |---|--|
-|Azure Lagringsutforskaren | [Skapa ett fil system med hjälp av Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|Azure Lagringsutforskaren | [Skapa en behållare med hjälp av Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
 |AzCopy | [Skapa en BLOB-behållare eller fil resurs med hjälp av AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
-|Kommando rads gränssnitt för Hadoop-filsystem (HDFS) med HDInsight |[Skapa ett fil system med hjälp av HDFS med HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|Kod i en Azure Databricks Notebook|[Skapa ett fil system för lagrings konton (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Skapa ett fil system och montera det (python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
+|Kommando rads gränssnitt för Hadoop container (HDFS) med HDInsight |[Skapa en behållare med hjälp av HDFS med HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
+|Kod i en Azure Databricks Notebook|[Skapa en lagrings konto behållare (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Skapa en behållare och montera den (python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
 Det är enklast att skapa fil system med hjälp av Storage Explorer eller AzCopy. Det tar lite mer arbete att skapa fil system med hjälp av HDInsight och Databricks. Men om du planerar att använda HDInsight-eller Databricks-kluster för att bearbeta dina data ändå, kan du skapa dina kluster först och använda HDFS CLI för att skapa fil system.  
 

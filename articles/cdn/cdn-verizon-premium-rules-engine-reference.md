@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 5fc611af75a7f733576f9343a4375fb56cacc030
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: aab93204c850223756f28a56ea550f912e28e0d2
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67593153"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996762"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Azure CDN från Verizon Premium-regel motor referens
 
@@ -70,6 +70,8 @@ Specialtecken | Beskrivning
 \* | En asterisk tillåter att föregående tecken matchas noll eller flera gånger.
 Blanksteg | Ett blank stegs tecken behandlas vanligt vis som ett tecken.
 värde | Enkla citat tecken behandlas som litterala tecken. En uppsättning enkla citat tecken har ingen särskild betydelse.
+
+Matcha villkor och funktioner som stöder reguljära uttryck accepterar mönster som definieras av perl-kompatibla reguljära uttryck (PCRE).
 
 ## <a name="next-steps"></a>Nästa steg
 

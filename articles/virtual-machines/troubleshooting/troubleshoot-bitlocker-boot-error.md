@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/25/2019
+ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: 27a675982711f8d8f0b36ea0cc2600de45e97a6e
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c96c8ef5e5bd9758cf270946da1e90bb12e8bca0
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348452"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998008"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker-startfel på en virtuell Azure-dator
 
@@ -127,26 +127,27 @@ Om den här metoden inte löser problemet följer du dessa steg för att återst
     ```
     I det här exemplet är den anslutna OS-disken enhet F. kontrol lera att du använder rätt enhets beteckning. 
 
-    - Om disken har låsts upp med BEK-nyckeln. Vi kan överväga att BitLocker-problemet ska lösas. 
+8. När disken har låsts upp med BEK-nyckeln kopplar du bort disken från den virtuella återställnings datorn och återskapar sedan den virtuella datorn med hjälp av den nya OS-disken.
 
-    - Om du inte låser upp disken med BEK-nyckeln kan du använda Suspend-skyddet för att tillfälligt stänga av BitLocker genom att köra följande kommando
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - Om du ska återskapa den virtuella datorn med hjälp av dytem-disken måste du helt dekryptera enheten. Gör detta genom att köra följande kommando:
+    > [!NOTE]
+    > Växling av operativ system disk stöds inte för virtuella datorer som använder disk kryptering.
 
-        ```powershell
-        manage-bde -off F:
-        ```
-8.  Koppla bort disken från den virtuella återställnings datorn och återanslut sedan disken till den virtuella datorn som en system disk. Mer information finns i [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator för återställning](troubleshoot-recovery-disks-windows.md).
+9. Om den nya virtuella datorn fortfarande inte kan starta normalt kan du prova något av följande när du har låst upp enheten:
+
+    - Pausa skyddet för att tillfälligt stänga av BitLocker genom att köra följande:
+
+                    manage-bde -protectors -disable F: -rc 0
+           
+    - Dekryptera enheten helt. Gör detta genom att köra följande kommando:
+
+                    manage-bde -off F:
 
 ### <a name="key-encryption-key-scenario"></a>Nyckel krypterings nyckel scenario
 
 Följ dessa steg för ett scenario med nyckel krypterings nyckel:
 
 1. Se till att det inloggade användar kontot kräver behörigheten "unwrap" i Key Vault åtkomst principer i **användaren | Nyckel behörigheter | Kryptografiska åtgärder | Unwrap-nyckel**.
-2. Spara följande skript i en. PS1-fil:
+2. Spara följande skript till en. PS1-fil:
 
     ```powershell
     #Set the Parameters for the script
@@ -184,6 +185,7 @@ Följ dessa steg för ett scenario med nyckel krypterings nyckel:
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
     $authResult = $authContext.AcquireTokenAsync($resourceAppIdURI, $clientId, $redirectUri, $platformParameters).result
     # Generate auth header 
     $authHeader = $authResult.CreateAuthorizationHeader()
@@ -231,7 +233,7 @@ Följ dessa steg för ett scenario med nyckel krypterings nyckel:
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
     ```
-3. Ange parametrarna. Skriptet bearbetar KEK-hemligheten för att skapa BEK-nyckeln och sparar den sedan i en lokal mapp på den virtuella återställnings datorn.
+3. Ange parametrarna. Skriptet bearbetar KEK-hemligheten för att skapa BEK-nyckeln och sparar den sedan i en lokal mapp på den virtuella återställnings datorn. Om du får fel meddelanden när du kör skriptet, se avsnittet [skript fel sökning](#script-troubleshooting) .
 
 4. Följande utdata visas när skriptet börjar:
 
@@ -254,17 +256,38 @@ Följ dessa steg för ett scenario med nyckel krypterings nyckel:
     ```
     I det här exemplet är den anslutna OS-disken enhet F. kontrol lera att du använder rätt enhets beteckning. 
 
-    - Om disken har låsts upp med BEK-nyckeln. Vi kan överväga att BitLocker-problemet ska lösas. 
+6. När disken har låsts upp med BEK-nyckeln kopplar du bort disken från den virtuella återställnings datorn och återskapar sedan den virtuella datorn med hjälp av den nya OS-disken. 
 
-    - Om du inte låser upp disken med BEK-nyckeln kan du använda Suspend-skyddet för att tillfälligt stänga av BitLocker genom att köra följande kommando
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - Om du ska återskapa den virtuella datorn med hjälp av dytem-disken måste du helt dekryptera enheten. Gör detta genom att köra följande kommando:
+    > [!NOTE]
+    > Växling av operativ system disk stöds inte för virtuella datorer som använder disk kryptering.
 
-        ```powershell
-        manage-bde -off F:
-        ```
+7. Om den nya virtuella datorn fortfarande inte kan starta normalt kan du prova något av följande när du har låst upp enheten:
 
-6. Koppla bort disken från den virtuella återställnings datorn och återanslut sedan disken till den virtuella datorn som en system disk. Mer information finns i [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator för återställning](troubleshoot-recovery-disks-windows.md).
+    - Pausa skyddet för att tillfälligt stänga av BitLocker genom att köra följande kommando:
+
+             manage-bde -protectors -disable F: -rc 0
+           
+    - Dekryptera enheten helt. Gör detta genom att köra följande kommando:
+
+                    manage-bde -off F:
+## <a name="script-troubleshooting"></a>Skript fel sökning
+
+**Fel: Det gick inte att läsa in filen eller sammansättningen**
+
+Felet beror på att Sök vägarna för ADAL-sammansättningarna är felaktiga. Om AZ-modulen bara är installerad för den aktuella användaren, finns ADAL-sammansättningarna i `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
+
+Du kan också söka efter `Az.Accounts` en mapp för att hitta rätt sökväg.
+
+**Fel: Get-AzKeyVaultSecret eller get-AzKeyVaultSecret känns inte igen som namnet på en cmdlet**
+
+Om du använder den gamla AZ PowerShell-modulen måste du ändra de två kommandona till `Get-AzureKeyVaultSecret` och `Get-AzureKeyVaultSecret`.
+
+**Parameter exempel**
+
+| Parametrar  | Värde exempel  |Kommentar   |
+|---|---|---|
+|  $keyVaultName | myKeyVault2112852926  | Namnet på nyckel valvet som lagrar nyckeln |
+|$kekName   |mykey   | Namnet på den nyckel som används för att kryptera den virtuella datorn|
+|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | Namnet på hemligheten för den virtuella dator nyckeln|
+|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D. BEK |Sökvägen för att skriva BEK-filen.|
+|$adTenant  |contoso.onmicrosoft.com   | FQDN eller GUID för Azure Active Directory som är värd för nyckel valvet |

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 3b50b0e81103f0b4c8ffa757673c9ec0ef652fc0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 45f7db943499b8a722b8e203d676d1d80eb5091e
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614123"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996684"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -430,13 +430,15 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
 
 2. **Käll data formatet** är av **Parquet**, **Orc**eller avgränsad **text**, med följande konfigurationer:
 
-   1. Mappsökvägen innehåller inte filter för jokertecken.
-   2. Fil namnet pekar på en enskild fil eller är `*` eller `*.*`.
-   3. `rowDelimiter` måste vara **\n**.
-   4. `nullValue` anges antingen till **tom sträng** (””) eller till vänster som standard och `treatEmptyAsNull` är lämnas som standard eller angetts till true.
-   5. `encodingName` anges till **utf-8**, vilket är standardvärdet.
+   1. Mappsökvägen innehåller inte något filter för jokertecken.
+   2. Fil namnet är tomt eller pekar på en enskild fil. Om du anger jokertecken som fil namn i kopierings aktiviteten, kan `*` det `*.*`bara vara eller.
+   3. `rowDelimiter`är **standard**, **\n**, **\r\n**eller **\r**.
+   4. `nullValue`är kvar som standard eller inställt på **tom sträng** ("") `treatEmptyAsNull` och är kvar som standard eller anges till sant.
+   5. `encodingName`är kvar som standard eller anges till **UTF-8**.
    6. `quoteChar`, `escapeChar`, och `skipLineCount` har inte angetts. Stöd för PolyBase hoppa över rubrikraden, vilket kan konfigureras som `firstRowAsHeader` i ADF.
    7. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
+
+3. Om din källa är en mapp `recursive` måste i kopierings aktiviteten vara inställd på sant.
 
 ```json
 "activities":[
@@ -445,7 +447,7 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "BlobDataset",
+                "referenceName": "ParquetDataset",
                 "type": "DatasetReference"
             }
         ],
@@ -457,7 +459,11 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
         ],
         "typeProperties": {
             "source": {
-                "type": "BlobSource",
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true
+                }
             },
             "sink": {
                 "type": "SqlDWSink",

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 90a9c67a11b54490b801ec65f691b4ae853ab4f2
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 4c26431ee0d506dda547fb4027845baa15c9a134
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972216"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997890"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -254,11 +254,11 @@ Om du vill visa en lista över alternativ skriver du `CosmosDB.Emulator.exe /?` 
 |EnableTableEndpoint | Aktiverar Azure Tabell-API | CosmosDB. emulator. exe/EnableTableEndpoint | |
 |TablePort | Port nummer som ska användas för Azure Table-slutpunkten. Standardvärdet är 8902. | CosmosDB. emulator. exe/TablePort =\<port\> | \<port\>: Enskilt portnummer|
 | KeyFile | Läs verifierings nyckel från den angivna filen. Använd alternativet/GenKeyFile för att generera en KeyFile | CosmosDB. emulator. exe/KeyFile =\<fil namn\> | \<fil\>namn: Sökväg till filen |
-| ResetDataPath | Tar rekursivt bort alla filer på den angivna sökvägen. Om du inte anger en sökväg, används%LOCALAPPDATA%\CosmosDbEmulator som standard | CosmosDB. emulator. exe/ResetDataPath [=\<sökväg >] | \<sökväg\>: Filsökväg  |
+| ResetDataPath | Tar rekursivt bort alla filer på den angivna sökvägen. Om du inte anger en sökväg, används%LOCALAPPDATA%\CosmosDbEmulator som standard | CosmosDB. emulator. exe/ResetDataPath =\<sökväg > | \<sökväg\>: Filsökväg  |
 | StartTraces  |  Börja samla in fel söknings spårnings loggar. | CosmosDB. emulator. exe/StartTraces | |
 | StopTraces     | Avbryt insamlingen av fel söknings spårnings loggar. | CosmosDB. emulator. exe/StopTraces  | |
 |FailOnSslCertificateNameMismatch | Som standard återskapar emulatorn sitt självsignerade SSL-certifikat om certifikatets SAN inte innehåller emulatorns domän namn, lokal IPv4-adress, localhost och 127.0.0.1. Med det här alternativet går det inte att starta emulatorn vid start i stället. Du bör sedan använda alternativet/GenCert för att skapa och installera ett nytt självsignerat SSL-certifikat. | CosmosDB. emulator. exe/FailOnSslCertificateNameMismatch  | |
-| GenCert | Skapa och installera ett nytt självsignerat SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | CosmosDB. emulator. exe/GenCert [ \<kommaavgränsad lista över ytterligare DNS-namn]\> | |
+| GenCert | Skapa och installera ett nytt självsignerat SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | CosmosDB. emulator. exe/GenCert =\<DNS-Names\> |\<DNS-namn\>: Valfri kommaavgränsad lista över ytterligare DNS-namn  |
 | DirectPorts |Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: Kommaavgränsad lista över 4 portar |
 | Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | CosmosDB.Emulator.exe /Key:\<key\> | \<nyckel\>: Nyckeln måste vara en base-64-kodning av en 64 bytes vektor|
 | EnableRateLimiting | Anger att begränsande beteende för förfrågningsfrekvens är aktiverat. |CosmosDB.Emulator.exe /EnableRateLimiting | |

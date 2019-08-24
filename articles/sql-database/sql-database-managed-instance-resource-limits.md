@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: e5dc449dc51faccdd8c0e69337cc5f8ac19fa296
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 776a27ca0babfd7557bf4d16c449a8dfa5bceaf7
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874405"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998200"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -42,7 +42,8 @@ Azure SQL Database Hanterad instans kan distribueras på två maskin varu genera
 | Högsta reserverade instans lagring |  Generell användning: 8 TB<br/>Affärskritisk: 1 TB | Generell användning: 8 TB<br/> Affärskritisk 1 TB, 2 TB eller 4 TB beroende på antalet kärnor |
 
 > [!IMPORTANT]
-> Nya Gen4-databaser stöds inte längre i regionerna Australien, östra eller Brasilien, södra.
+> - Gen4-maskinvaran har fasats ut. Vi rekommenderar att du distribuerar nya hanterade instanser på Gen5-maskinvara.
+> - Gen4 maskin vara för närvarande är tillgänglig i följande regioner: Nord Europa, Västeuropa, östra USA, södra centrala USA, norra centrala USA, västra USA 2, centrala USA, centrala Kanada, södra Indien, Sydostasien och Korea, centrala.
 
 ### <a name="service-tier-characteristics"></a>Egenskaper för tjänst nivå
 
@@ -80,8 +81,8 @@ Den hanterade instansen stöder för närvarande endast distribution av följand
 - [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
-- [Enterprise dev/test](https://azure.microsoft.com/offers/ms-azr-0148p/)
-- [Betala per användning – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Prenumerationer med månatlig Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
 
 ## <a name="regional-resource-limitations"></a>Begränsningar för regionala resurser
@@ -106,7 +107,7 @@ Följande tabell visar de regionala standard gränserna för prenumerationer som
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional och MSDN-plattformar|2|32|
 
-\*När du planerar distributionen bör du tänka på att en Affärskritisk (BC) vCore (på grund av ytterligare redundans) förbrukar mer kapacitet än en Generell användning (GP) vCore. Så för dina beräkningar, 1 GP-vCore = 1 vCore-enhet och 1 BC vCore = 4 vCore-enheter. För att förenkla förbruknings analysen mot standard gränserna ska du sammanfatta vCore-enheterna över alla undernät i den region där hanterade instanser distribueras och jämföra resultaten med instans enhets gränserna för din prenumerations typ. Gränsen **för antalet vCore-enheter** gäller för varje prenumeration i en region. Det finns ingen gräns per enskilda undernät förutom att summan av alla virtuella kärnor som distribueras över flera undernät måste vara lägre eller lika med **Max antalet vCore-enheter**.
+\*Vid planering av distributioner bör du tänka på att Affärskritisk (BC) tjänst nivån kräver fyra (4) gånger mer vCore-kapacitet än Generell användning (GP). Exempel: 1 GP-vCore = 1 vCore-enhet och 1 BC-vCore = 4 vCore-enheter. För att förenkla förbruknings analysen mot standard gränserna ska du sammanfatta vCore-enheterna över alla undernät i den region där hanterade instanser distribueras och jämföra resultaten med instans enhets gränserna för din prenumerations typ. Gränsen **för antalet vCore-enheter** gäller för varje prenumeration i en region. Det finns ingen gräns per enskilda undernät förutom att summan av alla virtuella kärnor som distribueras över flera undernät måste vara lägre eller lika med **Max antalet vCore-enheter**.
 
 \*\*Större gränser för undernät och vCore är tillgängliga i följande regioner: Östra Australien, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2.
 

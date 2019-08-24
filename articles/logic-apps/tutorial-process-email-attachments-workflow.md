@@ -1,5 +1,5 @@
 ---
-title: Självstudie – automatisera bearbetning av e-postmeddelanden och bifogade filer – Azure Logic Apps
+title: Självstudie – automatisera bearbetning av e-post och bilagor – Azure Logic Apps
 description: Självstudie – Skapa automatiska arbetsflöden som hanterar e-postmeddelanden och bifogade filer med Azure Logic Apps, Azure Storage och Azure Functions
 services: logic-apps
 ms.service: logic-apps
@@ -10,12 +10,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: d203f5f10c7a24b63693a7fe5d6387be284d5034
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312652"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982998"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Självstudie: Hantera e-postmeddelanden och bilagor automatiskt med Azure Logic Apps
 
@@ -37,7 +37,7 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ![Logikapp på hög nivå](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -56,20 +56,20 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
 Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontainer](../storage/common/storage-introduction.md). 
 
-1. Innan du kan skapa en lagringsbehållare [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) med de här inställningarna på den **grunderna** fliken i Azure portal:
+1. Innan du kan skapa en lagrings behållare [skapar du ett lagrings konto](../storage/common/storage-quickstart-create-account.md) med de här inställningarna på fliken **grundläggande** i Azure Portal:
 
    | Inställning | Värde | Beskrivning |
    |---------|-------|-------------|
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Azure-prenumerationens namn |  
-   | **Resursgrupp** | LA-Tutorial-RG | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera och hantera relaterade resurser. <p>**Obs!** En resursgrupp finns i en viss region. Trots att objekten i den här självstudien kanske inte är tillgängliga i alla regioner ska du försöka att använda samma region när det är möjligt. |
-   | **Lagringskontonamn** | attachmentstorageacct | Namnet på lagringskontot |
-   | **Location** | Västra USA | Regionen där informationen om lagringskontot ska lagras |
+   | **Resursgrupp** | <*Azure-resource-group*> | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera och hantera relaterade resurser. I det här exemplet används "LA-självstudie-RG". <p>**Obs:** En resursgrupp finns i en viss region. Trots att objekten i den här självstudien kanske inte är tillgängliga i alla regioner ska du försöka att använda samma region när det är möjligt. |
+   | **Lagringskontonamn** | <*Azure-Storage – konto-namn*> | Ditt lagrings konto namn, som måste innehålla 3-24 tecken och får bara innehålla gemena bokstäver och siffror. I det här exemplet används "attachmentstorageacct". |
+   | **Location** | <*Azure-region*> | Den region där du vill lagra information om ditt lagrings konto. I det här exemplet används "västra USA". |
    | **Prestanda** | Standard | Den här inställningen anger datatyper som stöds och media för att lagra data. Se [Typer av lagringskonton](../storage/common/storage-introduction.md#types-of-storage-accounts). |
-   | **Typ av konto** | Generellt syfte | [Lagringskontotyp](../storage/common/storage-introduction.md#types-of-storage-accounts) |
+   | **Typ av konto** | Allmänt | [Lagringskontotyp](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **Replikering** | Lokalt redundant lagring (LRS) | Den här inställningen anger hur dina data kopieras, lagras, hanteras och synkroniseras. Se [Lokalt redundant lagring (LRS): Dataredundans med låg kostnad för Azure Storage](../storage/common/storage-redundancy-lrs.md). |
    ||||
 
-   På den **Avancerat** fliken, Välj den här inställningen:
+   Välj den här inställningen på fliken **Avancerat** :
 
    | Inställning | Värde | Beskrivning |
    |---------|-------|-------------|
@@ -78,7 +78,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
 
    När du skapar lagringskontot kan du också använda [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) och [Azure CLI](../storage/common/storage-quickstart-create-storage-account-cli.md).
 
-1. När du är klar väljer **granska + skapa**.
+1. När du är klar väljer du **Granska + skapa**.
 
 1. När Azure har distribuerat ditt lagringskonto hämtar du åtkomstnyckeln för ditt lagringskonto:
 
@@ -93,7 +93,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
 1. Skapa en bloblagringscontainer för e-postbilagor.
 
    1. Navigera till lagringskontots meny. Välj **Översikt**. 
-   Under **Services**, Välj **Blobar**.
+   Under **tjänster**väljer du **blobbar**.
 
       ![Lägg till bloblagringscontainer](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
@@ -145,12 +145,12 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
 
    | Inställning | Värde | Beskrivning |
    | ------- | ----- | ----------- |
-   | **Appens namn** | <*funktionen appens namn*> | Din funktionsapp beskrivande och globalt unikt namn, som är ”CleanTextFunctionApp” i det här exemplet, så ange ett annat namn, till exempel ”MyCleanTextFunctionApp” |
+   | **Appens namn** | <*funktion-App-Name*> | Din funktions programs beskrivande och globalt unika namn, vilket är "CleanTextFunctionApp" i det här exemplet, så ange ett annat namn, till exempel "MyCleanTextFunctionApp" |
    | **Prenumeration** | <*your-Azure-subscription-name*> | Samma Azure-prenumeration som du tidigare använt | 
    | **Resursgrupp** | LA-Tutorial-RG | Samma Azure-resursgrupp som du tidigare använt |
    | **Värdplan** | Förbrukningsplan | Den här inställningen avgör hur resurser ska allokeras och skalas, som datorkraft, för att köra din funktionsapp. Se [jämförelse av värdplaner](../azure-functions/functions-scale.md). | 
    | **Location** | Västra USA | Samma region som du tidigare använt |
-   | **Körningsstack** | Önskat språk | Välj en körning som stöder dina favorit-funktionen programmeringsspråket. Välj **.NET** för C# och F# funktioner. |
+   | **Körningsstack** | Önskat språk | Välj en körning som stöder ditt favorit funktions programmeringsspråk. Välj **.net** for C# och F# functions. |
    | **Storage** | cleantextfunctionstorageacct | Skapa ett lagringskonto för din funktionsapp. Använd bara gemena bokstäver och siffror. <p>**Obs!** Lagringskontot innehåller dina funktionsappar och skiljer sig från ditt tidigare skapade lagringskonto för e-postbilagor. |
    | **Application Insights** | Av | Aktiverar programövervakning med [Application Insights](../azure-monitor/app/app-insights-overview.md), men för den här självstudien ska du välja inställningen **Av**. |
    ||||
@@ -168,19 +168,19 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
 
    För att skapa en funktionsapp kan du också använda [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md), [PowerShell- och Resource Manager-mallar](../azure-resource-manager/resource-group-template-deploy.md).
 
-2. Under **Funktionsappar**, expandera din funktionsapp, som är ”CleanTextFunctionApp” i det här exemplet och välj **Functions**. I funktionsverktygsfältet väljer du **New function** (Ny funktion).
+2. Under **Function-appar**expanderar du din Function-app, som är "CleanTextFunctionApp" i det härexemplet och väljer functions. I funktionsverktygsfältet väljer du **New function** (Ny funktion).
 
    ![Skapa ny funktion](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
-3. Under **Välj en mall nedan eller gå till snabbstarten**väljer den **HTTP-utlösare** mall.
+3. Under **Välj en mall nedan eller gå till snabb**starten väljer du mallen **http-** utlösare.
 
-   ![Välj utlösarmallen för HTTP](./media/tutorial-process-email-attachments-workflow/function-select-httptrigger-csharp-function-template.png)
+   ![Välj mall för HTTP-utlösare](./media/tutorial-process-email-attachments-workflow/function-select-httptrigger-csharp-function-template.png)
 
-   Azure skapar en funktion med en språkspecifik mall för en HTTP-utlöst funktion.
+   Azure skapar en funktion med hjälp av en språkspecifik mall för en HTTP-utlöst funktion.
 
 4. I fönstret **New Function** (Ny funktion) under **Name** (Namn) skriver du `RemoveHTMLFunction`. Behåll inställningen för **Authorization level** (Auktorisationsnivå) som **Function** (Funktion) och välj **Create** (Skapa).
 
-   ![Namnge din funktion](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
+   ![Ge funktionen ett namn](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
 
 5. När redigeringsprogrammet öppnas ersätter du mallkoden med den här exempelkoden som tar bort HTML och returnerar resultatet till anroparen:
 
@@ -272,7 +272,7 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
 3. Nu anger du villkoret utlösaren använder för att filtrera ny e-post.
 
-   1. Ange inställningarna för att kontrollera e-postmeddelanden.
+   1. Ange de här inställningarna för att kontrol lera e-postmeddelanden.
 
       ![Ange mapp, intervall och frekvens för att kontrollera e-postmeddelanden](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
@@ -285,9 +285,9 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
       | **Frekvens** | Minut | Tidsenhet för varje intervall mellan kontroller |
       ||||
   
-   1. Från den **Lägg till ny parameter** väljer **Ämnesfilter**.
+   1. I listan **Lägg till ny parameter** väljer du **ämnes filter**.
 
-   1. Efter den **Ämnesfilter** visas i åtgärden, ange ämnet som anges här:
+   1. När rutan **ämnes filter** visas i åtgärden anger du det ämne som visas här:
 
       | Inställning | Värde | Beskrivning |
       | ------- | ----- | ----------- |
@@ -307,16 +307,16 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
 Nu ska du lägga till ett villkor som väljer endast e-postmeddelanden med bifogade filer.
 
-1. Under utlösaren väljer **nytt steg**.
+1. Under utlösaren väljer du **nytt steg**.
 
-   ![”Nytt steg”](./media/tutorial-process-email-attachments-workflow/add-condition-under-trigger.png)
+   !["Nytt steg"](./media/tutorial-process-email-attachments-workflow/add-condition-under-trigger.png)
 
-2. Under **Välj en åtgärd**, i sökrutan anger du ”villkor”. Välj den här åtgärden: **Villkor - kontroll**
+2. Under **Välj en åtgärd**i rutan Sök anger du "Condition". Välj den här åtgärden: **Villkor-kontroll**
 
-   ![Välj ”villkor”](./media/tutorial-process-email-attachments-workflow/select-condition.png)
+   ![Välj "villkor"](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
    1. Byt namn på villkoret med en bättre beskrivning. 
-   I den villkorets rubriklist väljer du den **ellipserna** ( **...** ) knappen > **Byt namn på**.
+   I villkorets rubrik fält väljer du knappen med **tre punkter** ( **...** ) > **Byt namn**.
 
       ![Byt namn på villkor](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
@@ -399,7 +399,7 @@ I det här steget lägger du till den tidigare skapade Azure-funktionen i logika
 
    ![Välj åtgärd för Choose an Azure function (Välj en Azure-funktion)](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Välj ditt tidigare skapade funktionsapp, som är ”CleanTextFunctionApp” i det här exemplet:
+3. Välj din tidigare skapade Function-app, som är "CleanTextFunctionApp" i det här exemplet:
 
    ![Välj Azure-funktionsapp](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
@@ -513,13 +513,13 @@ Lägg sedan till en loop för att bearbeta alla bilagor.
 
 För att bearbeta varje bilaga i e-postmeddelandet lägger du till en **For each**-loop (för varje) i logikappens arbetsflöde.
 
-1. Under den **skapa blob för e-postmeddelandets brödtext** form, väljer **Lägg till en åtgärd**.
+1. Under formen **skapa BLOB för e-postbrödtext** väljer du **Lägg till en åtgärd**.
 
    ![Lägg till en "for each"-loop (för varje-loop)](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
-1. Under **Välj en åtgärd**, ange ”för var och en” i sökrutan som filter. Välj den här åtgärden: **För varje - kontroll**
+1. Under **Välj en åtgärd**i sökrutan anger du "för varje" som filter. Välj den här åtgärden: **För varje-kontroll**
 
-   ![Välj ”för var och en”](./media/tutorial-process-email-attachments-workflow/select-for-each.png)
+   ![Välj "för varje"](./media/tutorial-process-email-attachments-workflow/select-for-each.png)
 
 1. Byt namn på loopen med den här beskrivningen: ```For each email attachment```
 
@@ -618,11 +618,11 @@ Lägg sedan till en åtgärd så att logikappen skickar e-post för att granska 
 
    Om du inte hittar ett förväntat fält i den dynamiska innehållslistan väljer du **See more** (Visa fler) brevid **When a new email arrives** (När ett nytt e-postmeddelande kommer).
 
-   | Inställning | Värde | Anteckningar | 
+   | Inställning | Value | Anteckningar | 
    | ------- | ----- | ----- | 
    | **Brödtext** | ```Please review new applicant:``` <p>```Applicant name:``` **Från** <p>```Application file location:``` **Sökväg** <p>```Application email content:``` **Brödtext** | E-postmeddelandets brödtext. Klicka i den här rutan, ange exempeltext och välj de här fälten på den dynamiska innehållslistan: <p>- Fältet **Från** under **När ett nytt e-postmeddelande kommer** </br>- Fältet **Sökväg** under **Skapa blob för e-postmeddelandets brödtext** </br>- Fältet **Brödtext** under **Call RemoveHTMLFunction to clean email body** (Anropa RemoveHTMLFunction för att rensa e-postmeddelandets brödtext) |
-   | **Ämne**  | ```ASAP - Review applicant for position:``` **Ämne** | E-postämnet du vill ha. Klicka i den här rutan, ange exempeltexten och välj fältet **Subject** (Ämne) under **When a new email arrives** (När ett nytt e-postmeddelande kommer). |
-   | **Till** | <*mottagarens-e-postadress*> | I testsyfte kan du använda din egen e-postadress. |
+   | **Subject**  | ```ASAP - Review applicant for position:``` **Ämne** | E-postämnet du vill ha. Klicka i den här rutan, ange exempeltexten och välj fältet **Subject** (Ämne) under **When a new email arrives** (När ett nytt e-postmeddelande kommer). |
+   | **To** | <*mottagarens-e-postadress*> | I testsyfte kan du använda din egen e-postadress. |
    ||||
 
    > [!NOTE]
@@ -640,7 +640,7 @@ Nu testar du logikappen, som nu ser ut som i det här exemplet:
 
    * E-postmeddelandets ämne innehåller den text du har angett i utlösarens **ämnesfilter**: ```Business Analyst 2 #423501```
 
-   * Din e-post har en eller flera bilagor. 
+   * Ditt e-postmeddelande har en eller flera bilagor. 
    Du kan återanvända en tom textfil från föregående test. 
    Bifoga en återstartsfil för ett mer realistiskt scenario.
 

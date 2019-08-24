@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 07/23/2019
+ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f2dab34ea0ef64f4062819e9b2d475e6a226856b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: b67986fdc53a2b927f6481846ab179a826490c01
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405435"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995707"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Övervaka din arbetsbelastning med DMV:er
 Den här artikeln beskriver hur du använder DMV: er (Dynamic Management views) för att övervaka din arbets belastning. Detta inkluderar undersökning av frågekörningen i Azure SQL Data Warehouse.
@@ -206,9 +206,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-Om du har en fråga som förbrukar en stor mängd minne eller har fått ett fel meddelande som rör allokering av tempdb, beror det ofta på en mycket stor [CREATE TABLE som Select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) eller [insert Select](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) -instruktionen som körs och som inte fungerar i åtgärd för slutgiltig data förflyttning. Detta kan vanligt vis identifieras som en ShuffleMove-åtgärd i den distribuerade fråge planen direkt före den slutliga INFOGNINGen.
+Om du har en fråga som förbrukar en stor mängd minne eller har fått ett fel meddelande som rör allokering av tempdb, kan det bero på en mycket stor [CREATE TABLE som Select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) eller [insert Select](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) -instruktionen som körs och som inte fungerar i åtgärd för slutgiltig data förflyttning. Detta kan vanligt vis identifieras som en ShuffleMove-åtgärd i den distribuerade fråge planen direkt före den slutliga INFOGNINGen.  Använd [sys. DM _pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) för att övervaka ShuffleMove-åtgärder. 
 
-Den vanligaste lösningen är att bryta din CTAS eller infoga SELECT-instruktion i flera load-instruktioner så att data volymen inte överskrider tempdb-gränsen på 1 TB per nod. Du kan också skala klustret till en större storlek som kommer att sprida tempdb-storleken mellan fler noder som minskar tempdb på varje enskild nod. 
+Den vanligaste lösningen är att bryta din CTAS eller infoga SELECT-instruktion i flera load-instruktioner så att data volymen inte överskrider tempdb-gränsen på 1 TB per nod. Du kan också skala klustret till en större storlek som kommer att sprida tempdb-storleken mellan fler noder som minskar tempdb på varje enskild nod.
+
+Förutom CTAS och INSERT SELECT-instruktioner, kan stora, komplexa frågor som körs med otillräckligt minne spill i tempdb som orsakar att frågor inte kan köras.  Överväg att köra med en större [resurs klass](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) för att undvika spill i tempdb.
 
 ## <a name="monitor-memory"></a>Övervaka minne
 

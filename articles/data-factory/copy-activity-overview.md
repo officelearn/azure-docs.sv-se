@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 23ae7b5cfec26fb2483a3e4ac13a1220888d76ee
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 59ac4b36a4bc2b3ff454b3a2ae98ce60f6bfcb5f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614261"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996611"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopiera aktivitet i Azure Data Factory
 
@@ -263,9 +263,6 @@ I det här exemplet, under kopierings körningen, visas ett meddelande om att mo
 
 ## <a name="incremental-copy"></a>Inkrementell kopia
 Data Factory stöder scenarier för att stegvis kopiera delta data från ett käll data lager till ett data lager för mottagare. Se [självstudie: kopiera data stegvis](tutorial-incremental-copy-overview.md).
-
-## <a name="read-and-write-partitioned-data"></a>Läsa och skriva partitionerade data
-I version 1 stöd för Azure Data Factory läsa eller skriva partitionerade data med hjälp av SliceStart/SliceEnd/WindowStart/WindowEnd systemvariabler. I den aktuella versionen kan du göra detta med hjälp av en pipeline-parameter och utlösarens schemalagd tid/starttid som ett värde för parametern. Mer information finns i [hur att läsa eller skriva partitionerade data](how-to-read-write-partitioned-data.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande snabbstarter, självstudier och exempel:

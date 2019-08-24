@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c6a76f4188ecbf6ca778fdbcd23ac9fed2f60dde
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 024cc18f537334a4e9fb260864b13ac027af582f
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534658"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982687"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Fel sökning av problem med Uppdateringshantering
 
@@ -339,7 +339,7 @@ Om du inte kan lösa ett uppdaterings problem gör du en kopia av följande logg
 ### <a name="machines-do-not-install-updates"></a>Datorer installerar inte uppdateringar
 
 * Försök att köra uppdateringar direkt på datorn. Om datorn inte kan uppdatera läser du [listan över potentiella fel i felsökningsguiden](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
-* Om uppdateringar körs lokalt försöker du att ta bort och installera om agenten på datorn genom att följa anvisningarna i [”Ta bort en virtuell dator från Uppdateringshantering”](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-for-update-management).
+* Om uppdateringar körs lokalt försöker du att ta bort och installera om agenten på datorn genom att följa anvisningarna i [”Ta bort en virtuell dator från Uppdateringshantering”](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management).
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-needed-on-my-machines"></a>Jag vet att uppdateringar är tillgängliga, men de visas inte vid behov på mina datorer
 

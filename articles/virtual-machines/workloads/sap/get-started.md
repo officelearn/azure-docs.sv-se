@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da7b9c44d15ac0ca16afe15e429a6fe2cf89e366
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: a8737d468b49904eaa16e873dd5d468b4eed6fb6
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575235"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992010"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -121,7 +121,7 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 
 ## <a name="change-log"></a>Ändringslogg
-
+- 08/22/2019: Ändringar i [ställa in pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att uppdatera URL: erna för att skapa en anpassad roll  
 - 08/16/2019: Ändringar i [ställa in pacemaker på Red Hat Enterprise Linux i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) för att påminna kunder om att uppdatera åtgärderna i den anpassade rollen, om de uppdateras till den nya versionen av Azure stängsel-agenten  
 - 08/15/2019: Ändringar i [SAP HANA lagrings konfiguration för virtuella Azure-datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) för att avspegla allmän tillgänglighet för Ultra disk (tidigare Ultra SSD)
 - 08/01/2019: Ändringar av att konfigurera [pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att integrera ändringar specifikt för SLES 15 

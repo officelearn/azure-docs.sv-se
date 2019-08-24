@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: bf9bb7adfa25ea16498a32b57d4927de7e81c007
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 98b97abf9fe0d8e71f93022dcbfeff0a5339d5a1
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826911"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983084"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrera Apache Spark och Apache Hive med Hive-lagrets koppling
 
@@ -51,7 +51,7 @@ Följ dessa steg om du vill konfigurera Hive-lagrets koppling mellan ett Spark-o
 
         ![Spark2 Ambari-konfiguration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. Ange `spark.hadoop.hive.llap.daemon.service.hosts` till samma värde som egenskapen LLAP- **appens namn** under **Avancerad Hive-Interactive-miljö**. Till exempel, `llap0`
+    1. Ange `spark.hadoop.hive.llap.daemon.service.hosts` samma värde som egenskapen **Hive. LLAP. daemon. service. hosts** under * * Advanced Hive-Interactive-site * *. Till exempel, `@llap0`
 
     1. Anges `spark.sql.hive.hiveserver2.jdbc.url` till anslutnings strängen JDBC, som ansluter till Hiveserver2 i det interaktiva fråga klustret. Anslutnings strängen för klustret kommer att se ut som URI nedan. `CLUSTERNAME`är namnet på ditt Spark-kluster och `user` parametrarna och `password` har angetts till rätt värden för klustret.
 

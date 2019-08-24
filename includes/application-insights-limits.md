@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: 7bf9c338315f5013be815625b06d633567a801a0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 14e2bd4af2616e9dd33fe8267de132ab6c0f1cfe
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912506"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982611"
 ---
 Det finns vissa begränsningar för antalet mått och händelser per program, det vill säga per Instrumentation-nyckel. Gränserna beror på vilken [prisplan](https://azure.microsoft.com/pricing/details/application-insights/) du väljer.
 
@@ -21,7 +21,7 @@ Det finns vissa begränsningar för antalet mått och händelser per program, de
 | --- | --- | --- |
 | Totala data per dag | 100 GB | Du kan minska datamängden genom att ange ett tak. Om du behöver mer data kan du öka gränsen i portalen, upp till 1 000 GB. Skicka e-post till för kapaciteter som AIDataCap@microsoft.comär större än 1 000 GB.
 | Begränsning | 32 000 händelser/sekund | Gränser är mätt under en minut.
-| Datakvarhållning | 90 dagar | Den här resursen är för [Search](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/app/analytics.md) och [Metrics Explorer](../articles/azure-monitor/app/metrics-explorer.md).
+| Datakvarhållning | [30-730 dagar](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period)  | Den här resursen är för [Search](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/app/analytics.md) och [Metrics Explorer](../articles/azure-monitor/app/metrics-explorer.md).
 | [Flerstegstest för tillgänglighet](../articles/azure-monitor/app/availability-multistep.md) (kvarhållning av detaljerade resultat) | 90 dagar | Den här resursen innehåller detaljerade resultat för varje steg.
 | Maximal storlek för telemetri | 64 kB |
 | Maximalt antal telemetri objekt per batch | 64 KB |

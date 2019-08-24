@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: cb82d47be11570baf7865468c804162a20a7685f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 59574f0a07f4ecc145f2b0efd430e65cbdebcc65
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855473"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991566"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>Analysera data i Azure Data Lake Storage Gen2 med Power BI
 
@@ -39,7 +39,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 
     ![Sidan hämta data](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. I dialog rutan **Azure Data Lake Storage Gen2** kan du ange URL: en till ditt Azure Data Lake Storage Gen2 konto, fil system eller undermapp med hjälp av slut punkts formatet för fil systemet. URL: er för data Lake Storage Gen2 har följande `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` mönster och klicka sedan på **OK**.
+4. I dialog rutan **Azure Data Lake Storage Gen2** kan du ange URL: en för ditt Azure Data Lake Storage Gen2 konto, fil system eller undermappar med hjälp av behållarens slut punkts format. URL: er för data Lake Storage Gen2 har följande `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` mönster och klicka sedan på **OK**.
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 

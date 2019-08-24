@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 3dea4dfc58bf087b8f6bc0a3f45646da5cb597ad
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: de2dc5068dc454925744688a43f49a855aac42f3
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847227"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991834"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduktion till Azure Data Lake Storage Gen2
 
@@ -64,7 +64,7 @@ Följande är de motsvarande entiteterna som beskrivs av olika begrepp. Om inget
 | Begrepp                                | Översta nivån organisation | Lägre nivå organisation                                            | Databehållare |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blobbar – lagring för generell användning objekt | Container              | Virtuell katalog (SDK endast – inte ger atomiska manipulering) | Blob           |
-| ADLS Gen2 – Storage Analytics          | Filsystem             | Katalog                                                           | Fil           |
+| ADLS Gen2 – Storage Analytics          | Container            | Katalog                                                           | Fil           |
 
 ## <a name="supported-open-source-platforms"></a>Öppen källkod-plattformar som stöds
 

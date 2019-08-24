@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 0f2d3079de43767e61dfc1c8d77244da19f13a40
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
-ms.translationtype: HT
+ms.openlocfilehash: 0e26b9b5aee61f399a39c032cdbd2084884538c9
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898867"
+ms.locfileid: "69982699"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes service (AKS)
 
@@ -30,7 +30,6 @@ Kubernetes använder standard versions schema för [semantisk versions hantering
 Example:
   1.12.14
   1.12.15
-  1.13.7
 ```
 
 Varje tal i versionen indikerar allmän kompatibilitet med den tidigare versionen:
@@ -39,7 +38,7 @@ Varje tal i versionen indikerar allmän kompatibilitet med den tidigare versione
 * Lägre versioner ändras när funktions förändringar görs som är bakåtkompatibla med andra mindre versioner.
 * Korrigerings versioner ändras när bakåtkompatibla fel korrigeringar görs.
 
-I allmänhet bör användare Endeavor att köra den senaste korrigerings versionen av den lägre versionen som de kör, till exempel om ditt produktions kluster finns på *1.13.6* och *1.13.7* är den senaste tillgängliga korrigerings versionen som är tillgänglig för *1,13* -serien. Du bör uppgradera till *1.13.7* så snart du kan kontrol lera att klustret är fullständigt korrigerat och stöds.
+I allmänhet bör användare Endeavor att köra den senaste korrigerings versionen av den lägre versionen som de kör, till exempel om ditt produktions kluster finns på *1.12.14* och *1.12.15* är den senaste tillgängliga korrigerings versionen som är tillgänglig för *1,12* -serien bör du uppgradera till *1.12.15* så snart du kan se till att klustret har uppdaterats och stöds fullständigt.
 
 ## <a name="kubernetes-version-support-policy"></a>Stödprincip för Kubernetes-version
 

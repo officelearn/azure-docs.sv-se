@@ -1,6 +1,6 @@
 ---
 title: Översikt över dedikerade event hubs – Azure Event Hubs | Microsoft Docs
-description: Den här artikeln innehåller en översikt över dedikerade Azure Event Hubs, som erbjuder en enda klient distributioner av händelsehubbar.
+description: Den här artikeln innehåller en översikt över dedikerade Azure-Event Hubs, som erbjuder distributioner av enskilda innehavare av Event Hub.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -15,92 +15,92 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 52e092e6e48f004656860cb5d078e780039584ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ebc6dd672fd180e22cc1edf5c9978e0985427e50
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730243"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991861"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Översikt över Event Hubs Dedicated
 
-*Event Hubs-kluster* erbjuder en enda klient distributioner för kunder med strömmande behoven. Den här enda klient erbjudande har en garanterad serviceavtal på 99,99% och är endast tillgänglig på vår dedikerade prisnivå. Ett Event Hubs-kluster kan ingående miljontals händelser per sekund med garanterad kapacitet och subsekundära svarstider. Namnområden och event hubs som skapats i det dedikerade klustret omfattar alla funktioner på Standard-erbjudandet och mycket mer, men utan några ingående begränsningar. Den innehåller också populära [Event Hubs Capture](event-hubs-capture-overview.md) funktionen utan extra kostnad, så att du kan automatiskt batch- och log-dataströmmar till Azure Storage eller Azure Data Lake. 
+*Event Hubs kluster* erbjuder distributioner för enskilda klienter för kunder med de mest krävande strömnings behoven. Det här erbjudandet för en enskild klientorganisation har ett garanterat serviceavtal på 99,99 % och är bara tillgängligt på prisnivån Dedikerad. Ett Event Hubs kluster kan intränga miljon tals händelser per sekund med garanterad kapacitet och under sekund svars tid. Namn områden och händelse nav som skapats i det dedikerade klustret inkluderar alla funktioner i standard erbjudandet och mer, men utan några ingångs gränser. Den innehåller också den populära [Event Hubs Capture](event-hubs-capture-overview.md) -funktionen utan extra kostnad, så att du automatiskt kan registrera och logga data strömmar till Azure Storage eller Azure Data Lake. 
 
-Kluster etablerats och faktureras per **kapacitetsenheter (Cu: er)** , en förallokerad mängden Processortid och minnesresurser. Du kan köpa 1, 2, 4, 8, 12, 16 eller 20 Cu: er för varje kluster. Hur mycket du kan mata in och strömma per Kapacitetsenhet beror på en mängd olika faktorer, till exempel hur många producenter och konsumenter, nyttolast form utgående Betygsätt (se resultaten nedan för mer information). 
+Kluster etablerade och debiteras efter **kapacitets enheter (CUS)** , en förallokerad mängd processor-och minnes resurser. Du kan köpa 1, 2, 4, 8, 12, 16 eller 20 CUs för varje kluster. Hur mycket du kan mata in och strömma per CU beror på en mängd olika faktorer, till exempel antalet tillverkare och konsumenter, nytto lasts form, utgående taxa (se benchmark-resultat nedan för mer information). 
 
 > [!NOTE]
-> Alla Event Hubs-kluster är Kafka-aktiverade som standard och stöd för Kafka-slutpunkter som kan användas av din befintliga Kafka-baserade program. Med Kafka aktiverad på ditt kluster påverkar inte din av icke-Kafka-användningsfall. Det finns inga alternativ eller behöva inaktivera Kafka i ett kluster.
+> Alla Event Hubs-kluster är Kafka-aktiverade som standard och stöder Kafka-slutpunkter som kan användas av dina befintliga Kafka-baserade program. Att ha Kafka aktiverat i klustret påverkar inte dina användnings fall som inte är Kafka; Det finns inget alternativ eller behöver inaktivera Kafka på ett kluster.
 
-## <a name="why-dedicated"></a>Varför dedikerade?
+## <a name="why-dedicated"></a>Varför dedikerat?
 
-Dedikerade Event Hubs erbjuder tre övertygande fördelar för kunder som behöver företagsnivå kapacitet:
+Dedikerade Event Hubs erbjuder tre övertygande förmåner för kunder som behöver kapacitet på företags nivå:
 
-#### <a name="single-tenancy-guarantees-capacity-for-better-performance"></a>Single-innehavare garanterar kapacitet för bättre prestanda
+#### <a name="single-tenancy-guarantees-capacity-for-better-performance"></a>En enda innehavare garanterar kapaciteten för bättre prestanda
 
-Ett dedikerat kluster garanterar kapacitet i full skala och kan skicka upp till strömmande data med fullständigt beständig lagring och subsekundära svarstid för någon gigabyte burst-trafiken. 
+Ett dedikerat kluster garanterar kapacitet i full skala och kan gå upp till gigabyte av strömmande data med fullständigt varaktiga lagrings utrymme och under andra svars tider för att hantera all burst i trafiken. 
 
-#### <a name="inclusive-and-exclusive-access-to-features"></a>Inklusiva och exklusivt tillgång till funktioner 
-Dedikerad erbjudandet omfattar funktioner som att samla in vid utan extra kostnad, samt exklusiv åtkomst till kommande funktioner som BYOK. Tjänsten hanterar också Utjämning av nätverksbelastning, OS-uppdateringar, säkerhetsuppdateringar och partitionering för kunden, så att du kan ägna mindre tid åt infrastrukturunderhåll och mer tid på att skapa funktioner för klientsidan.  
+#### <a name="inclusive-and-exclusive-access-to-features"></a>Inklusive och exklusiv åtkomst till funktioner 
+Det dedikerade erbjudandet omfattar funktioner som att samla in utan extra kostnad, samt exklusiv åtkomst till kommande funktioner som Bring Your Own Key (BYOK). Tjänsten hanterar även belastnings utjämning, OS-uppdateringar, säkerhets korrigeringar och partitionering för kunden, så att du kan lägga mindre tid på infrastruktur underhåll och mer tid på att skapa funktioner på klient sidan.  
 
-#### <a name="cost-savings"></a>Kostnadsbesparingar
-Vid hög inkommande volymer (> 100 Dataflödesenheter), ett kluster kostnader betydligt mindre per timme än köpa ett jämförbara antal dataflödesenheter i Standard-erbjudandet.
+#### <a name="cost-savings"></a>Kostnads besparingar
+Vid höga ingångs volymer (> 100 antal) är ett kluster kostar betydligt mindre per timme än att köpa en jämförbar mängd data flödes enheter i standard erbjudandet.
 
 
 ## <a name="event-hubs-dedicated-quotas-and-limits"></a>Event Hubs Dedicated kvoter och begränsningar
 
-Event Hubs Dedicated erbjudandet debiteras enligt ett fast pris per månad, med minst 4 timmars användning. Nivån Dedicated innehåller alla funktioner i standardprenumerationen, men med enterprise skala kapacitet och begränsningar för kunder med krävande arbetsbelastningar. 
+Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst fyra timmars användning. Den dedikerade nivån innehåller alla funktioner i standard planen, men med kapacitet för företags skala och gränser för kunder med krävande arbets belastningar. 
 
 | Funktion | Standard | Dedikerad |
 | --- |:---:|:---:|
-| Bandbredd | 20 Dataflödesenheter (upp till 40 Dataflödesenheter) | 20 Cu: er |
-| Namnområden |  1 | 50 per Kapacitetsenhet |
-| Event Hubs |  10 per namnområde | 1 000 per namnområde |
+| Bandbredd | 20 antal (upp till 40 antal) | 20 CUs |
+| Namnområden |  1 | 50 per CU |
+| Event Hubs |  10 per namnrymd | 1000 per namnrymd |
 | Ingångshändelser | Betala per miljon händelser | Ingår |
-| Meddelandestorlek | 1 miljon byte | 1 miljon byte |
-| Partitioner | 40 per namnområde | 2000 per Kapacitetsenhet |
-| Konsumentgrupper | 20 per Händelsehubb | Ingen gräns per Kapacitetsenhet, 1 000 per händelsehubb |
-| Brokered Connections | 1 000 ingår, 5 000 max | 100 K ingår och max |
-| Meddelandelagring | 7 dagar, 84 GB som ingår per Dataflödesenheter | 90 dagar, 10 TB som ingår per Kapacitetsenhet |
+| Meddelandestorlek | 1 000 000 byte | 1 000 000 byte |
+| Partitioner | 40 per namnrymd | 2000 per CU |
+| Konsumentgrupper | 20 per Event-hubb | Ingen gräns per CU, 1000 per Event-hubb |
+| Brokered Connections | 1 000 ingår, 5 000 max | 100 KB ingår och Max |
+| Meddelandelagring | 7 dagar, 84 GB ingår per data flödes enheter | 90 dagar, 10 TB inkluderat per CU |
 | Capture | Betala per timme | Ingår |
 
 ## <a name="how-to-onboard"></a>Hur vill publicera
 
-Självbetjäning kunna [skapa ett Event Hubs-kluster](event-hubs-dedicated-cluster-create-portal.md) via den [Azure-portalen](https://aka.ms/eventhubsclusterquickstart) finns nu i förhandsversion. Om du har några frågor eller behöver hjälp integrering till Event Hubs Dedicated kan du kontakta den [Event Hubs-teamet](mailto:askeventhubs@microsoft.com).
+Den självbetjänings upplevelsen för att [skapa ett Event Hubs kluster](event-hubs-dedicated-cluster-create-portal.md) via [Azure Portal](https://aka.ms/eventhubsclusterquickstart) är nu i för hands version. Om du har några frågor eller behöver hjälp med att registrera dig Event Hubs Dedicated kan du kontakta [Event Hubs-teamet](mailto:askeventhubs@microsoft.com).
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
-#### <a name="what-can-i-achieve-with-a-cluster"></a>Vad kan jag få med ett kluster?
+#### <a name="what-can-i-achieve-with-a-cluster"></a>Vad kan jag uppnå med ett kluster?
 
-För ett Event Hubs-kluster beror hur mycket du kan mata in och strömma på olika faktorer, till exempel din producenter, konsumenter, den hastighet med vilken du mata in och bearbetning av och mycket mer. 
+För ett Event Hubs kluster, hur mycket du kan mata in och strömma beror på olika faktorer, till exempel producenter, konsumenter, den hastighet som du matar in och bearbetar, och mycket mer. 
 
 Följande tabell visas resultaten att vi har uppnått under våra tester:
 
 | Nyttolasten form | Mottagare | Ingående bandbredd| Inkommande meddelanden | Utgående bandbredd | Utgående meddelanden | Totalt antal Dataflödesenheter | Dataflödesenheter per Kapacitetsenhet |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batchar med 100x1KB | 2 | 400 MB/sek | 400 k meddelanden/sek | 800 MB/sek | 800 k meddelanden/sek | 400 Dataflödesenheter | 100 Dataflödesenheter | 
-| Batchar med 10x10KB | 2 | 666 MB/sek | 66.6 k meddelanden/sek | 1,33 GB/sek | 133 k meddelanden/sek | 666 Dataflödesenheter | 166 Dataflödesenheter |
-| Batchar med 6x32KB | 1 | 1,05 GB/sek | 34 k meddelanden / sek | 1,05 GB/sek | 34 k meddelanden/sek | 1000 Dataflödesenheter | 250 Dataflödesenheter |
+| Batchar med 100x1KB | 2 | 400 MB/sek | 400k meddelanden/SEK | 800 MB/sek | 800k meddelanden/SEK | 400 Dataflödesenheter | 100 Dataflödesenheter | 
+| Batchar med 10x10KB | 2 | 666 MB/sek | 66.6 k meddelanden/SEK | 1,33 GB/sek | 133k meddelanden/SEK | 666 Dataflödesenheter | 166 Dataflödesenheter |
+| Batchar med 6x32KB | 1 | 1,05 GB/sek | 34k meddelanden/SEK | 1,05 GB/sek | 34k meddelanden/SEK | 1000 Dataflödesenheter | 250 Dataflödesenheter |
 
 I testet användes följande kriterier:
 
-- En dedikerad nivån Event Hubs-kluster med fyra kapacitetsenheter (Cu: er) har använts. 
+- Ett dedikerat nivå Event Hubs kluster med fyra kapacitets enheter (CUs) användes. 
 - Den händelsehubb som används för datainmatning hade 200 partitioner. 
 - De data som har samlats in togs emot av två mottagare program tar emot från alla partitioner.
 
 #### <a name="can-i-scale-updown-my-cluster"></a>Kan jag skala upp/ned mitt kluster?
 
-När du har skapat debiteras kluster för minst 4 timmars användning. I förhandsversionen av självbetjäning, kan du skicka en [supportförfrågan](https://ms.portal.azure.com/#create/Microsoft.Support) till Event Hubs-teamet under *teknisk > kvot > begäran om att skala upp eller skala ned dedikerade kluster* skala ditt kluster upp eller ned. Det kan ta upp till 7 dagar att slutföra förfrågan om att skala ned klustret. 
+Efter skapandet faktureras kluster för minst 4 timmars användning. I för hands versionen av den självbetjänings upplevelsen kan du skicka en [supportbegäran](https://ms.portal.azure.com/#create/Microsoft.Support) till Event Hubss gruppen under *teknisk > kvot > begäran om att skala upp eller* ned ett dedikerat kluster för att skala upp eller ned ett dedikerat kluster. Det kan ta upp till 7 dagar att slutföra begäran om att skala upp klustret. 
 
-#### <a name="how-will-geo-dr-work-with-my-cluster"></a>Hur fungerar Geo-DR med mitt kluster?
+#### <a name="how-will-geo-dr-work-with-my-cluster"></a>Hur fungerar geo-DR med mitt kluster?
 
-Du kan geo-nyckelpar med en namnrymd under en dedikerad nivå-kluster med en annan namnrymd under en dedikerad nivå-kluster. Vi inte rekommenderar att para ihop en dedikerad nivå-namnområde med ett namnområde i våra Standard erbjudande, eftersom dataflödesgräns inte är kompatibel som leder till fel. 
+Du kan geo-para ett namn område under ett dedikerat-nivå kluster med ett annat namn område under ett dedikerat skikt kluster. Vi uppmuntrar inte att para ihop ett dedikerat namn område med ett namn område i vårt standard erbjudande, eftersom data flödes gränsen kommer att vara inkompatibel, vilket leder till fel. 
 
-#### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Kan jag migrera min standardnamnområden för att tillhör en dedikerad nivå-kluster?
-Vi stöder för närvarande inte en automatiserad migreringsprocessen för att migrera dina event hubs-data från en Standard-namnområdet till en dedikerad något. 
+#### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Kan jag migrera mina standard namn rymder så att de tillhör ett dedikerat kluster?
+Vi stöder för närvarande inte en automatiserad migreringsprocessen för att migrera dina Event Hub-data från ett standard namn område till en dedikerad. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kontakta Microsoft-försäljare eller Microsoft Support om du vill ha mer information om Event Hubs Dedicated. Du kan också skapa ett kluster eller lära dig mer om Event Hubs prisnivåer genom att besöka följande länkar:
+Kontakta din Microsoft-representant eller Microsoft Support för att få mer information om Event Hubs Dedicated. Du kan också skapa ett kluster eller lära dig mer om Event Hubs pris nivåer genom att gå till följande länkar:
 
 - [Skapa ett Event Hubs-kluster via Azure Portal](https://aka.ms/eventhubsclusterquickstart) 
 - [Event Hubs Dedicated priser](https://azure.microsoft.com/pricing/details/event-hubs/). Du kan även kontakta din Microsoft-försäljare eller Microsoft Support om du vill ha mer information om Event Hubs Dedicated kapacitet.

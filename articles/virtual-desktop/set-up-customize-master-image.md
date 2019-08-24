@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: abde79ab131719fe4f2963db98c7a6daa3419424
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8127c0a42ec42a661af31cc489964cc40cb4937d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876841"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981082"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -112,7 +112,7 @@ Så här konfigurerar du fjärråtkomstprinciper:
 1. Navigera till **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > tidsgränserför sessionsvärdservern för fjärrskrivbordssessioner. > 
 2. I panelen till höger väljer du den **angivna tids gränsen för aktiva men inaktiva principer för Fjärrskrivbordstjänster sessioner** .
 3. När det modala fönstret visas ändrar du princip alternativet från **inte konfigurerad** till **aktive rad** för att aktivera principen.
-4. I den nedrullningsbara menyn under alternativet princip anger du hur lång tid som ska vara **4 timmar**.
+4. I den nedrullningsbara menyn under alternativet princip anger du hur lång tid som ska vara **3 timmar**.
 
 Du kan också konfigurera fjärråtkomstprinciper manuellt genom att köra följande kommandon:
 
@@ -122,7 +122,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fRese
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### <a name="set-up-time-zone-redirection"></a>Konfigurera omdirigering av tidszon

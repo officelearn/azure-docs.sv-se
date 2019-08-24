@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/21/2019
-ms.openlocfilehash: 67dda1ab56c6a706a9fdbef45fabdae9167ffe2b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.date: 08/22/2019
+ms.openlocfilehash: 497a00570d85ab83f71416e979e485db4685b64a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616328"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992115"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Skapa och få åtkomst till data uppsättningar (för hands version) i Azure Machine Learning
 
@@ -26,7 +26,7 @@ Med Azure Machine Learning data uppsättningar kan du:
 
 * **Behåll en enda kopia av data i din lagring** som refereras av data uppsättningar. 
 
-* **Kom enkelt åt data under modell träning** utan att oroa dig för anslutnings strängen eller data Sök vägen.
+* **Kom enkelt åt data under modell träning** utan att behöva oroa dig om anslutnings strängar eller data Sök vägar.
 
 * **Dela data & samar beta** med andra användare.
 
@@ -44,7 +44,8 @@ Om du vill skapa och arbeta med data uppsättningar behöver du:
 > Vissa data uppsättnings klasser (för hands version) har beroenden för [azureml-nu-](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paketet. För Linux-användare stöds dessa klasser endast för följande distributioner:  Red Hat Enterprise Linux, Ubuntu, Fedora och CentOS.
 
 ## <a name="dataset-types"></a>Data uppsättnings typer
-Data uppsättningar kategoriseras i olika typer baserat på hur användarna använder dem i utbildningen. För närvarande stöder vi TabularDatasets som representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Det ger dig möjlighet att materialisera data till en Pandas-DataFrame. TabularDataset kan skapas från CSV-, TSV-, Parquet-filer, SQL-frågeresultat osv. En fullständig lista finns i vår dokumentation.
+
+Data uppsättningar kategoriseras i olika typer baserat på hur användarna använder dem i utbildningen. För närvarande stöder vi [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) som representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Det ger dig möjlighet att materialisera data till en Pandas-DataFrame. Ett `TabularDataset` objekt kan skapas från CSV-, TSV-, Parquet-filer, SQL-frågeresultat osv. En fullständig lista finns i vår dokumentation.
 
 Om du vill veta mer om kommande API-ändringar, se [Vad är Azure Machine Learning tjänst?](https://aka.ms/tabular-dataset) 
 
@@ -136,7 +137,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## <a name="access-your-data-during-training"></a>Få åtkomst till dina data under utbildningen
 
-Registrerade data uppsättningar kan nås lokalt och via fjärr anslutning på beräknings kluster som Azure Machine Learning Compute. Använd följande kod för att hämta din arbets yta och registrerad data uppsättning efter namn för att få åtkomst till din registrerade data uppsättning över experiment. \- `get_by_name` Metoden`Dataset` i klassen returnerar den senaste versionen av data uppsättningen som är registrerad på arbets ytan.
+Registrerade data uppsättningar kan nås lokalt och via fjärr anslutning på beräknings kluster som Azure Machine Learning Compute. Använd följande kod för att hämta din arbets yta och registrerad data uppsättning efter namn för att få åtkomst till din registrerade data uppsättning över experiment. \- [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) Metoden`Dataset` i klassen returnerar den senaste versionen av data uppsättningen som är registrerad på arbets ytan.
 
 ```Python
 %%writefile $script_folder/train.py

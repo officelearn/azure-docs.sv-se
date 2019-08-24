@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 090c229c5e97ede8eb7a397ce8f4d13d8735a346
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404603"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992360"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -117,6 +117,10 @@ Om du klickar på ikonen visas körnings planen och efterföljande prestanda pro
 * Du kan kontrol lera hur många partitioner som används i ADF. På varje källa för källa & Sink, och varje enskild omvandling, kan du ange ett partitionerings schema. För mindre filer kan det hända att du kan välja "enskild partition" och kan fungera bättre och snabbare än att be Spark att partitionera dina små filer.
 * Om du inte har tillräckligt med information om dina källdata kan du välja partitionering med resursallokering (Round Robin) och ange antalet partitioner.
 * Om du utforskar dina data och märker att du har kolumner som kan vara användbara hash-nycklar använder du alternativet för hash-partitionering.
+* När du felsöker i data förhands granskning och fel sökning av pipeline, Observera att gräns-och provtagnings storlekarna för filbaserade käll data uppsättningar endast gäller för det antal rader som returneras, inte antalet rader som läses. Detta är viktigt att observera eftersom det kan påverka prestandan för dina fel söknings körningar och möjligen orsaka att flödet slutar fungera.
+* Kom ihåg att fel söknings kluster är små kluster med en nod som standard, så Använd tillfälliga små filer för fel sökning. Gå till fel söknings inställningar och peka på en liten delmängd av dina data med en temporär fil.
+
+![Fel söknings inställningar](media/data-flow/debugsettings3.png "Fel söknings inställningar")
 
 ### <a name="file-naming-options"></a>Fil namns alternativ
 

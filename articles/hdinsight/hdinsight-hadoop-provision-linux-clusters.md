@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 4159eed04ff1a4e81ea36a4d7f06f342a63fe367
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: c47cc49a8e81b44a4529f8f82954797e2648c938
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442031"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983096"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
 
@@ -256,6 +256,7 @@ Ett exempel på hur du använder två kluster typer i ett virtuellt Azure-nätve
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Felsöka kluster skapande fel med Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 - [Vad är HDInsight, Apache Hadoop eko system och Hadoop-kluster?](hadoop/apache-hadoop-introduction.md)
 - [Kom igång med att använda Apache Hadoop i HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Arbeta i Apache Hadoop på HDInsight från en Windows-dator](hdinsight-hadoop-windows-tools.md)

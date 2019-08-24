@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 0ab658b26a44e98b073c477c1aaeeb683372ee46
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0f3995e8904396dbb0bcbeeea1f993913d68587e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988496"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013127"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 
@@ -39,13 +39,13 @@ Meddelanden skickas till och tas emot från *köer*. Med köer kan du lagra medd
 
 ![Kö](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Meddelanden i köer sorteras och tidsstämplad anländer. När de har godkänts lagras meddelanden på ett säkert sätt i redundant lagring. Meddelanden levereras i *pull* läge, som levererar meddelanden på begäran.
+Meddelanden i köer ordnas och tidsstämplas vid ankomsten. När de har godkänts lagras meddelanden på ett säkert sätt i redundant lagring. Meddelanden levereras i *pull* -läge, vilket levererar meddelanden på begäran.
 
 ## <a name="topics"></a>Ämnen
 
 Du kan också använda *ämnen* för att skicka och ta emot meddelanden. Medan en kö oftast används för kommunikation från punkt till punkt är ämnen användbara i scenarier med publicering/prenumeration.
 
-![Ämne](./media/service-bus-messaging-overview/about-service-bus-topic.png)
+![Avsnitt](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
 Ämnen kan ha flera oberoende prenumerationer. En prenumerant på ett ämne får en kopia av varje meddelande. Prenumerationer är namngivna enheter som skapas varaktigt men kan eventuellt utgå eller tas bort automatiskt.
 
@@ -97,7 +97,7 @@ Om ett fel som leder till att klienten är osäker på resultatet av en sändnin
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC och hanterade identiteter för Azure-resurser
 
-Service Bus stöder säkerhetsprotokoll som [signaturer för delad åtkomst](service-bus-sas.md) (SAS), [rollbaserad åtkomstkontroll](service-bus-role-based-access-control.md) (RBAC) och [hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md).
+Service Bus stöder säkerhetsprotokoll som [signaturer för delad åtkomst](service-bus-sas.md) (SAS), [rollbaserad åtkomstkontroll](authenticate-application.md) (RBAC) och [hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Geohaveriberedskap
 

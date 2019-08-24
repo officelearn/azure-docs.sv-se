@@ -1,5 +1,5 @@
 ---
-title: Distribuera ett IPv6-program med dubbla stackar med Standard Load Balancer i Azure Virtual Network – CLI
+title: Distribuera ett IPv6-program med dubbla stackar i Azure Virtual Network – CLI
 titlesuffix: Azure Virtual Network
 description: Den här artikeln visar hur du distribuerar ett IPv6-program med dubbla stackar i Azure Virtual Network med Azure CLI.
 services: virtual-network
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 7b231ded3fdae7553e101beff2ee77d82fe27e6e
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: f67494b229a14b66b593950903184e54e4a8ab8c
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269629"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013707"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-standard-load-balancer-in-azure-virtual-network---cli-preview"></a>Distribuera ett IPv6-program med dubbla stackar med Standard Load Balancer i Azure Virtual Network – CLI (för hands version)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Distribuera ett IPv6-program med dubbla stackar i Azure Virtual Network – CLI (för hands version)
 
-Den här artikeln visar hur du distribuerar ett program med dubbla stackar (IPv4 + IPv6) i Azure som innehåller ett virtuellt nätverk med dubbla stackar med ett dubbelt stack-undernät, en belastningsutjämnare med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, regler för dubbla nätverks säkerhets grupper och dubbla offentliga IP-adresser.
+Den här artikeln visar hur du distribuerar ett program med dubbla stackar (IPv4 + IPv6) med Standard Load Balancer i Azure som innehåller ett virtuellt nätverk med dubbla stackar med ett dubbel stack-undernät, en Standard Load Balancer med dubbla (IPv4 + IPv6) klient dels konfiguration, virtuella datorer med Nätverkskort som har en dubbel IP-konfiguration, regler för dubbla nätverks säkerhets grupper och dubbla offentliga IP-adresser.
 
 > [!Important]
 > IPv6 dubbla stack för Azure Virtual Network är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -111,7 +111,7 @@ az network public-ip create \
 
 I det här avsnittet konfigurerar du IP-adresser för dubbel klient del (IPv4 och IPv6) och backend-adresspoolen för belastningsutjämnaren och sedan skapar du en Standard Load Balancer.
 
-### <a name="create-load-balancer"></a>Skapa en lastbalanserare
+### <a name="create-load-balancer"></a>Skapa lastbalanserare
 
 Skapa Standard Load Balancer med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **dsLB** som innehåller en frontend-pool med namnet **dsLbFrontEnd_v4**, en backend-pool med namnet **dsLbBackEndPool_v4** som är associerad med IPv4 offentlig IP-adress  **dsPublicIP_v4** som du skapade i föregående steg. 
 

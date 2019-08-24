@@ -1,5 +1,5 @@
 ---
-title: Distribuera ett IPv6-program med dubbla stackar i Azure Virtual Network – PowerShell
+title: Distribuera ett IPv6-program med dubbla stackar med Basic Load Balancer i Azure – PowerShell
 titlesuffix: Azure Virtual Network
 description: Den här artikeln visar hur du distribuerar ett program med dubbla stack-program i Azure Virtual Network med Azure PowerShell.
 services: virtual-network
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: b9a6b0ee6796acc2b9adc88480f6933af413e4e6
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0ce051892cde9cb50b43a6d4f66ed3d461e71285
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260856"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011436"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Distribuera ett IPv6-program med dubbla stackar i Azure – PowerShell (för hands version)
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell-preview"></a>Distribuera ett IPv6-program med dubbla stackar med Basic Load Balancer-PowerShell (för hands version)
 
-Den här artikeln visar hur du distribuerar ett program med dubbla stackar (IPv4 + IPv6) i Azure som innehåller ett virtuellt nätverk och undernät med dubbla stackar, en belastningsutjämnare med dubbla (IPv4 + IPv6) klient dels konfiguration, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, nätverk säkerhets grupp och offentliga IP-adresser.
+Den här artikeln visar hur du distribuerar ett program med dubbla stackar (IPv4 + IPv6) med grundläggande Load Balancer med hjälp av Azure CLI som innehåller ett virtuellt nätverk och undernät med dubbla stackar, en grundläggande Load Balancer med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med nätverkskort som har en Dubbel IP-konfiguration, nätverks säkerhets grupp och offentliga IP-adresser.
+
+Om du vill distribuera ett program med dubbla stackar (IPV4 + IPv6) med hjälp av Standard Load Balancer, se [distribuera ett IPv6-program med dubbla stackar med standard Load Balancer använda Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
 
 > [!Important]
 > IPv6-stöd för Azure Virtual Network är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -152,7 +154,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendPort 80
 ```
 
-### <a name="create-load-balancer"></a>Skapa en lastbalanserare
+### <a name="create-load-balancer"></a>Skapa lastbalanserare
 
 Skapa Basic-lastbalanseraren med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). I följande exempel skapas en offentlig grundläggande Load Balancer med namnet *myLoadBalancer* med hjälp av IP-konfigurationer för IPv4-och IPv6-frontend, Server dels pooler och regler för belastnings utjämning som du skapade i föregående steg:
 

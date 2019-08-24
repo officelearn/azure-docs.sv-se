@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 9a7baa6385e0130b784b264a4c53c232ae8a1b50
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: HT
+ms.openlocfilehash: 85b1e3eae9d7472fa829665707fca481a28f0623
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980461"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011281"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Hur objekt och autentiseringsuppgifter synkroniseras i en Azure AD Domain Services hanterad domän
 
@@ -127,7 +127,7 @@ När du aktiverar Azure AD DS krävs äldre hashvärden för NTLM + Kerberos-aut
 
 För endast molnbaserade Azure AD-miljöer [måste användarna återställa/ändra sitt lösen ord](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) för att nödvändiga lösen ords-hashar ska genereras och lagras i Azure AD. För alla moln användar konton som skapats i Azure AD när du har aktiverat Azure AD Domain Services genereras lösen ords hasharna och lagras i de NTLM-och Kerberos-kompatibla formaten. De nya kontona behöver inte återställas eller ändra sina lösen ord genererar äldre lösen ords-hashar.
 
-För Hybrid användar konton som synkroniseras från den lokala AD DS-miljön med hjälp av Azure AD Connect måste du [konfigurera Azure AD Connect för att synkronisera lösen ords-hashar i de NTLM-och Kerberos-kompatibla formaten](active-directory-ds-getting-started-password-sync-synced-tenant.md).
+För Hybrid användar konton som synkroniseras från den lokala AD DS-miljön med hjälp av Azure AD Connect måste du [konfigurera Azure AD Connect för att synkronisera lösen ords-hashar i de NTLM-och Kerberos-kompatibla formaten](tutorial-configure-password-hash-sync.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

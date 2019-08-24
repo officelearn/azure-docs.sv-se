@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ff24acd58d00f737a4342a7f45ddd22261a55be
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 62496aceb1454283449e952c0ed86623597e9e66
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562113"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011673"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen av hybrid Azure Active Directorys anslutning
 
@@ -87,11 +87,13 @@ Om du förlitar dig på system förberedelse verktyget (Sysprep) och om du anvä
 
 Om du förlitar dig på en ögonblicks bild av en virtuell dator (VM) för att skapa ytterligare virtuella datorer, se till att ögonblicks bilden inte är från en virtuell dator som redan är registrerad i Azure AD som en hybrid Azure AD-anslutning.
 
-Om dina Windows 10-domänanslutna enheter redan är [Azure AD-registrerade](overview.md#getting-devices-in-azure-ad) för din klient rekommenderar vi starkt att du tar bort det läget innan du aktiverar hybrid Azure AD-anslutning. Från Windows 10 1809-versionen har följande ändringar gjorts för att undvika detta dubbla tillstånd:
+Om dina Windows 10-domänanslutna enheter är [registrerade i Azure AD](overview.md#getting-devices-in-azure-ad) till din klient organisation, kan det leda till ett dubbelt tillstånd med hybrid Azure AD-anslutna och en registrerad Azure AD-enhet. Vi rekommenderar att du uppgraderar till Windows 10 1803 (med KB4489894 installerat) eller senare för att automatiskt hantera det här scenariot. I pre-1803-versioner måste du ta bort Azure AD-registrerat tillstånd manuellt innan du aktiverar hybrid Azure AD Join. I 1803 och senare versioner har följande ändringar gjorts för att undvika detta dubbla tillstånd:
 
-- Alla befintliga Azure AD-registrerade tillstånd tas bort automatiskt när enheten är hybrid Azure AD-ansluten.
+- Alla befintliga Azure AD-registrerade tillstånd tas bort automatiskt <i>när enheten är hybrid Azure AD-ansluten</i>.
 - Du kan förhindra att din domänanslutna enhet är registrerad i Azure AD genom att lägga till register nyckeln-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = DWORD: 00000001.
-- Den här ändringen är nu tillgänglig för Windows 10 1803-utgåvor med KB4489894 applicerad. Men om du har konfigurerat Windows Hello för företag måste användaren konfigurera Windows Hello för företag igen när dubbelt tillstånd rensas.
+- Om du har konfigurerat Windows Hello för företag i Windows 10 1803 måste användaren konfigurera Windows Hello för företag igen när dubbelt tillstånd rensas. Det här problemet har åtgärd ATS med KB4512509
+
+
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Granska kontrollerad validering av hybrid Azure AD-anslutning
 

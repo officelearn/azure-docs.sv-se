@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 584b9fdde33d14650c36c44b9b457a25f8a1d6f9
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7dd57e41144ec33aec6eb716716d0794d92071f5
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900118"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013093"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -79,25 +79,29 @@ Följande kriterier måste vara uppfyllda för att kunna visa SaaS-erbjudanden (
 - Ditt erbjudande måste använda [SaaS-API: er](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) för att integrera med Azure Marketplace.
 - Mer omfattande krav finns i publicerings [guiden för SaaS-erbjudandet](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### <a name="saas-on-azure-billing-infrastructure-costs"></a>SaaS på Azures fakturerings infrastruktur kostnader
-Om SaaS-erbjudandet finns i Azure måste du, som utgivare, vara konto för användnings avgifter för Azure-infrastruktur och licens avgifter för program vara som ett enda kostnads objekt. Kostnaden visas som en fast månads avgift för kunden. Användningen av Azure-infrastrukturen hanteras och faktureras till dig, partnern direkt. Den faktiska infrastruktur användnings avgiften ses inte av kunden. Utgivare väljer vanligt vis att paketera användnings avgifter för Azure-infrastruktur i sina priser för program varu licenser. 
+#### <a name="saas-pricing-and-billing-options"></a>Pris-och fakturerings alternativ för SaaS
+Med SaaS-lösningar som körs i utgivarens Azure-prenumeration inkluderar licens avgifter som betalas av kunderna kostnaden för den infrastruktur som program varan distribueras på. Användningen av Azure-infrastrukturen hanteras och faktureras till dig, partnern direkt. Den faktiska infrastruktur användnings avgiften ses inte av kunden. Utgivare ska paketera användnings avgifter för Azure-infrastruktur i sina priser för program varu licenser. 
 
-Avgifterna för program varu licenser presenteras som en månatlig, återkommande avgiftsbelagd prenumerations avgift och är inte avgiftsbelagd eller konsumtions beroende.
+SaaS erbjuder stöd för månatlig eller årlig fakturering baserat på en fast avgift, per användare eller förbruknings avgifter med hjälp av den avgiftsbelagda fakturerings tjänsten. Microsofts kommersiella marknads plats fungerar på en byrå modell, där utgivare anger priser, Microsoft fakturerar kunder och Microsoft betalar intäkterna till utgivaren samtidigt som en byrå avgift debiteras.
+
+I följande tabell visas ett exempel på uppdelning av kostnader och utbetalningar för att demonstrera byråns modell.
 
 |**Din licens kostnad**|**$100 per månad**|
 |:---|:---|
 |Användnings kostnad i Azure (D1/1-kärna)|Debiteras direkt till utgivaren, inte hos kunden|
 |Kunden debiteras av Microsoft|$100,00 per månad (utgivare måste redovisa alla kostnader som uppstått eller genom att överföra infrastruktur i licens avgiften)|
 
-- I det här scenariot faktureras Microsoft $100,00 för din program varu licens och du betalar ut $80,00 till utgivaren.
+|**Microsoft-räkningar**|**$100 per månad**|
+|:---|:---|
+|Microsoft betalar 80% av din licens kostnad <br>**För kvalificerade SaaS-appar betalar Microsoft 90% av din licens kostnad*|$80,00 per månad <br>*$* 90,00 per månad *|
+
+- I det här exemplet har Microsoft fakturerar $100,00 till kunden för din program varu licens och ger ut $80,00 till utgivaren.
 - Partner som har kvalificerat sig för den **minskade service avgiften för Marketplace** ser en reducerad transaktions avgift på SaaS-erbjudandena från maj 2019 till och med juni 2020. I det här scenariot faktureras Microsoft $100,00 för din program varu licens och du betalar ut $90,00 till utgivaren.
 
 > [!NOTE]
 > **Minskad service avgift för Marketplace**: För vissa SaaS-erbjudanden som du har publicerat på vår kommersiella marknads plats kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För att ditt erbjudande ska bli kvalificerat, måste minst ett av dina erbjudanden ha utsetts av Microsoft som en prioriterad eller IP-samkund i samma skick.  Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att få denna minskade service avgift för Marketplace för månaden.  Den minskade service avgiften för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella marknads plats.  Den minskade service avgiften för Marketplace kommer bara att vara tillgänglig för kvalificerade erbjudanden för licens avgifter som samlas in av Microsoft mellan den 1 maj 2019 och 30 juni 2020.  Efter den här tiden kommer Marketplace-tjänstens avgift att återgå till sin normala mängd. 
 
-|**Microsoft-räkningar**|**$100 per månad**|
-|:---|:---|
-|Microsoft betalar 80% av din licens kostnad <br>**För kvalificerade SaaS-appar betalar Microsoft 90% av din licens kostnad*|$80,00 per månad <br>*$* 90,00 per månad *|
+
 
 
 #### <a name="csp-program-opt-in"></a>Deltagande i CSP-programmet
@@ -153,9 +157,23 @@ Genom att aktivera test enheten uppmanas du att konfigurera en demonstrations mi
 
 ## <a name="connect-lead-management"></a>Anslut lead-hantering
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+Anslut till kunder direkt genom att ange ditt erbjudande i Marketplace och koppla upp ditt kund Relations hanterings system (CRM) så att du kan ta emot kund kontakt uppgifter direkt efter att en kund har ett intresse eller distribuerar din momsproduktbokföringsmallar.
 
-Mer information finns i [Översikt över hantering](./commercial-marketplace-get-customer-leads.md) av leads.
+- **Välj ett mål för lead** (nedrullningsbar meny): Ange anslutnings information till det CRM-system där du vill att vi ska skicka kund leads. 
+
+Partner Center stöder följande CRM-system för hantering av leads. Välj länken för installations anvisningar.
+
+- Azure Blob – ange e-postadressen för kontakt, container namn och lagrings konto anslutnings sträng. 
+- [Azure-tabell](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – ange anslutnings sträng för kontakt-och lagrings konto. 
+- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – ange e-postadress till kontakt, URL och autentiseringsläge (Office 365 eller Azure Active Directory).
+- [Https-slutpunkt](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – ange URL för kontakt-e-postadress och HTTPS-slutpunkt. 
+- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – ange e-postadress, formulär-ID, Munchkin-konto-ID och Server-ID.
+- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) – ange kontakt-e-post och organisations-ID. 
+
+#### <a name="additional-lead-management-resources"></a>Ytterligare resurser för ledar hantering
+- [Vanliga frågor och svar om lead management](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
+- [Vanliga konfigurations fel för lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Översikt över ledar hantering en personsökare](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
 

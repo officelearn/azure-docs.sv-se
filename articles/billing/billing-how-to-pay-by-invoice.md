@@ -9,22 +9,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/23/2019
 ms.author: banders
-ms.openlocfilehash: 90c7014e3c22ac7186854d5c01b911aa630d20dd
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 9e4e05acd88e9b0f0c17d4dd4caf5eb5a883d63d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774667"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012601"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Betala för din Azure-prenumeration efter faktura
 
-Om du växlar till betala per faktura innebär det att du betalar din faktura inom 30 dagar från faktura datumet med check-/överförings överföring. För att bli berättigad att betala för din Azure-prenumeration via faktura skickar du en förfrågan till Azure-supporten. När din begäran har godkänts kan du växla till faktura betalning (check/Wire Transfer) i [Azure Portal](https://portal.azure.com).
+Om du växlar till betala per faktura innebär det att du betalar din faktura inom 30 dagar från faktura datumet med check-/överförings överföring. För att du ska kunna betala Azure-prenumerationen med faktura måste du först skicka en begäran till Azure-supporten. När din begäran har godkänts kan du växla till faktura betalning (check/Wire Transfer) i [Azure Portal](https://portal.azure.com).
 
 > [!IMPORTANT]
 > * Faktura lön (kontroll/överföring) är endast tillgängligt för företags konton.
-> * Du måste betala alla utestående avgifter innan du växlar till faktura lönen.
+> * Betala alla utestående avgifter innan du växlar till faktura lönen.
+> * För närvarande stöder inte faktura betalning för Global Azure i Kina.
 
 ## <a name="request-to-pay-by-invoice"></a>Begäran om att betala med faktura
 
@@ -64,7 +65,7 @@ Om du växlar till betala per faktura innebär det att du betalar din faktura in
          Specific region & series of Subscription:
 
     - **Företags namnet** och **företags adressen** ska matcha den information som du har angett för Azure-kontot. Om du vill visa eller uppdatera informationen går du till [ändra profil information för Azure-kontot](billing-how-to-change-azure-account-profile.md).
-    - Du måste lägga till fakturerings kontakt uppgifter i Azure Portal innan kredit gränsen kan godkännas. Kontakt uppgifterna bör vara relaterade till företagets leverantörs reskontra eller ekonomi avdelning. Om du vill uppdatera fakturerings kontakt informationen går du till [Azure-kontocenter](https://account.azure.com/Profile).
+    - Lägg till fakturerings kontakt uppgifter i Azure Portal innan kredit gränsen kan godkännas. Kontakt uppgifterna bör vara relaterade till företagets leverantörs reskontra eller ekonomi avdelning. Om du vill uppdatera fakturerings kontakt informationen går du till [Azure-kontocenter](https://account.azure.com/Profile).
 
 6. Verifiera din kontaktinformation, din önskade kontaktmetod och klicka på **Skapa**.
 
@@ -74,7 +75,7 @@ Om vi behöver köra en kredit kontroll på grund av den kredit kredit som du be
 
 När du har godkänt att betala med faktura kan du växla till faktura betalning (check/Wire Transfer) i Azure Portal.
 
-Om du har ett program konto för Microsoft Online Services kan du byta Azure-prenumeration för att kontrol lera/byta överföring. Om du har ett kund avtal från Microsoft kan du byta fakturerings profil för att kontrol lera/byta överföring. [Lär dig hur du kontrollerar konto typen](#check-access-to-a-microsoft-customer-agreement).
+Om du har ett Microsoft Online Services-programkonto kan du byta till att betala Azure-prenumerationen via check/banköverföring. Med ett kund avtal från Microsoft kan du byta fakturerings profil för att kontrol lera/byta överföring. [Lär dig hur du kontrollerar konto typen](#check-access-to-a-microsoft-customer-agreement).
 
 ### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Växla Azure-prenumeration för att kontrol lera/byta överföring
 
@@ -85,7 +86,7 @@ Följ stegen nedan för att byta ut din Azure-prenumeration till faktura lön (c
 
     ![Skärm bild som visar sökning](./media/billing-how-to-pay-by-invoice/search.png)
 
-1. Välj den prenumeration som du vill byta till faktura betalning.
+1. Välj den prenumeration som du vill börja betala med faktura.
 1. Välj **Betalningsmetoder**.
 1. I kommando fältet klickar du på knappen **betala per faktura** .
 
@@ -93,7 +94,7 @@ Följ stegen nedan för att byta ut din Azure-prenumeration till faktura lön (c
 
 ### <a name="switch-billing-profile-to-checkwire-transfer"></a>Växla fakturerings profil till kontroll/överföring
 
-Följ stegen nedan om du vill byta fakturerings profil för att kontrol lera/byta överföring. Observera att bara den person som har registrerat sig för Azure kan ändra standard betalnings metoden för en fakturerings profil.
+Följ stegen nedan om du vill byta fakturerings profil för att kontrol lera/byta överföring. Endast den person som har registrerat sig för Azure kan ändra standard betalnings metoden för en fakturerings profil.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Sök på **Cost Management + fakturering**.

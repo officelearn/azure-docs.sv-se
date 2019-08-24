@@ -4,15 +4,15 @@ description: Lär dig att publicera en kund till Azure-delegerad resurs hanterin
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: d1876977d819b50569b6f07242af91fb1d6832ee
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 35cf61897d012690f0a0f752a7cb36270e11e10e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934317"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012068"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 
@@ -20,7 +20,7 @@ Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera e
 
 Du kan upprepa den här processen om du hanterar resurser för flera kunder. Sedan, när en behörig användare loggar in till din klient, kan den användaren auktoriseras mellan kundens hyres omfång för att utföra hanterings åtgärder utan att behöva logga in på varje enskild kund klient.
 
-Du kan associera ditt Microsoft Partner Network (MPN) ID med dina inbyggda prenumerationer för att spåra din påverkan på kund engagemang. Mer information finns i [Länka ett partner-ID till dina Azure-konton](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
+Du kan associera ditt Microsoft Partner Network (MPN) ID med dina inbyggda prenumerationer för att spåra din påverkan på kund engagemang och få igenkänning. Mer information finns i [Länka ett partner-ID till dina Azure-konton](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Observera att du måste utföra den här associationen separat för varje kund klient som du hanterar resurser i. 
 
 > [!NOTE]
 > Kunder kan registreras automatiskt när de köper ett erbjudande för hanterade tjänster (offentligt eller privat) som du har publicerat på Azure Marketplace. Mer information finns i [publicera Managed Services-erbjudanden på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här med ett erbjudande som publicerats på Azure Marketplace.
@@ -71,7 +71,7 @@ Kunden kan bekräfta att prenumerationen är redo för onboarding på något av 
 ### <a name="azure-portal"></a>Azure Portal
 
 1. I Azure Portal väljer du prenumerationen.
-1. Välj **resurs leverantörer**.
+1. Välj **Resursprovidrar**.
 1. Bekräfta att **Microsoft. ManagedServices** visas som **registrerade**.
 
 ### <a name="powershell"></a>PowerShell

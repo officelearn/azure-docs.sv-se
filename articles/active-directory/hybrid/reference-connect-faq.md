@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/03/2019
+ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6b551ee9a0a9c7ef9a8f5ff1bd7452a24dc04b7
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 0442b987c502533bfbd55990f201a5c02b119804
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014196"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011296"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
 
@@ -270,3 +270,7 @@ Om du behöver hjälp med att uppgradera till en nyare version av Azure AD Conne
 * Sök efter tekniska frågor och svar eller Ställ egna frågor genom att gå till [Azure AD](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)-communityn.
 
 [Få support för Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+
+**F: Varför ser jag händelserna 6311 och 6401 uppstår efter synkroniseringsfel?**
+
+Händelserna 6311- **servern påträffade ett oväntat fel vid ett återanrop** och 6401- **hanterings agent styrenheten påträffade ett oväntat fel** . loggas alltid efter ett synkroniseringsfel-fel. För att lösa dessa fel måste du rensa stegen i synkroniseringen.  Mer information finns i [fel söknings fel under synkronisering](tshoot-connect-sync-errors.md) och [Felsöka synkronisering av objekt med Azure AD Connect Sync](/tshoot-connect-objectsync.md)

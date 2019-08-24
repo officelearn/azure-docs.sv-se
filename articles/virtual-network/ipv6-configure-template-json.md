@@ -12,16 +12,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/26/2019
 ms.author: kumud
-ms.openlocfilehash: e97a5a478871d94e074b59558a11df1ec752b0f9
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: b397c874045a89f5992aeadacfbbd4434a486977
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249848"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012827"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template-preview"></a>Distribuera ett IPv6-program med dubbla stackar med grundläggande Load Balancer i Azure-Template (för hands version)
 
-Den här artikeln innehåller en lista över konfigurations uppgifter för IPv6 med den del av Azure Resource Manager mall för virtuella datorer som gäller för. Använd mallen som beskrivs i den här artikeln för att distribuera ett program med dubbla stackar (IPv4 + IPv6) i Azure som innehåller ett virtuellt nätverk med IPv4-och IPv6-undernät, en belastningsutjämnare med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-adress konfiguration, nätverks säkerhets grupp och offentliga IP-adresser. 
+Den här artikeln innehåller en lista över konfigurations uppgifter för IPv6 med den del av Azure Resource Manager mall för virtuella datorer som gäller för. Använd mallen som beskrivs i den här artikeln för att distribuera ett program med dubbla stackar (IPv4 + IPv6) med grundläggande Load Balancer som innehåller ett virtuellt nätverk med IPv4 och IPv6-undernät, en grundläggande Load Balancer med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med Nätverkskort som har en dubbel IP-konfiguration, nätverks säkerhets grupp och offentliga IP-adresser.
+
+Om du vill distribuera ett program med dubbla stackar (IPV4 + IPv6) med hjälp av Standard Load Balancer, se [distribuera ett IPv6-program med dubbla stackar med standard Load Balancer-mall](ipv6-configure-standard-load-balancer-template-json.md).
 
 ## <a name="required-configurations"></a>Obligatoriska konfigurationer
 
@@ -176,7 +178,7 @@ Om du använder en virtuell nätverks installation lägger du till IPv6-vägar i
 ```
 
 ## <a name="sample-vm-template-json"></a>Exempel-JSON för mall för virtuell dator
-Om du vill distribuera ett IPv6-program med dubbla stackar i Azure Virtual Network med Azure Resource Manager mall, se exempel mall [här](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/).
+Om du vill distribuera ett IPv6-program med dubbla stackar med grundläggande Load Balancer i Azure Virtual Network med Azure Resource Manager mall, se exempel mall [här](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/).
 
 ## <a name="next-steps"></a>Nästa steg
 

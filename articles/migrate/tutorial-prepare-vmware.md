@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 16c0354466d5c2a1207873a1e83e209da9339705
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5bd4926494e13c1dd0cfb6283292ade967471238
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509993"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013421"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbered virtuella VMware-datorer för utvärdering och migrering till Azure
 
@@ -163,5 +163,5 @@ I den här kursen för du göra följande:
 Fortsätt till den andra själv studie kursen för att skapa ett Azure Migrate-projekt och utvärdera virtuella VMware-datorer för migrering till Azure.
 
 > [!div class="nextstepaction"] 
-> [Utvärdera virtuella VMware-datorer](./tutorial-migrate-vmware.md) 
+> [Utvärdera virtuella VMware-datorer](./tutorial-assess-vmware.md) 
 

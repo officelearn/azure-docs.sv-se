@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8987c14fab141a71ba2dd9f1ed228a56ce419bce
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: HT
+ms.openlocfilehash: b7cb4f1a106d8caa2c43f5f17c5efa16a3ee6df2
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982825"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011631"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning service: Arkitektur och koncept
 
@@ -151,7 +151,7 @@ Ett exempel finns i [Självstudier: Träna en modell för bildklassificering med
 
 ### <a name="runs"></a>Körningar
 
-En körning är en post som innehåller följande information:
+En körning är en enskild körning av ett utbildnings skript. Azure Machine Learning registrerar alla körningar och lagrar följande information:
 
 * Metadata om körning (tidstämpel, varaktighet och så vidare)
 * Mått som loggas av ditt skript

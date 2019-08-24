@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 8987a22d4546fe887d1dda9adff8f46afe667618
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 8d3d08c772c28ff4e3a32e736253ba69b03684f0
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644991"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012245"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Få åtkomst till ett klassrumslabb i Azure Lab Services
 Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, visar alla labb som du kan komma åt, starta/stoppa en virtuell dator i labbet och ansluta till den virtuella datorn. 
@@ -55,6 +55,33 @@ Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, vis
 2. Gör något av följande: 
     1. För virtuella **Windows** -datorer sparar du **RDP** -filen på hård disken. Öppna RDP-filen för att ansluta till den virtuella datorn. Använd det **användar namn** och **lösen ord** som du får från din lärare/lärare för att logga in på datorn. 
     3. För virtuella **Linux** -datorer kan du använda **SSH** eller **RDP** (om det är aktiverat) för att ansluta till dem. Mer information finns i [aktivera anslutning till fjärr skrivbord för Linux-datorer](how-to-enable-remote-desktop-linux.md). 
+    1. Om du använder en **Mac** för att ansluta till den virtuella labb datorn följer du anvisningarna i nästa avsnitt. 
+
+## <a name="connect-to-a-vms-ui-using-rdp-on-a-mac"></a>Ansluta till en virtuell dators användar gränssnitt med RDP på en Mac
+Det här avsnittet visar hur en student kan ansluta till en virtuell dators användar gränssnitt (UI) från en Mac med hjälp av RDP. Här följer de snabb steg som följer med information: 
+
+1. Installera Microsoft Fjärrskrivbord på din Mac.
+2. Anslut till ett användar gränssnitt för virtuella datorer från din Mac med RDP. 
+
+### <a name="install-microsoft-remote-desktop-on-a-mac"></a>Installera Microsoft Fjärrskrivbord på en Mac
+1. Öppna App Store på din Mac och Sök efter **Microsoft fjärrskrivbord**.
+
+    ![Microsoft Fjärrskrivbord](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
+1. Installera den senaste versionen av Microsoft Fjärrskrivbord. 
+
+### <a name="access-the-vms-ui-from-your-mac-using-rdp"></a>Få åtkomst till den virtuella datorns användar gränssnitt från din Mac med RDP
+1. Öppna den **RDP** -fil som har laddats ned på datorn med **Microsoft fjärrskrivbord** installerat. Den ska börja ansluta till den virtuella datorn. 
+
+    ![Anslut till VM-ANVÄNDARGRÄNSSNITTET](../media/how-to-use-classroom-lab/connect-linux-vm.png)
+1. Välj **Fortsätt** om du får följande fel meddelande. 
+
+    ![Certifikat fel](../media/how-to-use-classroom-lab/certificate-error.png)
+1. Du bör se den virtuella datorns användar gränssnitt. 
+
+    > [!NOTE]
+    > Följande exempel gäller för en virtuell CentOS Linux-dator. 
+
+    ![ANVÄNDAR GRÄNSSNITT FÖR VIRTUELL DATOR](../media/how-to-use-classroom-lab/vm-ui.png)
 
 ## <a name="progress-bar"></a>Förloppsindikator 
 Förlopps indikatorn i panelen visar antalet timmar som använts för antalet tilldelade [kvot timmar](how-to-configure-student-usage.md#set-quotas-for-users) . Den här gången är den ytterligare tid som tilldelas dig utöver den schemalagda tiden för labbet. Färgen på förlopps indikatorn och texten under förlopps indikatorn varierar enligt följande scenarier:

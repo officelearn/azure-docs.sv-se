@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e60f5251f911ffe2b917dcc30e433e0a960823e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522820"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012574"
 ---
 # <a name="create-a-netapp-account"></a>Skapa ett NetApp-konto
 Genom att skapa ett NetApp-konto kan du konfigurera en kapacitetspool och sedan skapa en volym. Du använder bladet Azure NetApp-filer för att skapa ett nytt NetApp-konto.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Du måste ha fått ett e-postmeddelande från Azure NetApp Files-teamet som bekräftar att du har fått åtkomst till tjänsten. Se [skicka en väntelista begäran om åtkomst till tjänsten](azure-netapp-files-register.md#waitlist).
+Du måste ha fått ett e-postmeddelande från Azure NetApp Filess teamet som bekräftar att du har beviljats åtkomst till tjänsten. Se [skicka en Waitlist-begäran om åtkomst till tjänsten](azure-netapp-files-register.md#waitlist).
 
-Du måste också ha registrerat din prenumeration för att använda NetApp-Resursprovidern. Se [Registerresursleverantören NetApp](azure-netapp-files-register.md#resource-provider).
+Du måste också ha registrerat din prenumeration för att använda NetApp-resurs leverantören. Se [Registrera NetApp Resource Provider](azure-netapp-files-register.md#resource-provider).
 
 ## <a name="steps"></a>Steg 
 
@@ -48,7 +48,7 @@ Du måste också ha registrerat din prenumeration för att använda NetApp-Resur
      Välj en prenumeration från dina befintliga prenumerationer.
    * **Resursgrupp**   
      Använd en befintlig resursgrupp eller skapa en ny.
-   * **Plats**  
+   * **Location**  
      Välj en region för kontot och dess underordnade resurser.  
 
      ![Nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
@@ -58,11 +58,12 @@ Du måste också ha registrerat din prenumeration för att använda NetApp-Resur
    NetApp-kontot som du skapat visas nu på bladet Azure NetApp-filer. 
 
 > [!NOTE] 
-> Om du har inte beviljats åtkomst till tjänsten Azure NetApp filer, får du följande fel vid försök att skapa det första NetApp-kontot:  
+> Om du inte har beviljats åtkomst till Azure NetApp Files tjänsten visas följande fel meddelande när du försöker skapa det första NetApp-kontot:  
 >
 > `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
 ## <a name="next-steps"></a>Nästa steg  
 
-[Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
+* [Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
+* [Hantera Azure NetApp Files-resurser med hjälp av Azure CLI](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)
 

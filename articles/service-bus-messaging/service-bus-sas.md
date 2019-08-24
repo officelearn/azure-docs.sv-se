@@ -4,7 +4,6 @@ description: 'Översikt över Service Bus åtkomst kontroll med signaturer för 
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
@@ -12,20 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2018
+ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: d2cd7c8e24571f66fa73ceaa9a70ce33d6105e9c
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: ac240fee9a71714f2c7368b43e60f4e6c5d7093d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017744"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013054"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomst kontroll med signaturer för delad åtkomst
 
 *Signaturer för delad åtkomst* (SAS) är den primära säkerhetsmekanismen för Service Bus meddelande hantering. I den här artikeln beskrivs SAS, hur de fungerar och hur de används på ett oberoende sätt.
 
 SAS skyddar åtkomsten till Service Bus baserat på auktoriseringsregler. De konfigureras antingen på ett namn område eller en meddelande enhet (relä, kö eller ämne). En auktoriseringsregel har ett namn, är kopplat till vissa rättigheter och har ett par kryptografiska nycklar. Du använder regelns namn och nyckel via Service Bus SDK eller i din egen kod för att skapa en SAS-token. En klient kan sedan skicka token till Service Bus för att bevisa auktoriseringen för den begärda åtgärden.
+
+> [!NOTE]
+> Azure Service Bus stöder auktorisering av åtkomst till ett Service Bus-namnområde och dess entiteter med hjälp av Azure Active Directory (Azure AD). Auktorisering av användare eller program med OAuth 2,0-token som returnerades av Azure AD ger överlägsen säkerhet och enkel användning över signaturer för delad åtkomst (SAS). Med Azure AD behöver du inte lagra tokens i din kod och potentiella säkerhets risker.
+>
+> Microsoft rekommenderar att du använder Azure AD med dina Azure Service Bus-program när det är möjligt. Mer information finns i följande artiklar:
+> - [Autentisera och auktorisera ett program med Azure Active Directory för att få åtkomst till Azure Service Bus entiteter](authenticate-application.md).
+> - [Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Azure Service Bus resurser](service-bus-managed-service-identity.md)
 
 ## <a name="overview-of-sas"></a>Översikt över SAS
 
@@ -57,7 +63,7 @@ När du skapar ett Service Bus-namnområde skapas automatiskt en princip regel m
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Konfiguration för autentisering av signatur för delad åtkomst
 
-Du kan konfigurera [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -regeln på Service Bus namn områden, köer eller ämnen. Det finns för närvarande inte stöd för att konfigurera en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) på en Service Bus-prenumeration, men du kan använda regler som kon figurer ATS i ett namn område eller ämne för att skydda åtkomsten till prenumeration Ett arbets exempel som illustrerar den här proceduren finns i exempel på [hantering av Azure Service Bus köer](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule) .
+Du kan konfigurera [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -regeln på Service Bus namn områden, köer eller ämnen. Det finns för närvarande inte stöd för att konfigurera en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) på en Service Bus-prenumeration, men du kan använda regler som kon figurer ATS i ett namn område eller ämne för att skydda åtkomsten till prenumeration Ett arbets exempel som illustrerar den här proceduren finns i [använda autentisering med signatur för delad åtkomst (SAS) med Service Bus prenumerations](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) exempel.
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -88,7 +94,7 @@ Token innehåller de värden som inte är hash-kodade, så att mottagaren kan be
 
 Resurs-URI är den fullständiga URI: n för den Service Bus resurs som åtkomst begärs till. Till exempel `http://<namespace>.servicebus.windows.net/<entityPath>` eller `sb://<namespace>.servicebus.windows.net/<entityPath>`; det `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`vill säga. 
 
-**URI: n måste vara i [procent kodad](/dotnet/api/system.web.httputility.urlencode?view=netframework-4.8).**
+**URI: n måste vara i [procent kodad](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 Den auktoriseringsregler för delad åtkomst som används för signering måste konfigureras på den entitet som anges av denna URI, eller av en av dess hierarkiska överordnade. Till exempel `http://contoso.servicebus.windows.net/contosoTopics/T1` eller `http://contoso.servicebus.windows.net` i föregående exempel.
 
@@ -104,8 +110,8 @@ Om du vet eller misstänker att en nyckel har komprometterats och du måste åte
 
 Scenarierna som beskrivs nedan omfattar konfiguration av auktoriseringsregler, generering av SAS-token och klient auktorisering.
 
-Ett fullständigt fungerande exempel på ett Service Bus program som illustrerar konfigurationen och använder SAS-auktorisering finns i följande exempel i vår GitHub-databas: [Hantera Azure Service Bus köer](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
- 
+För ett komplett fungerande exempel på ett Service Bus program som illustrerar konfigurationen och använder SAS-auktorisering, se [signaturen för delad åtkomst-autentisering med Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Ett relaterat exempel som illustrerar användningen av SAS-auktoriseringsregler som kon figurer ATS på namn områden eller ämnen för att skydda Service Bus prenumerationer finns här: [Använder autentisering med signatur för delad åtkomst (SAS) med Service Bus prenumerationer](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Åtkomst auktoriseringsregler för delad åtkomst på en entitet
 
 Med Service Bus .NET Framework bibliotek kan du komma åt ett [Microsoft. Service Bus. Messaging. SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -objekt som kon figurer ATS i en Service Bus kö eller ett ämne via [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) -samlingen i motsvarande [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) eller [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription).

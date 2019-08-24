@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f8203cade1d2e34a9852e945df03dc2fddc1fbe5
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4e1d83d99f6df9407e24e2ae57af70f68858092d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359412"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012741"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka & diagnostisera med en svars tid på 1 sekund
 
@@ -94,7 +94,7 @@ Precis som med mått kan du ange valfria villkor till vilken typ av Application 
 
 ![Anpassad live-feed](./media/live-stream/live-stream-events.png)
 
-Anteckning: För närvarande kan du använda det yttersta undantags meddelandet för undantags meddelande villkor. I föregående exempel kan du filtrera bort det ofarliga undantaget med ett internt undantags meddelande (efter "<--"-avgränsare) "klienten kopplades från." Använd meddelandet not-contains "fel vid läsning av begär ande innehåll".
+Obs! För närvarande kan du använda det yttersta undantags meddelandet för undantags meddelande villkor. I föregående exempel kan du filtrera bort det ofarliga undantaget med ett internt undantags meddelande (efter "<--"-avgränsare) "klienten kopplades från." Använd meddelandet not-contains "fel vid läsning av begär ande innehåll".
 
 Se information om ett objekt i Live-flödet genom att klicka på det. Du kan pausa matningen antingen genom att klicka på **pausa** eller helt enkelt rulla nedåt eller klicka på ett objekt. Live-matningen återupptas när du har rullat överst eller genom att klicka på objekt räknaren som samlats in när den pausades.
 
@@ -107,7 +107,12 @@ Om du vill övervaka en viss server roll instans kan du filtrera efter server.
 ![Exempel på aktiva startfel](./media/live-stream/live-stream-filter.png)
 
 ## <a name="sdk-requirements"></a>Krav för SDK
+
+### <a name="net"></a>.NET
 Anpassad Live Metrics Stream tillgänglig med version 2.4.0-beta2 eller senare av [Application Insights SDK för webben](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Kom ihåg att välja alternativet "ta med för hands version" från NuGet Package Manager.
+
+### <a name="nodejs"></a>Node.js
+Live Metrics Stream är tillgängligt med version 1.3.0 eller senare av [Application Insights SDK för Node. js](https://npmjs.com/package/applicationinsights). Kom ihåg att `setSendLiveMetrics(true)` använda när du konfigurerar SDK i din kod.
 
 ## <a name="secure-the-control-channel"></a>Skydda kontroll kanalen
 De anpassade filter kriterier som du anger skickas tillbaka till komponenten Live Metrics i Application Insights SDK. Filtren kan eventuellt innehålla känslig information, till exempel customerID. Du kan göra kanalen säker med en hemlig API-nyckel förutom Instrumentation-nyckeln.

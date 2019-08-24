@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 07/16/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9481263773cc919fecacce80191cf209ec2a1282
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: d115b7d56609b95f2ea10b3fee2f8900102b94e4
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359239"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012475"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sök efter fel i pooler och noder
 
@@ -64,7 +64,7 @@ Batch anger det [tillstånd för poolen](https://docs.microsoft.com/rest/api/bat
 
 ## <a name="pool-compute-node-errors"></a>Fel vid beräkning av pool
 
-Även om batch allokerar noder i en pool kan olika problem orsaka att några av noderna inte är felfria och inte kan köra uppgifter. De här noderna kostar fortfarande att betala, så det är viktigt att upptäcka problem för att undvika att betala för noder som inte kan användas.
+Även om batch allokerar noder i en pool kan olika problem orsaka att några av noderna inte är felfria och inte kan köra uppgifter. De här noderna kostar fortfarande att betala, så det är viktigt att upptäcka problem för att undvika att betala för noder som inte kan användas. Förutom vanliga nodfel kan det vara bra att känna till det aktuella [jobb läget](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate) för fel sökning.
 
 ### <a name="start-task-failures"></a>Starta aktivitets felen
 
@@ -92,7 +92,7 @@ Du kan ange en eller flera behållar referenser i en pool. Batch hämtar de angi
 
 ### <a name="node-in-unusable-state"></a>Noden är oanvändbar
 
-Azure Batch kan ange att [nodens tillstånd](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) inte kan **användas** av många skäl. När Node State är oanvändbart kan aktiviteter inte schemaläggas till noden, men de debiteras ändå.
+Azure Batch kan ange att [nodens tillstånd](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) inte kan **användas** av många skäl. När Node State är oanvändbartkan aktiviteter inte schemaläggas till noden, men de debiteras ändå.
 
 Noder i ett **oanvändbart** tillstånd, men utan [fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) innebär att batchen inte kan kommunicera med den virtuella datorn. I det här fallet försöker batch alltid återställa den virtuella datorn. Batch försöker inte automatiskt att återställa virtuella datorer som inte kunde installera programpaket eller behållare trots att deras tillstånd är **oanvändbart**.
 
@@ -118,7 +118,7 @@ Batch agent-processen som körs på varje pool-nod kan ge loggfiler som kan vara
 
 ### <a name="node-disk-full"></a>Nod disken är full
 
-Den tillfälliga enheten för en pool med virtuella datorer används av batch för projektfiler, filer och delade filer. 
+Den tillfälliga enheten för en pool med virtuella datorer används av batch för projektfiler, filer och delade filer.
 
 - Programpaket-filer
 - Resursfiler för uppgifter

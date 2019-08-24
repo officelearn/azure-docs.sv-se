@@ -1,134 +1,134 @@
 ---
-title: Publicera ett erbjudande med hanterade tjänster på Azure Marketplace
-description: Lär dig hur du publicerar en hanterad tjänst-erbjudande som registrerar virtuella kunderna till Azure delegerad resurshantering.
+title: Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
+description: Lär dig hur du publicerar ett hanterat tjänst erbjudande som registrerar kunder till Azure-delegerad resurs hantering.
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: bb2f26a170bbd60eb927bd00f6def7d033fafee9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f9d3fad2a98647bcd10d54c03a76e95bc3e05227
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809850"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011864"
 ---
-# <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicera ett erbjudande med hanterade tjänster på Azure Marketplace
+# <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
 
-I den här artikeln du lär dig hur du publicerar ett erbjudande för offentliga eller privata hanterade tjänster till [Azure Marketplace](https://azuremarketplace.microsoft.com) med hjälp av den [Cloud Partner Portal](https://cloudpartner.azure.com/), aktiverar en kund som köper erbjudanden som ska publiceras delegerad resurshantering för Azure. 
+I den här artikeln får du lära dig hur du publicerar ett offentligt eller privat hanterat tjänst erbjudande till [Azure Marketplace](https://azuremarketplace.microsoft.com) med hjälp av [Cloud Partner Portal](https://cloudpartner.azure.com/), vilket gör det möjligt för en kund som köper erbjudandet att registreras för Azure delegerad resurs hantering.
 
 > [!NOTE]
-> Du måste ha ett giltigt [konto Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) skapa och publicera dessa erbjudanden. Om du inte redan har ett konto i [registreringsprocessen](https://aka.ms/joinmarketplace) leder dig igenom stegen för att skapa ett konto i Partnercenter och registrera i kommersiella Marketplace-program. Ditt Microsoft Partner Network (MPN)-ID ska vara [automatiskt associerade](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) med erbjudanden som du publicerar om du vill spåra din inverkan i arbetet med kunder.
+> Du måste ha ett giltigt [konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) för att kunna skapa och publicera dessa erbjudanden. Om du inte redan har ett konto kommer [registrerings processen](https://aka.ms/joinmarketplace) att leda dig genom stegen för att skapa ett konto i Partner Center och registrera dig i programmet för kommersiella marknads platser. Ditt Microsoft Partner Network (MPN) ID kommer [automatiskt](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) att associeras med de erbjudanden du publicerar för att spåra din påverkan på kund engagemang.
 >
-> Om du inte vill publicera ett erbjudande på Azure Marketplace kan du registrera kunder manuellt med hjälp av Azure Resource Manager-mallar. Mer information finns i [publicerat en kund till Azure delegerad resurshantering](onboard-customer.md).
+> Om du inte vill publicera ett erbjudande på Azure Marketplace kan du publicera kunder manuellt med hjälp av Azure Resource Manager mallar. Mer information finns i [publicera en kund till Azure delegerad resurs hantering](onboard-customer.md).
 
-Publicering av hanterade tjänster liknar erbjudandet publicera någon annan typ av erbjudande på Azure Marketplace. Mer information om den här processen, se [Azure Marketplace och AppSource publiceringsguide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) och [hantera Azure och AppSource-marknadsplatsen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
+Att publicera ett erbjudande för hanterade tjänster liknar att publicera någon annan typ av erbjudande till Azure Marketplace. Mer information om den här processen finns i [Azure Marketplace och AppSource Publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) och [Hantera Azure-och AppSource Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers). Du bör också gå igenom de [kommersiella Marketplace-certifierings principerna](https://docs.microsoft.com/legal/marketplace/certification-policies), särskilt avsnittet [hanterade tjänster](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) .
 
 > [!IMPORTANT]
-> Varje plan i en hanterade tjänster-erbjudandet innehåller en **Manifest information** avsnitt, där du definierar Azure Active Directory (Azure AD)-entiteter i din klient som har åtkomst till den delegerade resursgrupper och/eller prenumerationer för kunder som köper den här planen. Det är viktigt att Observera att alla grupp (eller användaren eller tjänstens huvudnamn) som inkluderas här har samma behörigheter för alla kunder som köper planen. Om du vill tilldela olika grupper att arbeta med varje kund, måste du publicera en separat privat plan som är exklusivt för varje kund.
+> Varje plan i ett erbjudande för hanterade tjänster innehåller ett avsnitt om **manifest information** , där du definierar de Azure Active Directory (Azure AD) entiteter i din klient som ska ha åtkomst till de delegerade resurs grupperna och/eller prenumerationer för kunder som Köp planen. Det är viktigt att vara medveten om att alla grupper (eller användare eller tjänstens huvud namn) som du inkluderar har samma behörigheter för alla kunder som köper planen. Om du vill tilldela olika grupper för att arbeta med varje kund måste du publicera en separat privat plan som är exklusiv för varje kund.
 
-## <a name="create-your-offer-in-the-cloud-partner-portal"></a>Skapa ditt erbjudande i partnerportalen i molnet
+## <a name="create-your-offer-in-the-cloud-partner-portal"></a>Skapa ditt erbjudande i Cloud Partner Portal
 
-1. Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/).
-2. Den vänstra menyn väljer du **nytt erbjudande**och välj sedan **-hanterade tjänsterna**.
-3. Du ser en **redigeraren** erbjudandet med fyra delar att fylla i avsnittet: **Erbjudandeinställningar**, **planer**, **Marketplace**, och **Support**. Läs vidare anvisningar om hur du utför dessa avsnitt.
+1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
+2. I den vänstra navigerings menyn väljer du **nytt erbjudande**och väljer sedan **hanterade tjänster**.
+3. Du ser ett **redigerings** avsnitt för ditt erbjudande med fyra delar att fylla i: **Erbjud inställningar**, **planer**, **Marketplace**och **support**. Läs vidare för vägledning om hur du utför dessa avsnitt.
 
 ## <a name="enter-offer-settings"></a>Ange inställningar för erbjudandet
 
-I den **Erbjudandeinställningar** och ange följande:
+I avsnittet **erbjudande inställningar** anger du följande:
 
 |Fält  |Beskrivning  |
 |---------|---------|
-|**Erbjudande-ID**     | En unik identifierare för ditt erbjudande (inom din publisher-profil). Detta ID kan bara innehålla gemena alfanumeriska tecken, bindestreck och understreck, med högst 50 tecken. Tänk på att erbjudande-ID kan vara synliga för kunderna på platser som i URL: er i produkten och fakturering rapporter. När du publicera erbjudandet kan du inte ändra det här värdet.        |
-|**Utgivar-ID**     | Publicerings-ID som ska associeras med erbjudandet. Om du har mer än en publicerings-ID, kan du välja den du vill använda för det här erbjudandet.       |
-|**Namn**     | Namnet (upp till 50 tecken) som kommer att visas för ditt erbjudande i Azure Marketplace och i Azure-portalen. Använd ett beskrivande namn, varumärke, som kunder kan förstå – om du uppgradera det här erbjudandet via din egen webbplats, kan du använda exakt samma namn här.        |
+|**Erbjudande-ID**     | En unik identifierare för ditt erbjudande (i din utgivar profil). Detta ID får bara innehålla gemena alfanumeriska tecken, bindestreck och under streck, med högst 50 tecken. Tänk på att erbjudande-ID: t kan vara synligt för kunder på platser som i produkt-URL: er och fakturerings rapporter. När du har publicerat erbjudandet kan du inte ändra det här värdet.        |
+|**Utgivar-ID**     | Utgivar-ID: t som ska associeras med erbjudandet. Om du har fler än ett utgivar-ID kan du välja det som du vill använda för det här erbjudandet.       |
+|**Namn**     | Namnet (upp till 50 tecken) som kunderna kan se för ditt erbjudande på Azure Marketplace och i Azure Portal. Använd ett identifierbart varumärkes namn som kunderna förstår – om du befordrar det här erbjudandet via din egen webbplats måste du använda exakt samma namn här.        |
 
-När du är klar, väljer **spara**. Nu är du redo att gå vidare till den **planer** avsnittet.
+När du är klar väljer du **Spara**. Nu är du redo att gå vidare till avsnittet om **planer** .
 
 ## <a name="create-plans"></a>Skapa planer
 
-Varje erbjudande måste ha en eller flera planer (kallas ibland SKU: er). Du kan lägga till flera planer för att stödja olika funktionsuppsättningar till olika priser eller anpassa en specifik plan för en begränsad publik för specifika kunder. Kunder kan se de planer som är tillgängliga i det överordnade-erbjudandet.
+Varje erbjudande måste ha en eller flera planer (kallas ibland SKU: er). Du kan lägga till flera planer för att stödja olika funktions uppsättningar i olika priser eller för att anpassa en viss plan för en begränsad mål grupp för vissa kunder. Kunder kan se de planer som är tillgängliga för dem under det överordnade erbjudandet.
 
-I avsnittet planer för varje prenumeration som du vill skapa, Välj **ny Plan**. Ange sedan en **Serviceplans-ID:** . Detta ID kan bara innehålla gemena alfanumeriska tecken, bindestreck och understreck, med högst 50 tecken. Plan-ID: T kan vara synliga för kunderna på platser som i URL: er i produkten och fakturering rapporter. När du publicera erbjudandet kan du inte ändra det här värdet.
+I avsnittet planer väljer du **ny plan**för varje plan du vill skapa. Ange sedan ett **plan-ID**. Detta ID får bara innehålla gemena alfanumeriska tecken, bindestreck och under streck, med högst 50 tecken. Plan-ID kan vara synligt för kunder på platser som i produkt-URL: er och fakturerings rapporter. När du har publicerat erbjudandet kan du inte ändra det här värdet.
 
-Sedan Slutför avsnitten i den **planera information** avsnittet:
+Därefter fyller du i följande avsnitt i avsnittet med **plan information** :
 
 |Fält  |Beskrivning  |
 |---------|---------|
-|**Rubrik**     | Eget namn för schemat för visning. Högst 50 tecken.        |
-|**Sammanfattning**     | Kortfattad beskrivning av planen för visning under rubriken. Högst 100 tecken.        |
-|**Beskrivning**     | Beskrivningstext som ger en mer detaljerad förklaring av planen.         |
-|**Faktureringsmodell**     | Det finns 2 faktureringsmodellerna som visas här, men du måste välja **använda din egen licens** för hanterade tjänster-erbjudanden. Det innebär att du fakturerar dina kunder direkt för kostnaderna för det här erbjudandet och debiteras inte Microsoft eventuella avgifter för dig.   |
-|**Är detta en privat Plan?**     | Anger om SKU: N är privat eller offentlig. Standardvärdet är **nr** (offentliga). Om du lämnar det här alternativet kan kan din plan inte begränsat till specifika kunder (eller till ett visst antal kunder); När du har publicerat en offentlig plan ändra du inte senare den till privat. Gör den här planen tillgänglig endast för specifika kunder, markera **Ja**. När du gör det behöver du identifiera kunderna genom att tillhandahålla sina prenumerations-ID. Det kan vara anges en i taget (för upp till 10 prenumerationer) eller genom att ladda upp en .csv-fil (för upp till 20 000 prenumerationer). Var noga med att inkludera egna prenumerationer här så att du kan testa och validera erbjudandet. Mer information finns i [privat SKU: er och planer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  |
+|**Rubrik**     | Eget namn på planen för visning. Maximal längd på 50 tecken.        |
+|**Sammanfattning**     | Kortfattad beskrivning av planen för visning under rubriken. Maximal längd på 100 tecken.        |
+|**Beskrivning**     | Beskrivnings text som ger en mer detaljerad förklaring av planen.         |
+|**Fakturerings modell**     | Det finns två fakturerings modeller som visas här, men du måste välja **Bring Your Own License** för Managed Services-erbjudanden. Det innebär att du debiteras kunderna direkt för kostnader som rör erbjudandet, och Microsoft debiterar inte några avgifter till dig.   |
+|**Är det en privat plan?**     | Anger om SKU: n är privat eller offentlig. Standardvärdet är **no** (public). Om du lämnar det här alternativet begränsas inte din prenumeration till specifika kunder (eller till ett visst antal kunder). När du har publicerat en offentlig plan kan du inte senare ändra den till privat. Välj **Ja**om du vill att den här planen bara är tillgänglig för vissa kunder. När du gör det måste du identifiera kunderna genom att ange deras prenumerations-ID. De kan anges en i taget (för upp till 10 prenumerationer) eller genom att ladda upp en. csv-fil (för upp till 20 000 prenumerationer). Se till att ta med dina egna prenumerationer här så att du kan testa och validera erbjudandet. Mer information finns i [privata SKU: er och planer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  |
 
-Slutför den **Manifest information** avsnittet. Detta skapar ett manifest med autentiseringsinformation för att hantera kundresurser. Den information som du anger här är nödvändigt att publicera dina kunder för Azure delegerad resurshantering. Ovanstående gäller dessa behörigheter för alla kunder som köper planen, så om du vill begränsa åtkomsten till en viss kund, du måste publicera en privat plan för eget bruk.
+Slutför Slutligen avsnittet **manifest information** . Detta skapar ett manifest med autentiseringsinformation för att hantera kund resurser. Den information du anger här är nödvändig för att publicera dina kunder för Azure-delegerad resurs hantering. Som nämnts ovan gäller dessa behörigheter för alla kunder som köper planen, så om du vill begränsa åtkomsten till en specifik kund måste du publicera en privat plan för deras exklusiva användning.
 
-- Börja med att ange en **Version** för manifestet. Använd formatet *n.n.n* (till exempel 1.2.5).
-- Ange sedan ditt **klient-ID**. Det här är ett GUID som är associerade med Azure Active Directory-klient-ID för din organisation (d.v.s. den klient som du kommer att arbeta i att hantera dina kunders resurser). Om du inte har det här praktiska, kan du hitta den genom att hovra över namnet på ditt konto längst upp till höger i Azure portal eller genom att välja **växla katalog**. 
-- Slutligen lägger du till en eller flera **auktorisering** poster för din prenumeration. Auktoriseringar definierar de entiteter som har åtkomst till resurser och prenumerationer för kunder som köper planen. Du måste ange den här informationen för att komma åt resurser åt kunden med hjälp av Azure delegerade resource Manager.
-  Ange följande för varje tillstånd. Du kan välja **nya auktorisering** så många gånger som behövs för att lägga till fler användare/rolldefinitioner.
-  - **Azure AD-objekt-ID**: Azure AD-ID för en användare, grupp eller program som kommer att beviljas särskilda behörigheter (som beskrivs av rolldefinitionen) till dina kunders resurser.
-  - **Azure AD-objektets visningsnamn**: Ett eget namn som hjälper kunden förstå syftet med den här auktoriseringen. Kunden ser det här namnet när du delegerar resurser.
-  - **Rolldefinition**: Välj en av de tillgängliga inbyggda Azure AD-roller i listan. Den här rollen avgör behörigheterna som användaren i den **Azure AD-objekt-ID** fält kommer att ha på kundernas resurser. Information om de här rollerna finns i [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
-  - **Tilldelningsbara roller**: Om du har valt administratör för användaråtkomst i den **rolldefinition** för detta tillstånd kan du lägga till en eller flera tilldelningsbara roller här. Användare i den **Azure AD-objekt-ID** fält kommer att kunna tilldela dem **Tilldelningsbara roller** till [hanterade identiteter](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity). Observera att inga andra behörigheter som normalt förknippas med rollen Administratör för användaråtkomst gäller för den här användaren. (Om du inte valde administratör för användaråtkomst för den här användaren rolldefinition, det här fältet har ingen effekt.)
+- Ange först en **version** för manifestet. Använd formatet *n. n. n* (till exempel 1.2.5).
+- Ange sedan **klient-ID: t**. Detta är ett GUID som är kopplat till organisationens Azure Active Directory-ID (dvs. den klient som du kommer att arbeta i för att hantera kundernas resurser). Om du inte har det här är praktiskt kan du hitta det genom att hovra över ditt konto namn längst upp till höger i Azure Portal eller genom att välja **Växla katalog**. 
+- Slutligen lägger du till en eller flera **Authorization** -poster i planen. Auktoriseringar definierar de entiteter som har åtkomst till resurser och prenumerationer för kunder som köper planen. Du måste ange den här informationen för att få åtkomst till resurser för kundens räkning med Azure-delegerad resurs hantering.
+  Ange följande för varje auktorisering. Du kan sedan välja **ny auktorisering** så många gånger som behövs för att lägga till fler användare/roll definitioner.
+  - **Objekt-ID för Azure AD**: Azure AD-identifieraren för en användare, en användar grupp eller ett program som kommer att beviljas vissa behörigheter (som beskrivs av roll definitionen) till dina kunders resurser.
+  - **Visnings namn för Azure AD-objekt**: Ett eget namn som hjälper kunden att förstå syftet med den här auktoriseringen. Kunden ser det här namnet när resurser delegeras.
+  - **Rolldefinition**: Välj en av de tillgängliga inbyggda Azure AD-rollerna i listan. Den här rollen avgör de behörigheter som användaren i fältet **Azure AD-objekt-ID** kommer att ha på dina kunders resurser. Information om dessa roller finns i [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  - **Tilldelnings bara roller**: Om du har valt administratör för användar åtkomst i **roll definitionen** för den här auktoriseringen kan du lägga till en eller flera tilldelnings bara roller här. Användaren i fältet **Azure AD-objekt-ID** kommer att kunna tilldela dessa tilldelnings bara **roller** till [hanterade identiteter](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity). Observera att inga andra behörigheter som normalt är kopplade till rollen administratör för användar åtkomst gäller för den här användaren. (Om du inte har valt administratör för användar åtkomst för den här användarens roll definition har det här fältet ingen inverkan.)
 
 > [!TIP]
-> I de flesta fall är det bäst att tilldela behörigheter till en Azure AD-användargruppen eller tjänstens huvudnamn, snarare än vid ett antal enskilda användarkonton. På så sätt kan du lägga till eller ta bort åtkomst för enskilda användare utan att behöva uppdatera och publicera planen när ändrar dina krav för åtkomst.
+> I de flesta fall vill du tilldela behörigheter till en användar grupp eller ett tjänst huvud namn i Azure AD, i stället för till en serie med enskilda användar konton. På så sätt kan du lägga till eller ta bort åtkomst för enskilda användare utan att behöva uppdatera och publicera om planen när dina åtkomst krav ändras.
 
-När du är klar att lägga till planer, Välj **spara**, fortsätt sedan till den **Marketplace** avsnittet.
+När du är klar med att lägga till planer väljer du **Spara**och fortsätter till **Marketplace** -avsnittet.
 
-## <a name="provide-marketplace-text-and-images"></a>Ange Marketplace text och bilder
+## <a name="provide-marketplace-text-and-images"></a>Ange text och bilder i Marketplace
 
-Den **Marketplace** avsnittet kan du ge text och bilder som kommer att se i Azure Marketplace och Azure-portalen.
+I avsnittet **Marketplace** kan du ange den text och de bilder som kunderna ser i Azure Marketplace och Azure Portal.
 
-Ange information för följande fält i den **översikt** avsnittet:
+Ange information för följande fält i översikts avsnittet:
 
 |Fält  |Beskrivning  |
 |---------|---------|
-|**Rubrik**     |  Rubrik för erbjudandet, ofta lång, formella namn. Den här rubriken visas på en framträdande plats i marketplace. Högst 50 tecken. I de flesta fall bör detta vara samma som den **namn** du angav i den **erbjuder inställningar** avsnittet.       |
-|**Sammanfattning**     | Kort syfte eller funktion i ditt erbjudande. Detta är vanligtvis visas under rubriken. Högst 100 tecken.        |
-|**Lång sammanfattning**     | En längre sammanfattning av syfte eller funktion i ditt erbjudande. Högst 256 tecken.        |
-|**Beskrivning**     | Mer information om ditt erbjudande. Det här fältet har en maximal längd på 3000 tecken och har stöd för enkel HTML-formatering.        |
-|**Identifierare för marknadsföring**     | En unik identifierare för URL-vänlig. det ska användas i Marketplace URL: er för det här erbjudandet. Exempel: om Publicerings-ID är *contoso* och din marknadsföring identifieraren är *exempelapp för*, URL: en för ditt erbjudande i Azure Marketplace blir *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp* .        |
-|**Förhandsversion av prenumerations-ID: N**     | Lägg till en till 100 identifierare för prenumerationen. Kunder som är associerade med dessa prenumerationer kommer att kunna visa erbjudandet på Azure Marketplace innan det lanseras. Vi rekommenderar, inklusive dina egna prenumerationer här så att du kan förhandsgranska hur ditt erbjudande ska visas i Azure Marketplace innan du gör den tillgänglig för kunder.  (Microsoft-supporten och tekniska team kommer även att kunna visa ditt erbjudande under denna förhandsgranskningsperiod.)   |
-|**Användbara länkar**     | URL: er som rör ditt erbjudande, till exempel dokumentation, viktig information, vanliga frågor och svar, osv.        |
-|**Föreslås kategorier (Max 5)**     | En eller flera kategorier (upp till fem) som gäller för ditt erbjudande. Dessa kategorier hjälpa kunderna att identifiera ditt erbjudande i Azure Marketplace och Azure-portalen.        |
+|**Rubrik**     |  Rubriken på erbjudandet, ofta det långa, formella namnet. Den här rubriken visas på ett framträdande sätt i Marketplace. Maximal längd på 50 tecken. I de flesta fall ska detta vara detsamma som det **namn** som du angav i avsnittet **erbjudande inställningar** .       |
+|**Sammanfattning**     | Kort syfte eller funktion för ditt erbjudande. Detta visas vanligt vis under rubriken. Maximal längd på 100 tecken.        |
+|**Lång Sammanfattning**     | En längre sammanfattning av ditt erbjudandes syfte eller funktion. Maximal längd på 256 tecken.        |
+|**Beskrivning**     | Mer information om ditt erbjudande. Det här fältet innehåller den maximala längden på 3000 tecken och stöder enkel HTML-formatering. Du måste inkludera orden "hanterad tjänst" eller "hanterade tjänster" någonstans i beskrivningen.       |
+|**Marknadsförings-ID**     | En unik identifierare för URL-vänlighet. den kommer att användas i Marketplace-URL: er för det här erbjudandet. Om ditt utgivar-ID t *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp* . ex. är *contoso* och din marknadsförings-ID är *fråga*, blir URL: en för ditt erbjudande på Azure Marketplace.        |
+|**Förhandsgranska prenumerations-ID: n**     | Lägg till en till 100 prenumerations-ID: n. De kunder som är kopplade till dessa prenumerationer kommer att kunna se erbjudandet på Azure Marketplace innan det går live. Vi rekommenderar att du inkluderar dina egna prenumerationer här så att du kan förhandsgranska hur ditt erbjudande visas på Azure Marketplace innan du gör det tillgängligt för kunderna.  (Microsoft support-och teknik team kommer också att kunna se ditt erbjudande under för hands perioden.)   |
+|**Användbara länkar**     | URL: er som är relaterade till ditt erbjudande, till exempel dokumentation, viktig information, vanliga frågor och svar.        |
+|**Föreslagna kategorier (max 5)**     | En eller flera kategorier (upp till fem) som gäller för ditt erbjudande. De här kategorierna hjälper kunder att upptäcka ditt erbjudande i Azure Marketplace och Azure Portal.        |
 
-I den **marknadsföring artefakter** avsnittet, kan du överföra logotyper och andra resurser som ska visas i ditt erbjudande. Du kan också ladda upp skärmbilder eller länkar till videor som hjälper kunder att förstå ditt erbjudande.
+I avsnittet **marknadsförings artefakter** kan du ladda upp logo typer och andra till gångar som ska visas med ditt erbjudande. Du kan också ladda upp skärm bilder eller länkar till videor som hjälper kunderna att förstå ditt erbjudande.
 
-Det krävs fyra logotyp storlekar: **Liten (40 x 40)** , **medel (90 x 90)** , **stora (115 x 115)** , och **hela (255 x 155)** . Följ dessa riktlinjer för din logotyper:
+Fyra logo typ storlekar krävs: **Liten (40x40)** , **medium (90x90)** , **Large (115x115)** och **wide (255x155)** . Följ dessa rikt linjer för dina logo typer:
 
 - Azure-designen har en enkel färgpalett. Begränsa antalet primära och sekundära färger i logotypen.
 - Portalens temafärger är svart och vitt. Använd inte de färgerna som bakgrundsfärg för logotypen. Använd en färg som gör att logotyp framträder tydligt i portalen. Vi rekommenderar enkla primärfärger.
-- Om du använder en genomskinlig bakgrund, se till att logotypen och texten inte vitt, svart eller blå.
+- Om du använder en genomskinlig bakgrund ser du till att logo typen och texten inte är vita, svarta eller blå.
 - Logotypens utseende och känsla bör vara platt och inte innehålla toningar. Använd inte en tonad bakgrund för logotypen.
 - Placera inte text på logotypen – inte ens företagets eller varumärkets namn.
 - Se till att logotypen inte har sträckts ut.
 
-Den **Hero (815 x 290)** logotyp är valfritt men rekommenderas. Om du inkluderar en hero-logotyp, Följ dessa riktlinjer:
+**815x290-logotypen (hjälte)** är valfri men rekommenderas. Om du inkluderar en hjälte-logotyp följer du dessa rikt linjer:
 
-- Inte inkluderar text till hero-logotypen och se till att lämna 415 bildpunkter tomt utrymme på höger sida av logotypen. Detta krävs för att lämna utrymme för textelement som ska bäddas programmässigt: ditt publisher visningsnamn plan titel, erbjuder lång sammanfattning.
-- Hero-logotypen bakgrunden kanske inte svart, vit eller transparent. Kontrollera att din bakgrundsfärgen som används inte för ljusa eftersom inbäddad text visas i vitt.
-- När du publicerar ditt erbjudande med en hero-ikon, inte du ta bort den (även om du kan uppdatera den med en annan version om du vill).
+- Ta inte med någon text i hjältens logo typ och se till att lämna 415 pixlar med tomt utrymme på höger sida av logo typen. Detta krävs för att lämna utrymme för text element som ska bäddas in program mässigt: ditt visnings namn för utgivare, plan rubrik, erbjudande lång Sammanfattning.
+- Din hjältes logo typ bakgrund får inte vara svart, vit eller transparent. Kontrol lera att bakgrunds färgen inte är för ljus, eftersom den inbäddade texten kommer att visas i vitt.
+- När du har publicerat erbjudandet med en hjälte-ikon kan du inte ta bort det (men du kan uppdatera det med en annan version om det behövs).
 
-I den **leda Management** avsnittet CRM-systemet där dina leads sparas kan välja om du vill. 
+I avsnittet **ledar hantering** kan du välja det CRM-system där dina leads ska lagras. Observera att det krävs ett **lead-mål** enligt [certifierings principerna för hanterade tjänster](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
 
-Slutligen, ange din **princip Sekretesswebbadress** och **användningsvillkoren** i den **juridiska** avsnittet. Du kan också ange här om du ska använda eller inte den [standardavtal](https://docs.microsoft.com/azure/marketplace/standard-contract) för det här erbjudandet.
+Ange slutligen din **sekretess policy URL** och **användningsvillkor** i avsnittet **juridiskt** . Du kan också ange om du vill använda [standard kontraktet](https://docs.microsoft.com/azure/marketplace/standard-contract) för det här erbjudandet.
 
-Glöm inte att spara dina ändringar innan du går in på den **Support** avsnittet.
+Se till att spara ändringarna innan du går vidare till avsnittet **support** .
 
 ## <a name="add-support-info"></a>Lägg till supportinformation
 
-I den **stöder** avsnittet, ange namn, e-post och telefonnummer för en tekniska kontakt- och en kund Supportkontakt. Du måste också att ge stöd för URL: er. Microsoft kan använda den här informationen när vi behöver kontakta dig om företag och supportärenden.
+I avsnittet **support** anger du namn, e-postadress och telefonnummer för en teknisk kontakt och en kund support kontakt. Du måste också ange Support-URL: er. Microsoft kan använda den här informationen när vi behöver kontakta dig om affärs-och support ärenden.
 
-När du har lagt till den här informationen, Välj **spara.**
+När du har lagt till den här informationen väljer du **Spara.**
 
 ## <a name="publish-your-offer"></a>Publicera ditt erbjudande
 
-När du är nöjd med all den information som du har angett är nästa steg att publicera erbjudandet i Azure Marketplace. Välj den **publicera** för att starta processen så att ditt erbjudande live. Mer information om den här processen finns i [publicera Azure Marketplace och AppSource erbjudanden](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
+När du är nöjd med all information som du har angett är nästa steg att publicera erbjudandet på Azure Marketplace. Välj knappen **publicera** för att påbörja processen med att göra erbjudandet Live. Mer information om den här processen finns i [publicera Azure Marketplace-och AppSource-erbjudanden](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [mellan klientorganisationer hanteringsupplevelser](../concepts/cross-tenant-management-experience.md).
-- [Visa och hantera kunder](view-manage-customers.md) genom att gå till **mina kunder** i Azure-portalen.
+- Lär dig mer om [hanterings upplevelser mellan flera innehavare](../concepts/cross-tenant-management-experience.md).
+- [Visa och hantera kunder](view-manage-customers.md) genom att gå till **mina kunder** i Azure Portal.

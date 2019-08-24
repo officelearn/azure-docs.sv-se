@@ -1,0 +1,197 @@
+---
+title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med nät | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och-nät.
+services: active-directory
+documentationCenter: na
+author: jeevansd
+manager: mtillman
+ms.reviewer: barbkess
+ms.assetid: 82367f62-173e-4e14-bf84-d8f611706086
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 08/22/2019
+ms.author: jeedes
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 37a527e8cd83d292d8af8af5acd0c903c63081f2
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70014078"
+---
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med nät
+
+I den här självstudien får du lära dig hur du integrerar nät med Azure Active Directory (Azure AD). När du integrerar nät med Azure AD kan du:
+
+* Kontroll i Azure AD som har åtkomst till-nät.
+* Gör det möjligt för användarna att logga in automatiskt för att kunna använda sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
+
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
+## <a name="prerequisites"></a>Förutsättningar
+
+För att komma igång behöver du följande objekt:
+
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Enkel inloggning (SSO) aktive rad prenumeration.
+
+## <a name="scenario-description"></a>Scenariobeskrivning
+
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+
+* Stöd för stöd för **SP-och IDP** -INITIERAd SSO
+
+## <a name="adding-harness-from-the-gallery"></a>Lägga till ett nät från galleriet
+
+Om du vill konfigurera integrering av nät i Azure AD måste du lägga till ett nät från galleriet i din lista över hanterade SaaS-appar.
+
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du in **nät** i sökrutan.
+1. Välj **nät** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+
+## <a name="configure-and-test-azure-ad-single-sign-on-for-harness"></a>Konfigurera och testa enkel inloggning med Azure AD för nät
+
+Konfigurera och testa Azure AD SSO med ett nät med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i-nätet.
+
+Om du vill konfigurera och testa Azure AD SSO med-nätet slutför du följande Bygg stenar:
+
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera](#configure-harness-sso)** enkel inloggning – för att konfigurera inställningar för enkel inloggning på program sidan.
+    1. **[Skapa en test användare](#create-harness-test-user)** för att få en motsvarighet till B. Simon i ett nät som är länkat till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för integrations program integration och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
+
+    I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://app.harness.io/gateway/api/users/saml-login?accountId=<harness_account_id>`
+
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+
+    I rutan **Inloggnings-URL** anger du en URL: `https://app.harness.io/`
+
+    > [!NOTE]
+    > Värdet för svars-URL:en är inte verkligt. Du får den faktiska svars-URL: en från avsnittet **Konfigurera nät-SSO** , som beskrivs senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
+
+    ![Länk för hämtning av certifikat](common/metadataxml.png)
+
+1. I avsnittet **Konfigurera ett nät** kopierar du lämpliga URL: er baserat på ditt krav.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till ett nät.
+
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **nät**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+
+    ![Länken Lägg till användare](common/add-assign-user.png)
+
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+## <a name="configure-harness-sso"></a>Konfigurera enkel inloggning för nät
+
+1. Öppna ett nytt webbläsarfönster och logga in på din företags webbplats som administratör.
+
+1. Klicka på**Inställningar**för **kontinuerlig säkerhets** > **åtkomst hantering** > på sidan längst upp till höger på sidan.
+
+    ![Konfiguration av nät](./media/harness-tutorial/configure01.png)
+
+1. I avsnittet **SSO** -providers klickar du på **+ Lägg till SSO** -providers> **SAML**.
+
+    ![Konfiguration av nät](./media/harness-tutorial/configure03.png)
+
+1. Utför följande steg på popup-sidan för **SAML** -providern:
+
+    ![Konfiguration av nät](./media/harness-tutorial/configure02.png)
+
+    a. Kopiera **i SSO-providern, aktivera SAML-baserad inloggning och ange sedan följande URL-** instans och klistra in den i text rutan svars-URL i avsnittet **grundläggande SAML-konfiguration** på Azure Portal.
+
+    b. Skriv ditt visnings namn i text rutan **visnings namn** .
+
+    c. Klicka på **Välj fil** för att ladda upp XML-filen för federationsmetadata som du har laddat ned från Azure AD.
+
+    d. Klicka på **Skicka**.
+
+### <a name="create-harness-test-user"></a>Skapa en test användare på nätet
+
+Om du vill att Azure AD-användare ska kunna logga in på ett nät, måste de tillhandahållas i ett nät. I-nätet är etableringen en manuell uppgift.
+
+**Utför följande steg för att etablera ett användarkonto:**
+
+1. Logga in för att ansluta som administratör.
+
+1. Längst upp till höger på sidan klickar du på principer för **kontinuerlig säkerhets** > **åtkomst hantering** > .
+
+    ![Konfiguration av nät](./media/harness-tutorial/configure04.png)
+
+1. Klicka på **+ Lägg till användare**till höger på sidan.
+
+    ![Konfiguration av nät](./media/harness-tutorial/configure05.png)
+
+1. Utför följande steg i popup-fönstret **Lägg till användare** :
+
+    ![Konfiguration av nät](./media/harness-tutorial/configure06.png)
+
+    a. I text rutan **e-postadress (er)** anger du e-postadressen till användaren `B.simon@contoso.com`.
+
+    b. Välj **användar grupper**.
+
+    c. Klicka på **Skicka**.
+
+## <a name="test-sso"></a>Testa SSO 
+
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+
+När du klickar på panelen nät på åtkomst panelen, bör du loggas in automatiskt på det nät som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="additional-resources"></a>Ytterligare resurser
+
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova att använda Azure AD](https://aad.portal.azure.com/)
+

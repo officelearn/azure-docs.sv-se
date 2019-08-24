@@ -4,29 +4,29 @@ description: Lär dig mer om begäran units i Azure Cosmos DB för skrivning enk
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3758766b1051acb9321ec67727eecef249971065
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 3a79db11ff05bcc9d18619c7f508a9864c17c3b8
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615096"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012798"
 ---
-# <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB som ett nyckelvärde – kostnaden översikt
+# <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB som ett nyckel värdes lager – kostnads översikt
 
-Azure Cosmos DB är en globalt distribuerad databastjänst för att bygga högtillgängliga, storskaliga program enkelt. Azure Cosmos DB indexerar automatiskt alla data som den matar in, effektivt som standard. Detta möjliggör snabbt och konsekvent [SQL](how-to-sql-query.md) (och [JavaScript](stored-procedures-triggers-udfs.md)) frågor för alla typer av data. 
+Azure Cosmos DB är en globalt distribuerad databastjänst för att bygga högtillgängliga, storskaliga program enkelt. Som standard indexeras Azure Cosmos DB automatiskt och effektivt indexera alla data som matas in. Detta möjliggör snabba och konsekventa [SQL](how-to-sql-query.md) -frågor (och [Java Script](stored-procedures-triggers-udfs.md)) för data. 
 
-Den här artikeln beskriver kostnaden för Azure Cosmos DB för skrivning enkla och läsåtgärder när den används som en nyckel/värde-lager. Skriva-åtgärder inkluderar infogningar, ersätter, borttagningar och upsertar av dokument. Förutom att garantera ett service avtal på 99,99% tillgänglighet för alla enkla region konton och alla konton med flera regioner med avslappnad konsekvens och 99,999% Läs tillgänglighet för alla databas konton i flera regioner, Azure Cosmos DB ger garanterad < 10 MS-svars tid för läser och för (indexerade) skrivningar i 99 percentilen. 
+Den här artikeln beskriver kostnaden för Azure Cosmos DB för skrivning enkla och läsåtgärder när den används som en nyckel/värde-lager. Skriv åtgärder inkluderar infogningar, ersätter, tar bort och upsertar av data objekt. Förutom att garantera ett service avtal på 99,999% tillgänglighet för alla konton med flera regioner, Azure Cosmos DB ger garanterad < 10 MS-svars tid för läsningar och för (indexerade) skrivningar, vid 99 percentil. 
 
 ## <a name="why-we-use-request-units-rus"></a>Varför vi använder programbegäran (ru: er)
 
-Azure Cosmos DB-prestanda är baserad på mängden etablerade [programbegäran](request-units.md) (RU) för partitionen. Etableringen är med en andra Precision och köps i ru/sek ([ska inte förväxlas med fakturering per timme](https://azure.microsoft.com/pricing/details/cosmos-db/)). RU: er bör betraktas som en valuta som förenklar etableringen av nödvändiga genomströmning för programmet. Våra kunder behöver inte tänka på hur man skiljer mellan läsa och skriva kapacitetsenheter. Den enda valuta modellen med enheter för programbegäran skapar effektivitet om du vill dela etablerad kapacitet mellan läsningar och skrivningar. Den här modellen etablerad kapacitet gör att tjänsten en förutsägbar och konsekvent dataflöde garanterad låg latens och hög tillgänglighet. Slutligen kan vi använda RU att modellen dataflöde, men varje etablerade RU har också en definierad mängd resurser (minne, Core). RU/sek är inte bara IOPS.
+Azure Cosmos DB prestanda baseras på mängden allokerat data flöde som uttrycks i [enheter](request-units.md) för programbegäran (ru/s). Etableringen är i en andra kornig het och köps in i RU/s (ska[inte förväxlas med fakturerings tiden per timme](https://azure.microsoft.com/pricing/details/cosmos-db/)). Ru: er bör betraktas som en logisk abstraktion (en valuta) som fören klar etableringen av nödvändigt data flöde för programmet. Användarna behöver inte tänka på att skilja mellan Läs-och Skriv data flöden. Den enda valuta modellen med enheter för programbegäran skapar effektivitet om du vill dela etablerad kapacitet mellan läsningar och skrivningar. Den här etablerade kapacitets modellen gör det möjligt för tjänsten att tillhandahålla ett **förutsägbart och konsekvent data flöde, garanterad låg latens och hög tillgänglighet**. Slutligen, medan RU-modellen används för att illustrera data flödet, har varje etablerad RU också en definierad mängd resurser (t. ex. minne, kärnor/processor och IOPS).
 
-Cosmos DB är endast Azure-tjänst som tillhandahåller ett serviceavtal på svarstid, dataflöde och enhetlighet förutom hög tillgänglighet som ett globalt distribuerade databassystem. Det data flöde som du etablerar tillämpas på var och en av de regioner som är kopplade till ditt Cosmos Database-konto. För läsningar, Cosmos DB erbjuder flera väldefinierade [konsekvensnivåer](consistency-levels.md) där du kan välja från. 
+Som ett globalt distribuerat databas system är Cosmos DB den enda Azure-tjänst som tillhandahåller en omfattande service avtal som täcker svars tid, data flöde, konsekvens och hög tillgänglighet. Det data flöde som du etablerar tillämpas på var och en av de regioner som är kopplade till ditt Cosmos-konto. För läsningar, Cosmos DB erbjuder flera väldefinierade [konsekvensnivåer](consistency-levels.md) där du kan välja från. 
 
-I följande tabell visas antalet mediereserverade enheter som krävs för att utföra läsa och skriva transaktioner på dokumentstorlek av 1 KB och 100 kB-artiklar.
+I följande tabell visas antalet ru: er som krävs för att utföra Läs-och skriv åtgärder baserat på ett data objekt av storlek 1 KB och 100 kB.
 
 |Objektets storlek|1 Läs|1 skrivning|
 |-------------|------|-------|
@@ -35,17 +35,17 @@ I följande tabell visas antalet mediereserverade enheter som krävs för att ut
 
 ## <a name="cost-of-reads-and-writes"></a>Kostnaden för läsningar och skrivningar
 
-Om du etablerar 1 000 kosta RU/sek, den här belopp som ska 3.6 miljoner RU/timme och kommer att $0.08 under timmen (i USA och Europa). Efter 1 KB storlek dokument, detta innebär att du kan använda 3.6-m läsningar eller skriver 0,72-m (3.6 miljoner RU / 5) med hjälp av det etablerade dataflödet. Normaliseras till miljoner läsningar och skrivningar, kostnaden skulle bli $0,022 /m läsningar (0,08 USD / 3.6) och $0.111/ m skriver (0,08 USD / 0,72). Kostnaden per miljon blir minimal som visas i tabellen nedan.
+Om du etablerar 1 000 RU/s uppgår detta belopp till 3 600 000 RU/timme och kommer att kosta $0,08 för timmen (i USA och Europa). För ett data objekt på 1 KB innebär det att du kan använda 3 600 000 läspaket eller 720 000 skrivningar (3 600 000 RU/5) med hjälp av det etablerade data flödet. Normaliserat till miljon läsningar och skrivningar skulle kostnaden bli $0,022/miljon av läsningar ($0,08/3,6) och $0.111/miljoner skrivningar ($0,08/0,72). Kostnaden per miljon blir minimal som visas i tabellen nedan.
 
-|Objektets storlek|1-m Läs|1 miljon skrivning|
+|Objektets storlek|Kostnad för 1 000 000 läsningar|Kostnad på 1 000 000 skrivningar|
 |-------------|-------|--------|
 |1 KB|$0.022|$0.111|
 |100 KB|$0.222|$1.111|
 
 
-De flesta av grundläggande blob eller objektet lagrar tjänster kostnad $0,40 per miljon lästransaktioner och 5 USD per miljon skrivning transaktion. Om används optimalt, kan Cosmos DB vara upp till 98% billigare än andra lösningarna (för 1 KB transaktioner).
+De flesta av grundläggande blob eller objektet lagrar tjänster kostnad $0,40 per miljon lästransaktioner och 5 USD per miljon skrivning transaktion. Om det används optimalt kan Cosmos DB vara upp till 98% billigare än dessa andra lösningar (för 1 KB-transaktioner).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Håll ögonen öppna för nya artiklar om hur du optimerar etablering av Azure Cosmos DB. Under tiden kan passa på att använda vår [RU Kalkylatorn](https://www.documentdb.com/capacityplanner).
+* Använd [ru](https://cosmos.azure.com/capacitycalculator/) -Kalkylatorn för att beräkna data flödet för dina arbets belastningar.
 

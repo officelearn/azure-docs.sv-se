@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: c4339aa8548ef66c862200ad61b6aaca90332ad0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f478956c3a220ea4435c4f6e8b1096a1e9fdcadf
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187062"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70014820"
 ---
-När din watcher har skapats kan den `AnchorLocated` händelsen utlöses för varje ankare som begärdes. Den här händelsen utlöses när en fästpunkt finns eller om fästpunkten inte går att hitta. Om det händer anges orsaken i status. När alla fästpunkter för en Övervakare bearbetas kan hitta eller inte hittas kommer `LocateAnchorsCompleted` händelsen utlöses.
+När din bevakare har skapats `AnchorLocated` utlöses händelsen för varje fäst punkt som begärs. Den här händelsen utlöses när ett ankare finns eller om ankaret inte kan hittas. Om den här situationen inträffar anges orsaken i status. När alla ankare för en bevakare har bearbetats, hittats eller inte hittas, `LocateAnchorsCompleted` kommer händelsen att utlösas. Det finns en gräns på 35 identifierare per övervakare. 

@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f89e7307d75b159886cb47bde3e1fceb5ed557f5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: bd587bfed7fcfea8e8cd99ca155ee9d86222ae3d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699317"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013524"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
-Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Azure File Sync transformerar Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
+Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
 
 I den här artikeln beskrivs viktiga överväganden för en Azure File Sync distribution. Vi rekommenderar att du också läser [planering för en Azure Files distribution](storage-files-planning.md). 
 
@@ -149,7 +149,7 @@ Så här visar du resultatet i CSV:
 | \\SyncShareState | Mapp för synkronisering |
 
 ### <a name="failover-clustering"></a>Kluster för växling vid fel
-Windows Server-redundanskluster stöds av Azure File Sync för distributions alternativet "fil server för allmän användning". Kluster för växling vid fel stöds inte på "skalbar fil server för program data" (SOFS) eller på klusterdelade volymer (CSV: er).
+Windows Server-redundanskluster stöds av Azure File Sync för distributions alternativet "fil server för allmän användning". Redundanskluster stöds inte på Skalbar filserver för program data (SOFS) eller på klusterdelade volymer (CSV: er).
 
 > [!Note]  
 > Azure File Sync agenten måste installeras på varje nod i ett redundanskluster för att synkroniseringen ska fungera korrekt.
@@ -172,13 +172,13 @@ För volymer som inte har aktiverat moln nivåer är Azure File Sync stöd för 
     - Datum policyn hoppar över nivåer av filer som annars kan ha kvalificerats för lagrings nivåer på grund av att optimerings jobbet för deduplicering har åtkomst till filerna.
 - För pågående optimerings jobb för deduplicering kommer moln nivåer med datum policyn att förskjutas av [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) -inställningen för datadeduplicering, om filen inte redan är i nivå. 
     - Exempel: Om MinimumFileAgeDays-inställningen är 7 dagar och den datum policyn för molnnivå är 30 dagar, kommer datum principen att på nivå filer efter 37 dagar.
-    - Anteckning: När en fil har en nivå av Azure File Sync hoppar optimerings jobbet för deduplicering över filen.
+    - Obs! När en fil har en nivå av Azure File Sync hoppar optimerings jobbet för deduplicering över filen.
 - Om en server som kör Windows Server 2012 R2 med Azure File Sync-agenten installerad uppgraderas till Windows Server 2016 eller Windows Server 2019, måste följande steg utföras för att stödja datadeduplicering och moln nivåer på samma volym:  
     - Avinstallera Azure File Sync-agenten för Windows Server 2012 R2 och starta om servern.
     - Hämta Azure File Sync agent för den nya serverns OS-version (Windows Server 2016 eller Windows Server 2019).
     - Installera Azure File Sync agent och starta om servern.  
     
-    Anteckning: Konfigurations inställningarna för Azure File Sync på servern bevaras när agenten avinstalleras och installeras om.
+    Obs! Konfigurations inställningarna för Azure File Sync på servern bevaras när agenten avinstalleras och installeras om.
 
 ### <a name="distributed-file-system-dfs"></a>Distributed File System (DFS)
 Azure File Sync stöder interop med DFS-namnområden (DFS-N) och DFS Replication (DFS-R).
@@ -254,12 +254,15 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | East US | Virginia |
 | USA, östra 2 | Virginia |
 | Frankrike, centrala | Paris |
-| Sydkorea, centrala| Söul |
-| Sydkorea, södra| Pusan |
+| Frankrike, södra * | Marseille |
+| Sydkorea, centrala | Söul |
+| Sydkorea, södra | Pusan |
 | Östra Japan | Tokyo, Saitama |
 | Västra Japan | Osaka |
 | Norra centrala USA | Illinois |
 | Norra Europa | Irland |
+| Sydafrika, norra | Johannesburg |
+| Södra Afrika, västra * | Kapstaden |
 | Södra centrala USA | Texas |
 | Indien, södra | Chennai |
 | Sydostasien | Singapore |
@@ -274,6 +277,8 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Västra USA 2 | Washington |
 
 Azure File Sync stöder endast synkronisering med en Azure-filresurs som är i samma region som tjänsten för synkronisering av lagring.
+
+För regionerna som har marker ATS med asterisker måste du kontakta Azure-supporten för att begära åtkomst till Azure Storage i dessa regioner. Processen beskrivs i [det här dokumentet](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### <a name="azure-disaster-recovery"></a>Azure haveri beredskap
 Azure File Sync integreras med alternativet [Geo-redundant Storage redundans](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) för att skydda mot förlust av en Azure-region. GRS Storage fungerar med asynkron blockering av replikering mellan lagring i den primära regionen, som du normalt interagerar med och lagring i den länkade sekundära regionen. I händelse av en katastrof som gör att Azure-regionen tillfälligt eller permanent är offline, kommer Microsoft att redundansväxla redundans till den kopplade regionen. 
@@ -296,12 +301,15 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 | East US             | Västra USA            |
 | USA, östra 2           | Centrala USA         |
 | Frankrike, centrala      | Frankrike, södra       |
+| Frankrike, södra        | Frankrike, centrala     |
 | Östra Japan          | Västra Japan         |
 | Västra Japan          | Östra Japan         |
 | Sydkorea, centrala       | Sydkorea, södra        |
 | Sydkorea, södra         | Sydkorea, centrala      |
 | Norra Europa        | Västra Europa        |
 | Norra centrala USA    | Södra centrala USA   |
+| Sydafrika, norra  | Sydafrika, västra  |
+| Sydafrika, västra   | Sydafrika, norra |
 | Södra centrala USA    | Norra centrala USA   |
 | Indien, södra         | Indien, centrala      |
 | Sydostasien      | Östasien          |

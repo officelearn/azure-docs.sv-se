@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
+ms.localizationpriority: high
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 65bf4e973ce33b2898abf585fe306a8bc85c64a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 983edcc19a27b91599ea1e312268934b37f8b0ca
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477788"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012883"
 ---
 ::: zone target="docs"
 
@@ -24,7 +25,7 @@ ms.locfileid: "67477788"
 
 ::: zone target="chromeless"
 
-# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Kom igång med Azure Data Box-Disk med hjälp av Azure portal
+# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Kom igång med Azure Data Box Disk med Azure Portal
 
 ::: zone-end
 
@@ -40,7 +41,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ::: zone target="chromeless"
 
-Den här snabbstarten beskriver hur du distribuerar Azure Data Box Disk med hjälp av Azure Portal. Stegen är bland annat Granska krav, låsa upp diskarna, Anslut och kopiera data till diskarna så som överför till Azure.
+Den här snabbstarten beskriver hur du distribuerar Azure Data Box Disk med hjälp av Azure Portal. Stegen omfattar gransknings krav, Lås upp diskarna, Anslut och kopiera data till diskar så att de överförs till Azure.
 
 ::: zone-end
 
@@ -62,12 +63,12 @@ Logga in på Azure Portal på [https://aka.ms/azuredataboxfromdiskdocs](https://
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Du har lagt in en order för Data Box-Disk med hjälp av den [självstudien: Beställa Azure Data Box Disk](data-box-disk-deploy-ordered.md).
+- Du har placerat din beställning för data Box disk med [hjälp av självstudien: Beställa Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 - Du har tagit emot diskarna och jobbstatusen på portalen har uppdaterats till **Levererade**.
 - Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
 
-    - Kör en [operativsystem som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Har [annan nödvändig programvara](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installeras om det är en Windows-klient.
+    - Kör ett [operativ system som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Ha [andra nödvändiga program](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installerade om det är en Windows-klient.
 
 ::: zone-end
 
@@ -110,17 +111,17 @@ Det här steget tar ungefär 5 minuter.
 
 Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken.
 
-1. Enheten innehåller *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, och *DataBoxDiskImport* mappar. Dra och släpp för att kopiera de data som ska importeras som blockblobar till mappen *BlockBlob*. På samma sätt kan dra och släpp data, till exempel VHD-/ VHDX till *PageBlob* mappen och lämpliga data till *AzureFile*. Kopiera de virtuella hårddiskar som du vill ladda upp som hanterade diskar till en mapp under *ManagedDisk*.
+1. Enheten innehåller *PageBlob*-, *BlockBlob*-, *AzureFile*-, *ManagedDisk*-och *DataBoxDiskImport* -mappar. Dra och släpp för att kopiera de data som ska importeras som blockblobar till mappen *BlockBlob*. På samma sätt kan du dra och släppa data som VHD/VHDX till *PageBlob* -mappen och lämpliga data till *AzureFile*. Kopiera de virtuella hård diskar som du vill överföra som hanterade diskar till en mapp under *ManagedDisk*.
 
-    En container skapas i Azure Storage-kontot för varje undermapp under mapparna *BlockBlob* och *PageBlob*. En filresurs har skapats för en underordnad mapp under *AzureFile*.
+    En container skapas i Azure Storage-kontot för varje undermapp under mapparna *BlockBlob* och *PageBlob*. En fil resurs skapas för en undermapp under *AzureFile*.
 
-    Alla filer under mapparna *BlockBlob* och *PageBlob* kopieras till standardcontainern `$root` under Azure Storage-kontot. Kopiera filer till en mapp i *AzureFile*. Alla filer som kopierats direkt till den *AzureFile* mappen misslyckas och kan laddas upp som blockblobar.
+    Alla filer under mapparna *BlockBlob* och *PageBlob* kopieras till standardcontainern `$root` under Azure Storage-kontot. Kopiera filer till en mapp i *AzureFile*. Det går inte att kopiera filer som kopieras direkt till *AzureFile* -mappen och överförs som block-blobbar.
 
     > [!NOTE]
-    > - Alla behållare, blobar och filer ska följa [namngivningskonventionerna Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Om dessa regler inte uppfylls misslyckas datauppladdningen till Azure.
-    > - Se till att filerna inte överskrider ~4.75 TiB för blockblobar och ~ 8 TiB för sidblobar ~ 1 TiB för Azure Files.
+    > - Alla behållare, blobbar och filer bör följa namngivnings konventionerna för [Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Om dessa regler inte uppfylls misslyckas datauppladdningen till Azure.
+    > - Se till att filer inte överskrider ~ 4,75-TiB för block-blobbar, ~ 8 TiB för Page blobbar och ~ 1 TiB för Azure Files.
 
-2. **(Valfritt men rekommenderas)**  När kopieringen är klar, rekommenderar vi att minst du kör den `DataBoxDiskValidation.cmd` i den *DataBoxDiskImport* mapp och välj alternativ 1 för att verifiera filerna. Vi rekommenderar också att tid tillåter det, du kan använda alternativ 2 att också generera kontrollsummor för verifiering (kan ta tid beroende på storleken på data). De här stegen minimera risken för fel när du överför data till Azure.
+2. **(Valfritt men rekommenderas)** När kopieringen är klar, rekommenderar vi starkt att du minst kör det `DataBoxDiskValidation.cmd` som finns i mappen *DataBoxDiskImport* och väljer alternativ 1 för att validera filerna. Vi rekommenderar också att du använder alternativ 2 för att generera kontroll summor för verifiering (kan ta tid beroende på data storleken). De här stegen minimerar risken för eventuella problem vid överföring av data till Azure.
 3. Ta bort enheten på ett säkert sätt.
 
 ## <a name="ship-to-azure"></a>Skicka till Azure

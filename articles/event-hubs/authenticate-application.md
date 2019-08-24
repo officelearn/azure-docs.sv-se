@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 9ea22dfc83883238923de06a764d7ef1f11cb475
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
-ms.translationtype: HT
+ms.openlocfilehash: 818bebdb7555d1b515a5c4a3439d11d4a4766e56
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992996"
+ms.locfileid: "70011975"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera ett program med Azure Active Directory för att få åtkomst till Event Hubs resurser
 Microsoft Azure tillhandahåller integrerad hantering av åtkomstkontroll för resurser och program som baseras på Azure Active Directory (AD Azure). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform. Azure AD autentiserar säkerhets objekt (en användare, grupp eller tjänstens huvud namn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
@@ -26,9 +26,9 @@ När en roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst 
 ## <a name="built-in-roles-for-azure-event-hubs"></a>Inbyggda roller för Azure Event Hubs
 Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till Event Hubs data med hjälp av Azure AD och OAuth:
 
-- [Azure Event Hubs data ägare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview): Använd den här rollen för att ge fullständig åtkomst till Event Hubs resurser.
-- [Azure Event Hubs data](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender-preview)avsändare: Använd den här rollen för att ge sändnings åtkomst till Event Hubs-resurser.
-- [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver-preview): Använd den här rollen för att få åtkomst till Event Hubs resurser.   
+- [Azure Event Hubs data ägare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Använd den här rollen för att ge fullständig åtkomst till Event Hubs resurser.
+- [Azure Event Hubs data](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender)avsändare: Använd den här rollen för att ge sändnings åtkomst till Event Hubs-resurser.
+- [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Använd den här rollen för att få åtkomst till Event Hubs resurser.   
 
 > [!IMPORTANT]
 > Vår för hands version har stöd för att lägga till Event Hubs behörigheter för data åtkomst till ägaren eller deltagar rollen. Däremot går det inte längre att använda behörigheter för data åtkomst för rollen ägare och deltagare. Om du använder rollen ägare eller deltagare växlar du till att använda rollen Azure Event Hubs data Owner.

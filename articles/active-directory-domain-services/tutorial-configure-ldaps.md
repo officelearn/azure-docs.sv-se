@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: f575dd882c217badb3320b85229149d9793ceb5f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 505a3104968e285a7fe4801db8029dc45647087a
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619266"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011354"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudier: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -286,7 +286,7 @@ I den här självstudiekursen lärde du dig att:
 > * Bind och testa säker LDAP för en Azure AD DS-hanterad domän
 
 > [!div class="nextstepaction"]
-> [Lär dig hur synkronisering fungerar i en Azure AD Domain Services hanterad domän](synchronization.md)
+> [Konfigurera hash-synkronisering av lösen ord för en hybrid Azure AD-miljö](tutorial-configure-password-hash-sync.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

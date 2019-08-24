@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0ebf18fe2dc6906bc2c06d94388d126fb55c6024
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: HT
+ms.openlocfilehash: bf2b83725f8ce8e712974c182c9a11e8ed0d04f0
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981420"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013224"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Lagrings köer och Service Bus köer – jämförelse och kontrast
 I den här artikeln analyseras skillnaderna och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: Lagrings köer och Service Bus köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -52,7 +52,9 @@ Som lösnings arkitekt/-utvecklare **bör du överväga att använda Service Bus
 * Du vill att ditt program ska bearbeta meddelanden som parallella tids krävande strömmar (meddelanden är associerade med en data ström med hjälp av egenskapen [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) i meddelandet). I den här modellen konkurrerar varje nod i förbrukar programmet om strömmar, i stället för meddelanden. När en data ström tilldelas till en förbrukad nod kan noden granska status för programmets ström tillstånd med transaktioner.
 * Din lösning kräver transaktions beteende och Atomicitet när du skickar eller tar emot flera meddelanden från en kö.
 * Ditt program hanterar meddelanden som kan överstiga 64 KB men som inte kommer att närma sig gränsen på 256 KB.
-* Du hanterar ett krav för att tillhandahålla en rollbaserad åtkomst modell till köerna och olika rättigheter/behörigheter för avsändare och mottagare. Mer information finns i [Active Directory rollbaserad Access Control (förhands granskning)](service-bus-role-based-access-control.md)
+* Du hanterar ett krav för att tillhandahålla en rollbaserad åtkomst modell till köerna och olika rättigheter/behörigheter för avsändare och mottagare. Mer information finns i följande artiklar:
+    - [Autentisera med hanterade identiteter](service-bus-managed-service-identity.md)
+    - [Autentisera från ett program](authenticate-application.md)
 * Kös Tor lek kommer inte att växa större än 80 GB.
 * Du vill använda AMQP 1,0-standardbaserat meddelande protokoll. Mer information om AMQP finns i [Översikt över Service Bus AMQP](service-bus-amqp-overview.md).
 * Du kan Envision en eventuell migrering från gruppbaserad punkt-till-punkt-kommunikation till ett meddelande utbytes mönster som möjliggör sömlös integrering av ytterligare mottagare (prenumeranter), som var och en tar emot oberoende kopior av antingen vissa eller alla meddelanden som skickas till kön. Den sistnämnda avser publicerings-/prenumerations funktionen som ursprungligen tillhandahölls av Service Bus.

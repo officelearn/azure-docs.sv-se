@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 8/20/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: feaefef23b433a296d25cc11b5cd89d86acd280f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 34b4192a75978e90ded7554491a522387f6c663f
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650190"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013658"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure Portal
 
@@ -110,7 +110,7 @@ När du är klar avslutar du SSH-sessionen genom att skriva `exit`.
 
 Använd valfri webbläsare för att visa välkomstsidan för NGINX. Ange den offentliga IP-adressen för den virtuella datorn som webb adress. Den offentliga IP-adressen kan hittas på översiktssidan för den virtuella datorn eller som en del av SSH-anslutningssträngen du använde tidigare.
 
-![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png)
+![NGINX-standardwebbplats](./media/quick-create-portal/nginx.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

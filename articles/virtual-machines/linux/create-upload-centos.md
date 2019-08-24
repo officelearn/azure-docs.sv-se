@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 72ed518af579bb6b95d3b13400f2fbf6679cd036
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6f7175e24f4eb85229847470bc37a6224ac6dd6e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248176"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013689"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Förbered en CentOS-baserad virtuell dator för Azure
 
@@ -174,11 +174,14 @@ Den här artikeln förutsätter att du redan har installerat ett Linux-operativs
 
     Alternativt kan du följa anvisningarna för manuell installation på sidan för att [Hämta](https://go.microsoft.com/fwlink/?linkid=403033) RPM till den virtuella datorn.
 
-12. Installera Azure Linux-agenten och beroenden:
+12. Installera Azure Linux-agenten och-beroenden. Starta och aktivera waagent-tjänsten:
 
     ```bash
     sudo yum install python-pyasn1 WALinuxAgent
+    sudo service waagent start
+    sudo chkconfig waagent on
     ```
+
 
     WALinuxAgent-paketet tar bort NetworkManager-och NetworkManager-GNOME-paketen om de inte redan har tagits bort enligt beskrivningen i steg 3.
 

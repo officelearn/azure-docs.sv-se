@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22d1da4c194b392993b37b16ab20673120c3362e
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 160be4224e31793b5bb172f5b913c364ae2c8a59
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951800"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013030"
 ---
 # <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Vad är ML pipelines i Azure Machine Learning service?
 
@@ -69,7 +69,7 @@ De främsta fördelarna med att använda pipeliner för dina Machine Learning-ar
 
 ## <a name="the-python-sdk-for-pipelines"></a>Python SDK för pipelines
 
-[Använd python SDK](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) för att skapa dina ml-pipelines i dina önskade IDE-eller Jupyter-anteckningsböcker. SDK: N för Azure Machine Learning erbjuder tvingande konstruktioner för ordningsföljd och parallellisera stegen i dina pipelines när inget databeroende finns. 
+[Använd python SDK](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) för att skapa dina ml-pipeliner i dina önskade Integrated Development Environment (IDE) eller Jupyter-anteckningsböcker. SDK: N för Azure Machine Learning erbjuder tvingande konstruktioner för ordningsföljd och parallellisera stegen i dina pipelines när inget databeroende finns. 
 
 Du kan med hjälp av deklarativa databeroenden, för att optimera dina uppgifter. SDK innehåller ett ramverk av förbyggda moduler för vanliga uppgifter, till exempel data överföring och modell publicering. Du kan utöka ramverket för att modellera dina egna konventioner genom att implementera anpassade steg återanvändbara över pipeliner. Du kan också hantera beräknings mål och lagrings resurser direkt från SDK: n.
 

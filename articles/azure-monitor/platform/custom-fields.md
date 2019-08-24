@@ -1,6 +1,6 @@
 ---
 title: Anpassade fält i Azure Monitor | Microsoft Docs
-description: Funktionen för anpassade fält i Azure Monitor kan du skapa dina egna sökbara fält från poster i en Log Analytics-arbetsyta som lägger till egenskaperna för en insamlad post.  Den här artikeln beskriver processen för att skapa ett anpassat fält och innehåller en detaljerad genomgång med en exempelhändelse.
+description: Med funktionen anpassade fält i Azure Monitor kan du skapa egna sökbara fält från poster i en Log Analytics arbets yta som lägger till i egenskaperna för en insamlad post.  Den här artikeln beskriver processen för att skapa ett anpassat fält och ger en detaljerad genom gång av en exempel händelse.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,127 +11,127 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2019
+ms.date: 08/23/2019
 ms.author: bwren
-ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6b9c21a3d65e75abe11e705eba058b1d1fb17ff
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61461939"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012736"
 ---
-# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Skapa anpassade fält i en Log Analytics-arbetsyta i Azure Monitor
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Skapa anpassade fält i en Log Analytics arbets yta i Azure Monitor
 
 > [!NOTE]
-> Den här artikeln beskriver hur du Parsar textdata i en Log Analytics-arbetsyta som den har samlats in. Det finns fördelar med att parsa textdata i en fråga när den har samlats in enligt beskrivningen i [parsa textdata i Azure Monitor](../log-query/parse-text.md).
+> Den här artikeln beskriver hur du tolkar text data i en Log Analytics arbets yta när den samlas in. Vi rekommenderar att du tolkar text data i ett frågefilter när den har samlats in efter den vägledning som beskrivs i [parsa text data i Azure Monitor](../log-query/parse-text.md). Det ger flera fördelar jämfört med att använda anpassade fält.
 
-Den **anpassade fält** funktion i Azure Monitor kan du utöka befintliga poster i Log Analytics-arbetsytan genom att lägga till egna sökbara fält.  Anpassade fält fylls i automatiskt från data som extraheras från andra egenskaper i samma post.
+Med funktionen **anpassade fält** i Azure Monitor kan du utöka befintliga poster i arbets ytan Log Analytics genom att lägga till egna sökbara fält.  Anpassade fält fylls i automatiskt från data som extraheras från andra egenskaper i samma post.
 
 ![Översikt](media/custom-fields/overview.png)
 
-Posten exemplet nedan har till exempel användbara data i beskrivningen av händelsen. Extrahera dessa data till en separat egenskap gör den tillgänglig för exempelvis sortering och filtrering.
+Exempel posten nedan har till exempel viktiga data täckta i händelse beskrivningen. Om du extraherar dessa data till en separat egenskap gör den tillgänglig för sådana åtgärder som sortering och filtrering.
 
-![Exemplet extrahera](media/custom-fields/sample-extract.png)
+![Exempel på utdrag](media/custom-fields/sample-extract.png)
 
 > [!NOTE]
-> I förhandsversion är du begränsad till 100 anpassade fält i din arbetsyta.  Den här gränsen utökas när den här funktionen blir allmänt tillgänglig.
+> I förhands granskningen är du begränsad till 100 anpassade fält i din arbets yta.  Den här gränsen kommer att utökas när den här funktionen når allmän tillgänglighet.
 
 ## <a name="creating-a-custom-field"></a>Skapa ett anpassat fält
-När du skapar ett anpassat fält, måste Log Analytics förstå vilka data som ska använda för att fylla i dess värde.  En teknik från Microsoft Research kallas FlashExtract används för att snabbt identifiera dessa data.  I stället för att du behöver ange explicita instruktioner, lär sig Azure Monitor om de data som du vill extrahera från de exempel som du anger.
+När du skapar ett anpassat fält måste Log Analytics förstå vilka data som ska användas för att fylla i dess värde.  Den använder en teknik från Microsoft Research som kallas FlashExtract för att snabbt identifiera dessa data.  I stället för att du behöver ge explicita instruktioner Azure Monitor lär dig mer om de data som du vill extrahera från exempel som du anger.
 
-I följande avsnitt finns proceduren för att skapa ett anpassat fält.  Längst ned i den här artikeln är en genomgång av en extrahering av exemplet.
+I följande avsnitt beskrivs hur du skapar ett anpassat fält.  Längst ned i den här artikeln finns en genom gång av en exempel extrahering.
 
 > [!NOTE]
-> Det anpassade fältet fylls när poster som matchar de angivna kriterierna läggs till Log Analytics-arbetsytan så att den endast visas om poster som samlas in när det anpassade fältet har skapats.  Anpassat fält kommer inte att lägga till poster som redan finns i datalagret när den har skapats.
+> Det anpassade fältet fylls i när poster som matchar de angivna villkoren läggs till i Log Analytics-arbetsytan, så att det bara visas i poster som samlas in efter att det anpassade fältet har skapats.  Det anpassade fältet kommer inte att läggas till i poster som redan finns i data lagret när det skapas.
 > 
 
-### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Steg 1 – identifiera poster som har anpassat fält
-Det första steget är att identifiera de poster som får det anpassade fältet.  Du börjar med en [standardloggen fråga](../log-query/log-query-overview.md) och välj sedan en post för att fungera som den modell som Lär dig från Azure Monitor.  När du anger att du kommer att extrahera data till ett anpassat fält i **fältet Extraheringsguiden** öppnas där du validerar och finjustera villkoret.
+### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Steg 1 – identifiera poster som ska ha det anpassade fältet
+Det första steget är att identifiera de poster som kommer att hämta det anpassade fältet.  Du börjar med en [standard logg fråga](../log-query/log-query-overview.md) och väljer sedan en post som ska fungera som den modell som Azure Monitor kommer att lära sig från.  När du anger att du ska extrahera data till ett anpassat fält öppnas **guiden extrahering av fält** där du kan validera och förfina kriterierna.
 
-1. Gå till **loggar** och använda en [frågan för att hämta poster](../log-query/log-query-overview.md) som har anpassat fält.
-2. Markera en post som Log Analytics använder för att fungera som en modell för att extrahera data för att fylla i det anpassade fältet.  Du kan identifiera de data som du vill extrahera från den här posten och Log Analytics använder den här informationen för att bestämma logik för att fylla i det anpassade fältet för alla liknande poster.
-3. Expandera egenskaper för posten, klicka på ellipsen till vänster om egenskapen längst upp i posten och välj **extrahera fält från**.
-4. Den **fältet Extraheringsguiden** öppnas, och den post som du har valt visas i den **Huvudexemplet** kolumn.  Anpassat fält definieras för posterna med samma värden i de egenskaper som är markerade.  
-5. Om alternativet inte är exakt vad du kan välja ytterligare fält som avgränsa kriterier.  För att kunna ändra fältvärden för villkoret måste du avbryta och väljer en annan post som matchar de kriterier som du vill.
+1. Gå till **loggar** och Använd en [fråga för att hämta de poster](../log-query/log-query-overview.md) som ska ha det anpassade fältet.
+2. Välj en post som Log Analytics använda för att agera som en modell för att extrahera data för att fylla i det anpassade fältet.  Du kommer att identifiera de data som du vill extrahera från den här posten. Log Analytics kommer att använda den här informationen för att fastställa logiken för att fylla i det anpassade fältet för alla liknande poster.
+3. Expandera post egenskaperna, klicka på ellipsen till vänster om postens översta egenskap och välj **extrahera fält från**.
+4. **Guiden extrahering av fält** öppnas och posten som du har valt visas i **huvud exempel** kolumnen.  Det anpassade fältet kommer att definieras för dessa poster med samma värden i de egenskaper som har marker ATS.  
+5. Om markeringen inte är exakt vad du vill ha väljer du ytterligare fält för att begränsa villkoren.  Du måste avbryta och välja en annan post som matchar de kriterier som du vill använda för att ändra fältvärdena för villkoret.
 
-### <a name="step-2---perform-initial-extract"></a>Steg 2 – utför inledande extrahera.
-När du har identifierat de poster som har anpassat fält kan identifiera du de data som du vill extrahera.  Log Analytics använder den här informationen för att identifiera liknande mönster i liknande poster.  I steg efter detta kommer du att kunna granska resultaten och ange ytterligare information för Log Analytics för att använda i sin analys.
+### <a name="step-2---perform-initial-extract"></a>Steg 2 – utför första extrahering.
+När du har identifierat de poster som ska ha det anpassade fältet kan du identifiera de data som du vill extrahera.  Log Analytics kommer att använda den här informationen för att identifiera liknande mönster i liknande poster.  I steget efter detta kommer du att kunna verifiera resultaten och ange ytterligare information för Log Analytics som ska användas i analysen.
 
-1. Markera texten i exempelpost som du vill fylla i det anpassade fältet.  Sedan visas en dialogruta där att ange ett namn och datatyp för fältet och att utföra inledande extrahera.  Tecknen  **\_CF** läggs automatiskt.
-2. Klicka på **extrahera** att utföra en analys av insamlad poster.  
-3. Den **sammanfattning** och **sökresultat** avsnitt visas resultatet av extrahera så att du kan granska dess noggrannhet.  **Sammanfattning** visar de kriterier som används för att identifiera poster och ett antal för var och en av de datavärden som identifieras.  **Sökresultat** innehåller en detaljerad lista med poster som matchar kriterierna.
+1. Markera texten i exempel posten som du vill fylla i det anpassade fältet.  Sedan visas en dialog ruta där du kan ange ett namn och en datatyp för fältet och utföra den första extraheringen.  **Tecknen\_CF** läggs automatiskt till.
+2. Klicka på **extrahera** för att utföra en analys av insamlade poster.  
+3. I avsnitten **Sammanfattning** och **Sök Resultat** visas resultatet av extraheringen, så att du kan kontrol lera dess riktighet.  **Sammanfattning** visar de kriterier som används för att identifiera poster och ett antal för varje data värde som identifieras.  **Sök resultaten** innehåller en detaljerad lista över poster som matchar kriterierna.
 
-### <a name="step-3--verify-accuracy-of-the-extract-and-create-custom-field"></a>Steg 3 – kontrollera korrektheten i extrahera och skapa anpassade fält
-När du har utfört inledande extrahera, visar Log Analytics sina resultat baserat på data som redan har samlats in.  Om resultatet ser ut korrekt kan du skapa det anpassade fältet med inget ytterligare arbete.  Annars kan du sedan kan du förfina resultaten så att Log Analytics kan förbättra sin logik.
+### <a name="step-3--verify-accuracy-of-the-extract-and-create-custom-field"></a>Steg 3 – kontrol lera att extrahera och skapa anpassat fält är korrekt
+När du har genomfört det första extraherings resultatet visas Log Analytics baserat på data som redan har samlats in.  Om resultatet ser korrekt ut kan du skapa det anpassade fältet utan ytterligare arbete.  Annars kan du förfina resultaten så att Log Analytics kan förbättra sin logik.
 
-1. Om alla värden i den inledande extrahera inte stämmer klickar du på **redigera** ikonen bredvid ett felaktigt och välja **ändra den här markeringen** för att ändra valet.
-2. Transaktionen har kopierats till den **ytterligare exempel** avsnittet under den **Huvudexemplet**.  Du kan justera Markera här för att hjälpa Log Analytics förstå bör har gjort valet.
-3. Klicka på **extrahera** du använder den här nya informationen för att utvärdera alla befintliga poster.  Resultaten kan ändras efter poster än det som du just har ändrat baserat på den här nya insikter.
-4. Fortsätt lägga till korrigeringar tills alla poster i extrahera identifiera data för att fylla i den nya anpassade fälten.
-5. Klicka på **spara extrahera** när du är nöjd med resultatet.  Anpassat fält definieras nu, men den läggs inte till några poster ännu.
-6. Vänta tills nya poster som matchar de angivna villkoren för att samlas in och kör sedan loggsökningen igen. Nya poster ska ha det anpassade fältet.
-7. Använd det anpassade fältet som någon annan post egenskap.  Du kan använda den för att sammanställer och gruppera data och även använda den för att skapa nya insikter.
+1. Om några värden i det första extraktet inte är korrekta, klickar du på **redigerings** ikonen bredvid en felaktig post och väljer **ändra den här** markeringen för att ändra valet.
+2. Posten kopieras till avsnittet **Ytterligare exempel** under **huvud exemplet**.  Du kan justera markeringen här för att hjälpa Log Analytics förstå vad det har gjort.
+3. Klicka på **extrahera** för att använda den nya informationen för att utvärdera alla befintliga poster.  Resultaten kan ändras för andra poster än den som du nyss ändrade, baserat på den nya intelligensen.
+4. Fortsätt att lägga till korrigeringar tills alla poster i extraheringen korrekt identifierar data som ska fyllas i det nya anpassade fältet.
+5. Klicka på **Spara extrahera** när du är nöjd med resultatet.  Det anpassade fältet har nu definierats, men det kommer inte att läggas till i några poster ännu.
+6. Vänta tills nya poster som matchar de angivna villkoren samlas in och kör sedan loggs ökningen igen. Nya poster ska ha det anpassade fältet.
+7. Använd det anpassade fältet som vilken annan post egenskap som helst.  Du kan använda den för att aggregera och gruppera data och även använda den för att skapa nya insikter.
 
 ## <a name="viewing-custom-fields"></a>Visa anpassade fält
-Du kan visa en lista över alla anpassade fält i hanteringsgruppen från den **avancerade inställningar** meny med Log Analytics-arbetsytan i Azure-portalen.  Välj **Data** och sedan **anpassade fält** en lista över alla anpassade fält i din arbetsyta.  
+Du kan visa en lista över alla anpassade fält i hanterings gruppen från menyn **Avancerade inställningar** i Log Analytics arbets ytan i Azure Portal.  Välj **data** och sedan **anpassade fält** för en lista med alla anpassade fält i din arbets yta.  
 
 ![Anpassade fält](media/custom-fields/list.png)
 
 ## <a name="removing-a-custom-field"></a>Ta bort ett anpassat fält
-Det finns två sätt att ta bort ett anpassat fält.  Först är det **ta bort** alternativ för varje fält när du visar den fullständiga listan enligt beskrivningen ovan.  Det andra sättet är att hämta en post och klicka på knappen till vänster om fältet.  Menyn har ett alternativ för att ta bort det anpassade fältet.
+Det finns två sätt att ta bort ett anpassat fält.  Det första alternativet är alternativet **ta bort** för varje fält när du visar den fullständiga listan enligt beskrivningen ovan.  Den andra metoden är att hämta en post och klicka på knappen till vänster om fältet.  Menyn har ett alternativ för att ta bort det anpassade fältet.
 
 ## <a name="sample-walkthrough"></a>Exempelgenomgång
-Följande avsnitt beskriver ett komplett exempel för att skapa ett anpassat fält.  Det här exemplet extraherar tjänstnamnet i Windows-händelser som indikerar att en tjänst som ändrar tillstånd.  Detta är beroende av händelser som skapats av Service Control Manager vid systemstart på Windows-datorer.  Om du vill följa det här exemplet måste du vara [samla in händelser med Information om systemloggen](data-sources-windows-events.md).
+I följande avsnitt går vi igenom ett komplett exempel på hur du skapar ett anpassat fält.  I det här exemplet extraheras tjänst namnet i Windows-händelser som indikerar ett tjänst förändrings tillstånd.  Detta förlitar sig på händelser som skapats av Service Control Manager under system start på Windows-datorer.  Om du vill följa det här exemplet måste du samla in [informations händelser för system loggen](data-sources-windows-events.md).
 
-Vi anger du följande fråga för att returnera alla händelser från Service Control Manager som har händelse-ID 7036 som är den händelse som anger en tjänst som startar eller stoppar.
+Vi anger följande fråga för att returnera alla händelser från Service Control Manager som har händelse-ID 7036, vilket är händelsen som indikerar att en tjänst startas eller stoppas.
 
-![Fråga](media/custom-fields/query.png)
+![Söka i data](media/custom-fields/query.png)
 
-Vi kan sedan markera och utöka en post med händelse-ID 7036.
+Sedan väljer och expanderar du alla poster med händelse-ID 7036.
 
-![Posten i datakällan](media/custom-fields/source-record.png)
+![Käll post](media/custom-fields/source-record.png)
 
-Vi definiera anpassade fält genom att klicka på ellipsen bredvid den övre egenskapen.
+Vi definierar anpassade fält genom att klicka på ellipsen bredvid den översta egenskapen.
 
 ![Extrahera fält](media/custom-fields/extract-fields.png)
 
-Den **fältet Extraheringsguiden** öppnas, och **EventLog** och **EventID** fält har markerats i den **Huvudexemplet** kolumn.  Detta anger att det anpassade fältet definieras efter händelser från systemloggen med händelse-ID 7036.  Detta är tillräcklig så vi inte behöver välja andra fält.
+**Guiden extrahering av fält** öppnas och fälten **EventLog** och **EventID** har marker ATS i **huvud exempel** kolumnen.  Detta anger att det anpassade fältet ska definieras för händelser från system loggen med händelse-ID 7036.  Detta räcker så att vi inte behöver välja några andra fält.
 
 ![Huvudexempel](media/custom-fields/main-example.png)
 
-Vi markerar du namnet på tjänsten i den **RenderedDescription** egenskap och Använd **Service** att identifiera namnet på tjänsten.  Anpassat fält kommer att anropas **Service_CF**. Fälttypen är i det här fallet en sträng, så vi kan lämna som oförändrade.
+Vi markerar namnet på tjänsten i egenskapen **RenderedDescription** och använder **tjänsten** för att identifiera tjänst namnet.  Det anpassade fältet kommer att kallas **Service_CF**. Fält typen i det här fallet är en sträng, så vi kan lämna den oförändrad.
 
-![Fältrubrik](media/custom-fields/field-title.png)
+![Fält rubrik](media/custom-fields/field-title.png)
 
-Vi kan se att namnet på tjänsten identifieras korrekt för vissa poster men inte för andra.   Den **sökresultat** visa den del av namnet på den **WMI-prestanda adaptern** har inte valts.  Den **sammanfattning** visar att en post har identifierat **moduler Installer** i stället för **installationsprogrammet för Windows-moduler**.  
+Vi ser att tjänst namnet identifieras korrekt för vissa poster, men inte för andra.   **Sök resultatet** visar att en del av namnet på **WMI-bildskärmskortet** inte har valts.  **Sammanfattningen** visar att en post har identifierat **moduler installations program** i stället för **Windows modules installations program**.  
 
 ![Sökresultat](media/custom-fields/search-results-01.png)
 
-Vi börjar med den **WMI-prestanda adaptern** post.  Vi klickar du på redigeringsikonen och sedan **ändra den här markeringen**.  
+Vi börjar med **WMI Performance adapter-** posten.  Vi klickar på ikonen Redigera och **ändrar sedan den här markeringen**.  
 
 ![Ändra markering](media/custom-fields/modify-highlight.png)
 
-Vi ökar Markera för att inkludera ordet **WMI** och kör sedan extrahera.  
+Vi ökar fokus för att inkludera ordet **WMI** och kör sedan extraheringen igen.  
 
 ![Ytterligare exempel](media/custom-fields/additional-example-01.png)
 
-Vi kan se att poster för **WMI-prestanda adaptern** har korrigerats och Log Analytics även denna information används för att korrigera poster för **installationsprogrammet för Windows-modulen**.
+Vi kan se att posterna för **WMI-bildskärmskort** har korrigerats, och Log Analytics även använda den informationen för att korrigera posterna för **Windows-modulens installations program**.
 
 ![Sökresultat](media/custom-fields/search-results-02.png)
 
-Vi kan nu köra en fråga som verifierar **Service_CF** skapas, men ännu inte har lagts till alla poster. Det beror på att det anpassade fältet inte fungerar mot befintliga poster så att vi behöver vänta tills nya poster som ska samlas in.
+Nu kan vi köra en fråga som verifierar att **Service_CF** har skapats men ännu inte har lagts till i några poster. Det beror på att det anpassade fältet inte fungerar mot befintliga poster, så vi måste vänta på att nya poster ska samlas in.
 
-![Inledande antal](media/custom-fields/initial-count.png)
+![Antal initialer](media/custom-fields/initial-count.png)
 
-Efter en stund så nya händelser som samlas in, kan vi se att den **Service_CF** fält läggs nu till poster som matchar våra villkor.
+När en stund har passerat så att nya händelser samlas in, kan vi se att fältet **Service_CF** nu läggs till i poster som matchar våra kriterier.
 
-![Slutliga resultaten](media/custom-fields/final-results.png)
+![Slutliga resultat](media/custom-fields/final-results.png)
 
-Vi kan nu använda det anpassade fältet som någon annan post-egenskap.  För att visa det här kan vi skapa en fråga som grupperar efter den nya **Service_CF** fält som du vill kontrollera vilka tjänster som är mest aktiva.
+Vi kan nu använda det anpassade fältet som vilken annan post egenskap som helst.  Vi illustrerar detta genom att skapa en fråga som grupperas efter det nya **Service_CF** -fältet för att kontrol lera vilka tjänster som är mest aktiva.
 
 ![Gruppera efter fråga](media/custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att skapa frågor med hjälp av anpassade fält för kriterier.
-* Övervaka [anpassade loggfiler](data-sources-custom-logs.md) som du tolkas med anpassade fält.
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att bygga frågor med anpassade fält för villkor.
+* Övervaka [anpassade loggfiler](data-sources-custom-logs.md) som du tolkar med anpassade fält.
 

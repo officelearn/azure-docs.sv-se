@@ -10,18 +10,21 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 9cf39230d6a2c615925222b6545a091a4be941ac
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 08ceb5d795465a5759d0130618eafdccdc8c3c91
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847969"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011526"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 
 Den här artikeln lär dig hur du använder tjänsten Azure Machine Learning för att distribuera en GPU-aktiverad modell som en webb tjänst. Informationen i den här artikeln baseras på distribution av en modell på Azure Kubernetes service (AKS). AKS-klustret tillhandahåller en GPU-resurs som används av modellen för härledning.
 
 Härlednings-eller modell poängsättning är den fas där den distribuerade modellen används för att skapa förutsägelser. Att använda GPU: er i stället för processorer ger prestanda för delar med mycket kan göras parallella beräkning.
+
+> [!IMPORTANT]
+> GPU-härledning stöds bara på Azure Kubernetes-tjänsten.
 
 > [!TIP]
 > Även om kodfragmenten i den här artikeln usee en TensorFlow-modell kan du använda informationen för alla Machine Learning-ramverk som stöder GPU: er.

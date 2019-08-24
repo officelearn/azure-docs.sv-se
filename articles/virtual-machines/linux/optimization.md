@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: ea8f3f1860223e102aeccf81f72b5294283b83f6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ad512baad86133cc1aad80438a6b68d2a31a6cc6
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640746"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013591"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att skapa en virtuell Linux-dator (VM) från kommando raden eller från portalen. Den här självstudien visar hur du ser till att du har konfigurerat för att optimera prestandan på Microsoft Azures plattformen. I det här avsnittet används en virtuell Ubuntu-Server, men du kan också skapa en virtuell Linux-dator med [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -53,7 +53,7 @@ När du hanterar höga IOps-arbetsbelastningar och du har valt standard lagring 
 ## <a name="your-vm-temporary-drive"></a>VM-temporär enhet
 Som standard när du skapar en virtuell dator ger Azure dig en OS-disk ( **/dev/SDA**) och en tillfällig disk ( **/dev/SDB**).  Alla ytterligare diskar som du lägger till visas som **/dev/SDC**, **/dev/SDD**, **/dev/SDE** och så vidare. Alla data på din temporära disk ( **/dev/SDB**) är inte varaktiga och kan gå förlorade om vissa händelser som storleks ändring av virtuella datorer, omdistribution eller underhåll tvingar fram en omstart av den virtuella datorn.  Den temporära diskens storlek och typ är relaterad till den VM-storlek som du valde vid distributions tillfället. Alla virtuella datorer med Premium storlek (DS, G och DS_V2-serien) den tillfälliga enheten backas upp av en lokal SSD för ytterligare prestanda på upp till 48k IOps. 
 
-## <a name="linux-swap-file"></a>Fil för Linux-växling
+## <a name="linux-swap-partition"></a>Linux-växlings partition
 Om din virtuella Azure-dator är från en Ubuntu-eller Core-avbildning kan du använda CustomData för att skicka en Cloud-config till Cloud-init. Om du har [överfört en anpassad Linux-avbildning](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som använder Cloud-Init kan du också konfigurera växla partitioner med Cloud-init.
 
 I Ubuntu Cloud-avbildningar måste du använda Cloud-Init för att konfigurera växlings partition. Mer information finns i [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
@@ -127,6 +127,8 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Använda programvaru-RAID för att uppnå högre I/OPS
 Om dina arbets belastningar kräver mer IOps än en enskild disk kan du behöva använda en RAID-konfiguration på flera diskar. Eftersom Azure redan utför disk återhämtning på det lokala Fabric-lagret, uppnår du den högsta prestanda nivån från en konfiguration för RAID-0-skiktning.  Etablera och skapa diskar i Azure-miljön och koppla dem till din virtuella Linux-dator innan partitionering, formatering och montering av enheterna.  Mer information om hur du konfigurerar en programvaru-RAID-installation på din virtuella Linux-dator i Azure finns i **[Konfigurera programvaru-RAID på Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** -dokument.
+
+Som ett alternativ till en traditionell RAID-konfiguration kan du också välja att installera Logical Volume Manager (LVM) för att konfigurera ett antal fysiska diskar i en enda stripe-volym för logisk lagring. I den här konfigurationen distribueras läsningar och skrivningar till flera diskar som ingår i volym gruppen (liknar RAID0). Av prestanda skäl är det troligt att du vill ta bort dina logiska volymer så att läsningar och skrivningar använder alla dina anslutna data diskar.  Mer information om hur du konfigurerar en striped logisk volym på din virtuella Linux-dator i Azure finns i **[Konfigurera LVM på en virtuell Linux-dator i Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** -dokument.
 
 ## <a name="next-steps"></a>Nästa steg
 Kom ihåg, precis som med alla optimerings diskussioner, måste du utföra tester före och efter varje ändring för att mäta effekten av ändringen.  Optimering är en steg-för-steg-process som har olika resultat på olika datorer i din miljö.  Det som fungerar för en konfiguration kanske inte fungerar för andra.

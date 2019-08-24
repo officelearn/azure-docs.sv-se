@@ -15,12 +15,12 @@ ms.date: 08/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 09551eb2620349fa2445c1da3a7e0d66062ebaf0
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 776b8303e3454b40979691ea32fdcca11be4fa71
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899741"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013377"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -54,15 +54,15 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Automation Runbook-operator](#automation-runbook-operator) | Läs Runbook-egenskaperna – för att kunna skapa jobb för runbooken. |
 | [Aver deltagare](#avere-contributor) | Kan skapa och hantera ett AVERT vFXT-kluster. |
 | [Aver operator](#avere-operator) | Används av det Avera vFXT-klustret för att hantera klustret |
-| [Azure Event Hubs data ägare (för hands version)](#azure-event-hubs-data-owner-preview) | Ger fullständig åtkomst till Azure Event Hubs-resurser. |
-| [Azure Event Hubs data mottagare (för hands version)](#azure-event-hubs-data-receiver-preview) | Tillåter åtkomst till Azure Event Hubs-resurser. |
-| [Azure Event Hubs data avsändare (för hands version)](#azure-event-hubs-data-sender-preview) | Tillåter skicka åtkomst till Azure Event Hubs-resurser. |
+| [Azure Event Hubs data ägare](#azure-event-hubs-data-owner) | Ger fullständig åtkomst till Azure Event Hubs-resurser. |
+| [Azure Event Hubs data mottagare](#azure-event-hubs-data-receiver) | Tillåter åtkomst till Azure Event Hubs-resurser. |
+| [Azure Event Hubs data avsändare](#azure-event-hubs-data-sender) | Tillåter skicka åtkomst till Azure Event Hubs-resurser. |
 | [Administratörs roll för Azure Kubernetes service Cluster](#azure-kubernetes-service-cluster-admin-role) | Visa lista med autentiseringsuppgifter för kluster administratör. |
 | [Användar roll för Azure Kubernetes service-kluster](#azure-kubernetes-service-cluster-user-role) | Visa lista över autentiseringsuppgifter för kluster användare. |
 | [Azure Maps data läsare (förhands granskning)](#azure-maps-data-reader-preview) | Beviljar åtkomst till läsa kartdata relaterade data från ett Azure Maps-konto. |
-| [Azure Service Bus data ägare (förhands granskning)](#azure-service-bus-data-owner-preview) | Ger fullständig åtkomst till Azure Service Bus resurser. |
-| [Azure Service Bus data mottagare (förhands granskning)](#azure-service-bus-data-receiver-preview) | Ger åtkomst till Azure Service Bus resurser. |
-| [Azure Service Bus data avsändare (för hands version)](#azure-service-bus-data-sender-preview) | Tillåter att åtkomst till Azure Service Bus-resurser skickas. |
+| [Azure Service Bus data ägare](#azure-service-bus-data-owner) | Ger fullständig åtkomst till Azure Service Bus resurser. |
+| [Azure Service Bus data mottagare](#azure-service-bus-data-receiver) | Ger åtkomst till Azure Service Bus resurser. |
+| [Azure Service Bus data avsändare](#azure-service-bus-data-sender) | Tillåter att åtkomst till Azure Service Bus-resurser skickas. |
 | [Azure Stack registrerings ägare](#azure-stack-registration-owner) | Låter dig hantera Azure Stack-registreringar. |
 | [Säkerhets kopierings deltagare](#backup-contributor) | Låter dig hantera säkerhets kopierings tjänsten, men kan inte skapa valv och ge åtkomst till andra |
 | [Ansvarig för säkerhets kopiering](#backup-operator) | Låter dig hantera säkerhets kopierings tjänster, förutom att ta bort säkerhets kopiering, skapa valv och ge till gång till andra |
@@ -556,7 +556,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="azure-event-hubs-data-owner-preview"></a>Azure Event Hubs data ägare (för hands version)
+## <a name="azure-event-hubs-data-owner"></a>Azure Event Hubs data ägare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -571,7 +571,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="azure-event-hubs-data-receiver-preview"></a>Azure Event Hubs data mottagare (för hands version)
+## <a name="azure-event-hubs-data-receiver"></a>Azure Event Hubs data mottagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -586,7 +586,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="azure-event-hubs-data-sender-preview"></a>Azure Event Hubs data avsändare (för hands version)
+## <a name="azure-event-hubs-data-sender"></a>Azure Event Hubs data avsändare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -646,7 +646,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="azure-service-bus-data-owner-preview"></a>Azure Service Bus data ägare (förhands granskning)
+## <a name="azure-service-bus-data-owner"></a>Azure Service Bus data ägare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -661,7 +661,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="azure-service-bus-data-receiver-preview"></a>Azure Service Bus data mottagare (förhands granskning)
+## <a name="azure-service-bus-data-receiver"></a>Azure Service Bus data mottagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -678,7 +678,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="azure-service-bus-data-sender-preview"></a>Azure Service Bus data avsändare (för hands version)
+## <a name="azure-service-bus-data-sender"></a>Azure Service Bus data avsändare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

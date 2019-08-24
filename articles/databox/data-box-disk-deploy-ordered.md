@@ -1,5 +1,5 @@
 ---
-title: Självstudie för ordning Azure Data Box-Disk | Microsoft Docs
+title: Självstudie för att beställa Azure Data Box Disk | Microsoft Docs
 description: Under den här självstudiekursen får du lära dig att registrera dig och beställa Azure Data Box-diskar för att importera data till Azure.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: c1626542aba71f971ad96fe9f187ce9f1c1a99f3
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561457"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012932"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Självstudier: Beställa en Azure Data Box Disk
 
@@ -51,10 +51,10 @@ Innan du börjar ska du kontrollera att:
 
 Logga in på:
 
-- Azure-portalen på den här URL: https://portal.azure.com för ordning Data Box-Disk.
-- Eller, Azure Government-portalen på den här URL: https://portal.azure.us. Mer information går du till [Anslut till Azure Government, med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+- Azure Portal på denna URL: https://portal.azure.com för att beställa data Box disk.
+- Eller, Azure Government portalen på denna URL: https://portal.azure.us. Mer information finns i [ansluta till Azure Government med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
-Gör följande för ordning Data Box-Disk.
+Utför följande steg för att beställa Data Box Disk.
 
 1. I det övre vänstra hörnet i portalen klickar du på **+ Create a resource**, (Skapa en resurs) och titta efter *Azure Data Box*. Klicka på **Azure Data Box**.
     
@@ -66,9 +66,9 @@ Gör följande för ordning Data Box-Disk.
 
     ![Välj Data Box Disk-alternativ](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |Inställning|Värde|
+    |Inställning|Value|
     |---|---|
-    |Prenumeration|Välj den prenumeration för vilken Data Box-tjänsten är aktiverad.<br> Prenumerationen är kopplad till ditt faktureringskonto. |
+    |Subscription|Välj den prenumeration för vilken Data Box-tjänsten är aktiverad.<br> Prenumerationen är kopplad till ditt faktureringskonto. |
     |Överföringstyp| Importera till Azure|
     |Källand | Välj land/region där dina data finns.|
     |Azure-målregion|Välj den Azure-region dit du vill överföra data.|
@@ -82,26 +82,26 @@ Gör följande för ordning Data Box-Disk.
 
     |Inställning|Värde|
     |---|---|
-    |Namn|Välj ett smeknamn så att du kan spåra beställningen.<br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra. |
-    |Resursgrupp| Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
+    |Name|Välj ett smeknamn så att du kan spåra beställningen.<br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra. |
+    |Resource group| Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
     |Azure-målregion| Välj en region för lagringskontot.<br> För närvarande stöds lagringskonton i USA, västra och norra Europa, Kanada och Australien. |
     |Beräknad datastorlek i TB| Ange en uppskattning i TB. <br>Microsoft skickar baserat på datastorlek ett lämpligt antal SSD-diskar på vardera 8 TB (7 TB användbar kapacitet). <br>Den maximala kapaciteten som kan användas på 5 diskar är upp till 35 TB. |
     |Disknyckel| Ange disknyckeln om du markerar **Använd anpassad nyckel istället för en nyckel som skapats av Azure**. <br> Ange en alfanumerisk nyckel på 12 till 32 tecken som har minst ett numeriskt tecken och ett specialtecken. Tillåtna specialtecken är `@?_+`. <br> Du kan välja att hoppa över det här alternativet och använder den Azure-genererade nyckeln för att låsa upp dina diskar.|
-    |Lagringsplats     | Välj från storage-konto eller hanterade diskar, eller bådadera. <br> Baserat på den angivna Azure-regionen, Välj ett lagringskonto i den filtrerade listan över ett befintligt lagringskonto. Data Box-Disk kan länkas med endast 1 lagringskonto. <br> Du kan också skapa en ny **General-purpose v1**, **gpv2**, eller **Blob storage-konto**. <br>Storage-konton med virtuella nätverk stöds. Aktivera betrodda tjänster inom storage-konto nätverksinställningar brandväggen så att Data Box-tjänsten att arbeta med säker storage-konton. Läs mer om hur du [lägga till Azure Data Box som en betrodd tjänst](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
+    |Lagringsmål     | Välj mellan lagrings konto eller hanterade diskar eller båda. <br> Baserat på den angivna Azure-regionen väljer du ett lagrings konto i den filtrerade listan för ett befintligt lagrings konto. Data Box Disk kan bara länkas med ett lagrings konto. <br> Du kan också skapa ett nytt **Allmänt v1**-, **General-Purpose v2**-eller **Blob Storage-konto**. <br>Lagrings konton med virtuella nätverk stöds. Om du vill tillåta att Data Box-enhet-tjänsten arbetar med skyddade lagrings konton aktiverar du betrodda tjänster i inställningarna för nätverks brand väggen för lagrings kontot. Mer information finns i så här [lägger du till Azure Data box som en betrodd tjänst](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
 
-    Om du använder storage-konto som lagringsplats, visas följande skärmbild:
+    Om du använder lagrings kontot som lagrings mål visas följande skärm bild:
 
-    ![Data Box-diskbeställning för storage-konto](media/data-box-disk-deploy-ordered/order-storage-account.png)
+    ![Data Box Disk ordning för lagrings konto](media/data-box-disk-deploy-ordered/order-storage-account.png)
 
-    Om du använder Data Box-diskar för att skapa hanterade diskar från de lokala virtuella hårddiskarna, måste du också ange följande information:
+    Om du använder Data Box Disk för att skapa hanterade diskar från lokala virtuella hård diskar måste du också ange följande information:
 
-    |Inställning  |Värde  |
+    |Inställning  |Value  |
     |---------|---------|
-    |Resursgrupp     | Skapa en ny resursgrupp om du planerar att skapa hanterade diskar från en lokal virtuell hårddisk. Använd en befintlig resursgrupp bara om den har skapats för Data Box-diskbeställning för hanterad disk av Data Box-tjänsten. <br> Endast en resursgrupp stöds.|
+    |Resource group     | Skapa en ny resurs grupp om du tänker skapa hanterade diskar från lokala virtuella hård diskar. Använd bara en befintlig resurs grupp om den skapades för Data Box Disk ordning för hanterad disk av Data Box-enhet-tjänsten. <br> Endast en resurs grupp stöds.|
 
-    ![Data Box-diskbeställning för hanterad disk](media/data-box-disk-deploy-ordered/order-managed-disks.png)
+    ![Data Box Disk ordning för hanterad disk](media/data-box-disk-deploy-ordered/order-managed-disks.png)
 
-    Storage-konto som angetts för hanterade diskar används som en mellanlagringskontot. Data Box-tjänsten Överför de virtuella hårddiskarna till mellanlagringskontot och sedan konverterar dem till hanterade diskar och flyttar till resursgrupper. Mer information finns i [verifiera data Överför till Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+    Det angivna lagrings kontot för hanterade diskar används som ett lagrings konto för mellanlagring. Den Data Box-enhet tjänsten laddar upp de virtuella hård diskarna till lagrings kontot och konverterar dem till de hanterade diskarna och flyttar till resurs grupperna. Mer information finns i [Verifiera data överföring till Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
 
 13. Klicka på **Nästa**.
 

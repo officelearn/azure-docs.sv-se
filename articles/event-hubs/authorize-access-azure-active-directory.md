@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 569399b2b5f676e11cd6540126e0b26dc0d26198
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
-ms.translationtype: HT
+ms.openlocfilehash: 1a42843cc81070cc284863b3736549576e32cb17
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992866"
+ms.locfileid: "70011881"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Ge åtkomst till Event Hubs resurser med Azure Active Directory
 Azure Event Hubs stöder användning av Azure Active Directory (Azure AD) för att godkänna begär anden till Event Hubs resurser. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare, grupp eller ett program tjänst objekt. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
@@ -38,9 +38,9 @@ När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtk
 ## <a name="built-in-rbac-roles-for-azure-event-hubs"></a>Inbyggda RBAC-roller för Azure Event Hubs
 Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till Event Hubs data med hjälp av Azure AD och OAuth:
 
-- [Azure Event Hubs data ägare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview): Använd den här rollen för att ge fullständig åtkomst till Event Hubs resurser.
-- [Azure Event Hubs data](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver-preview)avsändare: Använd den här rollen för att ge åtkomst till Event Hubs-resurser.
-- [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender-preview): Använd den här rollen för att ge den förbrukar/får åtkomst till Event Hubs resurser.
+- [Azure Event Hubs data ägare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Använd den här rollen för att ge fullständig åtkomst till Event Hubs resurser.
+- [Azure Event Hubs data](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver)avsändare: Använd den här rollen för att ge åtkomst till Event Hubs-resurser.
+- [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Använd den här rollen för att ge den förbrukar/får åtkomst till Event Hubs resurser.
 
 ## <a name="resource-scope"></a>Resurs omfång 
 Innan du tilldelar en RBAC-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det alltid är bäst att bara bevilja det begränsande möjliga omfånget.

@@ -2,15 +2,15 @@
 documentType: LandingData
 title: Dokumentation för Anpassad sökning i Bing
 metadata:
-  title: 'Dokumentation om API för anpassad Bing-sökning – självstudier, snabbstarter, API-referens – Microsoft Cognitive Services | Microsoft Docs'
+  title: 'Dokumentation om API för anpassad Bing-sökning – självstudier, snabbstarter, API-referenser'
+  titleSuffix: Azure Cognitive Services
   description: 'Lär dig hur du använder portalen för anpassad Bing-sökning och API:et för att skapa anpassade sökupplevelser'
   services: cognitive-services
   author: v-deken
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: bing-custom-search
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: v-deken

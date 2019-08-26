@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Dokumentation om formigenkänning
 metadata:
-  title: API-dokumentation – Formigenkänning – Azure Cognitive Services | Microsoft Docs
+  title: API-dokumentation – formigenkänning
+  titleSuffix: Azure Cognitive Services
   description: Lär dig hur du använder formigenkänning för att extrahera nyckel/värde-data från dina dokument i formuläret på ett intelligent sätt.
   services: cognitive-services
   author: PatrickFarley
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/16/2019
   ms.author: pafarley

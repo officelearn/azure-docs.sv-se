@@ -3,15 +3,14 @@ documentType: LandingData
 title: Dokumentation för API för stavningskontroll i Bing
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: 'Dokumentation om API för stavningskontroll i Bing – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs'
+  title: 'Dokumentation om API för stavningskontroll för Bing – självstudier, API-referens'
+  titleSuffix: Azure Cognitive Services
   description: 'Lär dig att använda API för stavningskontroll i Bing för att få ändringsförslag för textdokument. Självstudier visar hur du skapar appar som använder API:et.'
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

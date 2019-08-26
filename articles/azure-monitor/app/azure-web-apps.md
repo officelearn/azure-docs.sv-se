@@ -304,7 +304,7 @@ Uppgradering från version 2.8.9 sker automatiskt, utan ytterligare åtgärder. 
 
 Kontrol lera vilken version av tillägget som du kör på`http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-![Skärm bild av URL-sökväg http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
+![Skärm bild av URL-sökväghttp://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
 
 ### <a name="upgrade-from-versions-100---265"></a>Uppgradera från versioner 1.0.0 – 2.6.5
 

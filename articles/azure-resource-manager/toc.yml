@@ -67,8 +67,6 @@
       href: templates-cloud-consistency.md
     - name: Distributionsmodeller
       href: deployment-modes.md
-    - name: Resursborttagning
-      href: resource-group-delete.md
     - name: Distributionshanteraren
       items:
         - name: Översikt
@@ -186,6 +184,8 @@
             - name: Använda Azure PowerShell
               displayName: 'open,delete,deploy,move,lock,tag'
               href: manage-resources-powershell.md
+        - name: Ta bort resurser och resursgrupper
+          href: resource-group-delete.md
         - name: Lås resurser
           href: resource-group-lock-resources.md
         - name: Autentiserings-API för att få åtkomst till prenumerationer

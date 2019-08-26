@@ -79,10 +79,6 @@
       href: service-bus-samples.md
 - name: Begrepp
   items:
-    - name: Hanterade identiteter för Azure-resurser
-      href: service-bus-managed-service-identity.md
-    - name: Rollbaserad åtkomstkontroll (förhandsgranskning)
-      href: service-bus-role-based-access-control.md
     - name: Premium-meddelandetjänster
       href: service-bus-premium-messaging.md
     - name: Jämför Azure-köer och Service Bus-köer
@@ -95,8 +91,25 @@
       href: service-bus-async-messaging.md
     - name: Hantera avbrott och katastrofer
       href: service-bus-outages-disasters.md
-    - name: Vanliga säkerhetsattribut i Azure
-      href: service-bus-messaging-security-attributes.md
+    - name: Säkerhet
+      items:
+        - name: Autentisering och auktorisering
+          href: service-bus-authentication-and-authorization.md
+          items:
+            - name: Använda signaturer för delad åtkomst
+              items:
+                - name: Migrera från ACS till SAS
+                  href: service-bus-migrate-acs-sas.md
+                - name: Autentisering med signaturer för delad åtkomst
+                  href: service-bus-sas.md
+            - name: Använda Azure Active Directory
+              items:
+                - name: Autentisera med hanterade identiteter för Azure-resurser
+                  href: service-bus-managed-service-identity.md
+                - name: Autentisera från ett program
+                  href: authenticate-application.md
+        - name: Vanliga säkerhetsattribut i Azure
+          href: service-bus-messaging-security-attributes.md
 - name: Instruktionsguider
   items:
     - name: Skapa ett namnområde
@@ -119,13 +132,6 @@
               href: service-bus-to-event-grid-integration-concept.md
             - name: Azure Event Grid-exempel
               href: service-bus-to-event-grid-integration-example.md
-        - name: Autentisering och auktorisering
-          href: service-bus-authentication-and-authorization.md
-          items:
-            - name: Migrera från ACS till SAS
-              href: service-bus-migrate-acs-sas.md
-            - name: Autentisering med signaturer för delad åtkomst
-              href: service-bus-sas.md
         - name: Ämnesfilter och åtgärder
           href: topic-filters.md
         - name: Migrera från Standard- till Premium-namnområden

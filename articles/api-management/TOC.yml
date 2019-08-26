@@ -193,6 +193,8 @@
           href: api-management-howto-create-groups.md
         - name: Distribuera till flera Azure-regioner
           href: api-management-howto-deploy-multi-region.md
+        - name: Hämta IP-adresser
+          href: api-management-howto-ip-addresses.md
         - name: Logga händelser till Azure Event Hubs
           href: api-management-howto-log-event-hubs.md
         - name: Logga begäranden med Azure Application Insights

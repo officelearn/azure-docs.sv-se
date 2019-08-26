@@ -1,39 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Data Box – Onlineöverföring
+summary: Använd Azure Data Box Gateway- och Azure Data Box Edge-enheter för överföring av data med höga prestanda via nätverket. Välj Data Box Gateway för att skicka data för molnarkivering eller haveriberedskap, eller för att bearbeta data i molnskala. Använd Data Box Edge för att filtrera, analysera och transformera data innan de flyttas till Azure.
 metadata:
-  title: 'Data Box Gateway, Data Box Edge-dokumentation för dataöverföring till Azure via nätverk'
-  description: 'Använd Data Box Edge och Data Box Gateway för dataöverföringar med höga prestanda över nätverket till Azure snabbt, prisvärt och tillförlitligt.'
+  title: Dokumentation om Azure Data Box – Onlineöverföring
+  description: Data Box Gateway, Data Box Edge-dokumentation för dataöverföring med höga prestanda till Azure via nätverk.
   services: databox
-  author: alkohli
-  manager: twooley
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.date: 03/25/2019
+  ms.collection: collection
+  author: alkohli
   ms.author: alkohli
-abstract:
-  description: 'Med Azure Data Box kan du överföra hundratals terabyte data till Azure på ett snabbt, prisvärt och tillförlitligt sätt. Använd Data Box Edge- och Data Box Gateway-enheter för överföring av data med höga prestanda via nätverket.<p>Välj Data Box Gateway för att skicka data för molnarkivering eller haveriberedskap, eller för att bearbeta data i molnskala.  Använd Data Box Edge för att filtrera, analysera och transformera data när de flyttas till Azure.</p><p>Lär dig hur du kan använda Data Box Gateway och Data Box Edge för nätverksbaserad överföring med våra självstudier.</p>'
-sections:
-  - title: Självstudier
-    items:
-      - type: paragraph
-        text: <b>För Data Box Gateway</b>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="data-box-gateway-deploy-prep">Förbereda distributionen av Azure Data Box Gateway</a>
-          - html: <a href="data-box-gateway-deploy-provision-hyperv">Etablera Azure Data Box Gateway i Hyper-V</a>
-          - html: <a href="data-box-gateway-deploy-provision-vmware">Etablera Azure Data Box Gateway i VMware</a>
-          - html: '<a href="data-box-gateway-deploy-connect-setup-activate">Ansluta, konfigurera och aktivera Azure Data Box Gateway</a>'
-          - html: <a href="data-box-gateway-deploy-add-shares">Överföra data med Azure Data Box Gateway</a>
-      - type: paragraph
-        text: <b>För Data Box Edge</b>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="data-box-edge-deploy-prep">Förbereda distributionen av Azure Data Box Edge</a>
-          - html: <a href="data-box-edge-deploy-install">Installera Azure Data Box Edge</a>
-          - html: '<a href="data-box-edge-deploy-connect-setup-activate">Ansluta, konfigurera och aktivera Azure Data Box Edge</a>'
-          - html: <a href="data-box-edge-deploy-add-shares">Överföra data med Azure Data Box Edge</a>
-          - html: <a href="data-box-edge-deploy-configure-compute">Transformera data med Azure Data Box Edge</a>
+  ms.date: 08/15/2019
+  ms.openlocfilehash: f1b3c4f8473807b7bbffa2b40f1d3a89b6acff5a
+  ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/23/2019
+  ms.locfileid: "70012870"
+landingContent:
+- title: Om Data Box-serien
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Data Box Gateway?
+      url: data-box-gateway-overview.md
+    - text: Vad är Data Box Edge?
+      url: data-box-edge-overview.md
+  - linkListType: architecture
+    links:
+    - text: Välj alternativ för dataöverföring i Azure
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+    - text: Använda nätverks- eller offlineöverföring
+      url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+  - linkListType: whats-new
+    links:
+    - text: Viktig information om 1905
+      url: data-box-gateway-1905-release-notes.md
+- title: Krav och begränsningar
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Data Box Gateway – krav
+      url: data-box-gateway-system-requirements.md
+    - text: Data Box Edge – krav
+      url: data-box-edge-system-requirements.md
+    - text: Data Box Gateway – begränsningar
+      url: data-box-gateway-limits.md
+    - text: Data Box Edge – begränsningar
+      url: data-box-edge-limits.md
+- title: Distribuera
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Data Box Gateway
+      url: data-box-gateway-deploy-prep.md
+    - text: Data Box Edge
+      url: data-box-edge-deploy-prep.md
+- title: Utveckla
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: C# Edge-moduler för databehandling
+      url: data-box-edge-create-iot-edge-module.md
+  - linkListType: download
+    links:
+    - text: Exempel – C# för Data Box Edge
+      url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
+- title: Hantera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box Gateway-filresurser
+      url: data-box-gateway-manage-shares.md
+    - text: Data Box Edge-filresurser
+      url: data-box-edge-manage-shares.md
+    - text: Edge-beräkning
+      url: data-box-edge-manage-compute.md
+    - text: Nätverk för databehandling på gränsenheter
+      url: data-box-edge-extend-compute-access-modules.md
+- title: Felsöka
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box Gateway
+      url: data-box-gateway-troubleshoot.md
+    - text: Data Box Edge
+      url: data-box-edge-troubleshoot.md
+    - text: Moduler för databehandling i Edge
+      url: data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules
+    - text: Returnera eller ersätta Data Box Edge
+      url: data-box-edge-return-device.md
+    - text: Öppna supportbegäran
+      url: data-box-edge-contact-microsoft-support.md

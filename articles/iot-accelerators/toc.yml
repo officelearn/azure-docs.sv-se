@@ -149,6 +149,8 @@
       items:
         - name: Arkitektur för OPC-tvilling
           href: overview-opc-twin-architecture.md
+        - name: Arkitektur för OPC-valv
+          href: overview-opc-vault-architecture.md
     - name: Instruktionsguider
       items:
         - name: Ansluten fabrik
@@ -169,14 +171,14 @@
               href: howto-opc-twin-deploy-dependencies.md
         - name: OPC-valv
           items:
-            - name: Distribuera OPC-valv till ett befintligt projekt
-              items:
-                - name: Säker kommunikation för OPC-klienten och OPC PLC
-                  href: howto-opc-vault-deploy-existing-client-plc-communication.md
-                - name: Skydda OPC UA-klienten och OPC UA-serverprogram
-                  href: howto-opc-vault-deploy-existing-client-server-communication.md
-            - name: Distribuera OPC-valvet från grunden
-              href: howto-opc-vault-deploy-scratch.md
+            - name: Distribuera OPC-valvstjänst
+              href: howto-opc-vault-deploy.md
+            - name: Hantera OPC-valvstjänst
+              href: howto-opc-vault-manage.md
+            - name: Säkra OPC UA-enhetskommunikation med OPC-valvet
+              href: howto-opc-vault-secure.md
+            - name: Använda OPC-valvstjänsten på ett säkert sätt
+              href: howto-opc-vault-secure-ca.md
         - name: OPC Publisher
           items:
             - name: Konfigurera OPC Publisher

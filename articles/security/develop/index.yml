@@ -41,6 +41,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/security/develop/secure-web-app">Webbapp i en Linux-container</a>
+          - html: <a href="/azure/security/develop/secure-pci-web-app">Betalkortsbranschen</a>
   - title: Begrepp
     items:
       - type: list

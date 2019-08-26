@@ -3,15 +3,14 @@ documentType: LandingData
 title: Dokumentation för Automatiska förslag i Bing
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: 'Dokumentation om automatiska förslag i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs'
+  title: 'Dokumentation om automatiska förslag i Bing – självstudier, snabbstarter, API-referenser'
+  titleSuffix: Azure Cognitive Services
   description: Lär dig hur du använder API för automatiska förslag i Bing för att hämta frågeförslag baserat på en partiell fråga. Självstudier visar hur du skapar appar som använder tjänsten.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

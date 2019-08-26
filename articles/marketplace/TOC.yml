@@ -473,6 +473,21 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: 'API:er för uppfyllnad av SaaS – vanliga frågor och svar'
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+        - name: Leadhantering – översikt
+          href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
+          items:
+            - name: Azure-blobb
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
+            - name: Azure-tabell
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
+            - name: Dynamics 365 för Customer Engagement
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md
+            - name: HTTPS-slutpunkt
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
+            - name: Marketo
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
+            - name: Salesforce
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Provkör erbjudandet
           href: ./partner-center-portal/test-drive.md
     - name: Publiceringsstatus

@@ -71,12 +71,24 @@
           href: event-hubs-geo-dr.md
     - name: Säkerhet
       items:
-        - name: Hanterad identitet för Azure-resurser
-          href: event-hubs-managed-service-identity.md
-        - name: Rollbaserad åtkomstkontroll (förhandsgranskning)
-          href: event-hubs-role-based-access-control.md
-        - name: Översikt över autentisering och säkerhetsmodell
-          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Auktorisering
+          items:
+            - name: Ge åtkomst till Azure Event Hubs
+              href: authorize-access-event-hubs.md
+            - name: Ge åtkomst med Azure Active Directory
+              href: authorize-access-azure-active-directory.md
+            - name: Ge åtkomst med signatur för delad åtkomst
+              href: authorize-access-shared-access-signature.md
+        - name: Autentisering
+          items:
+            - name: Autentisera med hjälp av Azure Active Directory
+              items:
+                - name: Autentisera med en hanterad identitet
+                  href: authenticate-managed-identity.md
+                - name: Autentisera från ett program
+                  href: authenticate-application.md
+            - name: Autentisera med signatur för delad åtkomst
+              href: authenticate-shared-access-signature.md
         - name: Säkerhetsattribut
           href: event-hubs-security-attributes.md
     - name: AMQP 1.0-protokollguide
@@ -166,6 +178,8 @@
           href: event-hubs-service-endpoints.md
         - name: Aktivera integrering av virtuella nätverk och brandväggar på Event Hubs-namnområde
           href: event-hubs-tutorial-virtual-networks-firewalls.md
+        - name: Konfigurera kundhanterade nycklar för kryptering av vilande data
+          href: configure-customer-managed-key.md
     - name: Felsöka
       items:
         - name: Undantag

@@ -13,14 +13,14 @@ metadata:
   ms.author: iainfou
   manager: daveba
   ms.date: 08/01/2019
-  ms.openlocfilehash: 3c97b7bbb652fd26e5c8fdb6d20576a3c9e70421
-  ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+  ms.openlocfilehash: f5fa27e19da6bb64b7e214ec32cbfbf0a417118e
+  ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/19/2019
-  ms.locfileid: "69612864"
+  ms.lasthandoff: 08/23/2019
+  ms.locfileid: "70010567"
 landingContent:
-- title: Läs mer om Azure AD Domain Services
+- title: Om Azure AD Domain Services
   linkLists:
   - linkListType: overview
     links:
@@ -28,6 +28,8 @@ landingContent:
       url: overview.md
     - text: Jämför identitetslösningar
       url: compare-identity-solutions.md
+  - linkListType: concept
+    links:
     - text: Hur fungerar synkronisering?
       url: synchronization.md
     - text: Vanliga frågor och svar
@@ -53,7 +55,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Aktivera hashsynkronisering för lösenord
-      url: active-directory-ds-getting-started-password-sync-synced-tenant.md
+      url: tutorial-configure-password-hash-sync.md
     - text: Skapa en organisationsenhet (OU)
       url: create-ou.md
     - text: Konfigurera begränsad Kerberos-delegering

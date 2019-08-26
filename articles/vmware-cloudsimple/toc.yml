@@ -54,7 +54,7 @@
           href: cloudsimple-faq.md
     - name: Självstudier
       items:
-        - name: Skapa CloudSimple-tjänst
+        - name: Skapa CloudSimple-tjänsten
           href: create-cloudsimple-service.md
         - name: Få åtkomst till CloudSimple-portalen
           href: access-cloudsimple-portal.md
@@ -106,8 +106,6 @@
               href: users.md
             - name: Konfigurera en virtuell nätverksanslutning till det privata molnet
               href: virtual-network-connection.md
-            - name: Redigera din användarprofil
-              href: 'https://docs.azure.cloudsimple.com/editprofile/'
         - name: Konfigurera virtuella VMware-datorer för det privata molnet
           items:
             - name: Skapa en virtuell dator i Azure
@@ -147,7 +145,7 @@
             - name: Migrera virtuella arbetsbelastningsdatorer till ett privat moln
               href: migrate-workloads.md
             - name: Säkerställa hög tillgänglighet för program i VMware på Azure
-              href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
+              href: ensuring-high-availability.md
             - name: Välja en lösning för belastningsutjämning
               href: load-balancers.md
         - name: VMware-ekosystem
@@ -156,8 +154,10 @@
               href: backup-workloads-veeam.md
             - name: Konfigurera privat moln som en haveriberedskapsplats med hjälp av Zerto
               href: disaster-recovery-zerto.md
+            - name: Konfigurera privat moln som en haveriberedskapsplats med hjälp av VMware SRM
+              href: disaster-recovery-site-recovery-manager.md
             - name: Lösningsguide för VMware Horizon
-              href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
+              href: horizon-guide.md
             - name: Konfigurera vSAN-kryptering för ditt privata moln
               href: vsan-encryption.md
             - name: Optimera ditt privata moln för Oracle RAC

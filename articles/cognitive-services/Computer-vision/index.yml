@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Dokumentation om visuellt API-innehåll
 metadata:
-  title: API-dokumentation – Visuellt innehåll – Azure Cognitive Services | Microsoft Docs
+  title: API-dokumentation – Visuellt innehåll
+  titleSuffix: Azure Cognitive Services
   description: 'Lär dig hur du använder visuellt innehåll för att bearbeta bilder och returnera information. Självstudier visar hur du skapar appar som använder API:et.'
   services: cognitive-services
   author: nitinme
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: computer-vision
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/26/2019
   ms.author: nitinme

@@ -3,8 +3,14 @@
 - name: Exempelappar
   expanded: true
   items:
-    - name: Webbapp i en Linux-container
-      href: secure-web-app.md
+    - name: Ny på säker utveckling
+      items:
+        - name: Webbapp i en Linux-container
+          href: secure-web-app.md
+    - name: Lösningar som uppfyller branschkraven
+      items:
+        - name: Betalkortsbranschen
+          href: secure-pci-web-app.md
 - name: Begrepp
   expanded: true
   items:

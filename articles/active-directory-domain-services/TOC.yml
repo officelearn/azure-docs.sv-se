@@ -17,12 +17,16 @@
       href: tutorial-create-management-vm.md
     - name: Konfigurera säkert LDAP
       href: tutorial-configure-ldaps.md
+    - name: Konfigurera synkronisering av lösenordshash
+      href: tutorial-configure-password-hash-sync.md
 - name: Exempel
   items:
     - name: Skapa en Azure AD DS-instans med hjälp av Azure PowerShell
       href: powershell-create-instance.md
 - name: Begrepp
   items:
+    - name: Vanliga distributionsscenarier
+      href: scenarios.md
     - name: Så här fungerar Azure AD DS-synkronisering
       href: synchronization.md
     - name: Så här fungerar hash-synkronisering
@@ -37,8 +41,6 @@
   items:
     - name: Konfigurera vanliga inställningar
       items:
-        - name: Aktivera hashsynkronisering för lösenord
-          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
         - name: Konfigurera omfångsbegränsad synkronisering från Azure AD
           href: scoped-synchronization.md
         - name: Skapa en organisationsenhet (OU)
@@ -47,8 +49,6 @@
           href: create-gmsa.md
     - name: Planera för Azure AD DS
       items:
-        - name: Vanliga scenarier
-          href: scenarios.md
         - name: Överväganden för virtuella nätverk
           href: network-considerations.md
     - name: Hantera Azure AD DS

@@ -130,7 +130,7 @@ Följande mall med en Kopieringsaktivitet innehåller en fullständig förteckni
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Typ egenskapen för en kopierings aktivitet måste anges till: **Exemplar** | Ja |
+| type | Typ egenskapen för en kopierings aktivitet måste anges till: **Copy** | Ja |
 | inputs | Ange den datauppsättning som du skapade som pekar till källdata. Kopieringsaktivitet stöder bara en enda indata. | Ja |
 | outputs | Ange den datauppsättning som du skapade som pekar till mottagardata. Kopieringsaktivitet stöder bara ett enda utflöde. | Ja |
 | typeProperties | En grupp egenskaper för att konfigurera kopieringsaktiviteten. | Ja |

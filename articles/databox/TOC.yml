@@ -95,8 +95,10 @@
               href: data-box-disk-deploy-set-up.md
             - name: 3 – Kopiera och verifiera
               href: data-box-disk-deploy-copy-data.md
-            - name: '4 – Returnera, ladda upp, bekräfta'
+            - name: 4 – Returnera
               href: data-box-disk-deploy-picked-up.md
+            - name: 5 – Verifiera uppladdning
+              href: data-box-disk-deploy-upload-verify.md
         - name: Begrepp
           items:
             - name: Granska krav

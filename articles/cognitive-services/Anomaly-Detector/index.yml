@@ -2,15 +2,15 @@
 documentType: LandingData
 title: 'Dokumentation om API:et för avvikelseidentifiering'
 metadata:
-  title: 'API:et för avvikelseidentifiering – självstudier snabbstarter, API-referens – Azure Cognitive Services | Microsoft Docs'
+  title: 'API för avvikelseidentifiering – självstudier, snabbstarter, API-referens'
+  titleSuffix: Azure Cognitive Services
   description: 'Använd API:et för avvikelseidentifiering för att övervaka data under lång tid och identifiera avvikelser med hjälp av maskininlärning. Få insikter om dina data – oavsett hur stora volymer du har, vilken bransch du arbetar i eller vilket scenario det gäller.'
   services: cognitive-services
   author: aahill
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: anomaly-detector
   ms.topic: landing-page
   ms.date: 03/26/2019
   ms.author: aahi

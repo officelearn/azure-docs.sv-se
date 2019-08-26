@@ -121,6 +121,8 @@
       href: /javascript/api/overview/azure/containerinstances
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.containerinstance/containergroups
+    - name: Anslutningsprogram
+      href: /connectors/aci
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

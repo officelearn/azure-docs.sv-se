@@ -75,8 +75,8 @@ Följande JSON visar schemat för tillägget.
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | sträng |
-| type | NvidiaGpuDriverWindows | sträng |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 

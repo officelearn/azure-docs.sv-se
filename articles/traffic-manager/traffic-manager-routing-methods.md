@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 305f24fc274ad48f5c60762223b7bf4e970fe083
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 06ce7fb5d18920be6f71821b034dc13061c60032
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333749"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051457"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager-dirigeringsmetoder
 
@@ -118,8 +118,8 @@ Traffic Manager läser käll-IP-adressen för DNS-frågan och bestämmer vilken 
     >[!IMPORTANT]
     >Vi rekommenderar starkt att kunder som använder den geografiska routningsmetod associerar den med de kapslade typ slut punkterna som har underordnade profiler som innehåller minst två slut punkter inom var och en.
 - Om en slut punkts matchning hittas och den slut punkten är i **stoppat** läge returnerar Traffic Manager ett nodata-svar. I det här fallet görs inga ytterligare sökningar högre upp i hierarkin för geografisk region. Detta beteende gäller också för kapslade slut punkts typer när den underordnade profilen är i läget **stoppad** eller inaktive **rad** .
-- Om en slut punkt visar en inaktive **rad** status tas den inte med i matchnings processen för regioner. Detta beteende gäller också för kapslade slut punkts typer när slut punkten är  i inaktiverat läge.
-- Om en fråga kommer från en geografisk region som inte har någon mappning i profilen returnerar Traffic Manager ett nodata-svar. Vi rekommenderar därför att kunderna använder geografisk routning med en slut punkt, helst av typen kapslad med minst två slut punkter i den underordnade profilen, med **den region som** är tilldelad till den. Detta säkerställer också att alla IP-adresser som inte mappas till en region hanteras.
+- Om en slut punkt visar en inaktive **rad** status tas den inte med i matchnings processen för regioner. Detta beteende gäller också för kapslade slut punkts typer när slut punkten är i inaktiverat läge.
+- Om en fråga kommer från en geografisk region som inte har någon mappning i profilen returnerar Traffic Manager ett nodata-svar. Vi rekommenderar därför att kunderna använder geografisk routning med en slut punkt, helst av typen kapslad med minst två slut punkter i den underordnade profilen, med den region som är tilldelad till den. Detta säkerställer också att alla IP-adresser som inte mappas till en region hanteras.
 
 Som förklaras i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md)Traffic Manager inte att ta emot DNS-frågor direkt från klienter. DNS-frågor kommer istället från den rekursiva DNS-tjänst som klienterna är konfigurerade att använda. Därför är IP-adressen som används för att fastställa regionen inte klientens IP-adress, men den är IP-adressen till den rekursiva DNS-tjänsten. I praktiken är den här IP-adressen en bra proxy för klienten.
 
@@ -146,7 +146,7 @@ Som förklaras i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md)
 * [Finns det några begränsningar för API-versionen som stöder den här typen av cirkulations typ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
 ## <a name = "multivalue"></a>Metod för Multivärdes trafik – routningsmetod
-Med  metoden för Multivärdes trafik-routning kan du hämta flera felfria slut punkter i ett enda DNS-fråge svar. Detta gör det möjligt för anroparen att utföra försök på klient sidan med andra slut punkter i händelse av en returnerad slut punkt som inte svarar. Det här mönstret kan öka tillgängligheten för en tjänst och minska svars tiden som associeras med en ny DNS-fråga för att få en felfri slut punkt. Routningsmetod för flera värden fungerar bara om alla slut punkter av typen ' external ' och anges som IPv4-eller IPv6-adresser. När en fråga tas emot för den här profilen returneras alla felfria slut punkter och omfattas av ett konfigurerbart Max antal retur antal.
+Med metoden för Multivärdes trafik-routning kan du hämta flera felfria slut punkter i ett enda DNS-fråge svar. Detta gör att anroparen kan utföra återförsök på klient sidan med andra slut punkter i händelse av en returnerad slut punkt som inte svarar. Det här mönstret kan öka tillgängligheten för en tjänst och minska svars tiden som associeras med en ny DNS-fråga för att få en felfri slut punkt. Routningsmetod för flera värden fungerar bara om alla slut punkter av typen ' external ' och anges som IPv4-eller IPv6-adresser. När en fråga tas emot för den här profilen returneras alla felfria slut punkter och omfattas av ett konfigurerbart Max antal retur antal.
 
 ### <a name="faqs"></a>Vanliga frågor och svar
 

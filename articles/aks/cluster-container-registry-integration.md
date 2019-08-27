@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: mlearned
-ms.openlocfilehash: ec017901e36a01042485e9aeca2431c8a6838ab8
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 6c06453d479ae55ceb1c05a7ee8a29ce19a7a13b
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536760"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034979"
 ---
 # <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Förhands granskning – autentisera med Azure Container Registry från Azure Kubernetes-tjänsten
 
@@ -46,11 +46,15 @@ az extension add -y --name aks-preview
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Skapa ett nytt AKS-kluster med ACR-integrering
 
-Du kan ställa in AKS-och ACR-integration när du skapar ditt AKS-kluster.  För att tillåta ett AKS-kluster att samverka med ACR används ett Azure Active Directory **tjänstens huvud namn** . Följande CLI-kommando skapar en ACR i resurs gruppen som du anger och konfigurerar lämplig **ACRPull** -roll för tjänstens huvud namn. Om *ACR-namnet* inte finns skapas automatiskt ett standard namn för `aks<resource-group>acr` ACR.  Ange giltiga värden för parametrarna nedan.  Parametrarna inom hak paren tes är valfria.
+Du kan ställa in AKS-och ACR-integration när du skapar ditt AKS-kluster.  För att tillåta ett AKS-kluster att samverka med ACR används ett Azure Active Directory **tjänstens huvud namn** . Följande CLI-kommando skapar en ACR i resurs gruppen som du anger och konfigurerar lämplig **ACRPull** -roll för tjänstens huvud namn. Om *ACR-namnet* inte finns i den resurs grupp som du anger, skapas automatiskt ett standard namn `aks<resource-group>acr` för ACR.  Ange giltiga värden för parametrarna nedan.  Parametrarna inom hak paren tes är valfria.
 ```azurecli
 az login
 az aks create -n myAKSCluster -g myResourceGroup --enable-acr [--acr <acr-name-or-resource-id>]
 ```
+\* * Ett ACR resurs-ID har följande format: 
+
+/Subscriptions/< prenumeration-d >/resourceGroups/< resurs-grupp-Name >/providers/Microsoft.ContainerRegistry/registries/<name> 
+  
 Det här steget kan ta flera minuter att slutföra.
 
 ## <a name="create-acr-integration-for-existing-aks-clusters"></a>Skapa ACR-integrering för befintliga AKS-kluster

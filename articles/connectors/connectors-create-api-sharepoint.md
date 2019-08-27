@@ -1,6 +1,6 @@
 ---
-title: Anslut till SharePoint från Azure Logic Apps | Microsoft Docs
-description: Automatisera uppgifter och arbetsflöden som övervakar och hanterar resurser i SharePoint Online eller SharePoint Server lokalt med hjälp av Azure Logic Apps
+title: Ansluta till SharePoint från Azure Logic Apps | Microsoft Docs
+description: Automatisera aktiviteter och arbets flöden som övervakar och hanterar resurser i SharePoint Online eller SharePoint Server lokalt genom att använda Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,74 +11,74 @@ ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8a34ee4e90b551da35aff8802c8badc0d74ff539
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60450751"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050781"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Övervaka och hantera SharePoint-resurser med Azure Logic Apps
 
-Med Azure Logic Apps och SharePoint-anslutningsappen kan skapa du automatiserade uppgifter och arbetsflöden som övervakar och hanterar resurser, till exempel filer, mappar, listor, objekt, personer, och så vidare i SharePoint Online eller SharePoint Server på plats, till exempel:
+Med Azure Logic Apps och SharePoint Connector kan du skapa automatiserade uppgifter och arbets flöden som övervakar och hanterar resurser, till exempel filer, mappar, listor, objekt, personer och så vidare, i SharePoint Online eller i SharePoint Server lokalt, till exempel:
 
-* Övervaka när filer eller objekt som skapas, ändras eller tas bort.
-* Skapa, hämta, uppdatera eller ta bort objekt.
-* Lägga till, hämta eller ta bort bifogade filer. Hämta innehållet från bifogade filer.
+* Övervaka när filer eller objekt skapas, ändras eller tas bort.
+* Skapa, Hämta, uppdatera eller ta bort objekt.
+* Lägg till, hämta eller ta bort bifogade filer. Hämta innehållet från bilagor.
 * Skapa, kopiera, uppdatera eller ta bort filer. 
-* Uppdatera filegenskaperna. Hämta innehåll, metadata och egenskaper för en fil.
-* Lista eller extrahera mappar.
+* Uppdatera fil egenskaper. Hämta innehåll, metadata eller egenskaper för en fil.
+* Visa eller extrahera mappar.
 * Hämta listor eller listvyer.
-* Ange status för innehållsgodkännande.
-* Lös personer.
+* Ange status för innehålls godkännande.
+* Lösa personer.
 * Skicka HTTP-begäranden till SharePoint.
-* Hämta entitetsvärden.
+* Hämta enhets värden.
 
-Du kan använda utlösare som få svar från SharePoint och göra utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder i dina logic apps för att utföra uppgifter i SharePoint. Du kan också ha andra åtgärder som använder utdata från SharePoint-åtgärder. Exempel: Om du regelbundet hämta filer från SharePoint, kan du skicka meddelanden till ditt team för med Slack-anslutningen.
-Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Du kan använda utlösare som får svar från SharePoint och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder i Logi Kap par för att utföra uppgifter i SharePoint. Du kan också använda andra åtgärder för att använda utdata från SharePoint-åtgärder. Om du till exempel regelbundet hämtar filer från SharePoint kan du skicka meddelanden till ditt team med hjälp av slack-kopplingen.
+Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Din plats adressen och användarnamnet autentiseringsuppgifter för SharePoint
+* Din SharePoint-webbplats och användarautentiseringsuppgifter
 
-  Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning och komma åt ditt konto för SharePoint. 
+  Dina autentiseringsuppgifter ger din Logic-app behörighet att skapa en anslutning och komma åt ditt SharePoint-konto. 
 
-* Innan du kan ansluta logikappar till lokala system, till exempel SharePoint Server, måste du [installera och konfigurera en lokal datagateway](../logic-apps/logic-apps-gateway-install.md). På så sätt kan du ange om du vill använda din gatewayinstallationen när du skapar SharePoint Server-anslutning för din logikapp.
+* Innan du kan ansluta Logic Apps till lokala system som SharePoint Server måste du [Installera och konfigurera en lokal datagateway](../logic-apps/logic-apps-gateway-install.md). På så sätt kan du ange att din gateway-installation ska användas när du skapar SharePoint Server-anslutningen för din Logic app.
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Logikappen där du vill komma åt ditt konto för SharePoint. Du kommer igång med en SharePoint-utlösare, [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Starta din logikapp med en utlösare, till exempel en Salesforce-utlösare för att använda en SharePoint-åtgärd, om du har en Salesforce-konto.
+* Den Logic app där du vill komma åt ditt SharePoint-konto. Börja med en SharePoint-utlösare genom att [skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en SharePoint-åtgärd startar du din Logic app med en utlösare, till exempel en Salesforce-utlösare, om du har ett Salesforce-konto.
 
-  Du kan till exempel börja din logikapp med den **när en post skapas** Salesforce-utlösare. 
-  Den här utlösaren utlöses varje gång som en ny post, till exempel ett lead skapas i Salesforce. 
-  Sedan kan du följa den här utlösaren med SharePoint **skapa fil** åtgärd. På så sätt kan när den nya posten skapas, logikappen skapas en fil i SharePoint med information om den nya posten.
+  Du kan till exempel starta din Logi Kap par med **när en post skapas** i Salesforce-utlösare. 
+  Den här utlösaren utlöses varje gång en ny post, till exempel ett lead, skapas i Salesforce. 
+  Du kan sedan följa den här utlösaren med åtgärden **Skapa fil** i SharePoint. På så sätt skapar din Logic app en fil i SharePoint med information om den nya posten när den nya posten skapas.
 
 ## <a name="connect-to-sharepoint"></a>Anslut till SharePoint
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
-1. För tom logic apps i sökrutan anger du ”sharepoint” som filter. Välj utlösaren som du vill under listan över utlösare. 
+1. För tomma Logi Kap par anger du "SharePoint" som filter i rutan Sök. Välj den utlösare som du vill använda under listan utlösare. 
 
    ELLER
 
-   För befintliga logikappar under det sista steget där du vill lägga till en SharePoint-åtgärd, Välj **nytt steg**. 
-   I sökrutan anger du ”sharepoint” som filter. 
-   Välj vilken åtgärd du önska under åtgärder.
+   För befintliga Logic Apps, under det sista steget där du vill lägga till en SharePoint-åtgärd väljer du **nytt steg**. 
+   I rutan Sök anger du "SharePoint" som filter. 
+   Under listan åtgärder väljer du den åtgärd som du vill använda.
 
-   Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
-   Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. 
+   Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. Ange anslutningsinformationen som krävs när du uppmanas att logga in. Om du använder SharePoint Server, kontrollera att du väljer **Anslut via lokal datagateway**. När du är klar väljer du **Skapa**.
+1. När du uppmanas att logga in anger du nödvändig anslutnings information. Om du använder SharePoint Server måste du kontrol lera att du har valt **Anslut via lokal datagateway**. När du är klar väljer du **Skapa**.
 
-1. Ange informationen som krävs för din valda utlösare eller åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+1. Ange nödvändig information för den valda utlösaren eller åtgärden och fortsätt att skapa din Logic Apps-arbetsflöde.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/sharepoint/).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/sharepoint/).
 
 ## <a name="get-support"></a>Få support
 
@@ -87,4 +87,4 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

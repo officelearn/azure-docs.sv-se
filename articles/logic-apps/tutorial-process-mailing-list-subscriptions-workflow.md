@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 016d004a538a1313ca31f36b46e961098051785c
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260600"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051721"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Hantera begäranden om distributionslistor med Azure Logic Apps
 
@@ -37,17 +38,17 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ![Logikapp på hög nivå](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
 
-Om du inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a> innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Ett MailChimp-konto. Skapa en lista med namnet test-members-ML där logikappen kan lägga till e-postadresser till godkända medlemmar. Om du inte har något konto kan du [registrera dig och skapa ett kostnadsfritt konto](https://login.mailchimp.com/signup/) och lära dig [hur du skapar en lista](https://us17.admin.mailchimp.com/lists/#). 
 
-* Ett e-postkonto med Office 365 Outlook eller Outlook.com, som stöder godkännandearbetsflöden. Den här artikeln använder Office 365 Outlook. Om du använder ett annat e-postkonto är stegen desamma, men användargränssnittet kan vara lite annorlunda.
+* Ett e-postkonto med Office 365 Outlook eller Outlook.com, som stöder arbets flöden för godkännande. Den här artikeln använder Office 365 Outlook. Om du använder ett annat e-postkonto är stegen desamma, men användargränssnittet kan vara lite annorlunda.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a> med autentiseringsuppgifterna för ditt Azure-konto.
+Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
@@ -112,7 +113,7 @@ Varje logikapp måste börja med en utlösare som utlöses när en specifik hän
    Logikappen har nu lanserats men gör inget annat än att kontrollera inkommande e-post. 
    Därför ska vi lägga till en åtgärd som svarar när utlösaren utlöses.
 
-## <a name="send-approval-email"></a>Skicka e-postmeddelande om godkännande
+## <a name="send-approval-email"></a>Skicka e-postmeddelande för godkännande
 
 Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) som skickar ett e-postmeddelande för att godkänna eller avvisa begäran. 
 
@@ -183,7 +184,7 @@ Ange sedan den åtgärd som utförs av logikappen när granskaren godkänner beg
 Lägg nu till en åtgärd som lägger till den godkända medlemmen på en distributionslista.
 
 1. I grenen **Om sant** för villkoret väljer du **Lägg till en åtgärd**.
-Sök efter ”mailchimp” och välj den här åtgärden: **MailChimp – Lägg till medlem till listan**
+Sök efter "MailChimp" och välj den här åtgärden: **MailChimp – Lägg till medlem i listan**
 
    ![Välj MailChimp - Add member to list (MailChimp – lägg till medlem på listan)](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
 
@@ -196,7 +197,7 @@ Sök efter ”mailchimp” och välj den här åtgärden: **MailChimp – Lägg 
    | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
    | **List Id** | test-members-ML | Namn på MailChimp-distributionslistan | 
-   | **Status** | subscribed | Prenumerationsstatus för den nya medlemmen. Mer information finns i dokumentationen om att <a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">hantera prenumeranter med MailChimp-API</a>. | 
+   | **Status** | subscribed | Prenumerationsstatus för den nya medlemmen. Mer information finns i dokumentationen om att [hantera prenumeranter med MailChimp-API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/). | 
    | **Email Address** | <*new-member-email-address*> | Välj ur antingen parameterlistan eller listan med dynamiskt innehåll. Välj **Från** under **När ett nytt e-postmeddelande kommer**, vad som händer med e-postadressen för den nya medlemmen. 
    |  |  |  | 
 
@@ -248,8 +249,8 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
    | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
    | **To** | <*your-email-address*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. | 
-   | **Subject** | <*subject-for-success-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer det angivna fältet under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll: <p>"Klart. Medlemmen lades till ”test-members-ML”: **E-postadress**” | 
-   | **Brödtext** | <*body-for-success-email*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer de angivna fälten under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll:  <p>”Ny medlem har anslutit” test-members-ML ”: **E-postadress**”</br>”Status för deltagande i medlem: **Status för**” | 
+   | **Subject** | <*subject-for-success-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer det angivna fältet under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll: <p>"Klart. Medlem har lagts till "test-members-ML": **E-postadress**" | 
+   | **Brödtext** | <*body-for-success-email*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer de angivna fälten under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll:  <p>"Den nya medlemmen har anslutits" test-members-ML ": **E-postadress**"</br>Status för medlems deltagande: **Status**" | 
    | | | | 
 
 5. Spara din logikapp.
@@ -273,7 +274,7 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
    | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
    | **To** | <*your-email-address*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. | 
-   | **Subject** | <*subject-for-failure-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer det angivna fältet under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll: <p>”Misslyckades, medlemmen lades inte till att” test-members-ML ”: **E-postadress**” | 
+   | **Subject** | <*subject-for-failure-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer det angivna fältet under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll: <p>"Misslyckades, medlemmen har inte lagts till i" test-members-ML ": **E-postadress**" | 
    | **Brödtext** | <*body-for-failure-email*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>”Medlemmen kanske redan finns. Kontrollera MailChimp-kontot." | 
    | | | | 
 

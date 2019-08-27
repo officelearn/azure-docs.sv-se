@@ -4,14 +4,14 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 39bb75a6f834789f91cb590ffebb72f45624eb25
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c7b9e3a9eb5c906fa598da9c8c547cb542ecb719
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187896"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036786"
 ---
-# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(INAKTUELL) Skydda Docker-behållare i Azure Container Service
+# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>FÖRÅLDRAD Skydda Docker-behållare i Azure Container Service
 
 [!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
@@ -34,7 +34,7 @@ Säkerheten har högsta prioritet på de flesta företag, och för att skydda si
 
 Även om du använder ett privat register är det en bra idé att använda lösningar för avbildningsgenomsökning som en extra säkerhetskontroll. Varje programvarulager i en behållaravbildning kan potentiellt medföra säkerhetsrisker oberoende av andra lager i containeravbildningen. I takt med att företag i allt högre utsträckning börjar distribuera sina produktionsarbetsbelastningar baserat på containertekniker, blir avbildningsgenomsökning en allt viktigare faktor för att förebygga säkerhetshot mot dessa organisationer. 
 
-Lösningar för säkerhetsövervakning och säkerhetsgenomsökning som till exempel [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) och [Aqua Security](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry) kan användas för att söka igenom containeravbildningar i ett privat register och för att identifiera potentiella säkerhetsrisker. Det är viktigt att veta hur djupt olika genomsökningslösningar går. Till exempel kanske vissa lösningar bara verifierar avbildningslager mot kända säkerhetsrisker. Dessa lösningar kanske inte kan verifiera programvara med avbildningslager som byggts med särskilda pakethanterarprogram. Andra lösningar har djupare genomsökningsintegration och kan hitta sårbarheter i all paketerad programvara.
+Lösningar för säkerhetsövervakning och säkerhetsgenomsökning som till exempel [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) och [Aqua Security](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry) kan användas för att söka igenom containeravbildningar i ett privat register och för att identifiera potentiella säkerhetsrisker. Det är viktigt att veta hur djupt olika genomsökningslösningar går. Till exempel kanske vissa lösningar bara verifierar avbildningslager mot kända säkerhetsrisker. Dessa lösningar kanske inte kan verifiera programvara med avbildningslager som byggts med särskilda pakethanterarprogram. Andra lösningar har djupare genomsökningsintegration och kan hitta sårbarheter i all paketerad programvara.
 
 ### <a name="production-deployment-rules-and-audit"></a>Regler för och granskning av distributioner i produktionsmiljön
 När ett program har distribuerats i produktionsmiljön är det viktigt att regler tillämpas som säkerställer att avbildningar som används i produktionsmiljön är säkra och att de inte har några sårbarheter.
@@ -58,9 +58,9 @@ Varje orkestrering som är tillgänglig i Azure Container Service har sina egna 
 
 Ytterligare orkestreringsspecifik säkerhetsinformation finns i följande resurser:
 
-* **Kubernetes**: [Rekommenderade säkerhetsmetoder för Kubernetes-distribution](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
+* **Kubernetes**: [Rekommenderade säkerhets metoder för Kubernetes-distribution](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
 
-* **DC/OS**: [Skydda ditt kluster](http://docs.mesosphere.com/1.12/administering-clusters/securing-your-cluster)
+* **DC/OS**: [Skydda klustret](http://docs.mesosphere.com/1.12/administering-clusters/securing-your-cluster)
 
 * **Docker Swarm**: [Docker-säkerhet](https://www.docker.com/docker-security)
 

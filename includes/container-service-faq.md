@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3e1e1266122ebcccc0149ca8e0421577becd6708
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187900"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036787"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(INAKTUELL) Vanliga frågor och svar om Container Service
 
@@ -37,7 +37,7 @@ Beroende på ditt scenario kan du också skapa och hantera anpassade containerl�
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Vad är skillnaden mellan Azure Container Service och ACS Engine? 
 Azure Container Service är en SLA-reglerad Azure-tjänst med funktioner i Azure Portal, Azure kommandoradsverktyg och Azure API: er. Med tjänsten kan du snabbt implementera och hantera kluster som kör standardverktyg för containerdirigering med relativt få konfigurationsalternativ. 
 
-[ACS Engine](http://github.com/Azure/acs-engine) är ett projekt baserat på öppen källkod som gör det möjligt för privilegierade användare att anpassa klusterkonfigurationen på varje nivå. Möjligheten att ändra konfigurationen för både infrastruktur och programvara innebär att vi inte erbjuder något serviceavtal för ACS Engine. Support hanteras via projektet på GitHub i stället för via de officiella Microsoft-kanalerna. 
+[ACS Engine](https://github.com/Azure/acs-engine) är ett projekt baserat på öppen källkod som gör det möjligt för privilegierade användare att anpassa klusterkonfigurationen på varje nivå. Möjligheten att ändra konfigurationen för både infrastruktur och programvara innebär att vi inte erbjuder något serviceavtal för ACS Engine. Support hanteras via projektet på GitHub i stället för via de officiella Microsoft-kanalerna. 
 
 Mer information finns i vår [supportpolicy för containrar](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
 

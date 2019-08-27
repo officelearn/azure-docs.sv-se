@@ -69,15 +69,9 @@
         - name: Konfigurera containrar
           href: text-analytics-resource-container-config.md
         - name: Använda containerinstanser
-          items:
-            - name: Sentimentanalys
-              href: how-tos/deploy-sentiment-analysis-on-container-instances.md
+          href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: Använda Kubernetes Service (AKS)
-          items:
-            - name: Språkidentifiering
-              href: how-tos/use-language-detection-on-aks.md
-            - name: Sentimentanalys
-              href: how-tos/use-sentiment-analysis-on-aks.md
+          href: how-tos/text-analytics-how-to-use-kubernetes-service.md
     - name: Använda den anslutna tjänsten för textanalys
       href: vs-text-connected-service.md
 - name: Referens

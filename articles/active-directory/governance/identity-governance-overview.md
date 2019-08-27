@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/29/2019
+ms.date: 08/25/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f09a8c2f8caae3cbb182cf2dc4621deb95f7e5c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499666"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033330"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD Identity Governance?
 
@@ -42,7 +42,7 @@ Särskilt är det avsett att hjälpa organisationer att lösa dessa fyra viktiga
 
 ## <a name="identity-lifecycle"></a>Identitets livs cykel
 
-Identitets styrning hjälper organisationer att få en balans  mellan produktiviteten – hur snabbt kan en person ha åtkomst till de resurser som de behöver, till exempel när de ansluter till min organisation? Och *säkerhet* – hur ska deras åtkomst ändras över tid, till exempel på grund av ändringar i personens anställnings status?  Hantering av identitets livs cykeln är grunden för identitets styrning, och effektiva styrningar i skalan kräver att infrastrukturen för identitets livs cykels hantering används för program.
+Identitets styrning hjälper organisationer att få en balans mellan produktiviteten – hur snabbt kan en person ha åtkomst till de resurser som de behöver, till exempel när de ansluter till min organisation? Och *säkerhet* – hur ska deras åtkomst ändras över tid, till exempel på grund av ändringar i personens anställnings status?  Hantering av identitets livs cykeln är grunden för identitets styrning, och effektiva styrningar i skalan kräver att infrastrukturen för identitets livs cykels hantering används för program.
 
 ![Identitets livs cykel](./media/identity-governance-overview/identity-lifecycle.png)
 
@@ -80,6 +80,8 @@ Azure AD Privileged Identity Management (PIM) ger ytterligare kontroller som är
 Du kan också titta på fliken komma igång med **identitets styrning** i Azure Portal för att börja använda rättighets hantering, åtkomst granskningar, Privileged Identity Management och användningsvillkor.
 
 ![Komma igång med identitets styrning](./media/identity-governance-overview/getting-started.png)
+
+Om du har feedback om funktioner för identitets styrning klickar du på **feedback?** i Azure Portal för att skicka in din feedback. Gruppen granskar regelbundet din feedback.
 
 ## <a name="next-steps"></a>Nästa steg
 

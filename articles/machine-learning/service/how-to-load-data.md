@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd60d9f9bee55ef1342fe344e8b4f2f64e313331
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4bd6605a6a217d6bcdd243ff1d4f7bb6017ca0ef
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360987"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036054"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Läsa in och läsa data med Azure Machine Learning data prep SDK
 I den här artikeln lär du dig olika metoder för att läsa in data med hjälp av Azure Machine Learning data prep SDK.  SDK stöder flera funktioner för data datainmatning, inklusive:
@@ -115,7 +115,7 @@ Kör följande kod för att visa datatyperna för kolumnen.
 ```python
 dflow.dtypes
 ```
-Utdata:
+Resultat:
 
     stnam                     object
     fipst                     object
@@ -134,7 +134,7 @@ dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfi
                           inference_arguments=dprep.InferenceArguments.current_culture())
 dflow.dtypes
 ```
-Utdata:
+Resultat:
 
     stnam                      object
     fipst                     float64
@@ -321,4 +321,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>Nästa steg
 
-* I självstudien om Azure Machine Learning [](tutorial-data-prep.md) data för förberedelse SDK finns ett exempel på hur du löser ett speciellt scenario
+* Mer information finns i [referens dokumentationen](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#dataprep) för Azure Machine Learning data prep SDK.

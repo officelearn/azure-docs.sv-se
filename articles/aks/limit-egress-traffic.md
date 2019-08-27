@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 369729f10de4a55cd14bb866795ea1aa15b3d9da
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 9476290669606f6eb6c56b51497f3026b9613698
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639789"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034947"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>För hands version – begränsa utgående trafik för klusternoder och kontrol lera åtkomst till nödvändiga portar och tjänster i Azure Kubernetes service (AKS)
 
@@ -85,15 +85,13 @@ Följande FQDN/program-regler krävs:
 |----------------------------|-----------|----------|
 | *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Den här adressen är API-serverns slut punkt. *Ersätt\<plats\>* med den region där ditt AKS-kluster har distribuerats. |
 | *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Den här adressen är API-serverns slut punkt. *Ersätt\<plats\>* med den region där ditt AKS-kluster har distribuerats. |
-| aksrepos.azurecr.io        | HTTPS:443 | Den här adressen krävs för att komma åt avbildningar i Azure Container Registry (ACR). |
+| aksrepos.azurecr.io        | HTTPS:443 | Den här adressen krävs för att komma åt avbildningar i Azure Container Registry (ACR). Det här registret innehåller bilder/diagram från tredje part (till exempel mått Server, kärn-DNS osv.) som krävs för att klustret ska fungera under uppgradering och skalning av klustret|
 | *.blob.core.windows.net    | HTTPS:443 | Den här adressen är Server dels arkivet för avbildningar som lagras i ACR. |
-| mcr.microsoft.com          | HTTPS:443 | Den här adressen krävs för att komma åt avbildningar i Microsoft Container Registry (MCR). |
+| mcr.microsoft.com          | HTTPS:443 | Den här adressen krävs för att komma åt avbildningar i Microsoft Container Registry (MCR). Det här registret innehåller bilder/diagram från första part (till exempel Moby osv.) som krävs för att klustret ska fungera under uppgradering och skalning av klustret |
 | *.cdn.mscr.io              | HTTPS:443 | Den här adressen krävs för MCR-lagring som backas upp av Azure Content Delivery Network (CDN). |
 | management.azure.com       | HTTPS:443 | Den här adressen krävs för Kubernetes GET/tag-åtgärder. |
 | login.microsoftonline.com  | HTTPS:443 | Den här adressen krävs för Azure Active Directory autentisering. |
-| api.snapcraft.io           | HTTPS:443, HTTP:80 | Den här adressen krävs för att installera Snap-paket på Linux-noder. |
 | ntp.ubuntu.com             | UDP:123   | Den här adressen krävs för NTP-tidssynkronisering på Linux-noder. |
-| *.docker.io                | HTTPS:443 | Den här adressen krävs för att hämta nödvändiga behållar avbildningar för tunneln. |
 
 ## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Valfria rekommenderade adresser och portar för AKS-kluster
 
@@ -103,7 +101,7 @@ Följande FQDN/program-regler rekommenderas för att AKS-kluster ska fungera kor
 
 | FQDN                                    | Port      | Användning      |
 |-----------------------------------------|-----------|----------|
-| *.ubuntu.com                            | HTTP:80   | Den här adressen låter Linux-klusternoderna hämta de nödvändiga säkerhets korrigeringarna och uppdateringarna. |
+| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com                           | HTTP:80   | Den här adressen låter Linux-klusternoderna hämta de nödvändiga säkerhets korrigeringarna och uppdateringarna. |
 | packages.microsoft.com                  | HTTPS:443 | Den här adressen är Microsoft packages-lagringsplatsen som används för cachelagrat *apt-get-* åtgärder. |
 | dc.services.visualstudio.com            | HTTPS:443 | Rekommenderas för att korrigera mått och övervakning med hjälp av Azure Monitor. |
 | *.opinsights.azure.com                  | HTTPS:443 | Rekommenderas för att korrigera mått och övervakning med hjälp av Azure Monitor. |

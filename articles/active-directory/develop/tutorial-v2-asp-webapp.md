@@ -1,6 +1,6 @@
 ---
 title: Komma igång med Azure AD v 2.0 ASP.NET-webbserver | Microsoft Docs
-description: Implementera Microsoft-inloggning på en ASP.NET-lösning med ett traditionellt webbläsarbaserat program med OpenID Connect standard
+description: Implementera Microsoft-inloggning på en ASP.NET-lösning med hjälp av ett traditionellt webbläsarbaserat program och OpenID Connect standard
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,26 +16,26 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fce6ab2c5068d1628860356a9df0dd33c73948b3
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 2a9fb68fff492b6f3b00825b1fae91310f091a3f
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511976"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033397"
 ---
-# <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning med Microsoft till en ASP.NET-webbapp
+# <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning till Microsoft i en ASP.NET-webbapp
 
-Den här guiden visar hur du implementerar inloggning med Microsoft med en ASP.NET MVC-lösning med ett traditionellt webbläsarbaserat program med OpenID Connect.
+Den här guiden visar hur du implementerar inloggning till Microsoft via en ASP.NET MVC-lösning med hjälp av ett traditionellt webbläsarbaserat program och OpenID Connect.
 
-I slutet av den här hand boken kommer ditt program att kunna acceptera inloggningar med personliga konton, till exempel outlook.com, live.com och andra. Dessa konton innehåller även arbets-och skol konton från alla företag eller organisationer som har integrerat med Azure Active Directory.
+När du har slutfört den här guiden kommer ditt program att kunna godkänna inloggningar av personliga konton från outlook.com och live.com. Dessutom kommer arbets-och skol konton från alla företag eller organisationer som är integrerade med Azure Active Directory (Azure AD) att kunna logga in i din app.
 
-> Den här guiden kräver Visual Studio 2019.  Saknas det?  [Ladda ned Visual Studio 2019 gratis](https://www.visualstudio.com/downloads/)
+> Den här guiden kräver Microsoft Visual Studio 2019.  Saknas det?  [Ladda ned Visual Studio 2019 gratis](https://www.visualstudio.com/downloads/).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Hur exempel appen som genereras av den här hand boken fungerar
 
 ![Visar hur exempel appen som genereras av den här själv studie kursen fungerar](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
 
-Det exempel program som du skapar baseras på scenariot där du använder webbläsaren för att få åtkomst till en ASP.NET-webbplats som begär att en användare autentiseras via en inloggnings knapp. I det här scenariot sker merparten av renderingen av webbsidan på serversidan.
+Det exempel program som du skapar baseras på ett scenario där du kan använda webbläsaren för att få åtkomst till en ASP.NET-webbplats som gör det möjligt för användaren att autentisera via en inloggnings knapp. I det här scenariot sker merparten av renderingen av webbsidan på serversidan.
 
 ## <a name="libraries"></a>Bibliotek
 
@@ -44,25 +44,25 @@ I den här guiden används följande bibliotek:
 |Bibliotek|Beskrivning|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Mellanprogram som gör att ett program kan använda OpenIdConnect för autentisering|
-|[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Mellanprogram som gör att ett program kan hantera en användarsession med hjälp av cookies|
-|[Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb)|Gör att OWIN-baserade program kan köras i IIS med hjälp av pipelinen för ASP.NET-förfrågningar|
+|[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Mellanprogram som gör det möjligt för ett program att underhålla en användarsession med hjälp av cookies|
+|[Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb)|Mellanprogram som möjliggör OWIN-baserade program att köras på Internet Information Services (IIS) med hjälp av pipeline för ASP.NET-begäran|
 
 ## <a name="set-up-your-project"></a>Konfigurera projektet
 
-I det här avsnittet visas stegen för att installera och konfigurera pipeline för autentisering via OWIN mellan program i ett ASP.NET-projekt med OpenID Connect.
+I det här avsnittet beskrivs hur du installerar och konfigurerar en pipeline för autentisering genom OWIN mellan program i ett ASP.NET-projekt med hjälp av OpenID Connect.
 
-> Vill du hämta det här exemplets Visual Studio-projekt i stället? [Ladda ned ett projekt](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) och hoppa till [konfigurations steget](#register-your-application) för att konfigurera kod exemplet innan du kör.
+> Vill du hämta det här exemplets Visual Studio-projekt i stället? [Ladda ned ett projekt](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) och hoppa till [registret registrera ditt program](#register-your-application) för att konfigurera kod exemplet innan du kör.
 
 ### <a name="create-your-aspnet-project"></a>Skapa ASP.NET-projektet
 
-1. I Visual Studio:`File` > `New` > `Project`
-2. Under *visuell C#\Web*väljer `ASP.NET Web Application (.NET Framework)`du.
-3. Namnge ditt program och klicka på *OK*
-4. Markera `Empty` och markera kryss rutan för att `MVC` lägga till referenser
+1. I Visual Studio: Gå till **filen** > **nytt** > **projekt**.
+2. Under **Visual C#\Web** väljer du **ASP.NET-webbprogram (.NET Framework)** .
+3. Namnge ditt program och välj **OK**.
+4. Välj **Tom**och markera sedan kryss rutan för att lägga till **MVC** -referenser.
 
 ## <a name="add-authentication-components"></a>Lägga till autentiseringskomponenter
 
-1. I Visual Studio:`Tools` > `Nuget Package Manager` > `Package Manager Console`
+1. I Visual Studio: Gå till **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
 2. Lägg till *NuGet-paket för OWIN-mellanprogram* genom att skriva följande i Package Manager-konsolfönstret:
 
     ```powershell
@@ -73,21 +73,21 @@ I det här avsnittet visas stegen för att installera och konfigurera pipeline f
 
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>Om dessa bibliotek
-> Biblioteken ovan möjliggör enkel inloggning (SSO) med hjälp av OpenID Connect via cookie-baserad autentisering. När autentiseringen har slutförts och den token som representerar användaren skickas till ditt program, skapar OWIN-mellanprogrammet en sessions-cookie. Webbläsaren använder sedan denna cookie vid efterföljande begär Anden så att användaren inte behöver ange lösen ordet igen och ingen ytterligare verifiering krävs.
+> Dessa bibliotek möjliggör enkel inloggning (SSO) med hjälp av OpenID Connect via cookie-baserad autentisering. När autentiseringen har slutförts och den token som representerar användaren skickas till ditt program, skapar OWIN-mellanprogrammet en sessions-cookie. Webbläsaren använder sedan denna cookie vid efterföljande begär Anden så att användaren inte behöver ange lösen ordet igen och ingen ytterligare verifiering krävs.
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>Konfigurera autentiseringspipelinen
 
-Stegen nedan används för att skapa en OWIN-mellanprogram start klass för att konfigurera OpenID Connect-autentisering. Den här klassen körs automatiskt när IIS-processen startas.
+Följande steg används för att skapa en OWIN-mellanprogram start klass för att konfigurera OpenID Connect-autentisering. Den här klassen körs automatiskt när IIS-processen startas.
 
 > [!TIP]
 > Om ditt projekt inte har en `Startup.cs`-fil i rotmappen:
-> 1. Högerklicka på projektets rotmapp: >`Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Ge den namnet `Startup.cs`
+> 1. Högerklicka på projektets rotmapp och välj sedan **Lägg till** > **nytt objekt** > **OWIN start klass**.<br/>
+> 2. Ge den namnet **startup.cs**.
 >
->> Kontrollera att den klass som valts är en OWIN-startklass och inte en C#-standardklass. Bekräfta detta genom att kontrollera om `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` visas ovanför namnområdet.
+>> Kontrol lera att den valda klassen är en OWIN start klass och inte en C# standard klass. Bekräfta detta genom att kontrol lera att du ser [Assembly: OwinStartup (typeof ({NameSpace}. Start))] ovanför namn området.
 
-1. Lägg till *OWIN* -och *Microsoft. IdentityModel* -referenser till `Startup.cs`:
+1. Lägg till *OWIN* -och *Microsoft. IdentityModel* -referenser till startup.CS:
 
     ```csharp
     using Microsoft.Owin;
@@ -100,7 +100,7 @@ Stegen nedan används för att skapa en OWIN-mellanprogram start klass för att 
     using Microsoft.Owin.Security.Notifications;
     ```
 
-2. Ersätt start klass med koden nedan:
+2. Ersätt startklassen med följande kod:
 
     ```csharp
     public class Startup
@@ -169,31 +169,32 @@ Stegen nedan används för att skapa en OWIN-mellanprogram start klass för att 
     ```
 
 > [!NOTE]
-> Inställningen `ValidateIssuer = false` är en förenkling för den här snabb starten. I verkliga program måste du verifiera utfärdaren i exemplen för att förstå hur du gör det.
+> Inställningen `ValidateIssuer = false` är en förenkling för den här snabb starten. I verkliga program måste du verifiera utfärdaren.
+> Se exemplen för att lära dig hur du gör det.
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mer information
-> De parametrar som du anger i *OpenIDConnectAuthenticationOptions* fungerar som koordinater som programmet använder för att kommunicera med Azure AD. Eftersom OpenID Connect-programvara använder cookies i bakgrunden, måste du också ställa in cookie-autentisering som koden ovan. Värdet *ValidateIssuer* instruerar OpenIdConnect att inte begränsa åtkomsten till en specifik organisation.
+> De parametrar som du anger i *OpenIDConnectAuthenticationOptions* fungerar som koordinater som programmet använder för att kommunicera med Azure AD. Eftersom OpenID Connect-programprogram använder cookies i bakgrunden, måste du också konfigurera cookie-autentisering som föregående kod visas. Värdet *ValidateIssuer* anger att OpenIdConnect inte begränsar åtkomsten till en speciell organisation.
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Lägga till en styrenhet för att hantera inloggnings- och utloggningsbegäranden
 
-Det här steget visar hur du skapar en ny kontrollant för att exponera inloggnings-och utloggnings metoder.
+Följ dessa steg om du vill skapa en ny kontrollant för att exponera inloggnings-och utloggnings metoder:
 
-1.  Högerklicka på `Controllers` mappen och välj`Add` > `Controller`
-2.  Välj `MVC (.NET version) Controller – Empty`.
-3.  Klicka på *Lägg till*
-4.  Ge den `HomeController` namnet och klicka på *Lägg till*
-5.  Lägg till *OWIN* -referenser till klassen:
+1.  Högerklicka på mappen **kontrollanter** och välj **Lägg till** > **kontrollant**.
+2.  Välj **MVC-kontrollant (.NET-version) – tom**.
+3.  Välj **Lägg till**.
+4.  Ge den namnet **HomeController** och välj sedan **Lägg till**.
+5.  Lägg till OWIN-referenser till klassen:
 
     ```csharp
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OpenIdConnect;
     ```
-    
-6. Lägg till de två metoderna nedan för att hantera inloggning och logga ut till din styrenhet genom att initiera en autentiseringsbegäran via kod:
-    
+
+6. Lägg till följande två metoder för att hantera inloggning och logga ut till din styrenhet genom att initiera en verifierings utmaning:
+
     ```csharp
     /// <summary>
     /// Send an OpenID Connect sign-in request.
@@ -220,12 +221,12 @@ Det här steget visar hur du skapar en ny kontrollant för att exponera inloggni
     }
     ```
 
-## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Skapa appens startsida för att logga in användare via en inloggningsknapp
+## <a name="create-the-apps-home-page-for-user-sign-in"></a>Skapa appens start sida för användar inloggning
 
-Skapa en ny vy i Visual Studio för att lägga till inloggningsknappen och visa användarinformation efter autentiseringen:
+I Visual Studio skapar du en ny vy för att lägga till inloggnings knappen och Visa användar information efter autentisering:
 
-1.  Högerklicka på `Views\Home` mappen och välj`Add View`
-2.  Ge den namnet `Index`.
+1.  Högerklicka på mappen **Views\Home** och välj **Lägg till vy**.
+2.  Namnge det nya vyns **index**.
 3.  Lägg till följande HTML-kod, som innehåller inloggningsknappen, i filen:
 
     ```html
@@ -268,17 +269,17 @@ Skapa en ny vy i Visual Studio för att lägga till inloggningsknappen och visa 
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mer information
-> Den här sidan lägger till en inloggnings knapp i SVG-format med svart bakgrund:<br/>![Logga in med Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Om du vill ha fler inloggnings knappar går du till [](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "rikt linjerna")för sid anpassning.
+> Den här sidan lägger till en inloggnings knapp i SVG-format med svart bakgrund:<br/>![Logga in med Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Fler inloggnings knappar finns i(https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "rikt linjerna")för [anpassnings rikt linjer].
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Lägg till en kontrollant för att Visa användarens anspråk
-Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en kontrollant. Det här attributet begränsar åtkomsten till kontrollanten genom att bara tillåta autentiserade användare. I koden nedan används attributet för att Visa användar anspråk som hämtades som en del av inloggningen.
+Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en kontrollant. Det här attributet begränsar åtkomsten till kontrollanten genom att endast tillåta autentiserade användare. Följande kod använder attributet för att Visa användar anspråk som hämtades som en del av inloggningen:
 
-1.  Högerklicka på `Controllers` mappen:`Add` > `Controller`
-2.  Välj `MVC {version} Controller – Empty`.
-3.  Klicka på *Lägg till*
-4.  Ge den namnet `ClaimsController`
-5.  Ersätt koden för din kontroll enhets klass med koden nedan – detta lägger `[Authorize]` till attributet i klassen:
+1.  Högerklicka på mappen **kontrollanter** och välj sedan **Lägg till** > **kontrollant**.
+2.  Välj **MVC-kontrollant {version} – tom**.
+3.  Välj **Lägg till**.
+4.  Ge den namnet **ClaimsController**.
+5.  Ersätt koden för din styrenhets klass med följande kod. Detta lägger `[Authorize]` till attributet i klassen:
 
     ```csharp
     [Authorize]
@@ -311,15 +312,15 @@ Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en k
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mer information
-> Eftersom attributet `[Authorize]` används kan metoderna för den här kontrollanten endast köras om användaren har autentiserats. Om användaren inte är autentiserad och försöker komma åt kontrollanten initierar OWIN en autentiserings-utmaning och tvingar användaren att autentisera sig. Koden ovan söker i listan över anspråk för vissa användarattribut som ingår i användarens ID-token. Dessa attribut är användarens fullständiga namn och användarnamn, samt objektidentifieraren för den globala användaren. Den innehåller också *klientorganisations-ID:t*, som representerar ID:t för användarens organisation. 
+> På grund av användningen av `[Authorize]` -attributet kan alla metoder för den här styrenheten bara köras om användaren är autentiserad. Om användaren inte är autentiserad och försöker komma åt kontrollanten initierar OWIN en autentiserings-utmaning och tvingar användaren att autentisera sig. Föregående kod tittar på listan över anspråk för vissa användarattribut som ingår i användarens ID-token. Dessa attribut är användarens fullständiga namn och användarnamn, samt objektidentifieraren för den globala användaren. Den innehåller också *klientorganisations-ID:t*, som representerar ID:t för användarens organisation. 
 <!--end-collapse-->
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Skapa en vy för att visa användarens anspråk
 
 Skapa en ny vy i Visual Studio för att visa användarens anspråk på en webbsida:
 
-1.  Högerklicka på `Views\Claims` mappen och:`Add View`
-2.  Ge den namnet `Index`.
+1.  Högerklicka på mappen **Views\Claims** och välj sedan **Lägg till vy**.
+2.  Namnge det nya vyns **index**.
 3.  Lägg till följande HTML-kod i filen:
 
     ```html
@@ -358,30 +359,30 @@ Om du vill registrera ditt program och lägga till program registrerings informa
 
 ### <a name="option-1-express-mode"></a>Alternativ 1: Express läge
 
-Du kan snabbt registrera ditt program genom att göra följande:
+Följ dessa steg för att snabbt registrera ditt program:
 
 1. Gå till fönstret ny [Azure Portal-Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) .
-1. Ange ett namn för programmet och klicka på **Registrera**.
-1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
+1. Ange ett namn för programmet och välj **Registrera**.
+1. Följ anvisningarna för att ladda ned och automatiskt konfigurera det nya programmet i ett enda klick.
 
 ### <a name="option-2-advanced-mode"></a>Alternativ 2: Avancerat läge
 
 Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 
-1. Gå till Visual Studio och:
-   1. i Solution Explorer väljer du projektet och tittar på Fönstret Egenskaper (om du inte ser en Fönstret Egenskaper trycker du på F4).
+1. Öppna Visual Studio och gör sedan följande:
+   1. i Solution Explorer väljer du projektet och visar Fönstret Egenskaper (om du inte ser någon Fönstret Egenskaper trycker du på F4).
    1. Ändra SSL till `True`.
-   1. Högerklicka på projektet i Visual Studio och välj sedan **Egenskaper**och fliken **webb** . I avsnittet *servrar* ändrar du *projekt-URL* : en till SSL-URL: en.
-   1. Kopiera SSL-URL: en. Du kommer att lägga till denna URL i listan över omdirigerings-URL: er i registrerings portalens lista över omdirigerings-URL: er i nästa steg:<br/><br/>![Projektegenskaper](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
+   1. Högerklicka på projektet i Visual Studio, Välj **Egenskaper**och välj sedan fliken **webb** . I avsnittet **servrar** ändrar du projekt- **URL** -inställningen till **SSL-URL: en**.
+   1. Kopiera SSL-URL: en. Du kommer att lägga till denna URL i listan över omdirigerings-URL: er i registrerings portalens lista över omdirigerings-URL: er i nästa steg.<br/><br/>![Projektegenskaper](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto, eller genom att använda en personlig Microsoft-konto.
+1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet och anger din portal-session till den Azure AD-klient som du vill använda.
 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
 1. Välj **ny registrering**.
 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
-   1. I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `ASPNET-Tutorial`.
-   1. Lägg till SSL-URL: en som du kopierade från Visual Studio i steg `https://localhost:44368/`1 (till exempel) i svars- **URL**och klicka på **Registrera**.
-1. Välj **autentiseringsmenyn** och ange **ID-token** under **Implicit beviljande** och välj sedan **Spara**.
-1. Lägg till följande i `web.config` mappen root i avsnittet: `configuration\appSettings`
+   1. I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användarna av appen, till exempel **ASPNET-självstudier**.
+   1. Lägg till SSL-URL: en som du kopierade från Visual Studio i steg `https://localhost:44368/`1 (till exempel) i svars- **URL**och välj **Registrera**.
+1. Välj menyn **autentisering** , Välj **ID-token** under **implicit beviljande**och välj sedan **Spara**.
+1. Lägg till följande i filen Web. config, som finns i rotmappen i `configuration\appSettings` avsnittet:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
@@ -395,21 +396,30 @@ Du registrerar programmet och lägger till appens registreringsinformationen i l
 
 ## <a name="test-your-code"></a>Testa koden
 
-Om du vill testa programmet i Visual Studio trycker du på **F5** för att köra projektet. Webbläsaren öppnas till platsen http://<span></span>localhost: {port} och du ser knappen **Logga in med Microsoft** . Klicka på knappen för att starta inloggnings processen.
+Om du vill testa programmet i Visual Studio trycker du på F5 för att köra projektet. Webbläsaren öppnas till platsen http://<span></span>localhost: {port} och du ser knappen **Logga in med Microsoft** . Klicka på knappen för att starta inloggnings processen.
 
-När du är redo att köra testet använder du ett Microsoft Azure Active Directory (Azure AD)-konto (arbets-eller skol konto) eller en personlig Microsoft-konto (<span>Live.</span> com eller <span>Outlook.</span> com) för att logga in.
+När du är redo att köra testet använder du ett Azure AD-konto (arbets-eller skol konto) eller en personlig Microsoft-konto (<span>Live.</span> com eller <span>Outlook.</span> com) för att logga in.
 
 ![Logga in med Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Logga in på din Microsoft-konto](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
+<!--start-collapse-->
+> ###  <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i Microsoft Identity Platform-slutpunkten
+>  Program som integreras med Microsoft Identity Platform följer en auktoriserings modell som ger användare och administratörer kontroll över hur data kan nås. När en användare autentiserar med Azure AD för att få åtkomst till det här programmet uppmanas de att godkänna de behörigheter som begärs av programmet ("Visa din grundläggande profil" och "upprätthålla åtkomst till data som du har fått åtkomst till"). När de här behörigheterna har accepterats fortsätter användaren med programmets resultat. Användaren får dock i stället uppmanas att ha en sida med **godkännande för administratörer** om något av följande inträffar:
+>  > - Programutvecklaren lägger till ytterligare behörigheter som kräver **Administratörs medgivande**.
+>  > - Eller klient organisationen är konfigurerad (i **företags program – > användar inställningar**) där användare inte kan godkänna appar som har åtkomst till företags data för deras räkning.
+>
+> Mer information finns [i behörigheter och medgivande i Microsoft Identity Platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)-slutpunkten.
+<!--end-collapse-->
+
 #### <a name="view-application-results"></a>Visa program resultat
 
-När du har loggat in omdirigeras användaren till start sidan för din webbplats. Start sidan är HTTPS-URL: en som anges i din program registrerings information i registrerings portalen för Microsoft-program. Start sidan innehåller ett välkomst meddelande *" \<Hello user >",* en länk för att logga ut och en länk för att Visa användarens anspråk. Länken för användarens anspråk bläddrar till den anspråks kontroll som du skapade tidigare.
+När du har loggat in omdirigeras användaren till start sidan för din webbplats. Start sidan är HTTPS-URL: en som anges i din program registrerings information i registrerings portalen för Microsoft-program. Start sidan innehåller ett välkomst meddelande för *"Hello \<user >"* , en länk för att logga ut och en länk för att Visa användarens anspråk. Länken för användarens anspråk ansluts till den anspråks kontroll som du skapade tidigare.
 
-### <a name="browse-to-see-the-users-claims"></a>Bläddra för att se användarens anspråk
+### <a name="view-the-users-claims"></a>Visa användarens anspråk
 
-Om du vill se användarens anspråk väljer du länken för att bläddra till vyn kontrollant som endast är tillgänglig för autentiserade användare.
+Om du vill visa användarens anspråk väljer du länken för att bläddra till vyn kontrollant som bara är tillgänglig för autentiserade användare.
 
 #### <a name="view-the-claims-results"></a>Visa anspråks resultatet
 
@@ -417,19 +427,19 @@ När du bläddrar till vyn kontrollant bör du se en tabell som innehåller grun
 
 |Egenskap |Value |Beskrivning |
 |---|---|---|
-|**Namn** |Användarens fullständiga namn | Användarens för-och efter namn.
-|**Användarnamn** |användarvänlig<span>@domain.com</span> | Det användar namn som används för att identifiera användaren.
-|**Subject** |Subject |En sträng som unikt identifierar användaren på webben.|
-|**Klient-ID** |Guid | Ett **GUID** som unikt representerar användarens Azure AD-organisation.|
+|**Namn** |Användarens fullständiga namn | Användarens förnamn och efternamn
+|**Användarnamn** |användarvänlig<span>@domain.com</span> | Det användar namn som används för att identifiera användaren|
+|**Subject** |Subject |En sträng som unikt identifierar användaren på webben|
+|**Klient-ID** |Guid | Ett **GUID** som unikt representerar användarens Azure AD-organisation|
 
 Dessutom bör du se en tabell över alla anspråk som finns i autentiseringsbegäran. Mer information finns i [listan över anspråk som finns i en Azure AD ID-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Testa åtkomst till en metod som har ett auktoriserat attribut (valfritt)
 
-Följ dessa steg om du vill testa åtkomst som en anonym användare till `Authorize` en kontrollant som skyddas med attributet:
+Följ dessa steg om du vill testa åtkomst som en anonym användare till en kontrollant `Authorize` som skyddas av attributet:
 
-1. Välj länken för att logga ut användaren och slutföra inloggnings processen.
-2. I webbläsaren skriver du http://<span></span>localhost: {port}/anspråk för att komma åt din kontrollant som skyddas med `Authorize` -attributet.
+1. Välj länken för att logga ut användaren och slutför utloggnings processen.
+2. I webbläsaren skriver du http://<span></span>localhost: {port}/anspråk för att komma åt din styrenhet som skyddas av `Authorize` attributet.
 
 #### <a name="expected-results-after-access-to-a-protected-controller"></a>Förväntade resultat efter åtkomst till en skyddad styrenhet
 
@@ -448,39 +458,39 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Begränsa vem som kan logga in på ditt program
 
-Som standard när du skapar programmet som skapats av den här guiden, accepterar programmet inloggnings uppgifter för personliga konton (inklusive outlook.com, live.com och andra) samt arbets-och skol konton från alla företag eller organisationer som har integrerat med Azure Active Directory. Detta är ett rekommenderat alternativ för SaaS-program.
+Som standard när du skapar programmet som skapats av den här guiden, accepterar programmet inloggnings uppgifter för personliga konton (inklusive outlook.com, live.com och andra) samt arbets-och skol konton från alla företag eller organisationer som är integrerade med Azure AD. Detta är ett rekommenderat alternativ för SaaS-program.
 
-För att begränsa användarens inloggnings åtkomst för ditt program är flera alternativ tillgängliga:
+För att begränsa användarens inloggnings åtkomst för ditt program är flera alternativ tillgängliga.
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Alternativ 1: Begränsa inloggningen till ditt program till en enda organisations Active Directory-instans (en enda innehavare)
 
-Det här alternativet är ett vanligt scenario för *LOB-program*: Gör så här om du vill att programmet endast ska godkänna inloggningar från konton som tillhör en specifik Azure Active Directory instans (inklusive *gäst konton* för den instansen):
+Det här alternativet används ofta för *LOB-program*: Om du vill att programmet endast ska godkänna inloggningar från konton som tillhör en viss Azure AD-instans (inklusive *gästkonton* för den instansen) följer du dessa steg:
 
-1. I filen **Web. config** ändrar du värdet för `Tenant` parametern från `Common` till organisationens organisations `contoso.onmicrosoft.com`namn, till exempel.
+1. I filen Web. config ändrar du värdet för `Tenant` parametern från `Common` till organisationens organisations namn, till exempel `contoso.onmicrosoft.com`.
 2. I din [OWIN](#configure-the-authentication-pipeline)-startklass anger `ValidateIssuer` du argumentet till `true`.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Alternativ 2: Begränsa åtkomsten till ditt program till användare i en specifik lista över organisationer
+#### <a name="option-2-restrict-access-to-users-in-a-specific-list-of-organizations"></a>Alternativ 2: Begränsa åtkomsten till användare i en speciell lista över organisationer
 
-Du kan begränsa inloggnings åtkomst till användar konton som finns i en Azure AD-organisation som finns i listan över tillåtna organisationer:
+Du kan begränsa inloggnings åtkomsten till enbart de användar konton som finns i en Azure AD-organisation som finns på listan över tillåtna organisationer:
 1. I din [OWIN](#configure-the-authentication-pipeline)-startklass anger `ValidateIssuer` du argumentet till `true`.
 2. Ange värdet för `ValidIssuers` parametern till listan över tillåtna organisationer.
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Alternativ 3: Använd en anpassad metod för att validera utfärdare
 
-Du kan implementera en anpassad metod för att verifiera utfärdare med hjälp av parametern **IssuerValidator** . Mer information om hur du använder den här parametern finns i om [klassen TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
+Du kan implementera en anpassad metod för att verifiera utfärdare med hjälp av parametern **IssuerValidator** . Mer information om hur du använder den här parametern finns i [TokenValidationParameters-klass](/previous-versions/visualstudio/dn464192(v=vs.114)).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om webb program som anropar webb-API: er:.
+Lär dig mer om hur Web Apps kan anropa webb-API: er.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig stegen för hur du skapar det program som används i den här snabbstarten
+### <a name="learn-how-to-create-the-application-used-in-this-quickstart-guide"></a>Lär dig hur du skapar programmet som används i den här snabb starts guiden
 
 > [!div class="nextstepaction"]
 > [Webb program som anropar webb-API: er]( https://aka.ms/msal-net-authorization-code)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-Hjälp oss att förbättra Microsoft Identity Platform. Berätta för oss vad du tycker genom att slutföra en kort enkät med två frågor.
+Hjälp oss att förbättra Microsoft Identity Platform. Berätta för oss vad du tycker genom att slutföra en undersökning med två frågor:
 
 > [!div class="nextstepaction"]
 > [Microsoft Identity Platform-undersökning](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

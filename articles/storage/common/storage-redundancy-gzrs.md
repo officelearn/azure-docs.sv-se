@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c6c070012db0857759c63603072b8321896398b4
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 9019e6f72944823d7c256fa5f6b99b0aca84c845
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516128"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036325"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)
 
@@ -70,7 +70,7 @@ När en tillgänglighets zon blir otillgänglig gör Azure nätverks uppdatering
 Om ett haveri påverkar hela den primära regionen försöker Microsoft först att återställa den primära regionen. Om återställningen inte är möjlig kommer Microsoft att redundansväxla till den sekundära regionen, så att den sekundära regionen blir den nya primära regionen. Om lagrings kontot har RA-GZRS aktiverat, kan program som har utformats för det här scenariot läsa från den sekundära regionen när de väntar på redundansväxling. Om lagrings kontot inte har RA-GZRS aktiverat kommer program inte att kunna läsa från den sekundära platsen förrän redundansväxlingen är klar.
 
 > [!NOTE]
-> GZRS och RA-GZRS är för närvarande endast i för hands version i regionen USA, östra 2. Kundhanterade konto redundans (för hands version) är ännu inte tillgängligt i östra USA 2, så kunder kan för närvarande inte hantera redundansväxling av konton med GZRS-och RA-GZRS-konton. Under för hands versionen hanterar Microsoft alla redundansväxlings händelser som påverkar GZRS-och RA-GZRS-konton.
+> GZRS och RA-GZRS är för närvarande endast i för hands version i regionen USA, östra. Kundhanterade konto redundans (för hands version) är ännu inte tillgängligt i östra USA 2, så kunder kan för närvarande inte hantera redundansväxling av konton med GZRS-och RA-GZRS-konton. Under för hands versionen hanterar Microsoft alla redundansväxlings händelser som påverkar GZRS-och RA-GZRS-konton.
 
 Eftersom data replikeras till den sekundära regionen asynkront kan ett haveri som påverkar den primära regionen leda till data förlust om den primära regionen inte kan återställas. Intervallet mellan de senaste skrivningarna till den primära regionen och den senaste skrivningen till den sekundära regionen kallas för återställnings punkt mål. Återställnings punkten anger tidpunkten då data kan återställas. Azure Storage vanligt vis har en återställning på mindre än 15 minuter, även om det inte finns något service avtal för hur lång tid det tar att replikera data till den sekundära regionen.
 

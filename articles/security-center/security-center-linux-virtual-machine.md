@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 725ac79414a9f94a40675bffe28a6972120c0cbf
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 402406f8aa677348d30551937cfca1e2726efba1
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515505"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033950"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Azure Security Center och Azure Virtual Machines med Linux
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
@@ -85,7 +85,7 @@ När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för re
 ![Säkerhetshälsa](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## <a name="manage-and-respond-to-security-alerts"></a>Hantera och åtgärda säkerhetsaviseringar
-Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar (som brandväggs- och slutpunktsskyddslösningar) för att identifiera verkliga hot och minimera antalet falska positiva identifieringar. Genom att leverera olika sammanställningar av [identifieringsfunktioner](security-center-detection-capabilities.md) kan Security Center skapa prioriterade säkerhetsvarningar som hjälper dig att snabbt undersöka problemet och tillhandahålla rekommendationer för hur du ska åtgärda eventuella attacker.
+Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar (som brandväggs- och slutpunktsskyddslösningar) för att identifiera verkliga hot och minimera antalet falska positiva identifieringar. Genom att leverera olika sammanställningar av [identifieringsfunktioner](security-center-alerts-overview.md#detect-threats) kan Security Center skapa prioriterade säkerhetsvarningar som hjälper dig att snabbt undersöka problemet och tillhandahålla rekommendationer för hur du ska åtgärda eventuella attacker.
 
 ![Säkerhetsvarningar](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 

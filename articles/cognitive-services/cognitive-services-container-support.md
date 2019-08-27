@@ -8,56 +8,50 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 7/5/2019
+ms.date: 8/21/2019
 ms.author: dapine
-ms.openlocfilehash: d9f226213215f66b53eb1ef248fd47f7b6dfee5a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c12e64fc51eb53aebffbef1ad886b7cc404cf699
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705378"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051244"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
 
-Stöd för behållare i Azure Cognitive Services kan utvecklare använda samma omfattande API: er som är tillgängliga i Azure och möjliggör flexibilitet att distribuera och tillhandahålla tjänster som medföljer [Docker-behållare](https://www.docker.com/what-container). Stöd för behållare finns för närvarande i förhandsversion för en delmängd av Azure Cognitive Services, inklusive delar av:
+Stöd för behållare i Azure Cognitive Services kan utvecklare använda samma omfattande API: er som är tillgängliga i Azure och möjliggör flexibilitet att distribuera och tillhandahålla tjänster som medföljer [Docker-behållare](https://www.docker.com/what-container). Container support finns för närvarande i för hands version för en delmängd av Azure Cognitive Services, inklusive delar av:
 
-* [Avvikelseidentifiering detektor][ad-containers]
+* [Avvikelse detektor][ad-containers]
 * [Visuellt innehåll][cv-containers]
 * [Ansikte][fa-containers]
-* [Form Recognizer][fr-containers]
+* [Formulär igenkänning][fr-containers]
 * [Språkförståelse (LUIS)][lu-containers]
 * [Speech Service API][sp-containers]
 * [Textanalys][ta-containers]
 
-<!--
-* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
--->
+> [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
 Skapa behållare är en metod för distribution av programvara där ett program eller tjänst, inklusive dess beroenden och konfiguration, är packade tillsammans som en behållaravbildning. Med lite eller ingen ändring av, kan du distribuera en behållaravbildning på en behållarvärd. Behållare är isolerade från varandra och det underliggande operativsystemet, med mindre avtryck än en virtuell dator. Behållare kan instansieras behållaravbildningar för kortsiktig uppgifter och tas bort när den inte längre behövs.
 
-Följande videoklipp visar hur du använder en Cognitive Services-behållare.
-
-[![Demonstration av behållare för Cognitive Services](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
-
-Cognitive Services-resurser är tillgängliga på [Microsoft Azure](https://azure.microsoft.com). Logga in på den [Azure-portalen](https://portal.azure.com/) att skapa och utforska Azure-resurser för dessa tjänster.
+Cognitive Services resurser är tillgängliga på [Microsoft Azure](https://azure.microsoft.com). Logga in på den [Azure-portalen](https://portal.azure.com/) att skapa och utforska Azure-resurser för dessa tjänster.
 
 ## <a name="features-and-benefits"></a>Funktioner och erbjudanden
 
-- **Kontroll över data**: Att kunderna kan välja var de här Cognitive Services bearbetar data. Detta är nödvändigt för kunder som det går inte att skicka data till molnet men som behöver åtkomst till Cognitive Services-teknik. Stöd konsekvens i hybridmiljöer – över data, hantering, identitet och säkerhet.
-- **Kontroll över modelluppdateringar**: Ger kunderna flexibilitet i versionshantering och uppdatering av modeller som distribuerats i sina lösningar.
-- **Arkitektur för bärbara**: Aktivera skapandet av en bärbar programarkitektur som kan distribueras på Azure, lokalt och gränsen. Behållare kan distribueras direkt till [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml), eller till en [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](/azure-stack/operator). Mer information finns i [distribuera Kubernetes i Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **Högt dataflöde / låg latens**: Ger kunder möjlighet att skala dataflöden och låg latens krav genom att aktivera Cognitive Services körs fysiskt nära sina programmets logik och data. Behållare cap inte transaktioner per sekund (TPS) och kan göras för att skala både uppåt och utåt för att hantera begäran om du anger nödvändiga maskinvaruresurser. 
+- **Kontroll över data**: Låt kunderna välja var dessa Cognitive Services bearbeta sina data. Detta är nödvändigt för kunder som det går inte att skicka data till molnet men som behöver åtkomst till Cognitive Services-teknik. Stöd för konsekvens i hybrid miljöer – över data, hantering, identitet och säkerhet.
+- **Kontroll över modell uppdateringar**: Ge kunderna flexibilitet vid versions hantering och uppdatering av modeller som har distribuerats i deras lösningar.
+- **Portabel arkitektur**: Gör det möjligt att skapa en bärbar program arkitektur som kan distribueras på Azure, lokalt och på gränsen. Behållare kan distribueras direkt till [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml), eller till en [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](/azure-stack/operator). Mer information finns i [distribuera Kubernetes i Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **Högt data flöde/låg latens**: Ge kunderna möjlighet att skala för högt data flöde och krav på låg latens genom att aktivera Cognitive Services att köra fysiskt nära sin program logik och data. Behållare cap inte transaktioner per sekund (TPS) och kan göras för att skala både uppåt och utåt för att hantera begäran om du anger nödvändiga maskinvaruresurser. 
 
 ## <a name="containers-in-azure-cognitive-services"></a>Behållare i Azure Cognitive Services
 
 Azure Cognitive Services-behållare ger följande uppsättning Docker-behållare som innehåller en delmängd av funktioner från tjänster i Azure Cognitive Services:
 
-| Tjänst | Prisnivå som stöds | Container | Beskrivning |
+| Tjänsten | Pris nivå som stöds | Container | Beskrivning |
 |---------|----------|----------|-------------|
-|[Avvikelseidentifiering detektor][ad-containers] |F0, S0|**Avvikelseidentifiering detektor** |Avvikelseidentifiering detektor API kan du övervaka och identifiera avvikelser i tidsseriedata med machine learning.<br>[Begär åtkomst](https://aka.ms/adcontainer)|
+|[Avvikelse detektor][ad-containers] |F0, S0|**Avvikelser-detektor** |Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst](https://aka.ms/adcontainer)|
 |[Visuellt innehåll][cv-containers] |F0, S1|**Identifiera Text** |Extraherar ut text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort.<br/><br/>**Viktigt:** Behållaren identifiera Text fungerar för närvarande bara på engelska.<br>[Begär åtkomst](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Ansikte][fa-containers] |F0, S0|**Ansikte** |Identifierar ansikten i bilder och identifierar attribut, inklusive ansiktslandmärken (till exempel och rörliga och ögon), kön, ålder och andra dator-förväntad ansiktsdrag. Förutom identifiering Kontrollera ansikte om två ansikten i samma bild eller olika bilder är samma med hjälp av ett förtroenderesultat eller jämföra ansikten mot en databas för att se om en likartade eller identiska ansikte finns redan. Det kan även sortera liknande ansikten i grupper, med hjälp av delade visual egenskaper.<br>[Begär åtkomst](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
-|[Formuläret Igenkännande][fr-containers] |F0, S0|**Form Recognizer** |Förstå formulär gäller maskininlärningsteknik för att identifiera och extrahera nyckel / värde-par och tabeller från formulär.<br>[Begär åtkomst](https://aka.ms/FormRecognizerContainerRequestAccess)|
+|[Formulär igenkänning][fr-containers] |F0, S0|**Formulär igenkänning** |Forms förståelse använder Machine Learning-teknik för att identifiera och extrahera nyckel/värde-par och tabeller från formulär.<br>[Begär åtkomst](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS][lu-containers] |F0, S0|**LUIS** ([bild](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Läser in en tränad eller publicerade Language Understanding modell, även kallat en LUIS-app, i en docker-behållare och ger tillgång till fråga förutsägelser från behållarens API-slutpunkter. Du kan samla in fråga loggar från behållaren och ladda upp dessa tillbaka till den [LUIS portal](https://www.luis.ai) förbättra appens prognosens noggrannhet.|
 |[Speech Service API][sp-containers] |F0, S0|**Tal till text** |Transkriberar kontinuerlig realtidsöversättning av tal till text.<br>[Begär åtkomst](https://aka.ms/speechcontainerspreview/)|
 |[Speech Service API][sp-containers] |F0, S0|**Text till tal** |Konverterar text till naturligt tal.<br>[Begär åtkomst](https://aka.ms/speechcontainerspreview/)|
@@ -69,7 +63,7 @@ Azure Cognitive Services-behållare ger följande uppsättning Docker-behållare
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
-Dessutom kan vissa behållare stöds i Cognitive Services [ **allt-i-ett erbjudande** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resursnycklar. Du kan skapa en enda allt-i-ett-resurs för Cognitive Services och använder samma fakturering nyckel över tjänster som stöds för följande tjänster:
+Dessutom stöds vissa behållare i Cognitive Services [**alla-i-ett-erbjudande**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resurs nycklar. Du kan skapa en enda Cognitive Services alla-i-en-resurs och använda samma fakturerings nyckel mellan tjänster som stöds för följande tjänster:
 
 * Visuellt innehåll
 * Ansikte
@@ -81,10 +75,10 @@ Dessutom kan vissa behållare stöds i Cognitive Services [ **allt-i-ett erbjuda
 Azure Cognitive Services-behållare är tillgängliga för allmänheten via din Azure-prenumeration och Docker-behållaravbildningar kan hämtas från Microsoft Container Registry eller Docker Hub. Du kan använda den [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållaravbildning från lämplig registret.
 
 > [!IMPORTANT]
-> För närvarande måste du slutföra registreringsprocessen för att komma åt följande behållare som du kan fylla i och skicka en enkät med frågor om dig, ditt företag och användningsfall som du vill implementera behållarna. När du har beviljat åtkomst och angett autentiseringsuppgifter kan hämta du sedan behållaravbildningarna från ett privat behållarregister med Azure Container Registry.
-> * [Avvikelseidentifiering detektor](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
+> För närvarande måste du slutföra en registrerings process för att få åtkomst till följande behållare, där du kan fylla i och skicka in en enkät med frågor om dig, ditt företag och det användnings fall som du vill implementera behållarna för. När du har beviljat åtkomst och angett autentiseringsuppgifter kan du hämta behållar avbildningarna från ett privat behållar register som Azure Container Registry.
+> * [Avvikelse detektor](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Ansikte](Face/face-how-to-install-containers.md)
-> * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
+> * [Formulär igenkänning](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
 > * [Identifiera Text](Computer-vision/computer-vision-how-to-install-containers.md)
 > * [Tal till text och text till tal](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
 
@@ -94,11 +88,11 @@ Azure Cognitive Services-behållare är tillgängliga för allmänheten via din 
 
 Du måste uppfylla följande krav innan du använder Azure Cognitive Services-behållare:
 
-**Docker-motorn**: Du måste ha Docker-motorn installerad lokalt. Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), och [Windows](https://docs.docker.com/docker-for-windows/). På Windows, måste Docker konfigureras för att stödja Linux-behållare. Docker-behållare kan också distribueras direkt till [Azure Kubernetes Service](../aks/index.yml) eller [Azure Container Instances](../container-instances/index.yml).
+**Docker-motor**: Du måste ha Docker-motorn installerad lokalt. Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), och [Windows](https://docs.docker.com/docker-for-windows/). På Windows, måste Docker konfigureras för att stödja Linux-behållare. Docker-behållare kan också distribueras direkt till [Azure Kubernetes Service](../aks/index.yml) eller [Azure Container Instances](../container-instances/index.yml).
 
 Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure.
 
-**Liknar processen med Microsoft Container Registry och Docker**: Du bör ha grundläggande kunskaper om både Microsoft Container Registry och Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.
+**Bekant med Microsoft container Registry och Docker**: Du bör ha grundläggande kunskaper om både Microsoft container Registry och Docker-koncept som register, databaser, behållare och behållar avbildningar samt kunskaper om grundläggande `docker` kommandon.
 
 Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).
 
@@ -108,17 +102,17 @@ Enskilda behållare kan ha sina egna krav, samt, inklusive server och minneskrav
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [behållare recept](containers/container-reuse-recipe.md) du kan använda med Cognitive Services.
+Lär dig mer om behållar [recept](containers/container-reuse-recipe.md) som du kan använda med Cognitive Services.
 
 Installera och utforska funktionerna i behållare i Azure Cognitive Services:
 
-* [Avvikelseidentifiering detektor behållare][ad-containers]
-* [Datorn Vision behållare][cv-containers]
-* [Ansikts-behållare][fa-containers]
-* [Formuläret Igenkännande behållare][fr-containers]
-* [Behållare för språk Språkförståelse (LUIS)][lu-containers]
-* [Behållare för tal-API för tjänst][sp-containers]
-* [Text Analytics behållare][ta-containers]
+* [Avvikelse detektor behållare][ad-containers]
+* [Visuellt innehåll behållare][cv-containers]
+* [Ansikts behållare][fa-containers]
+* [Formulär igenkännings behållare][fr-containers]
+* [Language Understanding (LUIS) behållare][lu-containers]
+* [API-behållare för Speech service][sp-containers]
+* [Textanalys behållare][ta-containers]
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->

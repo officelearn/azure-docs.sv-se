@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 338ceef8ce94e97f7569f85b0079f75aed033612
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 18bbeb2b4936b1c8a03ffdc7eade8dc92d094fde
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558637"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050606"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med Azure Virtual Networks (virtuella nätverk) kan du placera någon av dina Azure-resurser i ett icke-Internet-dirigerbart nätverk som du styr åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -140,7 +140,7 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 
 + **SMTP-relä**: Utgående nätverks anslutning för SMTP-reläet, som löses `smtpi-co1.msn.com`under värden, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com` `smtpi-sin.msn.com` och`ies.global.microsoft.com`
 
-+ **CAPTCHA**för Developer-portalen: Utgående nätverks anslutning för Developer-portalens CAPTCHA, som löses under värden `client.hip.live.com`.
++ **CAPTCHA**för Developer-portalen: Utgående nätverks anslutning för Developer-portalens CAPTCHA, som löses under värdarna `client.hip.live.com` och. `partner.hip.live.com`
 
 + **Azure Portal diagnostik**: Om du vill aktivera flödet av diagnostikloggar från Azure Portal när du använder API Management tillägget inifrån en Virtual Network, krävs utgående åtkomst `dc.services.visualstudio.com` till på port 443. Detta hjälper till att felsöka problem som kan uppstå när du använder tillägget.
 

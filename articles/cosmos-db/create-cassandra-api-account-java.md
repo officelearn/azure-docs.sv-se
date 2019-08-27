@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: b6876bf8210d47729ad8e765ccffe709a0fccacc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d2d4d568f53c426b063f3285cc8d3d510c3db440
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120354"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034613"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Självstudie: Skapa ett API för Cassandra-konto i Azure Cosmos DB med hjälp av ett Java-program för att lagra nyckel/värde-data
 
@@ -30,18 +30,18 @@ Den här självstudien omfattar följande uppgifter:
 > * Lägga till en databas och en tabell
 > * Kör appen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar 
 
-* Om du inte har en Azure-prenumeration skapar du ett  [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)  innan du börjar. 
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar. 
 
 * Skaffa den senaste versionen av [Java Development Kit (JDK)](https://aka.ms/azure-jdks). 
 
 * [Ladda ned](https://maven.apache.org/download.cgi) och [installera](https://maven.apache.org/install.html) [Maven](https://maven.apache.org/)-binärarkivet. 
-  - I Ubuntu kan du köra  `apt-get install maven`  för att installera Maven. 
+  - I Ubuntu kan du köra `apt-get install maven` för att installera Maven. 
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto 
 
-1. Logga in på  [Azure-portalen](https://portal.azure.com/). 
+1. Logga in på [Azure Portal](https://portal.azure.com/). 
 
 2. Välj **Skapa en resurs** > **Databaser** > **Azure Cosmos DB**. 
 
@@ -49,10 +49,10 @@ Den här självstudien omfattar följande uppgifter:
 
    |Inställning   |Föreslaget värde  |Beskrivning  |
    |---------|---------|---------|
-   |ID   |   Ange ett unikt namn    | Ange ett unikt namn som identifierar Azure Cosmos-kontot. <br/><br/>Eftersom cassandra.cosmosdb.azure.com läggs till det ID du anger för att skapa din kontaktpunkt bör du använda ett unikt men identifierbart ID.         |
-   |API    |  Cassandra   |  API:n avgör vilken typ av konto som skapas. <br/> Välj **Cassandra** eftersom du i den här artikeln skapar en databas med breda kolumner som frågor kan köras mot med hjälp av CQL-syntax (Cassandra Query Language).  |
-   |Prenumeration    |  Din prenumeration        |  Välj den Azure-prenumeration som ska användas för Azure Cosmos-kontot.        |
-   |Resursgrupp   | Ange ett namn    |  Välj **Skapa ny** och ange sedan ett nytt resursgruppnamn för ditt konto. För enkelhetens skull kan du använda samma namn som för ditt ID.    |
+   |ID   |   Ange ett unikt namn    | Ange ett unikt namn som identifierar Azure Cosmos-kontot. <br/><br/>Eftersom cassandra.cosmosdb.azure.com läggs till det ID som du anger för att skapa din kontakt punkt använder du ett unikt men identifierbart ID.         |
+   |API    |  Cassandra   |  API:n avgör vilken typ av konto som skapas. <br/> Välj **Cassandra**, eftersom du i den här artikeln skapar en databas med breda kolumner som kan frågas med hjälp av CQL-syntaxen (Cassandra Query Language).  |
+   |Subscription    |  Din prenumeration        |  Välj den Azure-prenumeration som ska användas för Azure Cosmos-kontot.        |
+   |Resursgrupp   | Skriv ett namn    |  Välj **Skapa ny** och ange sedan ett nytt resursgruppnamn för ditt konto. För enkelhetens skull kan du använda samma namn som för ditt ID.    |
    |Location    |  Välj den region som är närmast dina användare    |  Välj den geografiska plats som ska vara värd för ditt Azure Cosmos-konto. Använd den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt.    |
 
    ![Skapa konto med portalen](./media/create-cassandra-api-account-java/create-account.png)
@@ -63,9 +63,9 @@ Den här självstudien omfattar följande uppgifter:
 
 Hämta information om anslutningssträngen från Azure Portal och kopiera den till Java-konfigurationsfilen. Anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen. 
 
-1. Från  [Azure Portal](https://portal.azure.com/) går du till ditt Azure Cosmos-konto. 
+1. Från [Azure Portal](https://portal.azure.com/)går du till ditt Azure Cosmos-konto. 
 
-2. Öppna fönsterrutan  **Anslutningssträng**.  
+2. Öppna fönstret **anslutnings sträng** .  
 
 3. Kopiera värdena **KONTAKTPUNKT**, **PORT**, **ANVÄNDARNAMN** och **PRIMÄRT LÖSENORD** för användning i nästa steg.
 
@@ -102,7 +102,7 @@ Använd följande steg för att skapa exemplet från början:
 
 4. Bläddra till mappen `src/main/java/com/azure/cosmosdb/cassandra/`. I Cassandra-mappen skapar du en till mapp med namnet `utils`. Den nya mappen lagrar de verktygsklasser som krävs för att ansluta till Cassandra API-kontot. 
 
-   Lägg till klassen [CassandraUtils](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java) för att skapa klustret och för att öppna och stänga Cassandra-sessioner. Klustret ansluter till API för Cassandra-kontot i Azure Cosmos DB och returnerar en session för åtkomst. Använd klassen [Configurations](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/util/Configurations.java) (Konfigurationer) för att läsa information om anslutningssträng från filen config.properties. 
+   Lägg till klassen [CassandraUtils](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java) för att skapa klustret och för att öppna och stänga Cassandra-sessioner. Klustret ansluter till API för Cassandra kontot i Azure Cosmos DB och returnerar en session för åtkomst. Använd klassen [Configurations](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/util/Configurations.java) (Konfigurationer) för att läsa information om anslutningssträng från filen config.properties. 
 
 5. Java-exemplet skapar en databas med användarinformation som användarnamn, användar-ID och användarens stad. Du måste definiera get- och set-metoder för att komma åt användarinformation i main-funktionen.
  

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d18c74e908f6d5c4c3d2eefb0518add380fa1324
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 3b0c91357e5ab15b88c92b04fd0896b989e83953
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561319"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051441"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
-Som administratör väljer du autentiseringsmetoder för Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning (SSPR) Vi rekommenderar att du kräver att användarna registrerar flera autentiseringsmetoder. När en autentiseringsmetod inte är tillgänglig för en användare kan de välja att autentisera med en annan metod.
+Som administratör väljer du autentiseringsmetoder för Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning (SSPR) Vi rekommenderar att du kräver att användare registrerar flera autentiseringsmetoder. När en autentiseringsmetod inte är tillgänglig för en användare kan de välja att autentisera med en annan metod.
 
-Administratörer kan definiera i princip vilka autentiseringsmetoder som är tillgängliga för användare av SSPR och MFA. Vissa autentiseringsmetoder kanske inte är tillgängliga för alla funktioner. Mer information om hur du konfigurerar principer finns i artikeln [så här distribuerar du självbetjäning för återställning av lösen ord](howto-sspr-deployment.md) och [planerar en molnbaserad Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+Administratörer kan definiera i princip vilka autentiseringsmetoder som är tillgängliga för användare av SSPR och MFA. Vissa autentiseringsmetoder kanske inte är tillgängliga för alla funktioner. Mer information om hur du konfigurerar principer finns i artikeln [så här distribuerar du självbetjäning för återställning av lösen ord](howto-sspr-deployment.md) och [planerar en molnbaserad Azure-Multi-Factor Authentication](howto-mfa-getstarted.md)
 
 Microsoft rekommenderar starkt att administratörer låter användare välja fler än det minsta antal autentiseringsmetoder som krävs, om de inte har åtkomst till en.
 
@@ -60,41 +60,41 @@ Om du använder säkerhets frågor rekommenderar vi att du använder dem tillsam
 
 ### <a name="predefined-questions"></a>Fördefinierade frågor
 
-* I vilken stad träffade du din första partner?
-* I vilken stad träffades dina föräldrar?
-* I vilken stad bor ditt närmsta syskon?
+* I vilken stad uppfyller du din första make/maka/partner?
+* I vilken stad uppfyllde dina föräldrar?
+* I vilken stad har du närmaste aktiva syskon?
 * I vilken stad föddes din far?
 * I vilken stad var ditt första jobb?
-* I vilken stad föddes din mor?
-* I vilken stad var du på Nyårsafton 2000?
-* Vad hette din favoritlärare på gymnasiet i efternamn?
-* Vad är namnet på ett universitet du ansökte till men inte gick på?
-* Vad heter stället där du höll din första bröllopsmottagning?
-* Vad heter din far i mellannamn?
-* Vad är din favoriträtt?
-* Vad heter din mormor i för- och efternamn?
-* Vad var din mors namn som ogift?
+* I vilken stad föddes din mamma?
+* Vilken stad var du på årets nya år 2000?
+* Vad är det sista namnet på din favorit lärare i gymnasie skolan?
+* Vad är namnet på en skola som du har använt till men inte var?
+* Vad är namnet på den plats där du höll din första bröllops mottagning?
+* Vad är ditt fars mellan namn?
+* Vad är ditt favorit mat?
+* Vad är din mormor för för-och efter namn?
+* Vad är din mammas mellan namn?
 * Vad är ditt äldsta syskons födelsedags månad och år? (t. ex. november 1985)
-* Vad heter ditt äldsta syskon i mellannamn?
-* Vad heter din farfar i för- och efternamn?
-* Vad heter ditt yngsta syskon i mellannamn?
-* I vilken skola gick du i sjätte klass?
-* Vad var för- och efternamnet på din bästa barndomsvän?
-* Vad var för- och efternamnet på din första partner?
-* Vad hette din favoritlärare i grundskolan i efternamn?
-* Vilket märke och modell hade din första bil eller motorcykel?
-* Vad hette den första skolan du gick på?
-* Vad hette sjukhuset där du föddes?
-* Vilken gata låg ditt första barndomshem på?
-* Vad hette din barndomshjälte?
-* Vad hette ditt favoritgosedjur?
-* Vad hette ditt första husdjur?
-* Vad var ditt smeknamn som barn?
-* Vad var din favoritsport i gymnasiet?
+* Vad är ditt äldsta syskons mellan namn?
+* Vad är din farfar-farfar för för-och efter namn?
+* Vad är ditt unga syskons mellan namn?
+* Vilken skola deltog du i sjätte klass?
+* Vad hette din barns bästa vänner?
+* Vad hette det första och sista namnet på din första större?
+* Vilket är det sista namnet på din favorit lärare i din favorit klass?
+* Vad är märke och modell för din första bil eller motorcykel?
+* Vad hette den första skolan som du deltog i?
+* Vad var namnet på det sjukhus där du föddes?
+* Vad är namnet på gatan för ditt första barn hemma?
+* Vad hette din barns hjälte?
+* Vad är namnet på ditt favorit fyllda djur?
+* Vad hette ditt första hus djur?
+* Vad hade ditt barn smek namn?
+* Vad var din favorit sport i gymnasie skola?
 * Vad var ditt första jobb?
-* Vad var de sista fyra siffrorna i telefonnumret du hade som barn?
-* När du var ung, vad ville du bli när du växte upp?
-* Vem är den mest berömda personen du någonsin träffat?
+* Vilka var de sista fyra siffrorna i ditt barns telefonnummer?
+* Vad gjorde du när du var ung, vad gjorde du när du blev vuxna?
+* Vilken är den mest berömda person som du någonsin har uppfyllt?
 
 Alla fördefinierade säkerhets frågor översätts och lokaliseras till en fullständig uppsättning Office 365-språk baserat på användarens språk i webbläsaren.
 
@@ -195,6 +195,8 @@ För att fungera korrekt måste telefonnumret vara i formatet *+ CountryCode tel
 >
 > Lösen ords återställning stöder inte telefon tillägg. Även i formatet + 1 4255551234X12345 tas tilläggen bort innan anropet placeras.
 
+Microsoft garanterar inte konsekvent SMS eller Voice-baserad Multi-Factor Authentication uppleverans av samma nummer. Med hänsyn till våra användare kan Microsoft lägga till eller ta bort korta koder när vi gör väg justeringar för att förbättra SMS-leveranser. Microsoft stöder inte korta koder för länder/regioner utöver USA och Kanada.
+
 #### <a name="text-message"></a>Textmeddelande
 
 Ett SMS skickas till det mobiltelefon nummer som innehåller en verifierings kod. Fortsätt genom att ange verifierings koden som anges i inloggnings gränssnittet.
@@ -245,7 +247,7 @@ Vanliga problem som rör autentiseringsmetoder med hjälp av ett telefonnummer:
 
 Vissa icke-webbläsarbaserade appar stöder inte Multi-Factor Authentication, om en användare har Aktiver ATS för Multi-Factor Authentication och försöker använda icke-webbläsarbaserade appar, kan de inte autentisera sig. Med ett applösenord kan användarna fortsätta att autentisera
 
-Om du tillämpar Multi-Factor Authentication via principer för villkorlig åtkomst och inte via användarspecifika MFA kan du inte skapa applösenord. Program som använder principer för villkorlig åtkomst för att kontrol lera åtkomsten behöver inte applösenord.
+Om du tillämpar Multi-Factor Authentication via principer för villkorlig åtkomst och inte via användarspecifika MFA-användare kan du inte skapa applösenord. Program som använder principer för villkorlig åtkomst för att kontrol lera åtkomsten behöver inte applösenord.
 
 Om din organisation är federerad för enkel inloggning med Azure AD och du kommer att använda Azure MFA bör du vara medveten om följande information:
 

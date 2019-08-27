@@ -1,6 +1,6 @@
 ---
-title: Förstå administrativa roller för företag i Azure | Microsoft Docs
-description: Läs mer om Enterprise-administratörsroller i Azure.
+title: Förstå administratörs roller för företag i Azure | Microsoft Docs
+description: Lär dig mer om företags administratörs roller i Azure.
 services: billing
 documentationcenter: ''
 author: adpick
@@ -13,93 +13,93 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2018
 ms.author: banders
-ms.openlocfilehash: 98ed28af8df246549fb521a81f1968e1f5c28cc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39526defb8f41ddacb0a26d7ad852f820ca6ea77
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370721"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034533"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Förstå Azure Enterprise-avtal administrativa roller i Azure
 
-Kunder med ett Enterprise Agreement (EA) kan tilldela fem olika administrativa roller för att hantera din organisations användning och utgifter, Azure:
+För att hjälpa till att hantera organisationens användning och utgifter kan Azure-kunder med en Enterprise-avtal (EA) tilldela fem olika administrativa roller:
 
 - Företagsadministratör
-- Företagsadministratör (skrivskyddat)
-- Avdelning administratör
-- Avdelning administratör (skrivskyddat)
+- Företags administratör (skrivskyddad)
+- Avdelningsadministratör
+- Avdelnings administratör (skrivskyddad)
 - Kontoägare
  
-Dessa roller är specifika för hantering av Azure Enterprise-avtal och måste vara uppfyllda utöver de inbyggda rollerna som Azure har för att styra åtkomsten till resurser. Mer information finns i [inbyggda roller för Azure-resurser](../role-based-access-control/built-in-roles.md).
+De här rollerna är speciella för att hantera Azure Enterprise-avtal och är utöver de inbyggda rollerna som Azure har för att kontrol lera åtkomsten till resurser. Mer information finns i [inbyggda roller för Azure-resurser](../role-based-access-control/built-in-roles.md).
 
-I följande avsnitt beskrivs de begränsningar och funktionerna för varje roll.
+I följande avsnitt beskrivs begränsningar och funktioner för varje roll.
 
-## <a name="user-limit-for-admin-roles"></a>Gränsen för administratörsroller
+## <a name="user-limit-for-admin-roles"></a>Användar gräns för administratörs roller
 
-|Roll| Användargräns|
+|Role| Användar gräns|
 |---|---|
 |Företagsadministratör|Obegränsat|
-|Företagsadministratör (skrivskyddat)|Obegränsat|
-|Avdelning administratör|Obegränsat|
-|Avdelning administratör (skrivskyddat)|Obegränsat|
+|Företags administratör (skrivskyddad)|Obegränsat|
+|Avdelningsadministratör|Obegränsat|
+|Avdelnings administratör (skrivskyddad)|Obegränsat|
 |Kontoägare|1 per konto<sup>1</sup>|
 
-<sup>1</sup> varje konto kräver ett unikt Microsoft-konto eller arbets-eller skolkonto.
+<sup>1</sup> varje konto kräver ett unikt Microsoft-konto-eller arbets-eller skol konto.
 
-## <a name="organization-structure-and-permissions-by-role"></a>Organisationsstruktur och behörigheter efter roll
+## <a name="organization-structure-and-permissions-by-role"></a>Organisations struktur och behörigheter efter roll
 
-|Uppgifter| Företagsadministratör|Företagsadministratör (skrivskyddat)|Avdelning administratör|Avdelning administratör (skrivskyddat)|Kontoägare|
+|Aktiviteter| Företagsadministratör|Företags administratör (skrivskyddad)|Avdelningsadministratör|Avdelnings administratör (skrivskyddad)|Kontoägare|
 |---|---|---|---|---|---|
-|Visa Företagsadministratörer|✔|✔|✘|✘|✘|
-|Lägg till eller ta bort Företagsadministratörer|✔|✘|✘|✘|✘|
+|Visa företags administratörer|✔|✔|✘|✘|✘|
+|Lägga till eller ta bort företags administratörer|✔|✘|✘|✘|✘|
 |Visa meddelande kontakter<sup>2</sup> |✔|✔|✘|✘|✘|
-|Lägga till eller ta bort meddelande kontakter<sup>2</sup> |✔|✘|✘|✘|✘|
+|Lägg till eller ta bort aviserings kontakter<sup>2</sup> |✔|✘|✘|✘|✘|
 |Skapa och hantera avdelningar |✔|✘|✘|✘|✘|
-|Visa avdelning administratörer|✔|✔|✔|✔|✘|
-|Lägga till eller ta bort avdelning administratörer|✔|✔|✔|✘|✘|
+|Visa avdelnings administratörer|✔|✔|✔|✔|✘|
+|Lägga till eller ta bort avdelnings administratörer|✔|✘|✔|✘|✘|
 |Visa konton i registreringen |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
-|Lägga till konton i registreringen och ändra ägare|✔|✘|✔<sup>3</sup>|✘|✘|
-|Skapa och hantera prenumerationer och Prenumerationsbehörigheter som krävs|✘|✘|✘|✘|✔|
+|Lägg till konton i registreringen och ändra kontots ägare|✔|✘|✔<sup>3</sup>|✘|✘|
+|Skapa och hantera prenumerationer och prenumerations behörigheter|✘|✘|✘|✘|✔|
 
-- <sup>2</sup> meddelande kontakter skickas e-postmeddelanden om Azure Enterprise-avtal.
-- <sup>3</sup> uppgift är begränsad till konton i din avdelning.
+- <sup>2</sup> meddelande kontakter skickas via e-post om Azure-Enterprise-avtal.
+- <sup>3</sup> uppgiften är begränsad till konton på din avdelning.
 
 
-## <a name="usage-and-costs-access-by-role"></a>Användning och kostnader för åtkomst av roll
+## <a name="usage-and-costs-access-by-role"></a>Användning och kostnader åtkomst per roll
 
-|Uppgifter| Företagsadministratör|Företagsadministratör (skrivskyddat)|Avdelning administratör|Avdelning administratör (skrivskyddat) |Kontoägare|
+|Aktiviteter| Företagsadministratör|Företags administratör (skrivskyddad)|Avdelningsadministratör|Avdelnings administratör (skrivskyddad) |Kontoägare|
 |---|---|---|---|---|---|
-|Visa kreditsaldo inklusive åtagandebelopp|✔|✔|✘|✘|✘|
-|Visa avdelningens utgiftsgränser|✔|✔|✘|✘|✘|
-|Ange avdelningens utgiftsgränser|✔|✘|✘|✘|✘|
-|Visa organisations EA prisdokument|✔|✔|✘|✘|✘|
-|Visa information om användning och kostnader|✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✔<sup>5</sup>|
-|Hantera resurser i Azure-portalen|✘|✘|✘|✘|✔|
+|Visa kredit balans inklusive betalnings åtagande|✔|✔|✘|✘|✘|
+|Visa utgifts kvoter för avdelning|✔|✔|✘|✘|✘|
+|Ange avdelnings utgifts kvoter|✔|✘|✘|✘|✘|
+|Visa organisationens EA pris dokument|✔|✔|✘|✘|✘|
+|Visa information om användning och kostnad|✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✔<sup>5</sup>|
+|Hantera resurser i Azure Portal|✘|✘|✘|✘|✔|
 
-- <sup>4</sup> kräver att företagsadministratören aktiverar **DA visa debiteringar** principen i Enterprise portal. Avdelning-administratören kan sedan se kostnadsinformation för avdelningen.
-- <sup>5</sup> kräver att företagsadministratören aktiverar **AO visa debiteringar** principen i Enterprise portal. Ägare kan sedan se kostnadsinformation för kontot.
+- <sup>4</sup> kräver att företags administratören aktiverar tilläggs principen för **da View** i Enterprise Portal. Avdelnings administratören kan sedan se kostnads information för avdelningen.
+- <sup>5</sup> kräver att företags administratören aktiverar **Ao View charges** policy i Enterprise Portal. Konto ägaren kan sedan se kostnads information för kontot.
 
 
-## <a name="pricing-in-azure-portal"></a>Priser på Azure-portalen
+## <a name="pricing-in-azure-portal"></a>Priser i Azure Portal
 
-Du kan se olika priser på Azure-portalen beroende på din administrativ roll och hur Visa avgifter policys ställs in som företagsadministratör. De två principerna i Enterprise portal som påverkar priserna som visas i Azure-portalen är:
+Du kan se olika priser i Azure Portal beroende på din administrativa roll och hur avgifts principerna för vyn ställs in av företags administratören. De två principerna i Enterprise Portal som påverkar den prissättning som visas i Azure Portal är:
 
-- DA visa debiteringar
-- AO visa debiteringar
+- Visa avgifter för DA
+- AO Visa avgifter
 
-Information om hur du konfigurerar dessa principer finns i [hantera åtkomst till faktureringsinformation för Azure](billing-manage-access.md).
+Information om hur du ställer in dessa principer finns i [Hantera åtkomst till fakturerings information för Azure](billing-manage-access.md).
 
-I följande tabell visar förhållandet mellan administratörsroller Enterprise-avtal, Visa avgifter princip, rollbaserad åtkomstkontroll (RBAC) rollen i Azure portal och de priser som visas i Azure-portalen. Företagsadministratören ser alltid användningsinformation baserat på organisationens EA-priser. Avdelning administratör och Kontoägare ser dock olika priser vyer baserat på Visa kostnad principer och deras RBAC-roll. Avdelning administratörsroll som visas i följande tabell refererar till både avdelning Admin och avdelning (skrivskyddat) administratörsroller.
+I följande tabell visas relationen mellan Enterprise-avtal admin-roller, rollen Visa avgift, rollen rollbaserad åtkomst kontroll (RBAC) i Azure Portal och den prissättning som visas i Azure Portal. Företags administratören ser alltid användnings information baserat på organisationens EA-prissättning. Men avdelnings administratören och konto ägaren ser olika prisvyer baserat på vyn avgifts princip och dess RBAC-roll. Rollen avdelnings administratör som anges i följande tabell refererar till rollerna både avdelnings administratör och avdelnings administratör (skrivskyddad).
 
-|Enterprise Agreement-administratörsrollen|Visa avgifter princip för rollen|RBAC-roll|Priser för vyn|
+|Enterprise-avtal administratörs roll|Visa avgifts princip för roll|RBAC-roll|Pris visning|
 |---|---|---|---|
-|Ägare eller administratör för avdelning|✔ Aktiverat|Ägare|Organisations EA-priser|
-|Ägare eller administratör för avdelning|✘ Inaktiverad|Ägare|Återförsäljarpriset|
-|Ägare eller administratör för avdelning|✔ Aktiverat |Ingen|Ingen prissättning|
-|Ägare eller administratör för avdelning|✘ Inaktiverad |Ingen|Ingen prissättning|
-|Ingen|Inte tillämpligt |Ägare|Återförsäljarpriset|
+|Konto ägare eller avdelnings administratör|✔ Aktive rad|Ägare|Organisationens EA-prissättning|
+|Konto ägare eller avdelnings administratör|✘ Inaktiverat|Ägare|Detalj handels pris|
+|Konto ägare eller avdelnings administratör|✔ Aktive rad |inga|Ingen prissättning|
+|Konto ägare eller avdelnings administratör|✘ Inaktiverat |inga|Ingen prissättning|
+|Inga|Inte tillämpligt |Ägare|Detalj handels pris|
 
-Du ställer in administratörsrollen för Enterprise och visa debiterar principer i Enterprise portal. RBAC-roll kan uppdateras i Azure-portalen. Mer information finns i [hantera åtkomst med RBAC och Azure portal](../role-based-access-control/role-assignments-portal.md).
+Du ställer in rollen företags administratör och visar debiterings principer i Enterprise Portal. RBAC-rollen kan uppdateras i Azure Portal. Mer information finns i [Hantera åtkomst med RBAC och Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,19 +12,20 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: add5584ccf3d9d6837e328bbf70d71598e5c0839
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 339a4f93d45b3d3b3e242aa735ce4b737a9292f0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694314"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035962"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformera data med Azure Machine Learning Data Prep SDK
 
 I den här artikeln får du lära dig olika metoder för att transformera data med `azureml-dataprep` hjälp av paketet. Paketet innehåller funktioner som gör det enkelt att lägga till kolumner, filtrera bort oönskade rader eller kolumner och räkna upp saknade värden. Se fullständig referens dokumentation för [azureml-nu-paketet](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Om du skapar en ny lösning kan du prova [Azure Machine Learning data uppsättningar](how-to-explore-prepare-data.md) (för hands version) för att transformera data, ögonblicks bild data och definitioner för data uppsättning för data lager. Data uppsättningar är nästa version av data prep SDK och erbjuder utökade funktioner för hantering av data uppsättningar i AI-lösningar. Om du använder `azureml-dataprep` paketet för att skapa ett data flöde med dina omvandlingar i stället för att `azureml-datasets` använda paketet för att skapa en data uppsättning kan du inte använda ögonblicks bilder eller versioner av data uppsättningar senare.
+> Om du skapar en ny lösning kan du prova [Azure Machine Learning data uppsättningar](how-to-explore-prepare-data.md) (för hands version) för att transformera data, ögonblicks bild data och definitioner för data uppsättning för data lager. Data uppsättningar är nästa version av data prep SDK och erbjuder utökade funktioner för hantering av data uppsättningar i AI-lösningar.
+> Om du använder `azureml-dataprep` paketet för att skapa ett data flöde med dina omvandlingar i stället för att `azureml-datasets` använda paketet för att skapa en data uppsättning kan du inte använda ögonblicks bilder eller versioner av data uppsättningar senare.
 
 Den här instruktionen visar exempel för följande uppgifter:
 
@@ -234,7 +235,7 @@ builder.preview(skip=75, count=5)
 |-----|-----|-----|
 |0|1/3/2015 7:00|3 jan 2015 06:00 – 8.00|
 |1|1/3/2015 7:54|3 jan 2015 06:00 – 8.00|
-|2|1/29/2015 6:54|Ingen|
+|2|1/29/2015 6:54|Inga|
 |3|1/29/2015 7:00|Inga|
 |4|1/29/2015 7:54|Inga|
 
@@ -345,7 +346,7 @@ Använda Uttrycksverktyget `col`, ange kolumnnamnet som en Strängargumentet `co
 
 I det här exemplet `dflow.filter(col('Tip_amount') > 0)` returnerar ett nytt dataflöde med rader där värdet för `Tip_amount` är större än 0.
 
-> [!NOTE] 
+> [!NOTE]
 > `Tip_amount` först omvandlas till numeriska, vilket gör att vi kan skapa ett uttryck för att jämföra den med andra numeriska värden.
 
 ```python
@@ -517,4 +518,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* I självstudien om Azure Machine Learning [](tutorial-data-prep.md) data för förberedelse SDK finns ett exempel på hur du löser ett speciellt scenario
+* Mer information finns i [referens dokumentationen](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#dataprep) för Azure Machine Learning data prep SDK.

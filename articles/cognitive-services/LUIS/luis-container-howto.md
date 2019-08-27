@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: 2b87f9bcbaa0fd9d8a23d774e0765e1eb5b56633
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eaf689ecb8fd64dca15570179733b7d7539a352e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563902"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050076"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS Docker-behållare
  
@@ -84,7 +84,7 @@ När behållaren är på värddatorn [](#the-host-computer)använder du följand
 ![Process för att använda Language Understanding-behållare (LUIS)](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
 1. [Exportera paket](#export-packaged-app-from-luis) för container från Luis-portalen eller Luis-API: er.
-1. Flytta paket filen till den nödvändiga  indatafilen på [värddatorn](#the-host-computer). Byt inte namn på, ändra, Skriv över eller expandera LUIS-paketfil.
+1. Flytta paket filen till den nödvändiga indatafilen på [värddatorn](#the-host-computer). Byt inte namn på, ändra, Skriv över eller expandera LUIS-paketfil.
 1. [Kör behållaren](##run-the-container-with-docker-run)med nödvändiga inställningar för _montering_ och fakturering av indatakälla. Fler [exempel](luis-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga. 
 1. [Fråga efter behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint). 
 1. När du är färdig med behållaren importerar du [slut punkts loggarna](#import-the-endpoint-logs-for-active-learning) från utmatnings monteringen i Luis-portalen och [stoppar](#stop-the-container) behållaren.
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Platshållare | Värde |
+| Platshållare | Value |
 |-------------|-------|
 |{APPLICATION_ID} | Program-ID för den publicerade LUIS-appen. |
 |{APPLICATION_ENVIRONMENT} | Den publicerade LUIS-appens miljö. Använd något av följande värden:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -248,7 +248,7 @@ Både v2 [-och v3 (för hands version)](luis-migration-api-v3.md) versioner av A
 
 Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsägelse. Slut punkter för publicerade appar (mellanlagring eller produktion) har en _annan_ väg än slut punkter för tränade appar. 
 
-Använd värden, `https://localhost:5000`för behållar-API: er. 
+Använd värden, `http://localhost:5000`för behållar-API: er. 
 
 |Pakettyp|Metod|Routa|Frågeparametrar|
 |--|--|--|--|
@@ -274,7 +274,7 @@ curl -X GET \
 "http://localhost:5000/luis/v2.0/apps/{APPLICATION_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
 -H "accept: application/json"
 ```
-Om du vill göra frågor  till mellanlagrings miljön ändrar du värdet för mellanlagringsplatsen för frågesträngen till sant: 
+Om du vill göra frågor till mellanlagrings miljön ändrar du värdet för mellanlagringsplatsen för frågesträngen till sant: 
 
 `staging=true`
 

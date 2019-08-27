@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: c350ca3cd8cbfb5e550fccd0bae0df53168de178
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 80bca606a2b06d85afc8a2115133f44d738f7e0a
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312079"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035236"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Övervakare av nätverksprestanda lösning i Azure
 
@@ -71,7 +71,7 @@ Använd de grundläggande processerna för att installera agenter på [Anslut Wi
 
 * **Övervakare för tjänst anslutning**: Installera en Log Analytics-agent på varje nod som nätverks anslutningen till tjänst slut punkten ska övervakas från. Ett exempel är om du vill övervaka nätverks anslutningen till Office 365 från dina Office-platser med etiketten O1, O2 och O3. Installera Log Analytics agent på minst en nod varje i O1, O2 och O3. 
 
-* **ExpressRoute**-Övervakare: Installera minst en Log Analytics agent i ditt virtuella Azure-nätverk. Installera även minst en agent i det lokala under nätverket, som är anslutet via ExpressRoute privata peering.  
+* **ExpressRoute**-Övervakare: Installera minst en Log Analytics agent i ditt virtuella Azure-nätverk. Installera även minst en agent i det lokala under nätverket, som är anslutet via ExpressRoute privata peering.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Konfigurera Log Analytics agenter för övervakning 
 
@@ -105,7 +105,7 @@ Använd de grundläggande processerna för att installera agenter på [Anslut Wi
 
 1. Lägg till Övervakare av nätverksprestanda-lösningen till din arbets yta från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Du kan också använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md). 
 2. Öppna din Log Analytics arbets yta och välj panelen **Översikt** . 
-3. Välj panelen **övervakare av nätverksprestanda** med meddelande *lösningen kräver ytterligare konfiguration*.
+3. Välj panelen **övervakare av nätverksprestanda** med meddelande *lösningen kräver ytterligare konfiguration*.
 
    ![Övervakare av nätverksprestanda panel](media/network-performance-monitor/npm-config.png)
 
@@ -133,7 +133,7 @@ När installationen är slutförd tar det 30 minuter till en timme innan data fy
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Redigera övervaknings inställningar för undernät och noder 
 
-Alla undernät med minst en agent installerad visas på fliken under **nätverk**på sidan konfiguration. 
+Alla undernät med minst en agent installerad visas på fliken under **nätverk** på sidan konfiguration. 
 
 
 Aktivera eller inaktivera övervakning av vissa under nätverk:
@@ -203,9 +203,9 @@ När du har aktiverat Övervakare av nätverksprestanda lösning ger lösnings p
 
 ### <a name="drill-down-for-depth"></a>Öka detalj nivån för djupet 
 
-Du kan välja olika länkar på instrument panelen för lösningen för att öka detalj nivån i alla intresse områden. Om du till exempel ser en avisering eller en nätverks länk som inte är felfri visas på instrument panelen, väljer du den för att undersöka ytterligare. En sida visar alla under nätverks Länkar för den specifika nätverks länken. Du kan se förlust, svars tid och hälso status för varje under nätverks länk. Du kan snabbt ta reda på vilken under nätverks länk som orsakar problem. Välj **Visa noden länkar** om du vill se alla länkar för länken för den felaktiga under nätet. Sedan kan du se enskilda Länkar för nod-till-nod och hitta länkar för felaktiga noder. 
+Du kan välja olika länkar på instrument panelen för lösningen för att öka detalj nivån i alla intresse områden. Om du till exempel ser en avisering eller en nätverks länk som inte är felfri visas på instrument panelen, väljer du den för att undersöka ytterligare. En sida visar alla under nätverks Länkar för den specifika nätverks länken. Du kan se förlust, svars tid och hälso status för varje under nätverks länk. Du kan snabbt ta reda på vilken under nätverks länk som orsakar problem. Välj **Visa noden länkar** om du vill se alla länkar för länken för den felaktiga under nätet. Sedan kan du se enskilda Länkar för nod-till-nod och hitta länkar för felaktiga noder. 
 
-Välj **Visa topologi** för att Visa hopp-för-hop-topologin för vägarna mellan käll-och mål-noderna. De felaktiga vägarna visas i rött. Du kan visa svars tiden som har bidragit till varje hopp så att du snabbt kan identifiera problemet i en viss del av nätverket.
+Välj **Visa topologi** för att Visa hopp-för-hop-topologin för vägarna mellan käll-och mål-noderna. De felaktiga vägarna visas i rött. Du kan visa svars tiden som har bidragit till varje hopp så att du snabbt kan identifiera problemet i en viss del av nätverket.
 
  
 
@@ -245,7 +245,7 @@ Topologin som visas i kartan är Layer 3-topologi och innehåller inte Layer 2-e
 
 ## <a name="log-queries-in-azure-monitor"></a>Logg frågor i Azure Monitor
 
-Alla data som visas grafiskt via Övervakare av nätverksprestanda instrument panelen och detalj nivå sidorna är också tillgängliga i [logg frågor](../log-query/log-query-overview.md). Du kan utföra interaktiv analys av data i lagrings platsen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller en delnings bar länk. Områdena **vanliga frågor** på instrument panelen har några användbara frågor som du kan använda som start punkt för att skapa egna frågor och rapporter. 
+Alla data som visas grafiskt via Övervakare av nätverksprestanda instrument panelen och detalj nivå sidorna är också tillgängliga i [logg frågor](../log-query/log-query-overview.md). Du kan utföra interaktiv analys av data i lagrings platsen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller en delnings bar länk. Områdena **vanliga frågor** på instrument panelen har några användbara frågor som du kan använda som start punkt för att skapa egna frågor och rapporter. 
 
 ## <a name="alerts"></a>Aviseringar
 
@@ -277,7 +277,7 @@ Information om priser är tillgänglig [online](network-performance-monitor-pric
 
 * **UserVoice:** Du kan publicera dina idéer för Övervakare av nätverksprestanda funktioner som vi vill att vi ska arbeta med. Besök [sidan UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 
-* **Delta i vår kohort:** Vi är alltid intresserade av att låta nya kunder delta i vår kohort. Som en del av det får du tidig till gång till nya funktioner och en möjlighet att hjälpa oss att förbättra Övervakare av nätverksprestanda. Om du är intresse rad av att ansluta kan du fylla i den här [snabb undersökningen](https://aka.ms/npmcohort). 
+* **Delta i vår kohort:** Vi är alltid intresserade av att låta nya kunder delta i vår kohort. Som en del av det får du tidig till gång till nya funktioner och en möjlighet att hjälpa oss att förbättra Övervakare av nätverksprestanda. Om du är intresse rad av att ansluta kan du fylla i den här [snabb undersökningen](https://aka.ms/npmcohort). 
 
 ## <a name="next-steps"></a>Nästa steg 
 Läs mer om [prestanda övervakaren](network-performance-monitor-performance-monitor.md), [tjänst anslutnings övervakaren](network-performance-monitor-performance-monitor.md)och [ExpressRoute-övervakaren](network-performance-monitor-expressroute.md). 

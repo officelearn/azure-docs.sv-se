@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abee645f8929c10856f662b1504b163b58d953a5
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817252"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036035"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -111,7 +111,7 @@ Läs mer om [iostat](https://linux.die.net/man/1/iostat) och [perfmon](https://m
 
 De huvudsakliga faktorer som påverkar prestanda för ett program som körs på Premium Storage är arten av IO-begäranden, VM-storlek, disk storlek, antal diskar, diskcachelagring, multitrådning och ködjup. Du kan styra några av de här faktorerna med rattar som tillhandahålls av systemet. De flesta program kan inte ge dig möjlighet att ändra i/o-storlek och ködjup direkt. Om du till exempel använder SQL Server kan du inte välja IO-storlek och ködjup. SQL Server väljer den optimala storleken för IO-storlek och ködjup för att få ut mesta möjliga prestanda. Det är viktigt att förstå effekterna av båda typerna av faktorer i programmets prestanda, så att du kan etablera lämpliga resurser för att möta prestanda behoven.
 
-I det här avsnittet finns en check lista för program krav som du har skapat för att identifiera hur mycket du behöver för att optimera program prestandan. Utifrån detta kommer du att kunna avgöra vilka faktorer från det här avsnittet som du måste justera. Om du vill beräkna effekterna av varje faktor i programmets prestanda kör du benchmarking-verktyg i program konfigurationen. I avsnittet benchmarking i slutet av den här artikeln finns anvisningar för att köra vanliga benchmarking-verktyg på virtuella Windows-och Linux-datorer.
+I det här avsnittet finns en check lista för program krav som du har skapat för att identifiera hur mycket du behöver för att optimera program prestandan. Utifrån detta kommer du att kunna avgöra vilka faktorer från det här avsnittet som du måste justera. Om du vill beräkna effekterna av varje faktor i programmets prestanda kör du benchmarking-verktyg i program konfigurationen. Mer information om hur du kör vanliga benchmarking-verktyg på virtuella Windows-och Linux-datorer finns i artikeln om benchmarking-artikeln, som är länkad i slutet.
 
 ### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Optimera IOPS, data flöde och svars tider snabbt
 
@@ -166,7 +166,7 @@ Om du vill få IOPS och bandbredd som är högre än det högsta värdet för en
 > [!NOTE]
 > När du ökar antingen IOPS eller data flödet kan andra också öka, se till att du inte trycker på genomflödet eller IOPS-gränser för disken eller den virtuella datorn när du ökar en.
 
-För att vittnea effekterna av IO-storleken på program prestanda kan du köra benchmarking-verktyg på din virtuella dator och diskar. Skapa flera test körningar och Använd en annan IO-storlek för varje körning för att se effekten. Mer information finns i avsnittet benchmarking i slutet av den här artikeln.
+För att vittnea effekterna av IO-storleken på program prestanda kan du köra benchmarking-verktyg på din virtuella dator och diskar. Skapa flera test körningar och Använd en annan IO-storlek för varje körning för att se effekten. Mer information finns i artikeln om benchmarking, som är länkad i slutet.
 
 ## <a name="high-scale-vm-sizes"></a>Hög skalning av VM-storlekar
 
@@ -256,7 +256,7 @@ Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Ingen |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| Inga |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
 | Skrivskyddad |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
 | Läs/skriv |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 
@@ -326,7 +326,7 @@ När en virtuell dator med hög skalning är kopplad till flera beständiga disk
 
 I Windows kan du använda lagrings utrymmen för att Stripa diskar tillsammans. Du måste konfigurera en kolumn för varje disk i en pool. Annars kan den övergripande prestandan för stripe-volymer vara lägre än förväntat, på grund av ojämn fördelning av trafik över diskarna.
 
-Viktigt: Med hjälp av Serverhanteraren användar gränssnitt kan du ange det totala antalet kolumner upp till 8 för en stripe-volym. När du ansluter fler än åtta diskar använder du PowerShell för att skapa volymen. Med hjälp av PowerShell kan du ange antalet kolumner som motsvarar antalet diskar. Till exempel, om det finns 16 diskar i en enda stripe-uppsättning. Ange 16 kolumner i parametern *NumberOfColumns* för PowerShell-cmdleten *New-VirtualDisk* .
+Viktigt! Med hjälp av Serverhanteraren användar gränssnitt kan du ange det totala antalet kolumner upp till 8 för en stripe-volym. När du ansluter fler än åtta diskar använder du PowerShell för att skapa volymen. Med hjälp av PowerShell kan du ange antalet kolumner som motsvarar antalet diskar. Till exempel, om det finns 16 diskar i en enda stripe-uppsättning. Ange 16 kolumner i parametern *NumberOfColumns* för PowerShell-cmdleten *New-VirtualDisk* .
 
 I Linux använder du MDADM-verktyget för att Stripa diskar tillsammans. Detaljerade anvisningar om hur du tar bort diskar i Linux, se [Konfigurera programvaru-RAID på Linux](../articles/virtual-machines/linux/configure-raid.md).
 
@@ -387,11 +387,3 @@ Azure Premium Storage etablerar det angivna antalet IOPS och data flöden beroen
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om tillgängliga disk typer:
-
-* [Välj en disktyp](../articles/virtual-machines/windows/disks-types.md)  
-
-För SQL Server användare läser du artiklar om bästa metoder för prestanda för SQL Server:
-
-* [Metod tips för prestanda för SQL Server i Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage ger högsta prestanda för SQL Server i Azure VM](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

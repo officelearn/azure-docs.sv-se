@@ -1,6 +1,6 @@
 ---
 title: Ansluta till RSS-flöden från Azure Logic Apps | Microsoft Docs
-description: Automatisera uppgifter och arbetsflöden som övervakar och hanterar RSS-flöden med hjälp av Azure Logic Apps
+description: Automatisera uppgifter och arbets flöden som övervakar och hanterar RSS-flöden med hjälp av Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,51 +11,51 @@ ms.topic: article
 ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 01573871700bbeeb653ce3efdbf6c6aca88fd454
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 70b250074395977f70ac1b3eb0ce3ffdc96fced1
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204848"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050842"
 ---
-# <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Hantera RSS-flöden med hjälp av Azure Logic Apps
+# <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Hantera RSS-flöden med Azure Logic Apps
 
-Med Azure Logic Apps och RSS-anslutningsappen kan du kan skapa automatiserade uppgifter och arbetsflöden för alla RSS-feed, till exempel:
+Med Azure Logic Apps och RSS-anslutningen kan du skapa automatiserade uppgifter och arbets flöden för RSS-flöden, till exempel:
 
-* Övervaka när RSS-flödesobjekt publiceras.
-* Lista alla RSS-flödesobjekt.
+* Övervaka när RSS-feeds-objekt publiceras.
+* Lista alla RSS-feeds-objekt.
 
-RSS (Rich Site sammanfattning), även kallat verkligen enkelt syndikering är ett vanligt format för web-syndikering och används för att publicera innehåll som uppdateras ofta, till exempel blogginlägg och nyhetsrubriker. Många innehållsutgivare har ett RSS-flöde så att användare kan prenumerera på innehållet. 
+RSS (utförlig sammanfattning av webbplats), även kallat faktiskt enkelt syndikering, är ett populärt format för webb syndikering och används för att publicera ofta uppdaterat innehåll, till exempel blogg inlägg och nyhets rubriker. Många innehålls utgivare tillhandahåller en RSS-feed så att användarna kan prenumerera på innehållet. 
 
-Du kan använda en RSS-utlösare som får svar från en RSS-feed och gör utdata som är tillgängliga för andra åtgärder. Du kan använda en RSS-åtgärd i dina logic apps för att utföra en uppgift med RSS-flödet. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Du kan använda en RSS-utlösare som hämtar svar från en RSS-feed och gör utdata tillgängliga för andra åtgärder. Du kan använda en RSS-åtgärd i dina Logi Kap par för att utföra en uppgift med RSS-flödet. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* URL-Adressen för en RSS-feed
+* URL för en RSS-feed
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Logikappen där du vill öppna en RSS-feed. Du kommer igång med en RSS-utlösare [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en RSS-åtgärd, starta din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
+* Den Logic app där du vill komma åt en RSS-feed. Börja med en RSS-utlösare genom att [skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en RSS-åtgärd startar du din Logic-app med en annan utlösare, till exempel utlösaren **upprepning** .
 
 ## <a name="connect-to-an-rss-feed"></a>Ansluta till en RSS-feed
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
 1. Välj en sökväg: 
 
-   * För tom logic apps i sökrutan anger du ”rss” som filter. Välj utlösaren som du vill under listan över utlösare. 
+   * För tomma Logi Kap par anger du "RSS" som filter i rutan Sök. Välj den utlösare som du vill använda under listan utlösare. 
 
      ELLER
 
-   * För befintliga logikappar under steget där du vill lägga till en åtgärd, Välj **nytt steg**. I sökrutan skriver du "rss" som filter. Välj vilken åtgärd du önska under åtgärder.
+   * För befintliga Logi Kap par väljer du **nytt steg**under steget där du vill lägga till en åtgärd. I sökrutan skriver du "rss" som filter. Under listan åtgärder väljer du den åtgärd som du vill använda.
 
-1. Ange informationen som krävs för din valda utlösare eller åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+1. Ange nödvändig information för den valda utlösaren eller åtgärden och fortsätt att skapa din Logic Apps-arbetsflöde.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/rss/).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/rss/).
 
 ## <a name="get-support"></a>Få support
 
@@ -64,4 +64,4 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

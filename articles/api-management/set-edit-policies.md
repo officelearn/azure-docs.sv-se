@@ -1,6 +1,6 @@
 ---
-title: Ange eller redigera Azure API Management-principer | Microsoft Docs
-description: Det här avsnittet visar hur du ange eller redigera principer för Azure API Management.
+title: Så här ställer du in eller redigerar principer för Azure API Management | Microsoft Docs
+description: Det här avsnittet visar hur du ställer in eller redigerar Azure API Management-principer.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 052bf619cd6f41aad139db45a8f3ecd9f4a0a62f
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205300"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034919"
 ---
-# <a name="how-to-set-or-edit-azure-api-management-policies"></a>Ange eller redigera Azure API Management-principer
+# <a name="how-to-set-or-edit-azure-api-management-policies"></a>Ange eller redigera principer för Azure-API Management
 
-Principdefinitionen är ett XML-dokument som beskriver en sekvens av inkommande och utgående uttryck. XML-filen kan redigeras direkt i definitionsfönstret. Du kan också välja en fördefinierad princip i listan som har angetts till höger om fönstret principen. Instruktionerna som gäller för den aktuella omfattningen är aktiverade och markerat. Att klicka på en aktiverad instruktion lägger till rätt XML-filen på platsen för markören i vyn definition. 
+Princip definitionen är ett XML-dokument som beskriver en sekvens med inkommande och utgående instruktioner. XML-filen kan redige ras direkt i definitions fönstret. Du kan också välja en fördefinierad princip i listan som finns till höger i princip fönstret. De instruktioner som gäller för det aktuella omfånget är aktiverade och markerade. Om du klickar på en aktive rad instruktion läggs lämplig XML till i positionen för markören i definitions vyn. 
 
-Detaljerad information om principer finns i [principer i Azure API Management](api-management-howto-policies.md).
+Detaljerad information om principer finns [i principer i Azure API Management](api-management-howto-policies.md).
 
 ## <a name="set-or-edit-a-policy"></a>Ange eller redigera en princip
 
-Om du vill ange eller redigera en princip, gör du:
+Följ stegen nedan om du vill ange eller redigera en princip:
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Bläddra till APIM-instansen.
@@ -38,101 +38,103 @@ Om du vill ange eller redigera en princip, gör du:
 
 4. Välj ett av de API:er som du tidigare har importerat.
 5. Välj fliken **Design**.
-6. Välj en åtgärd som du vill tillämpa principen. Om du vill tillämpa principen på alla åtgärder väljer **alla åtgärder**.
-7. Välj den **</>** (Kodredigerare)-ikonen i den **inkommande bearbetning** eller **utgående bearbetning** avsnittet.
-8. Klistra in koden önskad princip i en av de lämpliga blocken.
-         
-        <policies>
-             <inbound>
-                 <base />
-             </inbound>
-             <backend>
-                 <base />
-             </backend>
-             <outbound>
-                 <base />
-             </outbound>
-             <on-error>
-                 <base />
-             </on-error>
-         </policies>
+6. Välj en åtgärd som du vill tillämpa principen på. Om du vill tillämpa principen på alla åtgärder väljer du **alla åtgärder**.
+7. Välj ikonen (kod redigerare) i avsnittet inkommande bearbetning eller **utgående bearbetning.** **</>**
+8. Klistra in önskad princip kod i ett av de lämpliga blocken.
+
+    ```XML
+    <policies>
+        <inbound>
+            <base />
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
  
 ## <a name="configure-scope"></a>Konfigurera omfång
 
-Principer kan konfigureras globalt eller på omfånget för en produkt, API: et eller åtgärden. Om du vill börja konfigurera en princip, måste du först välja området som principen ska gälla.
+Principer kan konfigureras globalt eller i omfånget för en produkt, API eller åtgärd. Om du vill börja konfigurera en princip måste du först välja det omfång som principen ska gälla för.
 
-Princip för scope utvärderas i följande ordning:
+Princip omfattningarna utvärderas i följande ordning:
 
-1. Global omfattning
-2. Produktomfattningsnivå
+1. Globalt omfång
+2. Produkt omfattning
 3. API-omfång
-4. Åtgärdsomfång
+4. Åtgärds omfång
 
-Instruktioner inom principer utvärderas enligt placeringen av den `base` element, om den finns. Global princip har ingen överordnad princip och använder den `<base>` elementet i den har ingen effekt.
+Uttrycken i principer utvärderas enligt `base` elementets placering, om det finns. Den globala principen har ingen överordnad princip `<base>` och använder elementet i den har ingen påverkan.
 
-Klicka för att visa principer i den aktuella omfattningen i principredigeraren **beräkna om gällande princip för valda omfång**.
+Om du vill se principerna i det aktuella omfånget i princip redigeraren klickar du på **Beräkna om en effektiv princip för det valda**omfånget.
 
-### <a name="global-scope"></a>Global omfattning
+### <a name="global-scope"></a>Globalt omfång
 
-Globala omfång har konfigurerats för **alla API: er** i APIM-instansen.
+Globalt scope har kon figurer ATS för **alla API: er** i din APIM-instans.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) och navigera till APIM-instansen.
+1. Logga in på [Azure Portal](https://portal.azure.com/) och navigera till din APIM-instans.
 2. Klicka på **alla API: er**.
 
-    ![Global omfattning](./media/api-management-howto-policies/global-scope.png)
+    ![Globalt omfång](./media/api-management-howto-policies/global-scope.png)
 
-3. Klicka på triangeln.
+3. Klicka på triangel-ikonen.
 4. Välj **Kodredigeraren**.
 5. Lägg till eller redigera principer.
 6. Tryck på **Spara**. 
 
-    Ändringarna har spridits till API Management-gatewayen omedelbart.
+    Ändringarna sprids omedelbart till API Management gatewayen.
 
-### <a name="product-scope"></a>Produktomfattningsnivå
+### <a name="product-scope"></a>Produkt omfattning
 
-Produktomfattningsnivå har konfigurerats för den valda produkten.
+Produkt omfattning har kon figurer ATS för den valda produkten.
 
 1. Klicka på **produkter**.
 
-    ![Produktomfattningsnivå](./media/api-management-howto-policies/product-scope.png)
+    ![Produkt omfattning](./media/api-management-howto-policies/product-scope.png)
 
-2. Välj den produkt som du vill att tillämpa principer.
+2. Välj den produkt som du vill tillämpa principer på.
 3. Klicka på **principer**.
 4. Lägg till eller redigera principer.
 5. Tryck på **Spara**. 
 
 ### <a name="api-scope"></a>API-omfång
 
-API-omfång har konfigurerats för **alla åtgärder** för den valda API: er.
+API-omfång har kon figurer ATS för **alla åtgärder** för det valda API: et.
 
-1. Välj den **API** du vill tillämpa principer för.
+1. Välj det **API** som du vill tillämpa principer på.
 
     ![API-omfång](./media/api-management-howto-policies/api-scope.png)
 
 2. Välj **Alla åtgärder**
-3. Klicka på triangeln.
+3. Klicka på triangel-ikonen.
 4. Välj **Kodredigeraren**.
 5. Lägg till eller redigera principer.
 6. Tryck på **Spara**. 
 
-### <a name="operation-scope"></a>Åtgärdsomfång 
+### <a name="operation-scope"></a>Åtgärds omfång 
 
-Åtgärdsomfång har konfigurerats för den valda åtgärden.
+Åtgärds omfånget har kon figurer ATS för den valda åtgärden.
 
-1. Välj en **API**.
-2. Markera den åtgärd som du vill tillämpa principer för.
+1. Välj ett **API**.
+2. Välj den åtgärd som du vill tillämpa principer på.
 
-    ![Åtgärdsomfång](./media/api-management-howto-policies/operation-scope.png)
+    ![Åtgärds omfång](./media/api-management-howto-policies/operation-scope.png)
 
-3. Klicka på triangeln.
+3. Klicka på triangel-ikonen.
 4. Välj **Kodredigeraren**.
 5. Lägg till eller redigera principer.
 6. Tryck på **Spara**. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande relaterade ämnen:
+Se följande Närliggande avsnitt:
 
 + [Transformera API: er](transform-api.md)
-+ [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
-+ [Princip-exempel](policy-samples.md)
++ [Princip referens](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar
++ [Princip exempel](policy-samples.md)

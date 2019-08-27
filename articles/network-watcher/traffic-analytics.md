@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: yagup
-ms.openlocfilehash: 03c0106d793fc7b77ccc8a9176f158a9928ab291
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: dbc0829adc29848c9047368295a2ade589834e8b
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620117"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031862"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -178,7 +178,9 @@ Välj följande alternativ, som du ser på bilden:
 2. Välj *version 2* för **flödes loggar version**. Version 2 innehåller statistik för flödes-session (byte och paket)
 3. Välj ett befintligt lagrings konto för att lagra flödes loggarna i. Ange värdet till *0*om du vill lagra data permanent. Du debiteras Azure Storage avgifter för lagrings kontot. Kontrol lera att lagrings utrymmet för Data Lake Storage Gen2 hierarkiskt namn område är inställt på sant. Dessutom kan NSG Flow-loggar inte lagras i ett lagrings konto med en brand vägg. 
 4. Ange **kvarhållning** till det antal dagar som du vill lagra data för.
-5. Välj *för* **trafikanalys status**.
+> [!IMPORTANT]
+> För närvarande finns det ett problem där [nätverks säkerhets grupps flödes loggar (NSG)](network-watcher-nsg-flow-logging-overview.md) för Network Watcher inte automatiskt tas bort från Blob Storage utifrån inställningar för bevarande principer. Om du har en befintlig bevarande princip som inte är noll rekommenderar vi att du regelbundet tar bort de lagrings blobbar som håller på att kvarhållas för att undvika kostnader. Mer information om hur du tar bort NSG Flow logg Storage-bloggen finns i [ta bort NSG Flow logg Storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
+5. Välj för **trafikanalys status**.
 6. Välj bearbetnings intervall. Baserat på ditt val samlas flödes loggar in från lagrings kontot och bearbetas av Trafikanalys. Du kan välja bearbetnings intervall för varannan timme eller var 10: e minut.
 7. Välj en befintlig Log Analytics (OMS)-arbets yta eller Välj **Skapa ny arbets yta** för att skapa en ny. En Log Analytics arbets yta används av Trafikanalys för att lagra aggregerade och indexerade data som sedan används för att generera analysen. Om du väljer en befintlig arbets yta måste den finnas i någon av de [regioner som stöds](#supported-regions-log-analytics-workspaces) och ha uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbets yta eller om du inte har en arbets yta i en region som stöds skapar du en ny. Mer information om frågespråk finns i [Azure Log Analytics uppgradera till ny loggs ökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 

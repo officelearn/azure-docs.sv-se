@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: vijetaj
-ms.openlocfilehash: 95d128a7af60a1504d05fb5316969fccc49c397f
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8100108adc7115921948d3e8f10e415bc2705fbd
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574963"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051647"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux virtuell dator för datavetenskap på Azure
 Den här genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella datorn datavetenskap för Linux. Linux Data Science Virtual Machine (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en uppsättning verktyg som ofta används för dataanalys och maskininlärning. Viktiga programkomponenterna är uppdelat i den [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång datavetenskap på några minuter, utan att behöva installera och konfigurera var och en av verktyg individuellt. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den när den inte används. Den här resursen är därför både elastisk och kostnadseffektiv.
@@ -36,7 +36,7 @@ Innan du kan använda en Linux Data Science-dator, måste du ha följande:
 
 * En **Azure-prenumeration**. Om du inte redan har en, se [skapa ditt kostnadsfria Azure-konto i dag](https://azure.microsoft.com/free/).
 * En [ **datavetenskap för Linux VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Mer information om att etablera den här virtuella datorn finns i [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md).
-* [X2Go](https://wiki.x2go.org/doku.php) installerat på datorn och öppnas en XFCE-session. Information om hur du installerar och konfigurerar en **X2Go klienten**, se [installera och konfigurera X2Go klienten](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* [X2Go](https://wiki.x2go.org/doku.php) installerat på datorn och öppnas en XFCE-session. Information om hur du installerar och konfigurerar en **X2Go-klient**finns i [Installera och konfigurera X2Go-klienten](linux-dsvm-intro.md#install-and-configure-the-x2go-client).
 * För en rullande jämnare upplevelse, växla flaggan gfx.xrender.enabled i om: config i webbläsaren FireFox för virtuella datorer. [Se mer här. ](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Överväg också att växla *mousewheel.enable_pixel_scrolling* till False. [Instruktionerna här.](https://support.mozilla.org/questions/981140)
 * En **AzureML-konto**. Om du inte redan har en, registrera dig för ny tjänst när den [AzureML-startsidan](https://studio.azureml.net/). Det finns en kostnadsfri användning nivå hjälper dig att komma igång.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 77c5285462c4368badd63d7cdbf6589c7ad03c8d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f72feeefeb896c9006f767f8724d9ca3b3640c1e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534568"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035219"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -36,7 +36,7 @@ Application Insights kan användas med alla webbsidor – du lägger bara till e
 > [!IMPORTANT]
 > Du behöver bara använda en av metoderna nedan för att lägga till Application Insights JavaScript SDK till ditt program. Om du använder NPM-baserad installation ska du inte använda kodfragmentbaserade installations program. Samma sak gäller för det omvända scenariot vid användning av kodfragmentet, Använd inte heller NPM-baserade installations programmet. 
 
-### <a name="npm-based-setup"></a>NPM-baserad installation 
+### <a name="npm-based-setup"></a>NPM-baserad installation
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -198,7 +198,7 @@ Minified-callstacken för din undantags telemetri kan vara unminified i Azure Po
 2. Identifiera vilka käll mappningar som motsvarar den här anrops stacken. Käll kartan måste matcha en stack Rams käll fil, men med suffixet`.map`
 3. Dra och släpp käll kartorna till anrops stacken i Azure Portal![](https://i.imgur.com/Efue9nU.gif)
 
-## <a name="application-insights-web-basic"></a>Application Insights Web Basic
+### <a name="application-insights-web-basic"></a>Application Insights Web Basic
 
 För en låg upplevelse kan du i stället installera den grundläggande versionen av Application Insights
 ```

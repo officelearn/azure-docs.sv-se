@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 0d6721c2ef24665035cc4a99c9bf3804b312fe75
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900164"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033266"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Skapa ett nytt Dynamics 365 Business Central-erbjudande
 
@@ -354,7 +354,7 @@ Alternativet **Marketplace-lista** på fliken testenhet visar de språk som test
 
 ## <a name="supplemental-content"></a>Kompletterande innehåll
 
-På den här sidan kan du ange ytterligare information som krävs om ditt erbjudande.
+På den här sidan kan du ange ytterligare information om ditt erbjudande för att hjälpa oss att validera ditt erbjudande. Den här informationen visas inte för kunder eller publiceras på Marketplace.
 
 ### <a name="target-release"></a>Mål version
 
@@ -362,19 +362,19 @@ Ange vilken version av Microsoft Dynamics Business Centrals som din lösning rik
 
 ### <a name="supported-editions"></a>Versioner som stöds
 
-Ange om din lösning har stöd för Essentials-och/eller Premium-versionen av Microsoft Dynamics 365 Business Central. Minst ett värde måste väljas.
+Om ditt erbjudande kräver Premium-versionen av Microsoft Dynamics 365 Business Central väljer du endast **Premium** . Annars väljer du både **Essentials** och **Premium**.
 
 ### <a name="key-usage-scenario"></a>Scenario för nyckel användning
 
-Ladda upp `.pdf` en fil som visar dina erbjudandens scenarier för nyckel användning som visas i ett dokument (. pdf-format). Alla scenarier som listas här kan kontrol leras av vårt validerings team innan vi godkänner ditt erbjudande för Marketplace.
+Du måste erför en `.pdf` fil som visar ditt erbjudandes scenarier för nyckel användning som visas i ett dokument (. pdf-format). Alla scenarier som listas här kan kontrol leras av vårt validerings team innan vi godkänner ditt erbjudande för Marketplace.
 
 ### <a name="app-tests-automation"></a>Automatisering av app-test
 
-Ladda också upp en Automation-fil för **app-test** här (. app).
+Du kan också ladda upp en **Automation** -fil för app-test här (. app).
 
 ### <a name="test-accounts"></a>Test konton
 
-Om ett test konto krävs för att vårt certifierings team ska kunna granska ditt erbjudande korrekt, laddar du upp en. pdf-,. doc-eller. docx-fil med dina **test konto** uppgifter.
+Om ett test konto krävs för att vårt certifierings team ska kunna granska ditt erbjudande, laddar du upp en PDF-, doc-eller DOCX-fil med din **test konto** information.
 
 ## <a name="publish"></a>Publicera
 

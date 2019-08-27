@@ -5,14 +5,14 @@ services: log-analytics
 author: bwren
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/16/2019
+ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: 6f5ae426018c9e7fa2ac586a2886c8e5e609069b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b1d22729724c2d1a8e3705e017762dcef588245e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813858"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034875"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktur för Azure Monitor loggar
 Möjligheten att snabbt få insikter om dina data med hjälp av en [logg fråga](log-query-overview.md) är en kraftfull funktion i Azure Monitor. Om du vill skapa effektiva och användbara frågor bör du förstå några grundläggande begrepp, till exempel var de data du söker finns och hur de struktureras. Den här artikeln innehåller grundläggande begrepp som du behöver för att komma igång.
@@ -46,7 +46,7 @@ union withsource = table *
 Se dokumentationen för varje data källa för information om de tabeller som de skapar. Exempel är artiklar för [agent data källor](../platform/agent-data-sources.md), [diagnostikloggar](../platform/diagnostic-logs-schema.md)och [övervaknings lösningar](../insights/solutions-inventory.md).
 
 ### <a name="workspace-permissions"></a>Behörigheter för arbets ytan
-Se [behörigheter och omfattning för arbets ytan](../platform/manage-access.md#manage-accounts-and-users) för information om hur du ger åtkomst till data i en arbets yta. Förutom att bevilja åtkomst till själva arbets ytan, kan du begränsa åtkomsten till enskilda tabeller med [RBAC på tabell nivå](../platform/manage-access.md#table-level-rbac).
+Se [utforma en Azure Monitor loggar distribution](../platform/design-logs-deployment.md) för att förstå strategi och rekommendationer för åtkomst kontroll för att ge åtkomst till data i en arbets yta. Förutom att bevilja åtkomst till själva arbets ytan, kan du begränsa åtkomsten till enskilda tabeller med [RBAC på tabell nivå](../platform/manage-access.md#table-level-rbac).
 
 ## <a name="application-insights-application"></a>Application Insights program
 När du skapar ett program i Application Insights skapas automatiskt ett motsvarande program i Azure Monitor loggar. Ingen konfiguration krävs för att samla in data, och programmet kommer automatiskt att skriva övervaknings data, till exempel sidvyer, begär Anden och undantag.

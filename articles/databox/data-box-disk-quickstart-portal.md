@@ -6,16 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.localizationpriority: high
-ms.date: 02/26/2019
+ms.date: 08/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 983edcc19a27b91599ea1e312268934b37f8b0ca
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 9664fd35462ab6084b203fe4ccd3c10435d64991
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012883"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035628"
 ---
 ::: zone target="docs"
 
@@ -65,6 +64,7 @@ Logga in på Azure Portal på [https://aka.ms/azuredataboxfromdiskdocs](https://
 
 - Du har placerat din beställning för data Box disk med [hjälp av självstudien: Beställa Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 - Du har tagit emot diskarna och jobbstatusen på portalen har uppdaterats till **Levererade**.
+- Du har markerat antalet diskar som du har tagit emot och att du har en anslutnings kabel per disk.
 - Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
 
     - Kör ett [operativ system som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).

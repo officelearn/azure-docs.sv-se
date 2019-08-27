@@ -7,34 +7,35 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 05/15/2017
+ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 9bf34fd48c3a4a9a9672ac162f63dcce118b2c0a
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: d1a155845f5c04817611fb14f4a973527e3e039b
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668173"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050457"
 ---
 # <a name="get-started-with-device-twins-net"></a>Kom igång med enhets dubbla (.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-I slutet av den här självstudien får du följande .NET-konsol program:
+I den här självstudien skapar du följande .NET-konsol program:
 
-* **CreateDeviceIdentity**, en .net-app som skapar en enhets identitet och en associerad säkerhets nyckel för att ansluta din simulerade enhets app.
+* **CreateDeviceIdentity**. Den här appen skapar en enhets identitet och en associerad säkerhets nyckel för att ansluta din simulerade enhets app.
 
-* **AddTagsAndQuery**, en .net-backend-app som lägger till taggar och frågar enheten på två sätt.
+* **AddTagsAndQuery**. Den här backend-appen lägger till taggar och frågar enheten med dubbla.
 
-* **ReportConnectivity**är en .net-enhets app som simulerar en enhet som ansluter till din IoT Hub med enhets identiteten som skapades tidigare och som rapporterar sitt anslutnings tillstånd.
+* **ReportConnectivity**. Den här enhets appen simulerar en enhet som ansluter till din IoT Hub med enhets identiteten som skapades tidigare och rapporterar dess anslutnings tillstånd.
 
 > [!NOTE]
 > Artikeln [Azure IoT SDK](iot-hub-devguide-sdks.md) : er innehåller information om Azure IoT SDK: er som du kan använda för att bygga både enhets-och backend-appar.
-> 
+>
 
-För att slutföra den här självstudien behöver du följande:
+För att slutföra den här självstudien, finns följande förhandskrav:
 
 * Visual Studio.
-* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+
+* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -52,32 +53,36 @@ För att slutföra den här självstudien behöver du följande:
 
 ## <a name="create-the-service-app"></a>Skapa tjänst appen
 
-I det här avsnittet skapar du en .NET-konsol app ( C#med) som lägger till platsens metadata till den enhet som är den dubbla som är kopplad till **myDeviceId**. Den frågar sedan enheten efter varandra i IoT Hub och väljer de enheter som finns i USA och sedan de som rapporterade en mobil anslutning.
+I det här avsnittet skapar du en .NET-konsol-app C#med, som lägger till platsens metadata till den enhet som är den dubbla som är kopplad till **myDeviceId**. Den frågar sedan enheten efter varandra i IoT Hub och väljer de enheter som finns i USA och sedan de som rapporterade en mobil anslutning.
 
-1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Ge projektet namnet **AddTagsAndQuery**.
-   
-    ![Nytt Visual C# Windows Classic Desktop-projekt](./media/iot-hub-csharp-csharp-twin-getstarted/createnetapp.png)
+1. I Visual Studio väljer du **skapa ett nytt projekt**. I **Skapa nytt projekt**väljer du **konsol program (.NET Framework)** och väljer sedan **Nästa**.
 
-2. I Solution Explorer högerklickar du på projektet **AddTagsAndQuery** och klickar sedan på **Hantera NuGet-paket...** .
+1. I **Konfigurera ditt nya projekt**namnger du projektet **AddTagsAndQuery**.
 
-3. I fönstret **NuGet Package Manager** väljer du **Bläddra** och söker efter **Microsoft. Azure.** Devices. Välj **Installera** för att installera **Microsoft. Azure.** Devices-paketet och godkänn användnings villkoren. Den här proceduren hämtar, installerar och lägger till en referens till [Azure IoT service SDK NuGet-](https://www.nuget.org/packages/Microsoft.Azure.Devices/) paketet och dess beroenden.
-   
-    ![Fönstret för NuGet-pakethanteraren](./media/iot-hub-csharp-csharp-twin-getstarted/servicesdknuget.png)
+    ![Konfigurera ditt AddTagsAndQuery-projekt](./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png)
 
-4. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
+1. I Solution Explorer högerklickar du på projektet **AddTagsAndQuery** och väljer sedan **Hantera NuGet-paket**.
+
+1. Välj **Bläddra** och Sök efter och välj **Microsoft. Azure.** Devices. Välj **Installera**.
+
+    ![Fönstret för NuGet-pakethanteraren](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
+
+   I det här steget hämtas, installeras och läggs en referens till i [Azure IoT service SDK NuGet-](https://www.nuget.org/packages/Microsoft.Azure.Devices/) paketet och dess beroenden.
+
+1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
 
     ```csharp  
     using Microsoft.Azure.Devices;
     ```
 
-5. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med IoT Hub anslutnings strängen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
+1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med IoT Hub anslutnings strängen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
 
     ```csharp  
     static RegistryManager registryManager;
     static string connectionString = "{iot hub connection string}";
     ```
 
-6. Lägg till följande metod i klassen **Program**:
+1. Lägg till följande metod i klassen **Program**:
 
     ```csharp  
     public static async Task AddTagsAndQuery()
@@ -106,14 +111,14 @@ I det här avsnittet skapar du en .NET-konsol app ( C#med) som lägger till plat
           string.Join(", ", twinsInRedmond43UsingCellular.Select(t => t.DeviceId)));
     }
     ```
-   
-    **RegistryManager** -klassen visar alla de metoder som krävs för att interagera med enheten tillsammans från tjänsten. Föregående kod initierar först **registryManager** -objektet och hämtar sedan enheten för **myDeviceId**och uppdaterar slutligen dess Taggar med önskad plats information.
-   
-    Efter uppdateringen körs två frågor: det första alternativet väljer att endast enhetarna är dubbla enheter som finns i **Redmond43** -anläggningen och den andra refinar frågan så att endast de enheter som också är anslutna via mobil nät verket återställs.
-   
-    Observera att föregående kod, **när objektet skapas** , anger ett maximalt antal returnerade dokument. **Frågespråket** innehåller en **HasMoreResults** Boolean-egenskap som du kan använda för att anropa **GetNextAsTwinAsync** -metoderna flera gånger för att hämta alla resultat. En metod som heter **GetNextAsJson** är tillgänglig för resultat som inte är enhets dubbla, till exempel resultat av agg regerings frågor.
 
-7. Slutligen lägger du till följande rader till **Main**-metoden:
+    **RegistryManager** -klassen visar alla de metoder som krävs för att interagera med enheten tillsammans från tjänsten. Föregående kod initierar först **registryManager** -objektet och hämtar sedan enheten för **myDeviceId**och uppdaterar slutligen dess Taggar med önskad plats information.
+
+    Efter uppdateringen körs två frågor: det första alternativet väljer att endast enhetarna är dubbla enheter som finns i **Redmond43** -anläggningen och den andra refinar frågan så att endast de enheter som också är anslutna via mobil nät verket återställs.
+
+    Föregående kod när objektet skapas, anger ett maximalt antal returnerade dokument. **Frågespråket** innehåller en **HasMoreResults** Boolean-egenskap som du kan använda för att anropa **GetNextAsTwinAsync** -metoderna flera gånger för att hämta alla resultat. En metod som heter **GetNextAsJson** är tillgänglig för resultat som inte är enhets dubbla, till exempel resultat av agg regerings frågor.
+
+1. Slutligen lägger du till följande rader till **Main**-metoden:
 
     ```csharp  
     registryManager = RegistryManager.CreateFromConnectionString(connectionString);
@@ -122,10 +127,8 @@ I det här avsnittet skapar du en .NET-konsol app ( C#med) som lägger till plat
     Console.ReadLine();
     ```
 
-8. I Solution Explorer öppnar du **Ange start projekt...** och kontrollerar att **åtgärden** för **AddTagsAndQuery** -projektet är **igång**. Skapa lösningen.
+1. Kör det här programmet genom att högerklicka på projektet **AddTagsAndQuery** och välja **Felsök**, följt av **Starta ny instans**. Du bör se en enhet i resultatet för frågan som frågar efter alla enheter som finns i **Redmond43** och ingen för den fråga som begränsar resultatet till enheter som använder ett mobil nät verk.
 
-9. Kör det här programmet genom att högerklicka på projektet **AddTagsAndQuery** och välja **Felsök**, följt av **Starta ny instans**. Du bör se en enhet i resultatet för frågan som frågar efter alla enheter som finns i **Redmond43** och ingen för den fråga som begränsar resultatet till enheter som använder ett mobil nät verk.
-   
     ![Fråga resultat i fönster](./media/iot-hub-csharp-csharp-twin-getstarted/addtagapp.png)
 
 I nästa avsnitt skapar du en enhets app som rapporterar anslutnings informationen och ändrar resultatet för frågan i föregående avsnitt.
@@ -134,17 +137,17 @@ I nästa avsnitt skapar du en enhets app som rapporterar anslutnings information
 
 I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som **myDeviceId**och uppdaterar sedan dess rapporterade egenskaper så att den innehåller den information som den är ansluten till med ett mobilt nätverk.
 
-1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Ge projektet namnet **ReportConnectivity**.
-   
-    ![Ny Visual C# Windows klassisk Device-app](./media/iot-hub-csharp-csharp-twin-getstarted/createdeviceapp.png)
-    
-2. I Solution Explorer högerklickar du på projektet **ReportConnectivity** och klickar sedan på **Hantera NuGet-paket...** .
+1. Välj **Arkiv** > **Nytt** > **Projekt** i Visual Studio. I **Skapa nytt projekt**väljer du **konsol program (.NET Framework)** och väljer sedan **Nästa**.
 
-3. I fönstret **NuGet Package Manager** väljer du **Bläddra** och söker efter **Microsoft. Azure. devices. client**. Välj **Installera** för att installera **Microsoft. Azure. devices. client** -paketet och godkänn användnings villkoren. Den här proceduren hämtar, installerar och lägger till en referens till [Azure IoT Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet-paketet och dess beroenden.
-   
-    ![NuGet paket hanterarens fönster klient program](./media/iot-hub-csharp-csharp-twin-getstarted/clientsdknuget.png)
+1. I **Konfigurera ditt nya projekt**namnger du projektet **ReportConnectivity**. För **lösning**väljer **du Lägg till i lösning**och väljer sedan **skapa**.
 
-4. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
+1. I Solution Explorer högerklickar du på projektet **ReportConnectivity** och väljer sedan **Hantera NuGet-paket**.
+
+1. Välj **Bläddra** och Sök efter och välj **Microsoft. Azure. devices. client**. Välj **Installera**.
+
+   I det här steget hämtas, installeras och läggs en referens till i [Azure IoT Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet-paketet och dess beroenden.
+
+1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
 
     ```csharp  
     using Microsoft.Azure.Devices.Client;
@@ -152,15 +155,14 @@ I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som *
     using Newtonsoft.Json;
     ```
 
-5. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med enhets anslutnings strängen som du antecknade i föregående avsnitt.
+1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med enhets anslutnings strängen som du antecknade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
 
     ```csharp  
-    static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;
-      DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
     static DeviceClient Client = null;
     ```
 
-6. Lägg till följande metod i klassen **Program**:
+1. Lägg till följande metod i klassen **Program**:
 
     ```csharp
     public static async void InitClient()
@@ -183,7 +185,7 @@ I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som *
 
     **Klient** objekt visar alla metoder som du behöver för att interagera med enheten tillsammans från enheten. Den kod som visas ovan initierar **klient** objekt och hämtar sedan enheten för **myDeviceId**.
 
-7. Lägg till följande metod i klassen **Program**:
+1. Lägg till följande metod i klassen **Program**:
 
     ```csharp  
     public static async void ReportConnectivity()
@@ -207,9 +209,9 @@ I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som *
     }
     ```
 
-   Koden ovan uppdaterar **myDeviceId**-egenskapen rapporterad med anslutnings informationen.
+   Koden ovan uppdaterar den rapporterade egenskapen för **myDeviceId** med anslutnings informationen.
 
-8. Slutligen lägger du till följande rader till **Main**-metoden:
+1. Slutligen lägger du till följande rader till **Main**-metoden:
 
     ```csharp
     try
@@ -226,24 +228,28 @@ I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som *
     Console.ReadLine();
     ```
 
-9. I Solution Explorer öppnar du **Ange start projekt...** och kontrollerar att **åtgärden** för **ReportConnectivity** -projektet är **igång**. Skapa lösningen.
+1. I Solution Explorer högerklickar du på din lösning och väljer **Ange start projekt**.
 
-10. Kör det här programmet genom att högerklicka på projektet **ReportConnectivity** och välja **Felsök**, följt av **Starta ny instans**. Du bör se hur den hämtar den dubbla informationen och sedan skicka anslutningen som en *rapporterad egenskap*.
-   
+1. I**Start projekt**för **vanliga egenskaper** > väljer du **flera start projekt**. För **ReportConnectivity**väljer du **Starta** som **åtgärd**. Spara ändringarna genom att välja **OK**.  
+
+1. Kör den här appen genom att högerklicka på projektet **ReportConnectivity** och välja **Felsök**och sedan **Starta ny instans**. Du bör se appen som hämtar den dubbla informationen och sedan skicka anslutningen som en ***rapporterad egenskap***.
+
     ![Kör Device app för att rapportera anslutningen](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
-       
-11. Nu när enheten rapporterade anslutnings information, bör den visas i båda frågorna. Kör .NET **AddTagsAndQuery** -appen för att köra frågorna igen. Den här gången ska **myDeviceId** visas i båda frågeresultaten.
-   
+
+   När enheten har rapporterat anslutnings informationen bör den visas i båda frågorna.
+
+1. Högerklicka på projektet **AddTagsAndQuery** och välj **Felsök** > **Starta ny instans** för att köra frågorna igen. Den här gången ska **myDeviceId** visas i båda frågeresultaten.
+
     ![Enhets anslutningen har rapporter ATS](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du har lagt till metadata för enheten som taggar från en backend-app och skrev en simulerad Device-app för att rapportera enhetens anslutnings information på enheten. Du har också lärt dig hur du frågar den här informationen med hjälp av SQL-liknande IoT Hub frågespråk.
 
-Använd följande resurser för att lära dig att:
+Du kan läsa mer från följande resurser:
 
-* Skicka telemetri från enheter med själv studie kursen [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-dotnet.md)
+* Information om hur du skickar telemetri från enheter finns i själv studie kursen [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-dotnet.md) .
 
-* konfigurera enheter med enhetens dubbla egenskaper med hjälp av självstudierna [Använd önskade egenskaper för att konfigurera enheter](tutorial-device-twins.md)
+* Information om hur du konfigurerar enheter med enhetens dubbla egenskaper finns i själv studie kursen [använda önskade egenskaper för att konfigurera enheter](tutorial-device-twins.md) .
 
-* kontrol lera enheter interaktivt (t. ex. genom att aktivera en fläkt från en användardefinierad app) med självstudierna [Använd direkt metoder](quickstart-control-device-dotnet.md) .
+* Information om hur du styr enheter interaktivt, t. ex. genom att aktivera en fläkt från en användardefinierad app, finns i själv studie kursen [använda direkta metoder](quickstart-control-device-dotnet.md) .

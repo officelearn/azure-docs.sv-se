@@ -4,16 +4,16 @@ description: Använd IoT Central-anslutningen i Microsoft Flow för att utlösa 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/25/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5f5353d0d85d6af4e74c48c80c790449852b43ef
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a972ab52f64a37ac6876194202324b4380460817
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876292"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050566"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Bygg arbets flöden med IoT Central Connector i Microsoft Flow
 

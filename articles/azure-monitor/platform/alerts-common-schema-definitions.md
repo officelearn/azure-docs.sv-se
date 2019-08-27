@@ -1,6 +1,6 @@
 ---
-title: Vanliga avisering schemadefinitioner för Webhooks/Logic Apps/Azure Functions/Automation-Runbooks
-description: Förstå vanliga avisering schemadefinitionerna för Webhooks/Logic Apps/Azure Functions/Automation-Runbooks
+title: Vanliga aviserings schema definitioner för Webhooks/Logic Apps/Azure Functions/Automation-runbooks
+description: Förstå vanliga aviserings schema definitioner för Webhooks/Logic Apps/Azure Functions/Automation-runbooks
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: c37ecfbadd7345fea347ff488895f16ba505c818
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 94938358bc4e4782e91401e24a01a3688c6a51ba
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594384"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034810"
 ---
 # <a name="common-alert-schema-definitions"></a>Vanliga aviseringsschemadefinitioner
 
-Den här artikeln beskriver den [vanliga avisering schemadefinitioner](https://aka.ms/commonAlertSchemaDocs) för Webhooks/Logic Apps/Azure Functions/Automation-Runbooks. 
+I den här artikeln beskrivs [vanliga aviserings schema definitioner](https://aka.ms/commonAlertSchemaDocs) för Webhooks/Logic Apps/Azure Functions/Automation-runbooks. 
 
 ## <a name="overview"></a>Översikt
 
-Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken till aviseringen**, och dessa instanser beskrivs i det gemensamma schemat i följande avsnitt:
-* **Essentials**: En uppsättning **standardiserade fält**Common över alla aviseringstyper som beskriver **vilka resurser** aviseringen är på tillsammans med ytterligare vanliga avisering metadata (till exempel allvarlighetsgrad eller beskrivning). 
-* **Avisera kontext**: En uppsättning fält som beskriver den **orsaken till aviseringen**, med fält som varierar **baserat på typ av avisering**. En metrisk varning skulle till exempel ha fält som Måttnamn och måttvärde i varningskontexten, en aktivitetsloggavisering skulle ha information om den händelse som skapade aviseringen. 
+Alla varnings instanser beskriver **den resurs som** påverkades och **orsaken till aviseringen**, och dessa instanser beskrivs i det gemensamma schemat i följande avsnitt:
+* **Essentials**: En uppsättning **standardiserade fält**, gemensamma för alla aviserings typer, som beskriver **vilken resurs** som aviseringen är på samt ytterligare vanliga aviserings-metadata (till exempel allvarlighets grad eller beskrivning). 
+* **Aviserings kontext**: En uppsättning fält som beskriver **orsaken till aviseringen**, med fält som varierar **beroende på aviserings typen**. Till exempel skulle en mått avisering ha fält som Metric-namn och mått värde i aviserings kontexten, medan en aktivitets logg avisering skulle ha information om händelsen som genererade aviseringen. 
 
-##### <a name="sample-alert-payload"></a>Exempel på en avisering nyttolast
+##### <a name="sample-alert-payload"></a>Exempel på aviserings nytto Last
 ```json
 {
   "schemaId": "azureMonitorCommonAlertSchema",
@@ -74,25 +74,25 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 }
 ```
 
-## <a name="essentials-fields"></a>'Essentials-fält
+## <a name="essentials-fields"></a>Fält för Essentials
 
 | Fält | Beskrivning|
 |:---|:---|
-| alertId | GUID som unikt identifierar aviseringsinstansen. |
-| alertRule | Namnet på den varningsregel som genererade aviseringen instansen. |
-| Severity | Allvarlighetsgrad för aviseringen. Möjliga värden: Sev0, Sev1, Sev2, Sev3, Sev4 |
-| signalType | Identifierar signalen där varningsregeln har definierats. Möjliga värden: Mått, Log, aktivitetsloggen |
-| monitorCondition | När en avisering utlöses anges aviseringens övervakningsvillkor till 'Fired'. När det underliggande villkoret som orsakade aviseringen utlöses rensar har övervakarens villkor angetts till ”löst'.   |
-| monitoringService | Övervakningstjänsten eller lösning som skapade aviseringen. Fälten för kontexten fastställs av övervakningstjänsten. |
-| alertTargetIds | Lista med ARM-ID: N alla berörda mål för en avisering. En logg avisering som definierats på en Log Analytics-arbetsyta eller Application Insights-instans, är det respektive arbetsyta/programmet. |
-| originAlertId | ID för aviseringsinstansen som genereras av övervakningstjänsten genererar den. |
-| firedDateTime | Datum tid för när aviseringen instansen har utlösts i UTC |
-| resolvedDateTime | Datum/tid för när övervakarens villkor för avisering-instansen har angetts till löst om du i UTC. För närvarande gäller endast för måttaviseringar.|
-| description | Beskrivning som definierats i regeln |
-|essentialsVersion| Versionsnummer för avsnittet essentials.|
-|alertContextVersion | Versionsnumret för avsnittet alertContext |
+| alertId | GUID identifierar aviserings instansen unikt. |
+| alertRule | Namnet på den aviserings regel som genererade aviserings instansen. |
+| severity | Aviseringens allvarlighets grad. Möjliga värden: Sev0, Sev1, Sev2, Sev3, Sev4 |
+| signalType | Identifierar signalen som varnings regeln definierats på. Möjliga värden: Mått, logg, aktivitets logg |
+| monitorCondition | När en varning utlöses anges övervaknings villkoret för aviseringen till "utlöst". När det underliggande villkoret som orsakade aviseringen om att brand figurer rensas, anges övervaknings villkoret till "löst".   |
+| monitoringService | Övervaknings tjänsten eller lösningen som skapade aviseringen. Fälten för aviserings kontexten styrs av övervaknings tjänsten. |
+| alertTargetIds | Lista över ARM-ID: n alla berörda mål för en avisering. För en logg avisering som definierats på en Log Analytics arbets yta eller Application Insights instans är det respektive arbets yta/program. |
+| originAlertId | ID för aviserings instansen som genereras av övervaknings tjänsten som genererar den. |
+| firedDateTime | Datum och tid då aviserings instansen utlöstes i UTC |
+| resolvedDateTime | Datum och tid när övervaknings villkoret för varnings instansen har angetts till "löst" i UTC. Gäller för närvarande endast för mått aviseringar.|
+| description | Beskrivning som definieras i aviserings regeln |
+|essentialsVersion| Versions nummer för avsnittet Essentials.|
+|alertContextVersion | Versions nummer för alertContext-avsnittet |
 
-##### <a name="sample-values"></a>Exempelvärden
+##### <a name="sample-values"></a>Exempel värden
 ```json
 {
   "essentials": {
@@ -114,13 +114,13 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 }
 ```
 
-## <a name="alert-context-fields"></a>”Avisera kontext-fält
+## <a name="alert-context-fields"></a>Fält för aviserings kontext
 
 ### <a name="metric-alerts"></a>Måttaviseringar
 
-#### <a name="monitoringservice--platform"></a>monitoringService = 'Plattformen ”
+#### <a name="monitoringservice--platform"></a>monitoringService = ' plattform '
 
-##### <a name="sample-values"></a>Exempelvärden
+##### <a name="sample-values"></a>Exempel värden
 ```json
 {
   "alertContext": {
@@ -151,15 +151,15 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 }
 ```
 
-### <a name="log-alerts"></a>Loggaviseringar
+### <a name="log-alerts"></a>Logg aviseringar
 
 > [!NOTE]
-> + För aviseringar om en anpassad JSON-nyttolast har definierats, återgår aktiverar det gemensamma schemat nyttolast-schema med det som beskrivs nedan.
-> + Aviseringar med ett gemensamt schema aktiverat har en övre gränsen på 256KB per avisering. **Sökresultaten är inte inbäddade i nyttolasten för log-aviseringar om de orsakar aviseringen storleken till mellan det här tröskelvärdet.** Detta kan fastställas genom att kontrollera flaggan 'IncludedSearchResults'. I scenarier där sökresultaten inte ingår, är det bäst att använda sökfrågan tillsammans med den [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> + För logg aviseringar där en anpassad JSON-nyttolast har definierats, så återställer det gemensamma schemat nytto Last schema till det som beskrivs nedan.
+> + Aviseringar med det gemensamma schemat aktiverat har en övre storleks gräns på 256 kB per varning. **Sök Resultat bäddas inte in i nytto lasten logg aviseringar om de orsakar aviserings storleken mellan detta tröskelvärde.** Detta kan bestämmas genom att markera flaggan IncludedSearchResults. I scenarier där Sök resultaten inte ingår rekommenderar vi att du använder Sök frågan tillsammans med [Log Analytics-API: et](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
-#### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
+#### <a name="monitoringservice--log-analytics"></a>monitoringService = Log Analytics
 
-##### <a name="sample-values"></a>Exempelvärden
+##### <a name="sample-values"></a>Exempel värden
 ```json
 {
   "alertContext": {
@@ -224,9 +224,9 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 }
 ```
 
-#### <a name="monitoringservice--application-insights"></a>monitoringService = ”Application Insights”
+#### <a name="monitoringservice--application-insights"></a>monitoringService = Application Insights
 
-##### <a name="sample-values"></a>Exempelvärden
+##### <a name="sample-values"></a>Exempel värden
 ```json
 {
   "alertContext": {
@@ -287,11 +287,11 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 }
 ```
 
-### <a name="activity-log-alerts"></a>Aktivitetsloggaviseringar
+### <a name="activity-log-alerts"></a>Aktivitetsloggsaviseringar
 
-#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = 'Aktivitetsloggen – administrativa'
+#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = ' aktivitets logg-administrativ '
 
-##### <a name="sample-values"></a>Exempelvärden
+##### <a name="sample-values"></a>Exempel värden
 ```json
 {
   "alertContext": {
@@ -316,22 +316,118 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 }
 ```
 
-#### <a name="monitoringservice--servicehealth"></a>monitoringService = 'ServiceHealth'
+#### <a name="monitoringservice--activity-log---policy"></a>monitoringService = ' aktivitets logg-princip '
 
-##### <a name="sample-values"></a>Exempelvärden
+##### <a name="sample-values"></a>Exempel värden
+```json
+{
+  "alertContext": {
+    "authorization": {
+      "action": "Microsoft.Resources/checkPolicyCompliance/read",
+      "scope": "/subscriptions/<GUID>"
+    },
+    "channels": "Operation",
+    "claims": "{\"aud\":\"https://management.azure.com/\",\"iss\":\"https://sts.windows.net/<GUID>/\",\"iat\":\"1566711059\",\"nbf\":\"1566711059\",\"exp\":\"1566740159\",\"aio\":\"42FgYOhynHNw0scy3T/bL71+xLyqEwA=\",\"appid\":\"<GUID>\",\"appidacr\":\"2\",\"http://schemas.microsoft.com/identity/claims/identityprovider\":\"https://sts.windows.net/<GUID>/\",\"http://schemas.microsoft.com/identity/claims/objectidentifier\":\"<GUID>\",\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\":\"<GUID>\",\"http://schemas.microsoft.com/identity/claims/tenantid\":\"<GUID>\",\"uti\":\"Miy1GzoAG0Scu_l3m1aIAA\",\"ver\":\"1.0\"}",
+    "caller": "<GUID>",
+    "correlationId": "<GUID>",
+    "eventSource": "Policy",
+    "eventTimestamp": "2019-08-25T11:11:34.2269098+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Warning",
+    "operationName": "Microsoft.Authorization/policies/audit/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "isComplianceCheck": "True",
+      "resourceLocation": "eastus2",
+      "ancestors": "<GUID>",
+      "policies": "[{\"policyDefinitionId\":\"/providers/Microsoft.Authorization/policyDefinitions/<GUID>/\",\"policySetDefinitionId\":\"/providers/Microsoft.Authorization/policySetDefinitions/<GUID>/\",\"policyDefinitionReferenceId\":\"vulnerabilityAssessmentMonitoring\",\"policySetDefinitionName\":\"<GUID>\",\"policyDefinitionName\":\"<GUID>\",\"policyDefinitionEffect\":\"AuditIfNotExists\",\"policyAssignmentId\":\"/subscriptions/<GUID>/providers/Microsoft.Authorization/policyAssignments/SecurityCenterBuiltIn/\",\"policyAssignmentName\":\"SecurityCenterBuiltIn\",\"policyAssignmentScope\":\"/subscriptions/<GUID>\",\"policyAssignmentSku\":{\"name\":\"A1\",\"tier\":\"Standard\"},\"policyAssignmentParameters\":{}}]"
+    },
+    "status": "Succeeded",
+    "subStatus": "",
+    "submissionTimestamp": "2019-08-25T11:12:46.1557298+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--activity-log---autoscale"></a>monitoringService = ' aktivitets logg-autoskalning '
+
+##### <a name="sample-values"></a>Exempel värden
+```json
+{
+  "alertContext": {
+    "channels": "Admin, Operation",
+    "claims": "{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn\":\"Microsoft.Insights/autoscaleSettings\"}",
+    "caller": "Microsoft.Insights/autoscaleSettings",
+    "correlationId": "<GUID>",
+    "eventSource": "Autoscale",
+    "eventTimestamp": "2019-08-21T16:17:47.1551167+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Insights/AutoscaleSettings/Scaleup/Action",
+    "operationId": "<GUID>",
+    "properties": {
+      "description": "The autoscale engine attempting to scale resource '/subscriptions/d<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS' from 9 instances count to 10 instances count.",
+      "resourceName": "/subscriptions/<GUID>/resourceGroups/voiceassistancedemo/providers/Microsoft.Compute/virtualMachineScaleSets/alexademo",
+      "oldInstancesCount": "9",
+      "newInstancesCount": "10",
+      "activeAutoscaleProfile": "{\r\n  \"Name\": \"Auto created scale condition\",\r\n  \"Capacity\": {\r\n    \"Minimum\": \"1\",\r\n    \"Maximum\": \"10\",\r\n    \"Default\": \"1\"\r\n  },\r\n  \"Rules\": [\r\n    {\r\n      \"MetricTrigger\": {\r\n        \"Name\": \"Percentage CPU\",\r\n        \"Namespace\": \"microsoft.compute/virtualmachinescalesets\",\r\n        \"Resource\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"ResourceLocation\": \"eastus\",\r\n        \"TimeGrain\": \"PT1M\",\r\n        \"Statistic\": \"Average\",\r\n        \"TimeWindow\": \"PT5M\",\r\n        \"TimeAggregation\": \"Average\",\r\n        \"Operator\": \"GreaterThan\",\r\n        \"Threshold\": 0.0,\r\n        \"Source\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"MetricType\": \"MDM\",\r\n        \"Dimensions\": [],\r\n        \"DividePerInstance\": false\r\n      },\r\n      \"ScaleAction\": {\r\n        \"Direction\": \"Increase\",\r\n        \"Type\": \"ChangeCount\",\r\n        \"Value\": \"1\",\r\n        \"Cooldown\": \"PT1M\"\r\n      }\r\n    }\r\n  ]\r\n}",
+      "lastScaleActionTime": "Wed, 21 Aug 2019 16:17:47 GMT"
+    },
+    "status": "Succeeded",
+    "submissionTimestamp": "2019-08-21T16:17:47.2410185+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--activity-log---security"></a>monitoringService = ' aktivitets logg-säkerhet '
+
+##### <a name="sample-values"></a>Exempel värden
+```json
+{
+  "alertContext": {
+    "channels": "Operation",
+    "correlationId": "<GUID>",
+    "eventSource": "Security",
+    "eventTimestamp": "2019-08-26T08:34:14+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Security/locations/alerts/activate/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "threatStatus": "Quarantined",
+      "category": "Virus",
+      "threatID": "2147519003",
+      "filePath": "C:\\AlertGeneration\\test.eicar",
+      "protectionType": "Windows Defender",
+      "actionTaken": "Blocked",
+      "resourceType": "Virtual Machine",
+      "severity": "Low",
+      "compromisedEntity": "testVM",
+      "remediationSteps": "[\"No user action is necessary\"]",
+      "attackedResourceType": "Virtual Machine"
+    },
+    "status": "Active",
+    "submissionTimestamp": "2019-08-26T09:28:58.3019107+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--servicehealth"></a>monitoringService = ' ServiceHealth '
+
+##### <a name="sample-values"></a>Exempel värden
 ```json
 {
   "alertContext": {
     "authorization": null,
-    "channels": "Admin",
+    "channels": 1,
     "claims": null,
     "caller": null,
     "correlationId": "f3cf2430-1ee3-4158-8e35-7a1d615acfc7",
-    "eventSource": "ServiceHealth",
+    "eventSource": 2,
     "eventTimestamp": "2019-06-24T11:31:19.0312699+00:00",
     "httpRequest": null,
     "eventDataId": "<GUID>",
-    "level": "Informational",
+    "level": 3,
     "operationName": "Microsoft.ServiceHealth/maintenance/action",
     "operationId": "<GUID>",
     "properties": {
@@ -355,13 +451,14 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
     },
     "status": "Active",
     "subStatus": null,
-    "submissionTimestamp": "2019-06-24T11:31:31.7147357+00:00"
+    "submissionTimestamp": "2019-06-24T11:31:31.7147357+00:00",
+    "ResourceType": null
   }
 }
 ```
-#### <a name="monitoringservice--resource-health"></a>monitoringService = 'Resource Health'
+#### <a name="monitoringservice--resource-health"></a>monitoringService = Resource Health
 
-##### <a name="sample-values"></a>Exempelvärden
+##### <a name="sample-values"></a>Exempel värden
 ```json
 {
   "alertContext": {
@@ -390,6 +487,6 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Mer information om det gemensamma schemat för avisering](https://aka.ms/commonAlertSchemaDocs)
-- [Lär dig hur du skapar en logikapp som använder det gemensamma schemat som aviseringen för att hantera alla aviseringar.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
+- [Läs mer om det vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs)
+- [Lär dig hur du skapar en logisk app som använder det gemensamma aviserings schemat för att hantera alla dina aviseringar.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 

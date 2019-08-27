@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 428c470eb633c7727f65c5a9a3afa76bce50b177
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: f0cbb8d19d2a7d60fdfd3c10a8c9914ffa79e0a3
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647250"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034906"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera en Linux Java-app för Azure App Service
 
@@ -402,7 +402,7 @@ Till sist placerar du driv rutins jar v7 i Tomcat-classpath och startar om App S
 
     Alternativt kan du använda en FTP-klient för att ladda upp JDBC-drivrutinen. Följ de här [anvisningarna för att hämta dina FTP-autentiseringsuppgifter](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
-2. Om du har skapat en data källa på server nivå startar du om App Service Linux-programmet. Tomcat kommer att `CATALINA_HOME` återställas till `/home/tomcat/conf` och använda den uppdaterade konfigurationen.
+2. Om du har skapat en data källa på server nivå startar du om App Service Linux-programmet. Tomcat kommer att `CATALINA_BASE` återställas till `/home/tomcat` och använda den uppdaterade konfigurationen.
 
 ### <a name="spring-boot"></a>Spring Boot
 

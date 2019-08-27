@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2b7f2b0e20e85e1e62f8efabb81eddd5f901f2
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: eb4486c889dec29f81b57605c3ccee510242f832
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991105"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035149"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Få fjärråtkomst till Power BI Mobile med Azure AD-programproxy
 
@@ -103,28 +103,27 @@ Nu är du redo att konfigurera Azure AD-programproxy.
 
 Slutför konfigurationen av programmet genom att gå till avsnittet **användare och grupper** och tilldela användare åtkomst till det här programmet.
 
-## <a name="step-3-grant-power-bi-mobile-access-to-report-services"></a>Steg 3: Bevilja Power BI Mobile åtkomst till rapport tjänster
+## <a name="step-3-modify-the-reply-uris-for-the-application"></a>Steg 3: Ändra svars-URI: n för programmet
 
-Innan Power BI mobilappen kan ansluta till och komma åt rapport tjänster måste du registrera dig korrekt i Azure AD.  
+Innan Power BI mobilappen kan ansluta och komma åt rapport tjänster måste du konfigurera program registreringen som skapades automatiskt i steg 2. 
 
 1. På sidan Azure Active Directory **Översikt** väljer du **Appregistreringar**.
 2. Under fliken **alla program** söker du efter det program som du skapade i steg 2.
 3. Välj programmet och välj sedan **autentisering**.
 4. Lägg till följande omdirigerings-URI: er baserat på vilken plattform du använder.
 
-   När du registrerar appen för Power BI Mobile **iOS**lägger du till följande omdirigerings-URI: er av typen offentlig klient (mobil & Desktop):
+   När du konfigurerar appen för Power BI Mobile **iOS**lägger du till följande omdirigerings-URI: er av typen offentlig klient (mobil & Desktop):
    - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
    
-   När du registrerar appen för Power BI Mobile **Android**lägger du till följande omdirigerings-URI: er av typen offentlig klient (mobil & Desktop):
+   När du konfigurerar appen för Power BI Mobile **Android**lägger du till följande omdirigerings-URI: er av typen offentlig klient (mobil & Desktop):
    - `urn:ietf:wg:oauth:2.0:oob`
+   - `mspbi-adal://com.microsoft.powerbimobile`
 
    > [!IMPORTANT]
-   > Omdirigerings-URI: erna måste läggas till för att programmet ska fungera korrekt. Om du konfigurerar detta för både iOS och Android behöver du bara registrera ett **enda** program och lägga till omdirigerings-URI: erna för både iOS och Android. Om du behöver separata program för varje plattform måste du inkludera omdirigerings-URI: `mspbi-adal://com.microsoft.powerbimobile` n för båda apparna.
-
-2. Nu när du har registrerat ditt interna program kan du ge det åtkomst till andra program i katalogen, i det här fallet för att få åtkomst till rapport tjänster som publicerats via programproxyn. Följ stegen i [steg 3: Bevilja åtkomst till ditt proxy-](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application)program.
+   > Omdirigerings-URI: erna måste läggas till för att programmet ska fungera korrekt. Om du konfigurerar appen för både Power BI Mobile iOS och Android lägger du till följande omdirigerings-URI av typen offentlig klient (mobil & Desktop) i listan över omdirigerings-URI: `urn:ietf:wg:oauth:2.0:oob`er som har kon figurer ATS för iOS:.
 
 ## <a name="step-4-connect-from-the-power-bi-mobile-app"></a>Steg 4: Anslut från Power BI Mobile-appen
 

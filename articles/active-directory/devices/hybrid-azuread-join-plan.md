@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62496aceb1454283449e952c0ed86623597e9e66
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1431a46bf0981ee7ca3ecd06be9d7ebc35f05982
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011673"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032732"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen av hybrid Azure Active Directorys anslutning
 
@@ -35,7 +35,7 @@ Om du har en lokal Active Directory (AD)-miljö och vill ansluta till dina AD-do
 Den här artikeln förutsätter att du är bekant med [introduktionen till enhets identitets hantering i Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> Minimi kraven för domän funktions nivåer och skogen för Windows 10 hybrid Azure AD Join är Windows Server 2008 R2.
+> Den minsta nödvändiga domänkontrollanten för Windows 10 hybrid Azure AD Join är Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Planera implementeringen
 

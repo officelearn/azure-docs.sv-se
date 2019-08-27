@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: f981c14e26c51c427dab6b418cab8df46b1bb026
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 5257724add570be480063ab776248a8fd1d944c7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302251"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034756"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Förstå hur migreringsverktyget fungerar
 
@@ -75,11 +75,11 @@ Alla klassiska varningar om Cosmos DB mått kan migreras utom aviseringar för d
 
 - Genomsnittligt antal begär Anden per sekund
 - Konsekvensnivå
-- Http-2xx
-- Http-3xx
-- Http 400
-- Http 401
-- Internt Server fel
+- HTTP 2xx
+- HTTP 3xx
+- HTTP 400
+- HTTP 401
+- Internt serverfel
 - Maximalt antal förbrukade RUPM per minut
 - Max ru: er per sekund
 - Antal misslyckade begär Anden om mongo
@@ -95,7 +95,7 @@ Alla klassiska varningar om Cosmos DB mått kan migreras utom aviseringar för d
 - Tjänst tillgänglighet
 - Lagringskapacitet
 - Begränsade begär Anden
-- Totalt antal förfrågningar
+- Totalt antal begäranden
 
 Genomsnittligt antal begär Anden per sekund, konsekvens nivå, Max RUPM förbrukat per minut, Max ru: er per sekund, observerad Läs fördröjning, observerad Skriv fördröjning, lagrings kapacitet är för närvarande inte tillgängligt i det [nya systemet](metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
 
@@ -205,9 +205,9 @@ För Cosmos DB är motsvarande mått det som visas nedan:
 | Mått i klassiska aviseringar | Motsvarande mått i nya aviseringar | Kommentar|
 |--------------------------|---------------------------------|---------|
 | AvailableStorage     |AvailableStorage|   |
-| Data storlek | DataUsage| |
+| Datastorlek | DataUsage| |
 | Antal dokument | DocumentCount||
-| Index storlek | IndexUsage||
+| Indexstorlek | IndexUsage||
 | Avgift för mongo antal förfrågningar| MongoRequestCharge med dimension "CommandName" = "count"||
 | Begär ande frekvens för mongo antal | MongoRequestsCount med dimension "CommandName" = "count"||
 | Mongo ta bort begär ande avgift | MongoRequestCharge med dimensionen "CommandName" = "Delete"||
@@ -256,13 +256,20 @@ Alla användare som har den inbyggda rollen som övervakar deltagare på prenume
 
 När du har [utlöst migreringen](alerts-using-migration-tool.md)får du e-post till de adresser du angav för att meddela dig att migreringen är klar eller om någon åtgärd krävs från dig. I det här avsnittet beskrivs några vanliga problem och hur du hanterar dem.
 
-### <a name="validation-failed"></a>Verifieringen misslyckades
+### <a name="validation-failed"></a>Verifiering misslyckades
 
 På grund av några nya ändringar i de klassiska varnings reglerna i din prenumeration går det inte att migrera prenumerationen. Det här problemet är tillfälligt. Du kan starta om migreringen när migrerings statusen har flyttats tillbaka **för migrering** på några få dagar.
 
-### <a name="policy-or-scope-lock-preventing-us-from-migrating-your-rules"></a>Princip eller områdes lås som hindrar oss från att migrera dina regler
+### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>Områdes lås som hindrar oss från att migrera dina regler
 
-Som en del av migreringen skapas nya mått varningar och nya åtgärds grupper och sedan tas de klassiska varnings reglerna bort. Men det finns antingen en princip eller ett områdes lås som hindrar oss från att skapa resurser. Vissa eller alla regler kan inte migreras beroende på principens eller områdets lås. Du kan lösa problemet genom att ta bort omfångs låset eller principen tillfälligt och utlösa migreringen igen.
+Som en del av migreringen skapas nya mått varningar och nya åtgärds grupper och sedan tas de klassiska varnings reglerna bort. Ett områdes lås kan dock hindra oss från att skapa eller ta bort resurser. Det gick inte att migrera vissa eller alla regler beroende på omfångs låset. Du kan lösa det här problemet genom att ta bort omfångs låset för prenumerationen, resurs gruppen eller resursen, som visas i [migreringsverktyget](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)och utlösa migreringen igen. Det går inte att inaktivera områdes låset och det måste tas bort under migreringsprocessen. [Läs mer om hur du hanterar områdes lås](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+
+### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Princip med "Neka"-inverkan som hindrar oss från att migrera dina regler
+
+Som en del av migreringen skapas nya mått varningar och nya åtgärds grupper och sedan tas de klassiska varnings reglerna bort. En princip kan dock hindra oss från att skapa resurser. Vissa eller alla regler kan inte migreras beroende på principen. De principer som blockerar processen visas i listan i [migreringsverktyget](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Lös det här problemet genom att antingen:
+
+- Exklusive prenumerationer eller resurs grupper för varaktigheten för migreringsprocessen från princip tilldelningen. [Lär dig mer om att hantera undantags omfång för principer](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
+- Om du tar bort eller ändrar effekter till audit eller append (som till exempel kan lösa problem som är relaterade till taggar som saknas). [Lär dig mer om att hantera policys-effekter](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Nästa steg
 

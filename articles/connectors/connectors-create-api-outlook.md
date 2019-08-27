@@ -1,5 +1,5 @@
 ---
-title: Ansluta till Outlook.com – Azure Logic Apps | Microsoft Docs
+title: Anslut till Outlook.com-Azure Logic Apps | Microsoft Docs
 description: 'Hantera e-post, kalendrar och kontakter med Outlook.com REST API: er och Azure Logic Apps'
 services: logic-apps
 ms.service: logic-apps
@@ -11,34 +11,34 @@ ms.topic: article
 ms.date: 08/18/2016
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fd6836451a73551487b8f97903594154a2efc894
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4586255e96647267bc913f2bc054610163e16bd3
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105810"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050876"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>Hantera e-post, kalendrar och kontakter i Outlook.com med Azure Logic Apps
 
-Den här artikeln visar hur du kan skapa och hantera din Outlook.com-konto i en logikapp med Box-anslutningsprogrammet. På så sätt kan du skapa logikappar som automatiserar uppgifter och arbetsflöden för ditt Outlook.com-konto, till exempel:
+Den här artikeln visar hur du kan skapa och hantera ditt Outlook.com-konto i en Logic app med Box Connector. På så sätt kan du skapa Logi Kap par som automatiserar uppgifter och arbets flöden för ditt Outlook.com-konto, till exempel:
 
 * Skicka e-post. 
-* Schemalägga möten.
-* Lägga till kontakter. 
+* Schemalägg möten.
+* Lägg till kontakter. 
 
-Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+Om du inte har använt Logic Apps igen kan du läsa mer [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En [Outlook.com-konto](https://outlook.live.com/owa/)
+* Ett [Outlook.com-konto](https://outlook.live.com/owa/)
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Logikappen där du vill komma åt ditt Outlook.com-konto. Om du vill starta logikappen med en Outlook-utlösare, som du behöver en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* Den Logic app där du vill komma åt ditt Outlook.com-konto. Om du vill starta din Logic app med en Outlook-utlösare behöver du en [Tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="connect-to-outlookcom"></a>Ansluta till Outlook.com
+## <a name="connect-to-outlookcom"></a>Anslut till Outlook.com
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -46,7 +46,7 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logi
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare och åtgärder gränser, enligt beskrivningen av kopplingens Swagger-fil, finns i den [anslutningsappens-referenssida](/connectors/outlook/). 
+Teknisk information, till exempel utlösare, åtgärder och gränser, som beskrivs av kopplingens Swagger-fil, finns på [kopplingens referens sida](/connectors/outlook/). 
 
 ## <a name="get-support"></a>Få support
 
@@ -55,4 +55,4 @@ Teknisk information, till exempel utlösare och åtgärder gränser, enligt besk
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

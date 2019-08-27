@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3979920cac8e3ef856b3211733f08c21afac3e26
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 7fbeb12f5b221685aad5cac5352318db10bd69a7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693702"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036272"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 
@@ -26,3 +26,12 @@ ms.locfileid: "68693702"
 Innan du börjar, om du är nybörjare på Premium Storage, läser du först [Välj en Azure-disktyp för virtuella IaaS-datorer](disks-types.md) och [Azure Storage skalbarhets-och prestanda mål för lagrings konton](../../storage/common/storage-scalability-targets.md).
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
+
+Om du vill mäta din disk kan du läsa vår artikel om att [mäta en disk](disks-benchmarks.md).
+
+Läs mer om tillgängliga disk typer: [Välj en disktyp](disks-types.md)  
+
+För SQL Server användare läser du artiklar om bästa metoder för prestanda för SQL Server:
+
+* [Metod tips för prestanda för SQL Server i Azure Virtual Machines](sql/virtual-machines-windows-sql-performance.md)
+* [Azure Premium Storage ger högsta prestanda för SQL Server i Azure VM](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

@@ -13,12 +13,12 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8794ffa1654e49690f3bd31a380ba2051b4b1da7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 52f9832a4307ea9519df448f192eeca70043a6d6
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294980"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035175"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>Vad är federation med Azure AD?
 
@@ -35,7 +35,7 @@ Du kan federera din lokala miljö med Azure AD och använda den här federations
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är hybrididentitet?](whatis-phs.md)
+- [Vad är hybrididentitet?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity)
 - [Vad är Azure AD Connect och Connect Health?](whatis-azure-ad-connect.md)
 - [Vad är synkronisering av lösenordshash?](whatis-phs.md)
 - [Vad är federation?](whatis-fed.md)

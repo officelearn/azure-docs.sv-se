@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: fef551c254eb4fa212333a55bde3d642645a16b6
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0d47c3f0838e22ad8c5185a42f5f0c748335dfa8
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489810"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70049487"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Självstudier: Bearbeta tweets med Azure Event Hubs och Apache Spark i HDInsight
 
@@ -44,9 +44,9 @@ Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ a
 
 1. Ange följande värden:
 
-    |Egenskap |Värde |
+    |Egenskap |Value |
     |---|---|
-    |Namn|Ange program namnet. Det värde som används för den här självstudien är **HDISparkStreamApp0423**. Det här namnet måste vara ett unikt namn.|
+    |Name|Ange program namnet. Det värde som används för den här självstudien är **HDISparkStreamApp0423**. Det här namnet måste vara ett unikt namn.|
     |Beskrivning|Ange en kort beskrivning av programmet. Det värde som används för den här självstudien är **ett enkelt program för HDInsight Spark-direktuppspelning**.|
     |Webbplats|Ange programmets webbplats. Det behöver inte vara en giltig webbplats.  Det värde som används för den här `http://www.contoso.com`självstudien är.|
     |Motringnings-URL|Du kan lämna det tomt.|
@@ -82,7 +82,7 @@ Du använder den här händelsehubben för att lagra tweets.
 
     |Egenskap |Value |
     |---|---|
-    |Namn|Ange ett namn för händelsehubben.  Det värde som används för den här självstudien är **myeventhubns20180403**.|
+    |Name|Ange ett namn för händelsehubben.  Det värde som används för den här självstudien är **myeventhubns20180403**.|
     |Prisnivå|Välj **standard**.|
     |Subscription|Välj lämplig prenumeration.|
     |Resource group|Välj en befintlig resurs grupp i den nedrullningsbara listan eller Välj **Skapa ny** för att skapa en ny resurs grupp.|
@@ -135,7 +135,7 @@ Skapa en Jupyter Notebook och ge den namnet **SendTweetsToEventHub**.
 
     ```
     %%configure
-    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0,org.twitter4j:twitter4j-core:4.0.6"}}
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
 2. Redigera koden nedan genom att ersätta `<Event hub name>` `<CONSUMER KEY>`, `<Event hub namespace connection string>` `<CONSUMER SECRET>` `<TOKEN SECRET>` ,,, och med lämpliga värden. `<ACCESS TOKEN>` Kör den redigerade koden för att skicka tweets till händelsehubben:
@@ -217,7 +217,7 @@ Skapa en annan Jupyter-anteckningsbok och ge den namnet **ReadTweetsFromEventHub
 
     ```
     %%configure -f
-    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13"}}
     ```
 
 2. Redigera koden nedan genom att ersätta `<Event hub name>`och `<Event hub namespace connection string>` med lämpliga värden. Kör den redigerade koden för att läsa tweets från händelsehubben:

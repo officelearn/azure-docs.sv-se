@@ -1,46 +1,46 @@
 ---
-title: Ansluta till GitHub – Azure Logic Apps | Microsoft Docs
-description: 'Övervaka GitHub händelser med GitHub REST API: er och Azure Logic Apps'
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 03/02/2018
-ms.topic: article
-ms.service: logic-apps
+title: Anslut till GitHub-Azure Logic Apps
+description: 'Övervaka GitHub-händelser med GitHub REST API: er och Azure Logic Apps'
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+manager: carmonm
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 03/02/2018
 tags: connectors
-ms.openlocfilehash: 0d2ff9368bc244a5afd6fafc40cf476b90a80a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6e2a803ee2a272189abf0f21796b2305eea40b
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462600"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050902"
 ---
-# <a name="connect-to-github"></a>Anslut till GitHub
+# <a name="connect-to-github-from-azure-logic-apps"></a>Anslut till GitHub från Azure Logic Apps
 
-GitHub är en webbaserad Git-lagringsplats värdtjänst som erbjuder alla distribuerad revideringskontroll och källa kod management (SCM)-funktionerna i Git samt andra funktioner.
+GitHub är en webbaserad värd tjänst för git-lagring som erbjuder alla funktioner för distribuerad revision och SCM (hantering av käll kods hantering) i git och andra funktioner.
 
-Du kommer igång med GitHub-anslutningsapp [först skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Kom igång med GitHub-anslutningen genom att [först skapa en Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-github"></a>Skapa en anslutning till GitHub
 
-Om du vill använda GitHub-anslutningsapp i en logikapp, måste du först skapa en *anslutning* och ange information för de här egenskaperna: 
+Om du vill använda GitHub-anslutningen i en Logic-app måste du först skapa en *anslutning* och sedan ange information om de här egenskaperna: 
 
-| Egenskap | Krävs | Beskrivning | 
+| Egenskap | Obligatorisk | Beskrivning | 
 | -------- | -------- | ----------- | 
-| Token | Ja | Ange dina autentiseringsuppgifter för GitHub. |
+| Token | Ja | Ange dina GitHub-autentiseringsuppgifter. |
 
-När du har skapat anslutningen kan du köra åtgärderna och lyssna efter utlösare som beskrivs i den här artikeln.
+När du har skapat anslutningen kan du köra åtgärderna och lyssna efter de utlösare som beskrivs i den här artikeln.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
-## <a name="connector-specific-details"></a>Information om specifika
+## <a name="connector-reference"></a>Referens för anslutningsapp
 
-För utlösare och åtgärder som definierats i Swagger och eventuella gränser kan du granska den [anslutningsinformationen](/connectors/github/).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/github/).
 
-## <a name="find-more-connectors"></a>Sök efter fler anslutningar
+## <a name="next-steps"></a>Nästa steg
 
-* Granska den [lista över Anslutningsappar](apis-list.md).
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

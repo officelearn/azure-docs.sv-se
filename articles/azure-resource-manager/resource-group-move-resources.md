@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 114e0d8e935aa8e6ac3f70a34a8050b19758fb42
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 69cd6031111c72d54cb87975c2040078a9965821
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624562"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035557"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Flytta resurser till en ny resurs grupp eller prenumeration
 
@@ -35,8 +35,6 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
    * [Vägledning om nätverks flytt](./move-limitations/networking-move-limitations.md)
    * [Vägledning för Recovery Services flytt](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Vägledning för Virtual Machines flytt](./move-limitations/virtual-machines-move-limitations.md)
-
-   Om mål resurs gruppen innehåller ett virtuellt nätverk kan statusen för dess beroende resurser blockera flyttningen, även om resurserna inte är involverade i flytten. Mer information finns i avsnittet om att [Flytta rikt linjer för nätverk](./move-limitations/virtual-network-move-limitations.md).
 
 1. Käll-och mål prenumerationerna måste vara aktiva. Om du har problem med att aktivera ett konto som har inaktiverats [skapar du en support förfrågan för Azure](../azure-supportability/how-to-create-azure-support-request.md). Välj **prenumerationshantering** för typ av ärende.
 

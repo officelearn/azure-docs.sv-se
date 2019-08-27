@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: a559fe86850ee9c1378876bc5ed8f2d0ddfb2d99
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 4b426fbc1d1b3eeed2321f86bb51c9c5d705adb4
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543043"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035617"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Anslut Operations Manager till Azure Monitor
 
@@ -47,8 +47,8 @@ Läs igenom följande krav innan du börjar.
 * Azure Monitor stöder endast System Center Operations Manager 2016 eller senare, Operations Manager 2012 SP1 UR6 eller senare och Operations Manager 2012 R2 UR2 eller senare. Stöd för proxy har lagts till i Operations Manager 2012 SP1 UR7 och Operations Manager 2012 R2 UR3.
 * Att integrera System Center Operations Manager 2016 med det amerikanska myndighets molnet kräver ett uppdaterat Advisor-hanterings paket som ingår i Samlad uppdatering 2 eller senare. System Center Operations Manager 2012 R2 kräver ett uppdaterat Advisor Management Pack som ingår i Samlad uppdatering 3 eller senare.
 * Alla Operations Manager-agenter måste uppfylla minimikraven. Kontrol lera att agenterna har den lägsta uppdateringen, annars kan Windows agent-kommunikation Miss lyckas och generera fel i händelse loggen för Operations Manager.
-* En Log Analytics-arbetsyta. Mer information hittar du i [Översikt över Log Analytics-arbetsyta](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
-* Du autentiserar till Azure med ett konto som är medlem i [rollen Log Analytics Contributor](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).
+* En Log Analytics-arbetsyta. Mer information hittar du i [Översikt över Log Analytics-arbetsyta](design-logs-deployment.md). 
+* Du autentiserar till Azure med ett konto som är medlem i [rollen Log Analytics Contributor](manage-access.md#manage-access-using-azure-permissions).
 
 * Regioner som stöds – endast följande Azure-regioner stöds av System Center Operations Manager för att ansluta till en Log Analytics arbets yta:
     - Västra centrala USA

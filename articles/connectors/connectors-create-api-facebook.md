@@ -1,45 +1,48 @@
 ---
-title: Anslut till Facebook - Azure Logic Apps | Microsoft Docs
-description: 'Hantera din tidslinje och sida med Facebook REST API: er och Azure Logic Apps'
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 11/07/2016
-ms.topic: article
-ms.service: logic-apps
+title: Ansluta till Facebook – Azure Logic Apps
+description: 'Hantera din tids linje och sida med Facebook REST API: er och Azure Logic Apps'
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+manager: carmonm
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 25595127d913d3cd093e0af3d7916e33fc7cb352
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83431184d7e9c5970ece6af143ee9b5166da96d5
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105984"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050948"
 ---
-# <a name="get-started-with-the-facebook-connector"></a>Kom igång med Facebook-anslutningsprogrammet
-Anslut till Facebook och publicera på en tidslinje, hämta ett Sidflöde och mycket mer. Med Facebook kan du:
+# <a name="manage-your-facebook-timeline-and-page-by-using-azure-logic-apps"></a>Hantera din Facebook-tidslinje och-sida genom att använda Azure Logic Apps
 
-* Skapa ditt flöde för företag som baseras på data som du får från Facebook. 
-* Använda en utlösare när ett nytt inlägg som tas emot.
-* Använd åtgärder som publicera på din tidslinje, hämta ett Sidflöde och mycket mer. De här åtgärderna få svar och utdata gör tillgängligt för andra åtgärder. Om det finns ett nytt inlägg på din tidslinje, kan du ta inlägget och push-överföra den till ditt Twitter-flöde. 
+Anslut till Facebook och publicera på en tids linje, hämta en sid matning med mera. Med Facebook kan du:
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Skapa ditt affärs flöde baserat på de data du får från Facebook. 
+* Använd en utlösare när ett nytt inlägg tas emot.
+* Använd åtgärder som publicerar på din tids linje, hämta en sid matning med mera. De här åtgärderna får ett svar och gör sedan resultatet tillgängligt för andra åtgärder. Om det till exempel finns ett nytt inlägg på din tids linje kan du ta det inlägget och skicka det till ditt Twitter-flöde. 
+
+Du kan komma igång genom att skapa en Logic app nu, se [skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-facebook"></a>Skapa en anslutning till Facebook
-När du lägger till den här anslutningen i logikappar, måste du godkänna logic apps för att ansluta till ditt Facebook.
 
-1. Logga in på ditt Facebook-konto
-2. Välj **auktorisera**, och tillåta dina logikappar att ansluta och använda dina Facebook. 
+När du lägger till den här anslutningen i dina Logi Kap par måste du auktorisera Logic Apps för att ansluta till Facebook.
+
+1. Logga in på ditt Facebook-konto.
+
+2. Välj **auktorisera**och Tillåt att dina Logi Kap par ansluter och använder din Facebook. 
 
 > [!INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
 > 
 
+## <a name="connector-reference"></a>Referens för anslutningsapp
 
-## <a name="connector-specific-details"></a>Information om specifika
+Teknisk information, till exempel utlösare, åtgärder och gränser, som beskrivs i filens OpenAPI-fil (tidigare Swagger), finns på [kopplingens referens sida](/connectors/facebook/).
 
-Visa alla utlösare och åtgärder som definierats i swagger och får även eventuella gränser i den [anslutningsinformationen](/connectors/facebook/).
+## <a name="next-steps"></a>Nästa steg
 
-## <a name="more-connectors"></a>Fler anslutningsappar
-Gå tillbaka till den [API: er lista](apis-list.md).
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

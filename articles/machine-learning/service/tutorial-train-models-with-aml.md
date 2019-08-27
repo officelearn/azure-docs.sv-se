@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/08/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 90f745d3ef5fd4442a184a51d82cd61b12828e15
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534797"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036199"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Självstudier: Träna bild klassificerings modeller med MNIST data och scikit – lär dig använda Azure Machine Learning
 
@@ -96,11 +96,11 @@ experiment_name = 'sklearn-mnist'
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-compute-resource"></a>Skapa eller koppla en befintlig beräkningsresurs
+### <a name="create-or-attach-an-existing-compute-target"></a>Skapa eller koppla ett befintligt beräknings mål
 
 Genom att använda Azure Machine Learning Compute, en hanterad tjänst så kan datavetare träna maskininlärningsmodeller i kluster med virtuella Azure-datorer. Exempel innefattar virtuella datorer med GPU-stöd. I den här självstudien ska du skapa Azure Machine Learning Compute som din träningsmiljö. Koden nedan skapar beräkningsklustren åt dig om de inte redan finns på din arbetsyta.
 
- **Det tar cirka fem minuter att skapa beräkningen.** Om beräkningen redan finns på arbetsytan så använder den här koden den och hoppar över skapandeprocessen.
+ **Det tar cirka fem minuter att skapa beräknings målet.** Om beräknings resursen redan finns i arbets ytan använder koden den och hoppar över skapande processen.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -211,9 +211,9 @@ Nu har du en uppfattning om hur dessa bilder ser ut och det förväntade föruts
 
 ### <a name="upload-data-to-the-cloud"></a>Ladda upp data till molnet
 
-Nu gör du data tillgängliga via en fjärranslutning genom att överföra dem från din lokala dator till Azure. Sedan kan den nås för fjärrträning. Datalagret är en praktisk konstruktion som är associerad med din arbetsyta och som låter dig överföra eller hämta data. Du kan också interagera med den från dina fjärranslutna beräkningsmål. Det säkerhetskopieras av ett Azure Blob Storage-konto.
+Du har laddat ned och använt tränings data på den dator som antecknings boken körs på.  I nästa avsnitt kommer du att träna en modell på fjär Azure Machine Learning Compute.  Fjärrdatorns beräknings resurs behöver också åtkomst till dina data. Om du vill ge åtkomst laddar du upp data till ett centraliserat data lager som är associerat med din arbets yta. Det här data lagret ger snabb åtkomst till dina data när du använder fjärrberäknings mål i molnet, som i Azure Data Center.
 
-MNIST-filerna överförs till en katalog med namnet `mnist` i datalagrets rot:
+Ladda upp MNIST-filerna till en katalog `mnist` med namnet i roten för data lagret. Mer information finns i [komma åt data från dina data lager](how-to-access-data.md) .
 
 ```python
 ds = ws.get_default_datastore()

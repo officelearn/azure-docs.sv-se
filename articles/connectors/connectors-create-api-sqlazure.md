@@ -1,6 +1,6 @@
 ---
-title: Ansluta till SQLServer eller Azure SQL-databas – Azure Logic Apps | Microsoft Docs
-description: Så här att komma åt och hantera SQL-databaser lokalt eller i molnet genom att automatisera arbetsflöden med Azure Logic Apps
+title: Anslut till SQL Server eller Azure SQL Database-Azure Logic Apps | Microsoft Docs
+description: Hur du kommer åt och hanterar SQL-databaser lokalt eller i molnet genom att automatisera arbets flöden med Azure Logic Apps
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,102 +11,102 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 804a913d17c3151d07a1ecf229e2db148dc45558
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696408"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050766"
 ---
-# <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Ansluta till SQLServer eller Azure SQL Database från Azure Logic Apps
+# <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Anslut till SQL Server eller Azure SQL Database från Azure Logic Apps
 
-Den här artikeln visar hur du kan komma åt data i din SQL-databas i en logikapp med SQL Server-anslutningen. På så sätt kan du automatisera uppgifter, processer och arbetsflöden som hanterar din SQL-data och resurser genom att skapa logikappar. Anslutningen fungerar för både [SQL Server lokalt](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) och för [Azure SQL Database i molnet](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
+Den här artikeln visar hur du kan komma åt data i din SQL-databas inifrån en Logic-app med SQL Server-anslutningen. På så sätt kan du automatisera uppgifter, processer och arbets flöden som hanterar dina SQL-data och-resurser genom att skapa Logic Apps. Anslutningen fungerar både för [SQL Server lokalt](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) och för [Azure SQL Database i molnet](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
 
-Du kan skapa logikappar som körs när den utlöses av händelser i din SQL-databas eller i andra system, som Dynamics CRM Online. Dina logic apps kan också hämta, infoga och ta bort data samt köra SQL-frågor och lagrade procedurer. Du kan till exempel skapa en logikapp som kontrollerar automatiskt nya poster i Dynamics CRM Online, lägger till objekt till din SQL-databas för eventuella nya poster och skickar sedan e-postaviseringar.
+Du kan skapa Logi Kap par som körs när de utlöses av händelser i din SQL-databas eller i andra system, till exempel Dynamics CRM Online. Dina Logi Kap par kan också hämta, infoga och ta bort data tillsammans med att köra SQL-frågor och lagrade procedurer. Du kan till exempel bygga en Logic app som automatiskt söker efter nya poster i Dynamics CRM Online, lägger till objekt i din SQL-databas för nya poster och sedan skickar e-postaviseringar.
 
-Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabbstarten: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Specifika teknisk information finns i den <a href="https://docs.microsoft.com/connectors/sql/" target="blank">referens för SQL Server-anslutningen</a>.
+Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app. Information om anslutningsspecifika teknisk information finns i referens för [SQL Server Connector](https://docs.microsoft.com/connectors/sql/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Logikappen där du behöver åtkomst till din SQL-databas. Om du vill börja din logikapp med en SQL-utlösare, som du behöver en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* Den Logic-app där du behöver åtkomst till din SQL-databas. Om du vill starta din Logic-app med en SQL-utlösare behöver du en [Tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-* En [Azure SQL-databas](../sql-database/sql-database-get-started-portal.md) eller en [SQL Server-databas](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) 
+* En [Azure SQL-databas](../sql-database/sql-database-get-started-portal.md) eller en [SQL Server databas](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) 
 
-  Dina tabeller måste ha data så att logikappen kan returnera resultat när du anropar åtgärder. Om du skapar en Azure SQL Database kan använda du exempeldatabaser som ingår. 
+  Dina tabeller måste innehålla data så att din Logi Kap par kan returnera resultat vid anrop av åtgärder. Om du skapar en Azure SQL Database kan du använda exempel databaser, som ingår. 
 
-* SQL-servernamnet, databasnamnet, användarnamnet och lösenordet. Du behöver dessa autentiseringsuppgifter så att du kan auktorisera din logik för att ansluta till SQLServer. 
+* SQL Server-namnet, databas namnet, ditt användar namn och ditt lösen ord. Du behöver dessa autentiseringsuppgifter så att du kan auktorisera din logik för att få åtkomst till din SQL Server. 
 
-  * Du kan hitta detaljerna i anslutningssträngen eller i Azure-portalen under Egenskaper för SQL-databas för Azure SQL Database:
+  * För Azure SQL Database kan du hitta informationen i anslutnings strängen eller i Azure Portal under SQL Database egenskaper:
 
-    ”Server = tcp: <*yourServerName*>. database.windows.net,1433;Initial Catalog = <*yourDatabaseName*>; Spara säkerhetsinformation = False; Användar-ID = <*användarnamn*>; Lösenord = <*yourPassword*>; För MultipleActiveResultSets = False; Kryptera = True; TrustServerCertificate = False; Tidsgräns för anslutning = 30 ”;
+    "Server = TCP: <*yourServerName*>. Database. Windows. net, 1433; Initial Catalog = <*yourDatabaseName*>; Behåll säkerhets information = falskt; Användar-ID = <*yourUserName*>; Password = <*yourPassword*>; MultipleActiveResultSets = falskt; Kryptera = sant; TrustServerCertificate = falskt; Timeout för anslutning = 30; "
 
-  * Du kan hitta detaljerna i anslutningssträngen för SQL Server: 
+  * För SQL Server kan du hitta informationen i anslutnings strängen: 
 
-    ”Server = <*yourServerAddress*>; Database = <*yourDatabaseName*>; Användar-Id = <*användarnamn*>; Lösenord = <*yourPassword*> ”;
+    "Server = <*yourServerAddress*>;D atabase = <*yourDatabaseName*>; Användar-ID = <*yourUserName*>; Password = <*yourPassword*>; "
 
-* Innan du kan ansluta logikappar till den lokala system, t.ex SQL Server, måste du [ställa in en lokal datagateway](../logic-apps/logic-apps-gateway-install.md). På så sätt kan du kan välja gatewayen när du skapar SQL-anslutning för din logikapp.
+* Innan du kan ansluta Logi Kap par till lokala system, till exempel SQL Server, måste du [Konfigurera en lokal datagateway](../logic-apps/logic-apps-gateway-install.md). På så sätt kan du välja gatewayen när du skapar SQL-anslutningen för din Logic app.
 
 <a name="add-sql-trigger"></a>
 
 ## <a name="add-sql-trigger"></a>Lägg till SQL-utlösare
 
-I Azure Logic Apps varje logikapp måste börja med en [utlösaren](../logic-apps/logic-apps-overview.md#logic-app-concepts), som utlöses när en specifik händelse sker eller när ett specifikt villkor uppfylls. Varje gång utlösaren Logic Apps-motorn skapar en logikappinstans och börjar köras appens arbetsflöde.
+I Azure Logic Apps måste varje Logi Kap par starta med en [](../logic-apps/logic-apps-overview.md#logic-app-concepts)utlösare som utlöses när en enskild händelse inträffar eller när ett särskilt villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en Logic App-instans och börjar köra appens arbets flöde.
 
-1. I Azure portal eller Visual Studio, skapar du en tom logikapp som öppnas Logic Apps Designer. Det här exemplet används Azure-portalen.
+1. I Azure Portal eller Visual Studio skapar du en tom Logic-app som öppnas Logic Apps designer. I det här exemplet används Azure Portal.
 
-2. I sökrutan anger du ”SQLServer” som filter. Välj SQL-utlösare som du vill använda från listan över utlösare. 
+2. I rutan Sök anger du "SQL Server" som filter. Välj den SQL-utlösare som du vill använda från listan utlösare. 
 
-   Välj den här utlösaren i det här exemplet: **SQLServer - när ett objekt skapas**
+   I det här exemplet väljer du den här utlösaren: **SQL Server – när ett objekt skapas**
 
-   ![Välj ”SQLServer - när ett objekt skapas” utlösare](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
+   ![Välj "SQL Server – när ett objekt skapas" utlösare](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
-3. Om du uppmanas anslutningsinformation [skapar din SQL-anslutning nu](#create-connection). 
-   Om anslutningen redan finns, väljer du den **tabellnamn** som du vill använda från listan.
+3. Om du uppmanas att ange anslutnings information [skapar du din SQL-anslutning nu](#create-connection). 
+   Eller, om anslutningen redan finns, väljer du det **tabell namn** som du vill använda i listan.
 
    ![Välj tabell](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
 
-4. Ange den **intervall** och **frekvens** egenskaper som anger hur ofta din logikapp kontrollerar tabellen.
+4. Ange egenskaper för **intervall** och **frekvens** , som anger hur ofta din Logic App kontrollerar tabellen.
 
-   Det här exemplet kontrollerar endast den markerade tabellen, inget annat. 
-   Lägga till åtgärder som utför uppgifter som du vill för att göra något mer intressant. 
+   I det här exemplet kontrol leras bara den valda tabellen, ingen annan. 
+   Om du vill göra något mer intressant lägger du till åtgärder som utför de uppgifter du vill. 
    
-   Till exempel för att visa det nya objektet i tabellen, kan du lägga till andra åtgärder, till exempel skapa en fil som innehåller fält från tabellen och sedan skicka e-postaviseringar. 
-   Läs om andra åtgärder för den här anslutningen eller andra anslutningsappar i [Logic Apps-anslutningsprogram](../connectors/apis-list.md).
+   Om du till exempel vill visa det nya objektet i tabellen kan du lägga till andra åtgärder, till exempel skapa en fil som innehåller fält från tabellen, och sedan skicka e-postaviseringar. 
+   Mer information om andra åtgärder för den här anslutningen eller andra anslutningar finns i [Logic Apps kopplingar](../connectors/apis-list.md).
 
-5. När du är klar på verktygsfältet för appdesignern väljer **spara**. 
+5. När du är klar väljer du **Spara**i verktygsfältet designer. 
 
-   Det här steget aktiverar automatiskt och publicerar logikappen live i Azure. 
+   I det här steget kan du automatiskt publicera din Logic app Live i Azure. 
 
 <a name="add-sql-action"></a>
 
 ## <a name="add-sql-action"></a>Lägg till SQL-åtgärd
 
-I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är ett steg i arbetsflödet som följer en utlösare eller en annan åtgärd. I det här exemplet logikappen som börjar med den [upprepningsutlösare](../connectors/connectors-native-recurrence.md), och anropar en åtgärd som hämtar en rad från en SQL-databas.
+I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) ett steg i arbets flödet som följer en utlösare eller en annan åtgärd. I det här exemplet börjar Logic-appen med [upprepnings](../connectors/connectors-native-recurrence.md)utlösaren och anropar en åtgärd som hämtar en rad från en SQL-databas.
 
-1. Öppna logikappen i Logic Apps Designer i Azure portal eller Visual Studio. Det här exemplet används Azure-portalen.
+1. Öppna din Logic app i Logic Apps designer i Azure Portal eller Visual Studio. I det här exemplet används Azure Portal.
 
-2. I Logic App Designer, utlösaren eller åtgärden, väljer **nytt steg** > **Lägg till en åtgärd**.
+2. I Logic App Designer går du till utlösaren eller åtgärden och väljer **nytt steg** > **Lägg till en åtgärd**.
 
-   ![Välj ”nytt steg”, ”Lägg till en åtgärd”](./media/connectors-create-api-sqlazure/add-action.png)
+   ![Välj "nytt steg", "Lägg till en åtgärd"](./media/connectors-create-api-sqlazure/add-action.png)
    
-   Flytta musen över den anslutande pilen för att lägga till en åtgärd mellan befintliga steg. 
-   Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. 
+   Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
-2. I sökrutan anger du ”SQLServer” som filter. Välj alla SQL-åtgärder som du vill från åtgärdslistan över. 
+2. I rutan Sök anger du "SQL Server" som filter. I listan åtgärder väljer du valfri SQL-åtgärd som du vill använda. 
 
-   Välj den här åtgärden, som hämtar en enskild post i det här exemplet: **SQLServer – hämta rad**
+   I det här exemplet väljer du den här åtgärden, som hämtar en enda post: **SQL Server-Hämta rad**
 
-   ![Ange ”SQLServer”, Välj ”SQLServer - hämta rad”](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
+   ![Ange "SQL Server" och välj "SQL Server-get Row"](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
-3. Om du uppmanas anslutningsinformation [skapar din SQL-anslutning nu](#create-connection). 
-   Om anslutningen finns, väljer du en **tabellnamn**, och ange den **rad-ID** för den post som du vill.
+3. Om du uppmanas att ange anslutnings information [skapar du din SQL-anslutning nu](#create-connection). 
+   Om anslutningen finns väljer du ett **tabell namn**och anger **rad-ID** : t för den post som du vill använda.
 
-   ![Ange tabellnamnet och rad-ID](./media/connectors-create-api-sqlazure/table-row-id.png)
+   ![Ange tabell namn och rad-ID](./media/connectors-create-api-sqlazure/table-row-id.png)
    
-   Det här exemplet returnerar bara en rad från den markerade tabellen, inget annat. 
-   Om du vill visa data i den här raden kan du lägga till andra åtgärder som skapar en fil med fält från raden för senare granskning och lagra filen i ett molnlagringskonto. Läs om andra åtgärder i den här anslutningen eller andra anslutningsappar i [Logic Apps-anslutningsprogram](../connectors/apis-list.md).
+   I det här exemplet returneras bara en rad från den valda tabellen, inget annat. 
+   Om du vill visa data i den här raden kan du lägga till andra åtgärder som skapar en fil med fält från raden för senare granskning och lagra filen i ett moln lagrings konto. Mer information om andra åtgärder i denna anslutning eller andra anslutningar finns i [Logic Apps kopplingar](../connectors/apis-list.md).
 
-4. När du är klar på verktygsfältet för appdesignern väljer **spara**. 
+4. När du är klar väljer du **Spara**i verktygsfältet designer. 
 
 <a name="create-connection"></a>
 
@@ -116,32 +116,32 @@ I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="handle-bulk-data"></a>Hantera stora mängder data
+## <a name="handle-bulk-data"></a>Hantera Mass data
 
-Ibland kan behöva du arbeta med resultatmängder så stor att anslutningen inte returnerar alla resultat på samma gång, eller om du vill bättre kontroll över storlek och strukturen för din resultatmängder. Här är några sätt att du kan hantera sådana stora resultatmängder:
+Ibland kan du behöva arbeta med resultat uppsättningar så att kopplingen inte returnerar alla resultat samtidigt, eller om du vill ha bättre kontroll över storlek och struktur för dina resultat uppsättningar. Här är några exempel på hur du kan hantera sådana stora resultat uppsättningar:
 
-* För att hjälpa dig att hantera resultat som mindre uppsättningar, aktivera *sidbrytning*. Mer information finns i [hämta stora mängder data, poster och objekt med sidbrytning](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
+* För att hjälpa dig att hantera resultat som mindre mängder, aktiverar du *sid brytning*. Mer information finns i [Hämta Mass data, poster och objekt med hjälp av sid brytning](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-* Skapa en lagrad procedur som organiserar resultat som du vill.
+* Skapa en lagrad procedur som ordnar resultatet på det sätt som du vill.
 
-  När du får eller hur du infogar flera rader, din logikapp kan gå igenom raderna med hjälp av en [ *until-loop* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) inom dessa [gränser](../logic-apps/logic-apps-limits-and-config.md). 
-  När logikappen har dock att arbeta med postuppsättningar så stor, till exempel tusentals eller miljontals rader, som du vill minimera de kostnader som följer från anrop till databasen.
+  När du hämtar eller infogar flera rader kan din Logi Kap par iterera genom de här raderna genom att använda en [*loop till*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) i dessa [gränser](../logic-apps/logic-apps-limits-and-config.md). 
+  Men när din Logic-app måste arbeta med post uppsättningar så stor, till exempel tusentals eller miljon tals rader, vill du minimera kostnaderna som uppstår vid anrop till databasen.
 
-  Du kan sortera resultaten på det sätt som du vill kan du skapa en [ *lagrade proceduren* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) som körs i din SQL-instans och använder den **Välj - ORDER BY** instruktionen. 
-  Den här lösningen ger dig större kontroll över storlek och strukturen för dina resultat. 
-  Logikappen anropar den lagrade proceduren med hjälp av SQL Server-anslutningen **köra den lagrade proceduren** åtgärd.
+  För att ordna resultaten på det sätt som du vill ha, kan du skapa en [*lagrad procedur*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) som körs i SQL-instansen och som använder instruktionen **Select-order by** . 
+  Den här lösningen ger dig större kontroll över storleken och strukturen på resultaten. 
+  Din Logi Kap par anropar den lagrade proceduren med hjälp av åtgärden SQL Server Connector: s **Kör lagrad procedur** .
 
-  Lösningsinformation finns i följande artiklar:
+  Information om lösningar finns i följande artiklar:
 
-  * [SQL-sidbrytning för bulk-dataöverföring med Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
+  * [SQL-sid brytning för Mass data överföring med Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-  * [Välj - ORDER BY-satser](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
+  * [SELECT-ORDER BY-sats](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
-## <a name="connector-specific-details"></a>Information om specifika
+## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 
-Teknisk information om den här kopplingen utlösare, åtgärder och begränsningar finns i den [kopplingens Referensinformation](/connectors/sql/). 
+Teknisk information om den här anslutningens utlösare, åtgärder och begränsningar finns i [kopplingens referens information](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
 

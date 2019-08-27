@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
+author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 07/05/2019
-ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.date: 08/26/2019
+ms.openlocfilehash: 418ca6f8d6258b826bb126252d7cf7b1c5fee299
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515279"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035725"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database utan server (för hands version)
 
@@ -136,7 +136,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 |Databas kopiering|Skapa databas som kopia.<br>Exportera till en BACPAC-fil.|
 |SQL Data Sync|Synkronisering mellan hubb och medlems databaser som körs enligt ett konfigurerbart schema eller som utförs manuellt|
 |Ändra vissa metadata för databasen|Lägger till nya Database-taggar.<br>Ändra Max virtuella kärnor, min virtuella kärnor eller AutoPause fördröjning.|
-|SQL Server Management Studio (SSMS)|Genom att använda SSMS version 18 och öppna ett nytt frågefönster för en databas på servern återupptas alla automatiskt pausade databaser på samma server. Det här problemet uppstår inte om du använder SSMS version 17.9.1 med IntelliSense inaktiverat.|
+|SQL Server Management Studio (SSMS)|Om du använder SSMS-versioner som är äldre än 18,1 och öppnar ett nytt frågefönster för en databas på servern återupptas alla automatiskt pausade databaser på samma server. Det här problemet uppstår inte om du använder SSMS version 18,1 eller senare.|
 
 Funktionen för att återuppta automatiskt utlöses även under distributionen av vissa tjänste uppdateringar som kräver att databasen är online.
 
@@ -165,7 +165,7 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
    |Parameter|Värde alternativ|Standardvärde|
    |---|---|---|---|
    |Minsta virtuella kärnor|Alla {0,5, 1, 2, 4} överskrider max virtuella kärnor|0,5 virtuella kärnor|
-   |Pausa fördröjning|Minimum: 60 minuter (1 timme)<br>Maximum: 10080 minuter (7 dagar)<br>Steg om 60 minuter<br>Inaktivera autopausen:-1|60 minuter|
+   |Pausa fördröjning|Lägst 60 minuter (1 timme)<br>Maximihalter 10080 minuter (7 dagar)<br>Steg om 60 minuter<br>Inaktivera autopausen:-1|60 minuter|
 
 > [!NOTE]
 > Att använda T-SQL för att flytta en befintlig databas till Server lös eller ändra dess beräknings storlek stöds inte för närvarande, men kan göras via Azure Portal eller PowerShell.

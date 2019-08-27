@@ -1,6 +1,6 @@
 ---
-title: Konfigurera underhålls meddelanden för dina virtuella Windows-datorer i Azure | Microsoft Docs
-description: Lär dig hur du konfigurerar schemalagda underhålls meddelanden för dina virtuella Azure-datorer.
+title: Övervaka schemalagda händelser för dina virtuella Windows-datorer i Azure | Microsoft Docs
+description: Lär dig hur du övervakar dina virtuella Azure-datorer för schemalagda händelser.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mysarn
@@ -10,14 +10,14 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: 18b46b848946bb2450604bdf0650a004e21778d9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 49c82339e5a3774cd286d700d709371d46cf0571
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657416"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051853"
 ---
-# <a name="set-up-notifications-about-maintenance-affecting-your-vm"></a>Konfigurera meddelanden om underhåll som påverkar din virtuella dator
+# <a name="monitoring-scheduled-events"></a>Övervaknings Schemalagda händelser
 
 Uppdateringar tillämpas på olika delar av Azure varje dag för att hålla tjänsterna som körs på dem säkra och uppdaterade. Förutom planerade uppdateringar kan oplanerade händelser också uppstå. Om t. ex. maskin varu försämring eller fel upptäcks kan Azure-tjänster behöva utföra oplanerat underhåll. I de flesta fall är de här händelserna nästan transparenta för kunder, och de har ingen påverkan eller det tar några sekunder av den virtuella datorns frysning med hjälp av direktmigrering. Men för vissa program kan det leda till en påverkan även om några sekunder av den virtuella datorns frysning. Att veta i förväg om kommande Azure-underhåll är viktigt för att säkerställa bästa möjliga upplevelse för dessa program. [Schemalagda händelser-tjänsten](scheduled-events.md) ger dig ett programmerings gränssnitt för att få information om kommande underhåll och gör det möjligt att hantera underhållet på ett smidigt sätt. 
 

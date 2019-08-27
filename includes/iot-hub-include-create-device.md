@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e93f78cf07cd4815e5b17ffd3953db121adb6535
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 7b022f71e197c5695876f2049ee376c3616afc6d
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558728"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048986"
 ---
 <!-- put the ## header in the file that includes this file -->
 
-I det här avsnittet skapar du en enhets identitet i identitets registret i IoT-hubben. En enhet kan inte ansluta till en hubb om den inte har en post i identitets registret. Mer information finns i avsnittet "identitets register" i [guiden för IoT Hub utvecklare](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+I det här avsnittet skapar du en enhets identitet i identitets registret i IoT-hubben. En enhet kan inte ansluta till en hubb om den inte har en post i identitets registret. Mer information finns i [hand boken för IoT Hub Developer](../articles/iot-hub/iot-hub-devguide-identity-registry.md#identity-registry-operations).
 
 1. I navigerings menyn i IoT Hub öppnar du **IoT-enheter**och väljer sedan **ny** för att lägga till en enhet i IoT Hub.
 

@@ -1,5 +1,5 @@
 ---
-title: Bygg en Azure IoT Plug and Play Preview-enhet som är klar för certifiering | Microsoft Docs
+title: Bygg en IoT-Plug and Play förhands gransknings enhet som är klar för certifiering | Microsoft Docs
 description: Som enhets utvecklare får du lära dig hur du kan bygga en IoT-Plug and Play för hands version som är klar för certifiering.
 author: tbhagwat3
 ms.author: tanmayb
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: bfa611eba8e7a990626fbace8b930962615e0594
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 151f6609375063a68a848f4c799af0b459124f23
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878098"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047903"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Bygg en IoT Plug and Play förhands gransknings enhet som är klar för certifiering
 
@@ -124,7 +124,7 @@ För att certifiera enheten måste den Aktivera etablering via [Azure IoT Device
 
 #### <a name="implement-the-model-information-and-sdk-information-interfaces"></a>Implementera modell information och gränssnitt för SDK-information
 
-Azure IoT-enhetens SDK implementerar modell informationen och SDK-informations gränssnitten. Om du använder funktionen för kodgenerering i VS Code använder enhets koden Azure IoT Plug and Play Device SDK.
+Azure IoT-enhetens SDK implementerar modell informationen och SDK-informations gränssnitten. Om du använder funktionen för kodgenerering i VS Code använder enhets koden IoT Plug and Play Device SDK.
 
 Om du väljer att inte använda Azure IoT-enhetens SDK kan du använda SDK-källkod som referens för din egen implementering.
 

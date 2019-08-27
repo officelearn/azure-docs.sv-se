@@ -4,14 +4,14 @@ description: Beskriver hur du anger namn och typ för underordnade resurser i en
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: 32d1eb8fdf2b488e5d6ec46d281392ad6185525b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: bd1c38547866c34eb5c4808ed5b185b50fa44a01
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827336"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035568"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Ange namn och typ för underordnade resurser
 
@@ -22,9 +22,9 @@ I en Resource Manager-mall kan du ange den underordnade resursen antingen i den 
 ```json
 "resources": [
   {
-    // parent resource
+    <parent-resource>
     "resources": [
-      // child resource
+      <child-resource>
     ]
   }
 ]
@@ -35,10 +35,10 @@ I nästa exempel visas den underordnade resursen utanför den överordnade resur
 ```json
 "resources": [
   {
-    // parent resource
+    <parent-resource>
   },
   {
-    // child resource
+    <child-resource>
   }
 ]
 ```

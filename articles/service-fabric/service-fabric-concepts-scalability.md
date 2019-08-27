@@ -1,6 +1,6 @@
 ---
 title: Skalbarhet för Service Fabric-tjänster | Microsoft Docs
-description: Beskriver hur du skalar Service Fabric-tjänster
+description: Beskriver hur du skalar Service Fabric Services
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -12,31 +12,31 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/18/2017
+ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: 14a7389fe562b5f3206b81411d2224257051c636
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f44a44c0923374b2f6024903213305f1defb3b94
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60781145"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035922"
 ---
 # <a name="scaling-in-service-fabric"></a>Skalning i Service Fabric
-Azure Service Fabric gör det enkelt att bygga skalbara program genom att hantera tjänster, partitionerna och replikerna på noderna i ett kluster. Många arbetsbelastningar på samma maskinvara ger maximala användning, men ger även flexibilitet när det gäller hur du väljer att skala dina arbetsbelastningar. Den här videon på Channel 9 beskrivs hur du kan skapa skalbara mikrotjänstprogram:
+Azure Service Fabric gör det enkelt att bygga skalbara program genom att hantera tjänsterna, partitionerna och replikerna på noderna i ett kluster. Att köra många arbets belastningar på samma maskin vara möjliggör maximal resursutnyttjande, men ger också flexibilitet när det gäller hur du väljer att skala dina arbets belastningar. Den här kanalen 9-videon beskriver hur du kan bygga skalbara mikrotjänster-program:
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T116/player]
 
-Skalning i Service Fabric utförs flera olika sätt:
+Skalning i Service Fabric utförs på flera olika sätt:
 
-1. Skalning genom att skapa eller ta bort instanser för tillståndslös tjänst
-2. Skalning genom att skapa eller ta bort ny med namnet tjänster
-3. Skalning genom att skapa eller ta bort nya namngivna instanser av programmet
-4. Skalning genom att använda partitionerade tjänster
+1. Skalning genom att skapa eller ta bort tillstånds lösa tjänst instanser
+2. Skalning genom att skapa eller ta bort nya namngivna tjänster
+3. Skalning genom att skapa eller ta bort nya namngivna program instanser
+4. Skalning med hjälp av partitionerade tjänster
 5. Skalning genom att lägga till och ta bort noder från klustret 
-6. Skalning med Cluster Resource Manager-mått
+6. Skalning med hjälp av kluster resurs hanterarens mått
 
-## <a name="scaling-by-creating-or-removing-stateless-service-instances"></a>Skalning genom att skapa eller ta bort instanser för tillståndslös tjänst
-Ett av de enklaste sätten att skala i Service Fabric fungerar med tillståndslösa tjänster. När du skapar en tillståndslös tjänst kan du prova att definiera en `InstanceCount`. `InstanceCount` definierar hur många exemplar av tjänstens kod som körs skapas när tjänsten startas. Anta exempelvis att det finns 100 noder i klustret. Även anta att en tjänst har skapats med en `InstanceCount` av 10. Under körning, dessa 10 körs kopior av koden kan bli alla upptagen (eller kan inte vara tillräckligt upptagen). Ett sätt att skala arbetsbelastningen är att ändra antalet instanser. Vissa typer av övervakning eller hantering av kod kan till exempel ändra befintliga antalet instanser till mellan 50 och 5, beroende på om arbetsbelastningen behöver skala in eller ut utifrån belastningen. 
+## <a name="scaling-by-creating-or-removing-stateless-service-instances"></a>Skalning genom att skapa eller ta bort tillstånds lösa tjänst instanser
+Ett av de enklaste sätten att skala inom Service Fabric fungerar med tillstånds lösa tjänster. När du skapar en tillstånds lös tjänst får du möjlighet att definiera en `InstanceCount`. `InstanceCount`definierar hur många körnings kopior av den här tjänst koden som skapas när tjänsten startas. Anta till exempel att det finns 100 noder i klustret. Vi antar också att en tjänst har skapats med `InstanceCount` 10. Under körningen kan de 10 löpande kopiorna av koden bli för upptagna (eller inte vara tillräckligt upptagna). Ett sätt att skala arbets belastningen är att ändra antalet instanser. Till exempel kan vissa övervaknings-eller hanterings koder ändra det befintliga antalet instanser till 50 eller 5, beroende på om arbets belastningen måste skalas in eller ut baserat på belastningen. 
 
 C#:
 
@@ -46,13 +46,13 @@ updateDescription.InstanceCount = 50;
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/app/service"), updateDescription);
 ```
 
-PowerShell:
+PowerShell
 
 ```posh
 Update-ServiceFabricService -Stateless -ServiceName $serviceName -InstanceCount 50
 ```
-### <a name="using-dynamic-instance-count"></a>Med hjälp av dynamisk Instansantalet
-Mer specifikt för tillståndslösa tjänster erbjuder Service Fabric ett automatiskt sätt att ändra instansantalet. På så sätt kan tjänsten att skala dynamiskt med antalet noder som är tillgängliga. Sätt att välja det här beteendet är att ange instansantalet = -1. InstanceCount = -1 är en instruktion till Service Fabric med texten ”kör den tillståndslösa tjänsten på varje nod”. Om antalet noder ändras, ändras Service Fabric automatiskt instansantalet att matcha att säkerställa att tjänsten körs på alla giltiga noder. 
+### <a name="using-dynamic-instance-count"></a>Använda dynamiskt antal instanser
+Service Fabric är specifikt för tillstånds lösa tjänster och erbjuder ett automatiskt sätt att ändra antalet instanser. Detta gör att tjänsten kan skalas dynamiskt med antalet tillgängliga noder. Sättet att välja det här beteendet är att ange antalet instanser =-1. InstanceCount =-1 är en instruktion som Service Fabric med texten "kör den här tillstånds lösa tjänsten på varje nod". Om antalet noder ändras ändrar Service Fabric automatiskt antalet instanser som ska matchas, vilket säkerställer att tjänsten körs på alla giltiga noder. 
 
 C#:
 
@@ -63,90 +63,94 @@ serviceDescription.InstanceCount = -1;
 await fc.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-PowerShell:
+PowerShell
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless -PartitionSchemeSingleton -InstanceCount "-1"
 ```
 
-## <a name="scaling-by-creating-or-removing-new-named-services"></a>Skalning genom att skapa eller ta bort ny med namnet tjänster
-En namngiven tjänst-instans är en specifik instans av en typ av tjänst (se [Service Fabric programmets hela livscykel](service-fabric-application-lifecycle.md)) inom vissa namngivna programinstans i klustret. 
+## <a name="scaling-by-creating-or-removing-new-named-services"></a>Skalning genom att skapa eller ta bort nya namngivna tjänster
+En namngiven tjänst instans är en specifik instans av en tjänst typ (se [Service Fabric livs cykel för program](service-fabric-application-lifecycle.md)) inom en namngiven program instans i klustret. 
 
-Den nya tjänstinstanser kan skapas (eller tas bort) som blir mer eller mindre upptagen-tjänster. På så sätt kan begäranden sprids över flera instanser av tjänsten, vanligtvis så att belastningen på befintliga tjänster att minska. När du skapar tjänster, placerar tjänsterna i klustret på ett sätt som är distribuerade i Service Fabric Cluster Resource Manager. De exakta beslut regleras av den [mått](service-fabric-cluster-resource-manager-metrics.md) i klustret och andra placeringsregler. Tjänster kan skapa flera olika sätt, men de vanligaste är antingen via administrativa åtgärder som att någon anropa [ `New-ServiceFabricService` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), eller genom att anropa kod [ `CreateServiceAsync` ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` kan även vara anropas från andra tjänster som körs i klustret.
+Nya namngivna tjänst instanser kan skapas (eller tas bort) när tjänster blir mer eller mindre upptagna. Detta gör att förfrågningar kan spridas över fler tjänst instanser, vilket vanligt vis tillåter att befintliga tjänster laddas ned. När du skapar tjänster placerar Service Fabric Cluster Resource Manager tjänsterna i klustret på ett distribuerat sätt. De exakta besluten styrs av [måtten](service-fabric-cluster-resource-manager-metrics.md) i klustret och andra placerings regler. Tjänster kan skapas på flera olika sätt, men de vanligaste är antingen genom administrativa åtgärder som någon som ringer [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), eller genom kod anrop [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync`kan till och med anropas från andra tjänster som körs i klustret.
 
-Skapa tjänster dynamiskt kan användas i alla typer av scenarier och är ett vanligt mönster. Anta exempelvis att en tillståndskänslig tjänst som representerar ett visst arbetsflöde. Anrop som representerar arbete ska visas på tjänsten och den här tjänsten kommer att köra stegen för att den arbetsflödet och registrera pågår. 
+Att skapa tjänster dynamiskt kan användas i alla typer av scenarier och är ett vanligt mönster. Anta till exempel en tillstånds känslig tjänst som representerar ett visst arbets flöde. Anrop som representerar arbete kommer att visas i den här tjänsten och den här tjänsten kommer att utföra stegen för arbets flödet och registrera förloppet. 
 
-Hur skulle du skapa skalans viss tjänst? Tjänsten kan vara flera innehavare i någon form och acceptera anrop och sätta igång stegen för många olika instanser av samma arbetsflöde på samma gång. Dock som kan se koden mer komplexa, eftersom nu den har bekymra dig om många olika instanser av samma arbetsflöde, allt på olika faser och från olika kunder. Dessutom problemet hantering av flera olika arbetsflöden på samma gång inte skala. Det beror på att någon gång den här tjänsten kommer att använda för många resurser för att få plats på en viss dator. Många tjänster som inte har skapats för det här mönstret uppstå i första hand också problem på grund av vissa inbyggda flaskhals eller minskningen i sin kod. Dessa typer av problem kan tjänsten inte fungerar när antalet samtidiga arbetsflöden som den för att spåra hämtar större.  
+Hur gör du för att göra den här specifika tjänst skala? Tjänsten kan vara flera innehavare i en viss form och acceptera samtal och vidta åtgärder för många olika instanser av samma arbets flöde samtidigt. Men det kan göra koden mer komplex, eftersom den måste bekymra sig över flera olika instanser av samma arbets flöde, allt i olika faser och från olika kunder. Hantering av flera arbets flöden på samma tid löser också inte skalnings problemet. Detta beror på att tjänsten använder för många resurser för att få plats på en viss dator. Många tjänster som inte har skapats för det här mönstret på den första platsen får också svårt på grund av viss Flask hals eller lägre kod. De här typerna av problem medför att tjänsten inte fungerar, även om antalet samtidiga arbets flöden som spåras blir större.  
 
-En lösning är att skapa en instans av den här tjänsten för alla olika instanser av arbetsflödet som du vill spåra. Detta är ett bra mönster och fungerar om tjänsten är tillståndslösa eller tillståndskänsliga. Det här mönstret ska fungera, har vanligtvis en annan tjänst som fungerar som en ”arbetsbelastning Manager-tjänst”. Jobb för den här tjänsten är att ta emot begäranden och för att vidarebefordra dessa begäranden till andra tjänster. Chefen kan skapa en instans av tjänsten arbetsbelastning dynamiskt när den får meddelandet och sedan vidarebefordra begäranden till dessa tjänster. Manager-tjänsten kan också få återanrop när dess jobbet har slutförts med en viss arbetsflödestjänst. När manager tar emot dessa återanrop kan det ta bort instansen av arbetsflödestjänsten eller lämna den om fler anrop förväntades. 
+En lösning är att skapa en instans av den här tjänsten för varje annan instans av arbets flödet som du vill spåra. Detta är ett bra mönster och fungerar oavsett om tjänsten är tillstånds lös eller tillstånds känslig. För att det här mönstret ska fungera finns det vanligt vis en annan tjänst som fungerar som en "arbets belastnings hanterings tjänst". Jobbet för den här tjänsten är att ta emot begär Anden och dirigera dessa förfrågningar till andra tjänster. Chefen kan skapa en instans av arbets belastnings tjänsten dynamiskt när den får meddelandet, och sedan skicka vidare förfrågningar till tjänsterna. Hanterings tjänsten kan också ta emot återanrop när en specifik arbets flödes tjänst slutfört sitt jobb. När chefen tar emot dessa återanrop kan den ta bort den instansen av arbets flödes tjänsten eller lämna den om fler anrop förväntas. 
 
-Avancerade versioner av den här typen av manager kan även skapa pooler med de tjänster som den hanterar. Poolen säkerställer att när en ny begäran kommer den inte behöver vänta på att tjänsten ska starta. I stället kan chefen bara välja en arbetsflödestjänst som inte är för närvarande upptagen av poolen eller dirigera slumpmässigt. Att hålla en pool av tillgängliga tjänster gör nya begäranden om hantering av snabbare, eftersom det är mindre troligt att begäran måste vänta tills en ny tjänst för att vara kunde. Det är snabb, men inte kostnadsfri eller omedelbara att skapa nya tjänster. Poolen kan minimera den tid som begäran måste vänta innan servad. Ofta visas den här manager och poolen mönstret när svarstider viktigast. På begäran och att tjänsten i bakgrunden och _sedan_ förmedlar är också ett populärt manager-mönster som skapar och tar bort tjänster baserat på vissa spårning av mängden arbete tjänsten för närvarande har väntande . 
+Avancerade versioner av den här typen av chef kan till och med skapa pooler för de tjänster som hanteras av den. Poolen hjälper till att se till att när en ny begäran kommer till måste den inte vänta på att tjänsten ska starta. I stället kan chefen bara välja en arbets flödes tjänst som för närvarande inte är upptagen från poolen eller dirigeras slumpmässigt. Att behålla en pool av tjänster som är tillgängliga gör hanteringen av nya begär Anden snabbare, eftersom det är mindre troligt att begäran måste vänta på att en ny tjänst ska kunna anpassas. Att skapa nya tjänster är snabbt, men inte gratis eller momentant. Poolen bidrar till att minimera den tid som begäran måste vänta innan den kan servas. Du kan ofta se det här mönstret och pool mönstret när svars tiderna är de flesta. Köa begäran och skapa tjänsten i bakgrunden och _sedan_ skickar den också ett populärt chefs mönster, som skapar och tar bort tjänster baserat på en spårning av mängden arbete som tjänsten för närvarande har väntande. 
 
-## <a name="scaling-by-creating-or-removing-new-named-application-instances"></a>Skalning genom att skapa eller ta bort nya namngivna instanser av programmet
-Skapa och ta bort hela programinstanser liknar mönstret för att skapa och ta bort tjänster. Det finns vissa manager-tjänsten som gör beslutet baserat på de förfrågningar som den ser och informationen som den tar emot från andra tjänster i klustret för det här mönstret. 
+## <a name="scaling-by-creating-or-removing-new-named-application-instances"></a>Skalning genom att skapa eller ta bort nya namngivna program instanser
+Att skapa och ta bort hela program instanser liknar mönstret för att skapa och ta bort tjänster. För det här mönstret finns det vissa hanterings tjänster som fattar beslutet baserat på de begär Anden som den ser och den information som tas emot från de andra tjänsterna i klustret. 
 
-När ska skapa en ny namngiven programinstans användas istället för att skapa en ny tjänsten-instanser i ett befintligt program? Det finns några fall:
+När ska du skapa en ny namngiven program instans som ska användas i stället för att skapa en ny namngiven tjänst instans i ett befintligt program? Det finns några fall:
 
-  * Instansen för nya programmet är för en kund vars kod måste köras under en viss identitet eller säkerhetsinställningar.
-    * Service Fabric kan du definiera olika kodpaket ska köras under specifika identiteter. För att starta samma kodpaketet under olika identiteter, måste aktiveringarna kan förekomma i olika programinstanser. Tänk dig ett fall där du har en befintlig kunds arbetsbelastningar som distribuerats. Dessa kan köras under en viss identitet så att du kan övervaka och styr åtkomsten till andra resurser, till exempel remote databaser eller andra system. I det här fallet när en ny kund registrerar sig, vill du förmodligen inte aktivera sin kod i samma kontext (processområdet). När du gick gör det det svårare för koden för tjänsten att fungera inom ramen för en viss identitet. Du måste vanligtvis ha mer säkerhet, isolering och identity management-kod. Istället för att använda olika instanser av tjänsten inom samma programinstansen som heter och kan därför samma process utrymme kan du använda olika namngivna instanser i Service Fabric-program. Detta gör det enklare att definiera olika identitet sammanhang.
-  * Instansen för nya programmet fungerar också som en konfiguration
-    * Som standard körs alla förekomster av en viss tjänst-typ i en programinstans namngiven tjänst i samma process på en viss nod. Det innebär att även om du kan konfigurera varje tjänstinstans på olika sätt, detta så är komplicerad. Tjänsterna måste ha vissa token som de använder för att leta upp sina config inom ett konfigurationspaket. Detta är vanligtvis bara tjänstens namn. Detta fungerar bra, men det kombinerar konfigurationen att namnen på enskilda namngivna instanser av tjänsten inom den programinstansen. Detta kan vara förvirrande och svårhanterligt eftersom konfigurationen är normalt en design tid artefakt med specifika värden för program-instans. Att skapa fler tjänster alltid innebär mer programuppgraderingar att ändra informationen i config-paket eller för att distribuera nya så att de nya tjänsterna kan slå upp sina specifik information. Det är ofta lättare att skapa en helt ny namngiven programinstans. Du kan sedan använda applikationsparametrarna att ställa in konfigurationen som krävs för tjänsterna. Det här sättet som alla tjänster som är äldre än som heter programinstans kan ärva inställningar för aktuell konfiguration. Till exempel i stället för att en enda konfigurationsfil med de inställningar och anpassningar för varje kund, till exempel hemligheter eller per kund-resursgränser måste du i stället en annat program-instans för varje kund med de här inställningarna åsidosätts. 
-  * Det nya programmet fungerar som en gräns för uppgradering
-    * I Service Fabric fungerar olika namngivna programinstanser som gränser för uppgradering. En uppgradering av en namngiven programinstans påverkar inte den kod som kör en annan namngiven programinstans. Olika program ska få kör olika versioner av samma kod på samma noder. Det kan vara en faktor när du behöver göra en skalning beslut eftersom du kan välja om den nya koden bör följa samma uppgraderingar som en annan tjänst eller inte. Anta exempelvis att ett anrop når manager-tjänsten som ansvarar för att skala en viss kund arbetsbelastningar genom att skapa och ta bort tjänster dynamiskt. I det här fallet men anropet är för en arbetsbelastning som är associerade med en _nya_ kund. De flesta kunder som är isolerade från varandra inte bara på grund av säkerhet och konfiguration som angavs tidigare, men eftersom det ger mer flexibilitet i fråga kör specifika versioner av programvaran och välja när de uppgraderas. Du kan också skapa en ny instans av programmet och skapa tjänsten det bara att partitionera mängden tjänster som alla en uppgradering kommer touch. Separat programinstanser ger större precision när du gör programuppgraderingar och även aktivera A / B-testning och blå/grön distributioner. 
-  * Instansen för befintliga programmet är full
-    * I Service Fabric [programkapacitet](service-fabric-cluster-resource-manager-application-groups.md) är ett begrepp som du kan använda för att styra mängden resurser som är tillgängliga för viss programinstanser. Du kan till exempel bestämma att en viss tjänst måste ha en annan instans som skapats för att skala. Den här programinstans är dock kapacitet för ett visst mått. Om den här specifik kund eller en arbetsbelastning bör fortfarande att få fler resurser, kan sedan antingen öka befintliga kapaciteten för programmet eller skapa ett nytt program. 
+  * Den nya program instansen är för en kund vars kod måste köras under vissa specifika identiteter eller säkerhets inställningar.
+    * Med Service Fabric kan du definiera olika kod paket som ska köras under särskilda identiteter. För att kunna starta samma kod paket under olika identiteter måste aktiveringarna ske i olika program instanser. Tänk dig ett fall där du har en befintlig kunds arbets belastningar distribuerade. Dessa kan köras under en viss identitet så att du kan övervaka och kontrol lera åtkomsten till andra resurser, t. ex. fjärrdatabaser eller andra system. I det här fallet, när en ny kund registrerar sig, vill du förmodligen inte aktivera sin kod i samma kontext (process utrymme). Även om du skulle kunna göra det blir det svårare för din tjänst kod att agera inom kontexten för en viss identitet. Du måste vanligt vis ha mer säkerhet, isolering och identitets hanterings kod. I stället för att använda olika namngivna tjänst instanser inom samma program instans och därmed samma process utrymme kan du använda olika namngivna Service Fabric program instanser. Detta gör det enklare att definiera olika identitets kontexter.
+  * Den nya program instansen fungerar också som ett sätt att konfigurera
+    * Som standard körs alla namngivna tjänst instanser av en viss tjänst typ inom en program instans i samma process på en viss nod. Det innebär att när du kan konfigurera varje tjänst instans på olika sätt, så är det komplicerat. Tjänsterna måste ha en token som de använder för att söka efter sin konfiguration i ett konfigurations paket. Detta är vanligt vis bara tjänstens namn. Detta fungerar bra, men det couplesr konfigurationen till namnen på de enskilda namngivna tjänst instanserna i program instansen. Detta kan vara förvirrande och svårt att hantera eftersom konfigurationen vanligt vis är ett design tids artefakt med specifika programinstans värden. Att skapa fler tjänster innebär alltid att fler program uppgraderingar kan ändra informationen i konfigurations paketen eller att distribuera nya så att de nya tjänsterna kan slå upp sin specifika information. Det är ofta enklare att skapa en helt ny namngiven program instans. Sedan kan du använda program parametrarna för att ange vilken konfiguration som behövs för tjänsterna. På så sätt kan alla tjänster som skapas inom den namngivna program instansen ärva särskilda konfigurations inställningar. I stället för att ha en enda konfigurations fil med inställningarna och anpassningarna för varje kund, till exempel hemligheter eller per kund resurs gränser, så har du i stället en annan program instans för varje kund med dessa inställningar åsidosättas. 
+  * Det nya programmet fungerar som en uppgraderings gränser
+    * Inom Service Fabric fungerar olika namngivna program instanser som gränser för uppgradering. En uppgradering av en namngiven program instans påverkar inte koden som en annan namngiven program instans kör. De olika programmen kommer att köra olika versioner av samma kod på samma noder. Detta kan vara en faktor när du behöver göra ett skalnings beslut eftersom du kan välja om den nya koden ska följa samma uppgraderingar som en annan tjänst eller inte. Anta till exempel att ett samtal anländer till hanterings tjänsten som ansvarar för skalning av en viss kunds arbets belastningar genom att skapa och ta bort tjänster dynamiskt. I det här fallet är anropet för en arbets belastning som är kopplad till en _ny_ kund. De flesta kunder är isolerade från varandra, inte bara för de säkerhets-och konfigurations orsaker som anges ovan, men eftersom det ger mer flexibilitet när det gäller att köra vissa versioner av program varan och välja när de ska uppgraderas. Du kan också skapa en ny program instans och skapa tjänsten där du enkelt kan partitionera mängden av dina tjänster som en uppgradering kommer att röra. Separata program instanser ger större precision när du gör program uppgraderingar och aktiverar även en/B-testning och blå/grön-distribution. 
+  * Den befintliga program instansen är full
+    * I Service Fabric är [program kapaciteten](service-fabric-cluster-resource-manager-application-groups.md) ett koncept som du kan använda för att kontrol lera hur mycket resurser som är tillgängliga för specifika program instanser. Du kan till exempel bestämma att en specifik tjänst måste ha en annan instans för att kunna skalas. Den här program instansen har dock inte tillräckligt med kapacitet för ett visst mått. Om den här specifika kunden eller arbets belastningen fortfarande ska beviljas fler resurser kan du antingen öka den befintliga kapaciteten för programmet eller skapa ett nytt program. 
 
-## <a name="scaling-at-the-partition-level"></a>Skala på nivån partition
-Service Fabric har stöd för partitionering. Partitionering delar upp en tjänst i flera logiska och fysiska avsnitt som fungerar oberoende av varandra. Detta är användbart med tillståndskänsliga tjänster, eftersom ingen har angetts av repliker har att hantera alla anrop och ändra alla tillståndet på en gång. Den [partitionering översikt](service-fabric-concepts-partitioning.md) innehåller information om vilka typer av partitioneringsscheman som stöds. Repliker för varje partition är fördelade på noderna i ett kluster, distribuera tjänstens belastning och se till att varken tjänsten som helhet eller en partition har en enskild felpunkt. 
+## <a name="scaling-at-the-partition-level"></a>Skalning på partitions nivå
+Service Fabric stöder partitionering. Partitionering delar upp en tjänst i flera logiska och fysiska avsnitt, som var och en fungerar oberoende av varandra. Detta är användbart med tillstånds känsliga tjänster eftersom ingen uppsättning repliker måste hantera alla anrop och samtidigt ändra hela statusen på en gång. [Översikt över partitionering](service-fabric-concepts-partitioning.md) innehåller information om vilka typer av partitionerings scheman som stöds. Replikerna för varje partition sprids över noderna i ett kluster och distribuerar tjänstens belastning och säkerställer att varken tjänsten som helhet eller någon partition har en enskild felpunkt. 
 
-Överväg att en tjänst som använder ett ranged partitioneringsschema med en låg nyckel 0, en hög nyckel 99 och ett partitionsantal på 4. I ett kluster med tre noder, kan tjänsten placeras med fyra repliker som delar resurser på varje nod som visas här:
+Överväg en tjänst som använder ett intervall för partitionerings scheman med en låg nyckel på 0, en hög nyckel på 99 och ett antal partitioner på 4. I ett kluster med tre noder kan tjänsten anges med fyra repliker som delar resurserna på varje nod, som du ser här:
 
 <center>
 
-![Partitionslayout med tre noder](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+![Partitionens layout med tre noder](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
-Om du ökar antalet noder, flyttar Service Fabric några av de befintliga replikerna med det. Exempelvis kan hämta vi anta att antalet noder ökar till fyra och replikerna om. Nu har tjänsten nu tre replikerna som körs på varje nod, var och en som hör till olika partitioner. Detta ger bättre resursutnyttjande eftersom den nya noden inte kalla. Vanligtvis förbättrar det också prestanda eftersom varje tjänst har fler resurser som är tillgängliga för den.
+Om du ökar antalet noder kommer Service Fabric att flytta några av de befintliga replikerna dit. Anta till exempel att antalet noder ökar till fyra och att replikerna blir omdistribuerade. Nu har tjänsten tre repliker som körs på varje nod och som tillhör olika partitioner. Detta ger bättre resursutnyttjande eftersom den nya noden inte är kall. Vanligt vis förbättrar det också prestanda eftersom varje tjänst har fler tillgängliga resurser.
 
 <center>
 
-![Partitionslayout med fyra noder](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
+![Partitionera layout med fyra noder](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 
 ## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>Skalning med hjälp av Service Fabric Cluster Resource Manager och mått
-[Mått](service-fabric-cluster-resource-manager-metrics.md) är hur tjänster express deras användning av databasresurser till Service Fabric. Med hjälp av mätvärden får Klusterresurshanteraren möjlighet att ordna om och optimera layouten för klustret. Exempelvis kan det finnas tillräckligt med resurser i klustret, men de kan inte allokeras till de tjänster som för närvarande utför arbete. Med hjälp av mätvärden kan Cluster Resource Manager att ordna om klustret för att säkerställa att tjänster har åtkomst till de tillgängliga resurserna. 
+[Mått](service-fabric-cluster-resource-manager-metrics.md) är hur tjänster uttrycker resurs förbrukningen att Service Fabric. Med hjälp av mått ger kluster resurs hanteraren möjlighet att ordna om och optimera klustrets layout. Det kan till exempel finnas massor av resurser i klustret, men de är kanske inte allokerade till de tjänster som för närvarande fungerar. Med hjälp av mått kan kluster resurs hanteraren organisera om klustret för att säkerställa att tjänsterna har åtkomst till de tillgängliga resurserna. 
 
 
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>Skalning genom att lägga till och ta bort noder från klustret 
-Ett annat alternativ för skalning med Service Fabric är att ändra storlek på klustret. Ändra storlek på klustret innebär att lägga till eller ta bort noder för en eller flera nodtyperna i klustret. Tänk dig ett fall där alla noder i klustret är frekvent. Det innebär att klustrets resurser är nästan alla förbrukas. I det här fallet, lägga till fler noder i klustret är det bästa sättet att skala. När de nya noderna ansluta till klustret flyttar Service Fabric Cluster Resource Manager tjänster, vilket resulterar i mindre totala belastningen på de befintliga noderna. För tillståndslösa tjänster med instansantal =-1, mer service instanser skapas automatiskt. På så sätt kan vissa anrop att flytta från de befintliga noderna till de nya noderna. 
+Ett annat alternativ för skalning med Service Fabric är att ändra klustrets storlek. Att ändra kluster storleken innebär att lägga till eller ta bort noder för en eller flera av nodtypen i klustret. Anta till exempel ett fall där alla noder i klustret är aktiva. Det innebär att klustrets resurser nästan allt används. I det här fallet är det bästa sättet att skala för att lägga till fler noder i klustret. När de nya noderna ansluter till klustret, kommer Service Fabric Cluster Resource Manager att flytta tjänster till dem, vilket resulterar i mindre total belastning på de befintliga noderna. För tillstånds lösa tjänster med instans antal =-1 skapas fler tjänst instanser automatiskt. Detta gör att vissa anrop kan flyttas från befintliga noder till de nya noderna. 
 
-Mer information finns i [skalning av klustret](service-fabric-cluster-scaling.md).
+Mer information finns i [kluster skalning](service-fabric-cluster-scaling.md).
+
+## <a name="choosing-a-platform"></a>Välja en plattform
+
+På grund av implementerings skillnader mellan operativ system kan du välja att använda Service Fabric med Windows eller Linux, och det kan vara en viktig del av att skala ditt program. En möjlig barriär är hur mellanlagrad loggning utförs. Service Fabric i Windows använder en kernel-drivrutin för en per dator-logg som delas mellan tillstånds känsliga tjänste repliker. Den här loggen väger om 8 GB. Linux, å andra sidan, använder en lagrings logg på 256 MB för varje replik, vilket gör det mindre idealiskt för program som vill maximera antalet Lightweight-tjänstereplikeringar som körs på en specifik nod. Dessa skillnader i tillfälliga lagrings krav kan eventuellt meddela önskad plattform för Service Fabric kluster distribution.
 
 ## <a name="putting-it-all-together"></a>Färdigställa allt
-Låt oss ta alla idéer som vi nämnt här och kommunicera via ett exempel. Överväg följande tjänst: du försöker skapa en tjänst som fungerar som en adressbok, håller att namn och kontaktinformation. 
+Vi tar med alla idéer som vi har diskuterat här och pratar med ett exempel. Tänk på följande tjänst: du försöker att bygga en tjänst som fungerar som en adress bok som håller på till namn och kontakt information. 
 
-Höger har direkt du en massa frågor som rör skala: Hur många användare ska du ha? Hur många kontakter lagrar varje användare? När du är att ställa upp tjänsten för första gången är svårt att försöka ta detta allt ut. Vi antar att du tänker gå med en enda statisk tjänst med en specifik partition-uppräkning. Konsekvenserna av att välja antalet fel partitioner kan orsaka att du har problem med skala senare. På samma sätt, även om du väljer rätt antal inte kanske du har all information du behöver. Exempel: du måste också bestämma storleken på klustret direkt, både vad gäller antalet noder och deras storlek. Det är ofta svårt att förutse hur många resurser som en tjänst ska använda under livslängden. Det kan också vara svårt att veta förväg trafikmönstret som faktiskt ser tjänsten. Exempelvis kanske personer lägga till och ta bort deras kontakter endast direkt på morgonen, eller kanske det är jämnt under loppet av dagen. Baserat på detta kan du behöva skala ut och in dynamiskt. Kanske du kan lära dig att förutsäga när du kommer att behöva skalas ut och in, men oavsett hur du förmodligen kommer att behöva att reagera på förändrade resursförbrukning av din tjänst. Det kan innebära att ändra storlek på klustret för att tillhandahålla mer resurser när organisera om användning av befintliga resurser inte är tillräckligt. 
+Fram sidan du har flera frågor som rör skalning: Hur många användare kommer du att ha? Hur många kontakter kommer varje användar lagring? Det är svårt att försöka ta en titt på den här tjänsten när du är färdig med din tjänst för första gången. Anta att du ska gå med en enda statisk tjänst med ett visst antal partitioner. Konsekvenserna av att välja fel antal partitioner kan orsaka skalnings problem senare. På samma sätt, även om du väljer rätt antal, kanske du inte har all information du behöver. Till exempel måste du också bestämma storleken på klustret fram, både vad gäller antalet noder och deras storlek. Det är vanligt vis svårt att förutse hur många resurser en tjänst ska konsumeras under sin livs längd. Det kan också vara svårt att veta i förväg det trafik mönster som tjänsten faktiskt ser. Till exempel kanske personer bara lägger till och tar bort sina kontakter först i morgon, eller så kanske de fördelas jämnt under dagen. Utifrån detta kan du behöva skala ut och dynamiskt. Du kanske kan lära dig att förutsäga när du behöver skala ut och in, men på något sätt kommer du förmodligen att behöva reagera på att ändra resurs förbrukningen för din tjänst. Detta kan innebära att du ändrar klustrets storlek för att tillhandahålla fler resurser när du omorganiserar användningen av befintliga resurser. 
 
-Men varför även prova att välja ett enda partitionsschema ut för alla användare? Varför begränsa dig till en tjänst och en statisk kluster? Den verkliga situationen är vanligtvis mer dynamiskt. 
+Men varför ska du även försöka välja ett enda partitionsschema för alla användare? Varför begränsa dig själv till en tjänst och ett statiskt kluster? Den faktiska situationen är vanligt vis mer dynamisk. 
 
-När du skapar för skalning, Överväg följande dynamiska mönster. Du kan behöva anpassa det till din situation:
+När du skapar för skalning bör du tänka på följande dynamiska mönster. Du kan behöva anpassa den efter din situation:
 
-1. Skapa en ”manager-tjänst” istället för att försöka att välja ett partitioneringsschema för alla direkt.
-2. Jobb för manager-tjänsten är att titta på kundinformation när de registrerar sig för din tjänst. Beroende på den här informationen manager-tjänsten för att skapa en instans av din _faktiska_ kontakta lagringstjänsten _bara för den aktuella kunden_. Om de kräver specifik konfiguration, isolering eller uppgraderingar, kan du också välja att sätta upp en programinstans för kunden. 
+1. I stället för att försöka välja ett partitionerings schema för alla klient versioner skapar du en "Manager-tjänst".
+2. Jobbet för hanterings tjänsten är att titta på kund information när de registrerar sig för din tjänst. Beroende på den informationen skapar Manager-tjänsten en instans av din _faktiska_ kontakt lagrings tjänst _precis för kunden_. Om de kräver viss konfiguration, isolering eller uppgraderingar kan du också välja att skapa en program instans för kunden. 
 
-Den här skapas dynamiskt mönstret många fördelar:
+Detta dynamiska mönster för skapande av flera fördelar:
 
-  - Du försöker inte gissa rätt partitioner för alla användare direkt eller skapa en enskild tjänst som är oändligt skalbar allt på egen hand. 
-  - Olika användare inte har samma partitioner, replikantal, placeringsbegränsningar, mått, standard belastning, tjänstnamn, dns-inställningarna, eller någon av de andra egenskaperna som anges på tjänst- eller nivå. 
+  - Du försöker inte gissa antalet korrekta partitioner för alla användare uppåt eller skapa en enda tjänst som är oändligt skalbar allt på egen hand. 
+  - Olika användare behöver inte ha samma antal partitioner, antal repliker, placerings begränsningar, mått, standard belastningar, tjänst namn, DNS-inställningar eller någon av de andra egenskaperna som anges på tjänst-eller program nivå. 
   - Du får ytterligare data segmentering. Varje kund har sin egen kopia av tjänsten
-    - Varje kundtjänst kan konfigureras på olika sätt och beviljas fler eller färre resurser med fler eller färre partitioner eller repliker efter behov baserat på deras förväntade skala.
-      - Till exempel anta att kunden betald ”guld” nivå - kunde vara flera repliker eller antalet större partitioner och potentiellt resurser dedikerade till sina tjänster via mått- och kapaciteter.
-      - Eller säga de angivna information som anger hur många kontakter som de behövs var ”liten” - de får endast några partitioner eller kan även lägga till en delad tjänst-pool med andra kunder.
-  - Du kör inte en massa en tjänstinstans eller repliker under tiden du väntar för kunder att visas
-  - Om en kund någonsin lämnar är sedan ta bort sin information från din tjänst lika enkelt som att ha manager ta bort den tjänst eller program som det skapats.
+    - Varje kund tjänst kan konfigureras på olika sätt och beviljas mer eller färre resurser, med fler eller färre partitioner eller repliker efter behov baserat på den förväntade skalningen.
+      - Anta till exempel att kunden betalar för "guld"-nivån – de kan få fler repliker eller större antal partitioner, och potentiellt resurser som är dedikerade till deras tjänster via mått och program kapacitet.
+      - Eller säg att de tillhandahöll information som indikerar antalet kontakter som de behövde var "små" – de får bara några partitioner eller kan till och med ingå i en pool med delade tjänster med andra kunder.
+  - Du kör inte en mängd tjänst instanser eller repliker medan du väntar på att kunder ska visas
+  - Om en kund någonsin lämnar, är det lika enkelt att ta bort sin information från tjänsten som att projektledaren tar bort tjänsten eller programmet som den skapade.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Service Fabric-begrepp finns i följande artiklar:
 
-* [Tillgängligheten för Service Fabric-tjänster](service-fabric-availability-services.md)
-* [Partitionera Service Fabric-tjänster](service-fabric-concepts-partitioning.md)
+* [Tillgänglighet för Service Fabric tjänster](service-fabric-availability-services.md)
+* [Partitionera Service Fabric tjänster](service-fabric-concepts-partitioning.md)

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 2efeb37f8b98f4cf9a29ec8a6976146b81aab26b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 9bc6cfdcbc67761e99150c730adeb23602232632
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641080"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032948"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om SQL Database Managed instance
 
@@ -124,9 +124,9 @@ För att minimera eventuella nätverks risker rekommenderar vi kunderna att till
 
 Fallstudier av hanterade instanser:
 
-- [Komatsu](http://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](http://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](http://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
 För att få en bättre förståelse för de fördelar, kostnader och risker som är kopplade till distribution av Azure SQL Database hanterade instansen, finns det också en Forrester-undersökning: [Den totala ekonomiska effekten av mi](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 

@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 794f8f136521acbb51139b9e781a30c71a1560e6
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992762"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035912"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal
 Azure Event Hubs tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Event Hubs förlitar sig på Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -170,7 +170,7 @@ Nedan visas vanliga felkoder som du kan titta efter när BYOK-kryptering är akt
 > Om du vill aktivera geo-DR på ett namn område som använder BYOK-krypteringen måste det sekundära namn området för länkning vara i ett dedikerat kluster och måste ha en systemtilldelad hanterad identitet aktive rad. Mer information finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!NOTE]
-> För BYOK-krypterade Event Hubs-namnområden stöds inte tjänst slut punkter för virtuella nätverk (VNet) i för hands versionen. 
+> Om tjänst slut punkter för virtuella nätverk (VNet) konfigureras på Azure Key Vault för din Event Hubs-namnrymd, stöds inte BYOK. 
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c347a5740a13d071d4bb06daf43463f974198e5d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 2b33c35b1e4f83c30e2efdf64aed0b5f2035c79b
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980802"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032084"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Översikt över tokens i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD) B2C genererar flera olika typer av säkerhetstoken när de bearbetar varje [flöde för autentisering](active-directory-b2c-apps.md). I det här dokumentet beskrivs format, säkerhets egenskaper och innehåll för varje typ av token.
+Azure Active Directory B2C (Azure AD B2C) genererar flera typer av säkerhetstoken när de bearbetar varje [autentiseringspaket](active-directory-b2c-apps.md). I det här dokumentet beskrivs format, säkerhets egenskaper och innehåll för varje typ av token.
 
 ## <a name="token-types"></a>Token-typer
 
@@ -40,7 +40,7 @@ Ett [registrerat program](tutorial-register-applications.md) tar emot tokens och
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
 
-Säkerhetstoken som programmet tar emot från Azure AD B2C kan komma från `/authorize` -eller `/token` -slut punkterna. När ID-token har hämtats `/authorize` från slut punkten görs de så att de använder det [implicita flödet](active-directory-b2c-reference-spa.md), som ofta används för användare som loggar in på till JavaScript-baserade webb program. När ID-token har hämtats `/token` från slut punkten görs de så att de använder det [konfidentiella kod flödet](active-directory-b2c-reference-oidc.md), som gör att token är dold i webbläsaren.
+Säkerhetstoken som programmet tar emot från Azure AD B2C kan komma från `/authorize` -eller `/token` -slut punkterna. När ID-token har hämtats `/authorize` från slut punkten görs det med det [implicita flödet](active-directory-b2c-reference-spa.md), som ofta används för användare som loggar in på JavaScript-baserade webb program. När ID-token har hämtats `/token` från slut punkten görs det med hjälp av [flödet för auktoriseringskod](active-directory-b2c-reference-oidc.md#get-a-token), som gör att token är dold i webbläsaren.
 
 ## <a name="claims"></a>Anspråk
 

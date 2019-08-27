@@ -6,16 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.localizationpriority: high
-ms.date: 07/23/2019
+ms.date: 08/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 483288869e0eda20010108b8293c5964ff9571c2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: b062f484a48d8376bbbb8fa9dd5bd3e39bbba14f
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012895"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70049971"
 ---
 ::: zone target="docs"
 
@@ -30,6 +29,16 @@ I den här guiden får du lära dig att:
 > * Ansluta till diskar och hämta nyckeln
 > * Låsa upp diskar Windows-klient
 > * Låsa upp diskar på Linux-klient
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="unpack-connect-and-unlock-azure-data-box-disk"></a>Packa upp, Anslut och lås upp Azure Data Box Disk
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -283,7 +292,7 @@ Om du stöter på problem när du låser upp diskarna går du till [Felsöka pro
         ``` 
         .\DataBoxDiskUnlock.exe
         ```
-    -  Ange den nyckel som du fick från **allmän > enhets information** i Azure Portal. Diskens tilldelade enhetsbeteckning visas. 
+    -  Hämta nyckeln från **allmän > enhets information** i Azure Portal och ange den här. Diskens tilldelade enhetsbeteckning visas. 
 4. Öppna en Terminal om du vill låsa upp diskarna på en Linux-klient. Gå till mappen där du laddade ned program varan. Ange följande kommandon för att ändra fil behörigheter så att du kan köra de här filerna: 
 
     ```
@@ -295,7 +304,7 @@ Om du stöter på problem när du låser upp diskarna går du till [Felsöka pro
     ```
     sudo ./DataBoxDiskUnlock_Prep.sh
     ```
-    Kör upplåsningsverktyget för Data Box Disk. Ange nyckeln från Azure Portal genom att gå till **allmän > enhets information**. Alternativt kan du ange en lista över BitLocker-krypterade volymer inom enkla citat tecken som ska låsas upp.
+    Kör upplåsningsverktyget för Data Box Disk. Hämta nyckeln från **allmän > enhets information** i Azure Portal och ange den här. Alternativt kan du ange en lista över BitLocker-krypterade volymer inom enkla citat tecken som ska låsas upp.
 
     ```
     sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’

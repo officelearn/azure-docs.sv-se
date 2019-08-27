@@ -1,31 +1,35 @@
 ---
-ms.openlocfilehash: 2c0a93e9e8a45285ee24562d8272175d62490d31
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fe9879f9574fe1496ebdf20ac76fe5b759d4ea6a
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717292"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051235"
 ---
-### <a name="container-repositories-and-images"></a>Behållare-databaser och bilder
+### <a name="container-repositories-and-images"></a>Behållar databaser och avbildningar
 
-I tabellerna nedan är en omfattande lista över tillgängliga behållaravbildningar som erbjuds av Azure Cognitive Services.
+Tabellerna nedan innehåller en omfattande lista över tillgängliga behållar avbildningar som erbjuds av Azure Cognitive Services.
 
-#### <a name="public-container-registry-mcrmicrosoftcom"></a>Offentlig (behållarregister: `mcr.microsoft.com`)
+#### <a name="public-container-registry-mcrmicrosoftcom"></a>Offentlig (container Registry: `mcr.microsoft.com`)
 
-| Tjänsten | Container | Databasen/avbildningsnamn |
+Microsoft Container Registry är värd för alla allmänna tillgänglighets behållare (GA) för Cognitive Services.
+
+| Tjänsten | Container | Container Registry/namn på lagrings plats/avbildning |
 |--|--|--|
-| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `azure-cognitive-services/luis` |
-| [Textanalys](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extrahering av nyckelfraser | `azure-cognitive-services/keyphrase` |
-| [Textanalys](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Språkidentifiering  | `azure-cognitive-services/language` |
-| [Textanalys](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Attitydanalys | `azure-cognitive-services/sentiment` |
+| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
+| [Textanalys](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extrahering av nyckelfraser | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
+| [Textanalys](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Språkidentifiering | `mcr.microsoft.com/azure-cognitive-services/language` |
+| [Textanalys](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Attitydanalys | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-#### <a name="public-preview-container-registry-containerpreviewazurecrio"></a>Offentlig förhandsversion (behållarregister: `containerpreview.azurecr.io`)
+#### <a name="public-preview-container-registry-containerpreviewazurecrio"></a>Offentlig för hands version (container `containerpreview.azurecr.io`Registry:)
 
-| Tjänsten | Container | Databasen/avbildningsnamn |
+I förhands gransknings registret är värd för alla behållarna "offentlig för hands version" för Cognitive Services som ännu inte har förfallit till allmän tillgänglighet (GA). Dessa behållare kräver en formell begäran om åtkomst för att kunna använda dem.
+
+| Tjänsten | Container | Container Registry/namn på lagrings plats/avbildning |
 |--|--|--|
-| [Avvikelseidentifiering detektor](../../anomaly-detector/anomaly-detector-container-howto.md) | Avvikelseidentifiering | `microsoft/cognitive-services-anomaly-detector` |
-| [Visuellt innehåll](../../Computer-vision/computer-vision-how-to-install-containers.md) | Identifiera Text | `microsoft/cognitive-services-recognize-text` |
-| [Ansikte](../../face/face-how-to-install-containers.md) | Ansikte | `microsoft/cognitive-services-face` |
-| [Formuläret Igenkännande](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Formigenkänning | `microsoft/cognitive-services-form-recognizer` |
-| [Speech Service API](../../speech-service/speech-container-howto.md) | Tal till text | `microsoft/cognitive-services-speech-to-text` |
-| [Speech Service API](../../speech-service/speech-container-howto.md) | Text till tal | `microsoft/cognitive-services-text-to-speech` |
+| [Avvikelse detektor](../../anomaly-detector/anomaly-detector-container-howto.md) | Avvikelseidentifiering | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
+| [Visuellt innehåll](../../Computer-vision/computer-vision-how-to-install-containers.md) | Identifiera text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text` |
+| [Ansikte](../../face/face-how-to-install-containers.md) | Ansikte | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
+| [Formulär igenkänning](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Formigenkänning | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
+| [Speech Service API](../../speech-service/speech-container-howto.md) | Tal till text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
+| [Speech Service API](../../speech-service/speech-container-howto.md) | Text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |

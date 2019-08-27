@@ -1,20 +1,20 @@
 ---
-title: Verktyg för att arbeta med Azure Storage | Microsoft Docs
-description: En lista med verktyg som gör att du kan visa/interagera med dina Azure Storage data.
+title: Verktyg för att arbeta med Azure Storage
+description: En lista med verktyg som gör att du kan visa och interagera med dina Azure Storage data.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 08/26/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 14cbc076f4c9eebd2647cd667acc856b393e4d93
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 11838a50d70d1b9a0216505e9ef0958d3b18bdac
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68665735"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035255"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage-klientverktyg
 Användare av Azure Storage ofta vill kunna visa/interagera med sina data med hjälp av ett Azure Storage klient verktyg. I tabellerna nedan visar vi ett antal verktyg som gör det möjligt att göra detta. Vi skriver "X" i varje block om det ger möjlighet att antingen räkna upp och/eller komma åt data abstraktionen. Tabellen visar även om verktygen är kostnads fria eller inte. "Utvärderings version" anger att det finns en kostnads fri utvärderings version, men den fullständiga produkten är inte kostnads fri. "Y/N" anger att en version är tillgänglig kostnads fritt, medan en annan version är tillgänglig för köp.
@@ -122,20 +122,6 @@ Vi har inte kontrollerat de funktioner eller den kvalitet som har ansökts av f�
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgates Azure Explorer</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>J</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
     <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure Web Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
@@ -157,7 +143,7 @@ Vi har inte kontrollerat de funktioner eller den kvalitet som har ansökts av f�
     <td></td>
     <td></td>
     <td>X</td>
-    <td>J/N</td>
+    <td>Ja/nej</td>
     <td></td>
     <td>X</td>
     <td></td>

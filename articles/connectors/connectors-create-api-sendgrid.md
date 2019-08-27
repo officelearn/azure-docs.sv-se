@@ -1,6 +1,6 @@
 ---
 title: Ansluta till SendGrid från Azure Logic Apps | Microsoft Docs
-description: Automatisera uppgifter och arbetsflöden som skickar e-post och hantera distributionslistor SendGrid med Azure Logic Apps
+description: Automatisera aktiviteter och arbets flöden som skickar e-post och hantera e-postlistor i SendGrid med hjälp av Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,64 +11,64 @@ ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
 ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 7eecd3908883b195b52755d03e70872afe9180bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f5efd73ef2a08069e3b9f2c7d60be99c209ddca
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105742"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050806"
 ---
-# <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Skicka e-post och hantera distributionslistor SendGrid med Azure Logic Apps
+# <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Skicka e-postmeddelanden och hantera e-postlistor i SendGrid med hjälp av Azure Logic Apps
 
-Du kan skapa automatiserade uppgifter och arbetsflöden som skickar e-post och hantera mottagarlistor, till exempel med Azure Logic Apps och SendGrid-anslutningen:
+Med Azure Logic Apps och SendGrid-anslutningen kan du skapa automatiserade uppgifter och arbets flöden som skickar e-post och hanterar dina mottagar listor, till exempel:
 
 * Skicka e-post.
 * Lägg till mottagare i listor.
-* Hämta, lägga till och hantera globala undertryckandet.
+* Hämta, Lägg till och hantera global under tryckning.
 
-Du kan använda SendGrid-åtgärder i dina logic apps för att utföra dessa uppgifter. Du kan också ha andra åtgärder som använder utdata från SendGrid-åtgärder. 
+Du kan använda SendGrid åtgärder i dina Logi Kap par för att utföra dessa uppgifter. Du kan också använda de andra åtgärderna för att använda utdata från SendGrid-åtgärder. 
 
-Den här anslutningstjänsten tillhandahåller endast åtgärder, så att starta logikappen, använda en separat utlösare, som en **upprepning** utlösaren. Om du regelbundet lägger till mottagare i dina listor, kan du skicka e-postmeddelandets mottagare och listor med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning.
-Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Den här kopplingen tillhandahåller endast åtgärder, så för att starta din Logi Kap par, använder du en separat utlösare, till exempel en **upprepnings** utlösare. Om du till exempel regelbundet lägger till mottagare i dina listor kan du skicka e-post om mottagare och listor med hjälp av Office 365 Outlook Connector eller Outlook.com Connector.
+Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* En [SendGrid-konto](https://www.sendgrid.com/) och en [SendGrid API-nyckel](https://sendgrid.com/docs/ui/account-and-settings/api-keys/)
+* Ett [SendGrid-konto](https://www.sendgrid.com/) och en [SendGrid API-nyckel](https://sendgrid.com/docs/ui/account-and-settings/api-keys/)
 
-   Din API-nyckel auktoriserar din logikapp för att skapa en anslutning och komma åt ditt SendGrid-konto.
+   Din API-nyckel godkänner din Logic app för att skapa en anslutning och komma åt ditt SendGrid-konto.
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Logikappen där du vill komma åt ditt SendGrid-konto. Om du vill använda en SendGrid-åtgärd, börja din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
+* Den Logic app där du vill komma åt ditt SendGrid-konto. Om du vill använda en SendGrid-åtgärd startar du din Logic-app med en annan utlösare, till exempel utlösaren **upprepning** .
 
-## <a name="connect-to-sendgrid"></a>Ansluta till SendGrid
+## <a name="connect-to-sendgrid"></a>Anslut till SendGrid
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
 1. Välj en sökväg: 
 
-   * Under det sista steget där du vill lägga till en åtgärd, väljer **nytt steg**. 
+   * Under det sista steget där du vill lägga till en åtgärd väljer du **nytt steg**. 
 
      ELLER
 
-   * Mellan stegen där du vill lägga till en åtgärd, flyttar du pekaren över pilen mellan stegen. 
-   Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+   * Mellan stegen där du vill lägga till en åtgärd flyttar du pekaren över pilen mellan stegen. 
+   Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. I sökrutan anger du ”sendgrid” som filter. Välj vilken åtgärd du önska under åtgärder.
+1. I rutan Sök anger du "SendGrid" som filter. Under listan åtgärder väljer du den åtgärd som du vill använda.
 
 1. Ange ett namn på anslutningen. 
 
-1. Ange din SendGrid API-nyckel och välj **skapa**.
+1. Ange din SendGrid API-nyckel och välj sedan **skapa**.
 
-1. Ange informationen som krävs för din valda åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+1. Ange nödvändig information för den valda åtgärden och fortsätt att skapa din Logic Apps-arbetsflöde.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/sendgrid/).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/sendgrid/).
 
 ## <a name="get-support"></a>Få support
 
@@ -77,4 +77,4 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

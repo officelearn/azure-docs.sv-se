@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dacurwin
-ms.openlocfilehash: f5a76ef44ebef0689ec0587434996f28ba7b7025
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a11d454feb965907f3bd4e994c0916eeb7236fa7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735542"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034570"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Säkerhetskopiera en SAP HANA-databas till Azure
 
@@ -106,9 +106,9 @@ Aktivera nu säkerhets kopiering.
 
 1. I steg 2 klickar du på **Konfigurera säkerhets kopiering**.
 2. I **Välj objekt att säkerhetskopiera**väljer du alla databaser som du vill skydda > **OK**.
-3. I **säkerhets kopierings policy** > **väljer du säkerhets kopierings princip**, skapar en ny säkerhets kopierings princip för databaserna enligt anvisningarna nedan.
+3. I **säkerhets kopierings policy** > **väljer du säkerhets kopierings princip**, skapar en ny säkerhets kopierings princip för databaserna enligt anvisningarna nedan.
 4. När du har skapat principen klickar du på **Aktivera säkerhets kopiering**på menyn **säkerhets kopiering** .
-5. Spåra förloppet för säkerhets kopierings konfigurationen i området **meddelanden** i portalen.
+5. Spåra förloppet för säkerhets kopierings konfigurationen i området **meddelanden** i portalen.
 
 ### <a name="create-a-backup-policy"></a>Skapa en säkerhetskopieringspolicy
 

@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Komma igång med Apache Hadoop och Apache Hive med Azure-portalen – Azure HDInsight'
-description: I den här snabbstarten använder du Azure-portalen för att skapa ett HDInsight Hadoop-kluster
+description: I den här snabb starten använder du Azure Portal för att skapa ett HDInsight Hadoop-kluster
 keywords: hadoop komma igång, hadoop linux, hadoop Snabbstart, komma igång, hive hive-Snabbstart
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f92cb247afb25562a96373c28534549a2f16d8c9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0e3ee1620d9dc004f3b3b0804fc42cc0d427a7ef
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67805595"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036410"
 ---
-# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabbstart: Skapa Apache Hadoop-kluster i Azure HDInsight med hjälp av Azure portal
+# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabbstart: Skapa Apache Hadoop kluster i Azure HDInsight med Azure Portal
 
 I den här artikeln får du lära dig hur du skapar [Apache Hadoop](https://hadoop.apache.org/)-kluster i HDInsight med Azure-portalen och sedan kör Apache Hive-jobb i HDInsight. De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och tar sedan bort klustret. I den här artikeln utför du alla tre aktiviteterna.
 
@@ -32,26 +32,26 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Från Azure-portalen navigerar du till **skapa en resurs** > **Analytics** > **HDInsight**.
+1. Från Azure Portal går du till **skapa en resurs** > **analys** > **HDInsight**.
 
     ![Databricks på Azure-portalen](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight.png "Databricks på Azure-portalen")
 
-1. Under **HDInsight** > **Snabbregistrering** > **grunderna**, ange eller Välj följande värden:
+1. Ange eller Välj följande värden under **HDInsight** > **Quick Create** > **Basics**:
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
     |Klusternamn   | Ange ett namn för Hadoop-klustret. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |
     |Subscription    |  Välj din Azure-prenumeration. |
     |Klustertyp     | Hoppa över detta nu. Du kan ange dessa indata i nästa steg i den här proceduren.|
-    |Användarnamnet för klusterinloggning och lösenord    | Standardinloggningsnamnet är **admin**. Lösenordet måste bestå av minst 10 tecken och måste innehålla åtminstone en siffra, en versal, en gemen, ett alfanumeriskt tecken (förutom tecknen ' " ` \). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
+    |Användar namn och lösen ord för kluster inloggning    | Standardinloggningsnamnet är **admin**. Lösenordet måste bestå av minst 10 tecken och måste innehålla åtminstone en siffra, en versal, en gemen, ett alfanumeriskt tecken (förutom tecknen ' " ` \). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
     |Secure Shell (SSH)-användarnamn | Standardanvändarnamnet är **sshuser**.  Du kan ange ett annat namn som SSH-användarnamn. |
-    |Använd inloggningslösenordet för SSH| Markera kryssrutan om du vill använda samma lösenord för SSH-användare som du angav för klusterinloggningsanvändare.|
+    |Använd lösen ord för kluster inloggning för SSH| Markera den här kryss rutan om du vill använda samma lösen ord för SSH-användare som det du angav för kluster inloggnings användaren.|
     |Resource group     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
     |Location    | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
 
     ![Komma igång med HDInsight Linux ger grundläggande klustervärden](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics.png "Ange grundläggande värden för att skapa ett HDInsight-kluster")
 
-1. Välj **Klustertyp** att öppna den **klusterkonfiguration** sidan och ange följande värden:
+1. Välj **kluster typ** för att öppna sidan **kluster konfiguration** och ange sedan följande värden:
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
@@ -60,21 +60,21 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
 
     ![Komma igång med HDInsight Linux ger grundläggande klustervärden](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-configuration-hadoop.png "Ange grundläggande värden för att skapa ett HDInsight-kluster")
 
-    Välj **Välj** och välj sedan **nästa** att gå vidare till lagringsinställningarna.
+    Välj **Välj** och välj sedan **Nästa** för att gå vidare till lagrings inställningarna.
 
-1. Från den **Storage** fliken, anger du följande värden:
+1. Ange följande värden på fliken **lagring** :
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
-    |Primär lagringstyp    | Välj Azure storage att använda Azure Storage Blob som standardkonto för lagring i den här artikeln. Du kan även använda Azure Data Lake Storage som standardlagringsutrymme. |
+    |Primär lagringstyp    | I den här artikeln väljer du Azure Storage för att använda Azure Storage Blob som standard lagrings konto. Du kan även använda Azure Data Lake Storage som standardlagringsutrymme. |
     |Urvalsmetod     |  Använd ett lagringskonto från din Azure-prenumeration för den här artikeln genom att välja **Mina prenumerationer**. Om du vill använda ett lagringskonto från någon annan prenumeration väljer du **Åtkomstnyckel** och anger sedan kontots åtkomstnyckel. |
-    |Välj ett lagringskonto   | Välj **Välj ett lagringskonto** att välja ett befintligt lagringskonto eller välja **Skapa ny**. Om du skapar ett nytt konto namnet måste innehålla mellan 3 och 24 tecken långt och får innehålla siffror och gemener.|
+    |Välj ett lagringskonto   | Välj **Välj ett lagrings konto** för att välja ett befintligt lagrings konto eller Välj **Skapa nytt**. Om du skapar ett nytt konto måste namnet vara mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener.|
 
-    Acceptera alla övriga standardvärden och välj sedan **nästa** att gå vidare till sidan Översikt.
+    Acceptera alla andra standardvärden och välj sedan **Nästa** för att gå till sidan Sammanfattning.
 
     ![Komma igång med HDInsight Linux ger klusterlagringsvärden](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-storage.png "Ange lagringsvärden för att skapa ett HDInsight-kluster")
 
-1. Från den **sammanfattning** kontrollerar de värden du valde i tidigare steg.
+1. På fliken **Sammanfattning** kontrollerar du de värden som du valde i de föregående stegen.
 
     ![Komma igång med HDInsight Linux – klustersammanfattning](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-summary.png "Komma igång med HDInsight Linux – klustersammanfattning")
 
@@ -84,16 +84,16 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
 
     ![HDInsight Linux komma igång klusterinställningar](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-overview.png "HDInsight-klusteregenskaper")    
 
-    Varje kluster är beroende av ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake-konto](../hdinsight-hadoop-use-data-lake-store.md). Det kallas Storage-konto av standardtyp. HDInsight-kluster och dess standardkontot för lagring måste samplaceras i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster.
+    Varje kluster är beroende av ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake-konto](../hdinsight-hadoop-use-data-lake-store.md). Det kallas Storage-konto av standardtyp. HDInsight-kluster och dess standard lagrings konto måste samplaceras i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster.
 
     > [!NOTE]  
-    > Information om andra kluster metoder för att skapa och förstå de egenskaper som används i den här snabbstarten Se [skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
+    > För andra metoder för att skapa kluster och förstå de egenskaper som används i den här snabb starten, se [skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="run-apache-hive-queries"></a>Köra Apache Hive-frågor
 
-[Apache Hive](hdinsight-use-hive.md) är den populäraste komponenten som används i HDInsight. Det finns många sätt att köra Hive-jobb i HDInsight. I den här snabbstarten kan du använda Ambari Hive-vyn från portalen. Andra metoder för att skicka Hive-jobb beskrivs i [Använda Hive-data i HDInsight](hdinsight-use-hive.md).
+[Apache Hive](hdinsight-use-hive.md) är den populäraste komponenten som används i HDInsight. Det finns många sätt att köra Hive-jobb i HDInsight. I den här snabb starten använder du Ambari Hive-vyn från portalen. Andra metoder för att skicka Hive-jobb beskrivs i [Använda Hive-data i HDInsight](hdinsight-use-hive.md).
 
-1. Öppna Ambari genom att välja **Klusterinstrumentpanel** i föregående skärmbild.  Du kan också gå till `https://ClusterName.azurehdinsight.net`, där `ClusterName` är klustret du skapade i föregående avsnitt.
+1. Öppna Ambari genom att välja **Klusterinstrumentpanel** i föregående skärmbild.  Du kan också bläddra till `https://ClusterName.azurehdinsight.net`, där `ClusterName` är klustret du skapade i föregående avsnitt.
 
     ![Komma igång med HDInsight Linux – klusterinstrumentpanel](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-open-cluster-dashboard.png "Komma igång med HDInsight Linux – klusterinstrumentpanel")
 
@@ -131,10 +131,10 @@ När du har slutfört ett Hive-jobb kan du [exportera resultaten till Azure SQL 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört snabbstarten kan du ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
+När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
 
 > [!NOTE]  
-> Om du är *omedelbart* fortsätter till nästa artikel om du vill lära dig att köra ETL-åtgärder med Hadoop på HDInsight, kan du behålla klustret körs. Det beror i självstudien måste du skapa ett Hadoop-kluster igen. Men om du inte går igenom nästa artikel direkt, du måste ta bort klustret nu.
+> Om du *omedelbart* fortsätter till nästa artikel och lär dig hur du kör ETL-åtgärder med Hadoop i HDInsight, kanske du vill hålla klustret igång. Detta beror på att du i självstudien måste skapa ett Hadoop-kluster igen. Men om du inte går igenom nästa artikel direkt måste du ta bort klustret nu.
 
 ### <a name="to-delete-the-cluster-andor-the-default-storage-account"></a>Ta bort klustret och/eller Storage-kontot av standardtyp
 
@@ -148,7 +148,7 @@ När du har slutfört snabbstarten kan du ta bort klustret. Med HDInsight lagras
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du har lärt dig hur du skapar ett Linux-baserade HDInsight-kluster med en Resource Manager-mall och hur du utför grundläggande Hive-frågor. I nästa artikel får du lära dig hur du utför en extraktions-, transformations- eller inläsningsåtgärd (ETL) med Hadoop på HDInsight.
+I den här snabb starten har du lärt dig hur du skapar ett Linux-baserat HDInsight-kluster med hjälp av en Resource Manager-mall och hur du utför grundläggande Hive-frågor. I nästa artikel får du lära dig hur du utför en extraktions-, transformations- eller inläsningsåtgärd (ETL) med Hadoop på HDInsight.
 
 > [!div class="nextstepaction"]
->[Extrahera, transformera och läsa in data med hjälp av interaktiva frågor på HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+>[Extrahera, transformera och läsa in data med interaktiv fråga på HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

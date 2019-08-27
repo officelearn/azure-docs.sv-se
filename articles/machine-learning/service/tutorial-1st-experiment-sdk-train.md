@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: aa3a9bdb51e1137cde2ca29e2b5db55ba621cf8c
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972495"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051626"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudier: Träna din första ML-modell
 
@@ -33,7 +33,7 @@ I den här självstudien kommer du att lära dig följande:
 
 Den enda förutsättningen är att köra en del av den här självstudien, [installations miljön och arbets ytan](tutorial-1st-experiment-sdk-setup.md).
 
-I den här delen av självstudien kör du koden i exempel Jupyter Notebook som öppnades i slutet av del en. Den här artikeln vägleder dig genom samma kod som finns i antecknings boken.
+I den här delen av självstudien kör du koden i exempel Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` som öppnades i slutet av del en. Den här artikeln vägleder dig genom samma kod som finns i antecknings boken.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Anslut arbets ytan och skapa experiment
 
@@ -41,6 +41,8 @@ Importera- `config.json` `from_config().` klassen och Läs in din prenumerations
 
 Om följande kod frågar efter ytterligare autentisering, klistrar du bara in länken i en webbläsare och anger autentiseringstoken.
 
+> [!TIP]
+> Om du inte har använt Jupyter notebook-datorer, kör du Code genom att klicka på en kod cell och trycka på **SKIFT + RETUR** för att köra cellerna en i taget. Du kan också köra hela antecknings boken på en gång genom att klicka på **cell** i det övre meny fältet och sedan klicka på **Kör alla**.
 
 ```python
 from azureml.core import Workspace

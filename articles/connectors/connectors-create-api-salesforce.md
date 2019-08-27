@@ -1,6 +1,6 @@
 ---
 title: Ansluta till Salesforce från Azure Logic Apps | Microsoft Docs
-description: Automatisera uppgifter och arbetsflöden som övervakar, skapa och hantera Salesforce-poster och jobb med hjälp av Azure Logic Apps
+description: Automatisera uppgifter och arbets flöden som övervakar, skapar och hanterar Salesforce-poster och jobb genom att använda Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,56 +11,56 @@ ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 292d517f2c99974f4674a4c94472a0a320320ce4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3e9f7c841d25fa988ae7e0c97adf64a51d8ef87
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62106023"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050824"
 ---
 # <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Övervaka, skapa och hantera Salesforce-resurser med hjälp av Azure Logic Apps
 
-Med Azure Logic Apps och Salesforce-anslutningen kan kan du skapa automatiserade uppgifter och arbetsflöden för dina Salesforce-resurser, till exempel poster, jobb och objekt, till exempel:
+Med Azure Logic Apps och Salesforce-anslutningen kan du skapa automatiserade uppgifter och arbets flöden för Salesforce-resurser, till exempel poster, jobb och objekt, till exempel:
 
-* Övervakare för när poster skapas eller ändras. 
-* Skapa, hämta, och hantera jobb och -poster, inklusive insert-, update och ta bort åtgärder.
+* Övervaka när poster skapas eller ändras. 
+* Skapa, hämta och hantera jobb och poster, inklusive INSERT-, Update-och Delete-åtgärder.
 
-Du kan använda Salesforce-utlösare som få svar från Salesforce och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder i dina logic apps för att utföra åtgärder med Salesforce-resurser. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Du kan använda Salesforce-utlösare som får svar från Salesforce och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder i Logi Kap par för att utföra uppgifter med Salesforce-resurser. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* En [Salesforce-konto](https://salesforce.com/)
+* Ett [Salesforce-konto](https://salesforce.com/)
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Logikappen där du vill komma åt ditt Salesforce-konto. Du kommer igång med en Salesforce-utlösare, [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en Salesforce-åtgärd, starta din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
+* Den Logic app där du vill komma åt ditt Salesforce-konto. Börja med en Salesforce-utlösare genom att [skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en Salesforce-åtgärd startar du din Logic-app med en annan utlösare, till exempel utlösaren **upprepning** .
 
 ## <a name="connect-to-salesforce"></a>Anslut till Salesforce
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
 1. Välj en sökväg: 
 
-   * För tom logic apps i sökrutan anger du ”salesforce” som filter. 
-   Välj utlösaren som du vill under listan över utlösare. 
+   * För tomma Logi Kap par anger du "Salesforce" som filter i rutan Sök. 
+   Välj den utlösare som du vill använda under listan utlösare. 
 
      ELLER
 
-   * För befintliga logikappar under steget där du vill lägga till en åtgärd, Välj **nytt steg**. I sökrutan anger du ”salesforce” som filter. Välj vilken åtgärd du önska under åtgärder.
+   * För befintliga Logi Kap par väljer du **nytt steg**under steget där du vill lägga till en åtgärd. Skriv "Salesforce" som filter i rutan Sök. Under listan åtgärder väljer du den åtgärd som du vill använda.
 
-1. Om du uppmanas att logga in till Salesforce, logga in nu och ge åtkomst.
+1. Om du uppmanas att logga in på Salesforce loggar du in nu och tillåter åtkomst.
 
-   Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning till Salesforce och komma åt dina data.
+   Dina autentiseringsuppgifter ger din Logic-app behörighet att skapa en anslutning till Salesforce och komma åt dina data.
 
-1. Ange informationen som krävs för din valda utlösare eller åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+1. Ange nödvändig information för den valda utlösaren eller åtgärden och fortsätt att skapa din Logic Apps-arbetsflöde.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/salesforce/).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/salesforce/).
 
 ## <a name="get-support"></a>Få support
 
@@ -69,4 +69,4 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

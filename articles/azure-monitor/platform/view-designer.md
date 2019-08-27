@@ -1,6 +1,6 @@
 ---
 title: Skapa vyer för att analysera loggdata i Azure Monitor | Microsoft Docs
-description: Genom att använda Vydesigner i Azure Monitor kan skapa du anpassade vyer som visas i Azure-portalen och innehåller en mängd olika visualiseringar på data i Log Analytics-arbetsytan. Den här artikeln innehåller en översikt över Vydesigner och presenterar procedurer för att skapa och redigera anpassade vyer.
+description: Med hjälp av View Designer i Azure Monitor kan du skapa anpassade vyer som visas i Azure Portal och som innehåller en mängd olika visualiseringar på data i arbets ytan Log Analytics. Den här artikeln innehåller en översikt över hur du skapar och redigerar anpassade vyer i designern.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,103 +13,103 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33930823fbeb42011d8e2a368d17c9a21070a243
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61342134"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035605"
 ---
-# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Skapa anpassade vyer med hjälp av Vydesigner i Azure Monitor
-Genom att använda Vydesigner i Azure Monitor kan skapa du en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln presenteras en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
+# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Skapa anpassade vyer med hjälp av View Designer i Azure Monitor
+Med hjälp av View Designer i Azure Monitor kan du skapa en mängd olika anpassade vyer i Azure Portal som kan hjälpa dig att visualisera data i din Log Analytics-arbetsyta. Den här artikeln innehåller en översikt över Visa designer och procedurer för att skapa och redigera anpassade vyer.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Mer information om Vydesigner finns:
+Mer information om View Designer finns i:
 
-* [Panelen referens](view-designer-tiles.md): Innehåller en referensguide till inställningarna för var och en av de tillgängliga panelerna i dina anpassade vyer.
-* [Referens för visualiseringsdel](view-designer-parts.md): Innehåller en referensguide till inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
+* [Panel referens](view-designer-tiles.md): Innehåller en referens guide för inställningarna för var och en av de tillgängliga panelerna i dina anpassade vyer.
+* [Referens för visualiserings del](view-designer-parts.md): Innehåller en referens guide för inställningarna för de visualiserings delar som är tillgängliga i dina anpassade vyer.
 
 
 ## <a name="concepts"></a>Begrepp
-Vyer visas i Azure Monitor **översikt** sidan på Azure portal. Öppna den här sidan från den **Azure Monitor** menyn genom att klicka på **mer** under den **Insights** avsnittet. Paneler på varje anpassad vy visas i alfabetisk ordning och paneler för övervakar lösningar är installerade på samma arbetsyta.
+Vyer visas på sidan Azure Monitor **Översikt** i Azure Portal. Öppna den här sidan från **Azure Monitor** -menyn genom att klicka på **mer** under avsnittet om insikter. Panelerna i varje anpassad vy visas i alfabetisk ordning och panelerna för övervaknings lösningarna installeras på samma arbets yta.
 
-![Översiktssidan](media/view-designer/overview-page.png)
+![Översikts sida](media/view-designer/overview-page.png)
 
-De vyer som du skapar med Vydesigner innehålla de delar som beskrivs i följande tabell:
+Vyerna som du skapar med View Designer innehåller de element som beskrivs i följande tabell:
 
-| En del | Beskrivning |
+| Tillhör | Beskrivning |
 |:--- |:--- |
-| Sida vid sida | Visas på din Azure Monitor **översikt** sidan. Varje panel visar en visuell översikt över den anpassade vyn som representerar. Varje Paneltyp av innehåller en annan visualisering av posterna. Du väljer en panel för att visa en anpassad vy. |
-| Anpassad vy | Visas när du väljer en panel. Varje vy innehåller en eller flera delar av visualiseringen. |
-| Delar av visualiseringen | Presentera en visualisering av data i Log Analytics-arbetsytan baserat på en eller flera [logga frågor](../log-query/log-query-overview.md). De flesta delar är en rubrik som ger en övergripande visualisering, och en lista som visar de bästa resultaten. Varje Deltyp av en innehåller en annan visualisering av posterna i Log Analytics-arbetsytan. Du kan välja element i delen att utföra en loggfråga som innehåller detaljerade poster. |
+| Sida vid sida | Visas på din Azure Monitor **översikts** sida. Varje panel visar en visuell Sammanfattning av den anpassade vyn som den representerar. Varje panel typ innehåller en annan visualisering av dina poster. Du väljer en panel för att visa en anpassad vy. |
+| Anpassad vy | Visas när du väljer en panel. Varje vy innehåller en eller flera visualiserings delar. |
+| Visualiserings delar | Presentera en visualisering av data i Log Analytics arbets ytan baserat på en eller flera [logg frågor](../log-query/log-query-overview.md). De flesta delar innehåller ett sidhuvud, som innehåller en visualisering på hög nivå, och en lista som visar de främsta resultaten. Varje Deltyp innehåller en annan visualisering av posterna i arbets ytan Log Analytics. Du väljer element i delen för att utföra en logg fråga som innehåller detaljerade poster. |
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
-Du behöver minst [deltagare serverbehörigheter](manage-access.md#manage-accounts-and-users) i Log Analytics-arbetsytan för att skapa eller ändra vyer. Om du inte har den här behörigheten kan sedan visas alternativet Vydesigner inte i menyn.
+Du måste ha behörighet för minst [deltagar nivå](manage-access.md#manage-access-using-azure-permissions) på arbets ytan Log Analytics för att kunna skapa eller ändra vyer. Om du inte har den här behörigheten visas inte alternativet Visa designer i menyn.
 
 
 ## <a name="work-with-an-existing-view"></a>Arbeta med en befintlig vy
-Vyer som skapats med Vydesigner visas följande alternativ:
+Vyer som har skapats med View Designer visar följande alternativ:
 
-![Menyn översikt](media/view-designer/overview-menu.png)
+![Översikts meny](media/view-designer/overview-menu.png)
 
 Alternativen beskrivs i följande tabell:
 
 | Alternativ | Beskrivning |
 |:--|:--|
-| Uppdatera   | Uppdaterar vy med den senaste informationen. | 
-| Loggar      | Öppnar den [Log Analytics](../log-query/portals.md) att analysera data med loggfrågor. |
-| Redigera       | Öppnar vyn i Vydesigner redigera dess innehåll och konfiguration.  |
-| Klona      | Skapar en ny vy och öppnar den i View Designer. Namnet på den nya vyn är samma som det ursprungliga namnet, men med *kopia* läggas till den. |
-| Datumintervall | Ange filter för datum och tid intervallet för de data som ingår i vyn. Den här datumintervall kopplas före eventuella datumintervall som anges i frågor i vyn.  |
-| +          | Definiera en anpassad filter som har definierats för vyn. |
+| uppdatera   | Uppdaterar vyn med den senaste informationen. | 
+| Logs      | Öppnar [Log Analytics](../log-query/portals.md) för att analysera data med logg frågor. |
+| Redigera       | Öppnar vyn i View Designer för att redigera innehållet och konfigurationen.  |
+| Klona      | Skapar en ny vy och öppnar den i Visa designer. Namnet på den nya vyn är detsamma som det ursprungliga namnet, men med *kopia* bifogat. |
+| Datumintervall | Ange datum-och tidsintervall filter för de data som ingår i vyn. Det här datum intervallet används före eventuella datum intervall som anges i frågor i vyn.  |
+| +          | Definiera ett anpassat filter som definierats för vyn. |
 
 
 ## <a name="create-a-new-view"></a>Skapa en ny vy
-Du kan skapa en ny vy i Vydesigner genom att välja **Vydesigner** på menyn i Log Analytics-arbetsytan.
+Du kan skapa en ny vy i View Designer genom att välja **Visa designer** på menyn i Log Analytics arbets ytan.
 
-![Visa Designer panelen](media/view-designer/view-designer-tile.png)
+![Visa design panel](media/view-designer/view-designer-tile.png)
 
 
-## <a name="work-with-view-designer"></a>Arbeta med Vydesigner
-Du kan använda View Designer för att skapa nya vyer eller redigera befintliga. 
+## <a name="work-with-view-designer"></a>Arbeta med View Designer
+Du kan använda Visa designer för att skapa nya vyer eller redigera befintliga. 
 
-Vydesigner har tre fönster: 
-* **Design**: Innehåller den vy som du skapar eller redigerar. 
-* **Kontroller**: Innehåller paneler och delar som du lägger till den **Design** fönstret. 
-* **Egenskaper för**: Visar egenskaperna för paneler eller valda delar.
+View Designer har tre fönster: 
+* **Design**: Innehåller den anpassade vy som du skapar eller redigerar. 
+* **Kontroller**: Innehåller de paneler och delar som du lägger till i **design** fönstret. 
+* **Egenskaper**: Visar egenskaperna för panelerna eller de valda delarna.
 
 ![Vydesigner](media/view-designer/view-designer-screenshot.png)
 
-### <a name="configure-the-view-tile"></a>Konfigurera visa panelen
-En anpassad vy kan ha bara en enda panel. Om du vill visa den aktuella panelen eller välj ett alternativ, Välj den **panelen** fliken i den **kontroll** fönstret. Den **egenskaper** fönstret visas egenskaperna för den aktuella panelen. 
+### <a name="configure-the-view-tile"></a>Konfigurera panelen Visa
+En anpassad vy kan bara ha en panel. Om du vill visa den aktuella panelen eller välja en annan, väljer du fliken **panel** i **kontroll** fönstret. I fönstret **Egenskaper** visas egenskaperna för den aktuella panelen. 
 
-Du kan konfigurera panelen Egenskaper enligt informationen i den [panelen referens](view-designer-tiles.md) och klicka sedan på **tillämpa** att spara ändringarna.
+Du kan konfigurera panel egenskaperna enligt informationen i [panel referensen](view-designer-tiles.md) och sedan klicka på **Använd** för att spara ändringarna.
 
-### <a name="configure-the-visualization-parts"></a>Konfigurera visualisering-delar
-En vy kan innehålla valfritt antal delar av visualiseringen. Om du vill lägga till delar i en vy, Välj den **visa** fliken och välj sedan en del av visualiseringen. Den **egenskaper** fönstret visas egenskaperna för den markerade delen. 
+### <a name="configure-the-visualization-parts"></a>Konfigurera visualiserings delarna
+En vy kan innehålla valfritt antal visualiserings delar. Om du vill lägga till delar i en vy väljer du fliken **Visa** och väljer sedan en visualiserings del. I fönstret **Egenskaper** visas egenskaperna för den markerade delen. 
 
-Du kan konfigurera Vyegenskaper enligt informationen i den [referens för Visualiseringsdel](view-designer-parts.md) och klicka sedan på **tillämpa** att spara ändringarna.
+Du kan konfigurera visnings egenskaperna enligt informationen i [visualiserings dels referensen](view-designer-parts.md) och sedan klicka på **Använd** för att spara ändringarna.
 
-Vyer har bara en rad av delar av visualiseringen. Du kan ändra de befintliga delarna genom att dra dem till en ny plats.
+Vyer har bara en rad med visualiserings delar. Du kan arrangera om de befintliga delarna genom att dra dem till en ny plats.
 
-Du kan ta bort en visualisering del från vyn genom att välja den **X** längst upp höger på delen.
+Du kan ta bort en visualiserings del från vyn genom att välja **X** längst upp till höger i delen.
 
 
-### <a name="menu-options"></a>Menyalternativ
-Alternativ för att arbeta med vyer i redigeringsläge beskrivs i följande tabell.
+### <a name="menu-options"></a>Meny alternativ
+Alternativen för att arbeta med vyer i redigerings läge beskrivs i följande tabell.
 
 ![Redigera-menyn](media/view-designer/edit-menu.png)
 
 | Alternativ | Beskrivning |
 |:--|:--|
-| Spara        | Sparar dina ändringar och stänger vyn. |
-| Avbryt      | Tar bort dina ändringar och stänger vyn. |
+| Spara        | Sparar ändringarna och stänger vyn. |
+| Avbryt      | Ignorerar ändringarna och stänger vyn. |
 | Ta bort vy | Tar bort vyn. |
-| Exportera      | Exporterar vyn till att en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) som du kan importera till en annan arbetsyta. Filens namn är namnet på vyn och den har en *omsview* tillägget. |
-| Importera      | Importerar de *omsview* -fil som du har exporterat från en annan arbetsyta. Den här åtgärden skriver över konfigurationen av den befintliga vyn. |
-| Klona       | Skapar en ny vy och öppnar den i View Designer. Namnet på den nya vyn är samma som det ursprungliga namnet, men med *kopia* läggas till den. |
+| Exportera      | Exporterar vyn till en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) som du kan importera till en annan arbets yta. Namnet på filen är namnet på vyn och har ett *omsview* -tillägg. |
+| Importera      | Importerar *omsview* -filen som du exporterade från en annan arbets yta. Den här åtgärden skriver över konfigurationen för den befintliga vyn. |
+| Klona       | Skapar en ny vy och öppnar den i Visa designer. Namnet på den nya vyn är detsamma som det ursprungliga namnet, men med *kopia* bifogat. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lägg till [paneler](view-designer-tiles.md) till den anpassade vyn.
-* Lägg till [visualisering delar](view-designer-parts.md) till den anpassade vyn.
+* Lägg till [paneler](view-designer-tiles.md) i den anpassade vyn.
+* Lägg till [visualiserings delar](view-designer-parts.md) i din anpassade vy.

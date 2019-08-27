@@ -6,17 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.localizationpriority: high
-ms.date: 08/23/2019
+ms.date: 08/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 6dcd55cc2c269024179e450d789df544bb8ff9a9
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1c102d05d4c570f9415fad18c004847de11d50cc
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012923"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035711"
 ---
+::: zone target="chromeless"
+
+# <a name="return-azure-data-box-disk"></a>Returnera Azure Data Box Disk 
+
+::: zone-end
+
 ::: zone target="docs"
 
 # <a name="tutorial-return-azure-data-box-disk"></a>Självstudier: Returnera Azure Data Box Disk 
@@ -29,13 +34,14 @@ I den här självstudien får du lära dig hur man:
 > * Skicka Data Box-disk till Microsoft
 > * Hämta Data Box Disk i olika regioner
 
-
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du slutföra följande [självstudie: Kopiera data till en Azure Data Box-disk och verifiera](data-box-disk-deploy-copy-data.md).
 
 
 ## <a name="ship-data-box-disk-back"></a>Skicka tillbaka Data Box-disken
+
+::: zone-end
 
 1. När dataverifieringen har genomförts kan du koppla från diskarna. Ta bort anslutningskablarna.
 2. Slå in alla diskar och anslutningskablarna i bubbelplast och lägg dem i fraktlådan. Avgifter kan tillkomma om tillbehören saknas.
@@ -45,15 +51,25 @@ Innan du börjar bör du slutföra följande [självstudie: Kopiera data till en
 
 Nästa steg bestäms av var du returnerar enheten.
 
+
+
+- [Schemalägg en upphämtning med UPS om du returnerar enheten i USA och Kanada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
+- [Schemalägg hämtning med DHL för Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) genom att besöka deras webbplats och ange flyg faktura nummer.
+- [Schemalägg en upphämtning i Australien](data-box-disk-deploy-picked-up.md#pick-up-in-australia).
+- [Schemalägg hämtning för länder i Asien](data-box-disk-deploy-picked-up.md#pick-up-in-asia) , till exempel Japan, Korea och Singapore.
+
+::: zone target="chromeless"
+
+När diskarna har hämtats av operatören, uppdateras order statusen i portalen och ett spårnings-ID visas.
+
+::: zone-end
+
 ## <a name="pick-up-in-us-canada"></a>Hämta i USA, Kanada
 
 Utför följande steg om du returnerar enheten i USA eller Kanada.
 
 1. Använd returetiketten i den genomskinliga plastficka som sitter på lådan. Om etiketten är skadad eller förlorad:
     - Gå till **översikt > Ladda ned frakt etikett** och ladda ned en retur leverans etikett.
-
-        ![Ladda ned adressetikett](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Fäst etiketten på enheten.
 
 2. Försegla fraktlådan och se till att adressetiketten är väl synlig.
@@ -64,33 +80,20 @@ Utför följande steg om du returnerar enheten i USA eller Kanada.
     - Om spårnings numret inte anges kräver UPS att du betalar ytterligare en kostnad under upphämtningen.
     - I stället för att schemalägga upphämtningen kan du också ta bort Data Box Disk på den närmaste List rutan.
 
-
 ## <a name="pick-up-in-europe"></a>Hämta i Europa
 
 Utför följande steg om du returnerar enheten i Europa.
 
 1. Använd returetiketten i den genomskinliga plastficka som sitter på lådan. Om etiketten är skadad eller förlorad:
     - Gå till **översikt > Ladda ned frakt etikett** och ladda ned en retur leverans etikett.
-
-        ![Ladda ned adressetikett](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Fäst etiketten på enheten.
 
 2. Försegla fraktlådan och se till att adressetiketten är väl synlig.
 3. Om du returnerar enheten i Europa via DHL bokar du upphämtning på DHL:s webbplats.
-4. Gå till webbplatsen för land/region DHL Express och välj **bok en courier-samling > eReturn-försändelse**.
-
-    ![DHL-returutleverans](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
-    
+4. Gå till webbplatsen för land/region DHL Express och välj **bok en courier-samling > eReturn-försändelse**.    
 3. Identifiera ditt fraktsedelsnummer och klicka på **Boka upphämtning**.
 
-      ![Schemalägg hämtning](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
-
-## <a name="pick-up-in-asia-pacific"></a>Hämta i Asien – Stilla havs området
-
-Den här regionen innehåller instruktioner för hämtning i Japan, Korea, Australien och Singapore.
-
-### <a name="pick-up-in-australia"></a>Hämta i Australien
+## <a name="pick-up-in-australia"></a>Hämta i Australien
 
 Azure-datacenter i Australien har ytterligare en säkerhets avisering. Alla inkommande leveranser måste ha en avancerad avisering. Utför följande steg för att hämta i Australien.
 
@@ -100,6 +103,10 @@ Azure-datacenter i Australien har ytterligare en säkerhets avisering. Alla inko
     - Beställningens namn
     - Adress
     - Kontaktnamn
+
+## <a name="pick-up-in-asia"></a>Hämta i Asien
+
+Anvisningarna för hämtning skiljer sig för Japan, Korea och Singapore.
 
 ### <a name="pick-up-in-japan"></a>Hämta i Japan
 
@@ -159,6 +166,8 @@ Vid behov kan du kontakta Quantium Solution support (japanska språk) med följa
 3. Handen till courier. 
 
 
+::: zone target="docs"
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudien om Azure Data Box Disk har du bland annat lärt dig att:
@@ -175,24 +184,5 @@ Gå vidare till nästa anvisningar för att lära dig hur du verifierar data upp
 ::: zone-end
 
 
-::: zone target="chromeless"
-
-# <a name="return-the-disk-to-azure"></a>Returnera disken till Azure
-
-1. När data verifieringen är klar kopplar du från diskarna. Ta bort anslutningskablarna.
-2. Slå in alla diskar och anslutningskablarna i bubbelplast och lägg dem i fraktlådan. Avgifter kan tillkomma om tillbehören saknas.
-    - Återanvänd förpackningen från den första leveransen.  
-    - Vi rekommenderar att du packar diskar med en välsäkrad omslutning.
-    - Se till att anpassningen är Snug för att minska eventuella rörelser i rutan.
-
-3. Nästa steg bestäms av var du returnerar enheten.
-
-    - [Schemalägg en upphämtning med UPS om du returnerar enheten i USA och Kanada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-    - [Schemalägg hämtning med DHL för Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) genom att besöka deras webbplats och ange flyg faktura nummer.
-    - [Schemalägg hämtning för länder i Australien – Stilla havs området](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific) , till exempel Australien, Japan, Korea och Singapore.
-
-När diskarna har hämtats av operatören, uppdateras order statusen i portalen och ett spårnings-ID visas.
-
-::: zone-end
 
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2b4ed91969248bc0818f98306a108555eac424
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853059"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032879"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera Felaktiga lösen ord i din organisation
 
@@ -39,7 +39,7 @@ När ett nytt lösen ord ändras eller återställs för en användare i en klie
 > [!NOTE]
 > Cyberhot-cyberbrottslingarna använder också liknande strategier i deras attacker. Därför publicerar Microsoft inte innehållet i den här listan offentligt.
 
-## <a name="custom-banned-password-list"></a>Lista med anpassade förbjudna lösen ord
+## <a name="custom-banned-password-list"></a>Lista över anpassade förbjudna lösenord
 
 Vissa organisationer kanske vill förbättra säkerheten ytterligare genom att lägga till egna anpassningar ovanpå den globala listan över förbjudna lösen ord i vad Microsoft anropar den anpassade listan över blockerade lösen ord. Microsoft rekommenderar att termer som läggs till i listan främst fokuserar på organisatoriska villkor som:
 
@@ -121,7 +121,7 @@ Fuzzy Matching används på det normaliserade lösen ordet för att identifiera 
 
 Exempel: Antag att lösen ordet "ABCDEF" är förbjudet och att en användare försöker ändra sitt lösen ord till något av följande:
 
-' abcdeg '    *(sista tecknet ändrades från ' f ' till ' g ')* ' ABCDEFG '   *' (g ' appendd to end)* ' ABCD '     *(efterföljande ' f ' togs bort från slutet)*
+' abcdeg ' *(sista tecknet ändrades från ' f ' till ' g ')* ' ABCDEFG ' *' (g ' appendd to end)* ' ABCD ' *(efterföljande ' f ' togs bort från slutet)*
 
 Vart och ett av lösen orden ovan matchar inte det förbjudna lösen ordet "ABCDEF". Men eftersom varje exempel ligger inom ett redigerings avstånd på 1 av den förbjudna termen "ABCDEF" betraktas de som en matchning till "ABCDEF".
 

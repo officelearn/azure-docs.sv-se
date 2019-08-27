@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6f51d2907738f49ace559f1b127458eda71de287
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 18a85fae7d2d241bd8d582db73c71e1d1472f04d
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624089"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036324"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -28,11 +28,16 @@ Det går inte att använda konfigurationer än.
 
 Granska inställningarna inuti en virtuell dator, en [tillägg för virtuell dator](../../../virtual-machines/extensions/overview.md) är aktiverad. Tillägget hämtar tillämpliga principtilldelning och motsvarande-konfigurationsdefinition.
 
-### <a name="register-guest-configuration-resource-provider"></a>Registrera resursprovidern för gäst-konfiguration
+### <a name="limits-set-on-the-exension"></a>Begränsningar som angetts för exension
+
+För att begränsa tillägget från att påverka program som körs på datorn får gäst konfigurationen inte överstiga mer än 5% processor belastning.
+Detta är sant BOH för konfigurationer från Microsoft som "inbyggda" och för anpassade konfigurationer som skapats av kunder.
+
+## <a name="register-guest-configuration-resource-provider"></a>Registrera resursprovidern för gäst-konfiguration
 
 Innan du kan använda gäst-konfigurationen, måste du registrera resursprovidern. Du kan registrera via portalen eller via PowerShell. Resurs leverantören registreras automatiskt om tilldelning av en princip för gäst konfiguration görs via portalen.
 
-#### <a name="registration---portal"></a>Registrering – Portal
+### <a name="registration---portal"></a>Registrering – Portal
 
 Registrera resursprovidern för gäst-konfiguration via Azure portal genom att följa dessa steg:
 
@@ -44,7 +49,7 @@ Registrera resursprovidern för gäst-konfiguration via Azure portal genom att f
 
 1. Filtrera efter eller Bläddra tills du hittar **Microsoft.GuestConfiguration**, klicka sedan på **registrera** på samma rad.
 
-#### <a name="registration---powershell"></a>Registrering – PowerShell
+### <a name="registration---powershell"></a>Registrering – PowerShell
 
 Registrera resursprovidern för gäst-konfiguration via PowerShell genom att köra följande kommando:
 
@@ -53,7 +58,7 @@ Registrera resursprovidern för gäst-konfiguration via PowerShell genom att kö
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 ```
 
-### <a name="validation-tools"></a>Verifieringsverktyg för
+## <a name="validation-tools"></a>Verifieringsverktyg för
 
 Inuti den virtuella datorn använder klienten gäst Configuration lokala verktyg för att köra granskningen.
 
@@ -68,7 +73,7 @@ I följande tabell visas en lista över de lokala verktyg som används på varje
 
 Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. När en gäst tilldelning tas emot kontrol leras inställningarna på 15-minuters intervall. Resultat skickas till resurs leverantören för gäst konfigurationen så snart granskningen är klar. När en utlösare för princip [utvärdering](../how-to/get-compliance-data.md#evaluation-triggers) inträffar skrivs datorns tillstånd till resurs leverantören för gäst konfiguration. Detta gör att Azure Policy utvärdera Azure Resource Manager egenskaper. En utvärdering på begäran Azure Policy hämtar det senaste värdet från resurs leverantören för gäst konfigurationen. Den utlöser dock inte en ny granskning av konfigurationen i den virtuella datorn.
 
-### <a name="supported-client-types"></a>Stöds klienttyper
+## <a name="supported-client-types"></a>Stöds klienttyper
 
 I följande tabell visas en lista över operativsystem som stöds på Azure-avbildningar:
 
@@ -89,7 +94,7 @@ I följande tabell visas en lista över operativsystem som stöds på Azure-avbi
 
 Windows Server Nano Server stöds inte i någon version.
 
-### <a name="guest-configuration-extension-network-requirements"></a>Nätverks krav för gäst konfigurations tillägg
+## <a name="guest-configuration-extension-network-requirements"></a>Nätverks krav för gäst konfigurations tillägg
 
 För att kunna kommunicera med resurs leverantören för gäst konfiguration i Azure måste virtuella datorer ha utgående åtkomst till Azure-datacenter på port **443**. Om du använder ett privat virtuellt nätverk i Azure och inte tillåter utgående trafik måste undantag konfigureras med regler för [nätverks säkerhets grupper](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . För tillfället finns det ingen service tag för Azure Policy gäst konfiguration.
 
@@ -100,7 +105,7 @@ I IP-adress listor kan du hämta [Microsoft Azure Data Center IP-intervall](http
 
 ## <a name="guest-configuration-definition-requirements"></a>Definition av gäst konfigurationskrav
 
-Varje konfiguration för gransknings körning av gäst kräver två princip definitioner, en **DeployIfNotExists** -definition och en **gransknings** definition. **DeployIfNotExists** -definitionen används för att förbereda den virtuella datorn med gäst konfigurations agenten och andra komponenter som stöder [verifierings verktygen](#validation-tools).
+Varje konfiguration för gransknings körning av gäst kräver två princip definitioner, en **DeployIfNotExists** -definition och en **AuditIfNotExists** -definition. **DeployIfNotExists** -definitionen används för att förbereda den virtuella datorn med gäst konfigurations agenten och andra komponenter som stöder [verifierings verktygen](#validation-tools).
 
 Den **DeployIfNotExists** principdefinitionen kontrollerar och korrigerar följande objekt:
 
@@ -111,18 +116,18 @@ Den **DeployIfNotExists** principdefinitionen kontrollerar och korrigerar följa
 
 Om tilldelningen **DeployIfNotExists** är icke-kompatibel kan en [reparations uppgift](../how-to/remediate-resources.md#create-a-remediation-task) användas.
 
-När **DeployIfNotExists** -tilldelningen är kompatibel använder **gransknings** princip tilldelningen de lokala verifierings verktygen för att avgöra om konfigurations tilldelningen är kompatibel eller inte kompatibel.
+När **DeployIfNotExists** -tilldelningen är kompatibel använder **AuditIfNotExists** -princip tilldelningen de lokala verifierings verktygen för att avgöra om konfigurations tilldelningen är kompatibel eller inte kompatibel.
 Verktyget verifiering ger resultatet till gäst-konfiguration-klienten. Klienten vidarebefordrar resultaten till gäst-tillägg, vilket gör dem tillgängliga via resursprovidern gäst-konfiguration.
 
 Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus** egenskapen att rapportera kompatibilitet i den **efterlevnad** noden. Mer information finns i [komma kompatibilitetsdata](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> **DeployIfNotExists** -principen krävs för att **gransknings** principen ska returnera resultat.
-> Utan **DeployIfNotExists**visar gransknings principen "0 av 0" resurser som status.
+> **DeployIfNotExists** -principen krävs för att **AuditIfNotExists** -principen ska returnera resultat.
+> Utan **DeployIfNotExists**visar **AuditIfNotExists** -principen "0 av 0" resurser som status.
 
-Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet *[för hands version]: Granska säkerhets inställningar för lösen ord i virtuella Linux-* och Windows-datorer innehåller 18 principer. Det finns sex **DeployIfNotExists** - och gransknings par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
+Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet *[för hands version]: Granska säkerhets inställningar för lösen ord i virtuella Linux-* och Windows-datorer innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
 
-## <a name="multiple-assignments"></a>Flera tilldelningar
+### <a name="multiple-assignments"></a>Flera tilldelningar
 
 Principer för gäst konfiguration stöder för närvarande bara tilldelning av samma gäst tilldelning en gång per virtuell dator, även om princip tilldelningen använder olika parametrar.
 

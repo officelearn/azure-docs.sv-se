@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: aad42ea891b671bd481322d8b499d375ca06a7dc
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5d13e7375c9e3cd874bc61b686ff2549c38da1f3
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512636"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036372"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center och Azure Virtual Machines
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
@@ -59,8 +59,6 @@ En säkerhetsprincip är ett antal kontrollfunktioner som rekommenderas för res
 
 > [!NOTE]
 > Mer information om varje tillgänglig **skyddsprincip** finns i artikeln [Ange säkerhetsprinciper](tutorial-security-policy.md).
-> 
-> 
 
 ## <a name="manage-security-recommendations"></a>Hantera säkerhetsrekommendationer
 Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer. Via rekommendationerna får du hjälp att ställa in de kontrollfunktioner som behövs.
@@ -90,7 +88,7 @@ När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för re
 ![Säkerhetshälsa](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## <a name="manage-and-respond-to-security-alerts"></a>Hantera och åtgärda säkerhetsaviseringar
-Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar (som brandväggs- och slutpunktsskyddslösningar) för att identifiera verkliga hot och minimera antalet falska positiva identifieringar. Genom att leverera olika sammanställningar av [identifieringsfunktioner](security-center-detection-capabilities.md) kan Security Center skapa prioriterade säkerhetsvarningar som hjälper dig att snabbt undersöka problemet och tillhandahålla rekommendationer för hur du ska åtgärda eventuella attacker.
+Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar (som brandväggs- och slutpunktsskyddslösningar) för att identifiera verkliga hot och minimera antalet falska positiva identifieringar. Genom att leverera olika sammanställningar av [identifieringsfunktioner](security-center-alerts-overview.md#detect-threats) kan Security Center skapa prioriterade säkerhetsvarningar som hjälper dig att snabbt undersöka problemet och tillhandahålla rekommendationer för hur du ska åtgärda eventuella attacker.
 
 ![Säkerhetsvarningar](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Uppgifter för hybrid Azure AD join efter konfigurationen | Microsoft Docs'
-description: Den här dokumentet beskriver post konfigurationsuppgifter som behövs för att slutföra Hybrid Azure AD-anslutning
+title: 'Azure AD Connect: Hybrid Azure AD-anslutning efter konfigurations uppgifter | Microsoft Docs'
+description: Den här dokument informationen innehåller konfigurations uppgifter som krävs för att slutföra hybrid Azure AD-anslutningen
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,85 +16,85 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9af969700f4f2dfbedc4833badd7e7349696302
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39e76abcac94a877e6bc7ea5c417c77c8c2febff
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244582"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032699"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Uppgifter efter konfiguration för Hybrid Azure AD-anslutning
 
-När du har kört Azure AD Connect för att konfigurera din organisation för Hybrid Azure AD-anslutning, finns det några ytterligare steg som du måste utföra för att slutföra den installationen.  Utför bara de steg som gäller för dina enheter.
+När du har kört Azure AD Connect för att konfigurera din organisation för Hybrid Azure AD-anslutning finns det några ytterligare steg som du måste utföra för att slutföra installationen.  Utför bara de steg som gäller för dina enheter.
 
 ## <a name="1-configure-controlled-rollout-optional"></a>1. Konfigurera kontrollerad distribution (valfritt)
-Alla domänanslutna enheter som kör Windows 10 och Windows Server 2016 automatiskt registrera med Azure AD när alla konfigurationssteg är klara. Om du föredrar en kontrollerad distribution i stället för den här automatisk registrering, kan du använda grupprinciper för att selektivt aktivera eller inaktivera automatisk distribution.  Den här grupprincipen ska anges innan du startar den andra configuration steg: Azure AD
-* Skapa ett grupprincipobjekt i Active Directory.
-* Ge den namnet (ex-Hybrid Azure AD-anslutning).
-* Redigera och gå till:  Datorkonfiguration > Principer > Administrativa mallar > Windows-komponenter > Enhetsregistrering.
+Alla domänanslutna enheter som kör Windows 10 och Windows Server 2016 registreras automatiskt med Azure AD när alla konfigurations steg har slutförts. Om du föredrar en kontrollerad distribution i stället för den här automatiska registreringen kan du använda grup principer för att selektivt aktivera eller inaktivera automatisk distribution.  Du måste ange den här grup principen innan du startar de andra konfigurations stegen:
+* Skapa ett grup princip objekt i din Active Directory.
+* Ge den namnet (till exempel hybrid Azure AD Join).
+* Redigera & gå till:  Dator konfiguration > principer > Administrativa mallar > Windows-komponenter > enhets registrering.
 
 >[!NOTE]
->För 2012R2 principinställningarna finns på **Datorkonfiguration > Principer > Administrationsmallar > Windows-komponenter > Anslut till arbetsplatsen > automatiskt workplace join-klientdatorer**
+>För 2012R2 finns princip inställningarna i **dator konfiguration > principer > Administrativa mallar > Windows-komponenter > Workplace Join > automatiskt ansluta klient datorer på arbets plats**
 
-* Den här inställningen inaktiveras:  Registrera domänanslutna datorer som enheter.
-* Tillämpa och klicka på OK.
-* Länka Grupprincipobjektet till platsen för ditt val (organisationsenhet, säkerhet eller för domän för alla enheter).
+* Inaktivera den här inställningen:  Registrera domänanslutna datorer som enheter.
+* Verkställ och klicka på OK.
+* Länka GRUPPRINCIPOBJEKTet till valfri plats (organisationsenhet, säkerhets grupp eller domän för alla enheter).
 
-## <a name="2-configure-network-with-device-registration-endpoints"></a>2. Konfigurera nätverk med slutpunkter för registrering av enhet
-Kontrollera att följande URL: er är tillgängliga från datorer i din organisations nätverk för registrering till Azure AD:
+## <a name="2-configure-network-with-device-registration-endpoints"></a>2. Konfigurera nätverk med slut punkter för enhets registrering
+Kontrol lera att följande URL: er är tillgängliga från datorer i ditt organisations nätverk för registrering till Azure AD:
 
 * https://enterpriseregistration.windows.net
 * https://login.microsoftonline.com
 * https://device.login.microsoftonline.com 
 
 ## <a name="3-implement-wpad-for-windows-10-devices"></a>3. Implementera WPAD för Windows 10-enheter
-Om organisationen har åtkomst till Internet via en utgående proxy, implementera Web Proxy Auto-Discovery (WPAD) för att aktivera Windows 10-datorer att registrera till Azure AD.
+Om din organisation har åtkomst till Internet via en utgående proxy implementerar du Web Proxy Auto-Discovery (WPAD) för att aktivera att Windows 10-datorer registreras i Azure AD.
 
-## <a name="4-configure-the-scp-in-any-forests-that-were-not-configured-by-azure-ad-connect"></a>4. Konfigurera SCP: N i alla skogar som inte har konfigurerats med Azure AD Connect 
+## <a name="4-configure-the-scp-in-any-forests-that-were-not-configured-by-azure-ad-connect"></a>4. Konfigurera SCP i alla skogar som inte har kon figurer ATS av Azure AD Connect 
 
-Tjänstanslutningspunkten (SCP) innehåller din Azure AD-klientinformation som ska användas av dina enheter för automatisk registrering.  Kör PowerShell-skriptet ConfigureSCP.ps1 som du laddade ned från Azure AD Connect.
+Tjänst anslutnings punkten (SCP) innehåller din Azure AD-klient information som används av enheterna för automatisk registrering.  Kör PowerShell-skriptet, ConfigureSCP. ps1, som du laddade ned från Azure AD Connect.
 
-## <a name="5-configure-any-federation-service-that-was-not-configured-by-azure-ad-connect"></a>5. Konfigurera alla federationstjänsten som inte har konfigurerats med Azure AD Connect
+## <a name="5-configure-any-federation-service-that-was-not-configured-by-azure-ad-connect"></a>5. Konfigurera en Federations tjänst som inte har kon figurer ATS av Azure AD Connect
 
-Om din organisation använder en federationstjänst för att logga in på Azure AD, måste anspråksregler i din Azure AD förtroende för förlitande part tillåta enhetsautentisering. Om du använder federation med AD FS, gå till [hjälp om AD FS](https://aka.ms/aadrptclaimrules) att skapa anspråksreglerna. Om du använder en federationslösning som inte kommer från Microsoft, kontaktar du den leverantören för vägledning.  
+Om din organisation använder en Federations tjänst för att logga in på Azure AD, måste anspråks reglerna i ditt Azure AD-förtroende för förlitande part tillåta enhetsautentisering. Om du använder Federation med AD FS går du till [AD FS hjälp](https://aka.ms/aadrptclaimrules) för att generera anspråks reglerna. Om du använder en Federations lösning som inte kommer från Microsoft kontaktar du leverantören för vägledning.  
 
 >[!NOTE]
->Om du har Windows äldre enheter, tjänsten måste ha stöd för utfärdande av anspråk authenticationmethod och wiaormultiauthn när du tar emot förfrågningar till Azure AD-förtroende. Du bör lägga till en regel för utfärdande transformeringen som pass via autentiseringsmetod i AD FS.
+>Om du har Windows-enheter med äldre versioner måste tjänsten stödja utfärdande av AuthenticationMethod-och wiaormultiauthn-anspråk när du tar emot förfrågningar till Azure AD-förtroendet. I AD FS bör du lägga till en regel för omvandling av utfärdande som passerar genom autentiseringsmetoden.
 
-## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Aktivera Azure AD sömlös enkel inloggning för Windows äldre enheter
+## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Aktivera Azure AD sömlös SSO för Windows-enheter på äldre nivå
 
-Om din organisation använder Hashsynkronisering för lösenord eller direktautentisering för att logga in på Azure AD, Aktivera sömlös enkel inloggning för den Azure AD med den metoden för autentisering av Windows äldre enheter: https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso. 
+Om din organisation använder hash-synkronisering av lösen ord eller direktautentisering för att logga in på Azure AD, aktiverar du Azure AD sömlös SSO med denna inloggnings metod för att autentisera Windows-enheter på https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso den äldre nivån:. 
 
-## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Skapa Azure AD-princip för Windows äldre enheter
+## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Ange Azure AD-princip för Windows-enheter på äldre nivå
 
-Om du vill registrera Windows äldre enheter, måste du kontrollera att Azure AD-principen tillåter användare att registrera enheter. 
+För att registrera Windows-enheter på en äldre enhet måste du kontrol lera att Azure AD-principen tillåter användare att registrera enheter. 
 
-* Logga in på ditt konto i Azure-portalen.
-* Gå till:  Azure Active Directory > enheter > Enhetsinställningar
-* Ange ”användare kan registrera sina enheter med Azure AD” alla.
+* Logga in på ditt konto i Azure Portal.
+* Gå till:  Azure Active Directory > enheter > enhets inställningar
+* Ange "användare kan registrera sina enheter med Azure AD" till alla.
 * Klicka på Spara
 
-## <a name="8-add-azure-ad-endpoint-to-windows-down-level-devices"></a>8. Lägga till Azure AD-slutpunkten för Windows äldre enheter
+## <a name="8-add-azure-ad-endpoint-to-windows-down-level-devices"></a>8. Lägg till Azure AD-slutpunkt i Windows-enheter på nivån
 
-Lägg till Azure AD authentication enhetsslutpunkt lokala intranätszoner på dina Windows äldre enheter för att undvika certifikat vid autentisering enheterna: https://device.login.microsoftonline.com 
+Lägg till Azure AD Device Authentication-slutpunkten i zonerna Lokalt intranät på dina Windows-enheter för att undvika certifikat meddelanden vid autentisering av enheterna: https://device.login.microsoftonline.com 
 
-Om du använder [sömlös SSO](how-to-connect-sso.md), samt aktivera ”Tillåt status uppdateras via skript” på zonen och lägga till följande slutpunkt: https://autologon.microsoftazuread-sso.com 
+Om du använder [sömlös SSO](how-to-connect-sso.md)aktiverar du även Tillåt uppdatering av statusfältet via skriptet på den zonen och lägger till följande slut punkt: https://autologon.microsoftazuread-sso.com 
 
-## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Installera Microsoft Workplace Join på Windows äldre enheter
+## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Installera Microsoft Workplace Join på Windows-enheter på nivån
 
-Det här installationsprogrammet skapar en schemalagd aktivitet på enhetssystemet som körs i användarens kontext. Aktiviteten utlöses när användaren loggar in på Windows. Uppgiften kopplar tyst enhet med Azure AD med autentiseringsuppgifterna för användaren när de har autentiserat med integrerad Windows-autentisering. Download center finns på https://www.microsoft.com/download/details.aspx?id=53554. 
+Det här installations programmet skapar en schemalagd aktivitet på enhets systemet som körs i användarens kontext. Aktiviteten utlöses när användaren loggar in i Windows. Uppgiften ansluter tyst till enheten med Azure AD med användarautentiseringsuppgifterna efter autentisering med integrerad Windows-autentisering. Download Center finns på https://www.microsoft.com/download/details.aspx?id=53554. 
 
-## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Konfigurera en grupprincip för att tillåta registrering av enheten
+## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Konfigurera grup princip för att tillåta enhets registrering
 
-* Skapa ett grupprincipobjekt i Active Directory--om du inte redan har skapats.
-* Ge den namnet (ex-Hybrid Azure AD-anslutning).
-* Redigera och gå till:  Datorkonfiguration > Principer > Administrativa mallar > Windows-komponenter > Enhetsregistrering
-* Aktivera:  Registrera domänanslutna datorer som enheter
-* Tillämpa och klicka på OK.
-* Länka Grupprincipobjektet till platsen för ditt val (organisationsenhet, säkerhet eller för domän för alla enheter).
+* Skapa ett grup princip objekt i din Active Directory – om det inte redan har skapats.
+* Ge den namnet (till exempel hybrid Azure AD Join).
+* Redigera & gå till:  Dator konfiguration > principer > Administrativa mallar > Windows-komponenter > enhets registrering
+* Använd  Registrera domänanslutna datorer som enheter
+* Verkställ och klicka på OK.
+* Länka GRUPPRINCIPOBJEKTet till valfri plats (organisationsenhet, säkerhets grupp eller domän för alla enheter).
 
 >[!NOTE]
->För 2012R2 principinställningarna finns på **Datorkonfiguration > Principer > Administrationsmallar > Windows-komponenter > Anslut till arbetsplatsen > automatiskt workplace join-klientdatorer**
+>För 2012R2 finns princip inställningarna i **dator konfiguration > principer > Administrativa mallar > Windows-komponenter > Workplace Join > automatiskt ansluta klient datorer på arbets plats**
 
 ## <a name="next-steps"></a>Nästa steg
 [Konfigurera tillbakaskrivning av enhet](how-to-connect-device-writeback.md)

@@ -1,6 +1,6 @@
 ---
 title: Exempel och genomgångar för virtuella datorer för datavetenskap – Azure | Microsoft Docs
-description: Läs mer om exempel och genomgångar att lära dig hur du utför vanliga uppgifter och scenarier med den virtuella datorn för datavetenskap.
+description: I de här exemplen och genom gången lär du dig hur du hanterar vanliga uppgifter och scenarier med Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
@@ -16,47 +16,47 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: vijetaj
-ms.openlocfilehash: 57ebefb11d23c5ea18d5859ca494944e6a845e04
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 628c516553c2304739229c53d725645c799d06ce
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565308"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047830"
 ---
 # <a name="samples-on-data-science-virtual-machines"></a>Exempel på virtuella datorer för datavetenskap
 
-Azure virtuella datorer för datavetenskap innehåller en omfattande uppsättning med exempelkod. Exempelkoden är i form av Jupyter-anteckningsböcker och skript i språk, till exempel Python och R. 
+Azure Data Science Virtual Machines (Dsvm) innehåller en omfattande uppsättning exempel kod. De här exemplen omfattar Jupyter-anteckningsböcker och skript i språk som python och R.
 > [!NOTE]
-> Läs mer om hur du kör Jupyter-anteckningsböcker på dina virtuella datorer för datavetenskap, den [åtkomst Jupyter](#access-jupyter) avsnittet.
+> Mer information om hur du kör Jupyter-anteckningsböcker på dina virtuella datorer för data vetenskap finns i avsnittet [Access Jupyter](#access-jupyter) .
 
 ## <a name="quick-reference-of-samples"></a>Snabbreferens exempel
 | Exempel-kategori | Beskrivning | Platser |
 | ------------- | ------------- | ------------- |
-| R-språket  | Exempel i R beskrivs scenarier, till exempel hur du ansluter med datalager i Azure-molnet. De beskrivs också hur du jämför open source-R- och Microsoft R. Och de förklarar hur du operationalisera modeller på Microsoft R Server eller SQL Server. <br/> [R-språket](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
-| Python-språk  | Exemplen i Python förklara till exempel hur du ansluter med datalager i Azure-molnet och arbetar med Azure Machine Learning.  <br/> [Python-språk](#python-language) | <br/>`~notebooks` <br/><br/>|
-| Julia-språket  | Exemplet i Julia som beskriver ritning och djup maskininlärning i Julia. Här förklaras också anropande C och Python från Julia. <br/> [Julia-språket](#julia-language) |<br/> Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux:<br/> `~notebooks/julia`<br/><br/> |
-| Azure Machine Learning  | Skapa machine learning och deep learning-modeller med Machine Learning. Distribuera modeller var som helst. Använd automatiserade maskininlärning och intelligent finjustering av hyperparametrar. Också använda modellhantering och distribuerad utbildning. <br/> [Machine Learning](#azureml) | <br/>`~notebooks/AzureML`<br/> <br/>|
-| PyTorch-anteckningsböcker  | Exempel som använder PyTorch-baserade neurala nätverk för djupinlärning. Anteckningsböcker allt från nybörjare till avancerade scenarier.  <br/> [PyTorch-anteckningsböcker](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
-| TensorFlow  |  Exempel för olika neurala nätverk och tekniker som implementeras med hjälp av TensorFlow-framework. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
-| Microsoft Cognitive Toolkit <br/>   | Exempel som publicerats av Cognitive Toolkit-teamet hos Microsoft för djupinlärning.  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
-| Caffe2 | Exempel som använder caffe2-baserade neurala nätverk för djupinlärning. Flera anteckningsböcker bekanta användare med caffe2 och hur du använder effektivt. Exempel: skapa förbearbetning och datamängd för avbildningar. De omfattar också regression och hur du använder förtränade modeller. <br/> [caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
-| H2O   | Python-baserade exempel som använder H2O för verkligt scenario problem. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
-| SparkML språk  | Exempel som använder funktioner i Spark MLLib toolkit via pySpark och MMLSpark--Microsoft Machine Learning för Apache Spark i Apache Spark 2.x.  <br/> [SparkML språk](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
-| XGBoost | Standard machine learning-exempel i XGBoost för scenarier som klassificerings- och regressionsmodeller. <br/> [XGBoost](#xgboost) | <br/>Windows:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
+| R-språket  | Exempel illustrerar scenarier som hur du ansluter till Azure-baserade moln data lager och hur du jämför R-och Microsoft Machine Learning Server med öppen källkod. De förklarar också hur du operationalisera modeller på Microsoft Machine Learning Server och SQL Server. <br/> [R-språket](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
+| Python-språk  | Exempel beskriver scenarier som hur du ansluter med Azure-baserade moln data lager och hur du arbetar med Azure Machine Learning.  <br/> [Python-språk](#python-language) | <br/>`~notebooks` <br/><br/>|
+| Julia-språket  | Innehåller en detaljerad beskrivning av hur du ritar och djupar inlärning i Julia. Förklarar också hur du anropar C och python från Julia. <br/> [Julia-språket](#julia-language) |<br/> Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux:<br/> `~notebooks/julia`<br/><br/> |
+| Azure Machine Learning  | Visar hur du skapar modeller för maskin inlärning och djup inlärning med Machine Learning. Distribuera modeller var som helst. Använd automatiserade maskininlärning och intelligent finjustering av hyperparametrar. Också använda modellhantering och distribuerad utbildning. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
+| PyTorch-anteckningsböcker  | Exempel på djup inlärning som använder PyTorch-baserade neurala-nätverk. Anteckningsböcker allt från nybörjare till avancerade scenarier.  <br/> [PyTorch-anteckningsböcker](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
+| TensorFlow  |  En mängd olika neurala-nätverks exempel och tekniker som implementeras med hjälp av TensorFlow-ramverket. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
+| Microsoft Cognitive Toolkit <br/>   | Exempel på djup inlärning som publicerats av Cognitive Toolkits teamet på Microsoft.  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
+| Caffe2 | Exempel på djup inlärning som använder Caffe2-baserade neurala-nätverk. Flera antecknings böcker bekanta användare med Caffe2 och hur de används effektivt. Exempel på hur du skapar och skapar data uppsättningar är avbildningar. De omfattar också regression och hur man använder förtränade modeller. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
+| H2O   | Python-baserade exempel som använder H2O för verkliga problem scenarier. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
+| SparkML språk  | Exempel som använder funktioner i Apache Spark MLLib Toolkit via pySpark och MMLSpark: Microsoft Machine Learning för Apache Spark på Apache Spark 2. x.  <br/> [SparkML språk](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
+| XGBoost | Standard maskin inlärnings exempel i XGBoost för scenarier som klassificering och regression. <br/> [XGBoost](#xgboost) | <br/>Windows:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
 
 <br/>
 
 ## <a name="access-jupyter"></a>Åtkomst Jupyter 
 
-För att komma åt Jupyter, Välj den `Jupyter` -ikonen i menyn skrivbord eller ett program. Du kan också nå Jupyter på Linux-versioner av virtuella datorer för datavetenskap. Du kan komma åt via en fjärranslutning från en webbläsare genom att besöka `https://<Full Domain Name or IP Address of the DSVM>:8000` på Ubuntu.
+Välj **Jupyter** -ikonen på Skriv bordet eller program menyn för att komma åt Jupyter. Du kan också komma åt Jupyter i en Linux-utgåva av en DSVM. Om du vill komma åt fjärr anslutning från en webbläsare `https://<Full Domain Name or IP Address of the DSVM>:8000` går du till på Ubuntu.
 
-Om du vill lägga till undantag och tillgängliggöra Jupyter komma åt via en webbläsare, finns i följande skärmbild.
+Använd följande vägledning om du vill lägga till undantag och göra Jupyter åtkomst tillgänglig via en webbläsare:
 
 
 ![Aktivera Jupyter-undantag](./media/ubuntu-jupyter-exception.png)
 
 
-Logga in med samma lösenord som din inloggning för virtuella datorer för datavetenskap.
+Logga in med samma lösen ord som du använder för att logga in på Data Science Virtual Machine.
 <br/>
 
 **Jupyter hem**
@@ -71,8 +71,8 @@ Logga in med samma lösenord som din inloggning för virtuella datorer för data
 ## <a name="julia-language"></a>Julia-språket 
 <br/>![Julia-exempel](./media/julia-samples.png)<br/>
 
-## <a name="azureml"></a>AzureML 
-<br/>![AzurekML-exempel](./media/azureml-samples.png)<br/>
+## <a name="azure-machine-learning"></a>Azure Machine Learning 
+<br/>![Azure Machine Learning exempel](./media/azureml-samples.png)<br/>
 
 ## <a name="pytorch"></a>PyTorch
 <br/>![PyTorch-exempel](./media/pytorch-samples.png)<br/>

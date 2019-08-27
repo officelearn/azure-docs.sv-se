@@ -1,6 +1,6 @@
 ---
-title: Översikt över aviseringar och övervakning av meddelande i Azure
-description: Översikt över aviseringar i Azure. Aviseringar, klassiska aviseringar, gränssnittet aviseringar.
+title: Översikt över aviseringar och meddelande övervakning i Azure
+description: Översikt över aviseringar i Azure. Aviseringar, klassiska aviseringar, aviserings gränssnittet.
 author: rboucher
 services: monitoring
 ms.service: azure-monitor
@@ -8,183 +8,186 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: c389f2ab9e67cbb1fd1a6a0c9ee274bca7d4c99d
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 67318fee540195fc913739d78e80649100c54e70
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560423"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034816"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
-Den här artikeln beskriver vilka aviseringar har sina fördelar, och hur du kommer igång med dem.  
+I den här artikeln beskrivs vilka aviseringar som är, deras fördelar och hur du kommer igång med dem.  
 
 
 
 
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Vad är aviseringar i Microsoft Azure?
-Aviseringar meddelar proaktivt dig när det är viktigt villkor finns i dina övervakningsdata. De gör att du kan identifiera och lösa problem innan användarna av systemet uppmärksamma dem. 
+Aviseringar proaktivt meddela dig när viktiga villkor finns i dina övervaknings data. De gör att du kan identifiera och åtgärda problem innan användarna av systemet ser dem. 
 
-Den här artikeln beskriver den avisering enhetlig upplevelsen i Azure Monitor, som nu innehåller aviseringar som hanterades av Log Analytics och Application Insights. Den [tidigare avisering erfarenhet](alerts-classic.overview.md) och aviseringstyper kallas **klassiska aviseringar**. Du kan visa den här äldre upplevelse och äldre typ av avisering genom att klicka på **Visa klassiska aviseringar** överst på sidan avisering. 
+Den här artikeln beskriver den enhetliga aviserings upplevelsen i Azure Monitor, som nu innehåller aviseringar som hanterades av Log Analytics och Application Insights. [Föregående aviserings upplevelse](alerts-classic.overview.md) och aviserings typer kallas för **klassiska aviseringar**. Du kan visa den här äldre upplevelsen och äldre aviserings typ genom att klicka på **Visa klassiska aviseringar** överst på aviserings sidan. 
 
 ## <a name="overview"></a>Översikt
 
 Diagrammet nedan visar flödet av aviseringar. 
 
-![Varningsflödet](media/alerts-overview/Azure-Monitor-Alerts.svg)
+![Aviserings flöde](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-Varningsregler är avgränsade från aviseringar och åtgärder som vidtas när en avisering utlöses. 
+Varnings regler skiljs från aviseringar och åtgärder som vidtas när en avisering utlöses. 
 
-**Varningsregeln** -regeln samlar in mål- och villkoren för aviseringar. Varningsregeln kan vara i ett aktiverat eller inaktiverat läge. Aviseringar kan bara aktiveras när det är aktiverat. 
+**Aviserings regel** – varnings regeln samlar in mål och kriterier för aviseringar. Varnings regeln kan vara i ett aktiverat eller inaktiverat tillstånd. Aviseringar utlöses bara när de är aktiverade. 
 
-Viktiga punkter för en varningsregel är:
+Nyckelattribut för en varnings regel är:
 
-**Målresurs** – definierar omfattningen och signalerar till tillgängliga för aviseringar. Ett mål kan vara en Azure-resurs. Exempel mål: en virtuell dator, ett lagringskonto, en skalningsuppsättning för virtuell dator, en Log Analytics-arbetsyta eller en Application Insights-resurs. För vissa resurser (t.ex. virtuella datorer), du kan ange flera resurser som mål för regeln.
+**Mål resurs** – definierar omfattning och signaler som är tillgängliga för aviseringar. Ett mål kan vara vilken Azure-resurs som helst. Exempel mål: en virtuell dator, ett lagrings konto, en skalnings uppsättning för virtuella datorer, en Log Analytics-arbetsyta eller en Application Insights-resurs. För vissa resurser (t. ex. Virtual Machines) kan du ange flera resurser som mål för varnings regeln.
 
-**Signal** – signalerar genereras av målresursen och kan vara av flera typer. Mått, aktivitet log, Application Insights och Log.
+**Signal** -signaler genereras av mål resursen och kan vara av flera typer. Mått, aktivitets logg, Application Insights och logg.
 
-**Kriterier** – villkor är kombination av Signal och logik som tillämpas på en målresurs. Exempel: 
-   - Processorprocentandel > 70%
-   - Svarstid för servern > 4 ms 
-   - Resultatantal på en fråga > 100 log
+**Kriterier** – kriterier är en kombination av signal och logik som tillämpas på en mål resurs. Exempel: 
+   - Procent processor > 70%
+   - Server svars tid > 4 MS 
+   - Antal resultat för en logg fråga > 100
 
-**Varningens namn** – ett visst namn för regeln konfigurerats av användaren
+**Aviserings namn** – ett speciellt namn för aviserings regeln som kon figurer ATS av användaren
 
-**Aviseringsbeskrivning** – en beskrivning för regeln konfigurerats av användaren
+**Aviserings Beskrivning** – en beskrivning av aviserings regeln som kon figurer ATS av användaren
 
-**Allvarlighetsgrad** – allvarlighetsgraden för aviseringen när villkoren som har angetts i regeln uppfylls. Allvarlighetsgrad kan vara mellan 0 och 4.
+**Allvarlighets** grad – allvarlighets graden för aviseringen när kriteriet som anges i varnings regeln är uppfyllt. Allvarlighets graden kan vara mellan 0 och 4.
 
-**Åtgärden** – en specifik åtgärd vidtas när aviseringen utlöses. Mer information finns i [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md).
+**Åtgärd** – en speciell åtgärd som vidtas när aviseringen utlöses. Mer information finns i [Åtgärds grupper](../../azure-monitor/platform/action-groups.md).
 
-## <a name="what-you-can-alert-on"></a>Du kan meddela på
+## <a name="what-you-can-alert-on"></a>Vad du kan Avisera om
 
-Du kan meddela mått och loggar enligt beskrivningen i [övervakning datakällor](../../azure-monitor/platform/data-sources-reference.md). Dessa inkludera, men är inte begränsade till:
-- Måttvärden
-- Loggsökningsfrågor
-- Händelser i aktivitetsloggen
-- Hälsotillståndet för underliggande Azure-plattformen
-- Tester för tillgänglighet för webbplats
+Du kan varna för mått och loggar på det sätt som beskrivs i [övervaka data källor](../../azure-monitor/platform/data-sources-reference.md). Dessa inkluderar, men är inte begränsade till:
+- Mät värden
+- Loggs öknings frågor
+- Aktivitets logg händelser
+- Hälso tillståndet för den underliggande Azure-plattformen
+- Test för webbplats tillgänglighet
 
-Tidigare hade Azure Monitor-mått, Application Insights, logganalys och Tjänstehälsa för separata aviseringar funktioner. Framöver kommer Azure förbättrad och kombineras både användargränssnitt och olika metoder för aviseringar. Denna konsolidering pågår fortfarande. Därför finns fortfarande vissa varningar funktioner inte ännu i det nya systemet för aviseringar.  
+Tidigare Azure Monitor Mät värden, Application Insights, Log Analytics och Service Health hade separata aviserings funktioner. Med tiden kan Azure förbättra och kombinera både användar gränssnittet och olika metoder för aviseringar. Denna konsolidering pågår fortfarande. Därför finns det fortfarande vissa aviserings funktioner som ännu inte finns i det nya varnings systemet.  
 
-| **Övervaka källan** | **Signaltyp**  | **Beskrivning** | 
+| **Övervaka källa** | **Signal typ**  | **Beskrivning** | 
 |-------------|----------------|-------------|
-| Service Health | Aktivitetslogg  | Stöds ej. Se [skapa aviseringar för aktivitetsloggen för tjänstmeddelanden](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Webbtester för tillgänglighet | Stöds ej. Se [webbtestaviseringar](../../azure-monitor/app/monitor-web-app-availability.md). Tillgänglig för alla webbplatser som är utrustade för att skicka data till Application Insights. Få ett meddelande när tillgänglighet och svarstider på en webbplats som är lägre än förväntningar. |
+| Tjänstens hälsa | Aktivitetslogg  | Stöds ej. Se [skapa aktivitets logg aviseringar för tjänst meddelanden](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Test av webb tillgänglighet | Stöds ej. Se [webb test aviseringar](../../azure-monitor/app/monitor-web-app-availability.md). Tillgängligt för alla webbplatser som är instrumenterade att skicka data till Application Insights. Få ett meddelande när tillgänglighet eller svars tider för en webbplats är under förväntningarna. |
 
 ## <a name="manage-alerts"></a>Hantera aviseringar
-Du kan ange tillståndet för en avisering för att ange var den är i lösningsprocessen. När villkoren som har angetts i regeln uppfylls, en avisering skapas eller utlöstes, den har statusen *New*. Du kan ändra status när du har godkänt en avisering och när du stänger den. Alla tillståndsändringar lagras i historiken för aviseringen.
+Du kan ange status för en avisering för att ange var den finns i lösnings processen. När kriteriet som anges i varnings regeln uppfylls skapas eller utlöses en avisering, den har statusen *ny*. Du kan ändra statusen när du bekräftar en avisering och när du stänger den. Alla status ändringar lagras i historiken för aviseringen.
 
-Dessa aviseringstillstånd stöds.
+Följande aviserings tillstånd stöds.
 
-| Status | Beskrivning |
+| State | Beskrivning |
 |:---|:---|
-| Ny | Problemet bara har identifierats och har inte har granskat. |
-| Bekräftad | En administratör har granskat aviseringen och mellanrum. |
-| Stängd | Problemet har lösts. När en avisering har stängts kan öppna du det genom att ändra det till ett annat tillstånd. |
+| Ny | Problemet har precis identifierats och har ännu inte granskats. |
+| Godkänt | En administratör har granskat aviseringen och börjat arbeta med den. |
+| Stängd | Problemet har åtgärd ATS. När en avisering har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
 
-**Avisera tillstånd** är annorlunda och oberoende av den **övervaka villkor**. Tillstånd för avisering har angetts av användaren. Övervakarens villkor har angetts av systemet. När en avisering utlöses aviseringens övervakarens villkor har angetts *utlösta*. När det underliggande villkoret som orsakade aviseringen utlöses raderar övervakarens villkor har angetts till *löst*. Aviseringstillståndet ändras inte förrän användaren ändrar den. Lär dig [hur du ändrar status för dina aviseringar och smart grupper](https://aka.ms/managing-alert-smart-group-states).
+**Aviserings tillståndet** är annorlunda och oberoende av **övervaknings villkoret**. Aviserings tillstånd anges av användaren. Övervaknings villkoret anges av systemet. När en varning utlöses anges övervaknings villkoret för aviseringen till *utlöst*. När det underliggande villkoret som orsakade aviseringen om att brand figurer rensas, anges övervaknings villkoret som *löst*. Aviserings statusen har inte ändrats förrän användaren ändrar det. Lär dig [hur du ändrar status för dina aviseringar och smarta grupper](https://aka.ms/managing-alert-smart-group-states).
 
 ## <a name="smart-groups"></a>Smarta grupper 
-Smart grupper finns i förhandsversion. 
+Smarta grupper är i för hands version. 
 
-Smart grupper är sammanställning av aviseringar baserat på machine learning-algoritmer som kan hjälpa att minska aviseringsbruset och underlätta felsökning. [Läs mer om Smart grupper](https://aka.ms/smart-groups) och [hur du hanterar dina smarta grupper](https://aka.ms/managing-smart-groups).
+Smarta grupper är agg regeringar för aviseringar baserade på Machine Learning-algoritmer som kan hjälpa till att minska aviserings bruset och hjälpa till med fel sökning. [Lär dig mer om smarta grupper](https://aka.ms/smart-groups) och [hur du hanterar dina smarta grupper](https://aka.ms/managing-smart-groups).
 
 
-## <a name="alerts-experience"></a>Aviseringsgränssnittet 
-Aviseringar standardsidan ger en översikt över aviseringar som har skapats inom ett visst tidsintervall. Den visar totalt antal aviseringar för varje allvarlighetsgrad med kolumner som identifierar det totala antalet aviseringar i varje status för varje allvarlighetsgrad. Välj någon av allvarlighetsgrader att öppna den [alla aviseringar](#all-alerts-page) sidan filtreras efter den allvarlighetsgraden.
+## <a name="alerts-experience"></a>Aviserings upplevelse 
+Sidan standard varningar innehåller en sammanfattning av de aviseringar som skapas inom ett visst tidsintervall. Den visar den totala aviseringen för varje allvarlighets grad med kolumner som anger det totala antalet aviseringar i varje tillstånd för varje allvarlighets grad. Välj någon av allvarlighets graderna för att öppna sidan [alla aviseringar](#all-alerts-page) som filtrerats efter allvarlighets grad.
 
-Du kan också [programmässigt räknar upp aviseringsinstanser som genereras på dina prenumerationer med hjälp av REST API: er](#manage-your-alert-instances-programmatically).
+Du kan också [program mässigt räkna upp de aviserings instanser som genereras i dina prenumerationer med hjälp av REST-API: er](#manage-your-alert-instances-programmatically).
 
-Inte visa eller spåra äldre [klassiska aviseringar](#classic-alerts). Du kan ändra prenumerationer eller filtrera parametrar för att uppdatera sidan. 
+> [!NOTE]
+   >  Endast aviseringar som genererats under de senaste 30 dagarna kan nås i UX-eller REST-API: erna.
 
-![Sidan varningar](media/alerts-overview/alerts-page.png)
+Den visar eller spårar inte äldre [klassiska aviseringar](#classic-alerts). Du kan ändra prenumerationer eller filter parametrar för att uppdatera sidan. 
 
-Du kan filtrera den här vyn genom att välja värden i listrutorna överst på sidan.
+![Sidan aviseringar](media/alerts-overview/alerts-page.png)
+
+Du kan filtrera den här vyn genom att välja värden i list menyerna längst upp på sidan.
 
 | Kolumn | Beskrivning |
 |:---|:---|
-| Prenumeration | Välj de Azure-prenumerationer som du vill visa aviseringarna. Du kan välja att markera alla dina prenumerationer. Endast aviseringar som du har åtkomst till i de valda prenumerationerna ingår i vyn. |
-| Resursgrupp | Välj en enskild resursgrupp. Endast aviseringar med mål i den valda resursgruppen ingår i vyn. |
-| Tidsintervall | Bara de aviseringar som utlösts inom det valda tidsfönstret ingår i vyn. Värden som stöds är den senaste timmen, de senaste 24 timmarna, de senaste 7 dagarna och de senaste 30 dagarna. |
+| Subscription | Välj de Azure-prenumerationer som du vill visa aviseringar för. Alternativt kan du välja att välja alla dina prenumerationer. Endast aviseringar som du har åtkomst till i de valda prenumerationerna ingår i vyn. |
+| Resource group | Välj en enskild resurs grupp. Endast aviseringar med mål i den valda resurs gruppen ingår i vyn. |
+| Tidsintervall | Endast aviseringar som har utlösts inom den valda tids perioden tas med i vyn. De värden som stöds är den senaste timmen, de senaste 24 timmarna, de senaste 7 dagarna och de senaste 30 dagarna. |
 
-Välj följande värden överst på sidan aviseringar för att öppna en annan sida.
+Välj följande värden överst på aviserings sidan för att öppna en annan sida.
 
-| Värde | Beskrivning |
+| Value | Beskrivning |
 |:---|:---|
-| Totalt antal aviseringar | Det totala antalet aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna vyn alla aviseringar med inget filter. |
-| Smarta grupper | Det totala antalet smart grupper som har skapats från de aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna listan över smart i vyn alla aviseringar.
-| Totalt antal aviseringsregler | Det totala antalet Varningsregler i den valda prenumerationen och resursgruppen. Välj det här värdet för att öppna vyn regler filtreras på den valda prenumerationen och resursgruppen.
+| Totalt antal aviseringar | Det totala antalet aviseringar som matchar de valda kriterierna. Välj det här värdet för att öppna vyn alla aviseringar utan filter. |
+| Smarta grupper | Det totala antalet smarta grupper som har skapats från de aviseringar som matchar de valda kriterierna. Välj det här värdet för att öppna listan Smart grupper i vyn alla aviseringar.
+| Totalt antal aviseringsregler | Det totala antalet aviserings regler i den valda prenumerationen och resurs gruppen. Välj det här värdet för att öppna regel vyn filtrerad på den valda prenumerationen och resurs gruppen.
 
 
-## <a name="manage-alert-rules"></a>Hantera Varningsregler
-Klicka på **hantera aviseringsregler** att visa den **regler** sidan. **Regler** är en enda plats för att hantera alla aviseringsregler för alla Azure-prenumerationer. Den visar en lista över alla aviseringsregler och kan sorteras utifrån target-resurser, resursgrupper, regelnamn eller status. Varningsregler kan även redigeras, aktiveras eller inaktiveras från den här sidan.  
+## <a name="manage-alert-rules"></a>Hantera varningsregler
+Klicka på **Hantera aviserings regler** för att visa sidan **regler** . **Regler** är en enda plats för att hantera alla aviserings regler i dina Azure-prenumerationer. Den visar alla varnings regler och kan sorteras baserat på mål resurser, resurs grupper, regel namn eller status. Aviserings regler kan också redige ras, aktive ras eller inaktive ras från den här sidan.  
 
- ![regler för aviseringar](./media/alerts-overview/alerts-preview-rules.png)
+ ![aviseringar-regler](./media/alerts-overview/alerts-preview-rules.png)
 
 
 ## <a name="create-an-alert-rule"></a>Skapa en varningsregel
-Aviseringar kan skrivas i ett konsekvent sätt oavsett övervakningstjänsten eller skicka en signal typen. Alla utlösta aviseringar och relaterade detaljer är tillgängliga i en sida.
+Aviseringar kan skapas på ett konsekvent sätt oavsett övervaknings tjänst eller signal typ. Alla utlösta aviseringar och relaterad information finns på en enda sida.
  
-Du kan skapa en ny aviseringsregel med följande tre steg:
-1. Välj den _target_ för aviseringen.
-1. Välj den _signal_ från de tillgängliga signalerna för målet.
-1. Ange den _logic_ som ska tillämpas på data från signalen.
+Du skapar en ny aviserings regel med följande tre steg:
+1. Välj _målet_ för aviseringen.
+1. Välj _signalen_ från tillgängliga signaler för målet.
+1. Ange vilken _logik_ som ska användas för data från signalen.
  
-Förenklad redigering processen kräver inte längre att du enkelt se övervakningen käll- eller signaler som stöds innan du väljer en Azure-resurs. Listan över tillgängliga signaler filtreras automatiskt baserat på vilken resurs som du väljer. Även baserat på vars mål, vägleds du genom definiera logiken varningsregelns automatiskt.  
+Den här förenklade redigerings processen kräver inte längre att du vet vilken övervaknings källa eller vilka signaler som stöds innan du väljer en Azure-resurs. Listan över tillgängliga signaler filtreras automatiskt baserat på den mål resurs du väljer. Baserat på det målet vägleds du också genom att definiera logiken i varnings regeln automatiskt.  
 
-Du kan lära dig mer om hur du skapar aviseringsregler i [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Du kan lära dig mer om hur du skapar aviserings regler i [skapa, Visa och hantera aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Aviseringar är tillgängliga i flera Azure-övervakningstjänster. Information om hur och när du ska använda var och en av dessa tjänster finns i [övervakning av Azure-program och resurser](../../azure-monitor/overview.md). 
+Aviseringar är tillgängliga i flera Azure Monitoring Services. Information om hur och när du ska använda var och en av dessa tjänster finns i [övervaka Azure-program och-resurser](../../azure-monitor/overview.md). 
 
 
-## <a name="all-alerts-page"></a>Alla aviseringssidan 
-Klicka på totalt antal aviseringar att visa aviseringssidan alla. Här kan du visa en lista över aviseringar som har skapats i den valda tidsperioden. Du kan visa en lista över enskilda aviseringar eller en lista över de smarta grupper som innehåller aviseringarna. Välj banderoll överst på sidan för att växla mellan vyer.
+## <a name="all-alerts-page"></a>Sidan alla aviseringar 
+Klicka på totalt antal aviseringar för att visa sidan alla aviseringar. Här kan du Visa en lista över aviseringar som har skapats inom den valda tids perioden. Du kan visa en lista över enskilda aviseringar eller en lista över de smarta grupper som innehåller aviseringarna. Välj banderollen överst på sidan för att växla mellan vyer.
 
-![Alla aviseringssidan](media/alerts-overview/all-alerts-page.png)
+![Sidan alla aviseringar](media/alerts-overview/all-alerts-page.png)
 
-Du kan filtrera vyn genom att välja följande värden i listrutorna överst på sidan.
+Du kan filtrera vyn genom att välja följande värden i list menyerna längst upp på sidan.
 
 | Kolumn | Beskrivning |
 |:---|:---|
-| Prenumeration | Välj de Azure-prenumerationer som du vill visa aviseringarna. Du kan välja att markera alla dina prenumerationer. Endast aviseringar som du har åtkomst till i de valda prenumerationerna ingår i vyn. |
-| Resursgrupp | Välj en enskild resursgrupp. Endast aviseringar med mål i den valda resursgruppen ingår i vyn. |
-| Resurstyp | Välj en eller flera resurstyper. Endast aviseringar med mål för det valda ingår i vyn. Den här kolumnen är endast tillgänglig när en resursgrupp har angetts. |
-| Resurs | Välj en resurs. Endast aviseringar med den här resursen som ett mål som ingår i vyn. Den här kolumnen är endast tillgänglig när du har angett en resurstyp. |
-| Severity | Välj en allvarlighetsgrad för avisering, eller välj *alla* att inkludera aviseringar för alla allvarlighetsgrader. |
-| Övervakningsvillkor | Välj ett övervakningsvillkor eller välj *alla* att inkludera aviseringar av villkor. |
-| Aviseringstillstånd | Väljer du en aviseringstillståndet eller *alla* att inkludera aviseringar av tillstånd. |
-| Övervaka tjänsten | Välj en tjänst, eller välj *alla* att inkludera alla tjänster. Det ingår bara aviseringar som har skapats av regler som använder tjänsten som mål. |
-| Tidsintervall | Bara de aviseringar som utlösts inom det valda tidsfönstret ingår i vyn. Värden som stöds är den senaste timmen, de senaste 24 timmarna, de senaste 7 dagarna och de senaste 30 dagarna. |
+| Subscription | Välj de Azure-prenumerationer som du vill visa aviseringar för. Alternativt kan du välja att välja alla dina prenumerationer. Endast aviseringar som du har åtkomst till i de valda prenumerationerna ingår i vyn. |
+| Resource group | Välj en enskild resurs grupp. Endast aviseringar med mål i den valda resurs gruppen ingår i vyn. |
+| Resurstyp | Välj en eller flera resurs typer. Endast aviseringar med mål av den valda typen tas med i vyn. Den här kolumnen är bara tillgänglig efter att en resurs grupp har angetts. |
+| Resource | Välj en resurs. Endast aviseringar med den resursen som mål ingår i vyn. Den här kolumnen är bara tillgänglig efter att en resurs typ har angetts. |
+| severity | Välj en allvarlighets grad för aviseringar eller Välj *alla* om du vill inkludera aviseringar för alla allvarlighets grader. |
+| Övervakningsvillkor | Välj ett övervaknings villkor eller Välj *alla* för att inkludera aviseringar om villkor. |
+| Aviseringstillstånd | Välj ett aviserings tillstånd eller Välj *alla* om du vill inkludera aviseringar för tillstånd. |
+| Övervaka tjänsten | Välj en tjänst eller Välj *alla* om du vill inkludera alla tjänster. Endast aviseringar som skapats av regler som använder tjänsten som mål ingår. |
+| Tidsintervall | Endast aviseringar som har utlösts inom den valda tids perioden tas med i vyn. De värden som stöds är den senaste timmen, de senaste 24 timmarna, de senaste 7 dagarna och de senaste 30 dagarna. |
 
 Välj **kolumner** överst på sidan för att välja vilka kolumner som ska visas. 
 
-## <a name="alert-details-page"></a>Information om sidan
-Sidan aviseringsinformation visas när du väljer en avisering. Det ger information om aviseringen och du kan ändra tillståndet.
+## <a name="alert-details-page"></a>Sidan aviserings information
+Sidan aviserings information visas när du väljer en avisering. Den innehåller information om aviseringen och gör det möjligt att ändra dess tillstånd.
 
 ![Aviseringsinformation](media/alerts-overview/alert-detail2.png)
 
-Sidan information om innehåller följande avsnitt.
+Sidan aviserings information innehåller följande avsnitt.
 
 | Section | Beskrivning |
 |:---|:---|
-| Sammanfattning | Visar egenskaperna och andra viktiga information om aviseringen. |
-| Historik | Visar en lista över varje åtgärd som aviseringen och ändringar som görs till aviseringen. För närvarande begränsad till tillståndsändringar. |
-| Diagnostik | Information om gruppen smart aviseringen ingår i. Den *antal aviseringar* avser antalet aviseringar som ingår i gruppen smart. Innehåller andra aviseringar i samma smart grupp som har skapats under de senaste 30 dagarna oavsett tidsfiltret i sidan med listan över aviseringar. Välj en avisering för att visa dess information. |
+| Sammanfattning | Visar egenskaper och annan viktig information om aviseringen. |
+| Historik | Visar en lista över varje åtgärd som vidtas av aviseringen och eventuella ändringar som gjorts i aviseringen. För närvarande begränsad till tillstånds ändringar. |
+| Diagnostik | Information om den smarta gruppen som aviseringen ingår i. Antalet *aviseringar* avser antalet aviseringar som ingår i den smarta gruppen. Innehåller andra aviseringar i samma smarta grupp som skapades under de senaste 30 dagarna oavsett tids filter på sidan aviserings lista. Välj en avisering om du vill visa information om den. |
 
-## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Rollbaserad åtkomstkontroll (RBAC) för din aviseringsinstanser
+## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Rollbaserad åtkomst kontroll (RBAC) för dina aviserings instanser
 
-Användning och hantering av aviseringsinstanser kräver att användaren har inbyggda RBAC-roller antingen [övervaka deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) eller [övervaka läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Dessa roller stöds i alla Azure Resource Manager-omfattningen från prenumerationsnivån till detaljerade tilldelningar på en resursnivå. Till exempel om en användare har bara ”monitoring deltagare-åtkomst för den virtuella datorn 'ContosoVM1', kan sedan han använda och hantera bara de aviseringar som genereras på 'ContosoVM1'.
+Användningen och hanteringen av varnings instanser kräver att användaren har de inbyggda RBAC-rollerna för övervakning av [deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) eller [övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Dessa roller stöds på alla Azure Resource Managers omfång, från prenumerations nivå till detaljerade tilldelningar på en resurs nivå. Om en användare till exempel bara har åtkomst till "övervaknings deltagare" för den virtuella datorn "ContosoVM1" kan han eller hon använda och hantera enbart aviseringar som genereras på ContosoVM1.
 
-## <a name="manage-your-alert-instances-programmatically"></a>Hantera din aviseringsinstanser programmässigt
+## <a name="manage-your-alert-instances-programmatically"></a>Hantera aviserings instanser program mässigt
 
-Det finns många scenarier där du kan också programmera en fråga för aviseringar som genereras mot din prenumeration. Detta kan vara att skapa anpassade vyer utanför Azure-portalen eller analysera dina aviseringar för att identifiera mönster och trender.
+Det finns många scenarier där du vill fråga efter aviseringar som genererats mot din prenumeration. Detta kan vara att skapa anpassade vyer utanför Azure Portal eller analysera aviseringar för att identifiera mönster och trender.
 
-Du kan fråga efter aviseringar som genereras mot dina prenumerationer som antingen genom att använda den [Alert Management REST API](https://aka.ms/alert-management-api) eller genom att använda den [Azure Resource Graph REST API för aviseringar](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+Du kan fråga efter aviseringar som har genererats med dina prenumerationer antingen med hjälp av [Aviseringshantering REST API](https://aka.ms/alert-management-api) eller genom att använda [Azure Resource Graph-REST API för aviseringar](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
 
-Den [Azure Resource Graph REST API för aviseringar](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) gör att du kan fråga efter aviseringsinstanser i stor skala. Detta rekommenderas för scenarier där du måste hantera aviseringar för många prenumerationer. 
+Med [Azures resurs diagram REST API för aviseringar](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) kan du fråga efter aviserings instanser i stor skala. Detta rekommenderas för scenarier där du måste hantera aviseringar som genererats över flera prenumerationer. 
 
-Följande exempelbegäran-API: et returnerar antalet aviseringar i en prenumeration:
+Följande exempel förfrågan till API: et returnerar antalet aviseringar inom en prenumeration:
 
 ```json
 {
@@ -197,22 +200,22 @@ Följande exempelbegäran-API: et returnerar antalet aviseringar i en prenumerat
   }
 }
 ```
-Aviseringarna kan frågas för sina [”grundläggande”](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) fält.
+Aviseringar kan frågas om de [viktigaste](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) fälten.
 
-Den [avisering Management REST API](https://aka.ms/alert-management-api) kan användas för att få mer information om specifika aviseringar, inklusive deras ['aviseringskontext'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) fält.
+[Aviseringshantering REST API](https://aka.ms/alert-management-api) kan användas för att få mer information om enskilda aviseringar, inklusive deras ["aviserings Sammanhangs fält"](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) .
 
 ## <a name="classic-alerts"></a>Klassiska aviseringar 
 
-Azure Monitor-mått och aktivitet loggen avisering funktionen innan juni 2018 kallas ”aviseringar (klassisk)”. 
+Aviserings funktionen för Azure Monitor mått och aktivitets logg före juni 2018 kallas "varningar (klassisk)". 
 
-Mer information finns i [klassisk aviseringar](./../../azure-monitor/platform/alerts-classic.overview.md)
+Mer information finns i [klassiska aviseringar](./../../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läs mer om Smart grupper](https://aka.ms/smart-groups)
-- [Lär dig mer om åtgärdsgrupper](../../azure-monitor/platform/action-groups.md)
-- [Hantera dina aviseringar instanser i Azure](https://aka.ms/managing-alert-instances)
+- [Läs mer om smarta grupper](https://aka.ms/smart-groups)
+- [Lär dig mer om åtgärds grupper](../../azure-monitor/platform/action-groups.md)
+- [Hantera dina varnings instanser i Azure](https://aka.ms/managing-alert-instances)
 - [Hantera smarta grupper](https://aka.ms/managing-smart-groups)
 
 

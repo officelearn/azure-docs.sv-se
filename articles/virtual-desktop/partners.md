@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 6fe2e63138ce9e0f4e8980e4f37330228ac2bdb6
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: bd5ec1e75fa1669b0ca33e4cb4629793b09a9bad
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369545"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036130"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -82,7 +82,7 @@ ThinPrint är en Windows-Provider med mervärdes tjänster för virtuella skriv 
 ThinPrint ezeep-lösningen utökar värdet för det virtuella Windows-skrivbordet genom att aktivera anslutningen till befintlig företags utskrifts infrastruktur. ezeep ger användare kontroll över utskrift i företaget oavsett var de befinner sig. Med hjälp av ezeep kan användare överbrygga luckan mellan Windows Virtual Desktop och utskrifts maskin vara.
 
 - [Se den gemensamma lösningen i korthet.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)
-- [Gå till partner webbplatsen.](http://www.ezeep.com/wvd-printing)
+- [Gå till partner webbplatsen.](https://www.ezeep.com/wvd-printing)
 
 ## <a name="workspot"></a>Workspot
 

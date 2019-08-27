@@ -1,6 +1,6 @@
 ---
-title: Anslut till Twilio från Azure Logic Apps | Microsoft Docs
-description: Automatisera uppgifter och arbetsflöden som hanterar globala SMS och MMS IP-meddelanden via ditt Twilio-konto med hjälp av Azure Logic Apps
+title: Ansluta till Twilio från Azure Logic Apps | Microsoft Docs
+description: Automatisera aktiviteter och arbets flöden som hanterar globala SMS-, MMS-och IP-meddelanden via ditt Twilio-konto med hjälp av Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,65 +11,65 @@ ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: fab52236c701f10c8e8e23ac398362ca4583ea06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09d4a6acf93f5fb01c70f9e9bd935c404c5abf50
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104909"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050718"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Hantera meddelanden i Twilio med Azure Logic Apps
 
-Du kan skapa automatiserade uppgifter och arbetsflöden som hämta, skicka och lista meddelanden i Twilio, bland annat globala SMS och MMS IP-meddelanden med Azure Logic Apps och Twilio-anslutningen. Du kan använda de här åtgärderna för att utföra uppgifter med ditt Twilio-konto. Du kan också ha andra åtgärder som använder utdata från Twilio-åtgärder. När ett nytt meddelande anländer, kan du till exempel skicka meddelandet innehåll med Slack-anslutningsprogrammet. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Med Azure Logic Apps och Twilio-anslutningen kan du skapa automatiserade uppgifter och arbets flöden som hämtar, skickar och listar meddelanden i Twilio, som innehåller globala SMS-, MMS-och IP-meddelanden. Du kan använda dessa åtgärder för att utföra uppgifter med ditt Twilio-konto. Du kan också använda de andra åtgärderna för att använda utdata från Twilio-åtgärder. När ett nytt meddelande anländer kan du till exempel skicka meddelande innehållet med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
 * Från [Twilio](https://www.twilio.com/): 
 
-  * Twilio konto-ID och [autentiseringstoken](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them), som du hittar på din Twilio-instrumentpanel
+  * Ditt Twilio-konto-ID och [autentiseringstoken](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them), som du hittar på din Twilio-instrumentpanel
 
-    Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning och komma åt ditt Twilio-konto från din logikapp. 
-    Om du använder ett Twilio konto, kan du skicka SMS endast *verifierat* telefonnummer.
+    Dina autentiseringsuppgifter ger din Logic-app behörighet att skapa en anslutning och komma åt ditt Twilio-konto från din Logic app. 
+    Om du använder ett Twilio utvärderings konto kan du bara skicka SMS till *verifierade* telefonnummer.
 
-  * En verifierad Twilio-telefonnummer som kan skicka SMS
+  * Ett verifierat Twilio-telefonnummer som kan skicka SMS
 
-  * En verifierad Twilio-telefonnummer som kan ta emot SMS
+  * Ett verifierat Twilio-telefonnummer som kan ta emot SMS
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Logikappen där du vill komma åt ditt Twilio-konto. Om du vill använda en Twilio-åtgärd, starta din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
+* Den Logic app där du vill komma åt ditt Twilio-konto. Om du vill använda en Twilio-åtgärd startar du din Logic-app med en annan utlösare, till exempel utlösaren **upprepning** .
 
 ## <a name="connect-to-twilio"></a>Anslut till Twilio
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
 1. Välj en sökväg: 
 
-     * Under det sista steget där du vill lägga till en åtgärd, väljer **nytt steg**. 
+     * Under det sista steget där du vill lägga till en åtgärd väljer du **nytt steg**. 
 
        ELLER
 
-     * Mellan stegen där du vill lägga till en åtgärd, flyttar du pekaren över pilen mellan stegen. 
-     Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+     * Mellan stegen där du vill lägga till en åtgärd flyttar du pekaren över pilen mellan stegen. 
+     Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
      
-       I sökrutan anger du ”twilio” som filter. 
-       Välj vilken åtgärd du önska under åtgärder.
+       I rutan Sök anger du "Twilio" som filter. 
+       Under listan åtgärder väljer du den åtgärd som du vill använda.
 
-1. Ange informationen som krävs för anslutningen och välj sedan **skapa**:
+1. Ange nödvändig information för anslutningen och välj sedan **skapa**:
 
    * Namnet som ska användas för anslutningen
-   * Twilio konto-ID 
-   * Din Twilio-åtkomsttoken (autentisering)
+   * Ditt Twilio-konto-ID 
+   * Din Twilio Access-token (Authentication)
 
-1. Ange informationen som krävs för din valda åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+1. Ange nödvändig information för den valda åtgärden och fortsätt att skapa din Logic Apps-arbetsflöde.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/twilio/).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/twilio/).
 
 ## <a name="get-support"></a>Få support
 
@@ -78,4 +78,4 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

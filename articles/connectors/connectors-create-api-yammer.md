@@ -1,6 +1,6 @@
 ---
-title: Anslut till Yammer från Azure Logic Apps | Microsoft Docs
-description: Automatisera uppgifter och arbetsflöden som övervakar, publicera och hantera meddelanden, flöden och annat i Yammer med hjälp av Azure Logic Apps
+title: Ansluta till Yammer från Azure Logic Apps | Microsoft Docs
+description: Automatisera aktiviteter och arbets flöden som övervakar, skickar och hanterar meddelanden, feeds och mer i Yammer med hjälp av Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,67 +11,67 @@ ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9228a94dcf27d8987b16e2caa2681cf973db0657
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104739"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050634"
 ---
-# <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Övervaka och hantera ditt Yammer-konto med hjälp av Azure Logic Apps
+# <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Övervaka och hantera ditt Yammer-konto genom att använda Azure Logic Apps
 
-Du kan skapa automatiserade uppgifter och arbetsflöden som övervakar och hanterar meddelanden, flöden och mer i ditt Yammer-konto, tillsammans med andra åtgärder, till exempel med Azure Logic Apps och Yammer-anslutningen:
+Med Azure Logic Apps och Yammer-anslutningen kan du skapa automatiserade uppgifter och arbets flöden som övervakar och hanterar meddelanden, feeds och mer i ditt Yammer-konto, tillsammans med andra åtgärder, till exempel:
 
-* Övervakare för när nya meddelanden visas i följt feeds och grupper.
-* Få meddelanden, grupper, nätverk, användarnas information och mer.
-* Publicera och liknande meddelanden.
+* Övervaka när nya meddelanden visas i följda flöden och grupper.
+* Hämta meddelanden, grupper, nätverk, användares information med mera.
+* Publicera och gilla meddelanden.
 
-Du kan använda utlösare som få svar från dina Yammer-konto och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med dina Yammer-konto. Du kan också ha andra åtgärder som använder utdata från Yammer-åtgärder. När nya meddelanden visas i feeds eller grupper kan dela du dessa meddelanden med Slack-anslutningsprogrammet. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Du kan använda utlösare som får svar från ditt Yammer-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Yammer-konto. Du kan också använda andra åtgärder för att använda utdata från Yammer-åtgärder. Till exempel när nya meddelanden visas i matningar eller grupper kan du dela dessa meddelanden med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Dina autentiseringsuppgifter för Yammer-konto och användare
+* Ditt Yammer-konto och användarautentiseringsuppgifter
 
-   Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning och komma åt ditt Yammer-konto.
+   Dina autentiseringsuppgifter ger din Logic-app behörighet att skapa en anslutning och komma åt ditt Yammer-konto.
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Logikappen där du vill komma åt ditt Yammer-konto. Du kommer igång med en Yammer-utlösare, [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en Yammer-åtgärd, starta din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
+* Den Logic app där du vill komma åt ditt Yammer-konto. [Skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md)för att starta med en Yammer-utlösare. Om du vill använda en Yammer-åtgärd startar du din Logic-app med en annan utlösare, till exempel utlösaren **upprepning** .
 
 ## <a name="connect-to-yammer"></a>Anslut till Yammer
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
 1. Välj en sökväg: 
 
-   * För tom logic apps i sökrutan anger du ”yammer” som filter. 
-   Välj utlösaren som du vill under listan över utlösare. 
+   * För tomma Logi Kap par anger du "Yammer" som filter i rutan Sök. 
+   Välj den utlösare som du vill använda under listan utlösare. 
 
      ELLER
 
-   * För befintliga logic apps: 
+   * För befintliga Logic Apps: 
    
-     * Under det sista steget där du vill lägga till en åtgärd, väljer **nytt steg**. 
+     * Under det sista steget där du vill lägga till en åtgärd väljer du **nytt steg**. 
 
        ELLER
 
-     * Mellan stegen där du vill lägga till en åtgärd, flyttar du pekaren över pilen mellan stegen. 
-     Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+     * Mellan stegen där du vill lägga till en åtgärd flyttar du pekaren över pilen mellan stegen. 
+     Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
      
-       I sökrutan anger du ”yammer” som filter. 
-       Välj vilken åtgärd du önska under åtgärder.
+       I rutan Sök anger du "Yammer" som filter. 
+       Under listan åtgärder väljer du den åtgärd som du vill använda.
 
-1. Om du uppmanas att logga in på Yammer, logga in nu loggar nu så att du kan tillåta åtkomst.
+1. Om du uppmanas att logga in på Yammer loggar du in nu så att du kan tillåta åtkomst.
 
-1. Ange informationen som krävs för din valda utlösare eller åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+1. Ange nödvändig information för den valda utlösaren eller åtgärden och fortsätt att skapa din Logic Apps-arbetsflöde.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/yammer/).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/yammer/).
 
 ## <a name="get-support"></a>Få support
 
@@ -80,4 +80,4 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

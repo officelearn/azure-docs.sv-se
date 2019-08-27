@@ -3,17 +3,17 @@ title: Anslut en SensorTile. Box-enhet till ditt Azure IoT Central-program | Mic
 description: Som enhets utvecklare lär du dig att ansluta en SensorTile. Box-enhet till ditt Azure IoT Central-program.
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 04/24/2019
+ms.date: 08/24/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: ce0c5abe6e89094623c07afa2d1c85903e0e7ee7
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 3d804b1e14d1b79266a74340e8682f1bf03d8f30
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877436"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050553"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Anslut SensorTile. Box-enhet till ditt Azure IoT Central-program
 
@@ -34,7 +34,7 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
 I ditt Azure IoT Central-program lägger du till en riktig enhet från enhets mal len **SensorTile. Box** och noterar enhetens anslutnings information: **Omfångs-ID**, **enhets-ID**och **primär nyckel**:
 
-1. Lägg till en enhet från Device Explorer. Välj **+ New > Real** för att lägga till en riktig enhet.
+1. Lägg till en enhet från enheter. Välj **+ New > Real** för att lägga till en riktig enhet.
 
     * Ange ett gement **enhets-ID**eller Använd det föreslagna **enhets-ID: t**.
     * Ange ett **enhets namn**eller Använd det föreslagna namnet

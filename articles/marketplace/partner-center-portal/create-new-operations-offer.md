@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: f9223fdead9d22e8f58076b47502e71c06741e3f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e711e94a4ac8098137456c2ae5bf018107687354
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900114"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033224"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Skapa en ny Dynamics 365 for Operations-erbjudande
 
@@ -339,11 +339,11 @@ Alternativet **Marketplace-lista** på fliken testenhet visar de språk som test
 
 ## <a name="supplemental-content"></a>Kompletterande innehåll
 
-På den här sidan kan du ange ytterligare information som krävs om ditt erbjudande.
+På den här sidan kan du ange ytterligare information om ditt erbjudande för att hjälpa oss att validera ditt erbjudande. Den här informationen visas inte för kunder eller publiceras på Marketplace.
 
 ### <a name="validation-assets"></a>Validerings till gångar
 
-Du måste överföra en anpassnings analys rapport (CAR) i det här avsnittet. Den här rapporten genereras genom att analysera anpassnings-och tilläggs modeller baserat på en fördefinierad uppsättning regler för bästa praxis.
+Du måste överföra en [anpassnings analys rapport (Car)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) i det här avsnittet. Den här rapporten genereras genom att analysera anpassnings-och tilläggs modeller baserat på en fördefinierad uppsättning regler för bästa praxis.
 
 Den här filen måste vara i formatet. xls eller. xlsx. Om du har mer än en rapport kan du ladda upp en zip-fil som innehåller alla rapporter.
 

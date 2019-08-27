@@ -1,6 +1,6 @@
 ---
-title: Anslut till Wunderlist från Azure Logic Apps | Microsoft Docs
-description: Automatisera uppgifter och arbetsflöden som övervakar och hanterar listor, uppgifter, påminnelser och mycket mer i din Wunderlist-konto med hjälp av Azure Logic Apps
+title: Ansluta till Wunderlist från Azure Logic Apps | Microsoft Docs
+description: Automatisera uppgifter och arbets flöden som övervakar och hanterar listor, uppgifter, påminnelser och mer i ditt Wunderlist-konto med hjälp av Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,68 +11,68 @@ ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: e3570ab1227ca388ac62bffdc74bb68b1ddc41d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57ab4a7b655a7d49a7120d358dccc627099e5fd
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105674"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050657"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Övervaka och hantera Wunderlist med hjälp av Azure Logic Apps
 
-Med Azure Logic Apps och Wunderlist-anslutningsapp kan skapa du automatiserade uppgifter och arbetsflöden som övervakar och hanterar att göra-listor, uppgifter, påminnelser och mycket mer i din Wunderlist-konto, tillsammans med andra åtgärder, till exempel:
+Med Azure Logic Apps och Wunderlist-kopplingen kan du skapa automatiserade uppgifter och arbets flöden som övervakar och hanterar att göra-listor, uppgifter, påminnelser och mer i ditt Wunderlist-konto, tillsammans med andra åtgärder, till exempel:
 
-* Övervaka när nya aktiviteter skapas, när de förfaller eller påminnelser inträffa.
-* Skapa och hantera listor, anteckningar, uppgifter, underaktiviteter och mycket mer.
-* Ange påminnelser.
-* Hämta listor, uppgifter, underaktiviteter, påminnelser, filer, anteckningar, kommentarer och mycket mer.
+* Övervaka när nya aktiviteter skapas, när aktiviteter förfaller eller påminnelser inträffar.
+* Skapa och hantera listor, anteckningar, uppgifter, under aktiviteter med mera.
+* Ställ in påminnelser.
+* Hämta listor, uppgifter, under aktiviteter, påminnelser, filer, anteckningar, kommentarer och mycket annat.
 
-[Wunderlist](https://www.wunderlist.com/) är en tjänst som hjälper dig att planera, hantera och slutför ditt projekt, att göra-listor och uppgifter – på alla enheter, var som helst. Du kan använda utlösare som få svar från din Wunderlist-konto och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med din Wunderlist-konto. Du kan också ha andra åtgärder som använder utdata från Wunderlist åtgärder. När nya aktiviteter förfaller, kan du till exempel skicka meddelanden med Slack-anslutningsprogrammet. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+[Wunderlist](https://www.wunderlist.com/) är en tjänst som hjälper dig att planera, hantera och slutföra dina projekt, göra listor och uppgifter – på valfri enhet, var som helst. Du kan använda utlösare som får svar från ditt Wunderlist-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Wunderlist-konto. Du kan också använda andra åtgärder för att använda utdata från Wunderlist-åtgärder. Till exempel när nya aktiviteter förfaller kan du skicka meddelanden med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Ditt konto och användarens autentiseringsuppgifter för Wunderlist
+* Ditt Wunderlist-konto och användarautentiseringsuppgifter
 
-   Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning och komma åt ditt konto för Wunderlist.
+   Dina autentiseringsuppgifter ger din Logic-app behörighet att skapa en anslutning och komma åt ditt Wunderlist-konto.
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Logikappen där du vill komma åt ditt Yammer-konto. Du kommer igång med en Wunderlist-utlösare, [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en Wunderlist-åtgärd, starta din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
+* Den Logic app där du vill komma åt ditt Yammer-konto. [Skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md)för att börja med en Wunderlist-utlösare. Om du vill använda en Wunderlist-åtgärd startar du din Logic-app med en annan utlösare, till exempel utlösaren **upprepning** .
 
 ## <a name="connect-to-wunderlist"></a>Anslut till Wunderlist
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
 1. Välj en sökväg: 
 
-   * För tom logic apps i sökrutan anger du ”wunderlist” som filter. 
-   Välj utlösaren som du vill under listan över utlösare. 
+   * För tomma Logi Kap par anger du "Wunderlist" som filter i rutan Sök. 
+   Välj den utlösare som du vill använda under listan utlösare. 
 
      ELLER
 
-   * För befintliga logic apps: 
+   * För befintliga Logic Apps: 
    
-     * Under det sista steget där du vill lägga till en åtgärd, väljer **nytt steg**. 
+     * Under det sista steget där du vill lägga till en åtgärd väljer du **nytt steg**. 
 
        ELLER
 
-     * Mellan stegen där du vill lägga till en åtgärd, flyttar du pekaren över pilen mellan stegen. 
-     Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+     * Mellan stegen där du vill lägga till en åtgärd flyttar du pekaren över pilen mellan stegen. 
+     Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
      
-       I sökrutan anger du ”wunderlist” som filter. 
-       Välj vilken åtgärd du önska under åtgärder.
+       I rutan Sök anger du "Wunderlist" som filter. 
+       Under listan åtgärder väljer du den åtgärd som du vill använda.
 
-1. Om du uppmanas att logga in till Wunderlist, logga in nu så att du kan tillåta åtkomst.
+1. Om du uppmanas att logga in till Wunderlist loggar du in nu så att du kan tillåta åtkomst.
 
-1. Ange informationen som krävs för din valda utlösare eller åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+1. Ange nödvändig information för den valda utlösaren eller åtgärden och fortsätt att skapa din Logic Apps-arbetsflöde.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/wunderlist/).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/wunderlist/).
 
 ## <a name="get-support"></a>Få support
 
@@ -81,4 +81,4 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

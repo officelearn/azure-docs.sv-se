@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c7a31337888dcdc2a8f8b95c5203cc659882b038
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 86b17efdb811e9e4040b8b267c161b950f6de5fd
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927871"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036179"
 ---
 # <a name="azure-advanced-threat-detection"></a>Avancerad hot identifiering i Azure
 
@@ -384,6 +384,6 @@ Exempel på brand väggar för webb program som är tillgängliga på Azure Mark
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Security Center identifierings funktioner](../../security-center/security-center-detection-capabilities.md): Hjälper till att identifiera aktiva hot som riktar sig mot dina Azure-resurser och ger de insikter du behöver för att svara snabbt.
+- [Svara på dagens hot](../../security-center/security-center-alerts-overview.md#respond-threats): Hjälper till att identifiera aktiva hot som riktar sig mot dina Azure-resurser och ger de insikter du behöver för att svara snabbt.
 
 - [Azure SQL Database hot identifiering](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Hjälper dig att lösa dina problem om potentiella hot mot dina databaser.

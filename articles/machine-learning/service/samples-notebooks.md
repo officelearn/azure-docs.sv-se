@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5088cfa417c76933be6785188f2b173b7b461d0
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2ea124ecf6786142ac1703dab1e267b225751079
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772579"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035946"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Utforska Azure Machine Learning-tjänsten med Jupyter-anteckningsböcker
 
@@ -67,4 +67,4 @@ Utforska [exempel antecknings böckerna](https://aka.ms/aml-notebooks) och se vi
 
 - [Träna och distribuera en modell för avbildningsklassificering med MNIST](tutorial-train-models-with-aml.md)
 
-- [Förbereda data och använda automatiserad maskininlärning för att träna en regressionsmodell med NYC-taxidatauppsättningen](tutorial-data-prep.md)
+- [Förbereda data och använda automatiserad maskininlärning för att träna en regressionsmodell med NYC-taxidatauppsättningen](tutorial-auto-train-models.md)

@@ -1,76 +1,72 @@
 ---
-title: Anslut till Excel Online – Azure Logic Apps
-description: 'Hantera data med Excel Online REST API: er och Azure Logic Apps'
+title: Ansluta till Excel Online – Azure Logic Apps
+description: 'Hantera data med Excel Online REST-API: er och Azure Logic Apps'
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-tags: connectors
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/23/2018
-ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+tags: connectors
+ms.openlocfilehash: 5d0d276096441c780dee4f8b1e95442a1d7e7b25
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311972"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050909"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Hantera Excel Online-data med Azure Logic Apps
 
-Du kan skapa automatiserade uppgifter och arbetsflöden baserat på dina data i Excel Online för företag eller OneDrive med Azure Logic Apps och Excel Online connector. Den här anslutningstjänsten tillhandahåller åtgärder som hjälper dig att arbeta med dina data och hantera kalkylblad, till exempel:
+Med Azure Logic Apps och Excel Online-anslutningsprogrammet kan du skapa automatiserade uppgifter och arbets flöden baserat på dina data i Excel Online för företag eller OneDrive. Den här anslutningen innehåller åtgärder som hjälper dig att arbeta med dina data och hantera kalkyl blad, till exempel:
 
-* Skapa nya kalkylblad och tabeller.
-* Hämta och hantera kalkylblad, tabeller och rader.
-* Lägg till enskild rader och kolumner.
+* Skapa nya kalkyl blad och tabeller.
+* Hämta och hantera kalkyl blad, tabeller och rader.
+* Lägg till enstaka rader och nyckel kolumner.
 
-Du kan sedan använda utdata från de här åtgärderna med åtgärder för andra tjänster. Om du använder en åtgärd som skapar kalkylblad varje vecka, kan du till exempel använda en annan åtgärd som skickar e-postbekräftelsen med hjälp av Office 365 Outlook-anslutningen.
+Du kan sedan använda utdata från dessa åtgärder med åtgärder för andra tjänster. Om du till exempel använder en åtgärd som skapar kalkyl blad varje vecka kan du använda en annan åtgärd som skickar ett bekräftelse meddelande med hjälp av Office 365 Outlook Connector.
 
-Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> Den [Excel Online för företag](/connectors/excelonlinebusiness/) och [Excel Online för OneDrive](/connectors/excelonline/) anslutningsappar fungerar med Azure Logic Apps och skiljer sig från den [Excel-anslutningsapp för PowerApps](/connectors/excel/).
+> [Excel Online för företag](/connectors/excelonlinebusiness/) och [Excel Online för OneDrive](/connectors/excelonline/) -kopplingar fungerar med Azure Logic Apps och skiljer sig från [Excel Connector för PowerApps](/connectors/excel/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* En [Office 365-konto](https://www.office.com/) för ditt arbete eller personligt Microsoft-konto
+* Ett [Office 365-konto](https://www.office.com/) för ditt arbets konto eller personliga Microsoft-konto
 
-  Dina Excel-data kan finnas som en fil med kommaavgränsade värden (CSV)-fil i en mapp, till exempel i OneDrive. 
-  Du kan också använda samma CSV-filen med den [fast-file connector](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
+  Dina Excel-data kan finnas som en fil med kommaavgränsade värden (CSV) i en lagringsmapp, till exempel i OneDrive. 
+  Du kan också använda samma CSV-fil med den [fasta fil anslutningen](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Logikappen där du vill komma åt dina Excel Online-data. Den här anslutningstjänsten tillhandahåller endast åtgärder, så att starta logikappen, Välj en separat utlösare, till exempel, **upprepning** utlösaren.
+* Den Logic app där du vill komma åt dina Excel Online-data. Den här kopplingen tillhandahåller endast åtgärder, så för att starta din Logi Kap par väljer du en separat utlösare, till exempel utlösaren **upprepning** .
 
 ## <a name="add-excel-action"></a>Lägg till Excel-åtgärd
 
-1. I den [Azure-portalen](https://portal.azure.com), öppna logikappen i Logic App Designer, om inte redan är öppen.
+1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic App Designer, om den inte redan är öppen.
 
-1. Under utlösaren väljer **nytt steg**.
+1. Under utlösaren väljer du **nytt steg**.
 
-1. I sökrutan anger du ”excel” som filter. Välj vilken åtgärd du önska under åtgärder.
+1. Skriv "Excel" som filter i rutan Sök. Under listan åtgärder väljer du den åtgärd som du vill använda.
 
-1. Om du uppmanas att logga in på Office 365-konto, väljer **logga in**.
+1. Logga in på ditt Office 365-konto om du uppmanas till det.
 
-   Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning till Excel Online och komma åt dina data.
+   Dina autentiseringsuppgifter auktoriserar din Logic app för att skapa en anslutning till Excel Online och komma åt dina data.
 
-1. Fortsätta att tillhandahålla nödvändig information för den valda åtgärden och skapa logikappens arbetsflöde.
+1. Fortsätt att ange nödvändig information för den valda åtgärden och skapa din Logic Apps-arbetsflöde.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare och åtgärder gränser, som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) filer, finns i dessa referenssidor för anslutningen:
+För teknisk information, till exempel utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI-filer (tidigare Swagger), se följande kopplings referens sidor:
 
 * [Excel Online för företag](/connectors/excelonlinebusiness/)
 * [Excel Online för OneDrive](/connectors/excelonline/)
 
-## <a name="get-support"></a>Få support
-
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
-
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

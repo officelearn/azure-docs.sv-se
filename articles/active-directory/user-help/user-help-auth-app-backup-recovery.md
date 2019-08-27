@@ -8,41 +8,41 @@ ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 08/22/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba99001159277d9d221910cafa4f5165ae2bd812
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4b4e45fbe6533832765e90e5cf244f0dcbcf0b72
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880761"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035128"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Säkerhetskopiera och återställa kontoautentiseringsuppgifter med Microsoft Authenticator-appen
 
 **Gäller för:**
 
-- iOS-enheter
+- iOS-enheter, köra version 5.7.0 och senare
+
+- Android-enheter, som kör version 6.6.0 och senare
 
 Microsoft Authenticator-appen säkerhetskopierar dina kontoautentiseringsuppgifter och relaterade appinställningar, till exempel ordningen på dina konton, till molnet. När du har säkerhetskopierat kan du också använda appen för att återställa din information på en ny enhet, vilket kan undvika att bli utelåst eller behöver återskapa konton.
 
+Varje lagrings plats för säkerhets kopior kräver att du har en personlig Microsoft-konto, medan iOS även kräver att du har ett iCloud-konto. Du kan ha flera konton lagrade på samma plats. Du kan till exempel ha ett personligt konto, ett arbets-eller skol konto och ett personligt, icke-Microsoft-konto gilla för Facebook, Google och så vidare.
+
 > [!IMPORTANT]
-> Du behöver en personlig Microsoft-konto och ett iCloud-konto för varje lagrings plats för säkerhets kopior. Men inom den lagrings platsen kan du säkerhetskopiera flera konton. Du kan till exempel ha ett personligt konto, ett skol konto och ett konto från tredje part som Facebook, Google och så vidare.
->
-> Endast dina personliga och tredje parts konto uppgifter lagras, som innehåller ditt användar namn och den konto verifierings kod som krävs för att bevisa din identitet. Vi lagrar inte övrig information som är kopplad till dina konton, inklusive e-post eller filer. Vi associerar inte heller eller delar dina konton på något sätt eller med någon annan produkt eller tjänst. Slutligen får IT-administratören ingen information om något av dessa konton.
+> Endast dina personliga och tredje parts konto uppgifter lagras, som innehåller ditt användar namn och konto verifierings koden som krävs för att bevisa din identitet. Vi lagrar inte övrig information som är kopplad till dina konton, inklusive e-post eller filer. Vi associerar inte heller eller delar dina konton på något sätt eller med någon annan produkt eller tjänst. Slutligen får IT-administratören ingen information om något av dessa konton.
 
 ## <a name="back-up-your-account-credentials"></a>Säkerhetskopiera dina kontoautentiseringsuppgifter
 
-Innan du kan säkerhetskopiera dina autentiseringsuppgifter måste du ha båda:
+Innan du kan säkerhetskopiera dina autentiseringsuppgifter måste du ha:
 
 - En personlig [Microsoft-konto](https://account.microsoft.com/account) som fungerar som ditt återställnings konto.
 
-- Ett [iCloud-konto](https://www.icloud.com/) för den faktiska lagrings platsen.
+- **För iOS** måste du ha ett iCloud- [konto](https://www.icloud.com/) för den faktiska lagrings platsen.
 
-Att kräva att du loggar in på båda kontona ger starkare säkerhet för din säkerhets kopierings information.
-
-### <a name="to-turn-on-cloud-backup"></a>Aktivera moln säkerhets kopiering
+### <a name="to-turn-on-cloud-backup-for-ios-devices"></a>Aktivera moln säkerhets kopiering för iOS-enheter
 
 - På din iOS-enhet väljer du **Inställningar**, **säkerhets kopiering**och aktiverar sedan **iCloud-säkerhetskopiering**.
 
@@ -50,13 +50,21 @@ Att kräva att du loggar in på båda kontona ger starkare säkerhet för din s�
 
     ![skärmen iOS-inställningar, som visar platsen för säkerhets kopierings inställningarna i iCloud](./media/user-help-auth-app-backup-recovery/backup-and-recovery-turn-on.png)
 
+### <a name="to-turn-on-cloud-backup-for-android-devices"></a>Aktivera moln säkerhets kopiering för Android-enheter
+
+- På din Android-enhet väljer du **Inställningar**, **säkerhets kopiering**och aktiverar sedan **moln säkerhets kopiering**.
+
+    Autentiseringsuppgifterna för ditt konto säkerhets kopie ras till ditt moln konto.
+
+    ![Skärmen Android-inställningar, som visar platsen för inställningarna för säkerhets kopiering](./media/user-help-auth-app-backup-recovery/backup-and-recovery-turn-on-android.png)
+
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Återställa autentiseringsuppgifterna för ditt konto på din nya enhet
 
-Du kan återställa dina kontoautentiseringsuppgifter från ditt iCloud-konto med samma återställnings konto för Microsoft som du ställer in när du säkerhetskopierade informationen.
+Du kan återställa dina kontoautentiseringsuppgifter från ditt moln konto, men du måste först se till att det konto som du återställer inte finns i Microsoft Authenticator-appen. Om du till exempel återställer din personliga Microsoft-konto måste du se till att du inte har någon personlig Microsoft-konto som redan har kon figurer ATS i Authenticator-appen. Den här kontrollen är viktig så att vi kan se till att vi inte skriver över eller raderar ett befintligt konto av misstag.
 
 ### <a name="to-recover-your-information"></a>Så här återställer du din information
 
-1. Öppna appen Microsoft Authenticator på iOS-enheten och välj **Starta återställning** längst ned på skärmen.
+1. Öppna appen Microsoft Authenticator på din mobila enhet och välj **Starta återställning** längst ned på skärmen.
 
     ![Microsoft Authenticator app, som visar var du klickar på Starta återställning](./media/user-help-auth-app-backup-recovery/backup-and-recovery-begin-recovery.png)
 
@@ -68,7 +76,7 @@ När du har slutfört återställningen kan du märka att dina personliga Micros
 
 ## <a name="recover-additional-accounts-requiring-more-verification"></a>Återställa ytterligare konton som kräver mer verifiering
 
-Om du använder push-meddelanden med dina personliga konton, arbets-eller skol konton får du en avisering på skärmen som säger att du måste ange ytterligare verifiering innan du kan återställa din information. Eftersom push-meddelanden kräver användning av autentiseringsuppgifter som är knutna till din enhet och aldrig skickas via nätverket, måste du bevisa din identitet innan autentiseringsuppgiften skapas på enheten.
+Om du använder push-meddelanden med dina personliga eller arbets-eller skol konton får du en avisering på skärmen som säger att du måste ange ytterligare verifiering innan du kan återställa din information. Eftersom push-meddelanden kräver användning av autentiseringsuppgifter som är knutna till din enhet och aldrig skickas via nätverket, måste du bevisa din identitet innan autentiseringsuppgiften skapas på enheten.
 
 För personliga Microsoft-konton kan du bevisa din identitet genom att ange ditt lösen ord tillsammans med ett alternativt e-postadress eller telefonnummer. För arbets-eller skol konton måste du skanna en QR-kod som du fått av din konto leverantör.
 
@@ -93,27 +101,31 @@ För personliga Microsoft-konton kan du bevisa din identitet genom att ange ditt
     ![Microsoft Authenticator app, så att du kan skanna din QR-kod](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Om det här är första gången du konfigurerar Microsoft Authenticator-appen kan du få en fråga om du vill tillåta att appen får åtkomst till kameran (iOS) eller tillåter att appen tar bilder och spelar in video (Android). Du måste välja **Tillåt** så att Authenticator-appen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera Authenticator-appen, men du måste lägga till kod informationen manuellt. Information om hur du lägger till koden manuellt finns i se [lägga till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
+    >Mer information om QR-koder och hur du hämtar ett finns i [Kom igång med Microsoft Authenticator-appen](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) eller [Konfigurera säkerhets information för att använda en Authenticator-app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), baserat på om din administratör har aktiverat säkerhets information.
     >
-    >Mer information om hur du hämtar en QR-kod finns i [Kom igång med Microsoft Authenticator-appen](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) eller [Konfigurera säkerhets information för att använda en Authenticator-app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), baserat på om din administratör har aktiverat säkerhets information.
+    >Om det här är första gången du konfigurerar Microsoft Authenticator-appen kan du få en fråga om du vill tillåta att appen får åtkomst till kameran (iOS) eller tillåter att appen tar bilder och spelar in video (Android). Du måste välja **Tillåt** så att Authenticator-appen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera Authenticator-appen, men du måste lägga till kod informationen manuellt. Information om hur du lägger till koden manuellt finns i se [lägga till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
 
-## <a name="troubleshooting-backup-and-recovery-problems"></a>Fel sökning av problem med säkerhets kopiering och återställning
+## <a name="troubleshoot-backup-and-recovery-problems"></a>Felsök problem med säkerhets kopiering och återställning
 
 Det finns några skäl till varför säkerhets kopieringen kanske inte är tillgänglig:
 
-- **Ändra operativ system.** Säkerhets kopian lagras i moln lagrings alternativet som tillhandahålls av din telefons operativ system, vilket innebär att säkerhets kopian inte är tillgänglig om du växlar mellan Android och iOS. I så fall måste du manuellt återskapa ditt konto i appen.
+- **Ändra operativ system.** Säkerhets kopian lagras i iCloud för iOS och i Microsofts moln lagrings leverantör för Android. Det innebär att säkerhets kopian inte är tillgänglig om du växlar mellan Android-och iOS-enheter. Om du gör växeln måste du manuellt återskapa dina konton i Microsoft Authenticator-appen.
 
-- **Problem med nätverks-eller lösen ord.** Kontrol lera att du är ansluten till ett nätverk och har loggat in på ditt iCloud-konto med samma AppleID som du använde för din senaste iPhone.
+- **Nätverks problem.** Om du har nätverksrelaterade problem kontrollerar du att du är ansluten till nätverket och korrekt inloggad på ditt konto.
+
+- **Konto problem.** Om du har problem med kontona kontrollerar du att du är korrekt inloggad på ditt konto. För iOS innebär detta att du måste vara inloggad i iCloud med samma AppleID-konto som din iPhone.
 
 - **Oavsiktlig borttagning.** Det är möjligt att du har tagit bort ditt säkerhets kopierings konto från din tidigare enhet eller när du har hanterat ditt moln lagrings konto. I så fall måste du manuellt återskapa ditt konto i appen.
 
 - **Befintliga Microsoft Authenticator-konton.** Om du redan har konfigurerat konton i Microsoft Authenticator-appen kan appen inte återställa dina säkerhetskopierade konton. Förhindra återställning hjälper till att se till att konto informationen inte skrivs över med den inaktuella informationen. I så fall måste du ta bort eventuell befintlig konto information från de befintliga konton som kon figurer ATS i din Authenticator-app innan du kan återställa säkerhets kopian.
 
+- **Säkerhets kopieringen är inaktuell.** Om säkerhets kopierings informationen är inaktuell kan du uppmanas att uppdatera informationen genom att logga in på ditt Microsoft Recovery-konto igen. Ditt återställnings konto är det personliga Microsoft-konto som du ursprungligen använde för att lagra säkerhets kopian. Om det krävs en inloggning visas en röd prick på menyn eller åtgärds fältet. När du har valt den röda punkten uppmanas du att logga in igen för att uppdatera din information.
+
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har säkerhetskopierat och återställt dina konto uppgifter till din nya enhet kan du fortsätta att använda appen Microsoft Authenticator för att verifiera din identitet. Mer information finns i [Logga in på dina konton med hjälp av Microsoft Authenticator-appen](user-help-sign-in.md).
 
-## <a name="related-topics"></a>Relaterade ämnen
+## <a name="related-articles"></a>Relaterade artiklar
 
 - [Vad är Microsoft Authenticator-appen?](user-help-auth-app-overview.md)
 

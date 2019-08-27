@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 22a27ba19670344f351205b6a4865bf85daf0bab
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8fd3aedd2e371e511730fd98751ae3214545c489
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900262"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034586"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET standard-API: Information om hämtning och version
 > [!div class="op_single_selector"]
@@ -33,7 +33,14 @@ ms.locfileid: "69900262"
 |**Aktuella framework som stöds**|[Microsoft .NET standard 2,0](https://www.nuget.org/packages/NETStandard.Library)|
 |**Rapportera problem**|[Rapportera problem](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
-## <a name="release-notes"></a>Viktig information
+## <a name="release-notes-for-200-series"></a>Viktig information för 2.0.0-serien
+2.0.0-serien använder sig av beroendet av [Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), med prestanda förbättringar och namn områdes konsolidering för att Cosmos DB slut punkten.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
+* första för hands versionen av 2.0.0 Table SDK som tar beroendet av [Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), med prestanda förbättringar och namn områdes konsolidering för att Cosmos DB slut punkten. Det offentliga API: t är oförändrat.
+
+## <a name="release-notes-for-100-series"></a>Viktig information för 1.0.0-serien
+1.0.0-serien använder sig av beroendet av [Microsoft. Azure. DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
 
 ### <a name="a-name105-preview105-preview"></a><a name="1.0.5-preview"/>1.0.5 – för hands version
 * Felkorrigeringar
@@ -77,6 +84,12 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 
 Detta plattforms oberoende .NET standard-bibliotek [Microsoft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) kommer att ersätta .NET Framework-biblioteket [Microsoft. Azure. CosmosDB. table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
 
+### <a name="200-series"></a>2.0.0-serien
+| Version | Utgivningsdatum | Slutdatum |
+| --- | --- | --- |
+| [2.0.0 – för hands version](#2.0.0-preview) |Auguest 22, 2019 |--- |
+
+### <a name="100-series"></a>1.0.0-serien
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
 | [1.0.5 – för hands version](#1.0.5-preview) |Auguest 20, 2019 |--- |

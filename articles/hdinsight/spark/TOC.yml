@@ -311,8 +311,6 @@
           href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
         - name: Apache Spark-jobbet misslyckades – InvalidClassException
           href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
-        - name: Långsamma Apache Spark-jobb – listStatus
-          href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
         - name: Långsamma Apache Spark-jobb – lagringscontainer
           href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: IllegalArgumentException-undantag

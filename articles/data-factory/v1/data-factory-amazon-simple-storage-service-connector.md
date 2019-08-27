@@ -94,10 +94,10 @@ Avsnitt som struktur, tillgänglighet och princip liknar varandra för alla type
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| bucketName |S3-Bucketnamn. |Sträng |Ja |
-| key |S3-objektets nyckel. |Sträng |Nej |
-| prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |Sträng |Nej |
-| version |Versionen av S3-objektet, om S3 versionshantering är aktiverad. |Sträng |Nej |
+| bucketName |S3-Bucketnamn. |String |Ja |
+| key |S3-objektets nyckel. |String |Nej |
+| prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |String |Nej |
+| version |Versionen av S3-objektet, om S3 versionshantering är aktiverad. |String |Nej |
 | format | Följande format typer stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som är mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. | |Nej |
 | compression | Ange typ och komprimeringsnivå för data. De typer som stöds är: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |Nej |
 

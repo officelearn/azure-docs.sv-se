@@ -176,7 +176,7 @@ I det här avsnittet skapar du en användare i Azure-portalen.
 
     1. I den **namn** anger **BrittaSimon**.
   
-    1. I den **användarnamn** fältet, anger du **brittasimon@* yourcompanydomain.extension* **. Ange till exempel  **BrittaSimon@contoso.<i> </i>com**.
+    1. I den **användarnamn** fältet, anger du **brittasimon@* yourcompanydomain.extension***. Ange till exempel  **BrittaSimon@contoso.<i> </i>com**.
 
     1. Välj den **Show lösenord** markerar du kryssrutan. Antecknar du värdet som visas i den **lösenord** box.
 

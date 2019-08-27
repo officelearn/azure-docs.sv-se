@@ -11,16 +11,17 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: afccce5ca9101ed1e30f69264abae7ad85b4902b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cbf199c391b49518bb595d7d1a0ed47147903a85
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564587"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034497"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installera och Kör Identifiera text behållare
 
-Identifiera Text-delen av visuellt innehåll är också tillgängligt som en Docker-behållare. Det kan du identifiera och extrahera utskrivna text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort.  
+Identifiera Text-delen av visuellt innehåll är också tillgängligt som en Docker-behållare. Det kan du identifiera och extrahera utskrivna text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort.
+
 > [!IMPORTANT]
 > Behållaren identifiera Text fungerar för närvarande bara på engelska.
 
@@ -38,7 +39,7 @@ Du måste uppfylla följande krav innan du använder Identifiera text behållare
 
 ## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till privat behållarregister
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>Värddatorn
 
@@ -46,16 +47,7 @@ Du måste uppfylla följande krav innan du använder Identifiera text behållare
 
 ### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
 
-I följande tabell beskrivs de minsta och rekommenderade processor kärnor och minne som ska allokeras för varje Identifiera text behållare.
-
-| Container | Minimum | Rekommenderas |TPS<br>(Minimum, maximum)|
-|-----------|---------|-------------|--|
-|Identifiera text|1 kärna, 8 GB minne, 0,5 TPS|2 kärnor, 8 GB minne, 1 TPS|0,5, 1|
-
-* Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
-* TPS-transaktioner per sekund
-
-Core och minne motsvarar `--cpus` inställningarna och `--memory` som `docker run` används som en del av kommandot.
+[!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållar avbildningen med`docker pull`
 

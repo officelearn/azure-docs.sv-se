@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: diberry
-ms.openlocfilehash: e55ccb508760c4473f71245c183948219f31985c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c258799b1305c4204d08d66aa36a0be7c71a4944
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663915"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034378"
 ---
 # <a name="how-personalizer-works"></a>Så här fungerar Personanpassning
 
@@ -163,7 +163,7 @@ Du kan använda rekommendations motorer med Personanpassare:
 
 ## <a name="adding-content-safeguards-to-your-application"></a>Lägga till innehålls skydd i ditt program
 
-Om ditt program tillåter stora varianser i innehåll som visas för användarna, och en del av innehållet kan vara osäkert eller olämpligt för vissa användare, bör du planera framåt för att se till att rätt skydd är på plats för att förhindra att användarna ser oacceptabelt bra innehåll. Det bästa mönstret för att implementera säkerhets åtgärder är: Det bästa mönstret för att implementera säkerhets åtgärder är:
+Om ditt program tillåter stora varianser i innehåll som visas för användarna, och en del av innehållet kan vara osäkert eller olämpligt för vissa användare, bör du planera framåt för att se till att rätt skydd är på plats för att förhindra att användarna ser oacceptabelt bra innehåll. Det bästa mönstret för att implementera säkerhets åtgärder är:
     * Hämta listan över åtgärder som ska rangordnas.
     * Filtrera bort de som inte är livskraftiga för mål gruppen.
     * Ranka bara de här lönsamma åtgärderna.

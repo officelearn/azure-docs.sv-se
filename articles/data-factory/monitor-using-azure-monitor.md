@@ -105,15 +105,15 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Egenskap | Type | Beskrivning |
 | --- | --- | --- |
-| storageAccountId |String | Resurs-ID för det lagrings konto som du vill skicka diagnostikloggar till |
-| serviceBusRuleId |String | Service Bus-regelns ID för Service Bus-namnområdet som du vill ha Event Hubs skapat för för strömnings diagnostikloggar. Regel-ID: t har formatet {Service Bus Resource ID}/authorizationrules/{Key Name}.|
+| storageAccountId |Sträng | Resurs-ID för det lagrings konto som du vill skicka diagnostikloggar till |
+| serviceBusRuleId |Sträng | Service Bus-regelns ID för Service Bus-namnområdet som du vill ha Event Hubs skapat för för strömnings diagnostikloggar. Regel-ID: t har formatet {Service Bus Resource ID}/authorizationrules/{Key Name}.|
 | workspaceId | Komplex typ | Mat ris tids kornig het och deras bevarande principer. Den här egenskapen är för närvarande tom. |
 |metrics| Parameter värden för pipeline-körningen som ska skickas till den anropade pipelinen| Ett JSON-objekt som mappar parameter namn till argument värden |
 | logs| Komplex typ| Namnet på en diagnostisk logg kategori för en resurs typ. Om du vill hämta en lista över diagnostiska logg kategorier för en resurs, utför först en Hämta diagnostiska inställningar-åtgärd. |
-| category| String| Matris med logg kategorier och deras bevarande principer |
-| timeGrain | String | Granularitet för mått som samlas in i ISO 8601-varaktighets format. Måste vara PT1M (en minut)|
+| category| Sträng| Matris med logg kategorier och deras bevarande principer |
+| timeGrain | Sträng | Granularitet för mått som samlas in i ISO 8601-varaktighets format. Måste vara PT1M (en minut)|
 | enabled| Boolesk | Anger om samlingen av detta mått eller vilken logg kategori som är aktive rad för den här resursen|
-| Retention Policy| Komplex typ| Beskriver bevarande principen för en mått-eller logg kategori. Används endast för lagrings konto alternativ.|
+| retentionPolicy| Komplex typ| Beskriver bevarande principen för en mått-eller logg kategori. Används endast för lagrings konto alternativ.|
 | days| Int| Antal dagar att behålla måtten eller loggarna. Värdet 0 behåller loggarna oändligt. Används endast för lagrings konto alternativ. |
 
 **Svar**
@@ -277,19 +277,19 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Egenskap | Type | Beskrivning | Exempel |
 | --- | --- | --- | --- |
-| Nivå |String | Nivå för diagnostikloggar. Nivå 4 är alltid fallet för aktivitets körnings loggar. | `4`  |
-| correlationId |String | Unikt ID för att spåra en viss begäran från slut punkt till slut punkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Tid för händelsen i TimeSpan, UTC-format`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|activityRunId| String| ID för aktivitets körning | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|pipelineRunId| String| ID för pipeline-körningen | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| String | Associerat resurs-ID för Data Factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| String | Kategori för diagnostikloggar. Ange den här egenskapen till "ActivityRuns" | `ActivityRuns` |
-|level| String | Nivå för diagnostikloggar. Ange den här egenskapen till "information" | `Informational` |
-|operationName| String |Namn på aktiviteten med status. Om statusen är start pulsslaget är `MyActivity -`det. Om statusen är slut pulsslaget är `MyActivity - Succeeded` det med slutlig status | `MyActivity - Succeeded` |
-|pipelineName| String | Namn på pipelinen | `MyPipeline` |
-|activityName| String | Namn på aktiviteten | `MyActivity` |
-|Starta| String | Start av aktiviteten körs i TimeSpan, UTC-format | `2017-06-26T20:55:29.5007959Z`|
-|end| String | Slutet av aktiviteten körs i TimeSpan, UTC-format. Om aktiviteten inte har avslut ATS än (diagnostisk logg för en aktivitet som startas), anges standardvärdet `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
+| Nivå |Sträng | Nivå för diagnostikloggar. Nivå 4 är alltid fallet för aktivitets körnings loggar. | `4`  |
+| correlationId |Sträng | Unikt ID för att spåra en viss begäran från slut punkt till slut punkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| time | Sträng | Tid för händelsen i TimeSpan, UTC-format`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|activityRunId| Sträng| ID för aktivitets körning | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|pipelineRunId| Sträng| ID för pipeline-körningen | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|resourceId| Sträng | Associerat resurs-ID för Data Factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| Sträng | Kategori för diagnostikloggar. Ange den här egenskapen till "ActivityRuns" | `ActivityRuns` |
+|level| Sträng | Nivå för diagnostikloggar. Ange den här egenskapen till "information" | `Informational` |
+|operationName| Sträng |Namn på aktiviteten med status. Om statusen är start pulsslaget är `MyActivity -`det. Om statusen är slut pulsslaget är `MyActivity - Succeeded` det med slutlig status | `MyActivity - Succeeded` |
+|pipelineName| Sträng | Namn på pipelinen | `MyPipeline` |
+|activityName| Sträng | Namn på aktiviteten | `MyActivity` |
+|Starta| Sträng | Start av aktiviteten körs i TimeSpan, UTC-format | `2017-06-26T20:55:29.5007959Z`|
+|end| Sträng | Slutet av aktiviteten körs i TimeSpan, UTC-format. Om aktiviteten inte har avslut ATS än (diagnostisk logg för en aktivitet som startas), anges standardvärdet `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-logs-attributes"></a>Attribut för kör loggar för pipeline
 
@@ -323,18 +323,18 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Egenskap | Type | Beskrivning | Exempel |
 | --- | --- | --- | --- |
-| Nivå |String | Nivå för diagnostikloggar. Nivå 4 är fallet för aktivitets körnings loggar. | `4`  |
-| correlationId |String | Unikt ID för att spåra en viss begäran från slut punkt till slut punkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Tid för händelsen i TimeSpan, UTC-format`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|runId| String| ID för pipeline-körningen | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| String | Associerat resurs-ID för Data Factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| String | Kategori för diagnostikloggar. Ange den här egenskapen till "PipelineRuns" | `PipelineRuns` |
-|level| String | Nivå för diagnostikloggar. Ange den här egenskapen till "information" | `Informational` |
-|operationName| String |Namn på pipelinen med status. "Pipelinen – lyckades" med slutgiltig status när pipeline-körningen har slutförts| `MyPipeline - Succeeded` |
-|pipelineName| String | Namn på pipelinen | `MyPipeline` |
-|Starta| String | Start av aktiviteten körs i TimeSpan, UTC-format | `2017-06-26T20:55:29.5007959Z`|
-|end| String | Aktivitetens slut körs i TimeSpan, UTC-format. Om aktiviteten inte har avslut ATS än (diagnostisk logg för en aktivitet som startas), anges standardvärdet `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
-|status| String | Slut status för pipeline-körningen (lyckades eller misslyckades) | `Succeeded`|
+| Nivå |Sträng | Nivå för diagnostikloggar. Nivå 4 är fallet för aktivitets körnings loggar. | `4`  |
+| correlationId |Sträng | Unikt ID för att spåra en viss begäran från slut punkt till slut punkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| time | Sträng | Tid för händelsen i TimeSpan, UTC-format`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|runId| Sträng| ID för pipeline-körningen | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|resourceId| Sträng | Associerat resurs-ID för Data Factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| Sträng | Kategori för diagnostikloggar. Ange den här egenskapen till "PipelineRuns" | `PipelineRuns` |
+|level| Sträng | Nivå för diagnostikloggar. Ange den här egenskapen till "information" | `Informational` |
+|operationName| Sträng |Namn på pipelinen med status. "Pipelinen – lyckades" med slutgiltig status när pipeline-körningen har slutförts| `MyPipeline - Succeeded` |
+|pipelineName| Sträng | Namn på pipelinen | `MyPipeline` |
+|Starta| Sträng | Start av aktiviteten körs i TimeSpan, UTC-format | `2017-06-26T20:55:29.5007959Z`|
+|end| Sträng | Aktivitetens slut körs i TimeSpan, UTC-format. Om aktiviteten inte har avslut ATS än (diagnostisk logg för en aktivitet som startas), anges standardvärdet `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
+|status| Sträng | Slut status för pipeline-körningen (lyckades eller misslyckades) | `Succeeded`|
 
 #### <a name="trigger-run-logs-attributes"></a>Utlös körning av loggar-attribut
 
@@ -367,19 +367,19 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Egenskap | Type | Beskrivning | Exempel |
 | --- | --- | --- | --- |
-| Nivå |String | Nivå för diagnostikloggar. Ange till nivå 4 för aktivitets körnings loggar. | `4`  |
-| correlationId |String | Unikt ID för att spåra en viss begäran från slut punkt till slut punkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Tid för händelsen i TimeSpan, UTC-format`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|triggerId| String| ID för utlösarens körning | `08587023010602533858661257311` |
-|resourceId| String | Associerat resurs-ID för Data Factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| String | Kategori för diagnostikloggar. Ange den här egenskapen till "PipelineRuns" | `PipelineRuns` |
-|level| String | Nivå för diagnostikloggar. Ange den här egenskapen till "information" | `Informational` |
-|operationName| String |Namnet på utlösaren med slutgiltig status om den har startats. "Untrigger-lyckades" om pulsslaget lyckades| `MyTrigger - Succeeded` |
-|triggerName| String | Namn på utlösaren | `MyTrigger` |
-|triggerType| String | Typ av utlösare (manuell utlösare eller schema utlösare) | `ScheduleTrigger` |
-|triggerEvent| String | Händelse av utlösaren | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|Starta| String | Start av Utlös ande brand i TimeSpan, UTC-format | `2017-06-26T20:55:29.5007959Z`|
-|status| String | Slutgiltig status för huruvida utlösaren lyckades (lyckades eller misslyckades) | `Succeeded`|
+| Nivå |Sträng | Nivå för diagnostikloggar. Ange till nivå 4 för aktivitets körnings loggar. | `4`  |
+| correlationId |Sträng | Unikt ID för att spåra en viss begäran från slut punkt till slut punkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| time | Sträng | Tid för händelsen i TimeSpan, UTC-format`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|triggerId| Sträng| ID för utlösarens körning | `08587023010602533858661257311` |
+|resourceId| Sträng | Associerat resurs-ID för Data Factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| Sträng | Kategori för diagnostikloggar. Ange den här egenskapen till "PipelineRuns" | `PipelineRuns` |
+|level| Sträng | Nivå för diagnostikloggar. Ange den här egenskapen till "information" | `Informational` |
+|operationName| Sträng |Namnet på utlösaren med slutgiltig status om den har startats. "Untrigger-lyckades" om pulsslaget lyckades| `MyTrigger - Succeeded` |
+|triggerName| Sträng | Namn på utlösaren | `MyTrigger` |
+|triggerType| Sträng | Typ av utlösare (manuell utlösare eller schema utlösare) | `ScheduleTrigger` |
+|triggerEvent| Sträng | Händelse av utlösaren | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|Starta| Sträng | Start av Utlös ande brand i TimeSpan, UTC-format | `2017-06-26T20:55:29.5007959Z`|
+|status| Sträng | Slutgiltig status för huruvida utlösaren lyckades (lyckades eller misslyckades) | `Succeeded`|
 
 ### <a name="log-analytics-schema"></a>Log Analytics schema
 

@@ -1,24 +1,24 @@
 ---
 author: IEvangelist
 ms.author: dapine
-ms.date: 06/25/2019
+ms.date: 08/22/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 00cc63f53388ab7bea05a0b55784247f63477684
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 081155c8984f39cc9cc8e905eb108c07dee98d2e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704198"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034431"
 ---
-## <a name="validate-that-a-container-is-running"></a>Kontrollera att en behållare körs 
+## <a name="validate-that-a-container-is-running"></a>Verifiera att en behållare körs 
 
-Det finns flera sätt att kontrollera att behållaren körs. 
+Det finns flera sätt att verifiera att behållaren körs. Leta reda på den *externa IP-* adressen och den exponerade porten för den aktuella behållaren och öppna din favorit webbläsare. Använd de olika URL: erna för begäran nedan för att verifiera att behållaren körs. URL: erna för exempel begär Anden `http://localhost:5000`som anges nedan är, men din speciella behållare kan variera. Tänk på att du är beroende av behållarens *externa IP* -adress och exponerad port.
 
-|Förfrågan|Syfte|
+| URL för begäran | Syfte |
 |--|--|
-|`http://localhost:5000/`|Behållaren innehåller en startsida.|
-|`http://localhost:5000/status`|Begärt med GET för att kontrollera att behållaren körs utan att orsaka en slutpunkt-fråga. Den här förfrågan kan användas för Kubernetes [liveness och beredskap avsökningar](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).|
-|`http://localhost:5000/swagger`|Behållaren innehåller en fullständig uppsättning av dokumentationen för slutpunkter och en `Try it now` funktionen. Med den här funktionen kan du ange dina inställningar till en webbaserad HTML-formulär och gör att frågan utan att behöva skriva någon kod. Efter att frågan returnerar är ett exempel CURL-kommandot tillgängligt för att demonstrera HTTP-rubriker och brödtext format som krävs. |
+| `http://localhost:5000/` | Behållaren är en start sida. |
+| `http://localhost:5000/status` | Begärde med en HTTP GET för att verifiera att behållaren körs utan att orsaka en slut punkts fråga. Den här begäran kan användas för Kubernetes [Live och](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)beredskaps avsökningar. |
+| `http://localhost:5000/swagger` | Behållaren innehåller en fullständig uppsättning dokumentation för slut punkterna och en funktion för att **testa den** . Med den här funktionen kan du ange dina inställningar i ett webbaserat HTML-formulär och göra frågan utan att behöva skriva någon kod. När frågan returnerar visas ett exempel på ett spiral kommando som visar de HTTP-rubriker och det text format som krävs. |
 
-![Behållarens startsida](./media/cognitive-services-containers-api-documentation/container-webpage.png)
+![Behållarens start sida](./media/cognitive-services-containers-api-documentation/container-webpage.png)

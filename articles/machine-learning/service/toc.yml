@@ -179,6 +179,9 @@
         - name: Justering av hyperparametrar
           displayName: parameter
           href: how-to-tune-hyperparameters.md
+        - name: Använda Key Vault under träningen
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
     - name: Spåra och övervaka experiment
       items:
         - name: 'Starta, övervaka eller avbryta körningar'

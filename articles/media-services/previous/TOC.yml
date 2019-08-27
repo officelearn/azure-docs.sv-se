@@ -49,6 +49,15 @@
           href: media-services-dotnet-live-encode-with-onpremises-encoders.md
 - name: Gör så här för att
   items:
+    - name: Äldre komponenter
+      href: legacy-components.md
+      items:
+        - name: Migrera från Azure Media Encoder
+          href: migrate-azure-media-encoder.md
+          displayName: AME
+        - name: Migrera från Windows Azure Media Encoder
+          href: migrate-windows-azure-media-encoder.md
+          displayName: WAME
     - name: Hantera
       items:
         - name: Konton

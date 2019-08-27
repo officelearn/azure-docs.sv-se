@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: efa8a92ca9861c0280237ba07f4304b5c7dbbb88
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: bd83d915b51ab44d4287987e3da7113722910262
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610004"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020244"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema-och data agg regering i Trafikanalys
 
@@ -32,7 +32,7 @@ Trafikanalys är en molnbaserad lösning som ger insyn i användar-och program a
 
 ### <a name="data-aggregation"></a>Data agg regering
 
-1. Alla flödes loggar på en NSG mellan "FlowIntervalStartTime_t" och "FlowIntervalEndTime_t" samlas in med en minuters intervall i lagrings kontot som blobbar innan de bearbetas av Trafikanalys. 
+1. Alla flödes loggar på en NSG mellan "FlowIntervalStartTime_t" och "FlowIntervalEndTime_t" samlas in med en minuters intervall i lagrings kontot som blobbar innan de bearbetas av Trafikanalys.
 2. Standard bearbetnings intervallet för Trafikanalys är 60 minuter. Det innebär att var 60: e minut Trafikanalys plocka blobbar från lagring för agg regering. Om det valda bearbetnings intervallet är 10 minuter, kommer Trafikanalys att välja blobbar från lagrings kontot efter var tionde minut.
 3. Flöden som har samma käll-IP, mål-IP, målport, NSG namn, NSG-regel, Flow-riktning och Transport Layer Protocol (TCP eller UDP) (Obs: Käll porten är exkluderad för agg regering) sammanställas till ett enda flöde genom Trafikanalys
 4. Den här posten är dekorerad (information i avsnittet nedan) och matas in i Log Analytics av Trafikanalys. den här processen kan ta upp till 1 timme max.
@@ -85,6 +85,12 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 ```
 
 ### <a name="fields-used-in-traffic-analytics-schema"></a>Fält som används i Trafikanalys schema
+  > [!IMPORTANT]
+  > Trafikanalys schemat har uppdaterats den 22 augusti 2019. Det nya schemat ger käll-och mål-IP-adresser som tar bort separat för att kunna tolka FlowDirection-fält som gör frågor enklare. </br>
+  > FASchemaVersion_s uppdaterades från 1 till 2. </br>
+  > Föråldrade fält: VMIP_s, Subscription_s, Region_s, NSGRules_s, Subnet_s, VM_s, NIC_s, PublicIPs_s, FlowCount_d </br>
+  > Nya fält: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s </br>
+  > Föråldrade fält kommer att vara tillgängliga fram till 22 november 2019.
 
 Trafikanalys skapas ovanpå Log Analytics, så att du kan köra anpassade frågor om data som skapats av Trafikanalys och ange aviseringar på samma sätt.
 
@@ -94,7 +100,7 @@ Nedan visas fälten i schemat och vad de betecknar
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | Tabell för Trafikanalys data
 | SubType_s | Logg | Undertyp för flödes loggarna. Använd endast "logg" och andra värden för SubType_s är för interna arbeten av produkten |
-| FASchemaVersion_s |   1   | Schema version. Visar inte NSG Flow log-version |
+| FASchemaVersion_s |   2   | Schema version. Visar inte NSG Flow log-version |
 | TimeProcessed_t   | Datum och tid i UTC  | Tiden då Trafikanalys bearbetade rå Flow-loggar från lagrings kontot |
 | FlowIntervalStartTime_t | Datum och tid i UTC |  Start tid för flödes logg bearbetnings intervallet. Detta är den tid från vilken flödes intervall mäts |
 | FlowIntervalEndTime_t | Datum och tid i UTC | Slut tid för flödes logg bearbetnings intervall |
@@ -111,7 +117,8 @@ Nedan visas fälten i schemat och vad de betecknar
 | FlowDirection_s | * I = inkommande<br> * O = utgående | Riktningen på flödet in/ut ur NSG som per flödes logg |
 | FlowStatus_s  | * A = tillåts av NSG-regeln <br> * D = nekad av NSG-regeln  | Status för flöde som tillåts/nblocked av NSG som per flödes logg |
 | NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Nätverks säkerhets grupp (NSG) som är associerad med flödet |
-| NSGRules_s | \<Index värde 0) > < NSG_RULENAME >\<flödes riktning\<> flödes\<status > FlowCount ProcessedByRule > |  NSG-regel som tillåter eller nekar det här flödet |
+| NSGRules_s | \<Index värde 0) >\|\<NSG_RULENAME >\|\<flödes riktning\|>\<flödes\|status >\<FlowCount ProcessedByRule > |  NSG-regel som tillåter eller nekar det här flödet |
+| NSGRule_s | NSG_RULENAME |  NSG-regel som tillåter eller nekar det här flödet |
 | NSGRuleType_s | * Användardefinierad * standard |   Typ av NSG-regel som används av flödet |
 | MACAddress_s | MAC-adress | MAC-adressen för NÄTVERKSKORTet som flödet registrerades med |
 | Subscription_s | Prenumerationen på det virtuella Azure-nätverket/nätverks gränssnittet/den virtuella datorn fylls i i det här fältet | Endast tillämpligt för FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow och UnknownPrivate flödes typer (flödes typer där bara en sida är Azure) |
@@ -151,6 +158,8 @@ Nedan visas fälten i schemat och vad de betecknar
 | OutboundBytes_d | Byte som har skickats som avbildningar i nätverks gränssnittet där NSG-regeln tillämpades | Detta är endast ifyllt för version 2 av NSG flödes logg schema |
 | CompletedFlows_d  |  | Detta fylls med ett värde som inte är noll för logg schema för version 2 av NSG Flow |
 | PublicIPs_s | < PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|FLOW_ENDED_COUNT>\|OUTBOUND_PACKETS>\<INBOUND_PACKETS >\|\<\<\| \<OUTBOUND_BYTES>\|INBOUND_BYTES>\< | Poster avgränsade med staplar |
+| SrcPublicIPs_s | < SOURCE_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|FLOW_ENDED_COUNT>\|OUTBOUND_PACKETS>\<INBOUND_PACKETS\|\<\< >\|OUTBOUND_BYTES\<>\|INBOUND_BYTES>\< | Poster avgränsade med staplar |
+| DestPublicIPs_s | < DESTINATION_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|FLOW_ENDED_COUNT>\|OUTBOUND_PACKETS>\<INBOUND_\|\<\< PAKET >\|\<OUTBOUND_BYTES >\|INBOUND_BYTES\<> | Poster avgränsade med staplar |
 
 ### <a name="notes"></a>Anteckningar
 
@@ -165,7 +174,7 @@ Nedan visas fälten i schemat och vad de betecknar
 1. MaliciousFlow – en av IP-adresserna tillhör Azure Virtual Network, medan den andra IP-adressen är en offentlig IP-adress som inte finns i Azure och som rapporteras som skadlig i de ASC-flöden som Trafikanalys använder för bearbetnings intervallet mellan " FlowIntervalStartTime_t "och" FlowIntervalEndTime_t ".
 1. UnknownPrivate – en av IP-adresserna tillhör Azure Virtual Network medan den andra IP-adressen tillhör det privata IP-intervallet som definieras i RFC 1918 och inte kunde mappas av Trafikanalys till en kundägda webbplats eller Azure-Virtual Network.
 1. Okänd – det går inte att mappa någon av IP-adresserna i flödena med kundens topologi i Azure och lokalt (plats).
-1. Vissa fält namn läggs till med _s eller _D. Detta bevarar inte källa och mål.
+1. Vissa fält namn läggs till i \_s eller \_d. Dessa säger inte källa och mål, men anger sträng och decimaler för data typerna.
 
 ### <a name="next-steps"></a>Nästa steg
 För att få svar på vanliga frågor, se [vanliga frågor och svar om trafik analys](traffic-analytics-faq.md) för att se information om funktioner, se [Traffic Analytics-dokumentation](traffic-analytics.md)

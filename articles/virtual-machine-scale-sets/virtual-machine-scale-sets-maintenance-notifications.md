@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 08/20/2019
 ms.author: shants
-ms.openlocfilehash: 2ba1bb914dfc2edbe17d12cc58df097b60d1f94c
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 413301fd8b6b4b2a3b60501378cf6da23cc38d81
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849734"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018849"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Planerade underhålls aviseringar för skalnings uppsättningar för virtuella datorer
 
@@ -28,13 +28,13 @@ Azure utför regelbundet uppdateringar för att förbättra tillförlitligheten,
 
 - Om underhållet inte kräver en omstart använder Azure migrering på plats för att pausa den virtuella datorn medan värden uppdateras. Underhålls åtgärder som inte kräver en omstart tillämpas fel domän från fel domän. Förloppet stoppas om eventuella varnings hälso signaler tas emot.
 
-- Om underhåll kräver en omstart får du ett meddelande som visar när underhållet planeras. I dessa fall får du ett tids fönster där du kan starta underhållet själv när det passar dig.
+- Om underhåll kräver en omstart får du ett meddelande om när underhållet planeras. I dessa fall får du ett tidsfönster som normalt är 35 dagar där du kan starta underhållet själv när det passar dig.
 
 
 Planerat underhåll som kräver en omstart är schemalagt i vågor. Varje våg har olika omfång (regioner):
 
 - En våg börjar med ett meddelande till kunderna. Som standard skickas ett meddelande till Prenumerationens ägare och medägare. Du kan lägga till mottagare och meddelande alternativ som e-post, SMS och Webhooks i meddelanden med hjälp av Azure [aktivitets logg aviseringar](../azure-monitor/platform/activity-logs-overview.md).  
-- Med Notification görs ett *självbetjänings fönster* tillgängligt. Under det här fönstret kan du se vilka av dina virtuella datorer som ingår i vågen. Du kan aktivera underhåll proaktivt enligt dina egna schemaläggnings behov.
+- Med Notification görs ett *självbetjänings fönster* tillgängligt. Under det här fönstret som vanligt vis är 35 dagar kan du se vilka av dina virtuella datorer som ingår i vågen. Du kan aktivera underhåll proaktivt enligt dina egna schemaläggnings behov.
 - Efter självbetjänings fönstret startar en *schemalagd underhålls period* . Vid något tillfälle under det här fönstret schemalägger Azure och tillämpar det nödvändiga underhållet på den virtuella datorn. 
 
 Målet med två Windows är att ge dig tillräckligt med tid för att starta underhållet och starta om den virtuella datorn samtidigt som du vet när Azure startar underhåll automatiskt.
@@ -63,7 +63,7 @@ Använd **inte** självbetjänings underhåll i följande scenarier:
 - Om du ändrar storlek på den virtuella datorn ofta. Det här scenariot kan återställa underhålls statusen. 
 - Om du har antagit schemalagda händelser som möjliggör proaktiv redundansväxling eller på en korrekt avstängning av arbets belastningen 15 minuter innan underhålls stängningen påbörjas.
 
-**Använd** självbetjänings underhåll om du planerar att köra den virtuella datorn utan avbrott under fasen för schemalagt underhåll och ingen av föregående counterindications tillämpas. 
+Använd självbetjänings underhåll om du planerar att köra den virtuella datorn utan avbrott under fasen för schemalagt underhåll och ingen av föregående counterindications tillämpas. 
 
 Det är bäst att använda självbetjänings underhåll i följande fall:
 
@@ -100,7 +100,7 @@ Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-po
 2. På den vänstra menyn väljer du **övervaka**. 
 3. I fönstret **Övervaka – aviseringar (klassisk)** väljer du **+ Lägg till aktivitets logg avisering**.
 4. På sidan **Lägg till aktivitets logg avisering** väljer eller anger du den begärda informationen. I **villkor**, se till att du anger följande värden:
-   - **Händelse kategori**: Välj **service Health**.
+   - **Händelse kategori**: Välj **Service Health**.
    - **Tjänster**: Välj **Virtual Machine Scale Sets och Virtual Machines**.
    - **Typ**: Välj **planerat underhåll**. 
     
@@ -127,7 +127,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 Följande egenskaper returneras under **MaintenanceRedeployStatus**: 
 
-| Värde | Beskrivning   |
+| Value | Beskrivning   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Anger om du kan starta underhåll på den virtuella datorn för tillfället. |
 | PreMaintenanceWindowStartTime         | Början av självbetjänings fönstret för underhåll när du kan starta underhåll på den virtuella datorn. |
@@ -209,7 +209,7 @@ Mer information om hög tillgänglighet finns i [regioner och tillgänglighet f�
 **S:** Det finns flera orsaker till varför du kanske inte ser någon underhålls information på dina virtuella datorer:
    - Du använder en prenumeration som marker ATS som *Microsoft Internal*.
    - De virtuella datorerna är inte schemalagda för underhåll. Det kan bero på att underhålls vågen slutade, avbröts eller ändrades så att dina virtuella datorer inte längre påverkas av den.
-   - Du har inte lagt  till underhålls kolumnen i listvyn för din VM. Även om vi har lagt till den här kolumnen i standardvyn, om du konfigurerar vyn för att se kolumner som inte är standard, måste du  manuellt lägga till underhålls kolumnen i vyn för din VM-lista.
+   - Du har inte lagt till underhålls kolumnen i listvyn för din VM. Även om vi har lagt till den här kolumnen i standardvyn, om du konfigurerar vyn för att se kolumner som inte är standard, måste du manuellt lägga till underhålls kolumnen i vyn för din VM-lista.
 
 **F: Min virtuella dator är schemalagd för underhåll för den andra gången. Varför?**
 

@@ -6,7 +6,6 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 7e8c49815ed5e9294739a840dd0314d1c8c6c174
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 5c55b419b88a66d2e1acf1687478ab35d9f0a059
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "69015828"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019035"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Översikt över Azure on-demand Media Encoder 
-
-## <a name="encoding-overview"></a>Kodnings översikt
 
 > [!NOTE]
 > Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
@@ -35,10 +32,7 @@ Codecenheter är program varan som implementerar algoritmerna för komprimering/
 
 Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera din anpassningsbara bit hastighets-MP4 eller Smooth Streaming kodat innehåll i strömnings format som stöds av Media Services (MPEG-streck, HLS Smooth Streaming) utan att du behöver paketera om till dessa strömmande format.
 
-När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**.
-
-> [!Note]
-> Faktureringen av slut punkter för direkt uppspelning sker när slut punkten är i ett körnings tillstånd.
+När ditt Media Services-konto skapas läggs en slutpunkt för direktuppspelning av **standardtyp** till i kontot med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. Faktureringen av slut punkter för direkt uppspelning sker när slut punkten är i ett körnings tillstånd.
 
 Media Services stöder följande kodare på begäran som beskrivs i den här artikeln:
 
@@ -50,6 +44,7 @@ Den här artikeln ger en kort översikt över medier för medie kodare på begä
 Som standard kan varje Media Services konto ha en aktiv kodnings aktivitet i taget. Du kan reservera kodnings enheter som gör att du kan köra flera kodnings aktiviteter samtidigt, en för varje encoding-reserverad enhet som du köper. Mer information finns i [skala kodnings enheter](media-services-scale-media-processing-overview.md).
 
 ## <a name="media-encoder-standard"></a>Media Encoder Standard
+
 ### <a name="how-to-use"></a>Hur du ska använda detta
 [Så här kodar du med Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 

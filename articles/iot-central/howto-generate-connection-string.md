@@ -1,59 +1,59 @@
 ---
-title: Generera en enhetens anslutningssträng för Azure IoT Central | Microsoft Docs
-description: Som utvecklare av enheten, hur jag skapa en anslutningssträng för enhet som behöver ansluta till ett program med IoT Central?
+title: Skapa en enhets anslutnings sträng för Azure IoT Central | Microsoft Docs
+description: Hur skapar jag en anslutnings sträng för enheten som behöver ansluta till ett IoT Central-program som en enhets utvecklare?
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f302cbfa7152ae30be434f560c0c39056d40f9f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c0332656b75c3c8d0cddecb41c7a15ac2f218c
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60885656"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019781"
 ---
-# <a name="generate-a-device-connection-string-to-connect-to-an-azure-iot-central-application"></a>Generera en anslutningssträng för enheten för att ansluta till ett program med Azure IoT Central
+# <a name="generate-a-device-connection-string-to-connect-to-an-azure-iot-central-application"></a>Skapa en anslutnings sträng för enheten för att ansluta till ett Azure IoT Central-program
 
-Den här artikeln beskrivs hur du som utvecklare enheten att generera en anslutningssträng för enhet som behöver ansluta till ett IoT Central-program. Proceduren som beskrivs i den här artikeln visar hur du snabbt ansluta en enskild enhet med hjälp av en signatur för delad åtkomst (SAS). Den här metoden är användbar när du experimentera med IoT Central eller testa enheter. Alternativa metoder för att använda i en produktionsmiljö, se [enhetsanslutning i Azure IoT Central](concepts-connectivity.md).
+Den här artikeln beskriver hur, som en enhets utvecklare, för att skapa en anslutnings sträng för enheten som måste ansluta till ett IoT Central-program. Proceduren som beskrivs i den här artikeln visar hur du snabbt ansluter en enskild enhet med hjälp av en signatur för delad åtkomst (SAS). Den här metoden är användbar när du experimenterar med IoT Central eller testning av enheter. Alternativa metoder för att använda i en produktions miljö finns i [enhets anslutning i Azure IoT Central](concepts-connectivity.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-- Ett Azure IoT Central program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
-- En utvecklingsdator med [Node.js](https://nodejs.org/) version 8.0.0 eller senare installerat. Du kan köra `node --version` i kommandoraden för att kontrollera vilken version. Node.js är tillgängligt för många olika operativsystem.
+- Ett Azure IoT Central-program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
+- En utvecklings dator med [Node. js](https://nodejs.org/) version 8.0.0 eller senare installerad. Du kan köra `node --version` på kommando raden för att kontrol lera din version. Node.js är tillgängligt för många olika operativsystem.
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 
-Följande steg beskriver hur du all information du behöver att generera en SAS-anslutningssträng för en enhet:
+Följande steg beskriver hur du hämtar den information som du behöver för att skapa en SAS-anslutningssträng för en enhet:
 
-1. I den **Device Explorer**, hitta riktig enhet som du vill ansluta till ditt program:
+1. Leta upp den enhet som du vill ansluta till ditt program i **Device Explorer**:
 
     ![Välj en riktig enhet](media/howto-generate-connection-string/real-devices.png)
 
-1. På den **enhet** väljer **Connect**:
+1. På sidan **enhet** väljer du **Anslut**:
 
-    ![Välj ansluta](media/howto-generate-connection-string/connect.png)
+    ![Välj Anslut](media/howto-generate-connection-string/connect.png)
 
-1. Anteckna anslutningsinformation **Scopeid**, **enhets-ID**, och **enheten primärnyckel**ska gå att använda i följande steg:
+1. Anteckna anslutnings information, **omfattnings-ID**, enhets **-ID**och **primär nyckel för enheten**för att använda i följande steg:
 
     ![Anslutningsinformation](media/howto-generate-connection-string/device-connect.png)
 
     Du kan kopiera värdena från den här sidan för att spara.
 
-## <a name="generate-the-connection-string"></a>Generera anslutningssträngen
+## <a name="generate-the-connection-string"></a>Generera anslutnings strängen
 
 [!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har genererat en anslutningssträng för en riktig enhet att ansluta till Azure IoT Central programmet, är här nästa föreslagna steg:
+Nu när du har skapat en anslutnings sträng för en riktig enhet för att ansluta till ditt Azure IoT Central-program, så är det förslag på nästa steg:
 
-* [Förbereda och ansluta en DevKit enhet (C)](howto-connect-devkit.md)
-* [Förbereda och ansluta en Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
+* [Förbereda och ansluta en DevKit-enhet (C)](howto-connect-devkit.md)
+* [Förbereda och ansluta en Raspberry Pi (python)](howto-connect-raspberry-pi-python.md)
 * [Förbereda och ansluta en Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
-* [Förbereda och Anslut en Windows 10 IoT core-enhet (C#)](howto-connect-windowsiotcore.md)
+* [Förbereda och ansluta en Windows 10 IoT Core-enhetC#()](howto-connect-windowsiotcore.md)
 * [Ansluta en generisk Node.js-klient till Azure IoT Central-programmet](howto-connect-nodejs.md)

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 08/22/2019
 ms.author: shants
-ms.openlocfilehash: c82bacfdff1c9d939016b48735f7917e7d34b47f
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 347df9567817cdaea731e06646196142885757b1
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849687"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018831"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Hantera meddelanden för planerat underhåll för virtuella Linux-datorer
 
@@ -27,13 +27,13 @@ Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfras
 
 - Om underhållet inte kräver en omstart använder Azure migrering på plats för att pausa den virtuella datorn medan värden uppdateras. Dessa underhålls åtgärder som inte är omstartade tillämpas på fel domän av feldomän och förlopp stoppas om eventuella varnings hälso signaler tas emot.
 
-- Om underhåll kräver en omstart får du ett meddelande om när underhållet planeras. I dessa fall får du ett tidsfönster som vanligt vis är 30 dagar där du kan starta underhållet själv när det passar dig.
+- Om underhåll kräver en omstart får du ett meddelande om när underhållet planeras. I dessa fall får du ett tidsfönster som normalt är 35 dagar där du kan starta underhållet själv när det passar dig.
 
 
 Planerat underhåll som kräver en omstart är schemalagt i vågor. Varje våg har olika omfång (regioner).
 
 - En våg börjar med ett meddelande till kunderna. Som standard skickas ett meddelande till Prenumerationens ägare och medägare. Du kan lägga till fler mottagare och meddelande alternativ, t. ex. e-post, SMS och Webhooks, till meddelanden med hjälp av Azure [aktivitets logg aviseringar](../../azure-monitor/platform/activity-logs-overview.md).  
-- Vid tidpunkten för meddelandet görs ett självbetjänings *fönster* tillgängligt. Under det här fönstret som vanligt vis är 30 dagar kan du se vilken av dina virtuella datorer som ingår i den här vågen och proaktivt starta underhåll enligt dina egna schemaläggnings behov.
+- Vid tidpunkten för meddelandet görs ett självbetjänings *fönster* tillgängligt. Under det här fönstret som vanligt vis är 35 dagar kan du se vilken av dina virtuella datorer som ingår i den här vågen och proaktivt starta underhåll enligt dina egna schemaläggnings behov.
 - Efter självbetjänings fönstret startar en *schemalagd underhålls period* . Vid något tillfälle under det här fönstret schemalägger Azure och tillämpar det nödvändiga underhållet på den virtuella datorn. 
 
 Målet med två Windows är att ge dig tillräckligt med tid för att starta underhållet och starta om den virtuella datorn samtidigt som du vet när Azure startar underhåll automatiskt.
@@ -122,7 +122,7 @@ Om du vill hämta underhålls statusen för en virtuell dator med namnet *myVM*,
 azure vm show myVM 
 ``` 
 
-För att starta underhåll på den klassiska virtuella datorn med namnet *myVM* i tjänsten för fjärrdistribution och *distribution av* *distribution* skriver du:
+För att starta underhåll på den klassiska virtuella datorn med namnet *myVM* i tjänsten för fjärrdistribution och distribution av *distribution* skriver du:
 
 ```
 azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
@@ -171,7 +171,7 @@ Mer information om hög tillgänglighet finns i [tillgänglighet för virtuella 
 **S:** Det finns flera orsaker till varför du inte ser någon underhålls information på dina virtuella datorer:
 1.  Du använder en prenumeration som marker ATS som Microsoft Internal.
 2.  De virtuella datorerna är inte schemalagda för underhåll. Det kan vara att underhålls vågen har slutat, avbrutits eller ändrats så att dina virtuella datorer inte längre påverkas av den.
-3.  Du har inte lagt  till underhålls kolumnen i listvyn för din VM. Vi har lagt till den här kolumnen i standardvyn, men kunder som har konfigurerat för att se kolumner som inte är standard måste  manuellt lägga till underhålls kolumnen i sin listvy för virtuella datorer.
+3.  Du har inte lagt till underhålls kolumnen i listvyn för din VM. Vi har lagt till den här kolumnen i standardvyn, men kunder som har konfigurerat för att se kolumner som inte är standard måste manuellt lägga till underhålls kolumnen i sin listvy för virtuella datorer.
 
 **F: Min virtuella dator är schemalagd för underhåll för den andra gången. Varför?**
 

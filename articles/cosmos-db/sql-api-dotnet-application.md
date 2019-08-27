@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
-ms.openlocfilehash: b1d8d2539ae89dfdb8feb2e38f00bf4440411d8a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9824e1468604763834e37abe94290d68d81077ab
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815152"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020114"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudier: Utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK 
 
@@ -120,22 +120,6 @@ Nu lägger vi till modellerna, vyerna och styrenheterna till det här MVC-progra
    
    De data som lagras i Azure Cosmos DB skickas via anslutningen och lagras som JSON. Om du vill styra hur objekten serialiseras/deserialiseras av JSON.NET kan du använda attributet **JsonProperty** som visas i **objekt** klassen som du skapade. Du kan inte bara styra formatet på egenskaps namnet som går in i JSON. du kan också byta namn på .NET-egenskaperna som du gjorde med egenskapen slutförd. 
 
-### <a name="add-a-controller"></a>Lägg till en controller
-
-1. I **Solution Explorer** högerklickar du på mappen **Styrenheter**. Välj sedan **Lägg till** och sedan **Styrenhet**. Dialogrutan **Lägg till kodskelett** visas.
-
-1. Välj **MVC-kontrollant-tom** och välj **Lägg till**.
-
-   ![Skärm bild av dialog rutan Lägg till Autogenerera med alternativet MVC Controller-tomt markerat](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
-
-1. Namnge din nya kontrollant, **ItemController**och Ersätt koden i filen med följande kod:
-
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
-
-   Attributet **ValidateAntiForgeryToken** används här för att skydda programmet mot attacker med förfalskning av begäran mellan webbplatser. Det finns mer att göra än att bara lägga till det här attributet. Även dina vyer bör fungera med den här antiförfalskningstoken. Mer information om ämnet och exempel på hur du implementerar detta korrekt finns i [förhindra förfalskning av begäran mellan webbplatser][Preventing Cross-Site Request Forgery]. Källkoden på [GitHub][GitHub] har detta fullständigt implementerat.
-
-   Vi använder även attributet **Bind** på metodparametern för att skydda mot overposting-attacker. Mer information finns i [grundläggande CRUD-åtgärder i ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
-
 ### <a name="add-views"></a>Lägg till vyer
 
 Nu skapar vi följande tre vyer: 
@@ -190,6 +174,22 @@ Och slutligen lägger du till en vy för att redigera ett objekt med följande s
    * Välj **Lägg till**.
 
 När det är klart stänger du alla cshtml-dokument i Visual Studio eftersom du återkommer till de här vyerna senare.
+
+### <a name="add-a-controller"></a>Lägg till en controller
+
+1. I **Solution Explorer** högerklickar du på mappen **Styrenheter**. Välj sedan **Lägg till** och sedan **Styrenhet**. Dialogrutan **Lägg till kodskelett** visas.
+
+1. Välj **MVC-kontrollant-tom** och välj **Lägg till**.
+
+   ![Skärm bild av dialog rutan Lägg till Autogenerera med alternativet MVC Controller-tomt markerat](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+
+1. Namnge din nya kontrollant, **ItemController**och Ersätt koden i filen med följande kod:
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+
+   Attributet **ValidateAntiForgeryToken** används här för att skydda programmet mot attacker med förfalskning av begäran mellan webbplatser. Det finns mer att göra än att bara lägga till det här attributet. Även dina vyer bör fungera med den här antiförfalskningstoken. Mer information om ämnet och exempel på hur du implementerar detta korrekt finns i [förhindra förfalskning av begäran mellan webbplatser][Preventing Cross-Site Request Forgery]. Källkoden på [GitHub][GitHub] har detta fullständigt implementerat.
+
+   Vi använder även attributet **Bind** på metodparametern för att skydda mot overposting-attacker. Mer information finns i [grundläggande CRUD-åtgärder i ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
 ## <a name="connect-to-cosmosdb"></a>Steg 5: Ansluta till Azure Cosmos DB 
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 7246a0223e156abd866594c65542069944601b01
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68740896"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018256"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med en Azure-Virtual Network
 Det här dokumentet beskriver den Azure App Service funktionen för integrering av virtuella nätverk och hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Virtuella Azure-nätverk][VNETOverview] (Virtuella nätverk) låter dig placera många av dina Azure-resurser i ett dirigerbart nätverk som inte är Internet.  
@@ -84,8 +84,9 @@ Den här funktionen är i för hands version men stöds för Windows-appens arbe
 * Appen och VNet måste finnas i samma region
 * Du kan inte ta bort ett VNet med en integrerad app. Du måste ta bort integrationen först 
 * Du kan bara ha en regional VNet-integration per App Service plan. Flera appar i samma App Service plan kan använda samma VNet. 
+* Det går inte att ändra prenumerationen på en app eller en App Service plan medan det finns en app som använder regional VNet-integrering
 
-En adress används för varje App Service plan instans. Om du skalade din app till 5 instanser, är det fem adresser som används. Eftersom det inte går att ändra under näts storleken efter tilldelningen, måste du använda ett undernät som är tillräckligt stort för att anpassa vilken skala appen kan komma åt. En/27 med 32-adresser är den rekommenderade storleken eftersom den skulle ha en Premium-App Service plan som skalas till 20 instanser.
+En adress används för varje App Service plan instans. Om du skalade appen till 5 instanser används 5 adresser. Eftersom det inte går att ändra under näts storleken efter tilldelningen, måste du använda ett undernät som är tillräckligt stort för att anpassa vilken skala appen kan komma åt. En/26 med 64-adresser är den rekommenderade storleken. En/27 med 32-adresser skulle ge en Premium-App Service plan 20 instanser om du inte ändrade App Service plan storlek. När du skalar en App Service plan upp eller ned behöver du två gånger så många adresser under en kort tids period. 
 
 Om du vill att dina appar i en annan App Service plan ska komma åt ett VNet som är anslutet till redan av appar i en annan App Service plan, måste du välja ett annat undernät än det som används av den befintliga VNet-integreringen.  
 
@@ -102,6 +103,8 @@ Funktionen är också i för hands version för Linux. Använda funktionen VNet-
    ![Välj VNet och undernät][7]
 
 När din app har integrerats med ditt VNet kommer den att använda samma DNS-server som ditt VNet har kon figurer ATS med. 
+
+Regional VNet-integrering kräver att ditt integrations-undernät delegeras till Microsoft. Web.  GRÄNSSNITTET för VNet-integrering kommer att delegera under nätet till Microsoft. Web automatiskt. Om ditt konto inte har tillräcklig nätverks behörighet för att ange detta, behöver du någon som kan ange attribut i ditt integrations-undernät för att delegera under nätet. Om du vill delegera integrations under nätet manuellt går du till Azure Virtual Network Subnet UI och anger delegering för Microsoft. Web.
 
 Om du vill koppla från din app från VNet väljer du **Koppla från**. Då startas din webbapp om. 
 
@@ -249,7 +252,7 @@ Det finns tre relaterade kostnader för att använda gatewayen som krävs VNet-i
 
 
 ## <a name="troubleshooting"></a>Felsökning
-Även om funktionen är enkel att konfigurera, innebär det inte att din upplevelse kommer att vara problem fri. Om du stöter på problem med att komma åt den önskade slut punkten finns det några verktyg som du kan använda för att testa anslutningen från App-konsolen. Det finns två konsoler som du kan använda. Det ena är kudu-konsolen och den andra konsolen i Azure Portal. Om du vill komma åt kudu-konsolen från din app går du till Verktyg-> kudu. Detta är detsamma som att gå till [webbplats namn]. scm. azurewebsites. net. När du har öppnat går du till fliken fel söknings konsol. För att komma till den Azure Portal värdbaserade konsolen går du till Verktyg->-konsolen från din app. 
+Även om funktionen är enkel att konfigurera, innebär det inte att din upplevelse kommer att vara problem fri. Om du stöter på problem med att komma åt den önskade slut punkten finns det några verktyg som du kan använda för att testa anslutningen från App-konsolen. Det finns två konsoler som du kan använda. Det ena är kudu-konsolen och den andra konsolen i Azure Portal. Om du vill komma åt kudu-konsolen från din app går du till Verktyg-> kudu. Du kan också komma åt Kudo-konsolen på [webbplats namn]. scm. azurewebsites. net. När webbplatsen har lästs in går du till fliken fel söknings konsol. För att komma till den Azure Portal värdbaserade konsolen går du till Verktyg->-konsolen från din app. 
 
 #### <a name="tools"></a>Verktyg
 Verktygen **ping**, **nslookup** och **tracert** fungerar inte via konsolen på grund av säkerhets begränsningar. Två separata verktyg har lagts till för att fylla i Void. För att testa DNS-funktionen har vi lagt till ett verktyg med namnet nameresolver. exe. Syntax:

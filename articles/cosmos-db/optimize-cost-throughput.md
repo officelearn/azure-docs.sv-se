@@ -4,14 +4,14 @@ description: Den här artikeln förklarar hur du optimerar data flödes kostnade
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/26/2019
 ms.author: rimman
-ms.openlocfilehash: 8829c2534184bc14e82dfbf30d2170a7a1b8add0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: d874f1ba8823ceddbef378decde127cef4ff8885
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614987"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020111"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera etablerade data flödes kostnader i Azure Cosmos DB
 
@@ -65,7 +65,7 @@ Genom att tillhandahålla data flöde på olika nivåer kan du optimera dina kos
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Optimera med Rate-begränsa dina begär Anden
 
-För arbets belastningar som inte är känsliga för svars tider kan du etablera mindre genom strömning och låta program hantera begränsningen när det faktiska data flödet överskrider det etablerade data flödet. Servern kommer att förebyggande syfte avsluta begäran med RequestRateTooLarge (HTTP-statuskod 429) och returnera `x-ms-retry-after-ms` rubriken som visar hur lång tid i millisekunder som användaren måste vänta innan begäran försöker igen. 
+För arbets belastningar som inte är känsliga för svars tider kan du etablera mindre genom strömning och låta program hantera begränsningen när det faktiska data flödet överskrider det etablerade data flödet. Servern kommer att förebyggande syfte avsluta begäran med `RequestRateTooLarge` (HTTP-statuskod 429) och `x-ms-retry-after-ms` returnera rubriken som visar hur lång tid i millisekunder som användaren måste vänta innan begäran försöker igen. 
 
 ```html
 HTTP Status 429, 
@@ -77,15 +77,13 @@ HTTP Status 429,
 
 De ursprungliga SDK: erna (.NET/.NET Core, Java, Node. js och python) fångar implicit detta svar, och den server-specificerade återförsöket-efter-rubriken och gör om begäran. Om ditt konto inte kan nås samtidigt av flera klienter kommer nästa försök att lyckas.
 
-Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen, kanske standard antalet nya försök för närvarande är 9 inte tillräckligt. I sådana fall genererar klienten en `DocumentClientException` med status kod 429 till programmet. Standard antalet återförsök kan ändras genom att ställa `RetryOptions` in på ConnectionPolicy-instansen. Som standard returneras DocumentClientException med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde. 
+Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen, kanske standard antalet nya försök för närvarande är 9 inte tillräckligt. I sådana fall genererar klienten en `DocumentClientException` med status kod 429 till programmet. Standard antalet återförsök kan ändras genom att ställa `RetryOptions` in på ConnectionPolicy-instansen. Som standard `DocumentClientException` returneras med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde. 
 
-[](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet)MaxRetryAttemptsOnThrottledRequests är inställt på 3, så i det här fallet om en begär ande åtgärd är begränsad genom att överskrida det reserverade data flödet för samlingen, försöker begär ande åtgärden tre gånger innan undantaget utlöses till applicering.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds)  är inställt på 60, så i det här fallet om det ackumulerade återförsöket vänts tid i sekunder sedan den första begäran överskrider 60 sekunder, genereras undantaget.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) är inställt på 3, så i det här fallet, om en begär ande åtgärd är begränsad genom att överskrida det reserverade data flödet för behållaren, försöker åtgärden tre gånger innan undantaget utlöses till programmet. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) är inställt på 60, så i det här fallet om den ackumulerade återförsöks tiden i sekunder sedan den första begäran överskrider 60 sekunder, genereras undantaget.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
-
 connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3; 
-
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 

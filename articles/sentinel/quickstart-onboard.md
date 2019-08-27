@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2019
+ms.date: 08/22/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0c37d6167012af46204cbca29397f5d226b9649b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: b609dc70c45941ec1132c7cdf614cf9bec8119ff
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611897"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019021"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>För hands version av Azure-kontroll på kort
 
@@ -59,7 +59,8 @@ När du har anslutit dina data källor väljer du från ett galleri med experter
 
    >[!NOTE] 
    > - Standard arbets ytor som skapats av Azure Security Center visas inte i listan. Du kan inte installera Azure Sentinel på dem.
-   > - Azure Sentinel kan köras på arbets ytor som har distribuerats i någon av följande regioner:  Australien, sydöstra, centrala Kanada, centrala Indien, östra USA, östra USA 2 EUAP (Kanarie), Östra Japan, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2.
+   > - Azure Sentinel kan köras på arbets ytor som har distribuerats i någon av följande regioner: Östra Australien, sydöstra Australien, centrala Kanada, centrala Indien, östra USA, östra USA 2 EUAP (Kanarie), Östra Japan, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2, västra centrala USA, centrala Frankrike, centrala USA, norra Europa, östra USA 2, Asien, östra, västra USA, centrala USA. Södra centrala USA.
+
 
 6. Klicka på **Lägg till Azure Sentinel**.
   

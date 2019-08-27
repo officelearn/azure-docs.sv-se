@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 2425d14e43abd98d80bef8ce01e1c1c5f73a78a0
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 358f55594037f4a468d31265f4e65a6ec4d7ef28
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833071"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020138"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med Python och Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 Dessutom:
 
-* Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnadsfria** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att du väljer arbetsbelastningarna **Azure-utveckling** och **Python-utveckling** under konfigurationen av Visual Studio.
+* Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du väljer arbetsbelastningarna **Azure-utveckling** och **Python-utveckling** under konfigurationen av Visual Studio.
 * Välj även alternativet Python 2 i arbetsbelastningen **Python-utveckling** eller ladda ned Python 2.7 från [python.org](https://www.python.org/downloads/release/python-2712/).
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
@@ -82,7 +82,7 @@ Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra a
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen. 
 
-1. I [Azure-portalen](https://portal.azure.com/) klickar du på **Anslutningssträng**. 
+1. På [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**. 
 
     ![Visa och kopiera ANSLUTNINGSSTRÄNG i fönstret Anslutningssträng](./media/create-table-python/connection-string.png)
 
@@ -100,7 +100,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 1. I Visual Studio högerklickar du på projektet i **Solution Explorer**, väljer den aktuella Python-miljön och högerklickar.
 
-2. Välj alternativet för att installera Python Package och skriv **azure-storage-table**
+2. Välj Installera python-paket och ange sedan **Azure-Storage-Table**
 
 3. Tryck på F5 för att köra programmet. Appen visas i din webbläsare. 
 

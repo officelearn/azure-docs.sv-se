@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/18/2019
+ms.date: 8/25/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 5458d26172123f0f6cb9914a04ec05b3163a084f
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: bc1b2a07f15ca98da7750c85cd25f2c5766c9bb5
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013279"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018170"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Hot identifiering för Azure Service Layer i Azure Security Center
 
@@ -52,7 +52,7 @@ Security Center Network Layer Analytics baseras på [IPFIX data](https://en.wiki
 Information om hur Security Center kan använda nätverksrelaterade signaler för att använda hot skydd finns [i heuristisk DNS-identifieringar i Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 >[!NOTE]
->Aviseringar om hot identifiering i Azure Network Layer, i Azure Security Center, genereras inte under den första timmen efter att den virtuella datorn har skapats.
+>Aviseringar om hot identifiering i Azure Network Layer, i Azure Security Center, genereras bara på virtuella datorer som har tilldelats samma IP-adress för hela timmen och som en misstänkt kommunikation har ägt rum. Detta gäller för virtuella datorer, samt virtuella datorer som skapas i kundens prenumeration som en del av en hanterad tjänst (t. ex. AKS, Databricks).
 
 ## Azure Management Layer (Azure Resource Manager) (för hands version)<a name ="management-layer"></a>
 

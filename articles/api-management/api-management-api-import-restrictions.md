@@ -1,6 +1,6 @@
 ---
-title: Begränsningar och kända problem i Azure API Management API import | Microsoft Docs
-description: Information om kända problem och begränsningar för import till Azure API Management med hjälp av öppna API, WSDL eller WADL-format.
+title: Begränsningar och kända problem i Azure API Management API-import | Microsoft Docs
+description: Information om kända problem och begränsningar vid import till Azure API Management med hjälp av Open API-, WSDL-eller WADL-format.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,40 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: af550d3cdf359fc79b3cc2c799e531e5ec491c4e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: bf39e508b8e4c883934b51fdc99eaef96caf1235
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613634"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018212"
 ---
-# <a name="api-import-restrictions-and-known-issues"></a>API-importrestriktioner och kända problem
+# <a name="api-import-restrictions-and-known-issues"></a>API import-begränsningar och kända problem
 
 ## <a name="about-this-list"></a>Om den här listan
 
-När du importerar ett API, kan du stöta på vissa begränsningar eller identifiera problem som måste åtgärdas innan du kan importera. Den här artikeln dokument dessa, ordnade efter importformatet för API: et.
+När du importerar ett API kan du komma över vissa begränsningar eller identifiera problem som måste åtgärdas innan du kan importera. I den här artikeln dokumenteras dessa, sorterade efter import formatet för API: et.
 
-## <a name="open-api"> </a>OpenAPI/Swagger
+## <a name="open-api"> </a>Openapi/Swagger
 
-Om du har fått fel importera OpenAPI-dokument, kontrollera att du har verifierat den i förväg. Du kan göra det antingen med hjälp av designern i Azure portal (Design - Front End - OpenAPI-Specifikationsredigerare) eller med ett verktyg från tredje part som <a href="https://editor.swagger.io">Swagger Editor</a>.
+Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har validerat det i förväg. Du kan göra detta antingen med hjälp av designern i Azure Portal (design-frontend-OpenAPI specifikation) eller med ett verktyg från tredje part, till exempel <a href="https://editor.swagger.io">Swagger Editor</a>.
 
-### <a name="open-api-general"> </a>Allmänt
+### <a name="open-api-general"> </a>Allmän
 
--   Obligatoriska parametrar i både sökvägen och frågan måste ha unika namn. (I OpenAPI ett parameternamn endast måste vara unika inom en plats, till exempel sökvägen, fråga, rubrik. I API Management kan vi dock tillåta åtgärder för att vara discriminated efter både sökvägen och frågan parametrar (som OpenAPI inte stöder). That's varför vi kräver att parametern som ska vara unikt inom mallen hela URL: en.)
--   **\$REF** pekare kan inte referera till de externa filerna.
--   **x-ms-sökvägar** och **x-servers** är de enda tillägg som stöds.
--   Anpassade tillägg ignoreras för import och inte sparas eller bevaras för export.
--   **Rekursion** -API Management stöder inte definitioner som definierats rekursivt (till exempel scheman som refererar till sig själva).
--   Käll-fil-URL (om tillgängligt) tillämpas på relativ URL.
+-   Obligatoriska parametrar i både sökväg och fråga måste ha unika namn. (I OpenAPI måste parameter namnet bara vara unikt inom en plats, till exempel sökväg, fråga, rubrik. Men i API Management tillåter vi att åtgärder diskrimineras av både sökväg och frågeparametrar (som OpenAPI inte stöder). Därför kräver vi att parameter namn är unika inom hela URL-mallen.)
+-   referens punkter kan inte referera till externa filer.  **\$**
+-   **x-MS – sökvägar** och **x-servrar** är de enda tillägg som stöds.
+-   Anpassade tillägg ignoreras vid import och sparas eller bevaras inte för export.
+-   Rekursion – API Management stöder inte definitioner som definierats rekursivt (till exempel scheman som refererar till sig själva).
+-   Käll filens URL (om tillgänglig) används för relativa server-URL: er.
+-   Säkerhets definitioner ignoreras.
 
-### <a name="open-api-v2"> </a>OpenAPI version 2
+### <a name="open-api-v2"> </a>Openapi version 2
 
--   JSON-format stöds.
+-   Endast JSON-format stöds.
 
-### <a name="open-api-v3"> </a>OpenAPI version 3
+### <a name="open-api-v3"> </a>Openapi version 3
 
--   Om många **servrar** anges, API Management kommer att försöka att välja den första HTTPs-URL. Om det inte finns några webbadresser för HTTPs - första HTTP-URL. Om det inte finns några HTTP-URL: er - serverns URL är tom.
--   **Exempel** stöds inte, men **exempel** är.
+-   Om många **servrar** anges försöker API Management välja den första HTTPS-URL: en. Om det inte finns några HTTPs-URL: er – den första HTTP-URL: en. Om det inte finns några HTTP-URL: er måste serverns URL vara tom.
+-   **Exempel** stöds inte, men det är ett **exempel** .
 -   **Multipart/form-data** stöds inte.
 
 > [!IMPORTANT]
@@ -55,16 +56,16 @@ Om du har fått fel importera OpenAPI-dokument, kontrollera att du har verifiera
 
 ## <a name="wsdl"> </a>WSDL
 
-WSDL-filerna används för att skapa SOAP-direkt och SOAP till REST API: er.
+WSDL-filer används för att skapa SOAP-vidarekoppling och SOAP-till-REST-API: er.
 
--   **SOAP-bindningar** -endast SOAP-bindningar style ”dokument” och ”literal”-kodning stöds. Det finns inget stöd för ”RPC”-format eller SOAP-kodning.
--   **Platsattribut** – det här attributet stöds inte. Kunder bör samman importen till ett dokument.
--   **Meddelanden med flera delar** -dessa typer av meddelanden stöds inte.
--   **WCF-wsHttpBinding** -SOAP-tjänster som skapats med Windows Communication Foundation bör använda basicHttpBinding – wsHttpBinding stöds inte.
--   **MTOM** - tjänster med hjälp av MTOM <em>kan</em> fungerar. Officiella support erbjuds inte just nu.
--   **Rekursion** -typer som är definierade rekursivt (till exempel finns i en matris med själva) stöds inte av APIM.
--   **Flera namnområden** – flera namnområden kan användas i ett schema, men endast målnamnområdet kan användas för att definiera meddelandedelar. Namnområden än målet som används för att definiera andra inkommande eller utgående element bevaras inte. Även om en sådan WSDL-dokumentet kan importeras i exporten har alla meddelandedelar målnamnområdet för WSDL.
--   **Matriser** – SOAP till REST-transformering stöder bara inpackad matriser visas i exemplet nedan:
+-   **SOAP** -bindningar – endast SOAP-bindningar av formatet "Document" och "literal" stöds. Det finns inget stöd för "RPC"-format eller SOAP-kodning.
+-   **WSDL: import** -detta attribut stöds inte. Kunderna bör slå samman importen till ett dokument.
+-   **Meddelanden med flera delar** – dessa typer av meddelanden stöds inte.
+-   **WCF-wsHttpBinding** – SOAP-tjänster som skapats med Windows Communication Foundation ska använda BasicHttpBinding-wsHttpBinding stöds inte.
+-   **MTOM** -tjänster som använder MTOM <em>kan</em> fungera. Statsstöd erbjuds inte för tillfället.
+-   Rekursion – typer som definieras rekursivt (till exempel för att referera till en matris) stöds inte av APIM.
+-   **Flera namn rymder** – flera namn områden kan användas i ett schema, men endast mål namn området kan användas för att definiera meddelande delar. Andra namn områden än målet som används för att definiera andra indata-eller utdata-element bevaras inte. Även om ett sådant WSDL-dokument kan importeras, kommer att ha mål namn området för WSDL i Exportera alla meddelande delar.
+-   **Matriser** – SOAP-till-rest-omvandling stöder bara omslutna matriser som visas i exemplet nedan:
 
 ```xml
     <complexType name="arrayTypeName">
@@ -83,4 +84,4 @@ WSDL-filerna används för att skapa SOAP-direkt och SOAP till REST API: er.
 
 ## <a name="wadl"> </a>WADL
 
-Det finns för närvarande inga kända problem i WADL import.
+Det finns för närvarande inga kända WADL import problem.

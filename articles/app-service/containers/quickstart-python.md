@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: 2ff4364fdb0f24ca08a77279d569c0f03de9bb24
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: c7306de4af7f958ef8f89dac41a5e08209916432
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996849"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020201"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Skapa en python-app i Azure App Service på Linux
 
@@ -37,7 +37,7 @@ För att slutföra den här snabbstarten behöver du:
 
 ## <a name="download-the-sample-locally"></a>Ladda ned exemplet lokalt
 
-I terminalfönstret kör du följande kommandon för att klona exempelappen till din lokala dator. Navigera sedan till katalogen som innehåller exempelkoden.
+Kör följande kommandon i ett terminalfönster för att klona exempel programmet till din lokala dator och gå till katalogen med exempel koden.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
@@ -65,7 +65,7 @@ Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 
-Öppna en webbläsare och navigera till exempelappen på `http://localhost:5000/`.
+Öppna en webbläsare och gå till exempel appen på `http://localhost:5000/`.
 
 Du ser meddelandet **Hello World!** från exempelappen på sidan.
 
@@ -158,7 +158,7 @@ Python-exempelkoden körs i App Service på Linux med en inbyggd avbildning.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Uppdatera lokalt och distribuera om koden
 
-Skriv `code application.py` i Cloud Shell för att öppna Cloud Shell-redigeraren.
+I Cloud Shell anger `code application.py` du för att öppna Cloud Shell redigeraren.
 
 ![application.py-kod](media/quickstart-python/code-applicationpy.png)
 
@@ -182,9 +182,9 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
-Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den app som du skapade.
+Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> för att hantera den app som du skapade.
 
-I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
+Klicka på **App Services** i menyn till vänster och välj sedan namnet på din Azure-app.
 
 ![Portalnavigering till Azure-app](./media/quickstart-python/app-service-list.png)
 

@@ -4,16 +4,16 @@ description: Sammanfattar support inställningar och begränsningar för utvärd
 services: backup
 author: rayne-wiselman
 manager: carmonm
-ms.service: backup
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 70107311b189e1692b902812c4ccbbd91c3695a1
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: c351ee8290b60c81add173bb927b0c12e37f5c7c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952118"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018133"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av VMware
 
@@ -332,7 +332,7 @@ Processerver | Processervern tar emot replikeringsdata, optimerar och krypterar 
 
 Alla lokala virtuella datorer som replikeras till Azure måste uppfylla de krav för virtuella Azure-datorer som sammanfattas i den här tabellen. När Site Recovery kör en krav kontroll för replikering kommer kontrollen att Miss klar om några av kraven inte uppfylls.
 
-**Komponent** | **Signaturkrav** | **Detaljer**
+**Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
 Gäst operativ system | Kontrol lera att operativ system som stöds för [virtuella VMware-datorer med hjälp av replikering utan agent](#agentless-migration-vmware-vm-requirements)och för [virtuella VMware-datorer som använder agent-baserad replikering](#agent-based-migration-vmware-vm-requirements).<br/> Du kan migrera alla arbets belastningar som körs på ett operativ system som stöds. | Kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 64-bitars. | Kontrollen Miss lyckas om den inte stöds.

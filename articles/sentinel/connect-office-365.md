@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0013540bf0ca921b2f41260dea185f6aa32567d7
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 39245cb43dacfeec2b647936d5e5790d4a185467
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679266"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019004"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Anslut data från Office 365-loggar
 
@@ -37,6 +37,9 @@ Du kan strömma gransknings loggar från [Office 365](https://docs.microsoft.com
 
 - Du måste vara global administratör eller säkerhets administratör för din klient
 - Kontrol lera att port 4433 är öppen för webb trafik från vilken du loggade in på Azure Sentinel för att skapa anslutningen på datorn.
+- Om din klient organisation inte har en Office 365 E3-eller Office 365 E5-licens, måste du aktivera enhetlig granskning med en av följande processer:
+    - [Använd cmdleten Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) och aktivera parametern "UnifiedAuditLogIngestionEnabled").
+    - [Eller med hjälp av säkerhets-och EFTERLEVNADSCENTER gränssnittet](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
 
 ## <a name="connect-to-office-365"></a>Ansluta till Office 365
 

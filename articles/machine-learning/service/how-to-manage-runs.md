@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/12/2019
-ms.openlocfilehash: 701c266705c16198f35cddc36cdf1d431331c2d2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 07/31/2019
+ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847939"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019102"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starta, övervaka och avbryta inlärnings körningar i python
 
@@ -220,9 +220,32 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > När de flyttas utanför omfånget markeras underordnade körningar automatiskt som slutförda.
 
-Du kan också starta en underordnad körning en i taget, men eftersom varje skapande resulterar i ett nätverks anrop är det mindre effektivt än att skicka en batch med körningar.
+Använd [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) metoden för att skapa många underordnade körningar effektivt. Eftersom varje skapande resulterar i ett nätverks anrop är det mer effektivt att skapa en batch med körningar än att skapa en i taget.
 
-Använd [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) metoden för att fråga de underordnade körningarna av en speciell överordnad.
+### <a name="submit-child-runs"></a>Skicka underordnade körningar
+
+Underordnade körningar kan också skickas från en överordnad körning. På så sätt kan du skapa hierarkier av överordnad och underordnad körning, som körs på olika beräknings mål, som är anslutna via det gemensamma överordnade körnings-ID.
+
+Använd metoden [' submit_child () '](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) för att skicka en underordnad körning inifrån en överordnad körning. Om du vill göra detta i det överordnade kör-skriptet hämtar du körnings kontexten och skickar den underordnade körningen med hjälp av metoden ' ' submit_child ' ' för kontext instansen.
+
+```python
+## In parent run script
+parent_run = Run.get_context()
+child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
+parent_run.submit_child(child_run_config)
+```
+
+I en underordnad körning kan du Visa överordnad körnings-ID:
+
+```python
+## In child run script
+child_run = Run.get_context()
+child_run.parent.id
+```
+
+### <a name="query-child-runs"></a>Frågans underordnade körningar
+
+Använd [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) metoden för att fråga de underordnade körningarna av en speciell överordnad. Argumentet ' ' ' ' ' rekursivt = true ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
 
 ```python
 print(parent_run.get_children())

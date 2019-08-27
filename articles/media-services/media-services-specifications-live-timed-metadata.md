@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 19d3fe4285cf6bf316a0d445e49a398ed5d66a35
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: d2fec29c96639d21db362f6982b88a90bd6c319f
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991789"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019086"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalerar Timed metadata i Live Streaming 
 
@@ -98,7 +98,7 @@ Följande dokument innehåller bestämmelser, som till följd av referens i denn
 
 Azure Media Services stöder real tids inlösnings-metadata för både [RTMP] och Smooth Streaming [MS-SSTR-insugning]-protokoll. Real tids metadata kan användas för att definiera anpassade händelser, med dina egna unika anpassade scheman (JSON, Binary, XML), samt bransch definierade format som ID3 eller SCTE-35 för AD-signalering i en broadcast-dataström. 
 
-Den här artikeln innehåller information om hur du skickar i anpassade metadata-signaler med hjälp av de inmatnings protokoll som stöds av Media Services. Artikeln beskriver också hur manifesten för HLS, bindestreck och Smooth Streaming dekoreras med de tidsvisade metadata-signalerna, samt hur den transporteras i band när innehållet levereras med CMAF (MP4-fragment) eller transport data ström (TS) segment för HLS. 
+Den här artikeln innehåller information om hur du skickar anpassade metadata-signaler med de inmatnings protokoll som stöds av Azure Media Services. Artikeln beskriver också hur manifesten för HLS, bindestreck och Smooth Streaming dekoreras med de tidsvisade metadata-signalerna, samt hur den transporteras i band när innehållet levereras med CMAF (MP4-fragment) eller transport data ström (TS) segment för HLS. 
 
 Vanliga användnings fall för Timed metadata inkluderar:
 
@@ -122,7 +122,7 @@ Azure Media Services Live-händelser och Paketeraren kan ta emot dessa tidsbaser
 
 Med [RTMP]-protokollet kan du skicka Timed metadata-signaler för olika scenarier, inklusive anpassade metadata och SCTE-35 AD-signaler. 
 
-Annonserings signaler (Cue-meddelanden) skickas som [AMF0] Cue-meddelanden inbäddade i [RTMP]-strömmen. Stack-meddelanden kan skickas någon gång innan den faktiska händelsen eller [SCTE35] AD splice-signalen måste utföras. För att stödja det här scenariot skickas den faktiska tiden för händelsen i stack-meddelandet. Mer information finns i [AMF0].
+Annonserings signaler (Cue-meddelanden) skickas som [AMF0] Cue-meddelanden inbäddade i [RTMP]-strömmen. Stack-meddelanden kan skickas någon gång innan den faktiska händelsen eller [SCTE35] AD splice-signalen måste utföras. För att stödja det här scenariot skickas den faktiska presentationens tidstämpel för händelsen i stack-meddelandet. Mer information finns i [AMF0].
 
 Följande [AMF0]-kommandon stöds av Azure Media Services för RTMP-inmatning:
 
@@ -139,8 +139,8 @@ Namnet på [AMF0]-meddelandet kan användas för att särskilja flera händelse 
 
 Om du vill tillhandahålla anpassade metadata från din överordnade kodare, IP-kamera, drönare eller enhet med hjälp av RTMP-protokollet använder du kommando typen "onUserDataEvent" [AMF0] data meddelande.
 
-Data meddelande kommandot **"onUserDataEvent"** måste ha en meddelande nytto last med följande definition för att kunna fångas in av Media Services och paketeras i fil formatet in-band samt manifesten för HLS, bindestreck och utjämna.
-Vi rekommenderar att skicka meddelanden med Time-metadata som inte ofta förekommer oftare än en gång var 0,5 sekund (500ms). Varje meddelande kan aggregera metadata från flera ramar om du behöver ange metadata för bildskärms nivå. Om du skickar strömmar med flera bit hastigheter rekommenderar vi att du även ger metadata på en enskild bit hastighet för att minska bandbredden och undvika störningar i video/ljud-bearbetning. 
+Data meddelande kommandot **"onUserDataEvent"** måste ha en meddelande nytto last med följande definition för att kunna fångas in av Media Services och paketeras i fil formatet in-band samt manifesten för HLS, bindestreck och Smooth Streaming.
+Vi rekommenderar att skicka meddelanden med Time-metadata som inte ofta förekommer oftare än en gång var 0,5 sekund (500ms) eller stabilitets problem med den aktiva strömmen. Varje meddelande kan aggregera metadata från flera ramar om du behöver ange metadata för bildskärms nivå. Om du skickar strömmar med flera bit hastigheter rekommenderar vi att du även ger metadata på en enskild bit hastighet för att minska bandbredden och undvika störningar i video/ljud-bearbetning. 
 
 Nytto lasten för **"onUserDataEvent"** ska vara ett [MPEGDASH] EventStream XML-formaterat meddelande. Detta gör det enkelt att skicka in anpassade scheman som kan utföras i "EMSG"-nytto laster på band för CMAF [MPEGCMAF]-innehåll som levereras över HLS-eller tank strecks protokoll. Varje streck händelse Stream-meddelande innehåller en schemeIdUri som fungerar som en identifierare för URN-meddelande scheman och definierar nytto lasten för meddelandet. Vissa scheman som "https://aomedia.org/emsg/ID3" för [ID3v2] eller **urn: scte: scte35:2013: bin** för [scte-35] är standardiserade av bransch konsortier för interoperabilitet. Alla programproviders kan definiera egna anpassade scheman med en URL som de styr (ägs domän) och kan tillhandahålla en specifikation på denna URL om de väljer. Om en spelare har en hanterare för det definierade schemat, är det den enda komponenten som behöver förstå nytto lasten och protokollet.
 
@@ -226,7 +226,7 @@ Enskilda händelser eller deras data nytto laster matas inte ut direkt i HLS, bi
 
 ### <a name="additional-informational-constraints-and-defaults-for-onuserdataevent-events"></a>Ytterligare information begränsningar och standardvärden för onUserDataEvent-händelser
 
-- Om tids skalan inte har ställts in i EventStream-elementet används RTMP 1Khz-tidsskalan som standard
+- Om tids skalan inte har ställts in i EventStream-elementet används RTMP 1 kHz-tidsskalan som standard
 - Leverans av ett onUserDataEvent-meddelande är begränsat till en gång varje 500ms max. Om du skickar händelser oftare kan det påverka bandbredden och stabiliteten hos Live-matningen
 
 ## <a name="212-rtmp-ad-cue-signaling-with-oncuepoint"></a>2.1.2 RTMP AD Cue-signalering med "onCuePoint"

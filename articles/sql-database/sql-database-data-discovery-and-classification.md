@@ -11,16 +11,16 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 ms.date: 03/22/2019
-ms.openlocfilehash: a606364503172d5cb1ddcf00262eb81b9423b55b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f2b57aa517c1518929b857eff6aed2ef4e0d8ca1
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569055"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018972"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>& Klassificering för Azure SQL Database och SQL Data Warehouse data identifiering
 
-Data identifierings & klassificering (för närvarande i för hands version) innehåller avancerade funktioner som är inbyggda i Azure SQL Database för & att **upptäcka**, **klassificera**och märka att**skydda** känsliga data i din samling.
+Data identifierings & klassificering innehåller avancerade funktioner som är inbyggda i Azure SQL Database för att **upptäcka**, &  **klassificera**och märka,**skydda** känsliga data i dina databaser.
 Att identifiera och klassificera dina mest känsliga data (företags-, finans-, sjukvårds-och person uppgifter) och så vidare kan du spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Den kan fungera som infrastruktur för:
 
 - Hjälpa till att uppfylla data sekretess standarder och regler för efterlevnad av efterlevnad.
@@ -76,7 +76,7 @@ När du har definierat principen för hela klienten kan du fortsätta med klassi
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
 
-2. Gå till **Avancerad data säkerhet** under säkerhets rubriken i Azure SQL Databases fönstret. Klicka om du vill aktivera avancerad data säkerhet och klicka sedan på kortet **data discovery & klassificering (för hands version)** .
+2. Gå till **Avancerad data säkerhet** under säkerhets rubriken i Azure SQL Databases fönstret. Klicka om du vill aktivera avancerad data säkerhet och klicka sedan på **klassificerings kortet data identifierings &** .
 
    ![Skanna en databas](./media/sql-data-discovery-and-classification/data_classification.png)
 

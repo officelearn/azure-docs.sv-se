@@ -1,52 +1,52 @@
 ---
 title: Azure IoT Central Visa/Dölj chatt | Microsoft Docs
-description: Lär dig hur du visa och dölja chatt som en användare.
+description: Som användare lär du dig att visa och dölja chatt.
 author: v-krghan
 ms.author: v-krghan
-ms.date: 04/18/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a8d2b71899cdd6b7f9c8cb803732b760f3009811
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ab0f830ab3b06f272e371a6908ac6dde3e3893a
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64513337"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019720"
 ---
 # <a name="toggle-live-chat"></a>Växla livechatt
 
-I den här artikeln visar hur du växlar live-chatt i ditt IoT Central-program. Du kan använda live-chatt för att få tillgång till teknisk support.
+Den här instruktions artikeln visar hur du växlar Live Chat i IoT Central-programmet. Du kan använda Live Chat för att få åtkomst till teknisk support.
 
 > [!NOTE]
-> Chatt-alternativet är endast tillgänglig för utvärderingsprenumerationer.
+> Alternativet Chat är bara tillgängligt för utvärderings prenumerationer.
 
 ## <a name="chat-with-us"></a>Chatta med oss
 
-Om du vill ha teknisk support, öppna ditt IoT Central programmet och väljer **chatta med oss**.
+Om du vill ha teknisk support öppnar du IoT Central programmet och väljer **chatta med oss**.
 
 ![Chatta med oss](media/howto-show-hide-chat/chat-with-us.png)
 
-Du kan skriva en fråga som visas i följande skärmbild:
+Du kan skriva en fråga som visas på följande skärm bild:
 
-![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](media/howto-show-hide-chat/sample-chat.png)
+![Formuläret "Konfigurera enhets information" med information om inställningar och egenskaper](media/howto-show-hide-chat/sample-chat.png)
 
 ## <a name="hide-chat"></a>Dölj chatt
 
-Om du vill dölja chatten väljer **Dölj chatt** i den **hjälpa** panelen:
+Om du vill dölja chatten väljer du **Dölj chatt** i **Hjälp** panelen:
 
  ![Dölj chatt](media/howto-show-hide-chat/hide-chat.png)
 
 ## <a name="enable-chat"></a>Aktivera chatt
 
-Om du vill visa chatten, Välj **visa chatt** i den **hjälpa** panelen:
+Visa chatten genom att välja **Visa chatt** i **Hjälp** panelen:
 
  ![Visa chatt](media/howto-show-hide-chat/show-chat.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du växlar live-chatt i Azure IoT Central, är här nästa föreslagna steg:
+Nu när du har lärt dig hur du växlar Live Chat i Azure IoT Central, här är det föreslagna nästa steg:
 
 > [!div class="nextstepaction"]
-> [Konfigurera din instrumentpanel för program](howto-configure-homepage.md)
+> [Konfigurera din program instrument panel](howto-configure-homepage.md)

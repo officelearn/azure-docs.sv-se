@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 45f383691a52d841f35ed9b67d4658341de18afc
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f4ea820eb116c4efe550997cbe7c9ed69713c965
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036255"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019119"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information för Azure File Sync agent
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -23,7 +23,7 @@ Den här artikeln innehåller viktig information om versioner av Azure File Sync
 ## <a name="supported-versions"></a>Versioner som stöds
 Följande versioner av Azure File Sync-agenten stöds:
 
-| Gränser | Agentversionsnummer | Utgivningsdatum | Status |
+| Gränser | Agentversionsnummer | Utgivningsdatum | State |
 |----|----------------------|--------------|------------------|
 | Samlad uppdatering 2019 – [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 juli 2019 | Stöds |
 | Samlad uppdatering 2019 – [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 juli 2019 | Stöds |
@@ -71,6 +71,12 @@ Följande viktiga information gäller version 7.0.0.0 av Azure File Sync agent (
 
 - Stöd för större fil resurs storlekar
     - Med för hands versionen av större Azure-filresurser ökar vi även våra support begränsningar för filsynkronisering. I det här första steget har Azure File Sync nu stöd för upp till 25TB och 50million-filer i ett enda, syncing-namnområde. Fyll i det här formuläret https://aka.ms/azurefilesatscalesurvey om du vill använda för hands versionen av den stora fil resursen. 
+- Stöd för inställningar för brand vägg och virtuellt nätverk på lagrings konton
+    - Azure File Sync stöder nu inställningen brand vägg och virtuellt nätverk på lagrings konton. Om du vill konfigurera distributionen så att den fungerar med inställningen brand vägg och virtuellt nätverk, se [Konfigurera inställningar för brand vägg och virtuellt nätverk](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
+- PowerShell-cmdlet för att omedelbart synkronisera filer som ändrats i Azure-filresursen
+    - Om du vill synkronisera filer som har ändrats i Azure-filresursen direkt kan du använda PowerShell-cmdleten Invoke-AzStorageSyncChangeDetection för att manuellt initiera identifieringen av ändringar i Azure-filresursen. Denna cmdlet är avsedd för scenarier där någon typ av automatiserad process gör ändringar i Azure-filresursen eller ändringarna utförs av en administratör (t. ex. att flytta filer och kataloger till resursen). För att slutanvändarna ska ändras, är rekommendationen att installera Azure File Sync agenten i en virtuell IaaS-dator och har slutanvändarna åtkomst till fil resursen via den virtuella IaaS-datorn. På så sätt synkroniseras alla ändringar snabbt till andra agenter utan att du behöver använda cmdleten Invoke-AzStorageSyncChangeDetection. Mer information finns i [Invoke-AzStorageSyncChangeDetection-](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) dokumentationen.
+- Förbättrad Portal upplevelse om du stöter på filer som inte synkroniseras
+    - Om du har filer som inte kan synkroniseras skiljer vi nu mellan tillfälliga och beständiga fel i portalen. Tillfälliga fel löses vanligt vis utan att administratören behöver göra något. En fil som används för tillfället kommer till exempel inte att synkroniseras förrän fil handtaget stängs. För beständiga fel visar vi nu antalet filer som påverkas av varje fel. Antalet beständiga fel visas också i kolumnen filer som inte synkroniseras för alla Server slut punkter i en Sync-grupp.
 - Förbättrad Azure Backup Återställning på fil nivå
     - Enskilda filer som återställs med hjälp av Azure Backup identifieras och synkroniseras nu till Server slut punkten snabbare.
 - Förbättrad återställnings-cmdlet för åter kallelse av moln nivåer 

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 6bafd5ed5f2d7080b0f2a2db71ac96e4f97a1f76
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774931"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018243"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uppgradera och skala en Azure API Management-instans  
 
@@ -53,8 +53,11 @@ På **Premium** -nivån kan du distribuera en enda Azure API Management-instans 
 
 Du kan uppgradera och nedgradera till och från valfri nivå. Observera att uppgradering eller nedgradering kan ta bort vissa funktioner, till exempel virtuella nätverk eller distribution i flera regioner, vid nedgradering till standard eller Basic från Premium-nivån.
 
->[!NOTE]
->Uppgradering eller skala processen kan ta mellan 15 och 45 minuter innan tillämpas. Du får ett meddelande när det är färdigt.
+> [!NOTE]
+> Uppgradering eller skala processen kan ta mellan 15 och 45 minuter innan tillämpas. Du får ett meddelande när det är färdigt.
+
+> [!NOTE]
+> API Management tjänst i **förbruknings** nivån skalas automatiskt baserat på trafiken.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Använd Azure Portal för att uppgradera och skala
 

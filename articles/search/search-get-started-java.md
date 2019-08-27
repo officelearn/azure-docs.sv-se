@@ -1,177 +1,837 @@
 ---
-title: 'Snabbstart: Skapa ett Azure Search-index i Java'
+title: 'Java snabb start: Skapa, läsa in och fråga index i Java'
 description: 'Förklarar hur du skapar ett index, läser in data och kör frågor med Java och Azure Search REST-API: er.'
+author: lisaleib
+manager: cgronlun
+ms.author: v-lilei
+tags: azure-portal
 services: search
-author: jj09
-manager: jlembicz
 ms.service: search
-ms.topic: conceptual
-ms.date: 08/26/2018
-ms.author: jjed
-ms.custom: seodec2018, seo-java-july2019
-ms.openlocfilehash: 7deb9d2cf16aa82de7ce4ea163652c2936819063
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.devlang: java
+ms.topic: quickstart
+ms.date: 07/11/2019
+ms.openlocfilehash: b7e5986ad156fe09dc3caa07d952abf85896c5ba
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533232"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019217"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>Snabbstart: Skapa ett Azure Search-index i Java
 > [!div class="op_single_selector"]
+> * [JavaScript](search-get-started-nodejs.md)
+> * [C#](search-get-started-dotnet.md)
+> * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
-> * [NET](search-howto-dotnet-sdk.md)
-> 
-> 
+> * [PowerShell](search-create-index-rest-api.md)
+> * [Python](search-get-started-python.md)
+> * [Postman](search-get-started-postman.md)
 
-Lär dig hur du skapar ett anpassat Java-sökprogram som använder Azure Search som sökmiljö. I den här självstudiekursen används [REST-API:et för tjänsten Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) för att skapa de objekt och åtgärder som används i den här övningen.
+Skapa ett Java-konsolprogram som skapar, läser in och skickar frågor till ett Azure Search-index med [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)och [Azure Search tjänsten REST API](/rest/api/searchservice/). Den här artikeln innehåller stegvisa instruktioner för att skapa programmet. Du kan också [Hämta och köra hela programmet](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
-Om du vill köra det här exemplet måste du ha en Azure Search-tjänst, som du kan registrera dig för på [Azure Portal](https://portal.azure.com). Stegvisa instruktioner finns i [Skapa en Azure Search-tjänst på portalen](search-create-service-portal.md).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Vi använde följande programvara när vi skapade och testade det här exemplet:
+## <a name="prerequisites"></a>Förutsättningar
 
-* [Eclipse IDE för Java EE-utvecklare](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). Var noga med att ladda ned EE-versionen. Ett av verifieringsstegen kräver en funktion som bara finns i den här versionen.
-* [JDK 8u181](https://aka.ms/azure-jdks)
-* [Apache Tomcat-8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
+Vi använde följande program och tjänster för att bygga och testa det här exemplet:
 
-## <a name="about-the-data"></a>Om de data som används
-Det här exempelprogrammet använder data från [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), som har filtrerats på delstaten Rhode Island för att minska datauppsättningens storlek. Vi ska använda dessa data för att skapa ett sökprogram som returnerar viktiga byggnader som sjukhus och skolor, samt geologiska element som vattendrag, sjöar och bergstoppar.
++ [IntelliJ idé](https://www.jetbrains.com/idea/)
 
-I det här programmet skapar **SearchServlet. java** -programmet och läser in indexet med [](https://msdn.microsoft.com/library/azure/dn798918.aspx) hjälp av en indexerare konstruktion och hämtar den filtrerade USGS datauppsättningen-datauppsättningen från en Azure SQL Database. Fördefinierade autentiseringsuppgifter och anslutningsinformation för onlinedatakällan finns i programkoden. Ingen ytterligare konfiguration krävs vad gäller dataåtkomsten.
++ [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
 
-> [!NOTE]
-> Vi har använt ett filter för den här datauppsättningen för att hålla oss under gränsen på 10 000 dokument för den kostnadsfria prisnivån. Om du använder standardnivån så gäller inte den här gränsen och du kan ändra koden om du vill använda en större datauppsättning. Mer information om kapaciteten för varje prisnivå finns i [Gränser och begränsningar](search-limits-quotas-capacity.md).
-> 
-> 
++ [Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
 
-## <a name="about-the-program-files"></a>Om programfilerna
-Följande lista beskriver de filer som är relevanta för det här exemplet.
+<a name="get-service-info"></a>
 
-* Search. jsp: Tillhandahåller användar gränssnittet
-* SearchServlet.java: Tillhandahåller metoder (liknar en kontrollant i MVC)
-* SearchServiceClient.java: Hanterar HTTP-begäranden
-* SearchServiceHelper.java: En hjälp klass som tillhandahåller statiska metoder
-* Document. java: Tillhandahåller data modellen
-* config. Properties: Anger Sök tjänstens URL och`api-key`
-* pom.xml: Ett maven-beroende
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
 
-<a id="sub-2"></a>
+Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Hitta tjänst namnet och `api-key` din Azure Search-tjänst
-Alla REST API anrop till Azure Search kräver att du anger tjänstens URL och en `api-key`. 
+1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. I hopp fältet väljer du **Sök tjänst** för att visa alla Azure Search tjänster som har skapats för din prenumeration.
-3. Markera den tjänst som du vill använda.
-4. På instrumentpanelen för tjänsten ser du paneler för viktig information samt nyckelikonen för att komma åt administatörsnycklarna.
-   
-      ![Skärm bild som visar hur du kommer åt administratörs nycklarna från instrument panelen för tjänsten][3]
-5. Kopiera tjänstens URL och en administratörsnyckel. Du behöver dem senare när du lägger till dem i filen **config.properties**.
+2. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-## <a name="download-the-sample-files"></a>Ladda ned exempelfilerna
-1. Gå till [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) på GitHub.
-2. Välj **Hämta zip**, spara zip-filen på disk och extrahera sedan alla filer som den innehåller. Om du vill kan du extrahera filerna till Java-arbetsytan så att det blir lättare att hitta projektet senare.
-3. Exempelfilerna är skrivskyddade. Högerklicka på Mappegenskaper och ta bort skrivskyddet.
+   Skapa även en sessionsnyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
-Alla efterföljande filändringar och körningsinstruktioner görs mot filer i den här mappen.  
+![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-nodejs/service-name-and-keys.png)
 
-## <a name="import-project"></a>Importera projekt
-1. I Sol förmörkelse väljer du **fil** > **Importera** > **allmänna** > **befintliga projekt till arbets ytan**.
-   
-    ![Skärm bild som visar hur du importerar ett befintligt projekt][4]
-2. I **Select root directory** bläddrar du till mappen som innehåller exempelfilerna. Välj mappen som innehåller mappen .project. Projektet bör visas i listan **Projects** som ett markerat objekt.
-   
-    ![Skärm bild som visar listan projekt i fönstret Importera projekt][12]
-3. Välj **Slutför**.
-4. Använd **Project Explorer** för att visa och redigera filerna. Om den inte redan är öppen väljer du **fönster** > **Visa** > **projekt Utforskaren** eller använder genvägen för att öppna den.
+Varje begäran som skickas till din tjänst kräver en API-nyckel. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-## <a name="configure-the-service-url-and-api-key"></a>Konfigurera tjänstens URL och`api-key`
-1. I **Project Explorer**dubbelklickar du på **config. Properties** för att redigera de konfigurations inställningar som innehåller Server `api-key`namnet och.
-2. Läs de steg som beskrivs ovan i den här artikeln, där du har hittat tjänst `api-key` -URL: en och i [Azure Portal](https://portal.azure.com)för att hämta värdena som du kommer att ange i **config. Properties**.
-3. I **config. Properties**ersätter du `api-key` "API Key" med för din tjänst. Sedan ersätter tjänst namnet (den första komponenten i URL: https://servicename.search.windows.net) en "tjänst namn" i samma fil.
-   
-    ![Skärm bild som visar hur du ersätter API-nyckeln][5]
+## <a name="set-up-your-environment"></a>Konfigurera din miljö
 
-## <a name="configure-the-project-build-and-runtime-environments"></a>Konfigurera projektet, versionen och runtime-miljöerna
-1. I Eclipse högerklickar du på projektet i Project Explorer > **Properties** > **Project Facets**.
-2. Välj **Dynamic Web Module**, **Java** och **JavaScript**.
-   
-    ![Skärm bild som visar hur du väljer projektets ansikte för ditt projekt][6]
-3. Välj **Använd**.
-4. Välj **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add**.
-5. Expandera Apache och välj den version av Apache Tomcat-servern som du installerade tidigare. I vårt system installerade vi version 8.
-   
-    ![Skärm bild som visar var i fönstret Runtime Environment du kan välja din version av Apache Tomcat][7]
-6. Ange installationskatalogen för Tomcat på nästa sida. På en Windows-dator är detta antagligen C:\Program\Apache Software Foundation\Tomcat *version*.
-7. Välj **Slutför**.
-8. Välj **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
-9. Välj **Standard VM**i **Add JRE**.
-10. Välj **Nästa**.
-11. I JRE-definitionen, i JRE Home, väljer du **katalog**.
-12. Gå till **Program Files** > **Java** och välj den JDK som du installerade tidigare. Det är viktigt att du väljer JDK som JRE.
-13. I installerade JREs väljer du **JDK**. Inställningarna bör se ut som i följande skärmbild.
+Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
+
+### <a name="create-the-project"></a>Skapa projektet
+
+1. Öppna IntelliJ idé och välj **Skapa nytt projekt**.
+1. Välj **maven**.
+1. I listan **Project SDK** väljer du Java 11 SDK.
+
+    ![Skapa ett Maven-projekt](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+
+1. Ange för`AzureSearchQuickstart` **ArtifactId**.
+1. Godkänn de återstående standardvärdena för att öppna projektet.
+
+### <a name="specify-maven-dependencies"></a>Ange maven-beroenden
+
+1. Välj **fil** > **Inställningar**.
+1. I fönstret **Inställningar** väljer du **build, Execution, Deployment** > **build tools** > **maven** > **Importing**.
+1. Markera kryss rutan **Importera Maven projekt automatiskt** och Stäng fönstret genom att klicka på **OK** . Maven-plugin-program och andra beroenden kommer nu att synkroniseras automatiskt när du uppdaterar Pom. XML-filen i nästa steg.
+
+    ![Maven som importerar alternativ i IntelliJ-inställningar](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+
+1. Öppna filen Pom. xml och ersätt innehållet med följande konfigurations information för maven. Dessa inkluderar referenser till [exec maven-plugin-programmet](https://www.mojohaus.org/exec-maven-plugin/) och ett JSON-gränssnitts- [API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
     
-    ![Skärm bild som visar hur du väljer JDK som den installerade JRE][9]
-14. Du kan också välja **Window** > **Web Browser** > **Internet Explorer** om du vill öppna programmet i ett externt webbläsarfönster. En extern webbläsare ger dig en bättre webbupplevelse.
+        <groupId>AzureSearchQuickstart</groupId>
+        <artifactId>AzureSearchQuickstart</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <build>
+            <sourceDirectory>src</sourceDirectory>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>11</source>
+                        <target>11</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>1.6.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <mainClass>main.java.app.App</mainClass>
+                        <cleanupDaemonThreads>false</cleanupDaemonThreads>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.json</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+        </dependencies>   
+    </project>
+    ```
+
+### <a name="set-up-the-project-structure"></a>Konfigurera projekt strukturen
+
+1. Välj **fil** > **projekt struktur**.
+1. Välj **moduler**och expandera käll trädet för att få åtkomst till innehållet i `src`  >   `main` mappen.
+1. I mappen `src` lägger du  >   `main` tilloch`service`mappar .  >  `java` `app` Det gör du genom att markera `java` mappen, trycka på ALT + INSERT och ange sedan mappnamnet.
+1. I mappen `src` lägger du  >   `main` tilloch`service`mappar .  > `resources` `app`
+
+    När du är klar bör projekt trädet se ut som på följande bild.
+
+    ![Projekt katalog struktur](media/search-get-started-java/java-quickstart-basic-code-tree.png)
+
+1. Stäng fönstret genom att klicka på **OK** .
+
+### <a name="add-azure-search-service-information"></a>Lägg till Azure Search tjänst information
+
+1. I fönstret **projekt** expanderar du käll trädet för att få åtkomst `src`  >   > `main` `resources`  >   till mappen och lägger till `config.properties` en fil. `app` Det gör du genom att markera `app` mappen, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
+
+1. Kopiera följande inställningar till den nya filen och Ersätt `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`och `<YOUR-QUERY-KEY>` med ditt tjänst namn och nycklar. Om tjänstens slut punkt `https://mydemo.search.windows.net`är är tjänstens namn "demonstration".
+
+    ```java
+        SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
+        SearchServiceAdminKey=<YOUR-ADMIN-KEY>
+        SearchServiceQueryKey=<YOUR-QUERY-KEY>
+        IndexName=hotels-quickstart
+        ApiVersion=2019-05-06
+    ```
+
+### <a name="add-the-main-method"></a>Lägg till main-metoden
+
+1. `src` Läggtill`App` en klass i mappen.`app`  >   `main`  >  `java`  >  Det gör du genom att markera `app` mappen, trycka på ALT + INSERT, välja **Java-klass**och sedan ange klass namnet.
+1. Öppna- `App` klassen och ersätt innehållet med följande kod. Den här koden innehåller `main` metoden. 
+
+    Den avkommenterade koden läser Sök tjänst parametrarna och använder dem för att skapa en instans av Sök tjänst klienten. Sök tjänstens klient kod kommer att läggas till i nästa avsnitt.
+
+    Den kommenterade koden i den här klassen kommer att bli kommenterad i ett senare avsnitt i den här snabb starten.
+
+    ```java
+    package main.java.app;
     
-    ![Skärm bild som visar hur du väljer Internet Explorer som ett externt webbläsarfönster][8]
+    import main.java.service.SearchServiceClient;
+    import java.io.IOException;
+    import java.util.Properties;
+    
+    public class App {
+    
+        private static Properties loadPropertiesFromResource(String resourcePath) throws IOException {
+            var inputStream = App.class.getResourceAsStream(resourcePath);
+            var configProperties = new Properties();
+            configProperties.load(inputStream);
+            return configProperties;
+        }
+    
+        public static void main(String[] args) {
+            try {
+                var config = loadPropertiesFromResource("/app/config.properties");
+                var client = new SearchServiceClient(
+                        config.getProperty("SearchServiceName"),
+                        config.getProperty("SearchServiceAdminKey"),
+                        config.getProperty("SearchServiceQueryKey"),
+                        config.getProperty("ApiVersion"),
+                        config.getProperty("IndexName")
+                );
+    
+    
+    //Uncomment the next 3 lines in the 1 - Create Index section of the quickstart
+    //            if(client.indexExists()){ client.deleteIndex();}
+    //            client.createIndex("/service/index.json");
+    //            Thread.sleep(1000L); // wait a second to create the index
+    
+    //Uncomment the next 2 lines in the 2 - Load Documents section of the quickstart
+    //            client.uploadDocuments("/service/hotels.json");
+    //            Thread.sleep(2000L); // wait 2 seconds for data to upload
+    
+    //Uncomment the following 5 search queries in the 3 - Search an index section of the quickstart
+    //            // Query 1
+    //            client.logMessage("\n*QUERY 1****************************************************************");
+    //            client.logMessage("Search for: Atlanta'");
+    //            client.logMessage("Return: All fields'");
+    //            client.searchPlus("Atlanta");
+    //
+    //            // Query 2
+    //            client.logMessage("\n*QUERY 2****************************************************************");
+    //            client.logMessage("Search for: Atlanta");
+    //            client.logMessage("Return: HotelName, Tags, Address");
+    //            SearchServiceClient.SearchOptions options2 = client.createSearchOptions();
+    //            options2.select = "HotelName,Tags,Address";
+    //            client.searchPlus("Atlanta", options2);
+    //
+    //            //Query 3
+    //            client.logMessage("\n*QUERY 3****************************************************************");
+    //            client.logMessage("Search for: wifi & restaurant");
+    //            client.logMessage("Return: HotelName, Description, Tags");
+    //            SearchServiceClient.SearchOptions options3 = client.createSearchOptions();
+    //            options3.select = "HotelName,Description,Tags";
+    //            client.searchPlus("wifi,restaurant", options3);
+    //
+    //            // Query 4 -filtered query
+    //            client.logMessage("\n*QUERY 4****************************************************************");
+    //            client.logMessage("Search for: all");
+    //            client.logMessage("Filter: Ratings greater than 4");
+    //            client.logMessage("Return: HotelName, Rating");
+    //            SearchServiceClient.SearchOptions options4 = client.createSearchOptions();
+    //            options4.filter="Rating%20gt%204";
+    //            options4.select = "HotelName,Rating";
+    //            client.searchPlus("*",options4);
+    //
+    //            // Query 5 - top 2 results, ordered by
+    //            client.logMessage("\n*QUERY 5****************************************************************");
+    //            client.logMessage("Search for: boutique");
+    //            client.logMessage("Get: Top 2 results");
+    //            client.logMessage("Order by: Rating in descending order");
+    //            client.logMessage("Return: HotelId, HotelName, Category, Rating");
+    //            SearchServiceClient.SearchOptions options5 = client.createSearchOptions();
+    //            options5.top=2;
+    //            options5.orderby = "Rating%20desc";
+    //            options5.select = "HotelId,HotelName,Category,Rating";
+    //            client.searchPlus("boutique", options5);
+    
+            } catch (Exception e) {
+                System.err.println("Exception:" + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+    }
+    ```
 
-Nu har du slutfört konfigurationsåtgärderna. Nu är det dags att bygga och köra projektet.
+### <a name="add-the-http-operations"></a>Lägg till HTTP-åtgärder
 
-## <a name="build-the-project"></a>Bygga projektet
-1. I Project Explorer högerklickar du på projekt namnet och väljer **Kör som** > **maven build** för att konfigurera projektet.
-   
-    ![Skärm bild som visar hur du väljer maven-version i fönstret projekt Utforskaren][10]
-2. I redigera konfiguration, i mål, anger du "ren installation" och väljer sedan **Kör**.
+1. `src` Läggtill`SearchServiceClient` en klass i mappen.`service`  >   `main`  >  `java`  >  Det gör du genom att markera `service` mappen, trycka på ALT + INSERT, välja **Java-klass**och sedan ange klass namnet.
+1. `SearchServiceClient` Öppna klassen och ersätt innehållet med följande kod. Den här koden innehåller de HTTP-åtgärder som krävs för att använda Azure Search REST API. Ytterligare metoder för att skapa ett index, överföring av dokument och frågor om indexet läggs till i ett senare avsnitt.
 
-Statusmeddelanden visas i konsolfönstret. Meddelandet BUILD SUCCESS bör visas som anger att projektet har skapats utan fel.
+    ```java
+    package main.java.service;
 
-## <a name="run-the-app"></a>Kör appen
-I det sista steget ska du köra programmet i körningsmiljön för en lokal server.
+    import javax.json.Json;
+    import javax.net.ssl.HttpsURLConnection;
+    import java.io.IOException;
+    import java.io.StringReader;
+    import java.net.HttpURLConnection;
+    import java.net.URI;
+    import java.net.http.HttpClient;
+    import java.net.http.HttpRequest;
+    import java.net.http.HttpResponse;
+    import java.nio.charset.StandardCharsets;
+    import java.util.Formatter;
+    import java.util.function.Consumer;
+    
+        /* This class is responsible for implementing HTTP operations for creating the index, uploading documents and searching the data*/
+        public class SearchServiceClient {
+            private final String _adminKey;
+            private final String _queryKey;
+            private final String _apiVersion;
+            private final String _serviceName;
+            private final String _indexName;
+            private final static HttpClient client = HttpClient.newHttpClient();
+    
+        public SearchServiceClient(String serviceName, String adminKey, String queryKey, String apiVersion, String indexName) {
+            this._serviceName = serviceName;
+            this._adminKey = adminKey;
+            this._queryKey = queryKey;
+            this._apiVersion = apiVersion;
+            this._indexName = indexName;
+        }
 
-Om du inte har angett serverkörningsmiljön i Eclipse än så måste du göra det först.
+        private static HttpResponse<String> sendRequest(HttpRequest request) throws IOException, InterruptedException {
+            logMessage(String.format("%s: %s", request.method(), request.uri()));
+            return client.send(request, HttpResponse.BodyHandlers.ofString());
+        }
 
-1. Expandera **WebContent** i Project Explorer.
-2. Högerklicka på **Search.jsp** > **Run As** > **Run on Server**. Välj Apache Tomcat-servern och välj sedan **Kör**.
+        private static URI buildURI(Consumer<Formatter> fmtFn)
+                {
+                    Formatter strFormatter = new Formatter();
+                    fmtFn.accept(strFormatter);
+                    String url = strFormatter.out().toString();
+                    strFormatter.close();
+                    return URI.create(url);
+        }
+    
+        public static void logMessage(String message) {
+            System.out.println(message);
+        }
+    
+        public static boolean isSuccessResponse(HttpResponse<String> response) {
+            try {
+                int responseCode = response.statusCode();
+    
+                logMessage("\n Response code = " + responseCode);
+    
+                if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_ACCEPTED
+                        || responseCode == HttpURLConnection.HTTP_NO_CONTENT || responseCode == HttpsURLConnection.HTTP_CREATED) {
+                    return true;
+                }
+    
+                // We got an error
+                var msg = response.body();
+                if (msg != null) {
+                    logMessage(String.format("\n MESSAGE: %s", msg));
+                }
+    
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    
+            return false;
+        }
+    
+        public static HttpRequest httpRequest(URI uri, String key, String method, String contents) {
+            contents = contents == null ? "" : contents;
+            var builder = HttpRequest.newBuilder();
+            builder.uri(uri);
+            builder.setHeader("content-type", "application/json");
+            builder.setHeader("api-key", key);
+    
+            switch (method) {
+                case "GET":
+                    builder = builder.GET();
+                    break;
+                case "HEAD":
+                    builder = builder.GET();
+                    break;
+                case "DELETE":
+                    builder = builder.DELETE();
+                    break;
+                case "PUT":
+                    builder = builder.PUT(HttpRequest.BodyPublishers.ofString(contents));
+                    break;
+                case "POST":
+                    builder = builder.POST(HttpRequest.BodyPublishers.ofString(contents));
+                    break;
+                default:
+                    throw new IllegalArgumentException(String.format("Can't create request for method '%s'", method));
+            }
+            return builder.build();
+        }
+    }
+    
+    ```
 
-> [!TIP]
-> Om du använder en annan arbetsyta än en standardarbetsyta för att lagra projektet måste du ändra **Run Configuration** så att det pekar på projektets plats för att undvika fel när servern startar. I Project Explorer högerklickar du på **Search.jsp** > **Run As** > **Run Configurations**. Välj Apache Tomcat-servern. Välj **argument**. Välj **arbets yta** eller **fil system** för att ange mappen som innehåller projektet.
-> 
-> 
+### <a name="build-the-project"></a>Bygga projektet
 
-När du kör programmet bör du se ett webbläsarfönster med en sökruta där du kan ange söktermer.
+1. Kontrol lera att projektet har följande struktur.
 
-Vänta en stund innan du väljer **Sök** för att ge tjänst tiden att skapa och läsa in indexet. Om ett HTTP 404-fel returneras väntar du bara lite längre innan du försöker igen.
+    ![Projekt katalog struktur](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
-## <a name="search-on-usgs-data"></a>Söka i USGS-data
-USGS-datauppsättningen innehåller poster som är relevanta för delstaten Rhode Island. Om du väljer **Sök** i en tom sökruta visas de översta 50 posterna, som är standard.
+1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java`
+![Kör maven-mål: verifiera exec: Java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
 
-Om du skriver en sökterm ger du sökmotorn något att gå på. Prova att skriva namnet på någon från regionen. ”Roger Williams” var Rhode Islands första guvernör. Många parker, byggnader och skolor bär hans namn.
+När bearbetningen är klar söker du efter ett meddelande om att BYGGet lyckades följt av noll (0) avslutnings kod.
 
-![Skärm bild som visar hur du söker efter USGS DATAUPPSÄTTNINGEN-data][11]
+## <a name="1---create-index"></a>1 – Skapa index
 
-Du kan också prova någon av dessa söktermer:
+Index definitionen för hotell innehåller enkla fält och ett komplext fält. Exempel på ett enkelt fält är "HotelName" eller "Description". Fältet "adress" är ett komplext fält eftersom det innehåller under fält, till exempel "gatuadress" och "stad". I den här snabb starten anges index definitionen med JSON.
 
-* Pawtucket
-* Pembroke
-* goose +cape
+1. I fönstret **projekt** expanderar du käll trädet för att få åtkomst `src`  >   > `main` `resources`  >   till mappen och lägger till `index.json` en fil. `service` Det gör du genom att markera `app` mappen, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
+
+1. `index.json` Öppna filen och infoga följande index definition.
+
+    ```json
+    {
+      "name": "hotels-quickstart",
+      "fields": [
+        {
+          "name": "HotelId",
+          "type": "Edm.String",
+          "key": true,
+          "filterable": true
+        },
+        {
+          "name": "HotelName",
+          "type": "Edm.String",
+          "searchable": true,
+          "filterable": false,
+          "sortable": true,
+          "facetable": false
+        },
+        {
+          "name": "Description",
+          "type": "Edm.String",
+          "searchable": true,
+          "filterable": false,
+          "sortable": false,
+          "facetable": false,
+          "analyzer": "en.lucene"
+        },
+        {
+          "name": "Description_fr",
+          "type": "Edm.String",
+          "searchable": true,
+          "filterable": false,
+          "sortable": false,
+          "facetable": false,
+          "analyzer": "fr.lucene"
+        },
+        {
+          "name": "Category",
+          "type": "Edm.String",
+          "searchable": true,
+          "filterable": true,
+          "sortable": true,
+          "facetable": true
+        },
+        {
+          "name": "Tags",
+          "type": "Collection(Edm.String)",
+          "searchable": true,
+          "filterable": true,
+          "sortable": false,
+          "facetable": true
+        },
+        {
+          "name": "ParkingIncluded",
+          "type": "Edm.Boolean",
+          "filterable": true,
+          "sortable": true,
+          "facetable": true
+        },
+        {
+          "name": "LastRenovationDate",
+          "type": "Edm.DateTimeOffset",
+          "filterable": true,
+          "sortable": true,
+          "facetable": true
+        },
+        {
+          "name": "Rating",
+          "type": "Edm.Double",
+          "filterable": true,
+          "sortable": true,
+          "facetable": true
+        },
+        {
+          "name": "Address",
+          "type": "Edm.ComplexType",
+          "fields": [
+            {
+              "name": "StreetAddress",
+              "type": "Edm.String",
+              "filterable": false,
+              "sortable": false,
+              "facetable": false,
+              "searchable": true
+            },
+            {
+              "name": "City",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            },
+            {
+              "name": "StateProvince",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            },
+            {
+              "name": "PostalCode",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            },
+            {
+              "name": "Country",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+    Index namnet blir "Hotels-snabb start". Attributen för index fälten avgör hur indexerade data kan genomsökas i ett program. Till exempel `IsSearchable` måste attributet tilldelas till alla fält som ska ingå i en full texts ökning. Mer information om attribut finns i [fält samling och fältattribut](search-what-is-an-index.md#fields-collection).
+    
+    Fältet i det här indexet använder den `analyzer` valfria egenskapen för att åsidosätta standard språk analys för Lucene. `Description` I fältet används den franska Lucene-analysen `fr.lucene` eftersom den innehåller fransk text. `Description_fr` `Description` Använder de valfria Microsoft Language Analyzer-en. Lucene. Mer information om analys verktyg finns [i analys verktyg för text bearbetning i Azure Search](search-analyzers.md).
+
+1. Lägg till följande kod i `SearchServiceClient` -klassen. Dessa metoder skapar Azure Search REST service-URL: er som skapar och tar bort ett index, och som avgör om det finns ett index. Metoderna gör också HTTP-begäran.
+
+    ```java
+    public boolean indexExists() throws IOException, InterruptedException {
+        logMessage("\n Checking if index exists...");
+        var uri = buildURI(strFormatter -> strFormatter.format(
+                "https://%s.search.windows.net/indexes/%s/docs?api-version=%s&search=*",
+                _serviceName,_indexName,_apiVersion));
+        var request = httpRequest(uri, _adminKey, "HEAD", "");
+        var response = sendRequest(request);
+        return isSuccessResponse(response);
+    }
+    
+    public boolean deleteIndex() throws IOException, InterruptedException {
+        logMessage("\n Deleting index...");
+        var uri = buildURI(strFormatter -> strFormatter.format(
+                "https://%s.search.windows.net/indexes/%s?api-version=%s",
+                _serviceName,_indexName,_apiVersion));
+        var request = httpRequest(uri, _adminKey, "DELETE", "*");
+        var response = sendRequest(request);
+        return isSuccessResponse(response);
+    }
+    
+    
+    public boolean createIndex(String indexDefinitionFile) throws IOException, InterruptedException {
+        logMessage("\n Creating index...");
+        //Build the search service URL
+        var uri = buildURI(strFormatter -> strFormatter.format(
+                "https://%s.search.windows.net/indexes/%s?api-version=%s",
+                _serviceName,_indexName,_apiVersion));
+        //Read in index definition file
+        var inputStream = SearchServiceClient.class.getResourceAsStream(indexDefinitionFile);
+        var indexDef = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+        //Send HTTP PUT request to create the index in the search service
+        var request = httpRequest(uri, _adminKey, "PUT", indexDef);
+        var response = sendRequest(request);
+        return isSuccessResponse(response);
+    }
+    ```
+
+1. Ta bort kommentaren till följande kod `App` i-klassen. Den här koden tar bort indexet "Hotels-snabb start", om det finns, och skapar ett nytt index baserat på index definitionen i filen "index. JSON". 
+
+    En paus på en sekund infogas efter begäran om att skapa index. Den här pausen säkerställer att indexet skapas innan du överför dokument.
+
+    ```java
+        if (client.indexExists()) { client.deleteIndex();}
+          client.createIndex("/service/index.json");
+          Thread.sleep(1000L); // wait a second to create the index
+    ```
+
+1. Öppna fönstret **maven** -verktyg och kör det här maven-målet:`verify exec:java`
+
+    När koden körs söker du efter ett "skapa index"-meddelande följt av en 201-svarskod. Den här svars koden bekräftar att indexet har skapats. Körningen ska avslutas med ett meddelande om att skapa ett meddelande och noll (0) avslutnings kod.
+    
+## <a name="2---load-documents"></a>2 Läs in dokument
+
+1. I fönstret **projekt** expanderar du käll trädet för att få åtkomst `src`  >   > `main` `resources`  >   till mappen och lägger till `hotels.json` en fil. `service` Det gör du genom att markera `app` mappen, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
+1. Infoga följande hotell dokument i filen.
+
+    ```json
+    {
+      "value": [
+        {
+          "@search.action": "upload",
+          "HotelId": "1",
+          "HotelName": "Secret Point Motel",
+          "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+          "Description_fr": "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
+          "Category": "Boutique",
+          "Tags": [ "pool", "air conditioning", "concierge" ],
+          "ParkingIncluded": "false",
+          "LastRenovationDate": "1970-01-18T00:00:00Z",
+          "Rating": 3.60,
+          "Address": {
+            "StreetAddress": "677 5th Ave",
+            "City": "New York",
+            "StateProvince": "NY",
+            "PostalCode": "10022",
+            "Country": "USA"
+          }
+        },
+        {
+          "@search.action": "upload",
+          "HotelId": "2",
+          "HotelName": "Twin Dome Motel",
+          "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+          "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+          "Category": "Boutique",
+          "Tags": [ "pool", "free wifi", "concierge" ],
+          "ParkingIncluded": "false",
+          "LastRenovationDate": "1979-02-18T00:00:00Z",
+          "Rating": 3.60,
+          "Address": {
+            "StreetAddress": "140 University Town Center Dr",
+            "City": "Sarasota",
+            "StateProvince": "FL",
+            "PostalCode": "34243",
+            "Country": "USA"
+          }
+        },
+        {
+          "@search.action": "upload",
+          "HotelId": "3",
+          "HotelName": "Triple Landscape Hotel",
+          "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+          "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+          "Category": "Resort and Spa",
+          "Tags": [ "air conditioning", "bar", "continental breakfast" ],
+          "ParkingIncluded": "true",
+          "LastRenovationDate": "2015-09-20T00:00:00Z",
+          "Rating": 4.80,
+          "Address": {
+            "StreetAddress": "3393 Peachtree Rd",
+            "City": "Atlanta",
+            "StateProvince": "GA",
+            "PostalCode": "30326",
+            "Country": "USA"
+          }
+        },
+        {
+          "@search.action": "upload",
+          "HotelId": "4",
+          "HotelName": "Sublime Cliff Hotel",
+          "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+          "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+          "Category": "Boutique",
+          "Tags": [ "concierge", "view", "24-hour front desk service" ],
+          "ParkingIncluded": "true",
+          "LastRenovationDate": "1960-02-06T00:00:00Z",
+          "Rating": 4.60,
+          "Address": {
+            "StreetAddress": "7400 San Pedro Ave",
+            "City": "San Antonio",
+            "StateProvince": "TX",
+            "PostalCode": "78216",
+            "Country": "USA"
+          }
+        }
+      ]
+    }
+    ```
+
+1. Infoga följande kod i `SearchServiceClient` -klassen. Den här koden skapar URL: en för REST-tjänsten för att ladda upp hotell dokumenten till indexet och gör HTTP POST-begäran.
+
+    ```java
+    public boolean uploadDocuments(String documentsFile) throws IOException, InterruptedException {
+        logMessage("\n Uploading documents...");
+        //Build the search service URL
+        var endpoint = buildURI(strFormatter -> strFormatter.format(
+                "https://%s.search.windows.net/indexes/%s/docs/index?api-version=%s",
+                _serviceName,_indexName,_apiVersion));
+        //Read in the data to index
+        var inputStream = SearchServiceClient.class.getResourceAsStream(documentsFile);
+        var documents = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+        //Send HTTP POST request to upload and index the data
+        var request = httpRequest(endpoint, _adminKey, "POST", documents);
+        var response = sendRequest(request);
+        return isSuccessResponse(response);
+    }
+    ```
+
+1. Ta bort kommentaren till följande kod `App` i-klassen. Den här koden överför dokumenten i "Hotels. JSON" till indexet.
+
+    ```java
+    client.uploadDocuments("/service/hotels.json");
+    Thread.sleep(2000L); // wait 2 seconds for data to upload
+    ```
+
+    En paus på två sekunder infogas efter överförings förfrågan för att säkerställa att dokument inläsningen slutförs innan du skickar frågor till indexet.
+
+1. Öppna fönstret **maven** -verktyg och kör det här maven-målet:`verify exec:java`
+
+    Eftersom du skapade ett index med "Hotels-snabb start" i föregående steg tar koden bort den och återskapar den igen innan du läser in hotellet-dokumenten.
+
+    När koden körs söker du efter meddelandet "överför dokument" följt av en 200-svarskod. Den här svars koden bekräftar att dokumenten överfördes till indexet. Körningen ska avslutas med ett meddelande om att skapa ett meddelande och noll (0) avslutnings kod.
+
+## <a name="3---search-an-index"></a>3 – Söka i ett index
+
+Nu när du har läst in hotell dokumenten kan du skapa Sök frågor för att få åtkomst till hotell data.
+
+1. Lägg till följande kod i `SearchServiceClient` -klassen. Den här koden skapar Azure Search REST service-URL: er för att söka i indexerade data och skriva ut Sök resultaten.
+
+    Med `SearchOptions` klassen och `createSearchOptions` metoden kan du ange en delmängd av tillgängliga alternativ för Azure Search REST API frågor. Mer information om alternativ för REST API-frågor finns i [Sök efter dokument (Azure Search tjänst REST API)](/rest/api/searchservice/search-documents).
+
+    `SearchPlus` Metoden skapar Sök frågans URL, gör sökningen och skriver sedan ut resultatet i-konsolen. 
+
+    ```java
+    public SearchOptions createSearchOptions() { return new SearchOptions();}
+
+    //Defines available search parameters that can be set
+    public static class SearchOptions {
+
+        public String select = "";
+        public String filter = "";
+        public int top = 0;
+        public String orderby= "";
+    }
+
+    //Concatenates search parameters to append to the search request
+    private String createOptionsString(SearchOptions options)
+    {
+        String optionsString = "";
+        if (options != null) {
+            if (options.select != "")
+                optionsString = optionsString + "&$select=" + options.select;
+            if (options.filter != "")
+                optionsString = optionsString + "&$filter=" + options.filter;
+            if (options.top != 0)
+                optionsString = optionsString + "&$top=" + options.top;
+            if (options.orderby != "")
+                optionsString = optionsString + "&$orderby=" +options.orderby;
+        }
+        return optionsString;
+    }
+    
+    public void searchPlus(String queryString)
+    {
+        searchPlus( queryString, null);
+    }
+    
+    public void searchPlus(String queryString, SearchOptions options) {
+    
+        try {
+            String optionsString = createOptionsString(options);
+            var uri = buildURI(strFormatter -> strFormatter.format(
+                    "https://%s.search.windows.net/indexes/%s/docs?api-version=%s&search=%s%s",
+                    _serviceName, _indexName, _apiVersion, queryString, optionsString));
+            var request = httpRequest(uri, _queryKey, "GET", null);
+            var response = sendRequest(request);
+            var jsonReader = Json.createReader(new StringReader(response.body()));
+            var jsonArray = jsonReader.readObject().getJsonArray("value");
+            var resultsCount = jsonArray.size();
+            logMessage("Results:\nCount: " + resultsCount);
+            for (int i = 0; i <= resultsCount - 1; i++) {
+                logMessage(jsonArray.get(i).toString());
+            }
+    
+            jsonReader.close();
+    
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+    }
+    ```
+
+1. Ta bort kommentaren till följande kod i- klassen.`App` Den här koden konfigurerar fem olika frågor, inklusive söktext, frågeparametrar och data fält som ska returneras. 
+
+    ```java
+    // Query 1
+    client.logMessage("\n*QUERY 1****************************************************************");
+    client.logMessage("Search for: Atlanta");
+    client.logMessage("Return: All fields'");
+    client.searchPlus("Atlanta");
+
+    // Query 2
+    client.logMessage("\n*QUERY 2****************************************************************");
+    client.logMessage("Search for: Atlanta");
+    client.logMessage("Return: HotelName, Tags, Address");
+    SearchServiceClient.SearchOptions options2 = client.createSearchOptions();
+    options2.select = "HotelName,Tags,Address";
+    client.searchPlus("Atlanta", options2);
+
+    //Query 3
+    client.logMessage("\n*QUERY 3****************************************************************");
+    client.logMessage("Search for: wifi & restaurant");
+    client.logMessage("Return: HotelName, Description, Tags");
+    SearchServiceClient.SearchOptions options3 = client.createSearchOptions();
+    options3.select = "HotelName,Description,Tags";
+    client.searchPlus("wifi,restaurant", options3);
+
+    // Query 4 -filtered query
+    client.logMessage("\n*QUERY 4****************************************************************");
+    client.logMessage("Search for: all");
+    client.logMessage("Filter: Ratings greater than 4");
+    client.logMessage("Return: HotelName, Rating");
+    SearchServiceClient.SearchOptions options4 = client.createSearchOptions();
+    options4.filter="Rating%20gt%204";
+    options4.select = "HotelName,Rating";
+    client.searchPlus("*",options4);
+
+    // Query 5 - top 2 results, ordered by
+    client.logMessage("\n*QUERY 5****************************************************************");
+    client.logMessage("Search for: boutique");
+    client.logMessage("Get: Top 2 results");
+    client.logMessage("Order by: Rating in descending order");
+    client.logMessage("Return: HotelId, HotelName, Category, Rating");
+    SearchServiceClient.SearchOptions options5 = client.createSearchOptions();
+    options5.top=2;
+    options5.orderby = "Rating%20desc";
+    options5.select = "HotelId,HotelName,Category,Rating";
+    client.searchPlus("boutique", options5);
+    ```
+
+
+
+    Det finns två [sätt att matcha termer i en fråga](search-query-overview.md#types-of-queries): full texts ökning och filter. En fullständig text Sök fråga söker efter en eller flera villkor i `IsSearchable` fält i ditt index. Ett filter är ett booleskt uttryck som utvärderas över `IsFilterable` fält i ett index. Du kan använda full texts ökning och filter tillsammans eller separat.
+
+1. Öppna fönstret **maven** -verktyg och kör det här maven-målet:`verify exec:java`
+
+    Leta efter en sammanfattning av varje fråga och resultatet. Körningen måste slutföras med ett meddelande om att det är klart och en slutkod (0).
+
+## <a name="clean-up"></a>Rensa
+
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+
+Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
+
+Kom ihåg att du är begränsad till tre index, indexerare och data källor om du använder en kostnads fri tjänst. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen. 
 
 ## <a name="next-steps"></a>Nästa steg
-Det här är den första Azure Search-självstudiekursen som baseras på Java och USGS-datauppsättningen. Med tiden kommer vi att utöka den här självstudiekursen och demonstrera ytterligare sökfunktioner som du kanske vill använda i dina anpassade lösningar.
 
-Om du redan har viss erfarenhet av Azure Search kan du använda det här exemplet som en utgångspunkt för ytterligare experiment och kanske utöka [söksidan](search-pagination-page-layout.md) eller implementera [aspektbaserad navigering](search-faceted-navigation.md). Du kan även förbättra sidan med sökresultat genom att lägga till antal och batchbearbeta dokument så att användarna kan bläddra igenom resultaten.
+I den här Java-snabb starten har du arbetat genom en serie aktiviteter för att skapa ett index, läsa in det med dokument och köra frågor. Om du är van vid grundläggande koncept rekommenderar vi följande artiklar för djupare inlärning.
 
-Har du inte provat Azure Search än? Vi rekommenderar att du går andra självstudiekurser så att du ser vad du kan skapa. Vår [dokumentationssida](https://azure.microsoft.com/documentation/services/search/) innehåller fler resurser. 
++ [Index åtgärder](/rest/api/searchservice/index-operations)
 
-<!--Image references-->
-[1]: ./media/search-get-started-java/create-search-portal-1.PNG
-[2]: ./media/search-get-started-java/create-search-portal-21.PNG
-[3]: ./media/search-get-started-java/create-search-portal-31.PNG
-[4]: ./media/search-get-started-java/AzSearch-Java-Import1.PNG
-[5]: ./media/search-get-started-java/AzSearch-Java-config1.PNG
-[6]: ./media/search-get-started-java/AzSearch-Java-ProjectFacets1.PNG
-[7]: ./media/search-get-started-java/AzSearch-Java-runtime1.PNG
-[8]: ./media/search-get-started-java/AzSearch-Java-Browser1.PNG
-[9]: ./media/search-get-started-java/AzSearch-Java-JREPref1.PNG
-[10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
-[11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
-[12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
++ [Dokument åtgärder](/rest/api/searchservice/document-operations)
+
++ [Indexerings åtgärder](/rest/api/searchservice/indexer-operations)

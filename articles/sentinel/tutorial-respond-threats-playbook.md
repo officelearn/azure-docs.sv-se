@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/25/2019
+ms.date: 8/21/2019
 ms.author: rkarlin
-ms.openlocfilehash: cd3288e308308729cf9b97e3c699d489857840a8
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 08c88df2f8ccc69f213687209d1d003f3bb1c7b8
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780379"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018791"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Självstudier: Konfigurera automatiska hot svar i för hands versionen av Azure Sentinel
 
@@ -105,8 +105,6 @@ Många, om inte de flesta, av dessa aviseringar följer återkommande mönster s
 Automatisera svar:
 
 1. Välj den avisering som du vill automatisera svaret för.
-1. Från navigerings menyn i Azure Sentinel-arbetsytan väljer du **analys**.
-1. Välj den avisering som du vill automatisera. 
 1. På sidan **Redigera aviserings regel** under **real tids automatisering**väljer du den **Utlös ande Spelbok** som du vill köra när den här varnings regeln matchas.
 1. Välj **Spara**.
 

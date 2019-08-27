@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1cb9cd72908dc88ef2890764bc8d3fad88a82707
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: b5a21bd144558459ac60ae2da405f9ea57ca2fd1
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951911"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020189"
 ---
 # <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Bygg en python-webbapp (django) med PostgreSQL i Azure App Service
 
@@ -142,11 +142,11 @@ Quit the server with CONTROL-C.
 
 Gå till `http://localhost:8000` i en webbläsare. Du bör se meddelandet `No polls are available.`. 
 
-Gå till `http://localhost:8000/admin` och logga in med den administratörsanvändare som du skapade i föregående steg. Klicka på **Lägg till** intill **Frågor** och skapa en omröstningsfråga med vissa alternativ.
+Gå till `http://localhost:8000/admin` och logga in med administratörs användaren som du skapade i det senaste steget. Välj **Lägg till** bredvid **frågor** och skapa en avsöknings fråga med några val.
 
 ![Python Django-program som körs lokalt](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
-Gå till `http://localhost:8000` igen och se den omröstningsfråga som visas.
+Gå till `http://localhost:8000` igen och se avsöknings frågan som visas.
 
 Django-exempelprogrammet lagrar användardata i databasen. Om du lyckas lägga till en omröstningsfråga skriver appen data till den lokala PostgreSQL-databasen.
 
@@ -269,13 +269,13 @@ När administratörsanvändaren har skapats kör du Django-servern.
 python manage.py runserver
 ```
 
-Gå till `http://localhost:8000` igen. Du bör se meddelandet `No polls are available.` igen. 
+Gå till `http://localhost:8000` i igen. Du bör se meddelandet `No polls are available.` igen. 
 
-Gå till `http://localhost:8000/admin` och logga in med den administratörsanvändare som du skapade och skapa en omröstningsfråga som tidigare.
+Gå till `http://localhost:8000/admin` och logga in med administratörs användaren som du skapade och skapa en omröstnings fråga som tidigare.
 
 ![Python Django-program som körs lokalt](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
-Gå till `http://localhost:8000` igen och se den omröstningsfråga som visas. Appen skriver nu data till databasen i Azure.
+Gå till `http://localhost:8000` igen och se avsöknings frågan som visas. Appen skriver nu data till databasen i Azure.
 
 ## <a name="deploy-to-azure"></a>Distribuera till Azure
 
@@ -386,7 +386,7 @@ Du bör se den omröstningsfråga som du skapade tidigare.
 
 App Service upptäcker ett Django-projekt i din lagringsplats genom att söka efter en _wsgi.py_ i varje underkatalog, som skapas av `manage.py startproject` som standard. När filen hittas laddas django-webbappen. Mer information om hur App Service läser in Python-appar finns i avsnittet om att [konfigurera inbyggd Python-avbildning](how-to-configure-python.md).
 
-Gå till `<app-name>.azurewebsites.net` och logga in med samma administratörsanvändare som du skapade. Om du vill kan du prova att skapa några fler omröstningsfrågor.
+Gå till `<app-name>.azurewebsites.net` och logga in med samma administratörs användare som du skapade. Om du vill kan du prova att skapa några fler omröstningsfrågor.
 
 ![Python Django-program som körs lokalt](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -400,7 +400,7 @@ Gå till `<app-name>.azurewebsites.net` och logga in med samma administratörsan
 
 Gå till [Azure-portalen](https://portal.azure.com) om du vill se den app du skapade.
 
-Klicka på **App Services** på menyn till vänster och klicka sedan på din Azure-apps namn.
+Välj **app Services**på menyn till vänster och välj sedan namnet på din Azure-App.
 
 ![Portalnavigering till Azure-app](./media/tutorial-python-postgresql-app/app-resource.png)
 

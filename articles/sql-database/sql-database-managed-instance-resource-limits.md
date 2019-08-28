@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 06/26/2019
-ms.openlocfilehash: 776a27ca0babfd7557bf4d16c449a8dfa5bceaf7
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 08/27/2019
+ms.openlocfilehash: 921a14243bc50651358f0df42b88857ab227916d
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998200"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060648"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -51,7 +51,7 @@ Den hanterade instansen har två tjänst nivåer: Generell användning och Affä
 
 | **Funktion** | **Generell användning** | **Affärskritisk** |
 | --- | --- | --- |
-| Antal virtuella kärnor\* | Gen4 8, 16, 24<br/>Gen5 4, 8, 16, 24, 32, 40, 64, 80 | Gen4 8, 16, 24, 32 <br/> Gen5 4, 8, 16, 24, 32, 40, 64, 80 |
+| Antal virtuella kärnor\* | Gen4 8, 16, 24<br/>Gen5 4, 8, 16, 24, 32, 40, 64, 80 | Gen4 8, 16, 24 <br/> Gen5 4, 8, 16, 24, 32, 40, 64, 80 |
 | Högsta mängd minne | Gen4 56 GB-168 GB (7GB/vCore)<br/>Gen5 40,8 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. | Gen4 56 GB-168 GB (7GB/vCore)<br/>Gen5 40,8 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. |
 | Maximal lagrings storlek för reserverad instans | -2 TB för 4 virtuella kärnor (endast Gen5)<br/>– 8 TB för andra storlekar | Gen4 1 TB <br/> Gen5 <br/>-1 TB för 4, 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>– 4 TB för 32, 40, 64, 80 virtuella kärnor |
 | Maximal databasstorlek | Bestäms av den maximala lagrings storleken per instans | Bestäms av den maximala lagrings storleken per instans |
@@ -65,10 +65,12 @@ Den hanterade instansen har två tjänst nivåer: Generell användning och Affä
 | Maximal tempDB-storlek | 192 – 1 920 GB (24 GB per vCore)<br/>Lägg till fler virtuella kärnor för att få mer TempDB-utrymme. | Begränsas av maximal instans lagrings storlek. TempDB-logg fils storleken är för närvarande begränsad till 24GB/vCore. |
 | Minnesintern OLTP | Stöds inte | Tillgängligt |
 | Maximalt antal sessioner | 30000 | 30000 |
+| Läsbara repliker | 0 | 1 |
 
 > [!NOTE]
 > - Både data-och logg fils storleken i användar-och system databaserna ingår i instans lagrings storleken som jämförs med den maximala lagrings storleks gränsen. Använd <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys. master_files</a> system-vyn för att fastställa det totala använda utrymmet för databaser. Fel loggarna är inte bestående och ingår inte i storlek. Säkerhets kopieringar ingår inte i lagrings storleken.
 > - Data flödet och IOPS är också beroende av den sid storlek som inte uttryckligen begränsas av den hanterade instansen.
+> Du kan skapa en annan läsbar replik i olika Azure-regioner med hjälp av grupper för automatisk redundans.
 
 ## <a name="supported-regions"></a>Regioner som stöds
 

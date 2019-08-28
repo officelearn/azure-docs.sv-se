@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: c649b93284a48df705d389f4de728d83f793af04
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: bed56f169e2a985b23b3bca96c32f7caba596432
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036650"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061513"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -517,15 +517,19 @@ Om du utförde installationen innan du skapade DB2 HADR-konfigurationen gör du 
 Använd verktyget J2EE config för att kontrol lera eller uppdatera JDBC-URL: en. Eftersom verktyget J2EE config är ett grafiskt verktyg måste du ha installerat X-servern:
  
 1. Logga in på den primära program servern för J2EE-instansen och kör:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
-1.I den vänstra rutan väljer du **säkerhets lager**.
-1.I den högra rutan väljer du nyckeln JDBC/pool/\<SAPSID>/URL.
-1.Ändra värd namnet i JDBC-URL: en till det virtuella värd namnet.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
-1.Välj **Lägg till**.
-1.Om du vill spara ändringarna väljer du disk ikonen längst upp till vänster.
-1.Stäng konfigurations verktyget.
-1.Starta om Java-instansen.
+    
+    <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
+    
+1. I den vänstra rutan väljer du **säkerhets lager**.
+1. Välj nyckeln `jdbc/pool/\<SAPSID>/url`i den högra rutan.
+1. Ändra värd namnet i JDBC-URL: en till det virtuella värd namnet.
+    
+    <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
+    
+1. Välj **Lägg till**.
+1. Om du vill spara ändringarna väljer du disk ikonen längst upp till vänster.
+1. Stäng konfigurations verktyget.
+1. Starta om Java-instansen.
 
 ## <a name="configure-log-archiving-for-hadr-setup"></a>Konfigurera logg arkivering för HADR-installation
 Om du vill konfigurera DB2-HADR för installation av DB2 rekommenderar vi att du konfigurerar både den primära databasen och vänte läges databasen till automatisk logg hämtnings funktion från alla logg Arkiv platser. Både den primära databasen och standby-databasen måste kunna hämta loggfiler från alla logg Arkiv platser som antingen en av databas instanserna kan arkivera loggfiler. 

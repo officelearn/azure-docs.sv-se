@@ -1,5 +1,5 @@
 - name: Dokumentation om användarhjälp
-  href: index.md
+  href: index.yml
 - name: Hjälp om tvåstegsverifiering
   items:
     - name: Översikt

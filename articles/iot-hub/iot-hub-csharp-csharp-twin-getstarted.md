@@ -7,16 +7,17 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: d1a155845f5c04817611fb14f4a973527e3e039b
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e748ade19fe64399015acfc35892c5d9081bf9e3
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050457"
+ms.locfileid: "70062097"
 ---
 # <a name="get-started-with-device-twins-net"></a>Kom igång med enhets dubbla (.NET)
+
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 I den här självstudien skapar du följande .NET-konsol program:
@@ -31,7 +32,9 @@ I den här självstudien skapar du följande .NET-konsol program:
 > Artikeln [Azure IoT SDK](iot-hub-devguide-sdks.md) : er innehåller information om Azure IoT SDK: er som du kan använda för att bygga både enhets-och backend-appar.
 >
 
-För att slutföra den här självstudien, finns följande förhandskrav:
+## <a name="prerequisites"></a>Förutsättningar
+
+För att slutföra den här kursen behöver du:
 
 * Visual Studio.
 
@@ -75,7 +78,7 @@ I det här avsnittet skapar du en .NET-konsol-app C#med, som lägger till platse
     using Microsoft.Azure.Devices;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med IoT Hub anslutnings strängen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
+1. Lägg till följande fält i klassen **Program**. Ersätt `{iot hub connection string}` med IoT Hub anslutnings strängen som du kopierade i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
 
     ```csharp  
     static RegistryManager registryManager;
@@ -98,13 +101,13 @@ I det här avsnittet skapar du en .NET-konsol-app C#med, som lägger till platse
                 }
             }";
         await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
-   
+
         var query = registryManager.CreateQuery(
           "SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
         var twinsInRedmond43 = await query.GetNextAsTwinAsync();
         Console.WriteLine("Devices in Redmond43: {0}", 
           string.Join(", ", twinsInRedmond43.Select(t => t.DeviceId)));
-   
+
         query = registryManager.CreateQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
         var twinsInRedmond43UsingCellular = await query.GetNextAsTwinAsync();
         Console.WriteLine("Devices in Redmond43 using cellular network: {0}", 
@@ -155,7 +158,7 @@ I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som *
     using Newtonsoft.Json;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med enhets anslutnings strängen som du antecknade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
+1. Lägg till följande fält i klassen **Program**. Ersätt `{device connection string}` med den enhets anslutnings sträng som du antecknade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
 
     ```csharp  
     static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
@@ -193,7 +196,7 @@ I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som *
         try
         {
             Console.WriteLine("Sending connectivity data as reported property");
-            
+
             TwinCollection reportedProperties, connectivity;
             reportedProperties = new TwinCollection();
             connectivity = new TwinCollection();

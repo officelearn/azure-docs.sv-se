@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2019
+ms.date: 08/26/2019
 ms.author: barclayn
-ms.openlocfilehash: 0e8be1675dd2b400f89ab17fe85c037066302409
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 1f662c34f557d382b3d6181bac18a6402b233412
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906022"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061908"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure
 Den här artikeln beskriver rekommenderade säkerhets metoder för virtuella datorer och operativ system.
@@ -70,7 +70,7 @@ Dina prenumerations administratörer och medadministratörer kan ändra den här
 Organisationer som styr VM-åtkomsten och installations programmet förbättrar sin övergripande VM-säkerhet.
 
 ## <a name="use-multiple-vms-for-better-availability"></a>Använd flera virtuella datorer för bättre tillgänglighet
-Om den virtuella datorn kör kritiska program som behöver hög tillgänglighet rekommenderar vi starkt att du använder flera virtuella datorer. Använd en [tillgänglighets uppsättning](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)för bättre tillgänglighet.
+Om den virtuella datorn kör kritiska program som behöver hög tillgänglighet rekommenderar vi starkt att du använder flera virtuella datorer. Använd en [tillgänglighets uppsättning](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) eller tillgänglighets [zoner](../../availability-zones/az-overview.md)för bättre tillgänglighet.
 
 En tillgänglighets uppsättning är en logisk gruppering som du kan använda i Azure för att se till att de VM-resurser som du placerar i den är isolerade från varandra när de distribueras i ett Azure-datacenter. Azure säkerställer att de virtuella datorerna som du placerar i en tillgänglighets uppsättning körs över flera fysiska servrar, beräknings rack, lagrings enheter och nätverks växlar. Om ett maskinvaru-eller Azure-program fel uppstår påverkas endast en del av de virtuella datorerna och det övergripande programmet fortsätter att vara tillgängligt för dina kunder. Tillgänglighets uppsättningar är en viktig funktion när du vill bygga pålitliga moln lösningar.
 

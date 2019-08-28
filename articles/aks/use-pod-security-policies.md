@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 374e86409be08f1f9859b3e325dda57080b89dbf
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: df8aa51558bc3aa456758510792c198a8bd9cf78
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033985"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061841"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>För hands version – skydda klustret med Pod säkerhets principer i Azure Kubernetes service (AKS)
 
@@ -32,7 +32,7 @@ Du behöver Azure CLI-versionen 2.0.61 eller senare installerad och konfigurerad
 
 ### <a name="install-aks-preview-cli-extension"></a>Installera AKS-Preview CLI-tillägg
 
-Om du vill använda Pod säkerhets principer behöver du *AKS-Preview CLI-* tillägget version 0.4.1 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök sedan efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] ::
+Om du vill använda Pod säkerhets principer behöver du *AKS-Preview CLI-* tillägget version 0.4.1 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -136,7 +136,7 @@ Det är viktigt att förstå hur dessa standard principer interagerar med använ
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>Skapa en test användare i ett AKS-kluster
 
-Som standard när du använder kommandot [AZ AKS get-credentials][az-aks-get-credentials] måste *admin* -autentiseringsuppgifterna för AKS-klustret och `kubectl` läggas till i konfigurationen. Administratörs användaren kringgår verk ställandet av Pod säkerhets principer. Om du använder Azure Active Directory-integrering för dina AKS-kluster kan du logga in med autentiseringsuppgifterna för en användare som inte är administratör för att se verk ställandet av principer i praktiken. I den här artikeln ska vi skapa ett test användar konto i AKS-klustret som du kan använda.
+Som standard när du använder kommandot `kubectl` [AZ AKS get-credentials][az-aks-get-credentials] , läggs administratörsautentiseringsuppgifter för AKS-klustret till i konfigurationen. Administratörs användaren kringgår verk ställandet av Pod säkerhets principer. Om du använder Azure Active Directory-integrering för dina AKS-kluster kan du logga in med autentiseringsuppgifterna för en användare som inte är administratör för att se verk ställandet av principer i praktiken. I den här artikeln ska vi skapa ett test användar konto i AKS-klustret som du kan använda.
 
 Skapa ett exempel namn område med namnet *PSP-AKS* för test resurser med hjälp av kommandot [kubectl Create namespace][kubectl-create] . Skapa sedan ett tjänst konto med namnet *ej administratör – användare* med kommandot [kubectl Create ServiceAccount][kubectl-create] :
 
@@ -443,7 +443,7 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 ```
 
 > [!NOTE]
-> I det första steget i den här artikeln har funktionen säkerhets princip för Pod Aktiver ATS i AKS-klustret. Den rekommenderade metoden var att endast aktivera funktionen Pod säkerhets princip när du har definierat dina egna principer. Det här är steget där du aktiverar funktionen Pod Security Policy. En eller flera anpassade principer har definierats och användar konton har associerats med dessa principer. Nu kan du på ett säkert sätt Pod säkerhets princip och minimera problem som orsakas av standard principerna.
+> I det första steget i den här artikeln har funktionen säkerhets princip för Pod Aktiver ATS i AKS-klustret. Den rekommenderade metoden var att endast aktivera funktionen Pod säkerhets princip när du har definierat dina egna principer. Det här är steget där du aktiverar funktionen Pod Security Policy. En eller flera anpassade principer har definierats och användar konton har associerats med dessa principer. Nu kan du aktivera funktionen Pod säkerhets princip och minimera problemen som orsakas av standard principerna.
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>Testa skapandet av en pod som inte har privilegierat igen
 

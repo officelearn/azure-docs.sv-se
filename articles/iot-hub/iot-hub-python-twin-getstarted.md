@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 62385f4bd07f4b80dc3d571d409e16c7e0dca205
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: c720dfe7aeaa39a1717362b040b5548e116cc246
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667839"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70062056"
 ---
 # <a name="get-started-with-device-twins-python"></a>Kom igång med enhets garn (python)
 
@@ -49,11 +49,15 @@ Följande är installations anvisningarna för kraven.
 
 I det här avsnittet skapar du en python-konsol-app som lägger till platsens metadata till den enhet som är kopplad till **{Device ID}** . Den frågar sedan enheten efter varandra i IoT Hub och väljer enheterna som finns i Redmond och sedan de som rapporterar en mobil anslutning.
 
-1. Öppna en kommandotolk och installera **Azure IoT Hub Service SDK för Python**. Stäng kommandotolken när du har installerat SDK.
+1. Öppna en kommando tolk i arbets katalogen och installera **Azure IoT Hub service SDK för python**.
 
-   ```
+   ```cmd/sh
    pip install azure-iothub-service-client
    ```
+
+   > [!NOTE]
+   > PIP-paketen för Azure-iothub-service-Client och Azure-iothub-Device-client är för närvarande endast tillgängliga för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   >
 
 2. Skapa en ny **AddTagsAndQuery.py** -fil med hjälp av en text redigerare.
 
@@ -66,7 +70,7 @@ I det här avsnittet skapar du en python-konsol-app som lägger till platsens me
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. Lägg till följande kod och ersätt plats hållaren `[IoTHub Connection String]` för `[Device Id]` och med anslutnings strängen för IoT Hub och enhets-ID: t som du skapade i föregående avsnitt.
+4. Lägg till följande kod. Ersätt `[IoTHub Connection String]` med IoT Hub-anslutningssträngen som du kopierade i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen. Ersätt `[Device Id]` med det enhets-ID som du registrerade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -80,7 +84,7 @@ I det här avsnittet skapar du en python-konsol-app som lägger till platsens me
 
 5. Lägg till följande kod i **AddTagsAndQuery.py** -filen:
 
-     ```python
+    ```python
     def iothub_service_sample_run():
         try:
             iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
@@ -143,7 +147,7 @@ I det här avsnittet skapar du en python-konsol-app som lägger till platsens me
 
     Du bör se en enhet i resultatet för frågan som frågar efter alla enheter som finns i **Redmond43** och ingen för den fråga som begränsar resultatet till enheter som använder ett mobil nät verk.
 
-    ![första frågan som visar alla enheter i Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
+    ![första frågan som visar alla enheter i Redmond](./media/iot-hub-python-twin-getstarted/service-1.png)
 
 I nästa avsnitt skapar du en enhets app som rapporterar anslutnings informationen och ändrar resultatet för frågan i föregående avsnitt.
 
@@ -151,11 +155,15 @@ I nästa avsnitt skapar du en enhets app som rapporterar anslutnings information
 
 I det här avsnittet ska du skapa en python-konsol-app som ansluter till din hubb som **{Device ID}** och sedan uppdaterar dess enhets dubbla rapporter som innehåller den information som den är ansluten till med ett mobilt nätverk.
 
-1. Öppna en kommandotolk och installera **Azure IoT Hub Service SDK för Python**. Stäng kommandotolken när du har installerat SDK.
+1. Installera **Azure IoT Hub service SDK för python**från en kommando tolk i arbets katalogen:
 
-    ```
+    ```cmd/sh
     pip install azure-iothub-device-client
     ```
+
+   > [!NOTE]
+   > PIP-paketen för Azure-iothub-service-Client och Azure-iothub-Device-client är för närvarande endast tillgängliga för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   >
 
 2. Skapa en ny **ReportConnectivity.py** -fil med hjälp av en text redigerare.
 
@@ -167,7 +175,7 @@ I det här avsnittet ska du skapa en python-konsol-app som ansluter till din hub
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
     ```
 
-4. Lägg till följande kod och ersätt plats hållaren `[IoTHub Device Connection String]` för med anslutnings strängen för IoT Hub-enheten som du skapade i föregående avsnitt.
+4. Lägg till följande kod. Ersätt placeholder-värdet med enhets anslutnings strängen som du kopierade i [Registrera en ny enhet i IoT Hub.](#register-a-new-device-in-the-iot-hub) `[IoTHub Device Connection String]`
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -227,7 +235,7 @@ I det här avsnittet ska du skapa en python-konsol-app som ansluter till din hub
             return
         except KeyboardInterrupt:
             print ( "IoTHubClient sample stopped" )
-     ```
+    ```
 
     **Klient** objekt visar alla metoder som du behöver för att interagera med enheten tillsammans från enheten. Föregående kod, efter att den initierat **klient** objekt, hämtar enheten till enheten och uppdaterar den rapporterade egenskapen med anslutnings informationen.
 
@@ -248,7 +256,7 @@ I det här avsnittet ska du skapa en python-konsol-app som ansluter till din hub
 
     Du bör se en bekräftelse på att enheten har uppdaterats.
 
-    ![uppdatera dubbla](./media/iot-hub-python-twin-getstarted/2-python-client-sample.png)
+    ![uppdatera dubbla](./media/iot-hub-python-twin-getstarted/device-1.png)
 
 8. Nu när enheten rapporterade anslutnings information, bör den visas i båda frågorna. Gå tillbaka och kör frågorna igen:
 
@@ -258,7 +266,7 @@ I det här avsnittet ska du skapa en python-konsol-app som ansluter till din hub
 
     Den här gången ska **{Device ID}** visas i båda frågeresultaten.
 
-    ![andra frågan](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
+    ![andra frågan](./media/iot-hub-python-twin-getstarted/service-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

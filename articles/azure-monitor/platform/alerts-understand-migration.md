@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 5257724add570be480063ab776248a8fd1d944c7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034756"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061550"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Förstå hur migreringsverktyget fungerar
 
@@ -36,7 +36,7 @@ I den här artikeln förklaras hur det frivilliga migrations verktyget fungerar.
 - Klassiska varnings regler för vissa Cosmos DB mått. Se [informationen](#cosmos-db-metrics) längre fram i den här artikeln.
 - Klassiska varnings regler för alla klassiska virtuella datorer och Cloud Services-mått (Microsoft. ClassicCompute/virtualMachines och Microsoft. ClassicCompute/domän namn/platser/roller). Se [informationen](#classic-compute-metrics) längre fram i den här artikeln.
 
-Om din prenumeration har några sådana klassiska regler måste du migrera dem manuellt. Eftersom vi inte kan tillhandahålla en automatisk migrering, kommer alla befintliga, klassiska mått varningar för dessa typer att fortsätta att fungera fram till 2020 juni. Med det här tillägget får du tid att gå vidare till nya aviseringar. Inga nya klassiska aviseringar kan dock skapas efter 2019 augusti.
+Om din prenumeration har några sådana klassiska regler måste du migrera dem manuellt. Eftersom vi inte kan tillhandahålla en automatisk migrering, kommer alla befintliga, klassiska mått varningar för dessa typer att fortsätta att fungera fram till 2020 juni. Med det här tillägget får du tid att gå vidare till nya aviseringar. Du kan också fortsätta att skapa nya klassiska aviseringar på ovanstående undantag till juni 2020. Men för allt annat kan inga nya klassiska aviseringar skapas efter 2019 augusti.
 
 > [!NOTE]
 > Förutom ovanstående undantag, om de klassiska varnings reglerna är ogiltiga, dvs. de finns i [inaktuella mått](#classic-alert-rules-on-deprecated-metrics) eller resurser som har tagits bort, migreras inte under frivillig migrering. Alla sådana ogiltiga regler för klassisk avisering tas bort när automatisk migrering sker.

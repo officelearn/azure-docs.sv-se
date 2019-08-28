@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/28/2019
 ms.author: cbasoglu
-ms.openlocfilehash: c1407e8a133013054ef33d4fe55fb8ecb46de654
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 64f02a33a3aeecddf751b8293542776bf5819574
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035710"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061895"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i SWIFT på macOS med hjälp av tal-SDK
 
@@ -65,16 +65,22 @@ I dialogrutorna som följer gör du följande val:
 
 ## <a name="add-the-sample-code"></a>Lägga till exempelkoden
 
-1. Placera en ny rubrik fil med namnet `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` `helloworld` i katalogen i projektet HelloWorld och klistra in följande kod i den:[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
+1. Placera en ny rubrik fil med namnet `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` `helloworld` i katalogen i projektet HelloWorld och klistra in följande kod i den:
+
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 1. Lägg till den relativa `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` sökvägen till interimskontot för överbryggning i Swift-projektfilen för målet HelloWorld i rubrik ![egenskaper för *mål-C-bryggning*](media/sdk/qs-swift-macos-bridging-header.png)
-1. Ersätt innehållet i den automatiskt genererade `AppDelegate.swift` filen genom att:[!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/AppDelegate.swift#code)]
+1. Ersätt innehållet i den automatiskt genererade `AppDelegate.swift`-filen genom att göra följande:
+
+   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/AppDelegate.swift#code)]
 1. I `AppDelegate.swift`ersätter du strängen `YourSubscriptionKey` med din prenumerations nyckel.
 1. Ersätt strängen `YourServiceRegion` med den region som är kopplad till din prenumeration ( `westus` till exempel för den kostnads fria utvärderings prenumerationen).
 
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Installera SDK som en CocoaPod
 
 1. Installera CocoaPod-beroende hanteraren enligt beskrivningen i [installations anvisningarna](https://guides.cocoapods.org/using/getting-started.html).
-1. Navigera till katalogen för din exempel App (`helloworld`). Placera en textfil med namnet `Podfile` och följande innehåll i katalogen:[!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/Podfile)]
+1. Navigera till katalogen för din exempel App (`helloworld`). Placera en textfil med namnet `Podfile` och följande innehåll i katalogen:
+
+   [!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/Podfile)]
 1. Navigera till `helloworld` katalogen i en Terminal och kör kommandot `pod install`. Detta skapar en `helloworld.xcworkspace` Xcode-arbetsyta som innehåller både exempel appen och tal-SDK som ett beroende. Den här arbets ytan kommer att användas i följande.
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen

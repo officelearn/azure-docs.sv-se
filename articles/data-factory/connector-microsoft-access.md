@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 2010799dd590808a2c5be7d9e2330bd60e2c7913
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 79a960b106cc9de4116e8e59b2fa17f48c896221
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842496"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061449"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Kopiera data från och till Microsoft Access-datalager med hjälp av Azure Data Factory
 
@@ -33,6 +33,9 @@ Om du vill använda den här Microsoft Access-anslutningen måste du:
 
 - Konfigurera en egen värd Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
 - Installera Microsoft Access ODBC-drivrutinen för data lagret på den Integration Runtime datorn.
+
+>[!NOTE]
+>Microsoft Access 2016-versionen av ODBC-drivrutinen fungerar inte med den här anslutningen. Använd driv rutins version 2013 eller 2010 i stället.
 
 ## <a name="getting-started"></a>Komma igång
 

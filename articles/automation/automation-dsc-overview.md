@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dd898397b4aaec2e62558d12a3547f7b61d6d3fd
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533464"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061387"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Översikt över Azure Automation tillstånds konfiguration
 
@@ -58,16 +58,11 @@ För noder som kör Windows stöds följande versioner:
 - Windows 8.1
 - Windows 7
 
-Den fristående produkt-SKU: n för [Hyper-V-server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) innehåller ingen implementering av önskade tillstånds agentkonfigurationerna så att den inte kan hanteras av PowerShell DSC eller Azure Automation tillstånds konfiguration.
+Den fristående produkt-SKU: n för [Microsoft Hyper-V server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) innehåller ingen implementering av önskade tillstånds agentkonfigurationerna så att den inte kan hanteras av PowerShell DSC eller Azure Automation tillstånds konfiguration.
 
 Följande distributioner/versioner stöds för noder som kör Linux:
 
-DSC Linux-tillägget stöder alla Linux-distributioner som har godkänts [på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , förutom:
-
-Distribution | Version
--|-
-Debian  | alla versioner
-Ubuntu  | 18,04
+DSC Linux-tillägget stöder alla Linux-distributioner som listas under [stödda Linux](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions)-distributioner.
 
 ### <a name="dsc-requirements"></a>DSC-krav
 
@@ -79,7 +74,7 @@ För alla Linux-noder som körs i Azure installeras [POWERSHELL DSC för Linux](
 
 Om noderna finns i ett privat nätverk krävs följande port och URL: er för tillstånds konfigurationen (DSC) för att kommunicera med Automation:
 
-* Port: Endast TCP 443 krävs för utgående Internet åtkomst.
+* Lastning Endast TCP 443 krävs för utgående Internet åtkomst.
 * Global URL: *. azure-automation.net
 * Global URL för US Gov, Virginia: *. azure-automation.us
 * Agent tjänst: https://\<workspaceId\>. agentsvc.Azure-Automation.net

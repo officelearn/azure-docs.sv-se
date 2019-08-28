@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 024cc18f537334a4e9fb260864b13ac027af582f
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: aaeaed22b1e09556452a49d7fc63c15ef0c7fcdb
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982687"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061341"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Fel sökning av problem med Uppdateringshantering
 
@@ -278,6 +278,7 @@ Dubbelklicka på det undantag som visas i rött för att se hela undantags medde
 |`0x8024001E`| Uppdaterings åtgärden slutfördes inte på grund av att tjänsten eller systemet stängdes av.|
 |`0x8024002E`| Windows Updates tjänsten är inaktive rad.|
 |`0x8024402C`     | Om du använder en WSUS-server kontrollerar du att register värden för `WUServer` och `WUStatusServer` under register nyckeln `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` har rätt WSUS-server.        |
+|`0x80072EE2`|Problem med nätverks anslutning eller problem med att prata med en konfigurerad WSUS-server. Kontrol lera inställningarna för WSUS och se till att de är tillgängliga från klienten.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Kontrol lera att Windows Updates tjänsten (wuauserv) körs och inte är inaktive rad.        |
 |Alla andra generiska undantag     | Gör en sökning på Internet efter möjliga lösningar och arbeta med din lokala IT-support.         |
 

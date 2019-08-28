@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: bf28fb69d35256d65fdfd2c092ad48d0ad1281f9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5920fe4a1addd2188f53a15c1d2232f505009087
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985987"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061488"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Table Storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -221,10 +221,8 @@ Om du vill kopiera data till och från Azure-tabellen anger du egenskapen type f
 
 Data Factory härleder schemat på något av följande sätt för schema fria data lager, till exempel Azure Table:
 
-* Om du anger strukturen för data med hjälp av den **struktur** -egenskapen i definitionen för datauppsättningen, Data Factory godkänner den här strukturen som schema. I det här fallet anges ett null-värde för det om en rad inte innehåller något värde för en kolumn.
-* Om du inte anger data strukturen med hjälp av egenskapen **struktur** i definitions definitionen för data uppsättning, Data Factory härleder schemat genom att använda den första raden i data. I detta fall, om den första raden inte innehåller det fullständiga schemat, saknas vissa kolumner i resultatet av kopierings åtgärden.
-
-För schema fria data källor är det bästa sättet att ange data strukturen med hjälp av **struktur** egenskapen.
+* Om du anger kolumn mappningen i kopierings aktiviteten Data Factory använda kolumn listan på käll sidan för att hämta data. I det här fallet anges ett null-värde för det om en rad inte innehåller något värde för en kolumn.
+* Om du inte anger kolumn mappningen i kopierings aktiviteten härleder Data Factory schemat genom att använda den första raden i data. I detta fall, om den första raden inte innehåller det fullständiga schemat (t. ex. om vissa kolumner har null-värde), saknas vissa kolumner i resultatet av kopierings åtgärden.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 

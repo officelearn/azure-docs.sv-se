@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: d50b3ab68b406db47a4cc8fec081b2fc076071d1
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741663"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061704"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-hanterings lösning i Azure (för hands version)
 
@@ -66,14 +66,14 @@ Samla in följande information innan du påbörjar den här proceduren.
 
 Från din Log Analytics arbets yta:
 
-- Arbetsytans namn: Arbets ytan där Office 365-data kommer att samlas in.
-- Resursgruppsnamn: Den resurs grupp som innehåller arbets ytan.
+- Namn på arbets yta: Arbets ytan där Office 365-data kommer att samlas in.
+- Resurs grupps namn: Den resurs grupp som innehåller arbets ytan.
 - ID för Azure-prenumeration: Prenumerationen som innehåller arbets ytan.
 
 Från din Office 365-prenumeration:
 
-- Användarnamn: E-postadress för ett administratörs konto.
-- Klientorganisations-ID: Unikt ID för Office 365-prenumeration.
+- Användar E-postadress för ett administratörs konto.
+- Klient-ID: Unikt ID för Office 365-prenumeration.
 - Klient-ID: 16 tecken sträng som representerar Office 365-klienten.
 - Klient hemlighet: Krypterad sträng som krävs för autentisering.
 
@@ -83,45 +83,46 @@ Det första steget är att skapa ett program i Azure Active Directory att hanter
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
 1. Välj **Azure Active Directory** och **Appregistreringar**.
-1. Klicka på **Ny programregistrering**.
+1. Klicka på **ny registrering**.
 
     ![Lägg till registrerings program](media/solution-office-365/add-app-registration.png)
-1. Ange ett program **namn** och **en inloggnings-URL**.  Namnet ska vara en beskrivande.  Använd `http://localhost` för URL: en och behåll _webbapp/API_ för **program typen**
+1. Ange ett program **namn**. Välj **konton i valfri organisations katalog (alla Azure AD-kataloger – flera innehavare)** för de **konto typer som stöds**.
     
     ![Skapa program](media/solution-office-365/create-application.png)
-1. Klicka på **skapa** och verifiera programinformationen.
+1. Klicka på **Registrera** och verifiera programinformationen.
 
     ![Registrerad app](media/solution-office-365/registered-app.png)
 
 ### <a name="configure-application-for-office-365"></a>Konfigurera program för Office 365
 
-1. Klicka på **Inställningar** för att öppna menyn **Inställningar** .
-1. Välj **egenskaper**. Ändra **flera klienter** till _Ja_.
+1. Välj **autentisering** och kontrol lera att **konton i valfri organisations katalog (alla Azure AD-kataloger – flera klienter)** är markerade under **konto typer som stöds**.
 
     ![Inställningar för flera klient organisationer](media/solution-office-365/settings-multitenant.png)
 
-1. Välj **nödvändiga behörigheter** på menyn **Inställningar** och klicka sedan på **Lägg till**.
-1. Klicka på **Välj ett API** och sedan hanterings- **API: er för Office 365**. Klicka på **Office 365 Management-API: er**. Klicka på **Välj**.
+1. Välj **API-behörigheter** och **Lägg sedan till en behörighet**.
+1. Klicka på **Office 365 Management-API: er**. 
 
     ![Välj API](media/solution-office-365/select-api.png)
 
-1. Under **Välj behörigheter** väljer du följande alternativ för både **program behörigheter** och **delegerade behörigheter**:
-   - Läs tjänsthälsoinformation för din organisation
-   - Läs aktivitetsdata för din organisation
-   - Läs aktivitetsrapporter för din organisation
+1. Under **vilken typ av behörighet kräver ditt program?** Välj följande alternativ för både **program behörigheter** och delegerade **behörigheter**:
+   - Läs information om tjänst hälsa för din organisation
+   - Läs aktivitets data för din organisation
+   - Läs aktivitets rapporter för din organisation
 
-     ![Välj API](media/solution-office-365/select-permissions.png)
+     ![Välj API](media/solution-office-365/select-permissions-01.png)![Välj API](media/solution-office-365/select-permissions-02.png)
 
-1. Klicka på **Välj** och sedan på **Slutför**.
-1. Klicka på **bevilja behörigheter** och klicka sedan på **Ja** när du uppmanas att verifiera.
+1. Klicka på **Lägg till behörigheter**.
+1. Klicka på **bevilja administratörs medgivande** och klicka sedan på **Ja** när du uppmanas att verifiera.
 
-    ![Bevilja behörigheter](media/solution-office-365/grant-permissions.png)
 
-### <a name="add-a-key-for-the-application"></a>Lägg till en nyckel för programmet
+### <a name="add-a-secret-for-the-application"></a>Lägg till en hemlighet för programmet
 
-1. Välj **nycklar** på menyn **Inställningar** .
+1. Välj **certifikat & hemligheter** och sedan **ny klient hemlighet**.
+
+    ![Nycklar](media/solution-office-365/secret.png)
+ 
 1. Ange en **Beskrivning** och **varaktighet** för den nya nyckeln.
-1. Klicka på **Spara** och kopiera sedan **värdet** som genereras.
+1. Klicka på **Lägg till** och kopiera sedan **värdet** som genereras.
 
     ![Nycklar](media/solution-office-365/keys.png)
 

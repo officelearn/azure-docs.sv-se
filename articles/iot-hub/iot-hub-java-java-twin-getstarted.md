@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 07/04/2017
-ms.openlocfilehash: 6d2d0540786f1aa4bec35cf4bec26212cb7df7ae
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.date: 08/26/2019
+ms.openlocfilehash: 91bdaf93c9dc9b051fce6e052ccd5bd2f5682eaa
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404205"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061976"
 ---
 # <a name="get-started-with-device-twins-java"></a>Kom igång med enhets dubbla (Java)
 
@@ -27,6 +27,8 @@ I den här självstudien skapar du två Java-konsol program:
 
 > [!NOTE]
 > Artikeln [Azure IoT SDK](iot-hub-devguide-sdks.md) : er innehåller information om Azure IoT SDK: er som du kan använda för att bygga både enhets-och backend-appar.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -54,23 +56,23 @@ För att slutföra den här kursen behöver du:
 
 I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata som en tagg på enheten i IoT Hub som är associerade med **myDeviceId**. Appen skickar först frågor till IoT Hub för enheter som finns i USA och sedan för enheter som rapporterar en mobil nätverks anslutning.
 
-1. Skapa en tom mapp med namnet `iot-java-twin-getstarted`på din utvecklings dator.
+1. Skapa en tom mapp med namnet **IoT-Java-getstarted**på din utvecklings dator.
 
-2. I mappen skapar du ett Maven-projekt med namnet **Add-Tags-Query** med hjälp av följande kommando i kommando tolken. `iot-java-twin-getstarted` Observera att detta är ett enda långt kommando:
+2. I mappen **IoT-Java-getstarted** , skapar du ett Maven-projekt med namnet **Add-Tags-Query** med hjälp av följande kommando i kommando tolken:
 
-    ```
+    ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-3. I kommando tolken navigerar du till `add-tags-query` mappen.
+3. I kommando tolken navigerar du till mappen **Add-Tags-Query** .
 
-4. Använd en text redigerare och öppna `pom.xml` filen `add-tags-query` i mappen och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda **IoT-service-client-** paketet i din app för att kommunicera med IoT-hubben:
+4. Använd en text redigerare och öppna filen **Pom. XML** i mappen **Add-Taggar-Query** och Lägg till följande beroende till noden beroenden. Detta beroende gör att du kan använda **IoT-service-client-** paketet i din app för att kommunicera med IoT-hubben:
 
     ```xml
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.7.23</version>
+      <version>1.17.1</version>
       <type>jar</type>
     </dependency>
     ```
@@ -78,7 +80,7 @@ I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata
     > [!NOTE]
     > Du kan söka efter den senaste versionen av **IoT-service-client** med [maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-5. Lägg till följande **build** -nod efter  noden beroenden. Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen:
+5. Lägg till följande **build** -nod efter noden beroenden. Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen.
 
     ```xml
     <build>
@@ -96,9 +98,9 @@ I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata
     </build>
     ```
 
-6. Spara och Stäng `pom.xml` filen.
+6. Spara och Stäng filen **Pom. XML** .
 
-7. Öppna `add-tags-query\src\main\java\com\mycompany\app\App.java` filen med en text redigerare.
+7. Öppna **Add-Tags-query\src\main\java\com\mycompany\app\App.java** -filen med hjälp av en text redigerare.
 
 8. Lägg till följande **Import**-instruktioner i filen:
 
@@ -111,7 +113,7 @@ I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata
     import java.util.Set;
     ```
 
-9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{youriothubconnectionstring}` med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen:
+9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{youriothubconnectionstring}` med IoT Hub-anslutningssträngen som du kopierade i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -127,7 +129,7 @@ I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata
     public static void main( String[] args ) throws IOException
     ```
 
-11. Lägg till följande kod i **main** -metoden för att skapa **DeviceTwin** -och **DeviceTwinDevice** -objekten. **DeviceTwin** -objektet hanterar kommunikationen med IoT Hub. **DeviceTwinDevice** -objektet representerar enheten med dess egenskaper och Taggar:
+11. Ersätt koden i **main** -metoden med följande kod för att skapa **DeviceTwin** -och **DeviceTwinDevice** -objekten. **DeviceTwin** -objektet hanterar kommunikationen med IoT Hub. **DeviceTwinDevice** -objektet representerar enheten med dess egenskaper och Taggar:
 
     ```java
     // Get the DeviceTwin and DeviceTwinDevice objects
@@ -176,7 +178,7 @@ I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata
     System.out.println(device);
     ```
 
-14. Om du vill fråga enheten dubbla i IoT Hub lägger du till följande kod i `try` blocket efter den kod som du lade till i föregående steg. Koden kör två frågor. Varje fråga returnerar högst 100 enheter:
+14. Om du vill fråga enheten dubbla i IoT Hub lägger du till följande kod i `try` blocket efter den kod som du lade till i föregående steg. Koden kör två frågor. Varje fråga returnerar högst 100 enheter.
 
     ```java
     // Query the device twins in IoT Hub
@@ -205,11 +207,11 @@ I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata
     }
     ```
 
-15. Spara och Stäng `add-tags-query\src\main\java\com\mycompany\app\App.java` filen
+15. Spara och Stäng **Add-Tags-query\src\main\java\com\mycompany\app\App.java** -filen
 
-16. Skapa **Add-Tags-Query-** appen och korrigera eventuella fel. I kommando tolken navigerar du till `add-tags-query` mappen och kör följande kommando:
+16. Skapa **Add-Tags-Query-** appen och korrigera eventuella fel. I kommando tolken navigerar du till mappen **Add-Tags-Query** och kör följande kommando:
 
-    ```
+    ```cmd/sh
     mvn clean package -DskipTests
     ```
 
@@ -217,28 +219,38 @@ I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata
 
 I det här avsnittet skapar du en Java-konsol-app som anger ett rapporterat egenskaps värde som skickas till IoT Hub.
 
-1. I mappen skapar du ett Maven-projekt med namnet simulerad enhet med hjälp av följande kommando i kommando tolken.  `iot-java-twin-getstarted` Observera att detta är ett enda långt kommando:
+1. I mappen **IoT-Java-getstarted** , skapar du ett Maven-projekt med namnet **simulerad enhet** med hjälp av följande kommando i kommando tolken:
 
-    ```
+    ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. I kommando tolken navigerar du till `simulated-device` mappen.
+2. I kommando tolken navigerar du till mappen **simulerad enhet** .
 
-3. Använd en text redigerare och öppna `pom.xml` filen `simulated-device` i mappen och Lägg till följande beroenden i noden **beroenden** . Det här beroendet gör att du kan använda **IoT-Device-client-** paketet i din app för att kommunicera med IoT Hub:
+3. Använd en text redigerare och öppna filen **Pom. XML** i mappen **simulerad enhet** och Lägg till följande beroenden i noden beroenden . Med detta beroende kan du använda **IoT-Device-client-** paketet i din app för att kommunicera med IoT Hub.
 
     ```xml
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.14.2</version>
+      <version>1.17.5</version>
     </dependency>
     ```
 
     > [!NOTE]
     > Du kan söka efter den senaste versionen av **IoT-Device-client** med [maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Lägg till följande **build** -nod efter  noden beroenden. Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen:
+4. Lägg till följande beroende till noden **beroenden** . Detta beroende konfigurerar en NOP för fasad för Apache [SLF4J](https://www.slf4j.org/) som används av enhets klientens SDK för att implementera loggning. Den här konfigurationen är valfri, men om du utelämnar den kan du se en varning i-konsolen när du kör appen. Mer information om loggning i enhets klientens SDK finns i avsnittet om [loggning](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) i exemplen för Readme-filen *för Azure IoT-enhetens SDK för Java* .
+
+    ```xml
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-nop</artifactId>
+      <version>1.7.28</version>
+    </dependency>
+    ```
+
+5. Lägg till följande **build** -nod efter noden beroenden. Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen:
 
     ```xml
     <build>
@@ -256,11 +268,11 @@ I det här avsnittet skapar du en Java-konsol-app som anger ett rapporterat egen
     </build>
     ```
 
-5. Spara och Stäng `pom.xml` filen.
+6. Spara och Stäng filen **Pom. XML** .
 
-6. Öppna `simulated-device\src\main\java\com\mycompany\app\App.java` filen med en text redigerare.
+7. Öppna **Simulated-device\src\main\java\com\mycompany\app\App.java** -filen med hjälp av en text redigerare.
 
-7. Lägg till följande **Import**-instruktioner i filen:
+8. Lägg till följande **Import**-instruktioner i filen:
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -271,17 +283,17 @@ I det här avsnittet skapar du en Java-konsol-app som anger ett rapporterat egen
     import java.util.Scanner;
     ```
 
-8. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{youriothubname}` med ditt IoT Hub-namn och `{yourdevicekey}` med det enhets nyckel värde som du genererade i avsnittet *skapa en enhets identitet* :
+9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{yourdeviceconnectionstring}` med enhets anslutnings strängen som du kopierade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
 
     ```java
-    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
+    private static String connString = "{yourdeviceconnectionstring}";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String deviceId = "myDeviceId";
     ```
 
-    Den här exempelappen använder variabeln **protocol** när den instantierar ett **DeviceClient**-objekt. 
+    Den här exempelappen använder variabeln **protocol** när den instantierar ett **DeviceClient**-objekt.
 
-1. Lägg till följande metod i klassen **app** för att skriva ut information om dubbla uppdateringar:
+10. Lägg till följande metod i klassen **app** för att skriva ut information om dubbla uppdateringar:
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
@@ -292,24 +304,26 @@ I det här avsnittet skapar du en Java-konsol-app som anger ett rapporterat egen
       }
     ```
 
-9. Lägg till följande kod i **main** -metoden för att:
+11. Ersätt koden i **main** -metoden med följande kod för att:
+
     * Skapa en enhets klient för att kommunicera med IoT Hub.
+
     * Skapa ett **enhets** objekt för att lagra enhetens dubbla egenskaper.
 
-      ```java
-      DeviceClient client = new DeviceClient(connString, protocol);
+    ```java
+    DeviceClient client = new DeviceClient(connString, protocol);
 
-      // Create a Device object to store the device twin properties
-      Device dataCollector = new Device() {
+    // Create a Device object to store the device twin properties
+    Device dataCollector = new Device() {
       // Print details when a property value changes
       @Override
       public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
         System.out.println(propertyKey + " changed to " + propertyValue);
       }
-      };
-      ```
+    };
+    ```
 
-10. Lägg till följande kod i **main** -metoden för att skapa en **connectivityType** -rapporterad egenskap och skicka den till IoT Hub:
+12. Lägg till följande kod i **main** -metoden för att skapa en **connectivityType** -rapporterad egenskap och skicka den till IoT Hub:
 
     ```java
     try {
@@ -329,7 +343,7 @@ I det här avsnittet skapar du en Java-konsol-app som anger ett rapporterat egen
     }
     ```
 
-11. Lägg till följande kod i slutet av **main** -metoden. Om du väntar på **RETUR** nyckeln kan IoT Hub rapportera status för enhetens dubbla åtgärder:
+13. Lägg till följande kod i slutet av **main** -metoden. Om du väntar på **RETUR** nyckeln kan IoT Hub rapportera statusen för enhetens dubbla åtgärder.
 
     ```java
     System.out.println("Press any key to exit...");
@@ -341,17 +355,17 @@ I det här avsnittet skapar du en Java-konsol-app som anger ett rapporterat egen
     client.close();
     ```
 
-1. Ändra signaturen för **main**-metoden och ta med undantagen som visas nedan:
+14. Ändra signaturen för **main**-metoden och ta med undantagen som visas nedan:
 
      ```java
      public static void main(String[] args) throws URISyntaxException, IOException
      ```
 
-1. Spara och Stäng `simulated-device\src\main\java\com\mycompany\app\App.java` filen.
+15. Spara och Stäng filen **Simulated-device\src\main\java\com\mycompany\app\App.java** .
 
-13. Bygg den **simulerade Device-** appen och korrigera eventuella fel. I kommando tolken navigerar du till `simulated-device` mappen och kör följande kommando:
+16. Bygg den **simulerade Device-** appen och korrigera eventuella fel. I kommando tolken navigerar du till mappen **simulerad enhet** och kör följande kommando:
 
-    ```
+    ```cmd/sh
     mvn clean package -DskipTests
     ```
 
@@ -359,9 +373,9 @@ I det här avsnittet skapar du en Java-konsol-app som anger ett rapporterat egen
 
 Du är nu redo att köra-konsol programmen.
 
-1. Kör följande kommando i en kommando `add-tags-query` tolk i mappen för att köra appen **Add-Tags-Query** service:
+1. Kör följande kommando i en kommando tolk i mappen **Add-Tags-Query** för att köra appen **Add-Taggar-Query** service:
 
-    ```
+    ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
@@ -369,17 +383,17 @@ Du är nu redo att köra-konsol programmen.
 
     Du kan se de **växter** -och **region** etiketter som har lagts till på enheten. Den första frågan returnerar enheten, men den andra inte.
 
-2. I en kommando tolk i `simulated-device` mappen kör du följande kommando för att lägga till egenskapen **connectivityType** som rapporteras till enheten:
+2. I en kommando tolk i mappen **simulerad enhet** kör du följande kommando för att lägga till egenskapen **connectivityType** som rapporteras till enheten:
 
-    ```
+    ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
     ![Enhets klienten lägger till * * connectivityType * *-rapporterad egenskap](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
-3. Kör följande kommando i en kommando `add-tags-query` tolk i mappen för att köra **Add-Tags-query service-** appen en andra gång:
+3. Kör följande kommando i en kommando tolk i mappen **Add-Tags-Query** och kör sedan följande kommando för att köra **Add-Tags-query service-** appen en andra gång:
 
-    ```
+    ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c84f68a9af855f61523919069e1947e051b130b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622253"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061368"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor och svar (FAQ)
 
@@ -43,11 +43,9 @@ Användar konton för program måste alltid skapas via ett registrerings-eller i
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Vilka leverantörer av sociala identitet stöder du nu? Vilka planerar du att stödja i framtiden?
 
-Vi stöder för närvarande Facebook, Google +, LinkedIn, Amazon, Twitter (för hands version), WeChat (för hands version), Weibo (för hands version) och QQ (för hands version). Vi kommer att lägga till stöd för andra populära sociala identitets leverantörer baserat på kundens efter frågan.
+Vi stöder för närvarande flera sociala identitets leverantörer, till exempel Amazon, Facebook, GitHub (för hands version), Google, LinkedIn, Microsoft-konto (MSA), QQ (för hands version), Twitter, WeChat (för hands version) och Weibo (för hands version). Vi utvärderar att lägga till stöd för andra populära sociala identitets leverantörer baserat på kundens efter frågan.
 
-Azure AD B2C har även lagt till stöd för [anpassade principer](active-directory-b2c-overview-custom.md). Med de här anpassade principerna kan utvecklare skapa egna principer med alla identitets leverantörer som stöder [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) eller SAML.
-
-Kom igång med anpassade principer genom att checka ut vårt [Start paket för anpassad princip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+Azure AD B2C stöder också [anpassade principer](active-directory-b2c-overview-custom.md). Med anpassade principer kan du skapa en egen princip för alla identitets leverantörer som stöder [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) eller SAML. Kom igång med anpassade principer genom att checka ut vårt [Start paket för anpassad princip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Kan jag konfigurera omfattningar för att samla in mer information om användare från olika sociala identitets leverantörer?
 

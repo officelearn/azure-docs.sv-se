@@ -10,19 +10,20 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 08/12/2019
-ms.openlocfilehash: 07fcd0f1ec33aa9a7520e35eb7e53a76295009ba
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.date: 08/27/2019
+ms.openlocfilehash: 9261bae0d2bee990a5048cb87a863d96e1854d00
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967903"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061932"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent data kryptering för SQL Database och informations lager
 
 Transparent data kryptering (TDE) hjälper till att skydda Azure SQL Database, Azure SQL-hanterad instans och Azure Data Warehouse mot hot från skadlig offline-aktivitet genom att kryptera data i vila. Den utför kryptering och dekryptering i real tid av databasen, tillhör ande säkerhets kopior och transaktionsloggfiler i vila utan att det krävs några ändringar i programmet. Som standard är TDE aktiverat för alla nyligen distribuerade Azure SQL-databaser. TDE kan inte användas för att kryptera den logiska **huvud** databasen i SQL Database.  **Huvud** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användar databaserna.
 
-TDE måste aktive ras manuellt för Azure SQL-hanterade instanser, äldre databaser med Azure SQL Database eller Azure SQL Data Warehouse.  
+TDE måste aktive ras manuellt för äldre databaser av Azure SQL Database, Azure SQL-hanterad instans eller Azure SQL Data Warehouse.
+Hanterade instans databaser som skapats via återställning ärver krypterings status från käll databasen.
 
 Transparent data kryptering krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel som kallas databas krypterings nyckel. Den här databas krypterings nyckeln skyddas av transparent data krypterings skydd. Skydds komponenten är antingen ett tjänst hanterings certifikat (hanterad transparent data kryptering) eller en asymmetrisk nyckel som lagras i Azure Key Vault (Bring Your Own Key). Du ställer in transparent data krypterings skydd på server nivå för Azure SQL Database och informations lager och instans nivå för Azure SQL-hanterad instans. Termen *Server* avser både server och instans i det här dokumentet, om inget annat anges.
 

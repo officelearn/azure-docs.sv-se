@@ -15,16 +15,16 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bdf9210eb88b2057cf861b208f19d3e6f562e9a
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 8ebf524d932322fa08729f229a451afe656900d5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414855"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061398"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Mobilapp som anropar webb-API: er – kod konfiguration
 
-När du har skapat ditt program får du lära dig hur du konfigurerar koden från programmets parametrar som du fick när du registrerade appen. Mobila program har också vissa komplexa specifika lösningar, som måste göra med montering i ramverket som används för att skapa dessa appar
+När du har skapat ditt program får du lära dig hur du konfigurerar koden med hjälp av registrerings parametrarna för appen. Mobila program har också vissa komplexa specifika lösningar, som måste göra med montering i ramverket som används för att skapa dessa appar
 
 ## <a name="msal-libraries-supporting-mobile-apps"></a>MSAL-bibliotek med stöd för mobila appar
 
@@ -38,7 +38,7 @@ Microsoft-biblioteken som stöder Mobile Apps är:
 
 ## <a name="configuring-the-application"></a>Konfigurera programmet
 
-Mobil program använder MSAL `PublicClientApplication` -klassen. Så här skapar du en instans av det:
+Mobil program använder `PublicClientApplication` klassen. Så här skapar du en instans av det:
 
 ### <a name="android"></a>Android
 
@@ -68,7 +68,7 @@ I följande stycke förklaras hur du konfigurerar koden för programmet för Xam
 
 #### <a name="instantiating-the-application"></a>Instansiera programmet
 
-I Xamarin eller UWP är det enklaste sättet att instansiera programmet enligt följande, där `ClientId` är GUID för ditt program som registrerat.
+I Xamarin eller UWP är det enklaste sättet att instansiera programmet som följer, där `ClientId` är GUID för din registrerade app.
 
 ```CSharp
 var app = PublicClientApplicationBuilder.Create(clientId)
@@ -87,7 +87,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
   .Build();
 ```
 
-På Android rekommenderar vi att du gör `CurrentActivityPlugin` det [här](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Sedan skulle `PublicClientApplication` din Builder-kod se ut så här:
+På Android rekommenderar vi att du använder det `CurrentActivityPlugin` [här](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Sedan skulle `PublicClientApplication` din Builder-kod se ut så här:
 
 ```CSharp
 // Requires MSAL.NET 4.2 or above
@@ -128,7 +128,7 @@ Slutligen finns det vissa speciella kunskaper om webbläsare på Android. De bes
 
 #### <a name="uwp-specific-considerations"></a>UWP-information
 
-På UWP kan du använda företags nätverk. Information om UWP-information finns i [universell Windows-plattform-Specific överväganden med MSAL.net](msal-net-uwp-considerations.md).
+På UWP kan du använda företags nätverk. För ytterligare information om hur du använder MSAL-biblioteket med UWP, se [universell Windows-plattform-/regionsspecifika överväganden med MSAL.net](msal-net-uwp-considerations.md).
 
 ## <a name="configuring-the-application-to-use-the-broker"></a>Konfigurera programmet så att det använder Service Broker
 
@@ -186,7 +186,7 @@ Den här metoden anropas varje gång programmet startas och används som en möj
 
 #### <a name="step-3-set-a-uiviewcontroller"></a>Steg 3: Ange en UIViewController ()
 
-Med Xamarin iOS behöver du vanligt vis inte ange ett objekt fönster, men i det här fallet ska du skicka och ta emot svar från en Broker. Ange ett `AppDelegate.cs`ViewController fortfarande i.
+Med Xamarin iOS behöver du vanligt vis inte ange ett objekt fönster, men i det här fallet kan du skicka och ta emot svar från en Service Broker. Ange ett `AppDelegate.cs`ViewController fortfarande i.
 
 Gör följande för att ange objekt fönstret:
 

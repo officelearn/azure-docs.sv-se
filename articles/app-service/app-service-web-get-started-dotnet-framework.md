@@ -10,17 +10,16 @@ ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8dc062a1c9490a03aa5369dc103db750d7531140
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6c32415e750964e94129a4a6f9cf3812fe9117b5
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117805"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067284"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
@@ -30,7 +29,7 @@ Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärd
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra självstudien installerar du <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> med arbetsbelastningen **ASP.NET och webbutveckling**.
 
@@ -43,7 +42,7 @@ Om du redan har installerat Visual Studio 2017:
 
 Skapa ett nytt projekt i Visual Studio genom att välja **Arkiv > Nytt > Projekt**. 
 
-I dialogrutan **Nytt projekt** väljer du **Visual C# > Webb > ASP.NET-webbtillämpningsprogram (.NET Framework)**.
+I dialogrutan **Nytt projekt** väljer du **Visual C# > Webb > ASP.NET-webbtillämpningsprogram (.NET Framework)** .
 
 Ge programmet namnet _myFirstAzureWebApp_ och välj **OK**.
    
@@ -102,7 +101,7 @@ I dialogrutan **Konfigurera värdplan** använder du inställningarna i tabellen
 |-|-|-|
 |App Service-plan| myAppServicePlan | Namnet på App Service-planen. |
 | Location | Västra Europa | Datacenter som är värd för webbappen. |
-| Storlek | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
+| Size | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
 
 Välj **OK**.
 

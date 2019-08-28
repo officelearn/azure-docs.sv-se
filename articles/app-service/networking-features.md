@@ -1,6 +1,6 @@
 ---
-title: Nätverk - funktioner för Azure App Service | Microsoft Docs
-description: Hur du använder olika App Service-nätverksfunktioner
+title: Funktioner för nätverks distribution – Azure App Service | Microsoft Docs
+description: Använda de olika funktionerna för App Service nätverk
 author: ccompy
 manager: stefsch
 editor: ''
@@ -10,217 +10,216 @@ ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: db29d0761084e32d601dc9c6d94082cd09bc5d18
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 950818d08cb654bad969deaede24231cab9bcbe2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655453"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098559"
 ---
-# <a name="app-service-networking-features"></a>Funktioner för App Service
+# <a name="app-service-networking-features"></a>App Service nätverksfunktioner
 
-Program i Azure App Service kan distribueras på flera olika sätt. Som standard nå Apptjänst värdbaserade appar direkt är åtkomlig via internet och kan endast internet finns slutpunkter. Många kundprogram måste dock att styra inkommande och utgående nätverkstrafik. Det finns flera funktioner som är tillgängliga i App Service för att uppfylla dessa behov. Utmaningen är att veta vilken funktion som ska användas för att lösa ett givet problem. Det här dokumentet är avsett att hjälpa kunder att avgöra vilken funktion som ska användas baserat på några exempel på användningsområden.
+Program i Azure App Service kan distribueras på flera sätt. Som standard är App Service värdbaserade appar direkt tillgängliga för Internet och kan bara nå värdbaserade slut punkter för Internet. Många kund program behöver dock kontrol lera inkommande och utgående nätverks trafik. Det finns flera funktioner som är tillgängliga i App Service för att uppfylla dessa behov. Utmaningen är att veta vilken funktion som ska användas för att lösa ett specifikt problem. Det här dokumentet är avsett att hjälpa kunderna att avgöra vilken funktion som ska användas baserat på några exempel på användnings fall.
 
-Det finns två primära distributionstyper för Azure App Service. Det finns flera innehavare offentlig tjänst som är värd för App Service-planer i kostnadsfri, delad, Basic, Standard, Premium och Premiumv2 priser för SKU: er. Sedan är den enda klienten App Service-miljö(ase), som är värd för isolerade SKU App Service-planer direkt i Azure Virtual Network (VNet). De funktioner du använder varierar på om du är i tjänsten flera innehavare eller i en ASE. 
+Det finns två primära distributions typer för Azure App Service. Det finns en offentlig tjänst för flera innehavare som är värd för App Service planer i pris listorna kostnads fri, delad, Basic, standard, Premium och Premiumv2. Sedan finns det en enda klient App Service-miljön (ASE) som är värd för isolerade SKU App Service-planer direkt i Azure-Virtual Network (VNet). Vilka funktioner du använder beror på om du befinner dig i tjänsten för flera innehavare eller i en ASE. 
 
-## <a name="multi-tenant-app-service-networking-features"></a>Funktioner för flera innehavare App Service 
+## <a name="multi-tenant-app-service-networking-features"></a>Funktioner för flera innehavare App Service nätverksfunktioner 
 
-Azure App Service är ett distribuerat system. De roller som hanterar inkommande HTTP/HTTPS-begäranden kallas klientdelar. De roller som värd för arbetsbelastningen kunden kallas arbetare. Alla roller i en App Service-distribution finns i ett nätverk med flera innehavare. Eftersom det finns många olika kunder i samma skalningsenhet för App Service kan ansluta du inte App Service-nätverket direkt till nätverket. I stället för att ansluta nätverken, behöver vi funktioner för att hantera olika aspekter av programmets kommunikation. De funktioner som hanterar begäranden till din app kan inte användas för att lösa problem när du gör anrop från din app. På samma sätt kan kan inte de funktioner som löser problem för anrop från din app användas för att lösa problem i din app.  
+Azure App Service är ett distribuerat system. Rollerna som hanterar inkommande HTTP/HTTPS-begäranden kallas frontend-slut. De roller som är värdar för kundens arbets belastning kallas för arbetare. Alla roller i en App Service-distribution finns i ett nätverk med flera innehavare. Eftersom det finns många olika kunder i samma App Service skalnings enhet kan du inte ansluta App Service nätverket direkt till nätverket. I stället för att ansluta nätverken behöver vi funktioner för att hantera olika aspekter av program kommunikationen. De funktioner som hanterar begär anden till din app kan inte användas för att lösa problem när du gör anrop från din app. På samma sätt kan inte de funktioner som löser problem med anrop från din app användas för att lösa problem med din app.  
 
 | Inkommande funktioner | Utgående funktioner |
 |---------------------|-------------------|
-| App tilldelats adress | Hybridanslutningar |
-| Åtkomstbegränsningar | Gateway krävs för VNet-integrering |
-| Serviceslutpunkter | VNet-Integration (förhandsversion) |
+| App-tilldelad adress | Hybridanslutningar |
+| Åtkomstbegränsningar | Gateway krävs VNet-integrering |
+| Serviceslutpunkter | VNet-integrering (för hands version) |
 
-Om inte annat anges kan alla funktioner användas tillsammans. Du kan blanda funktioner för att lösa dina problem.
+Om inget annat anges kan alla funktioner användas tillsammans. Du kan blanda funktionerna för att lösa de olika problemen.
 
-## <a name="use-case-and-features"></a>Användningsfall och funktioner
+## <a name="use-case-and-features"></a>Användnings fall och funktioner
 
-För alla angivna användningsfall, kan det finnas ett antal sätt att lösa problemet.  Funktionen rätt att använda är ibland på grund av orsaker som inte bara användningsfallet själva. Följande inkommande användningsfall föreslår hur du använder App Service nätverksfunktioner för att lösa problem när det gäller hur du styr trafiken till din app. 
+För alla typer av användnings fall kan det finnas några sätt att lösa problemet.  Den rätta funktionen för att använda är ibland på grund av orsaker som ligger utanför själva användnings fallet. I följande fall av inkommande användning föreslås hur du använder App Service nätverksfunktioner för att lösa problem med att styra trafik till din app. 
  
-| Inkommande användningsfall | Funktion |
+| Inkommande användnings fall | Funktion |
 |---------------------|-------------------|
-| Stöd för IP-baserad SSL behoven för din app | App tilldelats adress |
-| Inte delad, dedikerad inkommande adress för din app | App tilldelats adress |
+| Stöd för IP-baserade SSL-behov för din app | app-tilldelad adress |
+| Inte delad, dedikerad inkommande adress för din app | app-tilldelad adress |
 | Begränsa åtkomsten till din app från en uppsättning väldefinierade adresser | Åtkomstbegränsningar |
-| Exponera min app på privata IP-adresser i mitt virtuella nätverk | ILB ASE </br> Application Gateway med Tjänsteslutpunkter |
+| Exponera min app på privata IP-adresser i mitt VNet | ILB ASE </br> Application Gateway med tjänst slut punkter |
 | Begränsa åtkomsten till min app från resurser i ett virtuellt nätverk | Serviceslutpunkter </br> ILB ASE |
-| Exponera min app på en privat IP-adress i mitt virtuella nätverk | ILB ASE </br> privata IP-Adressen för inkommande på en Programgateway med Tjänsteslutpunkter |
-| Skydda min app med en WAF | Application Gateway + ILB ASE </br> Application Gateway med Tjänsteslutpunkter </br> Azure ytterdörren med åtkomstbegränsningar |
-| Belastningsutjämna trafik till Mina appar i olika regioner | Azure ytterdörren med åtkomstbegränsningar | 
-| Belastningsutjämna trafik i samma region | Application Gateway med Tjänsteslutpunkter | 
+| Exponera min app på en privat IP-adress i mitt VNet | ILB ASE </br> privat IP för inkommande på en Application Gateway med tjänst slut punkter |
+| Skydda min app med en WAF | Application Gateway + ILB ASE </br> Application Gateway med tjänst slut punkter </br> Azures frontend-dörr med åtkomst begränsningar |
+| Belastnings Utjämnings trafik till Mina appar i olika regioner | Azures frontend-dörr med åtkomst begränsningar | 
+| Belastnings Utjämnings trafik i samma region | Application Gateway med tjänst slut punkter | 
 
-Följande utgående användningsfall föreslår hur du använder App Service nätverksfunktioner för att lösa utgående åtkomst behoven för din app. 
+I följande fall av utgående användning föreslås hur du använder App Service nätverksfunktioner för att lösa utgående åtkomst behov för din app. 
 
-| Utgående användningsfall | Funktion |
+| Utgående användnings fall | Funktion |
 |---------------------|-------------------|
-| Komma åt resurser i ett virtuellt Azure-nätverk i samma region | VNET-integration </br> ASE |
-| Komma åt resurser i ett virtuellt Azure-nätverk i en annan region | Gateway krävs för VNet-integrering </br> ASE- och VNet-peering |
-| Få åtkomst till resurser som säkrats med Tjänsteslutpunkter | VNET-integration </br> ASE |
-| Komma åt resurser i ett privat nätverk som inte är ansluten till Azure | Hybridanslutningar |
-| Komma åt resurser i ExpressRoute-kretsar | VNet-Integration (begränsat till RFC 1918 adresser för tillfället) </br> ASE | 
+| Få åtkomst till resurser i ett Azure-Virtual Network i samma region | VNET-integration </br> ASE |
+| Få åtkomst till resurser i ett Azure-Virtual Network i en annan region | Gateway krävs VNet-integrering </br> ASE och VNet-peering |
+| Åtkomst till resurser som skyddas med tjänst slut punkter | VNET-integration </br> ASE |
+| Åtkomst till resurser i ett privat nätverk som inte är anslutna till Azure | Hybridanslutningar |
+| Få åtkomst till resurser över ExpressRoute-kretsar | VNet-integrering (begränsat till RFC 1918-adresser för tillfället) </br> ASE | 
 
 
-### <a name="default-networking-behavior"></a>Standardbeteendet för nätverk
+### <a name="default-networking-behavior"></a>Standard nätverks beteende
 
-Azure App Service-skalningsenheter stöder många kunder i varje distribution. Med prenumerationerna kostnadsfri och delad SKU värd slutkundsarbetsbelastningar på arbetare för flera innehavare. Grundläggande och senare planer värd kundens arbetsbelastningar som arbetar heltid med endast en App Service-plan (ASP). Om du har en Standard App Service-plan, kommer alla appar i den här planen köras på samma worker. Om du skalar ut arbetaren sedan replikeras alla appar från att ASP på en ny arbetsprocess för varje instans i ASP. Arbetare som används för Premiumv2 skiljer sig från arbetare som används för andra planer. Varje App Service-distribution har en IP-adress som används för all inkommande trafik till appar i den App Service-distributionen. Det finns dock var som helst från 4 till 11-adresser som används för att göra utgående samtal. De här adresserna som delas av alla appar i den App Service-distributionen. Utgående adresser är olika baserat på de olika worker-typerna. Det innebär att de adresser som används av kostnadsfri, delad, Basic, Standard och Premium ASP skiljer sig från de adresser som används för utgående samtal från Premiumv2-ASP. Om du tittar i egenskaperna för din app, visas de inkommande och utgående adresser som används av din app. Om du vill låsa ett beroende med en IP-ACL kan använda possibleOutboundAddresses. 
+Azure App Service skalnings enheter har stöd för många kunder i varje distribution. De kostnads fria och delade SKU-planerna är värd för kund arbets belastningar på arbetare med flera innehavare. Basic, och över planerar kund arbets belastningar som endast är dedikerade till en App Service plan (ASP). Om du har en standard App Service plan kommer alla appar i planen att köras i samma arbets kraft. Om du skalar ut arbets tagaren replikeras alla appar i ASP-nätverket till en ny arbets tagare för varje instans i din ASP. De anställda som används för Premiumv2 skiljer sig från de anställda som används för de andra planerna. Varje App Service distribution har en IP-adress som används för all inkommande trafik till apparna i som App Service distribution. Det finns dock från 4 till 11 adresser som används för att göra utgående samtal. De här adresserna delas av alla appar i som App Service-distributionen. De utgående adresserna är olika baserat på olika typer av arbetare. Det innebär att adresserna som används av de kostnads fria, delade, grundläggande, standard-och Premium-ASP: en skiljer sig från de adresser som används för utgående anrop från Premiumv2-ASP. Om du tittar i egenskaperna för appen kan du se de inkommande och utgående adresser som används av din app. Om du behöver låsa ett beroende med en IP-ACL använder du possibleOutboundAddresses. 
 
-![Appegenskaper](media/networking-features/app-properties.png)
+![Egenskaper för app](media/networking-features/app-properties.png)
 
-App Service har ett antal slutpunkter som används för att hantera tjänsten.  Dessa adresser har publicerats i ett separat dokument och finns också i taggen AppServiceManagement IP-tjänsten. Taggen AppServiceManagement används bara med en App Service Environment (ASE) där du vill tillåta sådan trafik. App Service inkommande adresser spåras i AppService IP-taggen för tjänsten. Det finns ingen IP-service-tagg som innehåller de utgående adresser som används av App Service. 
+App Service har ett antal slut punkter som används för att hantera tjänsten.  De här adresserna publiceras i ett separat dokument och finns också i AppServiceManagement IP service tag. Taggen AppServiceManagement används endast med en App Service-miljön (ASE) där du behöver tillåta sådan trafik. App Service inkommande adresser spåras i AppService IP service tag. Det finns ingen IP-tjänstetagg som innehåller de utgående adresser som används av App Service. 
 
-![Inkommande och utgående diagram för App Service](media/networking-features/default-behavior.png)
+![App Service inkommande och utgående diagram](media/networking-features/default-behavior.png)
 
-### <a name="app-assigned-address"></a>App tilldelats adress 
+### <a name="app-assigned-address"></a>App-tilldelad adress 
 
-Funktionen app tilldelade adressen är en offshoot för IP-baserad SSL-kapaciteten och är tillgänglig genom att konfigurera SSL med din app. Den här funktionen kan användas för IP-baserad SSL-anrop men det kan också användas för att ge din app en adress som endast har. 
+Appens tilldelade adress funktion är en offshoot av IP-baserad SSL-kapacitet och används genom att konfigurera SSL med din app. Den här funktionen kan användas för IP-baserade SSL-anrop, men den kan också användas för att ge din app en adress som bara innehåller den. 
 
-![Appen tilldelas adress diagram](media/networking-features/app-assigned-address.png)
+![App-tilldelat adress diagram](media/networking-features/app-assigned-address.png)
 
-När du använder en app som tilldelats adress passerar trafiken fortfarande samma frontend roller som hanterar all inkommande trafik till App Service-skalningsenhet. Den adress som har tilldelats din app men används endast av din app. Användningsområden för den här funktionen är att:
+När du använder en app-tilldelad adress, går trafiken fortfarande genom samma klient dels roller som hanterar all inkommande trafik i App Service skalnings enhet. Den adress som är tilldelad till din app används dock bara av din app. Användnings fallen för den här funktionen är att:
 
-* Stöd för IP-baserad SSL behoven för din app
-* Ange en dedikerad adress för din app inte delas med något annat
+* Stöd för IP-baserade SSL-behov för din app
+* Ange en dedikerad adress för din app som inte delas med något annat
 
-Du kan lära dig hur du anger en adress på din app med självstudiekursen för [konfigurera IP-baserad SSL][appassignedaddress]. 
+Du kan lära dig hur du anger en adress i din app med själv studie kursen om hur du [konfigurerar IP-baserad SSL][appassignedaddress]. 
 
 ### <a name="access-restrictions"></a>Åtkomstbegränsningar 
 
-De åtkomstbegränsningar funktionen kan du filtrera **inkommande** förfrågningar baserat på organisationens IP-adress. Åtgärden som filtrerande äger rum på de frontend roller som är överordnad från worker rullar där dina appar körs. Eftersom klientdelen rollerna är överordnad från ”arbetarna”, kan funktionen åtkomstbegränsningar anses skydd på nätverksnivå för dina appar. Funktionen kan du skapa en lista över tillåta och neka-Adressblock som utvärderas i prioritetsordning. Det liknar funktionen Nätverkssäkerhetsgrupp (NSG) som finns i Azure Networking.  Du kan använda den här funktionen i en ASE eller i flera innehavare-tjänsten. När den används med en ILB ASE, kan du begränsa åtkomsten från privata-Adressblock.
+Med funktionen åtkomst begränsningar kan du filtrera **inkommande** begär Anden baserat på den ursprungliga IP-adressen. Filtrerings åtgärden utförs på de frontend-roller som är överordnade från arbets tagaren och där dina appar körs. Eftersom front-end-rollerna är överordnade från arbets tagarna kan funktionen åtkomst begränsningar betraktas som skydd på nätverks nivå för dina appar. Med funktionen kan du bygga en lista över tillåtna och neka-adressblock som utvärderas i prioritetsordning. Det liknar funktionen nätverks säkerhets grupp (NSG) som finns i Azure-nätverk.  Du kan använda den här funktionen i en ASE eller i tjänsten flera innehavare. När det används med en ILB-ASE kan du begränsa åtkomsten från privata adress block.
 
 ![Åtkomstbegränsningar](media/networking-features/access-restrictions.png)
 
-Funktionen åtkomstbegränsningar hjälper i scenarier där du vill begränsa IP-adresser som kan användas för att nå din app. Bland användning är för den här funktionen:
+Funktionen åtkomst begränsningar hjälper dig i scenarier där du vill begränsa vilka IP-adresser som kan användas för att nå din app. Bland användnings exemplen för den här funktionen är:
 
 * Begränsa åtkomsten till din app från en uppsättning väldefinierade adresser 
-* Begränsa åtkomsten till kommer via en belastningsutjämning tjänst, till exempel Azure ytterdörren. Om du vill låsa den inkommande trafiken till Azure ytterdörren skapa regler för att tillåta trafik från 147.243.0.0/16 och 2a01:111:2050:: / 44. 
+* Begränsa åtkomsten till att komma via en belastnings Utjämnings tjänst, till exempel Azure-frontend. Om du vill låsa inkommande trafik till Azure-frontend skapar du regler för att tillåta trafik från 147.243.0.0/16 och 2a01:111:2050::/44. 
 
-![Åtkomstbegränsningar med ytterdörren](media/networking-features/access-restrictions-afd.png)
+![Åtkomst begränsningar med front dörren](media/networking-features/access-restrictions-afd.png)
 
-Om du vill låsa åtkomsten till din app så att den endast kan nås från resurser i Azure Virtual Network (VNet) måste en statisk offentlig adress på det källan finns i ditt virtuella nätverk. Om resurserna som inte har en offentlig adress, bör du istället använda funktionen tjänstslutpunkter. Lär dig hur du aktiverar den här funktionen med självstudien på [konfigurera åtkomstbegränsningar][iprestrictions].
+Om du vill låsa åtkomsten till din app så att den bara kan nås från resurser i din Azure-Virtual Network (VNet) behöver du en statisk offentlig adress på vilken källa som är i ditt VNet. Om resurserna inte har en offentlig adress bör du använda funktionen tjänst slut punkter i stället. Lär dig hur du aktiverar den här funktionen med självstudien om hur du [konfigurerar åtkomst begränsningar][iprestrictions].
 
-### <a name="service-endpoints"></a>Tjänstslutpunkter
+### <a name="service-endpoints"></a>Tjänstens slutpunkter
 
-Tjänstslutpunkter kan du låsa **inkommande** åtkomst till din app så att källadressen måste komma från en uppsättning undernät som du väljer. Den här funktionen fungerar tillsammans med IP-åtkomstbegränsningar. Tjänstslutpunkter konfigureras i samma användarupplevelse som IP-åtkomstbegränsningar. Du kan skapa en tillåta/neka listan över regler för åtkomst som innehåller offentliga adresser och undernät i ditt virtuella nätverk. Den här funktionen stöder scenarier som:
+Med tjänst slut punkter kan du låsa **inkommande** åtkomst till din app så att käll adressen måste komma från en uppsättning undernät som du väljer. Den här funktionen fungerar tillsammans med begränsningar för IP-åtkomst. Tjänst slut punkter anges i samma användar upplevelse som begränsningarna för IP-åtkomst. Du kan bygga en lista över tillåtna/nekade åtkomst regler som innehåller offentliga adresser samt undernät i din virtuella nätverk. Den här funktionen stöder scenarier som:
 
-![Tjänsteslutpunkter](media/networking-features/service-endpoints.png)
+![tjänst slut punkter](media/networking-features/service-endpoints.png)
 
-* Konfigurera en Programgateway med din app för att låsa inkommande trafik till din app
-* Begränsa åtkomsten till din app till resurser i ditt virtuella nätverk. Detta kan omfatta virtuella datorer, ase-miljöer eller med andra appar som använder VNet-integrering 
+* Konfigurera en Application Gateway med din app för att låsa inkommande trafik till din app
+* Begränsa åtkomsten till din app till resurser i ditt VNet. Detta kan vara virtuella datorer, ASE eller till och med andra appar som använder VNet-integrering 
 
-![Tjänsteslutpunkter med application gateway](media/networking-features/service-endpoints-appgw.png)
+![tjänst slut punkter med Application Gateway](media/networking-features/service-endpoints-appgw.png)
 
-Du kan lära dig mer om att konfigurera tjänstslutpunkter med din app i självstudien på [konfigurera åtkomstbegränsningar för tjänstens slutpunkt][serviceendpoints]
+Du kan lära dig mer om hur du konfigurerar tjänst slut punkter med din app i självstudien om hur du [konfigurerar åtkomst begränsningar för tjänst slut punkt][serviceendpoints]
  
 ### <a name="hybrid-connections"></a>Hybridanslutningar
 
-App Service-Hybridanslutningar kan göra **utgående** anrop till angivna TCP-slutpunkter. Slutpunkten kan vara lokalt, i ett virtuellt nätverk eller var som helst som tillåter utgående trafik till Azure på port 443. Funktionen kräver installation av en relay agent kallas Hybrid Connection Manager (HCM) på en Windows Server 2012 eller senare värd. Den HCM-system måste kunna nå Azure Relay på port 443. Den HCM-system kan laddas ned från App Service Hybrid anslutningar Användargränssnittet i portal. 
+App Service Hybridanslutningar gör det möjligt för dina appar att göra **utgående** anrop till angivna TCP-slutpunkter. Slut punkten kan vara lokal, i ett VNet eller var som helst som tillåter utgående trafik till Azure på port 443. Funktionen kräver installation av en relay-agent som kallas Hybridanslutningshanteraren (HCM) på en Windows Server 2012 eller en nyare värd. HCM måste kunna uppnå Azure Relay på port 443. HCM kan hämtas från App Service Hybridanslutningar gränssnittet i portalen. 
 
-![Nätverksflödet för hybrid-anslutningar](media/networking-features/hybrid-connections.png)
+![Hybridanslutningar nätverks flöde](media/networking-features/hybrid-connections.png)
 
-Funktionen App Service-Hybridanslutningar baseras på funktionen Azure Relay-Hybridanslutningar. App Service använder en särskild typ av funktionen som stöder bara önskade utgående samtal från din app till en TCP-värd och port. Denna värd och port behöver bara matchas på värden där den HCM-system är installerad. När appen i App Service har en DNS-sökning på värd och port som definierats i din Hybridanslutning, dirigeras trafiken automatiskt om du vill gå via Hybridanslutningen och ut Hybridanslutningshanteraren. Om du vill veta mer om Hybridanslutningar, Läs i dokumentationen om [App Service-Hybridanslutningar][hybridconn]
+App Service Hybridanslutningar-funktionen bygger på Azure Relay Hybridanslutningar-funktionen. App Service använder en specialiserad form av funktionen som endast stöder utgående samtal från din app till en TCP-värd och port. Den här värden och porten behöver bara lösas på den värd där HCM är installerad. När appen, i App Service, en DNS-sökning på värden och porten som definierats i din hybrid anslutning, omdirigeras trafiken automatiskt för att gå igenom hybrid anslutningen och ta bort Hybridanslutningshanteraren. Läs mer om Hybridanslutningar i dokumentationen om [App Service hybridanslutningar][hybridconn]
 
 Den här funktionen används ofta för att:
 
-* Komma åt resurser i privata nätverk som inte är anslutna till Azure med ett VPN eller ExpressRoute
-* Stöd för lift och SKIFT för lokala appar till App Service utan att även flytta stödjande databaser  
-* På ett säkert sätt har åtkomst till en enda värd och port per Hybridanslutning. De flesta funktioner ger tillgång till ett nätverk och med Hybrid Connections du endast har värddator och port som du kan nå.
-* Scenarier som inte motsvaras av andra metoder för utgående anslutningar
-* Utföra utveckling i App Service där appar kan enkelt utnyttja lokala resurser 
+* Åtkomst till resurser i privata nätverk som inte är anslutna till Azure med en VPN-eller ExpressRoute
+* Stöd för hiss och flyttning av lokala appar till App Service utan att du behöver flytta stöd databaser  
+* Ge säker åtkomst till en enda värd och port per hybrid anslutning. De flesta nätverksfunktioner öppnar åtkomst till ett nätverk och med Hybridanslutningar du bara har den enda värden och port som du kan nå.
+* Täck scenarier som inte omfattas av andra metoder för utgående anslutning
+* Utför utveckling i App Service där apparna enkelt kan utnyttja lokala resurser 
 
-Eftersom funktionen ger åtkomst till lokala resurser utan att en brandvägg för inkommande trafik hål, används det ofta av utvecklare. De andra utgående Apptjänst nätverksfunktionerna är mycket Azure virtuellt nätverk relaterade. Hybridanslutningar har inte ett beroende på gå via ett virtuellt nätverk och kan användas för en mängd olika nätverksbehov. Det är viktigt att Observera att funktionen App Service-Hybridanslutningar inte hand eller vet vad du gör ovanpå den. Det är att säga att du kan använda för åtkomst till en databas, en webbtjänst eller en godtycklig TCP-socket på en stordatorprogram. Funktionen tunnlar i stort sett TCP-paket. 
+Eftersom funktionen ger till gång till lokala resurser utan inkommande brand Väggs hål, är den populär med utvecklare. De andra utgående App Service nätverksfunktionerna är mycket virtuella Azure-nätverk relaterade. Hybridanslutningar är inte beroende av att gå igenom ett VNet och kan användas för en större mängd olika nätverks behov. Det är viktigt att Observera att App Service Hybridanslutningar-funktionen inte bryr dig om eller vet vad du gör på den. Det vill säga att du kan använda den för att få åtkomst till en databas, en webb tjänst eller en godtycklig TCP-socket på en stordator. Funktionen i huvudsak tunnel TCP-paket. 
 
-Den används också i ett flertal produktionsprogram samt Hybrid Connections är populärt för utveckling. Det är bra för att komma åt en webbtjänst eller en databas, men är inte lämplig för situationer med skapa många anslutningar. 
+Även om Hybridanslutningar är populär för utveckling, används även det även i flera produktions program. Det är bra att komma åt en webb tjänst eller databas, men är inte lämplig för situationer där många anslutningar skapas. 
 
-### <a name="gateway-required-vnet-integration"></a>Gateway krävs för VNet-integrering 
+### <a name="gateway-required-vnet-integration"></a>Gateway krävs VNet-integrering 
 
-Gatewayen krävs VNet-integrering för App Service-funktionen gör det möjligt för din app ska ge **utgående** begäranden till ett Azure-nätverk. Funktionen fungerar genom att ansluta värden som din app körs på till en virtuell nätverksgateway för ditt virtuella nätverk med en punkt-till-plats-VPN. När du konfigurerar funktionen hämtar en punkt-till-plats-adresserna som tilldelats till varje instans av din app. Den här funktionen kan du komma åt resurser i klassisk eller Resource Manager-VNets i alla regioner. 
+Den gateway som krävs för App Service VNet-integrering gör att din app kan göra **utgående** förfrågningar till en Azure-Virtual Network. Funktionen fungerar genom att ansluta värden som din app körs på till en Virtual Network gateway på ditt VNet med en punkt-till-plats-VPN. När du konfigurerar funktionen hämtar appen en av de punkt-till-plats-adresser som tilldelats varje instans. Med den här funktionen kan du komma åt resurser i antingen klassiskt eller Resource Manager-virtuella nätverk i vilken region som helst. 
 
-![Gateway krävs för VNet-integrering](media/networking-features/gw-vnet-integration.png)
+![Gateway krävs VNet-integrering](media/networking-features/gw-vnet-integration.png)
 
-Den här funktionen löser problemet med åtkomst till resurser i andra virtuella nätverk och kan även användas för att ansluta via ett virtuellt nätverk till andra virtuella nätverk eller lokalt. Det fungerar inte med ExpressRoute anslutna virtuella nätverk men gör med plats-till-plats VPN anslutna nätverk. Det är normalt olämpligt att använda den här funktionen från en app i en App Service Environment (ASE), eftersom ASE är redan i ditt virtuella nätverk. Användningsfall som löser den här funktionen är:
+Den här funktionen löser problemet med att komma åt resurser i andra virtuella nätverk och kan även användas för att ansluta via ett VNet till antingen andra virtuella nätverk eller till och med lokalt. Den fungerar inte med ExpressRoute-anslutna virtuella nätverk men gör med plats-till-plats-VPN-anslutna nätverk. Det är normalt olämpligt att använda den här funktionen från en app i en App Service-miljön (ASE) eftersom ASE redan finns i ditt VNet. De användnings fall som den här funktionen löser är:
 
-* Åtkomst till resurser på privata IP-adresser i ditt virtuella Azure-nätverk 
+* Åtkomst till resurser i privata IP-adresser i dina virtuella Azure-nätverk 
 * Åtkomst till resurser lokalt om det finns en plats-till-plats-VPN 
-* Åtkomst till resurser i peerkopplade virtuella nätverk 
+* Åtkomst till resurser i peer-virtuella nätverk 
 
-När den här funktionen är aktiverad kommer appen att använda DNS-servern som målet VNet är konfigurerat med. Du kan läsa mer om den här funktionen i dokumentationen på [VNet-integrering för App Service][vnetintegrationp2s]. 
+När den här funktionen är aktive rad använder appen den DNS-server som målets VNet har kon figurer ATS med. Du kan läsa mer om den här funktionen i dokumentationen om [App Service VNet-integrering][vnetintegrationp2s]. 
 
 ### <a name="vnet-integration"></a>VNET-integration
 
-Gatewayen måste VNet-integrering-funktionen är användbar men fortfarande löser inte åtkomst till resurser över ExpressRoute. Det finns ett behov av appar för att kunna göra anrop till tjänsteslutpunkt skyddade tjänster ovanpå behöva nå via ExpressRoute-anslutningar. Kapaciteten för ett annat VNet-integrering för att lösa båda dessa ytterligare behov har lagts till. Den nya funktionen för VNet-integrering kan du placera serverdelen för din app i ett undernät i ett Resource Manager-VNet i samma region. Den här funktionen är inte tillgänglig från en App Service Environment som redan finns i ett virtuellt nätverk. Den här funktionen gör det möjligt att:
+Den gateway som krävs för VNet-integrering är mycket användbar men matchar fortfarande inte åtkomst till resurser i ExpressRoute. Om du behöver komma åt över ExpressRoute-anslutningar finns det ett behov av att appar kan ringa till tjänstens slut punkts säkra tjänster. För att lösa båda de ytterligare behoven har en annan VNet-integrerings funktion lagts till. Med den nya funktionen för VNet-integrering kan du placera appens Server del i ett undernät i ett Resource Manager VNet i samma region. Den här funktionen är inte tillgänglig från en App Service-miljön, som redan finns i ett VNet. Den här funktionen gör det möjligt att:
 
-* Åtkomst till resurser i Resource Manager-VNets i samma region
-* Åtkomst till resurser som är säkrade med Tjänsteslutpunkter 
-* Åtkomst till resurser som är tillgängliga för ExpressRoute eller VPN-anslutningar
+* Åtkomst till resurser i Resource Manager-virtuella nätverk i samma region
+* Åtkomst till resurser som skyddas med tjänst slut punkter 
+* Åtkomst till resurser som är tillgängliga via ExpressRoute eller VPN-anslutningar
 
 ![VNET-integration](media/networking-features/vnet-integration.png)
 
-Den här funktionen är en förhandsversion och ska inte användas för produktionsarbetsbelastningar. Om du vill veta mer om den här funktionen kan du läsa dokumentationen på [VNet-integrering för App Service][vnetintegration].
+Den här funktionen är i för hands version och bör inte användas för produktions arbets belastningar. Läs mer om den här funktionen i dokumenten på [App Service VNet-integrering][vnetintegration].
 
-## <a name="app-service-environment"></a>App Service Environment 
+## <a name="app-service-environment"></a>App Service-miljön 
 
-App Service Environment (ASE) är en enskild klient-distribution i Azure App Service som körs i ditt virtuella nätverk. ASE möjliggör användningsfall som:
+En App Service-miljön (ASE) är en enda klient distribution av Azure App Service som körs i ditt VNet. ASE möjliggör användnings fall som:
 
-* Komma åt resurser i ditt virtuella nätverk
-* Komma åt resurser över ExpressRoute
-* Exponera dina appar med en privat adress i ditt virtuella nätverk 
-* Komma åt resurser i Tjänsteslutpunkter 
+* Få åtkomst till resurser i ditt VNet
+* Få åtkomst till resurser över ExpressRoute
+* Exponera dina appar med en privat adress i ditt VNet 
+* Få åtkomst till resurser över tjänst slut punkter 
 
-Du behöver inte använda funktioner som integrering av virtuellt nätverk eller tjänstslutpunkter eftersom ASE är redan i ditt virtuella nätverk med en ASE. Om du vill få åtkomst till resurser, som SQL och lagring över tjänstslutpunkter kan du aktivera tjänstslutpunkter på ASE-undernät. Om du vill komma åt resurser i det virtuella nätverket, det finns ingen ytterligare konfiguration krävs.  Om du vill få tillgång till resurser via ExpressRoute, finns redan i det virtuella nätverket och behöver inte konfigurera något på ASE eller appar i den. 
+Med en ASE behöver du inte använda funktioner som VNet-integrering eller tjänst slut punkter eftersom ASE redan finns i ditt VNet. Om du vill komma åt resurser som SQL eller Storage över tjänst slut punkter aktiverar du tjänst slut punkter i ASE-undernätet. Om du vill få åtkomst till resurser i det virtuella nätverket krävs ingen ytterligare konfiguration.  Om du vill få åtkomst till resurser över ExpressRoute är du redan i VNet och behöver inte konfigurera något på ASE eller apparna inuti den. 
 
-Eftersom appar i en ILB ASE kan variabelinnehållet visas i en privat IP-adress, kan du enkelt lägga till WAF enheter om du vill exponera enbart för appar som du vill till internet och skydda resten. Det lämpar sig för enkel utveckling av program med flera nivåer. 
+Eftersom appar i en ILB-ASE kan exponeras på en privat IP-adress kan du enkelt lägga till WAF-enheter för att exponera bara de appar som du vill ha på Internet och hålla resten säkra. Den lämpar sig för enkel utveckling av program på flera nivåer. 
 
-Det finns några saker som inte ännu är möjligt från tjänsten flera innehavare som kommer från en ase-miljö. Dessa är till exempel:
+Det finns vissa saker som ännu inte är möjliga från tjänsten för flera innehavare som kommer från en ASE. De omfattar till exempel:
 
 * Exponera dina appar på en privat IP-adress
-* Skydda all utgående trafik med nätverkskontroller som inte är en del av din app 
-* Ha dina appar i en enda klient-tjänst 
-* Skala upp till många fler instanser än vad som är möjligt i tjänsten flera innehavare 
-* Läsa in privata CA-klientcertifikat för användning av dina appar med privata CA skyddade slutpunkter 
-* Tvinga TLS 1.1 på alla appar i systemet utan någon möjlighet att inaktivera på app-nivå 
-* Ange en dedikerad utgående adress för alla appar i din ASE som inte delas med alla kunder 
+* Skydda all utgående trafik med nätverks kontroller som inte är en del av din app 
+* Vara värd för dina appar i en enda klient tjänst 
+* Skala upp till många fler instanser än vad som är möjligt i tjänsten för flera innehavare 
+* Läs in privata CA-klientcertifikat som ska användas av dina appar med privat CA-säkra slut punkter 
+* Framtvinga TLS 1,1 i alla appar som finns i systemet utan möjlighet att inaktivera på App-nivå 
+* Tillhandahålla en dedikerad utgående adress för alla appar i din ASE som inte delas med några kunder 
 
 ![ASE i ett virtuellt nätverk](media/networking-features/app-service-environment.png)
 
-ASE ger tillverkningskostnader runt isolerad och dedikerad appvärdfunktioner men kommer med några utmaningar för enhetshantering. Det finns vissa saker att tänka på innan du använder en operational ASE:
+ASE ger den bästa artikeln runt isolerad och dedikerad app-värd, men följer vissa hanterings utmaningar. Några saker att tänka på innan du använder en drifts ASE är:
  
- * En ASE körs i det virtuella nätverket men har beroenden utanför det virtuella nätverket. Dessa beroenden måste tillåtas. Läs mer i [Nätverksöverväganden för App Service Environment][networkinfo]
- * En ASE skalas inte omedelbart som tjänsten flera innehavare. Du behöver förutse skalningsbehov i stället för att reaktivt skalning. 
- * En ASE har ett högre direkt kostnad som är associerade med den. För att få ut mest av din ASE, du bör planerar att placera många arbetsbelastningar i en ASE i stället att det används för små arbete
- * Appar i en ASE kan inte begränsa åtkomsten till vissa appar i en ASE och inte andra.
- * ASE är i ett undernät och alla nätverk regler gäller för all trafik till och från denna ASE. Om du vill tilldela regler för inkommande trafik för att bara en app kan använda åtkomstbegränsningar. 
+ * En ASE körs i ditt VNet men har beroenden utanför det virtuella nätverket. Dessa beroenden måste vara tillåtna. Läs mer i [nätverks överväganden för en app service-miljön][networkinfo]
+ * En ASE skalas inte direkt som tjänsten för flera innehavare. Du måste förutse skalnings behoven snarare än att skalas om. 
+ * En ASE har högre fram till gångs kostnad. För att få ut mesta möjliga av din ASE bör du planera att placera många arbets belastningar i en ASE i stället för att använda den för små ansträngningar
+ * Apparna i en ASE kan inte begränsa åtkomsten till vissa appar i en ASE och inte andra.
+ * ASE finns i ett undernät och eventuella nätverks regler gäller för all trafik till och från den ASE. Använd åtkomst begränsningar om du vill tilldela regler för inkommande trafik för bara en app. 
 
 ## <a name="combining-features"></a>Kombinera funktioner 
 
-De funktioner som anges för flera innehavare-tjänsten kan användas tillsammans för att lösa noggrannare användningsfall. Två av de vanliga användningsfallen beskrivs här, men de är bara exempel. Du kan lösa nästan alla dina system arkitektur behov genom att förstå de olika funktionerna gör.
+De funktioner som anges för tjänsten för flera innehavare kan användas tillsammans för att lösa mer avancerade användnings fall. Två av de vanligaste användnings fallen beskrivs här, men de är bara exempel. Genom att förstå vad de olika funktionerna gör kan du lösa nästan alla system arkitektur behov.
 
-### <a name="inject-app-into-a-vnet"></a>Mata in app i ett virtuellt nätverk
+### <a name="inject-app-into-a-vnet"></a>Mata in app i ett VNet
 
-En begäran om vanliga är om hur du placera din app i ett virtuellt nätverk. Placera din app i ett virtuellt nätverk innebär att de inkommande och utgående slutpunkterna för en app i ett virtuellt nätverk. ASE ger den bästa lösningen för att lösa problemet, men du kan få ut mesta som behövs med i flera innehavare-tjänsten genom att kombinera funktioner. Du kan exempelvis ha endast intranätprogram med privata inkommande och utgående adresser genom att:
+En gemensam begäran finns i hur du sätter din app i ett VNet. Att placera din app i ett VNet innebär att inkommande och utgående slut punkter för en app finns i ett VNet. ASE tillhandahåller den bästa lösningen för att lösa problemet, men du kan få ut mesta möjliga av vad som behövs i tjänsten flera innehavare genom att kombinera funktioner. Du kan till exempel endast vara värd för program i intranätet med privata inkommande och utgående adresser genom att:
 
-* Skapa en Programgateway med privat inkommande och utgående adress
-* Skydda inkommande trafik till din app med Tjänsteslutpunkter 
-* Använd den nya VNet-integrering så serverdelen för din app är i ditt virtuella nätverk 
+* Skapa en Application Gateway med privat inkommande och utgående adress
+* Skydda inkommande trafik till din app med tjänstens slut punkter 
+* Använd den nya VNet-integreringen så att appens Server del är i ditt VNet 
 
-Det här formatet distribution skulle inte ger dig en dedikerad adress för utgående trafik till internet och ger dig möjlighet att låsa all utgående trafik från din app.  Det här formatet distribution ger en mycket av vad du skulle bara annars får med en ASE. 
+Den här distributions stilen ger dig inte en dedikerad adress för utgående trafik till Internet eller ger dig möjlighet att låsa all utgående trafik från din app.  Det här distributions formatet skulle ge dig en stor del av vad du bara skulle kunna komma åt i en ASE. 
 
-### <a name="create-multi-tier-applications"></a>Skapa program med flera nivåer
+### <a name="create-multi-tier-applications"></a>Skapa program på flera nivåer
 
-Ett flerskiktat program är ett program där API-serverdel appar endast kan nås från nivån i klientdelen. Om du vill skapa ett flerskiktat program, kan du:
+Ett program på flera nivåer är ett program där API-backend-apparna bara kan nås från klient delen. Om du vill skapa ett program med flera nivåer kan du:
 
-* Använda VNet-integrering för att ansluta serverdelen för din webbapp på klientsidan med ett undernät i ett virtuellt nätverk
-* Använda tjänstslutpunkter för att skydda inkommande trafik till din API-app till endast kommer från undernätet som används av din webbapp på klientsidan
+* Använd VNet-integrering för att ansluta Server delen för din frontend-webbapp med ett undernät i ett virtuellt nätverk
+* Använd tjänstens slut punkter för att skydda inkommande trafik till din API-app så att den endast kommer från det undernät som används av din frontend-webbapp
 
-![flerskiktat program](media/networking-features/multi-tier-app.png)
+![app med flera nivåer](media/networking-features/multi-tier-app.png)
 
-Du kan ha flera frontend-appar som använder samma API-app med hjälp av VNet-integrering från andra appar för klientdelar och tjänstslutpunkter från API-appen med sina undernät.  
+Du kan ha flera frontend-appar som använder samma API-app genom att använda VNet-integrering från andra frontend-appar och tjänst slut punkter från API-appen med sina undernät.  
 
 <!--Links-->
 [appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl

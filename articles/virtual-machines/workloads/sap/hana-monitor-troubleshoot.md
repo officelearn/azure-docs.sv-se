@@ -1,173 +1,172 @@
 ---
-title: Övervakning och felsökning från HANA sida på SAP HANA på Azure (stora instanser) | Microsoft Docs
-description: Övervakning och felsökning från HANA sida på SAP HANA på Azure (stora instanser).
+title: Övervakning och fel sökning från HANA-sida på SAP HANA på Azure (stora instanser) | Microsoft Docs
+description: Övervakning och fel sökning från HANA-sida på SAP HANA på en Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f25218156157f626b667c474de1674d1d8509a24
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e2c596a876817f0a501025c37e463a7eebb55cf2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705820"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099829"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Övervaka och felsöka från HANA-sida
 
-För att effektivt analysera problem relaterade till SAP HANA på Azure (stora instanser), är det praktiskt att begränsa de grundläggande orsakerna till problem. SAP har publicerat en stor mängd dokumentation som hjälper dig att.
+För att effektivt kunna analysera problem som rör SAP HANA på Azure (stora instanser) är det bra att begränsa rotor saken till ett problem. SAP har publicerat en stor mängd dokumentation för att hjälpa dig.
 
-Tillämpliga vanliga frågor och svar för SAP HANA prestanda finns i följande SAP-information:
+Tillämpliga vanliga frågor och svar om SAP HANA prestanda finns i följande SAP-anteckningar:
 
-- [SAP-kommentar #2222200 – vanliga frågor och svar: SAP HANA-nätverk](https://launchpad.support.sap.com/#/notes/2222200)
-- [SAP-kommentar #2100040 – vanliga frågor och svar: SAP HANA CPU](https://launchpad.support.sap.com/#/notes/0002100040)
-- [SAP-kommentar #199997 – vanliga frågor och svar: SAP HANA-minne](https://launchpad.support.sap.com/#/notes/2177064)
-- [SAP-kommentar #200000 – vanliga frågor och svar: Prestandaoptimering för SAP HANA](https://launchpad.support.sap.com/#/notes/2000000)
-- [SAP-kommentar #199930 – vanliga frågor och svar: SAP HANA i/o-analys](https://launchpad.support.sap.com/#/notes/1999930)
-- [SAP-kommentar #2177064 – vanliga frågor och svar: SAP HANA-tjänsten startas om och kraschar](https://launchpad.support.sap.com/#/notes/2177064)
+- [SAP-anteckning #2222200 – vanliga frågor och svar: SAP HANA nätverk](https://launchpad.support.sap.com/#/notes/2222200)
+- [SAP-anteckning #2100040 – vanliga frågor och svar: SAP HANA CPU](https://launchpad.support.sap.com/#/notes/0002100040)
+- [SAP-anteckning #199997 – vanliga frågor och svar: SAP HANA minne](https://launchpad.support.sap.com/#/notes/2177064)
+- [SAP-anteckning #200000 – vanliga frågor och svar: Prestanda optimering SAP HANA](https://launchpad.support.sap.com/#/notes/2000000)
+- [SAP-anteckning #199930 – vanliga frågor och svar: SAP HANA I/O-analys](https://launchpad.support.sap.com/#/notes/1999930)
+- [SAP-anteckning #2177064 – vanliga frågor och svar: Starta om och krascher i SAP HANA tjänsten](https://launchpad.support.sap.com/#/notes/2177064)
 
-## <a name="sap-hana-alerts"></a>SAP HANA-aviseringar
+## <a name="sap-hana-alerts"></a>SAP HANA aviseringar
 
-Kontrollera de aktuella avisering SAP HANA-loggarna som ett första steg. I SAP HANA Studio går du till **administrationskonsolen: Varningar: Visa: alla aviseringar**. Den här fliken visar alla SAP HANA-aviseringar för specifika värden (ledigt fysiskt minne, CPU-användning osv.) som faller utanför ange lägsta och högsta tröskelvärden. Som standard statusen kontrollerar uppdateras automatiskt var 15: e minut.
+Som ett första steg kontrollerar du de aktuella SAP HANA aviserings loggarna. I SAP HANA Studio går du till **administrations konsolen: Aviseringar Visa: alla aviseringar**. På den här fliken visas alla SAP HANA aviseringar för vissa värden (ledigt fysiskt minne, processor användning osv.) som faller utanför de angivna minimi-och Max tröskelvärdena. Som standard uppdateras kontrollerna automatiskt var 15: e minut.
 
-![Gå till Administration Console i SAP HANA Studio: Varningar: Visa: alla aviseringar](./media/troubleshooting-monitoring/image1-show-alerts.png)
+![I SAP HANA Studio går du till administrations konsolen: Aviseringar Visa: alla aviseringar](./media/troubleshooting-monitoring/image1-show-alerts.png)
 
 ## <a name="cpu"></a>Processor
 
-För en avisering utlöses på grund av felaktig tröskelvärde genom är en lösning att återställa till standardvärdet eller ett mer rimligt tröskelvärde.
+En avisering som utlöses på grund av en felaktig tröskel inställning är att återställa till standardvärdet eller ett mer rimligt tröskelvärde.
 
-![Återställ till standardvärde eller ett mer rimligt tröskelvärde](./media/troubleshooting-monitoring/image2-cpu-utilization.png)
+![Återställ standardvärdet eller ett mer rimligt tröskelvärde](./media/troubleshooting-monitoring/image2-cpu-utilization.png)
 
-Följande aviseringar kan tyda på problem med CPU systemresurser:
+Följande aviseringar kan tyda på problem med processor resurser:
 
-- Processoranvändning för värd (varning 5)
-- Senaste lagringspunktsåtgärd (varning 28)
-- Lagringspunkt varaktighet (varning 54)
+- PROCESSOR användning för värd (avisering 5)
+- Senaste lagrings punkts åtgärd (avisering 28)
+- Varaktighet för lagrings punkt (varning 54)
 
-Du kanske ser hög CPU-förbrukning på SAP HANA-databas från något av följande:
+Du kan märka hög CPU-förbrukning i SAP HANA-databasen från något av följande:
 
-- Aviseringen 5 (värd CPU-användning) aktiveras aktuella eller förfallna CPU-användning
-- Processoranvändningen visas på skärmen
+- Avisering 5 (processor användning för värd) har Aktiver ATS för aktuell eller tidigare processor användning
+- Den visade processor användningen på översikts skärmen
 
-![CPU-användningen visas på skärmen](./media/troubleshooting-monitoring/image3-cpu-usage.png)
+![Visa CPU-användning på översikts skärmen](./media/troubleshooting-monitoring/image3-cpu-usage.png)
 
-Läs in diagram kan visa hög CPU-förbrukning eller hög förbrukning tidigare:
+Inläsnings diagrammet kan visa hög processor förbrukning eller hög förbrukning tidigare:
 
-![Läs in diagram kan visa hög CPU-förbrukning eller hög förbrukning i förflutna](./media/troubleshooting-monitoring/image4-load-graph.png)
+![Inläsnings diagrammet kan visa hög processor förbrukning eller hög förbrukning tidigare](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-En avisering utlöses på grund av hög processoranvändning kan bero på flera orsaker, bland annat, men inte begränsat till: körning av vissa transaktioner, datainläsning, jobb som inte har svarar, tidskrävande SQL-uttryck och felaktiga frågeprestanda (t.ex. med BW för HANA kuber).
+En avisering som utlöses på grund av hög processor användning kan bero på flera orsaker, inklusive, men inte begränsat till: körning av vissa transaktioner, data inläsning, jobb som inte svarar, tids krävande SQL-uttryck och dåliga frågeresultat (till exempel med BW på HANA-kuber).
 
-Referera till den [SAP HANA Felsökning: Relaterade gör att CPU- och lösningar](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) för detaljerade felsökningsanvisningar.
+[Läs SAP HANA fel sökning: Processor relaterade orsaker och lösningar](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) för detaljerade fel söknings steg.
 
 ## <a name="operating-system"></a>Operativsystem
 
-Ett av de viktigaste kontrollerna för SAP HANA på Linux är att se till att Transparent stora sidor är inaktiverat, se [SAP Obs! #2131662 – Transparent stora sidor (THP) på SAP HANA-servrar](https://launchpad.support.sap.com/#/notes/2131662).
+En av de viktigaste kontrollerna för SAP HANA på Linux är att se till att genomskinliga enorma sidor är inaktiverade, se [SAP Obs! #2131662 – transparenta enorma sidor (THP) på SAP HANA-servrar](https://launchpad.support.sap.com/#/notes/2131662).
 
-- Du kan kontrollera om Transparent stora sidor aktiveras via följande Linux-kommandot: **cat /sys/kernel/mm/transparent\_hugepage/aktiverat**
-- Om _alltid_ omges med hakparenteser enligt nedan, innebär det att Transparent enorm sidorna är aktiverade: [alltid] madvise aldrig; om _aldrig_ omges med hakparenteser enligt nedan, innebär det att Transparent enorm Sidor är inaktiverade: madvise alltid [aldrig]
+- Du kan kontrol lera om transparenta enorma sidor är aktiverade genom följande Linux-kommando: **Cat/sys/kernel/mm/transparent\_hugepage/Enabled**
+- Om _alltid_ omges av hakparenteser som nedan, innebär det att de genomskinliga enorma sidorna är aktiverade: [Always] madvise aldrig; Om _aldrig_ omges av hakparenteser som nedan, innebär det att de genomskinliga enorma sidorna är inaktiverade: alltid madvise [Never]
 
-Kommandot Linux ska returnera inget: **rpm - qa | grep ulimit.** Om den visas _ulimit_ är installerad avinstallerar du den omedelbart.
+Följande Linux-kommando ska returnera inget: **rpm-frågor och svar | grep-ulimit.** Om den verkar vara installerad _ulimit_ avinstallerar du den omedelbart.
 
 ## <a name="memory"></a>Minne
 
-Du kan se att mängden minne som allokerats av SAP HANA-databas är högre än förväntat. Följande aviseringar tyder på problem med hög minnesanvändning:
+Du kanske upptäcker att mängden minne som allokerats av SAP HANA databasen är högre än förväntat. Följande aviseringar visar problem med hög minnes användning:
 
-- Fysisk minnesanvändning för värd (varning 1)
-- Minnesanvändningen för namnservern (varning 12)
-- Total minnesanvändning i kolumnen Store tabeller (varning 40)
-- Minnesanvändning över tjänster (avisering 43)
-- Minnesanvändning av huvudsakliga för lagring av kolumnen Store tabeller (varning 45)
-- Runtime-kraschdumpfiler (varning 46)
+- Användning av fysiskt minne för värd (avisering 1)
+- Minnes användning för namnserver (avisering 12)
+- Total minnes användning för kolumn lagrings tabeller (varning 40)
+- Minnes användning för tjänster (varning 43)
+- Minnes användning för huvud lagring av kolumn lagrings tabeller (varning 45)
+- Dumpfiler för körning av filer (avisering 46)
 
-Referera till den [SAP HANA Felsökning: Minnesproblem](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) för detaljerade felsökningsanvisningar.
+[Läs SAP HANA fel sökning: Plats för](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) minnes problem för detaljerade fel söknings steg.
 
 ## <a name="network"></a>Nätverk
 
-Referera till [SAP Obs! #2081065 – felsökning av nätverk för SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) och utföra felsökning i den här SAP-kommentar nätverk.
+Se [SAP obs #2081065 – fel sökning SAP HANA nätverk](https://launchpad.support.sap.com/#/notes/2081065) och utföra fel söknings stegen i denna SAP-anteckning.
 
-1. Analysera mäts tiden mellan servern och klienten.
-  A. Kör SQL-skript [ _HANA\_nätverk\_klienter_](https://launchpad.support.sap.com/#/notes/1969700) _._
+1. Analysera fördröjnings tiden mellan server och klient.
+  A. Kör SQL-skriptet [_Hana\_-\_nätverks klienter_](https://launchpad.support.sap.com/#/notes/1969700) _._
   
-2. Analysera kommunikation mellan.
-  A. Kör SQL-skript [ _HANA\_nätverk\_Services_](https://launchpad.support.sap.com/#/notes/1969700) _._
+2. Analysera kommunikation mellan noder.
+  A. Kör SQL- [_skript\_Hana\_nätverks tjänster_](https://launchpad.support.sap.com/#/notes/1969700) _._
 
-3. Kör Linux-kommandot **ifconfig** (utdata visar om några paketförluster sker).
+3. Kör Linux- **ifconfig** (utdata visar om eventuella paket förluster inträffar).
 4. Kör Linux-kommandot **tcpdump**.
 
-Du kan också använda den öppna källkoden [IPERF](https://iperf.fr/) verktyget (eller liknande) att mäta verkliga program nätverkets prestanda.
+Använd också [IPERF](https://iperf.fr/) -verktyget med öppen källkod (eller liknande) för att mäta verkliga program nätverks prestanda.
 
-Referera till den [SAP HANA Felsökning: Nätverk prestanda och problem med nätverksanslutningen](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) för detaljerade felsökningsanvisningar.
+[Läs SAP HANA fel sökning: Plats för nätverks prestanda och](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) anslutnings problem för detaljerade fel söknings steg.
 
 ## <a name="storage"></a>Storage
 
-Ur ett för slutanvändare, ett program (eller systemet som helhet) körs långsamt, inte svarar eller även kan verka slutar svara om det finns problem med i/o-prestanda. I den **volymer** fliken i SAP HANA Studio ser du de anslutna volymerna och vilka volymer som används av varje tjänst.
+Från ett slut användar perspektiv kör ett program (eller systemet som helhet) sluggishly, svarar inte eller kan även förefalla sluta svara om det uppstår problem med I/O-prestanda. På fliken **volymer** i SAP HANA Studio kan du se de anslutna volymerna och vilka volymer som används av varje tjänst.
 
-![I fliken volymer i SAP HANA-Studio ser du de anslutna volymerna och vilka volymer som används av varje tjänst](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
+![På fliken volymer i SAP HANA Studio kan du se de anslutna volymerna och vilka volymer som används av varje tjänst](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
-Anslutna volymer i den nedre delen av skärmen ser du information om volymer, till exempel filer och i/o-statistik.
+Anslutna volymer i den nedre delen av skärmen du kan se information om volymerna, till exempel filer och I/O-statistik.
 
-![Anslutna volymer i den nedre delen av skärmen ser du information om volymer, till exempel filer och i/o-statistik](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
+![Anslutna volymer i den nedre delen av skärmen du kan se information om volymerna, till exempel filer och I/O-statistik](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
-Referera till den [SAP HANA Felsökning: I/o-relaterad underliggande orsaker och lösningar](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) och [SAP HANA Felsökning: Disk-lösningar och relaterade rotorsaker](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) för detaljerade felsökningsanvisningar.
+[Läs SAP HANA fel sökning: I/O-relaterade bakomliggande orsaker och](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) lösningar [och SAP HANA fel sökning: Diskrelaterade rot orsaker och lösnings](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) webbplatser för detaljerade fel söknings steg.
 
-## <a name="diagnostic-tools"></a>Diagnostiska verktyg
+## <a name="diagnostic-tools"></a>Diagnostikverktyg
 
-Utföra en SAP HANA-hälsokontroll via HANA\_Configuration\_Minichecks. Det här verktyget returnerar potentiellt allvarligt tekniska problem som bör har redan aktiverats som aviseringar i SAP HANA-Studio.
+Utför en SAP HANA hälso kontroll via Hana\_-\_konfiguration Minichecks. Det här verktyget returnerar potentiella kritiska tekniska problem som redan borde ha höjts som aviseringar i SAP HANA Studio.
 
-Referera till [SAP Obs! #1969700 – SQL-instruktionen samling för SAP HANA](https://launchpad.support.sap.com/#/notes/1969700) och ladda ned filen SQL Statements.zip kopplad till noden. Store ZIP-filen på den lokala hårddisken.
+Se [SAP Note #1969700-SQL-instruktionen för SAP HANA](https://launchpad.support.sap.com/#/notes/1969700) och hämta SQL-uttrycken. zip-filen som är kopplad till den anteckningen. Lagra denna zip-fil på den lokala hård disken.
 
-I SAP HANA Studio på den **Systeminformation** , högerklickar på i den **namn** kolumnen och välj **SQL importuttryck**.
+I SAP HANA Studio går du till fliken **system information** , högerklickar på kolumnen **namn** och väljer **Importera SQL-uttryck**.
 
-![Högerklicka i kolumnen namn i SAP HANA-Studio, på fliken Systeminformation och välj SQL-uttryck för Import](./media/troubleshooting-monitoring/image7-import-statements-a.png)
+![I SAP HANA Studio går du till fliken system information, högerklickar på kolumnen namn och väljer Importera SQL-uttryck](./media/troubleshooting-monitoring/image7-import-statements-a.png)
 
-Välj den SQL Statements.zip-fil som lagras lokalt och en mapp med motsvarande SQL-uttryck som ska importeras. Nu kan du köra många olika diagnostiska kontroller med de här SQL-uttryck.
+Välj SQL-uttrycken. zip-filen lagras lokalt och en mapp med motsvarande SQL-uttryck importeras. I det här läget kan många olika diagnostiska kontroller köras med dessa SQL-uttryck.
 
-Till exempel om du vill testa SAP HANA System Replication krav på bandbredd, högerklickar du på den **bandbredd** instruktionen under **replikering: Bandbredd** och välj **öppna** i SQL-konsolen.
+Om du till exempel vill testa bandbredds kraven för SAP HANA system replikering högerklickar du på bandbredds satsen under **replikering: Bandbredd** och välj **Öppna** i SQL-konsolen.
 
-Den fullständiga SQL-instruktionen öppnas så att indataparametrar (ändring av avsnittet) som ska ändras och därmed körts.
+Hela SQL-instruktionen öppnas och gör att indataparametrarna (ändrings avsnittet) kan ändras och sedan köras.
 
-![Den fullständiga SQL-instruktionen öppnas så att indataparametrar (ändring av avsnittet) som ska ändras och därmed körts](./media/troubleshooting-monitoring/image8-import-statements-b.png)
+![Hela SQL-instruktionen öppnas och gör att indataparametrarna (ändrings avsnittet) kan ändras och sedan köras](./media/troubleshooting-monitoring/image8-import-statements-b.png)
 
-Ett annat exempel är Högerklicka på rapporterna under **replikering: Översikt över**. Välj **kör** från snabbmenyn som visas:
+Ett annat exempel är att högerklicka på instruktionerna under **replikering: Översikt**. Välj **Kör** från snabb menyn:
 
-![Ett annat exempel är Högerklicka på rapporterna under replikering: Översikt över. Välj Kör på snabbmenyn](./media/troubleshooting-monitoring/image9-import-statements-c.png)
+![Ett annat exempel är att högerklicka på instruktionerna under replikering: :. Välj Kör från snabb menyn](./media/troubleshooting-monitoring/image9-import-statements-c.png)
 
-Detta leder till information som underlättar felsökning:
+Detta ger information som hjälper till med fel sökning:
 
-![Detta leder till information som hjälper med felsökning](./media/troubleshooting-monitoring/image10-import-statements-d.png)
+![Detta leder till information som kan hjälpa till med fel sökning](./media/troubleshooting-monitoring/image10-import-statements-d.png)
 
-Gör likadant för HANA\_Configuration\_Minichecks och Sök efter någon _X_ markerar i den _C_ (kritisk) kolumn.
+Gör samma sak för Hana\_\_-Minichecks och kontrol lera om det finns _X_ -markeringar i kolumnen _C_ (kritisk).
 
-Exemplet utdata:
+Exempel på utdata:
 
-**HANA\_Configuration\_MiniChecks\_Rev102.01 + 1** för allmän SAP HANA kontrollerar.
+**Hana\_-konfiguration\_MiniChecks\_rev 102.01 + 1** för allmänt SAP HANA kontroller.
 
-![HANA\_Configuration\_MiniChecks\_Rev102.01 + 1 för allmänna SAP HANA-kontroller](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
+![Hana\_-\_konfigurationMiniChecks\_rev 102.01 + 1 för allmänt SAP HANA kontroller](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
 
-**HANA\_Services\_översikt** en översikt över vad SAP HANA tjänster körs för närvarande.
+**Översikt\_över\_Hana-tjänster** för en översikt över vilka SAP HANA-tjänster som körs för närvarande.
 
-![HANA\_Services\_översikt över en översikt över vad SAP HANA tjänster som körs](./media/troubleshooting-monitoring/image12-services-overview.png)
+![Hana\_-\_tjänster – översikt över vilka SAP HANA-tjänster som körs för närvarande](./media/troubleshooting-monitoring/image12-services-overview.png)
 
-**HANA\_Services\_statistik** för SAP HANA tjänstinformation (processor, minne, osv.).
+Hana-tjänstestatistik för SAP HANA tjänst information (CPU, minne osv.). **\_\_**
 
-![HANA\_Services\_statistik för SAP HANA tjänstinformation](./media/troubleshooting-monitoring/image13-services-statistics.png)
+![Hana\_Services\_statistik för SAP HANA tjänst information](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
-**HANA\_Configuration\_översikt\_Rev110 +** allmän information om SAP HANA-instans.
+**Hana\_konfigurations\_Översikt\_Rev110 +** för allmän information om SAP HANA-instansen.
 
-![HANA\_Configuration\_översikt\_Rev110 + allmän information om SAP HANA-instans](./media/troubleshooting-monitoring/image14-configuration-overview.png)
+![Hana\_-\_konfiguration\_– översikt Rev110 + för allmän information om SAP HANA-instansen](./media/troubleshooting-monitoring/image14-configuration-overview.png)
 
-**HANA\_Configuration\_parametrar\_Rev70 +** kontrollera SAP HANA-parametrarna.
+**Hana\_konfigurations\_parametrar\_Rev70 +** för att kontrol lera SAP HANA parametrar.
 
-![HANA\_Configuration\_parametrar\_Rev70 + för att kontrollera SAP HANA-parametrar](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
+![Hana\_\_konfigurationsparametrar\_Rev70 + för att kontrol lera SAP HANA parametrar](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
 
 **Nästa steg**
 
-- Se [hög tillgänglighet i SUSE med hjälp av STONITH](ha-setup-with-stonith.md).
+- Se [hur hög tillgänglighet har kon figurer ATS i SUSE med hjälp av STONITH](ha-setup-with-stonith.md).

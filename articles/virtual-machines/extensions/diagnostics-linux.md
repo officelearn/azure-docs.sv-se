@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 0627361fdd4f94a329b08b184dbd542e1927af39
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 19aa0877c7c37083a6206e094aced40542d0ef72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871914"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092671"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använd Linux-diagnostiskt tillägg för att övervaka mått och loggar
 
@@ -127,7 +127,7 @@ Den här uppsättningen konfigurations information innehåller känslig informat
 }
 ```
 
-Namn | Value
+Name | Value
 ---- | -----
 storageAccountName | Namnet på det lagrings konto där data skrivs av tillägget.
 storageAccountEndPoint | valfritt Slut punkten som identifierar molnet där lagrings kontot finns. Om den här inställningen saknas, LAD standardvärdet för det offentliga Azure `https://core.windows.net`-molnet. Om du vill använda ett lagrings konto i Azure Germany, Azure Government eller Azure Kina anger du detta värde i enlighet med detta.
@@ -135,9 +135,7 @@ storageAccountSasToken | En [SAS](https://azure.microsoft.com/blog/sas-update-ac
 mdsdHttpProxy | valfritt Information om HTTP-proxy som krävs för att aktivera tillägget för att ansluta till det angivna lagrings kontot och slut punkten.
 sinksConfig | valfritt Information om alternativa destinationer till vilka mått och händelser som kan levereras. Detaljerad information om varje data mottagare som stöds av tillägget beskrivs i avsnitten som följer.
 
-
-> [!NOTE]
-> När du distribuerar tillägget med en mall för Azure-distribution måste lagrings kontot och SAS-token skapas i förväg och sedan skickas till mallen. Du kan inte distribuera en virtuell dator, ett lagrings konto och konfigurera tillägget i en enda mall. Det finns för närvarande inte stöd för att skapa en SAS-token i en mall.
+Om du vill hämta en SAS-token i en Resource Manager-mall använder du funktionen **listAccountSas** . En exempel-mall finns i [exempel på en lista funktion](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
 
 Du kan enkelt skapa den SAS-token som krävs via Azure Portal.
 
@@ -252,12 +250,12 @@ mdsdHttpProxy | valfritt Samma som i de [skyddade inställningarna](#protected-s
 
 Den här valfria strukturen styr insamlingen av mått och loggar för leverans till Azure Metrics-tjänsten och till andra data mottagare. Du måste ange antingen `performanceCounters` eller `syslogEvents` eller båda. Du måste ange `metrics` strukturen.
 
-Element | Värde
+Element | Value
 ------- | -----
 eventVolume | valfritt Styr antalet partitioner som skapats i lagrings tabellen. Måste vara en av `"Large"`, `"Medium"`eller `"Small"`. Om inget värde anges är `"Medium"`standardvärdet.
 sampleRateInSeconds | valfritt Standard intervallet mellan samling av RAW-mått (unaggregerade). Den minsta samplings frekvensen som stöds är 15 sekunder. Om inget värde anges är `15`standardvärdet.
 
-#### <a name="metrics"></a>metrics
+#### <a name="metrics"></a>mått
 
 ```json
 "metrics": {
@@ -318,7 +316,7 @@ räknare | Tillsammans med "Class" identifierar det angivna måttet i namn områ
 counterSpecifier | Identifierar det speciella måttet i namn området för Azure-mått.
 condition | valfritt Väljer en speciell instans av objektet som måttet gäller för eller väljer agg regeringen för alla instanser av objektet. Mer information finns i `builtin` mått definitionerna.
 sampleRate | ÄR 8601 intervall som anger med vilken hastighet rå samplingar för det här måttet samlas in. Om den inte anges anges samlings intervallet av värdet för [sampleRateInSeconds](#ladcfg). Den kortaste samplings frekvensen är 15 sekunder (PT15S).
-processor | Ska vara en av följande strängar: "Count", "bytes", "Seconds", "percent", "CountPerSecond", "BytesPerSecond", "Millisekunde". Definierar måttets enhet. Användare av insamlade data förväntar sig insamlade datavärden som matchar den här enheten. LAD ignorerar det här fältet.
+enhet | Ska vara en av följande strängar: "Count", "bytes", "Seconds", "percent", "CountPerSecond", "BytesPerSecond", "Millisekunde". Definierar måttets enhet. Användare av insamlade data förväntar sig insamlade datavärden som matchar den här enheten. LAD ignorerar det här fältet.
 displayName | Etiketten (på det språk som anges av den associerade språk inställningen) som ska kopplas till dessa data i Azure-mått. LAD ignorerar det här fältet.
 
 CounterSpecifier är en godtycklig identifierare. Konsumenter av mått, som Azure Portal funktion för diagram och avisering, använder counterSpecifier som "Key" som identifierar ett mått eller en instans av ett mått. För `builtin` mått rekommenderar vi att du använder counterSpecifier-värden som börjar med `/builtin/`. Om du samlar in en speciell instans av ett mått rekommenderar vi att du kopplar instansens identifierare till counterSpecifier-värdet. Några exempel:
@@ -408,7 +406,7 @@ Styr avbildningen av loggfiler. LAD fångar nya text rader när de skrivs till f
 ]
 ```
 
-Element | Värde
+Element | Value
 ------- | -----
 file | Den fullständiga sökvägen till logg filen som ska bevakas och fångas. Sökvägen måste ha ett namn på en enskild fil. den kan inte namnge en katalog eller innehålla jokertecken.
 table | valfritt Azure Storage-tabellen, i det angivna lagrings kontot (enligt vad som anges i den skyddade konfigurationen), som nya rader från "änden" av filen skrivs till.

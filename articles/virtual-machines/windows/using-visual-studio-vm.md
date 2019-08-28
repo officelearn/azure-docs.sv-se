@@ -1,6 +1,6 @@
 ---
-title: Med Visual Studio på en Azure-dator | Microsoft Docs
-description: Med Visual Studio på en Azure-dator.
+title: Använda Visual Studio på en virtuell Azure-dator | Microsoft Docs
+description: Använda Visual Studio på en virtuell Azure-dator.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: PhilLee-MSFT
@@ -10,50 +10,49 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.date: 06/24/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 31b856b4f6937b57f0a2b82d94fc0fb02936f83f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b62e7e993ba4b5784e28dd9a36979640e2e37da6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449362"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101537"
 ---
-# <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar på Azure
-Med Visual Studio på en förkonfigurerad Azure-dator (VM) är ett snabbt, enkelt sätt att gå från inget till en upp-igång-utvecklingsmiljö. Systemavbildningar med olika konfigurationer för Visual Studio finns i den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
+# <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar i Azure
+Att använda Visual Studio i en förkonfigurerad virtuell dator i Azure är ett snabbt och enkelt sätt att gå från ingenting till en utvecklings miljö som är igång. System avbildningar med olika Visual Studio-konfigurationer är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
 
 Ny Azure-användare? [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Vilka konfigurationer och versioner är tillgängliga?
-Avbildningar för de senaste huvudversioner, 2019 för Visual Studio, Visual Studio 2017 och Visual Studio 2015 finns på Azure Marketplace.  För var och en publicerad huvudversion du ser den ursprungligen ”är web” (RTW) version och de senaste uppdaterade versionerna.  Var och en av dessa versioner erbjuder Visual Studio Enterprise och Visual Studio Community-versionerna.  Dessa avbildningar uppdateras minst varje månad för att inkludera de senaste uppdateringarna för Visual Studio och Windows.  När namnen på avbildningarna är desamma, innehåller varje Bildbeskrivning installerade produktversionen och avbildningens ”datum som anges efter”.
+Avbildningar för de senaste huvud versionerna, Visual Studio 2019, Visual Studio 2017 och Visual Studio 2015 finns på Azure Marketplace.  För varje släppt större version ser du den ursprungligen "lanserad till webb"-versionen (RTW) och de senaste uppdaterade versionerna.  Var och en av dessa versioner har Visual Studio Enterprise-och community-versionerna av Visual Studio.  De här avbildningarna uppdateras minst varje månad för att inkludera de senaste versionerna av Visual Studio och Windows.  Även om namnen på bilderna är desamma, innehåller varje avbildnings Beskrivning den installerade produkt versionen och bildens datum.
 
-| Slutversionen                                                                                                                                                | Utgåvor              | Produktversion   |
+| Version                                                                                                                                                | Utgåvor              | Produktversion   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: Senaste (Version 16,1 tum)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | Version 16.1.3    |
-| [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, Community | Version 16.0.5    |
-| [Visual Studio 2017: Senaste (Version 15.9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, Community | Version 15.9.13   |
-| [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, Community | Version 15.0.24   |
-| [Visual Studio 2015: Senaste (Aktualizace 3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, Community | Version 14.0.25431.01 |
+| [Visual Studio 2019: Senaste (version 16,1)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, community | Version 16.1.3    |
+| [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, community | Version 16.0.5    |
+| [Visual Studio 2017: Senaste (version 15,9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, community | Version 15.9.13   |
+| [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, community | Version 15.0.24   |
+| [Visual Studio 2015: Senaste (uppdatering 3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, community | Version 14.0.25431.01 |
 
 > [!NOTE]
-> I enlighet med Microsofts hanteringsprincip, den ursprungligen (RTW) versionen av Visual Studio 2015 har upphört att gälla för behandling. Visual Studio 2015 Update 3 är den enda återstående versionen som erbjuds för Visual Studio 2015 produktserie.
+> I enlighet med Microsofts Service policy har den ursprungligen publicerade (RTW) versionen av Visual Studio 2015 gått ut för service. Visual Studio 2015 uppdatering 3 är den enda återstående versionen som erbjuds för produkt raden för Visual Studio 2015.
 
-Mer information finns i den [princip för underhåll av Visual Studio](https://www.visualstudio.com/productinfo/vs-servicing-vs).
+Mer information finns i hanterings [principen för Visual Studio](https://www.visualstudio.com/productinfo/vs-servicing-vs).
 
 ## <a name="what-features-are-installed"></a>Vilka funktioner är installerade?
-Varje avbildning innehåller rekommenderade funktionerna i den Visual Studio-versionen. I allmänhet innehåller installationen:
+Varje bild innehåller den rekommenderade funktions uppsättningen för Visual Studio-versionen. I allmänhet innehåller installationen:
 
-* Alla tillgängliga arbetsbelastningar, inklusive varje arbetsbelastning rekommenderas valfria komponenter
-* .NET 4.6.2 och .NET 4.7 SDK: er och Målpaket utvecklarverktyg
-* Visual F#
-* GitHub-tillägget för Visual Studio
-* LINQ till SQL-verktyg
+* Alla tillgängliga arbets belastningar, inklusive varje arbets belastnings rekommenderade valfria komponenter
+* .NET 4.6.2-och .NET 4,7-SDK: er, mål paket och Utvecklarverktyg
+* BildF#
+* GitHub-tillägg för Visual Studio
+* LINQ to SQL verktyg
 
-Kommandoraden som används för att installera Visual Studio när du bygger avbildningar är följande:
+Den kommando rad som används för att installera Visual Studio när avbildningarna skapas är följande:
 
 ```
     vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
@@ -67,10 +66,10 @@ Kommandoraden som används för att installera Visual Studio när du bygger avbi
        add Microsoft.VisualStudio.Component.LinqToSql
 ```
 
-Om bilderna inte innehåller en funktion i Visual Studio som du behöver kan du ge feedback med verktyget feedback i det övre högra hörnet på sidan.
+Om avbildningarna inte innehåller en Visual Studio-funktion som du behöver, lämna feedback via feedback-verktyget i det övre högra hörnet på sidan.
 
-## <a name="what-size-vm-should-i-choose"></a>Hur stor virtuell dator ska jag välja?
-Azure erbjuder en mängd olika storlekar för virtuella datorer. Eftersom Visual Studio är ett kraftfullt och flertrådiga program behöver du en VM-storlek som innehåller minst två processorer och 7 GB minne. Vi rekommenderar följande VM-storlekar för Visual Studio-avbildningar:
+## <a name="what-size-vm-should-i-choose"></a>Vilken storlek ska jag välja för den virtuella datorn?
+Azure erbjuder ett stort utbud av virtuella dator storlekar. Eftersom Visual Studio är ett kraftfullt program med flera trådar, vill du ha en VM-storlek som innehåller minst två processorer och 7 GB minne. Vi rekommenderar följande VM-storlekar för Visual Studio-avbildningar:
 
    * Standard_D2_v3
    * Standard_D2s_v3
@@ -80,37 +79,37 @@ Azure erbjuder en mängd olika storlekar för virtuella datorer. Eftersom Visual
    * Standard_D2S_v2
    * Standard_D3_v2
     
-Mer information om de senaste datorstorlekar finns [storlekar för Windows-datorer i Azure](/azure/virtual-machines/windows/sizes).
+Mer information om de senaste dator storlekarna finns i [storlekar för virtuella Windows-datorer i Azure](/azure/virtual-machines/windows/sizes).
 
-Med Azure kan du balansera om ditt första val genom att ändra storlek på den virtuella datorn. Du kan etablera en ny virtuell dator med en mer passande storlek eller ändra storlek på den befintliga virtuella datorn till olika underliggande maskinvara. Mer information finns i [ändra storlek på en virtuell Windows-dator](/azure/virtual-machines/windows/resize-vm).
+Med Azure kan du balansera om ditt ursprungliga val genom att ändra storlek på den virtuella datorn. Du kan antingen etablera en ny virtuell dator med en lämplig storlek eller ändra storlek på den befintliga virtuella datorn till annan underliggande maskin vara. Mer information finns i [ändra storlek på en virtuell Windows-dator](/azure/virtual-machines/windows/resize-vm).
 
-## <a name="after-the-vm-is-running-whats-next"></a>När Virtuellt datorn körs, vad händer nu?
-Visual Studio följer ”ta med din egen licens”-modell i Azure. Precis som med en installation på upphovsrättsskyddad maskinvara, är en av de första stegen licensiering Visual Studio-installationen. Att låsa upp Visual Studio, antingen:
-- Logga in med ett Microsoft-konto som är associerat med ett Visual Studio-prenumeration 
-- Lås upp Visual Studio med produktnyckeln som medföljde din ursprungliga köpet
+## <a name="after-the-vm-is-running-whats-next"></a>Vad händer när den virtuella datorn körs?
+Visual Studio följer modellen "ta med din egen licens" i Azure. Som vid en installation av tillverkarspecifik maskin vara är ett av de första stegen att licensiera din Visual Studio-installation. För att låsa upp Visual Studio, antingen:
+- Logga in med ett Microsoft-konto som är associerat med en Visual Studio-prenumeration 
+- Lås upp Visual Studio med produkt nyckeln som medföljde ditt första köp
 
-Mer information finns i [logga in i Visual Studio](/visualstudio/ide/signing-in-to-visual-studio) och [hur du låser upp Visual Studio](/visualstudio/ide/how-to-unlock-visual-studio).
+Mer information finns i [Logga in i Visual Studio](/visualstudio/ide/signing-in-to-visual-studio) och [så här låser du upp Visual Studio](/visualstudio/ide/how-to-unlock-visual-studio).
 
-## <a name="how-do-i-save-the-development-vm-for-future-or-team-use"></a>Hur använder jag spara virtuell utvecklingsdator framtiden eller team?
+## <a name="how-do-i-save-the-development-vm-for-future-or-team-use"></a>Hur gör jag för att vill du spara den virtuella utvecklings datorn för framtida bruk eller team?
 
-Spektrum av utvecklingsmiljöer är stor och det är verkliga kostnaden för att skapa mer komplexa miljöer. Du kan spara eller samla in, den Konfigurera virtuella datorn som en ”grundläggande avbildning” för framtida användning eller för andra medlemmar i din grupp oavsett konfigurationen för din miljö. Sedan, när du startar en ny virtuell dator du etablerar den från basavbildningen i stället för Azure Marketplace-avbildning.
+Spektrumet av utvecklings miljöer är enorma och det finns en verklig kostnad för att bygga ut mer komplexa miljöer. Oavsett din miljös konfiguration kan du spara eller avbilda en konfigurerad virtuell dator som en "bas avbildning" för framtida användning eller för andra medlemmar i din grupp. När du startar en ny virtuell dator kan du sedan etablera den från bas avbildningen i stället för Azure Marketplace-avbildningen.
 
-En snabb Sammanfattning: Använda systemförberedelseverktyget (Sysprep) och Stäng av virtuell dator som körs och sedan avbilda *(bild 1)* den virtuella datorn som en bild via Användargränssnittet i Azure-portalen. Azure sparar den `.vhd` -fil som innehåller bilden i storage-konto du väljer. Den nya avbildningen visas sedan som en bildresurs i din prenumeration listan över resurser.
+En snabb sammanfattning: Använd system förberedelse verktyget (Sysprep) och Stäng av den virtuella datorn som körs och avbilda sedan *(bild 1)* den virtuella datorn som en bild via användar gränssnittet i Azure Portal. Azure sparar `.vhd` filen som innehåller avbildningen i det lagrings konto som du väljer. Den nya avbildningen visas sedan som en avbildnings resurs i prenumerationens lista över resurser.
 
-<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center> *(Bild 1) Spara en avbildning via Azure-portalens användargränssnitt.* </center>
+<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center> *(Bild 1) Avbilda en avbildning via Azure Portal gränssnittet.* </center>
 
 Mer information finns i [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](/azure/virtual-machines/windows/capture-image-resource).
 
 > [!IMPORTANT]
-> Glöm inte för att förbereda den virtuella datorn med hjälp av Sysprep. Om du missar det steget kan inte Azure etablera en virtuell dator från avbildningen.
+> Glöm inte att använda Sysprep för att förbereda den virtuella datorn. Om du saknar det steget kan Azure inte etablera en virtuell dator från avbildningen.
 
 > [!NOTE]
-> Du kan fortfarande medföra några kostnader för lagring av avbildningarna, men att ökad kostnad obetydlig jämfört med omkostnaderna att återskapa den virtuella datorn från grunden för varje medlem i gruppen som behöver något. Det kostar exempelvis några kronor i att skapa och lagra en 127 GB-avbildning i en månad som är återanvändbara genom hela arbetsgruppen. Dessa kostnader är dock obetydlig jämfört med timmar varje medarbetare investerar för att bygga ut och validera en korrekt konfigurerad maskin för sin egen användning.
+> Du får fortfarande lite kostnad för lagring av avbildningarna, men den ökade kostnaden kan vara obetydlig jämfört med kostnaderna för att återskapa den virtuella datorn från grunden för varje grupp medlem som behöver en. Till exempel kostar det några dollar att skapa och lagra en 127 GB-avbildning för en månad som kan återanvändas av hela teamet. Dessa kostnader är dock obetydliga jämfört med timmar som varje medarbetare investerar för att bygga ut och validera en korrekt konfigurerad dev box för deras enskilda användning.
 
-Dessutom kan din utvecklingsuppgifter eller tekniker behöver mer skala, t.ex. av konfigurationer för utveckling och konfigurationer för flera datorer. Du kan använda Azure DevTest Labs för att skapa _recept_ som automatiserar konstruktion av din ”gyllene bild”. Du kan också använda DevTest Labs för att hantera principer för virtuella datorer som körs i ditt team. [Med Azure DevTest Labs för utvecklare](/azure/devtest-lab/devtest-lab-developer-lab) är den bästa källan för mer information om DevTest Labs.
+Dessutom kan utvecklings uppgifterna eller teknikerna behöva större skalning, t. ex. sorters utvecklings konfigurationer och flera datorkonfigurationer. Du kan använda Azure DevTest Labs för att skapa _recept_ som automatiserar skapandet av "gyllene bilder". Du kan också använda DevTest Labs för att hantera principer för gruppens virtuella datorer som körs. Att [använda Azure DevTest Labs för utvecklare](/azure/devtest-lab/devtest-lab-developer-lab) är den bästa källan för mer information om DevTest Labs.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du vet om de förkonfigurerade avbildningarna för Visual Studio, är nästa steg att skapa en ny virtuell dator:
+Nu när du vet om de förkonfigurerade Visual Studio-avbildningarna är nästa steg att skapa en ny virtuell dator:
 
-* [Skapa en virtuell dator via Azure portal](quick-create-portal.md)
-* [Översikt över Windows-datorer](overview.md)
+* [Skapa en virtuell dator via Azure Portal](quick-create-portal.md)
+* [Översikt över Virtuella Windows-datorer](overview.md)

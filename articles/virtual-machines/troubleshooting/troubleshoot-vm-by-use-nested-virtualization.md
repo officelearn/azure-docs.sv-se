@@ -1,6 +1,6 @@
 ---
-title: Felsöka ett problem virtuell Azure-dator med hjälp av kapslad virtualisering i Azure | Microsoft Docs
-description: Så här felsöker du problem virtuell Azure-dator med hjälp av kapslad virtualisering i Azure
+title: Felsöka ett problem med en virtuell Azure-dator med hjälp av kapslad virtualisering i Azure | Microsoft Docs
+description: Så här felsöker du ett problem med en virtuell Azure-dator med hjälp av kapslad virtualisering i Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
@@ -10,134 +10,133 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 135368fd9b838573ae8aa65e16d5df2cd3df3e6d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 18d7e9b0ab44dfe18df0dcd7cd36fb708649a4bc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709235"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089679"
 ---
-# <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Felsöka ett problem virtuell Azure-dator med hjälp av kapslad virtualisering i Azure
+# <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Felsöka ett problem med en virtuell Azure-dator med hjälp av kapslad virtualisering i Azure
 
-Den här artikeln visar hur du skapar en miljö för kapslad virtualisering i Microsoft Azure, så att du kan montera disken om problemet virtuell dator på Hyper-V-värd (Räddade VM) i felsökningssyfte.
+Den här artikeln visar hur du skapar en kapslad virtualiseringslösning i Microsoft Azure, så att du kan montera disken för den virtuella datorn med problem på Hyper-V-värden (rädda VM) i fel söknings syfte.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill montera problemet VM måste Räddade VM uppfylla följande krav:
+För att montera den virtuella datorns problem måste den virtuella datorn uppfylla följande krav:
 
--   Den virtuella datorn Räddade måste vara på samma plats som problemet VM.
+-   Den virtuella räddnings datorn måste finnas på samma plats som det virtuella problemet.
 
--   Den virtuella datorn Räddade måste finnas i samma resursgrupp som problemet VM.
+-   Den virtuella räddnings datorn måste finnas i samma resurs grupp som den virtuella datorns problem.
 
--   Den virtuella datorn Räddade måste använda samma typ av Lagringskonto (Standard eller Premium) som problemet VM.
+-   Den räddande virtuella datorn måste använda samma typ av lagrings konto (standard eller Premium) som den virtuella datorns problem.
 
-## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Steg 1: Skapa en Räddade virtuell dator och installera Hyper-V-rollen
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Steg 1: Skapa en virtuell dator för räddning och installera Hyper-V-rollen
 
-1.  Skapa en ny Räddade virtuell dator:
+1.  Skapa en ny virtuell dator för räddning:
 
-    -  Operativsystem: Windows Server 2016 Datacenter
+    -  Operativ system: Windows Server 2016 Datacenter
 
-    -  Storlek: Alla V3-serien med minst två kärnor som har stöd för kapslad virtualisering. Mer information finns i [introduktion till de nya storlekarna Dv3 och Ev3 för Virtuella](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
+    -  Storlek: Alla v3-serier med minst två kärnor som stöder kapslad virtualisering. Mer information finns i [Introduktion till nya Dv3 och EV3 VM-storlekar](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
-    -  Samma plats, Lagringskontot och resursgrupp som problemet VM.
+    -  Samma plats, lagrings konto och resurs grupp som det virtuella problemet.
 
-    -  Välj samma lagringstyp som problemet VM (Standard eller Premium).
+    -  Välj samma lagrings typ som den virtuella datorn för problemet (standard eller Premium).
 
-2.  Efter den Räddade virtuella datorn skapas, fjärrskrivbord till den virtuella datorn Räddade.
+2.  När den virtuella räddnings datorn har skapats, fjärr skrivbord till den räddande virtuella datorn.
 
-3.  I Serverhanteraren väljer **hantera** > **Lägg till roller och funktioner**.
+3.  I Serverhanteraren väljer du **Hantera** > **Lägg till roller och funktioner**.
 
-4.  I den **installationstyp** väljer **rollbaserad eller funktionsbaserad installation**.
+4.  I avsnittet **Installations typ** väljer du **rollbaserad eller funktions baserad installation**.
 
-5.  I den **väljer målservern** Kontrollera att den virtuella datorn Räddade har valts.
+5.  I avsnittet **Välj mål server** kontrollerar du att den RÄDDANDE virtuella datorn är markerad.
 
-6.  Välj den **Hyper-V-rollen** > **Lägg till funktioner**.
+6.  Välj **rollen Hyper-V-roll** > **Lägg till funktioner**.
 
-7.  Välj **nästa** på den **funktioner** avsnittet.
+7.  Välj **Nästa** i avsnittet **funktioner** .
 
-8.  Om en virtuell växel är tillgänglig väljer du den. Välj annars **nästa**.
+8.  Om en virtuell växel är tillgänglig väljer du den. Annars väljer du **Nästa**.
 
-9.  På den **migrering** väljer **nästa**
+9.  I avsnittet **migrering** väljer du **Nästa**
 
-10. På den **Standardlagringsplatser** väljer **nästa**.
+10. I avsnittet **standard butiker** väljer du **Nästa**.
 
-11. Markera rutan om du vill starta om servern automatiskt om det behövs.
+11. Markera kryss rutan om du vill starta om servern automatiskt om det behövs.
 
 12. Välj **Installera**.
 
-13. Tillåt att servern installera Hyper-V-rollen. Detta tar några minuter och servern startas om automatiskt.
+13. Tillåt att servern installerar Hyper-V-rollen. Det tar några minuter och servern startas om automatiskt.
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Steg 2: Skapa problemet VM på den Räddade Virtuella Hyper-V-servern
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Steg 2: Skapa den virtuella datorns problem på den rädda virtuella datorn Hyper-V-Server
 
-1.  Anteckna namnet på disken i problemet VM och ta sedan bort problemet VM. Se till att du behåller alla anslutna diskar. 
+1.  Anteckna namnet på disken i den virtuella datorns problem och ta sedan bort det virtuella problemet. Se till att du behåller alla anslutna diskar. 
 
-2.  Koppla ditt problem VM OS-disk som en datadisk på den virtuella datorn Räddade.
+2.  Koppla OS-disken till din problem-VM som en data disk för den räddande virtuella datorn.
 
-    1.  När du har problem med virtuella datorn tas bort, gå till den virtuella datorn Räddade.
+    1.  När du har tagit bort den virtuella datorns problem går du till den virtuella datorn för räddning.
 
-    2.  Välj **diskar**, och sedan **Lägg till datadisk**.
+    2.  Välj **diskar**och sedan **Lägg till data disk**.
 
-    3.  Välj problem-virtuell disk och välj sedan **spara**.
+    3.  Välj disken för det virtuella problemet och välj sedan **Spara**.
 
-3.  När disken har kopplats anslutna, remote desktop för Räddade VM.
+3.  När disken har anslutits till den rädda virtuella datorn via fjärr skrivbord.
 
-4.  Öppna Diskhantering (diskmgmt.msc). Kontrollera att disken problemets VM är inställd på **Offline**.
+4.  Öppna disk hantering (diskmgmt. msc). Kontrol lera att disken för den virtuella datorns problem har angetts till **offline**.
 
-5.  Öppna Hyper-V Manager: I **Serverhanteraren**väljer den **Hyper-V-rollen**. Högerklicka på servern och välj sedan den **Hyper-V Manager**.
+5.  Öppna Hyper-V Manager: I **Serverhanteraren**väljer du **Hyper-V-rollen**. Högerklicka på servern och välj sedan **Hyper-V Manager**.
 
-6.  Högerklicka på Räddade virtuell dator i Hyper-V-hanteraren och välj sedan **New** > **VM** > **nästa**.
+6.  I Hyper-V Manager högerklickar du på den virtuella datorn för räddning och väljer sedan **ny** > **virtuell dator** > **Nästa**.
 
-7.  Skriv ett namn för den virtuella datorn och välj sedan **nästa**.
+7.  Ange ett namn för den virtuella datorn och välj sedan **Nästa**.
 
-8.  Välj **Generation 1**.
+8.  Välj **generation 1**.
 
-9.  Ange startminne på minst 1 024 MB.
+9.  Ange start minnet på 1024 MB eller mer.
 
-10. Välj Hyper-V-nätverksväxel som skapades om tillämpligt. Annars gå till nästa sida.
+10. Om det är tillämpligt väljer du den Hyper-V-nätverks växel som skapades. Annars går du till nästa sida.
 
-11. Välj **koppla en virtuell hårddisk senare**.
+11. Välj **Anslut en virtuell hård disk senare**.
 
-    ![bild som visar Anslut en virtuell hårddisk senare alternativet](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    ![alternativet om alternativet Anslut en virtuell hård disk senare](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Välj **Slutför** när den virtuella datorn skapas.
 
-13. Högerklicka på den virtuella datorn som du skapade och välj sedan **inställningar**.
+13. Högerklicka på den virtuella datorn som du skapade och välj sedan **Inställningar**.
 
-14. Välj **IDE-styrenhet 0**väljer **hårddisk**, och klicka sedan på **Lägg till**.
+14. Välj **IDE-styrenhet 0**, Välj **hård disk**och klicka sedan på **Lägg till**.
 
-    ![bild som visar lägger till ny hårddisk](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    ![bilden om lägger till en ny hård disk](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-15. I **fysisk hårddisk**, Välj disken för problemet virtuell dator som du har kopplat till den virtuella Azure-datorn. Om du inte ser alla diskar som visas, kontrollerar du om disken sätts till offline med hjälp av Diskhantering.
+15. På **fysisk hård disk**väljer du disken för den virtuella dator som du har anslutit till den virtuella Azure-datorn. Om du inte ser några diskar i listan kontrollerar du om disken är inställd på offline med hjälp av disk hantering.
 
-    ![bild som visar monterar disken](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    ![avbildningen om att montera disken](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. Tryck på **Tillämpa** och välj sedan **OK**.
 
-18. Dubbelklicka på den virtuella datorn och starta den.
+18. Dubbelklicka på den virtuella datorn och starta den sedan.
 
-19. Nu kan du arbeta på den virtuella datorn som den lokala virtuella datorn. Du kan följa eventuella felsökningssteg som du behöver.
+19. Nu kan du arbeta med den virtuella datorn som den lokala virtuella datorn. Du kan följa eventuella fel söknings steg som du behöver.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Steg 3: Återskapa din Azure-dator i Azure
+## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Steg 3: Återskapa din virtuella Azure-dator i Azure
 
-1.  När du får den virtuella datorn online igen kan du stänga av den virtuella datorn i Hyper-V manager.
+1.  När du har återställt den virtuella datorn online stänger du den virtuella datorn i Hyper-V Manager.
 
-2.  Gå till den [Azure-portalen](https://portal.azure.com) och väljer den virtuella datorn Räddade > diskar, kopierar du namnet på disken. Du använder namnet i nästa steg. Koppla bort fast disk från den virtuella datorn Räddade.
+2.  Gå till [Azure Portal](https://portal.azure.com) och välj den virtuella > diskarna för räddnings tjänsten, kopiera namnet på disken. Du kommer att använda namnet i nästa steg. Koppla från den fasta disken från den virtuella datorn för räddning.
 
-3.  Gå till **alla resurser**, Sök efter namnet på disken och sedan väljer du disken.
+3.  Gå till **alla resurser**, Sök efter disk namnet och välj sedan disken.
 
-     ![bild som visar söker disken](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+     ![bilden om sökning på disken](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. Klicka på **Skapa virtuell dator**.
 
-     ![bild som visar skapar virtuell dator från disken](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+     ![avbildningen om skapar virtuell dator från disken](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 Du kan också använda Azure PowerShell för att skapa den virtuella datorn från disken. Mer information finns i [skapa den nya virtuella datorn från en befintlig disk med hjälp av PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har problem med att ansluta till den virtuella datorn kan du läsa [felsöka RDP-anslutningar till en Azure VM](troubleshoot-rdp-connection.md). Problem med att komma åt program som körs på den virtuella datorn finns [felsöka problem med programanslutningar på en virtuell Windows-dator](troubleshoot-app-connection.md).
+Om du har problem med att ansluta till din virtuella dator kan du läsa [FELSÖKA RDP-anslutningar till en virtuell Azure-dator](troubleshoot-rdp-connection.md). Problem med att komma åt program som körs på den virtuella datorn finns i [Felsöka problem med program anslutningen på en virtuell Windows-dator](troubleshoot-app-connection.md).

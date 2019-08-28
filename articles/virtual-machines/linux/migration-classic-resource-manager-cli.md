@@ -1,6 +1,6 @@
 ---
-title: Migrera virtuella datorer till Resource Manager med Azure CLI | Microsoft Docs
-description: Den här artikeln beskriver plattformsunderstödd migrering av resurser från klassisk till Azure Resource Manager med hjälp av Azure CLI
+title: Migrera virtuella datorer till Resource Manager med hjälp av Azure CLI | Microsoft Docs
+description: Den här artikeln går igenom den plattforms oberoende migreringen av resurser från klassisk till Azure Resource Manager med hjälp av Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
@@ -11,142 +11,141 @@ ms.assetid: d6f5a877-05b6-4127-a545-3f5bede4e479
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 0e21a962fb03a42af4cb32fcdf60cd59746a591d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7af101b036e8e40a14ad5d9931cc897cb1758ea0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667370"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082771"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av Azure CLI
-De här stegen visar hur du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att migrera infrastruktur som en tjänst (IaaS)-resurser från den klassiska distributionsmodellen Azure Resource Manager-distributionsmodellen. Artikeln kräver den [Azure klassiskt CLI](../../cli-install-nodejs.md). Eftersom Azure CLI kan bara användas för Azure Resource Manager-resurser, kan inte användas för den här migreringen.
+De här stegen visar hur du använder kommando rads kommandon i Azure (CLI) för att migrera infrastruktur som en tjänst (IaaS) resurser från den klassiska distributions modellen till Azure Resource Manager distributions modell. Artikeln kräver den [klassiska Azure CLI](../../cli-install-nodejs.md). Eftersom Azure CLI bara är tillämpligt för Azure Resource Manager-resurser kan det inte användas för migreringen.
 
 > [!NOTE]
-> Alla åtgärder som beskrivs här är idempotenta. Om du har andra problem än en funktion som inte stöds eller ett konfigurationsfel rekommenderar vi att du gör om förbereda, avbryta eller utför-åtgärden. Plattformen försöker sedan igen.
+> Alla åtgärder som beskrivs här är idempotenta. Om du har problem med en funktion som inte stöds eller ett konfigurations fel rekommenderar vi att du gör om åtgärden för att förbereda, avbryta eller bekräfta. Plattformen kommer sedan att försöka utföra åtgärden igen.
 > 
 > 
 
 <br>
-Här är ett flödesschema för att identifiera den ordning som stegen måste utföras en Migreringsprocess
+Här är ett flödes schema för att identifiera i vilken ordning stegen måste utföras under en migreringsprocessen
 
 ![Skärmbild som visar migreringsstegen](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-prepare-for-migration"></a>Steg 1: Förbereda för migrering
-Här följer några metodtips som vi rekommenderar medan du utvärderar migrera IaaS-resurser från klassisk till Resource Manager:
+Här följer några tips som vi rekommenderar när du utvärderar migrering av IaaS-resurser från klassisk till Resource Manager:
 
-* Läs igenom den [lista över konfigurationer som inte stöds eller funktioner](../windows/migration-classic-resource-manager-overview.md). Om du har virtuella datorer som använder konfigurationer som inte stöds eller funktioner, rekommenderar vi att du väntar funktionen/konfigurationssupport meddelas. Du kan också ta bort funktionen eller flytta från den konfigurationen för att aktivera migrering om det passar dina behov.
-* Om du har automatiserat skript som distribuerar din infrastruktur och dina program idag, försök att skapa en liknande test-konfiguration med hjälp av dessa skript för migrering. Du kan också ställa in exempelmiljöer med hjälp av Azure portal.
+* Läs igenom [listan med konfigurationer eller funktioner som inte stöds](../windows/migration-classic-resource-manager-overview.md). Om du har virtuella datorer som använder konfigurationer eller funktioner som inte stöds, rekommenderar vi att du väntar på att stöd för funktionen/konfigurationen ska tillkännages. Du kan också ta bort funktionen eller flytta bort från den konfigurationen för att aktivera migrering om den passar dina behov.
+* Om du har automatiserade skript som distribuerar din infrastruktur och dina program idag kan du försöka skapa en liknande test installation genom att använda dessa skript för migrering. Du kan också konfigurera exempel miljöer med hjälp av Azure Portal.
 
 > [!IMPORTANT]
-> Programgatewayer stöds inte för migrering från klassisk till Resource Manager. Ta bort gatewayen innan du kör en Förbered-åtgärden för att flytta nätverket för att migrera ett klassiskt virtuellt nätverk med en Programgateway. När du har slutfört migreringen kan du återansluta gateway i Azure Resource Manager. 
+> Programgatewayer stöds för närvarande inte för migrering från klassisk till Resource Manager. Om du vill migrera ett klassiskt virtuellt nätverk med en Application Gateway tar du bort gatewayen innan du kör en förberedelse åtgärd för att flytta nätverket. När du har slutfört migreringen ansluter du gatewayen i Azure Resource Manager. 
 >
->ExpressRoute-gatewayer som ansluter till ExpressRoute-kretsar i en annan prenumeration migreras inte automatiskt. I sådana fall kan du ta bort ExpressRoute-gatewayen, migrera det virtuella nätverket och återskapa gatewayen. Se [migrera ExpressRoute circuits och tillhörande virtuella nätverk från klassiskt till Resource Manager-distributionsmodellen](../../expressroute/expressroute-migration-classic-resource-manager.md) för mer information.
+>ExpressRoute-gatewayer som ansluter till ExpressRoute-kretsar i en annan prenumeration kan inte migreras automatiskt. I sådana fall tar du bort ExpressRoute-gatewayen, migrerar det virtuella nätverket och återskapar gatewayen. Mer information finns i [migrera ExpressRoute-kretsar och associerade virtuella nätverk från den klassiska distributions modellen till Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md) .
 > 
 > 
 
-## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Steg 2: Ställ in prenumerationen och registrera providern
-För Migreringsscenarier kan du behöva konfigurera din miljö för både klassiska och Resource Manager. [Installera Azure CLI](../../cli-install-nodejs.md) och [Välj din prenumeration](/cli/azure/authenticate-azure-cli).
+## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Steg 2: Ställ in din prenumeration och registrera providern
+I scenarier med migrering måste du konfigurera din miljö för både klassisk och Resource Manager. [Installera Azure CLI](../../cli-install-nodejs.md) och [Välj din prenumeration](/cli/azure/authenticate-azure-cli).
 
 Logga in på ditt konto.
 
     azure login
 
-Välj den Azure-prenumerationen med hjälp av följande kommando.
+Välj Azure-prenumerationen med hjälp av följande kommando.
 
     azure account set "<azure-subscription-name>"
 
 > [!NOTE]
-> Registreringen är en tidssteg men den måste göras en gång innan du försöker migrera. Utan att registrera visas följande felmeddelande 
+> Registreringen är en gång, men det måste göras en gång innan du försöker migrera. Utan att registrera dig visas följande fel meddelande 
 > 
-> *BadRequest: Prenumerationen har inte registrerats för migrering.* 
+> *BadRequest Prenumerationen har inte registrerats för migrering.* 
 > 
 > 
 
-Registrera med resursprovidern migrering med hjälp av följande kommando. Observera att i vissa fall kan det här kommandot tidsgränsen. Dock kommer registreringen att lyckas.
+Registrera hos resurs leverantören för migrering med hjälp av följande kommando. Observera att i vissa fall har det här kommandot nått sin tids gräns. Registreringen kommer dock att lyckas.
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 
-Vänta fem minuter att slutföra registreringen. Du kan kontrollera statusen för godkännandet med hjälp av följande kommando. Se till att RegistrationState `Registered` innan du fortsätter.
+Vänta fem minuter tills registreringen är klar. Du kan kontrol lera statusen för godkännandet med hjälp av följande kommando. Kontrol lera att RegistrationState är `Registered` innan du fortsätter.
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
-Växla CLI för att den `asm` läge.
+Växla nu CLI till `asm` läget.
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Steg 3: Kontrollera att du har tillräckligt med Azure Resource Manager-VM vcpu: er i Azure-regionen för din aktuella distributionen eller virtuella nätverk
-Det här steget måste du växla till `arm` läge. Du kan göra detta med följande kommando.
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Steg 3: Kontrol lera att du har tillräckligt med Azure Resource Manager virtuell dator virtuella processorer i Azure-regionen för din aktuella distribution eller VNET
+För det här steget måste du växla till `arm` läge. Gör detta med följande kommando.
 
 ```
 azure config mode arm
 ```
 
-Du kan använda följande CLI-kommando för att kontrollera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Läs mer om vCPU-kvoter i [gränser och Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager)
+Du kan använda följande CLI-kommando för att kontrol lera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Om du vill veta mer om vCPU kvoter, se [gränser och Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
-När du har verifierat det här steget, kan du gå tillbaka till `asm` läge.
+När du är klar med att verifiera det här steget kan du växla tillbaka `asm` till läget.
 
     azure config mode asm
 
 
-## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Steg 4: Alternativ 1 – migrera virtuella datorer i en molntjänst
-Hämta listan över molntjänster med hjälp av följande kommando och välj sedan den molntjänst som du vill migrera. Observera att om de virtuella datorerna i Molntjänsten är i ett virtuellt nätverk eller om de har web/worker-roller, visas ett felmeddelande.
+## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Steg 4: Alternativ 1 – migrera virtuella datorer i en moln tjänst
+Hämta listan över moln tjänster med hjälp av följande kommando och välj sedan den moln tjänst som du vill migrera. Observera att om de virtuella datorerna i moln tjänsten finns i ett virtuellt nätverk eller om de har webb-och arbets roller, får du ett fel meddelande.
 
     azure service list
 
-Kör följande kommando för att hämta distributionens namn för Molntjänsten från utförlig utdata. I de flesta fall är distributionens namn samma som molntjänstens namn.
+Kör följande kommando för att hämta distributions namnet för moln tjänsten från utförliga utdata. I de flesta fall är distributions namnet detsamma som namnet på moln tjänsten.
 
     azure service show <serviceName> -vv
 
-Verifiera först om du kan migrera Molntjänsten med hjälp av följande kommandon:
+Verifiera först om du kan migrera moln tjänsten med följande kommandon:
 
 ```shell
 azure service deployment validate-migration <serviceName> <deploymentName> new "" "" ""
 ```
 
-Förbered de virtuella datorerna i Molntjänsten för migrering. Har du två alternativ att välja bland.
+Förbered de virtuella datorerna i moln tjänsten för migrering. Du kan välja mellan två alternativ.
 
-Om du vill migrera de virtuella datorerna till ett virtuellt nätverk med plattformen skapats använder du följande kommando.
+Använd följande kommando om du vill migrera de virtuella datorerna till ett plattforms skapat virtuellt nätverk.
 
     azure service deployment prepare-migration <serviceName> <deploymentName> new "" "" ""
 
-Om du vill migrera till ett befintligt virtuellt nätverk i Resource Manager-distributionsmodellen använder du följande kommando.
+Använd följande kommando om du vill migrera till ett befintligt virtuellt nätverk i distributions modellen för Resource Manager.
 
     azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
-När Förberedelseåtgärden är klar, kan du söka igenom utdata migrering tillståndet för de virtuella datorerna och se till att de är i den `Prepared` tillstånd.
+När förberedelse åtgärden har slutförts kan du titta igenom utförliga utdata för att hämta migreringen för de virtuella datorerna och se till att de är i `Prepared` rätt tillstånd.
 
     azure vm show <vmName> -vv
 
-Kontrollera konfigurationen för de förberedda resurserna med hjälp av CLI eller Azure-portalen. Om du inte är redo för migrering och du vill gå tillbaka till det gamla tillståndet, använder du följande kommando.
+Kontrol lera konfigurationen för de för beredda resurserna genom att använda antingen CLI eller Azure Portal. Om du inte är redo för migrering och du vill gå tillbaka till det gamla läget använder du följande kommando.
 
     azure service deployment abort-migration <serviceName> <deploymentName>
 
-Om den förberedda konfigurationen ser bra ut du gå vidare och genomför resurserna med hjälp av följande kommando.
+Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräfta resurserna med hjälp av följande kommando.
 
     azure service deployment commit-migration <serviceName> <deploymentName>
 
 
 
 ## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Steg 4: Alternativ 2 – migrera virtuella datorer i ett virtuellt nätverk
-Välj det virtuella nätverk som du vill migrera. Observera att om det virtuella nätverket innehåller web/worker-roller eller virtuella datorer med konfigurationer som inte stöds, visas ett felmeddelande för verifiering.
+Välj det virtuella nätverk som du vill migrera. Observera att om det virtuella nätverket innehåller webb-eller arbets roller eller virtuella datorer med konfigurationer som inte stöds, får du ett verifierings fel meddelande.
 
 Hämta alla virtuella nätverk i prenumerationen med hjälp av följande kommando.
 
     azure network vnet list
 
-Utdata ser ut ungefär så här:
+Utdata kommer att se ut ungefär så här:
 
-![Skärmbild av kommandoraden med hela virtuella nätverksnamnet markerat.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
+![Skärm bild av kommando raden med hela det virtuella nätverks namnet markerat.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-I exemplet ovan den **virtualNetworkName** är namnet **”grupp classicubuntu16 classicubuntu16”** .
+I exemplet ovan är **virtualNetworkName** hela namnet **"Group classicubuntu16 classicubuntu16"** .
 
 Verifiera först om du kan migrera det virtuella nätverket med hjälp av följande kommando:
 
@@ -154,39 +153,39 @@ Verifiera först om du kan migrera det virtuella nätverket med hjälp av följa
 azure network vnet validate-migration <virtualNetworkName>
 ```
 
-Förbered det virtuella nätverket valfri för migrering med hjälp av följande kommando.
+Förbered det virtuella nätverket som du väljer för migrering med hjälp av följande kommando.
 
     azure network vnet prepare-migration <virtualNetworkName>
 
-Kontrollera konfigurationen för förberedda virtuella datorer med hjälp av CLI eller Azure-portalen. Om du inte är redo för migrering och du vill gå tillbaka till det gamla tillståndet, använder du följande kommando.
+Kontrol lera konfigurationen för de för beredda virtuella datorerna med hjälp av CLI eller Azure Portal. Om du inte är redo för migrering och du vill gå tillbaka till det gamla läget använder du följande kommando.
 
     azure network vnet abort-migration <virtualNetworkName>
 
-Om den förberedda konfigurationen ser bra ut du gå vidare och genomför resurserna med hjälp av följande kommando.
+Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräfta resurserna med hjälp av följande kommando.
 
     azure network vnet commit-migration <virtualNetworkName>
 
-## <a name="step-5-migrate-a-storage-account"></a>Steg 5: Migrera ett lagringskonto
-När du är klar migrerar de virtuella datorerna, rekommenderar vi du migrerar storage-konto.
+## <a name="step-5-migrate-a-storage-account"></a>Steg 5: Migrera ett lagrings konto
+När du har migrerat de virtuella datorerna rekommenderar vi att du migrerar lagrings kontot.
 
-Förbereda storage-konto för migrering med hjälp av följande kommando
+Förbered lagrings kontot för migrering med hjälp av följande kommando
 
     azure storage account prepare-migration <storageAccountName>
 
-Kontrollera konfigurationen för förberedda storage-konto med hjälp av CLI eller Azure-portalen. Om du inte är redo för migrering och du vill gå tillbaka till det gamla tillståndet, använder du följande kommando.
+Kontrol lera konfigurationen för det för beredda lagrings kontot genom att använda CLI eller Azure Portal. Om du inte är redo för migrering och du vill gå tillbaka till det gamla läget använder du följande kommando.
 
     azure storage account abort-migration <storageAccountName>
 
-Om den förberedda konfigurationen ser bra ut du gå vidare och genomför resurserna med hjälp av följande kommando.
+Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräfta resurserna med hjälp av följande kommando.
 
     azure storage account commit-migration <storageAccountName>
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över plattformsunderstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Översikt över migrering av plattformar som stöds av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Använd PowerShell för att migrera IaaS-resurser från klassisk till Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Community-verktyg för att hjälpa till med migrering av IaaS-resurser från klassisk till Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Granska de vanligaste migreringsfelen](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Granska de vanligaste frågorna om migrera IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Granska de vanligaste frågorna om migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

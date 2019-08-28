@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: c3c3252ec2fd850a763bbbf089d470df5173843f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612568"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073895"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Självstudier: Anslut en Windows Server-virtuell dator till en hanterad domän
 
@@ -153,15 +153,23 @@ När den virtuella datorn har skapats och en RDP-anslutning upprättar kan du nu
 1. Om du vill slutföra processen för att ansluta till den hanterade Azure AD DS-domänen startar du om den virtuella datorn.
 
 > [!TIP]
-> Du kan också domän ansluta en virtuell dator med PowerShell med cmdleten [Add-Computer][add-computer] . Följande exempel ansluter till *contoso* -domänen och startar sedan om den virtuella datorn. När du uppmanas till det anger du autentiseringsuppgifterna för en användare som tillhör gruppen *Azure AD DC-administratörer* :
+> Du kan domän ansluta till en virtuell dator med hjälp av PowerShell med cmdleten [Add-Computer][add-computer] . Följande exempel ansluter till *contoso* -domänen och startar sedan om den virtuella datorn. När du uppmanas till det anger du autentiseringsuppgifterna för en användare som tillhör gruppen *Azure AD DC-administratörer* :
 >
 > `Add-Computer -DomainName CONTOSO -Restart`
+>
+> Om du vill ansluta till en virtuell dator utan att ansluta till den och manuellt konfigurera anslutningen kan du också utforska användningen av cmdleten [set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell.
 
 När den virtuella Windows Server-datorn har startats om flyttas alla principer som tillämpas i den hanterade Azure AD DS-domänen till den virtuella datorn. Nu kan du logga in på den virtuella Windows Server-datorn med rätt domänautentiseringsuppgifter.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 I nästa självstudie använder du den här virtuella Windows Server-datorn för att installera hanterings verktygen som du kan använda för att administrera den hanterade domänen i Azure AD DS. Om du inte vill fortsätta i den här själv studie serien kan du läsa följande rensnings steg för att [inaktivera RDP](#disable-rdp) eller [ta bort den virtuella datorn](#delete-the-vm). Annars [fortsätter du till nästa självstudie](#next-steps).
+
+### <a name="un-join-the-vm-from-azure-ad-ds-managed-domain"></a>Ta bort anslutningen till den virtuella datorn från Azure AD DS-hanterad domän
+
+Om du vill ta bort den virtuella datorn från den hanterade domänen i Azure AD DS följer du stegen igen för att [ansluta den virtuella datorn till en domän](#join-the-vm-to-the-azure-ad-ds-managed-domain). I stället för att ansluta till den hanterade domänen i Azure AD DS väljer du att ansluta till en arbets grupp, till exempel standard *arbets gruppen*. När den virtuella datorn har startats om tas datorobjektet bort från den hanterade domänen i Azure AD DS.
+
+Om du [tar bort den virtuella](#delete-the-vm) datorn utan att koppla från domänen, lämnas ett överblivna dator objekt i Azure AD DS.
 
 ### <a name="disable-rdp"></a>Inaktivera RDP
 
@@ -231,3 +239,4 @@ Om du vill administrera din Azure AD DS-hanterade domän konfigurerar du en virt
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
 [jit-access]: ../security-center/security-center-just-in-time.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
+[set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

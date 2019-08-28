@@ -1,6 +1,6 @@
 ---
-title: Livscykel och tillstånd för en Linux-VM i Azure | Microsoft Docs
-description: Översikt över livscykeln för en Linux-VM i Azure, inklusive beskrivningar av de olika lägena för en virtuell dator kan vara i när som helst.
+title: Livs cykel och tillstånd för en virtuell Linux-dator i Azure | Microsoft Docs
+description: Översikt över livs cykeln för en virtuell Linux-dator i Azure, inklusive beskrivningar av de olika tillstånd som en virtuell dator kan ha i taget.
 services: virtual-machines-linux
 documentationcenter: ''
 author: shandilvarun
@@ -8,23 +8,22 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: b894b0d1c97af7b3d71eab6bf48bea7a6ecc23cb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ba78990402ebe5dc29e50bf98a795e728cec7996
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708715"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081877"
 ---
-# <a name="virtual-machines-lifecycle-and-states"></a>Livscykel för virtuella datorer och tillstånd
+# <a name="virtual-machines-lifecycle-and-states"></a>Livscykler och tillstånd för Virtual Machines
 
 [!INCLUDE [virtual-machines-common-states-lifecycle](../../../includes/virtual-machines-common-states-lifecycle.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du övervakar din virtuella dator finns [övervaka virtuella datorer i Azure](monitor.md).
+Mer information om övervakning av den virtuella datorn finns i [övervaka virtuella datorer i Azure](monitor.md).

@@ -1,6 +1,6 @@
 ---
 title: Skapa en ohanterad avbildning av en generaliserad virtuell dator i Azure | Microsoft Docs
-description: Skapa en unmanged avbildning av en generaliserad Windows virtuell dator för att skapa flera kopior av en virtuell dator i Azure.
+description: Skapa en unmanged avbildning av en generaliserad virtuell Windows-dator som ska användas för att skapa flera kopior av en virtuell dator i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,50 +11,49 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 929dd5bdb01adeaa7b1332bd7a5e6d823edba34a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 45c59ccdd45a0c00635c3e0a3919248f33e2919a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710398"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102453"
 ---
-# <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Hur du skapar en ohanterad VM-avbildning från en Azure-dator
+# <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Så här skapar du en ohanterad virtuell dator avbildning från en virtuell Azure-dator
 
-Den här artikeln beskriver storage-konton. Vi rekommenderar att du använder hanterade diskar och hanterade bilder i stället för ett lagringskonto. Mer information finns i [avbilda en hanterad avbildning av en generaliserad virtuell dator i Azure](capture-image-resource.md).
+Den här artikeln beskriver hur du använder lagrings konton. Vi rekommenderar att du använder hanterade diskar och hanterade avbildningar i stället för ett lagrings konto. Mer information finns i [avbilda en hanterad avbildning av en generaliserad virtuell dator i Azure](capture-image-resource.md).
 
-Den här artikeln visar hur du använder Azure PowerShell för att skapa en avbildning av en generaliserad virtuell Azure-dator med hjälp av ett lagringskonto. Du kan sedan använda avbildningen för att skapa en annan virtuell dator. Bilden innehåller operativsystemdisken och datadiskar som är kopplade till den virtuella datorn. Bilden innehåller inte de virtuella nätverksresurserna, så du måste konfigurera de här resurserna när du skapar den nya virtuella datorn. 
+Den här artikeln visar hur du använder Azure PowerShell för att skapa en avbildning av en generaliserad virtuell Azure-dator med ett lagrings konto. Du kan sedan använda avbildningen för att skapa en annan virtuell dator. Avbildningen inkluderar OS-disken och de data diskar som är anslutna till den virtuella datorn. Avbildningen omfattar inte de virtuella nätverks resurserna, så du måste konfigurera dessa resurser när du skapar den nya virtuella datorn. 
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-vm"></a>Generalisera den virtuella datorn 
-Det här avsnittet visar hur att generalisera den virtuella datorn i Windows för användning som en bild. Generalisera en virtuell dator tar bort all personlig kontoinformation, bland annat och förbereder datorn som ska användas som en bild. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
+Det här avsnittet visar hur du generaliserar din virtuella Windows-dator för användning som en avbildning. Generalisera en virtuell dator tar bort all personlig konto information, bland annat, och förbereder datorn som ska användas som en avbildning. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
 
-Se till att serverroller som körs på datorn som stöds av Sysprep. Mer information finns i [Sysprep-stöd för serverroller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> Om du överför en virtuell Hårddisk till Azure för första gången, kontrollera att du har [förberett din virtuella dator](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) innan du kör Sysprep. 
+> Om du laddar upp din virtuella hård disk till Azure för första gången måste du se till att du har för [berett den virtuella](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) datorn innan du kör Sysprep. 
 > 
 > 
 
-Du kan också generalisera en Linux VM med hjälp av `sudo waagent -deprovision+user` och använda PowerShell för att avbilda den virtuella datorn. Information om hur du använder CLI för att avbilda en virtuell dator finns i [generalisera och avbilda en Linux-dator med hjälp av Azure CLI](../linux/capture-image.md).
+Du kan också generalisera en virtuell Linux-dator `sudo waagent -deprovision+user` med hjälp av och sedan använda PowerShell för att avbilda den virtuella datorn. Information om hur du använder CLI för att avbilda en virtuell dator finns i [generalisera och avbilda en virtuell Linux-dator med hjälp av Azure CLI](../linux/capture-image.md).
 
 
-1. Logga in på den virtuella datorn i Windows.
+1. Logga in på den virtuella Windows-datorn.
 2. Öppna Kommandotolken som administratör. Ändra katalogen till **%windir%\system32\sysprep** och kör sedan `sysprep.exe`.
 3. Välj **Starta OOBE för systemet (Out-of-Box Experience)** i dialogrutan **Systemförberedelseverktyget** och kontrollera att kryssrutan **Generalisera** är markerad.
-4. I **Avslutningsalternativ**väljer **avstängning**.
+4. I **avslutnings alternativ**väljer du **Stäng**av.
 5. Klicka på **OK**.
    
     ![Starta Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. När Sysprep har slutförts stängs den virtuella datorn av. 
 
 > [!IMPORTANT]
-> Starta inte om den virtuella datorn förrän du är klar ladda upp den virtuella Hårddisken till Azure eller skapa en avbildning från den virtuella datorn. Om den virtuella datorn av misstag hämtar om, kan du köra Sysprep för att generalisera den igen.
+> Starta inte om den virtuella datorn förrän du är klar med att ladda upp den virtuella hård disken till Azure eller skapa en avbildning från den virtuella datorn. Om den virtuella datorn oavsiktligt startas om kör du Sysprep för att generalisera den igen.
 > 
 > 
 
@@ -65,37 +64,37 @@ Du kan också generalisera en Linux VM med hjälp av `sudo waagent -deprovision+
     Connect-AzAccount
     ```
    
-    Ett popup-fönster öppnas där du kan ange dina autentiseringsuppgifter för Azure-konto.
-2. Hämta prenumerations-ID för dina tillgängliga prenumerationer.
+    Ett popup-fönster öppnas där du kan ange dina autentiseringsuppgifter för Azure-kontot.
+2. Hämta prenumerations-ID: na för dina tillgängliga prenumerationer.
    
     ```powershell
     Get-AzSubscription
     ```
-3. Ange rätt prenumeration med hjälp av prenumerations-ID.
+3. Ange rätt prenumeration med prenumerations-ID: t.
    
     ```powershell
     Select-AzSubscription -SubscriptionId "<subscriptionID>"
     ```
 
-## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>Frigör den virtuella datorn och ange läget till generaliserad
+## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>Frigör den virtuella datorn och ange status som generaliserad
 
 > [!IMPORTANT] 
-> Du kan inte lägga till, redigera eller ta bort taggar från en virtuell dator när den har markerats som generaliserad. Om du vill lägga till en tagg till den virtuella datorn måste du kontrollera att du lägger till taggar innan du markerar det som generaliserad.
+> Du kan inte lägga till, redigera eller ta bort taggar från en virtuell dator när den har marker ATS som generaliserad. Om du vill lägga till en tagg till den virtuella datorn kontrollerar du att du lägger till taggarna innan du markerar den som generaliserad.
 > 
 
-1. Frigör VM-resurser.
+1. Frigör de virtuella dator resurserna.
    
     ```powershell
     Stop-AzVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
    
-    Den *Status* för den virtuella datorn i Azure portal ändras från **stoppad** till **Stoppad (frigjord)** .
-2. Ange status för den virtuella datorn till **generaliserad**. 
+    *Status* för den virtuella datorn i Azure Portal ändras från **stoppad** till **stoppad (Frigjord)** .
+2. Ange statusen för den virtuella datorn som **generaliserad**. 
    
     ```powershell
     Set-AzVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
     ```
-3. Kontrollera status för den virtuella datorn. Den **OSState/generaliserad** avsnittet för den virtuella datorn ska ha den **DisplayStatus** inställd **virtuell dator generaliserad**.  
+3. Kontrol lera statusen för den virtuella datorn. **OSState/generaliserat** avsnitt för den virtuella datorn ska ha **DisplayStatus** inställt på **VM generaliserad**.  
    
     ```powershell
     $vm = Get-AzVM -ResourceGroupName <resourceGroup> -Name <vmName> -Status
@@ -104,7 +103,7 @@ Du kan också generalisera en Linux VM med hjälp av `sudo waagent -deprovision+
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Skapa en ohanterad VM-avbildning i mål-storage-behållare med hjälp av det här kommandot. Avbildningen skapas i samma lagringskonto som den ursprungliga virtuella datorn. Den `-Path` parametern sparar en kopia av JSON-mallen för den Virtuella källdatorn till din lokala dator. Den `-DestinationContainerName` parametern är namnet på den behållare som du vill lagra dina avbildningar. Om behållaren inte finns skapas den åt dig.
+Skapa en ohanterad avbildning av virtuella datorer i mål lagrings behållaren med det här kommandot. Avbildningen skapas i samma lagrings konto som den ursprungliga virtuella datorn. `-Path` Parametern sparar en kopia av JSON-mallen för den virtuella käll datorn på den lokala datorn. `-DestinationContainerName` Parametern är namnet på den behållare som du vill lagra dina bilder i. Om behållaren inte finns skapas den åt dig.
    
 ```powershell
 Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
@@ -112,17 +111,17 @@ Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
     -Path <C:\local\Filepath\Filename.json>
 ```
    
-Du kan få URL: en för din avbildning från en mall för JSON-fil. Gå till den **resurser** > **storageProfile** > **osDisk** > **bild**  >  **uri** avsnittet för den fullständiga sökvägen i din avbildning. URL för bilden ser ut som: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+Du kan hämta URL: en för din avbildning från JSON-filmallen. Gå till avsnittet > Resources**storageProfile** > **osDisk** > imageURI > för den fullständiga sökvägen till din avbildning. URL: en för bilden ser ut så `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`här:.
    
-Du kan också kontrollera URI: N i portalen. Avbildningen har kopierats till en behållare med namnet **system** i ditt lagringskonto. 
+Du kan också kontrol lera URI: n i portalen. Avbildningen kopieras till en behållare med namnet **system** i ditt lagrings konto. 
 
 ## <a name="create-a-vm-from-the-image"></a>Skapa en VM från avbildningen
 
-Nu kan du skapa en eller flera virtuella datorer från ohanterad avbildning.
+Nu kan du skapa en eller flera virtuella datorer från den ohanterade avbildningen.
 
-### <a name="set-the-uri-of-the-vhd"></a>Ange URI för den virtuella Hårddisken
+### <a name="set-the-uri-of-the-vhd"></a>Ange URI för den virtuella hård disken
 
-URI för den virtuella Hårddisken ska använda har format: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**VHD. I det här exemplet den virtuella Hårddisken med namnet **myVHD** är i lagringskontot **mystorageaccount** i behållaren **mycontainer**.
+URI: n för den virtuella hård disken som ska användas är i formatet: https:///**mystorageaccount**. blob.Core.Windows.NET/finns**MyVhdName**. VHD. I det här exemplet finns den virtuella hård disken med namnet **myVHD** i lagrings kontot **mystorageaccount** i behållarens behållare.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -130,16 +129,16 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa vNet och undernät för den [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md).
+Skapa vNet och undernät för det [virtuella nätverket](../../virtual-network/virtual-networks-overview.md).
 
-1. Skapa undernätet. Följande exempel skapar ett undernät med namnet **mySubnet** i resursgruppen **myResourceGroup** med adressprefix **10.0.0.0/24**.  
+1. Skapa under nätet. I följande exempel skapas ett undernät med namnet **mitt undernät** i resurs gruppen **myResourceGroup** med adressprefixet **10.0.0.0/24**.  
    
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubnet"
     $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Skapa det virtuella nätverket. I följande exempel skapas ett virtuellt nätverk med namnet **myVnet** i den **västra USA** plats med adressprefix **10.0.0.0/16**.  
+2. Skapa det virtuella nätverket. I följande exempel skapas ett virtuellt nätverk med namnet **myVnet** på platsen **västra USA** med adressprefixet **10.0.0.0/16**.  
    
     ```powershell
     $location = "West US"
@@ -148,17 +147,17 @@ Skapa vNet och undernät för den [virtuellt nätverk](../../virtual-network/vir
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
-### <a name="create-a-public-ip-address-and-network-interface"></a>Skapa en offentlig IP-adress och ett nätverksgränssnitt
+### <a name="create-a-public-ip-address-and-network-interface"></a>Skapa en offentlig IP-adress och ett nätverks gränssnitt
 För att upprätta kommunikation med den virtuella datorn i det virtuella nätverket behöver du en [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) och ett nätverksgränssnitt.
 
-1. Skapa en offentlig IP-adress. Det här exemplet skapar en offentlig IP-adress med namnet **myPip**. 
+1. Skapa en offentlig IP-adress. I det här exemplet skapas en offentlig IP-adress med namnet **myPip**. 
    
     ```powershell
     $ipName = "myPip"
     $pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
-2. Skapa nätverkskortet. Det här exemplet skapar ett nätverkskort med namnet **myNic**. 
+2. Skapa NÄTVERKSKORTet. I det här exemplet skapas ett nätverkskort med namnet **myNic**. 
    
     ```powershell
     $nicName = "myNic"
@@ -166,10 +165,10 @@ För att upprätta kommunikation med den virtuella datorn i det virtuella nätve
         -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Skapa nätverkssäkerhetsgruppen och en regel för RDP
-Du måste ha en säkerhetsregel som tillåter RDP-åtkomst på port 3389 för att kunna logga in på den virtuella datorn med RDP. 
+### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Skapa nätverks säkerhets gruppen och en RDP-regel
+Om du vill kunna logga in på den virtuella datorn med RDP måste du ha en säkerhets regel som tillåter RDP-åtkomst på port 3389. 
 
-Det här exemplet skapar en Nätverkssäkerhetsgrupp med namnet **myNsg** som innehåller en regel som kallas **myRdpRule** som tillåter RDP-trafik via port 3389. Mer information om Nätverkssäkerhetsgrupper finns i [öppna portar till en virtuell dator i Azure med hjälp av PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+I det här exemplet skapas en NSG med namnet **myNsg** som innehåller en regel som kallas **MYRDPRULE** som tillåter RDP-trafik över port 3389. Mer information om NSG: er finns i [öppna portar till en virtuell dator i Azure med hjälp av PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ```powershell
 $nsgName = "myNsg"
@@ -185,14 +184,14 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
 
 
 ### <a name="create-a-variable-for-the-virtual-network"></a>Skapa en variabel för det virtuella nätverket
-Skapa en variabel för det virtuella nätverket som slutförda. 
+Skapa en variabel för det slutförda virtuella nätverket. 
 
 ```powershell
 $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ### <a name="create-the-vm"></a>Skapa den virtuella datorn
-Följande PowerShell Slutför konfigurationerna för virtuella datorer och använder ohanterad avbildning som källa för den nya installationen.
+Följande PowerShell Slutför konfigurationerna för den virtuella datorn och använder ohanterad avbildning som källa för den nya installationen.
 
 </br>
 
@@ -249,8 +248,8 @@ Följande PowerShell Slutför konfigurationerna för virtuella datorer och anvä
     New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
-### <a name="verify-that-the-vm-was-created"></a>Kontrollera att den virtuella datorn har skapats
-När du är klar bör du se den nyligen skapade virtuella datorn i den [Azure-portalen](https://portal.azure.com) under **Bläddra** > **virtuella datorer**, eller genom att använda följande PowerShell kommandon:
+### <a name="verify-that-the-vm-was-created"></a>Verifiera att den virtuella datorn har skapats
+När du är klar bör du se den nyligen skapade virtuella datorn i [Azure Portal](https://portal.azure.com) under **Bläddra** > i**virtuella datorer**, eller genom att använda följande PowerShell-kommandon:
 
 ```powershell
     $vmList = Get-AzVM -ResourceGroupName $rgName
@@ -258,6 +257,6 @@ När du är klar bör du se den nyligen skapade virtuella datorn i den [Azure-po
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-För att hantera din nya virtuella dator med Azure PowerShell, se [hantera virtuella datorer med Azure Resource Manager och PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Information om hur du hanterar din nya virtuella dator med Azure PowerShell finns i [Hantera virtuella datorer med Azure Resource Manager och PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

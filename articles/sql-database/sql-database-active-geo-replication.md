@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 131333f140518f6fb2f63f17d0aa72692dc7d49a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c1f50dfb499c220a4e13f043438798c556319ddf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935072"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092814"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -106,6 +106,10 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 ## <a name="preparing-secondary-database-for-failover"></a>Förbereder sekundär databas för redundans
 
 För att säkerställa att ditt program omedelbart kan komma åt den nya primära efter redundansväxlingen, kontrollerar du att autentiseringskrav för den sekundära servern och databasen är korrekt konfigurerade. Mer information finns i [SQL Database säkerhet efter haveri beredskap](sql-database-geo-replication-security-config.md). För att garantera efterlevnad efter redundansväxlingen, se till att säkerhets kopieringens bevarande princip på den sekundära databasen matchar den primära. De här inställningarna är inte en del av databasen och replikeras inte. Som standard kommer den sekundära att konfigureras med en standard period för PITR på sju dagar. Mer information finns i [SQL Database automatiska säkerhets kopieringar](sql-database-automated-backups.md).
+
+> [!IMPORTANT]
+> Om databasen är medlem i en failover-grupp kan du inte initiera dess redundans med hjälp av faiover-kommandot för geo-replikering. Överväg att använda kommandot redundans för gruppen. Om du behöver redundansväxla en enskild databas måste du först ta bort den från gruppen för redundans. Mer information finns i [failover-grupper](sql-database-auto-failover-group.md) . 
+
 
 ## <a name="configuring-secondary-database"></a>Konfigurerar sekundär databas
 

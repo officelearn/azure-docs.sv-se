@@ -1,6 +1,6 @@
 ---
-title: NVIDIA GPU-drivrutinen tillägg – virtuella Azure Windows-datorer | Microsoft Docs
-description: Microsoft Azure-tillägget för att installera NVIDIA GPU-drivrutiner på N-serien compute virtuella datorer som kör Windows.
+title: NVIDIA GPU-drivrutins tillägg – virtuella Windows-datorer i Azure | Microsoft Docs
+description: Microsoft Azure tillägget för att installera NVIDIA GPU-drivrutiner i virtuella datorer i N-serien som kör Windows.
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
@@ -8,33 +8,32 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 004d6125de6762303db91f3a5ef9ffa16e6e501f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c44722403967f3563472692f97cb2a114e6294cd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705959"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084470"
 ---
-# <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-drivrutinen-tillägg för Windows
+# <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-drivrutins tillägg för Windows
 
 ## <a name="overview"></a>Översikt
 
-Det här tillägget installerar NVIDIA GPU-drivrutiner på Windows virtuella datorer i N-serien. Beroende på VM-familjen installerar tillägget CUDA- eller NÄTVERKSBASERADE drivrutiner. När du installerar NVIDIA drivrutinerna med hjälp av det här tillägget du accepterar och samtycker till villkoren i den [NVIDIA licensavtalet](https://go.microsoft.com/fwlink/?linkid=874330). Under installationen, kan den virtuella datorn startas om för att slutföra installationen för drivrutinen.
+Det här tillägget installerar NVIDIA GPU-drivrutiner på virtuella datorer med Windows N-serien. Beroende på VM-serien installerar tillägget CUDA eller GRID-drivrutiner. När du installerar NVIDIA-drivrutiner med det här tillägget accepterar du och godkänner villkoren i [licens avtalet för NVIDIA-](https://go.microsoft.com/fwlink/?linkid=874330)slutanvändare. Under installationen kan den virtuella datorn startas om för att slutföra driv rutins konfigurationen.
 
-Instruktioner för manuell installation av drivrutiner och aktuella versioner som stöds finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
-Ett tillägg kan även installera NVIDIA GPU-drivrutiner på [Linux N-serien virtuella datorer](hpccompute-gpu-linux.md).
+Anvisningar om manuell installation av driv rutinerna och de aktuella versioner som stöds finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
+Det finns också ett tillägg för att installera NVIDIA GPU-drivrutiner på [virtuella datorer i Linux N-serien](hpccompute-gpu-linux.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
-Det här tillägget har stöd för följande operativsystem:
+Det här tillägget har stöd för följande OSs:
 
 | Distribution | Version |
 |---|---|
@@ -44,7 +43,7 @@ Det här tillägget har stöd för följande operativsystem:
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Microsoft Azure-tillägget för NVIDIA GPU-drivrutiner kräver att den Virtuella måldatorn är ansluten till internet och har åtkomst.
+Microsoft Azure-tillägget för NVIDIA GPU-drivrutiner kräver att den virtuella mål datorn är ansluten till Internet och har åtkomst.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -72,10 +71,10 @@ Följande JSON visar schemat för tillägget.
 
 ### <a name="properties"></a>properties
 
-| Namn | Värdet / exempel | Datatyp |
+| Name | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
+| publisher | Microsoft. HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
@@ -84,11 +83,11 @@ Följande JSON visar schemat för tillägget.
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall 
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver konfiguration efter distribution.
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallarna är idealiska när du distribuerar en eller flera virtuella datorer som kräver konfiguration av efter distribution.
 
 JSON-konfiguration för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resursnamn och typ. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-template-child-resource.md). 
 
-I följande exempel förutsätter att tillägget är kapslade i den virtuella datorresursen. När kapsla tillägget resursen JSON placeras i den `"resources": []` objekt av den virtuella datorn.
+I följande exempel förutsätts att tillägget är kapslat i den virtuella dator resursen. När kapsla tillägget resursen JSON placeras i den `"resources": []` objekt av den virtuella datorn.
 
 ```json
 {
@@ -142,7 +141,7 @@ az vm extension set `
 
 ### <a name="troubleshoot"></a>Felsöka
 
-Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure PowerShell och Azure CLI. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando.
+Information om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell och Azure CLI. Kör följande kommando för att se distributions status för tillägg för en specifik virtuell dator.
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -152,7 +151,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Tillägget utförande-utdatan loggas till följande katalog:
+Utökning av utdata loggas i följande katalog:
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
@@ -163,11 +162,11 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | Felkod | Betydelse | Möjlig åtgärd |
 | :---: | --- | --- |
 | 0 | Åtgärden lyckades |
-| 1 | Åtgärden har slutförts. Omstart krävs. |
-| 100 | Åtgärden stöds inte eller kunde inte slutföras. | Möjliga orsaker: PowerShell-version som inte stöds, VM-storleken är inte en N-serien virtuell dator, fel laddades ned. Kontrollera loggfilerna om du vill ta reda på orsaken till felet. |
-| 240, 840 | Tidsgränsen för åtgärden. | Försök igen. |
-| -1 | Undantag inträffade. | Kontrollera loggfilerna om du vill ta reda på orsaken till undantaget. |
-| -5x | Åtgärden avbröts på grund av en väntande omstart. | Starta om virtuell dator. Installationen fortsätter efter omstart. Avinstallera ska anropas manuellt. |
+| 1 | Åtgärden lyckades. Omstart krävs. |
+| 100 | Åtgärden stöds inte eller kunde inte slutföras. | Möjliga orsaker: PowerShell-versionen stöds inte, VM-storleken är inte en virtuell dator i N-serien, det gick inte att hämta data. Kontrol lera loggfilerna för att ta reda på orsaken till felet. |
+| 240, 840 | Åtgärds-timeout. | Försök igen. |
+| -1 | Ett undantag inträffade. | Kontrol lera loggfilerna för att ta reda på orsaken till undantaget. |
+| -5x | Åtgärden avbröts på grund av en väntande omstart. | Starta om virtuell dator. Installationen fortsätter efter att datorn har startats om. Avinstallationen ska anropas manuellt. |
 
 
 ### <a name="support"></a>Support
@@ -175,6 +174,6 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/community/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om tillägg finns i [VM-tillägg och funktioner i Windows](features-windows.md).
+Mer information om tillägg finns i [tillägg för virtuella datorer och funktioner för Windows](features-windows.md).
 
-Läs mer om virtuella datorer i N-serien, [GPU-optimerad storlekar för virtuella datorer](../windows/sizes-gpu.md).
+Mer information om virtuella datorer i N-serien finns i [GPU-optimerade storlekar för virtuella datorer](../windows/sizes-gpu.md).

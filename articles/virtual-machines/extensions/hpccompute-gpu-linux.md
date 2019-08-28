@@ -1,6 +1,6 @@
 ---
-title: NVIDIA GPU-drivrutinen tillägg – virtuella Azure Linux-datorer | Microsoft Docs
-description: Microsoft Azure-tillägg för att installera NVIDIA GPU-drivrutiner på N-serien compute virtuella datorer som kör Linux.
+title: NVIDIA GPU-drivrutins tillägg – virtuella Azure Linux-datorer | Microsoft Docs
+description: Microsoft Azure tillägget för att installera NVIDIA GPU-drivrutiner i virtuella datorer i N-serien som kör Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
@@ -8,44 +8,43 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: c15948fd9e9acc1e1efeb536939002f179402d5a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 167780971ec59efd1ca197958798564d1ef2d596
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706702"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092321"
 ---
-# <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutinen tillägg för Linux
+# <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutins tillägg för Linux
 
 ## <a name="overview"></a>Översikt
 
-Det här tillägget installerar NVIDIA GPU-drivrutiner på Linux N-serien virtuella datorer. Beroende på VM-familjen installerar tillägget CUDA- eller NÄTVERKSBASERADE drivrutiner. När du installerar NVIDIA drivrutinerna med hjälp av det här tillägget du accepterar och samtycker till villkoren i den [NVIDIA licensavtalet](https://go.microsoft.com/fwlink/?linkid=874330). Under installationen, kan den virtuella datorn startas om för att slutföra installationen för drivrutinen.
+Det här tillägget installerar NVIDIA GPU-drivrutiner på virtuella datorer i Linux N-serien. Beroende på VM-serien installerar tillägget CUDA eller GRID-drivrutiner. När du installerar NVIDIA-drivrutiner med det här tillägget accepterar du och godkänner villkoren i [licens avtalet för NVIDIA-](https://go.microsoft.com/fwlink/?linkid=874330)slutanvändare. Under installationen kan den virtuella datorn startas om för att slutföra driv rutins konfigurationen.
 
-Instruktioner för manuell installation av drivrutiner och aktuella versioner som stöds finns [här](
-https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
-Ett tillägg kan även installera NVIDIA GPU-drivrutiner på [Windows virtuella datorer i N-serien](hpccompute-gpu-windows.md).
+Anvisningar om manuell installation av driv rutinerna och de aktuella versioner som stöds [finns](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)här.
+Det finns också ett tillägg för att installera NVIDIA GPU-drivrutiner på [virtuella datorer med Windows N-serien](hpccompute-gpu-windows.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
-Det här tillägget stöder följande OS-distributioner, beroende på drivrutinstöd för specifika OS-version.
+Det här tillägget har stöd för följande OS-distributioner, beroende på driv rutins stöd för en speciell OS-version.
 
 | Distribution | Version |
 |---|---|
-| Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
-| Linux: CentOS | 7.3, 7.4, 7.5, 7.6 |
+| Linux: Ubuntu | 16,04 LTS 18,04 LTS |
+| Linux: Red Hat Enterprise Linux | 7,3, 7,4, 7,5, 7,6 |
+| Linux: CentOS | 7,3, 7,4, 7,5, 7,6 |
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Microsoft Azure-tillägget för NVIDIA GPU-drivrutiner kräver att den Virtuella måldatorn är ansluten till internet och har åtkomst.
+Microsoft Azure-tillägget för NVIDIA GPU-drivrutiner kräver att den virtuella mål datorn är ansluten till Internet och har åtkomst.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -73,22 +72,22 @@ Följande JSON visar schemat för tillägget.
 
 ### <a name="properties"></a>properties
 
-| Namn | Värdet / exempel | Datatyp |
+| Name | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | sträng |
+| publisher | Microsoft. HpcCompute | string |
 | type | NvidiaGpuDriverLinux | sträng |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Inställningar
 
-Alla inställningar är valfria. Standardinställningen är att inte uppdatera kernel om det inte krävs för installation av drivrutiner, installera den senaste stödda drivrutinen och CUDA-toolkit (som tillämpligt).
+Alla inställningar är valfria. Standard beteendet är att inte uppdatera kerneln om det inte krävs för installation av driv rutiner, installera den senaste driv rutinen och CUDA Toolkit (i tillämpliga fall).
 
-| Namn | Beskrivning | Default Value | Giltiga värden | Datatyp |
+| Name | Beskrivning | Default Value | Giltiga värden | Datatyp |
 | ---- | ---- | ---- | ---- | ---- |
-| updateOS | Uppdatera kernel även om det inte krävs för installation av drivrutiner | false | true, false | boolean |
-| driverVersion | NV: RUTNÄTET drivrutinsversion<br> NC/ND: CUDA toolkit-version. De senaste drivrutinerna för valt CUDA installeras automatiskt. | latest | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | sträng |
-| installCUDA | Installera CUDA toolkit. Detta gäller endast för NC/ND-serien virtuella datorer. | true | true, false | boolean |
+| Uppdatering | Uppdatera kärnan även om det inte krävs för att installera driv rutiner | false | true, false | boolean |
+| driverVersion | INGET Version av RUTNÄTs driv rutin<br> NC/ND: CUDA Toolkit-version. De senaste driv rutinerna för de valda CUDA installeras automatiskt. | latest | STÖDRASTRET "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA "10.0.130", "9.2.88", "9.1.85" | sträng |
+| installCUDA | Installera CUDA Toolkit. Endast relevant för virtuella datorer i NC/ND-serien. | true | true, false | boolean |
 
 
 ## <a name="deployment"></a>Distribution
@@ -96,11 +95,11 @@ Alla inställningar är valfria. Standardinställningen är att inte uppdatera k
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall 
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver konfiguration efter distribution.
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallarna är idealiska när du distribuerar en eller flera virtuella datorer som kräver konfiguration av efter distribution.
 
 JSON-konfiguration för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resursnamn och typ. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-template-child-resource.md). 
 
-I följande exempel förutsätter att tillägget är kapslade i den virtuella datorresursen. När kapsla tillägget resursen JSON placeras i den `"resources": []` objekt av den virtuella datorn.
+I följande exempel förutsätts att tillägget är kapslat i den virtuella dator resursen. När kapsla tillägget resursen JSON placeras i den `"resources": []` objekt av den virtuella datorn.
 
 ```json
 {
@@ -139,7 +138,7 @@ Set-AzVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
-I följande exempel speglar ovanstående exempel för Azure Resource Manager och PowerShell och även lägger till anpassade inställningar som ett exempel på icke-standard drivrutinsinstallation. Mer specifikt den uppdaterar OS-kernel och installerar en specifik CUDA toolkit version drivrutin.
+Följande exempel speglar ovanstående Azure Resource Manager-och PowerShell-exempel och lägger även till anpassade inställningar som exempel på driv rutins installation som inte är standard. Mer specifikt uppdaterar OS-kerneln och installerar en specifik versions driv rutin för CUDA Toolkit.
 
 ```azurecli
 az vm extension set `
@@ -158,7 +157,7 @@ az vm extension set `
 
 ### <a name="troubleshoot"></a>Felsöka
 
-Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure PowerShell och Azure CLI. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando.
+Information om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell och Azure CLI. Kör följande kommando för att se distributions status för tillägg för en specifik virtuell dator.
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -174,17 +173,17 @@ Tillägget utförande-utdatan loggas till följande fil:
 /var/log/azure/nvidia-vmext-status
 ```
 
-### <a name="exit-codes"></a>Slutkoder för aktiviteter
+### <a name="exit-codes"></a>Avslutnings koder
 
 | Slutkod | Betydelse | Möjlig åtgärd |
 | :---: | --- | --- |
 | 0 | Åtgärden lyckades |
-| 1 | Felaktig användning av tillägget | Kontrollera körningsloggen för utdata |
-| 10 | Linux Integration-tjänster för Hyper-V och Azure saknas eller är installerade | Kontrollera resultatet av lspci |
-| 11 | NVIDIA GPU hittades inte på den här VM-storlek | Använd en [VM-storlek och operativsystem som stöds](../linux/n-series-driver-setup.md) |
-| 12 | Bild-erbjudande som inte stöds |
-| 13 | VM-storlek som inte stöds | Använda en virtuell dator i N-serien för att distribuera |
-| 14 | Åtgärden misslyckades | Kontrollera körningsloggen för utdata |
+| 1 | Felaktig användning av tillägg | Kontrol lera loggen för körnings utdata |
+| 10 | Linux-integrerings tjänster för Hyper-V och Azure är inte tillgängliga eller installerade | Kontrol lera utdata från lspci |
+| 11 | NVIDIA-GPU hittades inte på den här virtuella dator storleken | Använd en [VM-storlek och ett operativ system som stöds](../linux/n-series-driver-setup.md) |
+| 12 | Bild erbjudandet stöds inte |
+| 13 | VM-storleken stöds inte | Använd en virtuell dator i N-serien för att distribuera |
+| 14 | Åtgärden lyckades inte | Kontrol lera loggen för körnings utdata |
 
 
 ### <a name="support"></a>Support
@@ -192,6 +191,6 @@ Tillägget utförande-utdatan loggas till följande fil:
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/community/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om tillägg finns i [virtuella datorer, tillägg och funktioner i Linux](features-linux.md).
+Mer information om tillägg finns i [tillägg för virtuella datorer och funktioner för Linux](features-linux.md).
 
-Läs mer om virtuella datorer i N-serien, [GPU-optimerad storlekar för virtuella datorer](../linux/sizes-gpu.md).
+Mer information om virtuella datorer i N-serien finns i [GPU-optimerade storlekar för virtuella datorer](../linux/sizes-gpu.md).

@@ -1,6 +1,6 @@
 ---
-title: OpenShift på Azure efter distribution aktiviteter | Microsoft Docs
-description: Ytterligare uppgifter för efter ett OpenShift-kluster har distribuerats.
+title: OpenShift på Azure post-Deployment-uppgifter | Microsoft Docs
+description: Ytterligare aktiviteter för efter att ett OpenShift-kluster har distribuerats.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -9,49 +9,48 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: fba29cd55f2d765faa107de3a8961032ef44deec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac93f08a5e93fefaa1de82a7d86a2cfdf3e6aa6d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771367"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091757"
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distribution
 
-När du distribuerar en OpenShift-kluster måste konfigurera du ytterligare objekt. Den här artikeln beskriver:
+När du har distribuerat ett OpenShift-kluster kan du konfigurera ytterligare objekt. Den här artikeln beskriver:
 
-- Så här konfigurerar du enkel inloggning med hjälp av Azure Active Directory (AD Azure)
-- Så här konfigurerar du Azure Monitor-loggar för att övervaka OpenShift
-- Så här konfigurerar du mått och loggning
-- Installera Open Service Broker for Azure (OSBA)
+- Så här konfigurerar du enkel inloggning med hjälp av Azure Active Directory (Azure AD)
+- Konfigurera Azure Monitor loggar för att övervaka OpenShift
+- Konfigurera mått och loggning
+- Så här installerar du Open Service Broker för Azure (OSBA)
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Konfigurera enkel inloggning med hjälp av Azure Active Directory
 
-För att använda Azure Active Directory för autentisering, måste du först skapa en Azure AD app-registrering. Den här processen omfattar två steg: skapa appregistreringen och konfigurera behörigheter.
+Om du vill använda Azure Active Directory för autentisering måste du först skapa en Azure AD App-registrering. Den här processen omfattar två steg: att skapa appens registrering och konfigurera behörigheter.
 
-### <a name="create-an-app-registration"></a>Skapa en appregistrering
+### <a name="create-an-app-registration"></a>Skapa en app-registrering
 
-De här stegen används Azure CLI för att skapa registreringen och det grafiska Användargränssnittet (portal) att ange behörigheter. Om du vill skapa registreringen, behöver du följande fem typer av information:
+De här stegen använder Azure CLI för att skapa appens registrering och GUI (portal) för att ange behörigheterna. För att kunna skapa registrerings appen behöver du följande fem delar av informationen:
 
-- Visningsnamn: Registrering av namn (till exempel OCPAzureAD)
-- Startsida: OpenShift-konsolens URL (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Identifierar-URI: OpenShift-konsolens URL (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Svars-URL: Master-offentlig URL och namnet på registrering (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
-- Lösenord: Säkra lösenord (Använd ett starkt lösenord)
+- Visnings namn: Registrerings namn för appen (till exempel OCPAzureAD)
+- Start sida: OpenShift-konsolens URL (t. ex. https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- ID-URI: OpenShift-konsolens URL (t. ex. https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Svars-URL: Offentlig huvud webb adress och registrerings namn för appen (till exempel https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- Ords Säkert lösen ord (Använd ett starkt lösen ord)
 
-I följande exempel skapas en appregistrering med hjälp av informationen ovan:
+I följande exempel skapas en app-registrering med hjälp av föregående information:
 
 ```azurecli
 az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com/console --password {Strong Password}
 ```
 
-Om kommandot lyckas får JSON-utdata liknar:
+Om kommandot lyckas får du en JSON-utdata som liknar:
 
 ```json
 {
@@ -71,39 +70,39 @@ Om kommandot lyckas får JSON-utdata liknar:
 }
 ```
 
-Anteckna appId-egenskapen som returneras från kommandot för ett senare steg.
+Anteckna den appId-egenskap som returnerades från kommandot för ett senare steg.
 
 På Azure Portal:
 
-1. Välj **Azure Active Directory** > **Appregistrering**.
-2. Sök efter din appregistrering (till exempel OCPAzureAD).
-3. Klicka på appregistreringen i resultatet.
-4. Under **inställningar**väljer **behörigheter som krävs för**.
-5. Under **nödvändiga behörigheter**väljer **Lägg till**.
+1. Välj **Azure Active Directory** > **app-registrering**.
+2. Sök efter din registrering av appen (till exempel OCPAzureAD).
+3. Klicka på appens registrering i resultatet.
+4. Under **Inställningar**väljer du **nödvändiga behörigheter**.
+5. Under **nödvändiga behörigheter**väljer du **Lägg till**.
 
-   ![Appregistrering](media/openshift-post-deployment/app-registration.png)
+   ![Registrera appar](media/openshift-post-deployment/app-registration.png)
 
-6. Klicka på steg 1: Välj API och klicka sedan på **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)** . Klicka på **Välj** längst ned på sidan.
+6. Klicka på steg 1: Välj API och klicka sedan på **Windows Azure Active Directory (Microsoft. Azure. ActiveDirectory)** . Klicka på **Välj** längst ned.
 
-   ![Appregistrering väljer API](media/openshift-post-deployment/app-registration-select-api.png)
+   ![Välj API för app-registrering](media/openshift-post-deployment/app-registration-select-api.png)
 
-7. I steg 2: Välj behörigheter, Välj **logga in och läsa användarprofil** under **delegerade behörigheter**, och klicka sedan på **Välj**.
+7. I steg 2: Välj behörigheter, Välj **Logga in och Läs användar profil** under **delegerade behörigheter**och klicka sedan på **Välj**.
 
-   ![Appregistrering åtkomst](media/openshift-post-deployment/app-registration-access.png)
+   ![Åtkomst till app-registrering](media/openshift-post-deployment/app-registration-access.png)
 
 8. Välj **Done** (Klar).
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Konfigurera OpenShift för Azure AD-autentisering
 
-Om du vill konfigurera OpenShift för att använda Azure AD som en autentiseringsprovider redigeras filen /etc/origin/master/master-config.yaml på alla överordnade noder.
+Om du vill konfigurera OpenShift för att använda Azure AD som autentiseringsprovider måste/etc/Origin/Master/Master-config.yaml-filen redige ras på alla huvudnoder.
 
-Hitta klient-ID genom att använda följande CLI-kommando:
+Hitta klient-ID: t med hjälp av följande CLI-kommando:
 
 ```azurecli
 az account show
 ```
 
-Yaml-fil innehåller följande rader:
+Leta upp följande rader i yaml-filen:
 
 ```yaml
 oauthConfig:
@@ -121,7 +120,7 @@ oauthConfig:
       kind: HTPasswdPasswordIdentityProvider
 ```
 
-Lägg till följande rader direkt efter de föregående raderna:
+Infoga följande rader direkt efter föregående rader:
 
 ```yaml
   - name: <App Registration Name>
@@ -147,37 +146,37 @@ Lägg till följande rader direkt efter de föregående raderna:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Kontrollera att korrekt justeras texten under identityProviders. Hitta klient-ID genom att använda följande CLI-kommando: ```az account show```
+Se till att texten justeras korrekt under Identityprovider. Hitta klient-ID: t med hjälp av följande CLI-kommando:```az account show```
 
-Starta om OpenShift master tjänsterna på alla överordnade noder:
+Starta om OpenShift Master-tjänsterna på alla huvudnoder:
 
 ```bash
 sudo /usr/local/bin/master-restart api
 sudo /usr/local/bin/master-restart controllers
 ```
 
-I OpenShift-konsolen visas nu två alternativ för autentisering: htpasswd_auth och [Appregistrering].
+I OpenShift-konsolen visas nu två alternativ för autentisering: htpasswd_auth och [App Registration].
 
-## <a name="monitor-openshift-with-azure-monitor-logs"></a>Övervaka OpenShift med Azure Monitor-loggar
+## <a name="monitor-openshift-with-azure-monitor-logs"></a>Övervaka OpenShift med Azure Monitor loggar
 
-Det finns tre sätt att lägga till Log Analytics-agenten i OpenShift.
-- Installera Log Analytics-agenten för Linux direkt på varje nod för OpenShift
-- Aktivera Azure Monitor VM-tillägget på varje nod för OpenShift
-- Installera Log Analytics-agenten som en daemon-set OpenShift
+Det finns tre sätt att lägga till Log Analytics agent i OpenShift.
+- Installera Log Analytics agent för Linux direkt på varje OpenShift-nod
+- Aktivera Azure Monitor VM-tillägg på varje OpenShift-nod
+- Installera Log Analytics agenten som OpenShift daemon-uppsättning
 
-Läs fullständiga [instruktioner](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) för mer information.
+Läs fullständiga [instruktioner](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) om du vill ha mer information.
 
 ## <a name="configure-metrics-and-logging"></a>Konfigurera mått och loggning
 
-Baserat på grenen, ange Azure Resource Manager-mallar för OpenShift Container Platform och OKD indataparametrar för att aktivera mätvärden och loggning som en del av installationen.
+Baserat på grenen kan Azure Resource Manager mallar för OpenShift container Platform och OKD tillhandahålla indataparametrar för att aktivera mått och loggning som en del av installationen.
 
-OpenShift Container Platform Marketplace-erbjudandet innehåller också ett alternativ för att aktivera mätvärden och loggning under installationen av klustret.
+Marketplace-erbjudandet för OpenShift container Platform är också ett alternativ för att aktivera mått och loggning under kluster installationen.
 
-Om mått / loggning har inte aktiverats under installationen av klustret, att de enkelt kan aktiveras i efterhand.
+Om mått/loggning inte har Aktiver ATS under installationen av klustret, kan de enkelt aktive ras efter faktumet.
 
-### <a name="azure-cloud-provider-in-use"></a>Azure Cloud-providern används
+### <a name="azure-cloud-provider-in-use"></a>Azure Cloud Provider används
 
-SSH till skyddsmiljö noden eller första huvudnoden (baserat på mallen och grenen som används) med hjälp av autentiseringsuppgifterna som du angav under distributionen. Kör följande kommando:
+SSH till skydds-noden eller den första huvudnoden (baserat på mall och gren som används) med hjälp av de autentiseringsuppgifter som angavs under distributionen. Utfärda följande kommando:
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -189,7 +188,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 -e openshift_logging_es_pvc_dynamic=true
 ```
 
-### <a name="azure-cloud-provider-not-in-use"></a>Azure Cloud-providern inte är i användning
+### <a name="azure-cloud-provider-not-in-use"></a>Azure Cloud Provider används inte
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -201,12 +200,12 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 
 ## <a name="install-open-service-broker-for-azure-osba"></a>Installera Open Service Broker for Azure (OSBA)
 
-Öppna Service Broker för Azure eller OSBA, kan du etablera Azure Cloud Services direkt från OpenShift. OSBA i en Open Service Broker-API-implementering för Azure. Öppna Service Broker API är en spec som definierar ett gemensamt språk för leverantörer som molntjänster interna program kan använda för att hantera molntjänster utan Lås i molnet.
+Öppna Service Broker för Azure eller OSBA, så att du kan etablera Azure-Cloud Services direkt från OpenShift. OSBA i en öppen Service Broker API-implementering för Azure. Den öppna Service Broker-API: n är en specifikation som definierar ett gemensamt språk för moln leverantörer som kan användas av molnbaserade program för att hantera moln tjänster utan att låsa.
 
-Installera OSBA på OpenShift genom att följa anvisningarna som finns här: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
+Om du vill installera OSBA i OpenShift följer du instruktionerna som finns https://github.com/Azure/open-service-broker-azure#openshift-project-template här:. 
 > [!NOTE]
-> Följ bara metoden stegen i den projektmall för OpenShift och inte i hela Installing avsnitt.
+> Slutför bara stegen i avsnittet OpenShift-projektmall och inte hela avsnittet Installera.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Komma igång med OpenShift Container Platform](https://docs.openshift.com/container-platform)
+- [Kom igång med OpenShift container Platform](https://docs.openshift.com/container-platform)

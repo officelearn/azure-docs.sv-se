@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0442b987c502533bfbd55990f201a5c02b119804
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 70f0badc170c65b11bc244b5ed4ec2f9a205c72d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011296"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084865"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
 
@@ -273,4 +273,4 @@ Om du behöver hjälp med att uppgradera till en nyare version av Azure AD Conne
 
 **F: Varför ser jag händelserna 6311 och 6401 uppstår efter synkroniseringsfel?**
 
-Händelserna 6311- **servern påträffade ett oväntat fel vid ett återanrop** och 6401- **hanterings agent styrenheten påträffade ett oväntat fel** . loggas alltid efter ett synkroniseringsfel-fel. För att lösa dessa fel måste du rensa stegen i synkroniseringen.  Mer information finns i [fel söknings fel under synkronisering](tshoot-connect-sync-errors.md) och [Felsöka synkronisering av objekt med Azure AD Connect Sync](/tshoot-connect-objectsync.md)
+Händelserna 6311- **servern påträffade ett oväntat fel vid ett återanrop** och 6401- **hanterings agent styrenheten påträffade ett oväntat fel** . loggas alltid efter ett synkroniseringsfel-fel. För att lösa dessa fel måste du rensa stegen i synkroniseringen.  Mer information finns i [fel söknings fel under synkronisering](tshoot-connect-sync-errors.md) och [Felsöka synkronisering av objekt med Azure AD Connect Sync](tshoot-connect-objectsync.md)

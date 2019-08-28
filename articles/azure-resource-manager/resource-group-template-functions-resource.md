@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2cd37405176eefa8f4445942b9fbf1afc2a7404a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: eddd99be9d4a30e3e71c806a3f98c6be6800e8fb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650421"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095754"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -188,7 +188,7 @@ Ange resurs med samma resurs eller [resourceId funktionen](#resourceid). Använd
 
 Om du använder en **list** funktion i en resurs som är villkorligt distribuerad utvärderas funktionen även om resursen inte har distribuerats. Du får ett fel meddelande om **list** funktionen hänvisar till en resurs som inte finns. Använd funktionen **IF** för att se till att funktionen endast utvärderas när resursen distribueras. Se [funktionen IF](resource-group-template-functions-logical.md#if) för en exempel mall som använder IF och list med en villkorligt distribuerad resurs.
 
-### <a name="example"></a>Exempel
+### <a name="list-example"></a>Lista exempel
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) visar hur du returnerar de primära och sekundära nycklarna från ett lagringskonto i outputs-avsnittet. Den returnerar också en SAS-token för storage-kontot. 
 
@@ -284,7 +284,7 @@ Varje typ som stöds returneras i följande format:
 
 Matris sorteringen av de returnerade värdena är inte garanterad.
 
-### <a name="example"></a>Exempel
+### <a name="providers-example"></a>Exempel på leverantörer
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) visar hur du använder funktionen provider:
 
@@ -433,7 +433,7 @@ Exempel:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt``Microsoft.Compute/virtualMachines/extensions/myVM/myExt` stämmer inte korrekt
 
-### <a name="example"></a>Exempel
+### <a name="reference-example"></a>Referens exempel
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) distribuerar en resurs och refererar till den här resursen.
 
@@ -600,7 +600,7 @@ Ett vanligt användningsområde för resourceGroup-funktionen är att skapa resu
 
 Du kan också använda funktionen resourceGroup för att lägga till taggar från resurs gruppen till en resurs. Mer information finns i [använda taggar från resurs gruppen](resource-group-using-tags.md#apply-tags-from-resource-group).
 
-### <a name="example"></a>Exempel
+### <a name="resource-group-example"></a>Exempel på resurs grupp
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) returnerar egenskaperna för resursgruppen.
 
@@ -737,7 +737,7 @@ Du behöver ofta, Använd den här funktionen när du använder ett lagringskont
 }
 ```
 
-### <a name="example"></a>Exempel
+### <a name="resource-id-example"></a>Exempel på resurs-ID
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) returnerar resurs-ID för ett lagringskonto i resursgruppen:
 
@@ -795,7 +795,7 @@ Funktionen returnerar följande format:
 }
 ```
 
-### <a name="example"></a>Exempel
+### <a name="subscription-example"></a>Exempel på prenumeration
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) visar anropa prenumeration-funktionen i outputs-avsnittet. 
 

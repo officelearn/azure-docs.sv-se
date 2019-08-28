@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abe04a88f3337ed26b98815b5633fd5d719b7ce3
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 2d6170dead4e8577cea6883ffea25b90ebe39b88
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234229"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078999"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastning på Azure planering och distribution check lista 
 
@@ -159,7 +158,7 @@ Piloten kan köras före eller parallellt med projekt planering och-förberedels
    3.  Kontrol lera att alla resurser som behöver krypteras är krypterade. Definiera och kör processer för att säkerhetskopiera certifikat, lagra och få åtkomst till dessa certifikat och återställa de krypterade entiteterna. 
    4.  Använd [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) och/eller för OS-diskar där det är möjligt från en OS-support punkt i vyn
    5.  Kontrol lera att inte för många lager med kryptering har använts. Det är en begränsad idé att använda Azure Disk Encryption och sedan på en av de olika krypterings metoderna i DBMS-databasen
-6. Prestanda testning
+6. Testning av prestanda
    1.  I SAP baserat på SAP-spårning och mått, jämför de 10 främsta rapporterna med den aktuella implementeringen där tillämpligt 
    2.  I SAP baserat på SAP-spårning och mått, jämför de 10 främsta batch-jobben med den aktuella implementeringen där tillämpligt 
    3.  I SAP baserat på SAP-spårning och mått, jämför data överföringar via gränssnitt i SAP-systemet. Fokusera på gränssnitt där du vet att överföringen nu sker mellan olika platser, till exempel att gå från lokala platser till Azure 

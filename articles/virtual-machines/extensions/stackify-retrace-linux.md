@@ -1,6 +1,6 @@
 ---
-title: Stackify gå Azure Linux Agent-tillägget | Microsoft Docs
-description: Distribuera Stackify gå Linux-agenten på en Linux-dator.
+title: Stackify för att spåra Azure Linux Agent-tillägg | Microsoft Docs
+description: Distribuera Stackify för att spåra om Linux-agenten på en virtuell Linux-dator.
 services: virtual-machines-linux
 documentationcenter: ''
 author: darinhoward
@@ -8,61 +8,60 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: ca3232dc3862cffb67d396b3ec2333fdc28dbb65
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6db152394a8e57689b34436b48dbcb4ecdc58b5a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706641"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084314"
 ---
-# <a name="stackify-retrace-linux-agent-extension"></a>Stackify gå tillägget för Linux-Agent
+# <a name="stackify-retrace-linux-agent-extension"></a>Stackify för att spåra om Linux-Agent
 
 ## <a name="overview"></a>Översikt
 
-Stackify tillhandahåller produkter som spårar information om ditt program för att hitta och åtgärda problem snabbt. För utvecklare grupper är gå helt integrerad, miljöer, app prestanda överordnad upphöjt. Den kombinerar flera verktyg måste varje Utvecklingsteamet.
+Stackify tillhandahåller produkter som spårar information om ditt program för att hjälpa till att hitta och åtgärda problem snabbt. För Developer-team är det en fullständigt integrerad miljö med program prestanda med flera miljöer. Det kombinerar flera verktyg varje utvecklings grupps behov.
 
-Gå är det endast som innehåller alla av följande funktioner över alla miljöer i en enda plattform.
+Att spåra är det enda verktyg som tillhandahåller alla följande funktioner i alla miljöer i en enda plattform.
 
-* Hantering av programprestanda (APM)
-* Program- och server-loggning
-* Fel vid spårning och övervakning
+* Hantering av program prestanda (APM)
+* Program-och Server loggning
+* Fel spårning och övervakning
 * Server, program och anpassade mått
 
-**Om Stackify Linux-Agenttillägg**
+**Om Stackify Linux Agent-tillägg**
 
-Det här tillägget tillhandahåller en installationssökvägen för Linux-agenten för gå. 
+Det här tillägget innehåller en installations Sök väg för Linux-agenten för spårning. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem 
 
-Bläddra-agenten kan köras mot dessa Linux-distributioner
+Renstackspår-agenten kan köras mot dessa Linux-distributioner
 
 | Distribution | Version |
 |---|---|
-| Ubuntu | 16.04 LTS, 14.04 LTS, 16,10 och nr 17.04 från |
-| Debian | 7,9 + och 8.2 +, 9 |
-| Red Hat | 6.7+, 7.1+ |
-| CentOS | 6.3+, 7.0+ |
+| Ubuntu | 16,04 LTS 14,04 LTS, 16,10 och 17,04 |
+| Debian | 7.9 + och 8.2 +, 9 |
+| Red Hat | 6,7 +, 7.1 + |
+| CentOS | 6.3 +, 7.0 + |
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Stackify-agenttillägg för Linux kräver att den virtuella måldatorn är ansluten till internet. 
+Stackify agent-tillägget för Linux kräver att den virtuella mål datorn är ansluten till Internet. 
 
-Du kan behöva justera din nätverkskonfiguration för att tillåta anslutningar till Stackify, se https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
+Du kan behöva justera nätverks konfigurationen för att tillåta anslutningar till Stackify, se https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
 
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
 ---
 
-Följande JSON visar schemat för Stackify gå Agent-tillägget. Tillägget kräver den `environment` och `activationKey`.
+Följande JSON visar schemat för tillägget Stackify renstackspår agent. Tillägget kräver `environment` och `activationKey`.
 
 ```json
     {
@@ -90,13 +89,13 @@ Följande JSON visar schemat för Stackify gå Agent-tillägget. Tillägget krä
 
 ## <a name="template-deployment"></a>Malldistribution 
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget Stackify gå Linux-Agent under en malldistribution för Azure Resource Manager.  
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Det JSON-schema som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra Stackify för att spåra Linux-agenten under en Azure Resource Manager mall-distribution.  
 
-JSON för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet för resursnamn och typ. Mer information finns i namn och typ för underordnade resurser.
+JSON för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen eller placeras på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet för resurs namn och typ. Mer information finns i Ange namn och typ för underordnade resurser.
 
-I följande exempel förutsätter Stackify gå Linux-tillägget är kapslade i den virtuella datorresursen. När kapsla tillägget resursen JSON placeras i ”resurser”: [] objekt av den virtuella datorn.
+Följande exempel förutsätter att Stackify-tillägget för att spåra Linux är kapslat i den virtuella dator resursen. Vid kapsling av tilläggs resursen placeras JSON i objektet "resurser": [] på den virtuella datorn.
 
-Tillägget kräver den `environment` och `activationKey`.
+Tillägget kräver `environment` och `activationKey`.
 
 ```json
     {
@@ -151,9 +150,9 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-Den `Set-AzVMExtension` kommando kan användas för att distribuera Stackify gå Linux-Agent-tillägget för virtuell dator till en befintlig virtuell dator. Innan du kör kommandot, måste de offentliga och privata konfigurationerna lagras i en PowerShell-hash-tabell.
+`Set-AzVMExtension` Kommandot kan användas för att distribuera Stackify för att spåra virtuella datorer för Linux-agenten till en befintlig virtuell dator. Innan du kör kommandot måste offentliga och privata konfigurationer lagras i en PowerShell hash-tabell.
 
-Tillägget kräver den `environment` och `activationKey`.
+Tillägget kräver `environment` och `activationKey`.
 
 ```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
@@ -172,9 +171,9 @@ Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution 
 
-Verktyget Azure CLI kan användas för att distribuera Stackify gå Linux-Agent-tillägget för virtuell dator till en befintlig virtuell dator.  
+Verktyget Azure CLI kan användas för att distribuera Stackify-tillägget för att spåra virtuella Linux-Gent till en befintlig virtuell dator.  
 
-Tillägget kräver den `environment` och `activationKey`.
+Tillägget kräver `environment` och `activationKey`.
 
 ```azurecli
 az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --name 'StackifyLinuxAgentExtension' --protected-settings '{"activationKey":"myActivationKey"}' --settings '{"environment":"myEnvironment"}'  --resource-group 'myResourceGroup' --vm-name 'myVmName'
@@ -186,17 +185,17 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 
 | Felkod | Betydelse | Möjlig åtgärd |
 | :---: | --- | --- |
-| 10 | Installationsfel | wget krävs |
-| 20 | Installationsfel | Python krävs |
-| 30 | Installationsfel | sudo krävs |
-| 40 | Installationsfel | activationKey krävs |
-| 51 | Installationsfel | OS-distribution som inte stöds |
-| 60 | Installationsfel | miljö krävs |
-| 70 | Installationsfel | Okänt |
-| 80 | Aktivera fel | Installation av Service misslyckades |
-| 90 | Aktivera fel | Tjänsten kunde inte startas |
-| 100 | Inaktivera det när | Tjänststoppet misslyckades |
-| 110 | Inaktivera det när | Det gick inte att ta bort tjänsten |
-| 120 | Fel vid avinstallation | Tjänststoppet misslyckades |
+| 10 | Installations fel | wget krävs |
+| 20 | Installations fel | python krävs |
+| 30 | Installations fel | sudo krävs |
+| 40 | Installations fel | activationKey krävs |
+| 51 | Installations fel | OS-distribution stöds inte |
+| 60 | Installations fel | miljö krävs |
+| 70 | Installations fel | Okänt |
+| 80 | Aktivera fel | Det gick inte att konfigurera tjänsten |
+| 90 | Aktivera fel | Det gick inte att starta tjänsten |
+| 100 | Inaktivera fel | Det gick inte att stoppa tjänsten |
+| 110 | Inaktivera fel | Det gick inte att ta bort tjänsten |
+| 120 | Fel vid avinstallation | Det gick inte att stoppa tjänsten |
 
-Om du behöver mer hjälp kan du kontakta Stackify support https://support.stackify.com.
+Om du behöver mer hjälp kan du kontakta Stackify-supporten på https://support.stackify.com.

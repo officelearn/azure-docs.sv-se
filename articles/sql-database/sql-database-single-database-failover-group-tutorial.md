@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cf688750ac73763c7f0da4eea152cf6bf0c8285
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a80dc8ccaa72a57986ed6c64f7ab7050ab4c7de5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935038"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099065"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Självstudier: Lägga till en Azure SQL Database enkel databas i en failover-grupp
 
@@ -61,16 +61,15 @@ I det här steget ska du skapa en [redundans grupp](sql-database-auto-failover-g
 Skapa din grupp för redundans och Lägg till din enda databas i den med hjälp av Azure Portal. 
 
 
-1. Välj **alla tjänster** i det övre vänstra hörnet av [Azure Portal](https://portal.azure.com). 
-1. Skriv `sql servers` i sökrutan. 
-1. Valfritt Välj stjärn ikonen bredvid SQL-servrar för att skapa **SQL-servrar** och lägga till dem i det vänstra navigerings fönstret. 
-    
-    ![Hitta SQL-servrar](media/sql-database-single-database-create-failover-group-tutorial/all-services-sql-servers.png)
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
+1. Välj den enkla databasen som `mySampleDatbase`skapades i avsnitt 2, till exempel. 
+1. Välj namnet på servern under **Server namn** för att öppna inställningarna för servern.
 
-1. Välj **SQL-servrar** och välj den server som du skapade i avsnitt 1, `mysqlserver`till exempel.
+   ![Öppna Server för enskild databas](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. Välj **grupper för växling vid fel** i fönstret **Inställningar** och välj sedan **Lägg till grupp** för att skapa en ny grupp för redundans. 
 
-    ![Lägg till ny redundans grupp](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
+    ![Lägg till ny redundans grupp](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. På sidan **redundans** anger eller väljer du följande värden och väljer sedan **skapa**:
     - **Namn på redundans grupp**: Ange ett unikt namn för redundans, till exempel `failovergrouptutorial`. 
@@ -78,16 +77,16 @@ Skapa din grupp för redundans och Lägg till din enda databas i den med hjälp 
         - **Servernamn**: Ange ett unikt namn på den sekundära servern, till exempel `mysqlsecondary`. 
         - **Inloggning för serveradministratör**: Bastyp`azureuser`
         - **Lösenord**: Ange ett komplext lösen ord som uppfyller lösen ords kraven.
-        - **Plats**: Välj en plats i list rutan, till exempel USA, östra 2. Den här platsen kan inte vara samma plats som den primära servern.
+        - **Plats**: Välj en plats i list rutan, till exempel `East US`. Den här platsen kan inte vara samma plats som den primära servern.
 
     > [!NOTE]
     > Inställningarna för Server inloggning och brand vägg måste matcha den primära servern. 
     
-      ![Skapa en sekundär server för redundans gruppen](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
+      ![Skapa en sekundär server för redundans gruppen](media/sql-database-single-database-failover-group-tutorial/create-secondary-failover-server.png)
 
    - **Databaser i gruppen**: När du har valt en sekundär server blir det här alternativet olåst. Välj den för att **välja databaser som ska läggas till** och välj sedan den databas som du skapade i avsnitt 1. Om du lägger till databasen i gruppen för växling vid fel startas automatiskt processen för geo-replikering. 
         
-    ![Lägg till SQL DB i redundans gruppen](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Lägg till SQL DB i redundans gruppen](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -99,12 +98,12 @@ Skapa din grupp för redundans och Lägg till din databas i den med hjälp av Po
    ```powershell-interactive
    # $subscriptionId = '<SubscriptionID>'
    # $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   # $location = "West US 2"
+   # $location = "West US"
    # $adminLogin = "azureuser"
    # $password = "PWD27!"+(New-Guid).Guid
    # $serverName = "mysqlserver-$(Get-Random)"
    # $databaseName = "mySampleDatabase"
-   $drLocation = "East US 2"
+   $drLocation = "East US"
    $drServerName = "mysqlsecondary-$(Get-Random)"
    $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
 
@@ -194,16 +193,21 @@ I det här steget kommer du inte att kunna redundansväxla gruppen till den seku
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Testa redundans med Azure Portal. 
 
-1. Gå till **SQL** Server-servern inom [Azure Portal](https://portal.azure.com). 
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
+1. Välj den enkla databasen som `mySampleDatbase`skapades i avsnitt 2, till exempel. 
+1. Välj namnet på servern under **Server namn** för att öppna inställningarna för servern.
+
+   ![Öppna Server för enskild databas](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. Välj **grupper för växling vid fel** i fönstret **Inställningar** och välj sedan den grupp för växling vid fel som du skapade i avsnitt 2. 
   
-   ![Välj gruppen redundans från portalen](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
+   ![Välj gruppen redundans från portalen](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
 
 1. Granska vilken server som är primär och vilken server som är sekundär. 
 1. Välj **redundans** från åtgärds fönstret för att Redundansväxla din redundanskonfiguration som innehåller din exempel enkla databas. 
 1. Välj **Ja** i varningen som meddelar dig att TDS-sessioner kommer att kopplas bort. 
 
-   ![Redundansväxla din failover-grupp som innehåller din SQL-databas](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
+   ![Redundansväxla din failover-grupp som innehåller din SQL-databas](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
 
 1. Granska den server som nu är primär och vilken server som är sekundär. Om redundans har slutförts ska de två servrarna ha växlade roller. 
 1. Välj **redundans** igen för att återställa servrarna till deras ursprungliga roller. 

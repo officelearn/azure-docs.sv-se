@@ -1,6 +1,6 @@
 ---
 title: Växla OS-disk för en virtuell Azure-dator med PowerShell | Microsoft Docs
-description: Ändra operativsystemets disk som används av virtuella Azure-datorer med hjälp av PowerShell.
+description: Ändra den operativ system disk som används av en virtuell Azure-dator med PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,34 +11,33 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: ae3979f7ceae4a854df00b39d9c2b9673f65f987
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: b213db38dade06e5015227494fa77b2f465ba1d9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720126"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089044"
 ---
-# <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Ändra OS-disken som används av en Azure-dator med hjälp av PowerShell
+# <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Ändra den OS-disk som används av en virtuell Azure-dator med PowerShell
 
-Om du har en befintlig virtuell dator, men du vill växla disken för en säkerhetskopiering disk eller en annan OS-disk, kan du använda Azure PowerShell för att växla OS-diskar. Du behöver ta bort och återskapa den virtuella datorn. Du kan även använda en hanterad disk i en annan resursgrupp, förutsatt att den inte redan används.
+Om du har en befintlig virtuell dator, men vill byta disk för en säkerhets kopierings disk eller en annan OS-disk, kan du använda Azure PowerShell för att växla OS-diskarna. Du behöver inte ta bort och återskapa den virtuella datorn. Du kan till och med använda en hanterad disk i en annan resurs grupp, så länge den inte redan används.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-Den virtuella datorn måste vara stopped\deallocated och resurs-ID för hanterad disk kan ersättas med resurs-ID för en annan hanterad disk.
+Den virtuella datorn måste vara stopped\deallocated. resurs-ID: t för den hanterade disken kan ersättas med resurs-ID: t för en annan hanterad disk.
 
-Kontrollera att typ av virtuell dator och är kompatibla med den disk du vill bifoga. Till exempel om det är den disk du vill använda i Premium-lagring, måste den virtuella datorn kunna Premium Storage (t.ex. en storlek i DS-serien). 
+Kontrol lera att storleken på den virtuella datorn och lagrings typen är kompatibla med den disk som du vill ansluta. Om den disk som du vill använda till exempel är i Premium Storage måste den virtuella datorn kunna Premium Storage (som en storlek för en DS-serie). 
 
-Hämta en lista över diskar i en resurs med [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)
+Hämta en lista över diskar i en resurs grupp med [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)
 
 ```azurepowershell-interactive
 Get-AzDisk -ResourceGroupName myResourceGroup | Format-Table -Property Name
 ```
  
-När du har namnet på den disk som du vill använda, anger du den som OS-disken för den virtuella datorn. Det här exemplet stop\deallocates den virtuella datorn med namnet *myVM* och tilldelar disk med namnet *newDisk* som den nya OS-disken. 
+När du har namnet på den disk som du vill använda anger du som OS-disk för den virtuella datorn. Det här exemplet stop\deallocates den virtuella datorn med namnet *myVM* och tilldelar disken namnet *newDisk* som den nya OS-disken. 
  
 ```azurepowershell-interactive 
 # Get the VM 
@@ -63,4 +62,4 @@ Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
 
 **Nästa steg**
 
-För att skapa en kopia av en disk, se [ögonblicksbild av en disk](snapshot-copy-managed-disk.md).
+Information om hur du skapar en kopia av en disk finns i [ögonblicks bilder av en disk](snapshot-copy-managed-disk.md).

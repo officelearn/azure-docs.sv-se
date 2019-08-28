@@ -1,7 +1,7 @@
 ---
-title: Distribuera anpassad avbildning flera behållare eller inbyggd avbildning – Azure App Service | Microsoft Docs
-description: Hur du avgör mellan anpassad Docker-behållardistribution, flera behållare och ett inbyggt ramverk för App Service i Linux
-keywords: azure app service, web app, linux, oss
+title: Distribuera anpassad avbildning, flera behållare eller inbyggda avbildnings Azure App Service | Microsoft Docs
+description: Hur du avgör mellan en anpassad distribution av Docker-behållare, flera behållare och ett inbyggt program ramverk för App Service i Linux
+keywords: Azure App Service, webbapp, Linux, oss
 services: app-service
 documentationCenter: ''
 author: msangapu
@@ -11,48 +11,47 @@ ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: bba38bb69e5abaa94b01308924fe0c6bf07ca08e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae28b185aa44ca22d59204826036435a10c64e91
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64919952"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066779"
 ---
-# <a name="custom-image-multi-container-or-built-in-platform-image"></a>Anpassad avbildning, flera behållare eller inbyggda plattformsavbildning?
+# <a name="custom-image-multi-container-or-built-in-platform-image"></a>Anpassad avbildning, multi-container eller inbyggd plattforms avbildning?
 
-[App Service i Linux](app-service-linux-intro.md) erbjuder tre olika sökvägar för att få ditt program som publicerats på webben:
+[App service på Linux](app-service-linux-intro.md) erbjuder tre olika sökvägar för att få ditt program att publiceras på webben:
 
-- **Distribution av anpassade avbildningar**: ”Behållarlagringsplats” din app i en dockeravbildning som innehåller alla dina filer och beroenden i ett paket är klara att köra.
-- **Distribution av flera behållare**: ”Behållarlagringsplats” din app över flera behållare med hjälp av en konfigurationsfil för Docker Compose.
-- **Distribution med en inbyggd plattformsavbildning**: Våra inbyggda plattformsavbildningar innehåller vanliga web app körningar och beroenden, till exempel Node och PHP. Använd någon av de [metoder för distribution av Azure App Service](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) att distribuera appen till din webbapp lagring och sedan använda en inbyggd plattformsavbildning för att köra den.
+- **Anpassad avbildnings distribution**: "Hantera" din app i en Docker-avbildning som innehåller alla dina filer och beroenden i ett paket som är redo att köras.
+- **Distribution med flera behållare**: "Hantera" din app över flera behållare med hjälp av en Docker-filkonfigurations fil.
+- **Distribution av appar med en inbyggd plattforms avbildning**: Våra inbyggda plattforms avbildningar innehåller vanliga webb program körningar och beroenden, till exempel Node och PHP. Använd någon av [Azure App Service distributions metoder](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) för att distribuera din app till webbappens lagring och Använd sedan en inbyggd plattforms avbildning för att köra den.
 
-## <a name="which-method-is-right-for-your-app"></a>Vilken metod som passar bäst för din app? 
+## <a name="which-method-is-right-for-your-app"></a>Vilken metod är rätt för din app? 
 
-De främsta faktorerna att överväga är:
+De främsta faktorer som du bör tänka på är:
 
-- **Tillgängligheten för Docker i ditt utvecklingsarbetsflöde**: Anpassad avbildningsutveckling kräver grundläggande kunskaper om Docker-utvecklingsflöde. Distribution av en anpassad avbildning till en webbapp kräver publiceringen av den anpassade avbildningen till en värd för databasen som Docker Hub. Om du är bekant med Docker och kan lägga till Docker-aktiviteter i arbetsflödet build, eller om du redan publicerar din app som en Docker-avbildning, är en anpassad avbildning sannolikt det bästa valet.
-- **Flera lager arkitektur**: Distribuera flera behållare, till exempel en web-programnivån och ett API-lager för att separera funktioner med hjälp av flera behållare. 
-- **Programprestanda**: Öka prestandan för din app för flera behållare med en cache-lager, till exempel Redis. Välj flera behållare för att uppnå detta.
-- **Unikt runtime krav**: De inbyggda plattformsavbildningar är utformade för att uppfylla behoven hos de flesta webbappar, men är begränsade i sina anpassningsbarhet. Din app kan ha unika beroenden eller andra krav för körning som överskrider vad de inbyggda avbildningarna har kapacitet för.
-- **Skapa krav**: Med [kontinuerlig distribution](../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), du kan få din app igång och körs på Azure direkt från källkoden. Det krävs ingen extern process för bygge eller publikationen. Det finns dock en gräns för anpassningsbarhet och tillgängligheten för genereringsverktyg inom den [Kudu](https://github.com/projectkudu/kudu/wiki) distributionsmotorn. Din app kan växa ifrån Kudus funktioner när den växer i dess beroenden eller krav för anpassade build logik.
-- **Läs/Skriv krav**: Alla webbprogram tilldelas en lagringsvolym för webbinnehåll. Den här volymen som backas upp av Azure Storage, monteras `/home` i appens filsystem. Till skillnad från filer i behållaren filsystemet filerna i innehåll volymen är tillgängliga i alla instanser för skalning av en app och ändringar beständig i alla app startas om. Dock disk svarstiden för innehåll volymen är större och mer variabeln än svarstiden för lokal behållare filsystem och åtkomst kan påverkas av uppgraderingar och oplanerade driftsavbrott problem med nätverksanslutningen. Appar som kräver tunga skrivskyddad åtkomst till innehållet i filerna kan ha nytta av distribution av anpassade avbildningar, som placerar filer i filsystemet avbildningen i stället för på innehåll volymen.
-- **Skapa Resursanvändning**: När en app har distribuerats från källa kör distributionsskripten med Kudu samma App Service-Plan beräknings- och resurser som appen körs. Stora appdistributioner kan förbruka mer resurser eller tid än önskad. I synnerhet genererar många arbetsflöden för distribution tung diskaktivitet på app innehåll volym, vilket inte är optimerad för sådana aktiviteter. En anpassad avbildning får du alla filer och beroenden för din app till Azure i ett enda paket med inget behov av ytterligare filöverföringar eller distributionsåtgärder.
-- **Behovet av snabba iterationer**: Dockerizing en app kräver ytterligare byggsteg. För att ändringarna ska börja gälla måste du skicka dina nya avbildningen till en lagringsplats med varje uppdatering. De här uppdateringarna hämtas sedan till Azure-miljön. Om någon av de inbyggda behållarna uppfyller behoven för dina appar, kan distribuera från källan erbjuda en snabbare arbetsflöde för utveckling.
+- **Tillgänglighet för Docker i arbets flödet för utveckling**: För anpassad bild utveckling krävs grundläggande kunskaper om Docker Development-arbetsflödet. Distribution av en anpassad avbildning till en webbapp kräver att den anpassade avbildningen publiceras till en lagrings plats värd som Docker Hub. Om du är bekant med Docker och kan lägga till Docker-uppgifter till ditt Bygg arbets flöde, eller om du redan publicerar din app som en Docker-avbildning, är en anpassad avbildning nästan verkligen det bästa valet.
+- **Arkitektur med flera lager**: Distribuera flera behållare, till exempel ett webb program lager och ett API-lager, för att separera funktioner med hjälp av flera behållare. 
+- **Program prestanda**: Öka prestandan för din app med flera behållare med hjälp av ett cache-lager, till exempel Redis. Välj multi-container för att uppnå detta.
+- **Unika körnings krav**: De inbyggda plattforms avbildningarna är utformade för att uppfylla behoven hos de flesta webbappar, men är begränsade i deras anpassningsbarhet. Din app kan ha unika beroenden eller andra körnings krav som överskrider vad de inbyggda avbildningarna kan hantera.
+- **Versions krav**: Med [kontinuerlig distribution](../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)kan du få igång din app på Azure direkt från käll koden. Ingen extern version eller publicerings process krävs. Det finns dock en gräns för anpassningsbarhet och tillgänglighet för build-verktyg i [kudu](https://github.com/projectkudu/kudu/wiki) -distributions motorn. Din app kan utvidga kudu-funktionerna när de växer i dess beroenden eller krav för anpassad versions logik.
+- **Läs-/skriv krav för disk**: Alla webbappar tilldelas en lagrings volym för webb innehåll. Den här volymen, som backas upp av Azure Storage, `/home` monteras på i appens fil system. Till skillnad från filer i behållarens fil system, är filer i innehålls volymen tillgängliga i alla skalnings instanser av en app, och ändringar behålls i appens omstarter. Disk fördröjningen för innehålls volymen är dock högre och mer variabel än svars tiden för det lokala behållar systemet och åtkomst kan påverkas av plattforms uppgraderingar, oplanerade avbrott och problem med nätverks anslutningen. Appar som kräver tung skrivskyddad åtkomst till innehållsfiler kan dra nytta av anpassad avbildnings distribution, som placerar filer i avbildnings fil systemet i stället för på innehålls volymen.
+- **Bygg**resursanvändning: När en app distribueras från källan använder de distributions skript som körs av kudu samma App Service planera beräknings-och lagrings resurser som appen som körs. Stora distributioner av appar kan förbruka fler resurser eller tid än vad som önskas. I synnerhet genererar många distributions arbets flöden tung disk aktivitet på appens innehålls volym, som inte är optimerad för sådan aktivitet. En anpassad avbildning ger all din apps filer och beroenden till Azure i ett enda paket utan några behov av ytterligare fil överföringar eller distributions åtgärder.
+- **Behov av snabb iteration**: Dockerizing en app kräver ytterligare build-steg. För att ändringarna ska börja gälla måste du skicka den nya avbildningen till en lagrings plats med varje uppdatering. De här uppdateringarna hämtas sedan till Azure-miljön. Om någon av de inbyggda behållarna uppfyller appens behov kan distributionen från källan erbjuda ett snabbare utvecklings arbets flöde.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Anpassad behållare:
-* [Köra anpassade behållare](quickstart-docker-go.md)
+* [Kör anpassad behållare](quickstart-docker-go.md)
 
 Multi-container:
-* [Skapa app för flera behållare](quickstart-multi-container.md)
+* [Skapa app med flera behållare](quickstart-multi-container.md)
 
-I följande artiklar hjälper dig igång med App Service i Linux med en inbyggd plattformsavbildning:
+Följande artiklar hjälper dig att komma igång med App Service på Linux med en inbyggd plattforms avbildning:
 
 * [.NET Core](quickstart-dotnetcore.md)
 * [PHP](quickstart-php.md)

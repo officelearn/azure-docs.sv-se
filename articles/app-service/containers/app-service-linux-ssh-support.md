@@ -1,7 +1,7 @@
 ---
-title: SSH-stöd för App Service i Linux – Azure | Microsoft Docs
-description: Lär dig mer om hur du använder SSH med Azure App Service i Linux.
-keywords: azure app service, web app, linux, oss
+title: SSH-stöd för App Service på Linux – Azure | Microsoft Docs
+description: Lär dig mer om att använda SSH med Azure App Service i Linux.
+keywords: Azure App Service, webbapp, Linux, oss
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -11,56 +11,55 @@ ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b54d5003f67a1bd79e1e52eef87df858bc68ade1
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: fef8a17de4539a1427c269cdc512063d07df195c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551917"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066867"
 ---
-# <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service i Linux
+# <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service på Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) ofta används för att köra administrativa kommandon via en fjärranslutning från en kommandorad terminal. App Service i Linux stöder SSH till appbehållare med var och en av de fördefinierade Docker-avbildningar som används för Körningsstack av nya web apps. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) används ofta för att fjärrköra administrativa kommandon från en kommando rad Terminal. App Service på Linux ger SSH-stöd till appens behållare med var och en av de inbyggda Docker-avbildningarna som används för körnings stacken för nya webbappar. 
 
-![Körningsstackarna](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
+![Körnings stackar](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-För anpassad Docker-avbildningar, genom att konfigurera SSH-server i en anpassad avbildning.
+För anpassade Docker-avbildningar, genom att konfigurera SSH-servern i den anpassade avbildningen.
 
-Du kan också ansluta till behållaren direkt från din lokala utvecklingsdator med hjälp av SSH- och SFTP.
+Du kan också ansluta till behållaren direkt från den lokala utvecklings datorn med SSH och SFTP.
 
 ## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsare
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-no-h.md)]
 
-## <a name="use-ssh-support-with-custom-docker-images"></a>Använda SSH-stöd med anpassad Docker-avbildningar
+## <a name="use-ssh-support-with-custom-docker-images"></a>Använda SSH-stöd med anpassade Docker-avbildningar
 
-Se [konfigurera SSH i en anpassad behållare](configure-custom-container.md#enable-ssh).
+Se [Konfigurera SSH i en anpassad behållare](configure-custom-container.md#enable-ssh).
 
 ## <a name="open-ssh-session-from-remote-shell"></a>Öppna SSH-session från fjärrgränssnitt
 
 > [!NOTE]
-> Den här funktionen är för närvarande i förhandsversion.
+> Den här funktionen är för närvarande en för hands version.
 >
 
-Använder TCP tunneling du kan skapa en nätverksanslutning mellan din utvecklingsdator och Web App for Containers över en autentiserad WebSocket-anslutning. Det kan du öppna en SSH-session med din behållare som körs i App Service från klient av önskat.
+Med TCP-tunnlar kan du skapa en nätverks anslutning mellan din utvecklings dator och Web App for Containers över en autentiserad WebSocket-anslutning. Du kan öppna en SSH-session med din behållare som körs i App Service från valfri klient.
 
-Om du vill komma igång kan du behöva installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Om du vill se hur det fungerar utan att installera Azure CLI, öppna [Azure Cloud Shell](../../cloud-shell/overview.md). 
+För att komma igång måste du installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Öppna [Azure Cloud Shell](../../cloud-shell/overview.md)om du vill se hur det fungerar utan att installera Azure CLI. 
 
-Öppna en anslutning till din app med den [az webapp fjärr-connection skapa](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) kommando. Ange  _\<prenumerations-id >_ ,  _\<-namn >_ och \_ \<appens namn-> _ för din app.
+Öppna en fjärr anslutning till din app med kommandot [AZ webapp Remote-Connection Create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) . \<Ange \_  _\<prenumerations-ID >_ ,  _\<grupp namn >_ och App-Name > _ för din app.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
 > [!TIP]
-> `&` i slutet av kommandot är du bara för att underlätta om du använder Cloud Shell. Processen körs i bakgrunden så att du kan köra nästa kommando i samma shell.
+> `&`i slutet av kommandot är det bara för bekvämlighet om du använder Cloud Shell. Processen körs i bakgrunden så att du kan köra nästa kommando i samma gränssnitt.
 
-Utdata från kommandot ger dig den information du behöver att öppna en SSH-session.
+Kommandots utdata ger dig den information du behöver för att öppna en SSH-session.
 
 ```
 Port 21382 is open
@@ -68,20 +67,20 @@ SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
 ```
 
-Öppna en SSH-session med din behållare med klienten föredrar, med hjälp av den lokala porten. I följande exempel används standardvärdet [ssh](https://ss64.com/bash/ssh.html) kommando:
+Öppna en SSH-session med din behållare med den valda klienten med hjälp av den lokala porten. I följande exempel används standard- [SSH](https://ss64.com/bash/ssh.html) -kommandot:
 
 ```azurecli-interactive
 ssh root@127.0.0.1 -p <port>
 ```
 
-När kommer du att tillfrågas, skriver `yes` att fortsätta att ansluta. Du uppmanas sedan lösenordet. Använd `Docker!`, som visades för dig tidigare.
+När du uppmanas till `yes` det skriver du för att fortsätta ansluta. Du uppmanas sedan att ange lösen ordet. Använd `Docker!`, som visades tidigare.
 
 ```
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
 ```
 
-När du är autentiserad visas på välkomstskärmen för sessionen.
+När du har autentiserats bör du se välkomst skärmen för sessionen.
 
 ```
   _____
@@ -97,7 +96,7 @@ A P P   S E R V I C E   O N   L I N U X
 
 Du är nu ansluten till din anslutning.  
 
-Prova att köra den [upp](https://ss64.com/bash/top.html) kommando. Du bör kunna se hur din app i listan. I de exempel på utdata nedan är det med `PID 263`.
+Försök köra det [översta](https://ss64.com/bash/top.html) kommandot. Du bör kunna se appens process i process listan. I exemplet nedan är det en med `PID 263`.
 
 ```
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
@@ -123,11 +122,11 @@ Load average: 0.07 0.04 0.08 4/765 45738
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan publicera frågor och funderingar på den [Azure-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Du kan publicera frågor och problem i [Azure-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-Mer information om Web App for Containers finns:
+Mer information om Web App for Containers finns i:
 
-* [Introduktion till fjärrfelsökning av Node.js-appar på Azure App Service från VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
+* [Introduktion till fjärrfelsökning av Node. js-appar på Azure App Service från VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
 * [Så här använder du en anpassad Docker-avbildning för Web App for Containers](quickstart-docker-go.md)
 * [Använda .NET Core i Azure App Service i Linux](quickstart-dotnetcore.md)
 * [Använda Ruby i Azure App Service i Linux](quickstart-ruby.md)

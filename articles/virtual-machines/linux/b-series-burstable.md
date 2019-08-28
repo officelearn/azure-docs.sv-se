@@ -1,6 +1,6 @@
 ---
-title: B-serien Azure Linux VM-storlekar | Microsoft Docs
-description: Beskriver B-serien med anpassningsbara Azure VM-storlekar.
+title: VM-storlekar för virtuella datorer i B-serien | Microsoft Docs
+description: Beskriver B-serien med burst-storlekar för virtuella Azure-datorer.
 services: virtual-machines-linux
 documentationcenter: ''
 author: ayshakeen
@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/25/2019
 ms.author: ayshak
-ms.openlocfilehash: 2445ad4804755fb2bdc013f7ea819ed51a2f6480
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 01da424872cdfde6c7e035cadd2b948117fb996c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671821"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084010"
 ---
-# <a name="b-series-burstable-virtual-machine-sizes"></a>B-serien med burst VM-storlekar
+# <a name="b-series-burstable-virtual-machine-sizes"></a>Storlekar för virtuella datorer i B-serien
 
 [!INCLUDE [virtual-machines-common-b-series-burstable](../../../includes/virtual-machines-common-b-series-burstable.md)]
 
@@ -36,4 +35,4 @@ ms.locfileid: "67671821"
 - [Databehandling med höga prestanda](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

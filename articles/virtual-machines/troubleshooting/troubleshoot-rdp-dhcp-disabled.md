@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d16c5b6304f598440fe4d70648dd652f0dcf06ec
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362296"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089942"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Kan inte använda RDP till Azure Virtual Machines eftersom DHCP-klienttjänsten har inaktiverats
 
@@ -29,16 +28,16 @@ Den här artikeln beskriver ett problem där det går inte att fjärrskrivbord t
 ## <a name="symptoms"></a>Symtom
 Du kan inte göra en RDP-anslutning en virtuell dator i Azure eftersom DHCP-klienttjänsten har inaktiverats på den virtuella datorn. När du checkar skärmbilden den [Startdiagnostik](../troubleshooting/boot-diagnostics.md) i Azure-portalen, visas den virtuella datorn startas normalt och väntar på autentiseringsuppgifter i inloggningsskärmen. Du fjärrvisa händelseloggarna på den virtuella datorn med hjälp av Loggboken. Du ser att DHCP-klienttjänsten inte är igång eller inte går att starta. Följande ett exempel logga:
 
-**Loggar namnet**: System </br>
-**Källa**: Service Control Manager </br>
+**Logg namn**: System </br>
+**Källa**: Tjänst kontroll hanterare </br>
 **Datum**: 12/16/2015 11:19:36 AM </br>
 **Händelse-ID**: 7022 </br>
-**Uppgift kategori**: Ingen </br>
+**Uppgifts kategori**: Inga </br>
 **Nivå**: Fel </br>
 **Nyckelord**: Klassisk</br>
-**Användaren**: Gäller inte </br>
+**Användare**: Gäller inte </br>
 **Datorn**: myvm.cosotos.com</br>
-**Beskrivning**: DHCP-klienttjänsten Avstannade vid start.</br>
+**Beskrivning**: DHCP-klienttjänsten stannade vid start.</br>
 
 Du kan använda Seriekonsol för åtkomst till funktionen för att fråga händelsen loggar 7022 med följande kommando för Resurshanterar-VM:
 

@@ -1,65 +1,64 @@
 ---
-title: KRITISKA tjänsten misslyckades när du startar en virtuell Azure-dator | Microsoft Docs
-description: Lär dig att felsöka ”0x0000005A VERKSAMHETSKRITISKA tjänsten misslyckades”-fel som uppstår vid start | Microsoft Docs
+title: KRITISK tjänst misslyckades vid start av en virtuell Azure-dator | Microsoft Docs
+description: Lär dig hur du felsöker felet "0x0000005A-kritisk tjänst misslyckades" som uppstår vid start av | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2a6e8985a2cb13da0f2e34f4e9961f84aacdd974
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449804"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103510"
 ---
-# <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows visar ”kritiska tjänsten misslyckades” på blå skärm när du startar en virtuell Azure-dator
-Den här artikeln beskriver felet ”kritiska tjänsten misslyckades” som kan uppstå när du startar en Windows virtuell dator (VM) i Microsoft Azure. Det ger felsökningssteg för att hjälpa dig att lösa problemen. 
+# <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows visar "kritisk tjänst misslyckades" på blå skärm vid start av en virtuell Azure-dator
+I den här artikeln beskrivs fel meddelandet "kritisk tjänst misslyckades" som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure. Den innehåller fel söknings steg som hjälper dig att lösa problemen. 
 
 > [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributions modellen.
 
 ## <a name="symptom"></a>Symtom 
 
-En virtuell Windows-dator startar inte. När du checkar Start skärmbilderna [Startdiagnostik](./boot-diagnostics.md), du ser något av följande felmeddelanden på en blå skärm:
+En virtuell Windows-dator startar inte. När du kontrollerar start skärmarna i [startdiagnostik](./boot-diagnostics.md), ser du något av följande fel meddelanden på en blå skärm:
 
-- ”Datorn råkade ut för ett problem och måste startas om. Du kan starta om. Mer information om det här problemet och möjliga korrigeringar på https://windows.com/stopcode. Om du tar kontakt supporttekniker kan du ge dem den här informationen: Stoppa kod: DET GICK INTE ATT KRITISKA TJÄNSTEN ” 
-- ”Datorn råkade ut för ett problem och måste startas om. Vi samlar in bara viss felinformation och vi ska starta om för dig. Om du vill veta mer kan du söka online senare för det här felet: CRITICAL_SERVICE_FAILED ”
+- "Datorn stötte på ett problem och måste startas om. Du kan starta om. Mer information om det här problemet och eventuella korrigeringar finns på https://windows.com/stopcode. Om du kallar en support person ger du dem denna information: Stoppkod: KRITISK TJÄNST MISSLYCKADES " 
+- "Datorn stötte på ett problem och måste startas om. Vi samlar bara in fel information och startar sedan om. Om du vill veta mer kan du söka online senare efter det här felet: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Orsak
 
-Det finns olika orsaker till stoppfel. De vanligaste orsakerna är:
-- Problem med en drivrutin
-- Skadad systemfil eller minne
-- Programmet får åtkomst till en otillåtna sektor av minne
+Det finns olika orsaker till stopp fel. De vanligaste orsakerna är:
+- Problem med en driv rutin
+- Skadad system fil eller minne
+- Programmet får åtkomst till en förbjuden sektor i minnet
 
 ## <a name="solution"></a>Lösning 
 
-Du löser problemet, [kontakta supporten och skicka den här filen](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file), som hjälper oss att diagnostisera problemet snabbare eller försök att följande självhjälp-lösning.
+För att lösa det här problemet kan du [kontakta supporten och skicka en dumpfil](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file), vilket hjälper oss att diagnostisera problemet snabbare, eller prova följande själv hjälp lösning.
 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en virtuell dator för återställning
 
-1. Ta en ögonblicksbild av OS-disken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
+1. Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
 2. [Koppla OS-disk till virtuell återställningsdator](./troubleshoot-recovery-disks-portal-windows.md). 
-3. Upprätta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
+3. Upprätta en fjärr skrivbords anslutning till den virtuella återställnings datorn.
 
-### <a name="enable-dump-logs-and-serial-console"></a>Aktivera dump loggar och Seriekonsol
+### <a name="enable-dump-logs-and-serial-console"></a>Aktivera dumpnings loggar och serie konsol
 
-Dump-loggen och [Seriekonsolen](./serial-console-windows.md) hjälper oss att göra ytterligare felsökning.
+I dumpnings loggen och [serie konsolen](./serial-console-windows.md) kan vi göra ytterligare fel sökning.
 
-Kör följande skript för att aktivera dump loggar och Seriekonsol.
+Kör följande skript om du vill aktivera dumpnings loggar och en serie konsol.
 
-1. Öppna en upphöjd kommandotolk-session (Kör som administratör).
+1. Öppna en kommando tolk med förhöjd behörighet (kör som administratör).
 2. Kör följande skript:
 
-    I det här skriptet kan anta vi att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F. Du bör ersätta det med lämpligt värde för den virtuella datorn.
+    I det här skriptet antar vi att enhets beteckningen som är kopplad till den anslutna OS-disken är F. Du bör ersätta den med rätt värde för den virtuella datorn.
 
     ```powershell
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -83,43 +82,43 @@ Kör följande skript för att aktivera dump loggar och Seriekonsol.
     reg unload HKLM\BROKENSYSTEM
     ```
 
-### <a name="replace-the-unsigned-drivers"></a>Ersätt osignerade drivrutiner
+### <a name="replace-the-unsigned-drivers"></a>Ersätt de osignerade driv rutinerna
 
-1. Kör följande kommando från en upphöjd kommandotolk på den Virtuella återställningsdatorn. Det här kommandot anger berörda OS-disken för att starta i felsäkert läge vid nästa start:
+1. Kör följande kommando från en upphöjd kommando tolk på den virtuella återställnings datorn. Detta kommando ställer in den påverkade OS-disken så att den startar i fel säkert läge vid nästa start:
 
         bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
 
-    Till exempel OS-disken bifogade är enhet F, kör du följande kommando:
+    Om den OS-disk som du har anslutit till exempel är enhet F kör du följande kommando:
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Koppla från den OS-disken och sedan koppla OS-disken till den berörda virtuella datorn igen](troubleshoot-recovery-disks-portal-windows.md). Den virtuella datorn startas i felsäkert läge. Om felet kvarstår går du till det valfria steget.
-3. Öppna den **kör** rutan och kör **verifierare** att starta verktyget verifierare drivrutinshanteraren.
-4. Välj **automatiskt välja osignerade drivrutiner**, och klicka sedan på **nästa**.
-5. Du får listan över de drivrutinsfiler som är osignerade. Kom ihåg filnamnen.
-6. Kopiera samma versioner av dessa filer från en fungerande virtuell dator och Ersätt sedan dessa osignerade filer. 
+2. [Koppla från OS-disken och återanslut sedan OS-disken till den berörda virtuella datorn](troubleshoot-recovery-disks-portal-windows.md). Den virtuella datorn startas om i fel säkert läge. Om du fortfarande upplever felet går du till det valfria steget.
+3. Öppna rutan **Kör** och kör **Verifier** för att starta verktyget driv rutins hanteraren.
+4. Välj Välj **osignerade driv rutiner automatiskt**och klicka sedan på **Nästa**.
+5. Du får en lista över de drivrutinsfiler som är osignerade. Kom ihåg fil namnen.
+6. Kopiera samma versioner av de här filerna från en fungerande virtuell dator och ersätt sedan dessa osignerade filer. 
 
 7. Ta bort inställningarna för säker start:
 
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  Starta om den virtuella datorn. 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Valfritt: Analysera dump-loggar i Dump krascha läge
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Valfritt: Analysera dumpnings loggarna i dumpa krasch läge
 
-Följ dessa steg om du vill analysera loggarna dump själv:
+Följ dessa steg om du vill analysera dumpnings loggarna själv:
 
 1. Koppla OS-disken till en virtuell dator för återställning.
-2. Bläddra till på OS-disken bifogade **\windows\system32\config**. Kopiera alla filer som en säkerhetskopia om en återställning.
-3. Starta **Registereditorn** (regedit.exe).
-4. Välj den **HKEY_LOCAL_MACHINE** nyckel. På menyn, Välj **filen** > **Läs in registreringsdatafil**.
-5. Bläddra till den **\windows\system32\config\SYSTEM** mapp på den OS-disken bifogade. Namnet på hive, ange **BROKENSYSTEM**. Den nya registreringsdatafilen visas under den **HKEY_LOCAL_MACHINE** nyckel.
+2. På den OS-disk som du har bifogat bläddrar du till **\Windows\System32\Config**. Kopiera alla filerna som en säkerhets kopia om en återställning krävs.
+3. Starta **Registereditorn** (regedit. exe).
+4. Välj **HKEY_LOCAL_MACHINE** -nyckel. På menyn väljer du **fil** > **läsnings registrerings data**fil.
+5. Bläddra till mappen **\windows\system32\config\SYSTEM** på den OS-disk som du har anslutit. Ange **BROKENSYSTEM**som namn på Hive. Den nya registrerings data filen visas under nyckeln **HKEY_LOCAL_MACHINE** .
 6. Bläddra till **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** och gör följande ändringar:
 
     AutoReboot = 0
 
     CrashDumpEnabled = 2
-7.  Välj **BROKENSYSTEM**. På menyn, väljer **filen** > **ta bort registreringsdata**.
-8.  Ändra BCD-installationsprogrammet för att starta i felsökningsläge. Kör följande kommandon från en upphöjd kommandotolk:
+7.  Välj **BROKENSYSTEM**. Från menyn väljer du **Arkiv** > **ta bort Hive**.
+8.  Ändra BCD-installationen för att starta i fel söknings läge. Kör följande kommandon från en upphöjd kommando tolk:
 
     ```cmd
     REM Setup some debugging flags on the boot manager
@@ -135,10 +134,10 @@ Följ dessa steg om du vill analysera loggarna dump själv:
     bcdedit /store <OS DISK LETTER>:\boot\bcd /set {default} recoveryenabled no
     bcdedit /store <OS DISK LETTER>:\boot\bcd /set {default} integrityservices disable
     ```
-9. [Koppla från den OS-disken och sedan koppla OS-disken till den berörda virtuella datorn igen](troubleshoot-recovery-disks-portal-windows.md).
-10. Starta den virtuella datorn för att se om det visar kraschdumpfiler. Hitta den fil som inte kan läsas in. Du måste ersätta den här filen med en fil fungerande virtuell dator. 
+9. [Koppla från OS-disken och återanslut sedan OS-disken till den berörda virtuella datorn](troubleshoot-recovery-disks-portal-windows.md).
+10. Starta den virtuella datorn för att se om den visar dump-analys. Hitta filen som inte kan läsas in. Du måste ersätta den här filen med en fil från den aktiva virtuella datorn. 
 
-    Följande är exempel på kraschdumpfiler. Du kan se att den **fel** på filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
+    Följande är exempel på dump-analys. Du kan se att **felen** finns på filecrypt. sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
 
     ```
     kd> !analyze -v 
@@ -158,7 +157,7 @@ Följ dessa steg om du vill analysera loggarna dump själv:
     MODULE_NAME: filecrypt IMAGE_NAME: filecrypt.sys DEBUG_FLR_IMAGE_TIMESTAMP: 0 IMAGE_VERSION: STACK_COMMAND: .thread ; .cxr ; kb FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys PRIMARY_PROBLEM_CLASS: 0x5A_c0000428_IMAGE_filecrypt.sys TARGET_TIME: 2017-11-13T20:51:04.000Z OSBUILD: 14393 OSSERVICEPACK: 1770 SERVICEPACK_NUMBER: 0 OS_REVISION: 0 SUITE_MASK: 144 PRODUCT_TYPE: 3 OSPLATFORM_TYPE: x64 OSNAME: Windows 10 OSEDITION: Windows 10 Server TerminalServer DataCenter OS_LOCALE: USER_LCID: 0 OSBUILD_TIMESTAMP: 2017-09-17 19:16:08 BUILDDATESTAMP_STR: 170917-1700 BUILDLAB_STR: rs1_release BUILDOSVER_STR: 10.0.14393.1770 ANALYSIS_SESSION_ELAPSED_TIME: bfc ANALYSIS_SOURCE: KM FAILURE_ID_HASH_STRING: km:0x5a_c0000428_image_filecrypt.sys FAILURE_ID_HASH: {35f25777-b01e-70a1-c502-f690dab6cb3a} FAILURE_ID_REPORT_LINK: https://go.microsoft.com/fwlink/?LinkID=397724&FailureHash=35f25777-b01e-70a1-c502-f690dab6cb3a
     ```
 
-11. När den virtuella datorn fungerar och starta normalt, tar du bort dumpa krascha-inställningar:
+11. När den virtuella datorn fungerar och startar normalt, tar du bort inställningarna för dump kraschar:
 
     ```cmd
     REM Restore the boot manager to default values

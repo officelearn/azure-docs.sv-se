@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM-storlekar – Accelerated compute | Microsoft Docs
-description: Visar olika GPU optimerad storlekar för Linux-datorer i Azure. Visar information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredd för storlekar i den här serien.
+title: VIRTUELLA Azure Linux-storlekar – accelererad beräkning | Microsoft Docs
+description: Visar en lista över de olika GPU-optimerade storlekar som är tillgängliga för virtuella Linux-datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: 64cbcd375840d78916810abf9ccb8478ef9a1359
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ed8af91701a5ed77636bb86e8798981f37546f23
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708833"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082137"
 ---
-# <a name="gpu-optimized-virtual-machine-sizes"></a>GPU-optimerad storlekar för virtuella datorer
+# <a name="gpu-optimized-virtual-machine-sizes"></a>GPU-optimerade storlekar på virtuella datorer
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
@@ -31,14 +30,14 @@ ms.locfileid: "67708833"
 
 ## <a name="supported-distributions-and-drivers"></a>Distributioner och drivrutiner som stöds
 
-Om du vill dra nytta av GPU-funktioner för Azure N-serien virtuella datorer som kör Linux, måste NVIDIA GPU-drivrutiner installeras. Den [NVIDIA GPU-drivrutinen tillägget](../extensions/hpccompute-gpu-linux.md) installerar lämpliga NVIDIA CUDA- eller NÄTVERKSBASERADE drivrutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure-portalen eller verktyg som Azure CLI eller Azure Resource Manager-mallar. Se den [NVIDIA GPU-drivrutinen tillägget dokumentation](../extensions/hpccompute-gpu-linux.md) för distributioner som stöds och distributionssteg. Allmän information om VM-tillägg finns i [Azure virtuella datorer, tillägg och funktioner](../extensions/overview.md).
+För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien som kör Linux måste NVIDIA GPU-drivrutiner vara installerade. [NVidia GPU-drivrutinen](../extensions/hpccompute-gpu-linux.md) installerar lämpliga NVIDIA-CUDA eller rutnäts driv rutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure CLI eller Azure Resource Manager mallar. Se [dokumentationen för NVIDIA GPU-drivrutin](../extensions/hpccompute-gpu-linux.md) för distributioner som stöds och distributions steg. Allmän information om VM-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](../extensions/overview.md).
 
-Om du väljer att installera NVIDIA GPU-drivrutiner manuellt, se [drivrutinsinstallationer för N-serien GPU för Linux](n-series-driver-setup.md) distributioner som stöds, drivrutiner och anvisningar för installation och verifiering.
+Om du väljer att installera NVIDIA GPU-drivrutiner manuellt, se [N-seriens installation av GPU-drivrutiner för Linux](n-series-driver-setup.md) för distributioner, driv rutiner och installations-och verifierings steg som stöds.
 
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* Du bör inte installera X server eller andra system som använder den `Nouveau` drivrutinen på Ubuntu Nätverksstyrenhetens virtuella datorer. Innan du installerar NVIDIA GPU-drivrutiner, måste du inaktivera den `Nouveau` drivrutinen.  
+* Du bör inte installera X-Server eller andra system som `Nouveau` använder driv rutinen på virtuella Ubuntu NC-datorer. Innan du installerar NVIDIA GPU-drivrutiner måste du inaktivera `Nouveau` driv rutinen.  
 
 ## <a name="other-sizes"></a>Andra storlekar
 - [Generellt syfte](sizes-general.md)
@@ -46,7 +45,7 @@ Om du väljer att installera NVIDIA GPU-drivrutiner manuellt, se [drivrutinsinst
 - [Minnesoptimerad](sizes-memory.md)
 - [Lagringsoptimerad](sizes-storage.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
-- [Tidigare versioner](sizes-previous-gen.md)
+- [Tidigare generationer](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

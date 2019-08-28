@@ -1,6 +1,6 @@
 ---
-title: Skapa en webbapp i en App Service Environment v1 - Azure
-description: Lär dig hur du skapar web apps och app service-planer i en App Service Environment v1
+title: Skapa en webbapp i en App Service-miljön v1 – Azure
+description: Lär dig hur du skapar webbappar och App Service-planer i en App Service-miljön v1
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -10,94 +10,93 @@ ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc40c2296e583ab93a7c34d709cfbf1334ae3926
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60765185"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069850"
 ---
-# <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Skapa en webbapp i en App Service Environment v1
+# <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Skapa en webbapp i en App Service-miljön v1
 
 > [!NOTE]
-> Den här artikeln handlar om App Service Environment v1.  Det finns en nyare version av App Service Environment som är enklare att använda och körs på kraftfullare infrastruktur. Mer information om den nya versionen början med den [introduktion till App Service Environment](intro.md).
+> Den här artikeln gäller App Service-miljön v1.  Det finns en nyare version av App Service-miljön som är enklare att använda och som körs på en kraftfullare infrastruktur. Om du vill veta mer om den nya versionen börjar [du med introduktionen till App Service-miljön](intro.md).
 > 
 
 ## <a name="overview"></a>Översikt
-Den här självstudien visar hur du skapar webbappar och App Service-planer i en [App Service Environment v1](app-service-app-service-environment-intro.md) (ASE). 
+I den här självstudien visas hur du skapar webbappar och App Service-planer i en [App Service-miljön v1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
-> Om du vill lära dig hur du skapar en webbapp, men behöver inte göra det i en App Service Environment, se [skapa en .NET-webbapp](../app-service-web-get-started-dotnet.md) eller någon av de relaterade guider för övriga språk och ramverk.
+> Om du vill lära dig hur du skapar en webbapp men inte behöver göra det i en App Service-miljön, se [skapa en .NET-webbapp](../app-service-web-get-started-dotnet.md) eller någon av de relaterade självstudierna för andra språk och ramverk.
 > 
 > 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Den här självstudien förutsätter att du har skapat en App Service Environment. Om du inte har gjort det redan finns i [skapa en App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
+## <a name="prerequisites"></a>Förutsättningar
+I den här självstudien förutsätter vi att du har skapat en App Service-miljön. Om du inte har gjort det ännu kan du läsa [skapa en app service-miljön](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
-1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **skapa en resurs > webb + mobilt > Webbapp**. 
+1. I [Azure-portalen](https://portal.azure.com/)klickar du på **skapa en resurs > webb och mobilt >-webbapp**. 
    
     ![][1]
 2. Välj din prenumeration.  
    
-    Tänk på att om du vill skapa en app i App Service Environment, måste du använda samma prenumeration som du använde när du skapar miljön om du har flera prenumerationer. 
+    Om du har flera prenumerationer som är medvetna om att du ska skapa en app i App Service-miljön måste du använda samma prenumeration som du använde när du skapade miljön. 
 3. Välj eller skapa en Resursgrupp.
    
-    *Resursgrupper* kan du hantera relaterade Azure-resurser som en enhet och är användbara när upprättar *rollbaserad åtkomstkontroll* (RBAC) regler för dina appar. Mer information finns i [översikt över Azure Resource Manager][ResourceGroups]. 
+    Med *resurs grupper* kan du hantera relaterade Azure-resurser som en enhet och är användbara när du skapar regler för *rollbaserad åtkomst kontroll* (RBAC) för dina appar. Mer information finns i [Översikt över Azure Resource Manager][ResourceGroups]. 
 4. Välj eller skapa en App Service plan.
    
-    *App Service-planer* är en hanterad uppsättning webbappar.  Normalt när du väljer priser, tillämpas priset till App Service-planen i stället för enskilda appar. I en ase-miljö betalar du för de beräkningsinstanser som allokerats till ASE i stället för att du har angett med ASP.  Om du vill skala upp antalet instanser av en webbapp som du skala upp instanser av din App Service påverkar plan och alla web apps i den här planen.  Vissa funktioner, till exempel plats för webbplatsen eller VNET-integrering har också kvantitet begränsningar i planen.  Mer information finns i [översikt över Azure App Service-planer](../overview-hosting-plans.md)
+    *App Service planer* är hanterade uppsättningar av Web Apps.  Normalt när du väljer prissättning tillämpas det pris som debiteras för App Service plan snarare än till de enskilda apparna. I en ASE betalar du för de beräknings instanser som allokeras till ASE i stället för det som du har listat med din ASP.  För att skala upp antalet instanser av en webbapp skalar du upp instanserna av din App Service plan och påverkar alla webbappar i planen.  Vissa funktioner som webbplats platser eller VNET-integration också har begränsningar i planen.  Mer information finns i [Översikt över Azure App Service planer](../overview-hosting-plans.md)
    
-    Du kan identifiera App Service-planerna i din ASE genom att titta på den plats som anges under planens namn.  
+    Du kan identifiera App Service planer i din ASE genom att titta på den plats som anges under prenumerations namnet.  
    
     ![][5]
    
-    Om du vill använda en App Service-plan som redan finns i din App Service Environment, väljer du den här planen. Om du vill skapa en ny App Service-plan, se följande avsnitt i den här självstudien [skapa en App Service-plan i en App Service Environment](#createplan).
-5. Ange namn för din webbapp och klicka sedan på **skapa**. 
+    Om du vill använda en App Service plan som redan finns i App Service-miljön väljer du den planen. Om du vill skapa en ny App Service plan går du till följande avsnitt i den här självstudien och [skapar en app service plan i en app service-miljön](#createplan).
+5. Ange namnet på din webbapp och klicka sedan på **skapa**. 
    
-    Om din ASE använder en extern VIP Webbadressen till en app i en ASE är: [*sitename*]. [ *namn på App Service Environment*]. p.azurewebsites.net i stället för [*sitename*]. azurewebsites.net
+    Om din ASE använder en extern VIP är URL: en för en app i en ASE: [*webbplats*namn]. [*namnet på din app service-miljön*]. p.azurewebsites.net i stället för [*webbplats*namn]. azurewebsites.net
    
-    Om din ASE använder intern VIP och sedan Webbadressen till en app i att ASE är: [*sitename*]. [ *underdomän har angetts under ASE-generering*]   
-    När du har valt ASP under ASE-generering underdomänen uppdatera nedan visas **namn**
+    Om din ASE använder en intern VIP-adress är URL: en för en app i den ASE: [*webbplats*namn]. [*under domän angavs vid skapande av ASE*]   
+    När du har valt ASP när du har skapat ASE visas under domän uppdateringen nedan **namn**
 
-## <a name="createplan"></a> Skapa en App Service-plan
-När du skapar en App Service-plan i en App Service Environment skiljer valen worker sig eftersom det finns ingen delad arbetare i en ase-miljö.  Arbetare som du måste använda är de som har tilldelats ASE av administratören.  Det innebär att om du vill skapa en ny plan måste ha ytterligare arbeten som allokeras till din ASE arbetarpool än det totala antalet instanser för alla dina planer redan i den arbetarpoolen.  Om du inte har tillräckligt med arbetare i arbetarpoolen din ASE att skapa ett schema kan behöva du arbeta med din ASE-administratör för att lägga till dem.
+## <a name="createplan"></a>Skapa en App Service plan
+När du skapar en App Service plan i en App Service-miljön skiljer sig dina arbets val åt eftersom det inte finns några delade arbetare i en ASE.  De anställda som du måste använda är de som har allokerats till ASE av administratören.  Det innebär att du måste ha fler medarbetare som har allokerats till din ASE-pool för att skapa en ny plan än det totala antalet instanser i alla planer som redan finns i arbets gruppen.  Om du inte har tillräckligt många arbetare i ASE Worker-poolen för att skapa din plan måste du arbeta med ASE-administratören för att få dem tillagda.
 
-En annan skillnaden med App Service-planer som är värd för en App Service Environment är bristen på val av.  När du har en App Service Environment du betala för beräkningsresurser som används av systemet och har inte har lagts till avgifter för planerna i den miljön.  När du skapar en App Service plan väljer du normalt en prisplanen som avgör din fakturering.  En App Service Environment är i grunden en privat plats där du kan skapa innehåll.  Du betalar för miljön och inte som värd för ditt innehåll.
+En annan skillnad med App Service planer som är värd för en App Service-miljön är brist på pris urval.  När du har ett App Service-miljön du betala för beräknings resurser som används av systemet och inte har extra avgifter för planerna i den miljön.  Normalt när du skapar en App Service plan väljer du en pris plan som avgör din fakturering.  En App Service-miljön är i princip en privat plats där du kan skapa innehåll.  Du betalar för miljön och inte är värd för ditt innehåll.
 
-Följande instruktioner visar hur du skapar en App Service plan när du skapar en webbapp som beskrivs i föregående avsnitt av kursen.
+Följande instruktioner visar hur du skapar en App Service plan när du skapar en webbapp enligt beskrivningen i föregående avsnitt i självstudien.
 
-1. Klicka på **Skapa ny** i Planera val av användargränssnitt och ange ett namn för din plan precis som vanligt utanför en ase-miljö.
-2. Välj ASE som du vill använda från platsen Väljaren.
+1. Klicka på **Skapa nytt** i användar gränssnittet för plan val och ange ett namn för din plan precis som du normalt skulle hamna utanför en ASE.
+2. Välj den ASE som du vill använda från din plats väljare.
    
-    Eftersom en App Service Environment är i grunden en privat distributionsplats bör visas under plats. 
+    Eftersom en App Service-miljön är i princip en privat distributions plats visas den under plats. 
    
     ![][2]
    
-    Efter valet av en ASE i väljaren för platsen, skapa för App Service-plan Användargränssnittet uppdaterar du.  Platsen visar nu namnet på ASE-systemet och regionen den tillhör och väljaren för prissättning plan ersätts med en väljare för worker-pool.  
+    När du har valt en ASE i plats väljaren, uppdateras de App Service plan att skapa användar gränssnitt.  Platsen visar nu namnet på ASE-systemet och regionen som det finns i och pris avtals väljaren ersätts med en väljare för arbetare.  
    
     ![][3]
 
-### <a name="selecting-a-worker-pool"></a>Att välja en arbetarpool
-Normalt finns i Azure App Service och utanför en App Service Environment 3 storlekar som är tillgängliga med valet av en dedikerad prisplanen.  På liknande sätt, för en ASE kan du definiera upp till 3 pooler med arbetare och ange beräkningsstorleken på som används för den arbetarpoolen.  Vad det innebär för klienter på ase-miljön är det i stället för att välja en prisplanen med beräkningsstorleken för App Service-planen, du väljer något som kallas en *arbetarpool*.  
+### <a name="selecting-a-worker-pool"></a>Välja en arbets grupp
+Normalt i Azure App Service och utanför en App Service-miljön, finns det 3 beräknings storlekar som är tillgängliga med valet av en dedikerad pris plan.  På samma sätt kan du för en ASE definiera upp till 3 pooler med arbetare och ange den beräknings storlek som används för den arbets gruppen.  Vad det innebär för klienter i ASE är att i stället för att välja en pris plan med beräknings storlek för din App Service plan väljer du vad som kallas för en *arbets grupp*.  
 
-Pool-markeringen worker Användargränssnittet visar beräkningsstorleken som används för den arbetarpoolen under namnet.  Antalet tillgängliga syftar på hur många compute-instanser är tillgängliga för användning i poolen.  Den totala poolen kan faktiskt har flera instanser än det antalet men det här värdet avser bara hur många inte används.  Om du behöver justera din App Service Environment att lägga till mer beräkningsresurser Se [konfigurera App Service Environment](app-service-web-configure-an-app-service-environment.md).
+I användar gränssnittet för anslutningspoolen visas den beräknings storlek som används för den arbets gruppen under namnet.  Den tillgängliga kvantiteten avser hur många beräknings instanser som är tillgängliga för användning i poolen.  Den totala poolen kan faktiskt ha fler instanser än det här antalet, men det här värdet avser bara hur många som inte används.  Om du behöver justera App Service-miljön för att lägga till fler beräknings resurser, se [Konfigurera din app service-miljön](app-service-web-configure-an-app-service-environment.md).
 
 ![][4]
 
-I det här exemplet ser du bara två arbetarpooler. Det beror på att ASE administratören bara tilldelas värdar i de två arbetarpooler.  Tredje skulle visas när det finns virtuella datorer allokeras till den.  
+I det här exemplet ser du bara två tillgängliga arbets grupper. Det beror på att ASE-administratören endast allokerade värdar till de två arbetspoolerna.  Den tredje visas när virtuella datorer allokeras till den.  
 
-## <a name="after-web-app-creation"></a>När du skapa en webbapp
-Det finns några saker för att köra webbappar och hantera App Service-planer i en ASE som måste beaktas.  
+## <a name="after-web-app-creation"></a>När webb program har skapats
+Det finns några överväganden för att köra webbappar och hantera App Service-planer i en ASE som måste beaktas.  
 
-Som tidigare nämnts ägaren av ase: N ansvarar för storleken på systemet och därmed de ansvarar också för att säkerställa att det finns tillräckligt med kapacitet som värd för de önskade App Service-planerna. Om det finns inga tillgängliga arbeten kan du inte skapa App Service-planen.  Detta är också sant för att skala upp din webbapp.  Om du behöver fler instanser sedan behöver du hämta din App Service Environment-administratören att lägga till ytterligare arbeten.
+Som tidigare nämnts är ägaren av ASE ansvarig för systemets storlek och därför ansvarar de också för att se till att det finns tillräckligt med kapacitet för att vara värd för önskade App Services planer. Om det inte finns några tillgängliga arbetare kommer du inte att kunna skapa din App Service plan.  Detta gäller även för att skala upp din webbapp.  Om du behöver fler instanser måste du få App Service-miljön administratören att lägga till fler arbetare.
 
-När du har skapat din webbapp och App Service-plan är det en bra idé att skala upp.  I en ASE måste du alltid ha minst 2 instanser av din App Service-plan för att ge feltolerans för dina appar.  Skala en App Service-plan i en ASE är samma som normalt via Användargränssnittet för App Service-planen.  Mer information om skalning, [skala en webbapp i en App Service Environment](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+När du har skapat din webbapp och App Service plan det är en bra idé att skala upp den.  I en ASE måste du alltid ha minst 2 instanser av din App Service plan för att tillhandahålla fel tolerans för dina appar.  Skalning av en App Service plan i en ASE är detsamma som normalt via App Service plan gränssnittet.  Mer information om skalning, [hur du skalar en webbapp i en app service-miljön](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 
 <!--Image references-->
 [1]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createaspnewwebapp.png

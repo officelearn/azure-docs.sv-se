@@ -1,6 +1,6 @@
 ---
-title: Azure begränsade vCPU - storlekar för Windows | Microsoft Docs
-description: Visar en lista över de storlekar som kan hantera med en begränsad vCPU-uppräkning.
+title: Azure-begränsade vCPU-storlekar – Windows | Microsoft Docs
+description: Visar en lista med de VM-storlekar som kan ha ett begränsat vCPU antal.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -8,20 +8,19 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: 2bce8e275cb6a45f05d392a9a98a54b9c6f5221f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ebd936b7003caaf12030876560ab3ca94537142f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719101"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079818"
 ---
-# <a name="constrained-vcpu-capable-vm-sizes"></a>Begränsade vCPU kompatibla VM-storlekar
+# <a name="constrained-vcpu-capable-vm-sizes"></a>Begränsade vCPU-kompatibla VM-storlekar
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-constrained-vcpu.md)]
@@ -35,5 +34,5 @@ ms.locfileid: "67719101"
 - [Databehandling med höga prestanda](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM-storlekar – beräkningsoptimerade | Microsoft Docs
-description: Visar en lista över de olika beräkningsoptimerad storlekarna för Linux-datorer i Azure. Visar information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredd för storlekar i den här serien.
+title: VIRTUELLA Azure Linux-storlekar – Compute-optimerad | Microsoft Docs
+description: Visar en lista över de olika optimerings storlekar som är tillgängliga för virtuella Linux-datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 137cda7e224d3968cae8614c96fddf914d3b5e5e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 154209c78746e1a44c7cee51675150e8acca0f0a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708876"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082098"
 ---
-# <a name="compute-optimized-virtual-machine-sizes"></a>Optimerad databehandling storlekar för virtuella datorer
+# <a name="compute-optimized-virtual-machine-sizes"></a>Beräkna optimerade storlekar för virtuella datorer
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]
 
@@ -35,7 +34,7 @@ ms.locfileid: "67708876"
 - [Lagringsoptimerad](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
-- [Tidigare versioner](sizes-previous-gen.md)
+- [Tidigare generationer](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

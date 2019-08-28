@@ -1,6 +1,6 @@
 ---
-title: Använd verktyg för automatisering av infrastruktur för virtuella Linux-datorer i Azure | Microsoft Docs
-description: Lär dig hur du använder infrastruktur automatiseringsverktyg som Ansible, Chef, Puppet, Terraform och Packer för att skapa och hantera Linux-datorer i Azure
+title: Använd infrastruktur automatiserings verktyg för virtuella Linux-datorer i Azure | Microsoft Docs
+description: Lär dig hur du använder infrastruktur automatiserings verktyg som Ansible, chef, Puppet, terraform och Packer för att skapa och hantera virtuella Linux-datorer i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,17 +9,16 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 808f671b108fa2e06e3be919372647b391f809eb
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: da476c1f0c1b64a0689f401ebb215fe8888b9921
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671427"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083069"
 ---
 [!INCLUDE [virtual-machines-common-infrastructure-automation](../../../includes/virtual-machines-common-infrastructure-automation.md)]

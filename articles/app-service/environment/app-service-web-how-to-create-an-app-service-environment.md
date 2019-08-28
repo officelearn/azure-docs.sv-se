@@ -1,6 +1,6 @@
 ---
-title: Så här skapar du en App Service Environment version 1 – Azure
-description: Skapa flödesbeskrivningen för en app service environment v1
+title: Så här skapar du en App Service-miljön v1 – Azure
+description: Beskrivning av skapande flöde för en app service Environment v1
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -10,72 +10,71 @@ ms.assetid: 81bd32cf-7ae5-454b-a0d2-23b57b51af47
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9bc796c4d0d449f72dc3234bc2825554eafaf77f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 017c79ec1341c85f3bd08393dd5553f90a2f6cef
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128898"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069742"
 ---
-# <a name="how-to-create-an-app-service-environment-v1"></a>Så här skapar du en App Service Environment version 1 
+# <a name="how-to-create-an-app-service-environment-v1"></a>Så här skapar du en App Service-miljön v1 
 
 > [!NOTE]
-> Den här artikeln handlar om App Service Environment v1. Det finns en nyare version av App Service Environment som är enklare att använda och körs på kraftfullare infrastruktur. Mer information om den nya versionen början med den [introduktion till App Service Environment](intro.md).
+> Den här artikeln gäller App Service-miljön v1. Det finns en nyare version av App Service-miljön som är enklare att använda och som körs på en kraftfullare infrastruktur. Om du vill veta mer om den nya versionen börjar [du med introduktionen till App Service-miljön](intro.md).
 > 
 
 ### <a name="overview"></a>Översikt
-App Service Environment (ASE) är ett Premium-tjänsten i Azure App Service som ger en förbättrad configuration-funktion som inte är tillgänglig i stämplarna för flera innehavare. Funktionen ASE distribuerar Azure App Service i stort sett till kundens virtuella nätverk. Att få bättre förståelse av de funktioner som erbjuds av App Service-miljöer läsa den [vad är en App Service Environment] [ WhatisASE] dokumentation.
+App Service-miljön (ASE) är ett premium tjänst alternativ för Azure App Service som ger en förbättrad konfigurations funktion som inte är tillgänglig i flera klientens stämplar. Funktionen ASE distribuerar i princip Azure App Service till kundens virtuella nätverk. För att få en bättre förståelse för de funktioner som erbjuds av App Services miljöer läser du dokumentationen [Vad är en app service-miljön][WhatisASE] .
 
 ### <a name="before-you-create-your-ase"></a>Innan du skapar din ASE
-Det är viktigt att känna till de saker som du inte kan ändra. Dessa aspekter som du inte kan ändra om din ASE när den har skapats är:
+Det är viktigt att vara medveten om de saker som du inte kan ändra. De aspekter som du inte kan ändra om din ASE när den har skapats är:
 
 * Location
-* Prenumeration
+* Subscription
 * Resursgrupp
-* Virtuella nätverket som används
+* VNet används
 * Undernät som används 
-* Undernätets storlek
+* Under näts storlek
 
-När du väljer ett virtuellt nätverk och ange ett undernät, se till att är det tillräckligt stor för att hantera eventuell tillväxt. 
+När du väljer ett VNet och anger ett undernät kontrollerar du att det är tillräckligt stort för att kunna hantera framtida tillväxt. 
 
-### <a name="creating-an-app-service-environment-v1"></a>Skapa en App Service Environment version 1
-För att skapa en App Service Environment v1, kan du söka på Azure Marketplace för ***App Service Environment v1***, eller gå igenom **skapa en resurs** -> **webb + mobilt**  ->  **Apptjänstmiljö**. Skapa en ASEv1:
+### <a name="creating-an-app-service-environment-v1"></a>Skapa en App Service-miljön v1
+Om du vill skapa en app service-miljön v1 kan du söka i Azure Marketplace efter ***App Service-miljön v1***eller gå igenom **skapa en resurs** -> **webb och mobilt** -> **App Service-miljön**. Så här skapar du en ASEv1:
 
-1. Ange namnet på din ASE. Namnet du anger för ASE ska användas för appar som skapats i ASE. Om namnet på ASE är appsvcenvdemo, underdomän namnet blir: *appsvcenvdemo.p.azurewebsites.net*. Om du har skapat en app med namnet därför *mytestapp*, skulle det vara adresserbara på *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Du kan inte använda tomma utrymmen för namnet på din ASE. Om du använder versaler i namnet, kommer domännamnet att totala gemenversionen med det namnet. Om du använder en ILB ASE-namn används inte i din underdomän men i stället anges under ASE-generering.
+1. Ange namnet på din ASE. Det namn som du anger för ASE kommer att användas för de appar som skapas i ASE. Om namnet på ASE är appsvcenvdemo skulle under domän namnet vara: *appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*skulle den vara adresserbar vid *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Du kan inte använda blank steg i namnet på din ASE. Om du använder versaler i namnet blir domän namnet den totala gemena versionen av det namnet. Om du använder en ILB används inte ditt ASE-namn i under domänen, men anges i stället uttryckligen när ASE skapas.
    
     ![][1]
-2. Välj din prenumeration. Den prenumeration som du använder för din ASE gäller även för alla appar som du skapar i denna ASE. Du kan inte placera din ASE i ett virtuellt nätverk som tillhör en annan prenumeration.
-3. Välj eller ange en ny resursgrupp. Resursgruppen som används för din ASE måste vara samma som används för ditt virtuella nätverk. Om du väljer ett befintliga virtuellt nätverk måste kommer de val av resursgrupp för din ASE att uppdateras för att avspegla för ditt VNet.
+2. Välj din prenumeration. Prenumerationen som du använder för din ASE gäller även för alla appar som du skapar i den ASE. Du kan inte placera din ASE i ett VNet som finns i en annan prenumeration.
+3. Välj eller ange en ny resurs grupp. Resurs gruppen som används för din ASE måste vara samma som används för ditt VNet. Om du väljer ett befintligt virtuellt nätverk kommer resurs grupps valet för din ASE att uppdateras för att avspegla detta för ditt VNet.
    
     ![][2]
-4. Gör dina val för virtuellt nätverk och plats. Du kan välja att skapa ett nytt virtuellt nätverk eller välj ett befintliga virtuellt nätverk. Om du väljer ett nytt virtuellt nätverk kan du ange ett namn och plats. Det nya VNet har adressintervallet 192.168.250.0/23 och ett undernät med namnet **standard** som har definierats som 192.168.250.0/24. Du kan också bara välja en befintlig klassisk eller Resource Manager virtuellt nätverk. VIP-typ urvalet bestämmer om din ASE kan nås direkt från internet (extern) eller om den använder en intern belastningsutjämnaren (ILB). Mer information om dem Läs [med hjälp av en intern belastningsutjämnare med en App Service Environment][ILBASE]. Om du väljer en VIP-typ av extern kan du välja hur många externa IP-adresser som systemet skapas med för IPSSL ändamål. Om du väljer internt måste du ange underdomänen som ska använda för din ASE. Ase-miljöer kan distribueras till virtuella nätverk som använder *antingen* offentliga adressintervall, *eller* RFC1918 adressutrymmen (d.v.s. privata adresser). För att kunna använda ett virtuellt nätverk med ett offentligt adressintervall, måste du skapa det virtuella nätverket i tid. När du väljer ett befintliga virtuellt nätverk behöver du skapa ett nytt undernät under ASE-generering. **Du kan inte använda ett undernät som skapats i förväg i portalen. Du kan skapa en ASE med ett befintligt undernät om du skapar din ASE med en resource manager-mall.** Skapa en ASE från en mall använder informationen här, [skapar en App Service Environment från mall] [ ILBAseTemplate] och här kan [skapar en ILB App Service Environment från mall] [ASEfromTemplate].
+4. Gör dina val för Virtual Network och plats. Du kan välja att skapa ett nytt VNet eller välja ett befintligt VNet. Om du väljer ett nytt virtuellt nätverk kan du ange ett namn och en plats. Det nya virtuella nätverket kommer att ha adress intervallet 192.168.250.0/23 och ett undernät med namnet **default** som definieras som 192.168.250.0/24. Du kan också välja ett redan befintligt klassiskt eller Resource Manager VNet. Valet av VIP-typ avgör om din ASE kan nås direkt från Internet (extern) eller om den använder en intern Load Balancer (ILB). Om du vill veta mer om hur de läser [använder du ett internt Load Balancer med ett App Service-miljön][ILBASE]. Om du väljer en VIP-typ som är extern kan du välja hur många externa IP-adresser som systemet ska skapas med i IPSSL-syfte. Om du väljer intern måste du ange den under domän som din ASE ska använda. ASE kan distribueras i virtuella nätverk som använder *antingen* offentliga adress intervall *eller* RFC1918 adress utrymmen (dvs. privata adresser). För att du ska kunna använda ett virtuellt nätverk med ett offentligt adress intervall måste du skapa VNet i förväg. När du väljer ett befintligt virtuellt nätverk måste du skapa ett nytt undernät när ASE skapas. **Du kan inte använda ett i förväg skapade undernät i portalen. Du kan skapa en ASE med ett redan befintligt undernät om du skapar din ASE med hjälp av en Resource Manager-mall.** Om du vill skapa en ASE från en mall använder du informationen här, [skapar en app service-miljön från mallen][ILBAseTemplate] och [skapar en ILB-App Service-miljön från mallen][ASEfromTemplate].
 
 ### <a name="details"></a>Information
-En ASE skapas med 2 Klientdelar och 2 Worker-arbeten. Klientdelar fungerar som HTTP/HTTPS-slutpunkter och skicka trafik till anställda som är de roller som värd för dina appar. Du kan justera antalet när ASE har skapats och kan även konfigurera regler för automatisk skalning på de här resurspoolerna. Mer information om manuell skalning finns för hantering och övervakning av en App Service Environment här: [Så här konfigurerar du en App Service Environment][ASEConfig] 
+En ASE skapas med 2 klient delar och två arbetare. Klient delar fungerar som HTTP/HTTPS-slutpunkter och skickar trafik till de arbetare som är de roller som är värdar för dina appar. Du kan justera antalet när ASE har skapats och även ange regler för autoskalning på dessa resurspooler. Mer information kring manuell skalning, hantering och övervakning av en App Service-miljön finns här: [Så här konfigurerar du en App Service-miljön][ASEConfig] 
 
-Endast en ASE kan finnas i undernätet som används av ASE. Undernätet kan inte användas för något annat än ASE
+Endast en ASE kan finnas i under nätet som används av ASE. Det går inte att använda under nätet för något annat än ASE
 
-### <a name="after-app-service-environment-v1-creation"></a>När App Service Environment v1 har skapats
+### <a name="after-app-service-environment-v1-creation"></a>När App Service-miljön v1 skapas
 När ASE har skapats kan du justera:
 
-* Antalet Klientdelar (minsta: 2)
-* Antal arbetare (minsta: 2)
+* Antal klient delar (minimum: 2)
+* Antal arbetare (minst: 2)
 * Antal IP-adresser som är tillgängliga för IP SSL
-* Compute resource-storlekar som används av Klientdelar eller arbetare (klientdel minsta storleken är P2)
+* Beräknings resurs storlekar som används av klient delar eller arbetare (lägsta lägsta storlek för klient delen är P2)
 
-Det finns mer information om manuell skalning, hantering och övervakning av App Service-miljöer här: [Så här konfigurerar du en App Service Environment][ASEConfig] 
+Det finns mer information kring manuell skalning, hantering och övervakning av App Service miljöer här: [Så här konfigurerar du en App Service-miljön][ASEConfig] 
 
-Det finns en guide här för information om automatisk skalning: [Så här konfigurerar du automatisk skalning för en App Service Environment][ASEAutoscale]
+Det finns en guide för information om autoskalning: [Konfigurera autoskalning för en App Service-miljön][ASEAutoscale]
 
-Det finns ytterligare beroenden som inte är tillgängliga för anpassning, till exempel databas och lagring. Dessa hanteras av Azure och levereras med systemet. Lagringsutrymme för filsystem stöder upp till 500 GB för hela App Service Environment och databasen justeras med Azure vid behov genom att skalan för systemet.
+Det finns ytterligare beroenden som inte är tillgängliga för anpassning, till exempel databasen och lagringen. De hanteras av Azure och levereras med systemet. System lagringen har stöd för upp till 500 GB för hela App Service-miljön och databasen justeras av Azure efter behov av systemets skala.
 
 ## <a name="getting-started"></a>Komma igång
-Kom igång med App Service Environment v1, se [introduktion till App Service Environment v1][WhatisASE]
+För att komma igång med App Service-miljön v1, se [Introduktion till App Service-miljön v1][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

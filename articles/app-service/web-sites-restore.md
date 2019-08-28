@@ -10,24 +10,23 @@ ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2289ef81785520b81c7d69a97cb20196015fe802
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 519cf5388b095c7ca6e0ae7d978608f0824dc3a2
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637750"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066507"
 ---
 # <a name="restore-an-app-in-azure"></a>Återställ en app i Azure
 Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) som du tidigare har säkerhetskopierat (se [säkerhetskopiera din app i Azure](manage-backup.md)). Du kan återställa din app med dess länkade databaser på begäran till ett tidigare tillstånd, eller skapa en ny app baserat på en av din ursprungliga programs säkerhets kopior. Azure App Service stöder följande databaser för säkerhets kopiering och återställning:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
-- [MySQL i-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
+- [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Återställning från säkerhets kopior är tillgängligt för appar som körs på nivån **standard** och **Premium** . Information om hur du skalar upp din app finns i [skala upp en app i Azure](manage-scale-up.md). **Premium** -nivån tillåter att ett större antal dagliga säkerhets kopieringar utförs än **standard** nivån.
 

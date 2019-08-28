@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fed118ee78e6a11f3492060a55ac9847bb5b6a88
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 60f74de308938ee155cf61f3360f73d92feaa67c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720037"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102495"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator på Azure-portalen
 
@@ -37,7 +36,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
 
-1. I den **New** sidan under **vanliga**väljer **Windows Server 2016 Datacenter**.
+1. På sidan **ny** under **populär**väljer du **Windows Server 2016 Data Center**.
 
 1. På fliken **Grundläggande inställningar** går du till **Projektinformation**, kontrollerar att korrekt prenumeration har valts och väljer sedan **Skapa ny** för resursgruppen. Skriv *myResourceGroup* som namn. 
 
@@ -95,7 +94,7 @@ I portalen väljer du den virtuella datorn, och i översikten för den virtuella
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Välj resursgrupp för den virtuella datorn och sedan **ta bort**. Bekräfta namnet på resursgruppen som ska ta bort resurserna.
+Du kan ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Välj resurs gruppen för den virtuella datorn och välj sedan **ta bort**. Bekräfta resurs gruppens namn för att slutföra borttagningen av resurserna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
 title: Alternativ för DNS-namnmatchning för virtuella Linux-datorer i Azure
-description: Namnet scenarier för Linux-datorer i Azure IaaS, inklusive tillhandahålls DNS-tjänst, hybrid externa DNS- och ta med din egen DNS-server.
+description: Namn matchnings scenarier för virtuella Linux-datorer i Azure IaaS, inklusive tillhandahållna DNS-tjänster, hybrid extern DNS och att ta med din egen DNS-server.
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
@@ -8,135 +8,134 @@ manager: gwallace
 editor: tysonn
 ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: d9ff8ca8ce35c8698fc67fa8588eed4228230068
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 16dc7d16b3e8f2a4c95e93f9b85c74027291ce19
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668496"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084029"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Alternativ för DNS-namnmatchning för virtuella Linux-datorer i Azure
-Azure tillhandahåller DNS-namnmatchning som standard för alla virtuella datorer som finns i ett enda virtuellt nätverk. Du kan implementera en egen DNS-namnet lösning lösning genom att konfigurera dina egna DNS-tjänster på dina virtuella datorer som är värd för Azure. Följande scenarier bör hjälpa dig att välja det alternativ som passar din situation.
+Azure tillhandahåller DNS-namnmatchning som standard för alla virtuella datorer som finns i ett enda virtuellt nätverk. Du kan implementera din egen lösning för DNS-namnmatchning genom att konfigurera dina egna DNS-tjänster på dina virtuella datorer som Azure-värdar. Följande scenarier bör hjälpa dig att välja den som fungerar för din situation.
 
-* [Namnmatchning som Azure tillhandahåller](#name-resolution-that-azure-provides)
-* [Namnmatchning med hjälp av DNS-servern](#name-resolution-using-your-own-dns-server)
+* [Namn matchning som Azure tillhandahåller](#name-resolution-that-azure-provides)
+* [Namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server)
 
-Typ av namnmatchning som du använder beror på hur dina virtuella datorer och rollinstanser måste kommunicera med varandra.
+Vilken typ av namn matchning du använder beror på hur dina virtuella datorer och roll instanser måste kommunicera med varandra.
 
-I följande tabell visar scenarier och motsvarande name resolution lösningar:
+I följande tabell visas scenarier och motsvarande namn matchnings lösningar:
 
 | **Scenario** | **Lösning** | **Suffix** |
 | --- | --- | --- |
-| Namnmatchningen mellan rollinstanser och virtuella datorer i samma virtuella nätverk |Namnmatchning som Azure tillhandahåller |värdnamn eller fullständigt kvalificerade domännamnet (FQDN) |
-| Namnmatchning mellan rollinstanser eller virtuella datorer i olika virtuella nätverk |Kundhanterad DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för matchning av Azure (DNS-proxy). Se [namnmatchning med hjälp av DNS-servern](#name-resolution-using-your-own-dns-server). |Endast FQDN |
-| Matcha namn från rollinstanser eller virtuella datorer i Azure och lokala datorer |Kundhanterad DNS-servrar (till exempel en lokal domänkontrollant, lokala skrivskyddade domänkontrollanten eller en sekundär DNS har synkroniserats med hjälp av zonöverföringar). Se [namnmatchning med hjälp av DNS-servern](#name-resolution-using-your-own-dns-server). |Endast FQDN |
-| Lösning av Azure värdnamn från lokala datorer |Vidarebefordra frågor till en kundhanterad DNS-proxyserver i motsvarande virtuella nätverk. Proxyservern vidarebefordrar frågor till Azure för matchning. Se [namnmatchning med hjälp av DNS-servern](#name-resolution-using-your-own-dns-server). |Endast FQDN |
-| Omvänd DNS för interna IP-adresser |[Namnmatchning med hjälp av DNS-servern](#name-resolution-using-your-own-dns-server) |Saknas |
+| Namn matchning mellan roll instanser eller virtuella datorer i samma virtuella nätverk |Namn matchning som Azure tillhandahåller |värdnamn eller fullständigt kvalificerat domän namn (FQDN) |
+| Namn matchning mellan roll instanser eller virtuella datorer i olika virtuella nätverk |Kundhanterade DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server). |Endast FQDN |
+| Matchning av lokala datorer och tjänst namn från roll instanser eller virtuella datorer i Azure |Kundhanterade DNS-servrar (till exempel en lokal domänkontrollant, en lokal skrivskyddad domänkontrollant eller en sekundär DNS-sekundär som synkroniseras med hjälp av zon överföringar). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server). |Endast FQDN |
+| Matchning av Azure-värdnamn från lokala datorer |Vidarebefordra frågor till en kundhanterad DNS-proxyserver i motsvarande virtuella nätverk. Proxyservern vidarebefordrar frågor till Azure för lösning. Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server). |Endast FQDN |
+| Omvänd DNS för interna IP-adresser |[Namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server) |Saknas |
 
-## <a name="name-resolution-that-azure-provides"></a>Namnmatchning som Azure tillhandahåller
-Azure tillhandahåller intern namnmatchning för virtuella datorer och rollinstanser som finns i samma virtuella nätverk tillsammans med matchning av offentliga DNS-namn. I virtuella nätverk som baseras på Azure Resource Manager, är DNS-suffixet konsekvent på det virtuella nätverket. Det fullständiga Domännamnet behövs inte. DNS-namn kan tilldelas virtuella datorer och nätverkskort (NIC). Även om namnmatchningen som Azure tillhandahåller inte kräver någon konfiguration, är det inte valet för alla distributionsscenarier, som visas i tabellen ovan.
+## <a name="name-resolution-that-azure-provides"></a>Namn matchning som Azure tillhandahåller
+Tillsammans med matchning av offentliga DNS-namn tillhandahåller Azure intern namn matchning för virtuella datorer och roll instanser i samma virtuella nätverk. I virtuella nätverk som baseras på Azure Resource Manager är DNS-suffixet konsekvent i det virtuella nätverket. FQDN krävs inte. DNS-namn kan tilldelas till både nätverkskort och virtuella datorer. Även om namn matchningen som Azure tillhandahåller inte kräver någon konfiguration, är det inte det lämpligaste alternativet för alla distributions scenarier som visas i tabellen ovan.
 
 ### <a name="features-and-considerations"></a>Funktioner och överväganden
-**Funktioner:**
+**Egenskaper**
 
-* Ingen konfiguration krävs för att använda namnmatchning som Azure tillhandahåller.
-* Den namnmatchningstjänst som Azure tillhandahåller har hög tillgänglighet. Du behöver inte skapa och hantera kluster för din egen DNS-servrar.
-* Namnmatchningstjänst som Azure tillhandahåller kan användas tillsammans med dina egna DNS-servrar för att lösa både lokala och Azure värdnamn.
-* Namnmatchning tillhandahålls mellan virtuella datorer i virtuella nätverk utan behov av det fullständiga Domännamnet.
-* Du kan använda värdnamn som bäst beskriver dina distributioner i stället för att arbeta med autogenererade namn.
+* Ingen konfiguration krävs för att använda namn matchning som Azure tillhandahåller.
+* Den namn matchnings tjänst som Azure tillhandahåller har hög tillgänglighet. Du behöver inte skapa och hantera kluster av dina egna DNS-servrar.
+* Namn matchnings tjänsten som Azure tillhandahåller kan användas tillsammans med dina egna DNS-servrar för att matcha både lokala och Azure-värdnamn.
+* Namn matchning tillhandahålls mellan virtuella datorer i virtuella nätverk utan att det fullständiga domän namnet krävs.
+* Du kan använda värdnamn som bäst beskriver dina distributioner i stället för att arbeta med automatiskt genererade namn.
 
-**Att tänka på:**
+**Angående**
 
-* DNS-suffix som skapar Azure kan inte ändras.
+* Det DNS-suffix som Azure skapar kan inte ändras.
 * Du kan inte registrera dina egna poster manuellt.
-* WINS- och NetBIOS stöds inte.
+* WINS och NetBIOS stöds inte.
 * Värdnamn måste vara DNS-kompatibla.
-    Namn måste använda bara 0-9, a – z och '-', och de får inte börja eller sluta med en '-'. See RFC 3696 Section 2.
-* DNS-frågorna är begränsad för varje virtuell dator. Begränsning bör inte påverka de flesta program.  Se till att cachelagring på klientsidan är aktiverad om begärandebegränsning observeras.  Mer information finns i [Stackautomatisering namnmatchning som Azure tillhandahåller](#getting-the-most-from-name-resolution-that-azure-provides).
+    Namn får endast innehålla 0-9, a-z och "-", och de får inte börja eller sluta med "-". Se RFC 3696 avsnitt 2.
+* DNS-frågans trafik begränsas för varje virtuell dator. Begränsningen påverkar inte de flesta program.  Om begränsningen för begäran observeras kontrollerar du att cachelagring på klient sidan är aktiverat.  Mer information finns i [få ut mesta möjliga av namn matchningen som Azure tillhandahåller](#getting-the-most-from-name-resolution-that-azure-provides).
 
-### <a name="getting-the-most-from-name-resolution-that-azure-provides"></a>Få ut maximalt av namnmatchning som Azure tillhandahåller
-**Klientcachelagring:**
+### <a name="getting-the-most-from-name-resolution-that-azure-provides"></a>Få ut mesta möjliga av namn matchningen som Azure tillhandahåller
+**Cachelagring på klient sidan:**
 
-Vissa DNS-frågor skickas inte över nätverket. Klientcachelagring kan minska svarstiden och förbättra återhämtning till inkonsekvenser i nätverket genom att lösa återkommande DNS-frågor från en lokal cache. DNS-poster innehåller en Time To Live (TTL), vilket gör att cacheminnet för att lagra posten så länge som möjligt utan att påverka poster färskhet. Därför är klientcachelagring lämplig för de flesta situationer.
+Vissa DNS-frågor skickas inte över nätverket. Cachelagring på klient sidan bidrar till att minska svars tiden och förbättra återhämtningen till nätverks inkonsekvenser genom att lösa återkommande DNS-frågor från en lokal cache. DNS-poster innehåller ett TTL-värde (Time-to-Live) som gör det möjligt för cache att lagra posten så länge som möjligt utan att det går att påverka posternas aktualitet. Därför är cachelagring på klient sidan lämplig för de flesta situationer.
 
-Vissa Linux-distributioner omfattar inte cachelagring som standard. Vi rekommenderar att du lägger till en cache till varje Linux-dator när du har kontrollerat att det inte är ett lokalt cacheminne redan.
+Vissa Linux-distributioner omfattar inte cachelagring som standard. Vi rekommenderar att du lägger till en cache i varje virtuell Linux-dator när du har markerat att det inte redan finns en lokal cache.
 
-Flera olika DNS-cachen paket, som till exempel dnsmasq, är tillgängliga. Här följer stegen för att installera dnsmasq på de vanligaste distributionerna:
+Flera olika DNS-dnsmasq, till exempel, är tillgängliga. Här följer stegen för att installera dnsmasq på de vanligaste distributionerna:
 
 **Ubuntu (använder resolvconf)**
-  * Installera dnsmasq-paketet (”sudo apt-get install dnsmasq”).
+  * Installera dnsmasq-paketet ("sudo apt-get install dnsmasq").
 
 **SUSE (använder netconf)** :
-1. Installera dnsmasq-paketet (”sudo zypper installera dnsmasq”).
-2. Aktivera tjänsten dnsmasq (”systemctl aktivera dnsmasq.service”).
-3. Starta tjänsten dnsmasq (”systemctl start dnsmasq.service”).
-4. Redigera ”/ etc/sysconfig/nätverk/config”, och ändra NETCONFIG_DNS_FORWARDER = ”” till ”dnsmasq”.
-5. Uppdatera resolv.conf (”netconfig update”) för att ställa in cachen som den lokala DNS-matchning.
+1. Installera dnsmasq-paketet ("sudo zypper install dnsmasq").
+2. Aktivera dnsmasq-tjänsten ("systemctl Enable dnsmasq. service").
+3. Starta dnsmasq-tjänsten ("systemctl start dnsmasq. service").
+4. Redigera "/etc/sysconfig/Network/config" och ändra NETCONFIG_DNS_FORWARDER = "" till "dnsmasq".
+5. Uppdatera matcha. conf ("netconfig Update") för att ange cachen som den lokala DNS-matcharen.
 
-**CentOS falsk Wave Software (tidigare OpenLogic; använder NetworkManager)**
-1. Installera dnsmasq-paketet (”sudo yum install dnsmasq”).
-2. Aktivera tjänsten dnsmasq (”systemctl aktivera dnsmasq.service”).
-3. Starta tjänsten dnsmasq (”systemctl start dnsmasq.service”).
-4. Lägg till ”Lägg till åtkomstgruppen domän-namnservrarna 127.0.0.1”; till ”/etc/dhclient-eth0.conf”.
-5. Starta om nätverkstjänsten (”tjänsten network omstart”) för att ställa in cachen som den lokala DNS-matchning
+**CentOS av falsk Wave-programvara (tidigare OpenLogic; använder NetworkManager)**
+1. Installera dnsmasq-paketet ("sudo yum install dnsmasq").
+2. Aktivera dnsmasq-tjänsten ("systemctl Enable dnsmasq. service").
+3. Starta dnsmasq-tjänsten ("systemctl start dnsmasq. service").
+4. Lägg till "lägga Domain-Name-servers 127.0.0.1;" till "/etc/dhclient-eth0.conf".
+5. Starta om nätverks tjänsten ("Service Network restart") för att ställa in cachen som den lokala DNS-matcharen
 
 > [!NOTE]
-> : Paketet 'dnsmasq' är bara en av de många DNS-cacheminnen som är tillgängliga för Linux. Innan du använder den, kontrollera dess lämplighet för dina behov och som ingen annan cachelagring är installerad.
+> : Paketet "dnsmasq" är bara ett av de många DNS-cacheminnen som är tillgängliga för Linux. Innan du använder den kontrollerar du lämpligheten för dina behov och att ingen annan cache har installerats.
 >
 >
 
-**Klientsidan återförsök**
+**Försök på klient Sidan**
 
-DNS är främst UDP-protokollet. Eftersom UDP-protokollet inte garanterar meddelandeleverans, hanterar logik för omprövning i själva DNS-protokollet. Varje DNS-klient (operativsystemet) kan ha olika omprövningslogiken beroende på Skaparens inställningar:
+DNS är i första hand ett UDP-protokoll. Eftersom UDP-protokollet inte garanterar meddelande leverans, hanterar själva DNS-protokollet omprövnings logik. Varje DNS-klient (operativ system) kan använda olika logik för omprövning beroende på skapare:
 
-* Windows-operativsystem försök igen efter en sekund och sedan igen efter en annan två, fyra och ett annat fyra sekunder.
-* Standard Linux installationsprogrammet återförsöken efter fem sekunder.  Du bör ändra detta att försöka fem gånger på en sekunds intervall.  
+* Nya försök för Windows-operativsystem efter en sekund och sedan igen efter ytterligare två, fyra och ytterligare fyra sekunder.
+* De nya standarderna för Linux-installationen efter fem sekunder.  Du bör ändra det här för att försöka igen fem gånger vid en sekunds intervall.  
 
-Kontrollera de aktuella inställningarna på en Linux-dator, ”cat /etc/resolv.conf' och titt på raden” alternativ ”till exempel:
+För att kontrol lera de aktuella inställningarna på en virtuell Linux-dator, "Cat/etc/resolv.conf", och titta på "alternativ"-raden, till exempel:
 
     options timeout:1 attempts:5
 
-Filen resolv.conf genereras automatiskt och bör inte redigeras. Vilka specifika åtgärder som Lägg till rad-alternativ ”varierar beroende på distribution:
+Filen matcha. conf genereras automatiskt och bör inte redige ras. De specifika steg som lägger till raden alternativ varierar beroende på distribution:
 
 **Ubuntu** (använder resolvconf)
-1. Lägg till rad alternativ till ' / etc/resolveconf/resolv.conf.d/head ”.
-2. Kör resolvconf -u att uppdatera.
+1. Lägg till alternativ raden till '/etc/resolveconf/resolv.conf.d/Head '.
+2. Kör "resolvconf-u" för att uppdatera.
 
-**SUSE** (uses netconf)
-1. Lägg till 'timeout:1 försök: 5' till NETCONFIG_DNS_RESOLVER_OPTIONS = ”” parametern i ”/ etc/sysconfig/nätverk/config”.
-2. Kör netconfig-uppdateringen att uppdatera.
+**SUSE** (använder netconf)
+1. Lägg till timeout: 1 försök: 5 till parametern NETCONFIG_DNS_RESOLVER_OPTIONS = "" i "/etc/sysconfig/Network/config".
+2. Kör netconfig Update för att uppdatera.
 
-**CentOS falsk Wave Software (tidigare OpenLogic)** (använder NetworkManager)
-1. Lägg till ”RES_OPTIONS =” timeout:1 försök: 5 ”” till ”/ etc/sysconfig/nätverk”.
-2. Kör ”service nätverk omstart” att uppdatera.
+**CentOS av falsk Wave-programvara (tidigare OpenLogic)** (använder NetworkManager)
+1. Lägg till "RES_OPTIONS =" timeout: 1 försök: 5 "" till "/etc/sysconfig/Network".
+2. Kör "Network-restart" för att uppdatera.
 
-## <a name="name-resolution-using-your-own-dns-server"></a>Namnmatchning med hjälp av DNS-servern
-Din namnmatchningen kan utöver de funktioner som Azure tillhandahåller. Du kan till exempel kräva DNS-matchning mellan virtuella nätverk. Du kan använda din egen DNS-servrar för att täcka det här scenariot.  
+## <a name="name-resolution-using-your-own-dns-server"></a>Namn matchning med hjälp av en egen DNS-Server
+Dina namn matchnings behov kan gå utöver de funktioner som Azure tillhandahåller. Du kan till exempel behöva DNS-matchning mellan virtuella nätverk. Du kan använda dina egna DNS-servrar för att försäkra dig om det här scenariot.  
 
-DNS-servrar i ett virtuellt nätverk kan vidarebefordra DNS-frågor till rekursiva matchare av Azure för att matcha värdnamn som finns i samma virtuella nätverk. Exempelvis kan en DNS-server som körs i Azure svara på DNS-frågor för en egen DNS-zonfiler och vidarebefordra alla frågor till Azure. Den här funktionen gör det möjligt för virtuella datorer för att se båda dina poster i zonen filer och värdnamn som Azure tillhandahåller (via vidarebefordrare). Åtkomst till de rekursiva matchare Azure tillhandahålls via den virtuella IP-Adressen 168.63.129.16.
+DNS-servrar i ett virtuellt nätverk kan vidarebefordra DNS-frågor till rekursiva matchare av Azure för att matcha värdnamn som finns i samma virtuella nätverk. En DNS-server som kör i Azure kan till exempel svara på DNS-frågor efter sina egna DNS-zonfiler och vidarebefordra alla andra frågor till Azure. Den här funktionen gör det möjligt för virtuella datorer att se både dina poster i dina zonfiler och värdnamn som Azure tillhandahåller (via vidarebefordraren). Åtkomst till de rekursiva matcharna i Azure tillhandahålls via det virtuella IP-168.63.129.16.
 
-Vidarebefordran av DNS även aktiverar DNS-matchning mellan virtuella nätverk och gör att dina lokala datorer för att matcha värdnamn som Azure tillhandahåller. För att lösa värdnamnet för en virtuell dator kan DNS-server-datorn måste finnas i samma virtuella nätverk och konfigureras för att vidarebefordra värdnamn frågor till Azure. Eftersom DNS-suffix är olika i varje virtuellt nätverk kan använda du villkorlig vidarebefordringsregler för att skicka DNS-frågor till rätt virtuellt nätverk för matchning. Följande bild visar två virtuella nätverk och ett lokalt nätverk som gör DNS-matchning mellan virtuella nätverk med hjälp av den här metoden:
+DNS-vidarebefordring möjliggör även DNS-matchning mellan virtuella nätverk och gör det möjligt för dina lokala datorer att matcha värdnamn som Azure tillhandahåller. För att lösa en virtuell dators värdnamn måste den virtuella datorn för DNS-servern finnas i samma virtuella nätverk och konfigureras för att vidarebefordra värdnamn-frågor till Azure. Eftersom DNS-suffixet skiljer sig i varje virtuellt nätverk kan du använda regler för villkorlig vidarebefordran för att skicka DNS-frågor till rätt virtuellt nätverk för matchning. Följande bild visar två virtuella nätverk och ett lokalt nätverk som utför DNS-matchning mellan virtuella nätverk med hjälp av den här metoden:
 
 ![DNS-matchning mellan virtuella nätverk](./media/azure-dns/inter-vnet-dns.png)
 
-När du använder namnmatchning som Azure tillhandahåller tillhandahålls interna DNS-suffixet för varje virtuell dator med hjälp av DHCP. När du använder en egen lösning för name resolution anges suffixet till virtuella datorer eftersom suffixet stör andra DNS-arkitekturer. Att referera till datorer efter FQDN eller för att konfigurera suffixet på dina virtuella datorer, kan du använda PowerShell eller API: et för att fastställa suffixet:
+När du använder namn matchning som Azure tillhandahåller, tillhandahålls det interna DNS-suffixet till varje virtuell dator med hjälp av DHCP. När du använder din egen lösning för namn matchning levereras inte det här suffixet till virtuella datorer eftersom suffixet stör andra DNS-arkitekturer. Om du vill referera till datorer efter FQDN eller konfigurera suffixet på dina virtuella datorer kan du använda PowerShell eller API för att fastställa suffixet:
 
-* För virtuella nätverk som hanteras av Azure Resource Manager suffixet är tillgängligt via den [nätverkskort](https://msdn.microsoft.com/library/azure/mt163668.aspx) resurs. Du kan också köra den `azure network public-ip show <resource group> <pip name>` kommando för att visa information om din offentliga IP-adress som innehåller det fullständiga Domännamnet för nätverkskortet.
+* För virtuella nätverk som hanteras av Azure Resource Manager är suffixet tillgängligt via [nätverks gränssnitts kortets](https://msdn.microsoft.com/library/azure/mt163668.aspx) resurs. Du kan också köra `azure network public-ip show <resource group> <pip name>` kommandot för att visa information om din offentliga IP-adress, som innehåller det fullständiga domän namnet för nätverkskortet.
 
-Om vidarebefordran av frågor till Azure inte passar dina behov, måste du ange en egen DNS-lösning.  Din DNS-lösningen behöver:
+Om du inte uppfyller dina behov när du vidarebefordrar frågor till Azure måste du ange en egen DNS-lösning.  DNS-lösningen måste:
 
-* Ange lämpliga värdnamnsmatchning, till exempel [DDNS](../../virtual-network/virtual-networks-name-resolution-ddns.md). Om du använder DDNS, kan du behöva inaktivera DNS-post rensning. DHCP-lån för Azure är mycket långa och rensning kan ta bort DNS-poster för tidigt.
-* Ange lämpliga rekursiv matchning för att tillåta matchning av extern domännamn.
-* Vara tillgänglig (TCP och UDP på port 53) från klienterna den fungerar och att kunna få åtkomst till Internet.
-* Skyddas mot åtkomst från Internet för att identifiera hot som externa agenter.
+* Ange lämplig matchning för värdnamn, till exempel via [DDNS](../../virtual-network/virtual-networks-name-resolution-ddns.md). Om du använder DDNS kan du behöva inaktivera rensning av DNS-poster. DHCP-lån för Azure är mycket långa och rensning kan ta bort DNS-poster för tidigt.
+* Ange lämplig rekursiv matchning för att tillåta matchning av externa domän namn.
+* Vara tillgänglig (TCP och UDP på port 53) från de klienter som den hanterar och kan komma åt Internet.
+* Skyddas mot åtkomst från Internet för att minimera hot från externa agenter.
 
 > [!NOTE]
-> För bästa prestanda när du använder virtuella datorer i Azure DNS-servrar, inaktivera IPv6 och tilldela en [offentlig IP på instansnivå](../../virtual-network/virtual-networks-instance-level-public-ip.md) varje DNS-server-dator.  
+> Om du vill ha bästa möjliga prestanda inaktiverar Azure DNS du IPv6 och tilldelar en [offentlig IP-adress på instans nivå](../../virtual-network/virtual-networks-instance-level-public-ip.md) till varje virtuell dator med DNS-servrar.  
 >
 >

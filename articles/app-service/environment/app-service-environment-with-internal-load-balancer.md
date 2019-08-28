@@ -1,5 +1,5 @@
 ---
-title: Skapa och använda intern belastningsutjämnare med App Service environment - Azure | Microsoft Docs
+title: Skapa och Använd en intern belastningsutjämnare med App Service miljö – Azure | Microsoft Docs
 description: Skapa och använda en ASE med en ILB
 services: app-service
 documentationcenter: ''
@@ -10,128 +10,127 @@ ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 65d62df954dbbfbdd221adb33eccd82f73588fae
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130610"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069904"
 ---
-# <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Med hjälp av en intern belastningsutjämnare med en App Service Environment
+# <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Använda en intern Load Balancer med ett App Service-miljön
 
 > [!NOTE] 
-> Den här artikeln handlar om App Service Environment v1. Det finns en nyare version av App Service Environment som är enklare att använda och körs på kraftfullare infrastruktur. Mer information om den nya versionen början med den [introduktion till App Service Environment](intro.md).
+> Den här artikeln gäller App Service-miljön v1. Det finns en nyare version av App Service-miljön som är enklare att använda och som körs på en kraftfullare infrastruktur. Om du vill veta mer om den nya versionen börjar [du med introduktionen till App Service-miljön](intro.md).
 >
 
-Funktionen App Service Environment (ASE) är ett Premium-tjänsten i Azure App Service som ger en förbättrad configuration-funktion som inte är tillgänglig i stämplarna för flera innehavare. ASE-funktionen i stort sett distribuerar Azure App Service i dina Azure virtuellt nätverk (vnet). Att få bättre förståelse av de funktioner som erbjuds av App Service-miljöer läsa den [vad är en App Service Environment] [ WhatisASE] dokumentation. Om du inte vet fördelarna med verksamma i ett virtuellt nätverk Läs den [virtuella nätverk vanliga frågor om Azure][virtualnetwork]. 
+Funktionen App Service-miljön (ASE) är ett premium tjänst alternativ för Azure App Service som ger en förbättrad konfigurations funktion som inte är tillgänglig i flera klientens stämplar. Funktionen ASE distribuerar i princip Azure App Service i Azure-Virtual Network (VNet). För att få en bättre förståelse för de funktioner som erbjuds av App Services miljöer läser du dokumentationen [Vad är en app service-miljön][WhatisASE] . Om du inte känner till fördelarna med att arbeta i ett virtuellt nätverk läser du [vanliga frågor och svar om Azure Virtual Network][virtualnetwork]. 
 
 ## <a name="overview"></a>Översikt
-En ASE kan distribueras med en internet-tillgänglig slutpunkt eller med en IP-adress i ditt virtuella nätverk. Du behöver distribuera din ASE med en intern belastning Balancer(ILB) för att ange IP-adress till en VNet-adress. När din ASE konfigurerad med en ILB, anger du:
+En ASE kan distribueras med en tillgänglig slut punkt för Internet eller med en IP-adress i ditt VNet. För att ange IP-adressen till en VNet-adress måste du distribuera din ASE med ett internt Load Balancer (ILB). När din ASE har kon figurer ATS med en ILB, kan du ange:
 
-* din egen domän eller underdomän. Om du vill göra det enklare, det här dokumentet förutsätts underdomän men du kan konfigurera det i båda fallen. 
+* din egen domän eller under domän. För att göra det enkelt förutsätter det här dokumentet under domänen, men du kan konfigurera det på något av sätt. 
 * certifikatet som används för HTTPS
-* DNS management for your subdomain. 
+* DNS-hantering för under domänen. 
 
 I utbyte kan du göra saker om att:
 
-* vara värd för intranätprogram som line-of-business-program på ett säkert sätt i molnet som du kommer åt via en plats till plats eller ExpressRoute VPN
-* vara värd för appar i molnet som inte listas i offentliga DNS-servrar
-* Skapa internet-isolerade serverdel appar som dina appar för klientdelar säkert kan integrera
+* värdbaserade intranät program, t. ex. branschspecifika program, säkert i molnet som du kommer åt via en plats till en plats eller ExpressRoute VPN
+* värdbaserade appar i molnet som inte listas i offentliga DNS-servrar
+* Skapa webb isolerade Server dels appar med vilka dina frontend-appar kan integrera på ett säkert sätt
 
 #### <a name="disabled-functionality"></a>Inaktiverad funktion
-Det finns några saker som du inte kan göra när du använder en ILB ASE. Dessa saker är:
+Det finns några saker som du inte kan göra när du använder en ILB-ASE. Dessa är bland annat:
 
-* med hjälp av IPSSL
-* tilldela IP-adresser till specifika appar
-* köpa och använda ett certifikat med en app via portalen. Du kan naturligtvis fortfarande hämta certifikat direkt med en certifikatutfärdare och använda den med dina appar, men inte via Azure portal.
+* använda IPSSL
+* tilldela IP-adresser till vissa appar
+* köpa och använda ett certifikat med en app via portalen. Du kan naturligtvis Hämta certifikat direkt med en certifikat utfärdare och använda dem med dina appar, men inte via Azure Portal.
 
-## <a name="creating-an-ilb-ase"></a>Skapa en ILB ASE
-Skapa en ILB ASE skiljer sig inte mycket från att skapa en ASE vanligtvis. En djupare diskussion om hur du skapar en ASE finns i [så här skapar du en App Service Environment][HowtoCreateASE]. Processen för att skapa en ILB ASE är samma mellan skapar ett virtuellt nätverk under ASE-generering eller välja ett befintliga virtuellt nätverk. Så här skapar du en intern belastningsutjämnare i apptjänstmiljö: 
+## <a name="creating-an-ilb-ase"></a>Skapa en ILB-ASE
+Att skapa en ILB-ASE är inte mycket annorlunda än att skapa en ASE normalt. En djupare diskussion om hur du skapar en ASE finns i [så här skapar du en app service-miljön][HowtoCreateASE]. Processen för att skapa en ILB-ASE är densamma som för att skapa ett VNet under ASE eller för att välja ett befintligt VNet. Så här skapar du en intern belastningsutjämnare i apptjänstmiljö: 
 
-1. I Azure-portalen väljer du **skapa en resurs -> webb + mobil -> App Service Environment**.
+1. I Azure Portal väljer du **skapa en resurs-> webb och mobilt-> App Service-miljön**.
 2. Välj din prenumeration.
 3. Välj eller skapa en Resursgrupp.
 4. Välj eller skapa ett virtuellt nätverk (VNet).
-5. Skapa ett undernät om att välja ett virtuellt nätverk.
-6. Välj **virtuellt nätverk/plats-> konfiguration av virtuellt nätverk** och ange VIP-typ till internt.
-7. Ange namn på en underdomän (det här namnet är underdomänen används för appar som skapats i denna ASE).
+5. Skapa ett undernät om du väljer ett VNet.
+6. Välj **Virtual Network/plats-> VNet-konfiguration** och ange intern VIP-typ.
+7. Ange ett under domän namn (det här namnet är den under domän som används för appar som skapats i den här ASE).
 8. Välj **OK** och sedan **skapa**.
 
 ![][1]
 
-I fönstret virtuellt nätverk har en konfiguration av virtuellt nätverk som alternativet som låter dig välja mellan en extern eller intern VIP. Standardvärdet är extern. Om du har satts till extern använder din ASE en internet-åtkomlig VIP. Om du väljer intern har ASE konfigurerats med en ILB på en IP-adress inom det virtuella nätverket. 
+I rutan Virtual Network finns det ett konfigurations alternativ för virtuellt nätverk som låter dig välja mellan en extern VIP-eller intern VIP. Standardvärdet är external. Om du har angett till extern använder din ASE en tillgänglig VIP för Internet. Om du väljer intern konfigureras din ASE med en ILB på en IP-adress i ditt VNet. 
 
-När du har valt internt, du kan lägga till fler IP-adresser till din ASE tas bort och i stället måste du ange underdomänen för ASE. I en ASE med extern VIP används namnet på ASE i underdomänen för appar som skapats i denna ASE. Om din ASE heter ***contosotest*** och din app i denna ASE heter ***mytest***, underdomänen är i formatet ***contosotest.p.azurewebsites.net*** och URL för appen är ***mytest.contosotest.p.azurewebsites.net***. Om du anger VIP-typ till interna används inte ditt ASE-namn i underdomänen för ASE. Du ange uttryckligen underdomänen. Om din underdomän är ***contoso.corp.net*** och du har gjort en app i den ASE med namnet ***timereporting***, URL: en för appen är ***timereporting.contoso.corp.net***.
+När du har valt intern tas möjligheten att lägga till fler IP-adresser till din ASE bort, och i stället måste du ange under domänen för ASE. I en ASE med en extern VIP används namnet på ASE i under domänen för appar som har skapats i den ASE. Om din ASE heter ***contosotest*** och din app i denna ASE heter ***test***, är under domänen formatet ***contosotest.p.azurewebsites.net*** och URL: en för appen är ***mytest.contosotest.p.azurewebsites.net***. Om du ställer in VIP-typen till Internal, används inte ditt ASE-namn i under domänen för ASE. Du anger en under domän explicit. Om din under domän är ***contoso.Corp.net*** och du har gjort en app i ASE med namnet ***timereporting***, är URL: en för den appen ***timereporting.contoso.Corp.net***.
 
-## <a name="apps-in-an-ilb-ase"></a>Appar i en ILB ASE
-Skapa en app i en ILB ASE är samma som du skapar en app i en ASE vanligtvis. 
+## <a name="apps-in-an-ilb-ase"></a>Appar i en ILB-ASE
+Att skapa en app i en ILB-ASE är detsamma som att skapa en app i en ASE på vanligt sätt. 
 
-1. I Azure-portalen väljer du **skapa en resurs -> webb + mobil -> webb** eller **Mobile** eller **API-App**.
+1. I Azure Portal väljer du **skapa en resurs-> webb och mobilt-> webb-** eller **mobil** -eller **API-app**.
 2. Ange appens namn.
 3. Välj din prenumeration.
 4. Välj eller skapa en Resursgrupp.
-5. Välj eller skapa en App Service-Plan(ASP). Om du skapar en ny ASP, väljer du ASE som plats och välj den arbetarpool som du vill att ASP ska skapas i. När du skapar ASP kan välja du din ASE som plats och arbetarpoolen. När du anger namnet på appen visas att underdomänen under ditt appnamn ersätts av underdomänen för din ASE. 
-6. Välj **Skapa**. Se till att välja den **fäst på instrumentpanelen** kryssrutan om du vill att appen ska visas på instrumentpanelen. 
+5. Välj eller skapa en App Service plan (ASP). Om du skapar en ny ASP väljer du ASE som plats och väljer den arbets grupp som du vill att din ASP ska skapas i. När du skapar ASP väljer du ASE som plats och arbets grupp. När du anger namnet på appen kommer du att se att under domänen under ditt program namn ersätts av under domänen för din ASE. 
+6. Välj **Skapa**. Se till att markera kryss rutan **Fäst på instrument panelen** om du vill att appen ska visas på instrument panelen. 
 
 ![][2]
 
-Under namnet på uppdateras cdnverify för att återspegla underdomänen för din ASE. 
+Under namnet på appen uppdateras under domän namnet så att det återspeglar under domänen för din ASE. 
 
-## <a name="post-ilb-ase-creation-validation"></a>Efter ILB ASE skapas verifiering
-En ILB ASE skiljer sig något från en icke-ILB ASE. Som redan anges du behöver hantera din egen DNS och du måste också tillhandahålla ditt eget certifikat för HTTPS-anslutningar. 
+## <a name="post-ilb-ase-creation-validation"></a>ILB ASE-skapande validering
+En ILB ASE skiljer sig något från en icke-ILB ASE. Som redan antecknas måste du hantera din egen DNS och du måste också ange ditt eget certifikat för HTTPS-anslutningar. 
 
-När du har skapat din ASE, ser du att underdomänen visar underdomänen du angav och det finns ett nytt objekt i den **inställningen** menyn kallas **ILB-certifikat**. ASE skapas med ett självsignerat certifikat som gör det lättare att testa HTTPS. Portalen meddelar att du måste ange ett eget certifikat för HTTPS, men detta är att du har ett certifikat som följer med din underdomän. 
+När du har skapat din ASE ser du att under domänen visar under domänen som du har angett och att det finns ett nytt objekt på **inställnings** menyn med namnet **ILB-certifikat**. ASE skapas med ett självsignerat certifikat som gör det enklare att testa HTTPS. Portalen visar att du måste ange ditt eget certifikat för HTTPS, men det är för att hjälpa dig att be dig att ha ett certifikat som går med under domänen. 
 
 ![][3]
 
-Om du helt enkelt provar saker och vet inte hur du skapar ett certifikat, kan du använda IIS MMC-konsolprogram för att skapa ett självsignerat certifikat. När den har skapats kan du exportera det som en .pfx-fil och ladda upp den i Användargränssnittet för ILB-certifikat. När du har åtkomst till en plats som skyddas med ett självsignerat certifikat visas webbläsaren en varning om att den plats som du ansluter till inte är säker på grund av att det inte går att verifiera certifikatet. Om du vill undvika att varning måste ett felaktigt signerade certifikat som matchar din underdomän och har en certifikatkedja som kan identifieras av webbläsaren.
+Om du bara testar saker och inte vet hur du skapar ett certifikat kan du använda IIS MMC-konsolen för att skapa ett självsignerat certifikat. När den har skapats kan du exportera den som en. pfx-fil och sedan ladda upp den i ILB-certifikatets användar gränssnitt. När du ansluter till en plats som skyddas med ett självsignerat certifikat ger webbläsaren dig en varning om att den plats som du använder inte är säker på grund av att det inte går att validera certifikatet. Om du vill undvika den varningen behöver du ett signerat certifikat som matchar din under domän och har en förtroende kedja som identifieras av din webbläsare.
 
 ![][6]
 
-Om du vill testa flödet med dina egna certifikat och testa både HTTP och HTTPS-åtkomst till din ASE:
+Om du vill testa flödet med dina egna certifikat och testa både HTTP-och HTTPS-åtkomst till din ASE:
 
-1. Gå till ASE UI när ASE har skapats **ASE -> Inställningar -> ILB-certifikat**.
-2. Ställ in ILB-certifikat genom att välja certifikatets pfx-fil och ange lösenord. Det här steget tar lite tid att bearbeta och visas meddelandet som en skalning åtgärd pågår.
-3. Hämta ILB-adressen för din ASE (**ASE -> Egenskaper -> virtuella IP-adressen**).
-4. Skapa en webbapp i ASE när du har skapat. 
-5. Skapa en virtuell dator om du inte har något i det virtuella nätverket (inte i samma undernät som ASE eller saker break).
-6. Ange DNS för din underdomän. Du kan använda jokertecken med din underdomän i ditt DNS eller om du vill göra några enkla tester Redigera värdfilen på den virtuella datorn att ange namnet på webbappen till VIP IP-adress. Om din ASE hade underdomännamn. ilbase.com och du gjort web app mytestapp så att det skulle åtgärdas på mytestapp.ilbase.com, anger du som i hosts-filen. (På Windows, i värdfilen _c på C:\Windows\System32\drivers\etc\)
-7. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com (eller oavsett webbappens namn med din underdomän).
-8. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. Om du använder ett självsignerat certifikat måste du acceptera bristen på säkerhet. 
+1. Gå till ASE-ANVÄNDARGRÄNSSNITTET när ASE har skapats **ASE-> Settings-> ILB-certifikat**.
+2. Ange ILB-certifikat genom att välja certifikatets PFX-fil och ange lösen ord. Det här steget tar lite tid att bearbeta och meddelandet om att en skalnings åtgärd pågår visas.
+3. Hämta ILB-adressen för dina ASE (**ASE->-Egenskaper-> virtuella IP-adress**).
+4. Skapa en webbapp i ASE när du har skapat den. 
+5. Skapa en virtuell dator om du inte har en i detta VNET (inte i samma undernät som ASE eller sakernas rast).
+6. Ange DNS för under domänen. Du kan använda ett jokertecken med under domänen i din DNS eller om du vill göra några enkla tester, redigera hosts-filen på den virtuella datorn för att ange webb program namn till VIP-IP-adress. Om din ASE hade under domän namnet. ilbase.com och du har skapat webbappen mytestapp så att den kan åtgärdas på mytestapp.ilbase.com, ange det i värd filen. (I Windows är Hosts-filen på C:\Windows\System32\drivers\etc\)
+7. Använd en webbläsare på den virtuella datorn och gå https://mytestapp.ilbase.com till (eller något annat namn på din webbapp med din under domän).
+8. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. Du måste acceptera bristen på säkerhet om du använder ett självsignerat certifikat. 
 
-IP-adressen för din ILB anges i dina egenskaper som den virtuella IP-adressen.
+IP-adressen för din ILB visas i egenskaperna som den virtuella IP-adressen.
 
 ![][4]
 
-## <a name="using-an-ilb-ase"></a>Med en ILB ASE
+## <a name="using-an-ilb-ase"></a>Med intern belastningsutjämnare i apptjänstmiljö
 #### <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
-En ILB ASE gör det möjligt för isolering av nätverk för dina appar. Apparna är inte tillgänglig eller är även känt som internet. Den här metoden passar utmärkt för som är värd för intranätplatser, till exempel line-of-business-program. Du kan fortfarande använda Network Security Groups(NSGs) för åtkomstkontroll på nätverksnivå när du vill begränsa åtkomsten ytterligare. 
+En ILB-ASE möjliggör nätverks isolering för dina appar. Apparna är inte tillgängliga eller även kända av Internet. Den här metoden är utmärkt för att vara värd för intranät platser, till exempel branschspecifika program. När du behöver begränsa åtkomst ytterligare kan du fortfarande använda nätverks säkerhets grupper (NSG: er) för att kontrol lera åtkomst på nätverks nivå. 
 
-Om du vill använda Nätverkssäkerhetsgrupper för att ytterligare begränsa åtkomst måste du kontrollera du inte dela den kommunikation som ASE behöver för att kunna fungera. Även om HTTP/HTTPS-åtkomst är bara via den interna Belastningsutjämnaren som används av ASE, beroende ASE fortfarande resurser utanför det virtuella nätverket. Vilka nätverksåtkomst krävs fortfarande finns i [Kontrollera inkommande trafik till en App Service Environment] [ ControlInbound] och [information om nätverkskonfiguration för App Service-miljöer med ExpressRoute][ExpressRoute]. 
+Om du vill använda NSG: er för att ytterligare begränsa åtkomsten, måste du se till att du inte bryter den kommunikation som ASE behöver för att kunna fungera. Även om HTTP/HTTPS-åtkomst endast är via ILB som används av ASE, är ASE fortfarande beroende av resurser utanför det virtuella nätverket. För att se vilken nätverks åtkomst som fortfarande krävs, se [kontrol lera inkommande trafik till en app service-miljön][ControlInbound] -och [nätverks konfigurations information för App Service miljöer med ExpressRoute][ExpressRoute]. 
 
-Om du vill konfigurera dina NSG: er, måste du känna till IP-adressen som används av Azure för att hantera din ASE. IP-adress är också utgående IP-adressen från din ASE om det gör att internet-begäranden. Utgående IP-adressen för din ASE är statiskt för resten av din ASE. Om du tar bort och återskapa din ASE, får du en ny IP-adress. Du hittar IP-adressen genom att gå till **Inställningar -> Egenskaper** och hitta den **utgående IP-adress**. 
+Om du vill konfigurera din NSG: er måste du känna till den IP-adress som används av Azure för att hantera din ASE. IP-adressen är också den utgående IP-adressen från din ASE om den gör Internet-begäranden. Den utgående IP-adressen för din ASE är fortfarande statisk under ASE livs längd. Om du tar bort och återskapar din ASE, får du en ny IP-adress. Du hittar IP-adressen genom att gå till **Inställningar-> egenskaper** och hitta den **utgående IP-adressen**. 
 
 ![][5]
 
-#### <a name="general-ilb-ase-management"></a>Hantering av allmänna ILB ASE
-Hantera en ILB ASE är i stort sett densamma som hanterar en ASE vanligtvis. Du måste skala upp din arbetarpooler vara värd för flera ASP-instanser och skala upp din frontservrar hantera ökad mängder HTTP/HTTPS-trafik. Allmän information om hur du hanterar konfigurationen av en ASE finns i [konfigurera en App Service Environment][ASEConfig]. 
+#### <a name="general-ilb-ase-management"></a>Allmän hantering av ILB-ASE
+Att hantera en ILB-ASE är i stort sett detsamma som att hantera en ASE på vanligt sätt. Du måste skala upp dina Worker-pooler så att de är värdar för fler ASP-instanser och skala upp dina klient dels servrar för att hantera ökade mängder HTTP/HTTPS-trafik. Allmän information om hur du hanterar konfigurationen av en ASE finns i [Konfigurera en app service-miljön][ASEConfig]. 
 
-De ytterligare objekten är certifikathantering och DNS-hantering. Du måste hämta och ladda upp det certifikat som används för HTTPS efter ILB ASE-generering och Ersätt den innan den upphör. Eftersom Azure äger grundläggande domän kan ge det certifikat för ase med extern VIP. Eftersom underdomänen som används av en ILB ASE kan vara vad som helst, måste du ange ditt eget certifikat för HTTPS. 
+De ytterligare hanterings objekten är certifikat hantering och DNS-hantering. Du måste hämta och ladda upp certifikatet som används för HTTPS när ILB ASE har skapats och bytt ut det innan det går ut. Eftersom Azure äger bas domänen kan den tillhandahålla certifikat för ASE med en extern VIP. Eftersom under domänen som används av en ILB-ASE kan vara något måste du ange ditt eget certifikat för HTTPS. 
 
 #### <a name="dns-configuration"></a>DNS-konfiguration
-När du använder en extern VIP hanteras DNS av Azure. Appar som skapas i din ASE läggs till automatiskt till Azure DNS, som är en offentlig DNS. I en ILB ASE måste du hantera din egen DNS. För en viss underdomän, till exempel contoso.corp.net, måste du skapa DNS A-poster som pekar på din ILB-adress för:
+När du använder en extern VIP hanteras DNS av Azure. Appar som skapas i din ASE läggs till automatiskt till Azure DNS, som är en offentlig DNS. I en ILB ASE måste du hantera din egen DNS. För en viss under domän, till exempel contoso.corp.net, måste du skapa DNS A-poster som pekar på din ILB-adress för:
 
     * 
-    publicera *.SCM ftp 
+    *. scm FTP-publicering 
 
 
 ## <a name="getting-started"></a>Komma igång
-Kom igång med App Service-miljöer, se [introduktion till App Service-miljöer][WhatisASE]
+Information om hur du kommer igång med App Service miljöer finns i [Introduktion till App Service miljöer][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

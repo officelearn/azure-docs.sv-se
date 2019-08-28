@@ -1,6 +1,6 @@
 ---
-title: Automatisk uppdatering för SQL Server-datorer (klassisk) | Microsoft Docs
-description: Beskriver funktionen för automatisk uppdatering för SQL Server-datorer som körs i Azure med hjälp av det klassiska distributionsläget.
+title: Automatiserad uppdatering för SQL Server virtuella datorer (klassisk) | Microsoft Docs
+description: Förklarar automatisk uppdaterings funktion för SQL Server Virtual Machines som körs i Azure med det klassiska distributions läget.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -9,28 +9,27 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9fabccd477883750c1aecb5493fdb64ddf5ab2c3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362143"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100296"
 ---
-# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatisk uppdatering för SQLServer i Azure Virtual Machines (klassisk)
+# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatiserad uppdatering för SQL Server i Azure Virtual Machines (klassisk)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)
 > * [Klassisk](../classic/sql-automated-patching.md)
 > 
 > 
 
-Automatisk uppdatering upprättar en underhållsperiod för en Azure virtuell dator som kör SQL Server. Automatiska uppdateringar kan endast installeras under den här underhållsperioden. För SQL Server säkerställer detta att uppdateringar och eventuella tillhörande omstarter klockan på bästa möjliga tid för databasen. 
+Automatiserad uppdatering upprättar en underhålls period för en virtuell Azure-dator som kör SQL Server. Automatiska uppdateringar kan endast installeras under den här underhållsperioden. För SQL Server säkerställer detta att system uppdateringar och eventuella associerade omstarter sker på bästa möjliga tid för databasen. 
 
 > [!IMPORTANT]
 > Endast Windows-uppdateringar som är markerade som **Viktiga** installeras. Andra SQL Server-uppdateringar, till exempel kumulativa uppdateringar, måste installeras manuellt. 
@@ -38,18 +37,18 @@ Automatisk uppdatering upprättar en underhållsperiod för en Azure virtuell da
 Automatisk uppdatering är beroende av [SQL Server IaaS Agent-tillägget](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Resource Manager-versionen av den här artikeln finns [automatisk uppdatering för SQL Server i Azure Virtual Machines Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md).
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du vill visa Resource Manager-versionen av den här artikeln, se [automatiserad uppdatering för SQL Server i Azure Virtual Machines Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-För att använda automatisk uppdatering, Överväg följande krav:
+## <a name="prerequisites"></a>Förutsättningar
+Om du vill använda automatisk uppdatering bör du tänka på följande:
 
-**Operativsystemet**:
+**Operativ system**:
 
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
 
-**SQL Server-version**:
+**SQL Server version**:
 
 * SQL Server 2012
 * SQL Server 2014
@@ -57,45 +56,45 @@ För att använda automatisk uppdatering, Överväg följande krav:
 
 **Azure PowerShell**:
 
-* [Installera de senaste Azure PowerShell-kommandona](/powershell/azure/overview).
+* [Installera de senaste Azure PowerShell](/powershell/azure/overview)-kommandona.
 
-**SQL Server IaaS-tillägget**:
+**SQL Server IaaS-tillägg**:
 
 * [Installera SQL Server IaaS-tillägget](../classic/sql-server-agent-extension.md).
 
 ## <a name="settings"></a>Inställningar
-I följande tabell beskrivs de alternativ som kan konfigureras för automatisk uppdatering. För klassiska virtuella datorer, måste du konfigurera dessa inställningar med hjälp av PowerShell.
+I följande tabell beskrivs de alternativ som kan konfigureras för automatisk uppdatering. För klassiska virtuella datorer måste du använda PowerShell för att konfigurera de här inställningarna.
 
 | Inställning | Möjliga värden | Beskrivning |
 | --- | --- | --- |
-| **Automatisk uppdatering** |Aktivera/inaktivera (inaktiverad) |Aktiverar eller inaktiverar automatisk uppdatering för en Azure-dator. |
-| **Underhållsschema** |Varje dag, måndag, tisdag, onsdag, torsdag, fredag, lördag, söndag |Schema för att hämta och installera uppdateringar för Windows, SQL Server och Microsoft för den virtuella datorn. |
-| **Starttid för underhåll** |0-24 |Lokalt starttid att uppdatera den virtuella datorn. |
-| **Underhållsfönster** |30-180 |Hur många minuter som har behörighet att slutföra hämtningen och installationen av uppdateringar. |
-| **Patch-kategori** |Viktigt |Kategori med uppdateringar att ladda ned och installera. |
+| **Automatisk uppdatering** |Aktivera/inaktivera (inaktive rad) |Aktiverar eller inaktiverar automatisk uppdatering för en virtuell Azure-dator. |
+| **Underhålls schema** |Varje dag, måndag, tisdag, onsdag, torsdag, fredag, lördag, söndag |Schemat för att ladda ned och installera Windows-, SQL Server-och Microsoft-uppdateringar för den virtuella datorn. |
+| **Start timme för underhåll** |0-24 |Den lokala Start tiden för att uppdatera den virtuella datorn. |
+| **Underhålls periodens varaktighet** |30-180 |Antalet minuter som tillåts att slutföra nedladdningen och installationen av uppdateringar. |
+| **Uppdaterings kategori** |Viktigt |Kategori för uppdateringar som ska hämtas och installeras. |
 
-## <a name="configuration-with-powershell"></a>Med PowerShell
-I följande exempel används PowerShell för att konfigurera automatisk uppdatering på en befintlig SQL Server-dator. Den **New AzureVMSqlServerAutoPatchingConfig** kommando konfigurerar en ny underhållsperiod för automatiska uppdateringar.
+## <a name="configuration-with-powershell"></a>Konfiguration med PowerShell
+I följande exempel används PowerShell för att konfigurera automatiserad uppdatering på en befintlig SQL Server VM. Kommandot **New-AzureVMSqlServerAutoPatchingConfig** konfigurerar en ny underhålls period för automatiska uppdateringar.
 
     $aps = New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoPatchingSettings $aps | Update-AzureVM
 
-Utifrån det här exemplet beskrivs i följande tabell i praktiken på Virtuella Azure-måldatorn:
+I följande tabell beskrivs den praktiska påverkan på den virtuella Azure-datorn:
 
 | Parameter | Verkan |
 | --- | --- |
-| **dayOfWeek** |Korrigeringar installeras varje torsdag. |
-| **MaintenanceWindowStartingHour** |Begin uppdaterar kl. 11:00. |
-| **MaintenanceWindowDuration** |Korrigeringar installeras inom 120 minuter. Baserat på starttiden, måste de utföra klockan 1:00. |
-| **PatchCategory** |Den enda möjliga värdet på parametern är ”viktigt”. |
+| **DayOfWeek** |Uppdateringar installeras varje torsdag. |
+| **MaintenanceWindowStartingHour** |Starta uppdateringar vid 11:10:00. |
+| **MaintenanceWindowDuration** |Korrigeringsfiler måste installeras inom 120 minuter. Baserat på Start tiden måste de slutföras med 1:12:00. |
+| **PatchCategory** |Den enda möjliga inställningen för den här parametern är "viktigt". |
 
-Det kan ta flera minuter att installera och konfigurera SQL Server IaaS Agent.
+Det kan ta flera minuter att installera och konfigurera SQL Server IaaS-agenten.
 
-Om du vill inaktivera automatisk uppdatering, kör samma skript utan att aktivera parametern - att New-AzureVMSqlServerAutoPatchingConfig. Precis som med installationen, kan det ta flera minuter att inaktivera automatisk uppdatering.
+Om du vill inaktivera automatisk uppdatering kör du samma skript utan parametern-Enable till New-AzureVMSqlServerAutoPatchingConfig. Precis som vid installationen kan det ta flera minuter att inaktivera automatisk uppdatering.
 
 ## <a name="next-steps"></a>Nästa steg
-Information om andra tillgängliga automation-aktiviteter finns i [SQL Server IaaS Agent-tillägget](../classic/sql-server-agent-extension.md).
+Information om andra tillgängliga Automation-uppgifter finns [SQL Server IaaS agent Extension](../classic/sql-server-agent-extension.md).
 
-Mer information om hur du kör SQL Server på Azure Virtual Machines finns i [SQL Server på Azure virtuella datorer – översikt](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Mer information om hur du kör SQL Server på virtuella Azure-datorer finns [SQL Server på azure Virtual Machines-översikt](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

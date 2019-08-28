@@ -1,80 +1,80 @@
 ---
-title: Så här modellen och partitionera data i Azure Cosmos DB med ett verkliga exempel
-description: Lär dig hur du modellera och partitionera en verkliga exempel på användning av Azure Cosmos DB Core API
+title: Att modellera och partitionera data på Azure Cosmos DB med ett verkligt exempel
+description: Lär dig att modellera och partitionera ett verkligt globalt exempel med hjälp av Azure Cosmos DB Core API
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 4bb99c8cbec88d23f9297dcbe8b13cc69cd0006c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 55290b88fedabe59417ea49f1cd3c3bc9961678d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070673"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093420"
 ---
-# <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Så här modellen och partitionera data i Azure Cosmos DB med ett verkliga exempel
+# <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Att modellera och partitionera data på Azure Cosmos DB med ett verkligt exempel
 
-Den här artikeln bygger vidare på flera Azure Cosmos DB-begrepp som [datamodellering](modeling-data.md), [partitionering](partitioning-overview.md), och [etablerat dataflöde](request-units.md) att demonstrera hur du ska hantera en verklig data arbetet.
+Den här artikeln bygger på flera Azure Cosmos DB koncept som [data modellering](modeling-data.md), [partitionering](partitioning-overview.md)och [etablerade data flöden](request-units.md) för att demonstrera hur du kan hantera en verklig data Designs övning.
 
-Om du arbetar vanligtvis med relationsdatabaser, har du förmodligen byggt vanor och intuitions om hur du utformar en datamodell. På grund av de särskilda begränsningarna, men även unika starka sidor i Azure Cosmos DB, de flesta av dessa metodtips översätta inte bra och dra i icke-optimal lösningar. Målet med den här artikeln är att guida dig genom processen för en verklig användningsfall i Azure Cosmos DB från objektet modellering till entiteten samordning och behållaren partitionering.
+Om du vanligt vis arbetar med relations databaser har du förmodligen skapat vanor och intuitions om hur du skapar en data modell. På grund av de specifika begränsningarna, men även de unika fördelarna med Azure Cosmos DB, översätter de flesta av dessa metod tips inte bra och kan dra dig till underoptimala lösningar. Målet med den här artikeln är att vägleda dig genom hela processen med att modellera ett verkligt användnings fall på Azure Cosmos DB, från objekt modellering till enhetens samplacering och container partitionering.
 
 ## <a name="the-scenario"></a>Scenariot
 
-I den här övningen ska du överväga att domänen för en bloggplattform där *användare* kan skapa *inlägg*. Användarna kan också *som* och Lägg till *kommentarer* till dessa inlägg.
+I den här övningen ska vi fundera över domänen för en blogg plattform där *användarna* kan skapa *inlägg*. Användarna kan också *gilla* och lägga till *kommentarer* till dessa inlägg.
 
 > [!TIP]
-> Vi har markerat några ord i *kursiv*; dessa ord identifiera vilken typ av ”saker” vår modell kommer att behöva ändra.
+> Vi har markerat några ord i *kursiv stil*. dessa ord identifierar typen av "saker" som vår modell kommer att behöva manipulera.
 
-Lägga till flera krav vår specifikationen:
+Lägga till fler krav i vår specifikation:
 
-- En klient sida som visar en feed med nyligen skapade inlägg
-- Vi kan hämta alla poster för en användare, alla kommentarer om ett inlägg och alla gilla-markeringar för ett inlägg
-- Inlägg som returneras med användarnamnet för författarna och räkna hur många kommentarer och gilla-markeringar som de har
-- Kommentarer och gilla-markeringar returneras också med användarnamnet för de användare som har skapat dem,
-- När visas som listor kan ha inlägg endast att presentera en trunkerade sammanfattning av deras innehåll.
+- En front sida visar ett flöde med nyligen skapade inlägg,
+- Vi kan hämta alla inlägg för en användare, alla kommentarer till ett inlägg och alla gillar för ett inlägg,
+- Inlägg returneras med användar namnet för sina författare och antalet kommentarer och gillar de har,
+- Kommentarer och gillar returneras också med användar namnet för de användare som har skapat dem,
+- När de visas som listor, måste inlägg innehålla en trunkerad Sammanfattning av innehållet.
 
-## <a name="identify-the-main-access-patterns"></a>Visar de viktigaste åtkomstmönster
+## <a name="identify-the-main-access-patterns"></a>Identifiera huvud åtkomst mönster
 
-Om du vill starta, ger vi vissa struktur vår första specifikationen genom att identifiera mönster i databasåtkomst vår lösning. När du utformar en datamodell för Azure Cosmos DB, är det viktigt att förstå vilka begäranden som vår modell måste fungera för att se till att modellen hantera dessa begäranden effektivt.
+För att kunna starta ger vi en viss struktur till vår inledande specifikation genom att identifiera vår lösnings åtkomst mönster. När du skapar en data modell för Azure Cosmos DB är det viktigt att förstå vilka begär Ande som en modell måste ha för att se till att modellen kommer att hantera dessa begär Anden effektivt.
 
-Du kan förenkla den övergripande processen följer vi kategorisera dessa olika förfrågningar som kommandon eller frågor, lånar vissa ordförråd från [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation) där kommandon är skrivåtgärder (det vill säga avsikter att uppdatera systemet) och frågorna är skrivskyddade förfrågningar.
+För att göra den övergripande processen lättare att följa kategoriserar vi dessa olika begär Anden som antingen kommandon eller frågor, vilket lånar vissa vokabulär från [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation) där kommandon är Skriv begär Anden (dvs. avsikt att uppdatera systemet) och frågor är skrivskyddade autentiseringsbegäran.
 
-Här är listan med begäranden som vår plattform måste exponera:
+Här är en lista över begär Anden som vår plattform kommer att ha för att exponera:
 
-- **[C1]**  Skapa/redigera en användare
-- **[Q1]**  Hämta en användare
-- **[C2]**  Skapa/redigera ett inlägg
-- **[2]**  Hämta ett inlägg
-- **KVARTAL [3]**  Lista över en användares inlägg i kortformen
-- **[C3]**  Skapar en kommentar
-- **KVARTAL [4]**  Lista en publicera kommentarer
-- **[C4]**  Som ett inlägg
-- **[F5]**  Lista ett inlägg likes
-- **[Q6]**  Lista de *x* senaste inläggen skapat kortfattat formulär (matning)
+- **[C1]** Skapa/redigera en användare
+- **[Q1]** Hämta en användare
+- **[C2]** Skapa/redigera ett inlägg
+- **[Q2]** Hämta ett inlägg
+- **[Q3]** Lista en användares inlägg i kort form
+- **[C3]** Skapa en kommentar
+- **[Q4]** Lista ett posts kommentarer
+- **[C4]** Som ett inlägg
+- **[Q5]** Lista en posts gilla
+- **[Q6]** Lista de *x* senaste inlägg som skapats i kort form (feed)
 
-Som det här skedet inte har vi tror att information om vad varje entitet (användare, post o.s.v.) innehåller. Det här steget är vanligtvis bland de första att utföras när du utformar mot en relationslagringsplats eftersom vi behöver ta reda på hur entiteterna översätter när det gäller tabeller, kolumner, sekundärnycklar osv. Det är mycket mindre bekymmer med en dokumentdatabas som inte framtvinga ett schema vid skrivning.
+Som det här steget har vi inte funderat på information om vad varje entitet (användare, post osv.) kommer att innehålla. Det här steget är vanligt vis bland de första som ska hanteras när du utformar mot ett Relations lager, eftersom vi måste ta reda på hur dessa entiteter kommer att översättas i tabeller, kolumner, sekundär nycklar osv. Det är mycket mindre problem med en dokument databas som inte tvingar fram schema vid skrivning.
 
-Huvudskälet till varför det är viktigt att identifiera våra mönster i databasåtkomst från början, beror på den här listan med begäranden ska bli vår testsvit. Varje gång vi iterera över våra datamodellen ska vi gå igenom begäranden och kontrollera dess prestanda och skalbarhet.
+Det främsta skälet till varför det är viktigt att identifiera åtkomst mönstren från början är att den här listan över förfrågningar kommer att vara vår test-svit. Varje gång vi itererar över vår data modell kommer vi att gå igenom varje begäran och kontrol lera dess prestanda och skalbarhet.
 
-## <a name="v1-a-first-version"></a>V1: Första versionen
+## <a name="v1-a-first-version"></a>V1: En första version
 
 Vi börjar med två behållare: `users` och `posts`.
 
-### <a name="users-container"></a>Användarbehållaren
+### <a name="users-container"></a>Behållare för användare
 
-Den här behållaren lagrar bara användardata:
+Den här behållaren lagrar endast användar objekt:
 
     {
       "id": "<user-id>",
       "username": "<username>"
     }
 
-Vi partitionera den här behållaren genom `id`, vilket innebär att varje logisk partition i behållaren ska bara innehålla ett objekt.
+Vi partitionerar den här `id`behållaren av, vilket innebär att varje logisk partition inom behållaren bara kommer att innehålla ett objekt.
 
-### <a name="posts-container"></a>Inlägg behållare
+### <a name="posts-container"></a>Behållare för inlägg
 
-Den här behållaren är värd för inlägg, kommentarer, och gillar:
+Den här behållaren är värd för inlägg, kommentarer och gilla:
 
     {
       "id": "<post-id>",
@@ -103,146 +103,146 @@ Den här behållaren är värd för inlägg, kommentarer, och gillar:
       "creationDate": "<like-creation-date>"
     }
 
-Vi partitionera den här behållaren genom `postId`, vilket innebär att varje logisk partition i behållaren innehåller en post, alla kommentarer om inlägget och alla likes för inlägget.
+Vi partitionerar den här `postId`behållaren av, vilket innebär att varje logisk partition i behållaren innehåller ett inlägg, alla kommentarer för det inlägget och alla gillar för det inlägget.
 
-Observera att vi har introducerat en `type` -egenskapen i objekt som lagras i den här behållaren att skilja mellan de tre typerna av enheter att denna behållare-värdar.
+Observera att vi har infört en `type` egenskap i de objekt som lagras i den här behållaren för att skilja mellan de tre typerna av entiteter som den här behållaren är värd för.
 
-Dessutom har vi valt att referera till relaterade data i stället för att bädda in den (kontrollera [i det här avsnittet](modeling-data.md) mer information om de här koncepten) eftersom:
+Vi har också valt att referera till relaterade data i stället för att bädda in dem (mer information om dessa begrepp finns i [det här avsnittet](modeling-data.md) ):
 
-- Det finns ingen övre gräns för hur många inlägg som en användare kan skapa
-- inlägg kan vara godtyckligt lång.
-- Det finns ingen övre gräns för hur många kommentarer och gilla-markeringar som en post kan ha
-- Vi vill kunna lägga till en kommentar eller en like på ett inlägg utan att behöva uppdatera inlägget själva.
+- Det finns ingen övre gräns för hur många inlägg som en användare kan skapa,
+- inlägg kan vara godtyckligt långa,
+- Det finns ingen övre gräns för hur många kommentarer och gillar ett inlägg som kan ha,
+- Vi vill kunna lägga till en kommentar eller gilla ett inlägg utan att behöva uppdatera själva posten.
 
-## <a name="how-well-does-our-model-perform"></a>Hur väl utför vår modell?
+## <a name="how-well-does-our-model-perform"></a>Hur bra fungerar vår modell?
 
-Nu är det dags att utvärdera prestanda och skalbarhet för den första versionen. För var och en av de förfrågningar som redan har identifierat vi mäter dess svarstid och begära hur många enheter som har det förbrukar. Denna mätning görs mot en dummy datauppsättning som innehåller 100 000 användare med 5 till 50 inlägg per användare och upp till 25 kommentarer och 100 likes per post.
+Nu är det dags att utvärdera prestanda och skalbarhet för den första versionen. För var och en av de begär Anden som identifierades tidigare, mäter vi svars tiden och hur många enheter den förbrukar. Detta mått görs mot en dummy-datauppsättning som innehåller 100 000 användare med 5 till 50 inlägg per användare och upp till 25 kommentarer och 100 gilla per post.
 
-### <a name="c1-createedit-a-user"></a>[C1] Skapa/redigera en användare
+### <a name="c1-createedit-a-user"></a>Cell Skapa/redigera en användare
 
-Den här begäran är enkel att implementera när vi skapar eller uppdaterar ett objekt i den `users` behållare. Begäranden sprids snyggt för alla partitioner tack vare den `id` partitionsnyckel.
+Den här begäran är enkel att implementera när vi bara skapar eller uppdaterar ett objekt i `users` behållaren. Begäran kommer att spridas snyggt över alla partitioner tack vare `id` partitionsnyckel.
 
-![Skriva ett enskilt objekt till användarbehållaren](./media/how-to-model-partition-example/V1-C1.png)
+![Skriva ett enskilt objekt till behållaren användare](./media/how-to-model-partition-example/V1-C1.png)
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 7 ms | 5.71 RU | ✅ |
+| 7 MS | 5,71 RU | ✅ |
 
-### <a name="q1-retrieve-a-user"></a>[Q1] Hämta en användare
+### <a name="q1-retrieve-a-user"></a>Bästa Hämta en användare
 
-Hämta en användare gör du genom att läsa motsvarande objekt från den `users` behållare.
+Hämtning av en användare görs genom att läsa motsvarande objekt från `users` behållaren.
 
-![Hämta ett enskilt objekt från användarbehållaren](./media/how-to-model-partition-example/V1-Q1.png)
+![Hämta ett enskilt objekt från behållaren användare](./media/how-to-model-partition-example/V1-Q1.png)
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 2 ms | 1 RU | ✅ |
+| 2 MS | 1 RU | ✅ |
 
-### <a name="c2-createedit-a-post"></a>[C2] Skapa/redigera ett inlägg
+### <a name="c2-createedit-a-post"></a>C2 Skapa/redigera ett inlägg
 
-På samma sätt till **[C1]** , behöver vi bara att skriva till den `posts` behållare.
+På samma sätt som **[C1]** behöver vi bara skriva till `posts` behållaren.
 
-![Skriva ett enskilt objekt till behållaren för inlägg](./media/how-to-model-partition-example/V1-C2.png)
+![Skriva ett enskilt objekt till behållaren inlägg](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 9 ms | 8.76 RU | ✅ |
+| 9 MS | 8,76 RU | ✅ |
 
-### <a name="q2-retrieve-a-post"></a>[2] Hämta ett inlägg
+### <a name="q2-retrieve-a-post"></a>Q2 Hämta ett inlägg
 
-Vi börjar genom att hämta motsvarande dokumentet från den `posts` behållare. Men som inte är tillräckligt, enligt våra specifikationen vi har också aggregera användarnamnet för det inlägget författare och antal hur många kommentarer och hur många gillar det här inlägget har, vilket kräver 3 ytterligare SQL-frågor utfärdas.
+Vi börjar med att hämta motsvarande dokument från `posts` behållaren. Men det är inte tillräckligt, enligt vår specifikation, som vi också måste samla in användar namnet för postens författare och antalet kommentarer och hur många gillar det här inlägget, vilket kräver tre ytterligare SQL-frågor som ska utfärdas.
 
-![Hämta ett inlägg och aggregering av ytterligare data](./media/how-to-model-partition-example/V1-Q2.png)
+![Hämta ett inlägg och aggregera ytterligare data](./media/how-to-model-partition-example/V1-Q2.png)
 
-Var och en av de ytterligare frågor filter på Partitionsnyckeln respektive behållarens, vilket är exakt vad vi vill maximera prestanda och skalbarhet. Men vi har så småningom att utföra fyra åtgärder för att returnera ett enskilt inlägg, så att vi kan förbättra som i nästa iteration.
+Var och en av de ytterligare frågorna filtrerar på partitionsnyckel för dess respektive behållare, vilket är exakt vad vi vill maximera prestanda och skalbarhet. Men vi måste behöva utföra fyra åtgärder för att returnera ett enda inlägg, så vi ska förbättra det i en nästa iteration.
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 9 ms | 19.54 RU | ⚠ |
+| 9 MS | 19,54 RU | ⚠ |
 
-### <a name="q3-list-a-users-posts-in-short-form"></a>KVARTAL [3] Lista över en användares inlägg i kortformen
+### <a name="q3-list-a-users-posts-in-short-form"></a>Q3 Lista en användares inlägg i kort form
 
-Först måste vi hämta önskade-inlägg med en SQL-fråga som hämtar inlägg som motsvarande till den specifika användaren. Men vi också behöva skicka ytterligare frågor för att aggregera författarens användarnamn och antal kommentarer och gillar.
+Först måste vi hämta de önskade inläggen med en SQL-fråga som hämtar de inlägg som motsvarar den specifika användaren. Men vi måste också utfärda fler frågor för att sammanställa författarens användar namn och antalet kommentarer och gillar.
 
-![Hämta alla poster för en användare och deras ytterligare datainsamling](./media/how-to-model-partition-example/V1-Q3.png)
+![Hämta alla inlägg för en användare och aggregera ytterligare data](./media/how-to-model-partition-example/V1-Q3.png)
 
-Den här implementeringen visar många nackdelar:
+Den här implementeringen visar många nack delar:
 
-- frågorna sammanställa antalet kommentarer och gilla-markeringar som har utfärdats för varje post som returneras av den första frågan
-- huvudfrågan inte filtrerar på Partitionsnyckeln för den `posts` behållare, vilket leder till en fan-out och en partition sökning i behållaren.
+- frågorna som sammanfattar antalet kommentarer och gillar måste utfärdas för varje post som returneras av den första frågan,
+- huvud frågan filtrerar inte på `posts` behållarens partitions nyckel, vilket leder till en fläkt och en partitions ökning i behållaren.
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 130 ms | 619.41 RU | ⚠ |
+| 130 MS | 619,41 RU | ⚠ |
 
-### <a name="c3-create-a-comment"></a>[C3] Skapa en kommentar
+### <a name="c3-create-a-comment"></a>C3 Skapa en kommentar
 
-En kommentar har skapats genom att skriva motsvarande objekt den `posts` behållare.
+En kommentar skapas genom att skriva motsvarande objekt i `posts` behållaren.
 
-![Skriva ett enskilt objekt till behållaren för inlägg](./media/how-to-model-partition-example/V1-C2.png)
+![Skriva ett enskilt objekt till behållaren inlägg](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 7 ms | 8.57 RU | ✅ |
+| 7 MS | 8,57 RU | ✅ |
 
-### <a name="q4-list-a-posts-comments"></a>KVARTAL [4] Lista över en publicera kommentarer
+### <a name="q4-list-a-posts-comments"></a>Kvartalet Lista ett posts kommentarer
 
-Vi börjar med en fråga som hämtar alla kommentarer om inlägget och igen, måste vi även sammanställd användarnamn separat för varje kommentar.
+Vi börjar med en fråga som hämtar alla kommentarer för det inlägget och återigen måste du samla in användar namn separat för varje kommentar.
 
-![Hämta alla kommentarer om ett inlägg och deras ytterligare datainsamling](./media/how-to-model-partition-example/V1-Q4.png)
+![Hämta alla kommentarer för ett inlägg och aggregera ytterligare data](./media/how-to-model-partition-example/V1-Q4.png)
 
-Även om huvudfrågan filtrera på behållarens partitionsnyckel, penalizes aggregering användarnamnen separat övergripande prestanda. Vi kan förbättra som vid ett senare tillfälle.
+Även om huvud frågan filtrerar på behållarens partitionsnyckel, lägger till användar namn för att aggregera de övergripande prestandan separat. Vi ska förbättra det senare.
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 23 ms | 27.72 RU | ⚠ |
+| 23 MS | 27,72 RU | ⚠ |
 
-### <a name="c4-like-a-post"></a>[C4] Som ett inlägg
+### <a name="c4-like-a-post"></a>C4 Som ett inlägg
 
-Precis som **[C3]** , vi skapar motsvarande objekt i den `posts` behållare.
+Precis som **[C3]** skapar vi motsvarande objekt i `posts` behållaren.
 
-![Skriva ett enskilt objekt till behållaren för inlägg](./media/how-to-model-partition-example/V1-C2.png)
+![Skriva ett enskilt objekt till behållaren inlägg](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 6 ms | 7.05 RU | ✅ |
+| 6 MS | 7,05 RU | ✅ |
 
-### <a name="q5-list-a-posts-likes"></a>[F5] Lista över ett inlägg likes
+### <a name="q5-list-a-posts-likes"></a>[Q5] Lista en posts gilla
 
-Precis som **[kvartal 4]** , vi fråga likes för inlägget, och sedan aggregera deras användarnamn.
+Precis som **[Q4]** frågar vi efter det inlägget och sammanställer sedan sina användar namn.
 
-![Hämta alla gillar för ett inlägg och deras ytterligare datainsamling](./media/how-to-model-partition-example/V1-Q5.png)
+![Hämta alla gillar för ett inlägg och aggregera ytterligare data](./media/how-to-model-partition-example/V1-Q5.png)
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 59 ms | 58.92 RU | ⚠ |
+| 59 MS | 58,92 RU | ⚠ |
 
-### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Lista de senaste x-inlägg som skapats kortfattat formuläret (matning)
+### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Lista de x senaste inlägg som skapats i kort form (feed)
 
-Vi hämta de senaste inläggen genom att fråga den `posts` behållare sorterade efter fallande skapandedatum, och sedan sammanställd användarnamn och antal kommentarer och gilla-markeringar för var och en av posterna.
+Vi hämtar de senaste inläggen genom att fråga `posts` behållaren sorterad efter fallande skapande datum, sedan aggregera användar namn och antal kommentarer och gilla för varje inlägg.
 
-![Hämta senaste inläggen och deras ytterligare datainsamling](./media/how-to-model-partition-example/V1-Q6.png)
+![Hämtar de senaste inläggen och aggregerar ytterligare data](./media/how-to-model-partition-example/V1-Q6.png)
 
-Vår första fråga inte igen, filtrera på Partitionsnyckeln för den `posts` behållare som utlöser en kostsamma fan-out. Det här är ännu värre när vi rikta en mycket större resultatmängd och sortera resultaten med en `ORDER BY` satsen, vilket gör det dyrare när det gäller begäransenheter.
+En gång till, filtrerar den ursprungliga frågan inte på `posts` behållarens partitionsnyckel, som utlöser en kostsam fläkt. Det här är ännu sämre eftersom vi riktar in sig på en mycket större resultat uppsättning och sorterar resultaten med en `ORDER BY` -sats, vilket gör det dyrare i termer av enheter för programbegäran.
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 306 ms | 2063.54 RU | ⚠ |
+| 306 MS | 2063,54 RU | ⚠ |
 
-## <a name="reflecting-on-the-performance-of-v1"></a>Återger på prestanda hos V1
+## <a name="reflecting-on-the-performance-of-v1"></a>Återspeglar prestandan hos v1
 
-Vi kan titta på prestandaproblem som vi har i föregående avsnitt, för att identifiera två huvudsakliga typer av problem:
+Vi tittar på de prestanda problem som vi möter i föregående avsnitt, men vi kan identifiera två huvud klasser av problem:
 
-- vissa begäranden kräver flera frågor utfärdas för att samla in all information som vi behöver ska returneras
-- vissa frågor Filtrera inte efter Partitionsnyckeln för de behållare som de är riktade mot, vilket leder till en fan-out som hindrar våra skalbarhet.
+- vissa förfrågningar kräver att flera frågor utfärdas för att samla in alla data som vi behöver returnera,
+- vissa frågor filtrerar inte på partitionsnyckel för de behållare som de är riktade till, vilket leder till en fläkt som hindrar vår skalbarhet.
 
-Nu ska vi lösa var och en av de här problemen och från och med den första mallen för.
+Låt oss lösa var och en av dessa problem, och börja med det första.
 
-## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: Introduktion till denormalisering optimera skrivskyddade frågor
+## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: Introduktion till denormalisering för att optimera Läs frågor
 
-Orsaken till varför vi behöver skicka ytterligare begäranden i vissa fall beror resultatet av den första begäran inte innehåller alla data som vi behöver för att returnera. När du arbetar med en icke-relationellt datalager som Azure Cosmos DB, kan den här typen av problemet ofta lösas genom att avnormalisera data i vår datauppsättning.
+Anledningen till varför vi måste utfärda ytterligare förfrågningar i vissa fall beror på att resultatet av den första begäran inte innehåller alla data som vi behöver returnera. När du arbetar med en icke-relationell data lagring som Azure Cosmos DB, löses den här typen av problem ofta genom att avnormalisera data i vår data uppsättning.
 
-I vårt exempel har vi ändra inlägg för att lägga till användarnamnet för det inlägget författare, antal kommentarer och antal likes:
+I vårt exempel ändrar vi publicerings objekt för att lägga till användar namnet för postens författare, antalet kommentarer och antalet gillar:
 
     {
       "id": "<post-id>",
@@ -257,7 +257,7 @@ I vårt exempel har vi ändra inlägg för att lägga till användarnamnet för 
       "creationDate": "<post-creation-date>"
     }
 
-Vi kan också ändra kommentar och som objekt att lägga till användarnamnet för användaren som skapade dem:
+Vi ändrar även kommentaren och som objekt för att lägga till användar namnet för den användare som har skapat dem:
 
     {
       "id": "<comment-id>",
@@ -278,11 +278,11 @@ Vi kan också ändra kommentar och som objekt att lägga till användarnamnet f�
       "creationDate": "<like-creation-date>"
     }
 
-### <a name="denormalizing-comment-and-like-counts"></a>Avnormalisera kommentar och som antal
+### <a name="denormalizing-comment-and-like-counts"></a>Avnormaliserar kommentarer och like-antal
 
-Vad vi vill uppnå är att varje gång vi lägger till en kommentar eller ett liknande kan vi också öka den `commentCount` eller `likeCount` i motsvarande inlägget. Som våra `posts` behållare har partitionerats med `postId`, det nya objektet (kommentera eller en) och dess motsvarande post finns i samma logiska partition. Därför kan vi använda en [lagrade proceduren](stored-procedures-triggers-udfs.md) att utföra åtgärden.
+Vad vi vill uppnå är att varje gång vi lägger till en kommentar eller en liknande ökar `commentCount` vi också `likeCount` eller i motsvarande inlägg. När vår `posts` behållare är partitionerad av `postId`, det nya objektet (kommentar eller gilla) och dess motsvarande inlägg i samma logiska partition. Därför kan vi använda en [lagrad procedur](stored-procedures-triggers-udfs.md) för att utföra åtgärden.
 
-Nu när du skapar en kommentar ( **[C3]** ), i stället för bara att lägga till ett nytt objekt i den `posts` behållare vi anropa följande lagrade procedur i den behållaren:
+Nu när du skapar en kommentar ( **[C3]** ), i stället för att bara lägga till ett `posts` nytt objekt i behållaren, så anropar vi följande lagrade procedur i den behållaren:
 
 ```javascript
 function createComment(postId, comment) {
@@ -311,24 +311,24 @@ function createComment(postId, comment) {
 }
 ```
 
-Den här lagrade proceduren tar ID för inlägget och innehållet i den nya kommentaren som parametrar och sedan:
+Den här lagrade proceduren hämtar ID för inlägget och texten för den nya kommentaren som parametrar, sedan:
 
 - hämtar inlägget
-- steg i `commentCount`
+- ökar`commentCount`
 - ersätter inlägget
 - lägger till den nya kommentaren
 
-Som lagrade procedurer körs som atomiska transaktioner, är det säkert som värdet för `commentCount` och det faktiska antalet kommentarer alltid förblir synkroniserade.
+Eftersom lagrade procedurer körs som atomiska transaktioner garanterar det att värdet för `commentCount` och det faktiska antalet kommentarer alltid förblir synkroniserat.
 
-Vi kallar naturligtvis en liknande lagrad procedur när du lägger till nya gillar att öka den `likeCount`.
+Vi vill naturligtvis anropa en liknande lagrad procedur när du lägger till nya `likeCount`gillar att öka.
 
-### <a name="denormalizing-usernames"></a>Avnormalisera användarnamn
+### <a name="denormalizing-usernames"></a>Avnormaliserar användar namn
 
-Användarnamn kräver en annan metod som användare inte bara finns i olika partitioner, men i en annan behållare. När vi har avnormalisera data över partitioner och behållare, vi kan använda källbehållare [ändringsflödet](change-feed.md).
+Användar namn kräver en annan metod eftersom användare inte bara är i olika partitioner, men i en annan behållare. När vi måste normalisera data mellan partitioner och behållare kan vi använda käll behållarens [ändrings flöde](change-feed.md).
 
-I vårt exempel använder vi ändringsfeed av den `users` behållare för att reagera när användare uppdaterar sina användarnamn. När det sker så vi att sprida ändringen genom att anropa en annan lagrad procedur på den `posts` behållare:
+I vårt exempel använder vi ändrings flödet för `users` behållaren för att reagera när användare uppdaterar sina användar namn. När detta inträffar sprider vi ändringen genom att anropa en annan lagrad procedur på `posts` behållaren:
 
-![Avnormalisera användarnamn till behållaren inlägg](./media/how-to-model-partition-example/denormalization-1.png)
+![Avnormalisera användar namn i behållaren inlägg](./media/how-to-model-partition-example/denormalization-1.png)
 
 ```javascript
 function updateUsernames(userId, username) {
@@ -352,70 +352,70 @@ function updateUsernames(userId, username) {
 }
 ```
 
-Den här lagrade proceduren tar ID för användaren och användarens nytt användarnamn som parametrar och sedan:
+Den här lagrade proceduren använder ID: t för användaren och användarens nya användar namn som parametrar, sedan:
 
-- hämtar alla objekt som matchar den `userId` (vilket kan vara inlägg, kommentarer, eller gillar)
-- för var och en av de objekt
-  - ersätter den `userUsername`
+- hämtar alla objekt som matchar `userId` (som kan vara inlägg, kommentarer eller gilla)
+- för var och en av dessa objekt
+  - ersätter`userUsername`
   - ersätter objektet
 
 > [!IMPORTANT]
-> Den här åtgärden är dyra eftersom den kräver den här lagrade proceduren som ska köras på varje partition för den `posts` behållare. Vi förutsätter att de flesta användare väljer en lämplig användarnamn under registreringen och någonsin ändras inte den, så att den här uppdateringen körs mycket sällan.
+> Den här åtgärden är kostsam eftersom den kräver att den här lagrade proceduren körs på varje partition i `posts` behållaren. Vi förutsätter att de flesta användare väljer ett lämpligt användar namn under registreringen och inte någonsin ändrar det, så att den här uppdateringen körs mycket sällan.
 
-## <a name="what-are-the-performance-gains-of-v2"></a>Vad är prestandavinster på V2?
+## <a name="what-are-the-performance-gains-of-v2"></a>Vad är prestanda vinster i v2?
 
-### <a name="q2-retrieve-a-post"></a>[2] Hämta ett inlägg
+### <a name="q2-retrieve-a-post"></a>Q2 Hämta ett inlägg
 
-Nu när våra denormalisering är på plats, behöver vi bara hämta ett enskilt objekt för att hantera begäran.
+Nu när vår avnormalisering är på plats behöver vi bara hämta ett enskilt objekt för att hantera denna begäran.
 
 ![Hämta ett enskilt objekt från behållaren inlägg](./media/how-to-model-partition-example/V2-Q2.png)
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 2 ms | 1 RU | ✅ |
+| 2 MS | 1 RU | ✅ |
 
-### <a name="q4-list-a-posts-comments"></a>KVARTAL [4] Lista över en publicera kommentarer
+### <a name="q4-list-a-posts-comments"></a>Kvartalet Lista ett posts kommentarer
 
-Här igen, vi och spara de extra begäranden som hämtas de användarnamn och slutar med en enkel fråga som filtrerar på Partitionsnyckeln.
+Här igen kan vi frigöra de extra begär Anden som hämtade användar namnen och som slutförs med en enda fråga som filtrerar på partitionsnyckel.
 
-![Hämtar alla kommentarer om ett inlägg](./media/how-to-model-partition-example/V2-Q4.png)
+![Hämta alla kommentarer för ett inlägg](./media/how-to-model-partition-example/V2-Q4.png)
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 4 ms | 7.72 RU | ✅ |
+| 4 MS | 7,72 RU | ✅ |
 
-### <a name="q5-list-a-posts-likes"></a>[F5] Lista över ett inlägg likes
+### <a name="q5-list-a-posts-likes"></a>[Q5] Lista en posts gilla
 
-Exakt samma situation när likes.
+Exakt samma situation vid registrering av gillar.
 
 ![Hämta alla gillar för ett inlägg](./media/how-to-model-partition-example/V2-Q5.png)
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 4 ms | 8.92 RU | ✅ |
+| 4 MS | 8,92 RU | ✅ |
 
-## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Att se till att är alla begäranden som skalbara
+## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Se till att alla begär Anden är skalbara
 
-Titta på vår övergripande prestandaförbättringar, det fortfarande finns två begäranden som vi inte har fullständigt optimerad: **[kvartal 3]** och **[Q6]** . De är de förfrågningar som rör frågor som inte filtrerar på Partitionsnyckeln för de behållare som de är riktade mot.
+Titta på våra övergripande prestanda förbättringar, det finns fortfarande två begär Anden som vi inte har optimerat fullständigt: **[Q3]** och **[Q6]** . De är förfrågningar som avser frågor som inte filtrerar på partitionsnyckel för de behållare som de är riktade till.
 
-### <a name="q3-list-a-users-posts-in-short-form"></a>KVARTAL [3] Lista över en användares inlägg i kortformen
+### <a name="q3-list-a-users-posts-in-short-form"></a>Q3 Lista en användares inlägg i kort form
 
-Den här begäran redan dra nytta av förbättringarna i V2, som besparar ytterligare frågor.
+Den här begäran har redan nytta av förbättringarna som introducerades i v2, vilket frigör ytterligare frågor.
 
-![Hämta alla poster för en användare](./media/how-to-model-partition-example/V2-Q3.png)
+![Hämtar alla inlägg för en användare](./media/how-to-model-partition-example/V2-Q3.png)
 
-Men återstående frågan fortfarande inte filtrerar på Partitionsnyckeln för den `posts` behållare.
+Men den återstående frågan filtreras fortfarande inte i `posts` behållarens partitionsnyckel.
 
-Sätt att tänka på den här situationen är faktiskt enkel:
+Det är enkelt att tänka på den här situationen:
 
-1. Den här begäran *har* att filtrera på den `userId` eftersom vi vill hämta alla poster för en viss användare
-1. Den inte utföra skala eftersom den körs mot den `posts` behållare som inte har partitionerats med `userId`
-1. Om den uppenbar, skulle vi lösa våra prestandaproblem genom att köra den här begäran mot en behållare som *är* partitionerade av `userId`
-1. Det visar sig att vi redan har en sådan behållare: den `users` behållare!
+1. Den här begäran *måste* filtreras på `userId` eftersom vi vill hämta alla inlägg för en viss användare
+1. Det fungerar inte bra eftersom det körs mot `posts` behållaren, som inte har partitionerats av`userId`
+1. Vi kommer att lösa våra prestanda problem genom att utföra den här begäran mot en behållare som *har* partitionerats av`userId`
+1. Det visar att vi redan har en sådan behållare: `users` containern!
 
-Så vi introducera en andra nivå av denormalisering genom att duplicera hela inlägg till den `users` behållare. Genom att göra som vi effektivt hämta en kopia av våra inlägg endast partitioneras i en dimensioner, vilket gör dem vägen mer effektivt att hämta med sina `userId`.
+Vi introducerar därför en andra nivå av avnormalisering genom att duplicera hela inlägg till `users` behållaren. Genom att göra det får vi en kopia av våra inlägg, endast partitionerade utmed olika dimensioner, vilket gör dem mer effektiva att hämta `userId`.
 
-Den `users` behållaren innehåller nu 2 typer av objekt:
+`users` Behållaren innehåller nu 2 typer av objekt:
 
     {
       "id": "<user-id>",
@@ -439,30 +439,30 @@ Den `users` behållaren innehåller nu 2 typer av objekt:
 
 Tänk på följande:
 
-- Vi har introducerat en `type` i objektet för användaren att skilja användare från inlägg,
-- Vi har också lagt till en `userId` i det objekt som användaren som är redundant med den `id` fältet krävs men som den `users` behållaren nu har partitionerats med `userId` (och inte `id` som tidigare)
+- Vi har introducerat `type` ett fält i objektet User för att skilja användare från inlägg,
+- Vi har också lagt till `userId` ett fält i användarobjektet, vilket är överflödigt `id` med fältet men det `users` krävs eftersom behållaren nu har partitionerats av `userId` (och inte `id` som tidigare)
 
-För att uppnå den denormalisering, använder vi återigen ändringen feed. Den här tiden kan vi reagera på ändringsfeed av den `posts` behållare för att skicka det nya eller uppdaterade inlägget till den `users` behållare. Och eftersom lista inlägg inte kräver för att returnera sina hela innehållet, vi trunkera dem i processen.
+För att uppnå den avnormaliseringen ska vi återigen använda ändrings flödet. Den här gången reagerar vi på ändrings flödet för `posts` behållaren för att skicka in nya eller uppdaterade inlägg `users` till behållaren. Eftersom registrering av inlägg inte kräver att deras fullständiga innehåll returneras kan vi trunkera dem i processen.
 
-![Avnormalisera inlägg i användarbehållaren](./media/how-to-model-partition-example/denormalization-2.png)
+![Avnormaliserar inlägg i användar behållaren](./media/how-to-model-partition-example/denormalization-2.png)
 
-Nu kan vi vidarebefordra frågan till den `users` behållare, filtrering på behållarens partitionsnyckel.
+Vi kan nu dirigera vår fråga till `users` behållaren, filtrera på behållarens partitionsnyckel.
 
-![Hämta alla poster för en användare](./media/how-to-model-partition-example/V3-Q3.png)
+![Hämtar alla inlägg för en användare](./media/how-to-model-partition-example/V3-Q3.png)
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 4 ms | 6.46 RU | ✅ |
+| 4 MS | 6,46 RU | ✅ |
 
-### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Lista de senaste x-inlägg som skapats kortfattat formuläret (matning)
+### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Lista de x senaste inlägg som skapats i kort form (feed)
 
-Vi behöver hantera en liknande situation: även efter återställning ytterligare frågor har lämnat onödiga denormalisering som introducerades i V2, återstående frågan inte filtrerar på behållarens partitionsnyckel:
+Vi måste ta itu med en liknande situation här: även när du har behållit ytterligare frågor som inte behövs av avnormaliseringen som introducerades i v2, filtreras inte den återstående frågan på behållarens partitionsnyckel:
 
-![Hämtar senaste inläggen](./media/how-to-model-partition-example/V2-Q6.png)
+![Hämtar de senaste inläggen](./media/how-to-model-partition-example/V2-Q6.png)
 
-Enligt samma metod, maximera prestanda och skalbarhet för denna begäran kräver att den når en partition. Detta är möjligt eftersom vi behöver bara returnera ett begränsat antal objekt; för att fylla i vår bloggplattform startsida, behöver vi bara hämta de 100 senaste inläggen utan att behöva sidbryta genom hela datauppsättningen.
+På samma sätt måste du maximera den här begärans prestanda och skalbarhet kräver att den bara träffar en partition. Detta är det enda eftersom vi bara behöver returnera ett begränsat antal objekt. för att kunna fylla i vår blogg plattforms start sida behöver vi bara hämta de 100 senaste inläggen, utan att behöva gå över hela data uppsättningen.
 
-Så för att optimera den här senaste begäran vi introducera en tredje behållare till vår design, dedikerad helt till betjänar denna begäran. Vi avnormalisera vår inlägg till att nya `feed` behållare:
+För att optimera den senaste begäran introducerar vi en tredje behållare i vår design, som helt dedikeras för att betjäna denna begäran. Vi avnormaliserar våra inlägg till den nya `feed` behållaren:
 
     {
       "id": "<post-id>",
@@ -477,13 +477,13 @@ Så för att optimera den här senaste begäran vi introducera en tredje behåll
       "creationDate": "<post-creation-date>"
     }
 
-Den här behållaren har partitionerats med `type`, som alltid kommer att vara `post` i våra artiklar. Gör som säkerställer att alla objekt i den här behållaren ska vara i samma partition.
+Den här behållaren är partitionerad `type`av, som alltid kommer `post` att finnas i våra objekt. Detta säkerställer att alla objekt i den här behållaren kommer att sitta i samma partition.
 
-För att uppnå denormalisering, behöver vi bara koppla på ändringsflödet pipeline som tidigare har vi lagt för att skicka ut inlägg till den nya behållaren. En viktig sak att ha i åtanke är att vi måste se till att vi bara lagrar 100 senaste inläggen; i annat fall kan innehållet i behållaren växa överskrider den maximala storleken för en partition. Detta görs genom att anropa en [efter utlösaren](stored-procedures-triggers-udfs.md#triggers) varje gång ett dokument läggs till i behållaren:
+För att uppnå avnormaliseringen behöver vi bara ansluta till pipelinen Change feed som vi tidigare har lanserat för att skicka inlägg till den nya behållaren. En viktig sak att tänka på är att vi måste se till att vi endast lagrar 100 senaste inlägg. Annars kan behållarens innehåll växa utanför den maximala storleken på en partition. Detta görs genom att anropa en [efter](stored-procedures-triggers-udfs.md#triggers) utlösare varje gång ett dokument läggs till i behållaren:
 
-![Avnormalisera inlägg till feed behållaren](./media/how-to-model-partition-example/denormalization-3.png)
+![Avnormaliserar inlägg i feed-behållaren](./media/how-to-model-partition-example/denormalization-3.png)
 
-Här är brödtexten i efter utlösaren som trunkerar samlingen:
+Här är innehållet i den post-trigger som trunkerar samlingen:
 
 ```javascript
 function truncateFeed() {
@@ -530,49 +530,49 @@ function truncateFeed() {
 }
 ```
 
-Det sista steget är att skicka frågan till vår nya `feed` behållare:
+Det sista steget är att omdirigera vår fråga till vår nya `feed` behållare:
 
-![Hämtar senaste inläggen](./media/how-to-model-partition-example/V3-Q6.png)
+![Hämtar de senaste inläggen](./media/how-to-model-partition-example/V3-Q6.png)
 
-| **Svarstid** | **RU kostnad** | **Prestanda** |
+| **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
-| 9 ms | 16.97 RU | ✅ |
+| 9 MS | 16,97 RU | ✅ |
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Låt oss ta en titt på de övergripande prestanda och skalbarhet förbättringar som vi har introducerat över olika versioner av våra design.
+Nu ska vi titta på de övergripande prestanda-och skalbarhets förbättringar som vi har lanserat i olika versioner av vår design.
 
 | | V1 | V2 | V3 |
 | --- | --- | --- | --- |
-| **[C1]** | 7 ms / 5.71 RU | 7 ms / 5.71 RU | 7 ms / 5.71 RU |
-| **[Q1]** | 2 ms / 1 RU | 2 ms / 1 RU | 2 ms / 1 RU |
-| **[C2]** | 9 ms / 8.76 RU | 9 ms / 8.76 RU | 9 ms / 8.76 RU |
-| **[Q2]** | 9 ms / 19.54 RU | 2 ms / 1 RU | 2 ms / 1 RU |
-| **[Q3]** | 130 ms / 619.41 RU | 28 ms / 201.54 RU | 4 ms / 6.46 RU |
-| **[C3]** | 7 ms / 8,57 RU | 7 ms / 15.27 RU | 7 ms / 15.27 RU |
-| **[Q4]** | 23 ms / 27.72 RU | 4 ms / 7.72 RU | 4 ms / 7.72 RU |
-| **[C4]** | 6 ms / 7.05 RU | 7 ms / 14.67 RU | 7 ms / 14.67 RU |
-| **[Q5]** | 59 ms / 58.92 RU | 4 ms / 8.92 RU | 4 ms / 8.92 RU |
-| **[Q6]** | 306 ms / 2063.54 RU | 83 ms / 532.33 RU | 9 ms / 16.97 RU |
+| **[C1]** | 7 MS/5,71 RU | 7 MS/5,71 RU | 7 MS/5,71 RU |
+| **[Q1]** | 2 MS/1 RU | 2 MS/1 RU | 2 MS/1 RU |
+| **[C2]** | 9 MS/8,76 RU | 9 MS/8,76 RU | 9 MS/8,76 RU |
+| **[Q2]** | 9 MS/19,54 RU | 2 MS/1 RU | 2 MS/1 RU |
+| **[Q3]** | 130 MS/619,41 RU | 28 MS/201,54 RU | 4 MS/6,46 RU |
+| **[C3]** | 7 MS/8,57 RU | 7 MS/15,27 RU | 7 MS/15,27 RU |
+| **[Q4]** | 23 MS/27,72 RU | 4 MS/7,72 RU | 4 MS/7,72 RU |
+| **[C4]** | 6 MS/7,05 RU | 7 MS/14,67 RU | 7 MS/14,67 RU |
+| **[Q5]** | 59 MS/58,92 RU | 4 MS/8,92 RU | 4 MS/8,92 RU |
+| **[Q6]** | 306 MS/2063,54 RU | 83 MS/532,33 RU | 9 MS/16,97 RU |
 
-### <a name="we-have-optimized-a-read-heavy-scenario"></a>Vi har optimerat ett scenario med Läs-aktiverat
+### <a name="we-have-optimized-a-read-heavy-scenario"></a>Vi har optimerat ett Läs-tung-scenario
 
-Du kanske har märkt att vi har koncentrerade vårt arbete till att förbättra prestandan för läsbegäranden (frågor) på bekostnad av skrivbegäranden (kommandon). I många fall kan utlösa skrivåtgärder nu efterföljande denormalisering via ändringen feeds, vilket gör dem mer beräkningsmässigt dyra och längre tid att Materialisera.
+Du kanske har märkt att vi har koncentrerat våra ansträngningar för att förbättra prestandan hos Läs begär Anden (frågor) vid kostnad för Skriv åtgärder (kommandon). I många fall utlöser Skriv åtgärder nu efterföljande denormalisering genom ändrings flöden, vilket gör dem mer dyra och längre att materialisera.
 
-Detta motiveras av det faktum att en bloggplattform (till exempel mest sociala appar) är Läs omfattande, vilket innebär att mängden läsbegäranden den måste fungera är vanligtvis i storlek överstiger mängden skrivbegäranden. Så det vara bra att göra skrivförfrågningar dyrare att köra för att låta vara läsbegäranden billigare och bättre utför.
+Detta är motiverat av det faktum att en blogg plattform (till exempel de flesta sociala appar) är Read-stor, vilket innebär att antalet Läs begär Anden som den har att betjäna är vanligt vis beställningar som är högre än antalet skriv förfrågningar. Det är därför klokt att göra Skriv förfrågningar dyrare att köra för att låta Läs begär Anden bli billigare och bättre utföra.
 
-Om vi tittar på den mest extrema optimering som vi har gjort **[Q6]** gick från 2000 + ru: er till bara 17 ru: er, vi har uppnått som genom att avnormalisera inlägg till en kostnad av cirka 10 ru: er per artikel. När vi skulle fungera mer feed begäranden än skapas eller uppdateras med inlägg är kostnaden för den här denormalisering försumbar överväger övergripande besparingarna.
+Om vi tittar på den mest extrema optimering som vi har gjort har **[Q6]** gått från 2000 + ru: er till bara 17 ru: er; Vi har uppnått detta genom att avnormalisera inlägg till en kostnad av ca 10 ru: er per objekt. Eftersom vi skulle tjäna mycket fler feed-begäranden än att skapa eller uppdatera inlägg, är kostnaden för den här avnormaliseringen försumbar och den totala besparingarna.
 
-### <a name="denormalization-can-be-applied-incrementally"></a>Denormalisering kan tillämpas stegvis
+### <a name="denormalization-can-be-applied-incrementally"></a>Avnormalisering kan appliceras stegvis
 
-Skalbarhet-förbättringar som vi har utforskat i den här artikeln omfattar denormalisering och duplicering av data i datauppsättningen. Det bör noteras att dessa optimeringar inte behöver placeras på plats på dag 1. Frågor som filtrerar på partitionsnycklar bättre prestanda i stor skala, men flera partitioner frågor kan vara helt godkända om kallas de data som sällan eller mot en begränsad mängd data. Om du bara skapar en prototyp eller lansera en produkt med en liten och kontrollerad användarbas, kan du förmodligen över dessa förbättringar för senare. Det viktiga sedan är att [övervakaren](use-metrics.md) så att du kan avgöra om och när det är dags att sätta dem din modell-prestanda.
+De skalbara förbättringar som vi har utforskat i den här artikeln omfattar denormalisering och duplicering av data i data uppsättningen. Det bör noteras att dessa optimeringar inte behöver placeras på dag 1. Frågor som filtrerar på partitionsnyckel fungerar bättre i stor skala, men frågor med kors partitioner kan vara helt acceptabla om de anropas sällan eller mot en begränsad data uppsättning. Om du bara skapar en prototyp eller om du vill starta en produkt med en liten och kontrollerad användar bas kan du förmodligen få bättre förbättringar för senare. Det är viktigt att du [övervakar](use-metrics.md) modellens prestanda så att du kan bestämma om och när det är dags att ta med dem.
 
-Ändringsfeed att vi använder för att distribuera uppdateringar till andra behållare store allt det uppdateras kontinuerligt. Detta gör det möjligt att begära alla uppdateringar sedan skapandet av behållare och bootstrap Avnormaliserade vyer som en catch-up engångsåtgärd även om systemet redan har stora mängder data.
+Den ändrings matning som vi använder för att distribuera uppdateringar till andra behållare lagrar alla uppdateringar permanent. Detta gör det möjligt att begära alla uppdateringar sedan du skapade behållaren och bootstrap-denormaliserade vyer som en engångs åtgärd, även om systemet redan har mycket data.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Efter den här introduktionen till praktiska-datamodellerings och partitionering, kanske du vill kontrollera i följande artiklar om du vill granska de begrepp som vi har gått igenom:
+Efter introduktionen till praktisk data modellering och partitionering kanske du vill kontrol lera följande artiklar för att granska de koncept som vi har täckt:
 
 - [Arbeta med databaser, behållare och objekt](databases-containers-items.md)
 - [Partitionering i Azure Cosmos DB](partitioning-overview.md)
-- [Ändringsflödet i Azure Cosmos DB](change-feed.md)
+- [Ändra feed i Azure Cosmos DB](change-feed.md)

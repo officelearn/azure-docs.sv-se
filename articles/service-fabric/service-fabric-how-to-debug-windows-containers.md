@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: mikhegn
-ms.openlocfilehash: 043623869163a27cdbbdd7115fca43486577ca7d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: a5ccf527850e1c05c5d7e273ada905d65d64cee4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599436"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073963"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Anvisningar: Felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2019
 
@@ -81,4 +81,4 @@ Nedan visas en lista över kända begränsningar med fel sökning av behållare 
     Visual Studio stöder konsol-och ASP.NET projekt typer för .NET och .NET Core.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om funktionerna i Service Fabric och behållare finns i Översikt över Service Fabric behållare] (Service-Fabric-containers-overview.md).
+Mer information om funktionerna i Service Fabric och behållare finns i [Översikt över Service Fabric behållare](service-fabric-containers-overview.md).

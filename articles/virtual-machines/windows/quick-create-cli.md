@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Skapa en virtuell Windows-dator med Azure PowerShell | Microsoft Docs
-description: I den här snabbstarten lär du dig hur du skapar en virtuell Windows-dator med hjälp av Azure PowerShell
+title: Snabb start – skapa en virtuell Windows-dator med hjälp av Azure CLI | Microsoft Docs
+description: I den här snabb starten får du lära dig hur du använder Azure CLI för att skapa en virtuell Windows-dator
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d50c3cc59bffba1c9124c59bbd6ed197025dabc8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: e6709a6efff80df01d7504db8b39f8ff5c2c5e49
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722993"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088846"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Snabbstart: Skapa en virtuell Windows-dator med Azure CLI
 
@@ -33,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash). Välj **kopia** för att kopiera kodblock, klistra in den i Cloud Shell och tryck på **RETUR** att köra den.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash). Välj **Kopiera** för att kopiera kod blocken, klistra in den i Cloud Shell och tryck på **RETUR** för att köra den.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -45,10 +44,10 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm). Följande exempel skapar en virtuell dator med namnet *myVM*. Det här exemplet används *azureuser* för administrativt användarnamn. 
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). Följande exempel skapar en virtuell dator med namnet *myVM*. I det här exemplet används *azureuser* för ett administrativt användar namn. 
 
-Du måste ändra värdet för `--admin-password` eller misslyckas. Ändra det till ett lösenord som uppfyller de [lösenordskrav för virtuella Azure-datorer](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
-). Användarnamn och lösenord används senare, när du ansluter till den virtuella datorn.
+Du måste ändra värdet för `--admin-password` annars fungerar det inte. Ändra det till ett lösen ord som uppfyller [lösen ords kraven för virtuella](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+)Azure-datorer. Användar namnet och lösen ordet kommer att användas senare när du ansluter till den virtuella datorn.
 
 ```azurecli-interactive
 az vm create \

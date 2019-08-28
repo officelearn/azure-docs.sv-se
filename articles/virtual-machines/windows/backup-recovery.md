@@ -1,6 +1,6 @@
 ---
-title: Översikt över alternativ för säkerhetskopiering för virtuella Azure Windows-datorer | Microsoft Docs
-description: Översikt över alternativ för säkerhetskopiering för Windows Azure virtuella datorer.
+title: Översikt alternativ för säkerhets kopiering för virtuella Windows-datorer i Azure | Microsoft Docs
+description: Översikt alternativ för säkerhets kopiering för virtuella Azure Windows-datorer.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 431c4defe5fd2a7d6d9929fbad3705956c815deb
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: f145ae8e32f361acc6ef22d7b05d1de8e87a295a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719291"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089470"
 ---
-# <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Alternativ för säkerhetskopiering och återställning för virtuella datorer i Azure
-Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Det finns flera alternativ för säkerhetskopiering för virtuella datorer, beroende på ditt användningsfall.
+# <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Alternativ för säkerhets kopiering och återställning av virtuella datorer i Azure
+Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Det finns flera tillgängliga säkerhets kopierings alternativ för virtuella datorer, beroende på dina användnings fall.
 
 [!INCLUDE [virtual-machines-common-backup-recovery](../../../includes/virtual-machines-common-backup-recovery.md)]

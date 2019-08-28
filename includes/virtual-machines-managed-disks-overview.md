@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 444e64488b185b1ff2aa7cc63fbeffafc591dbfe
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: 69c63d4eb2e0bfd04bb232cb0cf39965a5b77193
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68319997"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104299"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar
 
@@ -53,7 +53,7 @@ Hanterade diskar erbjuder två olika typer av kryptering. Det första är Krypte
 
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
 
-Med Azure Disk Encryption kan du kryptera operativ system och data diskar som används av en virtuell IaaS-dator. Krypteringen omfattar Managed disks. För Windows krypteras enheterna med hjälp av teknik för BitLocker-kryptering enligt bransch standard. För Linux krypteras diskarna med hjälp av DM-crypt-teknik. Krypterings processen är integrerad med Azure Key Vault så att du kan styra och hantera disk krypterings nycklarna. Mer information finns i [Azure Disk Encryption för virtuella datorer för IaaS](../articles/security/azure-security-disk-encryption-overview.md).
+Med Azure Disk Encryption kan du kryptera operativ system och data diskar som används av en virtuell IaaS-dator. Krypteringen omfattar Managed disks. För Windows krypteras enheterna med hjälp av teknik för BitLocker-kryptering enligt bransch standard. För Linux krypteras diskarna med hjälp av DM-crypt-teknik. Krypteringsprocessen är integrerad med Azure Key Vault så att du kan styra och hantera diskkrypteringsnycklarna. Mer information finns i [Azure Disk Encryption för virtuella datorer för IaaS](../articles/security/azure-security-disk-encryption-overview.md).
 
 ## <a name="disk-roles"></a>Disk roller
 
@@ -77,7 +77,9 @@ Varje virtuell dator innehåller en temporär disk, som inte är en hanterad dis
 
 ## <a name="managed-disk-snapshots"></a>Ögonblicks bilder av hanterade diskar
 
-En ögonblicks bild av en hanterad disk är en skrivskyddad, enhetlig, fullständig kopia av en hanterad disk som är lagrad som en standard-hanterad disk som standard. Med ögonblicks bilder kan du säkerhetskopiera de hanterade diskarna vid alla tidpunkter. Dessa ögonblicks bilder finns oberoende av käll disken och kan användas för att skapa nya hanterade diskar. De faktureras baserat på den använda storleken. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB, faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB.  
+En ögonblicks bild av en hanterad disk är en skrivskyddad, enhetlig, fullständig kopia av en hanterad disk som är lagrad som en standard-hanterad disk som standard. Med ögonblicks bilder kan du säkerhetskopiera de hanterade diskarna vid alla tidpunkter. Dessa ögonblicks bilder finns oberoende av käll disken och kan användas för att skapa nya hanterade diskar. 
+
+Ögonblicks bilder faktureras baserat på den använda storleken. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB, faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB. Du kan se den använda storleken på dina ögonblicks bilder genom att titta på [Azures användnings rapport](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Om den använda data storleken för en ögonblicks bild till exempel är 10 GiB, visar användnings rapporten 10 GiB/(31 dagar x 24 timmar) = 0,013441 GiB som förbrukad kvantitet.
 
 Mer information om hur du skapar ögonblicks bilder med Managed disks finns i följande resurser:
 

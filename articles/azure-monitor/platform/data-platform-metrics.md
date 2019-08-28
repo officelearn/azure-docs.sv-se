@@ -1,6 +1,6 @@
 ---
 title: Mått i Azure Monitor | Microsoft Docs
-description: Beskriver mått i Azure Monitor som är lätta övervakning av data som har stöd för scenarier i nästan realtid.
+description: Beskriver mått i Azure Monitor som är lätta att övervaka data som stöder nästan real tids scenarier.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,50 +11,50 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 684491b546a0456d936ae199cdfb93180aa05043
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ea95b91d57255db8f638e600d57a98db314cd80f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607032"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113525"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mått i Azure Monitor
 
 > [!NOTE]
-> Azure Monitor-dataplattform baseras på två grundläggande datatyper: Mått och loggar. Den här artikeln beskriver mått. Referera till [loggar i Azure Monitor](data-platform-logs.md) för en detaljerad beskrivning av loggar och till [Azure Monitor dataplattform](data-platform.md) en jämförelse av två.
+> Azure Monitor data plattform baseras på två grundläggande data typer: Mått och loggar. I den här artikeln beskrivs mått. [I loggarna i Azure Monitor](data-platform-logs.md) hittar du en detaljerad beskrivning av loggar och [Azure Monitor data plattform](data-platform.md) för en jämförelse av de två.
 
-Mått i Azure Monitor är lätt och kan stödja scenarier i nästan realtid vilket gör dem särskilt användbart för varningar och snabb identifiering av problem. Den här artikeln beskriver hur mått är strukturerade, vad du kan göra med dem och identifierar olika datakällor som lagrar data i mått.
+Mått i Azure Monitor är lätta och kan stödja scenarier i nära real tid som gör det särskilt användbart för aviseringar och snabb identifiering av problem. Den här artikeln beskriver hur mått är strukturerade, vad du kan göra med dem och identifierar olika data källor som lagrar data i mått.
 
 ## <a name="what-are-metrics"></a>Vad är mått?
-Mått är numeriska värden som beskriver någon aspekt av ett system vid en given tidpunkt. Mått samlas in med jämna mellanrum och är användbara för avisering eftersom de kan samlas in ofta och en avisering kan vara drar igång snabbt med relativt enkla logik.
+Mått är numeriska värden som beskriver någon aspekt av ett system vid en given tidpunkt. Mått samlas in med jämna mellanrum och är användbara för aviseringar eftersom de kan samplas ofta och en avisering kan utlösas snabbt med relativt enkel logik.
 
-## <a name="what-can-you-do-with-azure-monitor-metrics"></a>Vad kan du göra med Azure Monitor Metrics?
-I följande tabell visas de olika sätt som du kan använda måttdata i Azure Monitor.
+## <a name="what-can-you-do-with-azure-monitor-metrics"></a>Vad kan du göra med Azure Monitor mått?
+I följande tabell visas de olika sätt som du kan använda Metric-data i Azure Monitor.
 
 |  |  |
 |:---|:---|
-| Analysera | Använd [måttutforskaren](metrics-charts.md) att analysera insamlade mått i ett diagram och jämföra mått från olika resurser. |
-| Visualisera | Fästa ett diagram från måttutforskaren till en [Azure-instrumentpanelen](../learn/tutorial-app-dashboards.md).<br>Skapa en [arbetsboken](../app/usage-workbooks.md) du kombinerar med flera uppsättningar av data i en interaktiv rapport. Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) att utnyttja dess dashboarding och kombinera med andra datakällor. |
-| Varning | Konfigurera en [måttaviseringsregel](alerts-metric.md) som skickar ett meddelande eller tar [automatisk åtgärd](action-groups.md) när måttet överskrider ett tröskelvärde. |
-| Automatisera |  Använd [Autoskala](autoscale-overview.md) att öka eller minska resurser baserat på ett måttvärde korsa ett tröskelvärde. |
-| Exportera | [Dirigera mått till loggar](diagnostic-logs-stream-log-store.md) att analysera data i Azure Monitor Metrics tillsammans med data i Azure Monitor-loggar och för att lagra måttvärden under längre tid än 93 dagar.<br>Stream mått för att en [Event Hub](stream-monitoring-data-event-hubs.md) att dirigera dem till externa system. |
-| Hämta | Komma åt mätvärden värden från en kommandorad med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Komma åt måttvärden från anpassade program med hjälp av [REST API](rest-api-walkthrough.md).<br>Komma åt mätvärden värden från en kommandorad med hjälp av [CLI](/cli/azure/monitor/metrics). |
+| Analysera | Använd [Metrics Explorer](metrics-charts.md) för att analysera insamlade mått i ett diagram och jämföra mått från olika resurser. |
+| Visualisera | Fäst ett diagram från metrics Explorer till en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md).<br>Skapa en [arbets bok](../app/usage-workbooks.md) som ska kombineras med flera data uppsättningar i en interaktiv rapport. Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) för att dra nytta av dess instrument panel och kombinera med andra data källor. |
+| Varning | Konfigurera en [regel för mått varningar](alerts-metric.md) som skickar ett meddelande eller [automatiserar en åtgärd](action-groups.md) när mått värdet korsar ett tröskelvärde. |
+| Automatisera |  Använd [](autoscale-overview.md) autoskalning för att öka eller minska resurser baserat på ett mått värde som korsar ett tröskelvärde. |
+| Exportera | [Dirigera mått till loggar](diagnostic-logs-stream-log-store.md) för att analysera data i Azure Monitor mått tillsammans med data i Azure Monitor loggar och lagra mått värden i mer än 93 dagar.<br>Strömma mått till en [Event Hub](stream-monitoring-data-event-hubs.md) för att dirigera dem till externa system. |
+| Hämta | Komma åt Mät värden från en kommando rad med [PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights) -cmdletar<br>Använd [REST API](rest-api-walkthrough.md)för att komma åt Mät värden från anpassade program.<br>Komma åt Mät värden från en kommando rad med [CLI](/cli/azure/monitor/metrics). |
 | Arkiv | [Arkivera](..//learn/tutorial-archive-data.md) prestanda eller hälsotillstånd historiken för dina resurser för efterlevnad, granskning eller rapportering offline. |
 
-## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Vad är data i Azure Monitor Metrics strukturerade?
-Data som samlas in av Azure Monitor Metrics lagras i en time series-databas som är optimerad för att analysera data med tidsstämpel. Varje uppsättning måttvärden är en tidsserie med följande egenskaper:
+## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Hur struktureras data i Azure Monitor mått?
+Data som samlas in av Azure Monitor mått lagras i en databas för tids serier som är optimerade för analys av tidsstämplade data. Varje uppsättning metriska värden är en tids serie med följande egenskaper:
 
-* Tiden samlades in värdet
-* Resursen värdet är associerad med
-* Ett namnområde som fungerar som en kategori för måttet
-* Ett Måttnamn
+* Tiden då värdet samlades in
+* Resursen som värdet är associerat med
+* Ett namn område som fungerar som en kategori för måttet
+* Ett mått namn
 * Själva värdet
-* Vissa mått kan ha flera dimensioner som beskrivs i [flerdimensionella mått](#multi-dimensional-metrics). Anpassade mått kan ha upp till 10 dimensioner.
+* Vissa mått kan ha flera dimensioner enligt beskrivningen i [flerdimensionella mått](#multi-dimensional-metrics). Anpassade mått kan ha upp till 10 dimensioner.
 
 ## <a name="multi-dimensional-metrics"></a>Flerdimensionella mått
-En av utmaningarna till måttdata är att det ofta har begränsad information för att ge ett sammanhang för insamlade värdena. Azure Monitor löser detta problem med flerdimensionella mått. Storleken på ett mått är namn / värde-par som innehåller ytterligare data för att beskriva mätvärdet. Till exempel ett mått _tillgängligt diskutrymme_ kan ha en dimension som kallas _enhet_ med värden _C:_ , _D:_ , vilket gör att visa antingen finns tillräckligt med diskutrymme på alla enheter eller för varje enhet individuellt.
+En av utmaningarna med mät data är att den ofta har begränsad information för att tillhandahålla kontext för insamlade värden. Azure Monitor åtgärdar denna utmaning med flerdimensionella mått. Storleken på ett mått är namn / värde-par som innehåller ytterligare data för att beskriva mätvärdet. Till exempel kan ett mått på måttet som _är tillgängligt_ ha en dimension som heter _enhet_ med värdena _C:_ , _D:_ , vilket kan visa antingen tillgängligt disk utrymme på alla enheter eller för varje enhet individuellt.
 
-Exemplet nedan visar två datauppsättningar för ett hypotetiskt mått som kallas _Nätverksdataflöde_. Den första datauppsättningen har inga dimensioner. Andra datauppsättningen visas värden med två dimensioner _IP-adress_ och _riktning_:
+Exemplet nedan visar två datauppsättningar för ett hypotetiskt mått som kallas _Nätverksdataflöde_. Den första datauppsättningen har inga dimensioner. Den andra data mängden visar värdena med två dimensioner, _IP-adress_ och _riktning_:
 
 ### <a name="network-throughput"></a>Nätverkets dataflöde
 
@@ -81,32 +81,43 @@ Den här nolldimensionella mått kan bara svar grundläggande frågor som ”vad
 
 Det här måttet kan besvara frågor som ”vad var nätverksgenomflöde för varje IP-adress”? och ”hur mycket data som har skickats och tagits emot”? Flerdimensionella mått utföra ytterligare analys och diagnostik värde som jämförs med nolldimensionella mått.
 
-## <a name="interacting-with-azure-monitor-metrics"></a>Interagera med Azure Monitor-mått
-Använd [Metrics Explorer](metrics-charts.md) att interaktivt analysera data i databasen mått och diagram värdena för flera mått med tiden. Du kan fästa diagram och en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta mått med hjälp av den [Azure monitoring REST API](rest-api-walkthrough.md).
+## <a name="interacting-with-azure-monitor-metrics"></a>Interagera med Azure Monitor mått
+Använd [Metrics Explorer](metrics-charts.md) för att interaktivt analysera data i din mått databas och rita upp värdena för flera mått över tid. Du kan fästa diagrammen på en instrument panel för att visa dem med andra visualiseringar. Du kan också hämta mått med hjälp av den [Azure monitoring REST API](rest-api-walkthrough.md).
 
 ![Metrics Explorer](media/data-platform/metrics-explorer.png)
 
-## <a name="sources-of-azure-monitor-metrics"></a>Källor för Azure Monitor-mått
-Det finns tre grundläggande källor till mätvärden som samlats in från Azure Monitor. När de här måtten har samlats in i Azure Monitor-mått databasen, kan de utvärderas tillsammans oavsett källan.
+## <a name="sources-of-azure-monitor-metrics"></a>Källor för Azure Monitor mått
+Det finns tre grundläggande källor till mätvärden som samlats in från Azure Monitor. När dessa mått samlas in i Azure Monitor Metric-databasen kan de utvärderas tillsammans oavsett källa.
 
-**Plattformen mått** skapas av Azure-resurser och ger dig insyn i deras hälsotillstånd och prestanda. Varje typ av resurs skapar en [distinkt uppsättning med mått](metrics-supported.md) utan konfiguration krävs. Plattformen mätvärden samlas in från Azure-resurser med en minut frekvens om inget annat anges i definitionen för det mått. 
+**Plattformen mått** skapas av Azure-resurser och ger dig insyn i deras hälsotillstånd och prestanda. Varje typ av resurs skapar en [distinkt uppsättning med mått](metrics-supported.md) utan konfiguration krävs. Plattforms mått samlas in från Azure-resurser med en minuters frekvens om inget annat anges i måttets definition. 
 
-**Gäst-OS mått** har samlats in från gästoperativsystemet för en virtuell dator. Aktivera mätvärden för gäst-OS för Windows-datorer med [Windows diagnostik tillägget SÄKERHETSSPECIFIKA](../platform/diagnostics-extension-overview.md) och för Linux-datorer med [InfluxData Telegraf agenten](https://www.influxdata.com/time-series-platform/telegraf/).
+**Gäst operativ** systemets mått samlas in från gäst operativ systemet på en virtuell dator. Aktivera gäst operativ systemets mått för virtuella Windows-datorer med [Windows Diagnostic Extension (wad)](../platform/diagnostics-extension-overview.md) och för virtuella Linux-datorer med [InfluxData](https://www.influxdata.com/time-series-platform/telegraf/)f-agenten.
 
 **Mätvärden för Application** skapas av Application Insights för övervakade program och hjälper dig att identifiera problem med prestanda och spåra trender i hur ditt program används. Detta inkluderar sådana värden som _serversvarstid_ och _webbläsarundantag_.
 
-**Anpassade mått** är mått som du definierar förutom standardmått som är automatiskt tillgängliga. Du kan [definiera anpassade mått i ditt program](../app/api-custom-events-metrics.md) som övervakas av Application Insights eller skapa anpassade mått för ett Azure-tjänsten med hjälp av den [anpassade mått-API](metrics-store-custom-rest-api.md).
+**Anpassade mått** är mått som du definierar förutom de standard mått som är tillgängliga automatiskt. Du kan [definiera anpassade mått i ditt program](../app/api-custom-events-metrics.md) som övervakas av Application Insights eller skapa anpassade mått för en Azure-tjänst med hjälp av [anpassade Metrics-API: et](metrics-store-custom-rest-api.md).
 
 ## <a name="retention-of-metrics"></a>Kvarhållning av mått
-För de flesta resurser i Azure lagras mått i 93 dagar. Det finns vissa undantag:
-  * **Klassiska gäst-OS-mått**. Klassiska OS gästmått bevaras i 14 dagar. För längre kvarhållning, bör du använda nya gäst-OS-mått som samlas in med [Windows diagnostik tillägget SÄKERHETSSPECIFIKA](../platform/diagnostics-extension-overview.md) och för Linux-datorer med [InfluxData Telegraf agenten](https://www.influxdata.com/time-series-platform/telegraf/).
-  * **Mätvärden för Application Insights loggbaserade**. Bakom scenen, [loggbaserade mått](../app/pre-aggregated-metrics-log-metrics.md) översätta till loggfrågor. Deras kvarhållning matchar kvarhållningen av händelser i underliggande loggar. För Application Insights-resurser lagras loggar i 90 dagar. 
+För de flesta resurser i Azure lagras måtten i 93 dagar. Det finns vissa undantag:
+
+**Gäst operativ systemets mått**
+-   **Klassiska gäst operativ systemets mått**. Detta är prestanda räknare som samlas in av [Windows Diagnostic-tillägget (wad)](../platform/diagnostics-extension-overview.md) eller [Linux Diagnostic Extension (lad)](../../virtual-machines/extensions/diagnostics-linux.md) och dirigeras till ett Azure Storage-konto. Kvarhållning för dessa mått är 14 dagar.
+-   **Gäst operativ systemets mått skickas till Azure Monitor mått**. Detta är prestanda räknare som samlas in av Windows Diagnostic-tillägget (WAD) och skickas till [Azure Monitor-mottagare](diagnostics-extension-overview.md#data-storage)eller via [InfluxData](https://www.influxdata.com/time-series-platform/telegraf/) -på Linux-datorer. Kvarhållning för dessa mått är 93 dagar.
+-   **Gäst operativ system mått som samlats in av Log Analytics**-agenten. Detta är prestanda räknare som samlas in av Log Analytics agent och skickas till en Log Analytics arbets yta. Kvarhållning för dessa mått är 31 dagar och kan utökas upp till två år.
+
+**Application Insights log-baserade mått**. 
+- Efter scenen översätts [loggbaserade mått](../app/pre-aggregated-metrics-log-metrics.md) till logg frågor. Deras kvarhållning matchar kvarhållning av händelser i underliggande loggar. För Application Insights resurser lagras loggar i 90 dagar.
+
 
 > [!NOTE]
-> Du kan [skicka plattform mått för Azure Monitor-resurser till en Log Analytics-arbetsyta](diagnostic-logs-stream-log-store.md) för långsiktiga trender.
+> Du kan [Skicka plattforms mått för Azure Monitor resurser till en Log Analytics arbets yta](diagnostic-logs-stream-log-store.md) för långsiktiga trender.
+
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om den [Azure Monitor dataplattform](data-platform.md).
-- Lär dig mer om [logga data i Azure Monitor](data-platform-logs.md).
+- Läs mer om [Azure Monitor data plattform](data-platform.md).
+- Lär dig mer om [loggdata i Azure Monitor](data-platform-logs.md).
 - Lär dig mer om den [övervakningsdata är tillgängliga](data-sources.md) för olika resurser i Azure.

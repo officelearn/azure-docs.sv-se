@@ -1,6 +1,6 @@
 ---
-title: Konfigurera DNS-namn för appar som använder Traffic Manager – Azure App Service
-description: Använd ett anpassat domännamn för en en webbapp i Azure App Service med Traffic Manager för Utjämning av nätverksbelastning.
+title: Konfigurera DNS-namn för appar som använder Traffic Manager-Azure App Service
+description: Använd ett anpassat domän namn för en webbapp i Azure App Service som innehåller Traffic Manager för belastnings utjämning.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -10,24 +10,23 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b207d9e3123245e5cb7dddb625f7488886591ae5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6a59d519ae8bb515ab16632bd39509682959f50
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128541"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074033"
 ---
-# <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Konfigurera ett anpassat domännamn för en webbapp i Azure App Service med Traffic Manager
+# <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Konfigurera ett anpassat domän namn för en webbapp i Azure App Service att använda Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-Den här artikeln innehåller allmänna anvisningar för att använda ett anpassat domännamn med ett [Apptjänst](overview.md) app som är integrerad med [Traffic Manager](../traffic-manager/traffic-manager-overview.md) för belastningsutjämning.
+Den här artikeln innehåller allmänna instruktioner för att använda ett anpassat domän namn med en [App Service](overview.md) -app som är integrerad med [Traffic Manager](../traffic-manager/traffic-manager-overview.md) för belastnings utjämning.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -35,32 +34,32 @@ Den här artikeln innehåller allmänna anvisningar för att använda ett anpass
 
 <a name="understanding-records"></a>
 
-## <a name="understanding-dns-records"></a>Så här fungerar DNS-poster
+## <a name="understanding-dns-records"></a>Förstå DNS-poster
 [!INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 <a name="bkmk_configsharedmode"></a>
 
-## <a name="configure-your-web-apps-for-standard-mode"></a>Konfigurera web apps för standardläge
+## <a name="configure-your-web-apps-for-standard-mode"></a>Konfigurera dina webb program för standard läge
 [!INCLUDE [modes](../../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
 
-## <a name="add-a-dns-record-for-your-custom-domain"></a>Lägga till en DNS-post för din anpassade domän
+## <a name="add-a-dns-record-for-your-custom-domain"></a>Lägg till en DNS-post för din anpassade domän
 > [!NOTE]
-> Om du har köpt domänen med hjälp av Azure App Service Web Apps och sedan hoppar du över följande steg och referera till det sista steget i [köp domän för Web Apps](manage-custom-dns-buy-domain.md) artikeln.
+> Om du har köpt domän via Azure App Service Web Apps kan du hoppa över följande steg och se det sista steget i [köpa domänen för Web Apps](manage-custom-dns-buy-domain.md) artikeln.
 > 
 > 
 
-Om du vill associera din anpassade domän med en webbapp i Azure App Service, måste du lägga till en ny post i tabellen DNS för din anpassade domän. Du kan göra detta med hjälp av hanteringsverktyg från din domänleverantör.
+Om du vill associera en anpassad domän med en webbapp i Azure App Service måste du lägga till en ny post i DNS-tabellen för din anpassade domän. Du gör detta med hjälp av hanterings verktygen från din domän leverantör.
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Medan egenskaperna för varje domänleverantör variera du mappa *från* ditt domännamn (till exempel **contoso.com**) *till* Traffic Manager-domännamn ( **Contoso.trafficmanager.NET**) som är integrerade med ditt webbprogram.
+Även om de olika domän leverantörerna skiljer sig åt, mappar du *från* ditt anpassade domän namn (t. ex. **contoso.com**) *till* det Traffic Manager domän namn (**contoso.trafficmanager.net**) som är integrerat med din webbapp.
 
 > [!NOTE]
-> Om en post används redan och du måste binda förebyggande syfte dina appar till den, kan du skapa en ytterligare CNAME-post. Till exempel för att binda förebyggande syfte **www\.contoso.com** till din webbapp, skapa en CNAME-post från **awverify.www** till **contoso.trafficmanager.net**. Du kan sedan lägga till ”www\.contoso.com” i din Webbapp utan att ändra CNAME-post ”www”. Mer information finns i [skapa DNS-poster för en webbapp i en anpassad domän][CREATEDNS].
+> Om en post redan används och du behöver förebyggande syfte för att binda dina appar till den, kan du skapa ytterligare en CNAME-post. Om du till exempel vill förebyggande syfte **BIND\.www-contoso.com** till din webbapp skapar du en CNAME-post från **awverify. www** till **contoso.trafficmanager.net**. Du kan sedan lägga till "\.www-contoso.com" i din webbapp utan att ändra "www"-CNAME-posten. Mer information finns i [Skapa DNS-poster för en webbapp i en anpassad domän][CREATEDNS].
 
-När du är klar med att lägga till eller ändra DNS-posterna i din domänleverantör, kan du spara ändringarna.
+När du har lagt till eller ändrat DNS-poster i din domän leverantör sparar du ändringarna.
 
 <a name="enabledomain"></a>
 

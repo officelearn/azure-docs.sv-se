@@ -1,6 +1,6 @@
 ---
 title: Framtvinga säkerhet med principer på virtuella Linux-datorer i Azure | Microsoft Docs
-description: Hur du använder en princip till en Azure Resource Manager Linux-dator
+description: Så här tillämpar du en princip på en virtuell Azure Resource Manager Linux-dator
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
@@ -11,24 +11,23 @@ ms.assetid: 06778ab4-f8ff-4eed-ae10-26a276fc3faa
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 0c7b1488921e0708a71caade4599cef367b4b3eb
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: c0399044e1776d10a70cf4bcb1dca8d87e4981c7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667233"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091579"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Tillämpa principer för virtuella Linux-datorer med Azure Resource Manager
-Med hjälp av principer kan en organisation tillämpa olika konventioner och regler i hela företaget. Efterlevnad av önskat beteende kan du minimera risken när bidrar till framgång för organisationen. I den här artikeln beskriver vi hur du kan använda Azure Resource Manager-principer för att definiera önskat beteende för virtuella datorer i din organisation.
+Med hjälp av principer kan en organisation tillämpa olika konventioner och regler i hela företaget. Verk ställandet av det önskade beteendet kan hjälpa till att minska risken och bidra till organisationens framgång. I den här artikeln beskriver vi hur du kan använda Azure Resource Manager principer för att definiera det önskade beteendet för organisationens Virtual Machines.
 
-En introduktion till principer finns i [vad är Azure Policy?](../../governance/policy/overview.md).
+För en introduktion till principer, se [Vad är Azure policy?](../../governance/policy/overview.md).
 
-## <a name="permitted-virtual-machines"></a>Tillåtna virtuella datorer
-För att säkerställa att virtuella datorer för din organisation är kompatibla med ett program, kan du begränsa de tillåtna operativsystem. I exemplet nedan principen Tillåt endast Ubuntu 14.04.2-LTS virtuella datorer som ska skapas.
+## <a name="permitted-virtual-machines"></a>Tillåten Virtual Machines
+För att säkerställa att virtuella datorer för din organisation är kompatibla med ett program kan du begränsa tillåtna operativ system. I följande princip exempel tillåter du att endast Ubuntu 14.04.2-LTS Virtual Machines skapas.
 
 ```json
 {
@@ -80,7 +79,7 @@ För att säkerställa att virtuella datorer för din organisation är kompatibl
 }
 ```
 
-Du kan använda jokertecken för att ändra den föregående principen för att tillåta en Ubuntu LTS-avbildning: 
+Använd ett jokertecken för att ändra den tidigare principen för att tillåta valfri Ubuntu LTS-avbildning: 
 
 ```json
 {
@@ -89,11 +88,11 @@ Du kan använda jokertecken för att ändra den föregående principen för att 
 }
 ```
 
-Information om principfält finns i [princip alias](../../governance/policy/concepts/definition-structure.md#aliases).
+Information om princip fält finns i [princip-alias](../../governance/policy/concepts/definition-structure.md#aliases).
 
 ## <a name="managed-disks"></a>Hanterade diskar
 
-Använd följande princip för att kräva användning av hanterade diskar:
+Om du vill kräva användning av hanterade diskar använder du följande princip:
 
 ```json
 {
@@ -139,11 +138,11 @@ Använd följande princip för att kräva användning av hanterade diskar:
 }
 ```
 
-## <a name="images-for-virtual-machines"></a>Avbildningar av virtuella datorer
+## <a name="images-for-virtual-machines"></a>Avbildningar för Virtual Machines
 
-Av säkerhetsskäl kan du kräva att bara godkända anpassade avbildningar har distribuerats i din miljö. Du kan ange antingen den resursgrupp som innehåller de godkända bilderna eller specifikt godkända bilder.
+Av säkerhets skäl kan du kräva att endast godkända anpassade avbildningar distribueras i din miljö. Du kan ange antingen resurs gruppen som innehåller de godkända avbildningarna eller de angivna godkända avbildningarna.
 
-I följande exempel kräver bilder från en godkänd resursgrupp:
+Följande exempel kräver bilder från en godkänd resurs grupp:
 
 ```json
 {
@@ -170,7 +169,7 @@ I följande exempel kräver bilder från en godkänd resursgrupp:
 } 
 ```
 
-I följande exempel anger godkända avbildning-ID: N:
+I följande exempel anges godkända avbildnings-ID: n:
 
 ```json
 {
@@ -181,7 +180,7 @@ I följande exempel anger godkända avbildning-ID: N:
 
 ## <a name="virtual-machine-extensions"></a>Tillägg för virtuell dator
 
-Du kanske vill förbjuda användningen av vissa typer av tillägg. Ett tillägg kan till exempel inte kompatibel med vissa anpassade VM-avbildningar. I följande exempel visas hur du blockerar ett visst tillägg. Den använder utgivaren och typen för att avgöra vilka tillägg som ska blockeras.
+Du kanske vill förbjuda användning av vissa typer av tillägg. Till exempel kanske ett tillägg inte är kompatibelt med vissa anpassade avbildningar av virtuella datorer. I följande exempel visas hur du blockerar ett speciellt tillägg. Den använder utgivare och typ för att avgöra vilket tillägg som ska blockeras.
 
 ```json
 {
@@ -210,6 +209,6 @@ Du kanske vill förbjuda användningen av vissa typer av tillägg. Ett tillägg 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* När du har definierat en regel (som visas i föregående exempel), måste du skapa principdefinitionen och tilldela den till ett omfång. Omfånget kan vara en prenumeration, resursgrupp eller resurs. Om du vill tilldela principer, se [Använd Azure portal för att tilldela och hantera resursprinciper](../../governance/policy/assign-policy-portal.md), [Använd PowerShell för att tilldela principer](../../governance/policy/assign-policy-powershell.md), eller [används Azure CLI för att tilldela principer](../../governance/policy/assign-policy-azurecli.md).
-* Läs en introduktion till resursprinciper [vad är Azure Policy?](../../governance/policy/overview.md).
+* När du har definierat en princip regel (som visas i föregående exempel), måste du skapa princip definitionen och tilldela den till ett omfång. Omfånget kan vara en prenumeration, en resurs grupp eller en resurs. Om du vill tilldela principer, se [använda Azure Portal för att tilldela och hantera resurs principer](../../governance/policy/assign-policy-portal.md), [använda PowerShell för att tilldela principer](../../governance/policy/assign-policy-powershell.md)eller [använda Azure CLI för att tilldela principer](../../governance/policy/assign-policy-azurecli.md).
+* En introduktion till resurs principer finns i [Vad är Azure policy?](../../governance/policy/overview.md).
 * Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).

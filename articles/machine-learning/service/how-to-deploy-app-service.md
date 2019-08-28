@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/01/2019
-ms.openlocfilehash: ada2a19de12c2f3f6b23fcc3d759afb0c747d37d
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/27/2019
+ms.openlocfilehash: 889158aeb40cfcbc69291845acfee833af0930b6
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897417"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114283"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 
@@ -38,6 +38,7 @@ Mer information om funktioner som tillhandahålls av Azure App Service finns i [
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
+* Den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * En utbildad Machine Learning-modell som registrerats i din arbets yta. Om du inte har någon modell använder du [själv studie kursen om bild klassificering: träna modell](tutorial-train-models-with-aml.md) att träna och registrera en.
 
     > [!IMPORTANT]
@@ -97,34 +98,151 @@ Mer information om konfiguration av konfiguration finns i [Distribuera modeller 
 
 Om du vill skapa Docker-avbildningen som distribueras till Azure App Service använder du [modell. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). Följande kodfragment visar hur du skapar en ny avbildning från modellen och konfigurationen för konfigurations härledning:
 
+> [!NOTE]
+> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att `inference_config` den innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
+
 ```python
+from azureml.core import Model
+
 package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
+# Display the package location/ACR path
+print(package.location)
 ```
 
-När `show_output=True`visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta.
+När `show_output=True`visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i `<acrinstance>.azurecr.io/package:<imagename>`formatet. Till exempel `myml08024f78fd10.azurecr.io/package:20190827151241`.
+
+> [!IMPORTANT]
+> Spara plats informationen som används när avbildningen distribueras.
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuera avbildning som en webbapp
 
-1. Välj arbets ytan Azure Machine Learning från [Azure Portal](https://portal.azure.com). I avsnittet __Översikt__ använder du __register__ länken för att komma åt Azure Container Registry för arbets ytan.
+1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<acrinstance>` med det e-värde som returnerades tidigare från `package.location`: 
 
-    [![Skärm bild av översikten över arbets ytan](media/how-to-deploy-app-service/workspace-overview.png)](media/how-to-deploy-app-service/workspace-overview-expanded.png)
+    ```azurecli-interactive
+    az acr credential show --name <myacr>
+    ```
 
-2. Från Azure Container Registry väljer du __databaser__och väljer sedan det avbildnings __namn__ som du vill distribuera. För den version som du vill distribuera väljer du posten __...__ och __distribuerar sedan till Web App__.
+    Utdata från det här kommandot liknar följande JSON-dokument:
 
-    [![Skärm bild av distribution från ACR till en webbapp](media/how-to-deploy-app-service/deploy-to-web-app.png)](media/how-to-deploy-app-service/deploy-to-web-app-expanded.png)
+    ```json
+    {
+    "passwords": [
+        {
+        "name": "password",
+        "value": "Iv0lRZQ9762LUJrFiffo3P4sWgk4q+nW"
+        },
+        {
+        "name": "password2",
+        "value": "=pKCxHatX96jeoYBWZLsPR6opszr==mg"
+        }
+    ],
+    "username": "myml08024f78fd10"
+    }
+    ```
 
-3. Skapa webbappen genom att ange ett plats namn, en prenumeration, en resurs grupp och välj App Service-plan/plats. Välj slutligen __skapa__.
+    Spara värdet för __användar namn__ och ett av __lösen orden__.
 
-    ![Skärm bild av dialog rutan ny webbapp](media/how-to-deploy-app-service/web-app-for-containers.png)
+1. Om du inte redan har en resurs grupp eller App Service-plan för att distribuera tjänsten visar följande kommandon hur du skapar båda:
+
+    ```azurecli-interactive
+    az group create --name myresourcegroup --location "West Europe"
+    az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
+    ```
+
+    I det här exemplet används en __grundläggande__ pris nivå`--sku B1`().
+
+    > [!IMPORTANT]
+    > Avbildningar som skapats av tjänsten Azure Machine Learning använder Linux, så du måste använda `--is-linux` parametern.
+
+1. Använd följande kommando för att skapa en webbapp. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` `package.location` och `<imagename>` med värdena från returnerade tidigare:
+
+    ```azurecli-interactive
+    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
+    ```
+
+    Det här kommandot returnerar information som liknar följande JSON-dokument:
+
+    ```json
+    { 
+    "adminSiteName": null,
+    "appServicePlanName": "myplanname",
+    "geoRegion": "West Europe",
+    "hostingEnvironmentProfile": null,
+    "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myplanname",
+    "kind": "linux",
+    "location": "West Europe",
+    "maximumNumberOfWorkers": 1,
+    "name": "myplanname",
+    < JSON data removed for brevity. >
+    "targetWorkerSizeId": 0,
+    "type": "Microsoft.Web/serverfarms",
+    "workerTierName": null
+    }
+    ```
+
+    > [!IMPORTANT]
+    > Nu har webbappen skapats. Eftersom du inte har angett autentiseringsuppgifterna för Azure Container Registry som innehåller avbildningen är webbappen inte aktiv. I nästa steg anger du autentiseringsinformation för behållar registret.
+
+1. Använd följande kommando för att tillhandahålla webbappen med de autentiseringsuppgifter som krävs för att komma åt behållar registret. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` `package.location` och `<imagename>` med värdena från returnerade tidigare. Ersätt `<username>` och`<password>` med ACR-inloggnings informationen som hämtades tidigare:
+
+    ```azurecli-interactive
+    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
+    ```
+
+    Det här kommandot returnerar information som liknar följande JSON-dokument:
+
+    ```json
+    [
+    {
+        "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+        "slotSetting": false,
+        "value": "false"
+    },
+    {
+        "name": "DOCKER_REGISTRY_SERVER_URL",
+        "slotSetting": false,
+        "value": "https://myml08024f78fd10.azurecr.io"
+    },
+    {
+        "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+        "slotSetting": false,
+        "value": "myml08024f78fd10"
+    },
+    {
+        "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+        "slotSetting": false,
+        "value": null
+    },
+    {
+        "name": "DOCKER_CUSTOM_IMAGE_NAME",
+        "value": "DOCKER|myml08024f78fd10.azurecr.io/package:20190827195524"
+    }
+    ]
+    ```
+
+Nu börjar webbappen läsa in avbildningen.
+
+> [!IMPORTANT]
+> Det kan ta flera minuter innan avbildningen har lästs in. Använd följande kommando för att övervaka förloppet:
+>
+> ```azurecli-interactive
+> az webapp log tail --name <app-name> --resource-group myresourcegroup
+> ```
+>
+> När avbildningen har lästs in och platsen är aktiv, visar loggen ett meddelande om tillstånd `Container <container name> for site <app-name> initialized successfully and is ready to serve requests`.
+
+När avbildningen har distribuerats kan du hitta värd namnet med hjälp av följande kommando:
+
+```azurecli-interactive
+az webapp show --name <app-name> --resource-group myresourcegroup
+```
+
+Det här kommandot returnerar information som liknar följande hostname- `<app-name>.azurewebsites.net`. Använd det här värdet som en del av tjänstens __grundläggande URL__ .
 
 ## <a name="use-the-web-app"></a>Använda webbapp
 
-Från [Azure Portal](https://portal.azure.com)väljer du den webbapp som skapades i föregående steg. I avsnittet __Översikt__ kopierar du __URL: en__. Det här värdet är __bas-URL:__ en för tjänsten.
-
-[![Skärm bild av översikten över webb programmet](media/how-to-deploy-app-service/web-app-overview.png)](media/how-to-deploy-app-service/web-app-overview-expanded.png)
-
-Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score`. Till exempel `https://mywebapp.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
+Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score`. Till exempel `https://<app-name>.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
 
 ```python
 import requests
@@ -134,8 +252,6 @@ scoring_uri = "https://mywebapp.azurewebsites.net/score"
 
 headers = {'Content-Type':'application/json'}
 
-print(headers)
-    
 test_sample = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10],
     [10,9,8,7,6,5,4,3,2,1]

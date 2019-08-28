@@ -7,19 +7,18 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27f7a9b576263b97c251306c9817b85c31041739
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 705dfb0b62327d9675fe9bf3e5860b1396e2fab9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312232"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101313"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -132,7 +131,7 @@ Linux-operativsystemet som är installerat på SAP HANA på Azure (stora instans
 
 Det är ditt ansvar att installera SAP HANA HDB-klienten i de stora instanser i HANA-enheter medan du installerar SAP HANA.
 
-### <a name="step-2-change-the-etcsshsshconfig"></a>Steg 2: Ändra/etc/ssh/SSH\_-konfigurationen
+### <a name="step-2-change-the-etcsshssh_config"></a>Steg 2: Ändra/etc/ssh/SSH\_-konfigurationen
 
 Det här steget beskrivs i "Aktivera kommunikation med lagring" i [verktyg för Microsoft-ögonblicksbilder för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
 
@@ -303,7 +302,7 @@ Om du vill ha mer information om ögonblicks bilder använder `azure_hana_snapsh
    * Storlek på totalt antal ögonblicks bilder i en volym
    * Följande information i varje ögonblicks bild på volymen: 
       - Namn på ögonblicks bild 
-      - Skapa tid 
+      - Tid för skapande 
       - Storlek på ögonblicks bilden
       - Ögonblicks bild frekvens
       - HANA-säkerhets kopierings-ID som är kopplat till ögonblicks bilden

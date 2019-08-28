@@ -1,6 +1,6 @@
 ---
-title: Skapa fullständigt domännamn för en Linux-VM i Azure portal | Microsoft Docs
-description: Lär dig hur du skapar ett fullständigt kvalificerat domännamn eller FQDN för en Resource Manager-baserad virtuell dator i Azure-portalen.
+title: Skapa ett fullständigt domän namn för en virtuell Linux-dator i Azure Portal | Microsoft Docs
+description: Lär dig hur du skapar ett fullständigt kvalificerat domän namn eller fullständigt domän namn för en Resource Manager-baserad virtuell dator i Azure Portal.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -9,33 +9,32 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 2cd6c249-a737-4a0a-b5ba-e1c09e551b30
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9454ce72fa2581f4de5390314f9ca8ef36504d1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d7309f4be43c6b653f261e5de5fbe3e638e83294
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671109"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082444"
 ---
-# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Skapa ett fullständigt kvalificerat domännamn i Azure portal för en Linux VM
+# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Skapa ett fullständigt kvalificerat domän namn i Azure Portal för en virtuell Linux-dator
 
-När du skapar en virtuell dator (VM) i den [Azure-portalen](https://portal.azure.com), en offentlig IP-resurs för den virtuella datorn skapas automatiskt. Du kan använda den här IP-adress för fjärråtkomst till den virtuella datorn. Även om portalen inte skapar en [fullständigt kvalificerade domännamnet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), eller FQDN, du kan lägga till en när den virtuella datorn har skapats. Den här artikeln visar hur du skapar en DNS-namn eller FQDN.
+När du skapar en virtuell dator (VM) i [Azure Portal](https://portal.azure.com)skapas automatiskt en offentlig IP-resurs för den virtuella datorn. Du använder den här IP-adressen för att fjärrans luta till den virtuella datorn. Även om portalen inte skapar ett [fullständigt kvalificerat domän namn eller fullständigt domän namn](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)kan du lägga till en när den virtuella datorn har skapats. I den här artikeln beskrivs stegen för att skapa ett DNS-namn eller fullständigt domän namn.
 
-## <a name="create-a-fqdn"></a>Skapa ett fullständigt domännamn
-Den här artikeln förutsätter att du redan har skapat en virtuell dator. Om det behövs kan du [skapa en virtuell dator i portalen](quick-create-portal.md) eller [med Azure CLI](quick-create-cli.md). Följ dessa steg när den virtuella datorn är igång:
+## <a name="create-a-fqdn"></a>Skapa ett fullständigt domän namn
+Den här artikeln förutsätter att du redan har skapat en virtuell dator. Om det behövs kan du [skapa en virtuell dator i portalen](quick-create-portal.md) eller [med Azure CLI](quick-create-cli.md). Följ de här stegen när den virtuella datorn är igång:
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-Nu kan du ansluta via en fjärranslutning till den virtuella datorn med hjälp av den här DNS-namn som med `ssh azureuser@mydns.westus.cloudapp.azure.com`.
+Du kan nu fjärrans luta till den virtuella datorn med hjälp av det här DNS `ssh azureuser@mydns.westus.cloudapp.azure.com`-namnet, till exempel med.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när den virtuella datorn har ett offentligt IP-adress och DNS-namn, du kan distribuera vanliga programramverk eller tjänster, till exempel nginx, MongoDB, Docker, osv.
+Nu när den virtuella datorn har en offentlig IP-adress och ett DNS-namn kan du distribuera vanliga program ramverk eller tjänster, till exempel nginx, MongoDB, Docker osv.
 
-Du kan också läsa mer om [med Resource Manager](../../azure-resource-manager/resource-group-overview.md) tips om hur du bygger Azure-distributioner.
+Du kan också läsa mer om att [använda Resource Manager](../../azure-resource-manager/resource-group-overview.md) för att få tips om hur du skapar dina Azure-distributioner.
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa en fullständig Linux-miljö med den klassiska Azure-CLI | Microsoft Docs
-description: Skapa storage, en Linux VM, ett virtuellt nätverk och undernät, en belastningsutjämnare, ett nätverkskort, en offentlig IP-adress och en nätverkssäkerhetsgrupp, allt från grunden med hjälp av den klassiska Azure-CLI.
+title: Skapa en fullständig Linux-miljö med Azures klassiska CLI | Microsoft Docs
+description: Skapa lagring, en virtuell Linux-dator, ett virtuellt nätverk och undernät, en belastningsutjämnare, ett nätverkskort, en offentlig IP-adress och en nätverks säkerhets grupp, allt från grunden med hjälp av den klassiska Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,50 +9,49 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 5fbcbc63b3038151a7d45a70ce88eb7ca9829fe5
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: aaf91aa81be5fc4c5944dde804798a61ceffc5a6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668016"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083721"
 ---
-# <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Skapa en fullständig Linux-miljö med den klassiska Azure-CLI
-I den här artikeln skapar vi ett enkelt nätverk med en belastningsutjämnare och ett par med virtuella datorer som är användbara för utveckling och enkel databehandling. Vi går igenom processen kommandot av kommandot förrän du har två arbetar, säker virtuella Linux-datorer som du kan ansluta från var som helst på Internet. Du kan sedan gå vidare till mer komplexa nätverk och miljöer.
+# <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Skapa en fullständig Linux-miljö med Azures klassiska CLI
+I den här artikeln skapar vi ett enkelt nätverk med en belastningsutjämnare och ett par med virtuella datorer som är användbara för utveckling och enkel data behandling. Vi går igenom process kommandot efter kommando tills du har två fungerande, säkra virtuella Linux-datorer som du kan ansluta från var som helst på Internet. Sedan kan du gå vidare till mer komplexa nätverk och miljöer.
 
-Under tiden får du lära dig om beroende hierarkin att Resource Manager-distributionsmodellen ger dig och starta den om hur mycket ger. När du ser hur systemet har skapats, kan du återskapa det mycket snabbare genom att använda [Azure Resource Manager-mallar](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). När du lär dig hur delarna av din miljö fungerar ihop, blir hur du skapar mallar för att automatisera dem också enklare.
+Under tiden får du lära dig om den beroende hierarkin som distributions modellen för Resource Manager ger dig, och om hur mycket ström den erbjuder. När du ser hur systemet har skapats kan du återskapa det snabbare med hjälp av [Azure Resource Manager mallar](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). När du har lärt dig hur delarna i din miljö passar ihop blir det enklare att skapa mallar för att automatisera dem.
 
 Miljön innehåller:
 
-* Två virtuella datorer i en tillgänglighetsuppsättning.
-* En belastningsutjämnare med en regel för belastningsutjämning på port 80.
-* Nätverks-regler för nätverkssäkerhetsgrupper (NSG) till att skydda den virtuella datorn från oönskad trafik.
+* Två virtuella datorer i en tillgänglighets uppsättning.
+* En belastningsutjämnare med en belastnings Utjämnings regel på port 80.
+* Regler för nätverks säkerhets gruppen (NSG) för att skydda den virtuella datorn från oönskad trafik.
 
-Om du vill skapa den här anpassade miljön, du behöver senast [klassiska Azure-CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) i Resource Manager-läge (`azure config mode arm`). Du behöver också en JSON-parsningsverktyg. Det här exemplet används [jq](https://stedolan.github.io/jq/).
+Om du vill skapa den här anpassade miljön behöver du den senaste [Azure Classic CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) i Resource Manager`azure config mode arm`-läge (). Du behöver också ett JSON-parsningsfel. I det här exemplet används [JQ](https://stedolan.github.io/jq/).
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>CLI-versioner för att slutföra uppgiften
 Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
-- [Azure klassiskt CLI](#quick-commands) – vår CLI för de klassiska distributionsmodellen och resource Manager-distributionsmodellerna (den här artikeln)
-- [Azure CLI](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – vår nästa generations CLI för distributionsmodellen i resource management
+- Den [klassiska Azure CLI](#quick-commands) – vår CLI för distributions modellerna klassisk och Resource Management (den här artikeln)
+- [Azure CLI](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – vår nästa generations CLI för distributions modellen resurs hantering
 
 
 ## <a name="quick-commands"></a>Snabbkommandon
-Om du behöver att snabbt utföra uppgiften, de följande avsnittet beskriver grundläggande kommandon för att ladda upp en virtuell dator till Azure. Mer detaljerad information och kontext för varje steg finns i resten av dokumentet, med början [här](#detailed-walkthrough).
+Om du snabbt behöver utföra uppgiften kan du använda följande avsnitt för att ladda upp en virtuell dator till Azure. Mer detaljerad information och kontext för varje steg finns i resten av dokumentet, med början [här](#detailed-walkthrough).
 
-Se till att du har [den klassiska Azure-CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) loggat in och använda Resource Manager-läge:
+Kontrol lera att Azures [klassiska CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) är inloggad och Använd Resource Manager-läge:
 
 ```azurecli
 azure config mode arm
 ```
 
-I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar `myResourceGroup`, `mystorageaccount`, och `myVM`.
+Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn `myResourceGroup`är `mystorageaccount`, och `myVM`.
 
 Skapa resursgruppen. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`:
 
@@ -60,46 +59,46 @@ Skapa resursgruppen. I följande exempel skapas en resursgrupp med namnet `myRes
 azure group create -n myResourceGroup -l westeurope
 ```
 
-Kontrollera resursgruppen med hjälp av JSON-parser:
+Verifiera resurs gruppen med hjälp av JSON-parsern:
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Skapa lagringskontot. I följande exempel skapas ett lagringskonto med namnet `mystorageaccount`. (Namnet på lagringskontot måste vara unikt, så ange ditt eget unika namn)
+Skapa lagrings kontot. I följande exempel skapas ett lagrings konto `mystorageaccount`med namnet. (Lagrings kontots namn måste vara unikt, så ange ditt eget unika namn.)
 
 ```azurecli
 azure storage account create -g myResourceGroup -l westeurope \
   --kind Storage --sku-name GRS mystorageaccount
 ```
 
-Kontrollera storage-konto med hjälp av JSON-parser:
+Verifiera lagrings kontot med hjälp av JSON-parser:
 
 ```azurecli
 azure storage account show -g myResourceGroup mystorageaccount --json | jq '.'
 ```
 
-Skapa det virtuella nätverket. I följande exempel skapas ett virtuellt nätverk med namnet `myVnet`:
+Skapa det virtuella nätverket. I följande exempel skapas ett virtuellt nätverk med `myVnet`namnet:
 
 ```azurecli
 azure network vnet create -g myResourceGroup -l westeurope\
   -n myVnet -a 192.168.0.0/16
 ```
 
-Skapa ett undernät. I följande exempel skapas ett undernät med namnet `mySubnet`:
+Skapa ett undernät. I följande exempel skapas ett undernät med `mySubnet`namnet:
 
 ```azurecli
 azure network vnet subnet create -g myResourceGroup \
   -e myVnet -n mySubnet -a 192.168.1.0/24
 ```
 
-Kontrollera det virtuella nätverket och undernätet med hjälp av JSON-parser:
+Verifiera det virtuella nätverket och under nätet med hjälp av JSON-parsern:
 
 ```azurecli
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-Skapa en offentlig IP-adress. I följande exempel skapas en offentlig IP-adress med namnet `myPublicIP` med DNS-namnet på `mypublicdns`. (DNS-namnet måste vara unikt, så ange ditt eget unika namn)
+Skapa en offentlig IP-adress. I följande exempel skapas en offentlig IP- `myPublicIP` adress med namnet med DNS `mypublicdns`-namnet. (DNS-namnet måste vara unikt, så ange ditt eget unika namn.)
 
 ```azurecli
 azure network public-ip create -g myResourceGroup -l westeurope \
@@ -112,21 +111,21 @@ Skapa belastningsutjämnaren. I följande exempel skapas en belastningsutjämnar
 azure network lb create -g myResourceGroup -l westeurope -n myLoadBalancer
 ```
 
-Skapa en IP-adresspool på klientsidan för belastningsutjämnaren och associerar den offentliga IP-Adressen. I följande exempel skapas en IP-adresspool på klientsidan med namnet `mySubnetPool`:
+Skapa en IP-adresspool på klient sidan för belastningsutjämnaren och associera den offentliga IP-adressen. I följande exempel skapas en frontend-IP-pool med `mySubnetPool`namnet:
 
 ```azurecli
 azure network lb frontend-ip create -g myResourceGroup -l myLoadBalancer \
   -i myPublicIP -n myFrontEndPool
 ```
 
-Skapa backend-IP-adresspool för belastningsutjämnaren. I följande exempel skapas en backend-IP-adresspoolen med namnet `myBackEndPool`:
+Skapa server delens IP-pool för belastningsutjämnaren. I följande exempel skapas en backend-IP-pool med `myBackEndPool`namnet:
 
 ```azurecli
 azure network lb address-pool create -g myResourceGroup -l myLoadBalancer \
   -n myBackEndPool
 ```
 
-Skapa SSH inkommande nätverk regler för nätverksadressöversättning (NAT) för belastningsutjämnaren. I följande exempel skapas två belastningsutjämningsregler `myLoadBalancerRuleSSH1` och `myLoadBalancerRuleSSH2`:
+Skapa SSH-regler för inkommande Network Address Translation (NAT) för belastningsutjämnaren. I följande exempel skapas två regler `myLoadBalancerRuleSSH1` för belastnings utjämning och: `myLoadBalancerRuleSSH2`
 
 ```azurecli
 azure network lb inbound-nat-rule create -g myResourceGroup -l myLoadBalancer \
@@ -135,7 +134,7 @@ azure network lb inbound-nat-rule create -g myResourceGroup -l myLoadBalancer \
   -n myLoadBalancerRuleSSH2 -p tcp -f 4223 -b 22
 ```
 
-Skapa ingående NAT-regler för belastningsutjämnaren. I följande exempel skapas en regel för belastningsutjämnaren med namnet `myLoadBalancerRuleWeb`:
+Skapa de webb ingående NAT-reglerna för belastningsutjämnaren. I följande exempel skapas en belastnings Utjämnings regel `myLoadBalancerRuleWeb`med namnet:
 
 ```azurecli
 azure network lb rule create -g myResourceGroup -l myLoadBalancer \
@@ -143,22 +142,22 @@ azure network lb rule create -g myResourceGroup -l myLoadBalancer \
   -t myFrontEndPool -o myBackEndPool
 ```
 
-Skapa hälsoavsökningen för belastningsutjämnaren. I följande exempel skapas en TCP-avsökning med namnet `myHealthProbe`:
+Skapa belastnings utjämningens hälso avsökning. I följande exempel skapas en TCP-avsökning med namnet `myHealthProbe`:
 
 ```azurecli
 azure network lb probe create -g myResourceGroup -l myLoadBalancer \
   -n myHealthProbe -p "tcp" -i 15 -c 4
 ```
 
-Kontrollera belastningsutjämnaren, IP-pooler och NAT-regler med hjälp av JSON-parser:
+Verifiera belastningsutjämnare, IP-pooler och NAT-regler med hjälp av JSON-parsern:
 
 ```azurecli
 azure network lb show -g myResourceGroup -n myLoadBalancer --json | jq '.'
 ```
 
-Skapa första network interface card (NIC). Ersätt den `#####-###-###` avsnitt med din egen Azure prenumerations-ID. Din prenumeration ID som anges i utdata från **jq** när du undersöker de resurser som du skapar. Du kan också visa ditt prenumerations-ID med `azure account list`.
+Skapa det första nätverks gränssnitts kortet (NIC). `#####-###-###` Ersätt avsnitten med ditt eget ID för Azure-prenumeration. Ditt prenumerations-ID anges i resultatet av **JQ** när du granskar de resurser som du skapar. Du kan också visa ditt prenumerations- `azure account list`ID med.
 
-I följande exempel skapas ett nätverkskort med namnet `myNic1`:
+I följande exempel skapas ett nätverkskort med `myNic1`namnet:
 
 ```azurecli
 azure network nic create -g myResourceGroup -l westeurope \
@@ -167,7 +166,7 @@ azure network nic create -g myResourceGroup -l westeurope \
   -e "/subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1"
 ```
 
-Skapa det andra nätverkskortet. I följande exempel skapas ett nätverkskort med namnet `myNic2`:
+Skapa det andra NÄTVERKSKORTet. I följande exempel skapas ett nätverkskort med `myNic2`namnet:
 
 ```azurecli
 azure network nic create -g myResourceGroup -l westeurope \
@@ -176,21 +175,21 @@ azure network nic create -g myResourceGroup -l westeurope \
   -e "/subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH2"
 ```
 
-Kontrollera de två nätverkskorten med hjälp av JSON-parser:
+Verifiera de två nätverkskorten med hjälp av JSON-parser:
 
 ```azurecli
 azure network nic show myResourceGroup myNic1 --json | jq '.'
 azure network nic show myResourceGroup myNic2 --json | jq '.'
 ```
 
-Skapa nätverkssäkerhetsgruppen. I följande exempel skapas en nätverkssäkerhetsgrupp med namnet `myNetworkSecurityGroup`:
+Skapa nätverks säkerhets gruppen. I följande exempel skapas en nätverks säkerhets grupp med `myNetworkSecurityGroup`namnet:
 
 ```azurecli
 azure network nsg create -g myResourceGroup -l westeurope \
   -n myNetworkSecurityGroup
 ```
 
-Lägg till två inkommande regler för nätverkssäkerhetsgruppen. I följande exempel skapas två regler `myNetworkSecurityGroupRuleSSH` och `myNetworkSecurityGroupRuleHTTP`:
+Lägg till två regler för inkommande trafik för nätverks säkerhets gruppen. I följande exempel skapas två regler, `myNetworkSecurityGroupRuleSSH` och `myNetworkSecurityGroupRuleHTTP`:
 
 ```azurecli
 azure network nsg rule create -p tcp -r inbound -y 1000 -u 22 -c allow \
@@ -199,26 +198,26 @@ azure network nsg rule create -p tcp -r inbound -y 1001 -u 80 -c allow \
   -g myResourceGroup -a myNetworkSecurityGroup -n myNetworkSecurityGroupRuleHTTP
 ```
 
-Verifiera nätverkssäkerhetsgrupp och regler för inkommande trafik med hjälp av JSON-parser:
+Verifiera nätverks säkerhets gruppen och inkommande regler med hjälp av JSON-parsern:
 
 ```azurecli
 azure network nsg show -g myResourceGroup -n myNetworkSecurityGroup --json | jq '.'
 ```
 
-Binda nätverkssäkerhetsgruppen till två nätverkskort:
+Bind nätverks säkerhets gruppen till de två nätverkskorten:
 
 ```azurecli
 azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic1
 azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic2
 ```
 
-Skapa tillgänglighetsuppsättningen. I följande exempel skapas en tillgänglighetsuppsättning med namnet `myAvailabilitySet`:
+Skapa tillgänglighets uppsättningen. I följande exempel skapas en tillgänglighets uppsättning `myAvailabilitySet`med namnet:
 
 ```azurecli
 azure availset create -g myResourceGroup -l westeurope -n myAvailabilitySet
 ```
 
-Skapa den första Linux-VM. I följande exempel skapas en virtuell dator med namnet `myVM1`:
+Skapa den första virtuella Linux-datorn. I följande exempel skapas en virtuell dator `myVM1`med namnet:
 
 ```azurecli
 azure vm create \
@@ -236,7 +235,7 @@ azure vm create \
     --admin-username azureuser
 ```
 
-Skapa andra Linux-VM. I följande exempel skapas en virtuell dator med namnet `myVM2`:
+Skapa den andra virtuella Linux-datorn. I följande exempel skapas en virtuell dator `myVM2`med namnet:
 
 ```azurecli
 azure vm create \
@@ -254,7 +253,7 @@ azure vm create \
     --admin-username azureuser
 ```
 
-Använda JSON-parsern för att kontrollera att allt som har skapats:
+Använd JSON-parsern för att kontrol lera att allt som har skapats:
 
 ```azurecli
 azure vm show -g myResourceGroup -n myVM1 --json | jq '.'
@@ -268,18 +267,18 @@ azure group export myResourceGroup
 ```
 
 ## <a name="detailed-walkthrough"></a>Detaljerad genomgång
-Detaljerade anvisningar som följer beskrivs vad varje kommando gör när du skapar i din miljö. De här koncepten är till hjälp när du skapar dina egna anpassade miljöer för utveckling eller produktion.
+De detaljerade stegen nedan beskriver vad varje kommando gör när du bygger ut din miljö. Dessa begrepp är användbara när du skapar egna anpassade miljöer för utveckling eller produktion.
 
-Se till att du har [den klassiska Azure-CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) loggat in och använda Resource Manager-läge:
+Kontrol lera att Azures [klassiska CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) är inloggad och Använd Resource Manager-läge:
 
 ```azurecli
 azure config mode arm
 ```
 
-I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar `myResourceGroup`, `mystorageaccount`, och `myVM`.
+Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn `myResourceGroup`är `mystorageaccount`, och `myVM`.
 
-## <a name="create-resource-groups-and-choose-deployment-locations"></a>Skapa resursgrupper och välj distributionen platser
-Azure-resursgrupper är logiska distribution entiteter som innehåller konfigurationsinformation och metadata för att aktivera logiska hantering av resursdistributioner. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`:
+## <a name="create-resource-groups-and-choose-deployment-locations"></a>Skapa resurs grupper och välj distributions platser
+Azures resurs grupper är logiska distributions enheter som innehåller konfigurations information och metadata för att aktivera den logiska hanteringen av resurs distributioner. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`:
 
 ```azurecli
 azure group create --name myResourceGroup --location westeurope
@@ -302,9 +301,9 @@ info:    group create command OK
 ```
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
-Du behöver storage-konton för dina VM-diskar och eventuella ytterligare hårddiskar som du vill lägga till. Du kan skapa lagringskonton nästan omedelbart när du skapar resursgrupper.
+Du behöver lagrings konton för dina virtuella dator diskar och för eventuella ytterligare data diskar som du vill lägga till. Du skapar lagrings konton nästan omedelbart efter att du har skapat resurs grupper.
 
-Här använder vi den `azure storage account create` kommandot Skicka platsen för kontot, resursgruppens namn som styr det och vilken typ av support för lagring som du vill. I följande exempel skapas ett lagringskonto med namnet `mystorageaccount`:
+Här använder `azure storage account create` vi kommandot för att skicka kontots plats, resurs gruppen som styr det och vilken typ av lagrings stöd du vill ha. I följande exempel skapas ett lagrings konto `mystorageaccount`med namnet:
 
 ```azurecli
 azure storage account create \  
@@ -322,7 +321,7 @@ info:    Executing command storage account create
 info:    storage account create command OK
 ```
 
-Att undersöka resursgrupp med hjälp av den `azure group show` kommandot, använder vi den [jq](https://stedolan.github.io/jq/) verktyget tillsammans med den `--json` Azure CLI-alternativet. (Du kan använda **jsawk** eller något bibliotek för språk som du föredrar att parsa JSON.)
+För att undersöka vår resurs grupp med hjälp `azure group show` av-kommandot, ska vi använda [JQ](https://stedolan.github.io/jq/) - `--json` verktyget tillsammans med alternativet Azure CLI. (Du kan använda **jsawk** eller valfritt språk bibliotek som du föredrar för att parsa JSON.)
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -360,13 +359,13 @@ Resultat:
 }
 ```
 
-Om du vill undersöka storage-konto med hjälp av CLI måste du först ange kontonamn och nycklar. Ersätt namnet på storage-konto i följande exempel med ett namn som du väljer:
+Om du vill undersöka lagrings kontot med hjälp av CLI måste du först ange konto namn och nycklar. Ersätt namnet på lagrings kontot i följande exempel med ett namn som du väljer:
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show mystorageaccount --resource-group myResourceGroup --json | jq -r '.string')"
 ```
 
-Sedan kan du visa information om din enkelt:
+Sedan kan du enkelt visa din lagrings information:
 
 ```azurecli
 azure storage container list
@@ -384,7 +383,7 @@ info:    storage container list command OK
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
-Därefter ska du skapa ett virtuellt nätverk som körs i Azure och ett undernät som du kan skapa dina virtuella datorer. I följande exempel skapas ett virtuellt nätverk med namnet `myVnet` med den `192.168.0.0/16` adressprefix:
+Härnäst måste du skapa ett virtuellt nätverk som körs i Azure och ett undernät där du kan skapa dina virtuella datorer. I följande exempel skapas ett virtuellt nätverk med `myVnet` namnet `192.168.0.0/16` med adressprefixet:
 
 ```azurecli
 azure network vnet create --resource-group myResourceGroup --location westeurope \
@@ -408,7 +407,7 @@ data:      192.168.0.0/16
 info:    network vnet create command OK
 ```
 
-Vi använder du alternativet--json av `azure group show` och `jq` att se hur vi bygger våra resurser. Nu har vi en `storageAccounts` resurs och en `virtualNetworks` resurs.  
+Nu ska vi använda alternativet--JSON för `azure group show` och `jq` för att se hur vi bygger våra resurser. Nu har vi en `storageAccounts` resurs och en `virtualNetworks` resurs.  
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -453,7 +452,7 @@ Resultat:
 }
 ```
 
-Nu ska vi skapa ett undernät i det `myVnet` virtuellt nätverk där de virtuella datorerna distribueras. Vi använder den `azure network vnet subnet create` kommandot tillsammans med de resurser som vi redan har skapat: den `myResourceGroup` resursgrupp och `myVnet` virtuellt nätverk. I följande exempel lägger vi till undernätet med namnet `mySubnet` med undernätet adressprefix `192.168.1.0/24`:
+Nu ska vi skapa ett undernät i det `myVnet` virtuella nätverk där de virtuella datorerna distribueras. Vi använder `azure network vnet subnet create` kommandot, tillsammans med de resurser som vi redan har skapat `myResourceGroup` : resurs gruppen och det `myVnet` virtuella nätverket. I följande exempel lägger vi till under nätet med namnet `mySubnet` med under nätets `192.168.1.0/24`adressprefix:
 
 ```azurecli
 azure network vnet subnet create --resource-group myResourceGroup \
@@ -476,7 +475,7 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-Eftersom undernätet är logiskt i virtuella nätverk kan titta vi för information om undernät med ett något annorlunda kommando. Kommandot använder vi är `azure network vnet show`, men vi fortsätter att granska JSON-utdata med hjälp av `jq`.
+Eftersom under nätet är logiskt inne i det virtuella nätverket letar vi efter under näts information med ett något annorlunda kommando. Kommandot vi använder är `azure network vnet show`, men vi fortsätter att undersöka JSON-utdata `jq`med.
 
 ```azurecli
 azure network vnet show myResourceGroup myVnet --json | jq '.'
@@ -514,7 +513,7 @@ Resultat:
 ```
 
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
-Nu ska vi skapa offentliga IP-adress (PIP) som vi tilldelade till belastningsutjämnaren. Du kan ansluta till dina virtuella datorer från Internet med hjälp av den `azure network public-ip create` kommando. Eftersom den standardadressen är dynamisk kan vi skapa en namngiven DNS-post i den **cloudapp.azure.com** domänen med hjälp av den `--domain-name-label` alternativet. I följande exempel skapas en offentlig IP-adress med namnet `myPublicIP` med DNS-namnet på `mypublicdns`. Eftersom DNS-namnet måste vara unikt, kan du ange ditt eget unika DNS-namn:
+Nu ska vi skapa den offentliga IP-adressen (PIP) som vi tilldelar belastningsutjämnaren. Det gör att du kan ansluta till dina virtuella datorer från Internet med hjälp `azure network public-ip create` av kommandot. Eftersom standard adressen är dynamisk skapar vi en namngiven DNS-post i **cloudapp.Azure.com** -domänen med hjälp `--domain-name-label` av alternativet. I följande exempel skapas en offentlig IP- `myPublicIP` adress med namnet med DNS `mypublicdns`-namnet. Eftersom DNS-namnet måste vara unikt anger du ditt eget unika DNS-namn:
 
 ```azurecli
 azure network public-ip create --resource-group myResourceGroup \
@@ -540,7 +539,7 @@ data:    FQDN                            : mypublicdns.westeurope.cloudapp.azure
 info:    network public-ip create command OK
 ```
 
-Offentliga IP-adress är också en resurs på toppnivå, så att du kan se den med `azure group show`.
+Den offentliga IP-adressen är också en resurs på den översta nivån, så att du kan `azure group show`se den med.
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -592,7 +591,7 @@ Resultat:
 }
 ```
 
-Du kan undersöka mer information om resursen, inklusive underdomänen, fullständigt kvalificerade domännamnet (FQDN) med hjälp av den fullständiga `azure network public-ip show` kommando. Offentlig IP-adressresurs har tilldelats logiskt, men en specifik adress har inte tilldelats ännu. Om du vill skaffa en IP-adress kommer du att behöva en belastningsutjämnare som vi inte har skapat.
+Du kan undersöka mer resursinformation, inklusive det fullständigt kvalificerade domän namnet (FQDN) för under domänen genom att använda kommandot fullständig `azure network public-ip show` . Den offentliga IP-adressresursen har allokerats logiskt, men en speciell adress har ännu inte tilldelats. För att få en IP-adress måste du ha en belastningsutjämnare som vi ännu inte har skapat.
 
 ```azurecli
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
@@ -618,7 +617,7 @@ Resultat:
 ```
 
 ## <a name="create-a-load-balancer-and-ip-pools"></a>Skapa en belastningsutjämnare och IP-pooler
-När du skapar en belastningsutjämnare kan du distribuera trafik mellan flera virtuella datorer. Det ger också ditt program redundans genom att köra flera virtuella datorer som svarar på begäranden för användare i händelse av underhåll eller tunga belastningar. I följande exempel skapas en belastningsutjämnare med namnet `myLoadBalancer`:
+När du skapar en belastningsutjämnare kan du distribuera trafik över flera virtuella datorer. Den ger också redundans till ditt program genom att köra flera virtuella datorer som svarar på användar förfrågningar i händelse av underhåll eller tung belastning. I följande exempel skapas en belastningsutjämnare med namnet `myLoadBalancer`:
 
 ```azurecli
 azure network lb create --resource-group myResourceGroup --location westeurope \
@@ -639,9 +638,9 @@ data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
 
-Vår belastningsutjämnare är ganska tom, så Låt oss skapa vissa IP-adresspooler. Vi vill skapa två IP-adresspooler för vår belastningsutjämnare, en för klientdelen och en för backend-servern. IP-adresspoolen på klientsidan är synligt offentligt. Det är också den plats som vi tilldelar PIP som vi skapade tidigare. Sedan använder vi backend poolen som en plats för våra virtuella datorer för att ansluta till. På så sätt kan trafiken kan flöda via belastningsutjämnaren till de virtuella datorerna.
+Vår belastningsutjämnare är ganska tom, så vi skapar vissa IP-pooler. Vi vill skapa två IP-pooler för vår belastningsutjämnare, en för klient delen och en för Server delen. IP-poolen på klient sidan är allmänt synlig. Det är också den plats där vi tilldelar den PIP som vi skapade tidigare. Sedan använder vi backend-poolen som en plats för våra virtuella datorer för att ansluta till. På så sätt kan trafiken flöda genom belastningsutjämnaren till de virtuella datorerna.
 
-Först måste vi skapa vårt IP-adresspool på klientsidan. I följande exempel skapas en adresspool på klientsidan med namnet `myFrontEndPool`:
+Först ska vi skapa vår IP-pool på klient sidan. I följande exempel skapas en klient dels grupp med namnet `myFrontEndPool`:
 
 ```azurecli
 azure network lb frontend-ip create --resource-group myResourceGroup \
@@ -663,9 +662,9 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/my
 info:    network lb mySubnet-ip create command OK
 ```
 
-Observera hur vi använde den `--public-ip-name` växel för att skicka in den `myPublicIP` som vi skapade tidigare. Tilldela offentliga IP-adress till belastningsutjämnaren kan du nå dina virtuella datorer via Internet.
+Observera hur vi använde `--public-ip-name` växeln för att skicka in den `myPublicIP` som vi skapade tidigare. Genom att tilldela den offentliga IP-adressen till belastningsutjämnaren kan du komma åt dina virtuella datorer via Internet.
 
-Nu ska vi skapa vårt andra IP-pool nu för vår backend-trafik. I följande exempel skapas en serverdelspool med namnet `myBackEndPool`:
+Nu ska vi skapa vår andra IP-pool, den här gången för vår server dels trafik. I följande exempel skapas en backend-pool med namnet `myBackEndPool`:
 
 ```azurecli
 azure network lb address-pool create --resource-group myResourceGroup \
@@ -683,7 +682,7 @@ data:    Provisioning state              : Succeeded
 info:    network lb address-pool create command OK
 ```
 
-Vi kan se hur vår belastningsutjämnaren fungerar genom att söka med `azure network lb show` och undersöka JSON-utdata:
+Vi kan se hur vår belastningsutjämnare gör genom att titta `azure network lb show` på och undersöka JSON-utdata:
 
 ```azurecli
 azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
@@ -729,7 +728,7 @@ Resultat:
 ```
 
 ## <a name="create-load-balancer-nat-rules"></a>Skapa NAT-regler för belastningsutjämnare
-Om du vill hämta trafik som passerar genom våra belastningsutjämnare, som vi behöver skapa nätverksadress regler för nätverksadressöversättning (NAT) som anger inkommande eller utgående åtgärder. Du kan ange protokollet som ska användas och sedan mappa externa portar till interna portar som du vill. Vår där vi skapa några regler som tillåter SSH via vår belastningsutjämnare till våra virtuella datorer. Vi konfigurerar TCP-portarna 4222 och 4223 direkt till TCP-port 22 på våra virtuella datorer (som vi skapar senare). I följande exempel skapas en regel med namnet `myLoadBalancerRuleSSH1` kan mappa TCP-port 4222 till port 22:
+För att få trafik som passerar genom vår belastningsutjämnare måste vi skapa Network Address Translation (NAT) regler som anger antingen inkommande eller utgående åtgärder. Du kan ange vilket protokoll som ska användas och sedan mappa externa portar till interna portar efter behov. I vår miljö skapar vi några regler som tillåter SSH via vår belastningsutjämnare till våra virtuella datorer. Vi konfigurerar TCP-portarna 4222 och 4223 för att dirigera till TCP-port 22 på våra virtuella datorer (som vi skapar senare). I följande exempel skapas en regel med `myLoadBalancerRuleSSH1` namnet för att mappa TCP-port 4222 till port 22:
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -757,7 +756,7 @@ data:    mySubnet IP configuration id    : /subscriptions/guid/resourceGroups/my
 info:    network lb inbound-nat-rule create command OK
 ```
 
-Upprepa proceduren för dina andra NAT-regel för SSH. I följande exempel skapas en regel med namnet `myLoadBalancerRuleSSH2` kan mappa TCP-port 4223 till port 22:
+Upprepa proceduren för din andra NAT-regel för SSH. I följande exempel skapas en regel med `myLoadBalancerRuleSSH2` namnet för att mappa TCP-port 4223 till port 22:
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -765,7 +764,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --frontend-port 4223 --backend-port 22
 ```
 
-Nu ska vi också gå vidare och skapa en NAT-regel för TCP-port 80 för webbtrafik, anslutning regeln upp till våra IP-adresspooler. Om vi kopplar in regeln för att en IP-adresspool, i stället för att koppla upp en regel till våra virtuella datorer separat, kan vi lägga till eller ta bort virtuella datorer från IP-adresspool. Belastningsutjämnaren justeras automatiskt trafikflödet. I följande exempel skapas en regel med namnet `myLoadBalancerRuleWeb` kan mappa TCP-port 80 till port 80:
+Nu ska vi gå vidare och skapa en NAT-regel för TCP-port 80 för webb trafik, och ansluta regeln upp till våra IP-pooler. Om vi kopplar samman regeln till en IP-pool, i stället för att ansluta regeln till våra virtuella datorer, kan vi lägga till eller ta bort virtuella datorer från IP-poolen. Belastningsutjämnaren justerar automatiskt trafik flödet. I följande exempel skapas en regel med `myLoadBalancerRuleWeb` namnet för att mappa TCP-port 80 till port 80:
 
 ```azurecli
 azure network lb rule create --resource-group myResourceGroup \
@@ -797,7 +796,7 @@ info:    network lb rule create command OK
 ```
 
 ## <a name="create-a-load-balancer-health-probe"></a>skapa en hälsoavsökning för lastbalanseraren
-En hälsoavsökning med jämna mellanrum kontroller på de virtuella datorerna som finns bakom våra load balancer för att se till att de fungerar och svara på begäranden som har definierats. Om inte, de har tagits bort från att se till att användare inte dirigeras till dem-åtgärd. Du kan definiera egna kontroller för hälsoavsökningen, tillsammans med intervall och timeout-värden. Läs mer om hälsoavsökningar [Load Balancer kontrollerar](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). I följande exempel skapas en TCP hälsotillstånd avlästes namngivna `myHealthProbe`:
+En hälso avsökning kontrollerar regelbundet på de virtuella datorer som finns bakom vår belastningsutjämnare för att se till att de är igång och svarar på begär Anden enligt definitionen. Om de inte är det tas de bort från åtgärden för att se till att användarna inte dirigeras till dem. Du kan definiera anpassade kontroller för hälso avsökningen, tillsammans med intervall och tids gräns värden. Mer information om hälso avsökningar finns i [Load Balancer](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)avsökningar. I följande exempel skapas en TCP-hälso avsökning `myHealthProbe`med namnet:
 
 ```azurecli
 azure network lb probe create --resource-group myResourceGroup \
@@ -821,18 +820,18 @@ data:    Number of probes                : 4
 info:    network lb probe create command OK
 ```
 
-Här kan angav vi ett intervall på 15 sekunder för vår hälsokontroller. Vi kan missa högst fyra avsökningar (en minut) innan belastningsutjämnaren tar hänsyn till att värden inte längre fungerar.
+Här angav vi ett intervall på 15 sekunder för våra hälso kontroller. Vi kan sakna maximalt fyra avsökningar (en minut) innan belastningsutjämnaren anser att värden inte längre fungerar.
 
-## <a name="verify-the-load-balancer"></a>Kontrollera belastningsutjämnaren
-Belastningsutjämningskonfigurationen är nu klar. Här är de steg som du tog:
+## <a name="verify-the-load-balancer"></a>Verifiera belastningsutjämnaren
+Nu är konfigurationen av belastnings utjämning färdig. Här är de steg du vidtog:
 
 1. Du har skapat en belastningsutjämnare.
-2. Du har skapat en IP-adresspool på klientsidan och tilldelats en offentlig IP-adress.
-3. Du har skapat en backend-IP-adresspool som virtuella datorer kan ansluta till.
-4. Du har skapat NAT-regler som tillåter SSH till de virtuella datorerna för hantering, tillsammans med en regel som tillåter TCP-port 80 för vår webbapp.
-5. Du har lagt till en hälsoavsökning för att regelbundet kontrollera de virtuella datorerna. Den här hälsoavsökning säkerställer att användare inte försöker komma åt en virtuell dator som inte längre fungerar eller hämta innehåll.
+2. Du har skapat en IP-adresspool på klient sidan och tilldelat en offentlig IP-adress till den.
+3. Du har skapat en backend-IP-pool som virtuella datorer kan ansluta till.
+4. Du har skapat NAT-regler som tillåter SSH till de virtuella datorerna för hantering, tillsammans med en regel som tillåter TCP-port 80 för webb programmet.
+5. Du har lagt till en hälso avsökning för att regelbundet kontrol lera de virtuella datorerna. Den här hälso avsökningen säkerställer att användare inte försöker komma åt en virtuell dator som inte längre fungerar eller betjänar innehåll.
 
-Nu ska vi se hur belastningsutjämnaren ser ut nu:
+Nu ska vi se hur belastningsutjämnaren ser ut så här:
 
 ```azurecli
 azure network lb show --resource-group myResourceGroup \
@@ -955,12 +954,12 @@ Resultat:
 }
 ```
 
-## <a name="create-an-nic-to-use-with-the-linux-vm"></a>Skapa ett nätverkskort som ska användas med Linux VM
-Nätverkskort är tillgängliga programmässigt eftersom du kan använda regler för deras användning. Du kan också ha fler än en. I följande `azure network nic create` kommandot du ansluta nätverkskortet till den belastning backend-IP-adresspoolen och associera det med NAT-regel för att tillåta SSH-trafik.
+## <a name="create-an-nic-to-use-with-the-linux-vm"></a>Skapa ett nätverkskort som ska användas med den virtuella Linux-datorn
+Nätverkskort är program mässigt tillgängliga på grund av att du kan tillämpa regler på deras användning. Du kan också ha fler än en. I följande `azure network nic create` kommando kopplar du nätverkskortet till belastnings-IP-poolen och kopplar det till NAT-regeln för att tillåta SSH-trafik.
 
-Ersätt den `#####-###-###` avsnitt med din egen Azure prenumerations-ID. Din prenumeration ID som anges i utdata från `jq` när du undersöker de resurser som du skapar. Du kan också visa ditt prenumerations-ID med `azure account list`.
+`#####-###-###` Ersätt avsnitten med ditt eget ID för Azure-prenumeration. Ditt prenumerations-ID anges i resultatet av `jq` när du granskar de resurser som du skapar. Du kan också visa ditt prenumerations- `azure account list`ID med.
 
-I följande exempel skapas ett nätverkskort med namnet `myNic1`:
+I följande exempel skapas ett nätverkskort med `myNic1`namnet:
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location westeurope \
@@ -996,7 +995,7 @@ data:
 info:    network nic create command OK
 ```
 
-Du kan se information genom att undersöka resursen direkt. Du undersöker resursen med hjälp av den `azure network nic show` kommando:
+Du kan se informationen genom att undersöka resursen direkt. Du undersöker resursen med hjälp `azure network nic show` av kommandot:
 
 ```azurecli
 azure network nic show myResourceGroup myNic1 --json | jq '.'
@@ -1044,7 +1043,7 @@ Resultat:
 }
 ```
 
-Nu skapar vi det andra nätverkskortet, anslutning i vår backend-IP-poolen igen. Den här gången andra NAT-regeln tillåter SSH-trafik. I följande exempel skapas ett nätverkskort med namnet `myNic2`:
+Nu ska vi skapa det andra NÄTVERKSKORTet, ansluta till vår backend-IP-pool igen. Den här gången tillåter den andra NAT-regeln SSH-trafik. I följande exempel skapas ett nätverkskort med `myNic2`namnet:
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location westeurope \
@@ -1053,15 +1052,15 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
   --lb-inbound-nat-rule-ids /subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH2
 ```
 
-## <a name="create-a-network-security-group-and-rules"></a>Skapa en nätverkssäkerhetsgrupp och regler
-Nu skapa vi en nätverkssäkerhetsgrupp och de inkommande regler som styr åtkomsten till nätverkskortet. En nätverkssäkerhetsgrupp kan tillämpas på ett nätverkskort eller undernät. Du kan definiera regler för att styra flödet av trafik in och ut ur dina virtuella datorer. I följande exempel skapas en nätverkssäkerhetsgrupp med namnet `myNetworkSecurityGroup`:
+## <a name="create-a-network-security-group-and-rules"></a>Skapa en nätverks säkerhets grupp och regler
+Nu skapar vi en nätverks säkerhets grupp och de regler för inkommande trafik som styr åtkomsten till NÄTVERKSKORTet. En nätverks säkerhets grupp kan tillämpas på ett nätverkskort eller undernät. Du definierar regler för att styra trafik flödet i och ut ur dina virtuella datorer. I följande exempel skapas en nätverks säkerhets grupp med `myNetworkSecurityGroup`namnet:
 
 ```azurecli
 azure network nsg create --resource-group myResourceGroup --location westeurope \
   --name myNetworkSecurityGroup
 ```
 
-Vi lägger till den inkommande regeln för NSG tillåter inkommande anslutningar på port 22 (för att stödja SSH). I följande exempel skapas en regel med namnet `myNetworkSecurityGroupRuleSSH` att tillåta TCP på port 22:
+Nu ska vi lägga till regeln för inkommande trafik för NSG för att tillåta inkommande anslutningar på port 22 (som stöd för SSH). I följande exempel skapas en regel med `myNetworkSecurityGroupRuleSSH` namnet att tillåta TCP på port 22:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1070,7 +1069,7 @@ azure network nsg rule create --resource-group myResourceGroup \
   --name myNetworkSecurityGroupRuleSSH
 ```
 
-Nu ska vi lägga till den inkommande regeln för NSG tillåter inkommande anslutningar på port 80 (för Internet-trafik). I följande exempel skapas en regel med namnet `myNetworkSecurityGroupRuleHTTP` att tillåta TCP på port 80:
+Nu ska vi lägga till regeln för inkommande trafik för NSG för att tillåta inkommande anslutningar på port 80 (för att stödja webb trafik). I följande exempel skapas en regel med `myNetworkSecurityGroupRuleHTTP` namnet att tillåta TCP på port 80:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1080,12 +1079,12 @@ azure network nsg rule create --resource-group myResourceGroup \
 ```
 
 > [!NOTE]
-> Den inkommande regeln är ett filter för inkommande anslutningar. I det här exemplet binda vi NSG till det virtuella nätverkskortet virtuella datorer, vilket innebär att varje begäran till port 22 skickas till nätverkskortet på våra virtuella datorn. Denna regel för inkommande trafik som handlar om en nätverksanslutning och inte om en slutpunkt, vilket är vad den skulle vara om i klassiska distributioner. Öppna en port genom att lämna den `--source-port-range` inställd på '\*”(standardvärdet) att acceptera inkommande begäranden från **alla** begär port. Det finns vanligtvis dynamiska portar.
+> Regeln för inkommande trafik är ett filter för inkommande nätverks anslutningar. I det här exemplet binder vi NSG till virtuella datorer för virtuella datorer, vilket innebär att alla förfrågningar till port 22 skickas till NÄTVERKSKORTet på den virtuella datorn. Den här inkommande regeln gäller om en nätverks anslutning och inte en slut punkt, vilket är vad den skulle göra i de klassiska distributionerna. Om du vill öppna en port måste du lämna `--source-port-range` inställningen\*till (standardvärdet) om du vill acceptera inkommande begär Anden från **alla** begär ande portar. Portar är vanligt vis dynamiska.
 >
 >
 
-## <a name="bind-to-the-nic"></a>Binda till nätverkskortet
-Binda NSG: N till nätverkskorten. Vi behöver ansluta vår nätverkskort med vår nätverkssäkerhetsgrupp. Kör bägge kommandona för att koppla samman både våra nätverkskort:
+## <a name="bind-to-the-nic"></a>Binda till NÄTVERKSKORTet
+Bind NSG till nätverkskorten. Vi måste ansluta våra nätverkskort till vår nätverks säkerhets grupp. Använd båda kommandona för att koppla samman båda nätverkskorten:
 
 ```azurecli
 azure network nic set --resource-group myResourceGroup --name myNic1 \
@@ -1098,32 +1097,32 @@ azure network nic set --resource-group myResourceGroup --name myNic2 \
 ```
 
 ## <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
-Tillgänglighetsuppsättningar hjälp spridning dina virtuella datorer över feldomäner och uppgraderingsdomäner. Nu ska vi skapa en tillgänglighetsuppsättning för dina virtuella datorer. I följande exempel skapas en tillgänglighetsuppsättning med namnet `myAvailabilitySet`:
+Tillgänglighets uppsättningar hjälper till att sprida dina virtuella datorer över fel domäner och uppgraderings domäner. Nu ska vi skapa en tillgänglighets uppsättning för dina virtuella datorer. I följande exempel skapas en tillgänglighets uppsättning `myAvailabilitySet`med namnet:
 
 ```azurecli
 azure availset create --resource-group myResourceGroup --location westeurope
   --name myAvailabilitySet
 ```
 
-Feldomäner definierar en gruppering av virtuella datorer som delar samma strömkälla och nätverksswitch. Som standard indelade de virtuella datorer som har konfigurerats i din tillgänglighetsuppsättning upp till tre feldomäner. Tanken är att inte påverkar maskinvaruproblem i någon av dessa feldomäner varje virtuell dator som kör din app. Azure distribuerar automatiskt virtuella datorer på feldomänerna när de placeras i en tillgänglighetsuppsättning.
+Fel domäner definierar en gruppering av virtuella datorer som delar en gemensam ström källa och nätverks växel. Som standard är de virtuella datorer som är konfigurerade i din tillgänglighets uppsättning åtskilda över upp till tre fel domäner. Tanken är att ett maskin varu problem i någon av dessa fel domäner inte påverkar varje virtuell dator som kör din app. Azure distribuerar automatiskt virtuella datorer över fel domäner när de placeras i en tillgänglighets uppsättning.
 
-Uppgraderingsdomäner ange grupper av virtuella datorer och underliggande fysisk maskinvara som kan startas på samma gång. Den ordning i vilken uppgraderingsdomäner startas om kanske inte är sekventiella under planerat underhåll, men endast en uppgradering startas i taget. Igen, Azure automatiskt distribuerar dina virtuella datorer mellan uppgraderingsdomäner när de placeras i en tillgänglighet på platsen.
+Uppgraderings domäner indikerar grupper av virtuella datorer och underliggande fysisk maskin vara som kan startas om samtidigt. Den ordning i vilken uppgraderings domäner startas om kanske inte är sekventiell under planerat underhåll, men endast en uppgradering startas om i taget. Azure distribuerar automatiskt dina virtuella datorer i uppgraderings domäner när de placeras på en tillgänglighets plats.
 
-Läs mer om [hantera tillgängligheten för virtuella datorer](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Läs mer om [att hantera tillgängligheten för virtuella datorer](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="create-the-linux-vms"></a>Skapa de virtuella Linux-datorerna
-Du har skapat lagrings- och nätverksresurser för Internet-åtkomlig virtuella datorer. Nu ska vi skapa de virtuella datorer och skydda dem med en SSH-nyckel som inte har ett lösenord. I det här fallet ska vi skapa en Ubuntu virtuell dator baserat på senaste LTS. Vi hitta avbildningen informationen med hjälp av `azure vm image list`, enligt beskrivningen i [att söka efter Azure VM-avbildningarna](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="create-the-linux-vms"></a>Skapa virtuella Linux-datorer
+Du har skapat lagrings-och nätverks resurser som stöder Internet-tillgängliga virtuella datorer. Nu ska vi skapa de virtuella datorerna och skydda dem med en SSH-nyckel som inte har ett lösen ord. I det här fallet ska vi skapa en virtuell Ubuntu-dator som baseras på den senaste LTS. Vi hittar avbildnings informationen med hjälp `azure vm image list`av, enligt beskrivningen i [hitta Azure VM](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)-avbildningar.
 
-Vi har valt en avbildning med hjälp av kommandot `azure vm image list westeurope canonical | grep LTS`. I det här fallet använder vi `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Senaste fältet vi skicka `latest` så att i framtiden vi alltid hämta den senaste versionen. (Den sträng som vi använder är `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
+Vi har valt en avbildning med hjälp av `azure vm image list westeurope canonical | grep LTS`kommandot. I det här fallet använder `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`vi. För det sista fältet passerar `latest` vi så att vi alltid får den senaste versionen i framtiden. (Den sträng som vi använder `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`är).
 
-Den här nästa steg är välkänd för alla som redan har skapat en ssh rsa-offentliga och privata nyckel koppla på Linux eller Mac med hjälp av **ssh-keygen - t rsa -b 2048**. Om du inte har några certifikat nyckelpar din `~/.ssh` directory, kan du skapa dem:
+Nästa steg är att känna till alla som redan har skapat ett offentligt och privat SSH-nyckelpar i Linux eller Mac med **ssh-keygen-t RSA-b 2048**. Om du inte har några certifikat nyckel par i `~/.ssh` katalogen kan du skapa dem:
 
-* Automatiskt med hjälp av den `azure vm create --generate-ssh-keys` alternativet.
-* Manuellt via [instruktionerna för att skapa dem själv](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Automatiskt med hjälp `azure vm create --generate-ssh-keys` av alternativet.
+* Manuellt genom att följa [anvisningarna för att skapa dem själv](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Du kan också använda den `--admin-password` metod för att autentisera SSH-anslutningar när den virtuella datorn har skapats. Den här metoden är vanligtvis mindre säker.
+Du kan också använda `--admin-password` -metoden för att autentisera dina SSH-anslutningar när den virtuella datorn har skapats. Den här metoden är vanligt vis mindre säker.
 
-Vi skapar den virtuella datorn genom att föra alla våra resurser och information tillsammans med den `azure vm create` kommando:
+Vi skapar den virtuella datorn genom att ta med alla våra resurser och information `azure vm create` tillsammans med kommandot:
 
 ```azurecli
 azure vm create \
@@ -1160,7 +1159,7 @@ info:    The storage URI 'https://mystorageaccount.blob.core.windows.net/' will 
 info:    vm create command OK
 ```
 
-Du kan ansluta till den virtuella datorn direkt med hjälp av dina standard SSH-nycklar. Se till att du anger rätt port eftersom vi låter via belastningsutjämnaren. (För vår första virtuella dator, vi konfigurera NAT-regeln att vidarebefordra port 4222 till våra VM.)
+Du kan ansluta till din virtuella dator direkt genom att använda dina standard SSH-nycklar. Se till att du anger rätt port eftersom vi passerar genom belastningsutjämnaren. (För den första virtuella datorn ställer vi in NAT-regeln för att vidarebefordra port 4222 till vår virtuella dator.)
 
 ```bash
 ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
@@ -1188,7 +1187,7 @@ Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 ops@myVM1:~$
 ```
 
-Gå vidare och skapa en andra virtuell dator på samma sätt:
+Gå vidare och skapa den andra virtuella datorn på samma sätt:
 
 ```azurecli
 azure vm create \
@@ -1206,7 +1205,7 @@ azure vm create \
   --admin-username azureuser
 ```
 
-Och nu kan du använda den `azure vm show myResourceGroup myVM1` kommando för att granska vad du har skapat. Nu kan kör du din virtuella Ubuntu-datorer bakom en belastningsutjämnare i Azure som du kan logga in på endast med SSH-nyckelpar (eftersom lösenord är inaktiverade). Du kan installera nginx eller httpd, distribuera en webbapp och se trafiken flow via belastningsutjämnaren till båda de virtuella datorerna.
+Du kan nu använda `azure vm show myResourceGroup myVM1` kommandot för att undersöka vad du har skapat. Nu kör du dina virtuella Ubuntu-datorer bakom en belastningsutjämnare i Azure som du bara kan logga in på med SSH-nyckelpar (eftersom lösen ord är inaktiverade). Du kan installera nginx eller httpd, distribuera en webbapp och se trafikflödet via belastningsutjämnaren till båda de virtuella datorerna.
 
 ```azurecli
 azure vm show --resource-group myResourceGroup --name myVM1
@@ -1271,22 +1270,22 @@ info:    vm show command OK
 
 
 ## <a name="export-the-environment-as-a-template"></a>Exportera miljön som en mall
-Nu när du har skapat i den här miljön, vad händer om du vill skapa en ytterligare utvecklingsmiljö med samma parametrar eller en produktionsmiljö som matchar det? Resource Manager använder JSON-mallar som definierar parametrarna som för din miljö. Du bygga ut hela miljöer genom att referera till den här JSON-mallen. Du kan [bygga JSON-mallar manuellt](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller exportera en befintlig miljö för att skapa JSON-mallen för dig:
+Nu när du har skapat den här miljön, vad gör du om du vill skapa en ytterligare utvecklings miljö med samma parametrar eller en produktions miljö som matchar den? Resource Manager använder JSON-mallar som definierar alla parametrar för din miljö. Du skapar hela miljöer genom att referera till den här JSON-mallen. Du kan skapa JSON- [mallar manuellt](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller exportera en befintlig miljö för att skapa en JSON-mall åt dig:
 
 ```azurecli
 azure group export --name myResourceGroup
 ```
 
-Det här kommandot skapar den `myResourceGroup.json` fil i din aktuella arbetskatalog. När du skapar en miljö från den här mallen kan uppmanas du för alla resursnamn, inklusive namnen för belastningsutjämnaren, nätverksgränssnitt eller virtuella datorer. Du kan fylla i de här namnen i mallfilen genom att lägga till den `-p` eller `--includeParameterDefaultValue` parametern till den `azure group export` kommando som visades tidigare. Redigera din JSON-mall för att ange resursnamn, eller [skapar du en parameters.json fil](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som anger resursnamnen.
+Det här kommandot skapar `myResourceGroup.json` filen i din aktuella arbets katalog. När du skapar en miljö från den här mallen uppmanas du att ange alla resurs namn, inklusive namnen på belastningsutjämnaren, nätverks gränssnitt eller virtuella datorer. Du kan fylla i namnen i mallfilen genom att lägga till `-p` parametern `azure group export` eller `--includeParameterDefaultValue` i kommandot som visades tidigare. Redigera din JSON-mall för att ange resurs namnen eller [skapa en Parameters. JSON-fil](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som anger resurs namnen.
 
-Skapa en miljö från mallen:
+Så här skapar du en miljö från mallen:
 
 ```azurecli
 azure group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-Du kanske vill läsa [mer om hur du distribuerar från mallar](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Läs mer om hur du inkrementellt uppdatera miljöer, använder du filen parametrar och komma åt mallar från en enda lagringsplats.
+Du kanske vill läsa [mer om hur du distribuerar från mallar](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Lär dig mer om hur du stegvis uppdaterar miljöer, använder parameter filen och får åtkomst till mallar från en enda lagrings plats.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu är du redo att börja arbeta med flera nätverkskomponenter och virtuella datorer. Du kan använda det här exemplet miljö för att bygga ut ditt program med hjälp av kärnkomponenter som introduceras här.
+Nu är du redo att börja arbeta med flera nätverks komponenter och virtuella datorer. Du kan använda den här exempel miljön för att bygga upp ditt program genom att använda kärn komponenterna som introduceras här.

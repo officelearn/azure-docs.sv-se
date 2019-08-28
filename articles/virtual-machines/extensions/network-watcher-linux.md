@@ -1,6 +1,6 @@
 ---
-title: Azure Network Watcher-Agent VM-tillägg för Linux | Microsoft Docs
-description: Distribuera Network Watcher-Agent på Linux-dator med hjälp av tillägg för virtuell dator.
+title: Azure Network Watcher agent virtuell dator tillägg för Linux | Microsoft Docs
+description: Distribuera Network Watcher agenten på den virtuella Linux-datorn med ett tillägg för virtuell dator.
 services: virtual-machines-linux
 documentationcenter: ''
 author: gurudennis
@@ -9,32 +9,31 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 5ed5e791cd6e611218769650115c78afd1869f67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b59e4c570032bdd3341dc7d519f23f4cd86984c7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743437"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084434"
 ---
-# <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Network Watcher-Agent-tillägg för virtuell dator för Linux
+# <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Network Watcher virtuell agent för virtuella datorer för Linux
 
 ## <a name="overview"></a>Översikt
 
-[Azure Network Watcher](/azure/network-watcher/) är en prestanda övervakning, diagnostik och analys nätverkstjänst som tillåter övervakning för Azure-nätverk. Tillägget för virtuell dator (VM) Network Watcher-Agent är ett krav för några av Network Watcher-funktioner på virtuella Azure-datorer, till exempel samla in nätverkstrafik på begäran och andra avancerade funktioner.
+[Azure Network Watcher](/azure/network-watcher/) är en övervaknings-, diagnostik-och analys tjänst för nätverks prestanda som gör det möjligt att övervaka för Azure-nätverk. Tillägget Network Watcher agent virtuell dator (VM) är ett krav för några av de Network Watcher funktionerna på virtuella Azure-datorer, till exempel för att samla in nätverks trafik på begäran och andra avancerade funktioner.
 
-Den här artikeln beskriver de plattformar som stöds och distributionsalternativ för Network Watcher-Agent VM-tillägget för Linux. Installationen av agenten inte störa eller kräver en omstart av den virtuella datorn. Du kan distribuera tillägget till virtuella datorer som du distribuerar. Om den virtuella datorn distribueras av en Azure-tjänst kan du i dokumentationen för tjänsten att avgöra huruvida den tillåter att installera tillägg i den virtuella datorn.
+Den här artikeln beskriver de plattformar och distributions alternativ som stöds för det virtuella Network Watcher agent-tillägget för Linux. Installationen av agenten störs inte eller kräver en omstart av den virtuella datorn. Du kan distribuera tillägget till virtuella datorer som du distribuerar. Om den virtuella datorn distribueras av en Azure-tjänst kan du läsa dokumentationen för tjänsten för att avgöra om den tillåter att installera tillägg på den virtuella datorn.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
-Network Watcher-Agent-tillägget kan konfigureras för följande Linux-distributioner:
+Tillägget Network Watcher agent kan konfigureras för följande Linux-distributioner:
 
 | Distribution | Version |
 |---|---|
@@ -43,18 +42,18 @@ Network Watcher-Agent-tillägget kan konfigureras för följande Linux-distribut
 | Red Hat | 6 och 7 |
 | Oracle Linux | 6.8+ och 7 |
 | SUSE Linux Enterprise Server | 11 och 12 |
-| OpenSUSE Leap | 42.3+ |
+| OpenSUSEt hopp | 42.3 + |
 | CentOS | 6.5+ och 7 |
-| CoreOS | 899.17.0+ |
+| CoreOS | 899.17.0 + |
 
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Några av Network Watcher-Agent-funktioner kräver att en virtuell dator är ansluten till Internet. Utan möjlighet att upprätta utgående anslutningar, några av funktionerna i Network Watcher-Agent fungera eller blir otillgänglig. Mer information om Network Watcher-funktioner som kräver att agenten finns i den[dokumentation om Network Watcher](/azure/network-watcher/).
+Vissa av de Network Watcher agent funktionerna kräver att en virtuell dator är ansluten till Internet. Om du inte kan upprätta utgående anslutningar kan vissa av de Network Watcher agent funktionerna bli fel eller bli otillgängliga. Mer information om Network Watcher funktioner som kräver agenten finns i Network Watcher-[dokumentationen](/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för Network Watcher-Agent-tillägget. Tillägget inte kräver eller stöder alla inställningar som anges av användaren. Tillägget är beroende av en standardkonfiguration.
+Följande JSON visar schemat för Network Watcher agent-tillägget. Tillägget kräver inte, eller stöder inte några användar inställningar. Tillägget förlitar sig på standard konfigurationen.
 
 ```json
 {
@@ -85,11 +84,11 @@ Följande JSON visar schemat för Network Watcher-Agent-tillägget. Tillägget i
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Du kan distribuera Azure VM-tillägg med en Azure Resource Manager-mall. Använd föregående json-schemat i mallen för att distribuera Network Watcher-Agent-tillägget.
+Du kan distribuera virtuella Azure-tillägg med en Azure Resource Manager-mall. Använd föregående JSON-schema i mallen för att distribuera Network Watcher agent-tillägget.
 
-## <a name="azure-classic-cli-deployment"></a>Klassiska Azure CLI-distributionen
+## <a name="azure-classic-cli-deployment"></a>Klassisk Azure-CLI-distribution
 
-I följande exempel distribueras Network Watcher-Agent VM-tillägget till en befintlig virtuell dator distribueras via den klassiska distributionsmodellen:
+I följande exempel distribueras det virtuella Network Watcher agent-tillägget till en befintlig virtuell dator som distribueras via den klassiska distributions modellen:
 
 ```azurecli
 azure config mode asm
@@ -98,7 +97,7 @@ azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWat
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-I följande exempel distribueras Network Watcher-Agent VM-tillägget till en befintlig virtuell dator distribueras via Resource Manager:
+I följande exempel distribueras Network Watcher-agentens VM-tillägg till en befintlig virtuell dator som distribueras via Resource Manager:
 
 ```azurecli
 az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name NetworkWatcherAgentLinux --publisher Microsoft.Azure.NetworkWatcher --version 1.4
@@ -108,21 +107,21 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Du kan hämta data om tillståndet för tillägget för distributioner med hjälp av Azure portal eller Azure CLI.
+Du kan hämta data om statusen för tillägg distributioner med antingen Azure Portal eller Azure CLI.
 
-I följande exempel visas distributionsstatusen för tillägg för en virtuell dator distribueras via den klassiska distributionsmodellen med hjälp av Azure klassiska CLI:
+I följande exempel visas distributions statusen för tillägg för en virtuell dator som distribueras via den klassiska distributions modellen med hjälp av den klassiska Azure-CLI:
 
 ```azurecli
 azure config mode asm
 azure vm extension get myVM1
 ```
-Tillägget utförande-utdatan loggas till filer som finns i följande katalog:
+Utökning av utdata loggas till filer som finns i följande katalog:
 
 ```
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 ```
 
-I följande exempel visas distributionsstatusen för tillägget NetworkWatcherAgentLinux för en virtuell dator distribueras via Resource Manager med hjälp av Azure-CLI:
+I följande exempel visas distributions statusen för NetworkWatcherAgentLinux-tillägget för en virtuell dator som distribueras via Resource Manager med hjälp av Azure CLI:
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1
@@ -130,4 +129,4 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du referera till den [dokumentation om Network Watcher](/azure/network-watcher/), eller kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **få support**. Information om hur du använder Azure-supporten finns i den [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du läsa Network Watcher- [dokumentationen](/azure/network-watcher/)eller kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

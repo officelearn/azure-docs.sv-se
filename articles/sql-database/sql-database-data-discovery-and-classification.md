@@ -7,20 +7,21 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 03/22/2019
-ms.openlocfilehash: f2b57aa517c1518929b857eff6aed2ef4e0d8ca1
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.date: 08/22/2019
+ms.openlocfilehash: 5aaad8c44328e1cc2aeb7729e3e221665823a467
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018972"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073008"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>& Klassificering för Azure SQL Database och SQL Data Warehouse data identifiering
 
 Data identifierings & klassificering innehåller avancerade funktioner som är inbyggda i Azure SQL Database för att **upptäcka**, &  **klassificera**och märka,**skydda** känsliga data i dina databaser.
+
 Att identifiera och klassificera dina mest känsliga data (företags-, finans-, sjukvårds-och person uppgifter) och så vidare kan du spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Den kan fungera som infrastruktur för:
 
 - Hjälpa till att uppfylla data sekretess standarder och regler för efterlevnad av efterlevnad.

@@ -1,6 +1,6 @@
 ---
-title: Skapa en Oracle-databas i en Azure-dator | Microsoft Docs
-description: Snabbt en Oracle Database 12c-databas för dig och kom igång med Azure-miljön.
+title: Skapa en Oracle-databas på en virtuell Azure-dator | Microsoft Docs
+description: Få snabbt en Oracle Database 12C-databas igång i Azure-miljön.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
@@ -9,22 +9,21 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 26c6abc75e653b489a7385c423a9b2d00a4ed063
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6d43fa2621aa95bdcf18d5c033d1347e13dc3f67
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705313"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101481"
 ---
-# <a name="create-an-oracle-database-in-an-azure-vm"></a>Skapa en Oracle-databas i en Azure virtuell dator
+# <a name="create-an-oracle-database-in-an-azure-vm"></a>Skapa en Oracle Database på en virtuell Azure-dator
 
-Den här guiden beskriver hur man använder Azure CLI för att distribuera en virtuell dator från den [Oracle marketplace-galleriet bilden](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) för att skapa en Oracle 12 c-databas. När servern har distribuerats ansluter du via SSH för att kunna konfigurera Oracle-databasen. 
+Den här guiden beskriver hur du använder Azure CLI för att distribuera en virtuell Azure-dator från [Galleri avbildningen för Oracle Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) för att skapa en Oracle 12C-databas. När servern har distribuerats ansluter du via SSH för att kunna konfigurera Oracle-databasen. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -43,9 +42,9 @@ az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Du kan skapa en virtuell dator (VM) med den [az vm skapa](/cli/azure/vm) kommando. 
+Använd kommandot [AZ VM Create](/cli/azure/vm) för att skapa en virtuell dator (VM). 
 
-Följande exempel skapar en virtuell dator med namnet `myVM`. Det skapar också SSH-nycklar om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
+Följande exempel skapar en virtuell dator med namnet `myVM`. Det skapar också SSH-nycklar, om de inte redan finns på en standard nyckel plats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 
 ```azurecli-interactive 
 az vm create \
@@ -57,7 +56,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-När du har skapat den virtuella datorn visar Azure CLI information som liknar följande exempel. Anteckna värdet för `publicIpAddress`. Du kan använda den här adressen för att få åtkomst till den virtuella datorn.
+När du har skapat den virtuella datorn visar Azure CLI information som liknar följande exempel. Anteckna värdet för `publicIpAddress`. Du använder den här adressen för att få åtkomst till den virtuella datorn.
 
 ```azurecli
 {
@@ -74,17 +73,17 @@ När du har skapat den virtuella datorn visar Azure CLI information som liknar f
 
 ## <a name="connect-to-the-vm"></a>Anslut till VM:en
 
-Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt IP-adressen med den `publicIpAddress` värde för den virtuella datorn.
+Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt IP-adressen med `publicIpAddress` värdet för den virtuella datorn.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
 ```
 
-## <a name="create-the-database"></a>Skapa en databas
+## <a name="create-the-database"></a>Skapa databasen
 
-Oracle-programvaran är redan installerad på Marketplace-avbildning. Skapa en exempeldatabas på följande sätt. 
+Oracle-programvaran är redan installerad på Marketplace-avbildningen. Skapa en exempel databas på följande sätt. 
 
-1.  Växla till den *oracle* superanvändare och sedan initiera lyssnaren för loggning:
+1.  Växla till *Oracle* superanvändare och initiera lyssnaren för loggning:
 
     ```bash
     $ sudo su - oracle
@@ -143,7 +142,7 @@ Oracle-programvaran är redan installerad på Marketplace-avbildning. Skapa en e
 
     Det tar några minuter att skapa databasen.
 
-3. Ange Oracle variabler
+3. Ange Oracle-variabler
 
 Innan du ansluter måste du ange två miljövariabler: *ORACLE_HOME* och *ORACLE_SID*.
 
@@ -151,7 +150,7 @@ Innan du ansluter måste du ange två miljövariabler: *ORACLE_HOME* och *ORACLE
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
-Du kan också lägga till ORACLE_HOME och ORACLE_SID variabler i filen .bashrc. Detta skulle spara miljövariabler för framtida inloggningar. Bekräfta följande uttryck har lagts till i `~/.bashrc` -fil med valfri redigerare.
+Du kan också lägga till ORACLE_HOME-och ORACLE_SID-variabler i. bashrc-filen. Detta skulle spara miljövariablerna för framtida inloggningar. Bekräfta att följande instruktioner har lagts till `~/.bashrc` i filen med valfritt redigerings program.
 
 ```bash
 # Add ORACLE_HOME. 
@@ -162,21 +161,21 @@ export ORACLE_SID=cdb1
 
 ## <a name="oracle-em-express-connectivity"></a>Oracle EM Express-anslutning
 
-För ett GUI-hanteringsverktyg som du kan använda för att utforska databasen, ställa in Oracle EM Express. Om du vill ansluta till Oracle EM Express, måste du först ställa in porten i Oracle. 
+För ett GUI-verktyg som du kan använda för att utforska-databasen konfigurerar du Oracle EM Express. Om du vill ansluta till Oracle EM Express måste du först konfigurera porten i Oracle. 
 
-1. Anslut till din databas med sqlplus:
+1. Anslut till din databas med SQLPlus:
 
     ```bash
     sqlplus / as sysdba
     ```
 
-2. När du är ansluten, ange porten 5502 för EM Express
+2. När du är ansluten ställer du in port 5502 för EM Express
 
     ```bash
     exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
     ```
 
-3. Öppna den behållaren PDB1 om den inte redan öppnad men först kontrollera status:
+3. Öppna behållaren PDB1 om den inte redan är öppen, men kontrol lera statusen:
 
     ```bash
     select con_id, name, open_mode from v$pdbs;
@@ -191,31 +190,31 @@ För ett GUI-hanteringsverktyg som du kan använda för att utforska databasen, 
       3           PDB1                      MOUNT
     ```
 
-4. Om OPEN_MODE för `PDB1` är inte läsa skriva, kör du följande kommandon för att öppna PDB1:
+4. Om OPEN_MODE för `PDB1` inte är Läs skrivning kör du följande kommandon för att öppna PDB1:
 
    ```bash
     alter session set container=pdb1;
     alter database open;
    ```
 
-Du måste ange `quit` att avsluta sqlplus session och skriv `exit` logga ut för den oracle-användaren.
+Du måste ange `quit` för att avsluta SQLPlus-sessionen och skriva `exit` för att logga ut från Oracle-användaren.
 
-## <a name="automate-database-startup-and-shutdown"></a>Automatisera databasen start och avstängning
+## <a name="automate-database-startup-and-shutdown"></a>Automatisera start och avstängning av databasen
 
-Oracle-databasen som standard startas inte automatiskt när du startar om den virtuella datorn. Om du vill konfigurera Oracle-databasen för att starta automatiskt, loggar in första gången som rot. Sedan kan du skapa och uppdatera vissa systemfiler.
+Oracle-databasen startar som standard inte automatiskt när du startar om den virtuella datorn. Om du vill konfigurera Oracle-databasen så att den startar automatiskt måste du först logga in som rot. Skapa och uppdatera vissa systemfiler.
 
-1. Inloggning som rot
+1. Logga in som rot
     ```bash
     sudo su -
     ```
 
-2.  Med redigeringsprogram du föredrar, redigerar du filen `/etc/oratab` och ändra standard `N` till `Y`:
+2.  Använd din favorit redigerare, redigera filen `/etc/oratab` och ändra standardinställningen `N` till `Y`:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-3.  Skapa en fil med namnet `/etc/init.d/dbora` och klistra in följande innehåll:
+3.  Skapa en fil med `/etc/init.d/dbora` namnet och klistra in följande innehåll:
 
     ```
     #!/bin/sh
@@ -246,14 +245,14 @@ Oracle-databasen som standard startas inte automatiskt när du startar om den vi
     esac
     ```
 
-4.  Ändra behörigheter för filer med *chmod* på följande sätt:
+4.  Ändra behörigheter för filer med *chmod* enligt följande:
 
     ```bash
     chgrp dba /etc/init.d/dbora
     chmod 750 /etc/init.d/dbora
     ```
 
-5.  Skapa symboliska länkar för start och avstängning på följande sätt:
+5.  Skapa symboliska länkar för start och avstängning enligt följande:
 
     ```bash
     ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
@@ -261,7 +260,7 @@ Oracle-databasen som standard startas inte automatiskt när du startar om den vi
     ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
     ```
 
-6.  Testa ändringarna genom att starta om den virtuella datorn:
+6.  Om du vill testa ändringarna startar du om den virtuella datorn:
 
     ```bash
     reboot
@@ -269,9 +268,9 @@ Oracle-databasen som standard startas inte automatiskt när du startar om den vi
 
 ## <a name="open-ports-for-connectivity"></a>Öppna portar för anslutning
 
-Det sista steget är att konfigurera vissa externa slutpunkter. Avsluta SSH-sessionen på den virtuella datorn (bör ha varit går utanför SSH när omstart i föregående steg) om du vill konfigurera Azure Network Security Group, som skyddar den virtuella datorn. 
+Den sista aktiviteten är att konfigurera vissa externa slut punkter. Om du vill konfigurera den Azure-nätverks säkerhets grupp som skyddar den virtuella datorn måste du först avsluta SSH-sessionen på den virtuella datorn (bör ha startats av SSH vid omstart i föregående steg). 
 
-1.  Öppna den slutpunkt som du använder för att få fjärråtkomst till Oracle-databasen genom att skapa en regel för Nätverkssäkerhetsgrupp [az network nsg-regel skapar](/cli/azure/network/nsg/rule) på följande sätt: 
+1.  Om du vill öppna slut punkten som du använder för att fjärrans luta till Oracle-databasen skapar du en regel för nätverks säkerhets grupper med [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule) enligt följande: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -283,7 +282,7 @@ Det sista steget är att konfigurera vissa externa slutpunkter. Avsluta SSH-sess
         --destination-port-range 1521
     ```
 
-2.  Öppna den slutpunkt som du använder för att komma åt Oracle EM Express via fjärranslutning genom att skapa en regel för Nätverkssäkerhetsgrupp [az network nsg-regel skapar](/cli/azure/network/nsg/rule) på följande sätt:
+2.  Öppna slut punkten som du använder för att få åtkomst till Oracle EM Express genom att skapa en regel för nätverks säkerhets grupper med [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule) enligt följande:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -295,7 +294,7 @@ Det sista steget är att konfigurera vissa externa slutpunkter. Avsluta SSH-sess
         --destination-port-range 5502
     ```
 
-3. Om det behövs hämtar den offentliga IP-adressen för den virtuella datorn igen med [az network public-ip show](/cli/azure/network/public-ip) på följande sätt:
+3. Om det behövs kan du hämta den offentliga IP-adressen för den virtuella datorn igen med [AZ Network Public-IP Visa](/cli/azure/network/public-ip) enligt följande:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -305,19 +304,19 @@ Det sista steget är att konfigurera vissa externa slutpunkter. Avsluta SSH-sess
         --output tsv
     ```
 
-4.  Anslut EM Express från din webbläsare. Kontrollera att din webbläsare är kompatibelt med EM (Flash installation krävs): 
+4.  Anslut EM Express från din webbläsare. Kontrol lera att webbläsaren är kompatibel med EM Express (Flash-installation krävs): 
 
     ```
     https://<VM ip address or hostname>:5502/em
     ```
 
-Du kan logga in med hjälp av den **SYS** konto och kontrollera den **som sysdba** kryssrutan. Använd lösenord **OraPasswd1** som du anger under installationen. 
+Du kan logga in med hjälp av **sys** -kontot och markera kryss rutan **som SYSDBA** . Använd det lösen ord **OraPasswd1** som du angav under installationen. 
 
-![Skärmbild av inloggningssidan Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
+![Skärm bild av sidan för Oracle OEM Express-inloggning](./media/oracle-quick-start/oracle_oem_express_login.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med att utforska din första Oracle-databas på Azure och den virtuella datorn inte längre behövs kan du använda den [az group delete](/cli/azure/group) att ta bort resursgruppen, den virtuella datorn, och alla relaterade resurser.
+När du är färdig med att utforska din första Oracle-databas på Azure och den virtuella datorn inte längre behövs kan du använda kommandot [AZ Group Delete](/cli/azure/group) för att ta bort resurs gruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -325,6 +324,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om andra [Oracle-lösningar på Azure](oracle-considerations.md). 
+Lär dig mer om andra [Oracle-lösningar på Azure](oracle-considerations.md). 
 
-Prova den [installera och konfigurera Oracle automatisk lagringshantering](configure-oracle-asm.md) självstudien.
+Prova att [Installera och konfigurera Oracle](configure-oracle-asm.md) -guiden för automatisk lagrings hantering.

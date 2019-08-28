@@ -1,6 +1,6 @@
 ---
-title: Distribuera OpenShift Container Platform självhanterade Marketplace-erbjudandet i Azure | Microsoft Docs
-description: Distribuera OpenShift Container Platform självhanterade Marketplace-erbjudandet i Azure.
+title: Distribuera OpenShift container Platform-erbjudandet för egen hantering i Azure | Microsoft Docs
+description: Distribuera ett hanterings erbjudande för OpenShift container Platform i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -9,188 +9,187 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87b5c4ab006d9129d7530b06d8b31df35e288c75
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233098"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091912"
 ---
 # <a name="configure-prerequisites"></a>Konfigurera krav
 
-Innan du använder Marketplace-erbjudande för att distribuera en självhanterad OpenShift Container Platform-kluster i Azure, måste några förutsättningar konfigureras.  Läs den [krav för OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-prerequisites) artikeln anvisningar att skapa en ssh-nyckel (utan en lösenfras), Azure-nyckelvalv, key vault-hemlighet och ett huvudnamn för tjänsten.
+Innan du använder Marketplace-erbjudandet för att distribuera ett självhanterat OpenShift container Platform-kluster i Azure måste du konfigurera ett fåtal krav.  Läs artikeln [OpenShift-krav](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-prerequisites) för instruktioner för att skapa en SSH-nyckel (utan lösen fras), Azure Key Vault, Key Vault Secret och ett huvud namn för tjänsten.
 
  
-## <a name="deploy-using-the-marketplace-offer"></a>Distribuera med hjälp av Marketplace-erbjudande
+## <a name="deploy-using-the-marketplace-offer"></a>Distribuera med Marketplace-erbjudandet
 
-Det enklaste sättet att distribuera en självhanterad OpenShift Container Platform-kluster till Azure är att använda den [Azure Marketplace-erbjudande](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+Det enklaste sättet att distribuera ett självhanterat OpenShift container Platform-kluster till Azure är att använda [Azure Marketplace-erbjudandet](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
-Det här alternativet är den enklaste, men det kan också har begränsade funktioner för anpassning. Marketplace-erbjudande distribuerar OpenShift Container Platform 3.11.82 och innehåller följande konfigurationsalternativ:
+Det här alternativet är det enklaste, men det har också begränsade anpassnings möjligheter. Marketplace-erbjudandet distribuerar OpenShift container Platform-3.11.82 och innehåller följande konfigurations alternativ:
 
-- **Master noder**: Tre (3) Master-noder med konfigurerbara instans skriver.
-- **Infra noder**: Tre (3) Infra noder med konfigurerbara instans skriver.
-- **Noder**: Antalet noder (mellan 1 och 9) och Instanstypen kan konfigureras.
-- **Disktyp**: Hanterade diskar används.
+- **Huvudnoder**: Tre (3) huvud noder med konfigurerbar instans typ.
+- **Infraröda noder**: Tre (3) infraröda noder med konfigurerbar instans typ.
+- **Noder**: Antalet noder (mellan 1 och 9) och instans typen kan konfigureras.
+- **Disktyp**: Managed Disks används.
 - **Nätverk**: Stöd för nya eller befintliga nätverk och anpassade CIDR-intervall.
-- **CNS**: CNS kan aktiveras.
-- **Mått**: Du kan aktivera hawkular mått.
-- **Loggning**: EFK loggning kan aktiveras.
-- **Azure Cloud Provider**: Aktiverad som standard kan inaktiveras.
+- **CNS**: CNS kan aktive ras.
+- **Mått**: Hawkular-mått kan aktive ras.
+- **Loggning**: EFK-loggning kan aktive ras.
+- **Azure-moln leverantör**: Aktive rad som standard, kan inaktive ras.
 
-I det övre vänstra hörnet i Azure Portal klickar du på **skapa en resurs**anger 'openshift container platform ”i sökrutan och tryck på RETUR.
+Klicka på **skapa en resurs**längst upp till vänster i Azure Portal, ange "OpenShift container Platform" i sökrutan och tryck på RETUR.
 
-   ![Ny resurs-sökning](media/openshift-marketplace-self-managed/ocp-search.png)  
+   ![Ny resurs sökning](media/openshift-marketplace-self-managed/ocp-search.png)  
 <br>
 
-Resultatsidan öppnas med **Red Hat OpenShift Container Platform Self-Managed** i listan. 
+Sidan resultat öppnas med **Red Hat OpenShift-plattform för egen hantering** i listan. 
 
-   ![Ny resurs-sökresultat](media/openshift-marketplace-self-managed/ocp-searchresult.png)  
+   ![Nytt resurs Sök Resultat](media/openshift-marketplace-self-managed/ocp-searchresult.png)  
 <br>
 
-Klicka på erbjudandet att visa information om erbjudandet. Om du vill distribuera det här erbjudandet, klickar du på **skapa**. Gränssnittet för att ange nödvändiga parametrar visas. Den första skärmen är den **grunderna** bladet.
+Klicka på erbjudandet om du vill visa information om erbjudandet. Klicka på **skapa**om du vill distribuera erbjudandet. Användar gränssnittet för att ange nödvändiga parametrar visas. Den första skärmen är bladet **grundläggande** .
 
-   ![Sidan för erbjudande titel](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
+   ![Rubrik sida för erbjudande](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
 <br>
 
 **Grundläggande inställningar**
 
-För att få hjälp på någon av indataparametrarna som kan hovra över den ***jag*** bredvid parameternamnet på.
+Om du vill ha hjälp med någon av indataparametrarna hovrar du över ***i*** rutan bredvid parameter namnet.
 
 Ange värden för indataparametrarna och klicka på **OK**.
 
-| Indataparameter | Parameterbeskrivning |
+| Indataparameter | Parameter Beskrivning |
 |-----------------------|-----------------|
-| Namn på virtuell dator administratörsanvändare | Administratörsanvändare som ska skapas på alla VM-instanser |
-| SSH offentlig nyckel för administratörsanvändare | Offentlig SSH-nyckel används för att logga in på VM - får inte ha en lösenfras |
-| Prenumeration | Azure-prenumeration att distribuera kluster till |
-| Resursgrupp | Skapa en ny resursgrupp eller välj en befintlig tom resursgrupp för klusterresurser |
-| Location | Att distribuera kluster till Azure-region |
+| Användar namn för administratör för virtuell dator | Administratörs användaren som ska skapas på alla VM-instanser |
+| Offentlig SSH-nyckel för administratörs användare | Offentlig SSH-nyckel som används för att logga in på en virtuell dator – får inte ha en lösen fras |
+| Subscription | Azure-prenumeration för att distribuera kluster till |
+| Resursgrupp | Skapa en ny resurs grupp eller Välj en befintlig tom resurs grupp för kluster resurser |
+| Location | Azure-region för att distribuera kluster till |
 
-   ![Erbjud bladet grundläggande inställningar](media/openshift-marketplace-self-managed/ocp-basics.png)  
+   ![Bladet med grundläggande erbjudanden](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
 
-**Inställningar för infrastruktur**
+**Infrastruktur inställningar**
 
 Ange värden för indataparametrarna och klicka på **OK**.
 
-| Indataparameter | Parameterbeskrivning |
+| Indataparameter | Parameter Beskrivning |
 |-----------------------|-----------------|
-| Namnprefix för OCP-kluster | Kluster-Prefix som används för att konfigurera värdnamnen för alla noder. Mellan 1 och 20 tecken |
-| Master nodstorlek | Acceptera standardstorleken för virtuella datorer eller klicka på **ändra storleken på** att välja en annan VM-storlek.  Välj lämplig virtuell datorstorlek för din arbetsbelastning |
-| Nodstorlek för infrastruktur | Acceptera standardstorleken för virtuella datorer eller klicka på **ändra storleken på** att välja en annan VM-storlek.  Välj lämplig virtuell datorstorlek för din arbetsbelastning |
-| Antalet noder som programmet | Acceptera standardstorleken för virtuella datorer eller klicka på **ändra storleken på** att välja en annan VM-storlek.  Välj lämplig virtuell datorstorlek för din arbetsbelastning |
-| Storlek för noden | Acceptera standardstorleken för virtuella datorer eller klicka på **ändra storleken på** att välja en annan VM-storlek.  Välj lämplig virtuell datorstorlek för din arbetsbelastning |
-| Skyddsmiljö-värd storlek | Acceptera standardstorleken för virtuella datorer eller klicka på **ändra storleken på** att välja en annan VM-storlek.  Välj lämplig virtuell datorstorlek för din arbetsbelastning |
-| Nytt eller befintligt virtuellt nätverk | Skapa ett nytt virtuellt nätverk (standard) eller använda ett befintligt vNet |
-| Välj standardinställningar för CIDR eller anpassa IP-adressintervall (CIDR) | Acceptera standardvärdet CIDR-intervall eller välj **anpassade IP-adressintervall** och ange anpassade CIDR-information.  Standardinställningarna ska skapa vNet med CIDR av 10.0.0.0/14, master undernätet med 10.1.0.0/16 infra undernätet med 10.2.0.0/16 och beräknings- och cns undernät med 10.3.0.0/16 |
-| Namn på Key Vault-resursgrupp | Namnet på resursgruppen som innehåller Nyckelvalvet |
-| Namn på Key Vault | Namnet på det Nyckelvalv som innehåller hemligheten med det ssh privat nyckel.  Endast alfanumeriska tecken och tankstreck tillåts och innehålla mellan 3 och 24 tecken |
-| Hemligt namn | Namnet på den hemlighet som innehåller den ssh privat nyckel.  Endast alfanumeriska tecken och tankstreck tillåts |
+| OCP för kluster namn | Kluster prefix som används för att konfigurera värdnamn för alla noder. Mellan 1 och 20 tecken |
+| Huvudnode-storlek | Godkänn standard storleken för virtuell dator eller klicka på **ändra storlek** om du vill välja en annan VM-storlek.  Välj lämplig VM-storlek för din arbets belastning |
+| Infrastrukturens Node-storlek | Godkänn standard storleken för virtuell dator eller klicka på **ändra storlek** om du vill välja en annan VM-storlek.  Välj lämplig VM-storlek för din arbets belastning |
+| Antal programnoder | Godkänn standard storleken för virtuell dator eller klicka på **ändra storlek** om du vill välja en annan VM-storlek.  Välj lämplig VM-storlek för din arbets belastning |
+| Programnode-storlek | Godkänn standard storleken för virtuell dator eller klicka på **ändra storlek** om du vill välja en annan VM-storlek.  Välj lämplig VM-storlek för din arbets belastning |
+| Storlek på skydds-värd | Godkänn standard storleken för virtuell dator eller klicka på **ändra storlek** om du vill välja en annan VM-storlek.  Välj lämplig VM-storlek för din arbets belastning |
+| Nya eller befintliga Virtual Network | Skapa ett nytt vNet (standard) eller Använd ett befintligt vNet |
+| Välj standard CIDR-inställningar eller anpassa IP-intervall (CIDR) | Acceptera standard CIDR-intervall eller Välj **anpassat IP-intervall** och ange anpassad CIDR-information.  Standardinställningar skapar vNet med CIDR för 10.0.0.0/14, huvud under nätet med 10.1.0.0/16, fjärrundernät med 10.2.0.0/16 och Compute-och CNS-undernätet med 10.3.0.0/16 |
+| Namn på Key Vault resurs grupp | Namnet på den resurs grupp som innehåller Key Vault |
+| Namn på Key Vault | Namnet på Key Vault som innehåller hemligheten med den privata SSH-nyckeln.  Endast alfanumeriska tecken och bindestreck tillåts och måste vara mellan 3 och 24 tecken |
+| Hemligt namn | Namnet på hemligheten som innehåller den privata SSH-nyckeln.  Endast alfanumeriska tecken och bindestreck tillåts |
 
-   ![Bladet infrastruktur för erbjudandet](media/openshift-marketplace-self-managed/ocp-inframain.png)  
+   ![Bladet erbjudande infrastruktur](media/openshift-marketplace-self-managed/ocp-inframain.png)  
 <br>
 
 **Ändra storlek**
 
-Klicka för att välja en annan virtuell storlek ***ändra storleken på***.  Urvalsfönster för virtuell dator öppnas.  Välj VM-storlek och på **Välj**.
+Om du vill välja en annan storlek på virtuell dator klickar du på ***ändra storlek***.  Fönstret för VM-val öppnas.  Välj den VM-storlek som du vill använda och klicka på **Välj**.
 
-   ![Välj VM-storlek](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
+   ![Välj storlek på virtuell dator](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>
 
-**Befintligt virtuellt nätverk**
+**Befintliga Virtual Network**
 
-| Indataparameter | Parameterbeskrivning |
+| Indataparameter | Parameter Beskrivning |
 |-----------------------|-----------------|
-| Namn på befintliga virtuellt nätverk | Namnet på det befintliga virtuella nätverket |
-| Namn på undernät för överordnade noder | Namnet på befintliga undernätet för överordnade noder.  Måste innehålla minst 16 IP-adresser och följer RFC 1918 |
-| Namnet på undernätet för infrastruktur noder | Namnet på befintliga undernätet för infrastruktur noder.  Måste innehålla minst 32 IP-adresser och följer RFC 1918 |
-| Namn på undernät för beräknings- och cns noder | Namnet på befintliga undernätet för beräknings- och cns noder.  Måste innehålla minst 32 IP-adresser och följer RFC 1918 |
-| Resursgruppen för det befintliga virtuella nätverket | Namnet på resursgruppen som innehåller det befintliga virtuella nätverket |
+| Befintligt Virtual Network namn | Namn på befintligt vNet |
+| Under näts namn för huvudnoder | Namn på befintligt undernät för överordnade noder.  Måste innehålla minst 16 IP-adresser och följa RFC 1918 |
+| Under näts namn för infraröda noder | Namn på befintligt undernät för infraröda noder.  Måste innehålla minst 32 IP-adresser och följa RFC 1918 |
+| Under näts namn för Compute-och CNS-noder | Namnet på det befintliga under nätet för Compute-och CNS-noder.  Måste innehålla minst 32 IP-adresser och följa RFC 1918 |
+| Resurs grupp för den befintliga Virtual Network | Namnet på den resurs grupp som innehåller det befintliga virtuella nätverket |
 
-   ![Erbjud infrastruktur befintligt virtuellt nätverk](media/openshift-marketplace-self-managed/ocp-existingvnet.png)  
+   ![Erbjud infrastruktur för befintligt VNet](media/openshift-marketplace-self-managed/ocp-existingvnet.png)  
 <br>
 
-**Anpassade IP-intervall**
+**Anpassat IP-intervall**
 
-| Indataparameter | Parameterbeskrivning |
+| Indataparameter | Parameter Beskrivning |
 |-----------------------|-----------------|
-| Adressintervallet för det virtuella nätverket | Anpassad CIDR för det virtuella nätverket |
-| Adressintervall för undernätet som innehåller de överordnade noderna | Anpassad CIDR för master-undernät |
-| Adressintervall för undernätet som innehåller infrastrukturnoder | Anpassad CIDR för undernätet för infrastruktur |
-| Adressintervall för undernätet som innehåller beräknings- och cns noder | Anpassade CIDR för beräknings- och cns noder |
+| Adress intervall för Virtual Network | Anpassad CIDR för vNet |
+| Adress intervall för det undernät som innehåller huvudnoderna | Anpassad CIDR för huvud under nät |
+| Adress intervall för det undernät som innehåller infrastruktur-noderna | Anpassat CIDR för infrastruktur under nät |
+| Adress intervall för undernät som innehåller Compute-och CNS-noderna | Anpassad CIDR för beräknings-och CNS-noderna |
 
-   ![Erbjud infrastruktur anpassade IP-adressintervall](media/openshift-marketplace-self-managed/ocp-customiprange.png)  
+   ![Erbjud anpassat IP-intervall för infrastruktur](media/openshift-marketplace-self-managed/ocp-customiprange.png)  
 <br>
 
-**OpenShift Container Platform**
+**OpenShift container Platform**
 
-Ange värden för parametrar för indata och klicka på **OK**
+Ange värden för indataparametrarna och klicka på **OK**
 
-| Indataparameter | Parameterbeskrivning |
+| Indataparameter | Parameter Beskrivning |
 |-----------------------|-----------------|
-| Administratörslösenord för OpenShift | Lösenordet för det ursprungliga OpenShift-användarkontot.  Den här användaren ska också vara administratör för kluster |
-| Bekräfta administratörslösenord för OpenShift | Skriv administratörslösenord för OpenShift |
-| Red Hat prenumeration Manager-användarnamn | Användarnamn för att komma åt dina Red Hat-prenumeration eller organisation-ID.  Den här autentiseringsuppgiften används för att registrera RHEL-instans till din prenumeration och lagras inte av Microsoft eller Red Hat |
-| Red Hat prenumeration Manager användarlösenord | Lösenord för åtkomst till dina Red Hat-prenumeration eller aktiveringsnyckeln.  Den här autentiseringsuppgiften används för att registrera RHEL-instans till din prenumeration och lagras inte av Microsoft eller Red Hat |
-| Red Hat prenumeration Manager OpenShift Pool-ID | Pool-ID som innehåller OpenShift Container Platform rättigheten. Kontrollera att du har tillräckligt med rättigheter för OpenShift Container Platform för installation av klustret |
-| Red Hat prenumeration Manager OpenShift Pool-ID för Broker / Master-noder | Pool-ID som innehåller OpenShift Container Platform rättigheter för Broker / Master-noder. Kontrollera att du har tillräckligt med rättigheter för OpenShift Container Platform för installation av klustret. Om du inte använder broker / master-pool-ID, ange pool-ID för programmet noder |
-| Konfigurera Azure-molnet Provider | Konfigurera OpenShift för att använda Azure Cloud-providern. Nödvändigt om du använder Azure disk bifoga för beständiga volymer.  Standardinställningen är Ja |
-| Azure AD Service Principal Client ID GUID | Azure AD Service Principal Client ID GUID - kallas även AppID. Behövs bara om konfigurera Azure Molnleverantör **Ja** |
-| Azure AD-tjänstens huvudnamn ID Klienthemlighet | Azure AD-tjänstens huvudnamn ID Klienthemlighet. Behövs bara om konfigurera Azure Molnleverantör **Ja** |
+| OpenShift administratör användar lösen ord | Lösen ord för den inledande OpenShift-användaren.  Den här användaren kommer också att vara kluster administratören |
+| Bekräfta lösen ordet för OpenShift admin-användare | Skriv lösen ordet för OpenShift admin-användaren |
+| Användar namn för Red Hat Subscription Manager | Användar namn för att få åtkomst till din Red Hat-prenumeration eller organisations-ID.  Den här autentiseringsuppgiften används för att registrera RHEL-instansen för din prenumeration och kommer inte att lagras av Microsoft eller Red Hat |
+| Användar lösen ord för Red Hat Subscription Manager | Lösen ord för att få åtkomst till din Red Hat-prenumeration eller aktiverings nyckel.  Den här autentiseringsuppgiften används för att registrera RHEL-instansen för din prenumeration och kommer inte att lagras av Microsoft eller Red Hat |
+| Red Hat Subscription Manager OpenShift pool-ID | Pool-ID som innehåller OpenShift container Platform-rättigheter. Se till att du har tillräckligt med rättigheter för OpenShift container Platform för att installera klustret |
+| Red Hat Subscription Manager OpenShift pool-ID för Broker/Master-noder | Pool-ID som innehåller OpenShift container Platform-rättigheter för Broker/Master-noder. Se till att du har tillräckligt med rättigheter för OpenShift container Platform för att installera klustret. Om du inte använder Broker/Master pool-ID anger du pool-ID för programnoder |
+| Konfigurera Azure Cloud Provider | Konfigurera OpenShift för att använda Azure Cloud Provider. Krävs om du använder Azure disk Attach för permanenta volymer.  Standardvärdet är ja |
+| Klient-ID GUID för Azure AD service-huvudobjektet | Azure AD service huvud namn klient-ID GUID – kallas även AppID. Krävs endast om konfigurera Azure Cloud provider har angetts till **Ja** |
+| Hemlighet för klient-ID för Azure AD-tjänstens huvud namn | Hemlighet för klient-ID för Azure AD-tjänstens huvud namn. Krävs endast om konfigurera Azure Cloud provider har angetts till **Ja** |
  
-   ![Erbjudandet OpenShift bladet](media/openshift-marketplace-self-managed/ocp-ocpmain.png)  
+   ![Erbjudande bladet OpenShift](media/openshift-marketplace-self-managed/ocp-ocpmain.png)  
 <br>
 
 **Ytterligare inställningar**
 
-Ytterligare inställningar tillåter konfiguration av CNS för glusterfs lagring, bland annat loggning och mått Router Sub domän.  Standard går inte att installera något av dessa alternativ och använder nip.io som underdomän router i testsyfte. Aktivera CNS installerar tre extra beräkningsnoder med tre ytterligare anslutna diskar som är värd för glusterfs poddar.  
+Bladet ytterligare inställningar gör det möjligt att konfigurera CNS för glusterfs-lagring, loggning, Mät värden och under domänen router.  Som standard installeras inte något av dessa alternativ och kommer att använda nip.io som router-underdomänen för test ändamål. Om du aktiverar CNS installeras tre ytterligare datornoder med tre ytterligare anslutna diskar som är värdar för glusterfs poddar.  
 
-Ange värden för parametrar för indata och klicka på **OK**
+Ange värden för indataparametrarna och klicka på **OK**
 
-| Indataparameter | Parameterbeskrivning |
+| Indataparameter | Parameter Beskrivning |
 |-----------------------|-----------------|
-| Konfigurera intern lagring för behållaren (CN) | Installerar CNS i OpenShift kluster och aktivera det som lagring. Är standard om Azure-providern är inaktiverad |
-| Konfigurera kluster-loggning | Installerar EFK loggningsfunktionen till klustret.  Ändra storlek på infra noder korrekt till värd EFK poddar |
-| Konfigurera mått för klustret | Installerar Hawkular mått till OpenShift-klustret.  Ändra storlek på infra noder korrekt till värd Hawkular mått poddar |
-| Standard-Router-underdomän | Välj nipio för att testa eller anpassade att ange en egen underdomän för produktion |
+| Konfigurera behållarens inbyggda lagrings utrymme (CNS) | Installerar CNS i OpenShift-klustret och aktiverar det som lagrings utrymme. Blir standard om Azure Provider är inaktive rad |
+| Konfigurera kluster loggning | Installerar EFK loggnings funktioner i klustret.  Ändra storlek på de noder som är värdar för EFK-poddar |
+| Konfigurera mått för klustret | Installerar Hawkular-mått i OpenShift-klustret.  Ändra storlek på de noder som är värdar för Hawkular-mått poddar |
+| Standard under domän för router | Välj Nipio för testning eller anpassad om du vill ange en egen under domän för produktion |
  
-   ![Erbjud ytterligare ett blad](media/openshift-marketplace-self-managed/ocp-additionalmain.png)  
+   ![Erbjud ytterligare blad](media/openshift-marketplace-self-managed/ocp-additionalmain.png)  
 <br>
 
-**Ytterligare inställningar – Extra parametrar**
+**Ytterligare inställningar-extra parametrar**
 
-| Indataparameter | Parameterbeskrivning |
+| Indataparameter | Parameter Beskrivning |
 |-----------------------|-----------------|
-| (CNS) Nodstorlek | Acceptera standardstorlek för noden eller välj **ändra storleken på** att välja en ny VM-storlek |
-| Ange din anpassade underdomän | Den anpassade routningsdomän som ska användas för att exponera program via router i OpenShift-klustret.  Var noga med att skapa DNS-post lämpliga jokertecken] |
+| CNS Node-storlek | Acceptera standardvärdet för noder eller Välj **ändra storlek** om du vill välja en ny storlek på virtuell dator |
+| Ange din anpassade under domän | Den anpassade routningsdomänen som ska användas för att exponera program via routern i OpenShift-klustret.  Se till att skapa rätt jokertecken DNS-post] |
  
-   ![Erbjuder ytterligare cns installera](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
+   ![Erbjud ytterligare CNS-installation](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
 <br>
 
 **Sammanfattning**
 
-Verifieringen sker i det här skedet att kontrollera kärnkvoten är tillräckliga för att distribuera det totala antalet virtuella datorer som valts för klustret.  Granska de parametrar som angivits.  Om indata är godkända klickar du på **OK** att fortsätta.
+Verifiering sker i det här steget för att kontrol lera att kärn kvoten räcker för att distribuera det totala antalet virtuella datorer som har valts för klustret.  Granska alla parametrar som angavs.  Om indatana är godkända klickar du på **OK** för att fortsätta.
 
-   ![Sammanfattningsbladet för erbjudandet](media/openshift-marketplace-self-managed/ocp-summary.png)  
+   ![Bladet erbjudande Sammanfattning](media/openshift-marketplace-self-managed/ocp-summary.png)  
 <br>
 
 **Köp**
 
-Bekräfta kontaktinformation på sidan Köp och klicka på **köp** att acceptera användningsvillkoren och starta distribution av OpenShift Container Platform-klustret.
+Bekräfta kontakt information på sidan Köp och klicka på **köp** för att godkänna användnings villkoren och börja distribuera för OpenShift container Platform-klustret.
 
-   ![Erbjudandet köp bladet](media/openshift-marketplace-self-managed/ocp-purchase.png)  
+   ![Bladet erbjudande köp](media/openshift-marketplace-self-managed/ocp-purchase.png)  
 <br>
 
 
-## <a name="connect-to-the-openshift-cluster"></a>Anslut till klustret för OpenShift
+## <a name="connect-to-the-openshift-cluster"></a>Ansluta till OpenShift-klustret
 
-När distributionen är klar kan du hämta anslutningen från utdataavsnittet i distributionen. Ansluta till konsolen OpenShift med din webbläsare med hjälp av den **OpenShift-konsolens URL**. Du kan också SSH till Skyddsmiljö-värd. Följande är ett exempel där administratörsanvändarnamnet är clusteradmin och den offentliga IP för skyddsmiljö DNS FQDN är bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
+När distributionen är klar hämtar du anslutningen från avsnittet utdata i distributionen. Anslut till OpenShift-konsolen med webbläsaren med hjälp av **URL: en**för OpenShift-konsolen. Du kan också SSH till skydds-värden. Följande är ett exempel där admin-användarnamnet är clusteradmin och skydds offentliga IP DNS FQDN är bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
 
 ```bash
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
@@ -198,7 +197,7 @@ $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Använd den [az group delete](/cli/azure/group) att ta bort resursgruppen, OpenShift klustret och alla relaterade resurser när de inte längre behövs.
+Använd kommandot [AZ Group Delete](/cli/azure/group) för att ta bort resurs gruppen, OpenShift-klustret och alla relaterade resurser när de inte längre behövs.
 
 ```azurecli 
 az group delete --name openshiftrg
@@ -208,5 +207,5 @@ az group delete --name openshiftrg
 
 - [Uppgifter efter distribution](./openshift-post-deployment.md)
 - [Felsöka OpenShift-distribution i Azure](./openshift-troubleshooting.md)
-- [Komma igång med OpenShift Container Platform](https://docs.openshift.com/container-platform)
+- [Kom igång med OpenShift container Platform](https://docs.openshift.com/container-platform)
 

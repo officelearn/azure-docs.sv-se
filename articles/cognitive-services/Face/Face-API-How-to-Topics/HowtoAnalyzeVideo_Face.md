@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: b175e68277ab456bea7eaa7b82619d61e45bf722
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e2166354fb45d24e117156e917f4da726ee8406f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442748"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114345"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exempel: Analyser av videor i realtid
 
@@ -36,7 +36,7 @@ Det finns flera sätt att lösa problemet med att köra analyser nära realtid f
 
 Den enklaste designen för ett analyssystem nära realtid är en oändlig loop där varje iteration tar en bildruta, analyserar den och sedan använder resultatet:
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -54,7 +54,7 @@ Om analysen består av en förenklad algoritm för klientsidan, skulle den här 
 
 Även om en enkel entrådig loop passar för en enkel algoritm från klientsidan passar den inte bra ihop med den svarstid som är involverad i molnets API-anrop. Lösning på problemet är att tillåta att långvariga API-anrop körs parallellt med insamling av bildrutor. I C# kan vi åstadkomma detta med uppgiftsbaserad parallellitet, till exempel:
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -75,7 +75,7 @@ Den här koden startar varje analys i en separat uppgift som kan köras i bakgru
 
 I vårt slutgiltiga ”producent-konsument-system” har vi en producenttråd som starkt liknar vår tidigare oändliga loop. Men i stället för att använda analysresultaten så snart de blir tillgängliga, så placerar producenten helt enkelt uppgifterna i kö för att hålla ordning på dem.
 
-```CSharp
+```csharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
      
@@ -112,7 +112,7 @@ while (true)
 
 Vi har även en konsumenttråd som plockar bort uppgifterna från kön, väntar på att de ska avslutas och antingen visar resultatet eller höjer de undantag som kastades. Om du använder kön garanterar vi att resultaten används ett i taget, i rätt ordning, utan att det begränsar systemets maximala bildfrekvens.
 
-```CSharp
+```csharp
 // Consumer thread. 
 while (true)
 {
@@ -144,7 +144,7 @@ Biblioteket innehåller klassen FrameGrabber som implementerar det ovan beskrivn
 
 För att beskriva några av möjligheterna finns det två exempelappar som använder biblioteket. Den första är en enkel konsolapp, och en förenklad version av den återges nedan. Den hämtar bildrutor från standardwebbkameran och skickar dem till Ansikts-API för ansiktsigenkänning.
 
-```CSharp
+```csharp
 using System;
 using VideoFrameAnalyzer;
 using Microsoft.ProjectOxford.Face;

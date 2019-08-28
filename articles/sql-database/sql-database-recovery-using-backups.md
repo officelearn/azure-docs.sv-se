@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/30/2019
-ms.openlocfilehash: 55d60ec332515fcfa3deb565a4a770027681537a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/27/2019
+ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566974"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103107"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL-databas med hjälp av automatisk säkerhets kopiering av databasen
 
@@ -37,7 +37,7 @@ När du använder standard-eller premium-tjänst nivån innebär en återställd
 - Återställning av p11 – p15 till S4-S12 eller P1 – P6 om max storleken för databasen är större än 500 GB.
 - Återställning av P1 – P6 till S4-S12 om den maximala databas storleken är större än 250 GB.
 
-Den extra kostnaden är icurred när den återställda databasens Max storlek är större än mängden lagrings utrymme som ingår i mål databasens tjänste nivå och prestanda nivå. Extra lagrings utrymme som tillhandahålls utöver den mängd som ingår debiteras extra. Pris information för extra lagrings utrymme finns på [sidan SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden använt utrymme är mindre än den mängd lagring som ingår, kan du undvika den här extra kostnaden genom att ange den maximala databas storleken till den inkluderade mängden.
+Den extra kostnaden uppstår när den återställda databasens Max storlek är större än den mängd lagrings utrymme som ingår i mål databasens tjänste nivå och prestanda nivå. Extra lagrings utrymme som tillhandahålls utöver den mängd som ingår debiteras extra. Pris information för extra lagrings utrymme finns på [sidan SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden använt utrymme är mindre än den mängd lagring som ingår, kan du undvika den här extra kostnaden genom att ange den maximala databas storleken till den inkluderade mängden.
 
 > [!NOTE]
 > [Automatiserade databas säkerhets kopieringar](sql-database-automated-backups.md) används när du skapar en [databas kopia](sql-database-copy.md).
@@ -113,7 +113,7 @@ Om du vill återställa en borttagen databas med hjälp av Azure Portal öppnar 
 
 Du kan återställa en SQL-databas på valfri server i valfri Azure-region från de senaste geo-replikerade säkerhets kopiorna. Geo-återställning använder en geo-replikerad säkerhets kopiering som källa. Det kan begäras även om databasen eller data centret inte kan nås på grund av ett avbrott.
 
-Geo-återställning är standard alternativet för återställning när databasen inte är tillgänglig på grund av en incident i värd regionen. Du kan återställa databasen till en server i en annan region. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den är geo-replikerad till en Azure-blob i en annan region. Det innebär att den återställda databasen kan vara upp till en timme bakom orignal-databasen. Följande bild visar återställningen av databasen från den senaste tillgängliga säkerhets kopian i en annan region.
+Geo-återställning är standard alternativet för återställning när databasen inte är tillgänglig på grund av en incident i värd regionen. Du kan återställa databasen till en server i en annan region. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den är geo-replikerad till en Azure-blob i en annan region. Det innebär att den återställda databasen kan vara upp till en timme bakom den ursprungliga databasen. Följande bild visar återställningen av databasen från den senaste tillgängliga säkerhets kopian i en annan region.
 
 ![Geo-återställning](./media/sql-database-geo-restore/geo-restore-2.png)
 
@@ -127,7 +127,7 @@ Det finns för närvarande inte stöd för återställning av tidpunkt på en ge
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Geo-återställning med hjälp av Azure Portal
 
-Om du vill geo-återställa en databas under den [DTU-baserade modellen](sql-database-service-tiers-dtu.md) för kvarhållning Azure Portal av modeller eller [vCore](sql-database-service-tiers-vcore.md) , öppnar du sidan SQL-databaser och klickar sedan på **Lägg till**. I text rutan **Välj källa** väljer du **säkerhets kopiering**. Ange den säkerhets kopia från vilken du vill utföra återställningen i regionen och på valfri server.
+Om du vill geo-återställa en databas med hjälp av Azure Portal öppnar du sidan SQL-databaser och klickar sedan på **Lägg till**. I text rutan **Välj källa** väljer du **säkerhets kopiering**. Ange den säkerhets kopia från vilken du vill utföra återställningen i regionen och på valfri server.
 
 > [!Note]
 > Geo-återställning med Azure Portal är inte tillgängligt i en hanterad instans. Använd PowerShell i stället.

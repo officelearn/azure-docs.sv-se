@@ -10,16 +10,15 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 2877fae66584ec24fb6e62b20d66ded36157b824
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8c0c8f5543af425091c821f28d08fcab01118fd4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990340"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090451"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Det går inte att aktivera Windows i ett scenario med Tvingad tunnel trafik
 
@@ -27,7 +26,7 @@ Den här artikeln beskriver hur du löser problemet med KMS-aktivering som du ka
 
 ## <a name="symptom"></a>Symtom
 
-Du aktiverar [Tvingad tunnel](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) trafik i Azure Virtual Network-undernät för att dirigera all Internet-baserad trafik tillbaka till ditt lokala nätverk. I det här scenariot kan Azure Virtual Machines (VM) som kör Windows Server 2012 R2 (eller senare versioner av Windows) kunna aktivera Windows. Virtuella datorer som kör tidigare versioner av Windows kommer dock inte att kunna aktivera Windows.
+Du aktiverar [Tvingad tunnel](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) trafik i Azure Virtual Network-undernät för att dirigera all Internet-baserad trafik tillbaka till ditt lokala nätverk. I det här scenariot går det inte att aktivera Windows med Azure Virtual Machines (virtuella datorer) som kör Windows.
 
 ## <a name="cause"></a>Orsak
 

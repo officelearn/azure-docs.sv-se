@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b1093c75e5552fea875f81d2860deb0d61405022
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0c60cd335e9d280d59fd872d1d0724f2eabd3afb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707961"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101577"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Självstudier: Skapa och hantera virtuella Windows-datorer med Azure PowerShell
 
@@ -181,7 +180,7 @@ Storleken på den virtuella datorn avgör hur mycket beräkningsresurser (t.ex. 
 
 I följande tabell kategoriseras storlekarna i användningsfall.  
 
-| Typ                     | Normala storlekar           |    Beskrivning       |
+| type                     | Normala storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Generellt syfte](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
 | [Beräkningsoptimerad](sizes-compute.md)   | Fsv2          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
@@ -270,7 +269,7 @@ Status
 PowerState/running
 ```
 
-## <a name="management-tasks"></a>Administrativa uppgifter
+## <a name="management-tasks"></a>Hanteringsuppgifter
 
 Under livscykeln för en virtuell dator kan du köra administrativa uppgifter, genom att till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa skript för att automatisera repetitiva och komplicerade uppgifter. Med hjälp av Azure PowerShell kan många vanliga administrativa uppgifter köras från kommandoraden eller i skript.
 

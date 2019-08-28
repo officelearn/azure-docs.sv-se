@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc1200d6acef077e36f701a75f613aba0ccbb75f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319502"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103396"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Kan inte använda RDP till en virtuell dator eftersom den virtuella datorn startas i felsäkert läge
 
@@ -113,22 +112,22 @@ Kör följande skript för att aktivera dump logg- och Seriekonsol.
     reg unload HKLM\BROKENSYSTEM
     ```
 
-#### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Konfigurera Windows att starta i normalläge.
+#### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Konfigurera Windows för att starta i normalt läge
 
 1. Öppna en upphöjd kommandotolk-session (**kör som administratör**).
-2. Kontrollera boot configuration data. I följande kommandon förutsätter vi att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F. Ersätt enhetsbeteckningen med lämpligt värde för den virtuella datorn.
+2. Kontrol lera start konfigurations data. I följande kommandon antar vi att den enhets beteckning som är kopplad till den anslutna OS-disken är F. Ersätt enhets beteckningen med lämpligt värde för den virtuella datorn.
 
         bcdedit /store F:\boot\bcd /enum
-    Anteckna ID-namnet för den partition som har den **\windows** mapp. Som standard är ID-namnet ”standard”.
+    Anteckna ID-namnet för den partition som innehåller mappen **\Windows** . Som standard är Identifierarens namn "default".
 
-    Om den virtuella datorn är konfigurerad för att starta i felsäkert läge, ser du en extra flagga under den **Windows Boot Loader** avsnitt som heter **safeboot**. Om du inte ser den **safeboot** flagga den här artikeln gäller inte för ditt scenario.
+    Om den virtuella datorn är konfigurerad för att starta i felsäkert läge, ser du en extra flagga under den **Windows Boot Loader** avsnitt som heter **safeboot**. Om du inte ser flaggan **safeboot** gäller inte den här artikeln för ditt scenario.
 
-    ![Bild som visar start identifierare](./media/troubleshoot-rdp-safe-mode/boot-id.png)
+    ![Avbildningen om start-ID](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
-3. Ta bort den **safeboot** flaggan, så att den virtuella datorn startar i normalt läge:
+3. Ta bort flaggan **safeboot** så att den virtuella datorn startar i normalt läge:
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
 4. Kontrollera boot configuration data för att se till att den **safeboot** flaggan tas bort:
 
         bcdedit /store F:\boot\bcd /enum
-5. [Koppla från den OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrollera sedan om problemet är löst.
+5. [Koppla från den OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrol lera sedan om problemet är löst.

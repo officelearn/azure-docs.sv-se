@@ -3,22 +3,22 @@ title: Hantera indexerings principer i Azure Cosmos DB
 description: Lär dig hur du hanterar indexerings principer i Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: thweiss
-ms.openlocfilehash: 0100be7eeacdcda5b123356e95e2510a365d0f22
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6e935b88c474d28c06b8cdd76d36f5ba64c942f9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356436"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093200"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera indexerings principer i Azure Cosmos DB
 
 I Azure Cosmos DB indexeras data efter indexerings [principer](index-policy.md) som definierats för varje behållare. Standard indexerings principen för nyligen skapade behållare framtvingar intervall index för valfri sträng eller siffra, och rums index för alla geospatiala JSON-objekt av typen Point. Den här principen kan åsidosättas:
 
 - från Azure Portal
-- Använda Azure CLI
+- använda Azure CLI
 - använda en av SDK: erna
 
 En [indexerings princip uppdatering](index-policy.md#modifying-the-indexing-policy) utlöser en index omvandling. Förloppet för den här omvandlingen kan också spåras från SDK: er.
@@ -231,7 +231,7 @@ Här följer några exempel på indexerings principer som visas i deras JSON-for
     }
 ```
 
-Anteckning: Vi rekommenderar vanligt vis att du använder en **opt-out-** indexerings princip för att låta Azure Cosmos DB indexera alla nya egenskaper som kan läggas till i din modell proaktivt.
+Obs! Vi rekommenderar vanligt vis att du använder en **opt-out-** indexerings princip för att låta Azure Cosmos DB indexera alla nya egenskaper som kan läggas till i din modell proaktivt.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Använda ett rums index för en speciell egenskaps Sök väg
 ```

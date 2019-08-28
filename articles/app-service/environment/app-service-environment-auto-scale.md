@@ -1,6 +1,6 @@
 ---
-title: Automatisk skalning och App Service Environment v1 - Azure
-description: Automatisk skalning och App Service-miljö
+title: Automatisk skalning och App Service-miljön v1 – Azure
+description: Automatisk skalning och App Service-miljön
 services: app-service
 documentationcenter: ''
 author: btardif
@@ -10,220 +10,219 @@ ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0c49e1835412b61817ff3571dd3ee1eaa29f21f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955959"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070089"
 ---
-# <a name="autoscaling-and-app-service-environment-v1"></a>Automatisk skalning och App Service Environment v1
+# <a name="autoscaling-and-app-service-environment-v1"></a>Automatisk skalning och App Service-miljön v1
 
 > [!NOTE]
-> Den här artikeln handlar om App Service Environment v1.  Det finns en nyare version av App Service Environment som är enklare att använda och körs på kraftfullare infrastruktur. Mer information om den nya versionen början med den [introduktion till App Service Environment](intro.md).
+> Den här artikeln gäller App Service-miljön v1.  Det finns en nyare version av App Service-miljön som är enklare att använda och som körs på en kraftfullare infrastruktur. Om du vill veta mer om den nya versionen börjar [du med introduktionen till App Service-miljön](intro.md).
 > 
 
-Stöd för Azure App Service-miljöer *autoskalning*. Du kan skala automatiskt individuella arbetarpooler baserat på mått eller schemaläggning.
+Azure App Service miljöer stöderautoskalning. Du kan skala enskilda Worker-pooler automatiskt baserat på mått eller schema.
 
-![Alternativ för automatisk skalning för en worker-pool.][intro]
+![Alternativ för autoskalning för en arbets grupp.][intro]
 
-Automatisk skalning optimerar resursanvändningen genom att automatiskt växande och minska storleken på en App Service-miljö för att de passar din budget och eller läsa in profilen.
+Automatisk skalning optimerar resursanvändningen genom att automatiskt öka och minska en App Services miljö så att den passar din budget och eller läser in profil.
 
-## <a name="configure-worker-pool-autoscale"></a>Konfigurera worker pool autoscale
-Du kan komma åt funktionerna för automatisk skalning från den **inställningar** fliken arbetarpoolen.
+## <a name="configure-worker-pool-autoscale"></a>Konfigurera autoskalning för arbets pool
+Du kan komma åt funktionen för autoskalning från fliken **Inställningar** i arbets gruppen.
 
-![Inställningsfliken i arbetarpoolen.][settings-scale]
+![Fliken Inställningar i arbets gruppen.][settings-scale]
 
-Därifrån kan är gränssnittet ska vara ganska välbekanta eftersom den samma upplevelse som du ser när du skalar en App Service plan. 
+Därifrån bör gränssnittet vara ganska välbekant eftersom det är samma upplevelse som du ser när du skalar en App Service plan. 
 
-![Inställningar för manuell skala.][scale-manual]
+![Inställningar för manuell skalning.][scale-manual]
 
-Du kan också konfigurera en autoskalningsprofil.
+Du kan också konfigurera en profil för autoskalning.
 
-![Inställningarna för automatisk skalning.][scale-profile]
+![Inställningar för autoskalning.][scale-profile]
 
-Profiler för automatisk skalning är användbara för att ange begränsningar för din skalningsuppsättning. På så sätt kan du ha en konsekvent prestanda som uppstår genom att ange ett undre gränsvärde skala värde (1) och ett tak för förutsägbara kostnader genom att ange en övre gräns (2).
+Profiler för autoskalning är användbara om du vill ange gränser för skalan. På så sätt kan du ha en konsekvent prestanda upplevelse genom att ange ett lägre gräns värde (1) och en förutsägbar kostnad genom att ange en övre gräns (2).
 
-![Skala inställningarna i profilen.][scale-profile2]
+![Skalnings inställningar i profilen.][scale-profile2]
 
-När du har definierat en profil kan du lägga till regler för automatisk skalning att skala upp eller ned antalet instanser i arbetarpoolen inom det giltiga intervallet som definierats av profilen. Regler för automatisk skalning baserat på mått.
+När du har definierat en profil kan du lägga till regler för autoskalning för att skala upp eller ned antalet instanser i arbets gruppen inom de gränser som definieras av profilen. Regler för autoskalning baseras på mått.
 
-![Skalningsregeln.][scale-rule]
+![Skalnings regel.][scale-rule]
 
- Alla arbetarpooler eller mått i klientdelen kan användas för att definiera regler för automatisk skalning. Dessa mått är de samma mått som du kan övervaka i resursen bladet diagram eller ställa in aviseringar för.
+ Alla Worker-pooler och frontend-mått kan användas för att definiera regler för autoskalning. Dessa mått är samma mått som du kan övervaka i bladet resurs blad eller ange aviseringar för.
 
-## <a name="autoscale-example"></a>Exempel för automatisk skalning
-Automatisk skalning av App Service environment kan bäst illustreras genom att gå igenom ett scenario.
+## <a name="autoscale-example"></a>Exempel på autoskalning
+Autoskalning av en App Service miljö kan visas bäst genom att du går igenom ett scenario.
 
-Den här artikeln beskrivs alla nödvändiga överväganden när du ställer in automatisk skalning. Artikeln vägleder dig genom de interaktioner som har betydelse vid du räkna in automatisk skalning App Service-miljöer som finns i App Service Environment.
+I den här artikeln beskrivs alla nödvändiga överväganden när du ställer in autoskalning. Artikeln vägleder dig genom de interaktioner som kommer i spel när du använder den automatiska skalnings App Service miljöer som finns i App Service-miljön.
 
-### <a name="scenario-introduction"></a>Scenario-introduktion
-Frank är en sysadmin för ett företag som har en del av arbetsbelastningarna som de hanterar till en App Service-miljö.
+### <a name="scenario-introduction"></a>Introduktion till scenario
+Frank är en sysadmin för ett företag som har migrerat en del av arbets belastningarna som de hanterar till en App Services miljö.
 
-App Service-miljö är konfigurerad att manuell skala enligt följande:
+App Services miljön har kon figurer ATS för manuell skalning enligt följande:
 
-* **Klientdelar:** 3
-* **Arbetarpool 1**: 10
-* **Arbetarpool 2**: 5
-* **Arbetarpool 3**: 5
+* **Klient delar:** 3
+* **Arbets pool 1**: 10
+* **Arbets pool 2**: 5
+* **Arbets pool 3**: 5
 
-Arbetarpool 1 används för produktionsarbetsbelastningar medan arbetarpool 2 och arbetarpoolen 3 används för utvecklingsarbetsbelastningar och kvalitetssäkring (kvalitetskontroll).
+Worker-pool 1 används för produktions arbets belastningar, medan Worker pool 2 och Worker pool 3 används för kvalitets säkrings-och utvecklings arbets belastningar.
 
-App Service-planer för QA och utveckling är konfigurerade att manuell skala. App Service-plan för produktion anges som automatisk skalning utan variationer i nätverksbelastningen och.
+App Service planer för frågor och utveckling har kon figurer ATS för manuell skalning. Produktions App Service plan är inställd på automatisk skalning för att hantera variationer i belastning och trafik.
 
-Frank är insatt i programmet. De vet att tiderna med högsta användningsnivå för belastningen mellan 9:00:00 och 18:00 eftersom detta är en line-of-business (LOB) program som anställda använder när de är på kontoret. Användningen sjunker efter det när användare är klar för den dagen. Utanför högbelastningstid finns fortfarande vissa eftersom användarna kommer åt appen via en fjärranslutning med hjälp av sina mobila enheter eller hemdatorer. Produktion App Service-plan har redan konfigurerats för automatisk skalning baserat på CPU-användning med följande regler:
+Frank är mycket bekant med programmet. De vet att belastningen för belastningen är mellan 9:00 och 6:00 PM eftersom det är ett LOB-program (Line-of-Business) som medarbetarna använder när de är på kontoret. Användningen sjunker efter det när användarna är klara för den dagen. Vid låg belastnings tider finns det fortfarande en del belastning eftersom användarna kan komma åt appen via en fjärr anslutning med hjälp av sina mobila enheter eller hem datorer. Produktions App Service plan har redan kon figurer ATS för autoskalning baserat på CPU-användning med följande regler:
 
-![Inställningar för LOB-app.][asp-scale]
+![Vissa inställningar för LOB-appen.][asp-scale]
 
-| **Profilen för automatisk skalning – vardagar – App Service-plan** | **Profilen för automatisk skalning – helger – App Service-plan** |
+| **Profil för autoskalning – vardagar – App Service plan** | **Profil för autoskalning – helg – App Service plan** |
 | --- | --- |
-| **Namn:** Weekday-profil |**Namn:** Helgen profil |
-| **Skala genom att:** Schema och Prestandaregler |**Skala genom att:** Schema och Prestandaregler |
-| **Profil:** Veckodagar |**Profil:** Helgen |
-| **Typ:** Upprepning |**Typ:** Upprepning |
-| **Målområde:** 5 till 20 instanser |**Målområde:** 3-10 instanser |
-| **Dagar:** Måndag, tisdag, onsdag, torsdag, fredag |**Dagar:** Lördag, söndag |
-| **Starttid:** 9:00:00 |**Starttid:** 9:00:00 |
+| **Namn:** Veckodag-profil |**Namn:** Helg profil |
+| **Skala efter:** Schema-och prestanda regler |**Skala efter:** Schema-och prestanda regler |
+| **Upphandlarprofil** Vecko dagar |**Upphandlarprofil** Helgen |
+| **Bastyp** Upprepning |**Bastyp** Upprepning |
+| **Mål intervall:** 5 till 20 instanser |**Mål intervall:** 3 till 10 instanser |
+| **Antalet** Måndag, tisdag, onsdag, torsdag, fredag |**Antalet** Lördag, söndag |
+| **Start tid:** 9:00 AM |**Start tid:** 9:00 AM |
 | **Tidszon:** UTC-08 |**Tidszon:** UTC-08 |
 |  | |
-| **Regeln för automatisk skalning (skala upp)** |**Regeln för automatisk skalning (skala upp)** |
-| **resursen:** Produktion (App Service Environment) |**resursen:** Produktion (App Service Environment) |
-| **Mått:** PROCESSOR I PROCENT |**Mått:** PROCESSOR I PROCENT |
-| **Åtgärd:** Större än 60% |**Åtgärd:** Större än 80% |
-| **Varaktighet:** 5 minuter |**Varaktighet:** 10 minuter |
-| **Tidsmängd:** Medel |**Tidsmängd:** Medel |
-| **Åtgärd:** Öka antal med 2 |**Åtgärd:** Öka antal med 1 |
-| **Väntetid (minuter):** 15 |**Väntetid (minuter):** 20 |
+| **Regel för autoskalning (skala upp)** |**Regel för autoskalning (skala upp)** |
+| **Klusterresursen** Produktion (App Service-miljön) |**Klusterresursen** Produktion (App Service-miljön) |
+| **Kostnads** REGISTRERA |**Kostnads** REGISTRERA |
+| **Reparation** Större än 60% |**Reparation** Större än 80% |
+| **Giltighet** 5 minuter |**Giltighet** 10 minuter |
+| **Tids mängd:** Average |**Tids mängd:** Average |
+| **Tgärd** Öka antal med 2 |**Tgärd** Öka antal med 1 |
+| **Låg frekvent (minuter):** 15 |**Låg frekvent (minuter):** 20 |
 |  | |
-| **Regeln för automatisk skalning (skala ned)** |**Regeln för automatisk skalning (skala ned)** |
-| **resursen:** Produktion (App Service Environment) |**resursen:** Produktion (App Service Environment) |
-| **Mått:** PROCESSOR I PROCENT |**Mått:** PROCESSOR I PROCENT |
-| **Åtgärd:** Mindre än 30% |**Åtgärd:** Mindre än 20% |
-| **Varaktighet:** 10 minuter |**Varaktighet:** 15 minuter |
-| **Tidsmängd:** Medel |**Tidsmängd:** Medel |
-| **Åtgärd:** Minska antal med 1 |**Åtgärd:** Minska antal med 1 |
-| **Väntetid (minuter):** 20 |**Väntetid (minuter):** 10 |
+| **Regel för autoskalning (skala ned)** |**Regel för autoskalning (skala ned)** |
+| **Klusterresursen** Produktion (App Service-miljön) |**Klusterresursen** Produktion (App Service-miljön) |
+| **Kostnads** REGISTRERA |**Kostnads** REGISTRERA |
+| **Reparation** Mindre än 30% |**Reparation** Mindre än 20% |
+| **Giltighet** 10 minuter |**Giltighet** 15 minuter |
+| **Tids mängd:** Average |**Tids mängd:** Average |
+| **Tgärd** Minska antal med 1 |**Tgärd** Minska antal med 1 |
+| **Låg frekvent (minuter):** 20 |**Låg frekvent (minuter):** 10 |
 
-### <a name="app-service-plan-inflation-rate"></a>App Service-plan inflationen hastighet
-App Service-planer som har konfigurerats för automatisk skalning gör det på en högsta överföringshastighet per timme. Priset kan beräknas baserat på de värden som anges i regeln för automatisk skalning.
+### <a name="app-service-plan-inflation-rate"></a>App Service plan inflations takt
+App Service planer som kon figurer ATS för autoskalning så till en högsta pris per timme. Den här hastigheten kan beräknas baserat på de värden som anges i regeln för autoskalning.
 
-Förstå och beräkna den *App Service-plan inflationen rate* är viktigt för App Service environment autoskalning eftersom ändringar till en worker-pool inte är omedelbar.
+Att förstå och beräkna den *App Service plan inflations takten* är viktigt för att App Service miljön Autoskala eftersom skalnings ändringar till en arbets grupp inte är omedelbara.
 
-App Service-plan inflationen priset beräknas enligt följande:
+App Service plan inflations takten beräknas på följande sätt:
 
-![App Service-plan inflationen beräkning.][ASP-Inflation]
+![Beräkning av App Service plan inflations grad.][ASP-Inflation]
 
-Baserat på autoskalning – skala upp regel för profilen veckodag för produktion App Service-planen:
+Baserat på regeln för autoskalning – skala upp för vardags profilen för produktions App Service plan:
 
-![App Service-plan inflationen hastighet för veckodagar baserat på autoskalning – skala upp regeln.][Equation1]
+![App Service plan inflations takt för vardagar baserat på regler för autoskalning – skala upp.][Equation1]
 
-När det gäller autoskalning – skala upp regel för helgen profilen för produktion App Service-planen skulle formeln matcha med:
+När det gäller autoskalning – skala upp-regeln för den här produktions App Service planens helg profil, matcha formeln till:
 
-![App Service-plan inflationen hastighet för helger baserat på autoskalning – skala upp regeln.][Equation2]
+![App Service plan inflations takt för helger baserat på regler för autoskalning – skala upp.][Equation2]
 
-Det här värdet kan också beräknas för skala ned åtgärder.
+Det här värdet kan också beräknas för skalnings åtgärder.
 
-Baserat på autoskalning – skala ned regel för profilen veckodag för produktion App Service-planen detta skulle se ut så här:
+Baserat på den automatiska skalnings regeln för den vardags profil som gäller för produktions App Service plan, ser detta ut så här:
 
-![App Service-plan inflationen hastighet för veckodagar baserat på autoskalning – skala ned regeln.][Equation3]
+![App Service plan inflations takt för vardagar baserat på regler för autoskalning – skala nedåt.][Equation3]
 
-När det gäller autoskalning – skala ned regel för helgen profilen för produktion App Service-planen skulle formeln matcha med:  
+När det gäller den automatiska skalnings regeln för den här produktions App Service planens helg profil, matcha formeln till:  
 
-![App Service-plan inflationen hastighet för helger baserat på autoskalning – skala ned regeln.][Equation4]
+![App Service plan inflations takt för helger baserat på regler för autoskalning – skala nedåt.][Equation4]
 
-App Service-plan för produktion kan växa på högst åtta instanser per timme under veckan och fyra instanser per timme när det är helgen. Det kan släppa instanser på högst fyra instanser per timme under veckan och sex instanser per timme under helger.
+Produktions App Service plan kan växa med högst åtta instanser/timme under veckan och fyra instanser/timme under helgen. Den kan släppa instanser på högst fyra instanser/timme under veckan och sex instanser/timme under helger.
 
-Om flera App Service-planer finns i en arbetspool, måste du beräkna den *totala inflationen antalet* som summan av inflationen avgiften för alla App Service-planer som värd för i den arbetarpoolen.
+Om flera App Service-planer finns i en arbets grupp måste du beräkna den *totala inflations taxan* som summan av inflations priset för alla App Service-planer som är värdar för den aktuella arbets gruppen.
 
-![Total beräkning av inflationen för flera App Service-planer finns i en arbetspool.][ASP-Total-Inflation]
+![Den totala inflations beräkningen för flera App Service planer som finns i en arbets grupp.][ASP-Total-Inflation]
 
-### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Använda App Service-plan inflationen frekvensen för att definiera regler för automatisk skalning av worker-pool
-Worker-pooler som är värdar för App Service-planer som har konfigurerats för automatisk skalning måste tilldelas en buffert med kapacitet. Bufferten möjliggör åtgärder för automatisk skalning att växa eller krympa App Service-planen efter behov. Minsta bufferten är beräknade App Service Plan inflationen summan.
+### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Använd App Service plan inflations takt för att definiera regler för autoskalning av arbets pool
+Resurspooler som är värdar för App Service planer som är konfigurerade för autoskalning måste allokeras till en buffert med kapacitet. Bufferten gör att de automatiska skalnings åtgärderna kan växa och minska App Service plan efter behov. Den lägsta bufferten skulle vara den beräknade totala App Services planens inflations takt.
 
-Eftersom App Service environment skalningsåtgärder ta lite tid att tillämpa, ska ändringar svara och begäran ändringar kan göras som kan inträffa när en skalningsåtgärd pågår. För att hantera den här fördröjningen, rekommenderar vi att du använder den beräknade App Service Plan inflationen frekvens som det minsta antalet instanser som har lagts till för varje åtgärd för automatisk skalning.
+Eftersom App Service miljö skalnings åtgärder tar lite tid att tillämpa, bör alla ändringar redovisas för ytterligare efter frågan som kan uppstå medan en skalnings åtgärd pågår. För att tillgodose den här fördröjningen rekommenderar vi att du använder den beräknade totala App Services planens inflations takt som minsta antal instanser som läggs till för varje autoskalning-åtgärd.
 
-Med den här informationen kan du definiera följande profilen för automatisk skalning och regler Frank:
+Med den här informationen kan Frank definiera följande profil och regler för autoskalning:
 
-![Regler för automatisk skalning profil för LOB-exempel.][Worker-Pool-Scale]
+![Profil regler för autoskalning för LOB-exempel.][Worker-Pool-Scale]
 
-| **Profilen för automatisk skalning – veckodagar** | **Profilen för automatisk skalning – helger** |
+| **Profil för autoskalning – vardagar** | **Skala profil – helger** |
 | --- | --- |
-| **Namn:** Weekday-profil |**Namn:** Helgen profil |
-| **Skala genom att:** Schema och Prestandaregler |**Skala genom att:** Schema och Prestandaregler |
-| **Profil:** Veckodagar |**Profil:** Helgen |
-| **Typ:** Upprepning |**Typ:** Upprepning |
-| **Målområde:** 13 till 25 instanser |**Målområde:** 6-15-instanser |
-| **Dagar:** Måndag, tisdag, onsdag, torsdag, fredag |**Dagar:** Lördag, söndag |
-| **Starttid:** 7:00:00 |**Starttid:** 9:00:00 |
+| **Namn:** Veckodag-profil |**Namn:** Helg profil |
+| **Skala efter:** Schema-och prestanda regler |**Skala efter:** Schema-och prestanda regler |
+| **Upphandlarprofil** Vecko dagar |**Upphandlarprofil** Helgen |
+| **Bastyp** Upprepning |**Bastyp** Upprepning |
+| **Mål intervall:** 13 till 25 instanser |**Mål intervall:** 6 till 15 instanser |
+| **Antalet** Måndag, tisdag, onsdag, torsdag, fredag |**Antalet** Lördag, söndag |
+| **Start tid:** 7:00 AM |**Start tid:** 9:00 AM |
 | **Tidszon:** UTC-08 |**Tidszon:** UTC-08 |
 |  | |
-| **Regeln för automatisk skalning (skala upp)** |**Regeln för automatisk skalning (skala upp)** |
-| **resursen:** Arbetarpool 1 |**resursen:** Arbetarpool 1 |
-| **Mått:** WorkersAvailable |**Mått:** WorkersAvailable |
-| **Åtgärd:** Mindre än 8 |**Åtgärd:** Mindre än 3 |
-| **Varaktighet:** 20 minuter |**Varaktighet:** 30 minuter |
-| **Tidsmängd:** Medel |**Tidsmängd:** Medel |
-| **Åtgärd:** Öka antal med 8 |**Åtgärd:** Öka antal med 3 |
-| **Väntetid (minuter):** 180 |**Väntetid (minuter):** 180 |
+| **Regel för autoskalning (skala upp)** |**Regel för autoskalning (skala upp)** |
+| **Klusterresursen** Arbets pool 1 |**Klusterresursen** Arbets pool 1 |
+| **Kostnads** WorkersAvailable |**Kostnads** WorkersAvailable |
+| **Reparation** Mindre än 8 |**Reparation** Mindre än 3 |
+| **Giltighet** 20 minuter |**Giltighet** 30 minuter |
+| **Tids mängd:** Average |**Tids mängd:** Average |
+| **Tgärd** Öka antal med 8 |**Tgärd** Öka antalet med 3 |
+| **Låg frekvent (minuter):** 180 |**Låg frekvent (minuter):** 180 |
 |  | |
-| **Regeln för automatisk skalning (skala ned)** |**Regeln för automatisk skalning (skala ned)** |
-| **resursen:** Arbetarpool 1 |**resursen:** Arbetarpool 1 |
-| **Mått:** WorkersAvailable |**Mått:** WorkersAvailable |
-| **Åtgärd:** Större än 8 |**Åtgärd:** Är större än 3 |
-| **Varaktighet:** 20 minuter |**Varaktighet:** 15 minuter |
-| **Tidsmängd:** Medel |**Tidsmängd:** Medel |
-| **Åtgärd:** Minska antal med 2 |**Åtgärd:** Minska antal med 3 |
-| **Väntetid (minuter):** 120 |**Väntetid (minuter):** 120 |
+| **Regel för autoskalning (skala ned)** |**Regel för autoskalning (skala ned)** |
+| **Klusterresursen** Arbets pool 1 |**Klusterresursen** Arbets pool 1 |
+| **Kostnads** WorkersAvailable |**Kostnads** WorkersAvailable |
+| **Reparation** Större än 8 |**Reparation** Större än 3 |
+| **Giltighet** 20 minuter |**Giltighet** 15 minuter |
+| **Tids mängd:** Average |**Tids mängd:** Average |
+| **Tgärd** Minska antal med 2 |**Tgärd** Minska antalet med 3 |
+| **Låg frekvent (minuter):** 120 |**Låg frekvent (minuter):** 120 |
 
-Målområde som definierats i profilen beräknas genom att de minsta instanser som anges i profilen för App Service-plan + buffert.
+Det angivna mål intervallet i profilen beräknas av de minsta instanserna som definierats i profilen för App Service plan + buffer.
 
-Maximalt intervall är summan av de största intervall för alla App Service-planer finns i arbetarpoolen.
+Det maximala intervallet är summan av alla maximala intervall för alla App Service planer som finns i arbets gruppen.
 
-Öka antalet för skalan in regler sättas till minst 1 X-App Service Plan inflationen frekvensen för att skala.
+Öknings antalet för reglerna för skalnings regler ska vara minst 1X App Service plans inflations takt för skalning.
 
-Minska antal kan justeras till något mellan 1/2 X eller 1 X-App Service Plan inflationen frekvensen för att skala ned.
+Antalet minskningar kan justeras till något mellan 1/2X eller 1X App Service plan inflations takt för skalning.
 
-### <a name="autoscale-for-front-end-pool"></a>Automatisk skalning för adresspool på klientsidan
-Regler för klientdelen autoskalning är enklare än för arbetarpooler. Främst bör du  
-Se till att varaktigheten för mätning och nedkylningstiden timers överväger skalningsåtgärder i en App Service-plan inte är omedelbar.
+### <a name="autoscale-for-front-end-pool"></a>Autoskalning för klient delens pool
+Regler för autoskalning på klient sidan är enklare än för Worker-pooler. Främst bör du  
+Se till att varaktigheten för mätningen och cooldown-förstenarna anser att skalnings åtgärder på en app service plan inte är omedelbara.
 
-Det här scenariot vet Frank att Felfrekvensen ökar när klientdelar når 80% CPU-användning och anger regeln för automatisk skalning att öka instanser enligt följande:
+I det här scenariot vet Frank att fel frekvensen ökar efter att klient lanseringarna når 80% processor användning och ställer in regeln för autoskalning för att öka instanser på följande sätt:
 
-![Inställningarna för automatisk skalning för adresspool på klientsidan.][Front-End-Scale]
+![Inställningar för autoskalning för klient delens pool.][Front-End-Scale]
 
-| **Profilen för automatisk skalning – klientdel** |
+| **Profil för autoskalning – klient delar** |
 | --- |
-| **Namn:** Automatisk skalning – klientdel |
-| **Skala genom att:** Schema och Prestandaregler |
-| **Profil:** varje dag |
-| **Typ:** Upprepning |
-| **Målområde:** 3-10 instanser |
-| **Dagar:** varje dag |
-| **Starttid:** 9:00:00 |
+| **Namn:** Autoskalning – klient delar |
+| **Skala efter:** Schema-och prestanda regler |
+| **Upphandlarprofil** Varje dag |
+| **Bastyp** Upprepning |
+| **Mål intervall:** 3 till 10 instanser |
+| **Antalet** Varje dag |
+| **Start tid:** 9:00 AM |
 | **Tidszon:** UTC-08 |
 |  |
-| **Regeln för automatisk skalning (skala upp)** |
-| **resursen:** Adresspool på klientsidan |
-| **Mått:** PROCESSOR I PROCENT |
-| **Åtgärd:** Större än 60% |
-| **Varaktighet:** 20 minuter |
-| **Tidsmängd:** Medel |
-| **Åtgärd:** Öka antal med 3 |
-| **Väntetid (minuter):** 120 |
+| **Regel för autoskalning (skala upp)** |
+| **Klusterresursen** Klient delens pool |
+| **Kostnads** REGISTRERA |
+| **Reparation** Större än 60% |
+| **Giltighet** 20 minuter |
+| **Tids mängd:** Average |
+| **Tgärd** Öka antalet med 3 |
+| **Låg frekvent (minuter):** 120 |
 |  |
-| **Regeln för automatisk skalning (skala ned)** |
-| **resursen:** Arbetarpool 1 |
-| **Mått:** PROCESSOR I PROCENT |
-| **Åtgärd:** Mindre än 30% |
-| **Varaktighet:** 20 minuter |
-| **Tidsmängd:** Medel |
-| **Åtgärd:** Minska antal med 3 |
-| **Väntetid (minuter):** 120 |
+| **Regel för autoskalning (skala ned)** |
+| **Klusterresursen** Arbets pool 1 |
+| **Kostnads** REGISTRERA |
+| **Reparation** Mindre än 30% |
+| **Giltighet** 20 minuter |
+| **Tids mängd:** Average |
+| **Tgärd** Minska antalet med 3 |
+| **Låg frekvent (minuter):** 120 |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png

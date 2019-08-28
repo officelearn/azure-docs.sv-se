@@ -9,16 +9,15 @@ ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 687783520b082cdfd1a6ffc91a8641ea35fafd68
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c3c54b003017f7512cd40c7798fc351e4e4a3f69
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323354"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094921"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Använd RDMA-eller GPU-instanser i batch-pooler
 
@@ -43,7 +42,7 @@ RDMA-eller GPU-funktionerna för beräknings intensiva storlekar i batch stöds 
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Linux-pooler – konfiguration av virtuell dator
 
-| Size | Funktion | Operativsystem | Nödvändig program vara | Inställningar för pool |
+| Size | Funktion | Operativsystem | Nödvändig program vara | Poolinställningar |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16,04 LTS eller<br/>CentOS-baserat HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA-drivrutiner | Aktivera kommunikation mellan noder, inaktivera körning av samtidiga aktiviteter |
 | [NC, NCv2, NCv3, NDv2-serien](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar per serie) | Ubuntu 16,04 LTS eller<br/>CentOS 7,3 eller 7,4<br/>(Azure Marketplace) | NVIDIA CUDA-eller CUDA Toolkit-drivrutiner | Gäller inte | 
@@ -53,7 +52,7 @@ RDMA-eller GPU-funktionerna för beräknings intensiva storlekar i batch stöds 
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Windows-pooler – konfiguration av virtuell dator
 
-| Size | Funktion | Operativsystem | Nödvändig program vara | Inställningar för pool |
+| Size | Funktion | Operativsystem | Nödvändig program vara | Poolinställningar |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 eller<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 eller senare, eller<br/> Intel MPI 5<br/><br/>Windows RDMA-drivrutiner | Aktivera kommunikation mellan noder, inaktivera körning av samtidiga aktiviteter |
 | [NC, NCv2, NCv3, ND, NDv2-serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar per serie) | Windows Server 2016 eller <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA-eller CUDA Toolkit-drivrutiner| Gäller inte | 
@@ -67,7 +66,7 @@ RDMA-eller GPU-funktionerna för beräknings intensiva storlekar i batch stöds 
 > N-seriens storlekar stöds inte i batch-pooler med moln tjänst konfigurationen.
 >
 
-| Size | Funktion | Operativsystem | Nödvändig program vara | Inställningar för pool |
+| Size | Funktion | Operativsystem | Nödvändig program vara | Poolinställningar |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 eller<br/>2008 R2 (gäst operativ system familj) | Microsoft MPI 2012 R2 eller senare, eller<br/>Intel MPI 5<br/><br/>Windows RDMA-drivrutiner | Aktivera kommunikation mellan noder,<br/> Inaktivera körning av samtidiga aktiviteter |
 

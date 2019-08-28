@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 78fb48d2584e94e5c38a4648f1ae41e566637601
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0d5f04d9c0cc6dcd8a784ae7a816d93e2aab30aa
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875586"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099475"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Skapa ett Azure IoT Central-program
 
@@ -24,7 +24,7 @@ Som _byggare_ använder du Azure IoT Central-användargränssnittet till att def
 
 ## <a name="create-an-application"></a>Skapa ett program
 
-Gå till sidan [Application Manager](https://aka.ms/iotcentral) (Programhanterare) i Azure IoT Central. Du måste logga in med ett arbets- eller skolkonto för Microsoft.
+Gå till webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) . Du måste logga in med ett arbets- eller skolkonto för Microsoft.
 
 Börja skapa ett nytt Azure IoT Central-program genom att välja **Nytt program**. Då kommer du till sidan **Skapa program**.
 
@@ -58,4 +58,4 @@ Skapa ett nytt Azure IoT Central-program:
 I den här snabbstarten har skapat du ett IoT Central-program. Här är nästa föreslagna steg:
 
 > [!div class="nextstepaction"]
-> [Ta en rundtur om IoT Central](overview-iot-central-tour.md)
+> [Definiera en ny enhets typ i ditt Azure IoT Central-program](./tutorial-define-device-type.md)

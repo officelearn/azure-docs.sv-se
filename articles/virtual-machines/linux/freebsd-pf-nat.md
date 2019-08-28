@@ -1,6 +1,6 @@
 ---
-title: Använd paketfilter från FreeBSD för att skapa en brandvägg i Azure | Microsoft Docs
-description: Lär dig hur du distribuerar en NAT-brandvägg med hjälp av från FreeBSD PF i Azure.
+title: Använd FreeBSD paket filter för att skapa en brand vägg i Azure | Microsoft Docs
+description: Lär dig hur du distribuerar en NAT-brandvägg med FreeBSD-PF i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: KylieLiang
@@ -9,39 +9,38 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 03ef1ad3f81cfe7b11f74ace9ff2992535d5aad6
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 8f06762fd84767ac4c6dfce67d547a1f311afcba
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667644"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083246"
 ---
-# <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Hur du använder paketfilter från FreeBSD för att skapa en säker brandvägg i Azure
-Den här artikeln beskrivs hur du distribuerar en NAT-brandvägg med från FreeBSD Packer Filter via Azure Resource Manager-mall för web server ovanligt.
+# <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Så här använder du FreeBSD Packet filter för att skapa en säker brand vägg i Azure
+Den här artikeln beskriver hur du distribuerar en NAT-brandvägg med hjälp av FreeBSD-filter genom Azure Resource Manager mall för vanliga webb server scenarier.
 
 ## <a name="what-is-pf"></a>Vad är PF?
-PF (ett paketfilter, också skrivit pf) är ett BSD licensierade tillståndskänsliga paketfilter, en central del av programvaran för nätverksfunktion. PF eftersom har utvecklats snabbt och nu har flera fördelar jämfört med andra tillgängliga brandväggar. Network Address Translation (NAT) är i PF ända sedan paketschemaläggaren och aktiva köhantering har integrerats i PF, genom att integrera ALTQ och göra den kan konfigureras via PFS konfiguration. Funktioner som pfsync och KARP för växling vid fel och redundans, authpf för sessionsautentisering och ftp-proxy för att underlätta brandväggsfunktioner svårt FTP-protokollet har även utökat PF. Kortfattat är PF en kraftfull och funktionsrik brandvägg. 
+PF (paket filter, även skrivet PF) är ett BSD-paket med tillstånds känsligt paket, en central del av program varan för brand väggar. PF har sedan utvecklats snabbt och har nu flera fördelar jämfört med andra tillgängliga brand väggar. NAT (Network Address Translation) är i PF sedan dag ett, sedan Packet Scheduler och hantering av aktiva köer har integrerats i PF, genom att integrera ALTQ och göra det konfigurerbart via PF-konfigurationen. Funktioner som pfsync och karp för redundans och redundans, authpf för certifikatautentisering och FTP-Proxy för att under lätta brand väggar av det svåra FTP-protokollet, har även utökad PF. I korthet är PF en kraftfull och funktions rik brand vägg. 
 
 ## <a name="get-started"></a>Kom igång
-Om du är intresserad av att ställa in en säker brandvägg i molnet för dina webbservrar, nu sätter vi igång. Du kan också använda de skript som används i den här Azure Resource Manager-mallen för att konfigurera din nätverkets topologi.
-Azure Resource Manager-mallen ställer in en FreeBSD virtuell dator som utför NAT /redirection med PF och två FreeBSD-virtuella datorer med Nginx-webbserver installeras och konfigureras. Förutom att utföra NAT för två web servrar utgående trafiken kan NAT/omdirigering av virtuell dator spärras HTTP-begäranden och omdirigerar dem till två webbservrarna i resursallokering. Det virtuella nätverket använder den privata icke-dirigerbara IP-adress utrymme 10.0.0.2/24 och du kan ändra parametrarna i mallen. Azure Resource Manager-mall definierar också en routningstabell för hela VNet, som är en samling individuella vägare som används för att åsidosätta Azure standardvägar baserat på IP-måladressen. 
+Om du är intresse rad av att skapa en säker brand vägg i molnet för dina webb servrar, kan du börja med att sätta igång. Du kan också använda skripten som används i den här Azure Resource Manager-mallen för att ställa in nätverk sto pol Ogin.
+Azure Resource Manager-mallen konfigurerar en virtuell FreeBSD-dator som utför NAT-/Redirection med hjälp av PF och två FreeBSD virtuella datorer med Nginx-webbservern installerad och konfigurerad. Förutom att utföra NAT för de två webb servrar som utgående trafik, fångar NAT/omdirigering av den virtuella datorn HTTP-förfrågningar och dirigerar dem till de två webb servrarna i resursallokering. VNet använder det privata icke-flyttbara IP-adressutrymmet 10.0.0.2/24 och du kan ändra parametrarna för mallen. Azure Resource Manager-mallen definierar också en routningstabell för hela VNet, som är en samling enskilda vägar som används för att åsidosätta Azures standard vägar baserat på mål-IP-adressen. 
 
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Distribuera via Azure CLI
-Du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index). Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas ett Resursgruppsnamn `myResourceGroup` i den `West US` plats.
+Du behöver det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index). Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas ett resurs grupps `myResourceGroup` namn på platsen.`West US`
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Distribuera mallen [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) med [az group deployment skapa](/cli/azure/group/deployment). Ladda ned [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under samma sökväg och definiera dina egna värden för resurs, till exempel `adminPassword`, `networkPrefix`, och `domainNamePrefix`. 
+Distribuera sedan mallen [PF-FreeBSD-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) med [AZ Group Deployment Create](/cli/azure/group/deployment). Hämta [azuredeploy. Parameters. JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under samma sökväg och definiera dina egna resurs värden, till exempel `adminPassword` `networkPrefix`, och `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \
@@ -49,15 +48,15 @@ az group deployment create --resource-group myResourceGroup --name myDeploymentN
     --parameters '@azuredeploy.parameters.json' --verbose
 ```
 
-Efter fem minuter får du information om `"provisioningState": "Succeeded"`. Sedan kan du ssh till klientdelens VM (NAT) eller åtkomst Nginx-webbserver i en webbläsare med den offentliga IP-adress eller FQDN för klientdelens VM (NAT). I följande exempel visas FQDN- och offentlig IP-adress som tilldelats klientdelens VM (NAT) i den `myResourceGroup` resursgrupp. 
+Efter cirka fem minuter kommer du att få information om `"provisioningState": "Succeeded"`. Sedan kan du använda SSH till den virtuella datorns virtuella dator (NAT) eller åtkomst nginx webb server i en webbläsare med hjälp av den offentliga IP-adressen eller FQDN för den virtuella datorns VM (NAT). I följande exempel visas FQDN och offentlig IP-adress som har tilldelats till den virtuella datorns VM ( `myResourceGroup` NAT) i resurs gruppen. 
 
 ```azurecli
 az network public-ip list --resource-group myResourceGroup
 ```
     
 ## <a name="next-steps"></a>Nästa steg
-Vill du ställa in dina egna NAT i Azure? Öppen källkod, kostnadsfritt men kraftfulla? Sedan är PF ett bra alternativ. Med hjälp av mallen [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), behöver du bara fem minuter att ställa in en NAT-brandvägg med belastningsutjämning för resursallokering med FreeBSD s PF i Azure för web server ovanligt. 
+Vill du konfigurera din egen NAT i Azure? Öppen källkod, kostnads fritt men kraftfullt? Sedan är PF ett bra val. Genom att använda mallen [PF-FreeBSD-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup)behöver du bara fem minuter för att konfigurera en NAT-brandvägg med resursallokering med resursallokering med FreeBSD: s PF i Azure för gemensamt webb server scenario. 
 
-Om du vill lära dig att erbjuda FreeBSD i Azure kan referera till [introduktion till FreeBSD på Azure](freebsd-intro-on-azure.md).
+Om du vill lära dig att erbjuda FreeBSD i Azure kan du läsa [Introduktion till FreeBSD på Azure](freebsd-intro-on-azure.md).
 
-Om du vill veta mer om PF Se [FreeBSD handboken](https://www.freebsd.org/doc/handbook/firewalls-pf.html) eller [PF-Användarhandbok](https://www.freebsd.org/doc/handbook/firewalls-pf.html).
+Om du vill veta mer om PF, se [FreeBSD handböcker](https://www.freebsd.org/doc/handbook/firewalls-pf.html) eller [PF-User ' s guide](https://www.freebsd.org/doc/handbook/firewalls-pf.html).

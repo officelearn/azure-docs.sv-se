@@ -6,18 +6,17 @@ author: mscurrell
 manager: gwallace
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
 ms.custom: seodec18
-ms.openlocfilehash: 90c8f3779283c23a98bac9d36fde2641c15afafe
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 33d448bc95f4cb12f5a06232cbab168a43d522c1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323469"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095197"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Använda lågprioriterade virtuella datorer med Batch
 
@@ -124,7 +123,7 @@ Noder i poolen har en egenskap som anger om noden är en dedikerad eller låg pr
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-När en eller flera noder i en pool blockeras, returnerar en List Nodes-åtgärd på poolen fortfarande noderna. Det aktuella antalet noder med låg prioritet förblir oförändrat, men de noderna har statusen inställd **på väntetillstånd.** Batch försöker hitta de virtuella datorerna och, om de lyckas, gå igenom **skapandet** och **Starta** sedan tillstånd innan de blir tillgängliga för uppgifts körning, precis som nya noder.
+När en eller flera noder i en pool blockeras, returnerar en List Nodes-åtgärd på poolen fortfarande noderna. Det aktuella antalet noder med låg prioritet förblir oförändrat, men de noderna har statusen inställd på väntetillstånd. Batch försöker hitta de virtuella datorerna och, om de lyckas, gå igenom **skapandet** och **Starta** sedan tillstånd innan de blir tillgängliga för uppgifts körning, precis som nya noder.
 
 ## <a name="scale-a-pool-containing-low-priority-vms"></a>Skala en pool som innehåller virtuella datorer med låg prioritet
 
@@ -158,7 +157,7 @@ Jobb och aktiviteter kräver lite ytterligare konfiguration för noder med låg 
 
 Virtuella datorer kan ibland vara blockerade. När avstängningen händer gör batch följande:
 
--   De virtuella datorernas tillstånd har uppdaterats **till att**blockeras.
+-   De virtuella datorernas tillstånd har uppdateratstill att blockeras.
 -   Om aktiviteter kördes på de virtuella datorerna i den tidigare noden, köas dessa aktiviteter och körs igen.
 -   Den virtuella datorn tas bort effektivt, vilket leder till förlust av data som lagras lokalt på den virtuella datorn.
 -   Poolen försöker kontinuerligt nå mål antalet tillgängliga noder med låg prioritet. När ersättnings kapaciteten hittas behåller noderna sina ID: n, men de initieras på nytt, så att du kan **skapa** och **Starta** tillstånd innan de är tillgängliga för schemaläggning.

@@ -1,6 +1,6 @@
 ---
-title: Schemalagda händelser för Windows-datorer i Azure | Microsoft Docs
-description: Schemalagda händelser med hjälp av tjänsten Azure Metadata för på din Windows-datorer.
+title: Schemalagda händelser för virtuella Windows-datorer i Azure | Microsoft Docs
+description: Schemalagda händelser med Azure-metadatatjänsten för på dina virtuella Windows-datorer.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
@@ -9,95 +9,94 @@ editor: ''
 tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ddd34147848ecb3a964eac3d618b452f5eb43f19
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 087f27b3857363c0b5f244ecd52ebd64105626b5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710307"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102404"
 ---
-# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Windows-datorer
+# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Windows-datorer
 
-Scheduled Events är en Azure Metadata Service som ger programmet tiden till att förbereda för VM-underhåll. Hittar du information om kommande Underhåll (t.ex. en omstart) så att ditt program kan förbereda för dem och begränsa avbrott. Det är tillgängligt för alla typer av Azure virtuella datorer, inklusive PaaS och IaaS på både Windows och Linux. 
+Schemalagda händelser är en Azure-Metadata Service som ger din program tid att förbereda för underhåll av virtuella datorer. Den innehåller information om kommande underhålls händelser (t. ex. omstart) så att ditt program kan förbereda sig för dem och begränsa avbrott. Den är tillgänglig för alla typer av virtuella Azure-datorer, inklusive PaaS och IaaS på både Windows och Linux. 
 
-Information om Scheduled Events i Linux finns i [schemalagda händelser för virtuella Linux-datorer](../linux/scheduled-events.md).
+Information om Schemalagda händelser i Linux finns [schemalagda händelser för virtuella Linux-datorer](../linux/scheduled-events.md).
 
 > [!Note] 
-> Schemalagda händelser är allmänt tillgänglig i alla Azure-regioner. Se [Version och Regiontillgänglighet](#version-and-region-availability) senaste viktig information.
+> Schemalagda händelser är allmänt tillgänglig i alla Azure-regioner. Se [version och region tillgänglighet](#version-and-region-availability) för senaste versions information.
 
-## <a name="why-scheduled-events"></a>Varför schemalagda händelser?
+## <a name="why-scheduled-events"></a>Varför Schemalagda händelser?
 
-Många program kan dra nytta av tid för att förbereda för VM-underhåll. Tiden kan användas för att utföra specifika uppgifter för programmet som förbättrar tillgänglighet, pålitlighet och brukbarheten, inklusive: 
+Många program kan dra nytta av tid för att förbereda för underhåll av virtuella datorer. Tiden kan användas för att utföra programspecifika uppgifter som förbättrar tillgängligheten, tillförlitligheten och service möjligheterna, inklusive: 
 
-- Kontrollpunkt och återställning
+- Kontroll punkt och återställning
 - Anslutningstömning
-- Primära replikeringsredundans 
-- Tas bort från belastningsutjämningstrafik
-- Händelseloggning
-- Avslutning 
+- Redundansväxling av primär replik 
+- Borttagning från belastnings Utjämnings poolen
+- Händelse loggning
+- Korrekt avstängning 
 
-Med schemalagda händelser ditt program kan identifiera när Underhåll ska inträffa och utlösa uppgifter för att begränsa dess inverkan. Aktivera schemalagda händelser ger din virtuella dator en minimal mängd tid innan aktiviteten underhåll utförs. Se avsnittet händelse schemaläggning nedan för information.
+Användning av Schemalagda händelser ditt program kan upptäcka när underhåll sker och utlösa aktiviteter för att begränsa dess påverkan. Om du aktiverar schemalagda händelser får den virtuella datorn en minimal tid innan underhålls aktiviteten utförs. Mer information finns i avsnittet händelse schemaläggning nedan.
 
-Schemalagda händelser innehåller händelser i följande användningsfall:
-- [Plattformen initierade Underhåll](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (till exempel VM omstart, Direktmigrering och minne som bevaras uppdateringar för värd)
-- Degraderat maskinvara
-- Användarinitierad Underhåll (t.ex. användare startar om eller distribuerar om en virtuell dator)
-- [Borttagning har VM med låg prioritet](https://azure.microsoft.com/blog/low-priority-scale-sets) i skala
+Schemalagda händelser innehåller händelser i följande användnings fall:
+- [Plattform initierat underhåll](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (till exempel VM-omstart, direktmigrering eller minnes konserverings uppdateringar för värd)
+- Degraderad maskin vara
+- Användarens initierade underhåll (t. ex. att användaren startar om eller distribuerar om en virtuell dator)
+- [Låg prioritet för VM-avlägsning](https://azure.microsoft.com/blog/low-priority-scale-sets) i skalnings uppsättningar
 
 ## <a name="the-basics"></a>Grunderna  
 
-Azure Metadata service visar information om att köra virtuella datorer med en REST-slutpunkt som är tillgängliga inifrån den virtuella datorn. Informationen är tillgänglig via en icke-dirigerbara IP-adress så att den inte är exponerad utanför den virtuella datorn.
+Azure-metadatatjänsten visar information om att köra Virtual Machines att använda en REST-slutpunkt som är tillgänglig från den virtuella datorn. Informationen är tillgänglig via en icke-dirigerad IP-adress så att den inte exponeras utanför den virtuella datorn.
 
-### <a name="endpoint-discovery"></a>Slutpunktsidentifiering
-För VNET-aktiverade virtuella datorer, metadatatjänsten är tillgänglig från en statisk icke-dirigerbara IP `169.254.169.254`. Fullständig slutpunkten för den senaste versionen av Scheduled Events är: 
+### <a name="endpoint-discovery"></a>Slut punkts identifiering
+För VNET-aktiverade virtuella datorer är metadatatjänsten tillgänglig från en statisk icke-dirigerad IP- `169.254.169.254`adress. Den fullständiga slut punkten för den senaste versionen av Schemalagda händelser är: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
 
-Om den virtuella datorn inte har skapats i ett virtuellt nätverk, standard-fall för molntjänster och klassiska virtuella datorer, krävs ytterligare logik för att identifiera IP-adress som ska användas. Referera till det här exemplet vill lära dig hur du [identifiera värd-slutpunkt](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+Om den virtuella datorn inte har skapats inom en Virtual Network, krävs standard fall för moln tjänster och klassiska virtuella datorer, men ytterligare logik krävs för att identifiera IP-adressen som ska användas. Se det här exemplet för att lära dig hur du [identifierar värd slut punkten](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
-### <a name="version-and-region-availability"></a>Version och Regiontillgänglighet
-Tjänsten schemalagda händelser skapas. Versioner är obligatoriska och den aktuella versionen är `2017-11-01`.
+### <a name="version-and-region-availability"></a>Tillgänglighet för version och region
+Den Schemalagda händelser tjänsten har versions hantering. Versioner är obligatoriska och den aktuella versionen är `2017-11-01`.
 
-| Version | Versionstyp | Regions | Viktig information | 
+| Version | Versions typ | Regions | Viktig information | 
 | - | - | - | - |
-| 2017-11-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för borttagning har VM med låg prioritet händelsetyp 'Preempt'<br> | 
-| 2017-08-01 | Allmän tillgänglighet | Alla | <li> Bort föregås av ett anpassningsprefix understreck från resursnamn för virtuella IaaS-datorer<br><li>Metadatarubrik krav som gäller för alla begäranden | 
+| 2017-11-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för låg prioritet för VM-utavlägsning EventType ' Preempt '<br> | 
+| 2017-08-01 | Allmän tillgänglighet | Alla | <li> Tog bort anpassningsprefix-understreck från resurs namn för virtuella IaaS-datorer<br><li>Krav för metadata-huvud tillämpas för alla begär Anden | 
 | 2017-03-01 | Förhandsversion | Alla |<li>Första utgåvan
 
 > [!NOTE] 
-> Föregående förhandsversionerna av schemalagda händelser stöds {senaste} som den api-versionen. Det här formatet stöds inte längre och kommer att bli inaktuella i framtiden.
+> Tidigare för hands versioner av schemalagda händelser som stöds {senaste} som API-version. Det här formatet stöds inte längre och kommer att bli inaktuellt i framtiden.
 
-### <a name="enabling-and-disabling-scheduled-events"></a>Aktivera och inaktivera schemalagda händelser
-Schemalagda händelser är aktiverat för din tjänst först gången du gör en begäran om händelser. Du bör förvänta sig något fördröjda svar i ditt första anrop på upp till två minuter. Du bör fråga slutpunkten med jämna mellanrum för att identifiera kommande underhållshändelser, samt status för underhållsaktiviteter som utförs.
+### <a name="enabling-and-disabling-scheduled-events"></a>Aktivera och inaktivera Schemalagda händelser
+Schemalagda händelser aktive ras för din tjänst första gången du gör en begäran om händelser. Du bör förvänta dig ett fördröjt svar i ditt första anrop på upp till två minuter. Du bör fråga slut punkten regelbundet för att identifiera kommande underhålls händelser samt status för underhålls aktiviteter som utförs.
 
-Schemalagda händelser är inaktiverad för tjänsten om den inte gör en begäran i 24 timmar.
+Schemalagda händelser har inaktiverats för tjänsten om den inte gör en begäran i 24 timmar.
 
-### <a name="user-initiated-maintenance"></a>Användarinitierad Underhåll
-Användarinitierad underhålla virtuella datorer via Azure-portalen, API, CLI eller PowerShell resulterar i en schemalagd händelse. Detta kan du testa Underhåll förberedelse av logiken i ditt program och tillåter programmet att förbereda för Användarinitierat underhåll.
+### <a name="user-initiated-maintenance"></a>Användarinitierad underhåll
+Användaren initierade underhåll av virtuella datorer via Azure Portal, API, CLI eller PowerShell resulterar i en schemalagd händelse. På så sätt kan du testa underhålls förberedelse logiken i programmet och göra det möjligt för ditt program att förbereda för att användaren har initierat underhåll.
 
-Starta om en virtuell dator schemalägger en händelse med typen `Reboot`. Omdistribuera en virtuell dator schemalägger en händelse med typen `Redeploy`.
+När en virtuell dator startas om schemaläggs en händelse av typen `Reboot`. När du distribuerar en virtuell dator schemaläggs en händelse av typen `Redeploy`.
 
-## <a name="using-the-api"></a>Med hjälp av API
+## <a name="using-the-api"></a>Använda API: et
 
-### <a name="headers"></a>Rubriker
-När du frågar Metadata Service måste du ange rubriken `Metadata:true` att se till att begäran inte har omdirigerats oavsiktligt. Den `Metadata:true` rubrik krävs för alla schemalagda händelser förfrågningar. Det gick inte att använda huvud i begäran resulterar i en felaktig begäran-svar från Metadata Service.
+### <a name="headers"></a>Huvuden
+När du frågar metadata service måste du ange rubriken `Metadata:true` för att se till att begäran inte har omdirigerats av misstag. `Metadata:true` Rubriken krävs för alla begär Anden om schemalagda händelser. Om du inte tar med rubriken i begäran får du ett felaktigt svar från begäran från Metadata Service.
 
 ### <a name="query-for-events"></a>Fråga efter händelser
-Du kan fråga efter schemalagda händelser genom att göra följande anrop:
+Du kan fråga efter Schemalagda händelser enkelt genom att göra följande anrop:
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Powershell
 ```
 curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @{"Metadata"="true"}
 ```
 
-Svaret innehåller en matris med schemalagda händelser. En tom matris innebär att det finns för närvarande inga schemalagda händelser.
-I fall där det finns schemalagda händelser, svaret innehåller en matris med händelser: 
+Ett svar innehåller en matris med schemalagda händelser. En tom matris innebär att det inte finns några schemalagda händelser för tillfället.
+Om det finns schemalagda händelser innehåller svaret en händelse mat ris: 
 ```
 {
     "DocumentIncarnation": {IncarnationID},
@@ -113,42 +112,42 @@ I fall där det finns schemalagda händelser, svaret innehåller en matris med h
     ]
 }
 ```
-DocumentIncarnation är en ETag och ger ett enkelt sätt att kontrollera om händelser nyttolasten har ändrats sedan den senaste frågan.
+DocumentIncarnation är en ETag och ger ett enkelt sätt att kontrol lera om händelse nytto lasten har ändrats sedan den senaste frågan.
 
-### <a name="event-properties"></a>Egenskaper för händelse
+### <a name="event-properties"></a>Händelse egenskaper
 |Egenskap  |  Beskrivning |
 | - | - |
 | EventId | Globalt unik identifierare för den här händelsen. <br><br> Exempel: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Händelsetyp | Påverkan som gör att den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausa under några sekunder. CPU och nätverksanslutningen kan stängas av, men det finns ingen inverkan på minne eller öppna filer. <li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständiga minne är förlorad). <li>`Redeploy`: Den virtuella datorn kommer att flytta till en annan nod (differentierande diskar förloras). <li>`Preempt`: VM med låg prioritet tas bort (differentierande diskar förloras).|
-| ResourceType | Typ av resurs som påverkar den här händelsen. <br><br> Värden: <ul><li>`VirtualMachine`|
-| Resurser| Lista över resurser som påverkar den här händelsen. Detta garanterar att de innehåller datorerna från högst ett [Uppdateringsdomän](manage-availability.md), men får inte innehålla alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| Händelsestatus | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges i den `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Inte `Completed` eller liknande status någonsin har angetts, kommer inte längre att returneras händelsen när händelsen har slutförts.
-| NotBefore| Tid efter vilken den här händelsen startar. <br><br> Exempel: <br><ul><li> Mån, 19 Sep 2016 18:29:47 GMT  |
+| Händelsetyp | Påverkar den här händelsen. <br><br> Parametervärden <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausas några sekunder. CPU-och nätverks anslutningen kan vara pausad, men det finns ingen inverkan på minnet eller öppna filer. <li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständigt minne går förlorad). <li>`Redeploy`: Den virtuella datorn är schemalagd för att flyttas till en annan nod (tillfälliga diskar går förlorade). <li>`Preempt`: Den virtuella datorn med låg prioritet tas bort (tillfälliga diskar går förlorade).|
+| Resurstyp | Typ av resurs som den här händelsen påverkar. <br><br> Parametervärden <ul><li>`VirtualMachine`|
+| Resurser| Lista över resurser som den här händelsen påverkar. Detta är garanterat att innehålla datorer från högst en [uppdaterings domän](manage-availability.md), men de får inte innehålla alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Händelse status | Status för den här händelsen. <br><br> Parametervärden <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges `NotBefore` i egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Ingen `Completed` eller liknande status har tillhandahållits. händelsen kommer inte längre att returneras när händelsen har slutförts.
+| NotBefore| Tid när händelsen kan starta. <br><br> Exempel: <br><ul><li> Mån, 19 Sep 2016 18:29:47 GMT  |
 
-### <a name="event-scheduling"></a>Schemaläggning av händelse
-Varje händelse schemaläggs en minimal mängd tidpunkt i framtiden utifrån händelsetyp. Nu visas i en händelse `NotBefore` egenskapen. 
+### <a name="event-scheduling"></a>Händelse schemaläggning
+Varje händelse schemaläggs en minimi period i framtiden baserat på händelse typ. Den här tiden visas i en händelse `NotBefore` egenskap. 
 
 |Händelsetyp  | Minsta meddelande |
 | - | - |
-| Lås| 15 minuter |
-| Starta om | 15 minuter |
-| Omdistribuera | 10 minuter |
-| Förutse | 30 sekunder |
+| Tina| 15 minuter |
+| Starta om | 15 minuter |
+| Omdistribuera | 10 minuter |
+| Utfärdas | 30 sekunder |
 
-### <a name="event-scope"></a>Händelsen omfång     
+### <a name="event-scope"></a>Händelse omfång     
 Schemalagda händelser levereras till:
- - Fristående virtuella datorer
- - Alla virtuella datorer i en molntjänst      
- - Alla virtuella datorer i en Tillgänglighetsuppsättning      
- - Alla virtuella datorer i en Skalningsuppsättning ange Placeringsgrupp.         
+ - Fristående Virtual Machines
+ - Alla Virtual Machines i en moln tjänst      
+ - Alla Virtual Machines i en tillgänglighets uppsättning      
+ - Alla Virtual Machines i en placerings grupp för skalnings uppsättningar.         
 
-Därför ska du kontrollera den `Resources` i händelsen för att identifiera vilka virtuella datorer kommer att påverkas. 
+Därför bör du kontrol lera `Resources` fältet i händelsen för att identifiera vilka virtuella datorer som ska påverkas. 
 
 ### <a name="starting-an-event"></a>Starta en händelse 
 
-När du har lärt dig för ett kommande evenemang och slutfört din logik för avslutning, kan du godkänna utestående händelsen genom att göra en `POST` anrop till metadatatjänsten med den `EventId`. Detta upplyser Azure att den kan förkorta minsta meddelandet (när det är möjligt). 
+När du har lärt dig en kommande händelse och slutfört din logik för en `POST` korrekt avstängning kan du godkänna den utestående händelsen genom att ringa till metadatatjänsten `EventId`med. Detta visar att Azure kan förkorta den minsta meddelande tiden (om möjligt). 
 
-Följande är den json som förväntas i den `POST` brödtext i begäran. Begäran bör innehålla en lista över `StartRequests`. Varje `StartRequest` innehåller den `EventId` för händelsen som du vill påskynda:
+Följande är den JSON som förväntas `POST` i begär ande texten. Begäran bör innehålla en lista över `StartRequests`. Var `StartRequest` och en `EventId` innehåller för den händelse som du vill påskynda:
 ```
 {
     "StartRequests" : [
@@ -159,18 +158,18 @@ Följande är den json som förväntas i den `POST` brödtext i begäran. Begär
 }
 ```
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Powershell
 ```
 curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```
 
 > [!NOTE] 
-> Kanske uttrycka en händelse kan händelsen att gå vidare för alla `Resources` i händelseloggen, inte bara den virtuella datorn som om händelsen. Du kan därför välja att välja en ledare att samordna bekräftelse, vilket kan vara lika enkelt som att den första datorn i den `Resources` fält.
+> Genom att bekräfta en händelse kan händelsen fortsätta för alla `Resources` i händelsen, inte bara den virtuella dator som bekräftar händelsen. Du kan därför välja att välja en ledare för att samordna bekräftelsen, vilket kan vara så enkelt som den första datorn i `Resources` fältet.
 
 
 ## <a name="powershell-sample"></a>PowerShell-exempel 
 
-I följande exempel frågar metadatatjänsten för schemalagda händelser och godkänner varje utestående händelse.
+I följande exempel frågar metadata-tjänsten efter schemalagda händelser och godkänner varje utestående händelse.
 
 ```powershell
 # How to get scheduled events 
@@ -229,7 +228,7 @@ foreach($event in $scheduledEvents.Events)
 
 ## <a name="next-steps"></a>Nästa steg 
 
-- Titta på en [schemalagda händelser Demo](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) på Azure Friday. 
-- Granska Scheduled Events-kodexempel i den [Azure instans Metadata schemalagda händelser GitHub-lagringsplats](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
-- Läs mer om API: erna i den [Instance Metadata service](instance-metadata-service.md).
-- Lär dig mer om [planerat underhåll för Windows-datorer i Azure](planned-maintenance.md).
+- Titta på en [schemalagda händelser demo](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) på Azure fredagen. 
+- Granska Schemalagda händelser kod exempel i [Azure instance Metadata schemalagda händelser GitHub](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm) -lagringsplatsen
+- Läs mer om de API: er som är tillgängliga i instansen [metadata service](instance-metadata-service.md).
+- Lär dig mer om [planerat underhåll för virtuella Windows-datorer i Azure](planned-maintenance.md).

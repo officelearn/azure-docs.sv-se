@@ -1,6 +1,6 @@
 ---
 title: Azure Windows VM-storlekar – lagring | Microsoft Docs
-description: Visar en lista över de olika lagringsoptimerade storlekarna som är tillgängliga för Windows-datorer i Azure. Visar information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredd för storlekar i den här serien.
+description: Visar en lista över de olika optimerings storlekar som är tillgängliga för virtuella Windows-datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: jonbeck
-ms.openlocfilehash: cb99a13b97c0dafa4ace358167d76faaffc30079
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fdb21f2c96f66da140cdefa9a0b7b54dd2dc66ec
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710127"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102266"
 ---
-# <a name="storage-optimized-virtual-machine-sizes"></a>Lagringsoptimerade storlekar för virtuella datorer
+# <a name="storage-optimized-virtual-machine-sizes"></a>Optimera storlekar för virtuella datorer i Storage
 
 [!INCLUDE [virtual-machines-common-sizes-storage](../../../includes/virtual-machines-common-sizes-storage.md)]
 
@@ -33,10 +32,10 @@ ms.locfileid: "67710127"
 - [Minnesoptimerad](sizes-memory.md)
 - [GPU-optimerad](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
-- [Tidigare versioner](sizes-previous-gen.md)
+- [Tidigare generationer](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
 
-Lär dig hur du [optimera prestanda på de virtuella datorerna Lsv2-serien](storage-performance.md).
+Lär dig hur du [optimerar prestandan för virtuella datorer i Lsv2-serien](storage-performance.md).

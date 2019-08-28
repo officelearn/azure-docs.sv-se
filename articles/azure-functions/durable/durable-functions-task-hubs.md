@@ -1,47 +1,46 @@
 ---
-title: Uppgiftshubbar i varaktiga funktioner – Azure
-description: Lär dig vilka en uppgift hub finns i tillägget varaktiga funktioner för Azure Functions. Lär dig hur du konfigurerar konfigurera uppgiftshubbar.
+title: Aktivitets nav i Durable Functions – Azure
+description: Läs om vad en aktivitets hubb är i Durable Functions-tillägget för Azure Functions. Lär dig hur du konfigurerar konfiguration av aktivitets nav.
 services: functions
 author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40144fb50a01a64bbd67d541562b4fe0842fbf10
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730283"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097787"
 ---
-# <a name="task-hubs-in-durable-functions-azure-functions"></a>Uppgiftshubbar i varaktiga funktioner (Azure Functions)
+# <a name="task-hubs-in-durable-functions-azure-functions"></a>Aktivitets nav i Durable Functions (Azure Functions)
 
-En *uppgift hub* i [varaktiga funktioner](durable-functions-overview.md) är en logisk behållare för Azure Storage-resurser som används för orkestreringar. Orchestrator och aktivitet kan bara interagera med varandra när de tillhör samma uppgift hubb.
+En *aktivitets hubb* i [Durable Functions](durable-functions-overview.md) är en logisk behållare för Azure Storage resurser som används för dirigering. Orchestrator-och aktivitets funktioner kan bara samverka med varandra när de tillhör samma aktivitets nav.
 
-Om flera funktionsappar delar ett storage-konto varje funktionsapp *måste* konfigureras med en separat åtgärd-hubbnamn. Ett lagringskonto kan innehålla flera uppgiftshubbar. Följande diagram illustrerar en uppgift hubb per funktionsappen i delade och dedikerade storage-konton.
+Om flera Functions-appar delar ett lagrings konto, *måste* varje funktions app konfigureras med ett separat aktivitets nav namn. Ett lagrings konto kan innehålla flera aktivitets nav. Följande diagram illustrerar en aktivitets hubb per Function-app i delade och dedikerade lagrings konton.
 
-![Diagram som visar delade och dedikerade storage-konton.](./media/durable-functions-task-hubs/task-hubs-storage.png)
+![Diagram som visar delade och dedikerade lagrings konton.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
-## <a name="azure-storage-resources"></a>Azure Storage-resurser
+## <a name="azure-storage-resources"></a>Azure Storage resurser
 
-En uppgift hubb består av följande lagringsresurser:
+En aktivitets hubb består av följande lagrings resurser:
 
-* En eller fler köer för kontrollen.
-* En arbetsobjektet kön.
-* En historiktabellen.
-* En tabell med instanser.
-* En storage-behållare som innehåller en eller flera blobbar för lånet.
+* En eller flera kontroll köer.
+* En kö för arbets objekt.
+* En historik tabell.
+* Tabell med en instans.
+* En lagrings behållare som innehåller en eller flera blobar för lån.
 
-Alla dessa resurser skapas automatiskt i Azure Storage-kontot när orchestrator eller Aktivitetsfunktioner kör eller är schemalagda att köras. Den [prestanda och skalning](durable-functions-perf-and-scale.md) artikeln förklarar hur dessa resurser används.
+Alla dessa resurser skapas automatiskt i standard Azure Storages kontot när Orchestrator-eller aktivitets funktioner körs eller är schemalagda att köras. I artikeln om [prestanda och skala](durable-functions-perf-and-scale.md) förklaras hur dessa resurser används.
 
-## <a name="task-hub-names"></a>Namn på uppgift
+## <a name="task-hub-names"></a>Namn på uppgifts hubb
 
-Uppgiftshubbar identifieras med ett namn som är deklarerad i den *host.json* filen enligt i följande exempel:
+Aktivitets nav identifieras med ett namn som deklareras i *Host. JSON* -filen, som visas i följande exempel:
 
-### <a name="hostjson-functions-1x"></a>Host.JSON (fungerar 1.x)
+### <a name="hostjson-functions-1x"></a>Host. JSON (funktion 1. x)
 
 ```json
 {
@@ -51,7 +50,7 @@ Uppgiftshubbar identifieras med ett namn som är deklarerad i den *host.json* fi
 }
 ```
 
-### <a name="hostjson-functions-2x"></a>Host.JSON (fungerar 2.x)
+### <a name="hostjson-functions-2x"></a>Host. JSON (funktion 2. x)
 
 ```json
 {
@@ -64,9 +63,9 @@ Uppgiftshubbar identifieras med ett namn som är deklarerad i den *host.json* fi
 }
 ```
 
-Uppgiftshubbar kan också konfigureras med hjälp av appinställningarna, enligt följande *host.json* exempelfil:
+Aktivitets nav kan också konfigureras med hjälp av appinställningar, som du ser i följande *Host. JSON* -exempel fil:
 
-### <a name="hostjson-functions-1x"></a>Host.JSON (fungerar 1.x)
+### <a name="hostjson-functions-1x"></a>Host. JSON (funktion 1. x)
 
 ```json
 {
@@ -76,7 +75,7 @@ Uppgiftshubbar kan också konfigureras med hjälp av appinställningarna, enligt
 }
 ```
 
-### <a name="hostjson-functions-2x"></a>Host.JSON (fungerar 2.x)
+### <a name="hostjson-functions-2x"></a>Host. JSON (funktion 2. x)
 
 ```json
 {
@@ -89,7 +88,7 @@ Uppgiftshubbar kan också konfigureras med hjälp av appinställningarna, enligt
 }
 ```
 
-Uppgiften hubbnamnet anges till värdet för den `MyTaskHub` appinställningen. Följande `local.settings.json` visar hur du definierar den `MyTaskHub` som `samplehubname`:
+Aktivitets navets namn anges till värdet för `MyTaskHub` appens inställning. Följande `local.settings.json` visar hur du `MyTaskHub` definierar inställningen som `samplehubname`:
 
 ```json
 {
@@ -100,7 +99,7 @@ Uppgiften hubbnamnet anges till värdet för den `MyTaskHub` appinställningen. 
 }
 ```
 
-Här är en förkompilerade C# exempel på hur du skriver en funktion som använder en [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) att arbeta med en uppgift-hubb som är konfigurerad som en App-inställning:
+Här är ett förkompilerat C# exempel på hur du skriver en funktion som använder en [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) för att arbeta med en aktivitets hubb som är konfigurerad som en app-inställning:
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -120,7 +119,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-Nedan är konfigurationen som krävs för JavaScript. Egenskapen uppgift hub i den `function.json` filen har angetts via Appinställningen:
+Och nedan är den konfiguration som krävs för Java Script. Egenskapen aktivitets nav i `function.json` filen anges via appens inställning:
 
 ```json
 {
@@ -131,12 +130,12 @@ Nedan är konfigurationen som krävs för JavaScript. Egenskapen uppgift hub i d
 }
 ```
 
-Namn på aktiviteten måste börja med en bokstav och bestå av endast bokstäver och siffror. Om inte anges standardnamnet är **DurableFunctionsHub**.
+Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bokstäver och siffror. Om inget värde anges är standard namnet **DurableFunctionsHub**.
 
 > [!NOTE]
-> Namnet är vad skiljer hub för en aktivitet från en annan när det finns flera uppgiftshubbar i en delad lagring-konto. Om du har flera funktionsappar som delar en delad lagring-konto, måste du uttryckligen konfigurera olika namn för varje uppgift hubben i den *host.json* filer. Annars konkurrerar flera funktionsappar med varandra om meddelanden, vilket kan resultera i odefinierat beteende.
+> Namnet är det som skiljer en aktivitets hubb från en annan när det finns flera aktivitets nav i ett delat lagrings konto. Om du har flera Function-appar som delar ett delat lagrings konto måste du uttryckligen konfigurera olika namn för varje aktivitets nav i *Host. JSON* -filer. Annars konkurrerar flera Function-appar med varandra för meddelanden, vilket kan resultera i odefinierat beteende.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du hanterar versionshantering](durable-functions-versioning.md)
+> [Lär dig hur du hanterar versions hantering](durable-functions-versioning.md)

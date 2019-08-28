@@ -10,27 +10,25 @@ tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d60fc1afbd129471ba56dddb6e2d5beba5ca2330
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc8be33ede80070b8e9928e01d07b6066f1c887c
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136488"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113583"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>Skapa en webbapp med kontinuerlig distribution från GitHub
 
-Det här exempelskriptet skapar en webbapp i App Service med dess relaterade resurser och ställer sedan in kontinuerlig distribution från en GitHub-lagringsplats. För GitHub-distribution utan kontinuerlig distribution, se [Skapa en webbapp och distribuera kod från GitHub](powershell-deploy-github.md).
+Det här exempel skriptet skapar en webbapp i App Service med dess relaterade resurser och ställer sedan in [kontinuerlig distribution](../deploy-continuous-deployment.md) från en GitHub-lagringsplats. För GitHub-distribution utan kontinuerlig distribution, se [Skapa en webbapp och distribuera kod från GitHub](powershell-deploy-github.md).
 
 Om det behövs installerar du Azure PowerShell med hjälp av instruktionerna i [Azure PowerShell-guiden](/powershell/azure/overview) och kör sedan `Connect-AzAccount` för att skapa en anslutning till Azure. Se också till att:
 
-- En anslutning har skapats med Azure med hjälp av kommandot `az login`.
-- Programkoden finns i en offentlig eller privat GitHub-lagringsplats som du äger.
-- Du har [skapat en åtkomsttoken i ditt GitHub-konto](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
+- Programkoden finns i en offentlig eller privat GitHub-lagringsplats som du äger. Om du vill hämta automatiska versioner strukturerar du lagrings platsen enligt tabellen [Förbered din lagrings plats](../deploy-continuous-deployment.md#prepare-your-repository) .
+- Du har [skapat en personlig åtkomsttoken i ditt GitHub-konto](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
 
 ## <a name="sample-script"></a>Exempelskript
 

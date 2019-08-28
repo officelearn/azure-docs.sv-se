@@ -6,22 +6,44 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 08/27/2019
 ms.author: alkohli
-ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e9854bf46de40cc288a04ac67beb48e8a4fb959
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405564"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098784"
 ---
+::: zone target="docs"
+
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Snabbstart: Distribuera Azure Data Box med Azure-portalen
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Kom igång med Azure Data Box Disk med Azure Portal
+
+::: zone-end
+
+::: zone target="docs"
 
 Den här snabbstarten beskriver hur du distribuerar Azure Data Box med hjälp av Azure-portalen. Stegen omfattar hur du kabelansluter, konfigurerar och kopierar data till Data Box så att den laddas upp till Azure. Snabbstarten utförs i Azure-portalen och på enhetens lokala webbgränssnitt.
 
 Detaljerade stegvisa distributions- och spårningsinstruktioner finns i [Självstudie: Beställa Azure Data Box](data-box-deploy-ordered.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+::: zone-end 
+
+::: zone target="chromeless"
+
+I den här guiden beskrivs hur du distribuerar Azure Data Box med hjälp av Azure Portal. Stegen omfattar att granska kraven, kabeln och ansluta enheten och kopiera data till enheten så att de laddas upp till Azure.
+
+::: zone-end
+
+::: zone target="docs"
+ 
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -41,6 +63,31 @@ Innan du börjar:
     - En RJ-45 CAT 6-nätverkskabel (använd med MGMT-nätverksgränssnitt)
     - En RJ-45 CAT 6A- eller en RJ-45 CAT 6-nätverkskabel (använd med DATA 3-nätverksgränssnitt konfigurerat som 10 Gbps respektive 1 Gbps)
 
+::: zone-end 
+
+::: zone target="chromeless"
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Innan du börjar ska du kontrol lera att du har:
+
+1. [Slutför självstudien: Beställ Azure Data Box](data-box-deploy-ordered.md).
+2. Tog emot din Data Box-enhet och order statusen i portalen **levereras**. 
+3. Granskade [rikt linjerna för data Box-enhet säkerhet](data-box-safety.md).
+4. Tog emot en jordad ström sladd som ska användas med lagrings enheten 100 – TB.
+5. Åtkomst till en värddator som innehåller de data som du vill kopiera till Data Box-enhet. Värddatorn måste
+    - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
+    - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men då påverkas kopieringshastigheten. 
+6. Få till gång till en plan yta för att placera Data Box-enhet. Du måste ha en 7U-kortplats i racket för att kunna placera enheten platt eller upprättad i en standard rack hylla.
+7. Har införskaffat följande kablar för att ansluta dina Data Box-enhet till värddatorn.
+    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Mer information finns i [listan över kablar som stöds och växlar från Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf) som är kompatibla med Mellanox ConnectX®-3 Pro en dual-port 10Gbase-T-kort med dubbla portar och PCI Express 3,0-nätverkskort.
+    - En RJ-45 CAT 6-nätverkskabel (använd med MGMT-nätverksgränssnitt)
+    - En RJ-45 CAT 6A- eller en RJ-45 CAT 6-nätverkskabel (använd med DATA 3-nätverksgränssnitt konfigurerat som 10 Gbps respektive 1 Gbps)
+
+::: zone-end
+
+::: zone target="docs"
+
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
@@ -55,6 +102,8 @@ Det här steget tar ungefär 5 minuter.
 4. Ange order- och leveransinformationen. Om tjänsten är tillgänglig i din region anger du e-postadresser för aviseringsmeddelanden, läser sammanfattningen och skapar sedan ordern.
 
 När ordern har skapats förbereds enheten för leverans.
+
+
 
 ## <a name="cable"></a>Kabel 
 
@@ -132,5 +181,7 @@ I den här snabbstarten har du distribuerat en Azure Data Box-enhet för att imp
 
 > [!div class="nextstepaction"]
 > [Administrera Data Box via Azure-portalen](data-box-portal-admin.md)
+
+::: zone-end
 
 

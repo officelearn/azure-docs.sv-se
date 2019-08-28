@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb9281af16dc8e4b4544cb18a2aae51aa3d9be27
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: e506259b980c0aaf0300c0bb0a1aa0803171643a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576282"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098959"
 ---
 # <a name="create-and-manage-environments-for-training-and-deployment"></a>Skapa och hantera miljöer för utbildning och distribution
 
@@ -95,7 +95,7 @@ myenv = Environment.from_existing_conda_environment(name = "myenv",
 
 ### <a name="automatically-create-environments"></a>Skapa miljöer automatiskt
 
-Skapa en miljö automatiskt genom att skicka en utbildning som körs med metoden [Submit ()]() . När du skickar in en utbildnings körning kan det ta flera minuter att skapa en ny miljö, beroende på storleken på de nödvändiga beroendena. 
+Skapa en miljö automatiskt genom att skicka en utbildning som körs med metoden Submit (). När du skickar in en utbildnings körning kan det ta flera minuter att skapa en ny miljö, beroende på storleken på de nödvändiga beroendena. 
 
 Om du inte anger en miljö i kör konfigurationen innan du skickar in körningen, skapas en standard miljö åt dig.
 

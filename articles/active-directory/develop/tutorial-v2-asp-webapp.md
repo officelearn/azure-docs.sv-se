@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a9fb68fff492b6f3b00825b1fae91310f091a3f
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: c1ce7197a195b37787d1a43a44efd8438154e9f9
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033397"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113638"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning till Microsoft i en ASP.NET-webbapp
 
@@ -485,8 +485,15 @@ Lär dig mer om hur Web Apps kan anropa webb-API: er.
 
 ### <a name="learn-how-to-create-the-application-used-in-this-quickstart-guide"></a>Lär dig hur du skapar programmet som används i den här snabb starts guiden
 
+Lär dig mer om webb program som anropar webb-API: er med Microsoft Identity Platform:
+
 > [!div class="nextstepaction"]
-> [Webb program som anropar webb-API: er]( https://aka.ms/msal-net-authorization-code)
+> [Webb program som anropar webb-API: er](scenario-web-app-sign-user-overview.md)
+
+Lär dig hur du skapar webbappar som anropar Microsoft Graph:
+
+> [!div class="nextstepaction"]
+> [Själv studie kurs om Microsoft Graph ASP.NET](https://docs.microsoft.com/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

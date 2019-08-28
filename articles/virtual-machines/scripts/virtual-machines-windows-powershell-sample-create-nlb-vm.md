@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7c345d95af1167d0f6c99fdb3d438962a13242d6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2238f223f22ee43e7afd8b5162fb16cb16a2adf4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696037"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090758"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Belastningsutjämna trafiken mellan virtuella datorer med hög tillgänglighet
 
@@ -69,9 +68,9 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Skapa en virtuell dator. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
 
-Du kan också skapa de virtuella datorerna med en egen anpassad hanterad avbildning. VM-konfiguration för `Set-AzVMSourceImage` använder den `-Id` och `-VM` parametrar i stället för `-PublisherName`, `-Offer`, `-Skus`, och `-Version`.
+Du kan också skapa de virtuella datorerna med din egen anpassade hanterade avbildning. I VM `Set-AzVMSourceImage` -konfigurationen kan du `-Id` använda parametrarna och `-VM` i stället för `-PublisherName`, `-Offer`, `-Skus`, och `-Version`.
 
-Till exempel skulle skapa VM-konfigurationen vara:
+Att till exempel skapa den virtuella dator konfigurationen skulle vara:
 
 ```powershell
 $vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 -AvailabilitySetId $as.Id | `

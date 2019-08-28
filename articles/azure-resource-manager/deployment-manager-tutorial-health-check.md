@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: def218564511b65809e776f97d0962b72f72adc2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 17e27fcbd0e31c8602869be3d884888fe4fe7db0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898140"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095817"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Självstudier: Använda hälso kontroll i Azure Deployment Manager (offentlig för hands version)
 
@@ -235,8 +235,8 @@ Syftet med det här avsnittet är att visa hur du inkluderar ett hälso kontroll
 
 För att förenkla självstudien delas topologin och artefakterna på följande platser så att du inte behöver förbereda din egen kopia. Om du vill använda din egen, följer du anvisningarna i [själv studie kursen: Använd Azure Deployment Manager med Resource Manager-](./deployment-manager-tutorial.md)mallar.
 
-* Topologi:\\[https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json](https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json)
-* Artefakt lager:\\[https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore](https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore)
+* Topology-mall: https\/:/armtutorials.blob.Core.Windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.JSON
+* Artefakt lager: https:\//armtutorials.blob.Core.Windows.net/admtutorial/ArtifactStore
 
 Om du vill distribuera topologin väljer du **prova** att öppna Cloud Shell och klistra in PowerShell-skriptet.
 
@@ -265,8 +265,8 @@ Kontrollera att tjänsttopologin och de angivna resurserna har skapats på Azure
 
 För att förenkla självstudien delas den ändrade distributions mal len på följande platser så att du inte behöver förbereda din egen kopia. Om du vill använda din egen, följer du anvisningarna i [själv studie kursen: Använd Azure Deployment Manager med Resource Manager-](./deployment-manager-tutorial.md)mallar.
 
-* Topologi:\\[https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json](https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json)
-* Artefakt lager:\\[https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore](https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore)
+* Topology-mall: https\/:/armtutorials.blob.Core.Windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.JSON
+* Artefakt lager: https:\//armtutorials.blob.Core.Windows.net/admtutorial/ArtifactStore
 
 Använd den felaktiga status-URL som du skapade i [skapa en tjänst Simulator för hälso kontroll](#create-a-health-check-service-simulator). Information om **managedIdentityID**finns i [skapa den hanterade identiteten som användaren tilldelats](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
 

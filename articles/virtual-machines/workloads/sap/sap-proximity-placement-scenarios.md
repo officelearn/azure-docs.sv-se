@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f97cce2d1a8b2de5634215629ddb997dc8f7196a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 02dcb7174dd9cb2926ef2fafda4b521b939ae68a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68235202"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70077993"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Närhetsplaceringsgrupper i Azure för optimal svarstid för nätverk med SAP-program
 SAP-program som baseras på SAP NetWeaver-eller SAP S/4HANA-arkitekturen är känsliga för nätverks fördröjning mellan SAP-programnivån och SAP-databasnivå. Anledningen till att dessa arkitekturer är känsliga beror på att de flesta affärs logiken körs i program lagret. Som ett resultat av körningen av affärs logiken utfärdar SAP-programlagret frågor till databas nivån med en hög frekvens på tusentals och flera tusen tusen per sekund. I de flesta fall är arten av frågorna enkel. Och kan ofta köras på databas nivån på mindre än 500 mikrosekunder eller ännu mindre. Den tid det tar för nätverket att skicka en sådan fråga från program nivån till databas nivån och ta emot resultat mängden tillbaka från databas nivån har stor påverkan på den tid det tar att köra affärs processer. Den här känsligheten för nätverks fördröjning är anledningen till varför du måste ägna in SAP-distributions projekt för att uppnå optimal nätverks svars tid. I [SAP Obs #1100926 – vanliga frågor och svar: Nätverks prestanda](https://launchpad.support.sap.com/#/notes/1100926/E), SAP publicerade några rikt linjer i hur du klassificerar nätverks fördröjningen.

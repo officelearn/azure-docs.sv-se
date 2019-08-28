@@ -1,6 +1,6 @@
 ---
-title: OpenShift i förutsättningar för Azure | Microsoft Docs
-description: Förutsättningar för att distribuera OpenShift i Azure.
+title: OpenShift i Azure-krav | Microsoft Docs
+description: Krav för att distribuera OpenShift i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -9,69 +9,68 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 834484278bb597bba4a5e1821d0b6572913a761d
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: ab8814f1620cc019a0bee872c7b8f42cbb427365
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67146989"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091746"
 ---
-# <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Vanliga krav för distribution av OpenShift i Azure
+# <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Vanliga krav för att distribuera OpenShift i Azure
 
-Den här artikeln beskriver vanliga krav för distribution av OpenShift Container Platform eller OKD i Azure.
+I den här artikeln beskrivs vanliga krav för att distribuera OpenShift container Platform eller OKD i Azure.
 
-Installationen av OpenShift använder Ansible-spelböcker. Ansible använder Secure Shell (SSH) för att ansluta till alla klustervärdar Slutför installationsstegen.
+Vid installationen av OpenShift används Ansible spel böcker. Ansible använder Secure Shell (SSH) för att ansluta till alla kluster värdar för att slutföra installations stegen.
 
-När ansible gör SSH-anslutningen till fjärrvärdar, kan inte den ange ett lösenord. Därför den privata nyckeln kan inte ha ett lösenord (lösenfras) som är kopplade till den eller distributionen misslyckas.
+När Ansible gör SSH-anslutningen till fjärranslutna värdar kan den inte ange ett lösen ord. Av den anledningen kan den privata nyckeln inte ha ett lösen ord (lösen fras) som är kopplat till den eller distributionen Miss lyckas.
 
-Eftersom de virtuella datorerna (VM) distribuera via Azure Resource Manager-mallar, används samma offentliga nyckel för åtkomst till alla virtuella datorer. Motsvarande privata nyckel måste vara på den virtuella datorn som kör alla spelböcker samt. Om du vill utföra den här åtgärden på ett säkert sätt, används ett Azure key vault till att överföra den privata nyckeln på den virtuella datorn.
+Eftersom de virtuella datorerna (VM) distribuerar via Azure Resource Manager mallar, används samma offentliga nyckel för åtkomst till alla virtuella datorer. Motsvarande privata nyckel måste finnas på den virtuella datorn som kör alla spel böcker också. För att utföra den här åtgärden på ett säkert sätt används ett Azure Key Vault för att skicka den privata nyckeln till den virtuella datorn.
 
-Om det finns ett behov av lagringsutrymme för behållare, krävs beständiga volymer. OpenShift stöder Azure virtuella hårddiskar (VHD) för beständig volymer, men Azure måste först konfigureras som molnleverantör.
+Om det finns ett behov av beständiga lagrings enheter för behållare krävs permanenta volymer. OpenShift stöder Azure virtuella hård diskar (VHD) för permanenta volymer, men Azure måste först konfigureras som moln leverantör.
 
-I den här modellen OpenShift:
+I den här modellen, OpenShift:
 
-- Skapar en VHD-objekt i ett Azure storage-konto eller en hanterad disk.
-- Monterar den virtuella Hårddisken till en virtuell dator och formateras volymen.
-- Monterar volymen till en pod.
+- Skapar ett VHD-objekt i ett Azure Storage-konto eller en hanterad disk.
+- Monterar den virtuella hård disken till en virtuell dator och formaterar volymen.
+- Monterar volymen till pod.
 
-Den här konfigurationen ska fungera måste OpenShift behörighet att utföra dessa uppgifter i Azure. Ett huvudnamn för tjänsten används för detta ändamål. Tjänstens huvudnamn är en security-konto i Azure Active Directory som har beviljats behörighet till resurser.
+För att den här konfigurationen ska fungera behöver OpenShift behörighet att utföra dessa uppgifter i Azure. Ett huvud namn för tjänsten används för det här ändamålet. Tjänstens huvud namn är ett säkerhets konto i Azure Active Directory som beviljas behörigheter till resurser.
 
-Tjänstens huvudnamn måste ha åtkomst till lagringskonton och virtuella datorer som ingår i klustret. Om alla OpenShift-klusterresurser distribuerar till en enskild resursgrupp, kan tjänstens huvudnamn beviljas behörigheter till resursgruppen.
+Tjänstens huvud namn måste ha åtkomst till de lagrings konton och virtuella datorer som utgör klustret. Om alla kluster resurser för OpenShift distribuerar till en enda resurs grupp, kan tjänstens huvud namn beviljas behörigheter till den resurs gruppen.
 
-Den här guiden beskriver hur du skapar de artefakter som associeras med kraven.
+I den här guiden beskrivs hur du skapar artefakter som är associerade med förutsättningarna.
 
 > [!div class="checklist"]
-> * Skapa ett nyckelvalv för att hantera SSH-nycklar för OpenShift-klustret.
-> * Skapa ett huvudnamn för tjänsten för användning av Azure Cloud-providern.
+> * Skapa ett nyckel valv för att hantera SSH-nycklar för OpenShift-klustret.
+> * Skapa ett tjänst huvud namn för användning av Azure Cloud Provider.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure 
-Logga in på Azure-prenumerationen med den [az-inloggning](/cli/azure/reference-index) och följer den på skärmen riktningar eller klicka på **prova** att använda Cloud Shell.
+Logga in på din Azure-prenumeration med kommandot [AZ login](/cli/azure/reference-index) och följ anvisningarna på skärmen, eller klicka på **prova** att använda Cloud Shell.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Du bör använda en dedikerad resursgrupp som värd för nyckelvalvet. Den här gruppen är separat från resursgruppen dit distribuera OpenShift klusterresurserna.
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Du bör använda en dedikerad resurs grupp som värd för nyckel valvet. Den här gruppen är separat från resurs gruppen som kluster resurserna för OpenShift distribuerar till.
 
-I följande exempel skapas en resursgrupp med namnet *keyvaultrg* i den *eastus* plats:
+I följande exempel skapas en resurs grupp med namnet *keyvaultrg* på platsen för *öster* :
 
 ```azurecli 
 az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
-Skapa ett nyckelvalv för att lagra SSH-nycklar för klustret med den [az keyvault skapa](/cli/azure/keyvault) kommando. Nyckelvalvets namn måste vara globalt unikt och måste aktiveras för malldistribution distributionen kommer att misslyckas med felet ”KeyVaultParameterReferenceSecretRetrieveFailed”
+Skapa ett nyckel valv för att lagra SSH-nycklarna för klustret med kommandot [AZ-valv](/cli/azure/keyvault) för att skapa. Nyckel valvets namn måste vara globalt unikt och måste vara aktiverat för mall distribution eller så Miss söker distributionen "KeyVaultParameterReferenceSecretRetrieveFailed"-fel.
 
-I följande exempel skapas ett nyckelvalv med namnet *keyvault* i den *keyvaultrg* resursgrupp:
+I följande exempel skapas ett nyckel valv med namnet Key *Vault* i *keyvaultrg* -resurs gruppen:
 
 ```azurecli 
 az keyvault create --resource-group keyvaultrg --name keyvault \
@@ -80,38 +79,38 @@ az keyvault create --resource-group keyvaultrg --name keyvault \
 ```
 
 ## <a name="create-an-ssh-key"></a>Skapa en SSH-nyckel 
-En SSH-nyckel krävs för att skydda åtkomsten till OpenShift-klustret. Skapa en SSH-nyckelpar med hjälp av den `ssh-keygen` (på Linux eller macOS):
+En SSH-nyckel krävs för att skydda åtkomsten till OpenShift-klustret. Skapa ett SSH-nyckelpar med `ssh-keygen` kommandot (på Linux eller MacOS):
  
  ```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
 > [!NOTE]
-> SSH-nyckelpar kan inte ha ett lösenord / lösenfras.
+> Ditt SSH-nyckelpar får inte ha ett lösen ord/en lösen fras.
 
-Läs mer på SSH-nycklar på Windows, [hur du skapar SSH-nycklar på Windows](/azure/virtual-machines/linux/ssh-from-windows). Glöm inte att exportera den privata nyckeln i OpenSSH-format.
+Mer information om SSH-nycklar i Windows finns i [så här skapar du SSH-nycklar i Windows](/azure/virtual-machines/linux/ssh-from-windows). Se till att exportera den privata nyckeln i OpenSSH-format.
 
-## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Store privat SSH-nyckeln i Azure Key Vault
-OpenShift-distributionen använder SSH-nyckeln som du skapade för att skydda åtkomsten till OpenShift master. Om du vill aktivera distributionen att på ett säkert sätt hämta SSH-nyckeln, lagra nyckeln i Key Vault med hjälp av följande kommando:
+## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Lagra den privata SSH-nyckeln i Azure Key Vault
+I OpenShift-distributionen används SSH-nyckeln som du skapade för att skydda åtkomsten till OpenShift-huvudnoden. Om du vill att distributionen ska kunna hämta SSH-nyckeln på ett säkert sätt lagrar du nyckeln i Key Vault med hjälp av följande kommando:
 
 ```azurecli
 az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift_rsa
 ```
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten 
-OpenShift kommunicerar med Azure genom att använda ett användarnamn och lösenord eller ett huvudnamn för tjänsten. Ett huvudnamn för Azure-tjänsten är en säkerhetsidentitet som du kan använda med appar, tjänster och automatiseringsverktyg som OpenShift. Du kontrollerar och definiera behörigheter om vilka åtgärder som tjänstens huvudnamn kan utföra i Azure. Det är bäst att begränsa behörigheterna för tjänstens huvudnamn till specifika resursgrupper i stället för hela prenumerationen.
+OpenShift kommunicerar med Azure med hjälp av ett användar namn och lösen ord eller ett huvud namn för tjänsten. Ett huvud namn för Azure-tjänsten är en säkerhets identitet som du kan använda med appar, tjänster och automatiserings verktyg som OpenShift. Du styr och definierar behörigheterna för vilka åtgärder som tjänstens huvud namn kan utföra i Azure. Det är bäst att begränsa behörigheten för tjänstens huvud namn till vissa resurs grupper i stället för hela prenumerationen.
 
-Skapa ett tjänstobjekt med [az ad sp create-for-rbac](/cli/azure/ad/sp) och matar ut de autentiseringsuppgifter som OpenShift behöver.
+Skapa ett huvud namn för tjänsten med [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp) och generera de autentiseringsuppgifter som OpenShift behöver.
 
-I följande exempel skapar en tjänst huvudnamn och tilldelar den deltagarbehörighet till en resursgrupp med namnet openshiftrg.
+I följande exempel skapas ett huvud namn för tjänsten som tilldelar den behörighet till en resurs grupp med namnet openshiftrg.
 
-Först skapa resursgruppen med namnet openshiftrg:
+Skapa först resurs gruppen med namnet openshiftrg:
 
 ```azurecli
 az group create -l eastus -n openshiftrg
 ```
 
-Skapa tjänstens huvudnamn:
+Skapa tjänstens huvud namn:
 
 ```azurecli
 scope=`az group show --name openshiftrg --query id`
@@ -119,9 +118,9 @@ az ad sp create-for-rbac --name openshiftsp \
       --role Contributor --password {Strong Password} \
       --scopes $scope
 ```
-Om du använder Windows kör ```az group show --name openshiftrg --query id``` och använda utdata i stället för $scope.
+Om du använder Windows kör ```az group show --name openshiftrg --query id``` du och använder resultatet i stället för $scope.
 
-Anteckna appId-egenskapen som returneras från kommandot:
+Anteckna den appId-egenskap som returnerades från kommandot:
 ```json
 {
   "appId": "11111111-abcd-1234-efgh-111111111111",
@@ -132,32 +131,32 @@ Anteckna appId-egenskapen som returneras från kommandot:
 }
 ```
  > [!WARNING] 
- > Glöm inte att skapa ett säkert lösenord. Följ vägledningen med [regler för lösenord och begränsningar i Azure AD](/azure/active-directory/active-directory-passwords-policy).
+ > Se till att skapa ett säkert lösen ord. Följ vägledningen med [regler för lösenord och begränsningar i Azure AD](/azure/active-directory/active-directory-passwords-policy).
 
-Mer information om tjänstens huvudnamn finns i [skapa Azure-tjänstens huvudnamn med Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Mer information om tjänstens huvud namn finns i [skapa ett Azure-tjänstens huvud namn med Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
-## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Krav som gäller endast för Resource Manager-mall
+## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Krav som endast gäller för Resource Manager-mall
 
-Hemligheter måste skapas för den privata SSH-nyckeln (**sshPrivateKey**), Azure AD-klienthemlighet (**aadClientSecret**), OpenShift administratörslösenord (**openshiftPassword** ), Red Hat prenumeration Manager lösenord och aktivering när (**rhsmPasswordOrActivationKey**).  Om anpassade SSL-certifikat används sedan sex ytterligare hemligheter kommer måste dessutom skapas - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**, och **masterkeyfile**.  Parametrarna förklaras i detalj.
+Hemligheter måste skapas för SSH privat nyckel (**sshPrivateKey**), Azure AD client Secret (**aadClientSecret**), OpenShift Admin Password (**OpenshiftPassword**) och Red Hat Subscription Manager Password eller aktiverings nyckel ( **rhsmPasswordOrActivationKey**).  Om anpassade SSL-certifikat används måste dessutom sex ytterligare hemligheter skapas – **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**och  **masterkeyfile**.  Dessa parametrar förklaras i detalj.
 
-Mallen refererar till specifika hemliga namn, så du **måste** används fetstil namnen som anges ovan (skiftlägeskänsligt).
+Mallen refererar till vissa hemliga namn, så du **måste** använda de fetstilta namnen som anges ovan (Skift läges känsligt).
 
 ### <a name="custom-certificates"></a>Anpassade certifikat
 
-Som standard distribuerar mallen en OpenShift-kluster som använder självsignerade certifikat för webbkonsolen OpenShift och routningsdomän. Om du vill använda anpassade SSL-certifikat, ange 'routingCertType' till 'custom' och 'masterCertType' till 'custom'.  Du behöver CA-certifikat och nyckel filerna i PEM-format för certifikaten.  Det är möjligt att använda anpassade certifikat för en men inte på den andra.
+Som standard distribuerar mallen ett OpenShift-kluster med självsignerade certifikat för webb konsolen OpenShift och routningsdomänen. Om du vill använda anpassade SSL-certifikat anger du ' routingCertType ' till ' Custom ' och ' masterCertType ' till ' Custom '.  Du behöver certifikat utfärdare, certifikat och nyckel filer i. pem-format för certifikaten.  Det går att använda anpassade certifikat för en men inte för det andra.
 
-Du måste lagra filerna i Key Vault-hemligheter.  Använd samma Nyckelvalv som den som används för den privata nyckeln.  I stället för att kräva 6 ytterligare indata för hemliga namn, är mallen hårdkodad att använda specifika hemliga namn för filer för SSL-certifikat.  Store certifikatdata med hjälp av informationen i följande tabell.
+Du måste lagra de här filerna i Key Vault hemligheter.  Använd samma Key Vault som det som används för den privata nyckeln.  I stället för att kräva ytterligare ytterligare indata för de hemliga namnen, hårdkodas mallen för att använda vissa hemliga namn för var och en av SSL-certifikatets filer.  Lagra certifikat data med hjälp av informationen i följande tabell.
 
 | Hemligt namn      | Certifikatfil   |
 |------------------|--------------------|
-| mastercafile     | huvudfilen för CA: N     |
-| mastercertfile   | huvudfilen för certifikat   |
-| masterkeyfile    | huvudnyckelfilen    |
+| mastercafile     | huvud-CA-fil     |
+| mastercertfile   | huvud certifikat fil   |
+| masterkeyfile    | huvud nyckel fil    |
 | routingcafile    | Routning CA-fil    |
-| routingcertfile  | Routning CERT-fil  |
-| routingkeyfile   | Routning nyckelfil   |
+| routingcertfile  | cirkulerar certifikat fil  |
+| routingkeyfile   | Nyckel fil för routning   |
 
-Skapa hemligheter med Azure CLI. Nedan visas ett exempel.
+Skapa hemligheterna med hjälp av Azure CLI. Nedan visas ett exempel.
 
 ```bash
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
@@ -165,12 +164,12 @@ az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certif
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln beskrivs i följande avsnitt:
+I den här artikeln beskrivs följande avsnitt:
 > [!div class="checklist"]
-> * Skapa ett nyckelvalv för att hantera SSH-nycklar för OpenShift-klustret.
-> * Skapa ett huvudnamn för tjänsten för användning av Azure Cloud Solution Provider.
+> * Skapa ett nyckel valv för att hantera SSH-nycklar för OpenShift-klustret.
+> * Skapa ett tjänst huvud namn för användning av Azure Cloud Solution Provider.
 
-Distribuera ett OpenShift-kluster:
+Distribuera sedan ett OpenShift-kluster:
 
-- [Distribuera OpenShift Container Platform](./openshift-container-platform.md)
-- [Distribuera OpenShift Container Platform självhanterade Marketplace-erbjudandet](./openshift-marketplace-self-managed.md)
+- [Distribuera OpenShift container Platform](./openshift-container-platform.md)
+- [Distribuera OpenShift container Platform-erbjudandet för egen hantering](./openshift-marketplace-self-managed.md)

@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Linux-VM-agenten | Microsoft Docs
-description: Lär dig hur du installerar och konfigurerar Linux-agenten (waagent) för att hantera den virtuella datorns interaktion med Azure-Infrastrukturkontrollanten.
+title: Översikt över Azure Linux VM-agent | Microsoft Docs
+description: Lär dig hur du installerar och konfigurerar Linux-agenten (waagent) för att hantera den virtuella datorns interaktion med Azure Fabric Controller.
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
@@ -11,129 +11,128 @@ ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59a0cdd29e50501f023faf323948a400f325df0b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: acb6e14845beb4c947992e63f1984c072ba9f59f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706166"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084825"
 ---
-# <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux Agent
+# <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux-agenten
 
-Microsoft Azure Linux-agenten (waagent) hanterar Linux och FreeBSD etablering och VM-interaktioner med Azure-Infrastrukturkontrollanten. Azure tillhandahåller även alternativet att använda cloud-init för vissa Linux-OSes förutom Linux-agenten är att tillhandahålla etablering funktioner. Linux-agenten tillhandahåller följande funktioner för Linux och FreeBSD IaaS distributioner:
+Microsoft Azure Linux-agenten (waagent) hanterar Linux & FreeBSD-etablering och virtuell dator interaktion med Azure Fabric-styrenheten. Utöver Linux-agenten som tillhandahåller etablerings funktioner kan Azure också välja att använda Cloud-Init för vissa Linux-operativ system. Linux-agenten tillhandahåller följande funktioner för Linux-och FreeBSD IaaS-distributioner:
 
 > [!NOTE]
-> Mer information finns i den [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
+> Mer information finns i [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 > 
 > 
 
-* **Etablering av avbildningar**
+* **Avbildnings etablering**
   
-  * Skapa ett användarkonto
+  * Skapa ett användar konto
   * Konfigurera SSH-autentiseringstyper
-  * Distribution av offentliga SSH-nycklar och nyckelpar
-  * Ange värdnamnet
-  * Publicera värdnamnet för DNS-plattformen
-  * Rapporterar viktiga fingeravtryck för SSH-värden till plattformen
-  * Resurshantering för Disk
-  * Formatera och montera disken resurs
-  * Konfigurera växlingsutrymme
+  * Distribution av offentliga SSH-nycklar och nyckel par
+  * Ange värd namnet
+  * Publicera värd namnet på plattforms-DNS
+  * Rapportering av finger avtryck för SSH-värdnamnet till plattformen
+  * Resurs disk hantering
+  * Formatera och montera resurs disken
+  * Konfigurera växlings utrymme
 * **Nätverk**
   
-  * Hanterar vägar för att förbättra kompatibiliteten med plattformen DHCP-servrar
-  * Garanterar stabiliteten i namnet på nätverksgränssnittet
-* **Kernel**
+  * Hanterar vägar för att förbättra kompatibilitet med plattforms-DHCP-servrar
+  * Säkerställer stabiliteten för nätverks gränssnittets namn
+* **Kernellägestid**
   
-  * Konfigurerar du virtuellt NUMA (inaktivera för kernel <`2.6.37`)
-  * Förbrukar Hyper-V entropi för /dev/random
-  * Konfigurerar SCSI tidsgränser för rotenheten (som kan vara fjärransluten)
+  * Konfigurerar virtuell NUMA (inaktivera för kernel-<`2.6.37`)
+  * Använder Hyper-V-entropi för/dev/Random
+  * Konfigurerar SCSI-tidsgräns för rot enheten (som kan vara fjärran sluten)
 * **Diagnostik**
   
   * Omdirigering av konsol till den seriella porten
 * **SCVMM-distributioner**
   
-  * Identifierar och startar VMM-agenten för Linux när de körs i en miljö med System Center Virtual Machine Manager 2012 R2
+  * Identifierar och startar VMM-agenten för Linux när den körs i en System Center Virtual Machine Manager 2012 R2-miljö
 * **VM-tillägg**
   
-  * Mata in komponenten som skapats av Microsoft och partner i Linux VM (IaaS) till att programvaran och konfigurationsautomatisering
-  * Referensimplementering för VM-tillägget på [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Inmatnings komponent som skapats av Microsoft och partners till virtuella Linux-datorer (IaaS) för att aktivera automatisering av program vara och konfiguration
+  * Referens implementering för VM-tillägg på[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Kommunikation
-Informationsflödet från plattformen till agenten sker via två kanaler:
+Informations flödet från plattformen till agenten sker via två kanaler:
 
-* En uppstart kopplade DVD för IaaS-distributioner. DVD-skivan innehåller en OVF-kompatibla konfigurationsfil som innehåller alla etableringsinformationen än den faktiska SSH-keypairs.
-* En TCP-slutpunkt som exponerar ett REST-API som används för att hämta distributions- och topologi.
+* En ansluten DVD-skiva för IaaS-distributioner. Den här DVD-skivan innehåller en OVF-kompatibel konfigurations fil som innehåller all etablerings information förutom faktiska SSH-nyckelpar.
+* En TCP-slutpunkt visar en REST API som används för att hämta distributions-och Topology-konfigurationen.
 
 ## <a name="requirements"></a>Krav
-Följande datorer har testats och är kända för att arbeta med Azure Linux Agent:
+Följande system har testats och är kända för att fungera med Azure Linux-agenten:
 
 > [!NOTE]
-> Den här listan kan skilja sig från listan över officiella av operativsystem som stöds på Microsoft Azure-plattformen, enligt nedan: [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Den här listan kan skilja sig från den officiella listan över system som stöds på Microsoft Azures plattform, enligt beskrivningen här:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
 * CoreOS
-* CentOS 6.3+
-* Red Hat Enterprise Linux 6.7 +
-* Debian 7.0+
-* Ubuntu 12.04+
-* openSUSE 12.3+
-* SLES 11 SP3+
-* Oracle Linux 6.4+
+* CentOS 6.3 +
+* Red Hat Enterprise Linux 6,7 +
+* Debian 7.0 +
+* Ubuntu 12.04 +
+* openSUSE 12,3 +
+* SLES 11 SP3 +
+* Oracle Linux 6.4 +
 
 Andra system som stöds:
 
-* FreeBSD 10 + (Azure Linux-agenten v2.0.10 +)
+* FreeBSD 10 + (Azure Linux-agenten v 2.0.10 +)
 
-Linux-agenten beror på vissa Systempaket för att fungera korrekt:
+Linux-agenten är beroende av vissa system paket för att fungera korrekt:
 
-* Python 2.6+
+* Python 2.6 +
 * OpenSSL 1.0 +
 * OpenSSH 5.3 +
-* Filesystem utilities: sfdisk, fdisk, mkfs, parted
-* Verktyg för lösenord: chpasswd sudo
-* Verktyg för textbearbetning: sed grep
-* Verktyg: IP-väg
-* Kernel stöd för att montera UDF-filsystem.
+* Fil Systems verktyg: sfdisk, fdisk, mkfs, delvis
+* Lösen ords verktyg: chpasswd, sudo
+* Verktyg för text bearbetning: sed, grep
+* Nätverks verktyg: IP-Route
+* Kernel-stöd för att montera UDF-filsystem.
 
 ## <a name="installation"></a>Installation
-Installationen med hjälp av en RPM- eller DEB-paketet från paketdatabasen för din distribution är den bästa metoden för att installera och uppgradera Azure Linux Agent. Alla de [godkända distribution providers](../linux/endorsed-distros.md) integrera Azure Linux-agenten i sina avbildningar och databaser.
+Installation med hjälp av ett RPM-eller DEB-paket från distributionens paket lagring är den bästa metoden för att installera och uppgradera Azure Linux-agenten. Alla godkända [distributions leverantörer](../linux/endorsed-distros.md) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser.
 
-Finns i dokumentationen i den [Azure Linux Agent lagringsplatsen på GitHub](https://github.com/Azure/WALinuxAgent) avancerade installationsalternativ, till exempel installera från källan eller till anpassade platser eller prefix.
+Läs dokumentationen i [Azure Linux-agentens lagrings platsen på GitHub](https://github.com/Azure/WALinuxAgent) för avancerade installations alternativ, till exempel att installera från källan eller till anpassade platser eller prefix.
 
-## <a name="command-line-options"></a>Kommandoradsalternativ
+## <a name="command-line-options"></a>Kommando rads alternativ
 ### <a name="flags"></a>Flaggor
-* utförlig: Öka loggfilernas detaljnivå angivna kommandot
-* tvinga: Hoppa över interaktiva bekräftelse för vissa kommandon
+* utförlig Öka utförligheten för angivet kommando
+* inför Hoppa över interaktiv bekräftelse för vissa kommandon
 
 ### <a name="commands"></a>Kommandon
-* Hjälp: Visar en lista över kommandon som stöds och flaggor.
-* deprovision: Försök att rensa systemet och gör den lämplig för reprovisioning. I följande åtgärden tar bort:
+* Hjälp: Visar en lista över kommandon och flaggor som stöds.
+* avetablera Försök att rensa systemet och gör det lämpligt för reetablering. Följande åtgärd tar bort:
   
-  * Alla SSH-värdnycklar (om Provisioning.RegenerateSshHostKeyPair är ”y” i konfigurationsfilen)
-  * Namnserverkonfigurationen i /etc/resolv.conf
-  * Rotlösenordet från/etc/Shadow (om Provisioning.DeleteRootPassword är ”y” i konfigurationsfilen)
-  * Cachelagrade lån för DHCP-klient
+  * Alla SSH-värd nycklar (om etableringen. RegenerateSshHostKeyPair är "y" i konfigurations filen)
+  * Namnserver-konfiguration i/etc/resolv.conf
+  * Rot lösen ord från/etc/Shadow (om etableringen. DeleteRootPassword är "y" i konfigurations filen)
+  * Cachelagrade DHCP-klient lån
   * Återställer värdnamnet till localhost.localdomain
 
 > [!WARNING]
-> Avetablering garanterar inte att avbildningen är avmarkerad av all känslig information och lämpliga för Vidaredistribution.
+> Avetablering garanterar inte att avbildningen är klar med all känslig information och lämplig för omdistribution.
 > 
 > 
 
-* deprovision+user: Utför allt i - avetablering (ovan) och även tar bort det senast etablerade användarkontot (hämtades från /var/lib/waagent) och tillhörande data. Den här parametern är när avetableringsförbättringar en avbildning som tidigare etablering i Azure så att den kan hämtas och återanvändas.
-* version: Visar vilken version av waagent
-* serialconsole: Konfigurerar GRUB om du vill markera ttyS0 (den första seriella porten) som start-konsol. Detta säkerställer att kernel starttillstånd loggarna skickas till den seriella porten och görs tillgängliga för felsökning.
-* daemon: Kör waagent som en daemon för att hantera interaktion med plattformen. Det här argumentet anges till waagent i skriptet waagent init.
-* Starta: Kört waagent bakgrunden
+* avetablera + användare: Utför allt inetablering (ovan) och tar också bort det senast etablerade användar kontot (hämtas från/var/lib/waagent) och tillhör ande data. Den här parametern är när du avetablerar en avbildning som tidigare har inträffat på Azure så att den kan fångas och återanvändas.
+* version: Visar versionen av waagent
+* serialconsole: Konfigurerar GRUB att markera ttyS0 (den första seriella porten) som start konsol. Detta säkerställer att kernel start-loggar skickas till den seriella porten och görs tillgänglig för fel sökning.
+* program Kör waagent som daemon för att hantera interaktion med plattformen. Det här argumentet anges till waagent i waagent init-skriptet.
+* har Kör waagent som bakgrunds process
 
 ## <a name="configuration"></a>Konfiguration
-En konfigurationsfil (/ etc/waagent.conf) styr åtgärderna för waagent. Nedan visas ett exempel på konfigurationsfil:
+En konfigurations fil (/etc/waagent.conf) styr åtgärder för waagent. Följande visar en exempel konfigurations fil:
 
     ```
     Provisioning.Enabled=y
@@ -161,17 +160,17 @@ En konfigurationsfil (/ etc/waagent.conf) styr åtgärderna för waagent. Nedan 
     AutoUpdate.Enabled=y
     ```
 
-Följande beskrivs olika konfigurationsalternativ. Inställningarna finns i tre typer. Booleskt, sträng eller heltal. Booleska konfigurationsalternativen kan anges som ”y” eller ”n”. Särskilda nyckelordet ”None” kan användas för vissa konfigurationsposter för sträng-typ som följande information:
+Följande olika konfigurations alternativ beskrivs. Konfigurations alternativen är av tre typer. Boolesk, sträng eller heltal. De booleska konfigurations alternativen kan anges som "y" eller "n". Det särskilda nyckelordet "ingen" kan användas för vissa konfigurations poster av sträng typ som följande information:
 
-**Provisioning.Enabled:**  
+**Etablering. aktive rad:**  
 ```
 Type: Boolean  
 Default: y
 ```
-Detta gör att användaren kan aktivera eller inaktivera funktionen etablering i agenten. Giltiga värden är ”y” eller ”n”. Om etablering har inaktiverats kan SSH-värden och användaren nycklar i bild bevaras och alla konfigurationer som angetts i Azure etablering API ignoreras.
+Detta gör att användaren kan aktivera eller inaktivera etablerings funktionerna i agenten. Giltiga värden är "y" eller "n". Om etableringen är inaktiverat bevaras SSH-värden och användar nycklar i avbildningen och all konfiguration som anges i Azures etablerings-API ignoreras.
 
 > [!NOTE]
-> Den `Provisioning.Enabled` ”n” på Ubuntu molnet avbildningar som använder cloud-init för att etablera som standard.
+> Parametern `Provisioning.Enabled` är som standard "n" på Ubuntu Cloud-avbildningar som använder Cloud-Init för etablering.
 > 
 > 
 
@@ -180,161 +179,161 @@ Detta gör att användaren kan aktivera eller inaktivera funktionen etablering i
 Type: Boolean  
 Default: n
 ```
-Om uppsättningen, rotlösenordet i/etc/shadow filen tas bort under etableringen.
+Om detta anges raderas rot lösen ordet i/etc/Shadow-filen under etablerings processen.
 
-**Provisioning.RegenerateSshHostKeyPair:**  
+**Etablering. RegenerateSshHostKeyPair:**  
 ```
 Type: Boolean  
 Default: y
 ```
-Om uppsättningen, alla SSH värd nyckelpar (ecdsa, dsa och rsa) tas bort under etableringen från/etc/ssh /. Och en enda ny nyckelpar genereras.
+Om detta anges tas alla nyckel par för SSH-värden (ECDSA, DSA och RSA) bort under etablerings processen från/etc/ssh/. Och ett enda nytt nyckel par skapas.
 
-Krypteringstyp för nytt nyckelpar kan konfigureras av Provisioning.SshHostKeyPairType-post. Vissa distributioner återskapa SSH-nyckelpar för valfri krypteringstyp som saknas när SSH-daemon startas (till exempel vid en omstart).
+Krypterings typen för det nya nyckel paret kan konfigureras av etableringen. SshHostKeyPairType-posten. Vissa distributioner återskapar SSH-nyckelpar för alla saknade krypterings typer när SSH-daemonen startas om (till exempel vid en omstart).
 
-**Provisioning.SshHostKeyPairType:**  
+**Etablering. SshHostKeyPairType:**  
 ```
 Type: String  
 Default: rsa
 ```
-Detta kan ställas in till en typ av algoritm som stöds av SSH-daemon på den virtuella datorn. Vanligtvis godkända värden är ”rsa”, ”dsa” och ”ecdsa”. ”putty.exe” på Windows stöder inte ”ecdsa”. Så om du tänker använda putty.exe på Windows för att ansluta till en Linux-distribution måste använda ”rsa” eller ”dsa”.
+Detta kan anges till en typ av krypteringsalgoritm som stöds av SSH daemon på den virtuella datorn. De värden som stöds vanligt vis är "RSA", "DSA" och "ECDSA". "SparaTillFil. exe" i Windows stöder inte "ECDSA". Så om du vill använda SparaTillFil. exe i Windows för att ansluta till en Linux-distribution, använder du "RSA" eller "DSA".
 
-**Provisioning.MonitorHostName:**  
+**Etablering. MonitorHostName:**  
 ```
 Type: Boolean  
 Default: y
 ```
-Om uppsättningen, waagent övervakar Linux-dator för hostname-ändringar (som returneras av kommandot ”värdnamnet”) och automatiskt uppdatera nätverkskonfigurationen i bilden för att avspegla ändringen. För att kunna skicka namnbytet till DNS-servrar, startas nätverk på den virtuella datorn. Detta resulterar i korthet förlust av Internet-anslutning.
+Om det här alternativet är inställt övervakar waagent den virtuella Linux-datorn för hostname-ändringar (som returneras av kommandot "hostname") och automatiskt uppdaterar nätverks konfigurationen i avbildningen för att avspegla ändringen. För att push-överföra namn ändras till DNS-servrarna startas nätverk om på den virtuella datorn. Detta resulterar i en kort förlust av Internet anslutning.
 
 **Provisioning.DecodeCustomData**  
 ```
 Type: Boolean  
 Default: n
 ```
-Om uppsättningen, waagent avkodar CustomData från Base64.
+Om det här värdet anges avkodas waagent CustomData från base64.
 
-**Provisioning.ExecuteCustomData**  
+**Etablering. ExecuteCustomData**  
 ```
 Type: Boolean  
 Default: n
 ```
-Om uppsättningen, waagent kör CustomData efter etableringen.
+Om det här värdet anges kör waagent CustomData efter etableringen.
 
 **Provisioning.AllowResetSysUser**
 ```
 Type: Boolean
 Default: n
 ```
-Det här alternativet kan lösenordet för användaren sys ska återställas; Standardvärdet är inaktiverad.
+Med det här alternativet kan du återställa sys-användarens lösen ord. Standardvärdet är inaktiverat.
 
 **Provisioning.PasswordCryptId**  
 ```
 Type: String  
 Default: 6
 ```
-Algoritm som används av crypt vid generering av lösenords-hash.  
- 1 - MD5  
- 2a - Blowfish  
+Algoritm som används av crypt vid generering av lösen ords-hash.  
+ 1-MD5  
+ 2a – blowfish  
  5 - SHA-256  
- 6 - SHA-512  
+ 6-SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
 ```
 Type: String  
 Default: 10
 ```
-Längden på slumpmässiga salt som används vid generering av lösenords-hash.
+Längden på det slumpmässiga salt som används när lösen ordets hash genereras.
 
-**ResourceDisk.Format:**  
+**ResourceDisk. format:**  
 ```
 Type: Boolean  
 Default: y
 ```
-Om resursdisk som tillhandahålls av plattformen är formaterad och monteras med waagent om typen av filsystem som begärts av användaren i ”ResourceDisk.Filesystem” är något annat än ”ntfs”. En partition av typen Linux (83) görs tillgänglig på disken. Den här partitionen är inte formaterad om den har monteras.
+Om den här inställningen är aktive rad kommer resurs disken som tillhandahålls av plattformen att formateras och monteras av waagent om den fil Systems typ som användaren begär i "ResourceDisk. filesystem" är något annat än "NTFS". En enda partition av typen Linux (83) görs tillgänglig på disken. Den här partitionen är inte formaterad om den kan monteras.
 
 **ResourceDisk.Filesystem:**  
 ```
 Type: String  
 Default: ext4
 ```
-Detta anger typen av filsystem för resurs-disken. Värden som stöds beror på Linux-distribution. Om strängen är X, sedan mkfs. X bör finnas på Linux-avbildning. SLES 11 avbildningar bör normalt använda 'ext3'. FreeBSD avbildningar bör använda 'ufs2' här.
+Anger fil Systems typ för resurs disken. Vilka värden som stöds varierar beroende på Linux-distribution. Om strängen är X, så mkfs. X måste finnas på Linux-avbildningen. SLES 11-bilder bör normalt använda "ext3". FreeBSD-bilder ska använda ' UFS2 ' här.
 
 **ResourceDisk.MountPoint:**  
 ```
 Type: String  
 Default: /mnt/resource 
 ```
-Detta anger sökvägen där resursen disken är monterad. Resurs-disken är en *tillfälliga* disk och kan tömmas när Virtuellt datorn avetableras.
+Anger sökvägen till den plats där resurs disken monteras. Resurs disken är en *temporär* disk och kan tömmas när den virtuella datorn har avetablerats.
 
 **ResourceDisk.MountOptions**  
 ```
 Type: String  
 Default: None
 ```
-Anger alternativ för montering av disk som ska skickas till kommandot mount -o. Det här är en kommaavgränsad lista med värden, t.ex. 'nodev nosuid'. Se mount(8) mer information.
+Anger monterings alternativ för diskar som ska skickas till kommandot Mount-o. Det här är en kommaavgränsad lista med värden, t. ex. 'nodev,nosuid'. Mer information finns i montera (8).
 
 **ResourceDisk.EnableSwap:**  
 ```
 Type: Boolean  
 Default: n
 ```
-Om har angetts en växlingsfil (/ swapfile) skapas på resurs-disken och läggs till växlingsutrymme system.
+Om den anges skapas en växlings fil (/swapfile) på resurs disken och läggs till i system växlings utrymmet.
 
 **ResourceDisk.SwapSizeMB:**  
 ```
 Type: Integer  
 Default: 0
 ```
-Storleken på växlingsfilen i megabyte.
+Växlings filens storlek i megabyte.
 
-**Logs.Verbose:**  
+**Loggar. Verbose:**  
 ```
 Type: Boolean  
 Default: n
 ```
-Om uppsättningen, log detaljnivå förstärks. Waagent loggar till /var/log/waagent.log och använder systemets logrotate funktion för att rotera loggar.
+Om det är inställt, ökar loggens utförlighet. Waagent loggar till/var/log/waagent.log och använder system logrotate-funktionen för att rotera loggar.
 
 **OS.EnableRDMA**  
 ```
 Type: Boolean  
 Default: n
 ```
-Om uppsättningen, agenten försöker installera och sedan läsa in en RDMA-kerneldrivrutinen matchar som versionen av den inbyggda programvaran på den underliggande maskinvaran.
+Om det här alternativet anges försöker agenten installera och sedan läsa in en RDMA-kernel-drivrutin som matchar versionen av den inbyggda program varan på den underliggande maskin varan.
 
 **OS.RootDeviceScsiTimeout:**  
 ```
 Type: Integer  
 Default: 300
 ```
-Den här inställningen konfigurerar SCSI-tidsgräns i sekunder för OS-disk- och enheter. Om det inte har angetts i systemet som standard.
+Den här inställningen konfigurerar SCSI-tidsgräns på några sekunder av OS-disken och data enheterna. Om den inte anges används systemets standardinställningar.
 
 **OS.OpensslPath:**  
 ```
 Type: String  
 Default: None
 ```
-Den här inställningen kan användas för att ange en alternativ sökväg för openssl binära för kryptografiska åtgärder.
+Den här inställningen kan användas för att ange en alternativ sökväg för den openssl-binärfil som ska användas för kryptografiska åtgärder.
 
-**HttpProxy.Host HttpProxy.Port**  
+**HttpProxy. Host, HttpProxy. port**  
 ```
 Type: String  
 Default: None
 ```
-Om uppsättningen, agenten använder den här proxyservern för att få åtkomst till internet. 
+Om den är inställd använder agenten denna proxyserver för att få åtkomst till Internet. 
 
-**AutoUpdate.Enabled**
+**AutoUpdate. Enabled**
 ```
 Type: Boolean
 Default: y
 ```
-Aktivera eller inaktivera automatisk uppdatering för målstatusen bearbetning; standard är aktiverat.
+Aktivera eller inaktivera automatisk uppdatering för bearbetning av mål tillstånd; Standardvärdet är aktiverat.
 
 
 
 ## <a name="ubuntu-cloud-images"></a>Ubuntu Cloud Images
-Ubuntu Molnbilder använda [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) att utföra flera konfigurationsåtgärder som annars skulle hanteras av Azure Linux Agent. Det gäller följande skillnader:
+Ubuntu Cloud-avbildningar använder [Cloud-Init](https://launchpad.net/ubuntu/+source/cloud-init) för att utföra många konfigurations uppgifter som annars skulle hanteras av Azure Linux-agenten. Följande skillnader gäller:
 
-* **Provisioning.Enabled** standardvärdet är ”n” på Ubuntu molnet avbildningar som använder cloud-init för att utföra uppgifter för etablering.
-* Följande konfigurationsparametrar har ingen effekt på Ubuntu Cloud-avbildningar som använder cloud-init för att hantera resource disken och växlingsutrymme:
+* **Etableringen. aktiverade** standardinställningar till "n" på Ubuntu Cloud-avbildningar som använder Cloud-Init för att utföra etablerings uppgifter.
+* Följande konfigurations parametrar har ingen inverkan på Ubuntu Cloud-avbildningar som använder Cloud-Init för att hantera resurs disk och växlings utrymme:
   
   * **ResourceDisk.Format**
   * **ResourceDisk.Filesystem**
@@ -342,8 +341,8 @@ Ubuntu Molnbilder använda [cloud-init](https://launchpad.net/ubuntu/+source/clo
   * **ResourceDisk.EnableSwap**
   * **ResourceDisk.SwapSizeMB**
 
-* Mer information finns i följande resurser för att konfigurera monteringspunkten resource disk och växlingsutrymme på Ubuntu Molnbilder under etableringen:
+* Mer information finns i följande resurser för att konfigurera resurs diskens monterings punkt och växlings utrymme på Ubuntu Cloud-avbildningar under etableringen:
   
-  * [Ubuntu Wiki: Konfigurera växling](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Infoga anpassade Data i en Azure virtuell dator](../windows/classic/inject-custom-data.md)
+  * [Ubuntu wiki: Konfigurera Swap-partitioner](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Mata in anpassade data i en virtuell Azure-dator](../windows/classic/inject-custom-data.md)
 

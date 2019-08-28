@@ -1,110 +1,109 @@
 ---
-title: Funktionstyper och funktioner i tillägget varaktiga funktioner i Azure Functions
-description: Läs mer om vilka typer av funktioner och roller som har stöd för funktionen till funktionen kommunikation i en varaktiga funktioner orchestration i Azure Functions.
+title: Funktions typer och funktioner i Durable Functions tillägget för Azure Functions
+description: Lär dig mer om de typer av funktioner och roller som stöder funktions-till-funktion-kommunikation i en Durable Functions dirigering i Azure Functions.
 services: functions
 author: jeffhollan
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: de5019e0f91c92829082aed962bb9633da52b4a9
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 0d3087c768a02bb5c647fc0d10db3aa4274804f4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812835"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097743"
 ---
-# <a name="durable-functions-types-and-features-azure-functions"></a>Varaktiga funktioner typer och funktioner (Azure Functions)
+# <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions typer och funktioner (Azure Functions)
 
-Varaktiga funktioner är en utökning av [Azure Functions](../functions-overview.md). Du kan använda varaktiga funktioner för tillståndskänslig orkestrering av körning av funktion. En hållbar funktion är en lösning som består av olika Azure functions. Functions kan spela upp olika roller i en hållbar funktionen dirigering. 
+Durable Functions är en utökning av [Azure Functions](../functions-overview.md). Du kan använda Durable Functions för tillstånds känslig dirigering av funktions körning. En varaktig funktion är en lösning som består av olika Azure Functions. Funktioner kan spela olika roller i en varaktig funktions dirigering. 
 
-Den här artikeln ger en översikt över typerna av funktioner som kan användas i en varaktiga funktioner dirigering. Artikeln innehåller vissa vanliga mönster som du kan använda för att ansluta functions. Lär dig hur varaktiga funktioner kan hjälpa dig att lösa dina utmaningar för app-utveckling.
+Den här artikeln ger en översikt över vilka typer av funktioner som du kan använda i ett Durable Functions Orchestration. Artikeln innehåller några vanliga mönster som du kan använda för att ansluta funktioner. Lär dig hur Durable Functions kan hjälpa dig att lösa dina utmaningar med att utveckla appar.
 
 ![En bild som visar typerna av varaktiga funktioner][1]  
 
 ## <a name="types-of-durable-functions"></a>Typer av varaktiga funktioner
 
-Du kan använda fyra funktionstyper av varaktiga i Azure Functions: aktivitet, orchestrator, entitet och klienten.
+Du kan använda fyra varaktiga funktions typer i Azure Functions: aktivitet, Orchestrator, entitet och klient.
 
-### <a name="activity-functions"></a>Aktivitetsfunktioner
+### <a name="activity-functions"></a>Aktivitets funktioner
 
-Aktivitetsfunktioner är den grundläggande enheten för arbete i en hållbar funktionen dirigering. Aktivitetsfunktioner är de funktioner och uppgifter som orkestreras i processen. Du kan till exempel skapa en hållbar funktion för att bearbeta en order. Uppgifterna omfattar kontrollerar inventeringen debitera kunden och skapar en försändelse. Varje aktivitet är en funktion för aktiviteten. 
+Aktivitets funktionerna är den grundläggande arbets enheten i en varaktig funktions dirigering. Aktivitets funktioner är de funktioner och uppgifter som samordnas i processen. Du kan till exempel skapa en varaktig funktion för bearbetning av en order. Uppgifterna omfattar att kontrol lera inventeringen, debitera kunden och skapa en försändelse. Varje aktivitet är en aktivitets funktion. 
 
-Aktivitetsfunktioner är inte begränsad i vilken typ av arbete som du kan göra i dem. Du kan skriva en funktion för aktiviteten i någon [språk som har stöd för varaktiga funktioner](durable-functions-overview.md#language-support). Hållbar uppgift framework garanterar att varje funktion kallad aktivitet körs minst en gång under en orkestrering.
+Aktivitets funktioner är inte begränsade i den typ av arbete du kan göra i dem. Du kan skriva en aktivitets funktion på alla [språk som Durable Functions stöd](durable-functions-overview.md#language-support)för. Det varaktiga aktivitets ramverket garanterar att varje anropad aktivitets funktion utförs minst en gång under ett dirigering.
 
-Använd en [aktivitet utlösaren](durable-functions-bindings.md#activity-triggers) att utlösa en aktivitet-funktion. .NET-funktioner får en [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) som en parameter. Du kan också binda utlösaren till alla andra objekt att skicka in indata till funktionen. I JavaScript, kan du komma åt indata via den `<activity trigger binding name>` egenskap på den [ `context.bindings` objektet](../functions-reference-node.md#bindings).
+Använd en [aktivitets](durable-functions-bindings.md#activity-triggers) utlösare för att utlösa en aktivitets funktion. .NET Functions tar emot en [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) som en parameter. Du kan också binda utlösaren till ett annat objekt för att överföra indata till funktionen. I Java Script kan du komma åt inmatade `<activity trigger binding name>` [ `context.bindings` objekt](../functions-reference-node.md#bindings)via egenskapen på objektet.
 
-Funktionen aktivitet kan också returnera värden till orchestrator. Om du skickar eller returnera ett stort antal värden från en aktivitet-funktion, kan du använda [tupplar eller matriser](durable-functions-bindings.md#passing-multiple-parameters). Du kan utlösa en aktivitet funktion från en orchestration-instans. Även om en aktivitet-funktion och en annan funktion (till exempel en HTTP-utlöst funktion) kan dela kod, kan varje funktion har bara en utlösare.
+Din aktivitets funktion kan också returnera värden till Orchestrator. Om du skickar eller returnerar ett stort antal värden från en aktivitets funktion kan du använda tupler [eller matriser](durable-functions-bindings.md#passing-multiple-parameters). Du kan endast utlösa en aktivitets funktion från en Orchestration-instans. Även om en aktivitets funktion och en annan funktion (t. ex. en HTTP-utlöst funktion) kan dela kod, kan varje funktion bara ha en utlösare.
 
-Mer information och exempel finns i [Aktivitetsfunktioner](durable-functions-bindings.md#activity-triggers).
+Mer information och exempel finns i [aktivitets funktioner](durable-functions-bindings.md#activity-triggers).
 
 ### <a name="orchestrator-functions"></a>Orchestrator-funktioner
 
-Orchestrator-funktioner beskrivs hur åtgärder utförs och ordningen i vilken åtgärder utförs. Orchestrator-funktioner beskrivs orchestration i kod (C# eller JavaScript) enligt [varaktiga funktioner, mönster och tekniska begrepp](durable-functions-concepts.md). En orkestrering kan ha många olika typer av åtgärder, inklusive [Aktivitetsfunktioner](#activity-functions), [underordnade orkestreringar](#sub-orchestrations), [väntar på externa händelser](#external-events), och [timers](#durable-timers). Orchestrator-funktioner också kan interagera med [entitet funktioner](#entity-functions).
+Orchestrator Functions beskriver hur åtgärder utförs och i vilken ordning åtgärder utförs. Orchestrator Functions beskriver dirigeringen i kod (C# eller Java Script) som visas i [Durable Functions mönster och tekniska begrepp](durable-functions-concepts.md). En dirigering kan ha många olika typer av åtgärder, inklusive [aktivitets funktioner](#activity-functions), [under dirigering](#sub-orchestrations), [som väntar på externa händelser](#external-events)och timers. [](#durable-timers) Orchestrator-funktioner kan också samverka med [enhets funktioner](#entity-functions).
 
-En orchestrator-funktion måste aktiveras via en [orchestration utlösaren](durable-functions-bindings.md#orchestration-triggers).
+En Orchestrator-funktion måste utlösas av en [Orchestration](durable-functions-bindings.md#orchestration-triggers)-utlösare.
 
-En initierare har startats med en [orchestrator klienten](#client-functions). Du kan utlösa orchestrator från valfri källa (http-, kö, händelseströmmen). Varje instans av en orkestrering har en instansidentifierare. Instans-ID kan vara automatiskt genererade (rekommenderas) eller användare. Du kan använda instans-ID som [hantera instanser](durable-functions-instance-management.md) för dirigering.
+En Orchestrator startas av en [Orchestrator-klient](#client-functions). Du kan utlösa Orchestrator från vilken källa som helst (HTTP, kö, händelse ström). Varje instans av en dirigering har en instans identifierare. Instans identifieraren kan skapas automatiskt (rekommenderas) eller genereras av användaren. Du kan använda instans identifieraren för att [Hantera instanser](durable-functions-instance-management.md) av dirigeringen.
 
-Mer information och exempel finns i [Orchestration utlösare](durable-functions-bindings.md#orchestration-triggers).
+Mer information och exempel finns i [Orchestration](durable-functions-bindings.md#orchestration-triggers)-utlösare.
 
-###  <a name="entity-functions"></a>Entiteten functions (förhandsversion)
+###  <a name="entity-functions"></a>Enhets funktioner (förhands granskning)
 
-Funktioner för entitet definierar åtgärder för att läsa och uppdatera små delar av tillstånd, kallas *varaktiga entiteter*. Som orchestrator-funktioner, funktioner för entiteten är funktioner med en särskild Utlösartyp *entitet utlösaren*. Till skillnad från orchestrator-funktioner har entiteten funktioner inte några begränsningar för specifik kod. Entiteten funktioner också hantera tillstånd uttryckligen i stället för implicit som representerar tillstånd via Kontrollflöde.
+Entitets funktioner definierar åtgärder för att läsa och uppdatera små delar av tillstånd,så kallade varaktiga entiteter. Precis som med Orchestrator Functions är enhets funktionerna funktioner med en särskildutlösnings typ, enhets utlösare. Till skillnad från Orchestrator-funktioner har enhets funktioner inga speciella kod begränsningar. Enhets funktionerna hanterar också tillstånd explicit snarare än implicit som representerar tillstånd via kontroll flödet.
 
 > [!NOTE]
-> Entiteten funktioner och relaterade funktioner är endast tillgänglig i varaktiga Functions 2.0 och senare.
+> Enhets funktioner och relaterade funktioner är bara tillgängliga i Durable Functions 2,0 och senare.
 
-Mer information om entiteten funktioner finns i den [entitet funktioner](durable-functions-preview.md#entity-functions) förhandsversion i dokumentationen till funktion.
+Mer information om entitets funktioner finns i dokumentationen [](durable-functions-preview.md#entity-functions) för funktionen för förhands granskning av entiteter.
 
-### <a name="client-functions"></a>Klientfunktioner
+### <a name="client-functions"></a>Klient funktioner
 
-Klientfunktioner är utlösta funktioner som att skapa och hantera instanser av orkestreringar och entiteter. De är i själva verket startpunkten för att interagera med varaktiga funktioner. Du kan utlösa en klient-funktion från valfri källa (HTTP, kön, händelseströmmen osv.). En funktion som klienten använder den [orkestreringsklient bindning](durable-functions-bindings.md#orchestration-client) att skapa och hantera varaktiga orkestreringar och entiteter.
+Klient funktioner utlöser funktioner som skapar och hanterar instanser av dirigering och entiteter. De är i praktiken start punkten för att interagera med Durable Functions. Du kan utlösa en klient funktion från vilken källa som helst (HTTP, kö, händelse ström osv.). En klient funktion använder [Dirigerings klientens bindning](durable-functions-bindings.md#orchestration-client) för att skapa och hantera beständiga dirigeringar och entiteter.
 
-Det mest grundläggande exemplet på en klient-funktion är en HTTP-utlöst funktion som startar en orchestrator-funktion och returnerar svaret Kontrollera status. Ett exempel finns i [HTTP-URL för API-identifiering](durable-functions-http-api.md#http-api-url-discovery).
+Det mest grundläggande exemplet på en klient funktion är en HTTP-utlöst funktion som startar en Orchestrator-funktion och som sedan returnerar ett kontroll status svar. Ett exempel finns i [http API URL Discovery](durable-functions-http-api.md#http-api-url-discovery).
 
-Mer information och exempel finns i [orkestreringsklient](durable-functions-bindings.md#orchestration-client).
+Mer information och exempel finns i [Orchestration client](durable-functions-bindings.md#orchestration-client).
 
 ## <a name="features-and-patterns"></a>Funktioner och mönster
 
-I nästa avsnitt beskrivs funktioner och mönster för varaktiga funktioner typer.
+I nästa avsnitt beskrivs funktionerna och mönstren i Durable Functions typer.
 
 ### <a name="sub-orchestrations"></a>Sub-orkestreringar
 
-Orchestrator-funktioner kan anropa Aktivitetsfunktioner, men de kan också anropa andra orchestrator-funktioner. Du kan till exempel skapa en större dirigering av ett bibliotek av orchestrator-funktioner. Eller du kan köra flera instanser av en orchestrator-funktion parallellt.
+Orchestrator-funktioner kan anropa aktivitets funktioner, men de kan också anropa andra Orchestrator-funktioner. Du kan till exempel bygga ett större dirigering från ett bibliotek med Orchestrator-funktioner. Du kan också köra flera instanser av en Orchestrator-funktion parallellt.
 
-Mer information och exempel finns i [underordnade orkestreringar](durable-functions-sub-orchestrations.md).
+Mer information och exempel finns i [under dirigering](durable-functions-sub-orchestrations.md).
 
-### <a name="durable-timers"></a>Hållbar timers
+### <a name="durable-timers"></a>Varaktiga timers
 
-[Varaktiga funktioner](durable-functions-overview.md) ger *varaktiga timers* som du kan använda i orchestrator-funktioner att implementera fördröjningar eller ställa in timeouter på asynkrona åtgärder. Använda beständiga timers i orchestrator-funktioner i stället för `Thread.Sleep` och `Task.Delay` (C#) eller `setTimeout()` och `setInterval()` (JavaScript).
+[Durable Functions](durable-functions-overview.md) tillhandahåller *varaktiga timers* som du kan använda i Orchestrator-funktioner för att implementera fördröjningar eller ställa in tids gränser för asynkrona åtgärder. Använd varaktiga timers i Orchestrator-funktioner `Thread.Sleep` i `Task.Delay` ställetC#för och `setTimeout()` ( `setInterval()` ) eller och (Java Script).
 
-Mer information och exempel finns i [varaktiga timers](durable-functions-timers.md).
+Mer information och exempel finns i varaktiga [timers](durable-functions-timers.md).
 
 ### <a name="external-events"></a>Externa händelser
 
-Orchestrator-funktioner kan vänta på externa händelser att uppdatera en orchestration-instans. Det här varaktiga funktioner-funktionen är ofta användbara för att hantera en mänsklig interaktion eller andra externa återanrop.
+Orchestrator-funktioner kan vänta på att externa händelser uppdaterar en Orchestration-instans. Den här Durable Functions funktionen är ofta användbar för att hantera en mänsklig interaktion eller andra externa återanrop.
 
 Mer information och exempel finns i [externa händelser](durable-functions-external-events.md).
 
 ### <a name="error-handling"></a>Felhantering
 
-Använd kod för att implementera varaktiga funktioner orkestreringar. Du kan använda funktioner för felhantering i programmeringsspråket. Mönster som `try` / `catch` fungerar som din orkestrering. 
+Använd kod för att implementera Durable Functions-dirigeringar. Du kan använda fel hanterings funktionerna i programmeringsspråket. Mönster som `try` / fungeraridittdirigering`catch` . 
 
-Varaktiga funktioner levereras också med inbyggda återförsöksprinciper. En åtgärd kan fördröja och försök aktiviteter automatiskt när ett undantag inträffar. Du kan använda återförsök för att hantera tillfälliga undantag utan att överge dirigering.
+Durable Functions även med inbyggda principer för återförsök. En åtgärd kan fördröja och försöka utföra aktiviteter automatiskt när ett undantag inträffar. Du kan använda återförsök för att hantera tillfälliga undantag utan att överge dirigeringen.
 
-Mer information och exempel finns i [felhantering](durable-functions-error-handling.md).
+Mer information och exempel finns i [fel hantering](durable-functions-error-handling.md).
 
-### <a name="cross-function-app-communication"></a>Kommunikation mellan funktionsapp
+### <a name="cross-function-app-communication"></a>Kommunikation mellan funktioner
 
-Även om en hållbar orchestration körs i kontexten för en enda funktionsapp, kan du använda mönster för att koordinera orkestreringar mellan många funktionsappar. Kommunikation mellan appar som kan uppstå via HTTP, men med hjälp av beständiga ramverket för varje aktivitet innebär att du kan fortfarande ha en beständig process i två appar.
+Även om en varaktig dirigering körs i en enda Function-app, kan du använda mönster för att koordinera dirigeringar över många Function-appar. Kommunikation mellan appar kan ske över HTTP, men med hjälp av det varaktiga ramverket för varje aktivitet kan du fortfarande underhålla en varaktig process över två appar.
 
-Följande exempel visar flera funktionsapp orchestration i C# och JavaScript. I varje exempel startar en aktivitet för externa samordning. En annan aktivitet hämtar och returnerar status. Orchestrator ska vänta tills statusen vara `Complete` innan du fortsätter.
+I följande exempel demonstreras samverkan mellan appar i C# och Java Script. I varje exempel startar en aktivitet den externa dirigeringen. En annan aktivitet hämtar och returnerar statusen. Orchestrator väntar på att statusen ska vara `Complete` innan den fortsätter.
 
-Här följer några exempel på flera funktionsapp orchestration:
+Här följer några exempel på program dirigering mellan olika funktioner:
 
 #### <a name="c"></a>C#
 
@@ -157,7 +156,7 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -217,10 +216,10 @@ module.exports = async function(context, statusUrl) {
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång genom att skapa din första varaktiga funktion i [ C# ](durable-functions-create-first-csharp.md) eller [JavaScript](quickstart-js-vscode.md).
+Kom igång genom att skapa din första varaktiga funktion [C#](durable-functions-create-first-csharp.md) i eller [Java Script](quickstart-js-vscode.md).
 
 > [!div class="nextstepaction"]
-> [Läs mer om varaktiga funktioner](durable-functions-bindings.md)
+> [Läs mer om Durable Functions](durable-functions-bindings.md)
 
 <!-- Media references -->
 [1]: media/durable-functions-types-features-overview/durable-concepts.png

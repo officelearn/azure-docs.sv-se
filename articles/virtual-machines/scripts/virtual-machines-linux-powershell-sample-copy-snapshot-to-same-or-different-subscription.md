@@ -9,32 +9,31 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: aadcdc679d8d0df82c7ddc41b4dcdd6766bb7426
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f7dbda75eaf403e9bd99dce63e5ed37118fd83ea
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249680"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081370"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Kopiera en ögonblicksbild av en hanterad disk i sammaprenumeration eller en annan prenumeration med PowerShell
 
 Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Använd det här skriptet för följande scenarier:
 
-1. Migrera en ögonblicksbild i Premium-lagring (Premium_LRS) till standardlagring (Standard_LRS eller Standard_ZRS) för att minska dina kostnader.
-1. Migrera en ögonblicksbild från lokalt redundant lagring (Premium_LRS, Standard_LRS) till zonredundant lagring (Standard_ZRS) för att dra nytta av ZRS storage högre tillförlitlighet.
-1. Flytta en ögonblicksbild till annan prenumeration i samma region för längre kvarhållning.
+1. Migrera en ögonblicks bild i Premium Storage (Premium_LRS) till standard lagrings utrymme (Standard_LRS eller Standard_ZRS) för att minska kostnaderna.
+1. Migrera en ögonblicks bild från lokalt redundant lagring (Premium_LRS, Standard_LRS) till zon redundant lagring (Standard_ZRS) för att dra nytta av högre tillförlitlighet för ZRS-lagring.
+1. Flytta en ögonblicks bild till en annan prenumeration i samma region för längre kvarhållning.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Exempelskript
 

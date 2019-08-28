@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: ca4908e642644ccbf349841d143bfcc18e944025
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 25c732d1311e2bcffe0fda0d5e427d5df5f99da6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305843"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70065933"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -33,7 +33,7 @@ En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler 
 
 |Egenskap  |Förklaring  |
 |---------|---------|
-|Namn|Ett unikt namn inom nätverkssäkerhetsgruppen.|
+|Name|Ett unikt namn inom nätverkssäkerhetsgruppen.|
 |Priority | Ett tal mellan 100 och 4096. Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.|
 |Källa eller mål| Valfria, eller enskilda IP-adresser, CIDR-block (Classless Inter-Domain Routing) (t.ex. 10.0.0.0/24), [tjänsttaggar](#service-tags) eller [programsäkerhetsgrupper](#application-security-groups). Om du anger en adress för en Azure-resurs anger du den privata IP-adressen som tilldelats till resursen. Nätverkssäkerhetsgrupper bearbetas efter att Azure omvandlar en offentlig IP-adress till en privat IP-adress för inkommande trafik, och innan Azure omvandlar en privat IP-adress till en offentlig IP-adress för utgående trafik. Läs mer om [IP-adresser](virtual-network-ip-addresses-overview-arm.md) i Azure. Du kan begränsa antalet säkerhetsregler du skapar genom att ange ett intervall, en tjänsttagg eller en programsäkerhetsgrupp. Möjligheten att ange flera enskilda IP-adresser och intervall (du kan inte ange flera tjänsttaggar eller programgrupper) i en regel kallas [förhöjda säkerhetsregler](#augmented-security-rules). Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera IP-adresser och IP-adressintervall i nätverkssäkerhetsgrupper som skapats via den klassiska distributionsmodellen. Läs mer om [distributionsmodeller i Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 |Protocol     | TCP, UDP, ICMP eller valfritt.|
@@ -56,38 +56,38 @@ En tjänsttagg representerar en grupp IP-adressprefix och används i syfte att m
 
 Följande service märken är tillgängliga för användning i [regler för nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules). Service märken med asterisk i slutet (t. ex. AzureCloud *) kan också användas i [Azure Firewall Network-regler](https://docs.microsoft.com/azure/firewall/service-tags). 
 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** för klassisk): Den här taggen innehåller adress utrymmet för det virtuella nätverket (alla CIDR-intervall som definierats för det virtuella nätverket), alla anslutna lokala adress utrymmen, [peer](virtual-network-peering-overview.md) -kopplade virtuella nätverk eller virtuella nätverk som är anslutna till en [virtuell](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nätverksgateway och adress prefix som används för [användardefinierade vägar](virtual-networks-udr-overview.md). Tänk på att den här taggen kan innehålla standard väg. 
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger lastbalanseraren för Azures infrastruktur. Taggen översätts till [värdens virtuella IP-adress](security-overview.md#azure-platform-considerations) (168.63.129.16) som Azures hälsoavsökningar kommer från. Du kan åsidosätta den här regeln om du inte använder Azures lastbalanserare.
-* **Internet** (Resource Manager) (**INTERNET** för klassisk): Den här taggen omfattar det IP-adressutrymme som är utanför det virtuella nätverket och som nås via offentligt Internet. Adressintervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureCloud*** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för Azure, inklusive alla [offentliga IP-adresser för datacentret](https://www.microsoft.com/download/details.aspx?id=41653). Om du anger *AzureCloud* som värde tillåts eller nekas trafik till offentliga Azure IP-adresser. Om du bara vill tillåta åtkomst till AzureCloud i en angiven [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format AzureCloud. [regions namn]. Den här taggen rekommenderas för utgående säkerhets regel. 
-* **AzureTrafficManager*** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för IP-adresserna för avsökning i Azure Traffic Manager. Mer information om IP-adresser för avsökning i Traffic Manager finns i [Vanliga frågor och svar om Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). Den här taggen rekommenderas för inkommande säkerhets regel.  
-* **Lagring*** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för tjänsten Azure Storage. Om du anger *Storage* som värde tillåts eller nekas trafik till lagringen. Om du bara vill tillåta åtkomst till lagring i en angiven [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format lagring. [regions namn]. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure Storage, men inte ett specifikt Azure Storage-konto. Den här taggen rekommenderas för utgående säkerhets regel. 
-* **SQL*** (endast Resource Manager): Den här taggen anger de adressprefix som finns för Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL och Azure SQL Data Warehouse tjänster. Om du anger *Sql* som värde tillåts eller nekas trafik till Sql. Om du bara vill tillåta åtkomst till SQL i en angiven [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format SQL. [region namn]. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure SQL Database, men inte en specifik SQL-databas eller -server. Den här taggen rekommenderas för utgående säkerhets regel. 
-* **AzureCosmosDB*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Cosmos Database. Om du anger *Azure Cosmos DB* som värde tillåts eller nekas trafik till Azure Cosmos DB. Om du bara vill ge åtkomst till AzureCosmosDB i en specifik [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format: AzureCosmosDB. [ regionsnamnet]. Den här taggen rekommenderas för utgående säkerhets regel. 
-* **AzureKeyVault*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure KeyVault. Om du anger *AzureKeyVault* som värde tillåts eller nekas trafik till AzureKeyVault. Om du bara vill ge åtkomst till AzureKeyVault i en specifik [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format: AzureKeyVault. [ regionsnamnet]. Den här taggen har ett beroende av **AzureActiveDirectory** -taggen. Den här taggen rekommenderas för utgående säkerhets regel.  
-* **EventHub*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure EventHub. Om du anger *EventHub* som värde tillåts eller nekas trafik till EventHub. Om du bara vill ge åtkomst till EventHub i en specifik [region](https://azure.microsoft.com/regions), kan du ange regionen i följande format: EventHub.[regionnamn]. Den här taggen rekommenderas för utgående säkerhets regel. 
-* **Service Bus*** (endast Resource Manager): Den här taggen anger adressprefix för Azure Service Bus-tjänsten med Premium-tjänstens nivå. Om du anger *ServiceBus* som värde tillåts eller nekas trafik till ServiceBus. Om du bara vill ge åtkomst till ServiceBus i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: ServiceBus.[regionnamn]. Den här taggen rekommenderas för utgående säkerhets regel. 
-* **MicrosoftContainerRegistry*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Microsoft Container Registry. Om du anger *MicrosoftContainerRegistry* som värde så tillåts eller nekas trafik till MicrosoftContainerRegistry. Om du bara vill ge åtkomst till MicrosoftContainerRegistry i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: MicrosoftContainerRegistry.[regionsnamn]. Den här taggen rekommenderas för utgående säkerhets regel. 
-* **AzureContainerRegistry*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Container Registry. Om du anger *AzureContainerRegistry* som värde så tillåts eller nekas trafik till AzureContainerRegistry. Om du bara vill ge åtkomst till AzureContainerRegistry i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AzureContainerRegistry.[regionsnamn]. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **API Management*** (endast Resource Manager): Den här taggen anger adressprefix för hanterings trafik för APIM-dedikerade distributioner. Om du anger *ApiManagement* för värdet så tillåts eller nekas trafik till ApiManagement. Den här taggen rekommenderas för inkommande/utgående säkerhets regel. 
 * **AppService*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure AppService. Om du anger *AppService* som värde tillåts eller nekas trafik till AppService. Om du bara vill ge åtkomst till AppService i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AppService.[regionnamn]. Den här taggen rekommenderas för utgående säkerhets regel till webapps-frontend.  
 * **AppServiceManagement*** (endast Resource Manager): Den här taggen anger de adressprefix som ska användas för hanterings trafiken för App Service-miljön dedikerade distributioner. Om du anger *AppServiceManagement* för värdet så tillåts eller nekas trafik till AppServiceManagement. Den här taggen rekommenderas för inkommande/utgående säkerhets regel. 
-* **API Management*** (endast Resource Manager): Den här taggen anger adressprefix för hanterings trafik för APIM-dedikerade distributioner. Om du anger *ApiManagement* för värdet så tillåts eller nekas trafik till ApiManagement. Den här taggen rekommenderas för inkommande/utgående säkerhets regel. 
-* **AzureConnectors*** (endast Resource Manager): Den här taggen anger adressprefix för Logic Apps anslutningar för avsöknings-/backend-anslutningar. Om du anger *AzureConnectors* som värde tillåts eller nekas trafik till AzureConnectors. Om du bara vill ge åtkomst till AzureConnectors i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AzureConnectors.[ regionensnamn]. Den här taggen rekommenderas för inkommande säkerhets regel. 
-* **GatewayManager** (endast Resource Manager): Den här taggen anger adressprefix för hanterings trafik för VPN/app Gateway-dedikerade distributioner. Om du anger *GatewayManager* som värde så tillåts eller nekas trafik till GatwayManager. Den här taggen rekommenderas för inkommande säkerhets regel. 
-* **AzureDataLake*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Data Lake. Om du anger *AzureDataLake* som värde tillåts eller nekas trafik till AzureDataLake. Den här taggen rekommenderas för utgående säkerhets regel. 
 * **AzureActiveDirectory*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Active Directory. Om du anger *AzureActiveDirectory* som värde tillåts eller nekas trafik till AzureActiveDirectory. Den här taggen rekommenderas för utgående säkerhets regel.
-* **AzureMonitor*** (endast Resource Manager): Den här taggen anger adressprefix för Log Analytics, App Insights, AzMon och anpassade mått (GB-slutpunkter). Om du anger *AzureMonitor* för värdet tillåts eller nekas trafik till AzureMonitor. För Log Analytics är den här taggen beroende av lagrings  tag gen. Den här taggen rekommenderas för utgående säkerhets regel.
-* **ServiceFabric*** (endast Resource Manager): Taggen anger ServiceFabric-tjänstens adressprefix. Om du anger *ServiceFabric* för värdet tillåts eller nekas trafik till ServiceFabric. Den här taggen rekommenderas för utgående säkerhets regel. 
-* **AzureMachineLearning*** (endast Resource Manager): Taggen anger AzureMachineLearning-tjänstens adressprefix. Om du anger *AzureMachineLearning* för värdet tillåts eller nekas trafik till AzureMachineLearning. Den här taggen rekommenderas för utgående säkerhets regel. 
-* **BatchNodeManagement*** (endast Resource Manager): Den här taggen anger de adressprefix som ska användas för hanterings trafiken för Azure Batch dedikerade distributioner. Om du anger *BatchNodeManagement* för värdet tillåts eller nekas trafik från batch-tjänsten för att beräkna noder. Den här taggen rekommenderas för inkommande/utgående säkerhets regel. 
-* **AzureBackup*** (endast Resource Manager): Taggen anger AzureBackup-tjänstens adressprefix. Om du anger *AzureBackup* för värdet tillåts eller nekas trafik till AzureBackup. Den här taggen har ett beroende på **lagrings** -och **AzureActiveDirectory** -taggen. Den här taggen rekommenderas för utgående säkerhets regel. 
 * **AzureActiveDirectoryDomainServices*** (endast Resource Manager): Den här taggen anger de adressprefix som ska användas för hanterings trafiken för Azure Active Directory Domain Services dedikerade distributioner. Om du anger *AzureActiveDirectoryDomainServices* för värdet tillåts eller nekas trafik till AzureActiveDirectoryDomainServices. Den här taggen rekommenderas för inkommande/utgående säkerhets regel.  
-* **SqlManagement*** (endast Resource Manager): Den här taggen anger adressprefix för hanterings trafiken för dedikerade SQL-distributioner. Om du anger *SqlManagement* för värdet tillåts eller nekas trafik till SqlManagement. Den här taggen rekommenderas för inkommande/utgående säkerhets regel. 
-* **CognitiveServicesManagement** (Endast Resource Manager): Den här taggen anger adressprefix för trafik för Cognitive Services. Om du anger *CognitiveServicesManagement* för värdet tillåts eller nekas trafik till CognitiveServicesManagement. Den här taggen rekommenderas för utgående säkerhets regel.  
-* **Dynamics365ForMarketingEmail** (Endast Resource Manager): Den här taggen anger adressprefix för Marketing e-posttjänsten för Dynamics 365. Om du anger *Dynamics365ForMarketingEmail* för värdet tillåts eller nekas trafik till Dynamics365ForMarketingEmail. Om du bara vill tillåta åtkomst till Dynamics365ForMarketingEmail i en angiven [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format Dynamics365ForMarketingEmail. [regions namn].
+* **AzureBackup*** (endast Resource Manager): Taggen anger AzureBackup-tjänstens adressprefix. Om du anger *AzureBackup* för värdet tillåts eller nekas trafik till AzureBackup. Den här taggen har ett beroende på **lagrings** -och **AzureActiveDirectory** -taggarna. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **AzureCloud*** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för Azure, inklusive alla [offentliga IP-adresser för datacentret](https://www.microsoft.com/download/details.aspx?id=41653). Om du anger *AzureCloud* som värde tillåts eller nekas trafik till offentliga Azure IP-adresser. Om du bara vill tillåta åtkomst till AzureCloud i en angiven [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format AzureCloud. [regions namn]. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **AzureConnectors*** (endast Resource Manager): Den här taggen anger adressprefix för Logic Apps anslutningar för avsöknings-/backend-anslutningar. Om du anger *AzureConnectors* som värde tillåts eller nekas trafik till AzureConnectors. Om du bara vill ge åtkomst till AzureConnectors i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AzureConnectors.[ regionensnamn]. Den här taggen rekommenderas för inkommande säkerhets regel. 
+* **AzureContainerRegistry*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Container Registry. Om du anger *AzureContainerRegistry* som värde så tillåts eller nekas trafik till AzureContainerRegistry. Om du bara vill ge åtkomst till AzureContainerRegistry i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AzureContainerRegistry.[regionsnamn]. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **AzureCosmosDB*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Cosmos Database. Om du anger *Azure Cosmos DB* som värde tillåts eller nekas trafik till Azure Cosmos DB. Om du bara vill ge åtkomst till AzureCosmosDB i en specifik [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format: AzureCosmosDB. [ regionsnamnet]. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **AzureDataLake*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Data Lake. Om du anger *AzureDataLake* som värde tillåts eller nekas trafik till AzureDataLake. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **AzureKeyVault*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure KeyVault. Om du anger *AzureKeyVault* som värde tillåts eller nekas trafik till AzureKeyVault. Om du bara vill ge åtkomst till AzureKeyVault i en specifik [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format: AzureKeyVault. [ regionsnamnet]. Den här taggen har ett beroende av **AzureActiveDirectory** -taggen. Den här taggen rekommenderas för utgående säkerhets regel.  
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger lastbalanseraren för Azures infrastruktur. Taggen översätts till [värdens virtuella IP-adress](security-overview.md#azure-platform-considerations) (168.63.129.16) som Azures hälsoavsökningar kommer från. Du kan åsidosätta den här regeln om du inte använder Azures lastbalanserare.
+* **AzureMachineLearning*** (endast Resource Manager): Taggen anger AzureMachineLearning-tjänstens adressprefix. Om du anger *AzureMachineLearning* för värdet tillåts eller nekas trafik till AzureMachineLearning. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **AzureMonitor*** (endast Resource Manager): Den här taggen anger adressprefix för Log Analytics, App Insights, AzMon och anpassade mått (GB-slutpunkter). Om du anger *AzureMonitor* för värdet tillåts eller nekas trafik till AzureMonitor. För Log Analytics är den här taggen beroende av lagrings tag gen. Den här taggen rekommenderas för utgående säkerhets regel.
 * **AzurePlatformDNS** (Endast Resource Manager): Den här taggen anger DNS som är en grundläggande infrastruktur tjänst. Om du anger *AzurePlatformDNS* för värdet kan du inaktivera standard för Azure- [plattformen](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) för DNS. Var försiktig med att använda den här taggen. Testning rekommenderas innan du använder den här taggen. 
 * **AzurePlatformIMDS** (Endast Resource Manager): Den här taggen anger IMDS som är en grundläggande infrastruktur tjänst. Om du anger *AzurePlatformIMDS* för värdet kan du inaktivera standard ersättningen för [Azure-plattformen](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) för IMDS. Var försiktig med att använda den här taggen. Testning rekommenderas innan du använder den här taggen. 
 * **AzurePlatformLKM** (Endast Resource Manager): Den här taggen anger Windows-licensiering eller nyckel hanterings tjänst. Om du anger *AzurePlatformLKM* för värdet kan du inaktivera standard för Azure- [plattformen](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) för licensiering. Var försiktig med att använda den här taggen. Testning rekommenderas innan du använder den här taggen. 
+* **AzureTrafficManager*** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för IP-adresserna för avsökning i Azure Traffic Manager. Mer information om IP-adresser för avsökning i Traffic Manager finns i [Vanliga frågor och svar om Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). Den här taggen rekommenderas för inkommande säkerhets regel.  
+* **BatchNodeManagement*** (endast Resource Manager): Den här taggen anger de adressprefix som ska användas för hanterings trafiken för Azure Batch dedikerade distributioner. Om du anger *BatchNodeManagement* för värdet tillåts eller nekas trafik från batch-tjänsten för att beräkna noder. Den här taggen rekommenderas för inkommande/utgående säkerhets regel. 
+* **CognitiveServicesManagement** (Endast Resource Manager): Den här taggen anger adressprefix för trafik för Cognitive Services. Om du anger *CognitiveServicesManagement* för värdet tillåts eller nekas trafik till CognitiveServicesManagement. Den här taggen rekommenderas för utgående säkerhets regel.  
+* **Dynamics365ForMarketingEmail** (Endast Resource Manager): Den här taggen anger adressprefix för Marketing e-posttjänsten för Dynamics 365. Om du anger *Dynamics365ForMarketingEmail* för värdet tillåts eller nekas trafik till Dynamics365ForMarketingEmail. Om du bara vill tillåta åtkomst till Dynamics365ForMarketingEmail i en angiven [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format Dynamics365ForMarketingEmail. [regions namn].
+* **EventHub*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure EventHub. Om du anger *EventHub* som värde tillåts eller nekas trafik till EventHub. Om du bara vill ge åtkomst till EventHub i en specifik [region](https://azure.microsoft.com/regions), kan du ange regionen i följande format: EventHub.[regionnamn]. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **GatewayManager** (endast Resource Manager): Den här taggen anger adressprefix för hanterings trafik för VPN/app Gateway-dedikerade distributioner. Om du anger *GatewayManager* som värde så tillåts eller nekas trafik till GatwayManager. Den här taggen rekommenderas för inkommande säkerhets regel. 
+* **Internet** (Resource Manager) (**INTERNET** för klassisk): Den här taggen omfattar det IP-adressutrymme som är utanför det virtuella nätverket och som nås via offentligt Internet. Adressintervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+* **MicrosoftContainerRegistry*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Microsoft Container Registry. Om du anger *MicrosoftContainerRegistry* som värde så tillåts eller nekas trafik till MicrosoftContainerRegistry. Om du bara vill ge åtkomst till MicrosoftContainerRegistry i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: MicrosoftContainerRegistry.[regionsnamn]. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **Service Bus*** (endast Resource Manager): Den här taggen anger adressprefix för Azure Service Bus-tjänsten med Premium-tjänstens nivå. Om du anger *ServiceBus* som värde tillåts eller nekas trafik till ServiceBus. Om du bara vill ge åtkomst till ServiceBus i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: ServiceBus.[regionnamn]. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **ServiceFabric*** (endast Resource Manager): Taggen anger ServiceFabric-tjänstens adressprefix. Om du anger *ServiceFabric* för värdet tillåts eller nekas trafik till ServiceFabric. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **SQL*** (endast Resource Manager): Den här taggen anger de adressprefix som finns för Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL och Azure SQL Data Warehouse tjänster. Om du anger *Sql* som värde tillåts eller nekas trafik till Sql. Om du bara vill tillåta åtkomst till SQL i en angiven [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format SQL. [region namn]. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure SQL Database, men inte en specifik SQL-databas eller -server. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **SqlManagement*** (endast Resource Manager): Den här taggen anger adressprefix för hanterings trafiken för dedikerade SQL-distributioner. Om du anger *SqlManagement* för värdet tillåts eller nekas trafik till SqlManagement. Den här taggen rekommenderas för inkommande/utgående säkerhets regel. 
+* **Lagring*** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för tjänsten Azure Storage. Om du anger *Storage* som värde tillåts eller nekas trafik till lagringen. Om du bara vill tillåta åtkomst till lagring i en angiven [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format lagring. [regions namn]. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure Storage, men inte ett specifikt Azure Storage-konto. Den här taggen rekommenderas för utgående säkerhets regel. 
+* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** för klassisk): Den här taggen innehåller adress utrymmet för det virtuella nätverket (alla CIDR-intervall som definierats för det virtuella nätverket), alla anslutna lokala adress utrymmen, [peer](virtual-network-peering-overview.md) -kopplade virtuella nätverk eller virtuella nätverk som är anslutna till en [virtuell](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json) nätverksgateway och adress prefix som används för [användardefinierade vägar](virtual-networks-udr-overview.md). Tänk på att den här taggen kan innehålla standard väg. 
 
 > [!NOTE]
 > Servicetaggar för Azure-tjänster anger adressprefix från det specifika molnet som används. 
@@ -101,7 +101,7 @@ Du kan ladda ned och integrera med en lokal brand vägg som visar en lista över
 Du kan också hämta den här informationen via programmering med hjälp av **service tag Discovery API** (offentlig för hands version) – [rest](https://aka.ms/discoveryapi_rest), [Azure PowerShell](https://aka.ms/discoveryapi_powershell)och [Azure CLI](https://aka.ms/discoveryapi_cli). 
 
 > [!NOTE]
-> Följande veckovis publikationer (tidigare version) [för Azures](https://www.microsoft.com/en-us/download/details.aspx?id=41653)moln-, [Kina](https://www.microsoft.com/en-us/download/details.aspx?id=42064)-och [Germany](https://www.microsoft.com/en-us/download/details.aspx?id=54770) -moln kommer att föråldras senast den 30 juni 2020. Börja använda de uppdaterade publikationerna enligt beskrivningen ovan. 
+> Följande veckovis publikationer (tidigare version) för Azures moln-, [Kina](https://www.microsoft.com/en-us/download/details.aspx?id=42064)-och [Germany](https://www.microsoft.com/en-us/download/details.aspx?id=54770) -moln kommer att föråldras senast den 30 juni 2020. [](https://www.microsoft.com/en-us/download/details.aspx?id=41653) Börja använda de uppdaterade publikationerna enligt beskrivningen ovan. 
 
 ## <a name="default-security-rules"></a>Standardsäkerhetsregler
 
@@ -111,19 +111,19 @@ Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du sk
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priority|Source|Källportar|Mål|Målportar|Protocol|Access|
+|Priority|Source|Källportar|Mål|Målportar|Protocol|Åtkomst|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Any|Allow|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priority|Source|Källportar|Mål|Målportar|Protocol|Access|
+|Priority|Source|Källportar|Mål|Målportar|Protocol|Åtkomst|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Any|Allow|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priority|Source|Källportar|Mål|Målportar|Protocol|Access|
+|Priority|Source|Källportar|Mål|Målportar|Protocol|Åtkomst|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Any|Neka|
 
@@ -131,19 +131,19 @@ Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du sk
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priority|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Priority|Source|Källportar| Mål | Målportar | Protocol | Åtkomst |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Any | Allow |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priority|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Priority|Source|Källportar| Mål | Målportar | Protocol | Åtkomst |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Any | Allow |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priority|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Priority|Source|Källportar| Mål | Målportar | Protocol | Åtkomst |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Any | Neka |
 
@@ -163,7 +163,7 @@ I föregående bild är *NIC1* och *NIC2* medlemmar i programsäkerhetsgruppen *
 
 Den här regeln krävs för att tillåta trafik från Internet till webbservrarna. Eftersom inkommande trafik från Internet nekas av standardsäkerhetsregeln [DenyAllInbound](#denyallinbound), krävs ingen ytterligare regel för programsäkerhetsgruppen *AsgLogic* eller *AsgDb*.
 
-|Priority|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Priority|Source|Källportar| Mål | Målportar | Protocol | Åtkomst |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Allow |
 
@@ -171,7 +171,7 @@ Den här regeln krävs för att tillåta trafik från Internet till webbservrarn
 
 Eftersom standardsäkerhetsregeln [AllowVNetInBound](#allowvnetinbound) tillåter all kommunikation mellan resurser i samma virtuella nätverk, krävs den här regeln för att neka trafik från alla resurser.
 
-|Priority|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Priority|Source|Källportar| Mål | Målportar | Protocol | Åtkomst |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Any | Neka |
 
@@ -179,7 +179,7 @@ Eftersom standardsäkerhetsregeln [AllowVNetInBound](#allowvnetinbound) tillåte
 
 Den här regeln tillåter trafik från programsäkerhetsgruppen *AsgLogic* till programsäkerhetsgruppen *AsgDb*. Den här regeln har högre prioritet än regeln *Deny-Database-All*. Det innebär att den här regeln bearbetas före regeln *Deny-Database-All*, så att trafik från programsäkerhetsgruppen *AsgLogic* tillåts, medan all annan trafik blockeras.
 
-|Priority|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Priority|Source|Källportar| Mål | Målportar | Protocol | Åtkomst |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 

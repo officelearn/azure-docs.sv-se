@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: vijetaj
-ms.openlocfilehash: 31b05ec4fa68c3d4804000caee94b62432bdaed9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d60acdf483d418e458f51ef6cf31b17c43b7379f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68557758"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70065896"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Verktyg för data utforskning och visualisering på Data Science Virtual Machine
 
-Ett viktigt steg i data vetenskap är att förstå data. Visualiserings-och data utforsknings verktyg hjälper till att påskynda data förståelsen. Här följer några verktyg på DSVM som gör det här viktiga steget enklare. 
+I data vetenskap är nyckeln till att förstå data. Visualiserings-och data utforsknings verktyg hjälper till att påskynda data förståelsen. Följande verktyg, som finns på Data Science Virtual Machine (DSVM), gör det här viktiga steget enklare.
 
 ## <a name="apache-drill"></a>Apache Drill
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | SQL-frågemotor med öppen källkod på Big data    |
-| Stöds DSVM-versioner      | Windows, Linux  |
-| Hur är det konfigurerade / installerad på DSVM?      |  Endast installerat `/dsvm/tools/drill*` i inbäddat läge   |
-| Vanliga användningsområden      |  In-situ-data utforskning utan att kräva ETL. Fråga olika data källor och format, inklusive CSV, JSON, Relations tabeller, Hadoop     |
-| Hur du använder / köra den?      | Skriv bords gen väg  <br/> [Kom igång med att detaljgranska på 10 minuter](https://drill.apache.org/docs/drill-in-10-minutes/)  |
+| DSVM-versioner som stöds      | Windows, Linux  |
+| Hur konfigureras den och installeras på DSVM?      |  Endast installerat `/dsvm/tools/drill*` i inbäddat läge   |
+| Vanliga användningsområden      |  För data utforskning på plats utan att behöva extrahera, transformera, läsa in (ETL). Fråga olika data källor och format, inklusive CSV, JSON, Relations tabeller och Hadoop.     |
+| Använda och köra den      | Skriv bords gen väg  <br/> [Kom igång med att detaljgranska på 10 minuter](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Relaterade verktyg på DSVM      |   Rattle, Wekas, SQL Server Management Studio      |
 
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   |  Wekas är en samling Machine Learning-algoritmer för data utvinnings aktiviteter. Algoritmerna kan antingen tillämpas direkt på en data uppsättning eller anropas från din egen Java-kod. Weka innehåller verktyg för förbearbetning av data, klassificering, regression, klustring, association regler och visualisering. |
+| Vad är det?   |  En samling Machine Learning-algoritmer för data utvinnings aktiviteter. Dessa algoritmer kan antingen tillämpas direkt på en data uppsättning eller anropas från din egen Java-kod. Wekas innehåller verktyg för data förbehandling, klassificering, regression, klustring, associerings regler och visualisering. |
 | Stöds DSVM-versioner     | Windows, Linux     |
-| Vanliga användningsområden      | Verktyg för allmän ML     |
-| Hur du använder / köra den?      | I Windows söker du efter Wekas på Start menyn. Logga in med X2Go i Linux och gå sedan till program-> Development-> Wekas. |
+| Vanliga användningsområden      | Allmänt verktyg för maskin inlärning     |
+| Använda och köra den      | På Windows, Sök efter Weka på Start-menyn. Logga in med X2Go i Linux och gå sedan till program > utveckling > Wekas. |
 | Innehåller länkar till exempel      | [Weka-exempel](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Relaterade verktyg på DSVM      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="rattle"></a>Spännen
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   |   Ett grafiskt användar gränssnitt för Data utvinning med R   |
+| Vad är det?   |   Ett grafiskt användar gränssnitt (GUI) för Data utvinning med R   |
 | Stöds DSVM-versioner     | Windows, Linux     |
 | Vanliga användningsområden      | Allmänt GRÄNSSNITTs data utvinnings verktyg för R    |
-| Hur du använder / köra den?      | UI-verktyget. Starta en kommando tolk i Windows, kör R och sedan i R-körning `rattle()`. I Linux ansluter du med X2Go, startar en Terminal, kör R och sedan i R- `rattle()`körning. |
+| Använda och köra den      | UI-verktyget. Öppna en kommando tolk i Windows, kör R och sedan i R, kör `rattle()`. I Linux ansluter du till X2Go, startar en Terminal, kör R och sedan i R, kör `rattle()`. |
 | Innehåller länkar till exempel      | [Spännen](https://togaware.com/onepager/) |
 | Relaterade verktyg på DSVM      |LightGBM, Wekas, Xgboost   |
 
 ## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Interaktiv datavisualisering och BI-verktyg    |
-| Stöds DSVM-versioner      | Windows  |
-| Vanliga användningsområden      |  Datavisualisering och skapa instrumentpaneler   |
-| Hur du använder / köra den?      | Genväg på skrivbordet (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
+| Vad är det?   | Interaktiva data visualiseringar och BI-verktyg    |
+| DSVM-versioner som stöds      | Windows  |
+| Vanliga användningsområden      |  Data visualisering och skapa instrument paneler   |
+| Använda och köra den      | Skriv bords`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`gen väg ()      |
 | Relaterade verktyg på DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 

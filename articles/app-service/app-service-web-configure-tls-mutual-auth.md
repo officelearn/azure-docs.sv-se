@@ -1,6 +1,6 @@
 ---
-title: Konfigurera TLS ömsesidig autentisering – Azure App Service
-description: Lär dig hur du konfigurerar din app för att använda autentisering med klientcertifikat på TLS.
+title: Konfigurera ömsesidig TLS-autentisering – Azure App Service
+description: Lär dig hur du konfigurerar din app för att använda autentisering med klient certifikat på TLS.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -10,41 +10,40 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5702362add6a50f2f4525afbd3649f083f34b6fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4e97a96687e5fa1d934ab8c0317b52cb753f72c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60852456"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088161"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurera ömsesidig TLS-autentisering för Azure App Service
 
-Du kan begränsa åtkomsten till Azure App Service-appen genom att aktivera olika typer av autentisering för den. Ett sätt att göra det är att begära ett certifikat när klientbegäran är över TLS/SSL och verifiera certifikatet. Den här mekanismen kallas ömsesidig TLS-autentisering eller autentisering av klientcertifikat. Den här artikeln visar hur du ställer in din app att använda autentisering med klientcertifikat.
+Du kan begränsa åtkomsten till Azure App Service-appen genom att aktivera olika typer av autentisering för den. Ett sätt att göra det är att begära ett klient certifikat när klientbegäran är över TLS/SSL och validera certifikatet. Denna mekanism kallas TLS-ömsesidig autentisering eller autentisering av klient certifikat. Den här artikeln visar hur du konfigurerar din app för att använda autentisering med klient certifikat.
 
 > [!NOTE]
-> Om du har åtkomst till webbplatsen via HTTP och HTTPS inte får inte alla klientcertifikat. Så om programmet kräver klientcertifikat, bör du inte tillåta begäranden till ditt program via HTTP.
+> Om du ansluter till din webbplats via HTTP och inte HTTPS får du inga klient certifikat. Så om ditt program kräver klient certifikat bör du inte tillåta begär anden till ditt program via HTTP.
 >
 
-## <a name="enable-client-certificates"></a>Aktivera klientcertifikat
+## <a name="enable-client-certificates"></a>Aktivera klient certifikat
 
-Om du vill konfigurera din app för att kräva klientcertifikat, måste du ange den `clientCertEnabled` för din app till `true`. Om du vill ställa in inställningen kör du följande kommando den [Cloud Shell](https://shell.azure.com).
+Om du vill konfigurera din app så att den kräver klient certifikat måste du ställa `clientCertEnabled` in `true`appens inställning på. Ange inställningen genom att köra följande kommando i [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
-## <a name="access-client-certificate"></a>Klientcertifikat för åtkomst
+## <a name="access-client-certificate"></a>Åtkomst till klient certifikat
 
-I App Service sker SSL-avslutning av begäran i belastningsutjämnaren klientdel. När du vidarebefordrar begäran till din kod med [klientcertifikat aktiverat](#enable-client-certificates), App Service lägger in en `X-ARR-ClientCert` begärandehuvudet med klientcertifikatet. App Service gör inte något med det här klientcertifikatet än vidarebefordras till din app. Din Appkod ansvarar för att verifiera klientcertifikatet.
+I App Service sker SSL-avslutning av begäran på klient delens belastningsutjämnare. När du vidarebefordrar begäran till din app-kod med [aktiverade klient certifikat](#enable-client-certificates), infogar App Service `X-ARR-ClientCert` ett begär ande huvud med klient certifikatet. App Service gör ingenting med det här klient certifikatet annat än att vidarebefordra det till din app. Appens kod ansvarar för att verifiera klient certifikatet.
 
-För ASP.NET, klientcertifikatet är tillgänglig via den **HttpRequest.ClientCertificate** egenskapen.
+För ASP.NET är klient certifikatet tillgängligt via egenskapen **HttpRequest. ClientCertificate** .
 
-För andra programstackar (Node.js, PHP, osv.), klientcertifikatet är tillgängligt i din app genom ett base64-kodad värde i den `X-ARR-ClientCert` huvudet i begäran.
+För andra program stackar (Node. js, php osv.) är klient certifikatet tillgängligt i din app via ett base64-kodat värde i `X-ARR-ClientCert` begär ande huvudet.
 
 ## <a name="aspnet-sample"></a>ASP.NET-exempel
 
@@ -170,9 +169,9 @@ För andra programstackar (Node.js, PHP, osv.), klientcertifikatet är tillgäng
     }
 ```
 
-## <a name="nodejs-sample"></a>Node.js-exempel
+## <a name="nodejs-sample"></a>Node. js-exempel
 
-Följande Node.js-exempelkoden hämtar den `X-ARR-ClientCert` rubrik och använder [noden bedömningar](https://github.com/digitalbazaar/forge) konvertera base64-kodad PEM-sträng till ett certifikatobjekt och verifiera den:
+Följande Node. js-exempel kod hämtar `X-ARR-ClientCert` rubriken och använder [Node-falska](https://github.com/digitalbazaar/forge) för att konvertera den base64-kodade PEM-strängen till ett certifikat objekt och verifiera den:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -190,7 +189,7 @@ export class AuthorizationHandler {
             const incomingCert: pki.Certificate = pki.certificateFromPem(pem);
 
             // Validate certificate thumbprint
-            const fingerPrint = md.sha1.create().update(asn1.toDer((pki as any).certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
+            const fingerPrint = md.sha1.create().update(asn1.toDer(pki.certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
             if (fingerPrint.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
 
             // Validate time validity

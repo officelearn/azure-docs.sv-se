@@ -1,6 +1,6 @@
 ---
-title: OS- och runtime korrigeringar takt – Azure App Service | Microsoft Docs
-description: Beskriver hur Azure App Service-uppdateringar Operativsystemet och körningar och hur du skaffar uppdaterar meddelanden.
+title: Operativ system-och körnings uppdatering takt-Azure App Service | Microsoft Docs
+description: Beskriver hur Azure App Service uppdaterar operativ systemet och körningarna och hur du kan få uppdaterings meddelanden.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -9,63 +9,62 @@ editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 086f5773a8ae4085a8e5bc0637bdebe5f2df4fb0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3469c4f11a075ceb958e35e4cfc87a78e60b3882
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203340"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074138"
 ---
-# <a name="os-and-runtime-patching-in-azure-app-service"></a>OS- och runtime korrigeringar i Azure App Service
+# <a name="os-and-runtime-patching-in-azure-app-service"></a>Uppdatering av operativ system och körning i Azure App Service
 
-Den här artikeln visar hur du hämtar vissa versionsinformation om Operativsystemet eller programvara i [Apptjänst](overview.md). 
+Den här artikeln visar hur du hämtar viss versions information om operativ systemet eller programmet i [App Service](overview.md). 
 
-App Service är en Platform-as-a-Service, vilket innebär att Operativsystemet och programmet stack hanteras åt dig av Azure; du bara hantera ditt program och dess data. Mer kontroll över Operativsystemet och programmet stack är tillgängligt i [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/). Med det i åtanke är det dock användbara för dig som en App Service-användare att veta mer information, till exempel:
+App Service är en plattform som en tjänst, vilket innebär att operativ systemet och program stacken hanteras av Azure. du hanterar bara ditt program och dess data. Mer kontroll över operativ systemet och program stacken är tillgängligt i [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/). Med detta i åtanke är det dock bra att använda som App Service användare för att få mer information, till exempel:
 
--   Hur och när OS-uppdateringar tillämpas?
--   Hur är App Service uppdaterad mot betydande säkerhetsrisker (till exempel noll dagar)?
--   Vilka versioner av operativsystem och runtime kör dina appar?
+-   Hur och när tillämpas OS-uppdateringar?
+-   Hur korrigeras App Service mot betydande sårbarheter (till exempel noll dagar)?
+-   Vilka operativ system och körnings versioner kör dina appar?
 
-Av säkerhetsskäl publiceras inte vissa ärendets natur säkerhetsinformation. Artikeln är dock att lösa problem genom att maximera transparens i processen och hur du kan hålla dig uppdaterad om säkerhetsrelaterade meddelanden eller runtime-uppdateringar.
+Av säkerhets skäl publiceras inte vissa specifika säkerhets uppgifter. Artikeln syftar dock till att undvika problem genom att maximera genomskinligheten i processen och hur du kan hålla dig uppdaterad om säkerhetsrelaterade meddelanden eller körnings uppdateringar.
 
-## <a name="how-and-when-are-os-updates-applied"></a>Hur och när OS-uppdateringar tillämpas?
+## <a name="how-and-when-are-os-updates-applied"></a>Hur och när tillämpas OS-uppdateringar?
 
-Azure hanterar operativsystemsuppdateringar på två nivåer, fysiska servrar och de virtuella gästdatorer (virtuella datorer) som kör App Service-resurser. Båda uppdateras varje månad, som stämmer överens med månatliga [korrigeringstisdag](https://technet.microsoft.com/security/bulletins.aspx) schema. De här uppdateringarna tillämpas automatiskt på ett sätt som garanterar SLA för Azure-tjänster med hög tillgänglighet. 
+Azure hanterar OS-korrigeringar på två nivåer, de fysiska servrarna och de virtuella gäst datorerna (virtuella datorer) som kör App Service-resurserna. Båda uppdateras varje månad, som anpassas efter månads [uppdateringens](https://technet.microsoft.com/security/bulletins.aspx) månads schema. De här uppdateringarna tillämpas automatiskt, på ett sätt som garanterar service avtalet med hög tillgänglighet för Azure-tjänster. 
 
-Detaljerad information om hur uppdateringar tillämpas finns [Avmystifiera magic bakom App Service-OS-uppdateringar](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
+För detaljerad information om hur uppdateringar tillämpas, se [avmystifiera Magic bakom App Service OS-uppdateringar](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
-## <a name="how-does-azure-deal-with-significant-vulnerabilities"></a>Hur Azure behandlar betydande säkerhetsproblem?
+## <a name="how-does-azure-deal-with-significant-vulnerabilities"></a>Hur hanterar Azure viktiga sårbarheter?
 
-När allvarliga problem kräver omedelbar uppdatering, till exempel [nolldagsattacker sårbarheter](https://wikipedia.org/wiki/Zero-day_(computing)), viktiga uppdateringar hanteras på en-fall till fall.
+När allvarliga säkerhets risker kräver omedelbar uppdatering, t. ex. [noll dagars sårbarheter](https://wikipedia.org/wiki/Zero-day_(computing)), hanteras hög prioritets uppdateringar från fall till fall.
 
-Håll dig uppdaterad med kritiska säkerhetsmeddelanden i Azure genom att besöka [Azure Security-bloggen](https://azure.microsoft.com/blog/topics/security/). 
+Håll dig uppdaterad med viktiga säkerhets meddelanden i Azure genom att gå till [Azures säkerhets blogg](https://azure.microsoft.com/blog/topics/security/). 
 
-## <a name="when-are-supported-language-runtimes-updated-added-or-deprecated"></a>När stöds språkkörningar uppdateras, läggs till, eller inaktuella?
+## <a name="when-are-supported-language-runtimes-updated-added-or-deprecated"></a>När är stödda språk körningar uppdaterade, tillagda eller inaktuella?
 
-Nya stabil versioner av stöds språkkörningar (större, mindre eller korrigera) läggs regelbundet till i App Service-instanser. Vissa uppdateringar skriva över den befintliga installationen, medan andra installeras sida vid sida med befintliga versioner. En installation av överskrivning innebär att din app automatiskt körs på en uppdaterad. En sida-vid-sida-installation innebär manuellt måste du migrera din app för att dra nytta av en ny runtime-version. Mer information finns i någon av underavsnitt.
+Nya, stabila versioner av språk körningar som stöds (huvud, del eller korrigering) läggs regelbundet till App Service instanser. Vissa uppdateringar skriver över den befintliga installationen, medan andra installeras sida vid sida med befintliga versioner. En överskrivnings installation innebär att appen körs automatiskt på den uppdaterade körningen. En sida vid sida-installation innebär att du måste migrera appen manuellt för att kunna dra nytta av en ny körnings version. Mer information finns i en av underavsnitten.
 
-Runtime-uppdateringar och utfasningar tillkännages här:
+Körnings uppdateringar och utfasningar meddelas här:
 
 - https://azure.microsoft.com/updates/?product=app-service 
 - https://github.com/Azure/app-service-announcements/issues
 
 > [!NOTE] 
-> Informationen här gäller för språkkörningar som är inbyggda i en App Service-app. En anpassad runtime som du överför till App Service, till exempel ändras inte om du uppgraderar den manuellt.
+> Informationen här gäller för språk körningar som är inbyggda i en App Service-app. En anpassad körning som du överför till App Service, till exempel, förblir oförändrad om du inte uppgraderar den manuellt.
 >
 >
 
-### <a name="new-patch-updates"></a>Nya patchuppdateringar
+### <a name="new-patch-updates"></a>Nya uppdaterings uppdateringar
 
-Patch-uppdateringar av .NET, PHP, Java SDK eller Tomcat/Jetty version tillämpas automatiskt genom att skriva över den befintliga installationen med den nya versionen. Node.js patchuppdateringar installeras sida vid sida med de befintliga versionerna (liknar högre och den lägre versionen i nästa avsnitt). Nya Python versioner kan installeras manuellt via [platstillägg](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)), sida vid sida med de inbyggda Python-installationerna.
+Uppdaterings uppdateringar av .NET, PHP, Java SDK eller Tomcat/Jetty-versionen tillämpas automatiskt genom att den befintliga installationen skrivs över med den nya versionen. Uppdaterings uppdateringar för Node. js installeras sida vid sida med befintliga versioner (liknar de viktigaste och lägre versionerna i nästa avsnitt). Nya uppdaterings versioner för python kan installeras manuellt via [plats tillägg](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)), sida vid sida med de inbyggda python-installationerna.
 
-### <a name="new-major-and-minor-versions"></a>Nya versioner av högre och lägre
+### <a name="new-major-and-minor-versions"></a>Nya högre och lägre versioner
 
-När en ny högre eller lägre version läggs till, installeras den sida vid sida med de befintliga versionerna. Du kan manuellt uppgradera din app till den nya versionen. Om du har konfigurerat runtime-versionen i en konfigurationsfil (till exempel `web.config` och `package.json`), måste du uppgradera med samma metod. Om du har använt en App Service till Konfigurera runtime-versionen kan du ändra den i den [Azure-portalen](https://portal.azure.com) eller genom att köra en [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i den [Cloud Shell](../cloud-shell/overview.md), som i följande exempel visas:
+När en ny större eller lägre version läggs till installeras den sida vid sida med befintliga versioner. Du kan uppgradera appen manuellt till den nya versionen. Om du har konfigurerat kör tids versionen i en konfigurations fil ( `web.config` till `package.json`exempel och), måste du uppgradera med samma metod. Om du använde en App Service inställning för att konfigurera kör tids versionen kan du ändra den i [Azure Portal](https://portal.azure.com) eller genom att köra ett [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) -kommando i [Cloud Shell](../cloud-shell/overview.md), som du ser i följande exempel:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -75,31 +74,31 @@ az webapp config set --python-version 3.4 --resource-group <groupname> --name <a
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
-### <a name="deprecated-versions"></a>Föråldrad versioner  
+### <a name="deprecated-versions"></a>Föråldrade versioner  
 
-När en äldre version är inaktuell har i Borttagningsdatum meddelats så att du kan planera din runtime-versionsuppgraderingen på lämpligt sätt. 
+När en äldre version är föråldrad meddelas borttagnings datumet så att du kan planera din uppgradering av runtime-versionen enligt detta. 
 
-## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Hur kan jag fråga uppdateringsstatus för operativsystem och runtime på min instanser?  
+## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Hur kan jag fråga om status för operativ system och körnings uppdateringar på mina instanser?  
 
-När kritiska OS-information är låst nedåt från åtkomst (se [funktioner för operativsystemet på Azure App Service](operating-system-functionality.md)), [Kudu-konsolen](https://github.com/projectkudu/kudu/wiki/Kudu-console) kan du fråga din App Service-instans om Operativsystemet versionen och runtime-versioner. 
+Även om viktig information om operativ systemet är låst från Access (se [operativ systemets funktioner på Azure App Service](operating-system-functionality.md)) kan du använda [kudu-konsolen](https://github.com/projectkudu/kudu/wiki/Kudu-console) för att fråga din app service-instans om operativ systemets version och körnings versioner. 
 
-I följande tabell visas de versioner av Windows och språk-runtime som kör dina appar så här:
+Följande tabell visar hur du använder Windows-versioner och språk körnings miljön som kör dina appar:
 
 | Information | Var du hittar den | 
 |-|-|
-| Windows-version | Se `https://<appname>.scm.azurewebsites.net/Env.cshtml` (under systeminformation) |
-| .NET version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör du följande kommando i Kommandotolken: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
-| .NET Core version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör du följande kommando i Kommandotolken: <br> `dotnet --version` |
-| PHP-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör du följande kommando i Kommandotolken: <br> `php --version` |
-| Node.js-standardversion | I den [Cloud Shell](../cloud-shell/overview.md), kör du följande kommando: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Python-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör du följande kommando i Kommandotolken: <br> `python --version` |  
+| Windows-version | Se `https://<appname>.scm.azurewebsites.net/Env.cshtml` (under system information) |
+| .NET-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
+| .NET Core-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br> `dotnet --version` |
+| PHP-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br> `php --version` |
+| Default Node. js-version | Kör följande kommando i [Cloud Shell](../cloud-shell/overview.md): <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
+| Python-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br> `python --version` |  
 
 > [!NOTE]  
-> Åtkomst till registerplatsen `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, där information om [”KB” korrigeringar](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) lagras, är låsta.
+> Åtkomst till register platsen `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, där information om [uppdateringar av "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) lagras, är låst.
 >
 >
 
-## <a name="more-resources"></a>Fler resurser
+## <a name="more-resources"></a>Flera resurser
 
-[Säkerhetscenter: Säkerhet](https://www.microsoft.com/en-us/trustcenter/security)  
-[64-bitars ASP.NET Core på Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)
+[Säkerhets Center: Säkerhet](https://www.microsoft.com/en-us/trustcenter/security)  
+[64 bitars ASP.NET Core på Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

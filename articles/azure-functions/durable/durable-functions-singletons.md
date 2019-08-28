@@ -1,29 +1,28 @@
 ---
-title: Singletons för varaktiga funktioner – Azure
-description: Hur du använder singletons i tillägget varaktiga funktioner för Azure Functions.
+title: Singleton för Durable Functions – Azure
+description: Använda singleton i Durable Functions-tillägget för Azure Functions.
 services: functions
 author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c032ba046668310ff71d067d22a805fc6446667c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9bf9687f60e649fee98869ef263117177ad5efd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683809"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097936"
 ---
-# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton-initierare i varaktiga funktioner (Azure Functions)
+# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton-Dirigerare i Durable Functions (Azure Functions)
 
-För bakgrundsjobb som du ofta behöver se till körs att endast en instans av en viss orchestrator samtidigt. Detta kan göras [varaktiga funktioner](durable-functions-overview.md) genom att tilldela en specifik instans-ID till en orchestrator när du skapar den.
+För bakgrunds jobb behöver du ofta se till att endast en instans av en viss Orchestrator körs i taget. Detta kan göras i [Durable Functions](durable-functions-overview.md) genom att tilldela ett särskilt instans-ID till en Orchestrator när du skapar den.
 
 ## <a name="singleton-example"></a>Singleton-exempel
 
-Följande C# och JavaScript-exemplen visar en HTTP-utlösare-funktion som skapar en singleton bakgrund jobborkestrering. Koden ser till att endast en instans som finns för ett angivet instans-ID.
+Följande C# och JavaScript-exempel visar en funktion för http-utlösare som skapar en singleton-dirigering för bakgrunds jobb. Koden ser till att det bara finns en instans för ett angivet instans-ID.
 
 ### <a name="c"></a>C#
 
@@ -56,7 +55,7 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 Här är filen function.json:
 ```json
@@ -112,17 +111,17 @@ module.exports = async function(context, req) {
 };
 ```
 
-Som standard genereras instans-ID: N är slumpmässigt GUID. Men i det här fallet instans-ID skickas i dirigera data från URL: en. Koden anropar [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) eller `getStatus` (JavaScript) för att kontrollera om en instans med det angivna ID: T redan körs. Om inte, skapa en instans med detta ID.
+Instans-ID: n är som standard slumpmässigt genererade GUID. Men i det här fallet skickas instans-ID: t i flödes data från URL: en. Koden anropar [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) eller `getStatus` (Java Script) för att kontrol lera om en instans med det angivna ID: t redan körs. Om inte, skapas en instans med detta ID.
 
 > [!WARNING]
-> När du utvecklar lokalt i JavaScript, behöver du ställa in miljövariabeln `WEBSITE_HOSTNAME` till `localhost:<port>`, t.ex. `localhost:7071` att använda metoder på `DurableOrchestrationClient`. Mer information om det här kravet finns i den [GitHub-ärende](https://github.com/Azure/azure-functions-durable-js/issues/28).
+> När du utvecklar lokalt i Java Script måste du ställa in miljövariabeln `WEBSITE_HOSTNAME` till `localhost:<port>`, t. ex. `localhost:7071`använda metoder på `DurableOrchestrationClient`. Mer information om det här kravet finns i [GitHub-problemet](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 > [!NOTE]
-> Det finns ett potentiella konkurrenstillstånd i det här exemplet. Om två instanser av **HttpStartSingle** köra samtidigt, både funktionsanrop rapporterar lyckades, men endast en orchestration-instansen kommer startar. Beroende på dina krav kan detta få oönskade sidoeffekter. Därför är det viktigt att se till att inga två begäranden kan köra den här Utlösarfunktion samtidigt.
+> Det finns ett möjligt konkurrens villkor i det här exemplet. Om två instanser av **HttpStartSingle** körs samtidigt, rapporterar båda funktions anropen att de lyckas, men endast en Dirigerings instans kommer att starta. Detta kan ha oönskade sido effekter, beroende på dina behov. Därför är det viktigt att se till att det inte finns två begär Anden som kan köra den här utlösnings funktionen samtidigt.
 
-Implementeringsinformationen om orchestrator-funktion faktiskt spelar roll. Det kan vara en vanlig orchestrator-funktion som startas och slutförs eller ett som körs alltid (det vill säga en [Eternal Orchestration](durable-functions-eternal-orchestrations.md)). Det viktiga är att det finns endast en enda instans som körs på en gång.
+Implementerings informationen för Orchestrator-funktionen spelar ingen roll. Det kan vara en vanlig Orchestrator-funktion som startar och slutförs, eller så kan det vara en som kör för alltid (det vill säga ett [Eternal-Orchestration](durable-functions-eternal-orchestrations.md)). Den viktiga punkten är att det bara finns en instans som körs i taget.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du anropar underordnade orkestreringar](durable-functions-sub-orchestrations.md)
+> [Läs om hur du anropar under-Orchestration](durable-functions-sub-orchestrations.md)

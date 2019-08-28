@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 17ae6dc8d1d583e5223a64ee079731fa5d9dc63c
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 03d67249ef1d74844a7e9019e90f6331ecfdf0c3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902317"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102980"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Konfigurera ledar hantering för Dynamics 365 för kund engagemang
 
@@ -97,7 +97,7 @@ Använd följande steg för att konfigurera Azure Active Directory för Dynamics
 
     ![Lägg till behörigheter](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-14. När du har slutfört steg 1-13 på Azure Portal navigerar du till din Dynamics 365-instans för kund engagemang genom att gå till URL: https://tenant.crm.dynamics.com) en (till exempel.
+14. När du har slutfört steg 1-13 på Azure Portal navigerar du till din Dynamics 365-instans för kund engagemang genom att gå till URL: `https://tenant.crm.dynamics.com`en (till exempel).
 15. Öppna inställningar genom att välja kugg hjuls ikonen och **Avancerade inställningar** i det övre navigerings fältet.
 16. På sidan inställningar går du till inställnings menyn från det övre navigerings fältet och väljer **säkerhet**.
 17. På sidan säkerhet väljer du **användare**.  På sidan användare väljer du List rutan "aktiverade användare" för att växla över till **program användare**.

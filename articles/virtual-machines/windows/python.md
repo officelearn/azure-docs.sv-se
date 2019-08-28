@@ -11,16 +11,15 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: a132cf28b0ccd30b3f7e854e46763ce99372ddfe
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: fcbf4e054359534f924b401f2f42e1d4c33890be
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361143"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102486"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp av python
 
@@ -47,7 +46,7 @@ Det tar ungefär 20 minuter att utföra dessa steg.
 
 1. I Solution Explorer, under *myPythonProject*, högerklickar du på **python-miljöer**och väljer sedan **Lägg till virtuell miljö**.
 2. På skärmen Lägg till virtuell miljö godkänner du standard namnet på *Kuvert*, kontrollerar att *Python 3,6 (64-bit)* har valts för bas tolken och klickar sedan på **skapa**.
-3. Högerklicka *på den miljö* miljö som du har skapat, klicka på **Installera python-paket**, ange *Azure* i rutan Sök och tryck sedan på RETUR.
+3. Högerklicka på den miljö miljö som du har skapat, klicka på **Installera python-paket**, ange *Azure* i rutan Sök och tryck sedan på RETUR.
 
 Du bör se i utdata-Fönstren att Azure-paketen har installerats. 
 

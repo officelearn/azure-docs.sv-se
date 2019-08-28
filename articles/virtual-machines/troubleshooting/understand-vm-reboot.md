@@ -1,6 +1,6 @@
 ---
-title: Förstå en omstart av systemet för en Azure-dator | Microsoft Docs
-description: Visar en lista över de händelser som kan orsaka en virtuell dator ska startas om
+title: Förstå en omstart av systemet för en virtuell Azure-dator | Microsoft Docs
+description: Visar en lista över händelser som kan göra att en virtuell dator startas om
 services: virtual-machines
 documentationcenter: ''
 author: genlin
@@ -8,119 +8,118 @@ manager: willchen
 editor: ''
 tags: ''
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 70a6845349b90cf614a84e13680ebb6fc6b3e2a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aea4c20ceeb9b4f1ad70187da2690fd5d202fe7a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60443763"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089553"
 ---
-# <a name="understand-a-system-reboot-for-azure-vm"></a>Förstå en omstart av systemet för Azure VM
+# <a name="understand-a-system-reboot-for-azure-vm"></a>Förstå en omstart av systemet för virtuell Azure-dator
 
-Azure-datorer (VM) kan ibland att starta om ingen uppenbar anledning, utan bevis på din har initierat åtgärden för omstart. Den här artikeln visar en lista över de åtgärder och händelser som kan orsaka virtuella datorer att starta om och ger information om hur du undviker du omstartsproblem med oväntad eller minska inverkan på sådana problem.
+Virtuella Azure-datorer (VM) kan ibland starta om utan någon uppenbar anledning, utan att du behöver starta om åtgärden. Den här artikeln innehåller en lista över de åtgärder och händelser som kan göra det möjligt för virtuella datorer att starta om och ger insyn i hur du undviker oväntade omstarter eller minskar konsekvenserna av sådana problem.
 
 ## <a name="configure-the-vms-for-high-availability"></a>Konfigurera virtuella datorer för hög tillgänglighet
 
-Det bästa sättet att skydda ett program som körs på Azure mot virtuell dator startar om och avbrottstid är att konfigurera virtuella datorer för hög tillgänglighet.
+Det bästa sättet att skydda ett program som körs på Azure mot VM-omstarter och nedtid är att konfigurera de virtuella datorerna för hög tillgänglighet.
 
-För att tillhandahålla den här nivån av ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Den här konfigurationen garanterar att minst en virtuell dator under antingen en planerad eller oplanerad underhållshändelse är tillgänglig och uppfyller serviceavtal på 99,95% [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
+För att tillhandahålla den här nivån av redundans för ditt program, rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighets uppsättning. Den här konfigurationen garanterar att minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhålls händelse och uppfyller 99,95% [SLA för Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
 
-Mer information om tillgänglighetsuppsättningar finns i följande artiklar:
+Mer information om tillgänglighets uppsättningar finns i följande artiklar:
 
 - [Hantera tillgängligheten för virtuella datorer](../windows/manage-availability.md)
-- [Konfigurera tillgängligheten för virtuella datorer](../windows/classic/configure-availability.md)
+- [Konfigurera tillgänglighet för virtuella datorer](../windows/classic/configure-availability.md)
 
-## <a name="resource-health-information"></a>Hälsoinformation
+## <a name="resource-health-information"></a>Resource Health information
 
-Azure Resource Health är en tjänst som visar hälsotillståndet hos enskilda Azure-resurser och ger praktisk vägledning vid felsökning av problem. I en molnmiljö där det inte går att direkt åtkomst till servrar eller infrastruktur, är målet med Resource Health att minska den tid som du lägger på felsökning. I synnerhet är syftet att minska den tid du ägnar fastställa om roten till problemet ligger i programmet eller i en händelse i Azure-plattformen. Mer information finns i [förstå och använda Resource Health](../../resource-health/resource-health-overview.md).
+Azure Resource Health är en tjänst som exponerar hälsan för enskilda Azure-resurser och tillhandahåller åtgärds bara vägledning för fel sökning av problem. I en moln miljö där det inte är möjligt att direkt komma åt servrar eller infrastruktur element, är målet för Resource Health att minska den tid som du lägger på fel sökning. Syftet är särskilt att minska den tid som du ägnat åt att fastställa om roten till problemet finns i programmet eller i en händelse i Azure-plattformen. Mer information finns i [förstå och använda Resource Health](../../resource-health/resource-health-overview.md).
 
-## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>Åtgärder och händelser som kan göra att den virtuella datorn ska startas om
+## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>Åtgärder och händelser som kan göra att den virtuella datorn startas om
 
 ### <a name="planned-maintenance"></a>Planerat underhåll
 
-Microsoft Azure utför regelbundet uppdateringar över hela världen att förbättra tillförlitligheten, prestanda och säkerheten för den underliggande virtuella datorer värd-infrastrukturen. Många av dessa uppdateringar, inklusive minnesbevarande uppdateringar genomförs utan att någon inverkan på dina virtuella datorer eller molntjänster.
+Microsoft Azure regelbundet utför uppdateringar över hela världen för att förbättra tillförlitligheten, prestandan och säkerheten i värd infrastrukturen som är beroende av virtuella datorer. Många av dessa uppdateringar, inklusive minnes bevarande uppdateringar, utförs utan påverkan på dina virtuella datorer eller moln tjänster.
 
-Vissa uppdateringar kräver en omstart. I sådana fall kan stänga de virtuella datorerna av medan vi uppdaterar infrastrukturen och sedan de virtuella datorerna startas om.
+Vissa uppdateringar kräver dock en omstart. I sådana fall stängs de virtuella datorerna ned medan vi uppdaterar infrastrukturen och sedan startas de virtuella datorerna om.
 
-Information om vilka Azure planerat underhåll är och hur de kan påverka tillgängligheten för din virtuella Linux-datorer finns i artiklarna som visas här. Artiklarna innehåller information om processen för planerat underhåll av Azure och hur du schemalägger planerat underhåll för att minska påverkan ytterligare.
+Information om vad Azure-planerat underhåll är och hur det kan påverka tillgängligheten för dina virtuella Linux-datorer finns i artiklarna som visas här. Artiklarna innehåller information om processen för planerat underhåll av Azure och hur du schemalägger planerat underhåll för att minska påverkan ytterligare.
 
 - [Planerat underhåll av virtuella datorer i Azure](../windows/planned-maintenance.md)
 - [Så här schemalägger du planerat underhåll av virtuella Azure-datorer](../windows/classic/planned-maintenance-schedule.md)
 
 ### <a name="memory-preserving-updates"></a>Minnesbevarande uppdateringar
 
-Användare får ingen påverkan på sina virtuella datorer som körs för den här klassen för uppdateringar i Microsoft Azure. Många av de här uppdateringarna är till komponenter eller tjänster som kan uppdateras utan att störa den instans som körs. Vissa är plattformsinfrastrukturuppdateringar i värdoperativsystemet som kan användas utan en omstart av de virtuella datorerna.
+För den här klassen av uppdateringar i Microsoft Azure påverkar användarna inte de virtuella datorerna som körs. Många av de här uppdateringarna är till komponenter eller tjänster som kan uppdateras utan att störa den instans som körs. Vissa är plattforms infrastruktur uppdateringar på värd operativ systemet som kan tillämpas utan omstart av de virtuella datorerna.
 
-De här minnesbevarande uppdateringarna möjliggörs med teknik som aktiverar livemigrering på plats. När de uppdateras den virtuella datorn placeras i en *pausats* tillstånd. Det här tillståndet bevarar minnet i RAM medan det underliggande värdoperativsystemet får nödvändiga uppdateringar och korrigeringar. Den virtuella datorn återupptas inom 30 sekunder efter att ha pausats. När det virtuella datorn har återupptagits synkroniseras klockan automatiskt.
+De här minnesbevarande uppdateringarna möjliggörs med teknik som aktiverar livemigrering på plats. När den uppdateras placeras den virtuella datorn i *paus* läge. Det här tillståndet bevarar minnet i RAM medan det underliggande värdoperativsystemet får nödvändiga uppdateringar och korrigeringar. Den virtuella datorn återupptas inom 30 sekunder efter att ha pausats. När det virtuella datorn har återupptagits synkroniseras klockan automatiskt.
 
-På grund av den korta perioden minskar distribuerar uppdateringar via den här mekanismen avsevärt påverkan på de virtuella datorerna. Inte alla uppdateringar kan dock distribueras på det här sättet. 
+På grund av den korta paus perioden minskar distributionen av uppdateringar via den här mekanismen avsevärt påverkan på de virtuella datorerna. Men alla uppdateringar kan inte distribueras på det här sättet. 
 
 Uppdateringar med flera instanser (för virtuella datorer i en tillgänglighetsuppsättning) tillämpas med en uppdateringsdomän i taget.
 
 > [!NOTE]
-> Linux-datorer som har gamla kernel-versioner som påverkas av ett kernel panic-meddelande under den här uppdateringsmetoden. Undvik problemet genom att uppdatera till kernel-version 3.10.0-327.10.1 eller senare. Mer information finns i [en virtuell Linux-dator på en 3.10-baserade kernel panic efter en uppgradering för värd-nod](https://support.microsoft.com/help/3212236).
+> Linux-datorer som har gamla kernel-versioner påverkas av en kernel-panik under den här uppdaterings metoden. Undvik det här problemet genom att uppdatera till kernel-version 3.10.0-327.10.1 eller senare. Mer information finns i [en virtuell Azure Linux-dator på en 3,10-baserad kernel-panic efter en uppgradering av noden värd](https://support.microsoft.com/help/3212236).
 
-### <a name="user-initiated-reboot-or-shutdown-actions"></a>Användarinitierade åtgärder för omstart eller avstängning
+### <a name="user-initiated-reboot-or-shutdown-actions"></a>Åtgärder för omstart eller avstängning som initierats av användaren
 
-Om du utför en omstart från Azure portal, Azure PowerShell, kommandoradsgränssnittet eller Reset API, hittar du händelsen i den [Azure-aktivitetsloggen](../../azure-monitor/platform/activity-logs-overview.md).
+Om du utför en omstart från Azure Portal, Azure PowerShell, kommando rads gränssnitt eller reset API, kan du hitta händelsen i [Azure aktivitets loggen](../../azure-monitor/platform/activity-logs-overview.md).
 
-Om du utför åtgärden från den Virtuella datorns operativsystem hittar händelsen i systemloggar.
+Om du utför åtgärden från den virtuella datorns operativ system kan du hitta händelsen i system loggarna.
 
-Andra scenarier som vanligtvis orsakar den virtuella datorn ska startas om innehålla flera konfigurationsändring åtgärder. Normalt visas ett varningsmeddelande som visar att köra en viss åtgärd resulterar i en omstart av den virtuella datorn. Exempel innefattar VM resize åtgärder, ändra lösenordet för det administrativa kontot och ange en statisk IP-adress.
+Andra scenarier som vanligt vis leder till att den virtuella datorn startas om är flera konfigurations ändrings åtgärder. Du ser vanligt vis ett varnings meddelande om att körningen av en viss åtgärd leder till en omstart av den virtuella datorn. Exempel på åtgärder för att ändra storlek på virtuella datorer, ändra lösen ordet för det administrativa kontot och ange en statisk IP-adress.
 
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center och Windows Update
 
-Azure Security Center övervakar dagliga Windows och Linux-datorer efter saknade uppdateringar av operativsystemet. Security Center hämtar en lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänst som har konfigurerats på en virtuell Windows-dator. Security Center söker också efter de senaste uppdateringarna för Linux-system. Om den virtuella datorn saknar en systemuppdatering, rekommenderar Security Center att du installerar uppdateringar. Tillämpningen av dessa systemuppdateringar styrs via de Säkerhetscenter i Azure-portalen. När du installerar vissa uppdateringar kan det krävas omstarter av Virtuella datorer. Mer information finns i [tillämpa systemuppdateringar i Azure Security Center](../../security-center/security-center-apply-system-updates.md).
+Azure Security Center övervakar dagliga virtuella Windows-och Linux-datorer för saknade uppdateringar av operativ systemet. Security Center hämtar en lista över tillgängliga säkerhets uppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänst som har kon figurer ATS på en virtuell Windows-dator. Security Center också att söka efter de senaste uppdateringarna för Linux-system. Om en system uppdatering saknas i den virtuella datorn rekommenderar Security Center att du installerar System uppdateringar. Programmet för dessa system uppdateringar styrs via Security Center i Azure Portal. När du har installerat vissa uppdateringar kan det krävas omstarter av virtuella datorer. Mer information finns i [tillämpa system uppdateringar i Azure Security Center](../../security-center/security-center-apply-system-updates.md).
 
-Som lokala servrar, Azure inte hämta uppdateringar från Windows Update till Windows virtuella datorer, eftersom dessa datorer är avsedda att hanteras av sina användare. Du är, men uppmuntras att lämna inställningen för automatisk uppdatering för Windows. Automatisk installation av uppdateringar från Windows Update kan även orsaka omstarter när uppdateringarna tillämpas. Mer information finns i [Windows Update vanliga frågor och svar](https://support.microsoft.com/help/12373/windows-update-faq).
+Precis som lokala servrar skickar Azure inga uppdateringar från Windows Update till virtuella Windows-datorer, eftersom dessa datorer är avsedda att hanteras av deras användare. Du uppmanas dock att lämna inställningen för automatisk Windows Update aktive rad. Automatisk installation av uppdateringar från Windows Update kan också medföra att omstarter sker efter att uppdateringarna har tillämpats. Mer information finns i [vanliga frågor och svar om Windows Update](https://support.microsoft.com/help/12373/windows-update-faq).
 
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>Andra situationer som påverkar tillgängligheten för din virtuella dator
 
-Det finns andra fall där Azure aktivt kan inaktivera användningen av en virtuell dator. Du får e-postmeddelanden innan den här åtgärden tas, så har du chansen att lösa de underliggande problem. Exempel på problem som påverkar VM-tillgänglighet är säkerhetsöverträdelser och förfallodatum för betalningsmetoder.
+Det finns andra fall då Azure kan pausa användningen av en virtuell dator aktivt. Du får e-postaviseringar innan den här åtgärden utförs, så du får chansen att lösa de underliggande problemen. Exempel på problem som påverkar VM-tillgänglighet inkluderar säkerhets överträdelser och förfallo datum för betalnings metoder.
 
-### <a name="host-server-faults"></a>Värd-serverfel
+### <a name="host-server-faults"></a>Värd Server fel
 
-Den virtuella datorn finns på en fysisk server som körs i ett Azure-datacenter. Den fysiska servern kör en agent kallas Värdagenten förutom några andra Azure-komponenter. När dessa komponenter för Azure-programvara på den fysiska servern svarar, utlöser övervakningssystemet en omstart av värdservern att återställa. Den virtuella datorn är vanligtvis tillgängligt igen inom fem minuter och fortsätter att live på samma värddator som tidigare.
+Den virtuella datorn finns på en fysisk server som körs i ett Azure-datacenter. Den fysiska servern kör en agent som kallas värd agenten förutom några andra Azure-komponenter. När dessa Azure-programkomponenter på den fysiska servern slutar svara, utlöser övervaknings systemet en omstart av värd servern för att försöka återställa. Den virtuella datorn är vanligt vis tillgänglig inom fem minuter och fortsätter att leva på samma värd som tidigare.
 
-Serverfel orsakas vanligtvis av maskinvarufel, till exempel fel på en hårddisk eller Solid State-hårddisk. Azure kontinuerligt övervakar dessa förekomster, identifierar de underliggande buggarna och sprider uppdateringar när minskningen har implementerat och testas.
+Server fel orsakas vanligt vis av maskin varu fel, t. ex. fel på en hård disk eller en solid state-enhet. Azure övervakar kontinuerligt dessa förekomster, identifierar underliggande buggar och slår ut uppdateringar efter att lösningen har implementerats och testats.
 
-Eftersom vissa värden serverfel kan vara specifika för den här servern, kan en upprepad VM omstart situation förbättras genom att manuellt distribuera om den virtuella datorn till en annan värdserver. Den här åtgärden kan aktiveras med hjälp av den **omdistribuera** alternativ på sidan för den virtuella datorn eller genom att stoppa och starta om den virtuella datorn i Azure-portalen.
+Eftersom vissa värd Server fel kan vara specifika för den servern kan en upprepad omstart av virtuella datorer förbättras genom manuell omdistribution av den virtuella datorn till en annan värd Server. Den här åtgärden kan utlösas med hjälp av alternativet **distribuera** på sidan information på den virtuella datorn, eller genom att stoppa och starta om den virtuella datorn i Azure Portal.
 
-### <a name="auto-recovery"></a>Auto-recovery
+### <a name="auto-recovery"></a>Automatisk återställning
 
-Om värdservern inte kan en omstart av någon anledning, initierar en åtgärd för automatisk återställning om du vill ta bort från roteringen för vidare studier felaktiga värdservern i Azure-plattformen. 
+Om värd servern inte kan starta om av någon anledning initierar Azure-plattformen en åtgärd för automatisk återställning för att ta den felande värd servern från rotationen för ytterligare undersökning. 
 
-Alla virtuella datorer på värden flyttas automatiskt till en annan, felfri värdserver. Den här processen är vanligtvis klar inom 15 minuter. Läs mer om den automatiska återställningsprocessen i [automatisk återställning av virtuella datorer](https://azure.microsoft.com/blog/service-healing-auto-recovery-of-virtual-machines).
+Alla virtuella datorer på värden flyttas automatiskt till en annan, felfri värd Server. Den här processen slutförs vanligt vis inom 15 minuter. Mer information om den automatiska återställnings processen finns i [Automatisk återställning av virtuella datorer](https://azure.microsoft.com/blog/service-healing-auto-recovery-of-virtual-machines).
 
-### <a name="unplanned-maintenance"></a>Oplanerat Underhåll
+### <a name="unplanned-maintenance"></a>Oplanerat underhåll
 
-I sällsynta fall kanske Azure driftsteamet behöver utföra underhållsaktiviteter för att säkerställa den övergripande hälsan för Azure-plattformen. Det här beteendet kan påverka tillgängligheten för virtuella datorer och det resulterar vanligtvis i samma åtgärd för automatisk återställning enligt beskrivningen ovan.  
+I sällsynta fall kan Azure Operations-teamet behöva utföra underhålls aktiviteter för att säkerställa den övergripande hälsan för Azure-plattformen. Det här beteendet kan påverka VM-tillgänglighet och ger vanligt vis samma automatiska återställnings åtgärd enligt beskrivningen ovan.  
 
-Oplanerat Underhåll är följande:
+Oplanerat underhåll inkluderar följande:
 
-- Brådskande noden defragmentering
-- Brådskande nätverk växel uppdateringar
+- Brådskande nod-defragmentering
+- Brådskande nätverks växel uppdateringar
 
 ### <a name="vm-crashes"></a>VM-krascher
 
-Virtuella datorer kanske startar om på grund av problem i Virtuellt datorn. Arbetsbelastning eller roll som körs på den virtuella datorn kan utlösa en felkontroll i gästoperativsystemet. Hjälp med att fastställa orsaken till kraschen, visa i systemet och programloggarna för virtuella Windows-datorer och seriell loggar för virtuella Linux-datorer.
+Virtuella datorer kan starta om på grund av problem i själva den virtuella datorn. Arbets belastningen eller rollen som körs på den virtuella datorn kan utlösa en fel kontroll i gäst operativ systemet. Om du behöver hjälp med att fastställa orsaken till kraschen kan du Visa system-och program loggarna för virtuella Windows-datorer och serie loggarna för virtuella Linux-datorer.
 
-### <a name="storage-related-forced-shutdowns"></a>Storage-relaterade Tvingad avstängningar
+### <a name="storage-related-forced-shutdowns"></a>Lagringsrelaterade tvingade avstängningar
 
-Virtuella datorer i Azure är beroende av virtuella diskar för lagring av data som finns på Azure Storage-infrastrukturen och operativsystemet. När mer än 120 sekunder påverkas tillgänglighet eller anslutning mellan den virtuella datorn och de associera virtuella diskarna, utför tvångsavstängning av de virtuella datorerna att undvika att data skadas i Azure-plattformen. De virtuella datorerna sätts automatiskt på igen när lagringsanslutningen har återställts. 
+Virtuella datorer i Azure använder virtuella diskar för operativ system och data lagring som finns på Azure Storage-infrastrukturen. När tillgängligheten eller anslutningen mellan den virtuella datorn och de tillhör ande virtuella diskarna påverkas i mer än 120 sekunder, utför Azure-plattformen en Tvingad avstängning av de virtuella datorerna för att undvika skadade data. De virtuella datorerna stängs av automatiskt när lagrings anslutningen har återställts. 
 
-Varaktigheten för avstängningen kan vara så kort som fem minuter, men kan vara betydligt längre. Följande är en av de särskilda fall som är associerad med lagringsrelaterade Tvingad avstängningar: 
+Varaktigheten för avstängningen kan vara så kort som fem minuter, men det kan vara betydligt längre. Följande är ett av de speciella fall som är kopplade till lagringsrelaterade tvingade avstängning: 
 
-**Överstiger IO begränsar**
+**Överstiger IO-gränser**
 
-Virtuella datorer kan tillfälligt stänga av när i/o-begäranden är konsekvent begränsas eftersom volymen för i/o-åtgärder per sekund (IOPS) överskrider den i/o-gränserna för disken. (Standard-disklagring är begränsad till 500 IOPS.) För att lösa det här problemet, Använd disk striping eller konfigurera lagringsutrymmet på gästen för virtuell dator, beroende på arbetsbelastningen. Mer information finns i [Konfigurera virtuella Azure-datorer för optimala lagringsprestanda](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+De virtuella datorerna kan tillfälligt stängas av när I/O-begäranden är konsekvent begränsade eftersom volymerna i/O-åtgärder per sekund (IOPS) överskrider diskens I/O-gränser. (Standard disk lagring är begränsad till 500 IOPS.) Du kan åtgärda det här problemet genom att använda disk ränder eller konfigurera lagrings utrymmet i den virtuella gäst datorn, beroende på arbets belastningen. Mer information finns i [Konfigurera virtuella Azure-datorer för optimala lagrings prestanda](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 ### <a name="other-incidents"></a>Andra incidenter
 
-I sällsynta fall kan kan ett omfattande problem påverka flera servrar i ett Azure-datacenter. Om det här problemet uppstår, skickar Azure-teamet e-postmeddelanden till de berörda prenumerationerna. Du kan kontrollera den [Azure Service Health-instrumentpanelen](https://azure.microsoft.com/status/) och Azure portal så att statusen för pågående avbrott och tidigare incidenter.
+I sällsynta fall kan ett omfattande problem påverka flera servrar i ett Azure-datacenter. Om det här problemet uppstår skickar Azure-teamet e-postaviseringar till de påverkade prenumerationerna. Du kan kontrol lera [Azure Service Health instrument panelen](https://azure.microsoft.com/status/) och Azure Portal för status för pågående avbrott och tidigare incidenter.

@@ -1,6 +1,6 @@
 ---
-title: Skapa en hanterad Azure virtuell dator från en generaliserad lokala VHD | Microsoft Docs
-description: Ladda upp en generaliserad virtuell Hårddisk till Azure och använda den för att skapa nya virtuella datorer, i Resource Manager-distributionsmodellen.
+title: Skapa en hanterad virtuell Azure-dator från en generaliserad lokal VHD | Microsoft Docs
+description: Överför en generaliserad virtuell hård disk till Azure och Använd den för att skapa nya virtuella datorer i distributions modellen för Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,67 +11,66 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 9846bf7b28f1205f98eb59671553d309fe754d30
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: be3ccfd0c562763d0968398ddb042dc5f07dbdcf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707942"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101567"
 ---
-# <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Ladda upp en generaliserad virtuell Hårddisk och använda den för att skapa nya virtuella datorer i Azure
+# <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Överför en generaliserad virtuell hård disk och Använd den för att skapa nya virtuella datorer i Azure
 
-Den här artikeln visar hur du använder PowerShell för att ladda upp en VHD från en generaliserad virtuell dator till Azure, skapa en avbildning från den virtuella Hårddisken och skapa en ny virtuell dator från avbildningen. Du kan ladda upp en virtuell Hårddisk som exporteras från en lokal virtualisering verktyget eller ett annat moln. Med hjälp av [Managed Disks](managed-disks-overview.md) för den nya virtuella datorn förenklar hanteringen av virtuella datorer och ger bättre tillgänglighet när den virtuella datorn placeras i en tillgänglighetsuppsättning. 
+Den här artikeln vägleder dig igenom hur du använder PowerShell för att ladda upp en virtuell hård disk för en generaliserad virtuell dator till Azure, skapa en avbildning från den virtuella hård disken och skapa en ny virtuell dator från avbildningen. Du kan ladda upp en virtuell hård disk som exporter ATS från ett lokalt Virtualization-verktyg eller från ett annat moln. Att använda [Managed disks](managed-disks-overview.md) för den nya virtuella datorn FÖREN klar VM-hanteringen och ger bättre tillgänglighet när den virtuella datorn placeras i en tillgänglighets uppsättning. 
 
-Ett exempelskript finns i [exempel på skript för att ladda upp en virtuell Hårddisk till Azure och skapa en ny virtuell dator](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
+Ett exempel skript finns i [exempel skript för att ladda upp en virtuell hård disk till Azure och skapa en ny virtuell dator](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-- Innan du laddar upp alla VHD till Azure, bör du följa [förbereda en Windows-VHD eller VHDX för att överföra till Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Granska [planera för migrering till Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) innan du påbörjar migreringen till [Managed Disks](managed-disks-overview.md).
+- Innan du laddar upp en virtuell hård disk till Azure bör du följa [förbereda en virtuell Windows-VHD eller VHDX för uppladdning till Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Granska [planen för migreringen till Managed disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) innan du påbörjar migreringen till [Managed disks](managed-disks-overview.md).
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
-## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalisera den Virtuella källdatorn med hjälp av Sysprep
+## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalisera den virtuella käll datorn med hjälp av Sysprep
 
-Sysprep tar bland annat bort all din personliga kontoinformation och förbereder datorn så att den kan användas som en avbildning. Mer information om Sysprep finns i den [Sysprep översikt](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Sysprep tar bland annat bort all din personliga kontoinformation och förbereder datorn så att den kan användas som en avbildning. Mer information om Sysprep finns i [Översikt över Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Se till att serverroller som körs på datorn som stöds av Sysprep. Mer information finns i [Sysprep-stöd för serverroller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [!IMPORTANT]
-> Om du planerar att köra Sysprep innan du laddar upp en virtuell Hårddisk till Azure för första gången, kontrollera att du har [förberett din virtuella dator](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+> Om du planerar att köra Sysprep innan du laddar upp din virtuella hård disk till Azure för första gången, måste du se till att du har för [berett den virtuella](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)datorn. 
 > 
 > 
 
-1. Logga in på den virtuella datorn i Windows.
-2. Öppna Kommandotolken som administratör. Ändra katalogen till % windir%\system32\sysprep och kör sedan `sysprep.exe`.
-3. I den **systemförberedelseverktyget** dialogrutan **ange System Out-of-Box Experience (OOBE)** , och se till att den **Generalize** kryssrutan aktiveras.
-4. För **Avslutningsalternativ**väljer **avstängning**.
+1. Logga in på den virtuella Windows-datorn.
+2. Öppna Kommandotolken som administratör. Ändra katalogen till%WINDIR%\system32\sysprep och kör `sysprep.exe`sedan.
+3. I dialog rutan **system förberedelse verktyg** väljer du **Använd OOBE (system out-of-Box Experience)** och kontrollerar att kryss rutan generalize är aktive rad.
+4. För **avslutnings alternativ**väljer du **Stäng**av.
 5. Välj **OK**.
    
     ![Starta Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. När Sysprep har avslutats, stängs den virtuella datorn. Starta inte om den virtuella datorn.
+6. När Sysprep har slutförts stängs den virtuella datorn av. Starta inte om den virtuella datorn.
 
 
-## <a name="get-a-storage-account"></a>Hämta ett storage-konto
+## <a name="get-a-storage-account"></a>Hämta ett lagrings konto
 
-Du behöver ett lagringskonto i Azure för att lagra den uppladdade avbildningen. Du kan antingen använda ett befintligt lagringskonto eller skapa en ny. 
+Du behöver ett lagrings konto i Azure för att lagra den uppladdade VM-avbildningen. Du kan antingen använda ett befintligt lagrings konto eller skapa ett nytt. 
 
-Om du ska använda den virtuella Hårddisken skapar en hanterad disk för en virtuell dator, måste platsen för lagringskontot vara på samma plats där du ska skapa den virtuella datorn.
+Om du ska använda den virtuella hård disken för att skapa en hanterad disk för en virtuell dator måste lagrings kontots plats vara samma plats som du skapar den virtuella datorn på.
 
-Om du vill visa tillgängliga storage-konton, anger du:
+Om du vill visa tillgängliga lagrings konton anger du:
 
 ```azurepowershell
 Get-AzStorageAccount | Format-Table
 ```
 
-## <a name="upload-the-vhd-to-your-storage-account"></a>Ladda upp den virtuella Hårddisken till ditt storage-konto
+## <a name="upload-the-vhd-to-your-storage-account"></a>Ladda upp den virtuella hård disken till ditt lagrings konto
 
-Använd den [Lägg till AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet för att ladda upp den virtuella Hårddisken till en behållare i ditt storage-konto. Det här exemplet överför filen *myVHD.vhd* från *C:\Users\Public\Documents\Virtual hårddiskar\\*  till ett lagringskonto med namnet *mystorageaccount* i den *myResourceGroup* resursgrupp. Filen ska placeras i behållaren med namnet *mycontainer* och det nya filnamnet blir *myUploadedVHD.vhd*.
+Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp den virtuella hård disken till en behållare i ditt lagrings konto. I det här exemplet överförs filen *myVHD. VHD* från *C:\Users\Public\Documents\Virtual hård diskar\\*  till ett lagrings konto med namnet *mystorageaccount* i resurs gruppen *myResourceGroup* . Filen kommer att placeras i behållaren som heter behållaren och det nya fil namnet kommer att vara *myUploadedVHD. VHD*.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -81,7 +80,7 @@ Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
 ```
 
 
-Om detta lyckas kan du få ett svar som ser ut ungefär så här:
+Om det lyckas får du ett svar som ser ut ungefär så här:
 
 ```powershell
 MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
@@ -95,39 +94,39 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Det här kommandot kan ta en stund att slutföra beroende på din nätverksanslutning och storleken på VHD-filen.
+Beroende på din nätverks anslutning och storleken på VHD-filen kan det här kommandot Ta en stund att slutföra.
 
-### <a name="other-options-for-uploading-a-vhd"></a>Andra alternativ för att ladda upp en virtuell Hårddisk
+### <a name="other-options-for-uploading-a-vhd"></a>Andra alternativ för att ladda upp en virtuell hård disk
  
-Du kan också ladda upp en virtuell Hårddisk till ditt lagringskonto med hjälp av något av följande:
+Du kan också ladda upp en virtuell hård disk till ditt lagrings konto med hjälp av något av följande:
 
 - [AzCopy](https://aka.ms/downloadazcopy)
-- [Azure Storage kopiering av Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Azure Storage Explorer ladda upp BLOB](https://azurestorageexplorer.codeplex.com/)
-- [Storage Import/Export Service REST API-referens](https://msdn.microsoft.com/library/dn529096.aspx)
--   Vi rekommenderar att du använder Import/Export-tjänsten om Uppskattat laddar upp tiden är längre än sju dagar. Du kan använda [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) att uppskatta storlek och överför dataenheten tiden. 
-    Import/Export kan användas för att kopiera till ett standardlagringskonto. Du behöver kopiera från standardlagring till premium storage-konto med hjälp av ett verktyg som AzCopy.
+- [Azure Storage Copy BLOB API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+- [Azure Storage Explorer uppladdning av blobbar](https://azurestorageexplorer.codeplex.com/)
+- [REST API referens för lagrings import/export-tjänsten](https://msdn.microsoft.com/library/dn529096.aspx)
+-   Vi rekommenderar att du använder import/export-tjänsten om uppskattad överförings tid är längre än sju dagar. Du kan använda [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) för att beräkna tiden från data storlek och överförings enhet. 
+    Import/export kan användas för att kopiera till ett standard lagrings konto. Du måste kopiera från standard lagring till Premium Storage-kontot med hjälp av ett verktyg som AzCopy.
 
 > [!IMPORTANT]
-> Om du använder AzCopy för att överföra en virtuell Hårddisk till Azure, se till att du har angett [ **/BlobType:page** ](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) innan du kör skriptet ladda upp. Om målet är en blob och det här alternativet inte anges, skapar AzCopy en blockblob som standard.
+> Om du använder AzCopy för att ladda upp din virtuella hård disk till Azure måste du kontrol lera att du har ange [ **/BlobType: sida**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) innan du kör uppladdnings skriptet. Om målet är en blob och det här alternativet inte anges, skapar AzCopy en Block-Blob som standard.
 > 
 > 
 
 
 
-## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Skapa en hanterad avbildning från den överförda virtuella Hårddisken 
+## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Skapa en hanterad avbildning från den överförda virtuella hård disken 
 
-Skapa en hanterad avbildning från din generaliserade OS-VHD. Ersätt följande värden med din egen information.
+Skapa en hanterad avbildning från den generaliserade OS-VHD: n. Ersätt följande värden med din egen information.
 
 
-Innan du kan definiera vissa parametrar:
+Ange först några parametrar:
 
 ```powershell
 $location = "East US" 
 $imageName = "myImage"
 ```
 
-Skapa avbildningen med hjälp av din generaliserade OS-VHD.
+Skapa avbildningen med hjälp av den generaliserade OS-VHD: n.
 
 ```powershell
 $imageConfig = New-AzImageConfig `
@@ -147,7 +146,7 @@ New-AzImage `
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från avbildningen. Det här exemplet skapar en virtuell dator med namnet *myVM* från *myImage*i *myResourceGroup*.
+Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från avbildningen. I det här exemplet skapas en virtuell dator med namnet *myVM* från *avbildningen*i *myResourceGroup*.
 
 
 ```powershell
@@ -166,5 +165,5 @@ New-AzVm `
 
 ## <a name="next-steps"></a>Nästa steg
 
-Logga in på din nya virtuella dator. Mer information finns i [hur du ansluter och logga in på Azure-datorer som kör Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Logga in på den nya virtuella datorn. Mer information finns i [så här ansluter du och loggar in på en virtuell Azure-dator som kör Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 

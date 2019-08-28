@@ -9,26 +9,25 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 087640ab9c589728551438ebca536f872e3bd910
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 665a4d89c056b5825e35f0925ba3eaaf55d06c0f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876541"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089381"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Beräkna benchmark-Poäng för virtuella Windows-datorer
 Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda virtuella Azure-datorer som kör Windows Server. Beräknings benchmark-resultat är också tillgängliga för [virtuella Linux-datorer](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="av2---general-compute"></a>AV2 – allmän beräkning
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_A1_v2 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2660 0 @ 2.20 GHz | 12 | 14,2 | 0,3 | 
 | Standard_A1_v2 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 9 | 13.2 | 0.6 | 
@@ -53,7 +52,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_A8m_v2 | 8 | 2 | Intel (R) Xeon (R) CPU E5-2660 0 @ 2.20 GHz | 13 | 111,6 | 2.3 | 
 
 ## <a name="b---burstable"></a>B – Burstable
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_B1ms | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 9 | 6.3 | 0.2 | 
 | Standard_B1ms | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 47 | 6.4 | 0.2 | 
@@ -66,7 +65,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_B8ms | 8 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 25 | 41,4 | 0.9 | 
 
 ## <a name="dsv3---general-compute--premium-storage"></a>DSv3 – allmän beräkning + Premium Storage
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2s_v3 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 10 | 40,8 | 2.3 | 
 | Standard_D2s_v3 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 52 | 43,3 | 2.1 | 
@@ -81,7 +80,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_D64s_v3 | 64 | 2 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 35 | 1070,6 | 2.4 | 
 
 ## <a name="dv3---general-compute"></a>Dv3 – allmän beräkning
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2_v3 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 10 | 38,6 | 1.8 | 
 | Standard_D2_v3 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 24 | 41,8 | 3.3 | 
@@ -96,7 +95,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_D64_v3 | 64 | 2 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 32 | 1070,6 | 12,4 | 
 
 ## <a name="dsv2---storage-optimized"></a>DSv2-optimerad lagring
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_DS1_v2 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 12 | 33,0 | 1.1 | 
 | Standard_DS1_v2 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 37 | 33,8 | 2.5 | 
@@ -133,7 +132,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_DS15_v2 | 20 | 2 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 45 | 546,1 | 10.5 | 
 
 ## <a name="dv2---general-compute"></a>Dv2 – allmän beräkning
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D1_v2 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 30 | 33,5 | 1.7 | 
 | Standard_D1_v2 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 31 | 34.7 | 2.5 | 
@@ -157,7 +156,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_D15_v2 | 20 | 2 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 37 | 558,8 | 8,4 | 
 
 ## <a name="esv3---memory-optimized--premium-storage"></a>Esv3-minnesoptimerade + Premium Storage
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E2s_v3 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 39 | 42,5 | 2.2 | 
 | Standard_E4s_v3 | 4 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 28 | 81,4 | 3.3 | 
@@ -177,12 +176,12 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_E64-32s_v3 | 32 | 2 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 4 | 592,5 | 4.4 | 
 
 ## <a name="eisv3---memory-opt--premium-storage-isolated"></a>Eisv3-minne, Premium Storage (isolerad)
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64is_v3 | 64 | 2 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 28 | 1073,9 | 5.7 | 
 
 ## <a name="ev3---memory-optimized"></a>Ev3-minnesoptimerade
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E2_v3 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 41 | 41,2 | 2.4 | 
 | Standard_E4_v3 | 4 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 43 | 81,4 | 5.3 | 
@@ -193,12 +192,12 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_E64_v3 | 64 | 2 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 31 | 1080,0 | 11,3 | 
 
 ## <a name="eiv3---memory-optimized-isolated"></a>Eiv3-minnesoptimerade (isolerade)
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64i_v3 | 64 | 2 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 28 | 1081,4 | 11,1 | 
 
 ## <a name="fsv2---compute--storage-optimized"></a>Fsv2 – beräkning + optimerad lagring
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F2s_v2 | 2 | 1 | Intel (R) Xeon (R) platina 8168 CPU @ 2.70 GHz | 46 | 56,5 | 2.4 | 
 | Standard_F4s_v2 | 4 | 1 | Intel (R) Xeon (R) platina 8168 CPU @ 2.70 GHz | 60 | 110,2 | 4,7 | 
@@ -209,7 +208,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_F72s_v2 | 72 | 2 | Intel (R) Xeon (R) platina 8168 CPU @ 2.70 GHz | 29 | 1372,1 | 8.2 | 
 
 ## <a name="fs---compute-and-storage-optimized"></a>FS-beräkning och lagring optimerad
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1s | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 31 | 33,2 | 1.0 | 
 | Standard_F1s | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 41 | 35,1 | 2.0 | 
@@ -223,7 +222,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_F16s | 16 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 36 | 471,8 | 7.5 | 
 
 ## <a name="f---compute-optimized"></a>F – Compute-optimerad
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 15 | 32,8 | 1.8 | 
 | Standard_F1 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 13 | 33,3 | 2.0 | 
@@ -238,7 +237,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_F16 | 16 | 2 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 6 | 472,3 | 13.2 | 
 
 ## <a name="gs---storage-optimized"></a>GS-lagring optimerad
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_GS1 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2698B v3 @ 2,00 GHz | 29 | 63,6 | 4,7 | 
 | Standard_GS2 | 4 | 1 | Intel (R) Xeon (R) CPU E5-2698B v3 @ 2,00 GHz | 29 | 122,3 | 6.9 | 
@@ -251,7 +250,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_GS5-16 | 16 | 2 | Intel (R) Xeon (R) CPU E5-2698B v3 @ 2,00 GHz | 31 | 447,9 | 4.0 | 
 
 ## <a name="g---compute-optimized"></a>G-Compute-optimerad
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_G1 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2698B v3 @ 2,00 GHz | 29 | 64,7 | 9.2 | 
 | Standard_G2 | 4 | 1 | Intel (R) Xeon (R) CPU E5-2698B v3 @ 2,00 GHz | 30 | 127,9 | 12,2 | 
@@ -260,7 +259,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_G5 | 32 | 2 | Intel (R) Xeon (R) CPU E5-2698B v3 @ 2,00 GHz | 31 | 774,1 | 4,1 | 
 
 ## <a name="h---high-performance-compute-hpc"></a>H-beräkning av höga prestanda (HPC)
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_H8 | 8 | 1 | Intel (R) Xeon (R) CPU E5-2667 v3 @ 3,20 GHz | 31 | 296,1 | 1.4 | 
 | Standard_H8m | 8 | 1 | Intel (R) Xeon (R) CPU E5-2667 v3 @ 3,20 GHz | 34 | 295,1 | 1.5 | 
@@ -270,7 +269,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_H16r | 16 | 2 | Intel (R) Xeon (R) CPU E5-2667 v3 @ 3,20 GHz | 17 | 562,2 | 4,2 | 
 
 ## <a name="ls---storage-optimized"></a>LS-optimerad lagring
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_L4s | 4 | 1 | Intel (R) Xeon (R) CPU E5-2698B v3 @ 2,00 GHz | 29 | 122,7 | 6.6 | 
 | Standard_L8s | 8 | 1 | Intel (R) Xeon (R) CPU E5-2698B v3 @ 2,00 GHz | 30 | 223,3 | 7.5 | 
@@ -278,7 +277,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_L32s | 32 | 2 | Intel (R) Xeon (R) CPU E5-2698B v3 @ 2,00 GHz | 31 | 766,1 | 3.5 | 
 
 ## <a name="m---memory-optimized"></a>M-minnesoptimerade
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_M8-2ms | 2 | 1 | Intel (R) Xeon (R) CPU-E7-8890 v3 @ 2,50 GHz | 15 | 42.1 | 2.1 | 
 | Standard_M8-4ms | 4 | 1 | Intel (R) Xeon (R) CPU-E7-8890 v3 @ 2,50 GHz | 13 | 81,6 | 2.9 | 
@@ -307,7 +306,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_M8ms | 8 | 1 | Intel (R) Xeon (R) CPU-E7-8890 v3 @ 2,50 GHz | 13 | 158,2 | 5.5 | 
 
 ## <a name="ncsv3---gpu-enabled"></a>NCSv3 – GPU aktiverat
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6s_v3 | 6 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 6 | 230,2 | 1.6 | 
 | Standard_NC12s_v3 | 12 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 7 | 425,0 | 3.6 | 
@@ -315,7 +314,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_NC24s_v3 | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 3 | 809,3 | 2.3 | 
 
 ## <a name="ncsv2---gpu-enabled"></a>NCSv2 – GPU aktiverat
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6s_v2 | 6 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 227,0 | 6.2 | 
 | Standard_NC12s_v2 | 12 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 9 | 427,3 | 1.3 | 
@@ -323,7 +322,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_NC24s_v2 | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 811,5 | 4.4 | 
 
 ## <a name="nc---gpu-enabled"></a>NC-GPU aktiverat
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6 | 6 | 1 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 27 | 209,6 | 4.4 | 
 | Standard_NC12 | 12 | 1 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 28 | 394,4 | 3.8 | 
@@ -331,7 +330,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_NC24r | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 27 | 752,9 | 3.4 | 
 
 ## <a name="nds--gpu-enabled"></a>NDs-GPU aktiverat
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_ND6s | 6 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 8 | 230,1 | 1.2 | 
 | Standard_ND12s | 12 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 426,5 | 1.4 | 
@@ -339,7 +338,7 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Standard_ND24s | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 812,6 | 4.4 | 
 
 ## <a name="nv---gpu-enabled"></a>NV-GPU aktiverat
-| Size | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
+| Size | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NV6 | 6 | 1 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 28 | 210,5 | 6.1 | 
 | Standard_NV12 | 12 | 1 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 28 | 394,5 | 2.3 | 

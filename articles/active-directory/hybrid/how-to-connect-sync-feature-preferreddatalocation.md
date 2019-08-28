@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff74db14a1621cdcea1b1ae082d351ce6a3a52f6
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 13beafe9a6937b0404a58d3508a9aba9892ac04d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227411"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073875"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect synkronisering: Konfigurera önskad data plats för Office 365-resurser
 Syftet med det här avsnittet är att hjälpa dig att konfigurera attributet för önskad data plats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder flera geo-funktioner i Office 365 använder du det här attributet för att ange geo-platsen för användarens Office 365-data. (Regions *region* och *geo* används utbytbart.)
@@ -32,7 +32,7 @@ Som standard finns Office 365-resurser för dina användare i samma geografiska 
 Genom att ange attributet **preferredDataLocation**kan du definiera en användares geo. Du kan ha användarens Office 365-resurser, t. ex. post lådan och OneDrive, i samma geo som användaren och fortfarande ha en klient för hela organisationen.
 
 > [!IMPORTANT]
-> Multi-geo är för närvarande tillgängligt för kunder med minst 500 Office 365 Services-prenumerationer. Kontakta din Microsoft-representant om du vill ha mer information.
+> Multi-geo är för närvarande tillgängligt för kunder med en aktiv Enterprise-avtal och minst 500 Office 365 Services-prenumerationer. Kontakta din Microsoft-representant om du vill ha mer information.
 >
 >
 
@@ -52,7 +52,7 @@ Geografiska områden i Office 365 tillgängligt för multi-geo är:
 | Korea | KOR |
 | Sydafrika | ZAF |
 | Förenade Arabemiraten | TILLHANDAHÅLLS |
-| Storbritannien | GBR |
+| Storbritannien och Nordirland | GBR |
 | USA | NAM |
 
 * Om en geo inte visas i den här tabellen (till exempel södra Amerika) kan den inte användas för multi-geo.
@@ -92,7 +92,7 @@ För att undvika oönskade ändringar som exporteras till Azure AD kontrollerar 
 1. Starta en PowerShell-session på Azure AD Connect servern.
 2. Inaktivera schemalagd synkronisering genom att köra denna cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $false`:.
 3. Starta **Synchronization Service Manageren** genom att gå till **Starta** > **synkroniseringstjänsten**.
-4. Välj fliken **åtgärder** och bekräfta att det inte finns någon åtgärd *med statusen*pågår.
+4. Välj fliken **åtgärder** och bekräfta att det inte finns någon åtgärd med statusen pågår.
 
 ![Skärm bild av Synchronization Service Manager](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
@@ -128,7 +128,7 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
 
     | Attribut | Value | Information |
     | --- | --- | --- |
-    | Namn | *Ange ett namn* | Till exempel "i från AD – User preferredDataLocation" |
+    | Name | *Ange ett namn* | Till exempel "i från AD – User preferredDataLocation" |
     | Beskrivning | *Ange en anpassad Beskrivning* |  |
     | Anslutet system | *Välj lokal Active Directory-anslutning* |  |
     | Ansluten system objekt typ | **Användarvänlig** |  |
@@ -139,9 +139,9 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
 5. Behåll omfångs **filtret** tomt om du vill inkludera alla objekt. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
 6. Gå till **fliken omvandling**och implementera följande omvandlings regel:
 
-    | Flödes typ | Target-attribut | Source | Använd en gång | Sammanslagnings typ |
+    | Flödes typ | Målattribut | Source | Använd en gång | Sammanslagnings typ |
     | --- | --- | --- | --- | --- |
-    |Direct | preferredDataLocation | Välj källattribut | Avmarkerat | Uppdatera |
+    |Direkt | preferredDataLocation | Välj källattribut | Avmarkerat | Uppdatera |
 
 7. Välj **Lägg till**för att skapa regeln för inkommande trafik.
 
@@ -157,7 +157,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 
     | Attribut | Value | Information |
     | ----- | ------ | --- |
-    | Namn | *Ange ett namn* | Till exempel "ut till Azure AD – User preferredDataLocation" |
+    | Name | *Ange ett namn* | Till exempel "ut till Azure AD – User preferredDataLocation" |
     | Beskrivning | *Ange en beskrivning* ||
     | Anslutet system | *Välj Azure AD-anslutning* ||
     | Ansluten system objekt typ | **Användarvänlig** ||
@@ -176,9 +176,9 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 
 6. Gå till fliken **omvandling** och implementera följande omvandlings regel:
 
-    | Flödes typ | Target-attribut | Source | Använd en gång | Sammanslagnings typ |
+    | Flödes typ | Målattribut | Source | Använd en gång | Sammanslagnings typ |
     | --- | --- | --- | --- | --- |
-    | Direct | preferredDataLocation | preferredDataLocation | Avmarkerat | Uppdatera |
+    | Direkt | preferredDataLocation | preferredDataLocation | Avmarkerat | Uppdatera |
 
 7. Stäng **Lägg till** för att skapa regeln för utgående trafik.
 

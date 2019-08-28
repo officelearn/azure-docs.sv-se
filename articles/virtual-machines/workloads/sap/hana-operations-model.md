@@ -1,72 +1,71 @@
 ---
-title: Driftmodell av SAP HANA på Azure (stora instanser) | Microsoft Docs
-description: Driftmodell av SAP HANA på Azure (stora instanser).
+title: Drifts modell för SAP HANA på Azure (stora instanser) | Microsoft Docs
+description: Drifts modell för SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da033232209c304e82f3fbe7dac164bd7222f557
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9a8ea845dd53048766abc337a1351a408ea7f1bb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707360"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099698"
 ---
 # <a name="operations-model-and-responsibilities"></a>Driftmodell och ansvarsområden
 
-Den tillhandahållna med SAP HANA på Azure (stora instanser) är i linje med Azure IaaS-tjänster. Du får en instans av en stora HANA-instans med ett installerat operativsystem som är optimerad för SAP HANA. Som med Azure IaaS-VM, de flesta uppgifter härda Operativsystemet och installera ytterligare programvara, installera HANA, OS och HANA, uppdatera operativsystem och HANA är ditt ansvar. Microsoft göra inte uppdateringar av OS- eller HANA uppdateringar på du.
+Tjänsten som tillhandahålls med SAP HANA på Azure (stora instanser) är anpassad till Azure IaaS Services. Du får en instans av en HANA stor instans med ett installerat operativ system som är optimerat för SAP HANA. Precis som med virtuella Azure IaaS-datorer, de flesta av aktiviteterna för att skärpa operativ systemet, installera ytterligare program vara, installera HANA, använda operativ systemet och HANA och uppdatera operativ systemet och HANA är ditt ansvar. Microsoft tvingar inte uppdateringar av operativ system eller HANA-uppdateringar.
 
-![Ansvaret för SAP HANA på Azure (stora instanser)](./media/hana-overview-architecture/image2-responsibilities.png)
+![Ansvar för SAP HANA på Azure (stora instanser)](./media/hana-overview-architecture/image2-responsibilities.png)
 
-I diagrammet visas är SAP HANA på Azure (stora instanser) en flera innehavare som erbjuder IaaS. För det mesta har divisionen av ansvar nått gränsen för OS-infrastruktur. Microsoft ansvarar för alla aspekter av tjänsten under raden i operativsystemet. Du är ansvarig för alla aspekter av tjänsten ovanför raden. Operativsystemet är ditt ansvar. Du kan fortsätta att använda den mest aktuella lokala metoder du kan använda för efterlevnad, säkerhet, programhantering, dag och OS-hantering. System som visas som om de finns i nätverket när det kommer alla.
+Som du ser i diagrammet är SAP HANA på Azure (stora instanser) ett IaaS-erbjudande för flera innehavare. För det mesta är andelen av ansvaret i operativ systemets infrastrukturs gränser. Microsoft ansvarar för alla aspekter av tjänsten under operativ systemets rad. Du ansvarar för alla aspekter av tjänsten ovanför linjen. Operativ systemet är ditt ansvar. Du kan fortsätta att använda de flesta aktuella lokala metoder som du kan använda för efterlevnad, säkerhet, program hantering, bas och operativ system hantering. Systemen ser ut som om de är i ditt nätverk i alla avseenden.
 
-Den här tjänsten är optimerad för SAP HANA, så det finns områden där du behöver arbeta med Microsoft för att använda funktionerna för underliggande infrastruktur för bästa resultat.
+Den här tjänsten är optimerad för SAP HANA, så det finns områden där du behöver arbeta med Microsoft för att kunna använda de underliggande infrastruktur funktionerna för bästa möjliga resultat.
 
-I följande lista finns mer information på varje lager och dina ansvarsområden:
+Följande lista innehåller mer information om varje lager och dina ansvars områden:
 
-**Nätverk**: Alla interna nätverk för stor instans stämpeln köra SAP HANA. Ditt ansvar ger åtkomst till lagring, anslutning mellan instanser (för skalbarhet och andra funktioner), anslutning till liggande och anslutningar till Azure där SAP-programnivån finns i virtuella datorer. Den innehåller också WAN-anslutning mellan Azure-Datacenter för disaster recovery-replikering för syften. Alla nätverk partitioneras av klienten och har tjänstkvalitet tillämpas.
+**Nätverk**: Alla interna nätverk för den stora instans stämpling som kör SAP HANA. Ditt ansvar omfattar åtkomst till lagring, anslutning mellan instanserna (för skalbara funktioner och andra funktioner), anslutning till landskap och anslutning till Azure där SAP-programlagret finns på virtuella datorer. Den innehåller även WAN-anslutning mellan Azure-datacenter för replikering av haveri beredskap. Alla nätverk partitioneras av klienten och har tjänst kvalitet som tillämpas.
 
-**Storage**: Den virtualiserade partitionerade lagring för alla volymer som krävs av SAP HANA-servrar, samt för ögonblicksbilder. 
+**Lagring**: Virtualiserad partitionerad lagring för alla volymer som krävs av SAP HANA-servrar, samt för ögonblicks bilder. 
 
-**Servrar**: Särskilda fysiska servrar att köra SAP HANA-databaser som är tilldelad till klienter. Servrar av typen jag klassen SKU: er är maskinvara som sådant. Med den här typen av servrar, serverkonfigurationen samlas in och underhålls i profiler som kan flyttas från en fysisk maskinvara till en annan fysisk maskinvara. Sådana (manuellt) flytta för en profil av åtgärder kan jämföras lite med Azure tjänståterställning. Servrarna i SKU: er för Type II-klass erbjuder inte en sådan funktion.
+**Servrar**: De dedikerade fysiska servrarna för att köra SAP HANA-databaser som tilldelats till klienter. Servrarna i typ I-klassen för SKU: er är maskin vara abstrakta. Med dessa typer av servrar samlas och underhålls Server konfigurationen i profiler, som kan flyttas från en fysisk maskin vara till en annan fysisk maskin vara. En sådan (manuell) flyttning av en profil efter åtgärder kan jämföras med en bit till Azure Service relagning. Servrarna i typ II-klassen SKU: er erbjuder inte sådan funktion.
 
-**SDDC**: Programvaran för hantering som används för att hantera data datacenter som programdefinierade entiteter. Det kan Microsoft poolresurser för skalbarhet, tillgänglighet och prestanda.
+**SDDC**: Hanterings programmet som används för att hantera data Center som program varu definierade entiteter. Det gör att Microsoft kan pool resurser för skalnings-, tillgänglighets-och prestanda skäl.
 
-**O/S**: Operativsystemet som du väljer (SUSE Linux eller Red Hat Linux) som körs på servrarna. OS-avbildningar som du levereras med tillhandahölls av enskilda Linux-Försäljare till Microsoft för att köra SAP HANA. Du måste ha en prenumeration med Linux-försäljare för den specifika bilden för SAP HANA-optimerade. Du ansvarar för att registrera avbildningarna med OS-leverantören. 
+**O/S**: Det operativ system du väljer (SUSE Linux eller Red Hat Linux) som körs på servrarna. De OS-avbildningar som du medföljer tillhandahölls av den enskilda Linux-leverantören till Microsoft för att köra SAP HANA. Du måste ha en prenumeration på Linux-leverantören för den speciella SAP HANA-optimerade avbildningen. Du ansvarar för att registrera avbildningarna med OS-leverantören. 
 
-Från det datum då jourtjänstöverlämnande av Microsoft är du ansvarig för eventuella ytterligare korrigeringar av Linux-operativsystem. Denna uppdatering innehåller ytterligare paket som kan krävas för en lyckad SAP HANA-installation och som inte finns med den specifika Linux-leverantör i sina SAP HANA optimerade OS-avbildningar. (Mer information finns i SAP: s HANA installationsdokumentationen och SAP Notes.) 
+Från överlämnande från Microsoft ansvarar du för eventuell ytterligare korrigering av Linux-operativsystemet. Den här uppdateringen innehåller ytterligare paket som kan behövas för att lyckas SAP HANA installationen och som inte ingår i den aktuella Linux-leverantören i SAP HANA optimerade OS-avbildningar. (Mer information finns i SAP: s HANA installations dokumentation och SAP-anteckningar.) 
 
-Du ansvarar för underhåll av operativsystem på grund av fel på utrustningen eller dess drivrutiner i förhållande till den specifika servermaskinvaran och optimering av Operativsystemet. Du är också ansvarig för säkerhets- eller funktionella uppdatering av Operativsystemet. 
+Du är ansvarig för OS-korrigering på grund av fel eller optimering av operativ systemet och dess driv rutiner i förhållande till den aktuella server maskin varan. Du ansvarar också för säkerhets-eller funktions korrigeringar av operativ systemet. 
 
-Ditt ansvar omfattar också övervakning och kapacitetsplanering för:
+Ditt ansvar omfattar även övervakning och kapacitets planering av:
 
-- CPU-resursförbrukning.
-- Minnesanvändningen.
-- Diskvolymer relaterar till ledigt utrymme, IOPS och svarstider.
-- Volymen nätverkstrafik mellan stora HANA-instansen och SAP-programnivån.
+- Användning av processor resurser.
+- Minnes användning.
+- Disk volymer relaterade till ledigt utrymme, IOPS och latens.
+- Nätverks volym trafik mellan HANA stor instans och SAP-program skiktet.
 
-Den underliggande infrastrukturen med stora HANA-instansen innehåller funktioner för säkerhetskopiering och återställning av systemvolymen. Med den här funktionen är också ansvarig.
+Den underliggande infrastrukturen i HANA stor instans tillhandahåller funktioner för säkerhets kopiering och återställning av OS-volymen. Det är också ditt ansvar att använda den här funktionen.
 
-**Middleware**: SAP HANA-instansen, främst. Är du ansvarig för administration, åtgärder och övervakning. Du kan använda de angivna funktionerna för att använda ögonblicksbilder av lagring för säkerhetskopiering, återställning och disaster recovery-syften. Dessa funktioner tillhandahålls av infrastrukturen. Dina ansvarsområden även innehålla designa hög tillgänglighet och haveriberedskap med dessa funktioner kan utnyttja dem och övervaka att avgöra om ögonblicksbilder av lagring har körts.
+**Mellanprogram**: SAP HANA-instansen, främst. Administration, åtgärder och övervakning är ditt ansvar. Du kan använda den tillhandahållna funktionen för att använda lagrings ögonblicks bilder för säkerhets kopiering och återställning och haveri beredskap. Dessa funktioner tillhandahålls av infrastrukturen. Dina ansvars områden omfattar också utformning av hög tillgänglighet eller haveri beredskap med dessa funktioner, med hjälp av dem och övervakning för att avgöra om lagrings ögonblicks bilder har körts.
 
-**Data**: Dina data hanteras av SAP HANA och andra data, till exempel säkerhetskopior delar filer i volymer eller fil. Dina ansvarsområden omfattar övervaka ledigt diskutrymme och hantera innehåll på volymerna. Du är också ansvarig för att övervaka säkerhetskopior av volymer på diskar och ögonblicksbilder av lagring har körts. Lyckad körning av datareplikering till katastrofåterställningsplatser ansvarar för Microsoft.
+**Data**: Dina data hanteras av SAP HANA och andra data, till exempel säkerhets kopior som finns på volymer eller fil resurser. Ditt ansvar omfattar att övervaka ledigt disk utrymme och hantera innehållet på volymerna. Du ansvarar också för att övervaka lyckad körning av säkerhets kopior av disk volymer och ögonblicks bilder av lagring. Microsoft har ansvarat för att utföra datareplikering till haveri beredskaps platser.
 
-**Program:** Programinstanser SAP eller när det gäller icke-SAP-program, programlagret för programmen. Dina ansvarsområden omfattar distribution, administration, åtgärder och övervakning av dessa program. Du är ansvarig för kapacitetsplanering för CPU-resursförbrukning, minnesförbrukning, Azure Storage-förbrukning och förbrukningen av nätverksbandbredd i virtuella nätverk. Du är också ansvarig för kapacitetsplanering för resursförbrukning från virtuella nätverk till SAP HANA på Azure (stora instanser).
+**Ansökan** SAP-programinstanserna eller, om det gäller icke-SAP-program, program lagret i dessa program. Dina ansvars områden omfattar distribution, administration, åtgärder och övervakning av dessa program. Du ansvarar för kapacitets planering av förbrukning av processor resurser, minnes förbrukning, Azure Storage användning och användning av nätverks bandbredd i virtuella nätverk. Du ansvarar också för kapacitets planering för resursförbrukning från virtuella nätverk till SAP HANA på Azure (stora instanser).
 
-**WAN-nätverk**: Anslutningar som du har upprättat från lokalt till Azure-distributioner för arbetsbelastningar. Alla kunder med stora HANA-instansen använder Azure ExpressRoute för anslutning. Den här anslutningen är inte en del av SAP HANA på Azure (stora instanser)-lösningen. Du är ansvarig för installationen av den här anslutningen.
+**WAN**: Anslutningarna som du upprättar från lokala till Azure-distributioner för arbets belastningar. Alla kunder med en stor instans av HANA använder Azure-ExpressRoute för anslutning. Den här anslutningen är inte en del av lösningen SAP HANA på Azure (stora instanser). Du ansvarar för installationen av den här anslutningen.
 
-**Arkivera**: Du kanske föredrar att arkivera kopior av data med hjälp av dina egna metoder i storage-konton. Arkivering kräver hantering, efterlevnad, kostnader och åtgärder. Du ansvarar för att generera Arkiv kopior och säkerhetskopieringar på Azure och lagra dem på ett sätt som är kompatibla.
+**Arkiv**: Du kanske föredrar att arkivera kopior av data genom att använda dina egna metoder i lagrings konton. Arkivering kräver hantering, efterlevnad, kostnader och åtgärder. Du ansvarar för att skapa arkiverade kopior och säkerhets kopior på Azure och lagra dem på ett kompatibelt sätt.
 
-Se den [SLA för SAP HANA på Azure (stora instanser)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/).
+Se [SLA för SAP HANA på Azure (stora instanser)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/).
 
 **Nästa steg**
-- Se [SAP HANA (stora instanser)-arkitektur på Azure](hana-architecture.md)
+- Referera [SAP HANA (stora instanser) arkitektur i Azure](hana-architecture.md)

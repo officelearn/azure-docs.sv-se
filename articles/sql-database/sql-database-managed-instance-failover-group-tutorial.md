@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 5169fe5eef416812c399b421f59305f6cb1e7b62
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 3e5b96cf4227e933aa99b37469410276a775dbed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035791"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103093"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Självstudier: Lägga till en SQL Database Hanterad instans i en failover-grupp
 
@@ -40,13 +40,15 @@ För att kunna följa den här självstudien måste du ha:
 - En Azure-prenumeration [skapar du ett kostnads fritt konto](https://azure.microsoft.com/free/) om du inte redan har en. 
 
 
-## <a name="1----create-resource-group-and-primary-managed-instance"></a>1 – Skapa en resurs grupp och en primär hanterad instans
+## <a name="1---create-resource-group-and-primary-managed-instance"></a>1 – Skapa en resurs grupp och en primär hanterad instans
 I det här steget ska du skapa resurs gruppen och den primära hanterade instansen för din failover-grupp med hjälp av Azure Portal. 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
-1. Välj att **skapa en resurs** i det övre vänstra hörnet av Azure Portal. 
-1. Skriv `managed instance` i sökrutan och välj alternativet för Azure SQL-hanterad instans. 
-1. Välj **skapa** för att starta sidan för skapande av **SQL-hanterad instans** . 
+1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
+1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa ytterligare information om de olika databaserna genom att välja Visa information på panelen databaser.
+1. Välj **skapa** på panelen **SQL Managed instances** . 
+
+    ![Välj hanterad instans](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. På sidan **skapa Azure SQL Database Hanterad instans** på fliken **grundläggande**
     1. Under **projekt information**väljer du din **prenumeration** i list rutan och väljer sedan att skapa en **ny** resurs grupp. Ange ett namn för resurs gruppen, till exempel `myResourceGroup`. 
     1. Under **information om hanterade instanser**anger du namnet på den hanterade instansen och den region där du vill distribuera din hanterade instans. Lämna kvar **beräkningen + lagringen** med standardvärdena. 
@@ -98,8 +100,12 @@ Din andra hanterade instans måste:
 
 Följ dessa steg om du vill skapa en sekundär hanterad instans: 
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** och söker efter *Azure SQL-hanterad instans*. 
-1. Välj alternativet för **hanterad Azure SQL-instans** som publicerats av Microsoft och välj sedan **skapa** på nästa sida.
+1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
+1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa ytterligare information om de olika databaserna genom att välja Visa information på panelen databaser.
+1. Välj **skapa** på panelen **SQL Managed instances** . 
+
+    ![Välj hanterad instans](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. På fliken **grundläggande** på sidan **Skapa Azure SQL Database Hanterad instans** fyller du i fälten som krävs för att konfigurera din sekundära hanterade instans. 
 
    Följande tabell visar de värden som krävs för den sekundära hanterade instansen:
@@ -209,9 +215,8 @@ Följ dessa steg om du vill konfigurera anslutningen:
 ## <a name="7---create-a-failover-group"></a>7 – skapa en grupp för redundans
 I det här steget skapar du gruppen redundans och lägger till båda hanterade instanser till den. 
 
-1. I [Azure Portal](https://portal.azure.com)går du till **alla tjänster** och skriver i `managed instance` rutan Sök. 
-1. Valfritt Välj stjärnan bredvid SQL- **hanterade instanser** för att lägga till hanterade instanser som genväg till det vänstra navigerings fältet. 
-1. Välj **SQL-hanterade instanser** och välj din primära hanterade instans `sql-mi-primary`, till exempel. 
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
+1. Välj den primära hanterade instans som du skapade i det första avsnittet, `sql-mi-primary`till exempel. 
 1. Under **Inställningar**navigerar du till **instans grupper för redundans** och väljer sedan att **lägga till grupp** för att öppna sidan **instans redundans grupp** . 
 
    ![Lägg till en grupp för redundans](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)

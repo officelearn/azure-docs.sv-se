@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 08/27/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85145d4a81eb4d12910758e01dda675ea378a46b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4968d1acbccca9c2c46b4bbb6f0853b82e8d7f71
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853178"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074268"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft Identity Platform ID-token
 
@@ -30,7 +30,7 @@ ms.locfileid: "68853178"
 
 ## <a name="using-the-id_token"></a>Använda id_token
 
-ID-token ska användas för att verifiera att en användare är den som han eller hon ansöker för att få ytterligare värdefull information om dem – den bör inte användas för auktorisering i stället för en [åtkomsttoken](access-tokens.md). Anspråken som det tillhandahåller kan användas för UX i ditt program, skicka en nyckel till en databas och ge åtkomst till klient programmet.
+ID-token ska användas för att verifiera att en användare är den som han eller hon ansöker för att få ytterligare värdefull information om dem – den bör inte användas för auktorisering i stället för en [åtkomsttoken](access-tokens.md). Anspråken som det tillhandahåller kan användas för UX i ditt program, som nycklar i en databas och för att ge åtkomst till klient programmet.  När du skapar nycklar för en databas `idp` bör du inte använda den, eftersom den kan förstöra gäst scenarier.  Nycklar bör utföras `sub` separat (som alltid är unika), med `tid` används för routning om det behövs.  Om du behöver dela data `oid` mellan tjänster + + `sub` fungerardet`oid`eftersom flera tjänster kommerattfungera.`tid`
 
 ## <a name="claims-in-an-id_token"></a>Anspråk i en id_token
 

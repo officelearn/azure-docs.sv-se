@@ -9,17 +9,16 @@ editor: tysonn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 760055a831998aa026439302094e146fd4d39394
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7bd204789f99fa299300ff47003857e9ecc6085e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708453"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103609"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Självstudier: Lär dig hur du hanterar virtuella Linux-datorer med Azure CLI
 
@@ -65,7 +64,7 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Om du får ett felmeddelande om **huvudnamn \<guid > finns inte i katalogen**, den nya gruppen har inte spridits i hela Azure Active Directory. Prova att köra kommandot igen.
+Om du får ett fel meddelande om **att \<huvud-GUID > inte finns i katalogen**sprids den nya gruppen i Azure Active Directory. Prova att köra kommandot igen.
 
 Normalt upprepar du processen för *Nätverksdeltagare* och *Lagringskontodeltagare* för att se till att hanteringen av alla distribuerade resurser tilldelas till användare. Du kan hoppa över dessa steg i den här artikeln.
 

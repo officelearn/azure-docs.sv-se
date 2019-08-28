@@ -1,6 +1,6 @@
 ---
 title: Komma igång med Cloud Foundry på Microsoft Azure | Microsoft Docs
-description: Köra OSS eller Pivotal Cloud Foundry på Microsoft Azure
+description: Kör OSS eller pivotal Cloud Foundry på Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
@@ -10,61 +10,60 @@ tags: ''
 keywords: ''
 ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: e042c9cbce985882b468472425d6803862e82941
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d91ad0bea7f79dd67edd4f0bb9e06a37a0f86bea
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668315"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091924"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry på Azure
 
-Cloud Foundry är en plattform som en tjänst (PaaS) med öppen källkod som finns för att skapa, distribuera och använda 12-faktorsprogram som utvecklats i olika språk och ramverk. Det här dokumentet beskrivs de alternativ som du har för att köra Cloud Foundry på Azure och hur du kan komma igång.
+Cloud Foundry är en plattform som en tjänst (PaaS) med öppen källkod som finns för att skapa, distribuera och använda 12-faktorsprogram som utvecklats i olika språk och ramverk. I det här dokumentet beskrivs de alternativ som du kan använda för att köra Cloud Foundry på Azure och hur du kan komma igång.
 
-## <a name="cloud-foundry-offerings"></a>Cloud Foundry-erbjudanden
+## <a name="cloud-foundry-offerings"></a>Cloud Foundry erbjudanden
 
-Det finns två typer av Cloud Foundry tillgänglig för körning på Azure: open source-Cloud Foundry (OSS CF) och Pivotal Cloud Foundry (PCF). OSS CF är en helt [öppen källkod](https://github.com/cloudfoundry) version av Cloud Foundry hanteras av Cloud Foundry Foundation. Pivotal Cloud Foundry är en företagsdistribution för Cloud Foundry från Pivotal Software Inc. Vi tittar på några av skillnaderna mellan de två erbjudandena.
+Det finns två former av Cloud Foundry tillgängliga för körning på Azure: Cloud Foundry med öppen källkod (OSS CF) och pivotal Cloud Foundry (PCF). OSS CF är en helt [öppen käll](https://github.com/cloudfoundry) version av Cloud Foundry som hanteras av Cloud Foundry Foundation. Pivotal Cloud Foundry är en företags distribution av Cloud Foundry från pivoting Software Inc. Vi tittar på några av skillnaderna mellan de två erbjudandena.
 
-### <a name="open-source-cloud-foundry"></a>Öppen källkod Cloud Foundry
+### <a name="open-source-cloud-foundry"></a>Cloud Foundry med öppen källkod
 
-Du kan distribuera OSS Cloud Foundry på Azure genom att distribuera en BOSH director först och sedan distribuera Cloud Foundry, med hjälp av den [instruktionerna på GitHub](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md). Mer information om hur du använder OSS CF finns den [dokumentation](https://docs.cloudfoundry.org/) tillhandahålls av Cloud Foundry Foundation.
+Du kan distribuera OSS Cloud Foundry på Azure genom att först distribuera en BOSH-regissör och sedan distribuera Cloud Foundry med hjälp av [anvisningarna på GitHub](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md). Mer information om hur du använder OSS CF finns i [dokumentationen](https://docs.cloudfoundry.org/) från Cloud Foundry Foundation.
 
-Microsoft tillhandahåller mån support för OSS CF via följande community-kanaler:
+Microsoft tillhandahåller bästa möjliga support för OSS CF genom följande community-kanaler:
 
-- #<a name="bosh-azure-cpi-channel-on-cloud-foundry-slackhttpsslackcloudfoundryorg"></a>bosh-azure-cpi-kanal på [Cloud Foundry Slack](https://slack.cloudfoundry.org/)
-- [CF bosh distributionslista](https://lists.cloudfoundry.org/pipermail/cf-bosh)
-- GitHub-problem för den [CPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) och [service broker](https://github.com/Azure/meta-azure-service-broker/issues)
+- #<a name="bosh-azure-cpi-channel-on-cloud-foundry-slackhttpsslackcloudfoundryorg"></a>Bosh – Azure-CPI-kanal på [Cloud Foundry slack](https://slack.cloudfoundry.org/)
+- [CF-Bosh e-postlista](https://lists.cloudfoundry.org/pipermail/cf-bosh)
+- GitHub problem för [CPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) och [Service Broker](https://github.com/Azure/meta-azure-service-broker/issues)
 
 >[!NOTE]
-> Stödet för dina Azure-resurser, till exempel virtuella datorer där du kör Cloud Foundry är baserad på ditt Azure-support-avtal. Mån community-support gäller endast för Cloud Foundry-specifika komponenter.
+> Support nivån för dina Azure-resurser, till exempel de virtuella datorer där du kör Cloud Foundry, baseras på ditt support avtal för Azure. Support för bästa möjliga community gäller endast för de Cloud Foundry-komponenter.
 
 ### <a name="pivotal-cloud-foundry"></a>Pivotal Cloud Foundry
 
-Pivotal Cloud Foundry innehåller samma core plattform som OSS-distribution, tillsammans med en uppsättning upphovsrättsskyddad hanteringsverktyg och företagssupport. Om du vill köra PCF på Azure, måste du skaffa en licens från Pivotal. PCF-erbjudande från Azure marketplace innehåller en 90-dagars utvärderingslicens.
+Pivotal Cloud Foundry innehåller samma kärn plattform som OSS-distributionen, tillsammans med en uppsättning patentskyddade hanterings verktyg och Enterprise-support. Om du vill köra PCF på Azure måste du skaffa en licens från pivotal. PCF-erbjudandet från Azure Marketplace innehåller en utvärderings licens på 90 dagar.
 
-Verktygen innehåller [Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), ett webbprogram som förenklar distribution och hantering av en Cloud Foundry foundation och [Pivotal appar Manager](https://docs.pivotal.io/pivotalcf/console/), ett webbprogram för att hantera användare och program.
+Verktygen inkluderar [pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), ett webb program som fören klar distributionen och hanteringen av en Cloud Foundry Foundation och en [pivoting Apps Manager](https://docs.pivotal.io/pivotalcf/console/), ett webb program för att hantera användare och program.
 
-Förutom supportkanaler som visas för OSS CF ovan, kan en PCF-licens du kontakta Pivotal för support. Microsoft och Pivotal har också aktiverat stöd arbetsflöden så att du kan kontakta part för att få hjälp och har din förfrågan vidarebefordras på rätt sätt beroende på var problemet ligger.
+Förutom de Support kanaler som anges för OSS CF ovan får du en PCF-licens som du kan använda för att kontakta pivotering för support. Microsoft och pivotal har också aktiverat stöd arbets flöden som gör att du kan kontakta någon av parterna för att få hjälp och låta din förfrågan dirigeras på rätt sätt beroende på var problemet ligger.
 
 ## <a name="azure-service-broker"></a>Azure Service Broker
 
-Cloud Foundry uppmuntrar den [”tolv-factor-app”](https://12factor.net/) metodik, som främjar en ren inkapsling av tillståndslösa program bearbetar och tillståndskänslig säkerhetskopiering tjänster. [Service Broker](https://docs.cloudfoundry.org/services/api.html) erbjuder ett konsekvent sätt att etablera och binda stödtjänster till program. Den [Azure service broker](https://github.com/Azure/meta-azure-service-broker) innehåller några av de viktiga Azure-tjänsterna via den här kanalen, inklusive Azure storage och Azure SQL.
+Cloud Foundry uppmuntrar till ["12-Factor app"](https://12factor.net/) -metodik, som främjar en ren separation av tillstånds lösa program processer och tillstånds känsliga tjänster för säkerhets kopiering. [Service mäklare](https://docs.cloudfoundry.org/services/api.html) ger ett konsekvent sätt att etablera och binda tjänster till program. [Azure Service Broker](https://github.com/Azure/meta-azure-service-broker) innehåller några av de viktigaste Azure-tjänsterna via den här kanalen, inklusive Azure Storage och Azure SQL.
 
-Om du använder Pivotal Cloud Foundry, service broker är också [tillgängliga som en panel](https://docs.pivotal.io/azure-sb/installing.html) från Pivotal nätverket.
+Om du använder pivotal Cloud Foundry är Service Broker också [tillgänglig som en panel](https://docs.pivotal.io/azure-sb/installing.html) från Pivot-nätet.
 
 ## <a name="related-resources"></a>Relaterade resurser
 
-### <a name="azure-devops-services-plugin"></a>Plugin-programmet med Azure DevOps-tjänsterna
+### <a name="azure-devops-services-plugin"></a>Plugin-program för Azure DevOps Services
 
-Cloud Foundry är utmärkt för snabb programutveckling, inklusive användning av kontinuerlig integrering (CI) och kontinuerlig leverans (CD). Om du använder Azure DevOps-tjänster för att hantera dina projekt och vill använda som in en CI/CD i pipeline riktar in sig på Cloud Foundry, kan du använda den [Azure DevOps tjänster Cloud Foundry skapa tillägg för](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). Plugin-programmet gör det enkelt att konfigurera och automatisera distributioner till Cloud Foundry, oavsett om körs i Azure eller någon annan miljö.
+Cloud Foundry lämpar sig väl för flexibel program utveckling, inklusive användning av kontinuerlig integrering (CI) och kontinuerlig leverans (CD). Om du använder Azure DevOps Services för att hantera dina projekt och vill ställa in en CI/CD-pipeline som mål Cloud Foundry kan du använda [Azure DevOps Services Cloud Foundry build-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). Plugin-programmet gör det enkelt att konfigurera och automatisera distributioner till Cloud Foundry, oavsett om de körs i Azure eller någon annan miljö.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Distribuera Pivotal Cloud Foundry på Azure Marketplace](https://azure.microsoft.com/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
-- [Distribuera en app till Cloud Foundry på Azure](./cloudfoundry-deploy-your-first-app.md)
+- [Distribuera pivotal Cloud Foundry från Azure Marketplace](https://azure.microsoft.com/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
+- [Distribuera en app till Cloud Foundry i Azure](./cloudfoundry-deploy-your-first-app.md)

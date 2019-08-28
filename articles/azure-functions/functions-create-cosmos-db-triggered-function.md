@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 941a35084ba811e3bf9224087336db9abbd5b5d5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9cd09349ae37d11e4d01bc308162512ebfa03dfc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104399"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086341"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Skapa en funktion som utlöses av Azure Cosmos DB
 
@@ -25,7 +24,7 @@ Lär dig hur du skapar en funktion som utlöses när data läggs till eller änd
 
 ![Visa meddelande i loggarna.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -60,7 +59,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 1. Skriv `cosmos` i sökfältet och välj sedan mallen **Azure Cosmos DB-utlösare**.
 
-1. Om det händer väljer **installera** att installera tillägget Azure Cosmos DB i funktionsappen. När installationen är klar väljer du **Fortsätt**.
+1. Om du uppmanas väljer du **Installera** för att installera Azure Cosmos DB tillägget i Function-appen. När installationen är klar väljer du **Fortsätt**.
 
     ![Installera bindningstillägg](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 
@@ -74,7 +73,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
     | **Azure Cosmos DB-kontoanslutning** | Ny inställning | Välj **Ny**, välj sedan din **prenumeration**, det **databaskonto** som du skapade tidigare och sedan **Välj**. Detta skapar en programinställning för din kontoanslutning. Den här inställningen används av bindningen för anslutningen till databasen. |
     | **Samlingsnamn** | Objekt | Namnet på samlingen som ska övervakas. |
     | **Skapa en lånsamling om ingen finns** | Markerad | Samlingen finns inte redan, så du måste skapa den. |
-    | **Databasnamn** | Uppgifter | Namnet på databasen med den samling som ska övervakas. |
+    | **Databasnamn** | Aktiviteter | Namnet på databasen med den samling som ska övervakas. |
 
 1. Klicka på **Skapa** för att skapa en funktion som utlöses av Azure Cosmos DB. När funktionen har skapats visas den mallbaserade funktionskoden.  
 
@@ -104,7 +103,7 @@ Anslut ditt Azure Cosmos DB-konto och skapa samlingen `Items` i databasen `Tasks
 
     | Inställning|Föreslaget värde|Beskrivning |
     | ---|---|--- |
-    | **Databas-ID** | Uppgifter |Namnet på din nya databas. Måste matcha namnet som definierats i funktionsbindningen. |
+    | **Databas-ID** | Aktiviteter |Namnet på din nya databas. Måste matcha namnet som definierats i funktionsbindningen. |
     | **Samlings-ID** | Objekt | Namnet på den nya samlingen. Måste matcha namnet som definierats i funktionsbindningen.  |
     | **Lagringskapacitet** | Fast (10 GB)|Använd standardvärdet. Det här värdet är databasens lagringskapacitet. |
     | **Dataflöde** |400 RU| Använd standardvärdet. Du kan skala upp dataflödet senare om du vill minska svarstiden. |

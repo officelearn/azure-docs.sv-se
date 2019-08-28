@@ -3,15 +3,15 @@ title: Skriva lagrade procedurer, utlösare och användardefinierade funktioner 
 description: Lär dig hur du definierar lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: cf73b6e0477e46f0a2eac43d7fa6bccc6845db92
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: bec28874bbd67ece4b29f6975e8c7fdcea457bd5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615254"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092823"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Skriva lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 

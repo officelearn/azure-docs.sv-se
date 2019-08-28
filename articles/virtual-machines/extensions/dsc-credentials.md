@@ -1,6 +1,6 @@
 ---
-title: Skicka autentiseringsuppgifter till Azure med Desired State Configuration
-description: Lär dig hur du på ett säkert sätt skicka autentiseringsuppgifter till Azure-datorer med hjälp av PowerShell Desired State Configuration (DSC).
+title: Skicka autentiseringsuppgifter till Azure med önskad tillstånds konfiguration
+description: Lär dig hur du på ett säkert sätt skickar autentiseringsuppgifter till virtuella Azure-datorer med hjälp av PowerShell Desired State Configuration (DSC).
 services: virtual-machines-windows
 documentationcenter: ''
 author: bobbytreed
@@ -10,32 +10,31 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 723d0cfe6e292c4b8013de4da55779a6c675d610
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38a302545f2dd46a8123816a41c97ae26ee4c260
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705940"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092516"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Skicka autentiseringsuppgifter till Azure DSCExtension-hanteraren
 
-Den här artikeln beskriver tillägget Desired State Configuration (DSC) för Azure. En översikt över hanteraren för DSC-tillägg finns i [introduktion till Azure Desired State Configuration-tilläggshanterare](dsc-overview.md).
+Den här artikeln beskriver DSC-tillägget (Desired State Configuration) för Azure. En översikt över DSC-tilläggs hanteraren finns i [Introduktion till tilläggs hanteraren för Azure Desired State Configuration](dsc-overview.md).
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="pass-in-credentials"></a>Skicka in autentiseringsuppgifter
 
-Som en del av konfigurationsprocessen, kanske du behöver du ställer in användarkonton, få åtkomst till tjänster, eller installera ett program i en användarkontext. Om du vill göra detta måste du ange autentiseringsuppgifter.
+Som en del av konfigurations processen kan du behöva konfigurera användar konton, komma åt tjänster eller installera ett program i en användar kontext. Du måste ange autentiseringsuppgifter för att kunna utföra dessa åtgärder.
 
-Du kan använda DSC för att ställa in parametriserade konfigurationer. I en konfiguration för parametriserade är autentiseringsuppgifter skickas i konfigurationen och lagras på ett säkert sätt i MOF-filer. Azure-tilläggshanterare förenklar hanteringen av autentiseringsuppgifter genom att tillhandahålla automatisk hantering av certifikat.
+Du kan använda DSC för att konfigurera parametriserade konfigurationer. I en parametriserad konfiguration överförs autentiseringsuppgifterna till konfigurationen och lagras på ett säkert sätt i MOF-filer. Azure Extension-hanteraren fören klar hanteringen av autentiseringsuppgifter genom att tillhandahålla automatisk hantering av certifikat.
 
-Följande DSC-konfigurationsskript skapar ett lokalt användarkonto med det angivna lösenordet:
+Följande DSC-konfigurations skript skapar ett lokalt användar konto med det angivna lösen ordet:
 
 ```powershell
 configuration Main
@@ -61,13 +60,13 @@ configuration Main
 }
 ```
 
-Det är viktigt att inkludera **noden localhost** som en del av konfigurationen. Tillägg för hanteraren söker specifikt efter den **noden localhost** instruktionen. Följande steg fungerar inte om den här instruktionen saknas. Det är också viktigt att inkludera den typecast **[PsCredential]** . Den här specifika typen utlöser tillägget för att kryptera autentiseringsuppgifterna.
+Det är viktigt att inkludera **Node localhost** som en del av konfigurationen. Tilläggs hanteraren söker särskilt efter nodens **localhost** -instruktion. Om den här instruktionen saknas fungerar följande steg inte. Det är också viktigt att inkludera typecast **[PsCredential]** . Den här typen utlöser tillägget för att kryptera autentiseringsuppgifterna.
 
-Att publicera det här skriptet till Azure Blob storage:
+Publicera skriptet till Azure Blob Storage:
 
 `Publish-AzVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
-Ange Azure DSC-tillägg och ange autentiseringsuppgiften:
+Ange Azure DSC-tillägget och ange autentiseringsuppgifterna:
 
 ```powershell
 $configurationName = 'Main'
@@ -80,15 +79,15 @@ $vm = Set-AzVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchi
 $vm | Update-AzVM
 ```
 
-## <a name="how-a-credential-is-secured"></a>Hur en autentiseringsuppgift är skyddad
+## <a name="how-a-credential-is-secured"></a>Hur en autentiseringsuppgift skyddas
 
-Kör den här koden efterfrågar autentiseringsuppgifter. När autentiseringsuppgifterna har angetts, lagras den kort i minnet. När autentiseringsuppgifterna har publicerats med hjälp av den **Set-AzVMDscExtension** cmdlet, autentiseringsuppgifter skickas över HTTPS till den virtuella datorn. I den virtuella datorn lagrar autentiseringsuppgifterna krypteras på disk med hjälp av lokal VM-certifikatet i Azure. Autentiseringsuppgifterna dekrypteras kort i minnet och sedan krypteras det igen för att skicka dem till DSC.
+Om du kör den här koden uppmanas du att ange autentiseringsuppgifter. När autentiseringsuppgiften har angetts lagras den kortfattat i minnet. När autentiseringsuppgiften har publicerats med cmdleten **set-AzVMDscExtension** överförs AUTENTISERINGSUPPGIFTEN via https till den virtuella datorn. I den virtuella datorn lagrar Azure autentiseringsuppgifterna som krypterats på disken med hjälp av det lokala VM-certifikatet. Autentiseringsuppgifterna dekrypteras i minnet och sedan krypteras det igen för att skicka det till DSC.
 
-Den här processen skiljer sig från [använder säker konfigurationer utan tillägg hanteraren](/powershell/dsc/securemof). Azure-miljön är ett sätt att överföra konfigurationsdata på ett säkert sätt via certifikat. När du använder DSC-tilläggshanterare, behöver du inte ange **$CertificatePath** eller en **$CertificateID**/  **$Thumbprint** post i **ConfigurationData**.
+Den här processen skiljer sig [från att använda säkra konfigurationer utan tilläggs hanterare](/powershell/dsc/securemof). Azure-miljön ger dig ett sätt att överföra konfigurations data på ett säkert sätt via certifikat. När du använder DSC-tilläggs hanteraren behöver du inte ange **$CertificatePath** eller en **$CertificateID**/  **$Thumbprint** post i **ConfigurationData**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Hämta en [introduktion till Azure DSC-tilläggshanterare](dsc-overview.md).
-- Granska den [Azure Resource Manager-mall för DSC-tillägget](dsc-template.md).
-- Mer information om PowerShell DSC, går du till den [PowerShell dokumentationscentret](/powershell/dsc/overview).
-- Fler funktioner som du kan hantera med hjälp av PowerShell DSC, samt mer DSC-resurser, bläddra i [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
+- Få en [Introduktion till tilläggs hanteraren för Azure DSC](dsc-overview.md).
+- Granska [Azure Resource Manager-mallen för DSC-tillägget](dsc-template.md).
+- Mer information om PowerShell DSC finns i [PowerShell-dokumentations centret](/powershell/dsc/overview).
+- Om du vill ha fler funktioner som du kan hantera med hjälp av PowerShell DSC kan du bläddra i [PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)-galleriet för fler DSC-resurser.

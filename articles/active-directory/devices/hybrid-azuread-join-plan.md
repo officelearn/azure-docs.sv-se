@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1431a46bf0981ee7ca3ecd06be9d7ebc35f05982
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6c6980d11fa5fe3733e351923d058d1ad0a1677e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032732"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084929"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen av hybrid Azure Active Directorys anslutning
 
@@ -64,7 +64,7 @@ För enheter som kör operativ systemet Windows-skrivbordet visas den version so
 ### <a name="windows-down-level-devices"></a>Windows-enheter på nivån
 
 - Windows 8.1
-- Windows 7. Information om support för Windows 7 finns i artikel [Support för Windows 7](https://www.microsoft.com/windowsforbusiness/end-of-windows-7-support) .
+- Windows 7. Information om support för Windows 7 finns i artikel [Support för Windows 7](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support) .
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2

@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: d19e21edd31be461ba30e8985e80c4651bbbb02d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d4c426c5fe31f8fc2bfaf4697c05456124cafcb1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69894104"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099014"
 ---
 I det här steget ska du skapa en Azure SQL Database enskild databas. 
 
@@ -23,7 +23,7 @@ I det här steget ska du skapa en Azure SQL Database enskild databas.
 
 Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
 
-1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan.
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
 2. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa ytterligare information om de olika databaserna genom att välja **Visa information** på panelen **databaser** .
 3. Välj **skapa**:
 
@@ -43,7 +43,7 @@ Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
        - **Servernamn**: Skriv `mysqlserver`; tillsammans med vissa siffror för unikhet.
        - **Inloggning för serveradministratör**: Skriv `azureuser`.
        - **Lösenord**: Ange ett komplext lösen ord som uppfyller lösen ords kraven.
-       - **Plats**: Välj en plats i list rutan, till exempel `West US 2`.
+       - **Plats**: Välj en plats i list rutan, till exempel `West US`.
 
          ![Ny server](../media/sql-database-get-started-portal/new-server.png)
 
@@ -86,7 +86,7 @@ Skapa en resurs grupp och en enkel databas med PowerShell.
    # Set variables for your server and database
    $subscriptionId = '<SubscriptionID>'
    $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $location = "West US 2"
+   $location = "West US"
    $adminLogin = "azureuser"
    $password = "PWD27!"+(New-Guid).Guid
    $serverName = "mysqlserver-$(Get-Random)"

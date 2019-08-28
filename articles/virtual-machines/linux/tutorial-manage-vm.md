@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1de2d40e107c03db8c0e406a7bb1a12c15d5c736
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1df278c67c8f84648d2fc7ab3818656cfb9de74a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708504"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100704"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Självstudier: Skapa och hantera virtuella Linux-datorer med Azure CLI
 
@@ -155,7 +154,7 @@ Storleken på den virtuella datorn avgör hur mycket av beräkningsresurser som 
 
 I följande tabell kategoriseras storlekarna i användningsfall.  
 
-| Typ                     | Normala storlekar           |    Beskrivning       |
+| type                     | Normala storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Generellt syfte](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
 | [Beräkningsoptimerad](sizes-compute.md)   | Fsv2          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
@@ -273,7 +272,7 @@ az vm get-instance-view \
     --query instanceView.statuses[1] --output table
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli-interactive 
 ode                DisplayStatus    Level
@@ -281,7 +280,7 @@ ode                DisplayStatus    Level
 PowerState/running  VM running       Info
 ```
 
-## <a name="management-tasks"></a>Administrativa uppgifter
+## <a name="management-tasks"></a>Hanteringsuppgifter
 
 Under livscykeln för en virtuell dator kan du vilja utföra administrativa uppgifter som att starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa skript för att automatisera repetitiva och komplicerade uppgifter. Med Azure CLI kan många vanliga administrativa uppgifter köras från kommandoraden eller i skript. 
 

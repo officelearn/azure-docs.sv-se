@@ -1,6 +1,6 @@
 ---
-title: Växla OS-disk för en Azure-dator med CLI | Microsoft Docs
-description: Ändra operativsystemets disk som används av virtuella Azure-datorer med hjälp av CLI.
+title: Växla OS-disk för en virtuell Azure-dator med CLI | Microsoft Docs
+description: Ändra den operativ system disk som används av en virtuell Azure-dator med hjälp av CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -11,30 +11,29 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 970f3409cc46fa6cf96fff3e6944ebeaeadcdcce
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7b5f8a47b2b9c3692698b2ec6a7e5bc470b86a18
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667269"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091678"
 ---
-# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Ändra OS-disken som används av en Azure-dator med hjälp av CLI
+# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Ändra den OS-disk som används av en virtuell Azure-dator med hjälp av CLI
 
 
-Om du har en befintlig virtuell dator, men du vill växla disken för en säkerhetskopiering disk eller en annan OS-disk, kan du använda Azure CLI för att växla OS-diskar. Du behöver ta bort och återskapa den virtuella datorn. Du kan även använda en hanterad disk i en annan resursgrupp, förutsatt att den inte redan används.
+Om du har en befintlig virtuell dator, men vill byta disk för en säkerhets kopierings disk eller en annan OS-disk, kan du använda Azure CLI för att växla OS-diskarna. Du behöver inte ta bort och återskapa den virtuella datorn. Du kan till och med använda en hanterad disk i en annan resurs grupp, så länge den inte redan används.
 
-Den virtuella datorn måste vara stopped\deallocated och resurs-ID för hanterad disk kan ersättas med resurs-ID för en annan hanterad disk. 
+Den virtuella datorn måste vara stopped\deallocated. resurs-ID: t för den hanterade disken kan ersättas med resurs-ID: t för en annan hanterad disk. 
 
-Kontrollera att typ av virtuell dator och är kompatibla med den disk du vill bifoga. Till exempel om det är den disk du vill använda i Premium-lagring, måste den virtuella datorn kunna Premium Storage (t.ex. en storlek i DS-serien).
+Kontrol lera att storleken på den virtuella datorn och lagrings typen är kompatibla med den disk som du vill ansluta. Om den disk som du vill använda till exempel är i Premium Storage måste den virtuella datorn kunna Premium Storage (som en storlek för en DS-serie).
 
 Den här artikeln kräver Azure CLI version 2.0.25 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 
-Använd [az disk list](/cli/azure/disk) att hämta en lista över diskarna i resursgruppen.
+Använd [AZ disk List](/cli/azure/disk) för att hämta en lista över diskarna i resurs gruppen.
 
 ```azurecli-interactive
 az disk list \
@@ -44,7 +43,7 @@ az disk list \
 ```
 
 
-Använd [az vm stop](/cli/azure/vm) till stop\deallocate den virtuella datorn innan du växlar diskarna.
+Använd [AZ VM Stop](/cli/azure/vm) för att stop\deallocate den virtuella datorn innan du byter ut diskarna.
 
 ```azurecli-interactive
 az vm stop \
@@ -53,7 +52,7 @@ az vm stop \
 ```
 
 
-Använd [az vm update](/cli/azure/vm#az-vm-update) med fullständiga resurs-ID för den nya disken för den `--osdisk` parameter 
+Använd [AZ VM Update](/cli/azure/vm#az-vm-update) med det fullständiga resurs-ID: t för den nya `--osdisk` disken för parametern 
 
 ```azurecli-interactive 
 az vm update \
@@ -62,7 +61,7 @@ az vm update \
    --os-disk /subscriptions/<subscription ID>/resourceGroups/swap/providers/Microsoft.Compute/disks/myDisk 
    ```
    
-Starta om den virtuella datorn med hjälp av [az vm start](/cli/azure/vm).
+Starta om den virtuella datorn med [AZ VM start](/cli/azure/vm).
 
 ```azurecli-interactive
 az vm start \
@@ -73,4 +72,4 @@ az vm start \
    
 **Nästa steg**
 
-För att skapa en kopia av en disk, se [ögonblicksbild av en disk](snapshot-copy-managed-disk.md).
+Information om hur du skapar en kopia av en disk finns i [ögonblicks bilder av en disk](snapshot-copy-managed-disk.md).

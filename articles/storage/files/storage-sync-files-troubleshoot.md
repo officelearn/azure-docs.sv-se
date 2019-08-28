@@ -7,21 +7,21 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3395159e1427fa3d174b62c74c777d2f2ddd4900
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 33e29b02adfccf94da84dd99451117485b892ba3
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721686"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072911"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
-Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Azure File Sync transformerar Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
+Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
 
 Den här artikeln är utformad för att hjälpa dig att felsöka och lösa problem som kan uppstå med din Azure File Sync-distribution. Vi beskriver också hur du samlar in viktiga loggar från systemet om det krävs en djupare undersökning av problemet. Om du inte ser svaret på din fråga kan du kontakta oss genom följande kanaler (i eskalerad ordning):
 
 1. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft-supporten. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
+3. Microsoft Support. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Jag har problem med Azure File Sync på min server (synkronisering, moln nivå osv.). Bör jag ta bort och återskapa min server slut punkt?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -41,7 +41,7 @@ Om du försöker installera Sync-agenten på en Active Directory domänkontrolla
 
 Du löser problemet genom att överföra PDC-rollen till en annan domänkontrollant som kör Windows Server 2012 R2 eller senare och sedan installera Sync.
 
-<a id="server-registration-prerequisites"></a>**Server registrering visar följande meddelande: "Krav saknas"**
+<a id="server-registration-prerequisites"></a>**Server registrering visar följande meddelande: ”Krav saknas”**
 
 Det här meddelandet visas om AZ eller AzureRM PowerShell-modulen inte är installerad på PowerShell 5,1. 
 
@@ -56,7 +56,7 @@ Utför följande steg för att installera AZ-eller AzureRM-modulen på PowerShel
     - [AzureRM-modul]( https://go.microsoft.com/fwlink/?linkid=856959)
 3. Kör ServerRegistration. exe och Slutför guiden för att registrera servern med en tjänst för synkronisering av lagring.
 
-<a id="server-already-registered"></a>**Server registrering visar följande meddelande: "Den här servern har redan registrerats"** 
+<a id="server-already-registered"></a>**Server registrering visar följande meddelande: ”Den här servern är redan registrerad”** 
 
 ![En skärm bild av dialog rutan för Server registrering med fel meddelandet "servern har redan registrerats"](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -99,7 +99,7 @@ Det här felet uppstår om ditt användar konto inte har behörighet att skapa e
 
 Ditt användar konto måste ha följande Microsoft-behörighet för att skapa en moln slut punkt:  
 * Läs Hämta rolldefinition
-* Skriv Skapa eller uppdatera anpassad rolldefinition
+* Skriv Skapa eller uppdatera anpassad roll definition
 * Läs Hämta rolltilldelning
 * Skriv Skapa rolltilldelning
 
@@ -521,7 +521,7 @@ Det här felet kan inträffa om din organisation använder en SSL-avslutande pro
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-När det här registervärdet har angetts godkänner Azure File Sync-agenten alla lokalt betrodda SSL-certifikat vid överföring av data mellan servern och molntjänsten.
+Genom att ange det här registervärdet accepterar Azure File Sync-agenten alla lokalt betrodda SSL-certifikat när data överförs mellan servern och moln tjänsten.
 
 <a id="-2147012894"></a>**Det gick inte att upprätta en anslutning till tjänsten.**  
 
@@ -634,7 +634,7 @@ Felet beror på att det finns ändringar i Azure-filresursen direkt och ändring
 | | |
 |-|-|
 | **HRESULT** | 0x80c8023b |
-| **HRESULT (decimal)** | -2134364145 |
+| **HRESULT (decimal)** | – 2134375877 |
 | **Fel sträng** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Reparation krävs** | Ja |
 | | |
@@ -662,7 +662,7 @@ Om det finns många fel vid synkronisering av filer kan det hända att Sync-sess
 | **Fel sträng** | ECS_E_SYNC_INVALID_PATH |
 | **Reparation krävs** | Ja |
 
-Se till att sökvägen finns, är på en lokal NTFS-volym och att den inte är en referenspunkt eller befintlig serverslutpunkt.
+Se till att sökvägen finns på en lokal NTFS-volym och inte är en referens punkt eller en befintlig server slut punkt.
 
 <a id="-2134375817"></a>**Det gick inte att synkronisera eftersom filter driv Rutinens version inte är kompatibel med agent versionen**  
 
@@ -684,7 +684,7 @@ Det här felet beror på att den inlästa versionen av filter driv rutinen för 
 | **Fel sträng** | ECS_E_SERVICE_UNAVAILABLE |
 | **Reparation krävs** | Nej |
 
-Felet beror på att tjänsten Azure File Sync inte är tillgänglig. Det här felet löses automatiskt när den Azure File Sync tjänsten, eftersom den är tillgänglig igen.
+Felet beror på att tjänsten Azure File Sync inte är tillgänglig. Det här felet löses automatiskt när Azure File Syncs tjänsten är tillgänglig igen.
 
 <a id="-2146233088"></a>**Det gick inte att synkronisera på grund av ett undantag.**  
 

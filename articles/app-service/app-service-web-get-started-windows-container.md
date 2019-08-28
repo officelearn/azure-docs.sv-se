@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 089334d32ca54035abfbf59446366ecbe3378c15
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 791017fffe96455157388fb43e0c1d65faba8933
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919740"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071527"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Köra en anpassad Windows-container i Azure (förhandsversion)
 
@@ -27,7 +26,7 @@ ms.locfileid: "64919740"
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -42,7 +41,7 @@ För att slutföra den här självstudien behöver du:
 
 Skapa ett nytt projekt i Visual Studio genom att välja **Arkiv > Nytt > Projekt**. 
 
-I dialogrutan **Nytt projekt** väljer du **Visual C# > Webb > ASP.NET-webbtillämpningsprogram (.NET Framework)**.
+I dialogrutan **Nytt projekt** väljer du **Visual C# > Webb > ASP.NET-webbtillämpningsprogram (.NET Framework)** .
 
 Ge programmet namnet _myFirstAzureWebApp_ och välj **OK**.
    
@@ -178,13 +177,13 @@ Om du vill uppmana App Service att hämta den nya avbildningen från Docker Hub 
 
 Du kan använda en annan anpassad Docker-avbildning för att köra appen. Men du måste välja rätt [överordnad avbildning](https://docs.docker.com/develop/develop-images/baseimages/) för det ramverk du vill använda: 
 
-- Om du vill distribuera appar med .NET Framework, använder du en överordnad avbildning baserat på Windows Server Core 2019 [Long-Term Servicing kanal (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) versionen. 
-- Om du vill distribuera .NET Core-appar använder du en överordnad avbildning baserat på Windows Server Nano 1809 [Halvårskanal Servicing kanal SAC ()](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) versionen. 
+- Om du vill distribuera .NET Framework appar använder du en överordnad avbildning som baseras på Windows Server Core 2019 [långsiktig LTSC-version (långsiktig service Channel)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . 
+- Om du vill distribuera .NET Core-appar använder du en överordnad avbildning som baseras på Windows Server nano 1809-versionen från [halvårs kanal (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) . 
 
 Det tar lite tid att ladda ned en överordnad avbildning när appen startas. Men du kan minska starttiden genom att använda någon av följande överordnade avbildningar som redan har cachelagrats i Azure App Service:
 
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [MCR.microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809 – detta är grundläggande behållaren som används i Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) Microsoft Windows Nano Server-avbildningar.
+- [MCR.Microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809 – det här är den bas behållare som används i Microsoft [ASP.net Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) Nano Server-avbildningar från Microsoft Windows.
 
 ## <a name="next-steps"></a>Nästa steg
 

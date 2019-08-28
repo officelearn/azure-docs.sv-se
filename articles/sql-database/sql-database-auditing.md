@@ -7,20 +7,20 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 04/16/2019
-ms.openlocfilehash: 69fe3287083523a3a47975a3db51d7241681f5c4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 08/22/2019
+ms.openlocfilehash: c8533f79dd2bf02a03ff4a37283359f3b3a5bf39
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68569502"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066060"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
-Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) spårar databas händelser och skriver dem till en Gransknings logg i ditt Azure Storage-konto, OMS-arbetsyta eller Event Hubs. Granskning:
+Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) spårar databas händelser och skriver dem till en Gransknings logg i ditt Azure storage-konto, Log Analytics arbets yta eller Event Hubs. Granskning:
 
 - Hjälper dig att upprätthålla regelefterlevnad, förstå databas aktivitet och få insikt i avvikelser och avvikelser som kan tyda på affärs problem eller misstänkta säkerhets överträdelser.
 
@@ -121,11 +121,22 @@ Om du väljer att skriva gransknings loggar till Azure Monitor loggar:
 
 - Använd [Azure Portal](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens gransknings sida.
 
-    ![Visa gransknings loggar](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Visa gransknings loggar](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
-- När du klickar på **Öppna i OMS** överst på sidan gransknings **poster** öppnas vyn loggar i Log Analytics, där du kan anpassa tidsintervallet och Sök frågan.
+- Sedan kan du visa loggarna på två sätt:
+    
+    Om du klickar på **Log Analytics** överst på sidan **gransknings poster** öppnas vyn loggar i Log Analytics arbets yta där du kan anpassa tidsintervallet och Sök frågan.
+    
+    ![Öppna i Log Analytics arbets ytan](./media/sql-database-auditing-get-started/auditing-log-analytics.png)
 
-    ![Öppna i Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    Om du klickar på **Visa instrument panel** överst på sidan **gransknings poster** öppnas en instrument panel med information om gransknings loggar, där du kan öka detalj nivån i säkerhets insikter, komma åt känsliga data och mycket mer. Den här instrument panelen är utformad för att hjälpa dig att få säkerhets insikter om dina data.
+    Du kan också anpassa tidsintervallet och Sök frågan. 
+    ![Visa Log Analytics instrument panel](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
+
+    ![Log Analytics instrument panel](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
+
+    ![Log Analytics säkerhets insikter](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard-data.png)
+ 
 
 - Du kan också få åtkomst till gransknings loggarna från Log Analytics bladet. Öppna arbets ytan Log Analytics och klicka på **loggar**under **Allmänt** . Du kan börja med en enkel fråga, till exempel: *Sök efter "SQLSecurityAuditEvents"* för att Visa gransknings loggarna.
     Härifrån kan du också använda [Azure Monitor loggar](../log-analytics/log-analytics-log-search.md) för att köra avancerade sökningar på dina Gransknings logg data. Med Azure Monitor loggar får du operativa insikter i real tid med integrerad sökning och anpassade instrument paneler för att enkelt analysera miljon tals poster över alla dina arbets belastningar och servrar. Mer värdefull information om Azure Monitor loggar Sök språk och-kommandon finns i [Sök referens för Azure Monitor loggar](../log-analytics/log-analytics-log-search.md).
@@ -257,7 +268,7 @@ Utökad princip med stöd för WHERE-sats för ytterligare filtrering:
 - [Hämta *utökad* gransknings princip för databas](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Hämta *utökad* gransknings princip för Server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Hantera granskning av SQL Database med ARM-mallar
+## <a id="subheading-10"></a>Hantera granskning av SQL Database med hjälp av Azure Resource Manager mallar
 
 Du kan hantera Azure SQL Database-granskning med [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) mallar, som du ser i följande exempel:
 

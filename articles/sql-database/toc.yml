@@ -238,7 +238,7 @@
     - name: Plattform som en tjänst
       items:
         - name: Dokumentation om PaaS (Platform as a Service)
-          href: sql-database-paas.yml
+          href: sql-database-paas-index.yml
         - name: Verksamhetskontinuitet
           href: sql-database-business-continuity.md
         - name: Hög tillgänglighet

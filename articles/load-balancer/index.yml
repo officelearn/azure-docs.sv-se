@@ -1,106 +1,94 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Lastbalanserare
+### YamlMime:Landing
+title: Dokumentation om Load Balancer
+summary: Lär dig hur du använder Azure Load Balancer. Snabbstarter, självstudier, exempel med mera som visar hur du distribuerar en lastbalanserare och lastbalanserar trafik till och från virtuella datorer och molnresurser och mellan lokala virtuella nätverk på plats.
 metadata:
-  document_id: null
   title: Lastbalanserare
-  meta.description: 'Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.'
+  description: Lär dig hur du använder Azure Load Balancer. Snabbstarter, självstudier, exempel med mera som visar hur du distribuerar en lastbalanserare och lastbalanserar trafik till och från virtuella datorer och molnresurser och mellan lokala virtuella nätverk på plats.
   services: load-balancer
-  author: asudbring
-  manager: twooley
   ms.service: load-balancer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/14/2018
+  ms.collection: collection
+  author: asudbring
   ms.author: allensu
-abstract:
-  description: 'Lär dig hur du använder Azure Load Balancer. Snabbstarter, självstudier, exempel med mera som visar hur du distribuerar en lastbalanserare och lastbalanserar trafik till och från virtuella datorer och molnresurser och mellan lokala virtuella nätverk på plats.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du skapar en lastbalanserare, skapar virtuella datorer som fungerar som serverdelar, installerar ett anpassat webbprogram på en virtuell dator och sedan lastbalanserar webbprogrammet mellan de virtuella datorerna.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure Portal
-            href: /azure/load-balancer/quickstart-create-basic-load-balancer-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/load-balancer/quickstart-create-basic-load-balancer-powershell
-          - image:
-              src: 'https://docs.microsoft.com/media/common/cli.svg'
-            text: Azure CLI
-            href: /azure/load-balancer/quickstart-create-basic-load-balancer-cli
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du skapar en lastbalanserare och lastbalanserar tjänster på virtuella datorer.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-manage-portal">Belastningsutjämna Internettrafik till virtuella datorer</a>
-          - html: <a href="/azure/load-balancer/tutorial-load-balancer-basic-internal-portal">Belastningsutjämna intern trafik till virtuella datorer</a>
-          - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">Belastningsutjämna virtuella datorer mellan tillgänglighetszoner</a>
-          - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">Belastningsutjämna virtuella datorer i en specifik tillgänglighetszon</a>
-          - html: <a href="/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal">Konfigurera portvidarebefordran i Load Balancer</a>
-  - title: Utveckla dina färdigheter med Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Skapa hög tillgänglighet för dina virtuella datorer
-            href: /learn/modules/intro-to-azure-virtual-machines/5-high-availability
-            image:
-              src: /learn/achievements/make-your-virtual-machines-highly-available.svg
-              href: /learn/modules/intro-to-azure-virtual-machines/5-high-availability
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-virtual-machines">Mer interaktiv inlärning...</a>
-  - title: Kostnadsfri videoutbildning för Pluralsight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure-administratör
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-          - title: Azure-lösningsarkitekt
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-          - title: Azure-administration för AWS-administratörer
-            href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: Skriptexempel för vanliga åtgärder.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/load-balancer/cli-samples">Azure CLI</a>
-          - html: <a href="/azure/load-balancer/powershell-samples">PowerShell</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: '<p><a href="/powershell/module/az.network#load_balancer">PowerShell</a></p><p><a href="/cli/azure/network/lb">Azure CLI</a></p>'
-          - title: Språk
-            html: '<p><a href="/dotnet/api/overview/azure/virtual-network">NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.network.v2017_10_01.models.LoadBalancer">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.network.v2015_06_15.operations.loadbalancersoperations">Python</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/load-balancer/">REST API-referens</a></p>
+  ms.date: 08/20/2019
+  ms.openlocfilehash: cb6ecdf9c717602cb3309107bc0ac24805be5d0a
+  ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70061873"
+landingContent:
+- title: Om Load Balancer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är lastbalanserare?
+      url: load-balancer-overview.md
+    - text: Vad är Standard Load Balancer?
+      url: load-balancer-standard-overview.md
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en grundläggande lastbalanserare
+      url: quickstart-create-basic-load-balancer-portal.md
+    - text: Skapa en Standard Load Balancer som lastbalanserar virtuella datorer
+      url: quickstart-load-balancer-standard-public-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Belastningsutjämna Internettrafik till virtuella datorer
+      url: tutorial-load-balancer-standard-manage-portal.md
+    - text: Balansera intern trafikbelastning med en Basic-lastbalanserare
+      url: tutorial-load-balancer-basic-internal-portal.md
+    - text: Konfigurera portvidarebefordran i Azure Load Balancer
+      url: tutorial-load-balancer-port-forwarding-portal.md
+- title: Hantera funktioner och alternativ
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Hälsoavsökningar för Load Balancer
+      url: load-balancer-custom-probe-overview.md
+    - text: Utgående anslutningar i Azure
+      url: load-balancer-outbound-connections.md
+    - text: Flera klientdelar för Azure Load Balancer
+      url: load-balancer-multivip-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera belastningsutjämning och regler för utgående trafik i Standard Load Balancer med hjälp av Azure CLI
+      url: configure-load-balancer-outbound-cli.md
+    - text: Skapa en lastbalanserare mot Internet med IPv6 med hjälp av PowerShell
+      url: load-balancer-ipv6-internet-ps.md
+    - text: Konfigurera distributionsläget
+      url: load-balancer-distribution-mode.md
+- title: Distribuera
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Standard Load Balancer och tillgänglighetszoner
+      url: load-balancer-standard-availability-zones.md
+    - text: Load Balancer med TCP-återställning vid inaktivitet (allmänt tillgänglig förhandsversion)
+      url: load-balancer-tcp-reset.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en Standard Load Balancer med zonredundant klientdel
+      url: load-balancer-get-started-internet-az-portal.md
+    - text: Skapa en Standard Load Balancer med zonindelad klientdel
+      url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
+    - text: Belastningsutjämning med flera IP-konfigurationer
+      url: load-balancer-multiple-ip.md
+- title: Felsöka
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Standard Load Balancer-diagnostik med mått, aviseringar och resurshälsa
+      url: load-balancer-standard-diagnostics.md
+    - text: Felsök Azure Load Balancer
+      url: load-balancer-troubleshoot.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest

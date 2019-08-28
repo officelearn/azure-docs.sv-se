@@ -1,56 +1,75 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om RBAC för Azure-resurser
+summary: Rollbaserad åtkomstkontroll (RBAC) är ett system som ger detaljerad åtkomsthantering av resurser i Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
 metadata:
-  document_id: null
-  title: Dokumentation om rollbaserad åtkomstkontroll (RBAC) för Azure-resurser | Microsoft Docs
-  description: 'Läs mer om rollbaserad åtkomstkontroll (RBAC) för att hantera vem som ska ha åtkomst till Azure-resurser, vad de ska kunna göra med resurserna och till vilka områden de ska ha åtkomst.'
-  services: active-directory
-  author: rolyon
-  manager: mtillman
+  title: Dokumentation om rollbaserad åtkomstkontroll (RBAC) för Azure-resurser
+  description: Läs mer om rollbaserad åtkomstkontroll (RBAC) för att hantera vem som ska ha åtkomst till Azure-resurser, vad de ska kunna göra med resurserna och till vilka områden de ska ha åtkomst.
+  services: role-based-access-control
   ms.service: role-based-access-control
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: na
   ms.topic: landing-page
-  ms.date: 02/16/2019
+  ms.collection: na
+  author: rolyon
   ms.author: rolyon
-abstract:
-  description: Rollbaserad åtkomstkontroll (RBAC) är ett system som ger detaljerad åtkomsthantering av resurser i Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
-  aside:
-    image:
-      alt: null
-      height: 112
-      src: media/index/video-thumb-get-started.png
-      width: 200
-    title: 'Reglera åtkomst till Azure (1:16)'
-    href: 'https://www.youtube.com/embed/FKBoWWKRnvI'
-    width: 200
-sections:
-  - title: Snabbstarter på fem minuter
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/role-based-access-control/check-access">Visa åtkomst för en användare</a>
-  - title: Stegvisa självstudier
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Bevilja en användare åtkomst – portalen</a>
-          - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Bevilja en grupp åtkomst – PowerShell</a>
-          - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Skapa en anpassad roll – PowerShell</a>
-          - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Skapa en anpassad roll – CLI</a>
-  - title: Utveckla dina färdigheter med Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)
-            href: /learn/modules/secure-azure-resources-with-rbac/
-            image:
-              src: /learn/achievements/secure-azure-resources-with-rbac.svg
-              href: /learn/modules/secure-azure-resources-with-rbac/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-active-directory">Mer interaktiv inlärning...</a>
+  ms.date: 08/26/2019
+  ms.openlocfilehash: cd4628ef5e7d56f03590899fe514141d415c8f01
+  ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70052024"
+landingContent:
+- title: Om RBAC för Azure-resurser
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är RBAC?
+      url: overview.md
+    - text: Förstå de olika rollerna
+      url: rbac-and-directory-admin-roles.md
+  - linkListType: video
+    links:
+    - text: 'Microsoft Ignite: Reglera åtkomst till Azure'
+      url: https://www.youtube.com/embed/FKBoWWKRnvI
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Visa åtkomst för en användare
+      url: check-access.md
+  - linkListType: tutorial
+    links:
+    - text: Bevilja en användare åtkomst – portalen
+      url: quickstart-assign-role-user-portal.md
+    - text: Bevilja en grupp åtkomst – PowerShell
+      url: tutorial-role-assignments-group-powershell.md
+  - linkListType: learn
+    links:
+    - text: Skydda dina Azure-resurser med RBAC
+      url: https://docs.microsoft.com/learn/modules/secure-azure-resources-with-rbac/
+- title: Hantera åtkomst
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Portalen
+      url: role-assignments-portal.md
+    - text: PowerShell
+      url: role-assignments-powershell.md
+    - text: Azure CLI
+      url: role-assignments-cli.md
+    - text: REST-API
+      url: role-assignments-rest.md
+    - text: Mall
+      url: role-assignments-template.md
+- title: Skapa anpassade roller
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Anpassade roller
+      url: custom-roles.md
+  - linkListType: tutorial
+    links:
+    - text: Skapa en anpassad roll – PowerShell
+      url: tutorial-custom-role-powershell.md
+    - text: Skapa en anpassad roll – CLI
+      url: tutorial-custom-role-cli.md

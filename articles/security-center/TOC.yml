@@ -33,18 +33,16 @@
       href: security-center-data-security.md
     - name: Använda rekommendationer för att förbättra säkerheten
       href: security-center-using-recommendations.md
-    - name: Identifiera hot
-      href: security-center-detection-capabilities.md
-    - name: Hantera säkerhetsaviseringar
-      href: security-center-managing-and-responding-alerts.md
-    - name: Säkerhetsincidenter
-      href: security-center-incident.md
     - name: Hantering av flera klienter
       href: security-center-cross-tenant-management.md
-    - name: Hotidentifieringsaviseringar
+    - name: Hotidentifieringsaviseringar och incidenter
       items:
         - name: Översikt över säkerhetsaviseringar
           href: security-center-alerts-overview.md
+        - name: Hantera säkerhetsaviseringar
+          href: security-center-managing-and-responding-alerts.md
+        - name: Hantera säkerhetsincidenter
+          href: security-center-incident.md
         - name: Hotidentifiering för virtuella datorer och servrar
           href: security-center-alerts-iaas.md
         - name: Hotidentifiering för intern molnberäkning

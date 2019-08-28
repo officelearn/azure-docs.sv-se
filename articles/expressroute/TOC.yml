@@ -44,6 +44,8 @@
       href: expressroute-erdirect-about.md
     - name: Om ExpressRoute Global Reach
       href: expressroute-global-reach.md
+    - name: Ansluta Azure till ett offentligt moln
+      href: expressroute-connect-azure-to-public-cloud.md
     - name: Interoperabilitet för serverdelsanslutning
       items:
         - name: Prefix och testinstallation

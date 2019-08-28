@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Dokumentation om support för Azure
+summary: Beskriver hur Azure-kunder kan skapa och hantera supportbegäranden i Azure Portal.
+metadata:
+  title: Dokumentation om support för Azure
+  description: Beskriver hur Azure-kunder kan skapa och hantera supportbegäranden i Azure Portal.
+  services: azure supportability
+  ms.service: azure-supportability
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: 
+  author: arob98
+  ms.author: angrobe
+  ms.date: 08/24/2019
+  ms.openlocfilehash: 4ee8de0f591618be7eb3a08c04f5820faeebaf4a
+  ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70052145"
+landingContent:
+- title: Skapa en supportbegäran
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en supportbegäran för Azure
+      url: how-to-create-azure-support-request.md
+  - linkListType: get-started
+    links:
+    - text: Skapa en supportbegäran i Azure Portal
+      url: https://portal.azure.com/#create/Microsoft.Support
+- title: Begäranden om att öka kvoten
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utökad vCPU-gräns för VM-serie
+      url: per-vm-quota-requests.md
+    - text: Utökad gräns för totalt antal regionala vCPU
+      url: regional-quota-requests.md
+    - text: Höjning av nätverksgräns
+      url: networking-quota-requests.md
+- title: Felsöka
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Otillgänglig region eller SKU
+      url: sku-series-unavailable.md

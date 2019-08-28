@@ -90,6 +90,10 @@
           href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Skapa en dedikerad privat anslutning (ExpressRoute)
           href: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Anslutning till offentliga moln
+      items:
+        - name: Ansluta Azure till offentliga moln
+          href: ../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Hantering
       items:
         - name: Översikt över nätverksövervakning

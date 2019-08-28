@@ -28,10 +28,7 @@
               href: tutorial-deploy-models-with-aml.md
         - name: Regression (data från taxibilar i New York)
           items:
-            - name: 1. Förbereda data för modellering
-              displayName: data prep
-              href: tutorial-data-prep.md
-            - name: 2. Träna en maskininlärningsmodell automatiskt
+            - name: Träna en maskininlärningsmodell automatiskt
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
     - name: Visuellt gränssnitt
@@ -260,7 +257,7 @@
     - name: Skapa återanvändbara arbetsflöden
       displayName: pipelines
       items:
-        - name: ML-pipelines
+        - name: Skapa ML-pipelines i Python
           href: how-to-create-your-first-pipeline.md
         - name: Azure-pipelines för CI/CD
           displayName: 'continuous, integration, delivery'

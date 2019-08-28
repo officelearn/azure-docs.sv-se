@@ -1,0 +1,99 @@
+### YamlMime:Landing
+title: Dokumentation om användarhjälp
+summary: Du kan som medarbetare, IT-tekniker eller slutanvändare konfigurera autentisering för arbets- eller skolkontot, återställa dina egna lösenord, konfigurera och ansluta enheter, konfigurera Microsoft Authenticator-appen och använda de olika portalerna.
+metadata:
+  title: Användarhjälp för autentisering, appar och enheter
+  description: Lär dig hur du som medarbetare eller slutanvändare konfigurerar och använder autentisering, Microsoft Authenticator-appen och portalen Mina appar.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: user-help
+  ms.topic: landing-page
+  ms.collection: M365-identity-device-management
+  author: eross-msft
+  ms.author: lizross
+  ms.date: 08/26/2019
+  ms.openlocfilehash: 687ae4b276b4e975c9b9de9d688f23180deaeebc
+  ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70062213"
+landingContent:
+- title: Konfigurera och använda Microsoft Authenticator-appen
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Microsoft Authenticator-appen?
+      url: user-help-auth-app-overview.md
+  - linkListType: download
+    links:
+    - text: Ladda ned och installera appen
+      url: user-help-auth-app-download-install.md
+  - linkListType: how-to-guide
+    links:
+    - text: Säkerhetskopiera och återställa kontoinformation
+      url: user-help-auth-app-backup-recovery.md
+    - text: Logga in med hjälp av appen
+      url: user-help-auth-app-sign-in.md
+- title: Konfigurera och använda tvåstegsverifiering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är tvåfaktorsverifiering?
+      url: user-help-two-step-verification-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera dina verifieringsmetoder
+      url: multi-factor-authentication-end-user-first-time.md
+    - text: Hantera inställningar
+      url: multi-factor-authentication-end-user-manage-settings.md
+    - text: Få hjälp
+      url: multi-factor-authentication-end-user-troubleshoot.md
+- title: Konfigurera och använda portalen Mina appar
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är portalen Mina appar?
+      url: my-apps-portal-end-user-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: Uppdatera din information
+      url: my-apps-portal-end-user-update-profile.md
+    - text: Få hjälp
+      url: my-apps-portal-end-user-troubleshoot.md
+- title: Konfigurera och använda säkerhetsinformation (förhandsversion)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är säkerhetsinformation (förhandsversion)?
+      url: user-help-security-info-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera dina metoder för säkerhetsinformation
+      url: security-info-add-update-methods-overview.md
+    - text: Uppmaning om att lägga till information under inloggning
+      url: security-info-setup-signin.md
+- title: Konfigurera och använda Min profil (förhandsversion)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är portalen Min profil (förhandsversion)?
+      url: myprofile-portal-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Hantera dina organisationer
+      url: myprofile-portal-organizations-page.md
+    - text: Hantera dina anslutna enheter
+      url: myprofile-portal-devices-page.md
+- title: Återställa ditt eget lösenord
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är återställning av lösenord?
+      url: user-help-password-reset-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Registrera dig för återställning av lösenord
+      url: active-directory-passwords-reset-register.md
+    - text: Återställa lösenordet
+      url: user-help-reset-password.md

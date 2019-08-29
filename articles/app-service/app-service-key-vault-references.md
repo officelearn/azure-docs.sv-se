@@ -1,86 +1,85 @@
 ---
-title: Key Vault - referenser i Azure App Service | Microsoft Docs
-description: Konceptuell guiden för referens och installationsprogrammet för Azure Key Vault-referenser i Azure App Service och Azure Functions
+title: Key Vault referenser – Azure App Service | Microsoft Docs
+description: Konceptuell referens och installations guide för Azure Key Vault referenser i Azure App Service och Azure Functions
 services: app-service
 author: mattchenderson
 manager: jeconnoc
 editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: e7a049c8def0a5014aeb8a0e7a16aaa8def28009
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 30bd7c68ae1c88aba288b515d0ec32581f90b868
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705704"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088191"
 ---
-# <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använd Key Vault-referenser för App Service och Azure Functions (förhandsversion)
+# <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använda Key Vault referenser för App Service och Azure Functions (förhands granskning)
 
 > [!NOTE] 
-> Referenser för Key Vault finns för närvarande i förhandsversion.
+> Key Vault referenser finns för närvarande i för hands version.
 
-Det här avsnittet visar hur du arbetar med hemligheter från Azure Key Vault i ditt program med App Service eller Azure Functions utan några kodändringar. [Azure Key Vault](../key-vault/key-vault-overview.md) är en tjänst som tillhandahåller centraliserad hemligheter, med fullständig kontroll över åtkomst principer och granska historiken.
+Det här avsnittet visar hur du arbetar med hemligheter från Azure Key Vault i din App Service eller Azure Functions program utan att behöva ändra kod. [Azure Key Vault](../key-vault/key-vault-overview.md) är en tjänst som tillhandahåller centraliserad hemligheter-hantering med fullständig kontroll över åtkomst principer och gransknings historik.
 
-## <a name="granting-your-app-access-to-key-vault"></a>Ge din appåtkomst till Key Vault
+## <a name="granting-your-app-access-to-key-vault"></a>Ge appen åtkomst till Key Vault
 
-För att kunna läsa hemligheter från Nyckelvalvet, måste du ha ett valv som skapats och ge ditt appbehörighet att komma åt den.
+För att kunna läsa hemligheter från Key Vault måste ett valv skapas och ge ditt program behörighet att komma åt det.
 
-1. Skapa ett nyckelvalv genom att följa den [Snabbstart för Key Vault](../key-vault/quick-create-cli.md).
+1. Skapa ett nyckel valv genom att följa [Key Vault snabb start](../key-vault/quick-create-cli.md).
 
-1. Skapa en [systemtilldelade hanterad identitet](overview-managed-identity.md) för ditt program.
+1. Skapa en [systemtilldelad hanterad identitet](overview-managed-identity.md) för ditt program.
 
    > [!NOTE] 
-   > Key Vault refererar till för närvarande endast stöd för system tilldelade hanterade identiteter. Användartilldelade identiteter kan inte användas.
+   > Key Vault referenser stöder för närvarande endast systemtilldelade hanterade identiteter. Användare som tilldelats identiteter kan inte användas.
 
-1. Skapa en [åtkomstprincipen i Nyckelvalvet](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) för applikationsidentitet som du skapade tidigare. Aktivera hemliga behörighet ”Get” för den här principen. Konfigurera inte ”åtkomsträttigheter program” eller `applicationId` inställningar, eftersom det är inte kompatibel med en hanterad identitet.
+1. Skapa en [åtkomst princip i Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) för den program identitet som du skapade tidigare. Aktivera hemliga behörigheten "Get" för den här principen. Konfigurera inte det "auktoriserade programmet" eller `applicationId` inställningar, eftersom detta inte är kompatibelt med en hanterad identitet.
 
-    Bevilja åtkomst till ett program identitet i key vault är en onetime åtgärd och förblir den samma för alla Azure-prenumerationer. Du kan använda den för att distribuera så många certifikat som du vill ha. 
+    Att bevilja åtkomst till en program identitet i Key Vault är en Databasmigrering-åtgärd och den förblir densamma för alla Azure-prenumerationer. Du kan använda den för att distribuera så många certifikat som du vill. 
 
-## <a name="reference-syntax"></a>Referens-syntax
+## <a name="reference-syntax"></a>Syntax för referenser
 
-En referens för Key Vault är i formatet `@Microsoft.KeyVault({referenceString})`, där `{referenceString}` ersätts av något av följande alternativ:
+En Key Vault referens är av formuläret `@Microsoft.KeyVault({referenceString})`, där `{referenceString}` ersätts av något av följande alternativ:
 
 > [!div class="mx-tdBreakAll"]
-> | Referenssträng                                                            | Beskrivning                                                                                                                                                                                 |
+> | Referens sträng                                                            | Beskrivning                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | Den **SecretUri** ska vara fullständig dataplanet URI för en hemlighet i Key Vault, inklusive en version, t.ex. https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | Den **VaultName** ska namnet på Key Vault-resursen. Den **SecretName** bör vara namnet på mål-hemlighet. Den **SecretVersion** ska vara version av hemligheten att använda. |
+> | SecretUri=_secretUri_                                                       | **SecretUri** bör vara den fullständiga data Plans-URI: n för en hemlighet i Key Vault, inklusive en version, t. ex. https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** ska vara namnet på din Key Vault-resurs. **SecretName** ska vara namnet på mål hemligheten. **SecretVersion** bör vara den version av hemligheten som ska användas. |
 
 > [!NOTE] 
-> I den aktuella förhandsversionen krävs versioner. När du roterar hemligheter, kommer du behöva uppdatera versionen i konfigurationen av programmet.
+> I den aktuella för hands versionen krävs versioner. När du roterar hemligheter måste du uppdatera versionen i program konfigurationen.
 
-En fullständig referens skulle se ut så här:
+En fullständig referens skulle till exempel se ut så här:
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
 
-Du kan också:
+Också
 
 ```
 @Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret;SecretVersion=ec96f02080254f109c51a1f14cdb1931)
 ```
 
 
-## <a name="source-application-settings-from-key-vault"></a>Inställningar för datakälla program från Key Vault
+## <a name="source-application-settings-from-key-vault"></a>Käll program inställningar från Key Vault
 
-Referenser för Key Vault kan användas som värden för [programinställningar](configure-common.md#configure-app-settings), så att du kan hålla hemligheter i Key Vault i stället för platsens konfiguration. Programinställningar krypteras på ett säkert sätt på plats, men om du behöver hemliga hanteringsfunktioner, de bör ingå i Key Vault.
+Key Vault referenser kan användas som värden för [program inställningar](configure-common.md#configure-app-settings), så att du kan behålla hemligheter i Key Vault i stället för plats konfigurationen. Program inställningarna krypteras säkert i vila, men om du behöver hemliga hanterings funktioner bör de gå in Key Vault.
 
-Om du vill använda en Key Vault-referens för en programinställning, ange referensen som värde för inställningen. Din app kan referera till hemligheten via dess nyckel som vanligt. Inga kodändringar krävs.
+Om du vill använda en Key Vault referens för en program inställning anger du referensen som värde för inställningen. Din app kan referera till hemligheten via nyckeln som normalt. Inga kod ändringar krävs.
 
 > [!TIP]
-> De flesta inställningar för program som använder Key Vault referenser bör markeras som platsinställningar, som du bör ha separat valv för varje miljö.
+> De flesta program inställningar som använder Key Vault referenser ska markeras som plats inställningar, eftersom du borde ha separata valv för varje miljö.
 
 ### <a name="azure-resource-manager-deployment"></a>Azure Resource Manager-distribution
 
-Vid automatisering av resource-distributioner via Azure Resource Manager-mallar, kan du behöva ordna dina beroenden i en viss ordning till den här funktionen fungerar. Notera, behöver du definiera inställningar för program som sina egna resursen, i stället för en `siteConfig` -egenskapen i platsdefinitionen. Det beror på att platsen måste definieras först så att den systemtilldelade identiteten skapas med det och kan användas i åtkomstprincipen.
+När du automatiserar resurs distributioner via Azure Resource Manager mallar kan du behöva sekvensera dina beroenden i en viss ordning för att den här funktionen ska fungera. Observera att du måste definiera dina program inställningar som sin egen resurs, i stället för att använda en `siteConfig` egenskap i plats definitionen. Detta beror på att platsen måste definieras först så att den systemtilldelade identiteten skapas med den och kan användas i åtkomst principen.
 
-Ett exempel psuedo-mall för en funktionsapp kan se ut så här:
+Ett exempel på en psuedo-mall för en Function-app kan se ut så här:
 
 ```json
 {
@@ -184,4 +183,4 @@ Ett exempel psuedo-mall för en funktionsapp kan se ut så här:
 ```
 
 > [!NOTE] 
-> I det här exemplet är källan kontroll distributionen beroende programinställningarna. Detta är normalt osäkra beteende, eftersom inställningen appuppdatering fungerar asynkront. Men eftersom vi har inkluderat i `WEBSITE_ENABLE_SYNC_UPDATE_SITE` programinställningen, uppdateringen är synkron. Det innebär att källan kontroll distribution endast börjar när programinställningarna har uppdaterats helt.
+> I det här exemplet är käll kontroll distributionen beroende av program inställningarna. Detta är vanligt vis ett osäkert beteende eftersom uppdaterings inställningen för appen har asynkront. Men eftersom vi har inkluderat `WEBSITE_ENABLE_SYNC_UPDATE_SITE` program inställningen är uppdateringen synkron. Det innebär att käll kontroll distributionen endast startar när program inställningarna har uppdaterats fullständigt.

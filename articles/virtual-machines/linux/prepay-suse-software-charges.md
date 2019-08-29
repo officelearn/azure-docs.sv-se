@@ -1,65 +1,64 @@
 ---
-title: Betala i förskott för programvaruplaner - Azure-reservationer
-description: Lär dig hur du kan betala i förskott för programvaruplaner för att spara pengar jämfört din betala per användning.
+title: Förskottsbetala för program varu planer – Azure Reservations
+description: Lär dig hur du kan betala för program varu planer för att spara pengar på dina kostnader för betala per användning.
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: c8e9d07bf01536d7865bd79f667a937037d96837
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: e4cab8963e3083d265d0254c81b78fbabb84a269
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67489884"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091527"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Förskottsbetala för programvaruplaner för Azure
 
-När du betalar i förskott för din användning av SUSE och RedHat programvara i Azure, kan du spara pengar jämfört din betala per användning. Rabatter gäller endast för SUSE och RedHat mätare och inte på VM-användning. Du kan köpa reservationer för virtuella datorer separat för ytterligare besparingar.
+När du förskottsbetaler för din program varu användning med SUSE och RedHat i Azure kan du spara pengar över dina kostnader enligt principen betala per användning. Rabatterna gäller endast SUSE-och RedHat-mätare och inte för användning av virtuella datorer. Du kan köpa reservationer för virtuella datorer separat för ytterligare besparingar.
 
-Du kan köpa SUSE och RedHat programvaruplaner i Azure-portalen. Att köpa en plan:
+Du kan köpa SUSE och RedHat Software-planer i Azure Portal. Så här köper du en plan:
 
-- Du måste ha rollen ägare för minst en Enterprise eller enskild prenumeration med användningsbaserad betalning.
-- För Enterprise-prenumerationer, den **lägga till reserverade instanser** måste vara aktiverad i den [EA-portalen](https://ea.azure.com/). Om inställningen är inaktiverad, måste du vara en EA-administratör för prenumerationen.
-- Efter programmet Cloud Solution Provider (CSP) köp admin-agenter eller försäljning agents programvaruplaner.
+- Du måste ha ägar rollen för minst ett företag eller en enskild prenumeration med priset betala per användning.
+- För företags prenumerationer måste alternativet **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Om inställningen är inaktive rad måste du vara en EA-administratör för prenumerationen.
+- För ett CSP-program (Cloud Solution Provider) kan administratörs agenter eller försäljnings agenter köpa program varu planerna.
 
-## <a name="buy-a-software-plan"></a>Köp en plan för programvara
+## <a name="buy-a-software-plan"></a>Köp en program varu plan
 
-1. Logga in på Azure-portalen och gå till [reservationer](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
-2. Klicka på **Lägg till** och välj sedan den plan för programvara som du vill köpa.
-Fyll i fälten som krävs. Alla SUSE Linux VM eller RedHat VM som matchar attribut för vad du köper hämtar rabatten. Det faktiska antalet distributioner som får rabatten är beroende av omfång och kvantitet som väljs.
-3. Välj en prenumeration. Används för att betala för abonnemanget.
-Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett Enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P) eller enskilda avtal med användningsbaserad betalning (erbjuder siffror: MS-AZR-0003P eller MS-AZR-0023P).
+1. Logga in på Azure Portal och gå till [reservationer](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+2. Klicka på **Lägg till** och välj sedan den program varu plan som du vill köpa.
+Fyll i de obligatoriska fälten. Alla virtuella SUSE Linux-datorer eller virtuella RedHat-datorer som matchar attributen för det du köper får rabatten. Det faktiska antalet distributioner som erhåller rabatten beror på vald omfattning och kvantitet.
+3. Välj en prenumeration. Den används för att betala för planen.
+Betalnings metoden för prenumerationen debiteras de direkta kostnaderna för reservationen. Prenumerations typen måste vara en Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller ett enskilt avtal med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P).
     - För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning.
-    - För en enskild prenumeration med användningsbaserad prissättning faktureras avgifterna till prenumerationens kreditkort eller faktura betalningsmetod.
-4. Välj ett omfång. Omfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning).
-    - Enstaka prenumeration - plan rabatt tillämpas på matchar användning i prenumerationen.
-    - Delad – rabatten plan på matchande instanser i alla prenumerationer i din faktureringskontexten. För företagskunder fakturering kontexten är registreringen och innehåller alla prenumerationer i registreringen. För enskilda plan med användningsbaserad prissättning kunder är faktureringskontexten alla enskilda prenumerationer med användningsbaserad prissättning prenumerationer som skapats av kontoadministratören.
-5. Välj en produkt för att välja virtuella datorstorlek och bildtypen. Rabatten gäller för den valda VM-storleken bara.
-6. Markera en term om ett eller tre år.
-7. Välj en kvantitet, vilket är antalet förbetalda VM-instanser som kan få fakturering rabatt.
-8. Lägga till produkten i kundvagn, granskning och inköp.
+    - För en enskild prenumeration med priset betala per användning debiteras avgifterna på prenumerationens kredit kort eller faktura betalnings metod.
+4. Välj ett omfång. Omfattningen kan omfatta en prenumeration eller flera prenumerationer (delad omfattning).
+    - Enskild prenumeration – plan rabatten används för att matcha användning i prenumerationen.
+    - Delad – plan rabatten tillämpas på matchande instanser i en prenumeration i din fakturerings kontext. För företags kunder är fakturerings kontexten registreringen och innehåller alla prenumerationer i registreringen. Fakturerings kontexten är alla enskilda planer med pris prenumerationer enligt principen betala per användning för enskilda abonnemang med pris uppgifter enligt principen betala per användning, som skapas av konto administratören.
+5. Välj en produkt för att välja storlek på den virtuella datorn och avbildnings typen. Rabatten gäller endast för den valda virtuella dator storleken.
+6. Välj ett år eller tre års period.
+7. Välj en kvantitet, vilket är antalet förbetalda VM-instanser som kan få fakturerings rabatt.
+8. Lägg till produkten i vagnen, granska och köp.
 
-Reservationsrabatten tillämpas automatiskt på mätaren programvara som du betala i förskott. Beräkningskostnader för virtuell dator omfattas inte av planen. Du kan köpa reservationer för virtuella datorer separat.
+Reservations rabatten tillämpas automatiskt på den program varu mätare som du förbetalr för. Beräknings avgifter för virtuella datorer omfattas inte av planen. Du kan köpa VM-reservationer separat.
 
-## <a name="discount-applies-to-different-suse-vm-sizes"></a>Rabatten gäller för olika SUSE VM-storlekar
+## <a name="discount-applies-to-different-suse-vm-sizes"></a>Rabatten gäller för olika virtuella SUSE VM-storlekar
 
-SUSE Linux planer erbjuder instans storlek flexibilitet som reserverade VM-instanser. Rabatten gäller även när du distribuerar en virtuell dator som är en annan storlek från SUSE-plan som du har köpt. Mer information finns i [förstå hur programvaran plan rabatten](../../billing/billing-understand-suse-reservation-charges.md).
+Som reserverade VM-instanser erbjuder SUSE Linux-planer flexibilitet för instans storlek. Rabatten gäller även när du distribuerar en virtuell dator som är en annan storlek än den SUSE-plan som du köpte. Mer information finns i [förstå hur rabatten för program planen tillämpas](../../billing/billing-understand-suse-reservation-charges.md).
 
 ## <a name="redhat-plan-discount"></a>RedHat plan rabatt
 
-Prenumerationerna finns bara för Red Hat Enterprise Linux virtuella datorer. Rabatten gäller inte för Red Hat Enterprise Linux SAP HANA-datorer eller Red Hat Enterprise Linux SAP Business Apps virtuella datorer.
+Planer är bara tillgängliga för Red Hat Enterprise Linux virtuella datorer. Rabatten gäller inte för virtuella RedHat Enterprise Linux SAP HANA VM eller RedHat Enterprise Linux SAP Business Apps.
 
-RedHat plan rabatter gäller endast för VM-storlek som du väljer vid inköpstillfället. RHEL-planer kan inte återbetalas eller bytas ut efter köpet.
+RedHat plan rabatter gäller endast för den VM-storlek som du väljer vid tidpunkten för köpet. RHEL-planer kan inte återbetalas eller bytas ut efter köpet.
 
 
-## <a name="cancellation-and-exchanges-not-allowed"></a>Annulleringen och utbyten inte tillåtet
+## <a name="cancellation-and-exchanges-not-allowed"></a>Annullering och byten tillåts inte
 
-Du kan inte avbryta eller byta en SUSE eller Red Hat-plan som du har köpt. Kontrollera din användning för att försäkra dig om att du köper rätt plan. Hjälp att identifiera vad du kan köpa finns i [förstå hur programvaran plan rabatten](../../billing/billing-understand-suse-reservation-charges.md).
+Du kan inte avbryta eller byta ut en SUSE eller RedHat-plan som du har köpt. Kontrollera din användning för att försäkra dig om att du köper rätt plan. Information om hur du identifierar vad som ska köpas finns i [förstå hur rabatten för program planen tillämpas](../../billing/billing-understand-suse-reservation-charges.md).
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
@@ -67,12 +66,12 @@ Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://port
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs hur du hanterar en reservation i [hantera Azure-reservationer](../../billing/billing-manage-reserved-vm-instance.md).
+Information om hur du hanterar en reservation finns i [Hantera Azure-reservationer](../../billing/billing-manage-reserved-vm-instance.md).
 
 Mer information finns i följande artiklar:
 
-- [Vad är Azure reservationer?](../../billing/billing-save-compute-costs-reservations.md)
+- [Vad är Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
 - [Hantera reservationer i Azure](../../billing/billing-manage-reserved-vm-instance.md)
-- [Förstå hur SUSE reservationsrabatten tillämpas](../../billing/billing-understand-suse-reservation-charges.md)
-- [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](../../billing/billing-understand-reserved-instance-usage.md)
-- [Förstå användningen av reserverade för din Enterprise-registrering](../../billing/billing-understand-reserved-instance-usage-ea.md)
+- [Förstå hur boknings rabatten för SUSE används](../../billing/billing-understand-suse-reservation-charges.md)
+- [Förstå reservations användningen för din prenumeration enligt principen betala per användning](../../billing/billing-understand-reserved-instance-usage.md)
+- [Förstå reservations användningen för företags registreringen](../../billing/billing-understand-reserved-instance-usage-ea.md)

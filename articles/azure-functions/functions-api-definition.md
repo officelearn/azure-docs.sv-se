@@ -1,86 +1,85 @@
 ---
-title: OpenAPI-metadata i Azure Functions | Microsoft Docs
+title: OpenAPI metadata i Azure Functions | Microsoft Docs
 description: Översikt över OpenAPI-stöd i Azure Functions
 services: functions
 author: alexkarcher-msft
 manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 1bc53fadfb622794703deaff560c9083ca6a1a10
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 00dedd069914384a1883a54bfb433857286fb49c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67656824"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097580"
 ---
-# <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Stöd för OpenAPI 2.0-metadata i Azure Functions (förhandsversion)
-OpenAPI 2.0 (tidigare Swagger) metadata stöds i Azure Functions är en förhandsgranskningsfunktion som du kan använda för att skriva en definition för OpenAPI 2.0 i en funktionsapp. Du kan sedan ha filen med hjälp av funktionsappen.
+# <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Stöd för OpenAPI 2,0-metadata i Azure Functions (för hands version)
+OpenAPI 2,0 (tidigare Swagger) stöd för metadata i Azure Functions är en förhands gransknings funktion som du kan använda för att skriva en OpenAPI 2,0-definition i en Function-app. Du kan sedan vara värd för filen med hjälp av Function-appen.
 
 > [!IMPORTANT]
 > Förhandsgranskningsfunktionen OpenAPI är i dag endast tillgänglig i 1.x-körningen. Information om hur du skapar en 1.x-funktionsapp [hittar du här](./functions-versions.md#creating-1x-apps).
 
-[OpenAPI-metadata](https://swagger.io/) gör en funktion som är värd för en REST-API för att användas av en stor mängd annan programvara. Den här programvaran innehåller Microsoft-erbjudanden som PowerApps och [API Apps-funktionen i Azure App Service](../app-service/overview.md), utvecklingsverktyg från tredje part som [Postman](https://www.getpostman.com/docs/importing_swagger), och [många andra paket](https://swagger.io/tools/).
+Med [openapi metadata](https://swagger.io/) kan en funktion som är värd för en REST API användas av en mängd olika program varor. I den här program varan ingår Microsoft-erbjudanden som PowerApps och den [API Apps funktionen i Azure App Service](../app-service/overview.md), verktyg från [](https://www.getpostman.com/docs/importing_swagger)tredje parts utvecklare som Postman och [många fler paket](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 >[!TIP]
->Vi rekommenderar att du börjar med den [komma igång-självstudiekurs](./functions-api-definition-getting-started.md) och sedan tillbaka till det här dokumentet för mer information om specifika funktioner.
+>Vi rekommenderar att du börjar med [kursen komma igång](./functions-api-definition-getting-started.md) och sedan återgår till det här dokumentet för att lära dig mer om de olika funktionerna.
 
 ## <a name="enable"></a>Aktivera stöd för OpenAPI-definition
-Du kan konfigurera alla OpenAPI-inställningar på den **API-Definition** sidan i din funktionsapp **plattformsfunktioner**.
+Du kan konfigurera alla OpenAPI-inställningar på sidan **API-definition** i funktions programmets plattforms **funktioner**.
 
 > [!NOTE]
-> Funktionen API-definition-funktionen stöds inte för beta-runtime för närvarande.
+> Funktions-API definitions funktionen stöds inte för närvarande för beta körning.
 
-Om du vill aktivera generering av en värdbaserad OpenAPI-definition och en definition av Snabbstart, ange **API-definitionskälla** till **funktion (förhandsversion)** . **Externa URL: en** tillåter funktionen att använda en OpenAPI-definition som har är värdbaserad någon annanstans.
+Om du vill aktivera genereringen av en definition för värdbaserade OpenAPI och en snabb starts definition anger du **API-definition** till **funktion (för hands version)** . **Extern URL** gör att din funktion kan använda en openapi-definition som är värdbaserad någon annan stans.
 
-## <a name="generate-definition"></a>Generera en Swagger-stommen från din funktion metadata
-Med hjälp av en mall kan du börja skriva din första OpenAPI-definition. Funktionen definition mallen skapar en null-optimerade OpenAPI-definitionen genom att använda alla metadata i filen function.json för var och en av dina funktioner för HTTP-utlösare. Du måste fylla i mer information om ditt API från den [OpenAPI-specifikation](https://swagger.io/specification/), till exempel mallar för begäranden och svar.
+## <a name="generate-definition"></a>Generera en Swagger-Skeleton från din funktions metadata
+En mall kan hjälpa dig att börja skriva din första OpenAPI-definition. Med funktionen definitions mal len skapar du en OpenAPI-definition med hjälp av alla metadata i function. JSON-filen för var och en av dina HTTP-utlösare. Du måste fylla i mer information om ditt API från [openapi](https://swagger.io/specification/)-specifikationen, till exempel mallar för begäran och svar.
 
-Stegvisa instruktioner finns i den [komma igång-självstudiekurs](./functions-api-definition-getting-started.md).
+Stegvisa instruktioner finns i [komma igång-kursen](./functions-api-definition-getting-started.md).
 
 ### <a name="templates"></a>Tillgängliga mallar
 
-|Namn| Beskrivning |
+|Name| Beskrivning |
 |:-----|:-----|
-|Definitionen|En OpenAPI-definition med den maximala mängden information som kan härledas från befintliga metadata för den funktionen.|
+|Definition som skapats|En OpenAPI-definition med den maximala mängd information som kan härledas från funktionens befintliga metadata.|
 
-### <a name="quickstart-details"></a>Inkluderade metadata i definitionen
+### <a name="quickstart-details"></a>Inkluderade metadata i den genererade definitionen
 
-I följande tabell representerar inställningar för Azure portal och motsvarande data i function.json som det är kopplat till den genererade Swagger-stommen.
+Följande tabell visar Azure Portal inställningar och motsvarande data i function. JSON som den är mappad till den genererade Swagger-Skeleton.
 
-|Swagger.json|Portalens användargränssnitt|Function.json|
+|Swagger.json|Portal gränssnitt|Function. JSON|
 |:----|:-----|:-----|
-|[Värd](https://swagger.io/specification/#fixed-fields-15)|**Funktionen appinställningar** > **App Service-inställningarna** > **översikt** > **URL**|*Finns inte*
-|[Sökvägar](https://swagger.io/specification/#paths-object-29)|**Integrera** > **valda HTTP-metoder**|Bindningar: Routa
-|[Sökväg till objekt](https://swagger.io/specification/#path-item-object-32)|**Integrera** > **flödesmallen**|Bindningar: Metoder
-|[Säkerhet](https://swagger.io/specification/#security-scheme-object-112)|**nycklar**|*Finns inte*|
-|operationID*|**Väg + tillåtna verb**|Väg + tillåtna verb|
+|[Värd](https://swagger.io/specification/#fixed-fields-15)|**Funktions program inställningar** > **App Service inställningar** > översikt**URL** > |*Finns inte*
+|[Mappar](https://swagger.io/specification/#paths-object-29)|Integrera > **valda http-metoder**|Bindningar Routa
+|[Sök vägs objekt](https://swagger.io/specification/#path-item-object-32)|Integrera > **Route-mall**|Bindningar Metoder
+|[Säkerhet](https://swagger.io/specification/#security-scheme-object-112)|**Nyckel**|*Finns inte*|
+|operationID*|**Route + tillåtna verb**|Route + tillåtna verb|
 
-\*Åtgärds-ID krävs endast för att integrera med PowerApps och Flow.
+\*Åtgärds-ID krävs endast för integrering med PowerApps och Flow.
 > [!NOTE]
-> X-ms-summary-tillägget tillhandahåller ett visningsnamn i Logikappar, PowerApps och Flow.
+> Tillägget x-MS-Summary ger ett visnings namn i Logic Apps, PowerApps och Flow.
 >
-> Mer information finns i [anpassa Swagger-definitionen för PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
+> Mer information finns i [Anpassa din Swagger-definition för PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
 
-## <a name="CICD"></a>Använda CI/CD för att ange en API-definition
+## <a name="CICD"></a>Använd CI/CD för att ange en API-definition
 
- Du måste aktivera API-definition som är värd i portalen innan du aktiverar källkontroll att ändra API-definitionen från källkontroll. Följ dessa anvisningar:
+ Du måste aktivera API-definitionens värd i portalen innan du aktiverar käll kontroll för att ändra din API-definition från käll kontroll. Följ dessa anvisningar:
 
-1. Bläddra till **API-Definition (förhandsversion)** i din funktionsappinställningarna.
-   1. Ange **API-definitionskälla** till **funktionen**.
-   1. Klicka på **generera API-definitionsmall** och sedan **spara** att skapa en definition för mallen för att ändra senare.
-   1. Observera att din URL för API-definition och nyckel.
+1. Bläddra till **API-definition (för hands version)** i inställningar för Function-appen.
+   1. Ange **källa för API-definition** till **funktion**.
+   1. Klicka på **skapa definitions definitions mall** och **Spara** för att skapa en mall definition för ändring senare.
+   1. Notera API-definitionens URL och nyckel.
 1. [Konfigurera kontinuerlig integrering/kontinuerlig distribution (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#requirements-for-continuous-deployment).
-2. Ändra swagger.json i källkontrollen på \site\wwwroot\.azurefunctions\swagger\swagger.json.
+2. Ändra Swagger. json i käll kontroll på \site\wwwroot\.azurefunctions\swagger\swagger.JSON.
 
-Nu kan ändringar av swagger.json i databasen finns på din funktionsapp på API: et definition URL och nyckel som du antecknade i steg 1.c.
+Nu finns ändringar i Swagger. json i din lagrings plats för din Function-app på API-definitionens URL och nyckel som du antecknade i steg 1. c.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Komma igång-självstudiekurs](functions-api-definition-getting-started.md). Prova vår genomgång om du vill se en OpenAPI-definition i praktiken.
-* [Azure Functions GitHub-lagringsplats](https://github.com/Azure/Azure-Functions/). Kolla in funktioner databasen för att ge oss feedback om förhandsversionen av API-definition support. Se ett GitHub-ärende för allt du vill se uppdaterade.
-* [Azure Functions-utvecklare](functions-reference.md). Läs mer om kodning av funktioner och definiering av utlösare och bindningar.
+* [Själv studie kurs om att komma igång](functions-api-definition-getting-started.md). Prova vår genom gång för att se en OpenAPI-definition i praktiken.
+* [Azure Functions GitHub](https://github.com/Azure/Azure-Functions/)-lagringsplatsen. Kolla in Functions-lagringsplatsen för att ge oss feedback om stöd för för hands versionen av API-definition. Gör ett GitHub-ärende för allt du vill se uppdaterat.
+* [Referens för Azure Functions-utvecklare](functions-reference.md). Lär dig mer om att koda funktioner och definiera utlösare och bindningar.

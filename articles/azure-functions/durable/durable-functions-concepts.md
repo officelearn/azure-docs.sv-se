@@ -1,42 +1,41 @@
 ---
-title: Varaktiga funktioner mönster och tekniska begrepp i Azure Functions
-description: Lär dig hur tillägget varaktiga funktioner i Azure Functions ger dig fördelarna med tillståndskänsliga kodkörning i molnet.
+title: Durable Functions mönster och tekniska begrepp i Azure Functions
+description: Lär dig hur Durable Functions tillägget i Azure Functions ger dig fördelarna med tillstånds känslig kod körning i molnet.
 services: functions
 author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a244883f470f4906879725daf0d37bd1759e65c4
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 828bcaa8c93454ba845c30c03c76144310891123
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812900"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098258"
 ---
-# <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Varaktiga funktioner mönster och tekniska begrepp (Azure Functions)
+# <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Durable Functions mönster och tekniska begrepp (Azure Functions)
 
-Varaktiga funktioner är en utökning av [Azure Functions](../functions-overview.md) och [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md). Du kan använda varaktiga funktioner för att skriva tillståndskänsliga funktioner i en serverfri miljö. Tillägget hanterar tillstånd, kontrollpunkter och omstarter. 
+Durable Functions är en utökning av [Azure Functions](../functions-overview.md) och [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md). Du kan använda Durable Functions för att skriva tillstånds känsliga funktioner i en miljö utan server. Tillägget hanterar tillstånd, kontrollpunkter och omstarter. 
 
-Den här artikeln får du detaljerad information om beteenden för tillägget varaktiga funktioner för Azure Functions och vanliga mönster för implementering. Informationen kan hjälpa dig att avgöra hur du använder varaktiga funktioner för att lösa dina utmaningar för utveckling.
+Den här artikeln innehåller detaljerad information om funktionerna i Durable Functions-tillägget för Azure Functions och vanliga implementerings mönster. Informationen kan hjälpa dig att avgöra hur du ska använda Durable Functions för att hjälpa till att lösa dina utvecklings utmaningar.
 
 > [!NOTE]
-> Varaktiga funktioner är en avancerad tillägg för Azure Functions som inte är lämplig för alla program. Den här artikeln förutsätter att du har en stark bekant med begrepp i [Azure Functions](../functions-overview.md) och utmaningarna som ingår i program utan Server-utveckling.
+> Durable Functions är ett avancerat tillägg för Azure Functions som inte passar för alla program. Den här artikeln förutsätter att du har en stark välbekanthet med koncept i [Azure Functions](../functions-overview.md) och de utmaningar som är inblandade i program utveckling utan server.
 
 ## <a name="patterns"></a>Mönster
 
-Det här avsnittet beskrivs några vanliga mönster där varaktiga funktioner kan vara användbara.
+I det här avsnittet beskrivs några vanliga program mönster där Durable Functions kan vara användbart.
 
 ### <a name="chaining"></a>Mönster #1: Funktionslänkning
 
-I funktionen länkning mönster, utför en serie funktioner i en viss ordning. I det här mönstret används utdata för en funktion till indata för en annan funktion.
+I funktions kedje mönstret körs en sekvens med funktioner i en speciell ordning. I det här mönstret tillämpas utdata från en funktion på indatan för en annan funktion.
 
-![Ett diagram över funktionen länkning mönster](./media/durable-functions-concepts/function-chaining.png)
+![Ett diagram över funktions kedje mönstret](./media/durable-functions-concepts/function-chaining.png)
 
-Du kan använda varaktiga funktioner för att implementera funktionen länkning användningsmönstret koncist som visas i följande exempel:
+Du kan använda Durable Functions för att implementera funktions länknings mönstret på ett koncist sätt som visas i följande exempel:
 
 #### <a name="c-script"></a>C#-skript
 
@@ -58,9 +57,9 @@ public static async Task<object> Run(DurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> Det finns vissa skillnader mellan en förkompilerade varaktiga funktion C# och skriva en förkompilerade varaktiga funktion den C# skript som visas i exemplet. I en C# förkompilerad version funktion, hållbar parametrar måste vara dekorerad med respektive attribut. Ett exempel är den `[OrchestrationTrigger]` attributet för den `DurableOrchestrationContext` parametern. I en C# förkompilerad version varaktiga funktionen om parametrarna är inte korrekt dekorerad körningen det går inte att mata in variablerna i funktionen och ett fel inträffar. Fler exempel finns i den [azure-functions-durable-extension exemplen på GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
+> Det finns små skillnader mellan att C# C# skriva en förkompilerad varaktig funktion i och skriva en förkompilerad, hållbar funktion i skriptet som visas i exemplet. I en C# förkompilerad funktion måste de varaktiga parametrarna dekoreras med respektive attribut. Ett exempel är `[OrchestrationTrigger]` attributet `DurableOrchestrationContext` för parametern. I en C# förkompilerad varaktig funktion, om parametrarna inte är korrekt dekorerade, kan inte körningen mata in variablerna i funktionen och ett fel uppstår. Fler exempel finns i exemplen [Azure-Functions-hållbart-extensions på GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -73,22 +72,22 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-I det här exemplet värdena `F1`, `F2`, `F3`, och `F4` är namnen på andra funktioner i funktionsappen. Du kan implementera Kontrollflöde med hjälp av kodning konstruktioner som normalt krävs. Koden utför uppifrån ned. Koden kan omfatta befintliga språk control flow semantik, som villkor och loopar. Du kan inkludera felhanteringslogik i `try` / `catch` / `finally` block.
+I det här exemplet är värdena `F1` `F3`, `F2`, och `F4` namnen på andra funktioner i Function-appen. Du kan implementera kontroll flödet med hjälp av vanliga kodnings konstruktioner. Koden körs uppifrån och ned. Koden kan omfatta befintliga semantiska språk kontroll flöde, t. ex. villkor och slingor. Du kan inkludera fel hanterings logik `try` i / / `catch` `finally` block.
 
-Du kan använda den `context` parametern [DurableOrchestrationContext] \(.NET\) och `context.df` objekt (JavaScript) för att anropa andra funktioner efter namn, skicka parametrar och returnerar funktionen utdata. Varje gång koden anropar `await` (C#) eller `yield` (JavaScript), varaktiga funktioner framework kontrollpunkter förloppet för den aktuella funktion-instansen. Om processen eller VM återvinns halvvägs körningen, funktionen instans återgår från föregående `await` eller `yield` anropa. Mer information finns i nästa avsnitt, mönstret nr 2: Fläkt out/samlande.
+Du kan `context` använda parametern [DurableOrchestrationContext] \(.net\) och `context.df` objektet (Java Script) för att anropa andra funktioner efter namn, pass parametrar och returnera funktions resultat. Varje gång koden anropar `await` (C#) eller `yield` (Java Script) visar Durable Functions Framework förloppet för den aktuella funktions instansen. Om processen eller den virtuella datorn återvinner mitt i körningen fortsätter funktions instansen från föregående `await` eller `yield` anropa. Mer information finns i nästa avsnitt, mönster #2: Fläkt ut/fläkt i.
 
 > [!NOTE]
-> Den `context` i JavaScript-objektet representerar hela [funktionen kontext](../functions-reference-node.md#context-object), inte bara den [DurableOrchestrationContext] parametern.
+> Objektet i Java Script representerar hela [funktions kontexten](../functions-reference-node.md#context-object), inte bara parametern [DurableOrchestrationContext] `context`
 
-### <a name="fan-in-out"></a>Mönster #2: Fläkt out/samlande
+### <a name="fan-in-out"></a>Mönster #2: Fläkt ut/fläkt i
 
-I fläkten out/samlande mönster kan du köra flera funktioner parallellt och väntar du tills alla funktioner ska slutföras. Vissa aggregering arbete utförs ofta i resultaten som returneras från funktioner.
+I mönstret fläkt ut/fläkt i, kör du flera funktioner parallellt och väntar sedan på att alla funktioner ska slutföras. Ofta utförs en del sammansättnings arbete på resultaten som returneras från funktionerna.
 
-![Ett diagram över fläkten out/fläkt mönster](./media/durable-functions-concepts/fan-out-fan-in.png)
+![Ett diagram över fläkt-och fläkt mönstret](./media/durable-functions-concepts/fan-out-fan-in.png)
 
-Med normal funktion, kan du sprida ut genom att använda funktionen Skicka flera meddelanden till en kö. Fläkt i är mycket mer utmanande. För att sprida, i en normal funktion kan du skriva kod för att spåra när kön-utlösta funktioner slutet och sedan lagra fungera utdata. 
+Med normala funktioner kan du använda funktionen Skicka flera meddelanden till en kö. Fanning tillbaka i är mycket mer utmanande. I en normal funktion skriver du kod för att spåra när funktionen för köade funktioner har slutförts och sedan lagra funktions resultat. 
 
-Tillägget varaktiga funktioner hanterar det här mönstret med relativt enkel kod:
+Durable Functions-tillägget hanterar det här mönstret med relativt enkel kod:
 
 #### <a name="c-script"></a>C#-skript
 
@@ -113,7 +112,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -135,19 +134,19 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Fan-out arbetet ska distribueras till flera instanser av den `F2` funktion. Arbetet spåras med hjälp av en dynamisk lista över aktiviteter. .NET `Task.WhenAll` API eller JavaScript `context.df.Task.all` API anropas för att vänta tills de anropade funktionerna ska slutföras. Sedan den `F2` funktionen matar ut aggregeras i dynamiska uppgiftslistan och skickas till den `F3` funktion.
+Fläkt arbetet distribueras till flera instanser av `F2` funktionen. Arbetet spåras med hjälp av en dynamisk lista med aktiviteter. .Net `Task.WhenAll` API eller Java Script `context.df.Task.all` API anropas för att vänta tills alla anropade funktioner har slutförts. Sedan aggregeras `F3`funktionenutdata från den dynamiska uppgifts listan och skickas till funktionen. `F2`
 
-Automatiska kontrollpunkter som sker på den `await` eller `yield` anropa `Task.WhenAll` eller `context.df.Task.all` säkerställer att en potentiell mitt krasch eller starta om datorn inte kräver att starta om en redan slutförd aktivitet.
+Den automatiska kontroll punkten som sker `await` vid eller `yield` anropar `Task.WhenAll` eller `context.df.Task.all` säkerställer att en eventuell halvvägs krasch eller omstart kräver att en redan slutförd aktivitet startas om.
 
-### <a name="async-http"></a>Mönster #3: Async HTTP API: er
+### <a name="async-http"></a>Mönster #3: Asynkrona HTTP API: er
 
-Async HTTP APIs mönstret löser problemet med att samordna tillståndet för långvariga åtgärder med externa klienter. Ett vanligt sätt att implementera det här mönstret är att låta en HTTP och anropa utlösare tidskrävande åtgärd. Sedan kan dirigera om klienten till en slutpunkt för status som klienten frågar om du vill veta när åtgärden är klar.
+Det asynkrona API-mönstret för HTTP löser problemet med att koordinera tillstånden för långvariga åtgärder med externa klienter. Ett vanligt sätt att implementera det här mönstret är genom att låta ett HTTP-anrop utlösa den långvariga åtgärden. Omdirigera sedan klienten till en status slut punkt som klienten avsöker för att lära sig när åtgärden har slutförts.
 
-![Ett diagram över HTTP-API-mönster](./media/durable-functions-concepts/async-http-api.png)
+![Ett diagram över HTTP API-mönstret](./media/durable-functions-concepts/async-http-api.png)
 
-Varaktiga funktioner innehåller inbyggda API: er som förenklar koden du skriver så att interagera med tidskrävande funktionskörningar. Snabbstart-exempel varaktiga funktioner ([ C# ](durable-functions-create-first-csharp.md) och [JavaScript](quickstart-js-vscode.md)) visar ett enkelt REST-kommando som du kan använda för att starta nya instanser av orchestrator-funktion. När en instans har startat exponerar tillägget webhook HTTP APIs som fråga status för orchestrator-funktion. 
+Durable Functions innehåller inbyggda API: er som fören klar koden som du skriver för att interagera med tids krävande funktions körningar. Durable Functions snabb starts exempel[C#](durable-functions-create-first-csharp.md) (och [Java Script](quickstart-js-vscode.md)) visar ett enkelt rest-kommando som du kan använda för att starta nya Orchestrator-funktioner. När en instans startar visar tillägget webhook HTTP-API: er som frågar Orchestrator-funktionens status. 
 
-I följande exempel visas REST-kommandon som startar en orchestrator och fråga efter dess status. För tydlighetens skull utelämnas vissa detaljer i exemplet.
+I följande exempel visas REST-kommandon för att starta en Orchestrator och fråga dess status. För tydlighetens skull utelämnas viss information från exemplet.
 
 ```
 > curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
@@ -172,11 +171,11 @@ Content-Type: application/json
 {"runtimeStatus":"Completed","lastUpdatedTime":"2017-03-16T21:20:57Z", ...}
 ```
 
-Eftersom varaktiga funktioner runtime hanterar tillstånd, behöver du inte implementera en egen mekanism för status-spårning.
+Eftersom Durable Functions runtime hanterar tillstånd behöver du inte implementera din egen status spårnings funktion.
 
-Tillägget varaktiga funktioner har inbyggda webhooks som hanterar långvariga orkestreringar. Du kan också implementera detta mönster genom att använda din egen function-utlösare (t.ex HTTP, en kö eller Azure Event Hubs) och `orchestrationClient` bindning. Du kan exempelvis använda ett kömeddelande för att utlösa uppsägning. Eller så kan du använda en HTTP-utlösare som skyddas av en princip för Azure Active Directory-autentisering i stället för den inbyggda webhooks som använder en genererad nyckel för autentisering.
+Durable Functions tillägget har inbyggda Webhooks som hanterar långvariga dirigeringar. Du kan implementera det här mönstret själv genom att använda dina egna funktions utlösare (till exempel http, en kö eller Azure Event Hubs `orchestrationClient` ) och bindningen. Du kan till exempel använda ett Queue-meddelande för att utlösa avslutning. Eller så kan du använda en HTTP-utlösare som skyddas av en Azure Active Directory autentiseringsprincip i stället för de inbyggda webhookarna som använder en genererad nyckel för autentisering.
 
-Här följer några exempel på hur du använder mönstret HTTP-API:
+Här följer några exempel på hur du använder HTTP API-mönstret:
 
 #### <a name="c"></a>C#
 
@@ -199,7 +198,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 // An HTTP-triggered function starts a new orchestrator function instance.
@@ -219,19 +218,19 @@ module.exports = async function (context, req) {
 };
 ```
 
-I .NET, den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametern är ett värde från den `orchestrationClient` utdata bindning, som ingår i tillägget varaktiga funktioner. I JavaScript, returneras det här objektet genom att anropa `df.getClient(context)`. De här objekten tillhandahåller metoder som du kan använda för att starta, skicka händelser till, avsluta och fråga för nya eller befintliga orchestrator-funktion-instanser.
+I .net är parametern [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` `orchestrationClient` ett värde från utgående bindning, som är en del av Durable Functions-tillägget. I Java Script returneras det här objektet genom att `df.getClient(context)`anropa. De här objekten ger metoder som du kan använda för att starta, skicka händelser till, avsluta och fråga efter nya eller befintliga Orchestrator-funktioner.
 
-I föregående exempel, tar en HTTP-utlöst funktion en `functionName` värdet från inkommande URL och skickar värdet som ska [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Den [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) bindning API sedan returnerar ett svar som innehåller en `Location` rubrik och ytterligare information om instansen. Du kan använda informationen senare att leta upp status för igång instansen eller att avsluta instansen.
+I föregående exempel tar en http-utlöst funktion i ett `functionName` värde från den inkommande URL: en och skickar värdet till [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) -bindnings-API: et returnerar sedan ett `Location` svar som innehåller ett sidhuvud och ytterligare information om instansen. Du kan använda informationen senare för att leta upp statusen för den startade instansen eller avsluta instansen.
 
 ### <a name="monitoring"></a>Mönster #4: Övervaka
 
-Mönstret övervakaren refererar till en flexibel, återkommande process i ett arbetsflöde. Ett exempel avsökning tills särskilda villkor uppfylls. Du kan använda en vanlig [timerutlösare](../functions-bindings-timer.md) för att åtgärda en grundläggande scenario, till exempel en regelbunden rensningsjobb, men intervallet är statisk och hantera instans livslängd blir komplex. Du kan använda varaktiga funktioner för att skapa flexibla återkommande intervall, hantera uppgiften livslängd och skapa flera Övervakare processer från en enda dirigering.
+Övervaknings mönstret avser en flexibel, återkommande process i ett arbets flöde. Ett exempel är att avsöker tills vissa villkor är uppfyllda. Du kan använda en vanlig [timer](../functions-bindings-timer.md) -utlösare för att hantera ett grundläggande scenario, till exempel ett periodiskt rensnings jobb, men dess intervall är statiskt och hanteringen av instans livstider blir komplex. Du kan använda Durable Functions för att skapa flexibla upprepnings intervall, hantera aktivitets livs längder och skapa flera övervaknings processer från ett enda dirigering.
 
-Ett exempel på mönstret övervakaren är att omvända det tidigare async HTTP API-scenariot. I stället för att exponera en slutpunkt för en extern klient kan övervaka en tidskrävande åtgärd kan övervakaren tidskrävande förbrukar en extern slutpunkt och väntar sedan en tillståndsändring.
+Ett exempel på ett övervaknings mönster är att byta till det tidigare asynkrona HTTP API-scenariot. I stället för att exponera en slut punkt för en extern klient för att övervaka en långvarig åtgärd, förbrukar den tids krävande övervakaren en extern slut punkt och väntar sedan på en tillstånds ändring.
 
-![Ett diagram över mönstret Övervakare](./media/durable-functions-concepts/monitor.png)
+![Ett diagram över övervaknings mönstret](./media/durable-functions-concepts/monitor.png)
 
-Du kan använda varaktiga funktioner för att skapa flera bildskärmar som använder godtyckliga slutpunkter i några få kodrader. Övervakare kan avsluta körningen när ett villkor uppfylls, eller [DurableOrchestrationClient](durable-functions-instance-management.md) kan avsluta övervakarna. Du kan ändra en Övervakare `wait` intervall baserat på ett specifikt villkor (till exempel exponentiell backoff.) 
+I några få kodrader kan du använda Durable Functions för att skapa flera Övervakare som ser godtyckliga slut punkter. Övervakarna kan avsluta körningen när ett villkor är uppfyllt, eller så kan [DurableOrchestrationClient](durable-functions-instance-management.md) avsluta övervakarna. Du kan ändra en övervakares `wait` intervall baserat på ett speciellt villkor (till exempel exponentiell backoff.) 
 
 Följande kod implementerar en grundläggande Övervakare:
 
@@ -263,7 +262,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -291,19 +290,19 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-När en begäran tas emot, skapas en ny orchestration-instans för den jobb-ID. Instansen avsöker status tills ett villkor uppfylls och slingan har avslutats. En hållbar timer styr avsökningsintervallet. Sedan kan du utföra mer arbete eller dirigering kan avsluta. När den `context.CurrentUtcDateTime` (.NET) eller `context.df.currentUtcDateTime` (JavaScript) överskrider den `expiryTime` värde, det Övervakare upphört att gälla.
+När en begäran tas emot skapas en ny Dirigerings instans för jobb-ID: t. Instansen avsöker en status tills ett villkor uppfylls och loopen avslutas. En varaktig timer styr avsöknings intervallet. Sedan kan du utföra mer arbete, eller så kan dirigeringen avslutas. När (.net) eller `context.df.currentUtcDateTime` `expiryTime` (Java Script) överskrider värdet, avslutas övervakaren. `context.CurrentUtcDateTime`
 
 ### <a name="human"></a>Mönster #5: Mänsklig interaktion
 
-Många automatiserade processer involverar någon form av mänsklig interaktion. Det är svårt att som rör människor i en automatiserad process eftersom personer som inte är med hög tillgänglighet och som svarar med molntjänster. En automatiserad process kan göra att detta med hjälp av timeout och kompensation logik.
+Många automatiserade processer omfattar viss typ av mänsklig interaktion. Att involvera människor i en automatiserad process är knepigt eftersom människor inte är hög tillgängliga och svarar som moln tjänster. En automatiserad process kan tillåta detta genom att använda tids gränser och kompensations logik.
 
-En godkännandeprocess är ett exempel på en affärsprocess som inbegriper mänsklig interaktion. Godkännande från en chef kan krävas för en utgiftsrapport som överskrider ett visst belopp för dollar. Om manager inte godkänna utgiftsrapporten inom 72 timmar (kanske manager gick på semester), startar en process för eskalering att få godkännande från någon annan (kanske chefens chef).
+En godkännande process är ett exempel på en affärs process som involverar mänsklig interaktion. Godkännande från en chef kan krävas för en utgifts rapport som överstiger en viss rabatt. Om chefen inte godkänner utgifts rapporten inom 72 timmar (kanske chefen gick på semestern), används en eskalering för att få godkännande från någon annan (kanske chefens chef).
 
-![Ett diagram över mönstret mänsklig interaktion](./media/durable-functions-concepts/approval.png)
+![Ett diagram över mänsklig interaktions mönster](./media/durable-functions-concepts/approval.png)
 
-Du kan implementera mönstret i det här exemplet med hjälp av en orchestrator-funktion. Orchestrator använder en [varaktiga timer](durable-functions-timers.md) till begäran om godkännande. Orchestrator eskalerar om timeout uppstår. Orchestrator väntar en [extern händelse](durable-functions-external-events.md), till exempel ett meddelande som genereras av en mänsklig interaktion.
+Du kan implementera mönstret i det här exemplet med hjälp av en Orchestrator-funktion. Orchestrator använder en [varaktig timer](durable-functions-timers.md) för att begära godkännande. Orchestrator eskalerar om timeout inträffar. Orchestrator väntar på en [extern händelse](durable-functions-external-events.md), till exempel ett meddelande som genereras av en mänsklig interaktion.
 
-Följande exempel skapar en godkännandeprocess för att demonstrera mänsklig interaktionsmönstret:
+Följande exempel skapar en godkännande process för att demonstrera de mänskliga interaktions mönstren:
 
 #### <a name="c-script"></a>C#-skript
 
@@ -330,7 +329,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -352,9 +351,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Om du vill skapa varaktiga timern anropa `context.CreateTimer` (.NET) eller `context.df.createTimer` (JavaScript). Meddelandet tas emot av `context.WaitForExternalEvent` (.NET) eller `context.df.waitForExternalEvent` (JavaScript). Sedan `Task.WhenAny` (.NET) eller `context.df.Task.any` (JavaScript) anropas för att bestämma om du vill att eskalera (tidsgräns sker först) eller bearbeta godkännandet (godkännandet tas emot innan timeout).
+För att skapa en varaktig timer, `context.CreateTimer` anropa (.net) `context.df.createTimer` eller (Java Script). Meddelandet tas emot av `context.WaitForExternalEvent` (.net) eller `context.df.waitForExternalEvent` (Java Script). Sedan anropas `context.df.Task.any`(.net ) eller (Java Script) för att bestämma om de ska eskalera (tids gräns sker först) eller behandla godkännandet (godkännandet tas emot före tids gränsen). `Task.WhenAny`
 
-En extern klient kan leverera händelseaviseringen till en funktion för att vänta på orchestrator genom att använda antingen den [inbyggda HTTP APIs](durable-functions-http-api.md#raise-event) eller genom att använda den [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) -API en annan funktion:
+En extern klient kan leverera händelse meddelandet till en väntande Orchestrator-funktion genom att antingen använda [inbyggda http-API: er](durable-functions-http-api.md#raise-event) eller genom att använda [DurableOrchestrationClient. RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) -API: et från en annan funktion:
 
 ```csharp
 public static async Task Run(string instanceId, DurableOrchestrationClient client)
@@ -374,15 +373,15 @@ module.exports = async function (context) {
 };
 ```
 
-### <a name="aggregator"></a>Mönster #6: Aggregator (förhandsversion)
+### <a name="aggregator"></a>Mönster #6: Aggregator (för hands version)
 
-Mönstret sjätte handlar om datainsamling händelse under en viss tidsperiod till en enda adresserbara *entitet*. I det här mönstret data som ska aggregeras kan komma från flera källor, kan tillhandahållas i batchar eller sprids ut under långa-tidsperioder. Aggregatorn kan behöva vidta åtgärder för händelsedata när de anländer och externa klienter kan behöva fråga aggregerade data.
+Det sjätte mönstret är att sammanställa händelse data under en viss tids period till en enda, adresser bar *entitet*. I det här mönstret kan de data som sammanställs komma från flera källor, levereras i batchar eller vara spridda över långa tids perioder. Aggregator kan behöva vidta åtgärder för händelse data när de anländer, och externa klienter kan behöva fråga de sammanställda data.
 
-![Aggregator diagram](./media/durable-functions-concepts/aggregator.png)
+![Aggregator-diagram](./media/durable-functions-concepts/aggregator.png)
 
-Det svårt som om att implementera det här mönstret med normal tillståndslösa functions är att samtidighetskontroll blir en stor utmaning. Inte bara behöver bekymra dig om flera trådar ändra samma data på samma gång, du behöver bekymra dig om att säkerställa att aggregatorn körs bara på en enskild virtuell dator i taget.
+Det är svårt att försöka implementera det här mönstret med normala, tillstånds lösa funktioner är att samtidighets kontroll blir en enorm utmaning. Du behöver inte bara bekymra dig om flera trådar som ändrar samma data samtidigt. du måste också bekymra dig om att se till att Aggregator bara körs på en enda virtuell dator i taget.
 
-Med hjälp av en [varaktiga entitet funktionen](durable-functions-preview.md#entity-functions), en kan implementera det här mönstret enkelt som en enskild funktion.
+Med en [hållbar enhets funktion](durable-functions-preview.md#entity-functions)kan en implementera det här mönstret enkelt som en enda funktion.
 
 ```csharp
 [FunctionName("Counter")]
@@ -408,7 +407,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-Hållbar entiteter kan också modelleras som .NET-klasser. Detta kan vara användbart om listan över åtgärder blir stor och om den huvudsakligen är statisk. I följande exempel är en motsvarande implementering av den `Counter` entitet med hjälp av .NET-klasser och metoder.
+Varaktiga entiteter kan också modelleras som .NET-klasser. Detta kan vara användbart om listan över åtgärder blir stor och om den är statisk. Följande exempel är en motsvarande implementering av `Counter` entiteten med hjälp av .NET-klasser och-metoder.
 
 ```csharp
 public class Counter
@@ -428,7 +427,7 @@ public class Counter
 }
 ```
 
-Klienter kan placera *operations* för (även kallat ”signaler”) en entitet funktionen med hjälp av den `orchestrationClient` bindning.
+Klienter kan köa *åtgärder* för (kallas även "signalering") en entitets funktion med hjälp `orchestrationClient` av bindningen.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -445,67 +444,67 @@ public static async Task Run(
 }
 ```
 
-Dynamiskt skapade proxyservrar kan också användas för signalering entiteter på ett typ-säkert sätt. Och förutom signalering, klienter kan också fråga efter tillståndet för en entitet-funktion med hjälp av metoder på det `orchestrationClient` bindning.
+Dynamiskt genererade proxyservrar är också tillgängliga för att signalera enheter på ett typ säkert sätt. Förutom att signalera kan klienter även fråga efter status för en entitets funktion med hjälp av metoder på `orchestrationClient` bindningen.
 
 > [!NOTE]
-> Funktioner för entiteten är för närvarande endast tillgängliga i den [varaktiga funktioner 2.0 preview](durable-functions-preview.md).
+> Enhets funktioner är för närvarande endast tillgängliga i [Durable Functions 2,0](durable-functions-preview.md)-förhands granskningen.
 
 ## <a name="the-technology"></a>Tekniken
 
-I bakgrunden tillägget varaktiga funktioner är byggt ovanpå den [varaktiga uppgift Framework](https://github.com/Azure/durabletask), ett bibliotek för öppen källkod på GitHub som används för att skapa varaktiga uppgift orkestreringar. Som Azure Functions är en serverlös utveckling av Azure WebJobs, är varaktiga funktioner utan Server utvecklingen av varaktiga uppgift Framework. Microsoft och andra organisationer som använder du varaktiga uppgift Framework stor utsträckning för att automatisera verksamhetskritiska processer. Det är därför lämplig för serverlösa Azure Functions-miljön.
+Durable Functions-tillägget är byggt ovanpå det [varaktiga aktivitets ramverket](https://github.com/Azure/durabletask)i bakgrunden, ett bibliotek med öppen källkod på GitHub som används för att skapa varaktiga uppgifts dirigeringar. Precis som Azure Functions är Server lös utvecklingen av Azure WebJobs, Durable Functions är Server lös utvecklingen av det varaktiga aktivitets ramverket. Microsoft och andra organisationer använder det tåliga aktivitets ramverket i stor utsträckning för att automatisera verksamhets kritiska processer. Det är en naturlig anpassning för den serverbaserade Azure Functionss miljön.
 
-### <a name="event-sourcing-checkpointing-and-replay"></a>Händelsekällor kontrollpunkter och återuppspelning
+### <a name="event-sourcing-checkpointing-and-replay"></a>Händelse källa, kontroll punkter och uppspelning
 
-Orchestrator-funktioner på ett tillförlitligt sätt underhålla sina körningstillstånd med hjälp av den [händelsekällor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) designmönstret. I stället för att direkt spara det aktuella tillståndet för en orkestrering, använder en lagringsplats för endast tillägg i tillägget varaktiga funktioner för att registrera alla åtgärder tar funktionen orchestration. En lagringsplats för endast tillägg har många fördelar jämfört med ”dumpning” fullständig runtime-tillståndet. Fördelar ökad prestanda, skalbarhet och tillgänglighet. Du kan även få slutlig konsekvens för transaktionsdata och fullständig granskningshistorik och historik. Granskningshistoriken stöder tillförlitliga kompenserande åtgärder.
+Orchestrator-funktioner upprätthåller sin körnings status på ett tillförlitligt sätt med hjälp av design mönstret för [händelse källor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) . I stället för att direkt lagra det aktuella läget för ett dirigering, använder Durable Functions-tillägget en lagring med enbart tillägg för att registrera en fullständig serie åtgärder som funktions dirigeringen tar. En skrivskyddad lagrings plats har många fördelar jämfört med "dumpning", fullständig körnings status. Fördelarna är ökad prestanda, skalbarhet och svars tider. Du får också eventuell konsekvens för transaktions data och fullständig gransknings historik och historik. Gransknings historiken har stöd för pålitliga kompenserande åtgärder.
 
-Varaktiga funktioner använder händelsekällor transparent. I bakgrunden i `await` (C#) eller `yield` (JavaScript) operator i en orchestrator-funktion ger kontroll över orchestrator-tråd tillbaka till varaktiga uppgift Framework-avsändaren. Avsändaren sedan genomför alla nya åtgärder som orchestrator-funktion som schemalagts (till exempel anropa en eller flera underordnade funktioner eller schemalägga en hållbar timer) till lagring. Transparent commit-åtgärden läggs till körningshistorik för orchestration-instans. Historiken lagras i en lagringstabell. Commit-åtgärden sedan lägger till meddelanden i kö för att schemalägga det faktiska arbetet. Orchestrator-funktion kan nu tas bort från minnet. 
+Durable Functions använder händelse källa transparent. I bakgrunden, `await` ger operatornC#() `yield` eller (Java Script) i en Orchestrator-funktion kontrollen av Orchestrator-tråden tillbaka till den varaktiga aktivitets Ramverks hanteraren. Dispatchern genomför sedan alla nya åtgärder som Orchestrator-funktionen schemalägger (till exempel anropa en eller flera underordnade funktioner eller schemalägga en varaktig timer) till lagringen. Åtgärden för att utföra transparent tillägg i körnings historiken för Orchestration-instansen. Historiken lagras i en lagrings tabell. Inchecknings åtgärden lägger sedan till meddelanden i en kö för att schemalägga det faktiska arbetet. I det här läget kan Orchestrator-funktionen tas bort från minnet. 
 
-Faktureringen för orchestrator-funktion stoppas om du använder Azure Functions-förbrukningsplanen. När det finns mer arbete att göra, startar om funktionen och dess tillstånd rekonstruerad.
+Faktureringen för Orchestrator-funktionen stannar om du använder Azure Functions förbruknings plan. När det finns mer arbete att utföra startar funktionen om och dess status rekonstrueras.
 
-När en orchestration-funktion får mer arbete att göra (till exempel ett svarsmeddelande tas emot eller en hållbar timern upphör) orchestrator väckningspaketet och igen kör hela funktionen från början till återskapa lokala tillstånd. 
+När en Orchestration-funktion får mer arbete (till exempel om ett svarsmeddelande tas emot eller om en varaktig timer upphör att gälla), aktiverar Orchestrator och kör om hela funktionen från början för att återskapa det lokala läget. 
 
-Under repetitionsattacker, om koden försöker anropa en funktion (eller göra andra async work), hållbar uppgift ramverket konsultationer körningstiden för den aktuella orchestration. Om den hittar som den [aktivitet funktionen](durable-functions-types-features-overview.md#activity-functions) har redan körts och gav ett resultat, det spelar upp den funktionsresultat och orchestrator-koden fortsätter att köras. Återuppspelning fortsätter tills Funktionskoden är klar eller tills den är schemalagd ny asynkron åtgärd.
+Om koden försöker anropa en funktion (eller något annat asynkront arbete) under uppspelningen kan du se körnings historiken för den aktuella dirigeringen. Om den finner att [aktivitets funktionen](durable-functions-types-features-overview.md#activity-functions) redan har körts och ger ett resultat spelas den upp i resultatet och Orchestrator-koden fortsätter att köras. Repetitionen fortsätter tills funktions koden är avslutad eller tills den har schemalagt nytt asynkront arbete.
 
-### <a name="orchestrator-code-constraints"></a>Begränsningar för orchestrator-kod
+### <a name="orchestrator-code-constraints"></a>Begränsningar för Orchestrator-kod
 
-Återuppspelning beteendet för orchestrator kod skapar begränsningar på vilken typ av kod som du kan skriva i en orchestrator-funktion. Orchestrator-koden måste till exempel vara deterministisk eftersom det ska återupprepas flera gånger, och den måste ge samma resultat varje gång. Läs den fullständiga listan med begränsningar [Orchestrator kod begränsningar](durable-functions-checkpointing-and-replay.md#orchestrator-code-constraints).
+Repetitions beteendet i Orchestrator Code skapar begränsningar för den typ av kod som du kan skriva i en Orchestrator-funktion. Till exempel måste Orchestrator-kod vara deterministisk eftersom den kommer att spelas upp flera gånger och det måste ge samma resultat varje gång. En fullständig lista över begränsningar finns i [Orchestrator Code-begränsningar](durable-functions-checkpointing-and-replay.md#orchestrator-code-constraints).
 
 ## <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 
-Tillägget varaktiga funktioner genererar automatiskt strukturerade spårningsdata till [Application Insights](../functions-monitoring.md) om du ställer in din funktionsapp med en Azure Application Insights-instrumenteringsnyckel. Du kan använda spårning av data för att övervaka åtgärder och förloppet för ditt orkestreringar.
+Durable Functions-tillägget avger automatiskt strukturerade spårnings data till [Application Insights](../functions-monitoring.md) om du konfigurerar din funktions app med en Azure Application Insights-Instrumentation-nyckel. Du kan använda spårnings data för att övervaka åtgärder och framsteg för dina dirigeringar.
 
-Här är ett exempel på hur varaktiga funktioner spårning av händelser ser ut i Application Insights-portalen när du använder [Application Insights Analytics](../../application-insights/app-insights-analytics.md):
+Här är ett exempel på hur Durable Functions spårnings händelser ser ut på Application Insights Portal när du använder [Application Insights analys](../../application-insights/app-insights-analytics.md):
 
-![Frågeresultat för Application Insights](./media/durable-functions-concepts/app-insights-1.png)
+![Application Insights frågeresultat](./media/durable-functions-concepts/app-insights-1.png)
 
-Du kan hitta användbara strukturerade data i den `customDimensions` i varje loggpost. Här är ett exempel på en post som är fullständigt expanderas:
+Du kan hitta användbara strukturerade data i `customDimensions` fältet i varje loggpost. Här är ett exempel på en post som är helt expanderad:
 
-![Fältet customDimensions i en Application Insights-fråga](./media/durable-functions-concepts/app-insights-2.png)
+![Fältet customDimensions i en Application Insights fråga](./media/durable-functions-concepts/app-insights-2.png)
 
-Du kan förvänta dig att se redundant loggposter för uppspelat åtgärder på grund av varaktiga uppgift Framework avsändaren repetitionsattacker beteende. Redundant loggposter kan hjälpa dig att förstå hur kärnmotor repetitionsattacker. Den [diagnostik](durable-functions-diagnostics.md) artikeln visar exempelfrågor som filtrerar ut repetitionsattacker loggar så att du kan se bara ”i realtid” loggarna.
+På grund av omuppspelnings beteendet för den varaktiga aktivitets Ramverks Dispatchern kan du se till att du ser redundanta logg poster för åtgärder som spelas upp. Redundanta logg poster kan hjälpa dig att förstå omuppspelnings beteendet för huvud motorn. I artikeln [diagnostik](durable-functions-diagnostics.md) visas exempel frågor som filtrerar bort uppspelnings loggar, så att du bara kan se "real tids"-loggar.
 
 ## <a name="storage-and-scalability"></a>Lagring och skalbarhet
 
-Köer, tabeller och blobbar använder i Azure Storage tillägget varaktiga funktioner för att bevara körning historik tillstånd och utlöser körning av funktion. Du kan använda standardkontot för lagring för funktionsappen eller du kan konfigurera ett separat lagringskonto. Du kanske vill ett separat konto baserat på dataflöde gränser. Orchestrator-koden du skriver interagera inte med entiteter i dessa lagringskonton. Hållbar uppgift ramverket hanterar entiteterna direkt som en implementeringsdetalj.
+Durable Functions-tillägget använder köer, tabeller och blobbar i Azure Storage för att spara tillstånd för körnings historik och utlösa funktions körning. Du kan använda standard lagrings kontot för Function-appen, eller så kan du konfigurera ett separat lagrings konto. Du kanske vill ha ett separat konto baserat på lagrings data flödes gränser. Orchestrator-koden du skriver fungerar inte med entiteterna i dessa lagrings konton. Det varaktiga aktivitets ramverket hanterar entiteterna direkt som en implementerings information.
 
-Orchestrator-funktioner schemalägga Aktivitetsfunktioner och få svar via interna Kömeddelanden. När en funktionsapp som körs i Azure Functions-förbrukningsplanen, den [Azure Functions skala controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) övervakar dessa köer. Nya instanser läggs efter behov. Vid utskalning till flera virtuella datorer, köra en orchestrator-funktion på en virtuell dator när Aktivitetsfunktioner som orchestrator-funktionsanrop som kan köras på flera olika virtuella datorer. Mer information om beteendet skala varaktiga funktioner finns i [prestanda och skalning](durable-functions-perf-and-scale.md).
+Orchestrator Functions schemalägger aktivitets funktioner och tar emot sina svar via interna Kömeddelanden. När en Function-App körs i Azure Functions förbruknings planen övervakas dessa köer av [Azure Functions Scale Controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) . Nya beräknings instanser läggs till vid behov. Vid utskalning till flera virtuella datorer kan en Orchestrator-funktion köras på en virtuell dator, medan aktivitets funktioner som fungerar som Orchestrator-funktions anrop kan köras på flera olika virtuella datorer. Mer information om skalnings beteendet för Durable Functions finns i [prestanda och skalning](durable-functions-perf-and-scale.md).
 
-Körningstiden för orchestrator-konton lagras i table storage. När en instans rehydrates på en viss virtuell dator, hämtar orchestrator dess körningshistorik från table storage så att den kan återskapa det lokala tillståndet. En praktisk aspekt av historik som är tillgängliga i table storage är att du kan använda verktyg som [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) att se historiken för din orkestreringar.
+Körnings historiken för Orchestrator-konton lagras i Table Storage. När en instans rehydratiseras på en viss virtuell dator hämtar Orchestrator sin körnings historik från Table Storage så att den kan återskapa sitt lokala tillstånd. En praktisk aspekt av att ha historiken tillgänglig i Table Storage är att du kan använda verktyg som [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) för att se historiken för dina dirigeringar.
 
-Lagringsblobar används främst som en leasingmekanism för att koordinera skalbar orchestration instanser mellan flera virtuella datorer. Lagringsblobar innehåller data för stora meddelanden som inte kan lagras direkt i tabeller eller köer.
+Storage-blobbar används främst som en operationell leasing mekanism för att samordna utskalning av Orchestration-instanser över flera virtuella datorer. Storage-blobbar innehåller data för stora meddelanden som inte kan lagras direkt i tabeller eller köer.
 
-![En skärmbild av Azure Storage Explorer](./media/durable-functions-concepts/storage-explorer.png)
+![En skärm bild av Azure Storage Explorer](./media/durable-functions-concepts/storage-explorer.png)
 
 > [!NOTE]
-> Även om det är enkelt och praktiskt att se körningshistorik i table storage, gör eventuella beroenden på den här tabellen. Tabellen ändras när tillägget varaktiga funktioner utvecklas.
+> Även om det är enkelt och bekvämt att se körnings historiken i Table Storage, ska du inte göra några beroenden i den här tabellen. Tabellen kan ändras när Durable Functions tillägget utvecklas.
 
 ## <a name="known-issues"></a>Kända problem
 
-Alla kända problem som ska spåras i den [GitHub-ärenden](https://github.com/Azure/azure-functions-durable-extension/issues) lista. Om du stöter på problem och det går inte att hitta problemet i GitHub kan du öppna ett nytt ärende. Innehåller en detaljerad beskrivning av problemet.
+Alla kända problem bör spåras i listan med [GitHub-problem](https://github.com/Azure/azure-functions-durable-extension/issues) . Om du stöter på ett problem och inte kan hitta problemet i GitHub öppnar du ett nytt ärende. Innehåller en detaljerad beskrivning av problemet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om varaktiga funktioner i [varaktiga funktioner fungerar typer och funktioner](durable-functions-types-features-overview.md). 
+Mer information om Durable Functions finns i [Durable Functions funktions typer och-funktioner](durable-functions-types-features-overview.md). 
 
 Så här kommer du igång:
 

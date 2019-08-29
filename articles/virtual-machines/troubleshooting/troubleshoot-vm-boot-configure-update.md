@@ -1,6 +1,6 @@
 ---
-title: VM Start har fastnat på ”Getting Windows redo. Stäng inte av datorn ”i Azure | Microsoft Docs
-description: Introducera stegen för att felsöka problemet där VM Start har fastnat på ”Getting Windows redo. Stäng inte av datorn”.
+title: Starten av den virtuella datorn har fastnat i "komma igång med Windows. Stäng inte av datorn i Azure | Microsoft Docs
+description: Introducera stegen för att felsöka problemet där VM-start fastnar på "komma igång med Windows. Stäng inte av datorn”.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -10,52 +10,51 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: c3592529d20680c6920e569887effee4ffe38344
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f3c18ea1887ea5b05bb89f85371139ac83dfe49
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684010"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080167"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM Start har fastnat på ”Getting Windows redo. Stäng inte av datorn ”i Azure
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Starten av den virtuella datorn har fastnat i "komma igång med Windows. Stäng inte av datorn i Azure
 
-Den här artikeln hjälper dig att lösa problemet när den virtuella datorn (VM) har fastnat på den ”Windows förbereda. Stäng inte av datorn ”steg under starten.
+Den här artikeln hjälper dig att lösa problemet när den virtuella datorn (VM) har fastnat i "komma igång med Windows. Stäng inte av datorn "-steget under starten.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="symptoms"></a>Symtom
 
-När du använder **Startdiagnostik** Skärmbild av en virtuell dator får operativsystemet inte fullständigt startas. Den virtuella datorn visar meddelandet ”Getting Windows redo. Stäng inte av datorn”.
+När du använder **startdiagnostik** för att hämta skärm bilden för en virtuell dator startar inte operativ systemet helt. Den virtuella datorn visar meddelandet "komma igång med Windows. Stäng inte av datorn”.
 
-![Exempel på meddelande för Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
+![Meddelande exempel för Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
-![Exempel på meddelande](./media/troubleshoot-vm-configure-update-boot/message2.png)
+![Meddelande exempel](./media/troubleshoot-vm-configure-update-boot/message2.png)
 
 ## <a name="cause"></a>Orsak
 
-Det här problemet uppstår vanligen när servern gör den slutliga omstarten när konfigurationen ändrades. Konfigurationsändringen kan initieras av Windows-uppdateringar eller av ändringar på roller /-funktionen på servern. För Windows Update, om storleken på uppdateringarna som har stor eller måste operativsystemet mer tid för att konfigurera om ändringarna.
+Det här problemet uppstår vanligt vis när servern utför den slutliga omstarten när konfigurationen har ändrats. Konfigurations ändringen kan initieras av Windows-uppdateringar eller av ändringarna på serverns roller/funktion. För Windows Update, om Uppdateringens storlek var stor, behöver operativ systemet mer tid för att omkonfigurera ändringarna.
 
 ## <a name="back-up-the-os-disk"></a>Säkerhetskopiera OS-disken
 
 Säkerhetskopiera OS-disken innan du försöker åtgärda problemet.
 
-### <a name="for-vms-with-an-encrypted-disk-you-must-unlock-the-disks-first"></a>För virtuella datorer med en krypterad disk, du måste låsa upp diskarna först
+### <a name="for-vms-with-an-encrypted-disk-you-must-unlock-the-disks-first"></a>För virtuella datorer med en krypterad disk måste du låsa upp diskarna först
 
-Följ stegen nedan för att avgöra om den virtuella datorn är en krypterad virtuell dator.
+Följ dessa steg för att avgöra om den virtuella datorn är en krypterad virtuell dator.
 
-1. Öppna din virtuella dator på Azure portal och bläddra sedan till diskarna.
+1. Öppna den virtuella datorn på Azure Portal och bläddra sedan till diskarna.
 
-2. Titta på den **kryptering** kolumnen för att se om kryptering har aktiverats.
+2. Titta i kolumnen **kryptering** för att se om kryptering är aktiverat.
 
-Låsa upp den krypterade disken om OS-disken är krypterad. Följ dessa steg för att låsa upp disken.
+Om operativ system disken är krypterad kan du låsa upp den krypterade disken. Följ dessa steg om du vill låsa upp disken.
 
-1. Skapa ett Recovery virtuell dator som finns i samma resursgrupp, Storage-konto och plats som den berörda virtuella datorn.
+1. Skapa en virtuell dator för återställning som finns i samma resurs grupp, lagrings konto och plats som den berörda virtuella datorn.
 
-2. Ta bort den berörda virtuella datorn och hålla disken i Azure-portalen.
+2. Ta bort den virtuella datorn som påverkas i Azure Portal och behåll disken.
 
 3. Kör PowerShell som administratör.
 
@@ -74,7 +73,7 @@ Låsa upp den krypterade disken om OS-disken är krypterad. Följ dessa steg fö
     Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
     ```
 
-5. När du har det hemliga namnet, kör du följande kommandon i PowerShell.
+5. När du har det hemliga namnet kör du följande kommandon i PowerShell.
 
     ```Powershell
     $secretName = 'SecretName'
@@ -82,10 +81,10 @@ Låsa upp den krypterade disken om OS-disken är krypterad. Följ dessa steg fö
     $bekSecretBase64 = $keyVaultSecret.SecretValueText
     ```
 
-6. Konvertera det Base64-kodad värdet till byte och skriva utdata till en fil. 
+6. Konvertera det Base64-kodade värdet till byte och skriv utdata till en fil. 
 
     > [!Note]
-    > Om du använder USB låsa upp alternativet, BEK filnamnet måste matcha det ursprungliga BEK GUID. Skapa en mapp på enhet C med namnet ”BEK” innan du följer dessa steg.
+    > Om du använder alternativet för USB-upplåsning måste fil namnet BEK matcha det ursprungliga BEK-GUID: t. Skapa en mapp på C-enheten med namnet "BEK" innan du följer de här stegen.
     
     ```Powershell
     New-Item -ItemType directory -Path C:\BEK
@@ -94,41 +93,41 @@ Låsa upp den krypterade disken om OS-disken är krypterad. Följ dessa steg fö
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7. När filen BEK har skapats på din dator kan du kopiera filen till återställningen VM som du har låst OS-disken är ansluten till. Kör följande kommandon med hjälp av BEK filens plats.
+7. När BEK-filen har skapats på datorn kopierar du filen till den virtuella återställnings datorn som du har den låsta OS-disken ansluten till. Kör följande kommandon med hjälp av fil platsen BEK.
 
     ```Powershell
     manage-bde -status F:
     manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
     ```
-    **Valfritt**: I vissa situationer kan det vara nödvändigt att dekryptera disken med hjälp av det här kommandot.
+    **Valfritt**: I vissa fall kan det vara nödvändigt att dekryptera disken med hjälp av det här kommandot.
    
     ```Powershell
     manage-bde -off F:
     ```
 
     > [!Note]
-    > Föregående kommando förutsätter att kryptera disken finns på bokstaven F.
+    > Föregående kommando förutsätter att disken som ska krypteras är i bokstav F.
 
-8. Om du behöver samla in loggar, går du till sökvägen **enhet BOKSTAV: \Windows\System32\winevt\Logs**.
+8. Om du behöver samla in loggar går du till sökvägen **enhets beteckning: \ Windows\System32\winevt\Logs**.
 
-9. Koppla bort enheten från dator för återställning.
+9. Koppla bort enheten från återställnings datorn.
 
 ### <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
-Om du vill skapa en ögonblicksbild, följer du stegen i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
+Följ stegen i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md)för att skapa en ögonblicks bild.
 
-## <a name="collect-an-os-memory-dump"></a>Samla in en minnesdump för OS
+## <a name="collect-an-os-memory-dump"></a>Samla in en minnesdump för operativ system
 
-Följ stegen i den [samla in os dump](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file) avsnitt för att samla in en OS-dump när den virtuella datorn har fastnat på konfiguration.
+Använd stegen i avsnittet [samla in OS-dump](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file) för att samla in en OS-dump när den virtuella datorn fastnar i konfigurationen.
 
 ## <a name="contact-microsoft-support"></a>Kontakta Microsoft-supporten
 
-När du har samlat in dumpfilen Kontakta [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att analysera rotorsaken.
+När du har samlat in dumpfilen kontaktar du [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att analysera rotor saken.
 
 
 ## <a name="rebuild-the-vm-by-using-powershell"></a>Återskapa den virtuella datorn med hjälp av PowerShell
 
-När du samlar in minnesdumpen, följer du stegen nedan för att återskapa den virtuella datorn.
+När du har samlat in minnesdumpen följer du de här stegen för att återskapa den virtuella datorn.
 
 **För icke-hanterade diskar**
 
@@ -161,7 +160,7 @@ $vm = Set-AzVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -CreateOpti
 New-AzVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 ```
 
-**För hanterade diskar**
+**För Managed disks**
 
 ```powershell
 # To log in to Azure Resource Manager

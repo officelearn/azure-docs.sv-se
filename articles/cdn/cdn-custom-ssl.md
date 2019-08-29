@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 08/28/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 0ad01d76e93c731ed5faed268a0537cada787952
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 1f7c212b7bb850816557feb53099973986bab587
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996817"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114498"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -312,6 +312,9 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
     Dina befintliga domäner kommer gradvis att migreras till ett enskilt certifikat under de kommande månaderna om Microsoft i sina analyser ser att det bara görs SNI-klientförfrågningar till ditt program. Om Microsoft ser att det görs andra typer av förfrågningar till ditt program fortsätter domänerna att använda SAN-certifikat med IP-baserad TLS/SSL. Det uppstår dock inga avbrott i tjänsten eller stödet för klientförfrågningar oavsett om förfrågningarna är SNI-baserade eller inte.
 
+7. *Hur fungerar certifikat förnyelser med ditt eget certifikat?*
+
+    Om du vill se till att ett nyare certifikat distribueras till PoP-infrastrukturen, laddar du upp det nya certifikatet till Azure-nyckel valvet och väljer sedan den senaste certifikat versionen i SSL-inställningar på Azure CDN och trycker på Spara. Azure CDN kommer sedan att Propogate det nya uppdaterade certifikatet. 
 
 ## <a name="next-steps"></a>Nästa steg
 

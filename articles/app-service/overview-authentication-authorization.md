@@ -10,18 +10,17 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d01994dc4d01baed71bb3de56e069fac5597dc77
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e308b44fffff451daa92cbf19209a1bcbfd4bff6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030840"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087988"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -109,7 +108,7 @@ I tabellen nedan visas stegen i Authentication Flow.
 | Steg | Utan SDK för Provider | Med SDK för Provider |
 | - | - | - |
 | 1. Logga in användare | Omdirigerar klienten till `/.auth/login/<provider>`. | Klient koden signerar användaren direkt med providerns SDK och tar emot en autentiseringstoken. Mer information finns i leverantörens dokumentation. |
-| 2. Efterautentisering | Providern omdirigerar klienten till `/.auth/login/<provider>/callback`. | Klient koden [publicerar token från providern](app-service-authentication-how-to.md#validate-tokens-from-providers) till `/.auth/login/<provider>` för verifiering. |
+| 2. Efter autentisering | Providern omdirigerar klienten till `/.auth/login/<provider>/callback`. | Klient koden [publicerar token från providern](app-service-authentication-how-to.md#validate-tokens-from-providers) till `/.auth/login/<provider>` för verifiering. |
 | 3. Upprätta autentiserad session | App Service lägger till autentiserad cookie i svaret. | App Service returnerar dess egen autentiseringstoken till klient koden. |
 | 4. Hantera autentiserat innehåll | Klienten inkluderar autentiserings-cookie i efterföljande begär Anden (hanteras automatiskt av webbläsare). | Klient koden presenterar autentiseringstoken i `X-ZUMO-AUTH` huvudet (hanteras automatiskt av Mobile Apps klient-SDK: er). |
 
@@ -125,7 +124,7 @@ I [Azure Portal](https://portal.azure.com)kan du konfigurera App Service auktori
 
 Följande rubriker beskriver alternativen.
 
-### <a name="allow-anonymous-requests-no-action"></a>Tillåt anonyma förfrågningar (ingen åtgärd)
+### <a name="allow-anonymous-requests-no-action"></a>Tillåt anonyma begär Anden (ingen åtgärd)
 
 Med det här alternativet överlåts auktoriseringen av oautentiserad trafik till program koden. För autentiserade begär Anden skickar App Service även information om autentiseringen i HTTP-huvudena. 
 

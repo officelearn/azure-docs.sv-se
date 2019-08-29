@@ -6,19 +6,18 @@ manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a62a302748cb7e60b6a857c686d1833ad499cc7a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478403"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081659"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Självstudier: Distribuera appar till virtuella Linux-datorer i Azure med Jenkins och Azure DevOps Services
 
@@ -35,7 +34,7 @@ till en [distributionsgrupp](https://docs.microsoft.com/azure/devops/pipelines/r
 > * Konfigurera Jenkins för integrering med Azure DevOps Services.
 > * Skapa en tjänstslutpunkt för Jenkins.
 > * Skapa en distributionsgrupp för de virtuella Azure-datorerna.
-> * Skapa en pipeline för versionen av Azure-Pipelines.
+> * Skapa en pipeline för Azure pipelines-utgåvor.
 > * Kör manuella och CI-utlösta distributioner.
 
 ## <a name="before-you-begin"></a>Innan du börjar
@@ -133,7 +132,7 @@ Du behöver en [distributionsgrupp](https://www.visualstudio.com/docs/build/conc
 
 1. Öppna fliken **Releases** (Versioner) i hubben **Build &amp; Release** (Skapa version). Öppna **Deployment groups** (Distributionsgrupper) och välj **+ New** (+ Ny).
 2. Ange ett namn för distributionsgruppen och valfri beskrivning. Välj sedan **Skapa**.
-3. Välj operativsystem för din virtuella måldator för distribution. Välj t.ex. **Ubuntu 16.04+**.
+3. Välj operativsystem för din virtuella måldator för distribution. Välj t.ex. **Ubuntu 16.04+** .
 4. Välj **Use a personal access token in the script for authentication** (Använd en personlig åtkomsttoken i skriptet för autentisering).
 5. Välj länken för **systemkrav**. Installera förutsättningarna för ditt operativsystem.
 6. Välj **Kopiera skriptet till Urklipp** för att kopiera skriptet.
@@ -141,7 +140,7 @@ Du behöver en [distributionsgrupp](https://www.visualstudio.com/docs/build/conc
 8. Efter installationen kan du uppmanas att distribuera grupptaggar. Acceptera alla standardinställningar.
 9. Sök efter den nya virtuella datorn i Azure DevOps Services, i **Targets** (Mål) under **Deployment Groups** (Distributionsgrupper).
 
-## <a name="create-an-azure-pipelines-release-pipeline"></a>Skapa en pipeline för versionen av Azure Pipelines
+## <a name="create-an-azure-pipelines-release-pipeline"></a>Skapa en pipeline för Azure pipelines-lansering
 
 En versionspipeline anger hur Azure Pipelines ska distribuera appen. I det här exemplet kör du ett kommandoskript.
 
@@ -166,7 +165,7 @@ Så här skapar du en versionspipeline i Azure Pipelines:
 2. Välj den version du slutförde i den markerade listrutan och välj **Queue** (Kö).
 3. Välj versionslänken i popup-meddelandet. Exempel: ”Release **Release-1** har skapats”.
 4. Öppna fliken med **loggar** för att se på utmatningen av versionen.
-5. Öppna URL-adressen till en av de servrar som du lagt till i din distributionsgrupp i en webbläsare. Ange till exempel **http://{din-server-ip-adress}**.
+5. Öppna URL-adressen till en av de servrar som du lagt till i din distributionsgrupp i en webbläsare. Ange till exempel **http://{din-server-ip-adress}** .
 6. Gå till källagringsplatsen i Git och ändra innehållet i rubriken **h1** för filen app/views/index.jade.
 7. Checka in ändringarna.
 8. Efter några minuter ser du att en ny version har skapats på sidan med **versioner** i Azure DevOps. Öppna versionen om du vill se distributionen. Grattis!

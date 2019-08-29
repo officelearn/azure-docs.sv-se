@@ -1,6 +1,6 @@
 ---
-title: Virtuella datorer i en Azure Resource Manager-mall | Microsoft Azure
-description: Läs mer om hur den virtuella datorresursen definieras i en Azure Resource Manager-mall.
+title: Virtuella datorer i en Azure Resource Manager mall | Microsoft Azure
+description: Lär dig mer om hur den virtuella dator resursen definieras i en Azure Resource Manager mall.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,26 +11,25 @@ ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: fd4fad40ef4809c756321493854f38fd813569ca
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710291"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101777"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
 
-Den här artikeln beskrivs olika aspekter av en Azure Resource Manager-mall som gäller för virtuella datorer. Den här artikeln beskriver inte en fullständig mall för att skapa en virtuell dator; för att du behöver resursdefinitionerna för lagringskonton, nätverksgränssnitt, offentliga IP-adresser och virtuella nätverk. Mer information om hur dessa resurser kan definieras tillsammans finns i den [genomgång av Resource Manager-mall](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Den här artikeln beskriver aspekter av en Azure Resource Manager-mall som gäller för virtuella datorer. Den här artikeln beskriver inte en fullständig mall för att skapa en virtuell dator. för att du behöver resurs definitioner för lagrings konton, nätverks gränssnitt, offentliga IP-adresser och virtuella nätverk. Mer information om hur dessa resurser kan definieras tillsammans finns i [genom gången av Resource Manager-mallen](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-Det finns många [mallar i galleriet](https://azure.microsoft.com/documentation/templates/?term=VM) som innehåller den Virtuella datorresursen. Här beskrivs inte alla element som kan ingå i en mall.
+Det finns många [mallar i galleriet](https://azure.microsoft.com/documentation/templates/?term=VM) som innehåller den virtuella dator resursen. Alla element som kan inkluderas i en mall beskrivs inte här.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-Det här exemplet visas en typisk resursavsnitt i en mall för att skapa ett angivet antal virtuella datorer:
+I det här exemplet visas ett typiskt resurs avsnitt i en mall för att skapa ett angivet antal virtuella datorer:
 
 ```json
 "resources": [
@@ -148,30 +147,30 @@ Det här exemplet visas en typisk resursavsnitt i en mall för att skapa ett ang
 ``` 
 
 > [!NOTE] 
->Det här exemplet är beroende av ett lagringskonto som skapades tidigare. Du kan skapa lagringskontot genom att distribuera den från mallen. I exempel förlitar sig även ett nätverksgränssnitt och dess beroende resurser som skulle definieras i mallen. Dessa resurser visas inte i det här exemplet.
+>Det här exemplet använder ett lagrings konto som skapats tidigare. Du kan skapa lagrings kontot genom att distribuera det från mallen. Exemplet förlitar sig även på ett nätverks gränssnitt och dess beroende resurser som definieras i mallen. Dessa resurser visas inte i exemplet.
 >
 >
 
-## <a name="api-version"></a>API-Version
+## <a name="api-version"></a>API-version
 
-Du måste ange en version av API för att använda när du distribuerar resurser med hjälp av en mall. Exemplet visar resursen för virtuella datorer med hjälp av det här apiVersion-elementet:
+När du distribuerar resurser med en mall måste du ange en version av API: et som ska användas. Exemplet visar den virtuella dator resursen med det här API version-elementet:
 
 ```
 "apiVersion": "2016-04-30-preview",
 ```
 
-Versionen av API: et som du anger i mallen påverkar vilka egenskaper som du kan definiera i mallen. I allmänhet bör du välja den senaste API-versionen när du skapar mallar. För befintliga mallar, kan du bestämma om du vill fortsätta att använda en äldre API-version eller uppdatera mallen för den senaste versionen för att dra nytta av nya funktioner.
+Den version av API: n som du anger i mallen påverkar vilka egenskaper du kan definiera i mallen. I allmänhet bör du välja den senaste API-versionen när du skapar mallar. För befintliga mallar kan du välja om du vill fortsätta använda en tidigare API-version eller uppdatera din mall för den senaste versionen för att dra nytta av nya funktioner.
 
-Använd dessa möjligheter för att få de senaste API-versionerna:
+Använd de här möjligheterna för att hämta de senaste API-versionerna:
 
-- REST-API – [lista alla resursprovidrar](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell – [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
-- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider)
+- REST API – [Visa alla resurs leverantörer](https://docs.microsoft.com/rest/api/resources/providers)
+- PowerShell- [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
+- Azure CLI – [AZ Provider show](https://docs.microsoft.com/cli/azure/provider)
 
 
 ## <a name="parameters-and-variables"></a>Parametrar och variabler
 
-[Parametrar](../../resource-group-authoring-templates.md) gör det enkelt för dig att ange värden för mallen när du kör den. Det här avsnittet parametrar används i det här exemplet:
+[Parametrar](../../resource-group-authoring-templates.md) gör det enkelt för dig att ange värden för mallen när du kör den. Det här parameter avsnittet används i exemplet:
 
 ```        
 "parameters": {
@@ -181,9 +180,9 @@ Använd dessa möjligheter för att få de senaste API-versionerna:
 },
 ```
 
-När du distribuerar mallen exempel kan ange du värden för namn och lösenord för administratörskontot på varje virtuell dator och hur många virtuella datorer för att skapa. Du har möjlighet att specificering av parametervärden i en separat fil som hanteras med hjälp av mallen, eller att tillhandahålla värden när du tillfrågas.
+När du distribuerar exempel mal len anger du värden för namn och lösen ord för administratörs kontot på varje virtuell dator och antalet virtuella datorer som ska skapas. Du kan välja att ange parameter värden i en separat fil som hanteras med mallen eller ange värden när du uppmanas att göra det.
 
-[Variabler](../../resource-group-authoring-templates.md) gör det enkelt för dig att ange värden i mallen som används flera gånger i den eller som kan ändras med tiden. Det här avsnittet för variabler används i det här exemplet:
+[Variabler](../../resource-group-authoring-templates.md) gör det enkelt för dig att konfigurera värden i mallen som används upprepade gånger i den eller som kan ändras över tid. Avsnittet med följande variabler används i exemplet:
 
 ```
 "variables": { 
@@ -216,11 +215,11 @@ När du distribuerar mallen exempel kan ange du värden för namn och lösenord 
 }, 
 ```
 
-När du distribuerar mallen exempel används variabelvärden för namn och ID för det tidigare skapade lagringskontot. Variabler används också för att ange inställningarna för det diagnostiska-tillägget. Använd den [bästa praxis för att skapa Azure Resource Manager-mallar](../../resource-manager-template-best-practices.md) för att avgöra hur du vill att strukturera parametrar och variabler i mallen.
+När du distribuerar exempel mal len används variabel värden för namnet och identifieraren för det tidigare skapade lagrings kontot. Variabler används också för att ange inställningar för diagnostiskt tillägg. Använd de [bästa metoderna för att skapa Azure Resource Manager mallar](../../resource-manager-template-best-practices.md) som hjälper dig att bestämma hur du vill strukturera parametrarna och variablerna i mallen.
 
-## <a name="resource-loops"></a>Resurs-slingor
+## <a name="resource-loops"></a>Resurs slingor
 
-När du behöver mer än en virtuell dator för ditt program kan använda du en kopieringselement i en mall. Det här valfria elementet loopar genom att skapa hur många virtuella datorer som du har angett som en parameter:
+När du behöver fler än en virtuell dator för ditt program kan du använda ett kopierings element i en mall. Detta valfria element upprepas genom att skapa antalet virtuella datorer som du har angett som parameter:
 
 ```
 "copy": {
@@ -229,7 +228,7 @@ När du behöver mer än en virtuell dator för ditt program kan använda du en 
 },
 ```
 
-Observera också i det här exemplet att loopindexet används när du anger en del av värden för resursen. Om du har angett ett instansantal på tre är till exempel namnen på operativsystemdiskar myOSDisk1 och myOSDisk2 myOSDisk3:
+Lägg också märke till i exemplet att loop-indexet används när du anger några av resursens värden. Om du till exempel har angett ett instans antal på tre, är namnen på operativ system diskarna myOSDisk1, myOSDisk2 och myOSDisk3:
 
 ```
 "osDisk": { 
@@ -240,11 +239,11 @@ Observera också i det här exemplet att loopindexet används när du anger en d
 ```
 
 > [!NOTE] 
->Det här exemplet använder hanterade diskar för virtuella datorer.
+>I det här exemplet används hanterade diskar för de virtuella datorerna.
 >
 >
 
-Tänk på att skapa en loop för en resurs i mallen kan kräva att du kan använda slingan när du skapar eller ansluter till andra resurser. Flera virtuella datorer kan inte använda samma nätverksgränssnitt, så om din mall loopar genom att skapa tre virtuella datorer måste det också att loopa igenom skapa tre nätverksgränssnitt. När du tilldelar ett nätverksgränssnitt till en virtuell dator, används loopindexet för att identifiera den:
+Tänk på att om du skapar en loop för en resurs i mallen kan du behöva använda loopen när du skapar eller använder andra resurser. Till exempel kan flera virtuella datorer inte använda samma nätverks gränssnitt, så om din mall loopar genom att skapa tre virtuella datorer måste den också gå igenom skapandet av tre nätverks gränssnitt. När du tilldelar ett nätverks gränssnitt till en virtuell dator används loop-indexet för att identifiera det:
 
 ```
 "networkInterfaces": [ { 
@@ -255,7 +254,7 @@ Tänk på att skapa en loop för en resurs i mallen kan kräva att du kan använ
 
 ## <a name="dependencies"></a>Beroenden
 
-De flesta resurser är beroende av andra resurser ska fungera korrekt. Virtuella datorer måste vara associerad med ett virtuellt nätverk och göra att den behöver ett nätverksgränssnitt. Den [dependsOn](../../resource-group-define-dependencies.md) elementet används för att se till att nätverksgränssnittet är redo att användas innan de virtuella datorerna skapas:
+De flesta resurser är beroende av att andra resurser fungerar korrekt. Virtuella datorer måste associeras med ett virtuellt nätverk och för att göra det krävs ett nätverks gränssnitt. [DependsOn](../../resource-group-define-dependencies.md) -elementet används för att kontrol lera att nätverks gränssnittet är klart att användas innan de virtuella datorerna skapas:
 
 ```
 "dependsOn": [
@@ -263,9 +262,9 @@ De flesta resurser är beroende av andra resurser ska fungera korrekt. Virtuella
 ],
 ```
 
-Resource Manager distribuerar parallellt alla resurser som inte är beroende av en annan resurs som ska distribueras. Var försiktig när du ställer in beroenden eftersom du av misstag kan påverka din distribution genom att ange onödiga beroenden. Beroenden kan länka via flera resurser. Till exempel beror nätverksgränssnittet på den offentliga IP-adressen och virtuella nätverksresurser.
+Resource Manager distribuerar parallellt med alla resurser som inte är beroende av en annan resurs som distribueras. Var försiktig när du anger beroenden eftersom du oavsiktligt kan minska distributionen genom att ange onödiga beroenden. Beroenden kan kopplas samman mellan flera resurser. Nätverks gränssnittet är till exempel beroende av den offentliga IP-adressen och de virtuella nätverks resurserna.
 
-Hur vet du om ett beroende krävs? Titta på värden som du angav i mallen. Om ett element i den virtuella dator resource definition pekar på en annan resurs som har distribuerats i samma mall måste ett beroende. Till exempel definierar den virtuella datorn exempel en nätverksprofil:
+Hur vet du om ett beroende krävs? Titta på de värden som du angav i mallen. Om ett element i den virtuella datorns resurs definition pekar på en annan resurs som har distribuerats i samma mall, behöver du ett beroende. Ditt exempel på en virtuell dator definierar till exempel en nätverks profil:
 
 ```
 "networkProfile": { 
@@ -276,25 +275,25 @@ Hur vet du om ett beroende krävs? Titta på värden som du angav i mallen. Om e
 },
 ```
 
-Om du vill använda den här egenskapen måste det finnas ett nätverksgränssnitt. Därför måste ett beroende. Du måste också ange ett beroende när en resurs (en underordnad) definieras i en annan resurs (överordnad). Till exempel definieras diagnostikinställningar och anpassade skripttillägg både som underordnade resurser till den virtuella datorn. De kan inte skapas förrän den virtuella datorn finns. Båda resurserna är därför markerade som är beroende av den virtuella datorn.
+Nätverks gränssnittet måste finnas om du vill ange den här egenskapen. Därför behöver du ett beroende. Du måste också ange ett beroende när en resurs (underordnad) definieras inom en annan resurs (en överordnad). Diagnostikinställningar och anpassade skript tillägg är till exempel båda definierade som underordnade resurser för den virtuella datorn. De kan inte skapas förrän den virtuella datorn finns. Därför markeras båda resurserna som beroende av den virtuella datorn.
 
 ## <a name="profiles"></a>Profiler
 
-Flera profil-element används när du definierar en VM-resurs. Några är obligatoriska och vissa är valfria. Till exempel hardwareProfile, osProfile, storageProfile och networkProfile-element krävs, men diagnosticsProfile är valfritt. Profilerna definierar inställningar som:
+Flera profil element används när du definierar en resurs för virtuella datorer. Vissa är obligatoriska och vissa är valfria. Till exempel krävs hardwareProfile-, osProfile-, storageProfile-och networkProfile-element, men diagnosticsProfile är valfritt. Dessa profiler definierar inställningar som:
    
-- [size](sizes.md)
-- [namn på](/azure/architecture/best-practices/naming-conventions) och autentiseringsuppgifter
-- disk och [inställningar för operativsystem](cli-ps-findimage.md)
-- [Nätverksgränssnitt](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
-- Startdiagnostik
+- [ändra](sizes.md)
+- [namn](/azure/architecture/best-practices/naming-conventions) och autentiseringsuppgifter
+- disk-och [operativ system inställningar](cli-ps-findimage.md)
+- [nätverks gränssnitt](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- startdiagnostik
 
 ## <a name="disks-and-images"></a>Diskar och avbildningar
    
-I Azure, vhd-filer kan representera [diskar eller avbildningar](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). När operativsystemet i en vhd-fil är specialiserat ska vara en specifik virtuell dator, kallas det för en disk. När operativsystemet i en vhd-fil är generaliserad som används för att skapa flera virtuella datorer, kallas det en bild.   
+I Azure kan VHD-filer representera [diskar eller avbildningar](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). När operativ systemet i en VHD-fil är specialiserat för att vara en specifik virtuell dator kallas det för en disk. När operativ systemet i en VHD-fil generaliseras för att användas för att skapa många virtuella datorer kallas det för en avbildning.   
     
-### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Skapa nya virtuella datorer och nya diskar från en plattformsavbildning
+### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Skapa nya virtuella datorer och nya diskar från en plattforms avbildning
 
-När du skapar en virtuell dator, måste du bestämma vilket operativsystem du använder. ImageReference-elementet används för att definiera operativsystemet på en ny virtuell dator. Exemplet visar en definition för ett Windows Server-operativsystem:
+När du skapar en virtuell dator måste du bestämma vilket operativ system som ska användas. ImageReference-elementet används för att definiera operativ systemet för en ny virtuell dator. Exemplet visar en definition för ett Windows Server-operativ system:
 
 ```
 "imageReference": { 
@@ -305,7 +304,7 @@ När du skapar en virtuell dator, måste du bestämma vilket operativsystem du a
 },
 ```
 
-Du kan använda den här definitionen om du vill skapa ett Linux-operativsystem:
+Om du vill skapa ett Linux-operativsystem kan du använda den här definitionen:
 
 ```
 "imageReference": {
@@ -316,7 +315,7 @@ Du kan använda den här definitionen om du vill skapa ett Linux-operativsystem:
 },
 ```
 
-Konfigurationsinställningar för operativsystemdisken tilldelas med osDisk-elementet. Exemplet definierar en ny hanterad disk med cachelagring läge inställt **ReadWrite** och som disken skapas från en [plattformsavbildning](cli-ps-findimage.md):
+Konfigurations inställningarna för operativ system disken tilldelas till osDisk-elementet. Exemplet definierar en ny hanterad disk med cachelagring-läget inställt på **readwrite** och att disken skapas från en [plattforms avbildning](cli-ps-findimage.md):
 
 ```
 "osDisk": { 
@@ -328,7 +327,7 @@ Konfigurationsinställningar för operativsystemdisken tilldelas med osDisk-elem
 
 ### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Skapa nya virtuella datorer från befintliga hanterade diskar
 
-Om du vill skapa virtuella datorer från befintliga diskar, ta bort imageReference och osProfile-element och definiera diskinställningarna:
+Om du vill skapa virtuella datorer från befintliga diskar tar du bort imageReference-och osProfile-elementen och definierar dessa disk inställningar:
 
 ```
 "osDisk": { 
@@ -343,7 +342,7 @@ Om du vill skapa virtuella datorer från befintliga diskar, ta bort imageReferen
 
 ### <a name="create-new-virtual-machines-from-a-managed-image"></a>Skapa nya virtuella datorer från en hanterad avbildning
 
-Om du vill skapa en virtuell dator från en hanterad avbildning ändra imageReference elementet och definiera diskinställningarna:
+Om du vill skapa en virtuell dator från en hanterad avbildning ändrar du imageReference-elementet och definierar dessa disk inställningar:
 
 ```
 "storageProfile": { 
@@ -359,9 +358,9 @@ Om du vill skapa en virtuell dator från en hanterad avbildning ändra imageRefe
 },
 ```
 
-### <a name="attach-data-disks"></a>Koppla datadiskar
+### <a name="attach-data-disks"></a>Anslut data diskar
 
-Du kan du lägga till datadiskar till de virtuella datorerna. Den [antalet diskar](sizes.md) beror på storleken på operativsystemdisken som du använder. Med storleken på de virtuella datorerna inställd på Standard_DS1_v2, är det maximala antalet datadiskar som kan läggas till i de två. I det här exemplet är en hanterad datadisk läggs till varje virtuell dator:
+Du kan också lägga till data diskar i de virtuella datorerna. [Antalet diskar](sizes.md) beror på storleken på den operativ system disk som du använder. Med storleken på de virtuella datorerna som angetts som Standard_DS1_v2 är det maximala antalet data diskar som kan läggas till i dem två. I exemplet läggs en hanterad data disk till i varje virtuell dator:
 
 ```
 "dataDisks": [
@@ -377,7 +376,7 @@ Du kan du lägga till datadiskar till de virtuella datorerna. Den [antalet diska
 
 ## <a name="extensions"></a>Tillägg
 
-Även om [tillägg](extensions-features.md) är en separat resurs, de är beroende av virtuella datorer. Tillägg kan läggas till som en underordnad resurs för den virtuella datorn eller som en separat resurs. I exempel visas den [Diagnostiktillägget](extensions-diagnostics-template.md) som läggs till de virtuella datorerna:
+Även om [tillägg](extensions-features.md) är en separat resurs är de nära kopplade till virtuella datorer. Tillägg kan läggas till som en underordnad resurs för den virtuella datorn eller som en separat resurs. Exemplet visar det [diagnostiska tillägg](extensions-diagnostics-template.md) som läggs till i de virtuella datorerna:
 
 ```
 { 
@@ -410,9 +409,9 @@ Du kan du lägga till datadiskar till de virtuella datorerna. Den [antalet diska
 },
 ```
 
-Tillägget resursen använder storageName variabeln och diagnostiska variabler för att ange värden. Om du vill ändra de data som samlas in av det här tillägget kan du lägga till fler prestandaräknare wadperfcounters variabeln. Du kan också välja att placera diagnostics-data i ett annat lagringskonto än där VM-diskarna lagras.
+Den här tilläggs resursen använder variabeln storageName och de diagnostiska variablerna för att ange värden. Om du vill ändra de data som samlas in av det här tillägget kan du lägga till fler prestanda räknare i wadperfcounters-variabeln. Du kan också välja att spara diagnostikdata i ett annat lagrings konto än där de virtuella dator diskarna lagras.
 
-Det finns många tillägg som du kan installera på en virtuell dator, men de mest användbara är antagligen den [tillägget för anpassat skript](extensions-customscript.md). I det här exemplet körs ett PowerShell.skript som heter start.ps1 på varje virtuell dator när den startas första gången:
+Det finns många tillägg som du kan installera på en virtuell dator, men den mest användbara är förmodligen det [anpassade skript tillägget](extensions-customscript.md). I exemplet körs ett PowerShell-skript med namnet start. ps1 på varje virtuell dator när det startar första gången:
 
 ```
 {
@@ -439,27 +438,27 @@ Det finns många tillägg som du kan installera på en virtuell dator, men de me
 }
 ```
 
-Skriptet start.ps1 kan utföra flera konfigurationsåtgärder. Till exempel är inte de datadiskar som läggs till de virtuella datorerna i det här exemplet initierad. Du kan använda ett anpassat skript för att initiera dem. Om du har flera startåtgärder för att göra, kan du använda filen start.ps1 för att anropa andra PowerShell-skript i Azure storage. I exemplet används PowerShell, men du kan använda valfri metod för skript som är tillgänglig på det operativsystem som du använder.
+Skriptet start. ps1 kan utföra många konfigurations åtgärder. De data diskar som läggs till i de virtuella datorerna i exemplet initieras till exempel inte. Du kan använda ett anpassat skript för att initiera dem. Om du har flera start uppgifter kan du använda filen Start. ps1 för att anropa andra PowerShell-skript i Azure Storage. Exemplet använder PowerShell, men du kan använda valfri skript metod som är tillgänglig på det operativ system som du använder.
 
-Du kan se status för de installerade tilläggen från inställningarna för tillägg i portalen:
+Du kan se status för installerade tillägg från inställningarna för tillägg i portalen:
 
-![Hämta Tilläggsstatus för](./media/template-description/virtual-machines-show-extensions.png)
+![Hämta tilläggs status](./media/template-description/virtual-machines-show-extensions.png)
 
-Du kan också få tilläggsinformation med hjälp av den **Get-AzVMExtension** PowerShell-kommando i **vm-tillägget get** Azure CLI-kommando eller **hämta tilläggsinformation**REST-API.
+Du kan också hämta tilläggs information med hjälp av PowerShell **-kommandot Get-AzVMExtension** , det **virtuella dator tillägget Hämta** Azure CLI-kommandot eller **Hämta tilläggs information** REST API.
 
 ## <a name="deployments"></a>Distributioner
 
-När du distribuerar en mall, spårar Azure de resurser som du distribuerat som en grupp och tilldelar automatiskt ett namn på den här distribuerade gruppen. Namnet på distributionen är samma som namnet på mallen.
+När du distribuerar en mall spårar Azure de resurser som du har distribuerat som en grupp och tilldelar automatiskt ett namn till den här distribuerade gruppen. Namnet på distributionen är detsamma som namnet på mallen.
 
-Om du är nyfiken på status för resurser i distributionen kan du visa resursgruppen i Azure portal:
+Om du är nyfiken på statusen för resurser i distributionen kan du Visa resurs gruppen i Azure Portal:
 
-![Hämta information om distribution](./media/template-description/virtual-machines-deployment-info.png)
+![Hämta distributions information](./media/template-description/virtual-machines-deployment-info.png)
     
-Det är inte ett problem att använda samma mall för att skapa resurser eller för att uppdatera befintliga resurser. När du distribuerar mallar med hjälp av kommandon har du möjlighet att säga som [läge](../../resource-group-template-deploy.md) du vill använda. Läget kan vara inställd på antingen **Slutför** eller **stegvis**. Standardvärdet är att göra inkrementella uppdateringar. Var försiktig när du använder den **Slutför** läge eftersom av misstag kan du ta bort resurser. När du har angett läget **Slutför**, Resource Manager tar bort alla resurser i resursgruppen som inte är i mallen.
+Det går inte att använda samma mall för att skapa resurser eller uppdatera befintliga resurser. När du använder kommandon för att distribuera mallar har du möjlighet att säga vilket [läge](../../resource-group-template-deploy.md) du vill använda. Läget kan anges till antingen **fullständig** eller **stegvis**. Standardvärdet är att göra stegvisa uppdateringar. Var försiktig när du använder det **fullständiga** läget eftersom du kan ta bort resurser av misstag. När du anger att läget skaslutföras, tar Resource Manager bort alla resurser i resurs gruppen som inte finns i mallen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa en egen mall med hjälp av [redigera Azure Resource Manager-mallar](../../resource-group-authoring-templates.md).
-- Distribuera mallen som du skapat med [skapa en Windows-dator med en Resource Manager-mall](ps-template.md).
-- Lär dig hur du hanterar de virtuella datorerna som du skapade genom att granska [skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- JSON-syntax och egenskaper för resurstyper i mallar finns i [mallreferensen för Azure Resource Manager](/azure/templates/).
+- Skapa en egen mall med hjälp av [redigera Azure Resource Manager mallar](../../resource-group-authoring-templates.md).
+- Distribuera mallen som du skapade med [skapa en virtuell Windows-dator med en Resource Manager-mall](ps-template.md).
+- Lär dig hur du hanterar de virtuella datorer som du skapade genom att granska [skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- För JSON-syntax och egenskaper för resurs typer i mallar, se [Azure Resource Manager Template Reference](/azure/templates/).

@@ -1,6 +1,6 @@
 ---
-title: vCPU-kvoter för Azure | Microsoft Docs
-description: Läs mer om vCPU-kvoter för Azure.
+title: vCPU kvoter för Azure | Microsoft Docs
+description: Lär dig mer om vCPU kvoter för Azure.
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -11,32 +11,31 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 8912387583c24945de22bcb029d40e4d4766b1fb
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 48da419cdf5b4555e06b2a87d4b6821276777826
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719875"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102472"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>vCPU-kvoter för virtuella datorer
 
-VCPU-kvoter för virtuella datorer och VM-skalningsuppsättningar är ordnade i två nivåer för varje prenumeration i varje region. Den första nivån är det totalt antal regionala virtuella processorer och det andra lagret är de olika virtuella datorns storlek family kärnorna, till exempel vcpu: er för D-serien. Varje gång en ny virtuell dator är distribuerat den virtuella processorer för den virtuella datorn inte får överstiga vCPU-kvoten för VM-storleksfamilj eller totalt antal regionala vCPU-kvoten. Om något av dessa kvoter överskrids får inte VM-distributionen. Det finns också en kvot för det totala antalet virtuella datorer i regionen. Information om vart och ett av dessa kvoter kan ses i den **användning + kvoter** delen av den **prenumeration** sidan i den [Azure-portalen](https://portal.azure.com), eller du kan fråga efter värden med hjälp av PowerShell.
+VCPU kvoter för virtuella datorer och skalnings uppsättningar för virtuella datorer ordnas på två nivåer för varje prenumeration i varje region. Den första nivån är den totala regionala virtuella processorer och den andra nivån är de olika virtuella datorerna i VM-serien, till exempel D-seriens virtuella processorer. När en ny virtuell dator distribueras får inte virtuella processorer för den virtuella datorn överskrida vCPU-kvoten för den virtuella datorns storleks familj eller den totala regionala vCPU-kvoten. Om någon av dessa kvoter överskrids, kommer distributionen av virtuella datorer inte att tillåtas. Det finns också en kvot för det totala antalet virtuella datorer i regionen. Informationen om var och en av dessa kvoter visas i avsnittet **användning och kvoter** på prenumerations sidan i [Azure Portal](https://portal.azure.com), eller så kan du fråga efter värden med PowerShell.
 
  [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)] 
  
 ## <a name="check-usage"></a>Kontrollera användning
 
-Du kan använda den [Get-AzVMUsage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmusage) cmdlet för att kontrollera din för kvotanvändning.
+Du kan använda cmdleten [Get-AzVMUsage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmusage) för att kontrol lera din kvot användning.
 
 ```azurepowershell-interactive
 Get-AzVMUsage -Location "East US"
 ```
 
-Utdata ska se ut ungefär så här:
+Resultatet kommer att se ut ungefär så här:
 
 ```
 Name                             Current Value Limit  Unit
@@ -80,10 +79,10 @@ Premium Storage Managed Disks                1 10000 Count
 
 
 ## <a name="reserved-vm-instances"></a>Reserverade VM-instanser
-Reserverade VM-instanser som är begränsade till en enda prenumeration utan flexibilitet för VM-storlek, lägger till en ny aspekt vCPU-kvoter. Dessa värden beskrivs hur många instanser av den angivna storleken som måste kunna distribueras i prenumerationen. De fungerar som platshållare i kvotsystemet för att se till att kvoten är reserverat för att säkerställa reserverade VM-instanser kan distribueras i prenumerationen. Exempel: om en viss prenumeration har 10 Standard_D1 reserverade VM-instanser användningar gränsen för Standard_D1 reserverad VM-instanser är 10. Detta innebär att Azure för att se till att det finns alltid minst 10 virtuella processorer i totalt antal regionala kvoten för virtuella processorer som ska användas för Standard_D1 instanser och minst 10 virtuella processorer är tillgängliga i Standard D-serien vCPU-kvoten som ska användas för Standard_D1 instanser.
+Reserverade VM-instanser, som är begränsade till en enda prenumeration utan flexibilitet för virtuella datorer, lägger till en ny aspekt i vCPU-kvoterna. Värdena beskriver antalet instanser av den angivna storleken som måste distribueras i prenumerationen. De fungerar som en plats hållare i kvot systemet för att säkerställa att kvoten är reserverad för att säkerställa att reserverade VM-instanser kan distribueras i prenumerationen. Om till exempel en enskild prenumeration har 10 Standard_D1 reserverade VM-instanser blir användnings gränsen för Standard_D1 reserverade VM-instanser 10. Detta gör att Azure ser till att det alltid finns minst 10 virtuella processorer tillgängligt i den totala regionala virtuella processorer-kvoten som ska användas för Standard_D1-instanser och det finns minst 10 virtuella processorer tillgängliga i standard-D-serien som vCPU kvoten ska användas för Standard_D1-instanser.
 
-Om en utökad kvot måste köpa en enda prenumeration RI så kan du [öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) på din prenumeration.
+Om en kvot ökning krävs för att köpa en enskild prenumeration i RI, kan du [begära en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för din prenumeration.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om fakturering och kvoter finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+Mer information om fakturering och kvoter finns i Azure- [prenumerationer, tjänst gränser, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 8c4ecc017d058900297f2220173e064700e7051b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5ad912b1cee5495e18a5eb2da4d981eadd74dd7d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559459"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066434"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Skriva över konversationer med flera deltagare med talet SDK
 
@@ -25,7 +25,9 @@ Talet SDK: s **ConversationTranscriber** -API gör att du kan lägga upp möten/
 
 * Konversations-inskrivare stöds C++för C#, och Java på Windows, Linux och Android.
 * ROOBO-DevKit är den maskin varu miljö som stöds för att skapa konversations avskrifter som ger en cirkulär matris med flera mikrofoner som kan användas effektivt för högtalar identifiering. [Mer information finns i avsnittet om tal enheter SDK](speech-devices-sdk.md).
-* Stöd för tal-SDK för konversations avskrift är begränsat till användning av strömnings-och push-läge i ljud med åtta kanaler på 16-bitars 16 kHz PCM-ljud.
+* Stöd för tal-SDK för konversations avskrift är begränsat till strömnings-och push-läge i ljud med 8 kanaler på 16-bitars 16 kHz PCM-ljud. För närvarande stöds endast dessa paket för ljud fångst i 8 kanaler:
+   * [ROOBO Smart Audio cirkulär 7 – MIC DK](https://ddk.roobo.com/)
+   * [Azure Kinect DK](https://azure.microsoft.com/en-in/services/kinect-dk/).
 * Konversations avskrift är för närvarande tillgängligt i språken "en-US" och "zh-CN" i följande regioner: Central-och asienöstra.
 
 ## <a name="prerequisites"></a>Förutsättningar

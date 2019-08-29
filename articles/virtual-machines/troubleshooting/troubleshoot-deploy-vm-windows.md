@@ -1,6 +1,6 @@
 ---
-title: Felsöka distribution Windows VM-problem i Azure | Microsoft Docs
-description: Felsöka distribution Windows VM-problem i Azure Resource Manager-distributionsmodellen.
+title: Felsöka distribution av problem med virtuella Windows-datorer i Azure | Microsoft Docs
+description: Felsök distribution av problem med att distribuera virtuella Windows-datorer i Azure Resource Manager distributions modell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -11,53 +11,52 @@ ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 76841484595b0a8809b8ab10db3199fc8cd28b04
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: d963556a657f4367acca14d5d8340f384ef555a9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710436"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080207"
 ---
-# <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Felsöka distribution Windows VM-problem i Azure
+# <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Felsöka distribution av problem med virtuella Windows-datorer i Azure
 
-Felsök distributionsproblem för virtuell dator (VM) i Azure genom att granska den [de främsta problemen](#top-issues) för vanliga fel och lösningar.
+För att felsöka distributions problem med virtuella datorer i Azure kan du läsa om de vanligaste [problemen](#top-issues) med vanliga fel och lösningar.
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **hämta stöder**.
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
 
-## <a name="top-issues"></a>De vanligaste problemen
+## <a name="top-issues"></a>Främsta problem
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
-## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Klustret kan inte stöd för den begärda storleken för virtuell dator
+## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Klustret har inte stöd för den begärda virtuella dator storleken
 \<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Gör om begäran med en mindre VM-storlek.
-- Om storleken på den begärda virtuella datorn inte kan ändras:
-    - Stoppa alla virtuella datorer i tillgänglighetsuppsättningen. Klicka på **resursgrupper** > din resursgrupp > **resurser** > tillgänglighetsuppsättningen > **virtuella datorer** > den virtuella datorn >  **Stoppa**.
-    - När alla virtuella datorer kan du skapa den virtuella datorn i önskad storlek.
-    - Starta den nya virtuella datorn först och väljer du stoppade virtuella datorer och klicka på Start.
+- Om det inte går att ändra storleken på den begärda virtuella datorn:
+    - Stoppa alla virtuella datorer i tillgänglighets uppsättningen. Klicka på **resurs grupper** > resurs gruppen > **resurser** > din tillgänglighets uppsättning > **Virtual Machines** > den virtuella datorn > **stoppa**.
+    - När alla virtuella datorer har stoppats skapar du den virtuella datorn i önskad storlek.
+    - Starta den nya virtuella datorn först och välj sedan var och en av de stoppade virtuella datorerna och klicka på Starta.
 
 
-## <a name="the-cluster-does-not-have-free-resources"></a>Klustret har inte kostnadsfria resurser
+## <a name="the-cluster-does-not-have-free-resources"></a>Det finns inga lediga resurser för klustret
 \<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
-- Försöka senare.
-- Om den nya virtuella datorn kan vara en del av en annan tillgänglighetsuppsättning
-    - Skapa en virtuell dator i en annan tillgänglighetsuppsättning (i samma region).
+- Gör om begäran senare.
+- Om den nya virtuella datorn kan ingå i en annan tillgänglighets uppsättning
+    - Skapa en virtuell dator i en annan tillgänglighets uppsättning (i samma region).
     - Lägg till den nya virtuella datorn i samma virtuella nätverk.
 
-## <a name="how-can-i-use-and-deploy-a-windows-client-image-into-azure"></a>Hur kan jag använda och distribuera en avbildning för windows-klient till Azure?
+## <a name="how-can-i-use-and-deploy-a-windows-client-image-into-azure"></a>Hur kan jag använda och distribuera en Windows-klient avbildning till Azure?
 
-Du kan använda Windows 7, Windows 8 eller Windows 10 i Azure för utveckling och testning om du har en lämplig Visual Studio (tidigare MSDN)-prenumeration. Detta [artikeln](../windows/client-images.md) beskrivs kraven för berättigande för Windows-klienten som körs i Azure och använder över avbildningar av virtuella Azure-galleriet.
+Du kan använda Windows 7, Windows 8 eller Windows 10 i Azure för utveckling/testnings scenarier om du har en lämplig prenumeration på Visual Studio (tidigare MSDN). Den här [artikeln](../windows/client-images.md) beskriver behörighets kraven för att köra Windows-klienten i Azure och använda Azure Gallery-avbildningar.
 
-## <a name="how-can-i-deploy-a-virtual-machine-using-the-hybrid-use-benefit-hub"></a>Hur kan jag distribuera en virtuell dator med Hybrid Använd förmånen (HUB)?
+## <a name="how-can-i-deploy-a-virtual-machine-using-the-hybrid-use-benefit-hub"></a>Hur kan jag distribuera en virtuell dator med hjälp av Hybrid Use Benefit (hubb)?
 
-Det finns ett par olika sätt att distribuera Windows-datorer med Azure Hybrid Use Benefit.
+Det finns ett par olika sätt att distribuera virtuella Windows-datorer med Azure Hybrid Use-förmånen.
 
-För en Enterprise Agreement-prenumeration:
+För en Enterprise-avtal-prenumeration:
 
-• Distribuera virtuella datorer från specifika Marketplace-avbildningar som är förkonfigurerad med Azure Hybrid Use Benefit.
+• Distribuera virtuella datorer från vissa Marketplace-avbildningar som är förkonfigurerade med Azure Hybrid Use Benefit.
 
 För Enterprise-avtal:
 
@@ -67,59 +66,59 @@ Mer information finns i följande resurser:
 
  - [Översikt över Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
- - [Nedladdningsbara vanliga frågor och svar](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
+ - [Vanliga frågor och svar](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 
- - [Azure Hybrid Use Benefit för Windows Server- och Windows](../windows/hybrid-use-benefit-licensing.md).
+ - [Azure Hybrid Use Benefit för Windows Server och Windows-klienten](../windows/hybrid-use-benefit-licensing.md).
 
  - [Hur kan jag använda Hybrid Use-förmånen i Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
-## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>Hur aktiverar jag min månatliga kredit för Visual studio Enterprise (BizSpark)
+## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>Hur gör jag för att aktivera min månads kredit för Visual Studio Enterprise (BizSpark)
 
-Om du vill aktivera din månatliga kredit finns i den här [artikeln](https://azure.microsoft.com/offers/ms-azr-0064p/).
+Information om hur du aktiverar din månatliga kredit finns i den här [artikeln](https://azure.microsoft.com/offers/ms-azr-0064p/).
 
-## <a name="how-to-add-enterprise-devtest-to-my-enterprise-agreement-ea-to-get-access-to-window-client-images"></a>Hur du lägger till Enterprise – utveckling/testning till mitt Enterprise Agreement (EA) att få åtkomst till Windows-klientavbildningar?
+## <a name="how-to-add-enterprise-devtest-to-my-enterprise-agreement-ea-to-get-access-to-window-client-images"></a>Hur lägger jag till Enterprise Dev/Test i Enterprise-avtal (EA) för att få åtkomst till klient avbildningar för Windows?
 
-Möjligheten att skapa abonnemang baserat på Enterprise Dev/Test-erbjudandet är begränsad till kontoinnehavare som har fått tillstånd att göra detta av en företagsadministratör. Kontoinnehavaren skapar prenumerationer via Azure-Kontoportalen och lägger sedan till aktiva Visual Studio-prenumeranter som medadministratörer. Så att de kan hantera och använda de resurser som krävs för utveckling och testning. Mer information finns i [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
+Möjligheten att skapa abonnemang baserat på Enterprise Dev/Test-erbjudandet är begränsad till kontoinnehavare som har fått tillstånd att göra detta av en företagsadministratör. Konto ägaren skapar prenumerationer via Azures konto Portal och lägger sedan till aktiva Visual Studio-prenumeranter som medadministratörer. Så att de kan hantera och använda de resurser som krävs för utveckling och testning. Mer information finns i [Enterprise dev/test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
-## <a name="my-drivers-are-missing-for-my-windows-n-series-vm"></a>Drivrutinerna saknas för den virtuella datorn Windows N-serien
+## <a name="my-drivers-are-missing-for-my-windows-n-series-vm"></a>Mina driv rutiner saknas för den virtuella Windows N-serien
 
-Drivrutiner för Windows-baserade virtuella datorer är placerade [här](../windows/n-series-driver-setup.md).
+Driv rutiner för Windows-baserade virtuella datorer finns [här](../windows/n-series-driver-setup.md).
 
-## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Jag kan inte hitta en GPU-instans i N-serien virtuella datorn
+## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Jag kan inte hitta en GPU-instans i min virtuella dator i N-serien
 
-Om du vill dra nytta av GPU-funktionerna i Azure N-serien virtuella datorer som kör Windows Server 2016 eller Windows Server 2012 R2, måste du installera NVIDIA-grafikdrivrutiner på varje virtuell dator efter distributionen. Inställningsinformation för drivrutinen är tillgänglig för [Windows VMs](../windows/n-series-driver-setup.md) och [virtuella Linux-datorer](../linux/n-series-driver-setup.md).
+Om du vill dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien som kör Windows Server 2016 eller Windows Server 2012 R2 måste du installera NVIDIA Graphics-drivrutiner på varje virtuell dator efter distributionen. Det finns information om driv rutins installation för virtuella [Windows-datorer](../windows/n-series-driver-setup.md) och [virtuella Linux-datorer](../linux/n-series-driver-setup.md).
 
-## <a name="is-n-series-vms-available-in-my-region"></a>Är virtuella datorer i N-serien i min region?
+## <a name="is-n-series-vms-available-in-my-region"></a>Är virtuella datorer i N-serien tillgängliga i min region?
 
-Du kan kontrollera tillgänglighet från den [produkttillgänglighet per region tabell](https://azure.microsoft.com/regions/services), och priser [här](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
+Du kan kontrol lera tillgängligheten från [tabellen produkter som är tillgängliga per region](https://azure.microsoft.com/regions/services)och prissättning [här](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
 
-## <a name="what-client-images-can-i-use-and-deploy-in-azure-and-how-to-i-get-them"></a>Vilka client-avbildningar kan jag använda distribuerar i Azure och hur att jag dem?
+## <a name="what-client-images-can-i-use-and-deploy-in-azure-and-how-to-i-get-them"></a>Vilka klient avbildningar kan jag använda och distribuera i Azure och hur jag får dem?
 
-Du kan använda Windows 7, Windows 8 eller Windows 10 i Azure för utveckling och testning förutsatt att du har en lämplig Visual Studio (tidigare MSDN)-prenumeration. 
+Du kan använda Windows 7, Windows 8 eller Windows 10 i Azure för utveckling/testning-scenarier förutsatt att du har en lämplig Visual Studio-prenumeration (tidigare MSDN). 
 
-- Windows 10-bilder som är tillgängliga från Azure-galleriet i [berättigade utveckling/testning erbjuder](../windows/client-images.md#eligible-offers). 
-- Visual Studio-prenumeranter i någon typ av erbjudande kan också [rätt förbereda och skapa](../windows/prepare-for-upload-vhd-image.md) en 64-bitars Windows 7, Windows 8 eller Windows 10-avbildning och sedan [Överför till Azure](../windows/upload-generalized-managed.md). Användningen är begränsad till utveckling och testning av aktiva Visual Studio-prenumeranter.
+- Windows 10-avbildningar är tillgängliga från Azure-galleriet inom [berättigade erbjudanden om utveckling/testning](../windows/client-images.md#eligible-offers). 
+- Visual Studio-prenumeranter inom vilken typ av erbjudande som helst kan också [förbereda och skapa](../windows/prepare-for-upload-vhd-image.md) en 64-bitars Windows 7-, Windows 8-eller Windows 10-avbildning och sedan [Ladda upp till Azure](../windows/upload-generalized-managed.md). Användningen är begränsad till utveckling/testning av aktiva Visual Studio-prenumeranter.
 
-Detta [artikeln](../windows/client-images.md) beskrivs kraven för berättigande för som kör Windows-klient i Azure och användning av Azure-galleriet-avbildningar.
+Den här [artikeln](../windows/client-images.md) beskriver behörighets kraven för att köra Windows-klienten i Azure och använda Azure Gallery-avbildningar.
 
-## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>Jag kan inte se VM-storleksfamilj som jag vill ha när du ändrar storlek på den virtuella datorn.
+## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>Jag kan inte se den virtuella datorns storleks familj som jag vill när du ändrar storlek på den virtuella datorn.
 
-Om en virtuell dator är igång kan distribueras den till en fysisk server. De fysiska servrarna i Azure-regioner är grupperade i kluster av vanliga fysisk maskinvara. Ändra storlek på en virtuell dator som kräver att den virtuella datorn flyttas till annan maskinvarukluster är olika beroende på vilken distributionsmodell som användes för att distribuera den virtuella datorn.
+När en virtuell dator körs distribueras den till en fysisk server. De fysiska servrarna i Azure-regionerna grupperas i kluster av gemensamt fysiskt maskin vara. Att ändra storlek på en virtuell dator som kräver att den virtuella datorn flyttas till olika maskin varu kluster är olika beroende på vilken distributions modell som användes för att distribuera den virtuella datorn.
 
-- Virtuella datorer som distribuerats i klassiska distributionsmodellen, molntjänstdistribution måste tas bort och distribueras om för att ändra de virtuella datorerna till en storlek i en annan storleksfamilj.
+- Virtuella datorer som distribueras i den klassiska distributions modellen måste moln tjänst distributionen tas bort och omdistribueras för att ändra de virtuella datorerna till en storlek i en annan storleks familj.
 
-- Virtuella datorer som distribueras i Resource Manager-distributionsmodellen, måste du stoppa alla virtuella datorer i tillgänglighetsuppsättningen innan du ändrar storleken på virtuella datorer i tillgänglighetsuppsättningen.
+- Virtuella datorer som distribueras i distributions modellen för Resource Manager måste du stoppa alla virtuella datorer i tillgänglighets uppsättningen innan du ändrar storleken på virtuella datorer i tillgänglighets uppsättningen.
 
-## <a name="the-listed-vm-size-is-not-supported-while-deploying-in-availability-set"></a>Den angivna VM-storleken stöds inte när du distribuerar i Tillgänglighetsuppsättningen.
+## <a name="the-listed-vm-size-is-not-supported-while-deploying-in-availability-set"></a>Den angivna virtuella dator storleken stöds inte vid distribution i tillgänglighets uppsättning.
 
-Välj en storlek som stöds på klustret i tillgänglighetsuppsättningen. Du rekommenderas när du skapar en tillgänglighetsuppsättning för att välja den största VM-storlek du tror att du behöver och har som första distributionen i tillgänglighetsuppsättningen.
+Välj en storlek som stöds i tillgänglighets uppsättningens kluster. Vi rekommenderar att du skapar en tillgänglighets uppsättning för att välja den största VM-storlek du tror att du behöver, och att den är din första distribution till tillgänglighets uppsättningen.
 
-## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Kan jag lägga till en befintlig klassisk virtuell dator till en tillgänglighetsuppsättning?
+## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Kan jag lägga till en befintlig klassisk virtuell dator i en tillgänglighets uppsättning?
 
-Ja. Du kan lägga till en befintlig klassisk virtuell dator till en ny eller befintlig Tillgänglighetsuppsättning. Mer information finns i [lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
+Ja. Du kan lägga till en befintlig klassisk virtuell dator i en ny eller befintlig tillgänglighets uppsättning. Mer information finns i [lägga till en befintlig virtuell dator i en tillgänglighets uppsättning](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/).
 
-Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **hämta stöder**.
+Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.

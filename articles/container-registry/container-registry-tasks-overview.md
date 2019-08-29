@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 65debc8c65752150651d00d84eeff469cefbc268
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68311875"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114808"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter
 
@@ -56,7 +56,7 @@ Lär dig hur du använder snabb uppgifter i den första självstudien för ACR-a
 
 ## <a name="automatic-build-on-source-code-commit"></a>Automatisk generering vid käll kods incheckning
 
-Använd ACR-aktiviteter för att automatiskt utlösa en behållar avbildning som skapas när en kod allokeras till en git-lagringsplats. Bygg uppgifter, kan konfigureras med Azure CLI-kommandot [AZ ACR Task][az-acr-task], så att du kan ange en git-lagringsplats och eventuellt en gren och Dockerfile. När ditt team gör en kod till databasen, utlöser en ACR webhook en version av behållar avbildningen som definieras i lagrings platsen.
+Använd ACR-aktiviteter för att automatiskt utlösa en behållar avbildning som skapas när kod allokeras till en git-lagringsplats i GitHub eller Azure DevOps. Bygg uppgifter, kan konfigureras med Azure CLI-kommandot [AZ ACR Task][az-acr-task], så att du kan ange en git-lagringsplats och eventuellt en gren och Dockerfile. När ditt team gör en kod till databasen, utlöser en ACR webhook en version av behållar avbildningen som definieras i lagrings platsen.
 
 > [!IMPORTANT]
 > Om du tidigare har skapat uppgifter i för hands versionen `az acr build-task` med kommandot måste du skapa dem på nytt med hjälp av kommandot [AZ ACR Task][az-acr-task] .
@@ -73,10 +73,14 @@ När en operativ system-eller app Framework-avbildning uppdateras av den överor
 
 Eftersom ACR-aktiviteter identifierar bas avbildnings beroenden dynamiskt när en behållar avbildning skapas, kan den identifiera när en program avbildnings bas avbildning uppdateras. Med en förkonfigurerad [build-uppgift](container-registry-tutorial-base-image-update.md#create-a-task)återbyggs ACR-aktiviteter **automatiskt varje program avbildning** åt dig. Med den här automatiska identifieringen och återuppbyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje program avbildning som refererar till den uppdaterade bas avbildningen.
 
-Lär dig mer om uppdatering av operativ system och ramverk i den tredje självstudien om ACR tasks, [Automatisera avbildningar på grund avbildnings uppdatering med Azure Container Registry uppgifter](container-registry-tutorial-base-image-update.md).
+En ACR-uppgift spårar en bas avbildnings uppdatering när bas avbildningen finns på någon av följande platser:
 
-> [!NOTE]
-> För närvarande skapar utlösare för bas avbildnings uppdateringar endast när både bas-och program avbildningarna finns i samma Azure Container Registry, eller om basen finns i en offentlig Docker-hubb eller Microsoft Container Registry-lagringsplats.
+* Samma Azure Container Registry där aktiviteten körs
+* Ett annat Azure Container Registry i samma region 
+* En offentlig lagrings platsen i Docker Hub
+* En offentlig lagrings platsen i Microsoft Container Registry
+
+Lär dig mer om uppdatering av operativ system och ramverk i självstudien för tredje ACR-aktiviteter, [Automatisera avbildningen med en bas avbildnings uppdatering med Azure Container Registry uppgifter](container-registry-tutorial-base-image-update.md).
 
 ## <a name="multi-step-tasks"></a>Uppgifter i flera steg
 

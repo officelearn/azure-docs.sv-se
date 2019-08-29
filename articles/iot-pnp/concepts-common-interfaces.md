@@ -7,16 +7,16 @@ ms.date: 07/16/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 848210509bf9ab0ffec35004cbb07e39d6de1bc0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5a5aeac06ccf31e88a8ec670e57b22e753553ff5
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879609"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114250"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>IoT Plug and Play förhandsgranska vanliga gränssnitt
 
-Alla IoT Plug and Play-enheter förväntas implementera några vanliga gränssnitt. Vanliga gränssnitt fördelar IoT-lösningar eftersom de ger konsekventa funktioner. För [certifiering](tutorial-build-device-certification.md) krävs att enheten implementerar flera vanliga gränssnitt. Du kan hämta vanliga gränssnitts definitioner från den globala modellens lagrings plats.
+Alla IoT Plug and Play-enheter förväntas implementera några vanliga gränssnitt. Vanliga gränssnitt fördelar IoT-lösningar eftersom de ger konsekventa funktioner. För [certifiering](tutorial-build-device-certification.md) krävs att enheten implementerar flera vanliga gränssnitt. Du kan hämta vanliga gränssnitts definitioner från den offentliga modellens lagrings plats.
 
 ## <a name="summary-of-common-interfaces"></a>Sammanfattning av vanliga gränssnitt
 
@@ -35,7 +35,7 @@ Alla IoT Plug and Play-enheter förväntas implementera några vanliga gränssni
 
 ### <a name="cli"></a>CLI
 
-Du kan använda Azure IoT-tillägget för Azure CLI för att hämta de vanligaste gränssnitten från den globala modellens lagrings plats.
+Du kan använda Azure IoT-tillägget för Azure CLI för att hämta de vanligaste gränssnitten från den offentliga modellens lagrings plats.
 
 ```cmd/sh
 az iot pnp interface show --interface {InterfaceID} --login {ModelRepoConnectionString}
@@ -49,9 +49,9 @@ az iot pnp model show --interface {InterfaceID} --login {ModelRepoConnectionStri
 
 1. Använd **CTRL + SKIFT + P** för att öppna kommando paletten.
 
-1. Ange **Plug and Play** och välj **IoT-plug and Play: Öppna modell databas** kommandot. Välj **lagrings plats för global modell**. Den globala modellens lagrings plats öppnas i VS Code.
+1. Ange **Plug and Play** och välj **IoT-plug and Play: Öppna modell databas** kommandot. Välj **offentlig lagrings plats**. Den offentliga modellens lagrings plats öppnas i VS Code.
 
-1. Ange gränssnitts namnet i Sök fältet i den globala modellens databas.
+1. I lagrings platsen för den offentliga modellen anger du gränssnitts namnet i Sök fältet.
 
 1. Om du vill skapa en lokal kopia av gränssnittet markerar du det i Sök resultaten och väljer sedan **Hämta**.
 

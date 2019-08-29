@@ -1,6 +1,6 @@
 ---
-title: Exempel-guide för Azure-infrastrukturen | Microsoft Docs
-description: Läs mer om viktiga riktlinjer för utformning och implementering för distribution av en exempel-infrastruktur i Azure.
+title: Exempel genom gång av Azure-infrastruktur | Microsoft Docs
+description: Lär dig mer om rikt linjerna för nyckel design och implementering för att distribuera en exempel infrastruktur i Azure.
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
@@ -11,107 +11,106 @@ ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63bdfa6f419d97696faa6545cbb1017a66cf0e2d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 71b0dd15d183f3209c7424c537dde1e3df29d097
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667540"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083130"
 ---
-# <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Exempel-guide för virtuella Linux-datorer på Azure-infrastrukturen
-Den här artikeln beskriver att bygga ut en exempel-infrastruktur för programmet. Vi förklarar vi utformar en infrastruktur för en enkel onlinebutik som sammanför alla riktlinjer och beslut om namngivningskonventioner, tillgänglighetsuppsättningar, virtuella nätverk och belastningsutjämnare och faktiskt distribuerar dina virtuella datorer (VM).
+# <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Exempel genom gång av Azure-infrastruktur för virtuella Linux-datorer
+Den här artikeln vägleder dig genom att skapa en exempel program infrastruktur. Vi beskriver hur du utformar en infrastruktur för en enkel online-butik som samlar alla rikt linjer och beslut kring namngivnings konventioner, tillgänglighets uppsättningar, virtuella nätverk och belastningsutjämnare och distribuerar sedan dina virtuella datorer (VM).
 
-## <a name="example-workload"></a>Exempel-arbetsbelastning
-Adventure Works Cycles vill skapa en App i online-butik i Azure som består av:
+## <a name="example-workload"></a>Exempel arbets belastning
+Adventure Works-cykler vill skapa ett Online Store-program i Azure som består av:
 
-* Två nginx-servrar som kör klienten klientdelen i en webbnivå
-* Två nginx-servrar som bearbetar data och order i en programnivå
-* Två MongoDB-servrar ingår i ett delat kluster för att lagra produktdata och order i en databasnivå
-* Två Active Directory-domänkontrollanter för kunder och leverantörer i en nivå av autentisering
+* Två nginx-servrar som kör klient klient delen på en webb nivå
+* Två nginx-servrar bearbetar data och order i en program nivå
+* Två MongoDB-servrar som ingår i ett shardade-kluster för lagring av produkt data och order i en databas nivå
+* Två Active Directory domänkontrollanter för kund konton och leverantörer i en autentiseringsnivå
 * Alla servrar finns i två undernät:
-  * ett klientdelsundernät för webbservrar 
-  * ett backend-undernät för programservrar, MongoDB-kluster och domänkontrollanter
+  * ett klient dels under nät för webb servrarna 
+  * ett Server dels undernät för program servrar, MongoDB-kluster och domänkontrollanter
 
-![Diagram över olika nivåer för infrastruktur](./media/infrastructure-example/example-tiers.png)
+![Diagram över olika nivåer för program infrastrukturen](./media/infrastructure-example/example-tiers.png)
 
-Säker inkommande webbtrafik måste vara belastningsutjämnade webbservrarna när kunder bläddrar online-butik. Orderhantering trafik i form av HTTP-begäranden från webben servrar måste vara Utjämning av nätverksbelastning på programservrarna. Dessutom måste infrastrukturen utformas för hög tillgänglighet.
+Inkommande säker webb trafik måste vara belastningsutjämnad bland webb servrarna när kunder bläddrar i den lokala butiken. Bearbetnings trafiken i form av HTTP-förfrågningar från webb servrarna måste vara belastningsutjämnad mellan program servrarna. Dessutom måste infrastrukturen vara utformad för hög tillgänglighet.
 
 Den resulterande designen måste innehålla:
 
-* Ett konto och Azure-prenumeration
-* En enskild resursgrupp
+* En Azure-prenumeration och ett konto
+* En enda resurs grupp
 * Azure Managed Disks
 * Ett virtuellt nätverk med två undernät
-* Tillgänglighetsuppsättningar för virtuella datorer med en liknande roll
+* Tillgänglighets uppsättningar för de virtuella datorerna med en liknande roll
 * Virtuella datorer
 
-Alla ovanstående följer du dessa namngivningsregler:
+Ovanstående följer dessa namn konventioner:
 
-* Adventure Works Cycles använder **[IT arbetsbelastning]-[plats]-[Azure-resurs]** som ett prefix
-  * I det här exemplet ”**azos**” (Azure online Store) är namnet för IT-arbetsbelastning och ”**använder**” (östra USA 2) är platsen
-* Virtuella nätverk använder AZOS-användning – VN<strong>[antal]</strong>
-* Tillgänglighetsuppsättningar använder azos-Använd-som- **[roll]**
-* Namn på virtuella datorer använda azos-Använd-vm - **[vmname]**
+* Adventure Works-cykler använder **[IT-arbetsbelastning]-[plats]-[Azure Resource]** som prefix
+  * I det här exemplet är "**azos**" (Azure on-line Store) namnet på den aktuella arbets belastningen och "**Använd**" (USA, östra 2) är platsen
+* Virtuella nätverk använder AZOS-USE-VN<strong>[Number]</strong>
+* Tillgänglighets uppsättningar använder azos-Use-as- **[Role]**
+* Namn på virtuella datorer Använd azos-use-VM- **[VMName]**
 
-## <a name="azure-subscriptions-and-accounts"></a>Azure-prenumerationer och konton
-Adventure Works Cycles använder sin Enterprise-prenumeration med namnet Adventure Works Enterprise-prenumeration för att tillhandahålla faktureringen för den här arbetsbelastningen för IT.
+## <a name="azure-subscriptions-and-accounts"></a>Azure-prenumerationer och-konton
+Adventure Works-cykler använder sin företags prenumeration, som heter Adventure Works Enterprise-prenumeration, för att tillhandahålla fakturering för IT-arbetsbelastningen.
 
 ## <a name="storage"></a>Storage
-Adventure Works Cycles fastställt att de ska använda Azure Managed Disks. När du skapar virtuella datorer används för båda lagringsnivåerna i tillgängligt lagringsutrymme:
+Adventure Works-cykler fastställde att de bör använda Azure Managed Disks. När du skapar virtuella datorer används båda lagrings nivåerna tillgängligt för lagring:
 
-* **Standardlagring** för webbservrar, programservrar, och domänkontrollanter och deras datadiskar.
-* **Premiumlagring** för MongoDB shardade klusterservrarna och deras datadiskar.
+* **Standard lagring** för webb servrar, program servrar och domänkontrollanter och deras data diskar.
+* **Premium Storage** för MongoDB shardade-kluster servrar och deras data diskar.
 
 ## <a name="virtual-network-and-subnets"></a>Virtuellt nätverk och undernät
-Eftersom det virtuella nätverket inte behöver pågående anslutning till det lokala nätverket för Adventure Work Cycles, bestämt de dig för ett endast molnbaserat virtuellt nätverk.
+Eftersom det virtuella nätverket inte behöver en pågående anslutning till Adventure Worker-nätverket, har de beslutat om ett virtuellt nätverk i molnet.
 
-De har skapat ett endast molnbaserat virtuellt nätverk med följande inställningar med hjälp av Azure portal:
+De skapade ett virtuellt nätverk med endast ett moln med följande inställningar med hjälp av Azure Portal:
 
 * Namn: AZOS-USE-VN01
 * Plats: USA, östra 2
-* Virtuella nätverkets adressutrymme: 10.0.0.0/8
+* Adress utrymme för virtuellt nätverk: 10.0.0.0/8
 * Första undernät:
   * Namn: FrontEnd
-  * Adressutrymme: 10.0.1.0/24
+  * Adress utrymme: 10.0.1.0/24
 * Andra undernät:
   * Namn: BackEnd
-  * Adressutrymme: 10.0.2.0/24
+  * Adress utrymme: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Tillgänglighetsuppsättningar
-Om du vill upprätthålla hög tillgänglighet för alla fyra nivåer av deras online-butik valt Adventure Works Cycles fyra tillgänglighetsuppsättningar:
+För att upprätthålla hög tillgänglighet för alla fyra nivåer av sin onlinebutik, kan Adventure Works-cykler bestämmas på fyra tillgänglighets uppsättningar:
 
-* **azos användning som web** för webbservrar
-* **azos använda som appar** för programservrarna
-* **azos Använd som db** för servrar i det fragmenterade (sharded) MongoDB-klustret
-* **azos användning som dc** för domänkontrollanter
+* **azos – Använd som webb** för webb servrar
+* **azos – Använd som app** för program servrarna
+* **azos – Använd som-databas** för servrarna i MongoDB shardade-klustret
+* **azos – Använd som domänkontrollant** för domän kontrol Lanterna
 
 ## <a name="virtual-machines"></a>Virtuella datorer
-Adventure Works Cycles valt följande namn för sina virtuella Azure-datorer:
+Adventure Works-cykler beslutade följande namn för sina virtuella Azure-datorer:
 
-* **azos-användning – vm-web01** för den första webbservern
-* **azos-användning – vm-web02** för den andra webbservern
-* **azos-användning – vm-app01** för den första programservern
-* **azos-användning – vm-app02** för den andra programservern
-* **azos-användning – vm-db01** för den första MongoDB-servern i klustret
-* **azos-användning – vm-db02** för den andra MongoDB-servern i klustret
-* **azos-användning – vm-dc01** för den första domänkontrollanten
-* **azos-användning – vm-dc02** för den andra domänkontrollanten
+* **azos-use-VM-web01** för den första webb servern
+* **azos-use-VM-web02** för den andra webb servern
+* **azos-use-VM-app01** för den första program servern
+* **azos-use-VM-app02** för den andra program servern
+* **azos-use-VM-db01** för den första MongoDB-servern i klustret
+* **azos-use-VM-db02** för den andra MongoDB-servern i klustret
+* **azos-use-VM-dc01** för den första domänkontrollanten
+* **azos-use-VM-dc02** för den andra domänkontrollanten
 
 Här är den resulterande konfigurationen.
 
-![Sista programinfrastruktur som distribueras i Azure](./media/infrastructure-example/example-config.png)
+![Slutgiltig program infrastruktur distribuerad i Azure](./media/infrastructure-example/example-config.png)
 
 Den här konfigurationen omfattar:
 
-* Ett endast molnbaserat virtuellt nätverk med två undernät (FrontEnd och BackEnd)
-* Azure Managed Disks använder både Standard och Premium-diskar
-* Fyra tillgänglighetsuppsättningar en för varje nivå av online-butik
-* De virtuella datorerna för fyra nivåer
-* En extern belastningsutjämnad uppsättning för HTTPS-baserade Internet-trafik från Internet till webbservrar
-* Ett internt belastningsutjämnade uppsättningen för okrypterade webbtrafik från webbservrarna till programservrarna
-* En enskild resursgrupp
+* Ett virtuellt nätverk i molnet med två undernät (FrontEnd och BackEnd)
+* Azure Managed Disks med hjälp av både standard-och Premium diskar
+* Fyra tillgänglighets uppsättningar, en för varje nivå i den online-butiken
+* De virtuella datorerna för de fyra nivåerna
+* En extern belastningsutjämnad uppsättning för HTTPS-baserad webb trafik från Internet till webb servrar
+* En intern belastningsutjämnad uppsättning för okrypterad webb trafik från webb servrarna till program servrarna
+* En enda resurs grupp

@@ -1,110 +1,109 @@
 ---
-title: Disaster recovery principer och förberedelse för SAP HANA på Azure (stora instanser) | Microsoft Docs
-description: Disaster recovery principer och förberedelse för SAP HANA på Azure (stora instanser)
+title: Principer för haveri beredskap och förberedelser för SAP HANA på Azure (stora instanser) | Microsoft Docs
+description: Principer för haveri beredskap och förberedelser för SAP HANA på Azure (stora instanser)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb1ed063cb11a82d786badd3f63b2d4b6932ce13
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709717"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101267"
 ---
-# <a name="disaster-recovery-principles"></a>Disaster Recovery-principer
+# <a name="disaster-recovery-principles"></a>Principer för haveri beredskap
 
-Stora HANA-instanser erbjuder en disaster recovery-funktionen mellan stora HANA-instansen tidsstämplar i olika Azure-regioner. Om du distribuerar enheter för stora HANA-instansen i västra USA-regionen för Azure kan kan du exempelvis använda stora HANA-instansen-enheter i regionen USA, Öst som disaster recovery-enheter. Såsom nämnts tidigare har haveriberedskap inte konfigurerats automatiskt, eftersom den kräver att du betalar för en annan enhet för stora HANA-instans i regionen för Haveriberedskap. Installationsprogrammet för disaster recovery fungerar för skala upp samt skalbar inställningar. 
+HANA-stora instanser ger en haveri beredskap mellan HANA-stora instanser i olika Azure-regioner. Om du till exempel distribuerar HANA-stora instans enheter i regionen USA, västra i Azure kan du använda de stora instans enheterna i USA i regionen USA, östra som återställnings enheter för haveri beredskap. Som tidigare nämnts är haveri beredskap inte konfigurerad automatiskt, eftersom det kräver att du betalar för en annan HANA-stor instans enhet i DR-regionen. Installations programmet för haveri beredskap fungerar både för skalbarhet och skalbara inställningar. 
 
-I de scenarier som hittills distribueras, använda kunder enhet i regionen för Haveriberedskap för att köra icke-produktionssystem som använder en installerad HANA-instans. Den stora HANA-instansen enheten måste vara av samma SKU som SKU: N som används i produktionen. Följande bild visar vilka diskkonfigurationen mellan server-enhet i produktion i Azure-region och regionen disaster recovery ser ut:
+I scenarier som distribueras hittills använder kunderna enheten i DR-regionen för att köra icke-produktions system som använder en installerad HANA-instans. Den stora volymen HANA måste vara av samma SKU som den SKU som används i produktions syfte. Följande bild visar hur disk konfigurationen mellan server enheten i Azure-produktionsområdet och Disaster Recovery-regionen ser ut så här:
 
-![DR-installationskonfiguration från disk synsätt](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_setup.PNG)
+![Konfiguration av DR-konfiguration från disk punkten](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_setup.PNG)
 
-I den här bilden översikt visas sedan måste du ordna en andra uppsättningen av diskvolymer. Diskvolymer mål är samma storlek som volymerna för produktion för produktion-instans i disaster recovery-enheter. Dessa volymer på diskar som är associerade med stora HANA-instansen server-enhet i katastrofåterställningsplatsen. Följande volymer replikeras från produktionsregionen som till DR-plats:
+Som du ser i den här översikts bilden måste du beställa en andra uppsättning disk volymer. Mål disk volymerna har samma storlek som produktions volymerna för produktions instansen i Disaster Recovery-enheterna. Dessa disk volymer är kopplade till server enheten HANA-stor instans på webbplatsen för haveri beredskap. Följande volymer replikeras från produktions regionen till DR-platsen:
 
-- / hana/data
-- / hana/logbackups 
-- /Hana/Shared (inklusive/usr/sap)
+- /hana/data
+- /hana/logbackups 
+- /Hana/Shared (innehåller/usr/SAP)
 
-/Hana/log volymen inte har replikerats eftersom transaktionsloggen för SAP HANA inte krävs på det sätt som återställningen från dessa volymer är klar. 
+/Hana/log-volymen replikeras inte eftersom SAP HANA transaktions loggen inte behövs på samma sätt som återställningen från dessa volymer är färdig. 
 
-Grunden för disaster recovery-funktionerna som erbjuds erbjuds lagringsfunktioner för replikering av infrastrukturen som stora HANA-instansen. De funktioner som används på lagringssidan är inte en konstant ström av ändringar som replikerar på ett asynkront sätt som dataändringar görs lagringsvolymen. Det är en mekanism som bygger på det faktum att skapa ögonblicksbilder av volymerna regelbundet. Delta mellan en redan replikerade ögonblicksbild och en ny ögonblicksbild som ännu inte har replikerats överförs sedan till katastrofåterställningsplatsen till volymer på diskar.  Dessa ögonblicksbilder lagras på volymerna och om det finns en katastrof redundansväxling, måste återställas på dessa volymer.  
+De funktioner för haveri beredskap som erbjuds är de Storage Replication-funktioner som erbjuds av infrastrukturen HANA stor instans. De funktioner som används på lagrings sidan är inte en konstant ström med ändringar som replikeras på ett asynkront sätt när det sker ändringar i lagrings volymen. I stället är det en mekanism som förlitar sig på att ögonblicks bilder av volymerna skapas med jämna mellanrum. Delta mellan en redan replikerad ögonblicks bild och en ny ögonblicks bild som ännu inte har repliker ATS överförs sedan till katastrof återställnings platsen till mål disk volymer.  Dessa ögonblicks bilder lagras på volymerna och om det finns en redundansväxling av haveri beredskap måste den återställas till dessa volymer.  
 
-Den första överföringen av fullständiga data på volymen ska vara innan mängden data som blir mindre än deltan mellan ögonblicksbilder. Därför kan innehåller volymerna som i DR-plats olika ögonblicksbilderna av volymen utförs i produktionsplatsen. Slutligen kan du använda DR systemet för att komma till en tidigare status att återställa förlorade data utan att återställa i produktionssystemet.
+Den första överföringen av volymens fullständiga data måste vara innan mängden data blir mindre än delta mellan ögonblicks bilder. Därför innehåller volymerna på DR-platsen var och en av ögonblicks bilderna som utfördes på produktions platsen. Slutligen kan du använda detta DR-system för att komma till en tidigare status för att återställa förlorade data utan att återställa produktions systemet.
 
-Om det finns en MCOD distribution med flera oberoende SAP HANA-instanser på en enhet för stora HANA-instansen, förväntas det att alla SAP HANA-instanser får lagringen ska replikeras till haveriberedskapssidan.
+Om det finns en MCOD-distribution med flera oberoende SAP HANA-instanser på en av en HANA stor instans enhet, förväntas det att alla SAP HANA instanser får lagring som replikeras till DR-sidan.
 
-I fall där du använder HANA System Replication när funktioner för hög tillgänglighet i din produktionsplats och Använd storage-baserad replikering för DR-plats kan replikeras volymer av båda noderna från primär plats till DR-instans. Du måste köpa ytterligare lagringsutrymme (samma storlek från och med primära noden) på DR-plats för replikering från både primära och sekundära till DR. 
+I de fall där du använder HANA-systemreplikering som hög tillgänglighets funktion på produktions platsen, och använder Storage-baserad replikering för DR-platsen, replikeras volymerna för båda noderna från den primära platsen till DR-instansen. Du måste köpa ytterligare lagrings utrymme (samma storlek som primär nod) på DR-platsen för att hantera replikering från både primär och sekundär till DR. 
 
 
 
 >[!NOTE]
->Replikering för stora HANA-instansen lagringsfunktioner spegling och replikering av ögonblicksbilder av lagring. Om du inte gör ögonblicksbilder av lagring som den införts i avsnittet säkerhetskopiering och återställning av den här artikeln, får inte det finnas några replikering till platsen för katastrofåterställning. Storage ögonblicksbildskörning krävs för att storage-replikering till platsen för katastrofåterställning.
+>Funktionen HANA stor instans Storage Replication speglas och replikerar lagrings ögonblicks bilder. Om du inte utför lagrings ögonblicks bilder som du har infört i avsnittet säkerhets kopiering och återställning i den här artikeln, kan det inte finnas någon replikering till webbplatsen för haveri beredskap. Lagring av ögonblicks bilds körning är en förutsättning för att utföra Storage-replikering till webbplatsen för haveri beredskap.
 
 
 
-## <a name="preparation-of-the-disaster-recovery-scenario"></a>Förberedelsen av katastrofåterställning
-I det här scenariot har du ett produktionssystem som körs på stora HANA-instanser i Azure-region för produktion. I de steg som följer antar vi att SID för det HANA-systemet är ”PRD” och att du har ett icke-produktionssystem som körs på stora HANA-instanser i regionen DR Azure. I det senare antar att dess SID är ”TST”. Följande bild visar den här konfigurationen:
+## <a name="preparation-of-the-disaster-recovery-scenario"></a>Förberedelse av katastrof återställnings scenariot
+I det här scenariot har du ett produktions system som körs på HANA-stora instanser i Azure-regionen produktion. För de steg som följer antar vi att SID för det HANA-systemet är "PRD" och att du har ett icke-produktionssystem som körs på HANA-stora instanser i DR Azure-regionen. För den senare antar vi att dess SID är "TST". Följande bild visar den här konfigurationen:
 
-![Början av DR-konfiguration](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start1.PNG)
+![Start av DR-konfiguration](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start1.PNG)
 
-Om server-instansen inte har redan beställts med ytterligare lagringsutrymme volym, SAP HANA på Azure Service Management bifogar ytterligare uppsättning volymer som mål för produktion repliken till den stora HANA-instansen enheten där du kör TST HANA-instans. Du måste ange SID för din produktion HANA-instans för detta ändamål. När SAP HANA på Azure Service Management bekräftar den bifogade filen volymer, måste du montera volymerna till stora HANA-instansen-enhet.
+Om Server instansen inte redan har beställts med den ytterligare lagrings volym uppsättningen, lägger SAP HANA på Azure Service Management till den ytterligare uppsättningen volymer som mål för produktions repliken till den HANA-stora instans enhet som du kör TST på HANA-instans. För detta ändamål måste du ange SID för produktion HANA-instansen. När SAP HANA på Azure Service Management bekräftar den bifogade volymen för de volymerna måste du montera dessa volymer i den stora volymen HANA.
 
-![Nästa steg för DR-konfiguration](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start2.PNG)
+![Nästa steg i DR-installationen](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start2.PNG)
 
-Nästa steg är att installera den andra instansen av SAP HANA på stora HANA-instansen-enhet i DR-Azure-regionen, där du kör den TST HANA-instansen. Den nyligen installerade SAP HANA-instansen måste ha samma SID. Användare som skapas måste ha samma UID och grupp-ID som produktionsinstansen har. Läs [säkerhetskopiering och återställning](hana-backup-restore.md) mer information. Om installationen lyckades, måste du:
+Nästa steg är att du ska installera den andra SAP HANA-instansen i den stora volymen HANA i den DR Azure-region där du kör TST HANA-instansen. Den nyligen installerade SAP HANA-instansen måste ha samma SID. De användare som skapats måste ha samma UID och grupp-ID som produktions instansen har. Läs [säkerhets kopiering och återställning](hana-backup-restore.md) för mer information. Om installationen lyckades måste du:
 
-- Kör du steg 2 av den ögonblicksbild förberedelserna för lagringen som beskrivs i [säkerhetskopiering och återställning](hana-backup-restore.md).
-- Skapa en offentlig nyckel för DR-enhet med stora HANA-instansen enhet om du inte ännu har gjort. Se steg 3 i den ögonblicksbild förberedelserna för lagringen som beskrivs i [säkerhetskopiering och återställning](hana-backup-restore.md).
-- Underhålla den *HANABackupCustomerDetails.txt* med den nya HANA-instansen och testa om anslutning till storage fungerar korrekt.  
-- Stoppa den nyligen installerade SAP HANA-instansen på den stora HANA-instansen enheten i DR-Azure-region.
-- Avmontera volymerna PRD och kontakta SAP HANA på Azure Service Management. Volymerna kan inte förblir monterade till enheten eftersom de kan inte nås samtidigt som fungerar som lagringsmål för replikering.  
+- Kör steg 2 i förberedelserna för lagrings ögonblicks bilder som beskrivs i [säkerhets kopiering och återställning](hana-backup-restore.md).
+- Skapa en offentlig nyckel för DR-enheten HANA stor instans enhet om du ännu inte har gjort det. Se steg 3 i förberedelserna för lagrings ögonblicks bilder som beskrivs i [säkerhets kopiering och återställning](hana-backup-restore.md).
+- Behåll *HANABackupCustomerDetails. txt* med den nya Hana-instansen och testa om anslutningen till lagringen fungerar korrekt.  
+- Stoppa den nyligen installerade SAP HANA-instansen på volymen HANA stor instans i Azure-regionen DR.
+- Demontera de här PRD-volymerna och kontakta SAP HANA på Azure Service Management. Volymerna kan inte vara monterade på enheten eftersom de inte kan nås under drift som mål för lagrings replikering.  
 
-![DR-installationssteget innan du upprättar replikering](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
+![Installations steg för DR innan du upprättar replikering](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
-Driftsteamet upprättar replikeringsrelationen mellan PRD volymer i Azure-region för produktion och PRD volymer i DR-Azure-region.
+Drift teamet upprättar replikeringsrelationen mellan PRD-volymerna i Azure-regionen för produktion och PRD-volymerna i DR Azure-regionen.
 
 >[!IMPORTANT]
->Volymen /hana/log replikeras inte eftersom det inte är nödvändigt att återställa den replikerade SAP HANA-databasen till ett konsekvent tillstånd på katastrofåterställningsplatsen.
+>/Hana/log-volymen replikeras inte eftersom det inte är nödvändigt att återställa den replikerade SAP HANA databasen till ett konsekvent tillstånd på webbplatsen för haveri beredskap.
 
-Därefter konfigurera eller ändra storage ögonblicksbild Säkerhetskopieringsschemat att komma till din RTO och RPO om haveriberedskap. Ange följande replikeringsintervall i tjänsten stora HANA-instansen för att minimera mål för återställningspunkt:
-- För volymer som omfattas av den kombinerade ögonblicksbilden (typ av ögonblicksbild **hana**), ange att replikera var femtonde minut till motsvarande storage volym mål i katastrofåterställningsplatsen.
-- För säkerhetskopiering transaktionsvolymer log (typ av ögonblicksbild **loggar**), ange att replikera var 3: e minut på vissa målenheter volym motsvarande lagring i katastrofåterställningsplatsen.
+Sedan ställer du in eller justerar schemat för säkerhets kopiering av lagrings ögonblicks bilder för att komma till din RTO och återställnings väskan i katastrofen. För att minimera återställnings punkt målet anger du följande replikeringsintervall i tjänsten HANA stor instans:
+- För volymer som omfattas av den kombinerade ögonblicks bilden (ögonblicks bilds typen **Hana**), Ställ in att replikera var 15: e minut till motsvarande lagrings volym mål på webbplatsen för haveri beredskap.
+- För säkerhets kopierings volymen för transaktions loggen (ögonblicks bilds **loggar**) ställer du in att replikera var 3: e minut till motsvarande lagrings volym mål på webbplatsen för haveri beredskap.
 
-För att minimera återställningspunktmålet, ställer du in följande:
-- Utföra en **hana** typ av storage-ögonblicksbilder (finns i ”steg 7: Utföra ögonblicksbilder ”) var 30: e minut till 1 timme.
-- Utföra säkerhetskopieringar av transaktionsloggen SAP HANA var femte minut.
-- Utföra en **loggar** skriver storage ögonblicksbild var 5 till 15 minuter. Med den här perioden intervall uppnå ett Återställningspunktmål på cirka 15-25 minuter.
+Konfigurera följande för att minimera återställnings punkt målet:
+- Utföra en ögonblicks bild av **Hana** -typ lagring (se "steg 7: Utför ögonblicks bilder ") var 30: e minut till 1 timme.
+- Utför SAP HANA säkerhets kopieringar av transaktions loggar var 5: e minut.
+- Utför en ögonblicks bild av **loggar** typ lagring var 5-15: e minut. Med den här intervall perioden uppnår du en period på cirka 15-25 minuter.
 
-Med den här installationen, serie säkerhetskopieringar av transaktionsloggen, ögonblicksbilder av lagring och replikering av HANA-transaktionen logga volym och/hana/säkerhetskopieringsdata och /hana/shared (inklusive/usr/sap) kan se ut de data som visas i den här bilden:
+Med den här installationen kan sekvensen av säkerhets kopior av transaktions loggen, lagrings ögonblicks bilder och replikering av HANA-säkerhetskopierings volym och/Hana/data, och/Hana/Shared (inklusive/usr/SAP) se ut som de data som visas i den här bilden:
 
- ![Förhållandet mellan en transaktion log ögonblicksbild och en snapin-spegling på en tidsaxeln](./media/hana-overview-high-availability-disaster-recovery/snapmirror.PNG)
+ ![Förhållandet mellan en ögonblicks bild av en transaktions logg och en fäst spegel på en tids axel](./media/hana-overview-high-availability-disaster-recovery/snapmirror.PNG)
 
-För att uppnå en ännu bättre RPO disaster recovery om kan kopiera du säkerhetskopieringarna av transaktionsloggen HANA från SAP HANA på Azure (stora instanser) till andra Azure-region. Utför följande steg för att uppnå den här ytterligare RPO minskning:
+Om du vill uppnå en ännu bättre återställnings punkt i haveri beredskap kan du kopiera säkerhets kopiorna HANA-säkerhetskopiering från SAP HANA på Azure (stora instanser) till den andra Azure-regionen. Utför följande steg för att uppnå denna ytterligare återställnings nedsättning:
 
-1. Logga in så ofta som möjligt /hana/logbackups säkerhetskopiera HANA-transaktionen.
-1. Använd rsync för att kopiera säkerhetskopieringarna av transaktionsloggen till de NFS resurs Azure virtuella datorerna. De virtuella datorerna är i Azure-nätverk i produktionsregionen Azure och DR-regioner. Du behöver ansluta båda virtuella Azure-nätverk till kretsen ansluta produktion stora HANA-instanser till Azure. Se bilderna i det [Network överväganden för haveriberedskap med stora HANA-instanser](#Network-considerations-for-disaster recovery-with-HANA-Large-Instances) avsnittet. 
-1. Behåll säkerhetskopieringarna av transaktionsloggen i regionen i den virtuella datorn som är kopplade till NFS exporteras lagring.
-1. Komplettera de säkerhetskopieringar av transaktionsloggen du hitta på /hana/logbackups volymen med mer nyligen tagit säkerhetskopieringar av transaktionsloggen på NFS dela på katastrofåterställningsplatsen i haveriberedskap redundans fall. 
-1. Starta en säkerhetskopiering av transaktionsloggen att återställa till den senaste säkerhetskopian som kan sparas under DR-regionen.
+1. Säkerhetskopiera HANA transaktions logg så ofta som möjligt till/Hana/logbackups.
+1. Använd rsync för att kopiera säkerhets kopiorna av transaktions loggen till NFS-resursen som är värd för virtuella Azure-datorer. De virtuella datorerna finns i virtuella Azure-nätverk i Azures produktions region och i DR-regionerna. Du måste ansluta både virtuella Azure-nätverk till kretsen som ansluter produktionen HANA stora instanser till Azure. Se avsnittet [om nätverks överväganden för haveri beredskap med stora instanser av Hana](#Network-considerations-for-disaster recovery-with-HANA-Large-Instances) . 
+1. Behåll säkerhets kopiorna av transaktions loggen i regionen på den virtuella datorn som är kopplade till NFS-exporterad lagring.
+1. I ett haveri ärende kan du komplettera de säkerhets kopior av transaktions loggen som du hittar på/Hana/logbackups-volymen med mer nyligen tagna säkerhets kopior av transaktions loggen på NFS-resursen på webbplatsen för haveri beredskap. 
+1. Starta en säkerhets kopia av transaktions loggen för att återställa till den senaste säkerhets kopian som kan sparas över till DR-regionen.
 
-När stora HANA-instansen operations bekräfta replikering relation installationen och säkerhetskopior av körningen storage ögonblicksbilder startas, startar replikering av data.
+När HANA-stora instans åtgärder verifierar konfigurationen av replikeringsrelationen och du startar säkerhets kopiorna av den kopierade lagrings platsen, börjar datareplikeringen.
 
-![DR-installationssteget innan du upprättar replikering](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start4.PNG)
+![Installations steg för DR innan du upprättar replikering](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start4.PNG)
 
-Eftersom replikering pågår, ögonblicksbilder på PRD volymer i DR-Azure-regionerna inte återställs. De lagras endast. Om volymerna är monterade i ett sådant tillstånd, representerar de tillståndet som demontera volymerna när PRD SAP HANA-instansen har installerats i server-enhet i DR-Azure-region. De kan också representera storage säkerhetskopieringar som inte har återställts.
+När replikeringen pågår återställs inte ögonblicks bilderna på PRD-volymerna i DR Azure-regionerna. De lagras bara. Om volymerna monteras i ett sådant tillstånd representerar de det tillstånd i vilket du demonterade volymerna när PRD SAP HANA-instansen installerades i Server enheten i Azure-regionen DR. De representerar också de lagrings säkerhets kopior som ännu inte har återställts.
 
-Om det finns en redundans, kan du också välja att återställa till en äldre lagring ögonblicksbild i stället för den senaste storage-ögonblicksbilden.
+Om det finns en redundansväxling kan du också välja att återställa till en äldre lagrings ögonblicks bild i stället för den senaste ögonblicks bilden av lagringen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [redundans för katastrofåterställning](hana-failover-procedure.md).
+- Mer information om [redundansväxling av haveri beredskap](hana-failover-procedure.md).

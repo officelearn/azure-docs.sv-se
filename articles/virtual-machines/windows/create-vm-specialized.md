@@ -1,6 +1,6 @@
 ---
-title: Skapa en virtuell Windows-dator från en specialiserad virtuell Hårddisk i Azure | Microsoft Docs
-description: Skapa en ny virtuell Windows-dator genom att koppla en särskild hanterad disk som OS-disk med hjälp av Resource Manager-distributionsmodellen.
+title: Skapa en virtuell Windows-dator från en specialiserad virtuell hård disk i Azure | Microsoft Docs
+description: Skapa en ny virtuell Windows-dator genom att koppla en specialiserad hanterad disk som OS-disk med hjälp av distributions modellen för Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,37 +11,36 @@ ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 8f4169e7d94a5a838ecc11b22e7988223c25e02c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 5dde098277b16c7ec5339aa6b963b04dd608c8ac
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718826"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079676"
 ---
-# <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en särskild disk med hjälp av PowerShell
+# <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en specialiserad disk med hjälp av PowerShell
 
-Skapa en ny virtuell dator genom att koppla en särskild hanterad disk som OS-disk. En särskild disk är en kopia av en virtuell hårddisk (VHD) från en befintlig virtuell dator som innehåller användarkonton, program och andra systemtillstånd från den ursprungliga virtuella datorn. 
+Skapa en ny virtuell dator genom att koppla en specialiserad hanterad disk som operativ system disk. En specialiserad disk är en kopia av en virtuell hård disk (VHD) från en befintlig virtuell dator som innehåller användar konton, program och andra tillstånds data från den ursprungliga virtuella datorn. 
 
-När du använder en specialiserad virtuell Hårddisk för att skapa en ny virtuell dator, behåller den nya virtuella datorn namnet på den ursprungliga virtuella datorn. Andra datorspecifika informationen sparas också och i vissa fall kan den här dubblettinformation kan orsaka problem. När du kopierar en virtuell dator vara medveten om vilka typer av datorspecifik information ditt program förlitar sig på.
+När du använder en specialiserad virtuell hård disk för att skapa en ny virtuell dator behåller den nya virtuella datorn dator namnet för den ursprungliga virtuella datorn. Annan datorspecifik information behålls även och i vissa fall kan denna Duplicerad information orsaka problem. När du kopierar en virtuell dator bör du vara medveten om vilken typ av datorspecifik information som dina program förlitar sig på.
 
-Har du flera alternativ:
-* [Använd en befintlig hanterad disk](#option-1-use-an-existing-disk). Det här alternativet är användbart om du har en virtuell dator som inte fungerar korrekt. Du kan ta bort den virtuella datorn och sedan återanvända den hantera disken för att skapa en ny virtuell dator. 
+Du har flera alternativ:
+* [Använd en befintlig hanterad disk](#option-1-use-an-existing-disk). Det här alternativet är användbart om du har en virtuell dator som inte fungerar som den ska. Du kan ta bort den virtuella datorn och sedan återanvända den hanterade disken för att skapa en ny virtuell dator. 
 * [Överföra en virtuell hårddisk](#option-2-upload-a-specialized-vhd) 
-* [Kopiera en befintlig virtuell Azure-dator med hjälp av ögonblicksbilder](#option-3-copy-an-existing-azure-vm)
+* [Kopiera en befintlig virtuell Azure-dator med hjälp av ögonblicks bilder](#option-3-copy-an-existing-azure-vm)
 
-Du kan också använda Azure portal för att [skapa en ny virtuell dator från en specialiserad virtuell Hårddisk](create-vm-specialized-portal.md).
+Du kan också använda Azure Portal för att [skapa en ny virtuell dator från en specialiserad virtuell hård disk](create-vm-specialized-portal.md).
 
-Den här artikeln visar hur du använder hanterade diskar. Om du har en äldre distribution som kräver att du använder ett lagringskonto, se [skapa en virtuell dator från en specialiserad virtuell Hårddisk i ett lagringskonto](sa-create-vm-specialized.md).
+Den här artikeln visar hur du använder hanterade diskar. Om du har en äldre distribution som kräver att ett lagrings konto används, se [skapa en virtuell dator från en specialiserad virtuell hård disk i ett lagrings konto](sa-create-vm-specialized.md).
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="option-1-use-an-existing-disk"></a>Alternativ 1: Använd en befintlig disk
 
-Om du har en virtuell dator som du har tagit bort och du vill återanvända OS-disken du skapar en ny virtuell dator, använder [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
+Om du har en virtuell dator som du har tagit bort och du vill återanvända OS-disken för att skapa en ny virtuell dator, använder du [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -50,40 +49,40 @@ $osDisk = Get-AzDisk `
 -ResourceGroupName $resourceGroupName `
 -DiskName $osDiskName
 ```
-Nu kan du koppla den här disken som OS-disk till en [ny virtuell dator](#create-the-new-vm).
+Nu kan du ansluta den här disken som OS-disk till en [ny virtuell dator](#create-the-new-vm).
 
-## <a name="option-2-upload-a-specialized-vhd"></a>Alternativ 2: Ladda upp en specialiserad virtuell Hårddisk
+## <a name="option-2-upload-a-specialized-vhd"></a>Alternativ 2: Ladda upp en specialiserad virtuell hård disk
 
-Du kan överföra den virtuella Hårddisken från en specialiserad virtuell dator som skapats med en lokal virtualisering verktyg, som Hyper-V eller en virtuell dator som har exporterats från ett annat moln.
+Du kan ladda upp den virtuella hård disken från en specialiserad virtuell dator som skapats med ett lokalt virtualiseringslösningar, till exempel Hyper-V eller en virtuell dator som exporter ATS från ett annat moln.
 
 ### <a name="prepare-the-vm"></a>Förbereda den virtuella datorn
-Använd den virtuella Hårddisken som – är att skapa en ny virtuell dator. 
+Använd den virtuella hård disken som-är för att skapa en ny virtuell dator. 
   
-  * [Förbereda en Windows virtuell Hårddisk för överföring till Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Inte** generalisera den virtuella datorn med hjälp av Sysprep.
-  * Ta bort alla gäst virtualization-verktyg och agenter som installerats på den virtuella datorn (till exempel VMware-verktyg).
-  * Kontrollera att den virtuella datorn är konfigurerad för att hämta IP-adress och DNS-inställningar från DHCP. Detta säkerställer att servern får en IP-adress inom det virtuella nätverket när den startas. 
+  * [Förbered en virtuell Windows-hårddisk att ladda upp till Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Generalisera **inte** den virtuella datorn med hjälp av Sysprep.
+  * Ta bort eventuella verktyg och agenter för gästautentisering som är installerade på den virtuella datorn (till exempel VMware-verktyg).
+  * Se till att den virtuella datorn är konfigurerad för att hämta IP-adressen och DNS-inställningarna från DHCP. Detta säkerställer att servern får en IP-adress i det virtuella nätverket när den startas. 
 
 
-### <a name="get-the-storage-account"></a>Hämta lagringskontot
-Du behöver ett lagringskonto i Azure för att lagra den överförda virtuella Hårddisken. Du kan antingen använda ett befintligt lagringskonto eller skapa en ny. 
+### <a name="get-the-storage-account"></a>Hämta lagrings kontot
+Du behöver ett lagrings konto i Azure för att lagra den uppladdade virtuella hård disken. Du kan antingen använda ett befintligt lagrings konto eller skapa ett nytt. 
 
-Visa tillgängliga storage-konton.
+Visa tillgängliga lagrings konton.
 
 ```powershell
 Get-AzStorageAccount
 ```
 
-Om du vill använda ett befintligt lagringskonto, fortsätter du till den [överför den virtuella Hårddisken](#upload-the-vhd-to-your-storage-account) avsnittet.
+Om du vill använda ett befintligt lagrings konto går du vidare till avsnittet [Ladda upp VHD](#upload-the-vhd-to-your-storage-account) .
 
 Skapa ett lagringskonto.
 
-1. Du behöver namnet på resursgruppen där lagringskontot ska skapas. Använd Get-AzResourceGroup finns i alla resursgrupper i prenumerationen.
+1. Du behöver namnet på resurs gruppen där lagrings kontot kommer att skapas. Använd Get-AzResourceGroup för att se alla resurs grupper som finns i din prenumeration.
    
     ```powershell
     Get-AzResourceGroup
     ```
 
-    Skapa en resursgrupp med namnet *myResourceGroup* i den *västra USA* region.
+    Skapa en resurs grupp med namnet *myResourceGroup* i regionen *USA, västra* .
 
     ```powershell
     New-AzResourceGroup `
@@ -91,7 +90,7 @@ Skapa ett lagringskonto.
        -Location "West US"
     ```
 
-2. Skapa ett lagringskonto med namnet *mystorageaccount* i den nya resursgruppen med hjälp av den [New AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet.
+2. Skapa ett lagrings konto med namnet *mystorageaccount* i den nya resurs gruppen genom att använda cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) .
    
     ```powershell
     New-AzStorageAccount `
@@ -102,8 +101,8 @@ Skapa ett lagringskonto.
        -Kind "Storage"
     ```
 
-### <a name="upload-the-vhd-to-your-storage-account"></a>Ladda upp den virtuella Hårddisken till ditt storage-konto 
-Använd den [Lägg till AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet för att ladda upp den virtuella Hårddisken till en behållare i ditt storage-konto. Det här exemplet överför filen *myVHD.vhd* från ”C:\Users\Public\Documents\Virtual hårddiskar\" till ett lagringskonto med namnet *mystorageaccount* i den  *myResourceGroup* resursgrupp. Filen lagras i behållare med namnet *mycontainer* och det nya filnamnet blir *myUploadedVHD.vhd*.
+### <a name="upload-the-vhd-to-your-storage-account"></a>Ladda upp den virtuella hård disken till ditt lagrings konto 
+Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp den virtuella hård disken till en behållare i ditt lagrings konto. I det här exemplet överförs filen *myVHD. VHD* från "C:\Users\Public\Documents\Virtual Hard disks\" till ett lagrings konto med namnet *mystorageaccount* i resurs gruppen *myResourceGroup* . Filen lagras i behållaren som heter behållaren och det nya fil namnet kommer att vara *myUploadedVHD. VHD*.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -114,7 +113,7 @@ Add-AzVhd -ResourceGroupName $resourceGroupName `
 ```
 
 
-Om kommandona lyckas kan få du ett svar som ser ut ungefär så här:
+Om kommandona lyckas får du ett svar som ser ut ungefär så här:
 
 ```powershell
 MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
@@ -128,13 +127,13 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Det här kommandot kan ta en stund att slutföra beroende på din nätverksanslutning och storleken på VHD-filen.
+Det här kommandot kan ta en stund att slutföra, beroende på din nätverks anslutning och storleken på VHD-filen.
 
-### <a name="create-a-managed-disk-from-the-vhd"></a>Skapa en hanterad disk från den virtuella Hårddisken
+### <a name="create-a-managed-disk-from-the-vhd"></a>Skapa en hanterad disk från den virtuella hård disken
 
-Skapa en hanterad disk från en specialiserad virtuell Hårddisk i ditt storage-konto med hjälp av [New AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Det här exemplet används *myOSDisk1* för namnet på disken, placerar du disken i *Standard_LRS* lagring och använder *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* som URI för källan VHD.
+Skapa en hanterad disk från den specialiserade virtuella hård disken i ditt lagrings konto med hjälp av [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Det här exemplet använder *myOSDisk1* för disk namnet, placerar disken i *Standard_LRS* Storage och använder *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* som URI för den virtuella käll hård disken.
 
-Skapa en ny resursgrupp för den nya virtuella datorn.
+Skapa en ny resurs grupp för den nya virtuella datorn.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
@@ -142,7 +141,7 @@ New-AzResourceGroup -Location $location `
    -Name $destinationResourceGroup
 ```
 
-Skapa den nya OS-disken från den överförda virtuella Hårddisken. 
+Skapa den nya OS-disken från den uppladdade virtuella hård disken. 
 
 ```powershell
 $sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
@@ -154,16 +153,16 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
     -ResourceGroupName $destinationResourceGroup
 ```
 
-## <a name="option-3-copy-an-existing-azure-vm"></a>Alternativ 3: Kopiera en befintlig Azure VM
+## <a name="option-3-copy-an-existing-azure-vm"></a>Alternativ 3: Kopiera en befintlig virtuell Azure-dator
 
-Du kan skapa en kopia av en virtuell dator som använder hanterade diskar genom att ta en ögonblicksbild av den virtuella datorn och hanterade disk och en ny virtuell dator med hjälp av den ögonblicksbilden för att skapa en ny.
+Du kan skapa en kopia av en virtuell dator som använder hanterade diskar genom att ta en ögonblicks bild av den virtuella datorn och sedan använda ögonblicks bilden för att skapa en ny hanterad disk och en ny virtuell dator.
 
 
-### <a name="take-a-snapshot-of-the-os-disk"></a>Ta en ögonblicksbild av OS-disken
+### <a name="take-a-snapshot-of-the-os-disk"></a>Ta en ögonblicks bild av OS-disken
 
-Du kan ta en ögonblicksbild av en hel virtuell dator (inklusive alla diskar) eller bara en enda disk. Följande steg visar hur du kan ta en ögonblicksbild av bara operativsystemdisken för den virtuella datorn med den [New AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
+Du kan ta en ögonblicks bild av en hel virtuell dator (inklusive alla diskar) eller bara en enskild disk. Följande steg visar hur du tar en ögonblicks bild av bara OS-disken för den virtuella datorn med cmdleten [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
 
-Innan du definiera vissa parametrar. 
+Ange först några parametrar. 
 
  ```powershell
 $resourceGroupName = 'myResourceGroup' 
@@ -172,20 +171,20 @@ $location = 'westus'
 $snapshotName = 'mySnapshot'  
 ```
 
-Hämta det Virtuella datorobjektet.
+Hämta det virtuella datorobjektet.
 
 ```powershell
 $vm = Get-AzVM -Name $vmName `
    -ResourceGroupName $resourceGroupName
 ```
-Hämta namnet på OS-disk.
+Hämta OS-diskens namn.
 
  ```powershell
 $disk = Get-AzDisk -ResourceGroupName $resourceGroupName `
    -DiskName $vm.StorageProfile.OsDisk.Name
 ```
 
-Skapa ögonblicksbild-konfigurationen. 
+Skapa ögonblicks bilds konfigurationen. 
 
  ```powershell
 $snapshotConfig =  New-AzSnapshotConfig `
@@ -195,7 +194,7 @@ $snapshotConfig =  New-AzSnapshotConfig `
    -Location $location 
 ```
 
-Ta ögonblicksbilden.
+Ta ögonblicks bilden.
 
 ```powershell
 $snapShot = New-AzSnapshot `
@@ -205,13 +204,13 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Om du vill använda den här ögonblicksbilden för att skapa en virtuell dator som måste vara hög prestanda, lägger du till parametern `-AccountType Premium_LRS` till kommandot New-AzSnapshotConfig. Den här parametern skapar ögonblicksbilden så att den lagras som en hanterad Disk i Premium. Premium Managed Disks är dyrare än Standard, så du behöver Premium innan du använder den här parametern.
+Om du vill använda den här ögonblicks bilden för att skapa en virtuell dator som måste vara hög `-AccountType Premium_LRS` , lägger du till parametern i kommandot New-AzSnapshotConfig. Den här parametern skapar ögonblicks bilden så att den lagras som en Premium-hanterad disk. Premium Managed Disks är dyrare än standard, så se till att du behöver Premium innan du använder den här parametern.
 
-### <a name="create-a-new-disk-from-the-snapshot"></a>Skapa en ny disk från ögonblicksbilden
+### <a name="create-a-new-disk-from-the-snapshot"></a>Skapa en ny disk från ögonblicks bilden
 
-Skapa en hanterad disk från ögonblicksbilden med hjälp av [New AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Det här exemplet används *myOSDisk* för diskens namn.
+Skapa en hanterad disk från ögonblicks bilden med hjälp av [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). I det här exemplet används *myOSDisk* som disk namn.
 
-Skapa en ny resursgrupp för den nya virtuella datorn.
+Skapa en ny resurs grupp för den nya virtuella datorn.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
@@ -219,13 +218,13 @@ New-AzResourceGroup -Location $location `
    -Name $destinationResourceGroup
 ```
 
-Ange namnet på OS-disken. 
+Ange OS-diskens namn. 
 
 ```powershell
 $osDiskName = 'myOsDisk'
 ```
 
-Skapa den hantera disken.
+Skapa den hanterade disken.
 
 ```powershell
 $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
@@ -235,15 +234,15 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
 ```
 
 
-## <a name="create-the-new-vm"></a>Skapa ny virtuell dator 
+## <a name="create-the-new-vm"></a>Skapa den nya virtuella datorn 
 
-Skapa nätverk och andra VM-resurser som ska användas av den nya virtuella datorn.
+Skapa nätverk och andra virtuella dator resurser som ska användas av den nya virtuella datorn.
 
 ### <a name="create-the-subnet-and-virtual-network"></a>Skapa undernät och virtuellt nätverk
 
-Skapa den [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) och undernät för den virtuella datorn.
+Skapa det [virtuella nätverket](../../virtual-network/virtual-networks-overview.md) och under nätet för den virtuella datorn.
 
-1. Skapa undernätet. Det här exemplet skapar ett undernät med namnet *mySubNet*, i resursgruppen *myDestinationResourceGroup*, och anger adressprefixet undernätet till *10.0.0.0/24*.
+1. Skapa under nätet. I det här exemplet skapas ett undernät med namnet *mitt undernät*, i resurs gruppens *myDestinationResourceGroup*, och anger under nätets adressprefix till *10.0.0.0/24*.
    
     ```powershell
     $subnetName = 'mySubNet'
@@ -252,7 +251,7 @@ Skapa den [virtuellt nätverk](../../virtual-network/virtual-networks-overview.m
        -AddressPrefix 10.0.0.0/24
     ```
     
-2. Skapa det virtuella nätverket. Det här exemplet anges det virtuella nätverksnamnet *myVnetName*, platsen som *västra USA*, och adressprefixet för det virtuella nätverket till *10.0.0.0/16*. 
+2. Skapa det virtuella nätverket. I det här exemplet anges det virtuella nätverks namnet till *myVnetName*, platsen för *västra USA*och adressprefixet för det virtuella nätverket till *10.0.0.0/16*. 
    
     ```powershell
     $vnetName = "myVnetName"
@@ -264,10 +263,10 @@ Skapa den [virtuellt nätverk](../../virtual-network/virtual-networks-overview.m
     ```    
     
 
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Skapa nätverkssäkerhetsgruppen och en regel för RDP
-För att kunna logga in på den virtuella datorn med remote desktop protocol (RDP), måste du ha en säkerhetsregel som tillåter RDP-åtkomst på port 3389. I vårt exempel har den virtuella Hårddisken för den nya virtuella datorn skapats från en befintlig specialiserad virtuell dator, så du kan använda ett konto som fanns på den virtuella källdatorn för RDP.
+### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Skapa nätverks säkerhets gruppen och en RDP-regel
+Om du vill kunna logga in på den virtuella datorn med Remote Desktop Protocol (RDP) måste du ha en säkerhets regel som tillåter RDP-åtkomst på port 3389. I vårt exempel skapades den virtuella hård disken för den nya virtuella datorn från en befintlig specialiserad virtuell dator, så du kan använda ett konto som fanns på den virtuella käll datorn för RDP.
 
-Det här exemplet anger nätverkssäkerhetsgruppsnamn (NSG) till *myNsg* och Regelnamnet RDP till *myRdpRule*.
+I det här exemplet anges namnet på nätverks säkerhets gruppen (NSG) till *myNsg* och RDP-regelns namn till *myRdpRule*.
 
 ```powershell
 $nsgName = "myNsg"
@@ -283,12 +282,12 @@ $nsg = New-AzNetworkSecurityGroup `
     
 ```
 
-Läs mer om slutpunkter och NSG-regler, [öppna portar till en virtuell dator i Azure med hjälp av PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Mer information om slut punkter och NSG-regler finns i [öppna portar till en virtuell dator i Azure med hjälp av PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-### <a name="create-a-public-ip-address-and-nic"></a>Skapa en offentlig IP-adress och nätverkskort
-Om du vill aktivera kommunikation med den virtuella datorn i det virtuella nätverket, behöver du en [offentliga IP-adressen](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) och ett nätverksgränssnitt.
+### <a name="create-a-public-ip-address-and-nic"></a>Skapa en offentlig IP-adress och ett nätverkskort
+Om du vill aktivera kommunikation med den virtuella datorn i det virtuella nätverket behöver du en [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) och ett nätverks gränssnitt.
 
-1. Skapa offentlig IP-adress. I det här exemplet anges namnet för offentliga IP-adress till *myIP*.
+1. Skapa den offentliga IP-adressen. I det här exemplet anges namnet på den offentliga IP-adressen till *myIP*.
    
     ```powershell
     $ipName = "myIP"
@@ -298,7 +297,7 @@ Om du vill aktivera kommunikation med den virtuella datorn i det virtuella nätv
        -AllocationMethod Dynamic
     ```       
     
-2. Skapa nätverkskortet. I det här exemplet är namnet på nätverkskortet har angetts *myNicName*.
+2. Skapa NÄTVERKSKORTet. I det här exemplet är NÄTVERKSKORTets namn inställt på *myNicName*.
    
     ```powershell
     $nicName = "myNicName"
@@ -311,25 +310,25 @@ Om du vill aktivera kommunikation med den virtuella datorn i det virtuella nätv
     
 
 
-### <a name="set-the-vm-name-and-size"></a>Ange den virtuella datorns namn och storlek
+### <a name="set-the-vm-name-and-size"></a>Ange namn och storlek för den virtuella datorn
 
-Det här exemplet anges VM-namnet *myVM* och VM-storleken till *Standard_A2*.
+I det här exemplet anges namnet på den virtuella datorn till *myVM* och storleken på den virtuella datorn till *Standard_A2*.
 
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
-### <a name="add-the-nic"></a>Lägga till NIC
+### <a name="add-the-nic"></a>Lägg till NÄTVERKSKORTet
     
 ```powershell
 $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
 
-### <a name="add-the-os-disk"></a>Lägg till OS-disk 
+### <a name="add-the-os-disk"></a>Lägg till OS-disken 
 
-Lägg till OS-disken i konfigurationen med hjälp av [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). Det här exemplet anger storleken på disken för att *128 GB* och kopplar den hantera disken som en *Windows* OS-disken.
+Lägg till OS-disken i konfigurationen genom att använda [set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). I det här exemplet anges storleken på disken till *128 GB* och den hanterade disken kopplas som en *Windows* OS-disk.
  
 ```powershell
 $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
@@ -338,13 +337,13 @@ $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Stand
 
 ### <a name="complete-the-vm"></a>Slutför den virtuella datorn 
 
-Skapa den virtuella datorn med hjälp av [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) med konfigurationer som vi precis skapade.
+Skapa den virtuella datorn med hjälp av [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) med de konfigurationer som vi nyss skapade.
 
 ```powershell
 New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
 ```
 
-Om det här kommandot lyckas visas utdata som liknar detta:
+Om det här kommandot lyckas visas utdata som liknar följande:
 
 ```powershell
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -353,8 +352,8 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ```
 
-### <a name="verify-that-the-vm-was-created"></a>Kontrollera att den virtuella datorn har skapats
-Du bör se den nya virtuella datorn antingen i den [Azure-portalen](https://portal.azure.com) under **Bläddra** > **virtuella datorer**, eller genom att använda följande PowerShell-kommandon.
+### <a name="verify-that-the-vm-was-created"></a>Verifiera att den virtuella datorn har skapats
+Du bör se den nyligen skapade virtuella datorn antingen i [Azure Portal](https://portal.azure.com) under **Bläddra** > i**virtuella datorer**eller med hjälp av följande PowerShell-kommandon.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
@@ -362,5 +361,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Logga in på din nya virtuella dator. Mer information finns i [hur du ansluter och logga in på Azure-datorer som kör Windows](connect-logon.md).
+Logga in på den nya virtuella datorn. Mer information finns i [så här ansluter du och loggar in på en virtuell Azure-dator som kör Windows](connect-logon.md).
 

@@ -7,19 +7,18 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3afcd429351a0d988ff0e82ecf09f524ceac70f1
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 046daed4f548d24010c3d3bef177cee8cf24a55e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868974"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098728"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Säkerhets kopiering och återställning av OS för typ II SKU: er av revision 3-stämplar
 
@@ -74,7 +73,7 @@ Följande skärm bild visar återställningen av en fullständig säkerhets kopi
 
 ## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Hur du installerar bakre verktyget och ändrar konfigurationen? 
 
-Paketen för att minska och återställa (bak) är  förinstallerade i **typ II-SKU: er** av Hana-stora instanser och ingen åtgärd krävs från dig. Du kan direkt börja använda bak sidan för säkerhets kopieringen av operativ systemet.
+Paketen för att minska och återställa (bak) är förinstallerade i **typ II-SKU: er** av Hana-stora instanser och ingen åtgärd krävs från dig. Du kan direkt börja använda bak sidan för säkerhets kopieringen av operativ systemet.
 I de fall där du behöver installera paketen i din egen kan du dock följa stegen i listan för att installera och konfigurera bak-verktyget.
 
 Om du vill installera de **bakre** säkerhets kopie paketen använder du följande kommandon:

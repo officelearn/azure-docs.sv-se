@@ -5,17 +5,16 @@ services: batch
 author: laurenhughes
 manager: gwallace
 ms.service: batch
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 33455a95dff946676e3dfffbd2737ed36be59c64
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 92f8499a10c07e7d5ea74e49c374cef192b8a47f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322369"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094126"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snabbstart: Köra ditt första Batch-jobb i Azure-portalen
 
@@ -57,7 +56,7 @@ Nu när du har ett Batch-konto kan du skapa en exempelpool med Windows beräknin
 
 3. Vid **Operativsystem** väljer du följande inställningar (du kan utforska andra alternativ).
   
-   |Inställning  |Värde  |
+   |Inställning  |Value  |
    |---------|---------|
    |**Avbildningstyp**|Marketplace (Linux/Windows)|
    |**Utgivare**     |MicrosoftWindowsServer|
@@ -68,7 +67,7 @@ Nu när du har ett Batch-konto kan du skapa en exempelpool med Windows beräknin
 
 4. Rulla nedåt för att ange inställningar för **Nodstorlek** och **Skala**. Föreslagen nodstorlek erbjuder en bra balans mellan prestanda och kostnad för det här snabba exemplet.
   
-   |Inställning  |Värde  |
+   |Inställning  |Value  |
    |---------|---------|
    |**Nodprisnivå**     |Standard_A1|
    |**Reserverade målnoder**     |2|

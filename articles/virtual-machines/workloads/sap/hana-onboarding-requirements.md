@@ -1,5 +1,5 @@
 ---
-title: Integrationskrav för SAP HANA på Azure (stora instanser) | Microsoft Docs
+title: Onboarding-krav för SAP HANA på Azure (stora instanser) | Microsoft Docs
 description: Onboarding-krav för SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -7,81 +7,80 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f596f44acfd51b1e2449bc77eed6add0d9d90b0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 99ad334a526b269879034dcc0e1cd0b1b22f1f7f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707397"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101199"
 ---
 # <a name="onboarding-requirements"></a>Registreringskrav
 
-Den här listan monterar krav för att köra SAP HANA på Azure (stora instanser).
+I den här listan samlas kraven för att köra SAP HANA på Azure (större instanser).
 
 **Microsoft Azure**
 
 - En Azure-prenumeration som kan länkas till SAP HANA på Azure (stora instanser).
-- Microsoft Premier support-kontrakt. Specifik information som rör köra SAP i Azure finns i [SAP Support Obs! #2015553 – SAP på Microsoft Azure: Supportkrav](https://launchpad.support.sap.com/#/notes/2015553). Om du använder stora HANA-instansen enheter 384 och mer CPU: er kan du också behöva utöka Premier support-kontrakt med Azure Rapid Response.
-- Medvetenhet om HANA stora instans SKU: er du behöver när du har utfört en storlek Övning med SAP.
+- Microsoft Premier support-avtal. För detaljerad information om att köra SAP i Azure, se [SAP support NOTE #2015553 – SAP på Microsoft Azure: Support krav](https://launchpad.support.sap.com/#/notes/2015553). Om du använder processorer med stora instanser med 384 och fler processorer måste du också utöka Premier Support-kontraktet för att inkludera Azure Rapid Response.
+- Medvetenhet om de stora instanser av HANA-instanser du behöver när du har gjort en storleks övning med SAP.
 
-**Nätverksanslutning**
+**Nätverks anslutning**
 
-- ExpressRoute mellan en lokal plats till Azure: Se till att beställa på minst 1 Gbit/s-anslutning från Leverantören för att ansluta ditt lokala Datacenter till Azure. Anslutningen mellan stora HANA-instansen enheter och Azure använder ExpressRoute-teknik. Den här ExpressRoute-anslutning mellan stora HANA-instansen enheter och Azure ingår i priset för stora HANA-instansen-enheter, inklusive alla data-ingående och utgående avgifter för den här specifika ExpressRoute-krets. Därför som kund inte uppstå ytterligare kostnader utöver din ExpressRoute-länken mellan lokala och Azure.
+- ExpressRoute mellan lokala och Azure: För att ansluta ditt lokala data Center till Azure, se till att beställa minst 1 Gbit/s-anslutning från din Internet leverantör. Anslutning mellan HANA stora instans enheter och Azure använder även ExpressRoute-teknik. Den här ExpressRoute-anslutningen mellan de HANA-stora instans enheterna och Azure ingår i priset för de många HANA-instanser, inklusive alla inkommande och utgående kostnader för den här ExpressRoute-kretsen. Därför kommer du som kund inte att upptäcka ytterligare kostnader utöver din ExpressRoute-länk mellan lokala platser och Azure.
 
 **Operativsystem**
 
 - Licenser för SUSE Linux Enterprise Server 12 för SAP-program.
 
    > [!NOTE] 
-   > Operativsystemet som levereras av Microsoft är inte registrerad med SUSE. Det är inte ansluten till en prenumeration hanteringsverktyg-instans.
+   > Operativ systemet som levereras av Microsoft är inte registrerat med SUSE. Den är inte ansluten till en instans av prenumerations hanterings verktyget.
 
-- SUSE Linux prenumeration hanteringsverktyg distribueras i Azure på en virtuell dator. Det här verktyget innehåller funktioner för SAP HANA på Azure (stora instanser) ska registreras och respektive uppdaterad av SUSE. (Det finns ingen internet-åtkomst i datacenter stora HANA-instansen.) 
-- Licenser för Red Hat Enterprise Linux 6.7 eller 7.x för SAP HANA.
+- Prenumerations hanterings verktyget SUSE Linux distribueras i Azure på en virtuell dator. Det här verktyget ger möjlighet för SAP HANA på Azure (stora instanser) att registreras och uppdateras av SUSE. (Det finns ingen Internet åtkomst i data centret HANA stor instans.) 
+- Licenser för Red Hat Enterprise Linux 6,7 eller 7. x för SAP HANA.
 
    > [!NOTE]
-   > Operativsystemet som levereras av Microsoft är inte registrerad med Red Hat. Det är inte ansluten till en Red Hat prenumeration Manager-instans.
+   > Operativ systemet som levereras av Microsoft är inte registrerat med Red Hat. Den är inte ansluten till en Red Hat Subscription Manager-instans.
 
-- Red Hat prenumeration Manager distribueras i Azure på en virtuell dator. Red Hat prenumeration Manager innehåller funktioner för SAP HANA på Azure (stora instanser) ska registreras och uppdateras respektive från Red Hat. (Det finns ingen direkt Internetåtkomst från den klient som distribuerats på stora Azure-instanser stämpeln.)
-- SAP kräver att du har stöd för ett avtal med din Linux-leverantör. Det här kravet tas inte bort med hjälp av lösningen på stora HANA-instansen eller det faktum att du kör Linux i Azure. Till skillnad från med några av galleriavbildningar Linux Azure serviceavgiften är *inte* ingår i erbjudandet lösning för stora HANA-instansen. Det är ditt ansvar att uppfylla kraven i SAP om supportkontrakt med Linux-distributören. 
-   - För SUSE Linux, leta upp kraven för supportkontrakt i [SAP Obs! #1984787 - SUSE Linux Enterprise Server 12: Installationsinformation](https://launchpad.support.sap.com/#/notes/1984787) och [SAP Obs! #1056161 - SUSE prioriterad support för SAP-program](https://launchpad.support.sap.com/#/notes/1056161).
-   - Du måste ha rätt prenumerationsnivåer som omfattar support och uppdateringar för operativsystem för stora HANA-instansen av tjänsten för Red Hat Linux. Red Hat rekommenderar prenumerationen Red Hat Enterprise Linux för SAP-lösning. Se https://access.redhat.com/solutions/3082481. 
+- Red Hat-prenumerations hanteraren distribuerad i Azure på en virtuell dator. Med Red Hat-prenumerations hanteraren får du SAP HANA på Azure (stora instanser) som ska registreras och uppdateras med Red Hat. (Det finns ingen direkt Internet åtkomst inifrån klienten som distribuerats på den stora Azure-instansnamnet.)
+- SAP kräver också att du har ett support avtal med din Linux-Provider. Detta krav tas inte bort i lösningen av HANA stor instans eller det faktum att du kör Linux i Azure. Till skillnad från vissa av Linux Azure Gallery-avbildningarna ingår *inte* service avgiften i lösnings erbjudandet för Hana stor instans. Det är ditt ansvar att uppfylla kraven i SAP angående support avtal med Linux-distributören. 
+   - För SUSE Linux kan du leta upp kraven för support avtal i [SAP NOTE #1984787-SUSE Linux Enterprise Server 12: Installations information](https://launchpad.support.sap.com/#/notes/1984787) och [SAP-anteckning #1056161-SUSE Priority-stöd för SAP-program](https://launchpad.support.sap.com/#/notes/1056161).
+   - För Red Hat Linux måste du ha rätt prenumerations nivåer som omfattar support-och tjänst uppdateringar till operativ systemen för HANA stor instans. Red Hat rekommenderar Red Hat Enterprise Linux prenumeration för SAP-lösning. Se https://access.redhat.com/solutions/3082481. 
 
-Stödmatris för de olika versionerna för SAP HANA med olika Linux-versioner, se [SAP Obs! #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+En support mat ris för olika SAP HANA versioner med olika Linux-versioner finns i [SAP Obs! #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
-Kompatibilitetsöversikten av operativsystemet och HLI firmware/drivrutinsversion finns [uppgradering av operativsystem för HLI](os-upgrade-hana-large-instance.md).
+Om du vill ha en HLI för operativ systemet och den inbyggda program varan/driv rutins versionerna, se [operativ Systems uppgradering för HLI](os-upgrade-hana-large-instance.md).
 
 
 > [!IMPORTANT] 
-> Versionen stöds nu för Type II enheter endast SLES 12 SP2 OS. 
+> För typ II-enheter stöds endast SLES 12 SP2 OS-versionen just nu. 
 
 
 **Databas**
 
-- Licenser och software installationskomponenter för SAP HANA (plattform eller enterprise edition).
+- Licenser och program installations komponenter för SAP HANA (plattform eller Enterprise Edition).
 
 **Program**
 
-- Licenser och programvarukomponenter i installationen för alla SAP-program som ansluter till SAP HANA och relaterade SAP supportavtal.
-- Licenser och programvarukomponenter i installationen för alla icke-SAP-program används med SAP HANA på Azure (stora instanser)-miljöer och relaterade supportavtal.
+- Licenser och program installations komponenter för alla SAP-program som ansluter till SAP HANA och relaterade SAP-support avtal.
+- Licenser och program installations komponenter för alla icke-SAP-program som används med SAP HANA på Azure-miljöer (stora instanser) och relaterade support avtal.
 
 **Kunskaper**
 
-- Erfarenhet och kunskap om Azure IaaS och dess komponenter.
-- Erfarenhet och kunskap om hur du distribuerar en SAP-arbetsbelastning i Azure.
-- SAP HANA-installation certifierade personliga.
-- SAP architect kunskaper för att utforma hög tillgänglighet och katastrofåterställning recovery runt SAP HANA.
+- Upplev med och kunskap om Azure-IaaS och dess komponenter.
+- Upplev med och kunskap om hur du distribuerar en SAP-arbetsbelastning i Azure.
+- SAP HANA installation certifierat personligt.
+- SAP arkitekt-kunskaper för att designa hög tillgänglighet och haveri beredskap kring SAP HANA.
 
 **SAP**
 
-- Förutsätts att du är en SAP-kund och har stöd för ett avtal med SAP.
-- Kontakta SAP på versioner av SAP HANA och eventuell konfigurationer i stor skala upp maskinvaran särskilt för implementeringar av typ II-klassen för HANA stora instans SKU: er.
+- Förväntat är att du är SAP-kund och har ett support avtal med SAP.
+- Särskilt för implementeringar av Type II-klassen i HANA stor instans-SKU: er, se med SAP på versioner av SAP HANA och de konfigurationer som finns på storskalig maskin vara med stor storlek.
 
 **Nästa steg**
-- Se [SAP HANA (stora instanser)-arkitektur på Azure](hana-architecture.md)
+- Referera [SAP HANA (stora instanser) arkitektur i Azure](hana-architecture.md)

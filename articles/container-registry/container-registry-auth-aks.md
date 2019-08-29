@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/27/2019
 ms.author: danlep
-ms.openlocfilehash: 9690f900b6fe8d81fbebc3fcf5b7022b12bc3b96
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f80956ec401737766f7a85540e90be70b9d621e7
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310261"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114693"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes-tjänsten
 
@@ -21,7 +21,7 @@ När du använder Azure Container Registry (ACR) med Azure Kubernetes service (A
 
 Du behöver bara konfigurera en av dessa autentiseringsmetoder. Det vanligaste tillvägagångs sättet är att [bevilja åtkomst med AKS-tjänstens huvud namn](#grant-aks-access-to-acr). Om du har speciella behov kan du välja att [bevilja åtkomst med Kubernetes hemligheter](#access-with-kubernetes-secret).
 
-Den här artikeln förutsätter att du redan har skapat ett AKS-kluster och att du kan komma åt klustret `kubectl` med kommando rads klienten.
+Den här artikeln förutsätter att du redan har skapat ett AKS-kluster och att du kan komma åt klustret `kubectl` med kommando rads klienten. Om du i stället vill skapa ett kluster och konfigurera åtkomst till ett behållar register när klustret skapas, [se Självstudier: Distribuera ett AKS-](../aks/tutorial-kubernetes-deploy-cluster.md) kluster eller [autentisera med Azure Container Registry från Azure Kubernetes service (för hands version)](../aks/cluster-container-registry-integration.md).
 
 ## <a name="grant-aks-access-to-acr"></a>Bevilja AKS åtkomst till ACR
 

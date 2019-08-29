@@ -10,16 +10,15 @@ ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: bd31d711c58a63b5c15712c1774d48433c62f18d
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 69584b434ac0442df48dcdea2a7d9f2aca9c1ccd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774977"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073742"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för API Management-autentisering
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -49,13 +48,13 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |autentisering – grundläggande|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
 |username|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Ja|Gäller inte|
 |password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Ja|Gäller inte|
@@ -89,13 +88,13 @@ I det här exemplet identifieras klient certifikatet med resurs namnet.
 
 ### <a name="elements"></a>Element  
   
-|Namn|Beskrivning|Obligatorisk|  
+|Name|Beskrivning|Obligatorisk|  
 |----------|-----------------|--------------|  
 |autentisering-certifikat|Rot element.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Obligatorisk|Standard|  
+|Name|Beskrivning|Obligatorisk|Standard|  
 |----------|-----------------|--------------|-------------|  
 |begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller`certificate-id` måste finnas.|Gäller inte|  
 |certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller`certificate-id` måste finnas.|Gäller inte|  
@@ -133,13 +132,13 @@ I det här exemplet identifieras klient certifikatet med resurs namnet.
 
 ### <a name="elements"></a>Element  
   
-|Namn|Beskrivning|Obligatorisk|  
+|Name|Beskrivning|Obligatorisk|  
 |----------|-----------------|--------------|  
 |autentisering-hanterad-identitet |Rot element.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Obligatorisk|Standard|  
+|Name|Beskrivning|Obligatorisk|Standard|  
 |----------|-----------------|--------------|-------------|  
 |resource|Nollängd. App-ID-URI för mål webb-API (säker resurs) i Azure Active Directory.|Ja|Gäller inte|  
 |output-token-variable-name|Nollängd. Namnet på den Sammanhangs variabel som kommer att ta emot token- `string`värde som en objekt typ. |Nej|Gäller inte|  

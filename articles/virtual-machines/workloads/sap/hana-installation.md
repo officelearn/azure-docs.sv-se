@@ -7,23 +7,22 @@ author: hermanndms
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bfd278cc4252167aace3aca52fec65fb3c6367f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ebf4a0f892e65bf96e07e333cf5446d3036108a0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869140"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099798"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure
 
-Innan du läser den här artikeln kan du bekanta dig [med de](hana-available-skus.md)stora och Hana- [stora instanserna](hana-know-terms.md) .
+Innan du läser den här artikeln kan du bekanta dig med de stora och Hana [](hana-available-skus.md)- [stora instanserna](hana-know-terms.md) .
 
 Installationen av SAP HANA är ditt ansvar. Du kan börja installera en ny SAP HANA på Azure-servern (stora instanser) när du har upprättat anslutningen mellan dina virtuella Azure-nätverk och de HANA-stora instans enheterna. 
 
@@ -151,7 +150,7 @@ De höga storlekarna för de olika volymerna med de olika volymerna för HANA-st
 
 Namngivnings konventionerna för lagrings volymerna visas i följande tabell:
 
-| Lagrings användning | Monterings namn | Volym namn | 
+| Lagringsanvändning | Monterings namn | Volymnamn | 
 | --- | --- | ---|
 | HANA-data | /hana/data/SID/mnt0000\<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
 | HANA-logg | /Hana/log/sid/mnt0000\<m > | Lagrings-IP:/hana_log_SID_mnt00001_tenant_vol |

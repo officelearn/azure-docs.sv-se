@@ -1,6 +1,6 @@
 ---
-title: Programprestanda vanliga frågor och svar – Azure App Service | Microsoft Docs
-description: Få svar på vanliga frågor om tillgänglighet, prestanda och programfel i funktionen Web Apps i Azure App Service.
+title: Vanliga frågor och svar om program prestanda – Azure App Service | Microsoft Docs
+description: Få svar på vanliga frågor om tillgänglighets-, prestanda-och program problem i Web Apps funktionen i Azure App Service.
 services: app-service\web
 documentationcenter: ''
 author: genlin
@@ -11,111 +11,110 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: f455985d2a7d05f45100d4a88b43c688fe1a7767
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b9689eeecb0549fae9f7131dd424e15c040b042
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955765"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073184"
 ---
-# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar för programprestanda för Web Apps i Azure
+# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om program prestanda för Web Apps i Azure
 
 > [!NOTE]
-> Några av de riktlinjerna nedan fungerar endast på Windows eller Linux App Services. Till exempel körs Linux App Services i 64-bitars läge som standard.
+> Några av rikt linjerna nedan kanske bara fungerar på Windows-eller Linux-App Services. Linux App Services till exempel köras i 64-bitars läge som standard.
 >
 
-Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om problem med programprestanda för den [Web Apps-funktionen i Azure App Service](https://azure.microsoft.com/services/app-service/web/).
+Den här artikeln innehåller svar på vanliga frågor och svar om program prestanda problem för [Web Apps funktionen i Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="why-is-my-app-slow"></a>Varför är min app långsamma?
+## <a name="why-is-my-app-slow"></a>Varför är min app långsam?
 
-Flera faktorer kan bidra med långsamma prestanda. Detaljerad felsökning finns i [Felsök prestanda för långsamma webbappar](troubleshoot-performance-degradation.md).
+Flera faktorer kan bidra till dåliga program prestanda. Detaljerade fel söknings steg finns i [Felsöka prestanda för långsamma webb program](troubleshoot-performance-degradation.md).
 
-## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Hur felsöker jag ett scenario med hög CPU-förbrukning?
+## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Hur gör jag för att felsöka ett scenario med hög CPU-förbrukning?
 
-Din app i vissa situationer med hög CPU-förbrukning kan verkligen kräva mer datorresurser. I sådana fall kan du skala till en högre tjänstnivå så att programmet hämtar alla resurser som behövs. Andra gånger kan hög CPU-förbrukning orsakas av en felaktig loop eller av en kodning idé. Få inblick i vad utlösa ökade CPU-förbrukning är en process i två delar. Först skapa en process-dump, och analysera processen dumpen. Mer information finns i [samla in och analysera den här filen för hög CPU-förbrukning för Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+I vissa scenarier med hög CPU-förbrukning kan din app faktiskt kräva mer data bearbetnings resurser. I så fall bör du överväga att skala till en högre tjänst nivå så att programmet får alla resurser som krävs. Andra gånger kan hög processor förbrukning orsakas av en dålig loop eller en kodnings metod. Att få insikt i vad som utlöser ökad processor förbrukning är en process i två delar. Börja med att skapa en process dumpning och analysera sedan process dumpningen. Mer information finns i [avbilda och analysera en dumpfil för hög CPU-förbrukning för Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
-## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Hur felsöker jag ett scenario med hög minnesförbrukning?
+## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Hur gör jag för att felsöka ett scenario med hög minnes förbrukning?
 
-Din app i vissa scenarier med hög minnesförbrukning kan verkligen kräva mer datorresurser. I sådana fall kan du skala till en högre tjänstnivå så att programmet hämtar alla resurser som behövs. Andra gånger, kan en bugg i koden orsaka en minnesläcka. En kodning idé kan också öka minnesanvändningen. Få inblick i vad utlösa extra minne förbrukningen är en process i två delar. Först skapa en process-dump, och analysera processen dumpen. Krascher Diagnoser från galleriet Azure-tillägget kan effektivt utföra båda dessa steg. Mer information finns i [samla in och analysera den här filen för tillfälligt hög minne för Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+I vissa scenarier med hög minnes användning kan din app faktiskt kräva mer data bearbetnings resurser. I så fall bör du överväga att skala till en högre tjänst nivå så att programmet får alla resurser som krävs. Andra gånger kan ett fel i koden orsaka en minnes läcka. En kodnings metod kan också öka minnes användningen. Att få insikt i vad som utlöser hög minnes användning är en process i två delar. Börja med att skapa en process dumpning och analysera sedan process dumpningen. Crash Diagnostic från Azure Site Extension-galleriet kan effektivt utföra båda dessa steg. Mer information finns i [avbilda och analysera en dumpfil för återkommande hög minnes storlek för Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
-## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Hur jag för att automatisera App Service-webbappar med hjälp av PowerShell?
+## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Hur gör jag för att automatisera App Service webbappar med PowerShell?
 
-Du kan använda PowerShell-cmdletar för att hantera och underhålla App Service web apps. I vårt blogginlägg [automatisera webbappar som körs i Azure App Service med hjälp av PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), beskriver vi hur du använder Azure Resource Manager-baserade PowerShell-cmdletar för att automatisera vanliga uppgifter. Det här blogginlägget har även exempelkod för olika hanteringsuppgifter för web apps. Beskrivningar och syntax för alla App Service web apps-cmdletar finns i [Az.Websites](/powershell/module/az.websites).
+Du kan använda PowerShell-cmdletar för att hantera och underhålla App Service webbappar. I vårt blogg inlägg [automatiserar webbappar som finns i Azure App Service med hjälp av PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), beskriver vi hur du använder Azure Resource Manager-baserade PowerShell-cmdletar för att automatisera vanliga uppgifter. Blogg inlägget innehåller också en exempel kod för olika hanterings uppgifter för webbappar. Beskrivningar och syntax för alla App Service Web Apps-cmdlets finns i [AZ.](/powershell/module/az.websites)websites.
 
-## <a name="how-do-i-view-my-web-apps-event-logs"></a>Hur gör jag för att visa händelseloggar för min webbapp?
+## <a name="how-do-i-view-my-web-apps-event-logs"></a>Hur gör jag för att visa mina webbappens händelse loggar?
 
-Visa din webbapps händelseloggar:
+Så här visar du webbappens händelse loggar:
 
-1. Logga in på din [Kudu-webbplatsen](https://*yourwebsitename*.scm.azurewebsites.net).
-2. I menyn, Välj **Felsökningskonsolen** > **CMD**.
-3. Välj den **LogFiles** mapp.
-4. Om du vill visa händelseloggar väljer du pennikonen bredvid **eventlog.xml**.
-5. Kör PowerShell-cmdlet för att hämta loggarna `Save-AzureWebSiteLog -Name webappname`.
+1. Logga in på din [kudu-webbplats](https://*yourwebsitename*.scm.azurewebsites.net).
+2. I menyn väljer du **Felsök konsol** > **cmd**.
+3. Välj mappen **loggfiler** .
+4. Om du vill visa händelse loggar väljer du Penn ikonen bredvid **EventLog. XML**.
+5. Hämta loggarna genom att köra PowerShell-cmdleten `Save-AzureWebSiteLog -Name webappname`.
 
-## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Hur jag för att avbilda en användarläge minnesdump av min webbapp?
+## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Hur gör jag för att avbilda en minnes dumpning i användarläge för min webbapp?
 
-Att samla in en minnesdump för användarläge på din webbapp:
+För att avbilda en minnes dum par i användarläge för din webbapp:
 
-1. Logga in på din [Kudu-webbplatsen](https://*yourwebsitename*.scm.azurewebsites.net).
-2. Välj den **Processutforskaren** menyn.
-3. Högerklicka på den **w3wp.exe** eller WebJob-processen.
-4. Välj **hämta minnesdump** > **fullständig Dump**.
+1. Logga in på din [kudu-webbplats](https://*yourwebsitename*.scm.azurewebsites.net).
+2. Välj menyn **process Utforskaren** .
+3. Högerklicka på processen **W3wp. exe** eller ditt webb jobb.
+4. Välj **Ladda ned minnes dumpning** > **fullständig dump**.
 
-## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Hur visar jag processnivå information för min webbapp?
+## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Hur gör jag för att visa information på process nivå för min webbapp?
 
-Har du två alternativ för att visa processnivå information för din webbapp:
+Det finns två alternativ för att visa information på process nivå för din webbapp:
 
 *   På Azure Portal:
-    1. Öppna den **Processutforskaren** för webbappen.
-    2. Om du vill se information, Välj den **w3wp.exe** processen.
-*   I Kudu-konsolen:
-    1. Logga in på din [Kudu-webbplatsen](https://*yourwebsitename*.scm.azurewebsites.net).
-    2. Välj den **Processutforskaren** menyn.
-    3. För den **w3wp.exe** process, väljer **egenskaper**.
+    1. Öppna **process Utforskaren** för webb programmet.
+    2. Välj processen **W3wp. exe** om du vill se informationen.
+*   I kudu-konsolen:
+    1. Logga in på din [kudu-webbplats](https://*yourwebsitename*.scm.azurewebsites.net).
+    2. Välj menyn **process Utforskaren** .
+    3. För processen **W3wp. exe** väljer du **Egenskaper**.
 
-## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>När jag söker till min app, se ”fel 403 – den här webbappen har stoppats”. Hur löser jag det?
+## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>När jag bläddrar till min app visas "fel 403 – den här webbappen har stoppats". Hur gör jag för att du lösa detta?
 
-Tre villkor kan orsaka detta fel:
+Det här felet kan orsakas av tre villkor:
 
-* Webbappen har nått faktureringsgränsen och webbplatsen har inaktiverats.
+* Webbappen har nått en fakturerings gräns och din webbplats har inaktiverats.
 * Webbappen har stoppats i portalen.
-* Webbappen har nått resurskvotgränsen som kan gälla för en kostnadsfri eller delad skala service-plan.
+* Webb programmet har nått en resurs kvot gräns som kan gälla för en kostnads fri eller delad plan tjänst plan.
 
-Vad som orsakar felet och för att lösa problemet, följer du stegen i [Web Apps: ”Fel 403 – den här webbappen har stoppats”](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Om du vill se vad som orsakar felet och lösa problemet följer du stegen i [Web Apps: "Fel 403 – den här webbappen har stoppats"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
 
-## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Var kan jag läsa mer om kvoter och begränsningar för olika App Service-planer?
+## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Var kan jag läsa mer om kvoter och begränsningar för olika App Services planer?
 
-Information om kvoter och begränsningar finns i [gränser för Apptjänst](../azure-subscription-service-limits.md#app-service-limits). 
+Information om kvoter och begränsningar finns i [App Service gränser](../azure-subscription-service-limits.md#app-service-limits). 
 
-## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>Hur jag för att minska svarstiden för den första begäran efter hur lång tids inaktivitet?
+## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>Hur gör jag för att minska svars tiden för den första begäran efter inaktivitet?
 
-Som standard inaktiveras webbappar om de är inaktiva för en angiven tidsperiod. På så sätt kan systemet kan spara resurser. Nackdelen är att svaret på den första begäran när webbappen har bort från minnet är längre, så att appen att läsa in och starta man betjänar svar. I Basic och Standard service-planer, du kan aktivera den **Always On** inställningen för att förhindra att appen alltid läses in. Detta eliminerar längre snabbare när appen är inaktiv. Ändra den **Always On** inställningen:
+Som standard inaktive ras Web Apps om de är inaktiva under en angiven tids period. På så sätt kan systemet Spara resurser. Nack delen är att svaret på den första begäran efter att webbappen har inaktiverats är längre, så att webbappen kan läsa in och börja betjäna svar. I tjänst prenumerationerna Basic och standard kan du aktivera inställningen **Always on** för att hålla appen alltid inläst. Detta eliminerar längre inläsnings tider när appen är inaktiv. Så här ändrar du inställningen **Always on** :
 
-1. Gå till din webbapp i Azure-portalen.
-2. Välj **programinställningar**.
-3. För **Always On**väljer **på**.
+1. I Azure Portal går du till din webbapp.
+2. Välj **program inställningar**.
+3. För **Always on**väljer du **på**.
 
-## <a name="how-do-i-turn-on-failed-request-tracing"></a>Hur aktiverar jag spårning av misslyckade begäranden?
+## <a name="how-do-i-turn-on-failed-request-tracing"></a>Hur gör jag för att du aktivera spårning av misslyckade förfrågningar?
 
-Aktivera spårning av misslyckade begäranden:
+Aktivera spårning av misslyckade begär Anden:
 
-1. Gå till din webbapp i Azure-portalen.
-3. Välj **alla inställningar** > **diagnostikloggar**.
-4. För **spårning av misslyckade begäranden**väljer **på**.
+1. I Azure Portal går du till din webbapp.
+3. Välj **alla inställningar** > diagnostikloggar.
+4. För **spårning av misslyckade begär Anden**väljer du **på**.
 5. Välj **Spara**.
-6. På webbappsbladet, väljer **verktyg**.
+6. På bladet webbapp väljer du **verktyg**.
 7. Välj **Visual Studio Online**.
-8. Om inställningen inte är **på**väljer **på**.
-9. Välj **Gå**.
-10. Välj **Web.config**.
-11. I system.webServer, lägger du till den här konfigurationen (om du vill spela in en specifik URL):
+8. Om inställningen inte är **på**väljer du **på**.
+9. Välj **gå**till.
+10. Välj **Web. config**.
+11. I system. webserver lägger du till den här konfigurationen (för att avbilda en viss URL):
 
     ```xml
     <system.webServer>
@@ -132,7 +131,7 @@ Aktivera spårning av misslyckade begäranden:
     </add> </traceFailedRequests>
     </tracing>
     ```
-12. Lägg till den här konfigurationen för att felsöka problem med långsam prestanda (om in begäran tar mer än 30 sekunder):
+12. Om du vill felsöka problem med långsamma prestanda lägger du till den här konfigurationen (om begäran tar mer än 30 sekunder):
     ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
@@ -147,51 +146,51 @@ Aktivera spårning av misslyckade begäranden:
     </add> </traceFailedRequests>
     </tracing>
     ```
-13. Ladda ned spårningarna av misslyckade begäranden, i den [portal](https://portal.azure.com)går du till din webbplats.
-15. Välj **verktyg** > **Kudu** > **Gå**.
-18. I menyn, Välj **Felsökningskonsolen** > **CMD**.
-19. Välj den **LogFiles** mapp och välj sedan mappen med det namn som börjar med **W3SVC**.
-20. Välj pennikonen för att se XML-filen.
+13. Om du vill hämta spårningen av misslyckade begär Anden går du till din webbplats i [portalen](https://portal.azure.com).
+15. Välj **verktyg** > kuduGo > .
+18. I menyn väljer du **Felsök konsol** > **cmd**.
+19. Välj mappen **loggfiler** och välj sedan den mapp med ett namn som börjar med **W3SVC**.
+20. Om du vill se XML-filen väljer du Penn ikonen.
 
-## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>Jag ser meddelandet ”arbetsprocess begärt återanvändning på grund av” procent ' minnesgräns ”. Hur jag för att lösa det här problemet?
+## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>Jag ser meddelandet "arbets process begärde åter användning på grund av" procent minnes gräns ". Hur gör jag för att du lösa det här problemet?
 
-Högsta tillgängliga mängden minne för en 32-bitars process (även på ett 64-bitars operativsystem) är 2 GB. Arbetsprocessen är som standard till 32-bitars i App Service (för kompatibilitet med äldre webbprogram).
+Den största tillgängliga mängden minne för en 32-bitars process (även på ett 64-bitars operativ system) är 2 GB. Arbets processen är som standard inställd på 32-bitars i App Service (för kompatibilitet med äldre webb program).
 
-Överväg att byta till 64-bitars processer så att du kan dra nytta av det extra minnet tillgängligt i din Web Worker-roll. Detta utlöser en omstart av web app, så du bör schemalägga därefter.
+Överväg att växla till 64-bitars processer så att du kan dra nytta av det ytterligare minne som är tillgängligt i din Web Worker-roll. Detta utlöser en omstart av en webbapp så att du kan schemalägga detta.
 
-Observera också att en 64-bitars-miljö kräver en Basic eller Standard service-plan. Kostnadsfri och delad planer körs alltid i en 32-bitars-miljö.
+Observera också att en 64-bitars miljö kräver en Basic-eller standard service-plan. Kostnads fria och delade planer körs alltid i en 32-bitars miljö.
 
-Mer information finns i [konfigurera webbappar i App Service](configure-common.md).
+Mer information finns i [Konfigurera Web Apps i App Service](configure-common.md).
 
-## <a name="why-does-my-request-time-out-after-230-seconds"></a>Varför har min timeout för begäran efter 230 sekunder?
+## <a name="why-does-my-request-time-out-after-230-seconds"></a>Varför nådde min förfrågan efter 230 sekunder?
 
-Azure Load Balancer har en standardinställning för timeout för inaktivitet på fyra minuter. Det är vanligtvis en rimlig svar tidsgräns för en webbegäran. Om din webbapp kräver behandling i bakgrunden, bör du använda Azure WebJobs. Azure-webbappen kan anropa WebJobs och bli meddelad när behandling i bakgrunden är klar. Du kan välja mellan flera metoder för att använda WebJobs, inklusive köer och utlösare.
+Azure Load Balancer har en standardinställning för tids gräns för inaktivitet på fyra minuter. Detta är vanligt vis en rimlig svars tids gräns för en webbegäran. Om din webbapp kräver bakgrunds bearbetning rekommenderar vi att du använder Azure WebJobs. Azure-webbappen kan anropa webbjobb och meddelas när bakgrunds bearbetningen har slutförts. Du kan välja mellan flera metoder för att använda WebJobs, inklusive köer och utlösare.
 
-WebJobs är utformat för bearbetning i bakgrunden. Du kan göra så mycket bakgrunden som bearbetar som du vill ha i ett WebJob. Läs mer om WebJobs [kör bakgrundsuppgifter med WebJobs](webjobs-create.md).
+WebJobs är utformat för bakgrunds bearbetning. Du kan göra så mycket bakgrunds bearbetning som du vill i ett webb jobb. Mer information om WebJobs finns i [köra bakgrunds aktiviteter med WebJobs](webjobs-create.md).
 
-## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET Core-program som finns i App Service ibland slutar svara. Hur kan jag åtgärda det här problemet?
+## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET Core program som finns i App Service slutar ibland att svara. Hur gör jag för att åtgärda det här problemet?
 
-Ett känt problem med en tidigare [Kestrel version](https://github.com/aspnet/KestrelHttpServer/issues/1182) kan orsaka en ASP.NET Core 1.0-app som finns i App Service periodvis slutar svara. Du kan också visas följande meddelande: ”Ett fel inträffade i CGI-programmet och servern avslutades processen”.
+Ett känt problem med en tidigare [Kestrel-version](https://github.com/aspnet/KestrelHttpServer/issues/1182) kan orsaka att en ASP.net core 1,0-app som finns i App Service tillfälligt slutar svara. Du kan också se det här meddelandet: "Det angivna CGI-programmet påträffade ett fel och servern avslutade processen."
 
-Det här problemet löses i Kestrel version 1.0.2. Den här versionen ingår i ASP.NET Core 1.0.3 uppdateringen. Lös problemet genom att kontrollera att du uppdaterar din appberoenden för att använda Kestrel 1.0.2. Du kan också använda en av två lösningar som beskrivs i det här blogginlägget [ASP.NET Core 1.0 långsam perf utfärdar i App Service web apps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
+Det här problemet har åtgärd ATS i Kestrel version 1.0.2. Den här versionen ingår i ASP.NET Core 1.0.3 Update. För att lösa det här problemet, se till att du uppdaterar dina program beroenden till att använda Kestrel 1.0.2. Du kan också använda en av de två lösningarna som beskrivs i blogg inlägget [ASP.NET Core 1,0 problem med att minska prestandan i App Service Web Apps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
 
 
-## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>Jag kan inte hitta mitt loggfiler i filstrukturen för min webbapp. Hur hittar jag dem?
+## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>Jag kan inte hitta loggfilerna i fil strukturen för min webbapp. Hur kan jag hitta dem?
 
-Om du använder lokal Cache-funktionen i App Service kan påverkas mappstrukturen i mapparna LogFiles och Data för din App Service-instans. När lokal Cache används, skapas undermappar i lagring LogFiles och mappar. Undermapparna använder namngivning mönstret ”unika identifierare” + tidsstämpel. Varje undermapp motsvarar en VM-instans där webbappen körs eller har körts.
+Om du använder den lokala cache-funktionen i App Service påverkas mappstrukturen för loggfiler och datamappar för din App Service instans. När Local cache används skapas undermappar i lagrings-loggfilerna och datamapparna. Undermapparna använder namngivnings mönstret "unik identifierare" + tidsstämpel. Varje undermapp motsvarar en VM-instans där webbappen körs eller har körts.
 
-Kontrollera din App Service för att avgöra om du använder lokal Cache, **programinställningar** fliken. Om lokal Cache används, appinställningen `WEBSITE_LOCAL_CACHE_OPTION` är inställd på `Always`.
+För att avgöra om du använder lokal cache, se fliken App Service **program inställningar** . Om lokal cache används anges appens inställning `WEBSITE_LOCAL_CACHE_OPTION` till. `Always`
 
-Om du inte använder lokal Cache och som har det här problemet kan du skicka en supportförfrågan.
+Om du inte använder lokal cache och har drabbats av det här problemet skickar du en support förfrågan.
 
-## <a name="i-see-the-message-an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissions-how-do-i-resolve-this"></a>Jag ser meddelandet ”ett försök gjordes att komma åt en socket på ett sätt som tillåts inte av åtkomstbehörigheterna”. Hur löser jag det?
+## <a name="i-see-the-message-an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissions-how-do-i-resolve-this"></a>Jag ser meddelandet "ett försök gjordes att få åtkomst till en socket på ett sätt som förbjuds av dess åtkomst behörigheter." Hur gör jag för att du lösa detta?
 
-Det här felet uppstår vanligen om utgående TCP-anslutningar på VM-instans är uttömd. I App Service tillämpas gränserna för det maximala antalet utgående anslutningar som kan göras för varje virtuell datorinstans. Mer information finns i [mellan VM numeriska gränser](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits).
+Det här felet uppstår vanligt vis om utgående TCP-anslutningar på VM-instansen är förbrukade. I App Service tillämpas gränser för det högsta antalet utgående anslutningar som kan göras för varje VM-instans. Mer information finns i [numeriska gränser mellan virtuella datorer](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits).
 
-Det här felet kan också inträffa om du försöker komma åt en lokal adress från ditt program. Mer information finns i [lokal adressbegäranden](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests).
+Det här felet kan också uppstå om du försöker komma åt en lokal adress från ditt program. Mer information finns i [lokala adress begär Anden](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests).
 
-Mer information om utgående anslutningar i webbappen finns i blogginlägget om [utgående anslutningar till Azure websites](https://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/).
+Mer information om utgående anslutningar i din webbapp finns i blogg inlägget om [utgående anslutningar till Azure](https://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/)websites.
 
-## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Hur använder jag Visual Studio till fjärr Felsök min App Service-webbapp?
+## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Hur gör jag för att använder du Visual Studio till fjärrfelsökning min App Service-webbapp?
 
-En detaljerad genomgång som visar hur du felsöker din webbapp med Visual Studio finns i [Remote felsöka din App Service-webbapp](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
+En detaljerad genom gång som visar hur du felsöker din webbapp med hjälp av Visual Studio finns i [fjärrfelsökning App Service-webbapp](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).

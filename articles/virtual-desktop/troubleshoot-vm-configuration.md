@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 0e32c81f37a8b81511cd009dfddbcc546aee1797
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f797d3ee525806d8002b19edb1378d0376508b08
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876737"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073918"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -34,39 +34,45 @@ Följ dessa instruktioner om du har problem med att ansluta till virtuella dator
 
 **Orsak** Ett skrivnings fel inträffade när autentiseringsuppgifterna angavs i gränssnitts korrigeringarna för Azure Resource Manager-mall.
 
-**Fix:** Korrigera autentiseringsuppgifterna genom att följa dessa anvisningar.
+**Fix:** Utför en av följande åtgärder för att lösa problemet.
 
-1. Lägg till de virtuella datorerna i en domän manuellt.
-2. Distribuera om de autentiseringsuppgifter som har bekräftats. Se [skapa en adresspool med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
-3. Använd en mall för att ansluta virtuella datorer till en domän med en [befintlig virtuell Windows-dator till AD-domän](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Lägg till de virtuella datorerna i en domän manuellt.
+- Distribuera om mallen när autentiseringsuppgifterna har bekräftats. Se [skapa en adresspool med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+- Använd en mall för att ansluta virtuella datorer till en domän med en [befintlig virtuell Windows-dator till AD-domän](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
 ### <a name="error-timeout-waiting-for-user-input"></a>Fel: Tids gräns väntar på användarindata
 
 **Orsak** Det konto som används för att slutföra domän anslutningen kan ha Multi-Factor Authentication (MFA).
 
-**Fix:** Följ de här anvisningarna för att slutföra domän anslutningen.
+**Fix:** Utför en av följande åtgärder för att lösa problemet.
 
-1. Ta tillfälligt bort MFA för kontot.
-2. Använd ett tjänst konto.
+- Ta tillfälligt bort MFA för kontot.
+- Använd ett tjänst konto.
 
 ### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Fel: Kontot som används under etableringen har inte behörighet att slutföra åtgärden
 
 **Orsak** Kontot som används har inte behörighet att ansluta virtuella datorer till domänen på grund av efterlevnad och föreskrifter.
 
-**Fix:** Följ de här anvisningarna.
+**Fix:** Utför en av följande åtgärder för att lösa problemet.
 
-1. Använd ett konto som är medlem i gruppen Administratörer.
-2. Bevilja de behörigheter som krävs för det konto som används.
+- Använd ett konto som är medlem i gruppen Administratörer.
+- Bevilja de behörigheter som krävs för det konto som används.
 
 ### <a name="error-domain-name-doesnt-resolve"></a>Fel: Domän namnet matchar inte
 
-**Orsak 1:** De virtuella datorerna finns i en resurs grupp som inte är associerad med det virtuella nätverk (VNET) där domänen finns.
+**Orsak 1:** Virtuella datorer finns i ett virtuellt nätverk som inte är kopplat till det virtuella nätverk (VNET) där domänen finns.
 
 **Korrigering 1:** Skapa VNET-peering mellan VNET där virtuella datorer etablerades och det virtuella nätverk där domänkontrollanten (DC) körs. Se [skapa ett virtuellt nätverk peering – Resource Manager, olika prenumerationer](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
 
-**Orsak 2:** När du använder AadService (AADS) har DNS-poster inte angetts.
+**Orsak 2:** När du använder Azure Active Directory Domain Services (Azure AD DS) har det virtuella nätverket inte uppdaterat sina DNS-serverinställningar så att de pekar på de hanterade domän kontrol Lanterna.
 
-**Fix 2:** Information om hur du anger domän tjänster finns i [aktivera Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
+**Fix 2:** Information om hur du uppdaterar DNS-inställningarna för det virtuella nätverket som innehåller Azure AD DS finns i [Uppdatera DNS-inställningar för det virtuella Azure-nätverket](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network).
+
+**Orsak 3:** Nätverks gränssnittets DNS-serverinställningar pekar inte mot lämplig DNS-server i det virtuella nätverket.
+
+**Korrigera 3:** Vidta någon av följande åtgärder för att lösa problemet genom att följa stegen i [ändra DNS-servrar].
+- Ändra nätverks gränssnittets DNS-serverinställningar till **anpassad** med stegen från [ändra DNS-servrar](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers) och ange de privata IP-adresserna för DNS-servrarna i det virtuella nätverket.
+- Ändra nätverks gränssnittets DNS-serverinställningar så att de **ärver från Virtual Network** med stegen från [ändra DNS-servrar](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers)och ändra sedan det virtuella nätverkets DNS-serverinställningar med stegen från [ändra DNS-servrar](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Windows Virtual Desktop-agenten och start inläsaren för virtuella Windows-datorer har inte installerats
 

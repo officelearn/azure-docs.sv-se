@@ -6,16 +6,15 @@ author: alexkarcher-msft
 manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 2fbf29385b9a14cf5d4a9df621f0767a32079587
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5f856bbd8f6fdec46d947a4c726024a08a2b6e9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61021006"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096042"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions Proxies
 
@@ -47,13 +46,13 @@ Du kan ändra begäranden till och -svar från backend-server med Azure Function
 
 Som standard initieras backend-begäran som en kopia av den ursprungliga begäran. Förutom att URL: en för backend-server kan du ändra till HTTP-metoden, rubriker och frågesträngsparametrarna. Ändrade värden kan referera till [programinställningar] och [parametrar från den ursprungliga klientbegäran].
 
-Backend-begäranden kan ändras i portalen genom att expandera den *begär åsidosättning* delen av sidan proxy. 
+Backend-begäranden kan ändras i portalen genom att expandera avsnittet *begär åsidosättning* på sidan information om proxyserver. 
 
 ### <a name="modify-response"></a>Ändra svaret
 
 Som standard initieras klienten svaret som en kopia av backend-svaret. Du kan ändra Svarets statuskod, orsaksfras, rubriker och brödtext. Ändrade värden kan referera till [programinställningar], [parametrar från den ursprungliga klientbegäran], och [parametrar från backend-svaret].
 
-Backend-begäranden kan ändras i portalen genom att expandera den *Åsidosätt svar* delen av sidan proxy. 
+Server dels begär Anden kan ändras i portalen genom att avsnittet om *åsidosättning av svar* expanderas på sidan information om proxyserver. 
 
 ## <a name="using-variables"></a>Använda variabler
 
@@ -80,17 +79,17 @@ Exempel: om en proxy har en flödesmall som `/pets/{petId}`, backend-URL: en kan
 #### <a name="additional-request-parameters"></a>Om ytterligare begäranparametrar
 Följande värden kan användas i konfigurationsvärden förutom mallparametrar väg:
 
-* **{request.method}** : HTTP-metoden som används på den ursprungliga begäran.
-* **{request.headers.\<HeaderName\>}** : En rubrik som kan läsas från den ursprungliga begäran. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om sidhuvudet inte finns med på begäran, kommer värdet vara en tom sträng.
-* **{request.querystring.\<ParameterName\>}** : En frågesträngsparameter som kan läsas från den ursprungliga begäran. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill läsa. Om parametern inte finns med på begäran, kommer värdet vara en tom sträng.
+* **{Request. Method}** : HTTP-metoden som används på den ursprungliga begäran.
+* **{Request. headers\< . Huvud\>}** : En rubrik som kan läsas från den ursprungliga begäran. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om sidhuvudet inte finns med på begäran, kommer värdet vara en tom sträng.
+* **{Request. QueryString.\< ParameterName\>}** : En frågesträngparametern som kan läsas från den ursprungliga begäran. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill läsa. Om parametern inte finns med på begäran, kommer värdet vara en tom sträng.
 
 ### <a name="response-parameters"></a>Referens för backend-svarsparametrar
 
 Svarsparametrar kan användas som en del av ändra svaret till klienten. Följande värden kan användas i konfigurationsvärden:
 
-* **{backend.response.statusCode}** : HTTP-statuskoden som returneras av backend-svaret.
-* **{backend.response.statusReason}** : HTTP-orsaksfras som returneras av backend-svaret.
-* **{backend.response.headers. \<HeaderName\>}** : En rubrik som kan läsas från backend-svaret. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om rubriken inte ingår i svaret, kommer värdet vara en tom sträng.
+* **{Server del. Response. StatusCode}** : Den HTTP-statuskod som returneras för backend-svaret.
+* **{Server del. Response. statusReason}** : HTTP-orsaks frasen som returneras i backend-svaret.
+* **{Server del. Response.\< headers. Huvud\>}** : En rubrik som kan läsas från Server delens svar. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om rubriken inte ingår i svaret, kommer värdet vara en tom sträng.
 
 ### <a name="use-appsettings"></a>Referens för programinställningar
 
@@ -139,19 +138,19 @@ Proxyservrar som du konfigurerar lagras i en *proxies.json* filen som finns i ro
 
 Varje proxy har ett eget namn som *proxy1* i föregående exempel. Objekt för rättighetsdefinition av motsvarande proxy definieras av följande egenskaper:
 
-* **matchCondition**: Krävs – ett objekt som definierar de förfrågningar som utlöser körningen av den här proxyn. Den innehåller två egenskaper som delas med [HTTP-utlösare]:
-    * _metoder_: En matris med HTTP-metoder som proxyn svarar. Om det inte anges svarar proxyn på alla HTTP-metoder på vägen.
-    * _väg_: Krävs – definierar flödesmallen styra som begär URL: er proxyn svarar på. Till skillnad från i HTTP-utlösare finns inget standardvärde.
-* **backendUri**: URL: en för backend-resursen som begäran ska vara via proxy. Det här värdet kan referera till programinställningar och parametrar från den ursprungliga klientbegäran. Om den här egenskapen inte finns, svarar Azure Functions med en HTTP 200 OK.
-* **requestOverrides**: Ett objekt som definierar transformationer på backend-begäran. Se [Definiera ett requestOverrides-objekt].
-* **responseOverrides**: Ett objekt som definierar transformationer för klient-svaret. Se [Definiera ett responseOverrides-objekt].
+* **matchCondition**: Obligatoriskt--ett objekt som definierar de begär Anden som utlöser körningen av den här proxyn. Den innehåller två egenskaper som delas med [HTTP-utlösare]:
+    * _metoder_: En matris med de HTTP-metoder som proxyservern svarar på. Om det inte anges svarar proxyn på alla HTTP-metoder på vägen.
+    * _väg_: Required--definierar väg mal len och kontrollerar vilka URL-adresser som proxyservern svarar på. Till skillnad från i HTTP-utlösare finns inget standardvärde.
+* nytåligi: URL: en till den backend-resurs som begäran ska skickas till via proxy. Det här värdet kan referera till programinställningar och parametrar från den ursprungliga klientbegäran. Om den här egenskapen inte finns, svarar Azure Functions med en HTTP 200 OK.
+* **requestOverrides**: Ett objekt som definierar omvandlingar till backend-begäran. Se [Definiera ett requestOverrides-objekt].
+* **responseOverrides**: Ett objekt som definierar omvandlingar till klient svaret. Se [Definiera ett responseOverrides-objekt].
 
 > [!NOTE] 
 > Den *väg* -egenskapen i Azure Functions-proxyservrar inte att behandla den *routePrefix* egenskapen för värdkonfigurationen Funktionsapp. Om du vill lägga till ett prefix som `/api`, det måste finnas med i den *väg* egenskapen.
 
 ### <a name="disableProxies"></a> Inaktivera enskilda proxyservrar
 
-Du kan inaktivera enskilda proxyservrar genom att lägga till `"disabled": true` till proxyn i den `proxies.json` filen. Detta innebär att alla begäranden som uppfyller matchCondition att returnera 404.
+Du kan inaktivera enskilda proxyservrar genom att lägga till `"disabled": true` till proxyn i den `proxies.json` filen. Detta gör att alla begär Anden som uppfyller matchCondition kan returnera 404.
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",
@@ -176,7 +175,7 @@ Beteendet proxy kan styras av flera appinställningar. De är alla som beskrivs 
 
 ### <a name="reservedChars"></a> Reserverade tecken (strängformatering)
 
-Proxyservrar läsa alla strängar utanför en JSON-fil, med hjälp av \ som en symbolen. Proxyservrar tolka också av klammerparenteser. Se en fullständig uppsättning exemplen nedan.
+Proxyservrar läser alla strängar från en JSON-fil med hjälp av \ som en Escape-symbol. Proxyservrar tolkar också klammerparenteser. Se en fullständig uppsättning av exempel nedan.
 
 |Tecken|Undantagstecknet|Exempel|
 |-|-|-|
@@ -188,9 +187,9 @@ Proxyservrar läsa alla strängar utanför en JSON-fil, med hjälp av \ som en s
 
 Objektet requestOverrides definierar ändringar som gjorts på begäran när resursen backend-anropas. Objektet definieras av följande egenskaper:
 
-* **backend.request.method**: HTTP-metoden som används för att anropa backend-server.
-* **backend.request.querystring.\<ParameterName\>** : En frågesträngsparameter som kan ställas in för anrop till serverdelen. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill använda. Om den tomma strängen anges, ingår inte parametern på backend-begäran.
-* **backend.Request.headers. \<HeaderName\>** : En rubrik som kan ställas in för anrop till serverdelen. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på backend-begäran.
+* **Server del. Request.-metod**: HTTP-metoden som används för att anropa Server delen.
+* **backend.request.querystring.\<ParameterName\>** : En frågesträngparametern som kan anges för anropet till Server delen. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill använda. Om den tomma strängen anges, ingår inte parametern på backend-begäran.
+* **backend. Request. header. Huvud:\> \<** En rubrik som kan anges för anropet till Server delen. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på backend-begäran.
 
 Värden kan referera till programinställningar och parametrar från den ursprungliga klientbegäran.
 
@@ -219,10 +218,10 @@ En exempelkonfiguration kan se ut så här:
 
 Objektet requestOverrides definierar ändringar som görs i ett svar som skickas tillbaka till klienten. Objektet definieras av följande egenskaper:
 
-* **response.statusCode**: HTTP-statuskoden ska returneras till klienten.
-* **response.statusReason**: HTTP-orsaksfras som ska returneras till klienten.
-* **Response.body**: Den sträng som innehåller brödtext ska returneras till klienten.
-* **Response.headers. \<HeaderName\>** : En rubrik som kan ställas in för svar till klienten. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på ett svar.
+* **response.statusCode**: Den HTTP-statuskod som ska returneras till klienten.
+* **response.statusReason**: Den HTTP-orsaks fras som ska returneras till klienten.
+* **Response. Body**: Sträng representationen för bröd texten som ska returneras till klienten.
+* **Response. headers. Huvud:\> \<** En rubrik som kan anges för svaret på klienten. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på ett svar.
 
 Värden kan referera till programinställningar, parametrar från den ursprungliga klientbegäran och parametrar från backend-svaret.
 

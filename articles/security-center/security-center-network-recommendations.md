@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6dfd3bd86e55d19bf1c15486a502a4cbab3c96a8
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 3683550045699a24c27a3226fba2e90a671f80e1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905306"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101015"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Skydda nätverks resurserna i Azure Security Center
 Azure Security Center fort löp ande analyserar säkerhets läget för dina Azure-resurser för metod tips för nätverks säkerhet. När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
@@ -153,7 +153,6 @@ DDoS Protection standard ska vara aktive rad|Skydda virtuella nätverk som inneh
 Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:
 
 * [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
-* [Skydda program i Azure Security Center](security-center-application-recommendations.md)
 * [Skydda din Azure SQL-tjänst i Azure Security Center](security-center-sql-service-recommendations.md)
 
 I följande avsnitt kan du lära dig mer om Security Center:

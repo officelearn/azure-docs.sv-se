@@ -1,6 +1,6 @@
 ---
-title: Azure API management-princip exempel – auktorisera åtkomst baserat på JWT anspråk | Microsoft Docs
-description: Azure API management princip-exempel – visar hur du tillåter åtkomst till specifika HTTP-metoder för API utifrån JWT-anspråk.
+title: Azure API Management policy-exempel – auktorisera åtkomst baserat på JWT-anspråk | Microsoft Docs
+description: Exempel på Azure API Management policy – visar hur du auktoriserar åtkomst till vissa HTTP-metoder i ett API som baseras på JWT-anspråk.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,31 +9,30 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: d656cf7c7bed1d40bbde654f9c2484efcc5df25d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd99d9ed3eebe6ada60511b3f16c53b0d57a65d6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61062170"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067813"
 ---
 # <a name="authorize-access-based-on-jwt-claims"></a>Auktorisera åtkomst baserat på JWT-anspråk
 
-Den här artikeln visar en Azure API management princip exempel som visar hur att bevilja åtkomst till specifika HTTP-metoder för API utifrån JWT-anspråk. Om du vill ange eller redigera en princip för kod, följer du stegen som beskrivs i [ange eller redigera en princip](../set-edit-policies.md). Andra exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du auktoriserar åtkomst till vissa HTTP-metoder i ett API som baseras på JWT-anspråk. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
 
 ## <a name="policy"></a>Princip
 
-Klistra in koden i den **inkommande** block.
+Klistra in koden i det **inkommande** blocket.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Pre-authorize requests based on HTTP method with validate-jwt.policy.xml)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om APIM-principer:
+Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip-exempel](../policy-samples.md)
++ [Princip exempel](../policy-samples.md)
 

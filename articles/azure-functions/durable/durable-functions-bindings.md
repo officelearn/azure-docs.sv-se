@@ -1,33 +1,32 @@
 ---
-title: Bindningar för varaktiga funktioner – Azure
-description: Hur du använder utlösare och bindningar för tillägget varaktiga funktioner för Azure Functions.
+title: Bindningar för Durable Functions – Azure
+description: Använda utlösare och bindningar för Durable Functions-tillägget för Azure Functions.
 services: functions
 author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 678e370977cadae642207f91a02136404fb6c34e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbd645ef9f5e687e71ce110fc84b8342e31defed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60710543"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087541"
 ---
-# <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för varaktiga funktioner (Azure Functions)
+# <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för Durable Functions (Azure Functions)
 
-Den [varaktiga funktioner](durable-functions-overview.md) tillägget introducerar två nya utlösaren bindningar som styr körningen av orchestrator och aktivitet. Det introducerar också en utdatabindning som fungerar som en klient för varaktiga Functions-körning.
+[Durable Functions](durable-functions-overview.md) -tillägget introducerar två nya Utlös ande bindningar som styr körningen av Orchestrator-och aktivitets funktioner. Den introducerar också en utgående bindning som fungerar som en klient för Durable Functions Runtime.
 
 ## <a name="orchestration-triggers"></a>Orchestration-utlösare
 
-Orchestration-utlösare kan du redigera varaktiga orchestrator-funktioner. Den här utlösaren stödjer nya orchestrator-funktion instanser startas och återuppta befintliga orchestrator-funktion-instanser som ”väntar” en uppgift.
+Genom Orchestration-utlösaren kan du skapa robusta Orchestrator-funktioner. Den här utlösaren stöder start av nya Orchestrator Function-instanser och återupptar befintliga Orchestrator-funktioner som väntar på en aktivitet.
 
-När du använder Visual Studio-verktyg för Azure Functions, orchestration-utlösaren konfigureras med hjälp av den [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html) .NET-attributet.
+När du använder Visual Studio-verktygen för Azure Functions konfigureras Orchestration-utlösaren med hjälp av attributet [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html) .net.
 
-När du skriver orchestrator-funktioner i skriptspråk (exempelvis JavaScript eller C# scripting), orchestration-utlösaren definieras av följande JSON-objekt i den `bindings` matris med de *function.json* fil:
+När du skriver Orchestrator-funktioner i skript språk (till exempel Java Script C# eller skript) definieras Orchestration-utlösaren av följande JSON-objekt i `bindings` matrisen för *Function. JSON* -filen:
 
 ```json
 {
@@ -38,35 +37,35 @@ När du skriver orchestrator-funktioner i skriptspråk (exempelvis JavaScript el
 }
 ```
 
-* `orchestration` är namnet på dirigering. Detta är det värde som klienter måste använda för att starta nya instanser av den här orchestrator-funktion. Den här egenskapen är valfri. Om den inte anges används namnet på funktionen.
+* `orchestration`är namnet på dirigeringen. Detta är det värde som klienter måste använda när de vill starta nya instanser av den här Orchestrator-funktionen. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
 
-Den här bindningen för utlösare avsöker internt en serie med köer i standardkontot för lagring för funktionsappen. Dessa köer är interna implementeringsdetaljer för tillägg, vilket är anledningen till att de inte uttryckligen har konfigurerats i bindningsegenskaperna för.
+Internt denna Utlös ande bindning avsöker en serie med köer i standard lagrings kontot för Function-appen. Dessa köer är interna implementerings information om tillägget, vilket är anledningen till att de inte uttryckligen konfigureras i bindnings egenskaperna.
 
-### <a name="trigger-behavior"></a>Beteende för utlösare
+### <a name="trigger-behavior"></a>Beteende vid utlösare
 
-Här följer några anteckningar om orchestration-utlösare:
+Här följer några anmärkningar om Dirigerings utlösaren:
 
-* **Single-threading** – en enda dispatcher-tråden används för alla orchestrator-funktion-körning på en enda värd-instans. Därför är det viktigt att säkerställa att orchestrator function-koden är effektivt och inte utför alla i/o. Det är också viktigt att se till att den här tråden utför inte någon asynkroniseringsjobbet utom när väntar på på varaktiga funktioner-specifika aktivitetstyper.
-* **Poison meddelandehantering** -det finns inget skadligt meddelande-stöd i orchestration-utlösare.
-* **Meddelandet synlighet** -meddelanden för Orchestration-utlösare kan tagits bort från kön och hålls osynliga för en konfigurerbar varaktighet. Visningen av de här meddelandena förnyas automatiskt så länge funktionsappen är aktiv och felfri.
-* **Returvärden** -returnera värden serialiserat till JSON och sparats till orchestration-historiktabellen i Azure Table storage. Dessa returvärden kan efterfrågas av orchestration-klienten bindning, som beskrivs senare.
-
-> [!WARNING]
-> Orchestrator-funktioner ska aldrig använda några indata eller utdatabindningar än orchestration utlösa bindning. Detta har kan orsaka problem med tillägget varaktiga uppgiften eftersom bindningar inte kan följa single-threading och i/o-regler.
+* **Enkel tråds** -en enskild dispatcher-tråd används för alla Orchestrator-funktioner på en enda värd instans. Därför är det viktigt att se till att Orchestrator-funktions koden är effektiv och inte utför någon I/O. Det är också viktigt att se till att den här tråden inte gör något asynkront arbete, förutom vid väntan på Durable Functions-angivna uppgifts typer.
+* **Gift-meddelande hantering** – det finns inget stöd för Poison-meddelanden i Orchestration-utlösare.
+* **Meddelande synlighet** – meddelanden om Orchestration-utlösare är i kö och förblir osynliga under en konfigurerbar varaktighet. Synligheten för dessa meddelanden förnyas automatiskt så länge Function-appen körs och är felfri.
+* **RETUR värden** -retur värden serialiseras till JSON och sparas i tabellen Orchestration-historik i Azure Table Storage. Dessa retur värden kan frågas av Dirigerings klientens bindning, som beskrivs senare.
 
 > [!WARNING]
-> JavaScript orchestrator-funktioner ska aldrig deklareras `async`.
+> Orchestrator-funktioner bör aldrig använda eventuella indata eller utgående bindningar än bindningen för Dirigerings utlösaren. Detta har möjlighet att orsaka problem med det varaktiga aktivitets tillägget eftersom dessa bindningar inte kan följa reglerna för enkel trådning och I/O.
 
-### <a name="trigger-usage-net"></a>Utlösaren användning (.NET)
+> [!WARNING]
+> JavaScript Orchestrator-funktioner ska aldrig deklareras `async`.
 
-Orchestration-utlösaren bindningen stöder både indata och utdata. Här följer några saker att känna till om indata och utdata hantering:
+### <a name="trigger-usage-net"></a>Utlösnings användning (.NET)
 
-* **indata** -.NET orchestration-funktioner stöder bara [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) som en parametertyp. Deserialisering av indata direkt i i funktionssignaturen stöds inte. Kod måste använda den [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1)(.NET) eller `getInput` (JavaScript)-metod för att hämta orchestrator funktionsin. Dessa indata måste vara JSON-serialiserbara typer.
-* **matar ut** -Orchestration-utlösare stöder utdatavärden som indata. Returvärdet för funktionen används för att tilldela värdet och måste vara JSON-serialiserbara. Om en .NET-funktionen returnerar `Task` eller `void`, ett `null` värdet kommer att sparas som utdata.
+Bindningen för Dirigerings utlösare stöder både indata och utdata. Här är några saker du behöver veta om indata och utdata:
 
-### <a name="trigger-sample"></a>Exempel för utlösare
+* **indata** – .net-Orchestration-funktioner stöder endast [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) som parameter typ. Deserialisering av indata direkt i funktions signaturen stöds inte. Koden måste använda metoden [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1)(.net) eller `getInput` (Java Script) för att hämta Orchestrator-funktionen indata. Dessa indata måste vara JSON-serialiserbara typer.
+* **utdata** -Orchestration-utlösare stöder utdataparametrar samt indata. Returvärdet för funktionen används för att tilldela utdata-värdet och måste vara JSON-serialiserbar. Om en .net-funktion `Task` returnerar `void`eller, `null` kommer ett värde att sparas som utdata.
 
-Följande är ett exempel på hur den enklaste ”Hello World” orchestrator-funktionen kan se ut:
+### <a name="trigger-sample"></a>Utlös exempel
+
+Följande är ett exempel på hur den enklaste "Hello World" Orchestrator-funktionen kan se ut:
 
 #### <a name="c"></a>C#
 
@@ -79,7 +78,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -91,12 +90,12 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> Den `context` objekt i JavaScript motsvarar inte DurableOrchestrationContext, men [funktionen kontext som helhet.](../functions-reference-node.md#context-object). Du kan komma åt orchestration metoder via den `context` objektets `df` egenskapen.
+> Objektet i Java Script representerar inte DurableOrchestrationContext, men [funktionen context som helhet.](../functions-reference-node.md#context-object) `context` Du kan komma åt Orchestration-metoder via `context` `df` objektets egenskap.
 
 > [!NOTE]
-> JavaScript-initierare bör använda `return`. Den `durable-functions` biblioteket tar hand om anropar den `context.done` metoden.
+> JavaScript-dirigering bör använda `return`. Biblioteket tar hand om att `context.done` anropa metoden. `durable-functions`
 
-De flesta funktioner i orchestrator anropar Aktivitetsfunktioner, så här är en ”Hello World”-exempel som visar hur du anropar en funktion för aktivitet:
+De flesta funktioner för att anropa aktiviteter i Orchestrator, så här är ett "Hello World"-exempel som visar hur du anropar en aktivitets funktion:
 
 #### <a name="c"></a>C#
 
@@ -111,7 +110,7 @@ public static async Task<string> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -123,13 +122,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-## <a name="activity-triggers"></a>Utlösare för aktivitet
+## <a name="activity-triggers"></a>Aktivitets utlösare
 
-Utlösaren aktivitet kan du redigera funktioner som anropas av orchestrator-funktioner.
+Med aktivitets utlösaren kan du redigera funktioner som anropas av Orchestrator functions.
 
-Om du använder Visual Studio aktivitet utlösaren konfigureras med hjälp av den [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET-attributet.
+Om du använder Visual Studio konfigureras aktivitets utlösaren med hjälp av attributet [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .net.
 
-Om du använder VS Code eller Azure-portalen för utveckling, aktivitet utlösaren definieras av följande JSON-objekt i den `bindings` matris med *function.json*:
+Om du använder vs Code eller Azure Portal för utveckling definieras aktivitets utlösaren av följande JSON-objekt i `bindings` matrisen med *Function. JSON*:
 
 ```json
 {
@@ -140,33 +139,33 @@ Om du använder VS Code eller Azure-portalen för utveckling, aktivitet utlösar
 }
 ```
 
-* `activity` är namnet på aktiviteten. Detta är det värde som orchestrator-funktioner som använder för att anropa den här funktionen för aktiviteten. Den här egenskapen är valfri. Om den inte anges används namnet på funktionen.
+* `activity`är namnet på aktiviteten. Detta är det värde som används av Orchestrator Functions för att anropa den här aktivitets funktionen. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
 
-Den här bindningen för utlösare avsöker internt en kö i standardkontot för lagring för funktionsappen. Den här kön är en intern implementeringsdetalj för tillägg, vilket är anledningen till att den inte explicit konfigurerad i bindningsegenskaperna för.
+Internt denna Utlös ande bindning avsöker en kö i standard lagrings kontot för Function-appen. Den här kön är en intern implementerings information om tillägget, vilket är orsaken till att den inte uttryckligen konfigureras i bindnings egenskaperna.
 
-### <a name="trigger-behavior"></a>Beteende för utlösare
+### <a name="trigger-behavior"></a>Beteende vid utlösare
 
-Här följer några anteckningar om utlösaren aktivitet:
+Här följer några anmärkningar om aktivitets utlösaren:
 
-* **Threading** – till skillnad från orchestration-utlösaren utlösare för aktiviteten inte har några begränsningar gällande threading eller i/o. De kan hanteras som vanlig funktioner.
-* **Poison meddelandehantering** -det finns inget skadligt meddelande-stöd i aktiviteten utlösare.
-* **Meddelandet synlighet** -aktivitet utlösarmeddelanden kan tagits bort från kön och hålls osynliga för en konfigurerbar varaktighet. Visningen av de här meddelandena förnyas automatiskt så länge funktionsappen är aktiv och felfri.
-* **Returvärden** -returnera värden serialiserat till JSON och sparats till orchestration-historiktabellen i Azure Table storage.
+* **Trådning** – till skillnad från Orchestration-utlösaren har aktivitets utlösare inga begränsningar kring trådning eller I/O. De kan behandlas som vanliga funktioner.
+* **Gift-meddelande hantering** – det finns inget stöd för Poison-meddelanden i aktivitets utlösare.
+* **Meddelande synlighet** – meddelanden om aktivitets utlösare tas bort från kön och förblir osynliga under en konfigurerbar varaktighet. Synligheten för dessa meddelanden förnyas automatiskt så länge Function-appen körs och är felfri.
+* **RETUR värden** -retur värden serialiseras till JSON och sparas i tabellen Orchestration-historik i Azure Table Storage.
 
 > [!WARNING]
-> Lagringserverdel för Aktivitetsfunktioner är en implementeringsdetalj och användarkod bör inte samverka med dessa entiteter direkt.
+> Lagrings Server delen för aktivitets funktioner är en implementerings detalj och användar koden ska inte samverka med dessa lagrings enheter direkt.
 
-### <a name="trigger-usage-net"></a>Utlösaren användning (.NET)
+### <a name="trigger-usage-net"></a>Utlösnings användning (.NET)
 
-Aktivitet utlösaren bindningen stöder både indata och utdata, precis som orchestration-utlösaren. Här följer några saker att känna till om indata och utdata hantering:
+Bindningen för aktivitets utlösare stöder både indata och utdata, precis som Orchestration-utlösaren. Här är några saker du behöver veta om indata och utdata:
 
-* **indata** -.NET Aktivitetsfunktioner använda [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) som en parametertyp. Alternativt kan en aktivitet funktion deklareras med parametern typer som är JSON-serialiserbara. När du använder `DurableActivityContext`, kan du anropa [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) att hämta och deserialisera funktionen aktivitet indata.
-* **matar ut** -Aktivitetsfunktioner stöd utdatavärden samt indata. Returvärdet för funktionen används för att tilldela värdet och måste vara JSON-serialiserbara. Om en .NET-funktionen returnerar `Task` eller `void`, ett `null` värdet kommer att sparas som utdata.
-* **metadata** -.NET Aktivitetsfunktioner kan bindas till en `string instanceId` parametern för att hämta instans-ID på överordnad dirigering.
+* **indata** -.net-aktivitets funktioner använder internt [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) som parameter typ. Alternativt kan en aktivitets funktion deklareras med valfri parameter typ som är JSON-serialiserbar. När du använder `DurableActivityContext`kan du anropa [\<GetInput T->](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) för att hämta och deserialisera aktivitetens funktions ingångar.
+* **utdata** – aktivitets funktioner stöder utdataparametrar samt indata. Returvärdet för funktionen används för att tilldela utdata-värdet och måste vara JSON-serialiserbar. Om en .net-funktion `Task` returnerar `void`eller, `null` kommer ett värde att sparas som utdata.
+* **metadata** – .net-aktivitets funktioner kan bindas `string instanceId` till en parameter för att hämta instans-ID: t för den överordnade dirigeringen.
 
-### <a name="trigger-sample"></a>Exempel för utlösare
+### <a name="trigger-sample"></a>Utlös exempel
 
-Följande är ett exempel på hur en enkel ”Hello World” aktivitet funktion kan se ut:
+Följande är ett exempel på hur en enkel "Hello World"-aktivitets funktion kan se ut så här:
 
 #### <a name="c"></a>C#
 
@@ -179,7 +178,7 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
-Standard-parametertypen för .NET `ActivityTriggerAttribute` bindningen är `DurableActivityContext`. Men .NET-aktivitet utlösare också stöd för bindning direkt till JSON-serializeable typer (inklusive primitiva typer), så att samma funktion kan förenklas som följer:
+Standard parameter typen för .net `ActivityTriggerAttribute` -bindningen är. `DurableActivityContext` .NET-aktivitets utlösare stöder dock också bindning direkt till JSON-serializeable typer (inklusive primitiva typer), så att samma funktion kan för enklas på följande sätt:
 
 ```csharp
 [FunctionName("SayHello")]
@@ -189,7 +188,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 module.exports = async function(context) {
@@ -197,7 +196,7 @@ module.exports = async function(context) {
 };
 ```
 
-JavaScript-bindningar kan även skickas i som ytterligare parametrar, så samma funktion kan förenklas på följande sätt:
+JavaScript-bindningar kan också skickas som ytterligare parametrar, så att samma funktion kan för enklas på följande sätt:
 
 ```javascript
 module.exports = async function(context, name) {
@@ -207,9 +206,9 @@ module.exports = async function(context, name) {
 
 ### <a name="passing-multiple-parameters"></a>Skicka flera parametrar
 
-Det går inte att skicka flera parametrar i en aktivitet funktion direkt. I det här fallet är rekommendationen att skicka in en matris med objekt eller använda [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objekt i .NET.
+Det går inte att skicka flera parametrar till en aktivitets funktion direkt. Rekommendationen i det här fallet är att skicka in en matris med objekt eller använda [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) -objekt i .net.
 
-I följande exempel använder nya funktioner i [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) lagts till med [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+Följande exempel använder nya funktioner i [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) som lagts till med [ C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -243,19 +242,19 @@ public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContex
 }
 ```
 
-## <a name="orchestration-client"></a>Orkestreringsklient
+## <a name="orchestration-client"></a>Orchestration-klient
 
-Orkestreringsklient bindning kan du skriva funktioner som interagerar med orchestrator-funktioner. Du kan till exempel arbeta med orchestration-instanser på följande sätt:
+Genom att dirigera klient bindningen kan du skriva funktioner som interagerar med Orchestrator functions. Du kan till exempel agera på Orchestration-instanser på följande sätt:
 
 * Starta dem.
-* Fråga efter deras status.
+* Fråga efter status.
 * Avsluta dem.
-* Skicka händelser till dem när de körs.
-* Rensa historiken för instansen.
+* Skicka händelser till dem när de är igång.
+* Rensa instans historik.
 
-Om du använder Visual Studio kan du binda till orchestration-klienten med hjälp av den [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET-attributet.
+Om du använder Visual Studio kan du binda till Orchestration-klienten med hjälp av [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET-attributet.
 
-Om du använder skriptspråk (t.ex. *.csx* eller *.js* filer) för utveckling, orkestrering utlösaren definieras av följande JSON-objekt i den `bindings` matris med  *Function.JSON*:
+Om du använder skript språk (t. ex. *CSX* -eller *. js* -filer) för utveckling definieras Orchestration-utlösaren av följande JSON- `bindings` objekt i matrisen för *Function. JSON*:
 
 ```json
 {
@@ -267,15 +266,15 @@ Om du använder skriptspråk (t.ex. *.csx* eller *.js* filer) för utveckling, o
 }
 ```
 
-* `taskHub` – Används i scenarier där flera funktionsappar dela samma lagringskonto, men de måste isoleras från varandra. Om inte anges används standardvärdet från `host.json` används. Det här värdet måste matcha det värde som används av mål orchestrator-funktioner.
-* `connectionName` – Namnet på en appinställning som innehåller en anslutningssträng för lagringskonto. Storage-kontot som representeras av den här anslutningssträngen måste vara samma konto används av mål orchestrator-funktioner. Om den inte anges används standard storage-konto-anslutningssträngen för funktionsappen.
+* `taskHub`– Används i scenarier där flera Functions-appar delar samma lagrings konto men måste isoleras från varandra. Om inget värde anges används standardvärdet `host.json` från. Värdet måste matcha det värde som används av målets Orchestrator-funktioner.
+* `connectionName`– Namnet på en app-inställning som innehåller en anslutnings sträng för lagrings kontot. Det lagrings konto som representeras av den här anslutnings strängen måste vara samma som används av mål-Orchestrator-funktionerna. Om inget värde anges används standard anslutnings strängen för lagrings kontot för Function-appen.
 
 > [!NOTE]
-> I de flesta fall rekommenderar vi att du utelämnar dessa egenskaper och förlitar sig på standardbeteendet.
+> I de flesta fall rekommenderar vi att du utelämnar dessa egenskaper och använder standard beteendet.
 
-### <a name="client-usage"></a>Klientanvändning
+### <a name="client-usage"></a>Klient användning
 
-I .NET-funktioner, vanligtvis bind till `DurableOrchestrationClient`, vilket ger dig fullständig åtkomst till alla klientens API: er som stöds av varaktiga funktioner. I JavaScript, visas samma API: er av den `DurableOrchestrationClient` objektet som returneras från `getClient`. API: er för klient-objektet är:
+I .net-funktioner binder du normalt till `DurableOrchestrationClient`, vilket ger dig fullständig åtkomst till alla klient-API: er som stöds av Durable functions. I Java Script visas samma API: er av det `DurableOrchestrationClient` objekt som returneras `getClient`från. API: er för klient objekt är:
 
 * [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
 * [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
@@ -283,16 +282,16 @@ I .NET-funktioner, vanligtvis bind till `DurableOrchestrationClient`, vilket ger
 * [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)
 * [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_) (för närvarande endast .NET)
 
-Du kan också .NET-funktioner kan bindas till `IAsyncCollector<T>` där `T` är [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) eller `JObject`.
+.Net-funktioner kan också bindas `IAsyncCollector<T>` till `T` WHERE [](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) -StartOrchestrationArgs `JObject`eller.
 
-Se den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API-dokumentationen för mer information om dessa åtgärder.
+Mer information om de här åtgärderna finns i [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API-dokumentationen.
 
 > [!WARNING]
-> När du utvecklar lokalt i JavaScript, behöver du ställa in miljövariabeln `WEBSITE_HOSTNAME` till `localhost:<port>`, t.ex. `localhost:7071` att använda metoder på `DurableOrchestrationClient`. Mer information om det här kravet finns i den [GitHub-ärende](https://github.com/Azure/azure-functions-durable-js/issues/28).
+> När du utvecklar lokalt i Java Script måste du ställa in miljövariabeln `WEBSITE_HOSTNAME` till `localhost:<port>`, t. ex. `localhost:7071`använda metoder på `DurableOrchestrationClient`. Mer information om det här kravet finns i [GitHub-problemet](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
-### <a name="client-sample-visual-studio-development"></a>Klienten exemplet (Visual Studio-utveckling)
+### <a name="client-sample-visual-studio-development"></a>Klient exempel (Visual Studio-utveckling)
 
-Här är en exempel-kö-utlöst funktion som startar en ”HelloWorld” dirigering.
+Här är ett exempel på en Queue-utlöst funktion som startar en "HelloWorld"-dirigering.
 
 ```csharp
 [FunctionName("QueueStart")]
@@ -305,9 +304,9 @@ public static Task Run(
 }
 ```
 
-### <a name="client-sample-not-visual-studio"></a>Klienten exemplet (inte Visual Studio)
+### <a name="client-sample-not-visual-studio"></a>Klient exempel (inte Visual Studio)
 
-Om du inte använder Visual Studio för utveckling, kan du skapa följande *function.json* fil. Det här exemplet visar hur du konfigurerar en funktion som utlöses av kön som använder klient varaktiga orchestration-bindning:
+Om du inte använder Visual Studio för utveckling kan du skapa följande *funktion. JSON* -fil. Det här exemplet visar hur du konfigurerar en köade funktion som använder den varaktiga dirigeringen av klient bindning:
 
 ```json
 {
@@ -327,11 +326,11 @@ Om du inte använder Visual Studio för utveckling, kan du skapa följande *func
 }
 ```
 
-Följande är exempel på språkspecifika som startar du nya instanser av orchestrator-funktion.
+Nedan visas språkspecifika exempel som startar nya Orchestrator Function-instanser.
 
 #### <a name="c-sample"></a>C#-exempel
 
-I följande exempel visas hur du använder den beständiga orkestreringsklient bindning för att starta en ny funktion-instans från en C#-skriptfunktion:
+Följande exempel visar hur du använder den varaktiga Dirigerings klient bindningen för att starta en ny funktions instans C# från en skript funktion:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -344,7 +343,7 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 
 #### <a name="javascript-sample"></a>JavaScript-exempel
 
-I följande exempel visas hur du använder den beständiga orkestreringsklient bindning för att starta en ny funktion-instans från en JavaScript-funktion:
+Följande exempel visar hur du använder den varaktiga Dirigerings klient bindningen för att starta en ny funktions instans från en JavaScript-funktion:
 
 ```javascript
 const df = require("durable-functions");
@@ -355,7 +354,7 @@ module.exports = async function (context) {
 };
 ```
 
-Mer information om hur du startar instanser finns i [instans management](durable-functions-instance-management.md).
+Du hittar mer information om start instanser i [instans hantering](durable-functions-instance-management.md).
 
 <a name="host-json"></a>
 
@@ -366,4 +365,4 @@ Mer information om hur du startar instanser finns i [instans management](durable
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om kontrollpunkter och återuppspelning beteenden](durable-functions-checkpointing-and-replay.md)
+> [Lär dig mer om kontroll punkter och repetitions beteenden](durable-functions-checkpointing-and-replay.md)

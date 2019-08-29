@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11a54dee653bcfa6c94a861e483183ac39f465bf
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: e87ea28f2454ec3c969574b21ef383e81b3148c2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "67710186"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098771"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -1780,7 +1779,7 @@ SAP-instanser som finns i Azure behöver komma åt fil resurser som finns i för
 
 För att möjliggöra övervakning av verksamhets kritiska SAP-system på Azure kan du hämta data från Azure-SAPOSCOL eller SAP-värd agenten genom att hämta data från Azure-tjänsten för virtuella datorer via Azures övervaknings tillägg för SAP. Eftersom de krav som publicerades av SAP var speciella för SAP-program, beslutade Microsoft inte att allmänt implementera de nödvändiga funktionerna i Azure, utan lämna dem för kunderna att distribuera nödvändiga övervaknings komponenter och konfigurationer till deras virtuella Datorer som körs i Azure. Distributions-och livs cykel hanteringen av övervaknings komponenterna kommer dock att automatiseras av Azure.
 
-#### <a name="solution-design"></a>Lösnings design
+#### <a name="solution-design"></a>Lösningsdesign
 
 Lösningen som har utvecklats för att aktivera SAP-övervakning baseras på arkitekturen för Azure VM-agenten och tillägg ramverket. Idén med Azure VM-agenten och tillägg ramverket är att tillåta att program vara som är tillgängliga i Azures tillägg för virtuella Azure-tillägg i en virtuell dator kan installeras. Princip idén bakom detta begrepp är att tillåta (i de fall som Azure Monitoring Extension för SAP), distributionen av special funktioner till en virtuell dator och konfigurationen av sådan program vara vid distributions tillfället.
 

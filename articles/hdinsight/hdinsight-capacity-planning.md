@@ -1,5 +1,5 @@
 ---
-title: Kapacitetsplanering för kluster i Azure HDInsight
+title: Kapacitets planering för kluster i Azure HDInsight
 description: Så här anger du ett HDInsight-kluster för kapacitet och prestanda.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,125 +8,125 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 0f386faa5a18282c9e60bdb282e01dcd53f9de4f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786504"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114311"
 ---
-# <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
+# <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitets planering för HDInsight-kluster
 
-Planera för den önskade klusterkapacitet genom att fastställa nödvändiga prestanda och skalning innan du distribuerar ett HDInsight-kluster. Den här planeringen hjälper dig att optimera både användbarhet och kostnader. Vissa kluster kapacitetsbeslut kan inte ändras efter distributionen. Ändrar parametrarna prestanda, ett kluster bort och återskapas utan att förlora lagrade data.
+Innan du distribuerar ett HDInsight-kluster bör du planera för önskad kluster kapacitet genom att fastställa nödvändiga prestanda och skalning. Den här planeringen hjälper till att optimera både användbarhet och kostnader. Vissa kluster kapacitets beslut kan inte ändras efter distributionen. Om prestanda parametrarna ändras kan ett kluster demonteras och återskapas utan att lagra data går förlorade.
 
-De viktiga frågorna för kapacitetsplanering är:
+Viktiga frågor att be om kapacitets planering är:
 
-* I vilka geografiska region bör du distribuera ett kluster?
-* Hur mycket lagringsutrymme behöver du?
-* Vilken typ av kluster bör du distribuera?
-* Vilken storlek och typ av virtuell dator (VM) ska klusternoderna använda?
-* Hur många arbetsnoder bör ha med ditt kluster?
+* I vilken geografisk region ska du distribuera klustret?
+* Hur mycket lagrings utrymme behöver du?
+* Vilken kluster typ ska du distribuera?
+* Vilken storlek och vilken typ av virtuell dator (VM) ska använda när klusternoderna används?
+* Hur många arbetsnoder bör ditt kluster ha?
 
 ## <a name="choose-an-azure-region"></a>Välj en Azure-region
 
-Azure-regionen anger där klustret fysiskt har etablerats. För att minimera svarstiden för läsningar och skrivningar, ska klustret vara nära dina data.
+Azure-regionen fastställer var klustret är fysiskt allokerat. För att minimera svars tiden för läsningar och skrivningar bör klustret vara nära dina data.
 
-HDInsight är tillgängligt i många Azure-regioner. Den närmaste regionen finns i den *HDInsight* posten under *Analytics* i [tillgängliga produkter efter Region](https://azure.microsoft.com/regions/services/).
+HDInsight är tillgängligt i många Azure-regioner. För att hitta den närmaste regionen, se *HDInsight* -posten under *analys* i [produkter tillgängliga per region](https://azure.microsoft.com/regions/services/).
 
-## <a name="choose-storage-location-and-size"></a>Välj lagringsplats och storlek
+## <a name="choose-storage-location-and-size"></a>Välj lagrings plats och storlek
 
-### <a name="location-of-default-storage"></a>Platsen för standardlagring
+### <a name="location-of-default-storage"></a>Placering av standard lagring
 
-Standardlagring, antingen ett Azure Storage-konto eller Azure Data Lake Storage måste vara på samma plats som klustret. Azure Storage är tillgängligt på alla platser. Data Lake Storage Gen1 är tillgänglig i vissa regioner – finns i den aktuella Data Lake Storage-tillgängligheten under *Storage* i [Azure-produkter tillgängliga efter Region](https://azure.microsoft.com/regions/services/).
+Standard lagringen, antingen ett Azure Storage konto eller Azure Data Lake Storage, måste finnas på samma plats som klustret. Azure Storage är tillgängligt på alla platser. Data Lake Storage Gen1 är tillgängligt i vissa regioner – se den aktuella Data Lake Storage tillgänglighet under *lagring* i [Azure-produkter tillgängliga per region](https://azure.microsoft.com/regions/services/).
 
-### <a name="location-of-existing-data"></a>Platsen för befintliga data
+### <a name="location-of-existing-data"></a>Plats för befintliga data
 
-Om du redan har ett lagringskonto eller Data Lake Storage som innehåller dina data och vill använda den här lagringen som standard klusterlagring, måste du distribuera ditt kluster på den samma platsen.
+Om du redan har ett lagrings konto eller Data Lake Storage som innehåller dina data och vill använda den här lagringen som klustrets standard lagring, måste du distribuera klustret på samma plats.
 
 ### <a name="storage-size"></a>Lagringsstorlek
 
-När du har ett HDInsight-kluster som har distribuerats kan du koppla ytterligare Azure Storage-konton eller få åtkomst till andra Data Lake Storage. Alla lagringskonton måste finnas på samma plats som klustret. Ett Data Lake-lagring kan vara på en annan plats, men detta kan innebära att vissa data läsning och skrivning.
+När du har distribuerat ett HDInsight-kluster kan du koppla ytterligare Azure Storage-konton eller komma åt andra Data Lake Storage. Alla dina lagrings konton måste finnas på samma plats som klustret. En Data Lake Storage kan vara på en annan plats, men detta kan leda till att det finns en Läs-och skriv fördröjning.
 
-Azure Storage har några [kapacitetsbegränsningar](../azure-subscription-service-limits.md#storage-limits), medan Data Lake Storage Gen1 är praktiskt taget obegränsade.
+Azure Storage har vissa [kapacitets begränsningar](../azure-subscription-service-limits.md#storage-limits), medan data Lake Storage gen1 är praktiskt taget obegränsat.
 
-Ett kluster kan komma åt en kombination av olika lagringskonton. Vanliga exempel:
+Ett kluster har åtkomst till en kombination av olika lagrings konton. Vanliga exempel är:
 
-* När mängden data som riskerar att överskrida lagringskapaciteten för en enda blob storage-behållare.
-* När frekvensen för åtkomst till blob-behållaren kan överskrida tröskelvärdet där begränsning inträffar.
-* När du vill göra data har du redan överfört till en blob-behållare som är tillgängliga för klustret.
-* När du vill att isolera olika delar av lagring på grund av säkerhet eller för att förenkla administrationen.
+* När mängden data är troligt vis större än lagrings kapaciteten för en enskild Blob Storage-behållare.
+* När frekvensen för åtkomst till BLOB-behållaren kan överskrida tröskelvärdet där begränsning sker.
+* När du vill göra data har du redan laddat upp till en BLOB-behållare som är tillgänglig för klustret.
+* När du vill isolera olika delar av lagringen av säkerhets skäl eller för att förenkla administrationen.
 
-För ett kluster med 48 noder rekommenderar vi 4 till 8 storage-konton. Även om det kan redan finnas tillräckligt med totalt lagringsutrymme, tillhandahåller varje lagringskonto ytterligare nätverkets bandbredd för compute-noder. När du har flera lagringskonton kan du använda ett slumpmässigt namn för varje lagringskonto, utan ett prefix. Syftet med slumpmässiga naming minskar risken för storage flaskhalsar (begränsningen) eller läge för vanliga fel för alla konton. Använd bara en behållare per lagringskonto för bättre prestanda.
+För ett kluster med 48 noder rekommenderar vi 4 till 8 lagrings konton. Även om det kanske redan finns tillräckligt med lagrings utrymme ger varje lagrings konto ytterligare nätverks bandbredd för Compute-noderna. När du har flera lagrings konton ska du använda ett slumpmässigt namn för varje lagrings konto utan ett prefix. Syftet med slumpmässig namngivning minskar risken för Flask halsar i lagring (begränsning) eller vanliga läges problem i alla konton. Använd endast en behållare per lagrings konto för bättre prestanda.
 
-## <a name="choose-a-cluster-type"></a>Välj en typ av kluster
+## <a name="choose-a-cluster-type"></a>Välj en kluster typ
 
-Klustertypen anger arbetsbelastningen i ditt HDInsight-kluster är konfigurerad för att köras som [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/), eller [ Apache Spark](https://spark.apache.org/). En detaljerad beskrivning av de tillgängliga typerna finns i [introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Varje typ av kluster har en specifik distributionstopologi som innehåller kraven för storlek och antalet noder.
+Kluster typen avgör vilken arbets belastning ditt HDInsight-kluster är konfigurerat för att köras, till exempel [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/)eller [Apache Spark](https://spark.apache.org/). En detaljerad beskrivning av tillgängliga kluster typer finns i [Introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Varje kluster typ har en angiven distributions sto pol Ogin som innehåller krav för storlek och antal noder.
 
-## <a name="choose-the-vm-size-and-type"></a>Välj VM-storlek och typ
+## <a name="choose-the-vm-size-and-type"></a>Välj storlek och typ för virtuell dator
 
-Varje typ av kluster har en uppsättning nodtyper och varje nodtyp har specifika alternativ för VM-storlek och typ.
+Varje kluster typ har en uppsättning nodtyper och varje nodtyp har olika alternativ för deras VM-storlek och-typ.
 
-Du kan benchmark klusterkapacitet och öka storleken som anges för att fastställa optimal klusterstorleken för ditt program. Du kan till exempel använda en simulerade arbetsbelastning eller ett *kontrollvärde fråga*. Med en simulerad arbetsbelastning kör du din förväntade arbetsbelastningar på en annan storlek för kluster gradvis öka diskstorleken tills önskad prestanda uppnås. En kontrollvärde fråga kan infogas regelbundet bland andra frågor för produktion att visa om klustret har tillräckligt med resurser.
+För att fastställa den optimala kluster storleken för ditt program kan du öka kluster kapaciteten och öka storleken enligt vad som anges. Du kan till exempel använda en simulerad arbets belastning eller en *Kanarie-fråga*. Med en simulerad arbets belastning kan du köra dina förväntade arbets belastningar i olika storleks kluster, vilket ökar storleken gradvis tills önskade prestanda uppnås. En Kanarie-fråga kan infogas med jämna mellanrum bland de andra produktions frågorna för att visa om klustret har tillräckligt med resurser.
 
-VM-storlek och typ bestäms av CPU-belastningen ström, RAM-storleken och svarstid för nätverk:
+VM-storlek och-typ bestäms av processor processor kraft, RAM-storlek och nätverks fördröjning:
 
-* CPU: VM-storleken avgör hur många kärnor. Fler kärnor, desto större grad av parallell beräkning varje nod kan uppnå. Vissa typer av virtuella datorer har också snabbare kärnor.
+* CPU: Storleken på den virtuella datorn avgör antalet kärnor. Fler kärnor, desto högre grad av parallell beräkning som varje nod kan uppnå. Vissa VM-typer har dessutom snabbare kärnor.
 
-* RAM: VM-storleken avgör också mängden RAM-minne tillgängligt på den virtuella datorn. Ha tillräckligt med minne för att passa informationen för arbetsbelastningar som lagrar data i minnet för bearbetning i stället för att läsa från disken, se till att dina arbetarnoder.
+* RAM: Storleken på den virtuella datorn avgör också mängden tillgängligt RAM-minne på den virtuella datorn. För arbets belastningar som lagrar data i minnet för bearbetning, i stället för att läsa från disk, se till att arbetsnoderna har tillräckligt med minne för att passa data.
 
-* Nätverk: För de flesta klustertyper av är data som bearbetas av klustret inte på den lokala disken, men i en extern storage-tjänst, till exempel Data Lake Storage eller Azure Storage. Överväg att nätverkets bandbredd och dataflödet mellan noden VM och storage-tjänsten. Nätverkets bandbredd tillgänglig för en virtuell dator ökar vanligtvis med större storlekar. Mer information finns i [Virtuella datorer översikt](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Nätverks För de flesta kluster typer finns inte de data som bearbetas av klustret på den lokala disken, utan i stället i en extern lagrings tjänst som Data Lake Storage eller Azure Storage. Överväg nätverks bandbredden och data flödet mellan den virtuella noden och lagrings tjänsten. Nätverks bandbredden som är tillgänglig för en virtuell dator ökar vanligt vis med större storlekar. Mer information finns i [Översikt över VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
-## <a name="choose-the-cluster-scale"></a>Välj skala för kluster
+## <a name="choose-the-cluster-scale"></a>Välj kluster skala
 
-Skala ett kluster bestäms av antalet Virtuella noder. För samtliga klustertyper finns nodtyper som har en specifik skala och nodtyper som har stöd för skalbar. Ett kluster kan till exempel kräva exakt tre [Apache ZooKeeper](https://zookeeper.apache.org/) noder eller två huvudnoder. Arbetsnoder som gör databearbetning i ett distribuerat sätt dra nytta av utskalning, genom att lägga till ytterligare arbetsnoder.
+Ett klusters skala bestäms av antalet VM-noder. För alla kluster typer finns det nodtyper som har en bestämd skala, och nodtyper som stöder skalbarhet. Ett kluster kan till exempel kräva exakt tre [Apache ZooKeeper](https://zookeeper.apache.org/) noder eller två huvudnoder. Arbetsnoder som hanterar data bearbetning i en distribuerad miljö kan dra nytta av att skala ut genom att lägga till ytterligare arbetsnoder.
 
-Beroende på din typ av kluster, ökar antalet arbetsnoder lägger till ytterligare beräkningskapacitet (till exempel fler kärnor), men kan också lägga till den totala mängden minne som krävs att stödja minnesintern lagring av data som bearbetas hela klustret. Precis som med valet av VM-storlek och typ, är att välja rätt kluster skalan vanligtvis nått empiriskt, med simulerade arbetsbelastningar eller kontrollvärde frågor.
+Beroende på din kluster typ ökar antalet arbetsnoder ytterligare beräknings kapacitet (till exempel fler kärnor), men kan också lägga till den totala mängd minne som krävs för hela klustret för att stödja minnes lagring av data som bearbetas. Precis som med valet av VM-storlek och-typ, uppnås det vanligt vis att välja rätt kluster skalning med hjälp av simulerade arbets belastningar eller Kanarie-frågor.
 
-Du kan skala ut klustret för att möta toppefterfrågan belastningen och sedan skala ned när dessa extra noder inte längre behövs. Den [funktion skala automatiskt](hdinsight-autoscale-clusters.md) kan du automatiskt skala ditt kluster baserat på förinställda användningsstatistik och tidsinställningar. Mer information om att skala dina kluster manuellt finns i [skala HDInsight-kluster](hdinsight-scaling-best-practices.md).
+Du kan skala ut klustret så att det uppfyller kraven på högsta belastning och skala sedan tillbaka det när de extra noderna inte längre behövs. Med [funktionen](hdinsight-autoscale-clusters.md) för automatisk skalning kan du skala klustret automatiskt baserat på fördefinierade mått och tids inställningar. Mer information om hur du skalar klustren manuellt finns i [skala HDInsight-kluster](hdinsight-scaling-best-practices.md).
 
-### <a name="cluster-lifecycle"></a>Klustrets livscykel
+### <a name="cluster-lifecycle"></a>Kluster livs cykel
 
-Du debiteras för ett kluster livslängd. Om det finns endast specifika tidpunkter som du behöver dina kluster vara igång och körs, kan du [Skapa kluster på begäran med Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Du kan också skapa PowerShell-skript som etablerar eller ta bort ditt kluster och sedan schemalägger du dessa skript med hjälp av [Azure Automation](https://azure.microsoft.com/services/automation/).
+Du debiteras för ett klusters livstid. Om det bara finns vissa gånger som du behöver klustret igång kan du [skapa kluster på begäran med hjälp av Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Du kan också skapa PowerShell-skript som etablerar och tar bort ditt kluster och sedan schemalägga dessa skript med hjälp av [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]  
-> När ett kluster tas bort så raderas även dess standard Hive-metaarkiv. Använda extern metadatalagring som Azure Database för att bevara metaarkiv för nästa nytt skapa ett kluster eller [Apache Oozie](https://oozie.apache.org/).
+> När ett kluster tas bort, tas även dess standard Hive-metaarkiv bort. Använd ett externt metadatalagret som Azure Database eller [Apache Oozie](https://oozie.apache.org/)om du vill spara metaarkiv för nästa kluster som skapas på nytt.
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
-### <a name="isolate-cluster-job-errors"></a>Isolera kluster jobbfel
+### <a name="isolate-cluster-job-errors"></a>Isolera fel i kluster jobb
 
-Ibland fel kan inträffa på grund av parallell körning av flera maps och minska komponenter i ett kluster med flera noder. För att isolera problemet, försök distribuerade testning genom att köra samtidiga expandera sedan den här metoden för att köra flera jobb samtidigt på kluster som innehåller fler än en nod i flera jobb på en nod i klustret. Du kan skapa ett HDInsight-kluster med en nod i Azure med den *avancerade* alternativet.
+Ibland kan fel uppstå på grund av parallell körningen av flera Maps och minska komponenter i ett kluster med flera noder. För att hjälpa till att isolera problemet kan du testa distribuerade tester genom att köra samtidiga flera jobb på ett enda arbets nods kluster och sedan utöka den här metoden för att köra flera jobb samtidigt i kluster som innehåller mer än en nod. Om du vill skapa ett HDInsight-kluster med en nod i Azure använder du alternativet *Anpassad (storlek, inställningar, appar)* och använder värdet 1 för *antalet arbetsnoder* i **kluster storleken** när du konfigurerar ett nytt kluster i portalen.
 
-Du kan också installera en nod-utvecklingsmiljö på den lokala datorn och testa lösningen där. Hortonworks innehåller en enda nod lokal utvecklingsmiljö för Hadoop-baserade lösningar som är användbara för inledande funktionstest av, utveckling och testning. Mer information finns i [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
+Du kan också installera en utvecklings miljö för en nod på den lokala datorn och testa lösningen där. Hortonworks tillhandahåller en lokal utvecklings miljö med en nod för Hadoop-baserade lösningar som är användbar för inledande utveckling, bevis på koncept och testning. Mer information finns i [sandbox för Hortonworks](https://hortonworks.com/products/hortonworks-sandbox/).
 
-För att identifiera problemet på ett lokalt kluster för en nod kan du köra misslyckade jobb och justera indata eller använda mindre datauppsättningar. Hur du kör dessa jobb beror på vilken plattform och typ av program.
+För att identifiera problemet på ett lokalt kluster med en nod kan du köra om misslyckade jobb och justera indata eller använda mindre data uppsättningar. Hur du kör dessa jobb beror på plattform och typ av program.
 
 ## <a name="quotas"></a>Kvoter
 
-När du har fastställt din målklustret VM-storlek, skala och typ, kan du kontrollera aktuella kvotgränserna av kapacitet för din prenumeration. När du når en kvotgräns kan kanske du inte att distribuera nya kluster eller skala ut befintliga kluster genom att lägga till fler arbetsnoder. Endast kvotgränsen är kvoten CPU-kärnor som finns på regionsnivån för varje prenumeration. Din prenumeration kan exempelvis ha 30 kärngräns i regionen östra USA. Om du vill öka kvoten gör du följande:
+När du har fastställt storlek, skalning och typ för mål klustret, kontrollerar du prenumerationens aktuella kvot kapacitets gränser. När du når en kvot gräns kanske du inte kan distribuera nya kluster eller skala ut befintliga kluster genom att lägga till fler arbetsnoder. Den enda kvot gränsen är den processor kärnors kvot som finns på region nivå för varje prenumeration. Din prenumeration kan till exempel ha en gräns på 30 kärnor i regionen USA, östra. Gör så här om du behöver begära en kvot ökning:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-1. Välj **hjälp + support** längst ned till vänster på sidan.
-1. Välj på **ny supportbegäran**.
-1. På den **ny supportbegäran** sidan under **grunderna** väljer du följande alternativ:
-   - **Typ av problem**: **Begränsningar för tjänsten och -prenumeration (kvoter)**
-   - **Prenumeration**: den prenumeration som du vill ändra
-   - **Typ av kvot**: **HDInsight**
+1. Välj **Hjälp + Support** längst ned till vänster på sidan.
+1. Välj på **nytt support ärende**.
+1. På sidan **ny supportbegäran** , under fliken **grundläggande** , väljer du följande alternativ:
+   - **Typ av problem**: **Begränsningar för tjänster och prenumerationer (kvoter)**
+   - **Prenumeration**: den prenumeration du vill ändra
+   - **Kvot typ**: **HDInsight**
     
-     ![Skapa en supportbegäran om att öka kärnkvoten för HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+     ![Skapa en support förfrågan för att öka HDInsight Core-kvoten](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Välj **Nästa: Lösningar >>** .
-1. På den **information** ange en beskrivning av problemet, markera hur allvarligt problemet, önskad kontaktmetod och andra obligatoriska fält.
-1. Välj **Nästa: Granska + skapa >>** .
-1. På den **granska + skapa** fliken **skapa**.
+1. Välj **Nästa: Lösningar > >** .
+1. På sidan **information** anger du en beskrivning av problemet, väljer allvarlighets graden för problemet, önskad kontakt metod och andra obligatoriska fält.
+1. Välj **Nästa: Granska + skapa > >** .
+1. På fliken **Granska och skapa** väljer du **skapa**.
 
 > [!NOTE]  
-> Om du vill öka kärnkvoten för HDInsight i ett privat område [begära en lista över tillåtna](https://aka.ms/canaryintwhitelist).
+> Om du behöver öka HDInsight Core-kvoten i en privat region [skickar du en vitlista-begäran](https://aka.ms/canaryintwhitelist).
 
-Du kan [kontakta supporten för att öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Du kan [kontakta supporten för att begära en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-Men det finns vissa fast kvotgränser, till exempel en enskild Azure-prenumeration kan ha högst 10 000 kärnor. Mer information om dessa begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Det finns dock vissa fasta kvot gränser, till exempel om en enda Azure-prenumeration kan ha högst 10 000 kärnor. Mer information om dessa begränsningar finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera kluster i HDInsight med Apache Hadoop, Spark, Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md): Lär dig mer om att installera och konfigurera kluster i HDInsight med Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML-tjänster eller Storm.
-* [Övervaka klusterprestanda](hdinsight-key-scenarios-to-monitor.md): Läs mer om viktiga scenarier för att övervaka ditt HDInsight-kluster som kan påverka din klustrets kapacitet.
+* [Konfigurera kluster i HDInsight med Apache Hadoop, Spark, Kafka och mycket mer](hdinsight-hadoop-provision-linux-clusters.md): Lär dig hur du konfigurerar och konfigurerar kluster i HDInsight med Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML-tjänster eller storm.
+* [Övervaka kluster prestanda](hdinsight-key-scenarios-to-monitor.md): Lär dig mer om nyckel scenarier för att övervaka ditt HDInsight-kluster som kan påverka klustrets kapacitet.

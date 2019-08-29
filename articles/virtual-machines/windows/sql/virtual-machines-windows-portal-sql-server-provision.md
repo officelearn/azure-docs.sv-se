@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 52f6e7ebb1cbae14878b1897bd8c59c73dd0f493
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981028"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102216"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en virtuell Windows SQL Server-dator i Azure Portal
 
@@ -37,21 +36,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 När du skapar en SQL Server virtuell dator kan du välja en av flera förkonfigurerade avbildningar från galleriet för virtuella datorer. Följande steg visar hur du väljer en av SQL Server 2017-avbildningarna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
+1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
+1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information genom att välja **Visa information**. 
+1. Skriv `2017` i sökrutan SQL Server avbildning på panelen **SQL Virtual Machines** och välj **sedan gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server** 2016 i list rutan. 
 
-1. Klicka på **Skapa en resurs** i Azure Portal. Fönstret **Nytt** öppnas.
 
-1. I fönstret **Nytt** klickar du på **Compute** och sedan på **Visa alla**.
-
-1. Skriv**SQL Server 2017** i sökfältet och tryck på RETUR.
-
-1. I list rutan filter väljer du _Windows Server 2016_ för **operativ systemet** och väljer _Microsoft_ som **utgivare**. 
-
-     ![Nytt Compute-fönster](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
-
-1. Granska de tillgängliga SQL Server-avbildningarna. Varje avbildning identifierar en version av SQL Server och ett operativsystem.
-
-1. Välj avbildningen med **namnet Free SQL Server licens: SQL Server 2017-utvecklare på Windows Server**2016.
+   ![Välj avbildning av virtuell SQL-dator](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
 
    > [!TIP]
    > Developer Edition används i den här genom gången eftersom det är en kostnads fri version av SQL Server för utvecklings testning. Du betalar endast för kostnaden för den VM som körs. Du kan dock välja vilken som helst av de avbildningar som ska användas i den här genom gången. En beskrivning av tillgängliga avbildningar finns i [Översikt över SQL Server virtuella Windows-datorer](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -61,7 +51,6 @@ När du skapar en SQL Server virtuell dator kan du välja en av flera förkonfig
    >
    > Mer information om alternativen finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
-1. Under **Välj en distributionsmodell** kontrollerar du att **Resource Manager** är valt. Resource Manager är den rekommenderade distributionsmodellen för nya virtuella datorer. 
 
 1. Välj **Skapa**.
 

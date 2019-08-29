@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fa80ebea93ae897ba01ff54bdb797ed4194665cd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558859"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068867"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal-till-text?
 
@@ -63,13 +63,7 @@ Exempel koden för talet SDK finns på GitHub. De här exemplen beskriver vanlig
 
 ## <a name="customization"></a>Anpassning
 
-Förutom den universella modellen som används av tal tjänsterna kan du skapa anpassade ljud-, språk-och uttals modeller som är specifika för din upplevelse. Här är en lista över anpassnings alternativ:
-
-| Modell | Beskrivning |
-|-------|-------------|
-| [Akustisk modell](how-to-customize-acoustic-models.md) | Att skapa en anpassad akustisk modell är användbart om ditt program, verktyg eller enheter används i en viss miljö, t. ex. i en bil eller fabrik med specifika registrerings villkor. Exempel innefattar tal med brytning, vissa bakgrundsljud eller användning av en särskild mikrofon för inspelning. |
-| [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språk modell för att förbättra avskriften av branschspecifika vokabulär och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
-| [Uttalsmodell](how-to-customize-pronunciation.md) | Med en anpassad uttal-modell kan du definiera fonetisk form och visa ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil – en enkel txt-fil. |
+Förutom standard bas linje modellen som används av tal tjänsterna kan du anpassa modeller efter dina behov med tillgängliga data, för att undvika hinder för tal igenkänning, till exempel tal format, vokabulär och bakgrunds ljud, se [Custom Speech](how-to-custom-speech.md)
 
 > [!NOTE]
 > Anpassnings alternativen varierar efter språk/språk (se [språk som stöds](supported-languages.md)).

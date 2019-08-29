@@ -1,6 +1,6 @@
 ---
-title: Skapa en ögonblicksbild av en virtuell Hårddisk i Azure | Microsoft Docs
-description: Lär dig hur du skapar en kopia av en virtuell Azure-dator ska användas som en tillbaka upp eller för att felsöka problem.
+title: Skapa en ögonblicks bild av en virtuell hård disk i Azure | Microsoft Docs
+description: Lär dig hur du skapar en kopia av en virtuell Azure-dator som ska användas som säkerhets kopiering eller vid fel sökning av problem.
 documentationcenter: ''
 author: roygara
 manager: twooley
@@ -10,43 +10,42 @@ ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b3b9095cd7ee3fa12523b14f59cc06820b9e4382
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 76110fa04441540875e65c8bc056fc21555c5db6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692220"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102287"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
-En ögonblicksbild är en fullständig, skrivskyddad kopia av en virtuell hårddisk (VHD). Du kan ta en ögonblicksbild av en OS- eller datadisken VHD som ska användas som en säkerhetskopia eller att felsöka problem med virtuella datorer (VM).
+En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård disk (VHD). Du kan ta en ögonblicks bild av en OS-eller datadisk-VHD som ska användas som säkerhets kopia, eller för att felsöka problem med virtuella datorer (VM).
 
-Om du tänker använda ögonblicksbilden för att skapa en ny virtuell dator rekommenderar vi att du korrekt stänga av den virtuella datorn innan du tar en ögonblicksbild, att rensa alla processer som pågår.
+Om du vill använda ögonblicks bilden för att skapa en ny virtuell dator, rekommenderar vi att du stänger av den virtuella datorn i klartext innan du tar en ögonblicks bild, för att ta bort alla processer som pågår.
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. I den vänstra menyn, Välj **skapa en resurs**, och sedan söka efter och välja **ögonblicksbild**.
-3. I den **ögonblicksbild** väljer **skapa**. Den **Skapa ögonblicksbild** fönster visas.
-4. Ange en **namn** för ögonblicksbilden.
-5. Välj en befintlig [resursgrupp](../../azure-resource-manager/resource-group-overview.md#resource-groups) eller ange namnet på en ny. 
+2. Välj **skapa en resurs**i den vänstra menyn och Sök sedan efter och välj ögonblicks **bild**.
+3. I fönstret **ögonblicks bild** väljer du **skapa**. Fönstret **skapa ögonblicks bild** visas.
+4. Ange ett **namn** för ögonblicks bilden.
+5. Välj en befintlig [resurs grupp](../../azure-resource-manager/resource-group-overview.md#resource-groups) eller ange namnet på en ny resurs grupp. 
 6. Välj en **Plats** för ett Azure-datacenter.  
-7. För **källdisken**, Välj den hantera disken till ögonblicksbild.
-8. Välj den **kontotyp** du använder för att lagra ögonblicksbilden. Välj **Standard_HDD**, såvida du inte behöver ögonblicksbild lagras på en disk med hög prestanda.
+7. För **käll disk**väljer du den hanterade disk som ska avbildas.
+8. Välj den **Kontotyp** som ska användas för att lagra ögonblicks bilden. Välj **Standard_HDD**, om du inte behöver att ögonblicks bilden lagras på en hög presterande disk.
 9. Välj **Skapa**.
 
 ## <a name="use-powershell"></a>Använd PowerShell
 
-Följande steg visar hur du kopierar VHD-disken, skapa ögonblicksbild konfigurationen och ta en ögonblicksbild av disken med hjälp av den [New AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
+Följande steg visar hur du kopierar VHD-disken, skapar ögonblicks bilds konfigurationen och tar en ögonblicks bild av disken med hjälp av cmdleten [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-1. Ange vissa parametrar: 
+1. Ange några parametrar: 
 
    ```azurepowershell-interactive
    $resourceGroupName = 'myResourceGroup' 
@@ -63,7 +62,7 @@ Följande steg visar hur du kopierar VHD-disken, skapa ögonblicksbild konfigura
    -Name $vmName
    ```
 
-3. Skapa ögonblicksbild-konfigurationen. I det här exemplet är ögonblicksbilden av OS-disken:
+3. Skapa ögonblicks bilds konfigurationen. I det här exemplet är ögonblicks bilden av OS-disken:
 
    ```azurepowershell-interactive
    $snapshot =  New-AzSnapshotConfig 
@@ -73,9 +72,9 @@ Följande steg visar hur du kopierar VHD-disken, skapa ögonblicksbild konfigura
    ```
    
    > [!NOTE]
-   > Om du vill lagra dina ögonblicksbild i zonen flexibel lagring, skapar du den i en region som har stöd för [tillgänglighetszoner](../../availability-zones/az-overview.md) och inkludera den `-SkuName Standard_ZRS` parametern.   
+   > Om du vill lagra din ögonblicks bild i en zon fri lagring skapar du den i en region som stöder [tillgänglighets zoner](../../availability-zones/az-overview.md) och inkluderar `-SkuName Standard_ZRS` parametern.   
    
-4. Ta ögonblicksbilden:
+4. Ta ögonblicks bilden:
 
    ```azurepowershell-interactive
    New-AzSnapshot 
@@ -87,4 +86,4 @@ Följande steg visar hur du kopierar VHD-disken, skapa ögonblicksbild konfigura
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa en virtuell dator från en ögonblicksbild genom att skapa en hanterad disk från en ögonblicksbild och sedan koppla ny hanterad disk som OS-disk. Mer information finns i exemplet i [skapa en virtuell dator från en ögonblicksbild med PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+Skapa en virtuell dator från en ögonblicks bild genom att skapa en hanterad disk från en ögonblicks bild och sedan ansluta den nya hanterade disken som operativ system disk. Mer information finns i exemplet i [skapa en virtuell dator från en ögonblicks bild med PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).

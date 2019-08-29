@@ -1,41 +1,40 @@
 ---
-title: Licensserver för fjärrskrivbord är inte tillgängligt när du ansluter till en Azure-dator | Microsoft Docs
-description: Lär dig hur du felsöker problem med RDP-misslyckas eftersom ingen licensserver för fjärrskrivbord är tillgänglig | Microsoft Docs
+title: Servern för fjärr skrivbords licenser är inte tillgänglig när du ansluter till en virtuell Azure-dator | Microsoft Docs
+description: Lär dig hur du felsöker RDP-problem eftersom ingen licens Server för fjärr skrivbord är tillgänglig | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c5eb25ae536a6cdb0eb12f1233307215fe2d7d1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318960"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080011"
 ---
-# <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Servern för fjärrskrivbordslicenser är inte tillgängligt när du ansluter till en Azure-dator
+# <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Servern för fjärr skrivbords licenser är inte tillgänglig när du ansluter till en virtuell Azure-dator
 
-Den här artikeln hjälper dig att lösa problemet om du inte kan ansluta till en Azure-dator (VM) eftersom ingen licensserver för fjärrskrivbord är tillgängliga för att tillhandahålla en licens.
+Den här artikeln hjälper till att lösa problemet när du inte kan ansluta till en virtuell Azure-dator eftersom ingen licens Server för fjärr skrivbord är tillgänglig för att tillhandahålla en licens.
 
 ## <a name="symptoms"></a>Symtom
 
 När du försöker ansluta till en virtuell dator (VM) uppstår följande scenarier:
 
-- VM-skärmbilden visar att operativsystemet är fullständigt inläst och väntar på autentiseringsuppgifter.
-- Följande felmeddelanden visas när du försöker att ansluta Microsoft Remote Desktop Protocol (RDP):
+- Skärm bilden för den virtuella datorn visar att operativ systemet är fullständigt inläst och väntar på autentiseringsuppgifter.
+- Du får följande fel meddelanden när du försöker skapa en RDP-anslutning (Microsoft Fjärrskrivbord Protocol):
 
-  - Fjärrsessionen kopplades från eftersom det finns inga servrar för fjärrskrivbordslicenser tillgängliga för att tillhandahålla en licens.
+  - Fjärrsessionen kopplades från eftersom det inte finns några fjärr skrivbords licens servrar tillgängliga för att tillhandahålla en licens.
 
-  - Det finns inga licensserver för fjärrskrivbord. Fjärrskrivbordstjänster slutar att fungera eftersom den här datorn är grace-perioden och inte har kontaktat minst en giltig Windows Server 2008 server. Välj det här meddelandet för att öppna RD Session Host serverkonfiguration om du vill använda licensiering diagnos.
+  - Det finns ingen tillgänglig licens Server för fjärr skrivbord. Fjärrskrivbordstjänster upphör att fungera eftersom den här datorn har passerat sin respitperiod och inte har kontaktat minst en giltig Windows Server 2008-licens Server. Välj det här meddelandet för att öppna konfiguration av värd Server för FJÄRRSKRIVBORDSSESSION för att använda Licensieringsdiagnostik.
 
-Men kan du ansluta till den virtuella datorn normalt med hjälp av en administrativ session:
+Du kan dock ansluta till den virtuella datorn normalt genom att använda en administrativ session:
 
 ```
 mstsc /v:<Server>[:<Port>] /admin
@@ -43,90 +42,90 @@ mstsc /v:<Server>[:<Port>] /admin
 
 ## <a name="cause"></a>Orsak
 
-Det här problemet uppstår om en licensserver för fjärrskrivbord är tillgänglig för att tillhandahålla en licens för att starta en fjärrsession. Det kan orsakas av flera olika scenarier, även om en värd för fjärrskrivbordssession roll har ställts in på den virtuella datorn:
+Det här problemet uppstår om en server för fjärr skrivbords licenser inte är tillgänglig för att tillhandahålla en licens för att starta en fjärrsession. Det kan orsakas av flera scenarier, även om en värd roll för fjärrskrivbordssession har kon figurer ATS på den virtuella datorn:
 
-- Det har aldrig en licensiering Remote Desktop-roll i miljön och respitperioden på 180 dagar är över.
-- En licens för fjärrskrivbord har installerats i miljön, men den aktiveras aldrig.
-- En licens för fjärrskrivbord i miljön har klientåtkomstlicenser (CAL) för att upprätta anslutningen.
-- En licens för fjärrskrivbord har installerats i miljön. Det finns tillgängliga klientåtkomstlicenser, men de konfigurerats inte korrekt.
-- En licens för fjärrskrivbord har klientåtkomstlicenser, och den har aktiverats. Dock förhindras några andra problem på servern för fjärrskrivbordslicenser från att tillhandahålla licenser i miljön.
+- Det fanns aldrig någon fjärr skrivbords licensierings roll i miljön och Grace-perioden 180 dagar är över.
+- En fjärr skrivbords licens installerades i miljön, men den har aldrig Aktiver ATS.
+- En fjärr skrivbords licens i miljön har ingen klient åtkomst licens (CAL) som matats in för att konfigurera anslutningen.
+- En fjärr skrivbords licens har installerats i miljön. Det finns tillgängliga Cal, men de har inte kon figurer ATS korrekt.
+- En fjärr skrivbords licens har CAL och Aktiver ATS. Vissa andra problem på servern för fjärr skrivbords licenser förhindrar dock att den tillhandahåller licenser i miljön.
 
 ## <a name="solution"></a>Lösning
 
-Du löser problemet, [säkerhetskopiera OS-disken](../windows/snapshot-copy-managed-disk.md) och gör följande:
+Lös problemet genom att [säkerhetskopiera OS-disken](../windows/snapshot-copy-managed-disk.md) och följ dessa steg:
 
-1. Anslut till den virtuella datorn med hjälp av en administrativ session:
+1. Ansluta till den virtuella datorn med hjälp av en administrativ session:
 
    ```
    mstsc /v:<Server>[:<Port>] /admin
    ```
 
-    Om du inte kan ansluta till den virtuella datorn med hjälp av en administrativ session, kan du använda den [Virtual Machine Serial Console på Azure](serial-console-windows.md) att komma åt den virtuella datorn på följande sätt:
+    Om du inte kan ansluta till den virtuella datorn med hjälp av en administrativ session kan du använda [serie konsolen för virtuella datorer på Azure](serial-console-windows.md) för att få åtkomst till den virtuella datorn på följande sätt:
 
-    1. Komma åt Seriekonsolen genom att välja **Support och felsökning** > **seriekonsol (förhandsversion)** . Om funktionen är aktiverad på den virtuella datorn, kan du ansluta den virtuella datorn.
+    1. Öppna serie konsolen genom att välja **Support & fel söknings** > **seriell konsol (för hands version)** . Om funktionen är aktive rad på den virtuella datorn kan du ansluta den virtuella datorn.
 
-    2. Skapa en ny kanal för en CMD-instans. Ange **CMD** att starta kanalen och hämtar kanalnamnet på.
+    2. Skapa en ny kanal för en CMD-instans. Ange **cmd** för att starta kanalen och hämta kanal namnet.
 
-    3. Växla till den kanal som kör CMD-instans. I det här fallet bör det vara kanal 1:
+    3. Växla till kanalen som kör CMD-instansen. I det här fallet ska det vara kanal 1:
 
        ```
        ch -si 1
        ```
 
-    4. Välj **RETUR** igen och ange ett giltigt användarnamn och lösenord, lokal eller domän-ID för den virtuella datorn.
+    4. Välj **RETUR** igen och ange ett giltigt användar namn och lösen ord, lokalt eller domän-ID för den virtuella datorn.
 
-2. Kontrollera om den virtuella datorn har en värd för fjärrskrivbordssession-rollen aktiverad. Om rollen är aktiverad, se till att den fungerar korrekt. Öppna en upphöjd CMD-instans och följ de här stegen:
+2. Kontrol lera om den virtuella datorn har en värd roll för fjärrskrivbordssession aktive rad. Om rollen är aktive rad kontrollerar du att den fungerar korrekt. Öppna en upphöjd kommando instans och följ dessa steg:
 
-    1. Använd följande kommando för att kontrollera status för rollen värd för fjärrskrivbordssession:
+    1. Använd följande kommando för att kontrol lera status för värd rollen värd för fjärrskrivbordssession:
 
        ```
         reg query "HKLM\SOFTWARE\Microsoft\ServerManager\ServicingStorage\ServerComponentCache\RDS-RD-Server" /v InstallState
         ```
 
-        Om det här kommandot returnerar värdet 0, innebär det att rollen har inaktiverats du kan gå till steg 3.
+        Om det här kommandot returnerar värdet 0 innebär det att rollen är inaktive rad och att du kan gå till steg 3.
 
-    2. Använd följande kommando för att kontrollera principerna och konfigurera om efter behov:
+    2. Använd följande kommando för att kontrol lera principerna och konfigurera om efter behov:
 
        ```
         reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
        ```
 
-        Om den **LicensingMode** värdet är inställt på något annat värde än 4, per användare, och ange sedan värdet till 4:
+        Om värdet **LicensingMode** är inställt på något annat värde än 4, per användare, anger du värdet till 4:
 
          ```
         reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode /t REG_DWORD /d 4
         ```
 
-       Om den **SpecifiedLicenseServers** värde inte finns eller också har felaktig licensinformationen för server, ändra den på följande sätt:
+       Om värdet **SpecifiedLicenseServers** inte finns, eller om det har felaktig licens Server information, ändrar du den på följande sätt:
 
        ```
         reg add "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers /t REG_MULTI_SZ /d "<FQDN / IP License server>"
        ```
 
-    3. Starta om den virtuella datorn när du gör några ändringar i registret.
+    3. När du har gjort ändringar i registret startar du om den virtuella datorn.
 
-    4. Om du inte har klientåtkomstlicenser, tar du bort rollen värd för fjärrskrivbordssession. Sedan ställs RDP tillbaka till normal. Det tillåter bara två samtidiga RDP-anslutningar till den virtuella datorn:
+    4. Om du inte har Cal tar du bort rollen värd för fjärrskrivbordssession. Sedan kommer RDP att ställas in på normal igen. Det tillåter bara två samtidiga RDP-anslutningar till den virtuella datorn:
 
         ```
        dism /ONLINE /Disable-feature /FeatureName:Remote-Desktop-Services
         ```
 
-        Om den virtuella datorn har rollen fjärrskrivbord licensiering och det inte används, kan du också ta bort rollen:
+        Om den virtuella datorn har rollen fjärr skrivbords licensiering och den inte används kan du också ta bort rollen:
 
        ```
         dism /ONLINE /Disable-feature /FeatureName:Licensing
        ```
 
-    5. Kontrollera att den virtuella datorn kan ansluta till servern för fjärrskrivbordslicenser. Du kan testa anslutningen till port 135 mellan den virtuella datorn och licensservern: 
+    5. Kontrol lera att den virtuella datorn kan ansluta till servern för fjärr skrivbords licenser. Du kan testa anslutningen till porten 135 mellan den virtuella datorn och licens servern: 
 
        ```
        telnet <FQDN / IP License Server> 135
        ```
 
-3. Om det finns inga licensserver för fjärrskrivbord i miljön och du vill ha en, kan du [installera Fjärrskrivbordslicensiering rolltjänsten](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). Sedan [konfigurerar RDS-licensiering](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
+3. Om det inte finns någon fjärr skrivbords licens server i miljön och du vill ha en, kan du [installera en roll tjänst för fjärr skrivbords licensiering](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). [Konfigurera sedan fjärr skrivbords licensiering](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
 
-4. Om en licensserver för fjärrskrivbord är konfigurerat och felfritt, se till att licensserver för fjärrskrivbord har aktiverats med för Fjärrskrivbordstjänster.
+4. Om en server för fjärr skrivbords licenser har kon figurer ATS och är felfritt kontrollerar du att servern för fjärr skrivbords licenser är aktive rad med klient åtkomst licenser.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet.
+Om du fortfarande behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet.

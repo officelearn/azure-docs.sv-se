@@ -1,43 +1,42 @@
 ---
 title: Azure Functions Twilio-bindning
-description: Förstå hur du använder Twilio-bindningar med Azure Functions.
+description: Lär dig hur du använder Twilio-bindningar med Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c63b81e5461af5407d260651b79ec80e79fc9b4d
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 32f987caed915aff8c581b974dec7689fc90b007
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479980"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114359"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-bindning för Azure Functions
 
-Den här artikeln beskrivs hur du skickar meddelanden med text med hjälp av [Twilio](https://www.twilio.com/) bindningar i Azure Functions. Azure Functions stöder utdatabindningar twilio.
+Den här artikeln förklarar hur du skickar SMS med hjälp av [Twilio](https://www.twilio.com/) -bindningar i Azure Functions. Azure Functions stöder utgående bindningar för Twilio.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Twilio-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 1.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
+Twilio-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 1. x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
-Twilio-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 3.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
+Twilio-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 3. x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="example---functions-1x"></a>Exempel – Functions 1.x
+## <a name="example---functions-1x"></a>Exempel – Functions 1. x
 
 Se exempel språkspecifika:
 
@@ -45,9 +44,9 @@ Se exempel språkspecifika:
 * [C#-skript (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
-### <a name="c-example"></a>C#-exempel
+### <a name="c-example"></a>C#exempel
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som skickar ett SMS när det aktiveras av ett kömeddelande.
+I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som skickar ett SMS när det utlöses av ett Queue-meddelande.
 
 ```cs
 [FunctionName("QueueTwilio")]
@@ -68,15 +67,15 @@ public static SMSMessage Run(
 }
 ```
 
-Det här exemplet används den `TwilioSms` attributet med returvärdet för metoden. Ett alternativ är att använda attribut med ett `out SMSMessage` parametern eller en `ICollector<SMSMessage>` eller `IAsyncCollector<SMSMessage>` parametern.
+I `TwilioSms` det här exemplet används attributet med metodens retur värde. Ett alternativ är att använda attributet med en `out SMSMessage` parameter eller en `ICollector<SMSMessage>` -eller `IAsyncCollector<SMSMessage>` -parameter.
 
-### <a name="c-script-example"></a>Exempel på C#-skript
+### <a name="c-script-example"></a>C#skript exempel
 
-I följande exempel visas en Twilio-utdatabindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en `out` parameter för att skicka ett SMS.
+I följande exempel visas en Twilio utgående bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en `out` parameter för att skicka ett textmeddelande.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
-Exempel function.json:
+Exempel funktion. JSON:
 
 ```json
 {
@@ -91,7 +90,7 @@ Exempel function.json:
 }
 ```
 
-Här är C#-skriptkoden:
+Här är C# skript koden:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -122,7 +121,7 @@ public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter 
 }
 ```
 
-Du kan inte använda out-parametrar i synkron kod. Här är en asynkron C#-skript kodexempel:
+Du kan inte använda out-parametrar i asynkron kod. Här är ett exempel C# på en asynkron skript kod:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -158,11 +157,11 @@ public static async Task Run(string myQueueItem, IAsyncCollector<SMSMessage> mes
 
 ### <a name="javascript-example"></a>JavaScript-exempel
 
-I följande exempel visas en Twilio-utdatabindning i en *function.json* fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
+I följande exempel visas en Twilio utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
-Exempel function.json:
+Exempel funktion. JSON:
 
 ```json
 {
@@ -203,17 +202,17 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="example---functions-2x"></a>Exempel – Functions 2.x
+## <a name="example---functions-2x"></a>Exempel – Functions 2. x
 
 Se exempel språkspecifika:
 
 * [2.x C#](#2x-c-example)
-* [2.x C#-skript (.csx)](#2x-c-script-example)
+* [2. x C# -skript (. CSX)](#2x-c-script-example)
 * [2.x JavaScript](#2x-javascript-example)
 
-### <a name="2x-c-example"></a>2.x C#-exempel
+### <a name="2x-c-example"></a>2. x C# -exempel
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som skickar ett SMS när det aktiveras av ett kömeddelande.
+I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som skickar ett SMS när det utlöses av ett Queue-meddelande.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -244,15 +243,15 @@ namespace TwilioQueueOutput
 }
 ```
 
-Det här exemplet används den `TwilioSms` attributet med returvärdet för metoden. Ett alternativ är att använda attribut med ett `out CreateMessageOptions` parametern eller en `ICollector<CreateMessageOptions>` eller `IAsyncCollector<CreateMessageOptions>` parametern.
+I `TwilioSms` det här exemplet används attributet med metodens retur värde. Ett alternativ är att använda attributet med en `out CreateMessageOptions` parameter eller en `ICollector<CreateMessageOptions>` -eller `IAsyncCollector<CreateMessageOptions>` -parameter.
 
-### <a name="2x-c-script-example"></a>exempel på 2.x C#-skript
+### <a name="2x-c-script-example"></a>skript exempel för C# 2. x
 
-I följande exempel visas en Twilio-utdatabindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en `out` parameter för att skicka ett SMS.
+I följande exempel visas en Twilio utgående bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en `out` parameter för att skicka ett textmeddelande.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
-Exempel function.json:
+Exempel funktion. JSON:
 
 ```json
 {
@@ -266,7 +265,7 @@ Exempel function.json:
 }
 ```
 
-Här är C#-skriptkoden:
+Här är C# skript koden:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -298,7 +297,7 @@ public static void Run(string myQueueItem, out CreateMessageOptions message,  IL
 }
 ```
 
-Du kan inte använda out-parametrar i synkron kod. Här är en asynkron C#-skript kodexempel:
+Du kan inte använda out-parametrar i asynkron kod. Här är ett exempel C# på en asynkron skript kod:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -332,13 +331,13 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 }
 ```
 
-### <a name="2x-javascript-example"></a>2.x JavaScript-exempel
+### <a name="2x-javascript-example"></a>JavaScript-exempel för 2. x
 
-I följande exempel visas en Twilio-utdatabindning i en *function.json* fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
+I följande exempel visas en Twilio utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
-Exempel function.json:
+Exempel funktion. JSON:
 
 ```json
 {
@@ -379,9 +378,9 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribut.
+Använd attributet [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
-Information om attributegenskaper som som du kan konfigurera finns i [Configuration](#configuration). Här är en `TwilioSms` attributet exemplet i signaturen för metoden:
+Information om vilka egenskaper för attribut som du kan konfigurera finns i [konfiguration](#configuration). Här är en `TwilioSms` attributet exemplet i signaturen för metoden:
 
 ```csharp
 [FunctionName("QueueTwilio")]
@@ -393,22 +392,22 @@ public static CreateMessageOptions Run(
 }
  ```
 
-Ett komplett exempel finns i [C#-exempel](#c-example).
+Ett fullständigt exempel finns i [ C# exemplet](#c-example).
 
 ## <a name="configuration"></a>Konfiguration
 
 I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `TwilioSms` attribut.
 
-| V1 function.json egenskap | v2 function.json egenskap | Attributegenskapen |Beskrivning|
+| v1 function. JSON-egenskap | v2 function. JSON-egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|---------|----------------------|
-|**type**|**type**| Måste anges till `twilioSms`.|
-|**direction**|**direction**| Måste anges till `out`.|
-|**name**|**name**| Variabelnamnet som används i Funktionskoden för Twilio-SMS-textmeddelanden. |
-|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio konto-Sid t.ex. TwilioAccountSid. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsTwilioAccountSid”. |
-|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio-autentiseringstoken t.ex. TwilioAccountAuthToken. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsTwilioAuthToken”. |
-|**to**| Ej tillämpligt – ange i koden | **Till**| Det här värdet anges till telefonnumret som SMS-meddelanden skickas till.|
-|**from**|**from** | **From**| Det här värdet anges till telefonnumret som SMS-meddelanden skickas från.|
-|**body**|**body** | **Brödtext**| Det här värdet kan användas för att hårt code SMS-textmeddelande om du inte behöver ange den dynamiskt i koden för din funktion. |  
+|**type**|**type**| måste anges till `twilioSms`.|
+|**direction**|**direction**| måste anges till `out`.|
+|**name**|**name**| Variabel namn som används i funktions kod för SMS-textmeddelandet för Twilio. |
+|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Värdet måste anges till namnet på en app-inställning som innehåller ditt Twilio-konto-sid, t. ex. TwilioAccountSid. Om den inte anges är standardinställnings namnet för appen "AzureWebJobsTwilioAccountSid". |
+|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Värdet måste anges till namnet på en app-inställning som innehåller din Twilio-autentiseringstoken, t. ex. TwilioAccountAuthToken. Om den inte anges är standardinställnings namnet för appen "AzureWebJobsTwilioAuthToken". |
+|**to**| Ej tillämpligt – ange i kod | **To**| Det här värdet anges till det telefonnummer som SMS-texten skickas till.|
+|**from**|**from** | **From**| Det här värdet anges till det telefonnummer som SMS-texten skickas från.|
+|**body**|**body** | **Brödtext**| Det här värdet kan användas för att hårdkoda SMS-textmeddelandet om du inte behöver ange det dynamiskt i koden för din funktion. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

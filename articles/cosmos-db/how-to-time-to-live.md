@@ -3,15 +3,15 @@ title: Lär dig hur du konfigurerar och hanterar Time to Live i Azure Cosmos DB
 description: Lär dig hur du konfigurerar och hanterar Time to Live i Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 618e7e19b20f361aa0a8c668e9621a29db43772d
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: bb67e6e4fbef51a0fbd26efd2618be8cc9896beb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797741"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092989"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurera Time to Live i Azure Cosmos DB
 
@@ -37,9 +37,9 @@ Använd följande steg för att aktivera TTL för en container utan upphörande.
    ![Konfigurera Time to Live i Azure-portalen](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
 
-- När DefaultTimeToLive är null och sedan din Time to Live är inaktiverat
-- När DefaultTimeToLive är -1 och sedan tiden till verkliga livet är på (inte standard)
-- När DefaultTimeToLive har ett annat Int-värde (utom 0) finns din tid till Live-inställningen på
+- När DefaultTimeToLive är null är ditt Time to Live av
+- När DefaultTimeToLive är-1 är Time to Live inställningen på (inget standardvärde)
+- När DefaultTimeToLive har ett annat int-värde (förutom 0) är Time to Live inställningen på
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Aktivera TTL för en container med hjälp av SDK
 
@@ -103,7 +103,7 @@ Förutom att ställa in ett standard-TTL-värde i en container kan du ange du en
 
 ### <a id="portal-set-ttl-item"></a>Azure-portalen
 
-Använd följande steg för att aktivera TTL-värde på ett objekt:
+Använd följande steg för att aktivera Time to Live på ett objekt:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
@@ -115,10 +115,10 @@ Använd följande steg för att aktivera TTL-värde på ett objekt:
 
    * Öppna fönstret **Scale & Settings** (Skalning och inställningar).
    * Under **Inställning** letar du upp **Time to Live**.
-   * Välj **på (inte standard)** eller välj **på** och ange ett TTL-värde. 
+   * Välj **på (inget standardvärde)** eller Välj **på** och ange ett TTL-värde. 
    * Klicka på **Spara** för att spara ändringarna.
 
-5. Därefter går du till det objekt du vill ange tiden live, lägga till den `ttl` egenskapen och välj **uppdatering**. 
+5. Gå sedan till det objekt som du vill ange TTL för, Lägg till `ttl` egenskapen och välj **Uppdatera**. 
 
    ```json
    {
@@ -208,7 +208,7 @@ response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="disable-time-to-live"></a>Inaktivera Time to live
 
-Om du vill inaktivera Time to Live för en container och förhindra att bakgrundsprocessen söker efter objekt som har upphört att gälla ska du ta bort egenskapen `DefaultTimeToLive` för containern. Att ta bort den här egenskapen skiljer sig från att ställa in den på -1. När du ställer in den på -1 finns nya objekt som läggs till i containern kvar för evigt, men du kan åsidosätta det här värdet för specifika objekt i containern. När du tar bort egenskapen TTL-värde från behållaren upphör aldrig objekt, även om det finns de har uttryckligen åsidosätts tidigare standard TTL-värdet.
+Om du vill inaktivera Time to Live för en container och förhindra att bakgrundsprocessen söker efter objekt som har upphört att gälla ska du ta bort egenskapen `DefaultTimeToLive` för containern. Att ta bort den här egenskapen skiljer sig från att ställa in den på -1. När du ställer in den på -1 finns nya objekt som läggs till i containern kvar för evigt, men du kan åsidosätta det här värdet för specifika objekt i containern. När du tar bort TTL-egenskapen från behållaren upphör objekten aldrig att gälla, även om de uttryckligen har åsidosatt det tidigare standard-TTL-värdet.
 
 ### <a id="dotnet-disable-ttl"></a>.NET SDK
 

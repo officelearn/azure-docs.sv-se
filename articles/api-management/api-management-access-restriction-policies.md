@@ -10,16 +10,15 @@ ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 4f06e579e8548f4220d8f3fb4b618902f18b538e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: cfb4bda597b2b7ab4658244c46253f5118723402
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774796"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073809"
 ---
 # <a name="api-management-access-restriction-policies"></a>Principer för begränsning av API Management åtkomst
 
@@ -61,14 +60,14 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-| Namn         | Beskrivning                                                                                                                                   | Obligatorisk |
+| Name         | Beskrivning                                                                                                                                   | Obligatorisk |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Check-sidhuvud | Rot element.                                                                                                                                 | Ja      |
 | value        | Tillåtet värde för HTTP-huvud. När flera värde element anges, betraktas kontrollen som lyckad om något av värdena är en matchning. | Nej       |
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                       | Beskrivning                                                                                                                                                            | Obligatorisk | Standard |
+| Name                       | Beskrivning                                                                                                                                                            | Obligatorisk | Standard |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | misslyckades-kontrol lera fel meddelande | Fel meddelande att returnera i HTTP-svarets text om huvudet inte finns eller har ett ogiltigt värde. Det här meddelandet måste ha specialtecken som kan undantas korrekt. | Ja      | Gäller inte     |
 | misslyckades-check-httpcode      | HTTP-statuskod att returnera om huvudet inte finns eller har ett ogiltigt värde.                                                                                        | Ja      | Gäller inte     |
@@ -121,7 +120,7 @@ Den här principen kan användas i följande princip [avsnitt](https://azure.mic
 
 ### <a name="elements"></a>Element
 
-| Namn      | Beskrivning                                                                                                                                                                                                                                                                                              | Obligatorisk |
+| Name      | Beskrivning                                                                                                                                                                                                                                                                                              | Obligatorisk |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Ange gräns | Rot element.                                                                                                                                                                                                                                                                                            | Ja      |
 | api       | Lägg till en eller flera av de här elementen för att införa en gräns för anrops frekvensen för API: er i produkten. Hastighets begränsningar för produkt-och API-anrop tillämpas oberoende av varandra. API: t kan refereras antingen `name` via `id`eller. Om båda attributen anges `id` används och `name` kommer att ignoreras.                    | Nej       |
@@ -129,7 +128,7 @@ Den här principen kan användas i följande princip [avsnitt](https://azure.mic
 
 ### <a name="attributes"></a>Attribut
 
-| Namn           | Beskrivning                                                                                           | Obligatorisk | Standard |
+| Name           | Beskrivning                                                                                           | Obligatorisk | Standard |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Namnet på det API som hastighets begränsningen ska tillämpas för.                                                | Ja      | Gäller inte     |
 | anrop          | Maximalt antal anrop som tillåts under det tidsintervall som anges i `renewal-period`. | Ja      | Gäller inte     |
@@ -186,13 +185,13 @@ I följande exempel anges frekvens gränsen av IP-adressen för anroparen.
 
 ### <a name="elements"></a>Element
 
-| Namn      | Beskrivning   | Obligatorisk |
+| Name      | Beskrivning   | Obligatorisk |
 | --------- | ------------- | -------- |
 | Ange gräns | Rot element. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                | Beskrivning                                                                                           | Obligatorisk | Standard |
+| Name                | Beskrivning                                                                                           | Obligatorisk | Standard |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | anrop               | Maximalt antal anrop som tillåts under det tidsintervall som anges i `renewal-period`. | Ja      | Gäller inte     |
 | räknare-nyckel         | Den nyckel som ska användas för frekvens begränsnings principen.                                                             | Ja      | Gäller inte     |
@@ -233,7 +232,7 @@ I följande exempel tillåter principen bara begär Anden som kommer från den e
 
 ### <a name="elements"></a>Element
 
-| Namn                                      | Beskrivning                                         | Obligatorisk                                                       |
+| Name                                      | Beskrivning                                         | Obligatorisk                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | IP-filter                                 | Rot element.                                       | Ja                                                            |
 | adress                                   | Anger en enskild IP-adress som du vill filtrera efter.   | Minst ett `address` eller `address-range` -element krävs. |
@@ -241,7 +240,7 @@ I följande exempel tillåter principen bara begär Anden som kommer från den e
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                                      | Beskrivning                                                                                 | Obligatorisk                                           | Standard |
+| Name                                      | Beskrivning                                                                                 | Obligatorisk                                           | Standard |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | adress – intervall från = "adress" till = "adress" | Ett intervall med IP-adresser som tillåter eller nekar åtkomst för.                                        | Krävs när `address-range` elementet används. | Gäller inte     |
 | ip-filter action="allow &#124; forbid"    | Anger om anrop ska tillåtas eller inte för de angivna IP-adresserna och intervallen. | Ja                                                | Gäller inte     |
@@ -288,7 +287,7 @@ Den här principen kan användas i följande princip [avsnitt](https://azure.mic
 
 ### <a name="elements"></a>Element
 
-| Namn      | Beskrivning                                                                                                                                                                                                                                                                                  | Obligatorisk |
+| Name      | Beskrivning                                                                                                                                                                                                                                                                                  | Obligatorisk |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | kvot     | Rot element.                                                                                                                                                                                                                                                                                | Ja      |
 | api       | Lägg till en eller flera av de här elementen för att införa anrops kvot för API: er i produkten. Kvoten för produkt-och API-anrop tillämpas oberoende av varandra. API: t kan refereras antingen `name` via `id`eller. Om båda attributen anges `id` används och `name` kommer att ignoreras.                    | Nej       |
@@ -296,7 +295,7 @@ Den här principen kan användas i följande princip [avsnitt](https://azure.mic
 
 ### <a name="attributes"></a>Attribut
 
-| Namn           | Beskrivning                                                                                               | Obligatorisk                                                         | Standard |
+| Name           | Beskrivning                                                                                               | Obligatorisk                                                         | Standard |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | name           | Namnet på det API eller den åtgärd som kvoten gäller.                                             | Ja                                                              | Gäller inte     |
 | bandbredd      | Det maximala totala antalet kilobyte som tillåts under det tidsintervall som anges i `renewal-period`. | Antingen `calls` ,`bandwidth`eller båda tillsammans måste anges. | Gäller inte     |
@@ -350,13 +349,13 @@ I följande exempel anges kvoten av IP-adressen för anroparen.
 
 ### <a name="elements"></a>Element
 
-| Namn  | Beskrivning   | Obligatorisk |
+| Name  | Beskrivning   | Obligatorisk |
 | ----- | ------------- | -------- |
 | kvot | Rot element. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                | Beskrivning                                                                                               | Obligatorisk                                                         | Standard |
+| Name                | Beskrivning                                                                                               | Obligatorisk                                                         | Standard |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | bandbredd           | Det maximala totala antalet kilobyte som tillåts under det tidsintervall som anges i `renewal-period`. | Antingen `calls` ,`bandwidth`eller båda tillsammans måste anges. | Gäller inte     |
 | anrop               | Maximalt antal anrop som tillåts under det tidsintervall som anges i `renewal-period`.     | Antingen `calls` ,`bandwidth`eller båda tillsammans måste anges. | Gäller inte     |
@@ -534,7 +533,7 @@ Det här exemplet visar hur du använder [validate JWT](api-management-access-re
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                            | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatorisk                                                                         | Standard                                                                           |
+| Name                            | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatorisk                                                                         | Standard                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | klock skevning                      | Intervall. Används för att ange den maximala förväntade tids skillnaden mellan system klockorna i token Issuer och API Management-instansen.                                                                                                                                                                                                                                                                                                               | Nej                                                                               | 0 sekunder                                                                         |
 | failed-validation-error-message | Fel meddelande att returnera i HTTP-svarets text om JWT inte klarar verifieringen. Det här meddelandet måste ha specialtecken som kan undantas korrekt.                                                                                                                                                                                                                                                                                                 | Nej                                                                               | Standard fel meddelandet är beroende av verifierings problemet, till exempel "JWT saknas". |

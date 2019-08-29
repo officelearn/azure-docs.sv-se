@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: da88c6d0195236a6f93f81d3296e4624228125f2
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0aa4286d8cb630f221613bebd13f7ea722224ac6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624267"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068849"
 ---
 # <a name="what-are-the-speech-services"></a>Vad är Speech Services?
 
@@ -84,12 +84,10 @@ Exempel kod finns på GitHub för var och en av Azure Speech Services. De här e
 
 Azure Speech Services fungerar bra med inbyggda modeller, men du kanske vill anpassa och justera upplevelsen för din produkt eller miljö ytterligare. Anpassnings alternativ sträcker sig från akustisk modell justering till unika röst teckensnitt för ditt varumärke. När du har skapat en anpassad modell kan du använda den med valfri Azure Speech Services.
 
-| Tjänst för taligenkänning | Modell | Beskrivning |
-|----------------|-------|-------------|
-| Tal till text | [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell för program, verktyg eller enheter som används i vissa miljöer som i en bil eller på en fabriks våning, var och en med särskilda registrerings villkor. Exempel är accenttecken, vissa bakgrunds brus eller med en speciell mikrofon för inspelning. |
-| | [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språk modell för att förbättra avskriften av Field-specifik vokabulär och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
-| | [Uttalsmodell](how-to-customize-pronunciation.md) | Med en anpassad uttal-modell kan du definiera fonetisk form och visa ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil – en enkel txt-fil. |
-| Text till tal | [Rösttyp](how-to-customize-voice-font.md) | Med anpassade röst teckensnitt kan du skapa en igenkännings bara, en-av-en-röst för ditt varumärke. Det tar bara en liten mängd data att komma igång. Den mer information som du anger, desto mer naturlig och mänsklig som ditt röst teckensnitt kommer att ljud. |
+| Tjänst för taligenkänning | Plattform | Beskrivning |
+|----------------|-------------|-------------|
+| Tal till text | [Anpassat tal](https://aka.ms/customspeech) | Anpassa tal igenkännings modeller till dina behov och tillgängliga data. Övervinn hinder för taligenkänning som samtalsstil, vokabulär och bakgrundsljud. |
+| Text till tal | [Anpassad röst](https://aka.ms/customvoice) | Bygg en igenkännings Bart, en-av-en-röst för dina text till tal-appar med dina inläsnings data tillgängliga. Du kan finjustera röst utmatningarna ytterligare genom att justera en uppsättning röst parametrar. |
 
 ## <a name="reference-docs"></a>Referensdokument
 

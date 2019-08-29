@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 877769041d1587c6c1b0f4dbaff51d5a1a7924b5
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 660b2ead146695657ae13444cb7936eff8224f3a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997715"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099523"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-preview-features"></a>Självstudier: Definiera en ny enhets typ i ditt Azure IoT Central-program (för hands versions funktioner)
 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 
 Du behöver ett Azure IoT Central-program för att kunna genomföra den här självstudien. Om du har genomfört snabbstarten för att [skapa ett Azure IoT Central-program](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) kan du återanvända det program som du skapade i den snabbstarten. I annat fall utför du följande steg för att skapa ett tomt Azure IoT Central-program:
 
-1. Gå till sidan [Application Manager](https://aka.ms/iotcentral) (Programhanterare) i Azure IoT Central.
+1. Gå till webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) .
 
 1. Om du har en Azure-prenumeration loggar du in med de autentiseringsuppgifter som du använder för att komma åt den, annars signerar du den med en Microsoft-konto:
 

@@ -8,16 +8,15 @@ manager: gwallace
 keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 3d5b2afd642a7eb042b2e6e07ef93a505f6b9648
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: f2bdfab82e1b9fb05d74f69536ec672a4b18a4bf
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774704"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114368"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -715,14 +714,19 @@ I C# och C#-skript, kan du använda följande parametertyper av för utdata-bind
 * `out T paramName` - `T` kan vara valfri JSON-serialiserbara. Om värdet för parametern är null när funktionen avslutas skapar funktioner meddelandet med ett null-objekt.
 * `out string` -Om värdet för parametern är null när funktionen avslutas funktioner inte att skapa ett meddelande.
 * `out byte[]` -Om värdet för parametern är null när funktionen avslutas funktioner inte att skapa ett meddelande.
-* `out BrokeredMessage` -Om värdet för parametern är null när funktionen avslutas funktioner inte att skapa ett meddelande.
+* `out BrokeredMessage`-Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 1. x)
+* `out Message`-Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 2. x)
 * `ICollector<T>` eller `IAsyncCollector<T>` – för att skapa flera meddelanden. Ett meddelande skapas när du anropar den `Add` metoden.
 
-I async-funktioner, använder du det returnera värdet eller `IAsyncCollector` i stället för en `out` parametern.
+När du arbetar C# med funktioner:
 
-De här parametrarna används för Azure Functions-version 1.x; 2.x kan använda [ `Message` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) i stället för `BrokeredMessage`.
+* Async Functions behöver ett retur värde `IAsyncCollector` eller i stället `out` för en parameter.
 
-I JavaScript, få åtkomst till kön eller ämnet med hjälp av `context.bindings.<name from function.json>`. Du kan tilldela en sträng, en bytematris eller ett Javascript-objekt (deserialisera till JSON) till `context.binding.<name>`.
+* För att få åtkomst till sessions-ID [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) : t binder du `sessionId` till en typ och använder egenskapen.
+
+I JavaScript, få åtkomst till kön eller ämnet med hjälp av `context.bindings.<name from function.json>`. Du kan tilldela en sträng, en byte mat ris eller ett JavaScript-objekt (avserialiserat till JSON) `context.binding.<name>`till.
+
+Om du vill skicka ett meddelande till en kö som är aktiveC# rad i andra språk än använder du [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) i stället för den inbyggda utgående bindningen.
 
 ## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
 

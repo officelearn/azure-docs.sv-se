@@ -7,16 +7,15 @@ author: craigshoemaker
 manager: gwallace
 keywords: Azure functions, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur testning
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 800c9db245007047b2dc17b3f270737254ed42d7
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0bd6222a6f2a2582fb715dbaf364fe23e41630d5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479722"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085147"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -29,7 +28,7 @@ Det innehåll som följer är uppdelad i två olika delar som är avsedd att fok
 - [C#i Visual Studio med xUnit](#c-in-visual-studio)
 - [JavaScript i VS Code med Jest](#javascript-in-vs-code)
 
-Exempellagringsplatsen är tillgänglig på [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
+Exempel lagrings platsen finns på [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
 ## <a name="c-in-visual-studio"></a>C#i Visual Studio
 I följande exempel beskriver hur du skapar en C# Funktionsapp i Visual Studio och kör och testar med [xUnit](https://xunit.github.io).
@@ -43,8 +42,8 @@ Skapa en funktion för att konfigurera din miljö och testa appen. Följande ste
 1. [Skapa en ny Functions-app](./functions-create-first-azure-function.md) och ge den namnet *funktioner*
 2. [Skapa en HTTP-funktion från mallen](./functions-create-first-azure-function.md) och ge den namnet *HttpTrigger*.
 3. [Skapa en timerfunktion från mallen](./functions-create-scheduled-function.md) och ge den namnet *TimerTrigger*.
-4. [Skapa en app för Test av xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) i Visual Studio genom att klicka på **fil > Nytt > Projekt > Visual C# > .NET Core > xUnit testprojekt** och ge den namnet *Functions.Test*. 
-5. Använd Nuget för att lägga till en referenser från appen test [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+4. [Skapa en XUnit test-app](https://xunit.github.io/docs/getting-started-dotnet-core) i Visual Studio genom att klicka på **fil > nytt > C# projekt > Visual > .net Core > xUnit test Project** och ge den namnet *functions. test*. 
+5. Använd NuGet för att lägga till en referens från test appen [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Referens för den *Functions* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) från *Functions.Test* app.
 
 ### <a name="create-test-classes"></a>Skapa test-klasser
@@ -55,7 +54,7 @@ Varje funktion tar en instans av [ILogger](https://docs.microsoft.com/dotnet/api
 
 Den `ListLogger` klass är avsedd att implementera den `ILogger` gränssnitt och håll ned på interna listan över meddelanden för utvärdering under ett test.
 
-**Högerklicka på** på den *Functions.Test* programmet och väljer **Lägg till > klass**, ge den namnet **NullScope.cs** och ange följande kod:
+**Högerklicka** på programmet Functions *. test* och välj **Lägg till > klass**, ge den namnet **NullScope.cs** och ange följande kod:
 
 ```csharp
 using System;
@@ -73,7 +72,7 @@ namespace Functions.Tests
 }
 ```
 
-Nästa **högerklickar du på** på den *Functions.Test* programmet och väljer **Lägg till > klass**, ge den namnet **ListLogger.cs** och ange den följande kod:
+**Högerklicka** sedan på programmet *functions. test* och välj **Lägg till > klass**, ge den namnet **ListLogger.cs** och ange följande kod:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -111,11 +110,11 @@ namespace Functions.Tests
 
 Den `ListLogger` klassen implementerar följande medlemmar som kontrakt genom den `ILogger` gränssnitt:
 
-- **BeginScope**: Scope lägga till kontext till din loggning. I det här fallet testet bara pekar på den statiska instansen på den `NullScope` klass så att testet ska fungera.
+- **BeginScope**: Omfattningar lägger till kontext i loggningen. I det här fallet pekar testet precis på den statiska instansen i `NullScope` klassen för att testet ska fungera.
 
-- **IsEnabled**: Ett standardvärde på `false` har angetts.
+- **IsEnabled**: Standardvärdet för `false` tillhandahålls.
 
-- **Log**: Den här metoden använder den medföljande `formatter` fungera om du vill formatera meddelandet och lägger sedan till den resulterande texten till den `Logs` samling.
+- **Logg**: Den här metoden använder den `formatter` tillhandahållna funktionen för att formatera meddelandet och lägger sedan till den resulterande texten `Logs` i samlingen.
 
 Den `Logs` samling är en instans av `List<string>` och har initierats i konstruktorn.
 
@@ -196,13 +195,13 @@ namespace Functions.Tests
 ```
 Den `TestFactory` klassen implementerar följande medlemmar:
 
-- **Data**: Den här egenskapen returnerar en [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) uppsättning exempeldata. Nyckelvärdepar representerar värden som skickas till en frågesträng.
+- **Data**: Den här egenskapen returnerar en [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) -samling med exempel data. Nyckelvärdepar representerar värden som skickas till en frågesträng.
 
-- **CreateDictionary**: Den här metoden godkänner ett nyckel/värde-par som argument och returnerar en ny `Dictionary` används för att skapa `QueryCollection` att representera frågesträngsvärden.
+- **CreateDictionary**: Den här metoden accepterar ett nyckel/värde-par som argument och returnerar `Dictionary` en ny som `QueryCollection` används för att skapa för att representera frågesträngs värden.
 
-- **CreateHttpRequest**: Den här metoden skapar en HTTP-begäran initieras med de angivna parametrarna för frågesträngen.
+- **CreateHttpRequest**: Den här metoden skapar en HTTP-begäran som initieras med de aktuella frågesträngs parametrarna.
 
-- **CreateLogger**: Beroende på vilken loggaren, returnerar den här metoden en logger-klass som används för testning. Den `ListLogger` håller reda på loggade meddelanden för utvärdering i tester.
+- **CreateLogger**: Baserat på loggnings typen returnerar den här metoden en loggnings klass som används för testning. Den `ListLogger` håller reda på loggade meddelanden för utvärdering i tester.
 
 Nästa **högerklickar du på** på den *Functions.Test* programmet och väljer **Lägg till > klass**, ge den namnet **FunctionsTests.cs** och ange den följande kod:
 
@@ -247,13 +246,13 @@ namespace Functions.Tests
 ```
 Medlemmar som implementerats i den här klassen är:
 
-- **Http_trigger_should_return_known_string**: Det här testet skapar en begäran med frågan strängvärden för `name=Bill` att en HTTP-funktion och kontrollerar att det förväntade svaret returneras.
+- **Http_trigger_should_return_known_string**: Det här testet skapar en begäran med frågesträng svärdet för `name=Bill` en http-funktion och kontrollerar att det förväntade svaret returneras.
 
-- **Http_trigger_should_return_string_from_member_data**: Det här testet används xUnit attribut för att tillhandahålla exempeldata till HTTP-funktionen.
+- **Http_trigger_should_return_string_from_member_data**: I det här testet används xUnit-attribut för att tillhandahålla exempel data till HTTP-funktionen.
 
-- **Timer_should_log_message**: Det här testet skapar en instans av `ListLogger` och skickar den till en timer-funktion. När funktionen körs, kontrolleras loggen för att se till att förväntade meddelandet finns.
+- **Timer_should_log_message**: Det här testet skapar en instans `ListLogger` av och skickar den till en timer-funktion. När funktionen körs, kontrolleras loggen för att se till att förväntade meddelandet finns.
 
-Om du vill komma åt programinställningar i dina tester kan du använda [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+Om du vill komma åt program inställningarna i dina tester kan du använda [system. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
 ### <a name="run-tests"></a>Kör test
 
@@ -377,6 +376,6 @@ Nu ska vi konfigurera en brytpunkt i test- och tryck på **F5**.
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig hur du skriver automatiska tester för dina funktioner, fortsätter du med dessa resurser:
-- [Manuellt köra en icke HTTP-utlöst funktion](./functions-manually-run-non-http.md)
+- [Köra en icke-HTTP-utlöst funktion manuellt](./functions-manually-run-non-http.md)
 - [Azure Functions-felhantering](./functions-bindings-error-pages.md)
 - [Azure-funktion Event Grid utlösa lokal felsökning](./functions-debug-event-grid-trigger-local.md)

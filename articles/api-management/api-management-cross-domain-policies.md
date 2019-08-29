@@ -10,16 +10,15 @@ ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 86c61679a73f03f7e54bba746107685796ec07c9
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: db64a2f64c592a62f621355047a7bc9844d66457
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442323"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073725"
 ---
 # <a name="api-management-cross-domain-policies"></a>Korsdomänprinciper för API Management
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -54,7 +53,7 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |mellan domäner|Rot element. Underordnade element måste följa specifikationen för [Adobe Cross-domain policy File](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Ja|
 
@@ -123,7 +122,7 @@ I det här exemplet visas hur du stöder för-flygnings begär Anden, t. ex. de 
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
 |CORS|Rot element.|Ja|Gäller inte|
 |tillåtna-ursprung|Innehåller `origin` element som beskriver tillåtna ursprung för frågor mellan domäner. `allowed-origins`kan innehålla antingen ett enda `origin` element som anger `*` att alla ursprung eller ett eller flera `origin` element som innehåller en URI ska tillåtas.|Ja|Gäller inte|
@@ -136,7 +135,7 @@ I det här exemplet visas hur du stöder för-flygnings begär Anden, t. ex. de 
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
 |Tillåt-autentiseringsuppgifter|`Access-Control-Allow-Credentials` Rubriken i preflight-svaret anges till värdet för det här attributet och påverkar klientens möjlighet att skicka autentiseringsuppgifter i kors domän begär Anden.|Nej|false|
 |preflight-resultat-max-ålder|`Access-Control-Max-Age` Rubriken i preflight-svaret ställs in på värdet för det här attributet och påverkar användar agentens möjlighet att cachelagra svar före flygning.|Nej|0|
@@ -168,13 +167,13 @@ Om du lägger till en callback `?cb=XXX` -parameter returnerar den ett JSONP-res
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |jsonp|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|JavaScript-funktionen för Cross-Domain anropas med det fullständigt kvalificerade domän namnet där funktionen finns.|Ja|Gäller inte|
 

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Always On availability-gruppen på en Azure-dator med hjälp av PowerShell | Microsoft Docs
-description: Den här självstudien används resurser som har skapats med den klassiska distributionsmodellen. Du kan använda PowerShell för att skapa en Always On-tillgänglighetsgrupp i Azure.
+title: Konfigurera tillgänglighets gruppen Always on på en virtuell Azure-dator med hjälp av PowerShell | Microsoft Docs
+description: I den här självstudien används resurser som har skapats med den klassiska distributions modellen. Du använder PowerShell för att skapa en tillgänglighets grupp som alltid är tillgänglig i Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -9,59 +9,58 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: c089d54544217cf72f81a2535ceede50d25b9b61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89f731062ce46969c73f745d62b289b3b3483d8c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362194"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100357"
 ---
-# <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Konfigurera Always On-tillgänglighetsgrupp på en virtuell Azure-dator med PowerShell
+# <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Konfigurera tillgänglighets gruppen Always on på en virtuell Azure-dator med PowerShell
 > [!div class="op_single_selector"]
-> * [Klassisk: ANVÄNDARGRÄNSSNITTET](../classic/portal-sql-alwayson-availability-groups.md)
-> * [Klassisk: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [Form SKÄRMEN](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Form PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
-Innan du börjar bör du överväga att du kan nu slutföra den här aktiviteten i Azure resource manager-modellen. Vi rekommenderar Azure resource manager-modellen för nya distributioner. Se [SQL Server Always On-Tillgänglighetsgrupper på Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
+Innan du börjar bör du tänka på att du nu kan slutföra den här uppgiften i Azure Resource Manager-modellen. Vi rekommenderar Azure Resource Manager-modellen för nya distributioner. Se [SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
 > Vi rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen.
 
-Azure-datorer (VM) kan databasadministratörer för att sänka kostnaden för en högtillgänglig SQL Server-systemet. Den här självstudien visar hur du implementerar en tillgänglighetsgrupp med hjälp av SQL Server Always On slutpunkt till slutpunkt i en Azure-miljö. I slutet av självstudien består din SQL Server Always On-lösning i Azure av följande element:
+Azure Virtual Machines (VM) kan hjälpa databas administratörer att sänka kostnaderna för ett SQL Server system med hög tillgänglighet. Den här självstudien visar hur du implementerar en tillgänglighets grupp genom att använda SQL Server Always On-to-end i en Azure-miljö. I slutet av självstudien kommer SQL Server Always on-lösning i Azure att bestå av följande element:
 
-* Ett virtuellt nätverk med flera undernät, inklusive en klientdel och en backend-undernät.
-* En domänkontrollant med en Active Directory-domän.
-* Två SQL Server-datorer som distribueras till backend-undernät och anslutna till Active Directory-domänen.
-* Ett tre noder Windows failover-kluster med Nodmajoritet kvorummodellen.
-* En tillgänglighetsgrupp med två repliker för synkront genomförande av en tillgänglighetsdatabas.
+* Ett virtuellt nätverk som innehåller flera undernät, inklusive en klient del och ett Server dels undernät.
+* En domänkontrollant med en Active Directory domän.
+* Två SQL Server virtuella datorer som distribueras till backend-undernätet och ansluts till Active Directorys domänen.
+* Ett Windows-redundanskluster med tre noder och kvorumresursens Nodmajoritet.
+* En tillgänglighets grupp med två repliker av synkront genomförande i en tillgänglighets databas.
 
-Det här scenariot är ett bra val för dess enkelhet på Azure, inte för kostnadseffektivitet eller andra faktorer. Exempelvis kan du minimera antalet virtuella datorer för en tillgänglighetsgrupp med två-replik att spara på drifttimmar av en instans i Azure med hjälp av domänkontrollanten som filresursvittnet kvorum i ett redundanskluster med två noder. Den här metoden minskar antal virtuella datorer genom en från konfigurationen ovan.
+Det här scenariot är ett bra alternativ för dess enkelhet på Azure, inte för kostnads effektivitet eller andra faktorer. Du kan till exempel minimera antalet virtuella datorer för en tillgänglighets grupp med två repliker för att spara på beräknings timmar i Azure med hjälp av domänkontrollanten som ett fil resurs vittne för kvorum i ett kluster med två noder. Den här metoden minskar antalet virtuella datorer med en från ovanstående konfiguration.
 
-Den här kursen är avsedd att visa dig de steg som krävs för att konfigurera lösningen som beskrivs ovan, utan att utarbeta på information om varje steg. I stället för att tillhandahålla konfigurationssteg grafiskt användargränssnitt, kan det därför använder PowerShell-skript för att snabbt ta dig igenom varje steg. Den här kursen riktar sig till följande:
+Den här självstudien är avsedd att visa de steg som krävs för att ställa in den beskrivna lösningen ovan, utan att utveckla information om varje steg. I stället för att tillhandahålla konfigurations stegen för GUI använder den därför PowerShell-skript för att snabbt ta dig igenom varje steg. Den här självstudien förutsätter följande:
 
-* Du har redan ett Azure-konto med VM-prenumeration.
-* Du har installerat den [Azure PowerShell-cmdlets](/powershell/azure/overview).
-* Du har redan en djupare förståelse för Always On-Tillgänglighetsgrupper för dina lokala lösningar. Mer information finns i [Always On-Tillgänglighetsgrupper (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+* Du har redan ett Azure-konto med den virtuella dator prenumerationen.
+* Du har installerat [Azure PowerShell](/powershell/azure/overview)-cmdletarna.
+* Du har redan en solid förståelse för Always on-tillgänglighetsgrupper för lokala lösningar. Mer information finns i [Always on Availability groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Anslut till din Azure-prenumeration och skapa det virtuella nätverket
-1. Importera Azure-modulen i ett PowerShell-fönster på den lokala datorn, ladda ned filen med publicera till din dator och ansluta din PowerShell-session till din Azure-prenumeration genom att importera de hämta publiceringsinställningarna.
+1. I ett PowerShell-fönster på den lokala datorn importerar du Azure-modulen, laddar ned publicerings inställnings filen till datorn och ansluter PowerShell-sessionen till din Azure-prenumeration genom att importera de hämtade publicerings inställningarna.
 
         Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
         Get-AzurePublishSettingsFile
         Import-AzurePublishSettingsFile <publishsettingsfilepath>
 
-    Den **Get-AzurePublishSettingsFile** kommando automatiskt genererar ett certifikat med Azure och hämtar den till din dator. En webbläsare öppnas automatiskt och du uppmanas att ange autentiseringsuppgifterna för Microsoft-konto för din Azure-prenumeration. Den hämtade **.publishsettings** filen innehåller all information du behöver att hantera din Azure-prenumeration. När du har sparat den här filen till en lokal katalog, importera det med hjälp av den **Import AzurePublishSettingsFile** kommando.
+    Kommandot **Get-AzurePublishSettingsFile** genererar automatiskt ett hanterings certifikat med Azure och laddar ned det till datorn. En webbläsare öppnas automatiskt och du uppmanas att ange Microsoft-konto autentiseringsuppgifter för din Azure-prenumeration. Den hämtade **. publishsettings** -filen innehåller all information som du behöver för att hantera din Azure-prenumeration. När du har sparat filen i en lokal katalog importerar du den med hjälp av kommandot **import-AzurePublishSettingsFile** .
 
    > [!NOTE]
-   > .Publishsettings-filen innehåller de autentiseringsuppgifter (ej kodade) som används för att administrera dina Azure-prenumerationer och tjänster. Rekommenderade säkerhetsmetoder för den här filen är att lagra den tillfälligt utanför katalogerna källa (till exempel i mappen Libraries\Documents) och tas bort när importen är klar. En obehörig användare som får åtkomst till .publishsettings-fil kan redigera, skapa och ta bort dina Azure-tjänster.
+   > Filen. publishsettings innehåller dina autentiseringsuppgifter (avkodade) som används för att administrera dina Azure-prenumerationer och-tjänster. Den rekommenderade säkerhets metoden för den här filen är att lagra den tillfälligt utanför dina käll kataloger (till exempel i mappen Libraries\Documents) och sedan ta bort den när importen är färdig. En obehörig användare som får åtkomst till. publishsettings-filen kan redigera, skapa och ta bort dina Azure-tjänster.
 
-2. Definiera ett antal variabler som du använder för att skapa en molnbaserad IT-infrastruktur.
+2. Definiera en serie med variabler som du kommer att använda för att skapa en infrastruktur för molnet.
 
         $location = "West US"
         $affinityGroupName = "ContosoAG"
@@ -81,14 +80,14 @@ Den här kursen är avsedd att visa dig de steg som krävs för att konfigurera 
         $vmAdminPassword = "Contoso!000"
         $workingDir = "c:\scripts\"
 
-    Ta hänsyn till följande för att se till att dina kommandon lyckas senare:
+    Observera följande för att se till att dina kommandon kommer att lyckas senare:
 
-   * Variabler **$storageAccountName** och **$dcServiceName** måste vara unikt eftersom de används för att identifiera din cloud storage-konto och molnet server, på Internet.
-   * De namn som du anger för variabler **$affinityGroupName** och **$virtualNetworkName** konfigureras i konfigurationsdokumentet för virtuellt nätverk som du ska använda senare.
-   * **$sqlImageName** uppdaterade namnet på avbildningen som innehåller SQL Server 2012 Service Pack 1 Enterprise Edition.
-   * För enkelhetens skull **Contoso! 000** är det lösenord som ska användas i hela självstudien.
+   * Variabler **$storageAccountName** och **$dcServiceName** måste vara unika eftersom de används för att identifiera ditt moln lagrings konto och din moln server på Internet.
+   * De namn som du anger för variabler **$affinityGroupName** och **$virtualNetworkName** konfigureras i det virtuella nätverks konfigurations dokument som du kommer att använda senare.
+   * **$sqlImageName** anger det uppdaterade namnet på den virtuella dator avbildningen som innehåller SQL Server 2012 Service Pack 1 Enterprise Edition.
+   * För enkelhetens skull är **contoso! 000** samma lösen ord som används i hela självstudien.
 
-3. Skapa en tillhörighetsgrupp.
+3. Skapa en tillhörighets grupp.
 
         New-AzureAffinityGroup `
             -Name $affinityGroupName `
@@ -96,12 +95,12 @@ Den här kursen är avsedd att visa dig de steg som krävs för att konfigurera 
             -Description $affinityGroupDescription `
             -Label $affinityGroupLabel
 
-4. Skapa ett virtuellt nätverk genom att importera en konfigurationsfil.
+4. Skapa ett virtuellt nätverk genom att importera en konfigurations fil.
 
         Set-AzureVNetConfig `
             -ConfigurationPath $networkConfigPath
 
-    Konfigurationsfilen innehåller följande XML-dokumentet. Enkelt uttryckt anger ett virtuellt nätverk med namnet **ContosoNET** i tillhörighetsgruppen kallas **ContosoAG**. Den har adressutrymmet **10.10.0.0/16** och har två undernät, **10.10.1.0/24** och **10.10.2.0/24**, vilket är klient undernätet och backend-undernät, respektive. Främre undernätet är där du kan placera klientprogram som Microsoft SharePoint. Backend-undernät är där du ska placera SQL Server-datorer. Om du ändrar den **$affinityGroupName** och **$virtualNetworkName** variabler tidigare, måste du också ändra motsvarande namnen nedan.
+    Konfigurations filen innehåller följande XML-dokument. I korthet anger den ett virtuellt nätverk med namnet **ContosoNET** i tillhörighets gruppen med namnet **ContosoAG**. Det har adress utrymmet **10.10.0.0/16** och har två undernät, **10.10.1.0/24** och **10.10.2.0/24**, som är frontend-undernät och backend-undernät. Frontend-undernätet är där du kan placera klient program som Microsoft SharePoint. Under nätet är där du placerar SQL Server virtuella datorer. Om du ändrar **$affinityGroupName** och **$virtualNetworkName** variabler tidigare måste du också ändra motsvarande namn nedan.
 
         <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
@@ -124,7 +123,7 @@ Den här kursen är avsedd att visa dig de steg som krävs för att konfigurera 
           </VirtualNetworkConfiguration>
         </NetworkConfiguration>
 
-5. Skapa ett lagringskonto som är associerad med tillhörighetsgruppen som du skapat och ange den som det aktuella storage-kontot i din prenumeration.
+5. Skapa ett lagrings konto som är associerat med den tillhörighets grupp som du har skapat och ange det som det aktuella lagrings kontot i din prenumeration.
 
         New-AzureStorageAccount `
             -StorageAccountName $storageAccountName `
@@ -134,7 +133,7 @@ Den här kursen är avsedd att visa dig de steg som krävs för att konfigurera 
             -SubscriptionName (Get-AzureSubscription).SubscriptionName `
             -CurrentStorageAccount $storageAccountName
 
-6. Skapa Domänkontrollantservern i den nya cloud service och tillgänglighet uppsättningen.
+6. Skapa domänkontrollantens server i den nya moln tjänsten och tillgänglighets uppsättningen.
 
         New-AzureVMConfig `
             -Name $dcServerName `
@@ -152,14 +151,14 @@ Den här kursen är avsedd att visa dig de steg som krävs för att konfigurera 
                     –AffinityGroup $affinityGroupName `
                     -VNetName $virtualNetworkName
 
-    Kommandona via rörledningar gör du följande:
+    Dessa skickas-kommandon gör följande:
 
-   * **Ny AzureVMConfig** skapar en virtuell Datorkonfiguration.
-   * **Lägg till Azureprovisioningconfigg** ger konfigurationsparametrar för en fristående Windows-server.
-   * **Lägg till AzureDataDisk** lägger till datadisken som du använder för att lagra Active Directory-data med alternativet cachelagring för angetts till None.
-   * **New-AzureVM** skapar en ny molntjänst och skapar den nya virtuella Azure-datorn i den nya Molntjänsten.
+   * **New-AzureVMConfig** skapar en VM-konfiguration.
+   * **Add-azureprovisioningconfigg** ger konfigurations parametrar för en fristående Windows Server.
+   * **Add-AzureDataDisk** lägger till den datadisk som du ska använda för att lagra Active Directory data, med alternativet cachelagring inställd på ingen.
+   * **New-AzureVM** skapar en ny moln tjänst och skapar den nya virtuella Azure-datorn i den nya moln tjänsten.
 
-7. Vänta tills den nya virtuella datorn vara helt etablerade och ladda ned fjärrskrivbordsfil till din arbetskatalog. Eftersom den nya virtuella Azure-datorn tar lång tid att etablera, den `while` slingan fortsätter att avsöka den nya virtuella datorn tills den är redo att användas.
+7. Vänta tills den nya virtuella datorn är helt etablerad och ladda ned fjärr skrivbords filen till din arbets katalog. Eftersom den nya virtuella Azure-datorn tar lång tid att etablera, `while` fortsätter loopen att avsöka den nya virtuella datorn tills den är redo att användas.
 
         $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
 
@@ -175,12 +174,12 @@ Den här kursen är avsedd att visa dig de steg som krävs för att konfigurera 
             -Name $dcServerName `
             -LocalPath "$workingDir$dcServerName.rdp"
 
-Domänkontrollantservern har nu etablerats. Därefter konfigurerar du Active Directory-domän på den här domain controller-servern. Lämna fönstret PowerShell öppen på den lokala datorn. Du ska använda den igen för att skapa två SQL Server-datorer.
+Domänkontrollantens Server har nu tillhandahållits. Sedan konfigurerar du Active Directorys domänen på den här domänkontrollanten. Lämna PowerShell-fönstret öppet på den lokala datorn. Du kommer att använda den igen senare för att skapa de två SQL Server virtuella datorerna.
 
-## <a name="configure-the-domain-controller"></a>Konfigurera en domänkontrollant
-1. Anslut till domain controller-servern genom att starta den remote desktop-fil. Använd datorn administratörens användarnamn AzureAdmin och lösenord **Contoso! 000**, som du angav när du skapade den nya virtuella datorn.
+## <a name="configure-the-domain-controller"></a>Konfigurera domänkontrollanten
+1. Anslut till domänkontrollanten genom att starta fjärr skrivbords filen. Använd dator administratörens användar namn AzureAdmin och lösen ord **contoso! 000**, som du angav när du skapade den nya virtuella datorn.
 2. Öppna ett PowerShell-fönster i administratörsläge.
-3. Kör följande **DCPROMO. EXE** kommando för att ställa in den **corp.contoso.com** domän, med datakataloger på M-enhet.
+3. Kör följande **dcpromo. EXE** -kommando för att konfigurera **Corp.contoso.com** -domänen med data katalogerna på enhet M.
 
         dcpromo.exe `
             /unattend `
@@ -200,8 +199,8 @@ Domänkontrollantservern har nu etablerats. Därefter konfigurerar du Active Dir
 
     När kommandot har slutförts startas den virtuella datorn om automatiskt.
 
-4. Ansluta till Domänkontrollantservern igen genom att starta den remote desktop-fil. Den här tiden kan logga in som **CORP\Administrator**.
-5. Öppna ett PowerShell-fönster i administratörsläge och importera Active Directory PowerShell-modulen med hjälp av följande kommando:
+4. Anslut till domänkontrollanten igen genom att starta fjärr skrivbords filen. Nu loggar du in som **CORP\Administrator.** .
+5. Öppna ett PowerShell-fönster i administratörs läge och importera Active Directory PowerShell-modulen med hjälp av följande kommando:
 
         Import-Module ActiveDirectory
 
@@ -227,8 +226,8 @@ Domänkontrollantservern har nu etablerats. Därefter konfigurerar du Active Dir
             -ChangePasswordAtLogon $false `
             -Enabled $true
 
-    **CORP\Install** används för att konfigurera allt relaterat till SQL Server-tjänstinstanser, failover-kluster och tillgänglighetsgruppen. **CORP\SQLSvc1** och **CORP\SQLSvc2** används som SQL Server-tjänstkontona för de två SQL Server-datorer.
-7. Kör följande kommandon för att ge **CORP\Install** behörighet att skapa datorobjekt i domänen.
+    **CORP\Install** används för att konfigurera allt som är relaterat till SQL Server tjänst instanser, redundansklustret och tillgänglighets gruppen. **CORP\SQLSvc1** och **CORP\SQLSvc2** används som SQL Server tjänst konton för de två SQL Server virtuella datorerna.
+7. Kör sedan följande kommandon för att ge **CORP\Install** behörighet att skapa dator objekt i domänen.
 
         Cd ad:
         $sid = new-object System.Security.Principal.SecurityIdentifier (Get-ADUser "Install").SID
@@ -239,12 +238,12 @@ Domänkontrollantservern har nu etablerats. Därefter konfigurerar du Active Dir
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    Det GUID som anges ovan är GUID för objekttypen dator. Den **CORP\Install** konto behov den **läsa alla egenskaper** och **skapa datorobjekt** behörighet att skapa Active direkt objekten för failover-kluster. Den **läsa alla egenskaper** behörigheter har redan tilldelats CORP\Install som standard, så du inte behöver uttryckligen bevilja. Mer information om behörigheter som krävs för att skapa failover-kluster finns i [stegvis Guide för Failover-kluster: Konfigurera konton i Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    Det GUID som anges ovan är GUID för dator objekt typen. **CORP\Install** -kontot måste ha behörighet att **läsa alla egenskaper** och **skapa dator objekt** för att skapa aktiva direkta objekt för redundansklustret. Behörigheten **läsa alla egenskaper** ges redan CORP\Install som standard, så du behöver inte bevilja den explicit. Mer information om behörigheter som krävs för att skapa redundansklustret finns i [steg-för-steg-guide för redundanskluster: Konfigurera konton i Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
-    Nu när du är klar med att konfigurera Active Directory och objekt du skapar två SQL Server-datorer och koppla dem till den här domänen.
+    Nu när du har konfigurerat Active Directory och användar objekt, skapar du två SQL Server virtuella datorer och ansluter dem till den här domänen.
 
-## <a name="create-the-sql-server-vms"></a>Skapa SQL Server-datorer
-1. Fortsätta att använda PowerShell-fönstret som är öppen på den lokala datorn. Definiera följande ytterligare variabler:
+## <a name="create-the-sql-server-vms"></a>Skapa SQL Server virtuella datorer
+1. Fortsätt att använda PowerShell-fönstret som är öppet på den lokala datorn. Definiera följande ytterligare variabler:
 
         $domainName= "corp"
         $FQDN = "corp.contoso.com"
@@ -257,8 +256,8 @@ Domänkontrollantservern har nu etablerats. Därefter konfigurerar du Active Dir
         $dataDiskSize = 100
         $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
 
-    IP-adressen **10.10.0.4** vanligtvis har tilldelats den första virtuella datorn som du skapar i den **10.10.0.0/16** undernät i Azure-nätverk. Du bör kontrollera att det är adressen för din domain controller-servern genom att köra **IPCONFIG**.
-2. Kör följande skickas kommandon för att skapa den första virtuella datorn i failover-kluster med namnet **ContosoQuorum**:
+    IP- **10.10.0.4** tilldelas vanligt vis till den första virtuella datorn som du skapar i under nätet **10.10.0.0/16** för ditt virtuella Azure-nätverk. Kontrol lera att det här är adressen till domänkontrollanten genom att köra **ipconfig**.
+2. Kör följande skickas-kommandon för att skapa den första virtuella datorn i redundansklustret med namnet **ContosoQuorum**:
 
         New-AzureVMConfig `
             -Name $quorumServerName `
@@ -284,13 +283,13 @@ Domänkontrollantservern har nu etablerats. Därefter konfigurerar du Active Dir
                         -VNetName $virtualNetworkName `
                         -DnsSettings $dnsSettings
 
-    Observera följande om ovanstående kommando:
+    Tänk på följande om kommandot ovan:
 
-   * **Ny AzureVMConfig** skapar en VM-konfigurationen med önskade tillgänglighetsuppsättningen. De efterföljande virtuella datorerna skapas med samma tillgänglighetsuppsättningen så att de är anslutna till samma tillgänglighetsuppsättning.
-   * **Lägg till Azureprovisioningconfigg** kopplar den virtuella datorn till Active Directory-domänen som du skapade.
-   * **Set-AzureSubnet** placerar den virtuella datorn i backend-undernät.
-   * **New-AzureVM** skapar en ny molntjänst och skapar den nya virtuella Azure-datorn i den nya Molntjänsten. Den **DnsSettings** parametern anger att DNS-server för servrar i den nya Molntjänsten har IP-adressen **10.10.0.4**. Det här är IP-adressen för domain controller-servern. Den här parametern krävs för att aktivera de nya virtuella datorerna i Molntjänsten att ansluta till Active Directory-domän har. Utan den här parametern måste du manuellt ange IPv4-inställningar i den virtuella datorn ska använda domain controller-servern som den primära DNS-servern när den virtuella datorn har etablerats och sedan ansluta den virtuella datorn till Active Directory-domänen.
-3. Kör följande skickas kommandon för att skapa SQL Server-datorer, med namnet **ContosoSQL1** och **ContosoSQL2**.
+   * **New-AzureVMConfig** skapar en VM-konfiguration med önskad tillgänglighets uppsättnings namn. De efterföljande virtuella datorerna skapas med samma namn på tillgänglighets uppsättningen så att de är anslutna till samma tillgänglighets uppsättning.
+   * **Add-azureprovisioningconfigg** ansluter den virtuella datorn till den Active Directory domän som du skapade.
+   * **Set-AzureSubnet** placerar den virtuella datorn i backend-undernätet.
+   * **New-AzureVM** skapar en ny moln tjänst och skapar den nya virtuella Azure-datorn i den nya moln tjänsten. Parametern **DnsSettings** anger att DNS-servern för servrarna i den nya moln tjänsten har IP- **10.10.0.4**. Detta är IP-adressen för domänkontrollantens Server. Den här parametern krävs för att de nya virtuella datorerna i moln tjänsten ska kunna ansluta till den Active Directory domänen. Utan den här parametern måste du manuellt ange IPv4-inställningarna i den virtuella datorn för att kunna använda domänkontrollanten som primär DNS-server när den virtuella datorn har tillhandahållits, och sedan ansluta den virtuella datorn till den Active Directory domänen.
+3. Kör följande skickas-kommandon för att skapa de virtuella datorerna SQL Server, med namnet **ContosoSQL1** och **ContosoSQL2**.
 
         # Create ContosoSQL1...
         New-AzureVMConfig `
@@ -350,12 +349,12 @@ Domänkontrollantservern har nu etablerats. Därefter konfigurerar du Active Dir
 
     Observera följande om kommandona ovan:
 
-   * **Ny AzureVMConfig** använder samma tillgänglighetsuppsättningen som Domänkontrollantservern och använder SQL Server 2012 Service Pack 1 Enterprise Edition-avbildning i galleriet för virtuella datorer. I exemplet anges också operativsystemdisken till Läs-cachelagring endast (ingen skrivcache). Vi rekommenderar att du migrerar databasfilerna till en separat disk som kan bifogas till den virtuella datorn och konfigurera den utan läsning eller skrivning till cacheminnet. Dock är nästan lika bra att ta bort skrivcache på operativsystemdisken eftersom du inte ta bort läscachelagring på operativsystemdisken.
-   * **Lägg till Azureprovisioningconfigg** kopplar den virtuella datorn till Active Directory-domänen som du skapade.
-   * **Set-AzureSubnet** placerar den virtuella datorn i backend-undernät.
-   * **Lägg till-AzureEndpoint** lägger till åtkomst-slutpunkterna så att klientprogram kan komma åt dessa instanser med SQL Server-tjänster på Internet. Olika portar ges till ContosoSQL1 och ContosoSQL2.
-   * **New-AzureVM** skapar den nya SQL Server-dator i samma molntjänst som ContosoQuorum. Du måste placera de virtuella datorerna i samma molntjänst om du vill att de ska vara i samma tillgänglighetsuppsättning.
-4. Vänta för varje virtuell dator ska etableras helt och för varje virtuell dator för att ladda ned dess fjärrskrivbordsfil till din arbetskatalog. Den `for` slingan går igenom de tre nya virtuella datorerna och kör kommandon i de översta klammerparenteser för var och en av dem.
+   * **New-AzureVMConfig** använder samma tillgänglighets uppsättnings namn som domänkontrollantens Server och använder avbildningen SQL Server 2012 Service Pack 1 Enterprise Edition i galleriet för virtuella datorer. Den anger också operativ system disken för enbart läsning i cacheminnet (ingen skrivcache). Vi rekommenderar att du migrerar databasfilerna till en separat datadisk som du ansluter till den virtuella datorn och konfigurerar den utan Read-eller Write-cachelagring. Nästa steg är att ta bort skrivcache på operativ system disken eftersom du inte kan ta bort cachelagring av läsning på operativ system disken.
+   * **Add-azureprovisioningconfigg** ansluter den virtuella datorn till den Active Directory domän som du skapade.
+   * **Set-AzureSubnet** placerar den virtuella datorn i backend-undernätet.
+   * **Add-AzureEndpoint** lägger till åtkomst slut punkter så att klient programmen kan komma åt dessa SQL Server Services-instanser på Internet. Olika portar ges till ContosoSQL1 och ContosoSQL2.
+   * **New-AzureVM** skapar den nya SQL Server VM i samma moln tjänst som ContosoQuorum. Du måste placera de virtuella datorerna i samma moln tjänst om du vill att de ska vara i samma tillgänglighets uppsättning.
+4. Vänta tills varje virtuell dator är helt etablerad och för varje virtuell dator kan du ladda ned dess fjärr skrivbords fil till din arbets katalog. `for` Loopen går igenom de tre nya virtuella datorerna och kör kommandona inuti klammerparenteserna på den översta nivån för var och en av dem.
 
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
         {
@@ -375,26 +374,26 @@ Domänkontrollantservern har nu etablerats. Därefter konfigurerar du Active Dir
             Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.InstanceName -LocalPath "$workingDir$($VM.InstanceName).rdp"
         }
 
-    SQL Server-datorer nu är etablerad och körs, men de är installerade med SQL Server med standardalternativ.
+    De virtuella datorerna i SQL Server är nu etablerade och körs, men de installeras med SQL Server med standard alternativ.
 
-## <a name="initialize-the-failover-cluster-vms"></a>Initiera redundanskluster virtuella datorer
-I det här avsnittet måste du ändra de tre servrar som du ska använda i redundansklustret och SQL Server-installationen. Närmare bestämt:
+## <a name="initialize-the-failover-cluster-vms"></a>Initiera de virtuella datorerna i redundansklustret
+I det här avsnittet måste du ändra de tre servrar som du ska använda i redundansklustret och den SQL Server installationen. Närmare bestämt:
 
-* Alla servrar: Du måste installera den **redundanskluster** funktionen.
-* Alla servrar: Du måste lägga till **CORP\Install** som datorn **administratör**.
-* ContosoSQL1 och ContosoSQL2 endast: Du måste lägga till **CORP\Install** som en **sysadmin** roll i standarddatabasen.
-* ContosoSQL1 och ContosoSQL2 endast: Du måste lägga till **NT AUTHORITY\System** som en inloggning med följande behörigheter:
+* Alla servrar: Du måste installera funktionen **kluster för växling vid fel** .
+* Alla servrar: Du måste lägga till **CORP\Install** som dator **administratör**.
+* Endast ContosoSQL1 och ContosoSQL2: Du måste lägga till **CORP\Install** som en **sysadmin** -roll i standard databasen.
+* Endast ContosoSQL1 och ContosoSQL2: Du måste lägga till **NT instans\system** som inloggning med följande behörigheter:
 
-  * Ändra någon tillgänglighetsgrupp
-  * Ansluta SQL
-  * Visa-Servertillstånd
-* ContosoSQL1 och ContosoSQL2 endast: Den **TCP** protokollet är redan aktiverat på SQL Server-dator. Du behöver dock fortfarande att öppna brandväggen för fjärråtkomst av SQL Server.
+  * Ändra valfri tillgänglighets grupp
+  * Anslut SQL
+  * Visa Server tillstånd
+* Endast ContosoSQL1 och ContosoSQL2: **TCP** -protokollet har redan Aktiver ats på SQL Server VM. Du måste dock fortfarande öppna brand väggen för fjärråtkomst av SQL Server.
 
-Nu är du redo att börja. Från och med **ContosoQuorum**, Följ stegen nedan:
+Nu är du redo att starta. Från och med **ContosoQuorum**följer du stegen nedan:
 
-1. Ansluta till **ContosoQuorum** genom att starta remote desktop-filer. Använder datorn administratörens användarnamn **AzureAdmin** och lösenord **Contoso! 000**, som du angav när du skapade de virtuella datorerna.
-2. Kontrollera att datorerna har anslutits till **corp.contoso.com**.
-3. Vänta tills den SQL Server-installationen ska slutföras som kör de automatiserade utförs innan du fortsätter.
+1. Anslut till **ContosoQuorum** genom att starta fjärr skrivbords filerna. Använd dator administratörens användar namn **AzureAdmin** och lösen ord **contoso! 000**, som du angav när du skapade de virtuella datorerna.
+2. Kontrol lera att datorerna har anslutits till **Corp.contoso.com**.
+3. Vänta tills den SQL Server installationen Slutför körningen av automatiserade initierings aktiviteter innan du fortsätter.
 4. Öppna ett PowerShell-fönster i administratörsläge.
 5. Installera funktionen för redundanskluster i Windows.
 
@@ -403,15 +402,15 @@ Nu är du redo att börja. Från och med **ContosoQuorum**, Följ stegen nedan:
 6. Lägg till **CORP\Install** som lokal administratör.
 
         net localgroup administrators "CORP\Install" /Add
-7. Logga ut från ContosoQuorum. Du är klar med den här servern nu.
+7. Logga ut från ContosoQuorum. Nu är du klar med den här servern.
 
         logoff.exe
 
-Därefter initieras **ContosoSQL1** och **ContosoSQL2**. Följ stegen nedan, som är identiska för både SQL Server-datorer.
+Initiera sedan **ContosoSQL1** och **ContosoSQL2**. Följ stegen nedan, som är identiska för både SQL Server virtuella datorer.
 
-1. Ansluta till de två SQL Server-datorer genom att starta remote desktop-filer. Använder datorn administratörens användarnamn **AzureAdmin** och lösenord **Contoso! 000**, som du angav när du skapade de virtuella datorerna.
-2. Kontrollera att datorerna har anslutits till **corp.contoso.com**.
-3. Vänta tills den SQL Server-installationen ska slutföras som kör de automatiserade utförs innan du fortsätter.
+1. Anslut till de två SQL Server virtuella datorerna genom att starta fjärr skrivbords filerna. Använd dator administratörens användar namn **AzureAdmin** och lösen ord **contoso! 000**, som du angav när du skapade de virtuella datorerna.
+2. Kontrol lera att datorerna har anslutits till **Corp.contoso.com**.
+3. Vänta tills den SQL Server installationen Slutför körningen av automatiserade initierings aktiviteter innan du fortsätter.
 4. Öppna ett PowerShell-fönster i administratörsläge.
 5. Installera funktionen för redundanskluster i Windows.
 
@@ -420,31 +419,31 @@ Därefter initieras **ContosoSQL1** och **ContosoSQL2**. Följ stegen nedan, som
 6. Lägg till **CORP\Install** som lokal administratör.
 
         net localgroup administrators "CORP\Install" /Add
-7. Importera PowerShell-providern för SQL Server.
+7. Importera SQL Server PowerShell-providern.
 
         Set-ExecutionPolicy -Execution RemoteSigned -Force
         Import-Module -Name "sqlps" -DisableNameChecking
-8. Lägg till **CORP\Install** som rollen sysadmin för SQL Server-standardinstans.
+8. Lägg till **CORP\Install** som sysadmin-rollen för standard SQL Server-instansen.
 
         net localgroup administrators "CORP\Install" /Add
         Invoke-SqlCmd -Query "EXEC sp_addsrvrolemember 'CORP\Install', 'sysadmin'" -ServerInstance "."
-9. Lägg till **NT AUTHORITY\System** som en inloggning med tre behörigheterna som beskrivs ovan.
+9. Lägg till **NT instans\system** som en inloggning med de tre behörigheter som beskrivs ovan.
 
         Invoke-SqlCmd -Query "CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS" -ServerInstance "."
         Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
         Invoke-SqlCmd -Query "GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
         Invoke-SqlCmd -Query "GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
-10. Öppna brandväggen för fjärråtkomst av SQL Server.
+10. Öppna brand väggen för fjärråtkomst av SQL Server.
 
          netsh advfirewall firewall add rule name='SQL Server (TCP-In)' program='C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Binn\sqlservr.exe' dir=in action=allow protocol=TCP
 11. Logga ut från båda virtuella datorerna.
 
          logoff.exe
 
-Slutligen är du redo att konfigurera tillgänglighetsgruppen. Du använder PowerShell-providern för SQL Server för att utföra allt arbete på **ContosoSQL1**.
+Slutligen är du redo att konfigurera tillgänglighets gruppen. Du använder SQL Server PowerShell-providern för att utföra allt arbete på **ContosoSQL1**.
 
-## <a name="configure-the-availability-group"></a>Konfigurera tillgänglighetsgruppen
-1. Ansluta till **ContosoSQL1** igen genom att starta remote desktop-filer. I stället för att logga in med hjälp av datorkontot kan logga in med **CORP\Install**.
+## <a name="configure-the-availability-group"></a>Konfigurera tillgänglighets gruppen
+1. Anslut till **ContosoSQL1** igen genom att starta fjärr skrivbords filerna. Logga in med hjälp av **CORP\Install**i stället för att logga in med hjälp av dator kontot.
 2. Öppna ett PowerShell-fönster i administratörsläge.
 3. Definiera följande variabler:
 
@@ -460,11 +459,11 @@ Slutligen är du redo att konfigurera tillgänglighetsgruppen. Du använder Powe
         $backupShare = "\\$server1\backup"
         $quorumShare = "\\$server1\quorum"
         $ag = "AG1"
-4. Importera PowerShell-providern för SQL Server.
+4. Importera SQL Server PowerShell-providern.
 
         Set-ExecutionPolicy RemoteSigned -Force
         Import-Module "sqlps" -DisableNameChecking
-5. Ändra SQL Server-tjänstkontot för ContosoSQL1 till CORP\SQLSvc1.
+5. Ändra SQL Server tjänst konto för ContosoSQL1 till CORP\SQLSvc1.
 
         $wmi1 = new-object ("Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer") $server1
         $wmi1.services | where {$_.Type -eq 'SqlServer'} | foreach{$_.SetServiceAccount($acct1,$password)}
@@ -473,7 +472,7 @@ Slutligen är du redo att konfigurera tillgänglighetsgruppen. Du använder Powe
         $svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc1.Start();
         $svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-6. Ändra SQL Server-tjänstkontot för ContosoSQL2 till CORP\SQLSvc2.
+6. Ändra SQL Server tjänst konto för ContosoSQL2 till CORP\SQLSvc2.
 
         $wmi2 = new-object ("Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer") $server2
         $wmi2.services | where {$_.Type -eq 'SqlServer'} | foreach{$_.SetServiceAccount($acct2,$password)}
@@ -482,12 +481,12 @@ Slutligen är du redo att konfigurera tillgänglighetsgruppen. Du använder Powe
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Ladda ned **CreateAzureFailoverCluster.ps1** från [skapa redundanskluster för Always On-Tillgänglighetsgrupper i Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) till lokal arbetskatalog. För att skapa ett fungerande kluster ska du använda det här skriptet. Viktig information om hur Windows-redundanskluster interagerar med Azure-nätverk finns i [hög tillgänglighet och katastrofåterställning återställning för SQL Server i Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
-8. Ändra till din arbetskatalog och skapa redundansklustret med det hämta skriptet.
+7. Hämta **CreateAzureFailoverCluster. ps1** från [skapa redundanskluster för Always on-TILLGÄNGLIGHETSGRUPPER i Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) till den lokala arbets katalogen. Du använder det här skriptet för att hjälpa dig att skapa ett funktionellt kluster för växling vid fel. Viktig information om hur Windows-redundanskluster interagerar med Azure-nätverket finns i [hög tillgänglighet och haveri beredskap för SQL Server i Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+8. Ändra till din arbets katalog och skapa redundansklustret med det nedladdade skriptet.
 
         Set-ExecutionPolicy Unrestricted -Force
         .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
-9. Aktivera Always On-Tillgänglighetsgrupper för SQL Server-instanserna standard på **ContosoSQL1** och **ContosoSQL2**.
+9. Aktivera Always on-tillgänglighetsgrupper för standard SQL Server instanser på **ContosoSQL1** och **ContosoSQL2**.
 
         Enable-SqlAlwaysOn `
             -Path SQLSERVER:\SQL\$server1\Default `
@@ -499,20 +498,20 @@ Slutligen är du redo att konfigurera tillgänglighetsgruppen. Du använder Powe
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-10. Skapa en katalog och bevilja behörigheter för SQL Server service-konton. Du använder den här katalogen för att förbereda tillgänglighetsdatabas i den sekundära repliken.
+10. Skapa en säkerhets kopierings katalog och bevilja behörigheter för SQL Server tjänst konton. Du använder den här katalogen för att förbereda tillgänglighets databasen på den sekundära repliken.
 
          $backup = "C:\backup"
          New-Item $backup -ItemType directory
          net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
          icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
-11. Skapa en databas på **ContosoSQL1** kallas **MyDB1**ta både en fullständig säkerhetskopia och en säkerhetskopia och återställa dem på **ContosoSQL2** med den **WITH NORECOVERY**  alternativet.
+11. Skapa en databas på **ContosoSQL1** som kallas **MyDB1**, gör både en fullständig säkerhets kopia och en logg säkerhets kopiering och Återställ dem på **CONTOSOSQL2** med alternativet **med NORECOVERY** .
 
          Invoke-SqlCmd -Query "CREATE database $db"
          Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
          Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server1 -BackupAction Log
          Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server2 -NoRecovery
          Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server2 -RestoreAction Log -NoRecovery
-12. Skapa tillgängligheten grupp slutpunkter på SQL Server-datorer och ange rätt behörighet för slutpunkter.
+12. Skapa tillgänglighets gruppens slut punkter på SQL Server virtuella datorer och ange rätt behörigheter för slut punkterna.
 
          $endpoint =
              New-SqlHadrEndpoint MyMirroringEndpoint `
@@ -533,7 +532,7 @@ Slutligen är du redo att konfigurera tillgänglighetsgruppen. Du använder Powe
          Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct2]" -ServerInstance $server1
          Invoke-SqlCmd -Query "CREATE LOGIN [$acct1] FROM WINDOWS" -ServerInstance $server2
          Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct1]" -ServerInstance $server2
-13. Skapa tillgänglig replik.
+13. Skapa tillgänglighets replikerna.
 
          $primaryReplica =
              New-SqlAvailabilityReplica `
@@ -551,7 +550,7 @@ Slutligen är du redo att konfigurera tillgänglighetsgruppen. Du använder Powe
              -FailoverMode "Automatic" `
              -Version 11 `
              -AsTemplate
-14. Slutligen skapa tillgänglighetsgruppen och ansluta till en sekundär replik i tillgänglighetsgruppen.
+14. Skapa slutligen tillgänglighets gruppen och Anslut den sekundära repliken till tillgänglighets gruppen.
 
          New-SqlAvailabilityGroup `
              -Name $ag `
@@ -566,6 +565,6 @@ Slutligen är du redo att konfigurera tillgänglighetsgruppen. Du använder Powe
              -Database $db
 
 ## <a name="next-steps"></a>Nästa steg
-Du har nu har implementerat SQL Server Always On genom att skapa en tillgänglighetsgrupp i Azure. För att konfigurera en lyssnare för den här tillgänglighetsgruppen, se [konfigurera en ILB-lyssnare för AlwaysOn-Tillgänglighetsgrupper i Azure](../classic/ps-sql-int-listener.md).
+Nu har du implementerat SQL Server Always on genom att skapa en tillgänglighets grupp i Azure. Information om hur du konfigurerar en lyssnare för den här tillgänglighets gruppen finns i [Konfigurera en ILB-lyssnare för Always on-tillgänglighetsgrupper i Azure](../classic/ps-sql-int-listener.md).
 
-Annan information om hur du använder SQL Server i Azure finns i [SQL Server på Azure virtual machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Mer information om hur du använder SQL Server i Azure finns [SQL Server på Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

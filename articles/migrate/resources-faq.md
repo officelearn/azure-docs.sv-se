@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 96fde6ade45bb92036fbc9ac803eebd50640bf85
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: af95ad892b62cb5d8bece554d6026525d9279777
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013452"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102877"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Vanliga frågor och svar (FAQ)
 
@@ -157,7 +157,7 @@ Om du vill använda beroende visualisering måste du ladda ned och installera ag
 
 Du måste installera följande agenter på varje dator:
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).
-- [Beroende agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure).
+- [Beroende agent](../azure-monitor/platform/agents-overview.md#dependency-agent).
 - Om du har datorer som saknar Internet anslutning måste du ladda ned och installera Log Analytics gateway på dem.
 
 Du behöver inte dessa agenter om du inte använder beroende visualisering.

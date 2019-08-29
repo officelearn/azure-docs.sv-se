@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4ab1d45e27762ef05ab7ec74c98ab0b0b934cbf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c37446fd5a0cdc986044405a9aa3da32462d9c04
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880558"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114281"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementera IoT Plug and Play för hands versions modell identifiering i en IoT-lösning
 
@@ -24,13 +24,13 @@ Det finns två breda kategorier av IoT-lösningar: syftes inbyggda lösningar so
 
 Den här artikeln beskriver hur du implementerar modell identifiering i båda typerna av lösning.
 
-## <a name="model-discovery"></a>Modell identifiering
+## <a name="model-discovery"></a>Modellidentifiering
 
 När en IoT Plug and Play-enhet först ansluter till din IoT-hubb skickar den ett telemetri om modell information. Det här meddelandet innehåller ID: n för de gränssnitt som enheten implementerar. För att din lösning ska fungera med enheten måste den matcha dessa ID: n och hämta definitionerna för varje gränssnitt.
 
 Här följer de steg som en IoT Plug and Play-enhet tar när den använder enhets etablerings tjänsten (DPS) för att ansluta till en hubb:
 
-1. När enheten är aktive rad ansluts den till den globala slut punkten för DPS och autentiseras med hjälp av en av de tillåtna metoderna.
+1. När enheten är aktive rad ansluter den till den globala slut punkten för DPS och autentiserar med hjälp av en av de tillåtna metoderna.
 1. DPS autentiserar sedan enheten och letar upp regeln som talar om för den vilken IoT-hubb som enheten ska tilldelas. DPS registrerar sedan enheten med den hubben.
 1. DPS returnerar en IoT Hub anslutnings sträng till enheten.
 1. Enheten skickar sedan ett meddelande om identifierings telemetri till din IoT Hub. Meddelandet identifiering av telemetri innehåller ID: n för de gränssnitt som enheten implementerar.
@@ -69,9 +69,9 @@ Följ dessa steg när din lösning tar emot ett meddelande för en ny enhets ans
 1. Läs meddelandet om identifiering av telemetri för att hämta ID: n för kapacitets modellen och gränssnitt som implementeras av enheten.
 1. För varje ID läser du den fullständiga JSON-filen för att hitta enhetens funktioner.
 1. Kontrol lera om varje gränssnitt finns i alla cacheminnen som du har skapat för att lagra de JSON-filer som hämtades tidigare av din lösning.
-1. Kontrol lera sedan om det finns ett gränssnitt med detta ID i den globala modellens lagrings plats. Mer information finns i [databasen för global modell](howto-manage-models.md).
-1. Om gränssnittet inte finns i den globala modellens lagrings plats kan du söka efter det i alla privata modell databaser som är kända för din lösning. Du behöver en anslutnings sträng för att få åtkomst till en privat modell lagrings plats. Mer information finns i [databasen för privat modell](howto-manage-models.md).
-1. Om du inte hittar alla gränssnitt i antingen den globala modell databasen eller i en privat modell databas kan du kontrol lera om enheten kan tillhandahålla gränssnitts definitionen. En enhet kan implementera standard [ModelDefinition](concepts-common-interfaces.md) -gränssnittet för att publicera information om hur du hämtar gränssnitts filer med ett kommando.
+1. Kontrol lera sedan om ett gränssnitt med det ID: t finns i den offentliga modellens lagrings plats. Mer information finns i [lagrings plats för offentlig modell](howto-manage-models.md).
+1. Om gränssnittet inte finns i den offentliga modellens lagrings plats, kan du försöka att söka efter det i alla företags modell databaser som är kända för din lösning. Du behöver en anslutnings sträng för att få åtkomst till en företags modell lagrings plats. Mer information finns i [företags modellens lagrings plats](howto-manage-models.md).
+1. Om du inte kan hitta alla gränssnitt i den offentliga modellens lagrings plats, eller i en företags modell databas, kan du kontrol lera om enheten kan tillhandahålla gränssnitts definitionen. En enhet kan implementera standard [ModelDefinition](concepts-common-interfaces.md) -gränssnittet för att publicera information om hur du hämtar gränssnitts filer med ett kommando.
 1. Om du har hittat JSON-filer för varje gränssnitt som implementerats av enheten kan du räkna upp enhetens funktioner. Använd den logik du skrev tidigare för att göra det möjligt för användare att interagera med enheten.
 1. Du kan när som helst anropa det digitala dubbla API: et för att hämta kapacitets modell-ID: t och gränssnitts-ID: n för enheten.
 

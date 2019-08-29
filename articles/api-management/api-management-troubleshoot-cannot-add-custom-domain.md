@@ -9,18 +9,17 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
-ms.openlocfilehash: 7aaf29ddf52fb07524aa972f12ca18c235a40928
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 30dfd864c6c237024c72325da813691ac5043bd0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351431"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072096"
 ---
-# <a name="failed-to-update-api-management-service-hostnames"></a>Det gick inte att uppdatera API Management-tjänstvärdnamn
+# <a name="failed-to-update-api-management-service-hostnames"></a>Det gick inte att uppdatera API Management tjänst värdnamn
 
 I den här artikeln beskrivs fel meddelandet "Det gick inte att uppdatera API Management tjänst värdnamn" som du kan stöta på när du lägger till en anpassad domän för Azure API Management-tjänsten. Den här artikeln innehåller fel söknings steg som hjälper dig att lösa problemet.
 
@@ -44,7 +43,7 @@ Följ dessa anvisningar för att lösa problemet:
 1. Välj **åtkomst principer**och kontrol lera om det finns ett huvud namn för tjänsten som matchar namnet på API Management tjänst instansen. Om det finns väljer du tjänstens huvud namn och kontrollerar att det har behörigheten **Hämta** under **hemliga behörigheter**.  
     ![Lägger till åtkomst princip för tjänstens huvud namn](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
 1. Om API Management-tjänsten inte finns i listan väljer du **Lägg till åtkomst princip**och skapar sedan följande åtkomst princip:
-    - **Konfigurera från mall**: Ingen
+    - **Konfigurera från mall**: Inga
     - **Välj huvud konto**: Sök efter API Management tjänstens namn och välj det sedan i listan
     - **Nyckel behörigheter**: Inga
     - **Hemliga behörigheter**: Hämta

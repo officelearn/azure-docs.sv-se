@@ -1,6 +1,6 @@
 ---
 title: Principer i Azure API Management | Microsoft Docs
-description: Lär dig mer om att skapa, redigera och konfigurera principer i API Management.
+description: Lär dig hur du skapar, redigerar och konfigurerar principer i API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,37 +9,36 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 99f756b5415811b3d4c2ee0167f98b31c905df1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60657699"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072312"
 ---
 # <a name="policies-in-azure-api-management"></a>Principer i Azure API Management
 
-I Azure API Management (APIM) är principer en kraftfull funktion i systemet som gör att utgivaren kan ändra beteendet för API: ets konfiguration. Principer är en samling med instruktioner som körs sekventiellt på begäran eller en API-svar. Populära instruktioner är Formatkonvertering från XML till JSON och begränsning för att begränsa antalet inkommande anrop från en utvecklare av anropsfrekvens. Många fler principer är tillgängliga direkt.
+I Azure API Management (APIM) är principer en kraftfull funktion i systemet som gör att utgivaren kan ändra beteendet för API: et genom konfigurationen. Principer är en samling instruktioner som körs sekventiellt i begäran eller svar på ett API. Vanliga instruktioner är format konvertering från XML till JSON och begränsning av anrops frekvensen för att begränsa antalet inkommande anrop från en utvecklare. Många fler principer är tillgängliga i rutan.
 
-Principer som används i den gateway som är placerad mellan API konsumenten och hanterade API: et. Gatewayen tar emot alla begäranden och vanligtvis vidarebefordrar dem utan ändringar i underliggande API: et. Men en princip kan tillämpa ändringar på både inkommande begäran och utgående svar.
+Principer tillämpas i gatewayen som finns mellan API-konsumenten och det hanterade API: t. Gatewayen tar emot alla begär Anden och vidarebefordrar vanligt vis dem oförändrade till det underliggande API: t. En princip kan dock tillämpa ändringar i både inkommande begäran och utgående svar.
 
-Principuttryck kan användas som attributvärden eller textvärden i API Management-principer, under förutsättning att principen tillåter det. Vissa principer som den [Åtkomstkontrollflödet] [ Control flow] och [ange variabel] [ Set variable] baseras på principuttryck. Mer information finns i [avancerade principer] [ Advanced policies] och [principuttryck][Policy expressions].
+Principuttryck kan användas som attributvärden eller textvärden i API Management-principer, under förutsättning att principen tillåter det. Vissa principer som [Kontrollflöde][Control flow] och [Ange variabel][Set variable] baseras på principuttryck. Mer information finns i [Avancerade principer][Advanced policies] och [Principuttryck][Policy expressions].
 
-## <a name="sections"> </a>Förstå principkonfiguration
+## <a name="sections"> </a>Förstå princip konfiguration
 
-Principdefinitionen är en enkel XML-dokument som beskriver en sekvens av inkommande och utgående uttryck. XML-filen kan redigeras direkt i definitionsfönstret. En lista över uttryck har angetts till höger och instruktioner gäller för den aktuella omfattningen är aktiverade och markerat.
+Princip definitionen är ett enkelt XML-dokument som beskriver en sekvens med inkommande och utgående instruktioner. XML-filen kan redige ras direkt i definitions fönstret. En lista med instruktioner ges till höger och de instruktioner som gäller för det aktuella omfånget är aktiverade och markerade.
 
-Att klicka på en aktiverad instruktion lägger till rätt XML-filen på platsen för markören i vyn definition. 
+Om du klickar på en aktive rad instruktion läggs lämplig XML till i positionen för markören i definitions vyn. 
 
 > [!NOTE]
-> Om den princip som du vill lägga till inte är aktiverad kan du kontrollera att du är i rätt omfattning för principen. Varje Principframställning är avsedd för användning i vissa områden och principen avsnitt. Om du vill granska princip avsnitt och omfång för en princip, kontrollera den **användning** för principen i den [principreferens][Policy Reference].
+> Om den princip som du vill lägga till inte är aktive rad ska du kontrol lera att du har rätt omfattning för principen. Varje princip sats är utformad för användning i vissa områden och princip avsnitt. Om du vill granska princip avsnitten och omfattningarna för en princip, kontrollerar du användnings avsnittet för principen i [princip referensen][Policy Reference].
 > 
 > 
 
-Konfigurationen är uppdelad i `inbound`, `backend`, `outbound`, och `on-error`. Antal angivna principrapporter är körs för en begäran och svaret.
+Konfigurationen är indelad `inbound`i `backend` `outbound`,, och `on-error`. Serien med angivna princip satser körs i ordning för en begäran och ett svar.
 
 ```xml
 <policies>
@@ -59,25 +58,25 @@ Konfigurationen är uppdelad i `inbound`, `backend`, `outbound`, och `on-error`.
 </policies> 
 ```
 
-Om det finns ett fel under bearbetningen av en begäran, alla eventuella resterande steg i den `inbound`, `backend`, eller `outbound` avsnitt hoppas över och körningen hoppar till instruktionerna i den `on-error` avsnittet. Genom att placera principrapporter i den `on-error` avsnitt hittar du felet med hjälp av den `context.LastError` egenskapen inspektera och anpassa fel svar med den `set-body` principen, och konfigurera vad händer om ett fel inträffar. Det finns felkoder för inbyggda åtgärder och fel som kan uppstå under bearbetning av principrapporter. Mer information finns i [felhantering i API Management-principer](/azure/api-management/api-management-error-handling-policies).
+Om det uppstår ett fel under bearbetningen av en begäran, hoppas eventuella återstående steg i `inbound` `backend`-,- `outbound` och-avsnitten över `on-error` och körnings hopp till instruktionerna i avsnittet. Genom att placera princip instruktioner i `on-error` avsnittet kan du granska felet genom att `context.LastError` använda-egenskapen, inspektera och anpassa fel svaret med hjälp av `set-body` principen och konfigurera vad som händer om ett fel inträffar. Det finns felkoder för inbyggda steg och för fel som kan uppstå under bearbetningen av princip satser. Mer information finns [i fel hantering i API Management principer](/azure/api-management/api-management-error-handling-policies).
 
 ## <a name="scopes"> </a>Så här konfigurerar du principer
 
-Information om hur du konfigurerar principer finns i [ange eller redigera principer](set-edit-policies.md).
+Information om hur du konfigurerar principer finns i [Ange eller redigera principer](set-edit-policies.md).
 
-## <a name="policy-reference"></a>Principreferens
+## <a name="policy-reference"></a>Princip referens
 
-Se den [principreferens](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar.
+Se [princip referensen](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar.
 
-## <a name="policy-samples"></a>Princip-exempel
+## <a name="policy-samples"></a>Princip exempel
 
-Se [princip exempel](policy-samples.md) mer kodexempel.
+Se [princip exempel](policy-samples.md) för fler kod exempel.
 
 ## <a name="examples"></a>Exempel
 
-### <a name="apply-policies-specified-at-different-scopes"></a>Tillämpa principer som angetts i olika omfång
+### <a name="apply-policies-specified-at-different-scopes"></a>Använd principer som anges i olika omfång
 
-Om du har en princip på global nivå och en princip som konfigurerats för ett API kan sedan tillämpas varje gång et används båda principerna. API Management möjliggör deterministisk sorteringen av kombinerade principrapporter via baselementet. 
+Om du har en princip på global nivå och en princip som kon figurer ATS för ett API, används båda principerna när det aktuella API: t används. API Management tillåter deterministisk sortering av kombinerade princip satser via bas elementet. 
 
 ```xml
 <policies>
@@ -89,15 +88,15 @@ Om du har en princip på global nivå och en princip som konfigurerats för ett 
 </policies>
 ```
 
-I ovanstående exempel principdefinitionen den `cross-domain` instruktionen skulle köras innan eventuella högre principer som skulle ha gjort i tur och ordning följas av den `find-and-replace` principen. 
+I exempel princip definitionen ovan `cross-domain` skulle instruktionen köras före eventuella högre principer som i sin tur skulle följas `find-and-replace` av principen. 
 
-### <a name="restrict-incoming-requests"></a>Begränsa inkommande begäranden
+### <a name="restrict-incoming-requests"></a>Begränsa inkommande begär Anden
 
-Lägg till en ny rapport för att begränsa inkommande begäranden till den angivna IP-adresser genom att placera markören precis mellan innehållet i den `inbound` XML-elementet och klicka på den **begränsa anroparen IP-adresser** instruktionen.
+Om du vill lägga till en ny instruktion för att begränsa inkommande begär anden till angivna IP-adresser placerar du markören precis `inbound` i innehållet i XML-elementet och klickar på instruktionen **begränsa anropare IP** -adress.
 
-![Principer för begränsning av][policies-restrict]
+![Principer för begränsning][policies-restrict]
 
-Detta lägger till en XML-kodfragment till den `inbound` element som innehåller råd om hur du konfigurerar instruktionen.
+Detta lägger till ett XML-kodfragment till `inbound` elementet som ger vägledning om hur du konfigurerar instruktionen.
 
 ```xml
 <ip-filter action="allow | forbid">
@@ -106,7 +105,7 @@ Detta lägger till en XML-kodfragment till den `inbound` element som innehåller
 </ip-filter>
 ```
 
-Om du vill begränsa inkommande begäranden och acceptera ändra endast de från IP-adressen 1.2.3.4 XML-filen på följande sätt:
+Om du vill begränsa inkommande begär Anden och bara acceptera de från IP-adressen 1.2.3.4 ändrar du XML på följande sätt:
 
 ```xml
 <ip-filter action="allow">
@@ -116,11 +115,11 @@ Om du vill begränsa inkommande begäranden och acceptera ändra endast de från
 
 ## <a name="next-steps"></a>Nästa steg
 
-Arbeta med principer, Läs mer:
+Mer information om hur du arbetar med principer finns i:
 
 + [Transformera API: er](transform-api.md)
-+ [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
-+ [Princip-exempel](policy-samples.md)   
++ [Princip referens](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar
++ [Princip exempel](policy-samples.md)   
 
 [Policy Reference]: api-management-policy-reference.md
 [Product]: api-management-howto-add-products.md

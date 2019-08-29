@@ -1,56 +1,55 @@
 ---
-title: Runtime översikt över Azure Functions | Microsoft Docs
-description: Översikt över Azure Functions Runtime Preview
+title: Översikt över Körmiljö för Azure Functions | Microsoft Docs
+description: Översikt över Körmiljö för Azure Functions för hands version
 services: functions
 author: apwestgarth
 manager: stefsch
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 2af9575c50ee522d6330ddf46c75b666132b7a84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e67041ca78ba328fad132cc556b12d780eb9b318
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61021238"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095981"
 ---
-# <a name="azure-functions-runtime-overview-preview"></a>Azure Functions Runtime-översikt (förhandsversion)
+# <a name="azure-functions-runtime-overview-preview"></a>Översikt över Körmiljö för Azure Functions (för hands version)
 
 [!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
-Azure Functions-körning (förhandsversion) är en ny metod som du kan dra nytta av enkelheten och flexibilitet i Azure Functions programming modellen lokalt. Bygger på öppen källkod samma rot som Azure Functions och är Azure Functions Runtime distribuerade på plats att tillhandahålla en nästan identiska utvecklingsupplevelse som Molntjänsten.
+Körmiljö för Azure Functions (för hands version) är ett nytt sätt att dra nytta av den enklare och flexibiliteten i den Azure Functions Programmerings modellen lokalt. Körmiljö för Azure Functions har byggts med samma rötter för öppen källkod som Azure Functions, och har distribuerats lokalt för att ge en nästan identisk utvecklings upplevelse som moln tjänst.
 
-![Azure Functions Runtime Preview-portalen][1]
+![Körmiljö för Azure Functions för hands versions portalen][1]
 
-Azure Functions-körning är ett sätt att uppleva Azure Functions innan du genomför till molnet. På så sätt kan kan de kod som redan finns skapar du sedan tas med dig till molnet när du migrerar.  Körningen öppnas också nya alternativ för dig, som att använda ledig beräkningskraft på lokala datorer för att köra batchprocesser över natten. Du kan också använda enheter i din organisation att villkorligt skickar data till andra system, både lokalt och i molnet.
+Körmiljö för Azure Functions är ett sätt för dig att uppleva Azure Functions innan du genomför det i molnet. På så sätt kan de kod till gångar som du skapar sedan tas med dig till molnet när du migrerar.  Körningen öppnar också nya alternativ åt dig, till exempel att använda den extra beräknings kraften hos dina lokala datorer för att köra batch-processer över natten. Du kan också använda enheter i din organisation för att villkorligt skicka data till andra system, både lokalt och i molnet.
 
-Azure Functions Runtime består av två delar:
+Körmiljö för Azure Functions består av två delar:
 
-* Azure Functions Runtime Hanteringsroll
-* Azure Functions Runtime Worker-roll
+* Körmiljö för Azure Functions hanterings roll
+* Körmiljö för Azure Functions arbets roll
 
-## <a name="azure-functions-management-role"></a>Azure Functions Management Role
+## <a name="azure-functions-management-role"></a>Azure Functions hanterings roll
 
-Hanteringsroll för Azure Functions tillhandahåller en värd för hantering av funktioner på plats. Den här rollen utför följande uppgifter:
+Rollen Azure Functions hantering tillhandahåller en värd för hantering av dina funktioner lokalt. Den här rollen utför följande uppgifter:
 
-* Värden för Azure Functions-hanteringsportalen, vilket är samma konto som du ser i den [Azure-portalen](https://portal.azure.com). Portalen ger en konsekvent upplevelse som låter dig utveckla dina funktioner på samma sätt som i Azure-portalen.
-* Distribuera functions över flera funktioner arbetare.
-* Att tillhandahålla en publiceringsslutpunkten så att du kan publicera dina funktioner direkt från Microsoft Visual Studio genom att hämta och importera publiceringsprofilen.
+* Värd för Azure Functions Hanteringsportal, som är samma som visas i [Azure Portal](https://portal.azure.com). Portalen ger en enhetlig upplevelse som gör att du kan utveckla dina funktioner på samma sätt som du skulle göra i Azure Portal.
+* Distribuera funktioner över flera funktions arbetare.
+* Tillhandahålla en publicerings slut punkt så att du kan publicera dina funktioner direkt från Microsoft Visual Studio genom att hämta och importera publicerings profilen.
 
-## <a name="azure-functions-worker-role"></a>Azure Functions-Arbetsroll
+## <a name="azure-functions-worker-role"></a>Azure Functions arbets roll
 
-Azure Functions Worker-roller har distribuerats i Windows-behållare och är där Funktionskoden körs.  Du kan distribuera flera Worker-roller i hela organisationen och det här alternativet är ett viktiga sätt där kunder kan göra att använda ledig beräkningskraft.  Ett exempel på där det finns ledig beräkning i många organisationer är datorer som är påslagna hela tiden men inte används för stora tidsperioder.
+Azure Functions Worker-roller distribueras i Windows-behållare och är där funktions koden körs.  Du kan distribuera flera arbets roller i organisationen och det här alternativet är ett viktigt sätt för kunderna att använda reserv beräknings kraft.  Ett exempel på var reserv beräkning finns i många organisationer är datorer som drivs ständigt men inte används under stora tids perioder.
 
-## <a name="minimum-requirements"></a>Minimikrav
+## <a name="minimum-requirements"></a>Minimi krav
 
-För att komma igång med Azure Functions-körning, måste du ha en dator med Windows Server 2016 eller Windows 10 Creators Update med åtkomst till en SQL Server-instans.
+För att komma igång med Körmiljö för Azure Functions måste du ha en dator med Windows Server 2016 eller Windows 10 Creators Update med åtkomst till en SQL Server-instans.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Installera den [Azure Functions Runtime preview](https://aka.ms/azafrdoc)
+Installera [körmiljö för Azure Functions för hands version](https://aka.ms/azafrdoc)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png

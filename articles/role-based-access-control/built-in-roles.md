@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/02/2019
+ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 776b8303e3454b40979691ea32fdcca11be4fa71
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: fb1007929a26384da60e542865c750fd1d642440
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013377"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114658"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -70,6 +70,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Fakturerings läsare](#billing-reader) | Tillåter Läs åtkomst till fakturerings data |
 | [BizTalk-deltagare](#biztalk-contributor) | Gör att du kan hantera BizTalk Services, men inte till gång till dem. |
 | [Blockchain för medlems Node (för hands version)](#blockchain-member-node-access-preview) | Tillåter åtkomst till blockchain-medlems noder |
+| [Skiss deltagare](#blueprint-contributor) | Kan hantera skiss definitioner, men tilldela dem inte. |
+| [Skiss operator](#blueprint-operator) | Kan tilldela befintliga publicerade ritningar, men kan inte skapa nya ritningar. OBS! detta fungerar endast om tilldelningen görs med en tilldelad hanterad identitet. |
 | [CDN-slutpunkts deltagare](#cdn-endpoint-contributor) | Kan hantera CDN-slutpunkter, men kan inte bevilja åtkomst till andra användare. |
 | [CDN-slutpunkt läsare](#cdn-endpoint-reader) | Kan visa CDN-slutpunkter, men kan inte göra ändringar. |
 | [CDN-profil deltagare](#cdn-profile-contributor) | Kan hantera CDN-profiler och deras slut punkter, men kan inte bevilja åtkomst till andra användare. |
@@ -139,7 +141,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Storage BLOB data-deltagare](#storage-blob-data-contributor) | Läsa, skriva och ta bort Azure Storage behållare och blobbar. Information om vilka åtgärder som krävs för en specifik data åtgärd finns i [behörigheter för att anropa blob-och Queue data-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Storage BLOB data-ägare](#storage-blob-data-owner) | Ger fullständig åtkomst till Azure Storage BLOB-behållare och data, inklusive att tilldela POSIX-åtkomstkontroll. Information om vilka åtgärder som krävs för en specifik data åtgärd finns i [behörigheter för att anropa blob-och Queue data-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Storage BLOB data Reader](#storage-blob-data-reader) | Läs och Visa Azure Storage behållare och blobbar. Information om vilka åtgärder som krävs för en specifik data åtgärd finns i [behörigheter för att anropa blob-och Queue data-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
-| [Storage BLOB-delegerare](#storage-blob-delegator) | Hämta användar Delegerings nyckeln som sedan kan användas för att skapa en signatur för delad åtkomst för en behållare eller BLOB som är signerad med Azure AD-autentiseringsuppgifter. Mer information finns i [skapa en användar](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)Delegerings-SAS. |
+| [Storage BLOB-delegerare](#storage-blob-delegator) | Hämta en användar Delegerings nyckel som sedan kan användas för att skapa en signatur för delad åtkomst för en behållare eller BLOB som är signerad med Azure AD-autentiseringsuppgifter. Mer information finns i [skapa en användar](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)Delegerings-SAS. |
 | [Lagrings fil data SMB-resurs deltagare](#storage-file-data-smb-share-contributor) | Tillåter Läs-, skriv-och borttagnings åtkomst i Azure Storage fil resurser över SMB |
 | [Lagrings fil data SMB-resurs upphöjt bidrags givare](#storage-file-data-smb-share-elevated-contributor) | Tillåter behörighet att läsa, skriva, ta bort och ändra NTFS-behörighet i Azure Storage fil resurser över SMB |
 | [Storage File data SMB Share Reader](#storage-file-data-smb-share-reader) | Tillåter Läs åtkomst till Azure-filresurs via SMB |
@@ -948,6 +950,44 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
+## <a name="blueprint-contributor"></a>Skiss deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan hantera skiss definitioner, men tilldela dem inte. |
+> | **Id** | 41077137-e803-4205-871c-5a86e6a753b4 |
+> | **Åtgärder** |  |
+> | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
+> | Microsoft. skiss/skiss/* | Skapa och hantera skiss definitioner eller skiss artefakter. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
+> | Microsoft. Resources/Deployments/* | Skapa och hantera distributioner av resurs grupper |
+> | Microsoft.Support/* | Skapa och hantera support biljetter |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
+## <a name="blueprint-operator"></a>Skiss operator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan tilldela befintliga publicerade ritningar, men kan inte skapa nya ritningar. OBS! detta fungerar endast om tilldelningen görs med en tilldelad hanterad identitet. |
+> | **Id** | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
+> | **Åtgärder** |  |
+> | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
+> | Microsoft. skiss/blueprintAssignments/* | Skapa och hantera skiss tilldelningar. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
+> | Microsoft. Resources/Deployments/* | Skapa och hantera distributioner av resurs grupper |
+> | Microsoft.Support/* | Skapa och hantera support biljetter |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
 ## <a name="cdn-endpoint-contributor"></a>CDN-slutpunktsdeltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1268,7 +1308,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft. förbrukning/* |  |
 > | Microsoft.CostManagement/* |  |
-> | Microsoft. fakturering/billingPeriods/Läs | Visar en lista över tillgängliga fakturerings perioder |
+> | Microsoft. fakturering/billingPeriods/Läs |  |
 > | Microsoft. Resources/Subscriptions/Read | Hämtar listan över prenumerationer. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
 > | Microsoft.Support/* | Skapa och hantera support biljetter |
@@ -1291,7 +1331,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft. CostManagement/*/Read |  |
-> | Microsoft. fakturering/billingPeriods/Läs | Visar en lista över tillgängliga fakturerings perioder |
+> | Microsoft. fakturering/billingPeriods/Läs |  |
 > | Microsoft. Resources/Subscriptions/Read | Hämtar listan över prenumerationer. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
 > | Microsoft.Support/* | Skapa och hantera support biljetter |
@@ -1899,6 +1939,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Insights/Register/Action | Registrera Microsoft Insights-providern |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Läs/skriv/ta bort Application Insights webbtester. |
+> | Microsoft. Insights/arbets böcker/* |  |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Läsa/skriva/ta bort lösnings paket för Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Läs/skriv/ta bort sparade Log Analytics-sökningar. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Kör en Sök fråga |
@@ -2474,6 +2515,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft. SQL/managedInstances/databaser/vulnerabilityAssessments/* |  |
 > | Microsoft. SQL/managedInstances/securityAlertPolicies/* |  |
+> | Microsoft. SQL/managedInstances/databaser/transparentDataEncryption/* |  |
 > | Microsoft. SQL/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Skapa och hantera principer för SQL Server-granskning |
 > | Microsoft.Sql/servers/auditingSettings/* | Skapa och hantera gransknings inställning för SQL Server |
@@ -2494,6 +2536,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Skapa och hantera säkerhets aviserings principer för SQL Server-databas |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | Skapa och hantera säkerhets mått för SQL Server-databasen |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
+> | Microsoft. SQL/Servers/databaser/transparentDataEncryption/* |  |
 > | Microsoft. SQL/Servers/databaser/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |

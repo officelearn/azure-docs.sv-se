@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 7ab921d889c48ccd8be469328e2690cb1cb2d8b2
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 7dba929101a928f0bbcb8553d6dd3b3043d74853
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050033"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114856"
 ---
 # <a name="install-and-run-face-containers"></a>Installera och kör ansikts behållare
 
@@ -150,7 +150,6 @@ Mer information om alternativen finns i [konfigurera behållare](./face-resource
 
 I den här artikeln har du lärt dig begrepp och arbets flöde för hur du hämtar, installerar och kör Ansikts-API behållare. Sammanfattningsvis:
 
-* Ansikts-API tillhandahåller tre Linux-behållare för Docker som tillhandahåller extrahering av nyckel fraser, språk identifiering och sentiment analys.
 * Behållar avbildningar hämtas från Azure Container Registry.
 * Behållaravbildningar som körs i Docker.
 * Du kan använda antingen REST API eller SDK för att anropa åtgärder i Ansikts-API behållare genom att ange behållarens värd-URI.

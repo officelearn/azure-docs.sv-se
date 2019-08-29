@@ -1,5 +1,5 @@
 ---
-title: Använd med Kubernetes och Helm-Visuellt innehåll
+title: Använd Visuellt innehåll container med Kubernetes och Helm
 titleSuffix: Azure Cognitive Services
 description: Distribuera Visuellt innehåll-behållaren till en Azure Container instance och testa den i en webbläsare.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 8/22/2019
 ms.author: dapine
-ms.openlocfilehash: 5befba9bdc44a594363dba86c0c2d082a9b44cdd
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 1627aea958707eaaef6ee79908a17afc2e8f7b45
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036631"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068973"
 ---
-# <a name="use-with-kubernetes-and-helm"></a>Använda med Kubernetes och Helm
+# <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Använd Visuellt innehåll container med Kubernetes och Helm
 
 Ett alternativ för att hantera dina Visuellt innehåll behållare lokalt är att använda Kubernetes och Helm. Med Kubernetes och Helm för att definiera Identifiera text behållar avbildningen skapar vi ett Kubernetes-paket. Det här paketet kommer att distribueras till ett Kubernetes-kluster lokalt. Slutligen ska vi utforska hur du testar de distribuerade tjänsterna. Mer information om att köra Docker-behållare utan Kubernetes-dirigering finns i [Installera och köra identifiera text behållare](computer-vision-how-to-install-containers.md).
 

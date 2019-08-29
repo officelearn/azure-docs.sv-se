@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 481e6c5f2271651627577af3d03f9dd4da725146
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 4bad9db6af6d368c943619bc2105f3fba0b7eb7b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949911"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096163"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -315,12 +314,12 @@ func host start
 | **`--cors-credentials`** | Tillåt kors ursprung autentiserade begär Anden (dvs. cookies och Authentication-huvudet) version 2. x. |
 | **`--cors`** | En kommaavgränsad lista med CORS-ursprung, utan blank steg. |
 | **`--language-worker`** | Argument för att konfigurera språk arbets tagaren. Endast version 2. x. |
-| **`--nodeDebugPort -n`** | Porten för noden som fel sökare ska använda. Standard: Ett värde från Launch. JSON eller 5858. Endast version 1. x. |
+| **`--nodeDebugPort -n`** | Porten för noden som fel sökare ska använda. Objekt Ett värde från Launch. JSON eller 5858. Endast version 1. x. |
 | **`--password`** | Antingen lösen ordet eller en fil som innehåller lösen ordet för en PFX-fil. Används endast med `--cert`. Endast version 2. x. |
 | **`--port -p`** | Den lokala porten att lyssna på. Standardvärde: 7071. |
 | **`--pause-on-error`** | Pausa för ytterligare indatatyper innan du avslutar processen. Används endast när du startar kärn verktyg från en Integrated Development Environment (IDE).|
 | **`--script-root --prefix`** | Används för att ange sökvägen till roten för Function-appen som ska köras eller distribueras. Detta används för kompilerade projekt som genererar projektfiler i en undermapp. När du till exempel skapar ett C# klass biblioteks projekt skapas värden. JSON, Local. Settings. JSON och function. JSON-filerna i en *rotmapp* med en sökväg som. `MyProject/bin/Debug/netstandard2.0` I det här fallet ställer du in prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Detta är roten i Function-appen när du kör i Azure. |
-| **`--timeout -t`** | Tids gränsen för funktionens värd att starta, i sekunder. Standard: 20 sekunder.|
+| **`--timeout -t`** | Tids gränsen för funktionens värd att starta, i sekunder. Objekt 20 sekunder.|
 | **`--useHttps`** | Bind till `https://localhost:{port}` i stället för `http://localhost:{port}`till. Som standard skapar det här alternativet ett betrott certifikat på din dator.|
 
 När Functions-värden startar matar den in URL: en för HTTP-utlösta funktioner:

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a872b8c34011247e68b0d459482c0599ac0426f2
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 116ffa31fb540897f9a769b73c3a6474dda45b88
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228392"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101923"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Pris vägledning för SQL Server virtuella Azure-datorer
 
@@ -140,7 +139,7 @@ Licens kostnaden för SQL Server är direkt relaterad till antalet virtuella pro
 
 Det finns nya maskin storlekar som fungerar bra med vissa typer av SQL Server arbets belastningar. De här datorernas storlekar behåller höga nivåer av minne, lagring och I/O-bandbredd, men de har lägre virtualiserat antal kärnor. Tänk till exempel följande exempel:
 
-| Storlek på virtuell dator | Virtuella processorer | Minne | Maximalt antal diskar | Max-I/O-genomflöde | Kostnader för SQL-licensiering | Totalkostnad (Compute + Licensing) |
+| Storlek på virtuell dator | vCPU:er | Minne | Maximalt antal diskar | Max-I/O-genomflöde | Kostnader för SQL-licensiering | Totalkostnad (Compute + Licensing) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51 200 IOPS eller 768 MB/s | | |
 | **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51 200 IOPS eller 768 MB/s | 75% lägre | 57% lägre |

@@ -3,15 +3,15 @@ title: Köra frågor mot containrar i Azure Cosmos DB
 description: Lär dig hur du kör frågor mot containrar i Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: cf14e005de3710f26bfdbab7cc0dac87e0cf000e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 799fa43ad6ff12e5fa84326cbb41842e76daff12
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243753"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092975"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Köra frågor mot en Azure Cosmos-container
 
@@ -32,7 +32,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 Följande fråga har inget filter för partitionsnyckeln (`DeviceId`) och sprids till alla partitioner där den körs mot partitionens index. Om du vill köra en fråga över partitioner anger du `EnableCrossPartitionQuery` till true (eller `x-ms-documentdb-query-enablecrosspartition` i REST-API:et).
 
-Egenskapen EnableCrossPartitionQuery accepterar ett booleskt värde. Om värdet är true (sant) och om frågan inte har en partitionsnyckel skickar Azure Cosmos DB ut frågan över partitioner. Utskicket görs genom att enskilda frågor utfärdas till alla partitioner. Om du vill läsa frågeresultaten bör klientprogrammen använda resultaten från FeedResponse och Sök efter egenskapen ContinuationToken. Om du vill läsa alla resultat ska data fortsätta att itereras tills ContinuationToken är null. 
+Egenskapen EnableCrossPartitionQuery accepterar ett booleskt värde. Om värdet är true (sant) och om frågan inte har en partitionsnyckel skickar Azure Cosmos DB ut frågan över partitioner. Utskicket görs genom att enskilda frågor utfärdas till alla partitioner. Om du vill läsa frågeresultaten ska klient programmen förbruka resultaten från FeedResponse och kontrol lera ContinuationToken-egenskapen. Om du vill läsa alla resultat ska data fortsätta att itereras tills ContinuationToken är null. 
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: b451769f5f98bf64ca340504c983f16d1db36647
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: a844d28067fc0851760849317160d5902918252e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991560"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074377"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vilka Apache Hadoops komponenter och versioner är tillgängliga med HDInsight?
 
@@ -177,63 +177,7 @@ Avsnittet innehåller länkar till viktig information för Hortonworks Data Plat
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Standardkonfiguration av noder och storlekar för virtuella datorer för kluster
 
-I följande tabeller visas standard storlekarna för virtuella datorer för HDInsight-kluster.  Det här diagrammet är nödvändigt för att förstå de VM-storlekar som ska användas när du skapar PowerShell-eller Azure CLI-skript för att distribuera HDInsight-kluster.
-
-> [!NOTE]
-> De enda kluster typerna som innehåller data diskar är Kafka-och HBase-kluster med funktionen för accelererade skrivningar aktiverade. HDInsight stöder P30-och S30 disk storlekar i dessa scenarier.
-
-> [!IMPORTANT]  
-> Om du behöver fler än 32 arbetsnoder i ett kluster måste du välja en huvudnods storlek med minst 8 kärnor och 14 GB RAM.
-
-* Alla regioner som stöds förutom Brasilien, södra och Japan, väst:
-
-|Klustertyp|Hadoop|HBase|Interaktiv fråga|Storm|Spark|ML Server|Kafka|
-|---|---|---|---|---|---|---|---|
-|Huvud: storlek på virtuell dator|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
-|Head: rekommenderade storlekar för virtuella datorer|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
-||D4 v2|D4 v2|D14|A8 v2|D13 v2|D13 v2|D3 v2|
-||D12 v2|D12 v2|E16 v3|A2m v2|D14 v2|D14 v2|D4 v2|
-||E4 v3|E4 v3|E32 v3|E4 v3|E4 v3|E4 v3|D12 v2|
-|Anställd: standard storlek för virtuell dator|D4 v2|D4 v2|D14 v2|D3 v2|D13 v2|D4 v2|4 D12v2 med 2 S30-diskar per Broker|
-|Arbetare: Rekommenderad VM-storlek|D3 v2|D3 v2|D13|D3 v2|D4 v2|D4 v2|D13 v2|
-||D4 v2|D4 v2|D14|D4 v2|D12 v2|D12 v2|DS12 v2|
-||D12 v2|D12 v2|E16 v3|D12 v2|D13 v2|D13 v2|DS13 v2|
-||E4 v3|E4 v3|E20 v3|E4 v3|D14 v2|D14 v2|E4 v3|
-||||E32 v3||E16 v3|E16 v3|ES4 v3|
-||||E64 v3||E20 v3|E20 v3|E8 v3|
-||||||E32 v3|E32 v3|ES8 v3|
-||||||E64 v3|E64 v3||
-|ZooKeeper: standard storlek för virtuell dator||A4 v2|A4 v2|A4 v2||A2 v2|D3v2|
-|ZooKeeper: rekommenderade storlekar för virtuella datorer||A4 v2||A2 v2|||A2M v2|
-|||A8 v2||A4 v2|||D3 v2|
-|||A2m v2||A8 v2|||E8 v3|
-|ML-tjänster: standard storlek för virtuell dator||||||D4 v2||
-|ML-tjänster: Rekommenderad VM-storlek||||||D4 v2||
-|||||||D12 v2||
-|||||||D13 v2||
-|||||||D14 v2||
-|||||||E16 v3||
-|||||||E20 v3||
-|||||||E32 v3||
-|||||||E64 v3||
-
-* Södra Brasilien och västra Japan (inga v2-storlekar):
-
-  | Klustertyp | Hadoop | HBase | Interaktiv fråga |Storm | Spark | ML Services |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | Huvud: storlek på virtuell dator |D12 |D12  | D13 |A3 |D12 |D12 |
-  | Head: rekommenderade storlekar för virtuella datorer |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
-  | Anställd: standard storlek för virtuell dator |D4 |D4  |  D14 |D3 |D13 |D4 |
-  | Arbetare: Rekommenderad VM-storlek |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
-  | ZooKeeper: standard storlek för virtuell dator | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
-  | ZooKeeper: rekommenderade storlekar för virtuella datorer | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
-  | ML-tjänster: standard storlekar för virtuella datorer | | | | | |D4 |
-  | ML-tjänster: rekommenderade storlekar för virtuella datorer | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
-
-> [!NOTE]
-> - Head är känt som *Nimbus* för Storm-kluster typen.
-> - Arbetaren är känd som *administratör* för Storm-klustret.
-> - Worker är känt som *region* för kluster typen HBase.
+Mer information om vilka virtuella datorer SKU: er som ska väljas för klustret finns i [konfigurations information för Azure HDInsight-kluster](hdinsight-supported-node-configuration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 - [Kluster konfiguration för Apache Hadoop, Spark och mer på HDInsight](hdinsight-hadoop-provision-linux-clusters.md)

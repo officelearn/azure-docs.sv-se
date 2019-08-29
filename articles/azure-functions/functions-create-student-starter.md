@@ -1,6 +1,6 @@
 ---
-title: Skapa en funktion som använder Azure för studenter Starter | Microsoft Docs
-description: Lär dig hur du skapar en Azure-funktion från en prenumeration för Azure för studenter Starter
+title: Skapa en funktion med Start programmet för Azure för studenter | Microsoft Docs
+description: Lär dig hur du skapar en Azure-funktion från en Azure for student starter-prenumeration
 Customer intent: As a student, I want to be able to create a HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 services: functions
 documentationcenter: na
@@ -8,28 +8,27 @@ author: alexkarcher-msft
 manager: ggailey777
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 860fedb13e84054e8ba264116be4e452445b7e9b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b4a143f14dc4e443570e8eca9ce6ce9e81b1d783
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143106"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096645"
 ---
-# <a name="create-a-function-using-azure-for-students-starter"></a>Skapa en funktion som använder Azure för studenter Starter
+# <a name="create-a-function-using-azure-for-students-starter"></a>Skapa en funktion med Start programmet för Azure för studenter
 
-I den här självstudiekursen skapar vi en hello world HTTP-funktion i en prenumeration för Azure för studenter Starter. Vi också igenom vad som finns i Azure Functions i den här prenumerationstypen.
+I den här självstudien kommer vi att skapa en Hello World HTTP-funktion i en start prenumeration för Azure för studenter. Vi går också igenom vad som är tillgängligt i Azure Functions i den här prenumerations typen.
 
-Microsoft *Azure för studenter Starter* kommer du igång med Azure-produkter du behöver utveckla i molnet utan kostnad för dig. [Läs mer om det här erbjudandet här.](https://azure.microsoft.com/offers/ms-azr-0144p/)
+*Start programmet för Microsoft Azure för studenter* hjälper dig att komma igång med de Azure-produkter du behöver för att utveckla i molnet utan kostnad. [Läs mer om det här erbjudandet här.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
-Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/solutions/serverless/) miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. [Läs mer om funktioner här.](./functions-overview.md)
+Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/solutions/serverless/) miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. [Lär dig mer om funktioner här.](./functions-overview.md)
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
- I det här avsnittet lär du dig hur du använder Functions för att skapa en HTTP-utlöst ”hello world”-funktion i Azure-portalen.
+ I det här avsnittet får du lära dig hur du använder Functions för att skapa en HTTP-utlöst "Hello World"-funktion i Azure Portal.
 
 ![Skapa en funktionsapp i Azure Portal](./media/functions-create-student-starter/function-app-in-portal-editor.png)
 
@@ -54,15 +53,15 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner. I en fu
     | **Appens namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`.  | 
     | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. | 
     | **[Resursgrupp](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
-   | **[App Service-Plan/plats](./functions-scale.md)** | Ny | Den som är värd planera som kontrollerar vilken region som funktionsappen har distribuerats till och densitet för dina resurser. Flera Funktionsappar som har distribuerats till samma plan ska dela samma enda kostnadsfri instans. Det här är en begränsning av Student Starter-planen. Fullständig värdalternativ är [beskrivs här.](./functions-scale.md)|
+   | **[App Service plan/plats](./functions-scale.md)** | Ny | Värd planen som styr vilken region som din Function-app distribueras till och densiteten för dina resurser. Flera funktions program som distribueras till samma plan delar alla samma kostnads fria instans. Detta är en begränsning av student starts planen. De fullständiga värd alternativen [beskrivs här.](./functions-scale.md)|
     | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj **.NET** för C#- och F#-funktioner. |
-    |**[Application Insights](./functions-monitoring.md)**| Enabled | Application Insights används för att lagra och analysera loggar i din funktionsapp. Det är aktiverat som standard om du väljer en plats som har stöd för Application Insights. Application Insights kan aktiveras för en funktion genom att manuellt välja en närliggande region för att distribuera Application Insights. Utan Application Insights, kommer du bara att kunna visa live direktuppspelning loggar.
+    |**[Application Insights](./functions-monitoring.md)**| Aktiverad | Application Insights används för att lagra och analysera funktions programmets loggar. Den är aktive rad som standard om du väljer en plats som har stöd för Application Insights. Application Insights kan aktive ras för en funktion genom att manuellt välja en närliggande region för att distribuera Application Insights. Utan Application Insights kommer du bara att kunna visa direkt uppspelnings loggar.
 
-3. Välj **App Service-plan/plats** ovan för att välja en annan plats
+3. Välj **App Service plan/plats** ovan om du vill välja en annan plats
 
-4. Välj **Skapa nytt** och ge din plan ett unikt namn.
+4. Välj **Skapa ny** och ge sedan planen ett unikt namn.
 
-5. Välj platsen som är närmast dig. [Se en fullständig karta över Azure-regioner här.](https://azure.microsoft.com/global-infrastructure/regions/) 
+5. Välj den plats som är närmast dig. [Se en fullständig karta över Azure-regioner här.](https://azure.microsoft.com/global-infrastructure/regions/) 
 
     <img src="./media/functions-create-student-starter/Create-ASP.png" width="800">
 
@@ -94,7 +93,7 @@ Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
 
 ## <a name="test-the-function"></a>Testa funktionen
 
-1. I den nya funktionen klickar du på **</> Hämta funktionswebbadress** längst upp till höger och väljer **Standard (funktionsnyckel)**. Sedan klickar du på **Kopiera**. 
+1. I den nya funktionen klickar du på **</> Hämta funktionswebbadress** längst upp till höger och väljer **Standard (funktionsnyckel)** . Sedan klickar du på **Kopiera**. 
 
     ![Kopiera funktionswebbadressen från Azure Portal](./media/functions-create-student-starter/function-app-develop-tab-testing.png)
 
@@ -114,29 +113,29 @@ Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="supported-features-in-azure-for-students-starter"></a>Funktioner som stöds i Azure för studenter Starter
+## <a name="supported-features-in-azure-for-students-starter"></a>Funktioner som stöds i Start programmet för Azure för studenter
 
-I Azure for Student Starter har du åtkomst till de flesta av funktionerna i Azure Functions-körningen med flera viktiga begränsningar som anges nedan:
+I Azure för student Starter har du till gång till de flesta av funktionerna i Azure Functions runtime, med flera viktiga begränsningar i listan nedan:
 
-* HTTP-utlösaren är den enda Utlösartyp som stöds.
-    * Alla indata och utdata stöds! [Se hela listan här.](functions-triggers-bindings.md)
+* HTTP-utlösaren är den enda utlösnings typ som stöds.
+    * Alla indata och alla utgående bindningar stöds! [Se den fullständiga listan här.](functions-triggers-bindings.md)
 * Språk som stöds: 
-    * C# (.NET Core 2)
-    * JavaScript (Node.js 8 & 10)
-    * F# (.NET Core 2)
-    * [Se språk som stöds i den här högre planer](supported-languages.md)
-* Windows är det enda operativsystemet som stöds.
-* Skalning är begränsad till [en kostnadsfri nivå instans](https://azure.microsoft.com/pricing/details/app-service/windows/) som körs i upp till 60 minuter under en dag. Du kommer serverlessly skala från 0 till 1 instans automatiskt vid HTTP-trafik som tas emot, men inga fler.
-* Endast [2.x-körningen](functions-versions.md) stöds.
-* Alla utvecklarverktyg har stöd för att redigera och publicera funktioner. Detta inkluderar VS Code, Visual Studio, Azure CLI och Azure-portalen. Om du vill använda något annat än portalen behöver du först skapa en app i portalen och välj sedan appen som ett mål för distribution i din önskade verktyg.
+    * C#(.NET Core 2)
+    * Java Script (Node. js 8 & 10)
+    * F#(.NET Core 2)
+    * [Se språk som stöds i högre planer här](supported-languages.md)
+* Windows är det enda operativ system som stöds.
+* Skalningen är begränsad till [en instans på en kostnads fri nivå](https://azure.microsoft.com/pricing/details/app-service/windows/) som körs i upp till 60 minuter varje dag. Du kommer serverlessly att skala från 0 till 1 instans automatiskt när HTTP-trafik tas emot, men inte ytterligare.
+* Det finns bara stöd [för 2. x-körningsmiljön](functions-versions.md) .
+* Alla verktyg för utvecklare stöds för redigerings-och publicerings funktioner. Detta inkluderar VS Code, Visual Studio, Azure CLI och Azure Portal. Om du vill använda något annat än portalen måste du först skapa en app i portalen och sedan välja appen som ett distributions mål i önskat verktyg.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har skapat en funktionsapp med en enkel HTTP-utlöst funktion! Nu kan du utforska lokala verktyg, flera språk, övervakning och integreringar.
+Du har skapat en Function-app med en enkel HTTP-utlöst funktion! Nu kan du utforska lokala verktyg, fler språk, övervakning och integreringar.
 
  * [Skapa din första funktion med Visual Studio](./functions-create-your-first-function-visual-studio.md)
  * [Skapa din första funktion med Visual Studio Code](./functions-create-first-function-vs-code.md)
- * [Utvecklarguide för Azure Functions JavaScript](./functions-reference-node.md)
+ * [Azure Functions JavaScript-guide för utvecklare](./functions-reference-node.md)
  * [Använd Azure Functions för att ansluta till en Azure SQL Database](./functions-scenario-database-table-cleanup.md)
- * [Läs mer om Azure Functions HTTP-bindningar](./functions-bindings-http-webhook.md).
+ * [Läs mer om hur du Azure Functions HTTP-bindningar](./functions-bindings-http-webhook.md).
  * [Övervaka dina Azure Functions](./functions-monitoring.md)

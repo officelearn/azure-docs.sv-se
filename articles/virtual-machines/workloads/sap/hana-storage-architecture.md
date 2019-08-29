@@ -7,19 +7,18 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b303a18d481ae1a682d81d87e7c14060ffdfaf14
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 256aaf94175394fd737e53c6281f2d8b45e8af41
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869187"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099649"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Lagrings arkitektur för SAP HANA (stora instanser)
 
@@ -79,7 +78,7 @@ Det är möjligt att vara värd för fler än en aktiv SAP HANA instans på HANA
 
 Några exempel på att köra flera SAP HANA instanser kan se ut så här.
 
-| SKU | Minnesstorlek | Lagrings storlek | Storlekar med flera databaser |
+| SKU | Minnesstorlek | Lagringsstorlek | Storlekar med flera databaser |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | 1x768-GB HANA-instans<br /> eller 1x512-GB instans + 1x256-GB-instans<br /> eller 3x256-GB-instanser | 
 | S72m | 1,5 TB | 6 TB | 3x512GB HANA-instanser<br />eller 1x512-GB instans + 1x1-TB instans<br />eller 6x256-GB-instanser<br />eller 1x 1,5 – TB instans | 

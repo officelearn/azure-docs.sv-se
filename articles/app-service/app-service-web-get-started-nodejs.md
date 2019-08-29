@@ -10,17 +10,16 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c103e6cb3626750414ee5083dad3e34b6be4986c
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 989bff7d8be5c234d9536afa8afc0beb6870807e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408951"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071664"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -36,7 +35,7 @@ Du kan följa stegen här på en Mac-, Windows- eller Linux-dator. Det tar cirka
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -54,7 +53,7 @@ const port = process.env.PORT || 1337;
 
 App Service lägger in process.env.PORT i ditt program, så att koden använder variabeln för att veta vilken port som ska lyssna. 
 
-I ett terminalfönster navigerar du till den **rotkatalogen** för Node.js-exempelprojektet (den katalog som innehåller _index.js_).
+I ett terminalfönster navigerar du till **rot katalogen** i exemplet Node. js-projektet (den katalog som innehåller _index. js_).
 
 ## <a name="run-the-app-locally"></a>Köra appen lokalt
 
@@ -77,7 +76,7 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 ## <a name="create-a-project-zip-file"></a>Skapa en ZIP-fil av projektet
 
-Kontrollera att du är fortfarande i den **rotkatalogen** för exempelprojektet (den katalog som innehåller _index.js_). Skapa ett ZIP-arkiv med allt i projektet. Följande kommando använder standardverktyget i terminalen:
+Se till att du fortfarande är i **rot katalogen** för exempelprojektet (den katalog som innehåller _index. js_). Skapa ett ZIP-arkiv med allt i projektet. Följande kommando använder standardverktyget i terminalen:
 
 ```
 # Bash
@@ -165,7 +164,7 @@ Node.js-exempelkoden körs i en Azure App Service-webbapp.
 response.end("Hello Azure!");
 ```
 
-I det lokala terminalfönstret navigerar du till ditt programs **rotkatalogen** (den katalog som innehåller _index.js_), skapa en ny ZIP-fil för det uppdaterade projektet.
+I det lokala terminalfönstret navigerar du till programmets **rot Katalog** (den katalog som innehåller _index. js_) och skapar en ny zip-fil för ditt uppdaterade projekt.
 
 ```azurecli-interactive
 # Bash

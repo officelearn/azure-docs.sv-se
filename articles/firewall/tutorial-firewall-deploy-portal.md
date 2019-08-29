@@ -5,19 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 4/9/2019
+ms.date: 08/29/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9d7b9673101ed3b6ff85a9981ba061bc870762b1
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0892bde09891d2edbd7f8cc8715ccc0d2f047ed4
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405673"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113477"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudier: Distribuera och konfigurera Azure Firewall via Azure Portal
 
-En viktig del av en övergripande säkerhetsplan för nätverket är att kontrollera utgående nätverksåtkomst. Du kan till exempel vill begränsa åtkomsten till webbplatser. Eller du kanske vill begränsa de utgående IP-adresser och portar som kan nås.
+En viktig del av en övergripande säkerhetsplan för nätverket är att kontrollera utgående nätverksåtkomst. Du kanske till exempel vill begränsa åtkomsten till webbplatser. Eller så kanske du vill begränsa de utgående IP-adresserna och portarna som kan nås.
 
 Med Azure Firewall kan du kontrollera åtkomsten till utgående nätverk från ett Azure-undernät. Med Azure Firewall kan du konfigurera:
 
@@ -26,7 +26,7 @@ Med Azure Firewall kan du kontrollera åtkomsten till utgående nätverk från e
 
 Nätverkstrafiken måste följa konfigurerade brandväggsregler när du vidarebefordrar den till brandväggen som standardgateway för undernätet.
 
-I den här självstudien skapar du ett förenklat virtuellt nätverk med tre undernät för enkel distribution. Vid Produktionsdistribution måste en [NAV och ekrar modellen](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) rekommenderas, där den är i ett eget virtuellt nätverk. Arbetsbelastningen-servrar finns i peerkopplade virtuella nätverk i samma region med en eller flera undernät.
+I den här självstudien skapar du ett förenklat virtuellt nätverk med tre undernät för enkel distribution. För produktions distributioner rekommenderas en [nav-och eker-modell](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) , där brand väggen finns i ett eget VNet. Arbets belastnings servrarna finns i peer-virtuella nätverk i samma region med ett eller flera undernät.
 
 * **AzureFirewallSubnet** – brandväggen ligger i det här undernätet.
 * **Workload-SN** – arbetsbelastningsservern ligger i det här undernätet. Det här undernätets nätverkstrafik går genom brandväggen.
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 > * konfigurera en testnätverksmiljö
 > * distribuera en brandvägg
 > * Skapa en standardväg
-> * Konfigurera en regel för programmet för att tillåta åtkomst till www.google.com
+> * Konfigurera en program regel för att tillåta åtkomst till www.google.com
 > * Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
 > * Testa brandväggen
 
@@ -57,7 +57,7 @@ Skapa först en resursgrupp som ska innehålla de resurser som behövs till att 
 Resursgruppen innehåller alla resurser för den här självstudien.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. Azure portalens startsida, Välj **resursgrupper** > **Lägg till**.
+2. På sidan Azure Portal start väljer du **resurs grupper** > **Lägg till**.
 3. I fältet **Resursgruppsnamn** skriver du **Test-FW-RG**.
 4. I fältet **Prenumeration** väljer du din prenumeration.
 5. I fältet **Resursgruppsplats** väljer du en plats. Alla efterföljande resurser du skapar måste finnas på samma plats.
@@ -67,27 +67,27 @@ Resursgruppen innehåller alla resurser för den här självstudien.
 
 Det här virtuella nätverket innehåller tre undernät.
 
-1. Välj Azure portalens startsida, **skapa en resurs**.
-2. Under **nätverk**väljer **virtuellt nätverk**.
+> [!NOTE]
+> Storleken på AzureFirewallSubnet-undernätet är/26. Mer information om under näts storleken finns i [vanliga frågor och svar om Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
+1. På Start sidan Azure Portal väljer du **skapa en resurs**.
+2. Välj **virtuellt nätverk**under **nätverk**.
 4. I fältet **Namn** skriver du **Test-FW-VN**.
 5. I fältet **Adressutrymme** skriver du **10.0.0.0/16**.
 6. I fältet **Prenumeration** väljer du din prenumeration.
-7. För **resursgrupp**väljer **Test-VB-RG**.
+7. För **resurs grupp**väljer du **test-VB-RG**.
 8. Välj samma plats som tidigare i fältet **Plats**.
 9. Under **Undernät**, i fältet **Namn**, skriver du **AzureFirewallSubnet**. Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
-10. I fältet **Adressintervall** skriver du **10.0.1.0/24**.
-11. Acceptera de andra standardinställningarna och välj sedan **skapa**.
-
-> [!NOTE]
-> Den minsta storleken på AzureFirewallSubnet-undernätet är /26.
+10. För **adress intervall**skriver du **10.0.1.0/26**.
+11. Godkänn de andra standardinställningarna och välj sedan **skapa**.
 
 ### <a name="create-additional-subnets"></a>Skapa ytterligare undernät
 
 Skapa sedan undernät för hoppservern och ett undernät för arbetsbelastningsservrarna.
 
-1. Azure portalens startsida, Välj **resursgrupper** > **Test-VB-RG**.
-2. Välj den **Test-VB-VN** virtuellt nätverk.
-3. Välj **undernät** > **+ undernät**.
+1. På Azure Portal start sida väljer du **resurs grupper** > **test-VB-RG**.
+2. Välj det virtuella nätverket **test-VB-VN** .
+3. Välj **undernät** > och undernät.
 4. I fältet **Namn** skriver du **Workload-SN**.
 5. I fältet **Adressintervall** skriver du **10.0.2.0/24**.
 6. Välj **OK**.
@@ -102,78 +102,78 @@ Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i res
 2. Välj **Compute** och sedan **Windows Server 2016 Datacenter** i listan Aktuella.
 3. Ange följande värden för den virtuella datorn:
 
-   |Inställning  |Värde  |
+   |Inställning  |Value  |
    |---------|---------|
-   |Resursgrupp     |**Test-FW-RG**|
-   |Namn på virtuell dator     |**Srv-Jump**|
+   |Resource group     |**Test-FW-RG**|
+   |Namn på virtuell dator     |**SRV-hoppa**|
    |Region     |Samma som föregående|
-   |Administratörens användarnamn     |**azureuser**|
-   |Lösenord     |**Azure123456!**|
+   |Administratörens användar namn     |**azureuser**|
+   |lösenordsinställning     |**Azure123456!**|
 
-4. Under **regler för inkommande portar**, för **offentliga inkommande portar**väljer **valda portar**.
-5. I fältet **Välj inkommande portar** väljer du **RDP (3389)**.
+4. Under **regler för inkommande port**för **offentliga inkommande portar**väljer du **Tillåt valda portar**.
+5. I fältet **Välj inkommande portar** väljer du **RDP (3389)** .
 
-6. Acceptera andra standardinställningar och välj **nästa: Diskar**.
-7. Acceptera standardinställningarna för disken och välj **nästa: Nätverk**.
+6. Godkänn de andra standardinställningarna och välj **nästa: Diskar**.
+7. Acceptera standardvärdena för disken **och välj Nästa: Nätverk**.
 8. Kontrollera att **Test-FW-VN** har valts som virtuellt nätverk och att undernätet är **Jump-SN**.
-9. För **offentlig IP-adress**, Använd ny offentlig ip-adress standardnamnet (Srv-hopp-ip).
-11. Acceptera andra standardinställningar och välj **nästa: Hantering**.
-12. Välj **av** inaktivera startdiagnostikinställningar. Acceptera andra standardinställningar och välj **granska + skapa**.
+9. För **offentlig IP-** adress accepterar du standard namnet för ny offentlig IP-adress (SRV-hopp-IP).
+11. Godkänn de andra standardinställningarna och välj **nästa: Hantering**.
+12. Välj **av** om du vill inaktivera startdiagnostik. Godkänn de andra standardinställningarna och välj **Granska + skapa**.
 13. Granska inställningarna på sidan Sammanfattning och välj sedan **skapa**.
 
-Använd informationen i följande tabell för att konfigurera en annan virtuell dator med namnet **Srv-arbete**. Resten av konfigurationen är samma som för den virtuella datorn Srv-Jump.
+Använd informationen i följande tabell för att konfigurera en annan virtuell dator med namnet **SRV-Work**. Resten av konfigurationen är samma som för den virtuella datorn Srv-Jump.
 
 |Inställning  |Värde  |
 |---------|---------|
-|Undernät|**Workload-SN**|
-|Offentlig IP|**Ingen**|
-|Offentliga inkommande portar|**Ingen**|
+|Subnet|**Workload-SN**|
+|Offentlig IP|**Alternativet**|
+|Offentliga inkommande portar|**Alternativet**|
 
 ## <a name="deploy-the-firewall"></a>Distribuera brandväggen
 
 Distribuera brandväggen till det virtuella nätverket.
 
-1. Portalens startsida, Välj **skapa en resurs**.
-2. Typ **brandväggen** i sökrutan och tryck på **RETUR**.
-3. Välj **brandväggen** och välj sedan **skapa**.
+1. På portalens start sida väljer du **skapa en resurs**.
+2. Skriv **brand väggen** i sökrutan och tryck på **RETUR**.
+3. Välj **brand vägg** och välj sedan **skapa**.
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
 
-   |Inställning  |Värde  |
+   |Inställning  |Value  |
    |---------|---------|
-   |Prenumeration     |\<din prenumeration\>|
-   |Resursgrupp     |**Test-FW-RG** |
-   |Namn     |**Test-FW01**|
+   |Subscription     |\<din prenumeration\>|
+   |Resource group     |**Test-FW-RG** |
+   |Name     |**Test-FW01**|
    |Location     |Välj samma plats som tidigare|
-   |Välj ett virtuellt nätverk     |**Använd befintlig**: **Test-FW-VN**|
+   |Välj ett virtuellt nätverk     |**Använd befintlig**: **Test-VB-VN**|
    |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 
 5. Välj **Granska + skapa**.
-6. Granska sammanfattningen och välj sedan **skapa** att skapa brandväggen.
+6. Granska sammanfattningen och välj sedan **skapa** för att skapa brand väggen.
 
    Distributionen kan ta några minuter.
-7. När distributionen är klar går du till den **Test-VB-RG** resource gruppen och välj den **Test FW01** brandväggen.
+7. När distributionen är klar går du till resurs gruppen **test-VB-RG** och väljer **test-FW01** brand väggen.
 8. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
 
 ## <a name="create-a-default-route"></a>Skapa en standardväg
 
 För undernätet **Workload-SN** ställer du in att den utgående standardvägen ska gå via brandväggen.
 
-1. Välj Azure portalens startsida, **alla tjänster**.
-2. Under **nätverk**väljer **routningstabeller**.
+1. På Start sidan för Azure Portal väljer du **alla tjänster**.
+2. Under **nätverk**väljer du **routningstabeller**.
 3. Välj **Lägg till**.
 4. I fältet **Namn** skriver du **Firewall-route**.
 5. I fältet **Prenumeration** väljer du din prenumeration.
-6. För **resursgrupp**väljer **Test-VB-RG**.
+6. För **resurs grupp**väljer du **test-VB-RG**.
 7. Välj samma plats som tidigare i fältet **Plats**.
 8. Välj **Skapa**.
-9. Välj **uppdatera**, och välj sedan den **brandväggen-route** routningstabellen.
+9. Välj **Uppdatera**och välj sedan tabellen **brand Väggs** väg väg.
 10. Välj **undernät** och välj sedan **associera**.
-11. Välj **virtuellt nätverk** > **Test-VB-VN**.
-12. För **undernät**väljer **arbetsbelastning-SN**. Kontrollera att du väljer bara den **arbetsbelastning-SN** undernät för den här vägen, annars brandväggen fungerar inte korrekt.
+11. Välj **Virtual Network** > **test-VB-VN**.
+12. För **undernät**väljer du **arbets belastning-SN**. Se till att du bara väljer **arbets belastningen – SN** under nätet för den här vägen, annars fungerar inte brand väggen korrekt.
 
 13. Välj **OK**.
 14. Välj **vägar** och välj sedan **Lägg till**.
-15. För **vägnamn**, typ **fw dg**.
+15. För **väg namn**skriver du **VB-GD**.
 16. I fältet **Adressprefix** skriver du **0.0.0.0/0**.
 17. I fältet **Nästa hopptyp** väljer du **Virtuell installation**.
 
@@ -183,19 +183,19 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 
 ## <a name="configure-an-application-rule"></a>Konfigurera en programregel
 
-Det här är den program-regel som tillåter utgående åtkomst till www.google.com.
+Detta är den program regel som tillåter utgående åtkomst till www.google.com.
 
-1. Öppna den **Test-VB-RG**, och välj den **Test FW01** brandväggen.
-2. På den **Test-FW01** sidan under **inställningar**väljer **regler**.
-3. Välj den **program regelsamlingen** fliken.
-4. Välj **lägga till programmet regelsamlingen**.
+1. Öppna mappen **test-VB-RG**och välj **test-FW01** -brandväggen.
+2. På sidan **test-FW01** under **Inställningar**väljer du **regler**.
+3. Välj fliken **samling av program regel** .
+4. Välj **Lägg till program regel samling**.
 5. I fältet **Namn** skriver du **App-Coll01**.
 6. I fältet **Prioritet** skriver du **200**.
 7. I fältet **Åtgärd** väljer du **Tillåt**.
-8. Under **regler**, **Target FQDN**, för **namn**, typ **Tillåt Google-**.
+8. Under **regler**, **mål-FQDN**, som **namn**, skriver du **Allow-Google**.
 9. I fältet **Källadresser** skriver du **10.0.2.0/24**.
 10. I fältet **Protokoll: port** skriver du **http, https**.
-11. För **Target FQDN**, typ **www.google.com**
+11. För **mål-FQDN**skriver du **www.Google.com**
 12. Välj **Lägg till**.
 
 Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn för mål (FQDN) i infrastrukturen som tillåts som standard. Dessa FQDN är specifika för plattformen och kan inte användas för andra ändamål. Mer information finns i [Infrastruktur-FQDN](infrastructure-fqdns.md).
@@ -204,13 +204,13 @@ Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn
 
 Det här är nätverksregel som tillåter utgående åtkomst till två IP-adresser på port 53 (DNS).
 
-1. Välj den **Network regelsamlingen** fliken.
-2. Välj **Lägg till nätverk regelsamlingen**.
+1. Välj fliken **nätverks regel samling** .
+2. Välj **Lägg till regel samling för nätverk**.
 3. I fältet **Namn** skriver du **Net-Coll01**.
 4. I fältet **Prioritet** skriver du **200**.
 5. I fältet **Åtgärd** väljer du **Tillåt**.
 
-6. Under **regler**, för **namn**, typ **Tillåt DNS**.
+6. Under **regler**, för **namn**, skriver du **Allow-DNS**.
 7. I fältet **Protokoll** väljer du **UDP**.
 8. I fältet **Källadresser** skriver du **10.0.2.0/24**.
 9. I fältet Måladress skriver du **209.244.0.3,209.244.0.4**
@@ -219,33 +219,33 @@ Det här är nätverksregel som tillåter utgående åtkomst till två IP-adress
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Ändra den primära och sekundära DNS-adressen för nätverksgränssnittet **Srv-Work**
 
-Konfigurera serverns primära och sekundära DNS-adresser i testsyfte i den här självstudien. Det är inte ett allmänt Azure-brandvägg krav.
+I test syfte i den här självstudien konfigurerar du serverns primära och sekundära DNS-adresser. Detta är inte ett allmänt krav för Azure-brandvägg.
 
 1. Gå till Azure Portal och öppna resursgruppen **Test-FW-RG**.
-2. Välj nätverksgränssnitt för den **Srv-arbete** virtuell dator.
-3. Under **inställningar**väljer **DNS-servrar**.
-4. Under **DNS-servrar**väljer **anpassad**.
+2. Välj nätverks gränssnitt för den virtuella **SRV-Work-** datorn.
+3. Under **Inställningar**väljer du **DNS-servrar**.
+4. Under **DNS-servrar**väljer du **anpassad**.
 5. Skriv **209.244.0.3** i textrutan **Lägg till DNS-server** och **209.244.0.4** i nästa textruta.
 6. Välj **Spara**.
 7. Starta om den virtuella datorn **Srv-Work**.
 
 ## <a name="test-the-firewall"></a>Testa brandväggen
 
-Testa nu brandväggen för att bekräfta att den fungerar som förväntat.
+Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
 
 1. Öppna Azure Portal, granska nätverksinställningarna för den virtuella datorn **Srv-Work** och anteckna den privata IP-adressen.
-2. Ansluta ett fjärrskrivbord till **Srv-Jump** virtuella datorn och logga in. Därifrån kan du öppna en fjärrskrivbordsanslutning till den **Srv-arbete** privat IP-adress.
+2. Anslut ett fjärr skrivbord till en virtuell dator med **SRV-hopp** och logga in. Därifrån öppnar du en fjärr skrivbords anslutning till den privata IP-adressen för **SRV-arbete** .
 
 3. Öppna Internet Explorer och navigera till https://www.google.com.
-4. Välj **OK** > **Stäng** säkerhetsaviseringar Internet Explorer.
+4. Välj **OK** > **Stäng** i Internet Explorers säkerhets aviseringar.
 
-   Du bör se startsidan Google.
+   Du bör se Googles start sida.
 
 5. Bläddra till https://www.microsoft.com.
 
    Du bör blockeras av brandväggen.
 
-Nu har du kontrollera att brandväggsreglerna fungerar:
+Nu har du verifierat att brand Väggs reglerna fungerar:
 
 * Du kan bläddra till en tillåten FQDN, men inte till andra.
 * Du kan omvandla DNS-namn med hjälp av den konfigurerade externa DNS-servern.
@@ -257,4 +257,4 @@ Du kan behålla dina brandväggsresurser för nästa självstudie eller, om de i
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)
+> [Självstudier: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)

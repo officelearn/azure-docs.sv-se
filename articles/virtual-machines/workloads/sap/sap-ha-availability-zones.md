@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ead1dfdce4bf3a803eee46a536dc7062626640d9
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 3f5186f456003c341af41fc6067f3b5c08acb2b4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234242"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078892"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner
 [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med Tillgänglighetszoner förbättras övergripande tillgänglighet för SAP-arbetsbelastningar på Azure. Den här funktionen är redan tillgänglig i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer det att vara tillgängligt i fler regioner.
@@ -113,7 +112,7 @@ Följande överväganden gäller för den här konfigurationen:
   - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
   - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
     
-    För närvarande stöds inte lösningen som använder Microsoft Scale-Out File Server, enligt beskrivningen i [förbereda Azure-infrastrukturen för SAP hög tillgänglighet med hjälp av ett Windows-redundanskluster och fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), i zoner.
+    För närvarande stöds inte lösningen som använder Microsoft Skalbar filserver, som dokumenteras i [förbereda Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), i zoner.
 - Den tredje zonen används som värd för SBD-enheten om du skapar ett [SUSE Linux pacemaker-kluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) eller ytterligare program instanser.
 - För att uppnå körnings tids konsekvens för kritiska affärs processer kan du försöka dirigera vissa batch-jobb och användare till program instanser som finns i zoner med den aktiva DBMS-instansen med hjälp av SAP batch Server-grupper, SAP-inloggnings grupper eller RFC-grupper. Men om du vill ha en zonindelade redundans måste du manuellt flytta grupperna till instanser som körs på virtuella datorer som finns i zoner med den aktiva DB-datorn.  
 - Du kanske vill distribuera inaktiva dialog instanser i varje zon. Detta är att aktivera en omedelbar återgång till den tidigare resurs kapaciteten om en zon som används av en del av program instanserna inte är i tjänst.
@@ -138,7 +137,7 @@ Följande överväganden gäller för den här konfigurationen:
     - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
     - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
     
-  För närvarande stöds inte lösningen som använder Microsoft Scale-Out File Server, enligt beskrivningen i [förbereda Azure-infrastrukturen för SAP hög tillgänglighet med hjälp av ett Windows-redundanskluster och fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), i zoner.
+  För närvarande stöds inte lösningen som använder Microsoft Skalbar filserver, som dokumenteras i [förbereda Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), i zoner.
 - Den tredje zonen används som värd för SBD-enheten om du skapar ett [SUSE Linux pacemaker-kluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) eller ytterligare program instanser.
 - Du bör distribuera vilande virtuella datorer i den passiva zonen (från en DBMS-vy) så att du kan starta program resurser i händelse av ett zon haveri.
     - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) kan för närvarande inte replikera aktiva virtuella datorer till inaktiva virtuella datorer mellan zoner. 
@@ -168,7 +167,7 @@ Följande överväganden gäller för den här konfigurationen:
     - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
     - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
 
-  För närvarande stöds inte lösningen som använder Microsoft Scale-Out File Server, enligt beskrivningen i [förbereda Azure-infrastrukturen för SAP hög tillgänglighet med hjälp av ett Windows-redundanskluster och fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), i zoner.
+  För närvarande stöds inte lösningen som använder Microsoft Skalbar filserver, som dokumenteras i [förbereda Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), i zoner.
 - Den tredje zonen används som värd för SBD-enheten om du skapar ett [SUSE Linux pacemaker-kluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) eller ytterligare program instanser.
 
 

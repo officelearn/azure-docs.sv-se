@@ -11,17 +11,16 @@ ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7bb87713f1f7d1f41f68f3743b2504784b37bb23
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 47ad2346f4574b10d12c46c1f72394225e014854
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723048"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102566"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Översikt över virtuella Windows-datorer i Azure
 
@@ -101,7 +100,7 @@ Dessa vanliga uppgifter kan utföras med hjälp av tillägg:
 ### <a name="related-resources"></a>Relaterade resurser
 Resurserna i den här tabellen används av den virtuella datorn och måste finnas eller skapas när den virtuella datorn skapas.
 
-| Resurs | Krävs | Beskrivning |
+| Resurs | Obligatorisk | Beskrivning |
 | --- | --- | --- |
 | [Resursgrupp](../../azure-resource-manager/resource-group-overview.md) |Ja |Den virtuella datorn måste ingå i en resursgrupp. |
 | [Lagringskonto](../../storage/common/storage-create-storage-account.md) |Ja |Den virtuella datorn behöver lagringskontot för att kunna lagra sina virtuella hårddiskar. |

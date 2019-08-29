@@ -1,6 +1,6 @@
 ---
-title: Flytta en AWS Windows-datorer till Azure | Microsoft Docs
-description: Flytta en Amazon Web Services (AWS) EC2 Windows-instans till en Azure virtuell dator.
+title: Flytta en virtuell Windows AWS-dator till Azure | Microsoft Docs
+description: Flytta en Amazon Web Services (AWS) EC2 Windows-instansen till en virtuell Azure-dator.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,61 +11,60 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: bc738a33ba50935a2118b8bd0bbfafed83e5f461
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 31f6ffc4f114039e0c53c1994f8c4364dea18298
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722776"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089510"
 ---
-# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Flytta en virtuell Windows-dator från Amazon Web Services (AWS) till en Azure-dator
+# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Flytta en virtuell Windows-dator från Amazon Web Services (AWS) till en virtuell Azure-dator
 
-Om du utvärderar Azure-datorer för att hantera dina arbetsbelastningar kan du exportera en befintlig Amazon Web Services (AWS) EC2 Windows VM-instans sedan överför den virtuella hårddisken (VHD) till Azure. När den virtuella Hårddisken har överförts, kan du skapa en ny virtuell dator i Azure från den virtuella Hårddisken. 
+Om du utvärderar virtuella Azure-datorer för att vara värd för dina arbets belastningar kan du exportera en befintlig Amazon Web Services (AWS) EC2 Windows VM instance och sedan ladda upp den virtuella hård disken (VHD) till Azure. När den virtuella hård disken har laddats upp kan du skapa en ny virtuell dator i Azure från den virtuella hård disken. 
 
-Den här artikeln beskriver flytta en enskild virtuell dator från AWS till Azure. Om du vill flytta virtuella datorer från AWS till Azure i skala, se [migrera virtuella datorer i Amazon Web Services (AWS) till Azure med Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
+Den här artikeln beskriver hur du flyttar en enskild virtuell dator från AWS till Azure. Om du vill flytta virtuella datorer från AWS till Azure i skala, se [migrera virtuella datorer i Amazon Web Services (AWS) till Azure med Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
 
 ## <a name="prepare-the-vm"></a>Förbereda den virtuella datorn 
  
-Du kan ladda upp både generaliserade och specialiserade virtuella hårddiskar till Azure. Varje typ måste du förbereda den virtuella datorn innan du exporterar från AWS. 
+Du kan ladda upp både generaliserade och specialiserade virtuella hård diskar till Azure. Varje typ kräver att du förbereder den virtuella datorn innan du exporterar från AWS. 
 
-- **Generaliserad virtuell Hårddisk** – en generaliserad virtuell Hårddisk har haft all personlig information tas bort med hjälp av Sysprep. Om du tänker använda den virtuella Hårddisken som en bild för att skapa nya virtuella datorer från bör du: 
+- **Generaliserad virtuell hård disk** – en generaliserad virtuell hård disk har fått all personlig konto information borttagen med hjälp av Sysprep. Om du tänker använda den virtuella hård disken som en avbildning för att skapa nya virtuella datorer från bör du: 
  
-    * [Förbereda Windows VM](prepare-for-upload-vhd-image.md).  
-    * Generalisera en virtuell dator med Sysprep.  
+    * [Förbered en virtuell Windows-dator](prepare-for-upload-vhd-image.md).  
+    * Generalisera den virtuella datorn med hjälp av Sysprep.  
 
  
-- **Specialiserad VHD** – en specialiserad virtuell Hårddisk som innehåller användarkonton, program och andra systemtillstånd från den ursprungliga virtuella datorn. Om du planerar att använda den virtuella Hårddisken som – är att skapa en ny virtuell dator och se till att följande steg har slutförts.  
-    * [Förbereda en Windows virtuell Hårddisk för överföring till Azure](prepare-for-upload-vhd-image.md). **Inte** generalisera den virtuella datorn med hjälp av Sysprep. 
-    * Ta bort alla gäst virtualization-verktyg och agenter som installerats på den virtuella datorn (d.v.s. VMware-verktyg). 
-    * Se till att den virtuella datorn är konfigurerad för att hämta dess IP-adress och DNS-inställningarna via DHCP. Detta säkerställer att servern får en IP-adress inom det virtuella nätverket när den startas.  
+- **Specialiserad virtuell hård disk** – en specialiserad virtuell hård disk hanterar användar konton, program och andra tillstånds data från den ursprungliga virtuella datorn. Om du tänker använda den virtuella hård disken för att skapa en ny virtuell dator kontrollerar du att följande steg är slutförda.  
+    * [Förbered en virtuell Windows-hårddisk att ladda upp till Azure](prepare-for-upload-vhd-image.md). Generalisera **inte** den virtuella datorn med Sysprep. 
+    * Ta bort eventuella verktyg och agenter för gästautentisering som är installerade på den virtuella datorn (t. ex. VMware-verktyg). 
+    * Se till att den virtuella datorn är konfigurerad för att hämta dess IP-adress och DNS-inställningar via DHCP. Detta säkerställer att servern erhåller en IP-adress i VNet när den startas.  
 
 
-## <a name="export-and-download-the-vhd"></a>Exportera och ladda ned den virtuella Hårddisken 
+## <a name="export-and-download-the-vhd"></a>Exportera och ladda ned den virtuella hård disken 
 
-Exportera EC2-instans på en virtuell Hårddisk i en Amazon S3-bucket. Följ stegen i dokumentationsartikel Amazon [och exportera en instans som en virtuell dator med hjälp av VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) och kör den [skapa-instans-export-aktivitet](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) kommando för att exportera EC2-instans till en VHD-fil. 
+Exportera EC2-instansen till en virtuell hård disk i en Amazon S3-Bucket. Följ stegen i artikeln för Amazon-dokumentation [som exporterar en instans som en virtuell dator med hjälp av import/export av virtuella datorer](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) och kör kommandot [create-instance-export-Task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) för att exportera EC2-instansen till en VHD-fil. 
 
-Den exporterade VHD-filen sparas i en Amazon S3-bucket som du anger. Grundläggande syntax för export av den virtuella Hårddisken är nedan, Ersätt bara platshållartexten i \<hakparenteser > med din information.
+Den exporterade VHD-filen sparas i den Amazon S3-Bucket som du anger. Den grundläggande syntaxen för att exportera den virtuella hård disken är nedan. Ersätt bara \<platshållartexten inom hakparenteser > med din information.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-När den virtuella Hårddisken har exporterats, följer du anvisningarna i [hur hämtar jag ett objekt från en S3-Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) att ladda ned VHD-filen från S3-bucket. 
+När den virtuella hård disken har exporter ATS följer du anvisningarna i [Hur hämtar jag ett objekt från en S3-Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) för att ladda ned VHD-filen från S3-Bucket. 
 
 > [!IMPORTANT]
-> AWS-avgifter för dataöverföring avgifter för att ladda ned den virtuella Hårddisken. Se [Amazon S3 priser](https://aws.amazon.com/s3/pricing/) för mer information.
+> AWS debiterar avgifter för data överföring för att ladda ned den virtuella hård disken. Se [Amazon S3-prissättning](https://aws.amazon.com/s3/pricing/) för mer information.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu kan du ladda upp den virtuella Hårddisken till Azure och skapa en ny virtuell dator. 
+Nu kan du ladda upp den virtuella hård disken till Azure och skapa en ny virtuell dator. 
 
-- Om du har kört Sysprep på källan till **generalisera** den innan du exporterar, se [överföra en generaliserad virtuell Hårddisk och använda den för att skapa en nya virtuella datorer i Azure](upload-generalized-managed.md)
-- Om du inte har kört Sysprep innan du exporterar den virtuella Hårddisken anses **specialiserade**, se [ladda upp en specialiserad virtuell Hårddisk till Azure och skapa en ny virtuell dator](create-vm-specialized.md)
+- Om du körde Sysprep på källan för att **generalisera** den innan du exporterar, se [överför en generaliserad virtuell hård disk och Använd den för att skapa nya virtuella datorer i Azure](upload-generalized-managed.md)
+- Om du inte körde Sysprep före exporten anses den virtuella hård diskenvara specialiserad, se [Ladda upp en specialiserad virtuell hård disk till Azure och skapa en ny virtuell dator](create-vm-specialized.md)
 
  

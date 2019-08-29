@@ -6,18 +6,17 @@ author: laurenhughes
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: a86ce329a19272eb83c431af395b330f75111361
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 083702a5340ed47370a8b4c7d64846848636ba30
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323297"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094878"
 ---
 # <a name="pool-create-event"></a>Händelse för skapande av pool
 
@@ -83,7 +82,7 @@ ms.locfileid: "68323297"
 |Elementnamn|type|Anteckningar|
 |------------------|----------|-----------|
 |publisher|Sträng|Avbildningens utgivare.|
-|Styrelse|Sträng|Bildens erbjudande.|
+|styrelse|Sträng|Bildens erbjudande.|
 |sku|Sträng|Avbildningens SKU.|
 |version|Sträng|Avbildningens version.|
 

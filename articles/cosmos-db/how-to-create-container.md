@@ -3,19 +3,19 @@ title: Skapa en container i Azure Cosmos DB
 description: Lär dig att skapa en container i Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7768f94051c6882f08dce360e35bf673c7b1103d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a88d8f33624278ac6e70b918cec7cef133fe4b34
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241008"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093480"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Skapa en Azure Cosmos-container
 
-Den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (samling, tabell eller diagram). Du kan använda Azure-portalen, Azure CLI eller SDK: er stöds för den här. Den här artikeln visar hur du skapar en container, anger partitionsnyckeln och etablerar dataflöde.
+I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (samling, tabell eller graf). Du kan använda Azure Portal, Azure CLI eller SDK: er som stöds för detta. Den här artikeln visar hur du skapar en container, anger partitionsnyckeln och etablerar dataflöde.
 
 ## <a name="create-a-container-using-azure-portal"></a>Skapa en container med hjälp av Azure-portalen
 
@@ -23,14 +23,14 @@ Den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (sam
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account), eller välja ett befintligt konto.
+1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account)eller Välj ett befintligt konto.
 
 1. Öppna fönsterrutan **Data Explorer** och välj **Ny samling**. Ange därefter följande information:
 
    * Ange om du skapar en ny databas eller använder en befintlig.
    * Ange ett samlings-ID.
    * Ange en partitionsnyckel.
-   * Ange ett dataflöde som ska etableras (till exempel 1000 ru: er).
+   * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
    * Välj **OK**.
 
 ![Skärmbild av Data Explorer-fönstret med Ny samling markerat](./media/how-to-create-container/partitioned-collection-create-sql.png)
@@ -39,14 +39,14 @@ Den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (sam
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. [Skapa ett nytt Azure Cosmos-konto](create-mongodb-dotnet.md#create-a-database-account), eller välja ett befintligt konto.
+1. [Skapa ett nytt Azure Cosmos-konto](create-mongodb-dotnet.md#create-a-database-account)eller Välj ett befintligt konto.
 
 1. Öppna fönsterrutan **Data Explorer** och välj **Ny samling**. Ange därefter följande information:
 
    * Ange om du skapar en ny databas eller använder en befintlig.
    * Ange ett samlings-ID.
    * Ange en shardnyckel.
-   * Ange ett dataflöde som ska etableras (till exempel 1000 ru: er).
+   * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
    * Välj **OK**.
 
 ![Skärmbild av API för Azure Cosmos DB för MongoDB, dialogrutan Lägg till samling](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
@@ -55,14 +55,14 @@ Den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (sam
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. [Skapa ett nytt Azure Cosmos-konto](create-cassandra-dotnet.md#create-a-database-account), eller välja ett befintligt konto.
+1. [Skapa ett nytt Azure Cosmos-konto](create-cassandra-dotnet.md#create-a-database-account)eller Välj ett befintligt konto.
 
 1. Öppna rutan **Datautforskaren** och välj **Ny tabell**. Ange därefter följande information:
 
    * Ange om du skapar ett nytt nyckelutrymme eller använder ett befintligt.
    * Ange ett tabellnamn.
    * Ange egenskaper och ange en primärnyckel.
-   * Ange ett dataflöde som ska etableras (till exempel 1000 ru: er).
+   * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
    * Välj **OK**.
 
 ![Skärmbild av API för Cassandra, dialogrutan Lägg till tabell](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
@@ -74,15 +74,15 @@ Den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (sam
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. [Skapa ett nytt Azure Cosmos-konto](create-graph-dotnet.md#create-a-database-account), eller välja ett befintligt konto.
+1. [Skapa ett nytt Azure Cosmos-konto](create-graph-dotnet.md#create-a-database-account)eller Välj ett befintligt konto.
 
 1. Öppna rutan **Datautforskaren** och välj **Ny graf**. Ange därefter följande information:
 
    * Ange om du skapar en ny databas eller använder en befintlig.
-   * Ange ett Graph-ID.
+   * Ange ett graf-ID.
    * Välj **obegränsad** lagringskapacitet.
    * Ange en partitionsnyckel för hörn.
-   * Ange ett dataflöde som ska etableras (till exempel 1000 ru: er).
+   * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
    * Välj **OK**.
 
 ![Skärmbild av API för Gremlin, dialogrutan Lägg till diagram](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
@@ -91,12 +91,12 @@ Den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (sam
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. [Skapa ett nytt Azure Cosmos-konto](create-table-dotnet.md#create-a-database-account), eller välja ett befintligt konto.
+1. [Skapa ett nytt Azure Cosmos-konto](create-table-dotnet.md#create-a-database-account)eller Välj ett befintligt konto.
 
 1. Öppna rutan **Datautforskaren** och välj **Ny tabell**. Ange därefter följande information:
 
    * Ange ett tabell-ID.
-   * Ange ett dataflöde som ska etableras (till exempel 1000 ru: er).
+   * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
    * Välj **OK**.
 
 ![Skärmbild av Tabell-API, dialogrutan Lägg till tabell](./media/how-to-create-container/partitioned-collection-create-table.png)
@@ -174,7 +174,7 @@ az cosmosdb collection create \
 
 ## <a name="create-a-container-using-powershell"></a>Skapa en behållare med hjälp av PowerShell
 
-I exemplen nedan visar hur du skapar de stödjande resurser som krävs för att etablera en behållarenivån resurs i Azure Cosmos DB
+Exemplen nedan visar hur du skapar alla stöd resurser som krävs för att etablera en resurs på behållar nivå i Azure Cosmos DB
 
 ### <a id="ps-sql"></a>SQL-API
 
@@ -497,7 +497,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-> MongoDB-protokollet inte förstå begreppet [programbegäran](request-units.md). Använd Azure-portalen eller Cosmos DB SDK för SQL-API för att skapa en ny samling med etablerat dataflöde på den.
+> MongoDB Wire Protocol förstår inte konceptet för enheter för [programbegäran](request-units.md). Om du vill skapa en ny samling med ett tillhandahållet data flöde på den använder du Azure Portal eller Cosmos DB SDK: er för SQL API.
 
 ### <a id="dotnet-cassandra"></a>API för Cassandra
 
@@ -513,5 +513,5 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 - [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 - [Enheter för programbegäran i Azure Cosmos DB](request-units.md)
-- [Etablera dataflöde på behållare och databaser](set-throughput.md)
+- [Etablera data flöde på behållare och databaser](set-throughput.md)
 - [Arbeta med Azure Cosmos-konto](account-overview.md)

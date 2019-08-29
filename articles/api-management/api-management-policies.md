@@ -9,81 +9,80 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: e27829fe5ebf57552ef4e97a2bfc7b6aefd81dc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed20ef023a884ac79150cd31f25fde86b715c752
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254407"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073400"
 ---
 # <a name="api-management-policies"></a>API Management-principer
-Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](api-management-howto-policies.md).  
+Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](api-management-howto-policies.md).  
   
- Principer är en kraftfull funktion i systemet som gör att utgivaren kan ändra beteendet för API: ets konfiguration. Principer är en samling med instruktioner som körs sekventiellt på begäran eller en API-svar. Populära instruktioner är Formatkonvertering från XML till JSON och begränsning för att begränsa antalet inkommande anrop från en utvecklare av anropsfrekvens. Många fler principer är tillgängliga direkt.  
+ Principer är en kraftfull funktion i systemet som gör att utgivaren kan ändra beteendet för API: et genom konfigurationen. Principer är en samling instruktioner som körs sekventiellt i begäran eller svar på ett API. Vanliga instruktioner är format konvertering från XML till JSON och begränsning av anrops frekvensen för att begränsa antalet inkommande anrop från en utvecklare. Många fler principer är tillgängliga i rutan.  
   
  Principuttryck kan användas som attributvärden eller textvärden i API Management-principer, under förutsättning att principen tillåter det. Vissa principer som [Kontrollflöde](api-management-advanced-policies.md#choose) och [Ange variabel](api-management-advanced-policies.md#set-variable) baseras på principuttryck. Mer information finns i [Avancerade principer](api-management-advanced-policies.md#AdvancedPolicies) och [Principuttryck](api-management-policy-expressions.md).  
   
-##  <a name="ProxyPolicies"></a> Principer  
+##  <a name="ProxyPolicies"></a>Rikt  
   
 -   [Principer för begränsning av åtkomst](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
-    -   [Kontrollera HTTP-huvud](api-management-access-restriction-policies.md#CheckHTTPHeader) -framtvingar förekomsten och/eller värdet för ett HTTP-huvud.  
-    -   [Begränsa anropsfrekvensen per prenumeration](api-management-access-restriction-policies.md#LimitCallRate) – förhindrar att API-användning vid tillfälliga toppar genom att begränsa anropsfrekvensen per prenumeration procentuellt utifrån.  
-    -   [Begränsa anropsfrekvensen av nyckeln](api-management-access-restriction-policies.md#LimitCallRateByKey) – förhindrar att API-användning vid tillfälliga toppar genom att begränsa anropsfrekvens per nyckel regelbundet.  
-    -   [Begränsa anroparen IP-adresser](api-management-access-restriction-policies.md#RestrictCallerIPs) -filter (tillåter/nekar)-anrop från specifika IP-adresser och/eller -adressintervall.  
-    -   [Ange användningskvot per prenumeration](api-management-access-restriction-policies.md#SetUsageQuota) – du kan tillämpa en förnyas eller livslängd anrop volym och/eller bandbredd kvoten på basis av per prenumeration.  
-    -   [Ange användningskvot av nyckeln](api-management-access-restriction-policies.md#SetUsageQuotaByKey) – du kan tillämpa en förnyas eller livslängd anrop volym och/eller bandbredd kvoten på basis av per nyckel.  
-    -   [Verifiera JWT](api-management-access-restriction-policies.md#ValidateJWT) -tillämpar förekomst och giltigheten hos en JWT som extraheras från ett angivna HTTP-sidhuvud eller en angiven frågeparameter.  
+    -   [Kontrol lera http-huvud](api-management-access-restriction-policies.md#CheckHTTPHeader) -framtvingar förekomst och/eller värde för ett HTTP-huvud.  
+    -   [Begränsa anrops frekvensen av prenumeration](api-management-access-restriction-policies.md#LimitCallRate) – förhindrar att API-användnings toppar begränsas genom att begränsa anrops frekvensen, per prenumeration.  
+    -   [Begränsa anrops frekvensen per nyckel](api-management-access-restriction-policies.md#LimitCallRateByKey) – förhindrar att API-användnings toppar begränsas genom att begränsa anrops frekvensen, per nyckel.  
+    -   [Begränsa anroparen IP](api-management-access-restriction-policies.md#RestrictCallerIPs) -filter (tillåter/nekar) anrop från vissa IP-adresser och/eller adress intervall.  
+    -   [Ange användnings kvot per prenumeration](api-management-access-restriction-policies.md#SetUsageQuota) – gör att du kan tvinga en förnyad eller livs längds samtals volym och/eller bandbredds kvot, per prenumeration.  
+    -   [Ange användnings kvot per nyckel](api-management-access-restriction-policies.md#SetUsageQuotaByKey) – gör att du kan framtvinga en förnyad eller livs längds samtals volym och/eller bandbredds kvot, per nyckel.  
+    -   [Verifiera att JWT](api-management-access-restriction-policies.md#ValidateJWT) -framtvingar förekomst och giltighet av ett JWT extraheras från antingen ett angivet http-huvud eller en angiven frågeparameter.  
 -   [Avancerade principer](api-management-advanced-policies.md#AdvancedPolicies)  
-    -   [Kontrollflöde](api-management-advanced-policies.md#choose) – villkorligt gäller principrapporter som baseras på utvärderingen av booleska uttryck.  
-    -   [Vidarebefordra begäran](api-management-advanced-policies.md#ForwardRequest) -vidarebefordrar begäran till backend-tjänsten.
-    -   [Begränsa samtidighet](api-management-advanced-policies.md#LimitConcurrency) -förhindrar omges principer från att köras med mer än det angivna antalet begäranden i taget.
-    -   [Logga till Event Hub](api-management-advanced-policies.md#log-to-eventhub) -skickar meddelanden i formatet som anges till ett meddelandemål som definieras av en Logger-enhet.
-    -   [Simulera svar](api-management-advanced-policies.md#mock-response) -avbryter pipeline-körning och returnerar ett simulerat svar direkt till anroparen.
-    -   [Försök](api-management-advanced-policies.md#Retry) -återförsök körningen av de slutna principrapporter om och tills villkoret är uppfyllt. Körningen upprepas med de angivna intervall och upp till den angivna antal nya försök.  
-    -   [Returnera svaret](api-management-advanced-policies.md#ReturnResponse) -avbryter pipeline-körning och returnerar det angivna svaret direkt till anroparen.  
-    -   [Skicka enkelriktade begäran](api-management-advanced-policies.md#SendOneWayRequest) -skickar en begäran till den angivna URL: en utan att vänta tills ett svar.  
-    -   [Skicka begäran](api-management-advanced-policies.md#SendRequest) -skickar en begäran till den angivna URL: en.
-    -   [Ange HTTP-proxy](api-management-advanced-policies.md#SetHttpProxy) – gör att du kan dirigera vidarebefordrade begäranden via en HTTP-proxy.
-    -   [Ange variabel](api-management-advanced-policies.md#set-variable) -bevara ett värde i en namngiven sammanhangsvariabel för senare användning.  
-    -   [Ange begärandemetoden](api-management-advanced-policies.md#SetRequestMethod) – kan du ändra HTTP-metoden för en begäran.  
-    -   [Ange statuskoden](api-management-advanced-policies.md#SetStatus) -ändrar HTTP-statuskoden till det angivna värdet.  
-    -   [Spårningen](api-management-advanced-policies.md#Trace) -lägger till en sträng i den [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) utdata.  
-    -   [Vänta](api-management-advanced-policies.md#Wait) -väntar för angiven [sändningsbegäranden](api-management-advanced-policies.md#SendRequest), [hämta värdet från cachen](api-management-caching-policies.md#GetFromCacheByKey), eller [Kontrollflöde](api-management-advanced-policies.md#choose) principer för att slutföra innan du fortsätter.  
+    -   [Kontroll flöde](api-management-advanced-policies.md#choose) – villkorligt tillämpar princip uttryck baserat på utvärderingen av booleska uttryck.  
+    -   [Vidarebefordra begäran](api-management-advanced-policies.md#ForwardRequest) – vidarebefordrar begäran till backend-tjänsten.
+    -   [Begränsning](api-management-advanced-policies.md#LimitConcurrency) av samtidighet – förhindrar att omslutna principer körs av fler än det angivna antalet begär anden i taget.
+    -   [Logga till Event Hub](api-management-advanced-policies.md#log-to-eventhub) – skickar meddelanden i angivet format till ett meddelande mål som definierats av en loggad entitet.
+    -   [Skiss-svar](api-management-advanced-policies.md#mock-response) – avbryter pipeline-körningen och returnerar ett skissat svar direkt till anroparen.
+    -   [Försök igen](api-management-advanced-policies.md#Retry) – nya försök att köra de omslutna princip instruktionerna, om och tills villkoret är uppfyllt. Körningen upprepas vid de angivna tidsintervallen och upp till det angivna antalet försök.  
+    -   [RETUR svar](api-management-advanced-policies.md#ReturnResponse) – avbryter pipeline-körningen och returnerar det angivna svaret direkt till anroparen.  
+    -   [Skicka en enkelriktad förfrågan](api-management-advanced-policies.md#SendOneWayRequest) – skickar en begäran till angiven URL utan att vänta på ett svar.  
+    -   [Skicka förfrågan](api-management-advanced-policies.md#SendRequest) – skickar en begäran till angiven URL.
+    -   [Ange http-proxy](api-management-advanced-policies.md#SetHttpProxy) – tillåter att du dirigerar vidarebefordrade begär Anden via en http-proxy.
+    -   [Ange variabel](api-management-advanced-policies.md#set-variable) – Behåll ett värde i en namngiven kontext variabel för senare åtkomst.  
+    -   [Ange metod för begäran](api-management-advanced-policies.md#SetRequestMethod) – gör att du kan ändra http-metoden för en begäran.  
+    -   [Ange status kod](api-management-advanced-policies.md#SetStatus) – ändrar HTTP-statuskoden till det angivna värdet.  
+    -   [Trace](api-management-advanced-policies.md#Trace) – lägger till en sträng i utdata för [API-kontrollen](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) .  
+    -   [Vänta](api-management-advanced-policies.md#Wait) – väntar på en bifogad [sändnings förfrågan](api-management-advanced-policies.md#SendRequest), [hämtar värdet från cachen](api-management-caching-policies.md#GetFromCacheByKey)eller [styr flödes](api-management-advanced-policies.md#choose) principer som ska slutföras innan du fortsätter.  
 -   [Autentiseringsprinciper](api-management-authentication-policies.md#AuthenticationPolicies)  
-    -   [Autentisera med Basic](api-management-authentication-policies.md#Basic) -autentisera med en serverdelstjänst som använder grundläggande autentisering.  
-    -   [Autentisera med klientcertifikatet](api-management-authentication-policies.md#ClientCertificate) -autentisera med en serverdelstjänst som använder klientcertifikat.  
-    -   [Autentisera med hanterad identitet](api-management-authentication-policies.md#ManagedIdentity) -autentisera med ett serverdel med en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
+    -   [Autentisera med Basic](api-management-authentication-policies.md#Basic) -autentisera med en backend-tjänst med grundläggande autentisering.  
+    -   [Autentisera med klient certifikat](api-management-authentication-policies.md#ClientCertificate) – autentisera med en backend-tjänst med hjälp av klient certifikat.  
+    -   [Autentisera med hanterad identitet](api-management-authentication-policies.md#ManagedIdentity) – autentisera med en backend-tjänst med hjälp av en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Cachelagringsprinciper](api-management-caching-policies.md#CachingPolicies)  
-    -   [Hämta från cache](api-management-caching-policies.md#GetFromCache) -utföra cache Leta upp och returnera ett giltigt cachelagrade svar när det är tillgängligt.  
-    -   [Store till cache](api-management-caching-policies.md#StoreToCache) -cachelagrar svaret enligt angivna cache-control-konfigurationen.  
-    -   [Hämta värdet från cachen](api-management-caching-policies.md#GetFromCacheByKey) – hämta ett cachelagrat objekt med nyckeln.  
-    -   [Store värdet i cache](api-management-caching-policies.md#StoreToCacheByKey) -Store ett objekt i cacheminnet av nyckeln.  
-    -   [Ta bort värdet från cache](api-management-caching-policies.md#RemoveCacheByKey) -ta bort ett objekt i cachen med nyckeln.  
+    -   [Hämta från cache](api-management-caching-policies.md#GetFromCache) – utför cache leta upp och returnera ett giltigt cachelagrat svar när det är tillgängligt.  
+    -   [Lagra i cache](api-management-caching-policies.md#StoreToCache) – cachelagrar svar enligt den angivna konfigurationen för cache-kontroll.  
+    -   [Hämta värde från cache](api-management-caching-policies.md#GetFromCacheByKey) – hämta ett cachelagrat objekt efter nyckel.  
+    -   [Lagra värdet i cache](api-management-caching-policies.md#StoreToCacheByKey) – lagra ett objekt i cacheminnet efter nyckel.  
+    -   [Ta bort värdet från cache](api-management-caching-policies.md#RemoveCacheByKey) – ta bort ett objekt i cache by-nyckeln.  
 -   [Principer mellan domäner](api-management-cross-domain-policies.md#CrossDomainPolicies)  
-    -   [Tillåt anrop mellan domäner](api-management-cross-domain-policies.md#AllowCrossDomainCalls) -gör API: et åtkomlig från Adobe Flash och Microsoft Silverlight webbläsarbaserade klienter.  
-    -   [CORS](api-management-cross-domain-policies.md#CORS) -lägger till cross-origin resource sharing (CORS) support till en åtgärd eller ett API för att tillåta anrop mellan domäner från webbläsarbaserade klienter.  
-    -   [JSONP](api-management-cross-domain-policies.md#JSONP) -lägger till JSON med stöd för utfyllnad (JSONP) till en åtgärd eller ett API för att tillåta anrop mellan domäner från JavaScript-webbläsarbaserade klienter.  
+    -   [Tillåt kors domän anrop](api-management-cross-domain-policies.md#AllowCrossDomainCalls) – gör API: et tillgängligt från webbläsarbaserade Adobe Flash-och Microsoft Silverlight-baserade klienter.  
+    -   [CORS](api-management-cross-domain-policies.md#CORS) – lägger till CORS-stöd (Cross-Origin Resource Sharing) till en åtgärd eller ett API för att tillåta kors domän anrop från webbläsarbaserade klienter.  
+    -   [JSONP](api-management-cross-domain-policies.md#JSONP) – lägger till JSON med JSONP-stöd (JSON with utfyllnad) till en åtgärd eller ett API för att tillåta kors domän anrop från Java Script browser-baserade klienter.  
 -   [Omvandlingsprinciper](api-management-transformation-policies.md#TransformationPolicies)  
-    -   [Konvertera JSON till XML](api-management-transformation-policies.md#ConvertJSONtoXML) – konverterar begära eller svaret body från JSON till XML.  
-    -   [Konvertera XML till JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) – konverterar begära eller svaret body från XML till JSON.  
-    -   [Sök och Ersätt sträng i brödtext](api-management-transformation-policies.md#Findandreplacestringinbody) – söker efter en begäran eller ett svar delsträng och ersätter den med en annan understräng.  
-    -   [Maskera URL: er i innehåll](api-management-transformation-policies.md#MaskURLSContent) -skriver (masker) länkar i svaret body så att de pekar på motsvarande länk via gatewayen.  
-    -   [Ange serverdelstjänst](api-management-transformation-policies.md#SetBackendService) -ändras serverdelstjänst för en inkommande begäran.  
-    -   [Ange brödtext](api-management-transformation-policies.md#SetBody) -anger meddelandets brödtext för inkommande och utgående förfrågningar.  
-    -   [Ange HTTP-huvud](api-management-transformation-policies.md#SetHTTPheader) – tilldelar ett värde till en befintlig svar och/eller begärandehuvudet eller lägger till ett nytt svar och/eller begäran-huvud.  
-    -   [Ange parametern för frågesträngen](api-management-transformation-policies.md#SetQueryStringParameter) – lägger till, ersätter värdet för eller tar bort begäran frågesträngparametern.  
-    -   [Omskrivningswebbadressen](api-management-transformation-policies.md#RewriteURL) – konverterar en begärd URL från sin offentliga form i formuläret som förväntas av webbtjänsten.  
-    -   [Transformera XML med hjälp av en XSLT](api-management-transformation-policies.md#XSLTransform) -gäller en XML-transformering för XML i brödtexten för begäran eller ett svar.  
+    -   [Konvertera JSON till XML](api-management-transformation-policies.md#ConvertJSONtoXML) – konverterar begäran eller svars text från JSON till XML.  
+    -   [Konvertera XML till JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) – konverterar begäran eller svars text från XML till JSON.  
+    -   [Sök och ersätt sträng i brödtext](api-management-transformation-policies.md#Findandreplacestringinbody) – söker efter en begäran eller svars under sträng och ersätter den med en annan under sträng.  
+    -   [Maskera URL: er i](api-management-transformation-policies.md#MaskURLSContent) Länkar för innehålls skrivning (masker) i svars texten så att de pekar på motsvarande länk via gatewayen.  
+    -   [Ange server dels tjänst](api-management-transformation-policies.md#SetBackendService) – ändrar backend-tjänsten för en inkommande begäran.  
+    -   [Ange brödtext](api-management-transformation-policies.md#SetBody) – anger meddelande texten för inkommande och utgående begär Anden.  
+    -   [Ange HTTP-huvud](api-management-transformation-policies.md#SetHTTPheader) – tilldelar ett värde till ett befintligt svar och/eller begär ande huvud eller lägger till ett nytt svar och/eller begär ande huvud.  
+    -   [Ange frågesträngparametern-parameter](api-management-transformation-policies.md#SetQueryStringParameter) – lägger till, ersätter värdet eller tar bort förfrågan om frågesträngparametern.  
+    -   [Skriv om URL](api-management-transformation-policies.md#RewriteURL) – KONVERTERAR en URL för begäran från det offentliga formuläret till det formulär som förväntas av webb tjänsten.  
+    -   [TRANSFORMERA XML med hjälp av en XSLT](api-management-transformation-policies.md#XSLTransform) – använder en XSL-omvandling till XML i begäran eller svars texten.  
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Arbeta med principer, Läs mer:
+Mer information om hur du arbetar med principer finns i:
 
 + [Principer i API Management](api-management-howto-policies.md)
 + [Transformera API: er](transform-api.md)
-+ [Princip-exempel](policy-samples.md)   
++ [Princip exempel](policy-samples.md)   

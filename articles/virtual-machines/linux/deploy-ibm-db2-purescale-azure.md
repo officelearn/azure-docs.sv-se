@@ -11,16 +11,15 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 68fde09b1ee5f18aa784793cc19e9f547b19ed43
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 8eb8075454dc3a49e9525d566c34c64bab8be5a0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871885"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083434"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuera IBM DB2 pureScale på Azure
 
@@ -88,7 +87,7 @@ GitHub-lagringsplatsen innehåller DB2server. rsp, en svars fil (. RSP) som gör
 | Instans ägare            | Befintlig användare för instans, användar namn        | DB2sdin1                                                                                              |
 | Avgränsad användare               | Befintlig användare, användar namn                     | DB2sdfe1                                                                                              |
 | Kluster fil system       | Enhets Sök väg för delad diskpartition            | /dev/dm-2                                                                                             |
-|                           | Monterings punkt                                  | /DB2sd\_1804a                                                                                         |
+|                           | Monteringspunkt                                  | /DB2sd\_1804a                                                                                         |
 |                           | Delad disk för data                         | /dev/dm-1                                                                                             |
 |                           | Monterings punkt (data)                           | /DB2fs/datafs1                                                                                        |
 |                           | Delad disk för logg                          | /dev/dm-0                                                                                             |

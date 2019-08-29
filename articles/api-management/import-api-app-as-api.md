@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 120fe358e5c8afe63e98038ad353d5ebc45a1937
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 484621668b582953d49c366336a49970d82c3fbf
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255910"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073269"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importera en API-app som ett API
 
@@ -31,7 +30,7 @@ I den här artikeln kan du se hur du:
 > * Testa API:et i Azure Portal
 > * Testa API:et i Developer-portalen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 + Kontrollera att det finns en API-app i din prenumeration. Mer information finns i [App Service-dokumentationen](https://docs.microsoft.com/azure/app-service/)

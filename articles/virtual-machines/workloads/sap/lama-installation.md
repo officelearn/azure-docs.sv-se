@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 4a4421b87aa094306a42212f76f7590d4f139047
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1b8297a797f83935f16365a15d100ce88cadca30
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68607971"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099540"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa-anslutning för Azure
 
@@ -99,9 +98,9 @@ Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som 
 
 Öppna webbplatsen SAP LaMa och gå till infrastruktur. Gå till fliken Cloud Managers och klicka på Lägg till. Välj Microsoft Azure Molnadapter och klicka på Nästa. Ange följande information:
 
-* Etikett: Välj ett namn för anslutnings instansen
-* Användarnamn: Program-ID för tjänstens huvudkonto
-* Lösenord: Huvud nyckel/lösen ord för tjänst
+* Etikett Välj ett namn för anslutnings instansen
+* Användar namn: Program-ID för tjänstens huvudkonto
+* Ords Huvud nyckel/lösen ord för tjänst
 * URL: Behåll standard https://management.azure.com/
 * Övervaknings intervall (sekunder): Måste vara minst 300
 * Prenumerations-ID: Azure prenumerations-ID
@@ -504,12 +503,12 @@ Använd *AS1-di-0* som *värd namn för Pas* -instansen i dialog rutan *primär 
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Fel och varningar vid installation av program Server
 
 * Fel vid körning av SAPinst-steg: getProfileDir
-  * FEL: (Senaste fel rapporterat av steget: Infångad ESAPinstException i modul anrop: Verifierare av steg | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_readProfileDir | IND | IND | IND | IND | readProfile | 0 | getProfileDir rapporterade ett fel: Node \\-\as1-ascs\sapmnt\AS1\SYS\profile finns inte. Lös problemet genom att starta SAPinst i interaktivt läge
+  * FELS (Senaste fel rapporterat av steget: Infångad ESAPinstException i modul anrop: Verifierare av steg | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_readProfileDir | IND | IND | IND | IND | readProfile | 0 | getProfileDir rapporterade ett fel: Node \\-\as1-ascs\sapmnt\AS1\SYS\profile finns inte. Lös problemet genom att starta SAPinst i interaktivt läge
   * Lösning  
     Kontrol lera att SWPM körs med en användare som har åtkomst till profilen. Den här användaren kan konfigureras i installations guiden för program Server
 
 * Fel vid körning av SAPinst-steg: askUnicode
-  * FEL: (Senaste fel rapporterat av steget: Infångad ESAPinstException i modul anrop: Verifierare av steg | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_getUnicode | IND | IND | IND | IND | Unicode | 0 | askUnicode rapporterade ett fel: Lös problemet genom att starta SAPinst i interaktivt läge
+  * FELS (Senaste fel rapporterat av steget: Infångad ESAPinstException i modul anrop: Verifierare av steg | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_getUnicode | IND | IND | IND | IND | Unicode | 0 | askUnicode rapporterade ett fel: Lös problemet genom att starta SAPinst i interaktivt läge
   * Lösning  
     Om du använder en tidigare SAP-kernel kan SWPM inte avgöra om systemet är ett Unicode-system som inte längre använder meddelande servern för ASCS. Se SAP NOTE [2445033] för mer information.  
     Det här problemet åtgärdas i ett nytt support paket/korrigering av SAP LaMa.  

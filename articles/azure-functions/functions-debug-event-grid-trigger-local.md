@@ -1,117 +1,116 @@
 ---
-title: Azure Functions Event Grid lokal felsökning
-description: Lär dig att felsöka lokalt Azure functions som utlöses av en Event Grid-händelse
+title: Azure Functions Event Grid lokal fel sökning
+description: Lär dig att lokalt felsöka Azure-funktioner som utlöses av en Event Grid-händelse
 services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
-keywords: Azure functions, funktioner, serverlös arkitektur
+keywords: Azure Functions, functions, arkitektur utan Server
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 82e3744c8129a076bbae34314b1f829c6f48d548
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e28abbe8d44094d8599545479f4611a84e9d9bd5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479859"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085689"
 ---
-# <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure-funktion Event Grid utlösa lokal felsökning
+# <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Function Event Grid utlösa lokal fel sökning
 
-Den här artikeln visar hur du felsöker en lokal funktion som hanterar en Azure Event Grid-händelse som aktiverats av ett lagringskonto. 
+Den här artikeln visar hur du felsöker en lokal funktion som hanterar en Azure Event Grid-händelse som aktive ras av ett lagrings konto. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Skapa eller använda en befintlig funktionsapp
-- Skapa eller använda ett befintligt lagringskonto
-- Ladda ned [ngrok](https://ngrok.com/) så att Azure för att anropa din lokala funktion
+- Skapa eller Använd en befintlig Function-app
+- Skapa eller Använd ett befintligt lagrings konto
+- Ladda ned [ngrok](https://ngrok.com/) så att Azure kan anropa din lokala funktion
 
 ## <a name="create-a-new-function"></a>Skapa en ny funktion
 
-Öppna din funktionsapp i Visual Studio och, högerklicka på projektnamnet i Solution Explorer och klicka på **Lägg till > Ny Azure Function**.
+Öppna din Function-app i Visual Studio och högerklicka på projekt namnet i Solution Explorer och klicka på **Lägg till > ny Azure-funktion**.
 
-I den *ny Azure Function* väljer **Event Grid-utlösare** och klicka på **OK**.
+I den *nya Azure Function* -fönstret väljer du **Event Grid** utlösare och klickar på **OK**.
 
 ![Skapa ny funktion](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-function.png)
 
-När funktionen har skapats kan du öppna kodfilen och kopiera URL: en som har kommenterats bort överst i filen. Den här platsen används när du konfigurerar Event Grid-utlösaren.
+När funktionen har skapats öppnar du kod filen och kopierar URL: en som är kommenterad överst i filen. Den här platsen används när du konfigurerar Event Grid-utlösaren.
 
-![Kopiera plats](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-copy-location.png)
+![Kopierings plats](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-copy-location.png)
 
-Ange sedan en brytpunkt på raden som börjar med `log.LogInformation`.
+Ange sedan en Bryt punkt på raden som börjar med `log.LogInformation`.
 
-![Ange brytpunkt](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-set-breakpoint.png)
+![Ange Bryt punkt](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-set-breakpoint.png)
 
 
-Nästa **tryck på F5** att starta en felsökningssession.
+Tryck sedan **på F5** för att starta en felsökningssession.
 
-## <a name="allow-azure-to-call-your-local-function"></a>Tillåt Azure för att anropa din lokala funktion
+## <a name="allow-azure-to-call-your-local-function"></a>Tillåt Azure att anropa din lokala funktion
 
-Om du vill bryta in i en funktion som felsöks på din dator, måste du aktivera ett sätt för Azure för att kommunicera med din lokala funktion från molnet.
+Om du vill dela upp en funktion som felsöks på datorn måste du aktivera ett sätt för Azure att kommunicera med din lokala funktion från molnet.
 
-Den [ngrok](https://ngrok.com/) verktyget gör det möjligt för Azure för att anropa funktionen som körs på din dator. Starta *ngrok* med följande kommando:
+Verktyget [ngrok](https://ngrok.com/) är ett sätt för Azure att anropa funktionen som körs på din dator. Starta *ngrok* med följande kommando:
 
 ```bash
 ngrok http -host-header=localhost 7071
 ```
-När verktyget har konfigurerats, bör kommandofönstret likna följande skärmbild:
+När verktyget har kon figurer ATS bör kommando fönstret se ut ungefär som på följande skärm bild:
 
 ![Starta ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
-Kopiera den **HTTPS** URL: en genereras när *ngrok* körs. Det här värdet används när du konfigurerar event grid event slutpunkten.
+Kopiera **https** -URL: en som genererades när *ngrok* körs. Det här värdet används när du konfigurerar händelse slut punkten för Event Grid.
 
-## <a name="add-a-storage-event"></a>Lägg till en storage-händelse
+## <a name="add-a-storage-event"></a>Lägg till en lagrings händelse
 
-Öppna Azure-portalen och gå till ett lagringskonto och klicka på den **händelser** alternativet.
+Öppna Azure Portal och navigera till ett lagrings konto och klicka på alternativet **händelser** .
 
-![Lägg till händelse för storage-konto](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
+![Lägg till lagrings konto händelse](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-I den *händelser* fönstret, klicka på den **händelseprenumeration** knappen. I den *även prenumeration* fönstret, klicka på den *Slutpunktstyp* listrutan och välj **Webhook**.
+I fönstret *händelser* klickar du på knappen **händelse prenumeration** . I fönstret *jämn prenumeration* klickar du på list rutan *slut punkts typ* och väljer **Web Hook**.
 
-![Välj typ av prenumeration](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
+![Välj prenumerations typ](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 
-När typ av slutpunkt har konfigurerats klickar du på **väljer du en slutpunkt** konfigurera slutpunktsvärdet.
+När du har konfigurerat slut punkts typen klickar du på **Välj en slut punkt** för att konfigurera slut punkt svärdet.
 
-![Välj typ av slutpunkt](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
+![Välj typ av slut punkt](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
 
-Den *slutpunkt för prenumerant* värdet består från tre olika värden. Prefixet är HTTPS-URL som genererats av *ngrok*. Resten av URL: en kommer från URL: en finns i kodfilen funktionen med funktionsnamnet har lagts till i slutet. Från och med URL: en från funktionens kodfil, den *ngrok* URL ersätter `http://localhost:7071` och funktionen namnge ersätter `{functionname}`.
+Värdet för *prenumerantens slut punkt* består av tre olika värden. Prefixet är HTTPS-URL: en som genereras av *ngrok*. Resten av URL: en kommer från den URL som finns i funktions kod filen, med funktions namnet tillagt i slutet. Från och med URL: en från funktions kod filen ersätts `http://localhost:7071` *ngrok* URL och funktions namnet ersätts `{functionname}`.
 
-Skärmbilden nedan visar hur den slutliga URL bör se ut:
+Följande skärm bild visar hur den sista URL: en ska se ut:
 
-![Val av slutpunkt](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint-selection.png)
+![Slut punkts val](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint-selection.png)
 
-När du har angett rätt värde, klickar du på **bekräfta valet**.
+När du har angett rätt värde klickar du på **Bekräfta markering**.
 
 > [!IMPORTANT]
-> Varje gång du startar *ngrok*, HTTPS-URL: en genereras och värdet ändras. Du måste därför skapa en händelseprenumeration varje gång som du exponera din funktion till Azure via *ngrok*.
+> Varje gång du startar *ngrok*återskapas HTTPS-URL: en och värdet ändras. Därför måste du skapa en ny händelse prenumeration varje gången du exponerar din funktion för Azure via *ngrok*.
 
-## <a name="upload-a-file"></a>Överför en fil
+## <a name="upload-a-file"></a>Ladda upp en fil
 
-Nu kan du överföra en fil till ditt lagringskonto för att aktivera en Event Grid-händelse att hantera lokala funktionen. 
+Nu kan du ladda upp en fil till ditt lagrings konto för att utlösa en Event Grid händelse för din lokala funktion att hantera. 
 
-Öppna [Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/) och ansluta till i ditt storage-konto. 
+Öppna [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) och Anslut till ditt lagrings konto. 
 
-- Expandera **Blob-behållare** 
-- Högerklicka och välj **skapa Blobbehållare**.
-- Namnge behållaren **testa**
-- Välj den *testa* behållare
-- Klicka på den **överför** knappen
-- Klicka på **ladda upp filer**
-- Välj en fil och överföra den till blob-behållaren
+- Expandera **BLOB-behållare** 
+- Högerklicka och välj **skapa BLOB-behållare**.
+- Namnge container **testet**
+- Välj *test* behållare
+- Klicka på knappen **överför**
+- Klicka på **överför filer**
+- Välj en fil och överför den till BLOB-behållaren
 
 ## <a name="debug-the-function"></a>Felsöka funktionen
 
-När Event Grid identifierar en ny fil har överförts till behållaren, nå brytpunkten i din lokala funktion.
+När Event Grid identifierat en ny fil överförs till lagrings behållaren, trycks Bryt punkten i din lokala funktion.
 
 ![Starta ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa de resurser som skapades i den här artikeln kan du ta bort den **testa** behållare i ditt storage-konto.
+Om du vill rensa resurserna som skapats i den här artikeln tar du bort **test** behållaren i ditt lagrings konto.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Automatisera storleksändring av överförda bilder med Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md)
-- [Event Grid-utlösare för Azure Functions](./functions-bindings-event-grid.md)
+- [Event Grid utlösare för Azure Functions](./functions-bindings-event-grid.md)

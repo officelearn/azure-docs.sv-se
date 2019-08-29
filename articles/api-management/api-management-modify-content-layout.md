@@ -10,23 +10,22 @@ ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: fd9902a83a813daffc52e089e6e8bfc4137c5b8f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656645"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072269"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Ändra innehåll och layout för sidorna på utvecklarportalen i Azure API Managment
 Det finns tre grundläggande metoder för att anpassa utvecklarportalen i Azure API Management:
 
-* [Redigera innehållet på statiska sidor och sidlayoutelement][modify-content-layout] (beskrivs i den här guiden)
-* [Uppdatera formaten som används för sidelement i utvecklingsportalen][customize-styles]
-* [Ändra mallarna som används för sidor som genereras av portalen][portal-templates] (t.ex. API-dokumentation, produkter, användarautentisering osv.)
+* [Redigera innehållet i element för statiska sidor och][modify-content-layout] sidlayout (förklaras i den här hand boken)
+* [Uppdatera formaten som används för sid element i Developer-portalen][customize-styles]
+* [Ändra mallarna som används för sidor som genereras av portalen][portal-templates] (till exempel API-dokument, produkter, användarautentisering osv.)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -56,8 +55,8 @@ Developer-portalen är tillgänglig på Azure Portal.
 Nu visas det nya sidhuvudet på varje sida på utvecklarportalen.
 
 ## <a name="next-steps"> </a>Nästa steg
-* [Uppdatera formaten som används för sidelement i utvecklingsportalen][customize-styles]
-* [Ändra mallarna som används för sidor som genereras av portalen][portal-templates] (t.ex. API-dokumentation, produkter, användarautentisering osv.)
+* [Uppdatera formaten som används för sid element i Developer-portalen][customize-styles]
+* [Ändra mallarna som används för sidor som genereras av portalen][portal-templates] (till exempel API-dokument, produkter, användarautentisering osv.)
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget

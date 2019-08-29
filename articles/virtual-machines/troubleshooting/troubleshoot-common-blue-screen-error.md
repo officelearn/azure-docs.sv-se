@@ -1,73 +1,72 @@
 ---
-title: Blå skärm fel när du startar en virtuell Azure-dator | Microsoft Docs
-description: Lär dig att felsöka problemet som blå skärm felmeddelandet när du startar | Microsoft Docs
+title: Blå skärms fel vid start av en virtuell Azure-dator | Microsoft Docs
+description: Lär dig hur du felsöker problemet att det blå skärms felet tas emot vid start av | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 26306489b11e24ab50f0ae893f11137d279c6127
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 397f9f4de21ecb27435c132d80074ed442202448
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719824"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089974"
 ---
-# <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows visar blå skärm fel när du startar en virtuell Azure-dator
-Den här artikeln beskriver blå skärm fel som kan uppstå när du startar en Windows virtuell dator (VM) i Microsoft Azure. Den innehåller steg som hjälper dig att samla in data för ett supportärende. 
+# <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows visar blå skärms fel vid start av en virtuell Azure-dator
+I den här artikeln beskrivs blå skärms fel som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure. Den innehåller steg som hjälper dig att samla in data för ett support ärende. 
 
 > [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributions modellen.
 
 ## <a name="symptom"></a>Symtom 
 
-En virtuell Windows-dator startar inte. När du checkar Start skärmbilderna [Startdiagnostik](./boot-diagnostics.md), du ser något av följande felmeddelanden i en blå skärm:
+En virtuell Windows-dator startar inte. När du kontrollerar start skärmarna i [startdiagnostik](./boot-diagnostics.md)kan du se något av följande fel meddelanden på en blå skärm:
 
-- vår datorn råkade ut för ett problem och måste startas om. Vi samlar in bara viss felinformation och starta sedan.
-- Datorn råkade ut för ett problem och måste startas om.
+- DATORN stötte på ett problem och måste startas om. Vi har bara samlat in fel information och sedan kan du starta om.
+- DATORN stötte på ett problem och måste startas om.
 
-Det här avsnittet innehåller vanliga felmeddelanden som kan uppstå när du hanterar virtuella datorer:
+Det här avsnittet innehåller vanliga fel meddelanden som du kan stöta på när du hanterar virtuella datorer:
 
 ## <a name="cause"></a>Orsak
 
-Det kan finnas flera orsaker som varför skulle du få ett stoppfel. De vanligaste orsakerna är:
+Det kan finnas flera orsaker till varför du får ett stoppfel. De vanligaste orsakerna är:
 
-- Problem med en drivrutin
-- Skadad systemfil eller minne
-- Ett program som ansluter till en otillåtna sektor av minne
+- Problem med en driv rutin
+- Skadad system fil eller minne
+- Ett program får åtkomst till en förbjuden sektor i minnet
 
 ## <a name="collect-memory-dump-file"></a>Samla in minnesdump
 
-För att lösa problemet behöver du först med att samla in dumpfilen för kraschen och kontaktar du supporten med dumpfilen. Följ dessa steg för att samla in dumpfilen:
+För att lösa det här problemet måste du först samla in dumpfilen-filen för kraschen och kontakta supporten med dump-filen. Samla in dumpfilen genom att följa dessa steg:
 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en virtuell dator för återställning
 
-1. Ta en ögonblicksbild av OS-disken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
+1. Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
 2. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md). 
-3. Fjärrskrivbord till den Virtuella återställningsdatorn.
+3. Fjärr skrivbord till den virtuella återställnings datorn.
 
-### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Leta upp dumpfilen och skicka in ett supportärende
+### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Hitta en dumpfil och skicka ett support ärende
 
-1. På den Virtuella återställningsdatorn, gå till windows-mappen i den anslutna OS-disken. Om den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F, måste du gå till F:\Windows.
-2. Hitta memory.dmp-filen och sedan [skicka in ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med dumpfilen. 
+1. På den virtuella datorn för återställning går du till Windows-mappen på den anslutna OS-disken. Om den driv rutins beteckning som har tilldelats till den anslutna OS-disken är F, måste du gå till F:\Windows.
+2. Leta upp filen Memory. dmp och skicka sedan [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med dumpfilen. 
 
-Om du inte hittar dumpfilen, flytta nästa steg för att aktivera dump logg- och Seriekonsol.
+Om du inte hittar dumpfilen går du vidare till nästa steg för att aktivera dumpa logg och seriell konsol.
 
 ### <a name="enable-dump-log-and-serial-console"></a>Aktivera dump logg- och Seriekonsol
 
 Kör följande skript för att aktivera dump logg- och Seriekonsol.
 
-1. Öppna en upphöjd kommandotolk-session (Kör som administratör).
+1. Öppna en upphöjd kommando tolk session (kör som administratör).
 2. Kör följande skript:
 
-    I det här skriptet kan anta vi att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F.  Ersätt den med lämpligt värde i den virtuella datorn.
+    I det här skriptet antar vi att enhets beteckningen som är kopplad till den anslutna OS-disken är F.  Ersätt det med lämpligt värde i den virtuella datorn.
 
     ```powershell
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -91,8 +90,8 @@ Kör följande skript för att aktivera dump logg- och Seriekonsol.
     reg unload HKLM\BROKENSYSTEM
     ```
 
-    1. Se till att det finns tillräckligt med utrymme på disken för att allokera så mycket minne som RAM-minne, som är beroende av den storlek som du väljer för den här virtuella datorn.
-    2. Om det finns inte tillräckligt med utrymme eller om det här är en stor virtuell dator (G, GS eller E-serien), kan du ändra den plats där den här filen kommer att skapas och som avser andra datadisk som är ansluten till den virtuella datorn. Om du vill göra detta måste du ändra följande nyckel:
+    1. Kontrol lera att det finns tillräckligt med utrymme på disken för att allokera så mycket minne som RAM-minnet, vilket beror på den storlek som du väljer för den här virtuella datorn.
+    2. Om det inte finns tillräckligt med utrymme eller om det här är en stor virtuell dator (G, GS eller E-serien) kan du sedan ändra den plats där filen kommer att skapas och se om det finns någon annan datadisk som är kopplad till den virtuella datorn. För att göra detta måste du ändra följande nyckel:
 
             reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
@@ -101,9 +100,9 @@ Kör följande skript för att aktivera dump logg- och Seriekonsol.
 
             reg unload HKLM\BROKENSYSTEM
 
-3. [Koppla från den OS-disken och sedan koppla OS-disken till den berörda virtuella datorn igen](../windows/troubleshoot-recovery-disks-portal.md).
-4. Starta den virtuella datorn för att återskapa problemet och sedan den här filen kommer att genereras.
-5. Koppla OS-disken till en virtuell dator, samla in dumpfilen för återställning och sedan [skicka in ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med dumpfilen.
+3. [Koppla från OS-disken och återanslut sedan OS-disken till den berörda virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md).
+4. Starta den virtuella datorn för att återskapa problemet, så genereras en dumpfil.
+5. Koppla OS-disken till en virtuell dator för återställning, samla in dumpfilen och [skicka sedan ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med dumpfilen.
 
 
 

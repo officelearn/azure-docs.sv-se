@@ -1,6 +1,6 @@
 ---
-title: Flytta filer till och från virtuella Linux-datorer med SCP | Microsoft Docs
-description: Flytta filer på ett säkert sätt till och från en Linux-VM i Azure med hjälp av SCP och en SSH-nyckelpar.
+title: Flytta filer till och från virtuella Azure Linux-datorer med SCP | Microsoft Docs
+description: Flytta filer säkert till och från en virtuell Linux-dator i Azure med hjälp av SCP och ett SSH-nyckelpar.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -11,33 +11,32 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: danlep
 ms.subservice: disks
-ms.openlocfilehash: 13a2c889ac648e2847d1cc58a60a7b1c0f1fc1e2
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 594ce696245cdd688583f8565487844197cd0b2a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671659"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083758"
 ---
-# <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Flytta filer till och från en Linux VM med hjälp av SCP
+# <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Flytta filer till och från en virtuell Linux-dator med SCP
 
-Den här artikeln visar hur du flytta filer från din arbetsstation upp till en virtuell Linux-dator eller från en virtuell Linux-dator till din arbetsstation, med hjälp av SCP (Secure Copy). Flytta filer mellan din arbetsstation och en Linux-VM, snabbt och säkert, är viktigt för att hantera dina Azure-infrastrukturen. 
+Den här artikeln visar hur du flyttar filer från din arbets station till en virtuell Azure Linux-dator eller från en virtuell Azure Linux-dator till din arbets station med hjälp av en säker kopia (SCP). Det är enkelt och säkert att flytta filer mellan din arbets Station och en virtuell Linux-dator, och det är viktigt att du hanterar din Azure-infrastruktur. 
 
-För den här artikeln behöver du en virtuell Linux-dator som har distribuerats i Azure med hjälp av [SSH offentliga och privata nyckelfiler](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Du behöver också en SCP-klient för din lokala dator. Det är byggt på SSH och ingår i standard Bash-gränssnitt för de flesta Linux och Mac-datorer och vissa Windows-gränssnitt.
+I den här artikeln behöver du en virtuell Linux-dator som distribuerats i Azure med [offentliga SSH-och privata nyckelfiler](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Du behöver också en SCP-klient för den lokala datorn. Den är byggd ovanpå SSH och ingår i standard bash-gränssnittet för de flesta Linux-och Mac-datorer och vissa Windows-gränssnitt.
 
 ## <a name="quick-commands"></a>Snabbkommandon
 
-Kopiera en fil till Linux VM
+Kopiera en fil upp till den virtuella Linux-datorn
 
 ```bash
 scp file azureuser@azurehost:directory/targetfile
 ```
 
-Kopiera en fil från Linux VM
+Kopiera en fil ned från den virtuella Linux-datorn
 
 ```bash
 scp azureuser@azurehost:directory/file targetfile
@@ -45,36 +44,36 @@ scp azureuser@azurehost:directory/file targetfile
 
 ## <a name="detailed-walkthrough"></a>Detaljerad genomgång
 
-Som exempel kan vi flytta en Azure-konfigurationsfil upp till en Linux VM och nedrullningsbara en loggfilskatalog båda använder SCP och SSH-nycklar.   
+Som exempel flyttar vi en Azure-konfigurationsfil upp till en virtuell Linux-dator och hämtar en logg fils katalog, både med SCP och SSH-nycklar.   
 
-## <a name="ssh-key-pair-authentication"></a>SSH-nyckelpar-autentisering
+## <a name="ssh-key-pair-authentication"></a>Autentisering av SSH-nyckelpar
 
-SCP använder SSH för transportlagret. SSH hanterar autentisering på målvärden och flyttas till filen i en krypterad tunnel som tillhandahålls som standard med SSH. Användarnamn och lösenord kan användas för SSH-autentisering. SSH offentliga och privata nyckelautentisering rekommenderas dock som en säkerhetsåtgärd. När anslutningen har autentiserats SSH börjar SCP sedan kopiera filen. Med hjälp av en korrekt konfigurerad `~/.ssh/config` och SSH-nycklar för offentliga och privata, SCP-anslutning kan upprättas genom att bara använda ett servernamn (eller IP-adress). Om du bara har en SSH-nyckel SCP söker efter den i den `~/.ssh/` directory, och används som standard för att logga in på den virtuella datorn.
+SCP använder SSH för transport lagret. SSH hanterar autentiseringen på mål värden och flyttar filen i en krypterad tunnel som tillhandahålls som standard med SSH. För SSH-autentisering kan du använda användar namn och lösen ord. Autentisering av offentliga och privata SSH-nycklar rekommenderas dock som en säkerhets rutin. När SSH har autentiserat anslutningen börjar SCP att kopiera filen. Med en korrekt konfigurerad `~/.ssh/config` och offentliga och privata offentliga och privata nycklar kan SCP-anslutningen upprättas genom att du bara använder ett server namn (eller en IP-adress). Om du bara har en SSH-nyckel söker SCP efter den i `~/.ssh/` katalogen och använder den som standard för att logga in på den virtuella datorn.
 
-Mer information om hur du konfigurerar din `~/.ssh/config` och offentliga och privata nycklar för SSH, se [skapa SSH-nycklar](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Mer information om hur du konfigurerar `~/.ssh/config` dina offentliga och privata nycklar och privata nycklar finns i [skapa SSH-nycklar](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="scp-a-file-to-a-linux-vm"></a>SCP en fil till en Linux VM
+## <a name="scp-a-file-to-a-linux-vm"></a>SCP a-fil till en virtuell Linux-dator
 
-För det första exemplet kopierar vi en Azure-konfigurationsfil upp till en Linux VM som används för att distribuera automation. Säkerhet är viktigt eftersom den här filen innehåller Azure API-autentiseringsuppgifter, bland annat hemligheter. Krypterad tunnel som tillhandahålls av SSH skyddar innehållet i filen.
+I det första exemplet kopierar vi en Azure-konfigurationsfil upp till en virtuell Linux-dator som används för att distribuera Automation. Eftersom den här filen innehåller autentiseringsuppgifter för Azure API, som innehåller hemligheter, är säkerheten viktigt. Den krypterade tunneln som tillhandahålls av SSH skyddar filens innehåll.
 
-I följande kopieras lokalt *.azure/config* filen till en Azure-dator med FQDN *myserver.eastus.cloudapp.azure.com*. Ett administratörsanvändarnamn för virtuella Azure-datorn är *azureuser*. Filen är riktad mot den */home/azureuser/* directory. Ange egna värden i det här kommandot.
+Följande kommando kopierar den lokala *Azure/config-* filen till en virtuell Azure-dator med FQDN- *myserver.eastus.cloudapp.Azure.com*. Administratörs användar namnet på den virtuella Azure-datorn är *azureuser*. Filen är riktad till katalogen */Home/azureuser/* . Ersätt dina egna värden i det här kommandot.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config
 ```
 
-## <a name="scp-a-directory-from-a-linux-vm"></a>SCP en katalog från en Linux VM
+## <a name="scp-a-directory-from-a-linux-vm"></a>SCP en katalog från en virtuell Linux-dator
 
-I det här exemplet kopierar vi en katalog med loggfiler från Linux-VM till din arbetsstation. En loggfil kan eller inte kan innehålla känsliga eller hemliga data. Med hjälp av SCP innebär dock innehållet i filerna krypteras. Med hjälp av SCP för att överföra filer är det enklaste sättet att hämta loggkatalogen och filerna till din arbetsstation när du också är säker.
+I det här exemplet kopierar vi en katalog med loggfiler från den virtuella Linux-datorn till din arbets Station. En loggfil kan innehålla känsliga eller hemliga data. Att använda SCP säkerställer dock att innehållet i loggfilerna är krypterade. Att använda SCP för att överföra filerna är det enklaste sättet att hämta logg katalogen och filer till din arbets Station samtidigt som de är säkra.
 
-I följande kopieras filer i den */home/azureuser/logs/* katalogen på Azure-VM till lokala tmp:
+Följande kommando kopierar filer i katalogen */Home/azureuser/logs/* på den virtuella Azure-datorn till den lokala katalogen/tmp-katalogen:
 
 ```bash
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-Den `-r` cli-flaggan instruerar SCP till rekursivt kopiera filer och kataloger från punkten på katalogen som anges i kommandot.  Observera också att kommandoradssyntaxen liknar en `cp` kopiera kommandot.
+`-r` CLI-flaggan instruerar SCP att rekursivt kopiera filer och kataloger från den plats i katalogen som anges i kommandot.  Observera också att kommando rads koden liknar `cp` kommandot Kopiera.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Hantera användare, SSH och kontrol lera eller reparera diskar på virtuella Azure Linux-datorer med VMAccess-tillägget](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

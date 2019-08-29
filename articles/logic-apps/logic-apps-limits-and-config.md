@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 95df72875338b6964f42075404cf9c30ba132f9d
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 891273a98c61b59e08b4a15f3b0892e6828a2a47
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900213"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099430"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -105,6 +105,8 @@ Här är gränserna för en enda Logic app-definition:
 
 ### <a name="integration-service-environment-ise"></a>Integrerings tjänst miljö (ISE)
 
+Här är begränsningarna för data flödet för Premium SKU: n:
+
 | Name | Gräns | Anteckningar |
 |------|-------|-------|
 | Bas enhets körnings gräns | Systemet begränsas när infrastruktur kapaciteten når 80% | Innehåller ~ 4 000 åtgärds körningar per minut, vilket är ~ 160 000 000 åtgärds körningar per månad | |
@@ -113,6 +115,9 @@ Här är gränserna för en enda Logic app-definition:
 ||||
 
 Om du vill gå över dessa gränser i normal bearbetning eller köra belastnings test som kan gå över dessa gränser kan [du kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) för att få hjälp med dina krav.
+
+> [!NOTE]
+> [Developer SKU: n](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) har inga publicerade gränser eftersom detta SKU inte har något service avtal (SLA) eller funktioner för att skala upp. Använd endast den här SKU: n för experimentering, utveckling och testning, inte produktion eller prestanda testning.
 
 <a name="request-limits"></a>
 
@@ -181,10 +186,10 @@ Varje Azure-prenumeration har följande gränser för integrations kontot:
 
 * Varje ISE, vare sig [utvecklare eller Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), är begränsat till 5 sammanlagt antal integrations konton:
 
-  | ISE SKU | Gräns |
-  |---------|-------|
-  | **Premium** | 5 totalt – endast [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) , inga kostnads fria eller grundläggande |
-  | **Developer** | 5 totalt – kostnads fritt (begränsat till 1), standard eller både och, men ingen grundläggande |
+  | ISE SKU | Integrations konto gränser |
+  |---------|----------------------------|
+  | **Premium** | 5 totalt – [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) konton, inklusive ett standard konto kostnads fritt. Inga kostnads fria eller grundläggande konton är tillåtna. |
+  | **Developer** | 5 totalt – [kostnads fritt](../logic-apps/logic-apps-pricing.md#integration-accounts) (begränsat till 1 konto) och [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) kombinations lager eller alla standard konton. Inga grundläggande konton är tillåtna. Använd Developer- [SKU: n](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) för att experimentera, utveckla och testa, men inte för produktions-eller prestanda testning. |
   |||
 
 Ytterligare kostnader gäller för integrations konton som du lägger till utöver de integrations konton som ingår i en ISE. Information om hur priser och fakturering fungerar för ISEs finns i [pris modellen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps/).

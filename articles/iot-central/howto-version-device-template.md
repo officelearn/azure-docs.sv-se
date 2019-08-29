@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c718794528989fbc46b404617f16d3a91ade6011
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 155f392410c5722a28ba09acafc1480e72586773
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877311"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100908"
 ---
 # <a name="create-a-new-device-template-version"></a>Skapa en ny version av enhets mal len
 
@@ -50,7 +50,7 @@ I följande lista beskrivs de användar åtgärder som kan kräva en ny version:
 
 Vad händer med regler och enhets instrument paneler när det finns en versions ändring?
 
-**Regler** kan innehålla villkor som är beroende av egenskaper. Om du har tagit bort en eller flera av dessa egenskaper kan dessa regler brytas i den nya versionen av enhets mal len. Du kan gå till dessa regler och uppdatera villkoren för att åtgärda reglerna. Regler för din tidigare version bör fungera utan påverkan.
+**Reglerna** i den tidigare versionen av enhets mal len fortsätter att fungera oförändrade. Regler migreras inte automatiskt till den nya versionen av enhets mal len. Du kan skapa regler på den nya versionen av mallen som vanligt. Mer information finns i [skapa en telemetri-regel och konfigurera meddelanden i Azure IoT Central Application](howto-create-telemetry-rules.md) instruktion-artikeln.
 
 **Enhets instrument paneler** kan innehålla flera typer av paneler. Några av panelerna kan innehålla inställningar och egenskaper. När en egenskap eller inställning som används i en panel tas bort, är panelen helt eller delvis bruten. Du kan gå till panelen och åtgärda problemet antingen genom att ta bort panelen eller uppdatera innehållet i panelen.
 

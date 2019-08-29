@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 68c516ee7ca2d76339760ce0ad95590686250603
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861725"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067473"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformera och skydda ditt API
 
@@ -38,7 +37,7 @@ I den här guiden får du lära dig att:
 
 ![Principer](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 -   Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 -   Förstå [begreppet principer i Azure API Management](api-management-howto-policies.md).
@@ -75,13 +74,13 @@ Det ursprungliga svaret ska se ut så här:
 1. Välj **Demokonferens-API**.
 2. Överst på skärmen väljer du fliken **Design**.
 3. Välj **Alla åtgärder**.
-4. I avsnittet **Utgående bearbetning** klickar du på ikonen **</>**.
-5. Placera markören i elementet **&lt;utgående&gt;**.
+4. I avsnittet **Utgående bearbetning** klickar du på ikonen **</>** .
+5. Placera markören i elementet **&lt;utgående&gt;** .
 6. Klicka på **+ Konfigurera HTTP-huvud** två gånger under **Transformationsprinciper** i det högra fönstret (så infogas två principkodavsnitt).
 
    ![Principer](./media/transform-api/transform-api.png)
 
-7. Ändra din  **\<utgående >** kod för att se ut så här:
+7. Ändra den utgående > koden så att den ser ut så här:  **\<**
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -112,10 +111,10 @@ Visa det ursprungliga svaret:
 1.  Välj **Demokonferens-API**.
 2.  Välj **Alla åtgärder**.
 3.  Överst på skärmen väljer du fliken **Design**.
-4.  I avsnittet **Utgående bearbetning** klickar du på ikonen **</>**.
-5.  Placera markören i elementet **&lt;utgående&gt;**.
+4.  I avsnittet **Utgående bearbetning** klickar du på ikonen **</>** .
+5.  Placera markören i elementet **&lt;utgående&gt;** .
 6.  Klicka på **+ Sök och ersätt sträng i brödtext** under **Transformationsprinciper** i det högra fönstret.
-7.  Ersätt URL:en så att den matchar APIM-gatewayen genom att ändra din **find-and-replace**-kod (i **\<outbound\>**-elementet). Exempel:
+7.  Ersätt URL:en så att den matchar APIM-gatewayen genom att ändra din **find-and-replace**-kod (i **\<outbound\>** -elementet). Exempel:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -128,10 +127,10 @@ I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API ge
 1.  Välj **Demokonferens-API**.
 2.  Välj **Alla åtgärder**.
 3.  Överst på skärmen väljer du fliken **Design**.
-4.  I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>**.
-5.  Placera markören i elementet **&lt;inkommande&gt;**.
+4.  I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>** .
+5.  Placera markören i elementet **&lt;inkommande&gt;** .
 6.  Klicka på **+ Begränsa anropsfrekvens per nyckel** under **Principer för åtkomstbegränsning** i det högra fönstret.
-7.  Ändra din **rate-limit-by-key**-kod (i **\<inbound\>**-elementet) till följande kod:
+7.  Ändra din **rate-limit-by-key**-kod (i **\<inbound\>** -elementet) till följande kod:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

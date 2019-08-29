@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Key Vault för Windows virtuella datorer i Azure Resource Manager | Microsoft Docs
-description: Hur du ställer in Key Vault för användning med en Azure Resource Manager-dator.
+title: Konfigurera Key Vault för virtuella Windows-datorer i Azure Resource Manager | Microsoft Docs
+description: Konfigurera Key Vault för användning med en Azure Resource Manager virtuell dator.
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
@@ -11,53 +11,52 @@ ms.assetid: 33a483e2-cfbc-4c62-a588-5d9fd52491e2
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: 671d825300581796320542e09b8c9c4562097eb0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: e92ccacbcdc49ae5ea9496c9c8ac7fa90a05e20c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722553"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079218"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Konfigurera Key Vault för virtuella datorer i Azure Resource Manager
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
-I Azure Resource Manager-stacken modelleras hemligheter/certifikat som resurser som tillhandahålls av resursprovidern för Key Vault. Läs mer om Key Vault i [vad är Azure Key Vault?](../../key-vault/key-vault-whatis.md)
+I Azure Resource Manager stack modelleras hemligheter/certifikat som resurser som tillhandahålls av resurs leverantören av Key Vault. Mer information om Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/key-vault-whatis.md)
 
 > [!NOTE]
-> 1. För Key Vault som ska användas med Azure Resource Manager-datorer, den **EnabledForDeployment** egenskapen Key Vault måste anges till true. Du kan göra detta i olika klienter.
-> 2. Key Vault måste skapas i samma prenumeration och plats som den virtuella datorn.
+> 1. För att Key Vault ska kunna användas med Azure Resource Manager virtuella datorer måste egenskapen **EnabledForDeployment** på Key Vault vara inställd på True. Du kan göra detta på olika klienter.
+> 2. Key Vault måste skapas i samma prenumeration och på samma plats som den virtuella datorn.
 >
 >
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>Använd PowerShell för att konfigurera Key Vault
-För att skapa ett nyckelvalv med hjälp av PowerShell, se [Set och hämta en hemlighet från Azure Key Vault med hjälp av PowerShell](../../key-vault/quick-create-powershell.md).
+Om du vill skapa ett nyckel valv med hjälp av PowerShell läser du [Ange och hämta en hemlighet från Azure Key Vault med hjälp av PowerShell](../../key-vault/quick-create-powershell.md).
 
-Du kan använda det här PowerShell-cmdlet för nya nyckelvalv:
+Du kan använda den här PowerShell-cmdleten för nya nyckel valv:
 
     New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
 
-Du kan använda det här PowerShell-cmdlet för befintliga nyckelvalv:
+Du kan använda den här PowerShell-cmdleten för befintliga nyckel valv:
 
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ## <a name="use-cli-to-set-up-key-vault"></a>Använd CLI för att konfigurera Key Vault
-För att skapa ett nyckelvalv med hjälp av kommandoradsgränssnittet (CLI), se [hantera Key Vault med CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
+Information om hur du skapar ett nyckel valv med hjälp av kommando rads gränssnittet (CLI) finns i [hantera Key Vault med CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
 
-Du måste skapa nyckelvalvet innan du tilldelar distributionsprincipen CLI. Det kan du göra med hjälp av följande kommando:
+För CLI måste du skapa nyckel valvet innan du tilldelar distributions principen. Det kan du göra med hjälp av följande kommando:
 
     az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
     
-Kör sedan följande kommando om du vill aktivera Key Vault för användning med malldistributionen:
+Kör sedan följande kommando för att aktivera Key Vault för användning med mall-distribution:
 
     az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
 ## <a name="use-templates-to-set-up-key-vault"></a>Använd mallar för att konfigurera Key Vault
-När du använder en mall kan du behöva ange den `enabledForDeployment` egenskap `true` för Key Vault-resursen.
+När du använder en mall måste du ange `enabledForDeployment` egenskapen till `true` för Key Vault resursen.
 
     {
       "type": "Microsoft.KeyVault/vaults",
@@ -71,4 +70,4 @@ När du använder en mall kan du behöva ange den `enabledForDeployment` egenska
       }
     }
 
-Andra alternativ som du kan konfigurera när du skapar ett nyckelvalv med hjälp av mallar finns i [skapa key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+För andra alternativ som du kan konfigurera när du skapar ett nyckel valv med hjälp av mallar, se [skapa ett nyckel valv](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).

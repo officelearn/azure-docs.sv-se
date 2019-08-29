@@ -1,5 +1,5 @@
 ---
-title: Konfigurera aviseringar för tillgänglighet med Azure Application Insights | Microsoft Docs
+title: Konfigurera tillgänglighets aviseringar med Azure Application Insights | Microsoft Docs
 description: Konfigurera webbtester i Application Insights. Få aviseringar om en webbplats blir otillgänglig eller svarar långsamt.
 services: application-insights
 documentationcenter: ''
@@ -13,66 +13,69 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: cc022f91d4b4fec42929769df8c979320548a1f9
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 1d7527d6f52235c6b95ad2e336ea9f9ba85d6344
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305240"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114397"
 ---
-# <a name="availability-alerts"></a>Tillgänglighet aviseringar
+# <a name="availability-alerts"></a>Tillgänglighetsaviseringar
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Det kan meddela dig om programmet inte svarar, eller om den svarar för långsamt.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Det kan varna dig om programmet inte svarar eller om det svarar för långsamt.
 
 ## <a name="enable-alerts"></a>Aktivera aviseringar
 
-Aviseringar aktiveras nu automatiskt som standard, men om du vill konfigurera aviseringen helt först måste du först skapa din tillgänglighetstestet.
+Aviseringar är nu automatiskt aktiverade som standard, men för att helt kunna konfigurera aviseringen måste du först skapa ditt tillgänglighets test.
 
 ![Skapa upplevelse](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  Med den [nya enhetliga aviseringar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), varningsregel allvarlighetsgrad och notification-inställningar med [åtgärdsgrupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **måste vara** konfigurerats i aviseringarna. Utan följande steg ska får du bara meddelanden i portalen.
+>  Med de [nya enhetliga aviseringarna](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) **måste** aviserings regelns allvarlighets grad och meddelande inställningar med [Åtgärds grupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) konfigureras i aviserings upplevelsen. Utan följande steg får du bara meddelanden i portalen.
 
-1. När du har sparat tillgänglighetstestet informationen om fliken Klicka på ellipsknappen av test som du just skapade. Klicka på ”Redigera avisering”.
+1. När du har sparat tillgänglighets testet går du till fliken information och klickar på ellipsen efter det test du nyss gjort. Klicka på "Redigera avisering".
 
-   ![Redigera efter spara](./media/availability-alerts/edit-alert.png)
+   ![Redigera efter Spara](./media/availability-alerts/edit-alert.png)
 
-2. Ange den önskade allvarlighetsgraden, beskrivning av regel och viktigast av allt – åtgärdsgrupp som har felaviseringar som du vill använda för den här aviseringsregeln.
+2. Ange önskad allvarlighets grad, regel beskrivning och viktigast av de åtgärds grupper som har de aviserings inställningar som du vill använda för den här varnings regeln.
 
-   ![Redigera efter spara](./media/availability-alerts/set-action-group.png)
+   ![Redigera efter Spara](./media/availability-alerts/set-action-group.png)
 
-### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Avisera om X av Y-platser som rapporterar fel
+### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Avisering på X av Y-platser som rapporterar problem
 
-X utanför Y platser varningsregel är aktiverat som standard i den [nya aviseringar för enhetlig upplevelse](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), när du skapar en ny tillgänglighetstestet. Du kan avanmäla dig genom att välja alternativet ”klassiska” eller välja att inaktivera varningsregeln.
+Varnings regeln X out of Y locations är aktive rad som standard i den [nya enhetliga aviserings upplevelsen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)när du skapar ett nytt tillgänglighets test. Du kan avanmäla genom att välja alternativet "Klassiskt" eller välja att inaktivera varnings regeln.
 
 > [!NOTE]
-> Konfigurera åtgärdsgrupper för att ta emot meddelanden när en avisering utlöses genom att följa stegen ovan. Utan det här steget endast visas i portalen meddelanden när regeln utlöses.
+> Konfigurera de åtgärds grupper som ska få meddelanden när aviseringen utlöses genom att följa stegen ovan. Utan det här steget får du bara meddelanden i portalen när regeln utlöses.
 >
 
-### <a name="alert-on-availability-metrics"></a>Avisera om tillgänglighetsmått
+### <a name="alert-on-availability-metrics"></a>Avisering om tillgänglighets mått
 
-Med hjälp av den [nya enhetliga aviseringar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), du Avisera om segmenterade sammanställd tillgänglighet och testa samt varaktighet mått:
+Med hjälp av de [nya enhetliga aviseringarna](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)kan du även varna för segmenterad mängd tillgänglighet och test varaktighets mått:
 
-1. Välj en Application Insights-resurs i mått-upplevelsen och välj ett mått för tillgänglighet:
+1. Välj en Application Insights resurs i mått upplevelsen och välj ett tillgänglighets mått:
 
-    ![Val av tillgänglighet-mått](./media/availability-alerts/select-metric.png)
+    ![Val av tillgänglighets mått](./media/availability-alerts/select-metric.png)
 
-2. Konfigurera alternativ på menyn tar dig till den nya miljön där du kan välja specifika test eller platser för att ställa in varningsregel för aviseringar. Du kan också konfigurera åtgärdsgrupper för den här aviseringsregeln här.
+2. Alternativet Konfigurera aviseringar från menyn kommer du till den nya upplevelsen där du kan välja vissa tester eller platser för att ställa in aviserings regeln på. Du kan också konfigurera åtgärds grupper för den här aviserings regeln här.
 
-### <a name="alert-on-custom-analytics-queries"></a>Avisera om anpassade analysfrågor
+### <a name="alert-on-custom-analytics-queries"></a>Avisering om anpassade analys frågor
 
-Med hjälp av den [nya enhetliga aviseringar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), du kan meddela på [anpassade loggfrågor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Med anpassade frågor kan du meddela på eventuella valfria villkor som hjälper dig att få den mest tillförlitliga signalen av tillgänglighetsproblem. Detta gäller även särskilt, om du skickar anpassade tillgänglighetsresultat med TrackAvailability SDK. 
+Med hjälp av de [nya enhetliga aviseringarna](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)kan du varna dig om [anpassade logg frågor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Med anpassade frågor kan du varna dig om godtyckligt villkor som hjälper dig att få den mest pålitliga signalen av tillgänglighets problem. Detta gäller även om du skickar anpassade tillgänglighets resultat med hjälp av TrackAvailability SDK.
 
 > [!Tip]
-> Mått på tillgänglighetsdata omfattar alla anpassade tillgänglighetsresultat som du kan skicka genom att anropa vår TrackAvailability SDK. Du kan använda aviseringar vilka mått som stöds till en avisering för anpassade tillgänglighetsresultat.
+> Måtten för tillgänglighets data inkluderar eventuella anpassade tillgänglighets resultat som du kan skicka genom att anropa vår TrackAvailability SDK. Du kan använda aviseringar om mått för att få aviseringar om anpassade tillgänglighets resultat.
 >
+
+## <a name="automate-alerts"></a>Automatisera aviseringar
+
+Information om hur du automatiserar den här processen med Azure Resource Manager mallar finns i [skapa en Metric-avisering med Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-availability-test-along-with-availability-test-alert) -mallens dokumentation.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Dedikerad [felsökningsartikeln](troubleshoot-availability.md).
+Dedikerad [fel söknings artikel](troubleshoot-availability.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Webbtester med flera steg](availability-multistep.md)
-* [URL-Pingtest web](monitor-web-app-availability.md)
-
+* [Webb test för URL-ping](monitor-web-app-availability.md)

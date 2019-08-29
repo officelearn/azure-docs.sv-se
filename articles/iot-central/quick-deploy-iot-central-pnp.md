@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 05b761dbf9f58f6afca6459e28d2fecca9aa7b06
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0ae82f8980b995edab3419374e27a2cb905935d5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878308"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099502"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Skapa ett Azure IoT Central-program (för hands versions funktioner)
 
@@ -27,7 +27,7 @@ Den här snabb starten visar hur du skapar ett Azure IoT Central-program som anv
 
 ## <a name="create-an-application"></a>Skapa ett program
 
-Gå till sidan [Application Manager](https://aka.ms/iotcentral) (Programhanterare) i Azure IoT Central. Logga sedan in med ett personligt Microsoft-konto eller arbets-eller skol konto.
+Gå till webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) . Logga sedan in med ett personligt Microsoft-konto eller arbets-eller skol konto.
 
 Börja skapa ett nytt Azure IoT Central-program genom att välja **Nytt program**. Med den här länken går du till sidan **skapa ett program** .
 
@@ -55,4 +55,4 @@ Så här skapar du ett nytt Azure IoT Central-program som innehåller för hands
 I den här snabb starten skapade du ett IoT Central-program som använder för hands versions funktionerna. Det föreslagna nästa steg är att:
 
 > [!div class="nextstepaction"]
-> [Ta en rundtur om IoT Central](overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Definiera en ny enhets typ i ditt Azure IoT Central-program](./tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

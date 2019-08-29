@@ -11,17 +11,16 @@ ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d1c5598bd7ea5b3f35d5447935953d4cd55664a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 9ba8fdba3b7283185920432b5b096b80b2e32021
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67706760"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092545"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar
 Azure-diagnostik-tillägget innehåller funktioner för övervakning och diagnostik på en Windows-baserad virtuell Azure-dator. Du kan aktivera dessa funktioner på den virtuella datorn genom att inkludera tillägget som en del av Azure Resource Manager-mallen. Mer information om hur du inkluderar tillägg som en del av en mall för virtuella datorer finns i [redigera Azure Resource Manager mallar med VM-tillägg](../windows/template-description.md#extensions) . I den här artikeln beskrivs hur du kan lägga till Azure-diagnostik-tillägget i en mall för virtuella Windows-datorer.  

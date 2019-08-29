@@ -1,33 +1,32 @@
 ---
-title: Underordnade orkestreringar för varaktiga funktioner – Azure
-description: Hur du anropar orkestreringar från orkestreringar i tillägget varaktiga funktioner för Azure Functions.
+title: Under dirigering för Durable Functions – Azure
+description: Så här anropar du dirigeringar från dirigering i Durable Functions-tillägget för Azure Functions.
 services: functions
 author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab9a5714a7ef24b51957bd48b1b67240cf13adb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 868efad58e14fd817729f0aa9ac785bc0f960867
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730250"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087021"
 ---
-# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Underordnade orkestreringar i varaktiga funktioner (Azure Functions)
+# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Under dirigering i Durable Functions (Azure Functions)
 
-Förutom anropar Aktivitetsfunktioner kan orchestrator-funktioner anropa andra orchestrator-funktioner. Du kan till exempel skapa en större dirigering av ett bibliotek av orchestrator-funktioner. Eller du kan köra flera instanser av en orchestrator-funktion parallellt.
+Förutom att anropa aktivitets funktioner kan Orchestrator-funktioner anropa andra Orchestrator-funktioner. Du kan till exempel bygga ett större dirigering från ett bibliotek med Orchestrator-funktioner. Du kan också köra flera instanser av en Orchestrator-funktion parallellt.
 
-En orchestrator-funktion kan anropa en annan orchestrator-funktion genom att anropa den [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) eller [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) metoder i .NET, eller `callSubOrchestrator` eller `callSubOrchestratorWithRetry` metoder i JavaScript. Den [felhantering & kompensation](durable-functions-error-handling.md#automatic-retry-on-failure) artikeln innehåller mer information om automatiska återförsök.
+En Orchestrator-funktion kan anropa en annan Orchestrator-funktion genom att anropa [](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) `callSubOrchestrator` [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) -eller CallSubOrchestratorWithRetryAsync-metoderna i .net `callSubOrchestratorWithRetry` , eller eller-metoderna i Java Script. Artikeln [fel hantering &s kompensation](durable-functions-error-handling.md#automatic-retry-on-failure) innehåller mer information om automatiskt återförsök.
 
-Underordnade orchestrator-funktioner fungerar precis som Aktivitetsfunktioner från anroparens perspektiv. De kan returnera ett värde i ett undantag och kan vara slutförts av överordnade orchestrator-funktion.
+Under Orchestrator-funktioner fungerar precis som aktivitets funktioner från anroparens perspektiv. De kan returnera ett värde, utlösa ett undantag och kan förväntas av den överordnade Orchestrator-funktionen.
 
 ## <a name="example"></a>Exempel
 
-I följande exempel visas ett scenario för IoT (”Internet of Things”) där det finns flera enheter som måste etableras. Det finns en viss orchestration att måste ske för var och en av de enheter som kan se ut ungefär så här:
+I följande exempel illustreras ett IoT-scenario ("Sakernas Internet") där det finns flera enheter som måste tillhandahållas. Det finns ett visst dirigering som måste ske för varje enhet, vilket kan se ut ungefär så här:
 
 ### <a name="c"></a>C#
 
@@ -50,7 +49,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -71,9 +70,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Den här orchestrator-funktion som kan användas som – är oneoff enhetsetablering eller det kan vara en del av en större dirigering. I det senare fallet överordnade orchestrator-funktion kan schemalägga instanser av `DeviceProvisioningOrchestration` med hjälp av den `CallSubOrchestratorAsync` (C#) eller `callSubOrchestrator` (JavaScript) API.
+Den här Orchestrator-funktionen kan användas som-är för en-off-enhets etablering eller kan ingå i ett större Dirigerings steg. I det senare fallet kan den överordnade Orchestrator-funktionen schemalägga instanser `DeviceProvisioningOrchestration` av `CallSubOrchestratorAsync` med hjälpC#av ( `callSubOrchestrator` ) eller (Java Script) API: et.
 
-Här är ett exempel som visar hur du kör flera orchestrator-funktioner parallellt.
+Här är ett exempel som visar hur du kör flera Orchestrator-funktioner parallellt.
 
 ### <a name="c"></a>C#
 
@@ -98,7 +97,7 @@ public static async Task ProvisionNewDevices(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -122,4 +121,4 @@ module.exports = df.orchestrator(function*(context) {
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig vilka uppgiftshubbar är och hur du konfigurerar dem.](durable-functions-task-hubs.md)
+> [Lär dig vilka aktivitets nav som är och hur du konfigurerar dem](durable-functions-task-hubs.md)

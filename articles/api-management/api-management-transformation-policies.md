@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: b55502bbc24868b6d8b0352f581bbf4adc81e53a
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4f57f7cbc4e93f8a98b64b31ca51e0f1e32c375c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442240"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073301"
 ---
 # <a name="api-management-transformation-policies"></a>API Management omvandlings principer
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -70,13 +69,13 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |json-to-xml|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
 |använd|Attributet måste anges till ett av följande värden.<br /><br /> -alway-Always Always enconversion.<br />-Content-Type-JSON-Convert endast om svarets Content-Type-huvud indikerar förekomst av JSON.|Ja|Gäller inte|
 |consider-accept-header|Attributet måste anges till ett av följande värden.<br /><br /> -Sant-Använd konvertering om JSON begärs i rubriken för begäran accept.<br />-falskt-Använd alltid konvertering.|Nej|true|
@@ -114,13 +113,13 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |xml-to-json|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
 |type|Attributet måste anges till ett av följande värden.<br /><br /> – anpassad Java Script – den konverterade JSON-filen har ett formulär som är användarvänligt för JavaScript-utvecklare.<br />– direkt – konverterad JSON visar strukturen för det ursprungliga XML-dokumentet.|Ja|Gäller inte|
 |använd|Attributet måste anges till ett av följande värden.<br /><br /> -Always-Convert Always.<br />– Content-Type-XML-Convert endast om Content-Type-huvudet för svar anger förekomst av XML.|Ja|Gäller inte|
@@ -150,13 +149,13 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |find-and-replace|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
 |from|Strängen att söka efter.|Ja|Gäller inte|
 |till|Ersättnings strängen. Ange en ersättnings sträng med längden noll för att ta bort Sök strängen.|Ja|Gäller inte|
@@ -188,7 +187,7 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |omdirigera-innehålls-URL: er|Rot element.|Ja|
 
@@ -261,13 +260,13 @@ I det här exemplet dirigerar principen begäran till en Service Fabric-Server d
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |Set-backend-tjänst|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
 |bas-URL|Bas-URL för ny server dels tjänst.|En av `base-url` eller `backend-id` måste vara närvarande.|Gäller inte|
 |backend-ID|Identifierare för den server del som ska skickas till. (Backend-entiteter hanteras via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|En av `base-url` eller `backend-id` måste vara närvarande.|Gäller inte|
@@ -397,13 +396,13 @@ Principen kan konfigureras för att använda vätske mall-språket för att tran
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |Set-Body|Rot element. Innehåller bröd texten eller ett uttryck som returnerar en brödtext.|Ja|
 
 ### <a name="properties"></a>properties
 
-|Namn|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
 |mall|Används för att ändra det mall-läge som den angivna text principen ska köras i. För närvarande är det enda värde som stöds:<br /><br />– flytande – den uppsättnings huvud principen använder vätske mall-motorn |Nej||
 
@@ -504,14 +503,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |set-header|Rot element.|Ja|
 |value|Anger värdet för den rubrik som ska anges. För flera rubriker med samma namn lägger du till `value` ytterligare element.|Ja|
 
 ### <a name="properties"></a>properties
 
-|Namn|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
 |exists-åtgärd|Anger vilken åtgärd som ska vidtas när rubriken redan har angetts. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet i den befintliga rubriken.<br />-Skip-ersätter inte det befintliga huvud-värdet.<br />-append – lägger till värdet i det befintliga huvud-värdet.<br />-Delete – tar bort rubriken från begäran.<br /><br /> När du `override` har angett flera poster med samma namn resulterar det i att rubriken anges enligt alla poster (som visas flera gånger). endast listade värden anges i resultatet.|Nej|åsidosättningsinställning|
 |name|Anger namnet på den rubrik som ska anges.|Ja|Gäller inte|
@@ -564,14 +563,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |set-query-parameter|Rot element.|Ja|
 |value|Anger värdet för Frågeparametern som ska anges. För flera frågeparametrar med samma namn lägger du till ytterligare `value` element.|Ja|
 
 ### <a name="properties"></a>properties
 
-|Namn|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
 |exists-åtgärd|Anger vilken åtgärd som ska vidtas när Frågeparametern redan har angetts. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet för den befintliga parametern.<br />-Skip-ersätter inte det befintliga värdet för Frågeparametern.<br />-append – lägger till värdet i det befintliga värdet för Frågeparametern.<br />-Delete-tar bort Frågeparametern från begäran.<br /><br /> När du `override` har angett flera poster med samma namn resulterar det i att Frågeparametern anges enligt alla poster (som visas flera gånger). endast listade värden anges i resultatet.|Nej|åsidosättningsinställning|
 |name|Anger namnet på frågeparametern som ska anges.|Ja|Gäller inte|
@@ -643,7 +642,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |omskrivning – URI|Rot element.|Ja|
 
@@ -712,7 +711,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatorisk|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |XSL-Transform|Rot element.|Ja|
 |Parameter|Används för att definiera variabler som används i transformeringen|Nej|

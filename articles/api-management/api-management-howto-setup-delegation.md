@@ -10,16 +10,15 @@ ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: cd7b2cecce443e821e233d97a260b7dfb3471752
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 63ff91c6b4db351e5ec72973874466cff74432b5
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667224"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073447"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Så här delegerar du användar registrering och produkt prenumeration
 
@@ -116,7 +115,7 @@ Se sedan till att Delegerings slut punkten utför följande åtgärder:
      * "Avregistrera": en begäran om att avbryta prenumerationen på en användare från en produkt
      * "Förnya": en begäran om att förnya en prenumeration (till exempel som kan upphöra att gälla)
    * **Produktnr**: ID för produkten som användaren har begärt att prenumerera på
-   * **subscriptionId** *: vid* avregistrering och *förnyelse* -ID: t för produkt prenumerationen
+   * **subscriptionId**: vid avregistrering och *förnyelse* -ID: t för produkt prenumerationen
    * **userId**: ID för den användare som begäran görs om
    * **salt**: en särskild salt sträng som används för att beräkna en säkerhets-hash
    * **sig**: en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 5f9b255e8aa370184ec244ed418f02e55fc149b3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e1649d1ad50a62374cb5a1d9491c594e1b485ec1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049165"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100963"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics"></a>Utöka Azure IoT Central med anpassad analys
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ### <a name="iot-central-application"></a>IoT Central program
 
-Skapa ett IoT Central-program från sidan [Azure IoT Central-mina program](https://aka.ms/iotcentral) med följande inställningar:
+Skapa ett IoT Central-program på webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) med följande inställningar:
 
 | Inställning | Value |
 | ------- | ----- |
@@ -99,7 +99,7 @@ Event Hubs namn området ser ut som på följande skärm bild:
 
 ## <a name="configure-export-in-iot-central"></a>Konfigurera export i IoT Central
 
-Navigera till [IoT Central programmet](https://aka.ms/iotcentral) som du skapade från contoso-mallen. I det här avsnittet konfigurerar du programmet för att strömma Telemetrin från dess simulerade enheter till händelsehubben. Konfigurera exporten:
+På webbplatsen [Azure IoT Central Application Manager](https://aka.ms/iotcentral) navigerar du till det IoT Central program som du skapade från contoso-mallen. I det här avsnittet konfigurerar du programmet för att strömma Telemetrin från dess simulerade enheter till händelsehubben. Konfigurera exporten:
 
 1. Gå till sidan för **kontinuerlig data export** , Välj **+ ny**och sedan **Azure Event Hubs**.
 1. Använd följande inställningar för att konfigurera exporten och välj sedan **Spara**:

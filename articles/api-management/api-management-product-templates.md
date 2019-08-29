@@ -1,6 +1,6 @@
 ---
 title: Produktmallar i Azure API Management | Microsoft Docs
-description: Lär dig hur du anpassar innehållet i produktsidorna i utvecklarportalen i Azure API Management.
+description: Lär dig hur du anpassar innehållet på produkt sidorna i Azure API Management Developer-portalen.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,36 +10,35 @@ ms.assetid: 49f9254c-4c5f-4ed4-9c8d-798f44e805ee
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 637d4e7bc75537d99538048700673192534613dc
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61088196"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073382"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Produktmallar i Azure API Management
 
-Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar som konfigurerar sitt innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, till exempel [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [tecken resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), har bra möjlighet att konfigurera innehållet i sidorna som du vill med hjälp av dessa mallar.  
+Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, till exempel [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), glyf- [resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna som du ser får plats med mallarna.  
   
- Mallar i det här avsnittet kan du anpassa innehållet på produktsidor i developer-portalen.  
+ Med mallarna i det här avsnittet kan du anpassa innehållet på produkt sidorna i Developer-portalen.  
   
--   [Produktlista](#ProductList)  
+-   [Produkt lista](#ProductList)  
   
--   [Produkten](#Product)  
+-   [Momsproduktbokföringsmallar](#Product)  
   
 > [!NOTE]
->  Standardmallarna för exemplet ingår i följande dokumentation, men kan komma att ändras på grund av fortlöpande med förbättringar. Du kan visa live standardmallarna i developer-portalen genom att navigera till önskad enskilda mallarna. Mer information om hur du arbetar med mallar finns i [hur du anpassar utvecklarportalen API Management med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Exempel på standardmallar finns i följande dokumentation, men kan komma att ändras på grund av kontinuerliga förbättringar. Du kan visa standardmallarna för Live i Developer-portalen genom att gå till önskade enskilda mallar. Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="ProductList"></a> Produktlista  
- Den **produktlista** mall kan du anpassa brödtexten i listsidan i developer-portalen.  
+##  <a name="ProductList"></a>Produkt lista  
+ Med **produkt list** mal len kan du anpassa bröd texten på sidan produkt lista i Developer-portalen.  
   
- ![Lista över produkter](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
+ ![Produkt lista](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -70,21 +69,21 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Den `Product list` mall kan använda följande [sidan kontroller](api-management-page-controls.md).  
+ Mallen kan använda följande [sid kontroller.](api-management-page-controls.md) `Product list`  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
--   [search-control](api-management-page-controls.md#search-control)  
+-   [Sök-kontroll](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Type|Beskrivning|  
 |--------------|----------|-----------------|  
-|Paging|[Växling](api-management-template-data-model-reference.md#Paging) entitet.|Växling information för samlingen produkter.|  
-|Filtering|[Filtrering](api-management-template-data-model-reference.md#Filtering) entitet.|Filtrera information för sidan produkter.|  
-|Products|Insamling av [produkten](api-management-template-data-model-reference.md#Product) entiteter.|Produkterna som är synliga för den aktuella användaren.|  
+|Sidindelning|[Växlings](api-management-template-data-model-reference.md#Paging) enhet.|Växlings informationen för produkt samlingen.|  
+|Filtrering|[Filtrera](api-management-template-data-model-reference.md#Filtering) entiteten.|Filtrerings informationen för produkt list sidan.|  
+|Produkter|Samling av [produkt](api-management-template-data-model-reference.md#Product) enheter.|De produkter som är synliga för den aktuella användaren.|  
   
-### <a name="sample-template-data"></a>Mall för exempeldata  
+### <a name="sample-template-data"></a>Exempel mal lin data  
   
 ```json  
 {  
@@ -122,10 +121,10 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 }  
 ```  
   
-##  <a name="Product"></a> Produkten  
- Den **produkten** mall kan du anpassa brödtexten i sidan i developer-portalen.  
+##  <a name="Product"></a>Momsproduktbokföringsmallar  
+ Med **produkt** mal len kan du anpassa bröd texten på produkt sidan i Developer-portalen.  
   
- ![Developer portal produktsidan](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
+ ![Produkt sida för utvecklare Portal](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -197,27 +196,27 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Den `Product list` mall kan använda följande [sidan kontroller](api-management-page-controls.md).  
+ Mallen kan använda följande [sid kontroller.](api-management-page-controls.md) `Product list`  
   
 -   [subscribe-button](api-management-page-controls.md#subscribe-button)  
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Type|Beskrivning|  
 |--------------|----------|-----------------|  
-|Product|[Produkten](api-management-template-data-model-reference.md#Product)|Den angivna produkten.|  
-|IsDeveloperSubscribed|boolesk|Om den aktuella användaren en prenumeration på den här produkten.|  
-|SubscriptionState|nummer|Tillståndet för prenumerationen. Möjliga tillstånd är:<br /><br /> -   `0 - suspended` – prenumerationen blockeras och prenumeranten kan inte anropa alla API: er i produkten.<br />-   `1 - active` – prenumerationen är aktiv.<br />-   `2 - expired` – prenumerationen har nått dess förfallodatum och inaktiverades.<br />-   `3 - submitted` – prenumerationsbegäran har gjorts av utvecklaren, men har ännu inte har godkänts eller avvisats.<br />-   `4 - rejected` – prenumerationsbegäran har nekats av en administratör.<br />-   `5 - cancelled` – prenumerationen har avbrutits av utvecklare eller administratör.|  
-|Limits|matris|Den här egenskapen är inaktuell och ska inte användas.|  
-|DelegatedSubscriptionEnabled|boolesk|Om [delegering](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) har aktiverats för den här prenumerationen.|  
-|DelegatedSubscriptionUrl|sträng|Om delegering är aktiverat delegerade prenumeration URL: en.|  
-|IsAgreed|boolesk|Om produkten har villkor, oavsett om den aktuella användaren har godkänt villkoren.|  
-|Subscriptions|Insamling av [prenumerationssammanfattning](api-management-template-data-model-reference.md#SubscriptionSummary) entiteter.|Prenumerationer för produkten.|  
-|Apis|Insamling av [API](api-management-template-data-model-reference.md#API) entiteter.|API: er i den här produkten.|  
-|CannotAddBecauseSubscriptionNumberLimitReached|boolesk|Om den aktuella användaren är berättigade att prenumerera på den här produkten avseende prenumerationsgränsen.|  
-|CannotAddBecauseMultipleSubscriptionsNotAllowed|boolesk|Om den aktuella användaren är berättigade att prenumerera på den här produkten när det gäller flera prenumerationer som tillåts eller inte.|  
+|Produkt|[Momsproduktbokföringsmallar](api-management-template-data-model-reference.md#Product)|Den angivna produkten.|  
+|IsDeveloperSubscribed|boolean|Om den aktuella användaren prenumererar på den här produkten.|  
+|SubscriptionState|nummer|Prenumerationens tillstånd. Möjliga tillstånd är:<br /><br /> -   `0 - suspended`– prenumerationen är blockerad och prenumeranten kan inte anropa några API: er för produkten.<br />-   `1 - active`– prenumerationen är aktiv.<br />-   `2 - expired`– prenumerationen har nått sitt förfallo datum och inaktiverades.<br />-   `3 - submitted`– prenumerations förfrågan har gjorts av utvecklaren, men har ännu inte godkänts eller avvisats.<br />-   `4 - rejected`– prenumerations förfrågan har nekats av en administratör.<br />-   `5 - cancelled`– prenumerationen har avbrutits av utvecklaren eller administratören.|  
+|Begränsningar|array|Den här egenskapen är föråldrad och ska inte användas.|  
+|DelegatedSubscriptionEnabled|boolean|Om [delegering](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) är aktiverat för den här prenumerationen.|  
+|DelegatedSubscriptionUrl|sträng|Om delegering är aktiverat är den delegerade prenumerations-URL: en.|  
+|IsAgreed|boolean|Om produkten har villkor, om den aktuella användaren har godkänt villkoren.|  
+|Prenumerationer|Samling av entiteter för [prenumerations Sammanfattning](api-management-template-data-model-reference.md#SubscriptionSummary) .|Prenumerationerna på produkten.|  
+|N|Samling av [API](api-management-template-data-model-reference.md#API) -entiteter.|API: erna i den här produkten.|  
+|CannotAddBecauseSubscriptionNumberLimitReached|boolean|Om den aktuella användaren är behörig att prenumerera på den här produkten med avseende på prenumerations gränsen.|  
+|CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|Om den aktuella användaren är behörig att prenumerera på den här produkten med avseende på flera prenumerationer som tillåts eller inte.|  
   
-### <a name="sample-template-data"></a>Mall för exempeldata  
+### <a name="sample-template-data"></a>Exempel mal lin data  
   
 ```json  
 {  
@@ -262,4 +261,4 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du arbetar med mallar finns i [hur du anpassar utvecklarportalen API Management med hjälp av mallar](api-management-developer-portal-templates.md).
+Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).

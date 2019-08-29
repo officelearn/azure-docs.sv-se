@@ -1,6 +1,6 @@
 ---
 title: Ansluta till en virtuell Windows Server-dator | Microsoft Docs
-description: Lär dig hur du ansluter och logga in på en Windows-VM med hjälp av Azure portal och distributionsmodellen för Resource Manager.
+description: Lär dig hur du ansluter och loggar in på en virtuell Windows-dator med hjälp av Azure Portal och distributions modellen för Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,56 +11,55 @@ ms.assetid: ef62b02e-bf35-468d-b4c3-71b63fe7f409
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9687f2ae51d0174cd2ecb0c6fdb7a94b6b11f913
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: aa56cfafdcca163d3bdb3f339f84ceeaa37f3dc5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719121"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079930"
 ---
-# <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Hur du ansluter och logga in på Azure-datorer som kör Windows
-Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivbordssession (RDP) från ett Windows-skrivbord. Du ansluter till den virtuella datorn och sedan du loggar in på.
+# <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Ansluta och logga in på en virtuell Azure-dator som kör Windows
+Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivbordssession (RDP) från ett Windows-skrivbord. Först ansluter du till den virtuella datorn och sedan loggar du in.
 
-Om du vill ansluta till en virtuell Windows-dator från en Mac-dator, behöver du installera en RDP-klient för Mac som [Microsoft Remote Desktop](https://aka.ms/rdmac).
+Om du vill ansluta till en virtuell Windows-dator från en Mac måste du installera en RDP-klient för Mac, till exempel [Microsoft fjärrskrivbord](https://aka.ms/rdmac).
 
 ## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com/).
-2. På menyn till vänster väljer **virtuella datorer**.
+2. På den vänstra menyn väljer du **Virtual Machines**.
 3. Välj den virtuella datorn i listan.
-4. Överst på sidan för den virtuella datorn, Välj **Connect**.
-2. På den **Anslut till den virtuella datorn** väljer du lämplig IP-adress och port. I de flesta fall ska standard IP-adressen och porten användas. Välj **Ladda ned RDP-fil**. Om den virtuella datorn har en just-in-time-princip som angetts, måste du först välja den **begär åtkomst** knappen för att begära åtkomst innan du kan ladda ned RDP-filen. Mer information om just-in-time-principen finns i [hantera VM-åtkomst med hjälp av just i time-princip](../../security-center/security-center-just-in-time.md).
+4. Välj **Anslut**längst upp på sidan för den virtuella datorn.
+2. På sidan **Anslut till virtuell dator** väljer du lämplig IP-adress och port. I de flesta fall ska standard-IP-adressen och porten användas. Välj **Ladda ned RDP-fil**. Om den virtuella datorn har en princip uppsättning för just-in-Time måste du först välja knappen **begär åtkomst** för att begära åtkomst innan du kan ladda ned RDP-filen. Mer information om just-in-time-principen finns i [Hantera åtkomst till virtuella datorer med just-in-time-principen](../../security-center/security-center-just-in-time.md).
 2. Öppna den nedladdade RDP-filen och välj **Anslut** när du tillfrågas. 
-2. Du får en varning som den `.rdp` filen kommer från en okänd utgivare. Detta är normalt. I den **anslutning till fjärrskrivbord** väljer **Connect** att fortsätta.
+2. Du får en varning om att `.rdp` filen kommer från en okänd utgivare. Detta är normalt. I fönstret **anslutning till fjärrskrivbord** väljer du **Anslut** för att fortsätta.
    
     ![Skärmbild med ett varning som meddelar att utgivaren är okänd.](./media/connect-logon/rdp-warn.png)
 3. I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Ange autentiseringsuppgifterna för ett konto på den virtuella datorn och välj sedan **OK**.
    
-     **Lokalt konto**: Detta är vanligtvis lokala Kontoanvändarnamn och lösenord som du angav när du skapade den virtuella datorn. I det här fallet är domänen namnet på den virtuella datorn och är registrerad som *vmnamn*&#92;*användarnamn*.  
+     **Lokalt konto**: Detta är vanligt vis det lokala kontots användar namn och lösen ord som du angav när du skapade den virtuella datorn. I det här fallet är domänen namnet på den virtuella datorn och är registrerad som *vmnamn*&#92;*användarnamn*.  
    
-    **Domänansluten VM**: Om den virtuella datorn tillhör en domän kan du ange användarnamnet i formatet *domän*&#92;*användarnamn*. Kontot måste också antingen vara i gruppen administratörer eller ha beviljats behörighet för fjärråtkomst för den virtuella datorn.
+    Domänansluten **virtuell dator**: Om den virtuella datorn tillhör en domän anger du användar namnet i formatet *domän*&#92;*användar namn*. Kontot måste också antingen vara i gruppen administratörer eller ha beviljats behörighet för fjärråtkomst för den virtuella datorn.
    
-    **Domänkontrollanten**: Om den virtuella datorn är en domänkontrollant, anger du användarnamn och lösenord för ett domänadministratörskonto för domänen.
-4. Välj **Ja** att verifiera identiteten för den virtuella datorn och slutföra inloggning.
+    Domänkontrollant: Om den virtuella datorn är en domänkontrollant anger du användar namnet och lösen ordet för ett domän administratörs konto för domänen.
+4. Välj **Ja** för att verifiera identiteten för den virtuella datorn och slutför inloggningen.
    
    ![Skärmbild som visar ett meddelande om verifieringen av den virtuella datorns identitet.](./media/connect-logon/cert-warning.png)
 
 
    > [!TIP]
-   > Om den **Connect** -knappen i portalen är nedtonad och du inte är ansluten till Azure via en [Express Route](../../expressroute/expressroute-introduction.md) eller [plats-till-plats VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) anslutning, behöver du skapa och tilldela den virtuella datorn en offentlig IP-adress innan du kan använda RDP. Mer information finns i [offentliga IP-adresser i Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+   > Om knappen **Anslut** på portalen är nedtonad och du inte är ansluten till Azure via en [Express Route](../../expressroute/expressroute-introduction.md) eller en VPN-anslutning från [plats till plats](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) måste du skapa och tilldela en offentlig IP-adress för din virtuella dator innan du kan använda RDP. Mer information finns i [offentliga IP-adresser i Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
    > 
    > 
 
-## <a name="connect-to-the-virtual-machine-using-powershell"></a>Ansluta till den virtuella datorn med hjälp av PowerShell
+## <a name="connect-to-the-virtual-machine-using-powershell"></a>Ansluta till den virtuella datorn med PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Om du använder PowerShell och har installerat Aure PowerShell-modulen kan du också ansluta med hjälp av den `Get-AzRemoteDesktopFile` cmdlet, enligt nedan.
+Om du använder PowerShell och har Aure PowerShell-modulen installerad kan du också ansluta med hjälp av `Get-AzRemoteDesktopFile` cmdleten, som du ser nedan.
 
-Det här exemplet startas omedelbart RDP-anslutning, som tar dig igenom liknande frågor som ovan.
+I det här exemplet startas RDP-anslutningen direkt, med hjälp av liknande prompter som ovan.
 
 ```powershell
 Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
@@ -73,5 +72,5 @@ Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Om du har svårt att ansluta, se [felsöka fjärrskrivbordsanslutningar](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Om du har problem med att ansluta kan du läsa [Felsöka anslutningar till fjärr skrivbord](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 

@@ -10,16 +10,15 @@ ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a42028891f0a8677127221c8ed4cff73a22103a
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: fa5e84ba62896969458b84cf014e2b35ee869df7
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498538"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072175"
 ---
 # <a name="api-management-policy-expressions"></a>API Management princip uttryck
 I den här artikeln beskrivs syntaxen C# för princip uttryck 7. Varje uttryck har åtkomst till den implicit tillhandahållna [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och en [](api-management-policy-expressions.md#CLRTypes) tillåten delmängd av .NET Framework typer.
@@ -156,7 +155,7 @@ I följande tabell visas de .NET Framework typer och medlemmar som tillåts i pr
 |System. Security. Cryptography. SymmetricAlgorithm|Alla|
 |System.Security.Cryptography.X509Certificates.PublicKey|Alla|
 |System. Security. Cryptography. X509Certificates. RSACertificateExtensions|Alla|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Namn|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Name|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Alla|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Alla|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Alla|
@@ -210,18 +209,18 @@ En variabel med `context` namnet är implicit tillgänglig i varje princip [uttr
 
 |Sammanhangs variabel|Tillåtna metoder, egenskaper och parameter värden|
 |----------------------|-------------------------------------------------------|
-|context|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Distribution](#ref-context-deployment)<br /><br /> Förfluten Intervall för tidsintervall mellan värdet för tidsstämpel och aktuell tid<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Åtgärd](#ref-context-operation)<br /><br /> [Momsproduktbokföringsmallar](#ref-context-product)<br /><br /> [Förfrågan](#ref-context-request)<br /><br /> RequestId GUID – unik begärande-ID<br /><br /> [Svar](#ref-context-response)<br /><br /> [Prenumeration](#ref-context-subscription)<br /><br /> Tidsstämpel: DateTime-tidpunkt då begäran togs emot<br /><br /> Spårning: bool-anger om spårning är aktiverat eller inaktiverat <br /><br /> [Användarvänlig](#ref-context-user)<br /><br /> [Variabler](#ref-context-variables): IReadOnlyDictionary < sträng, objekt ><br /><br /> void-spårning (meddelande: sträng)|
+|context|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Distribution](#ref-context-deployment)<br /><br /> Förfluten Intervall för tidsintervall mellan värdet för tidsstämpel och aktuell tid<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Åtgärd](#ref-context-operation)<br /><br /> [Momsproduktbokföringsmallar](#ref-context-product)<br /><br /> [Förfrågan](#ref-context-request)<br /><br /> RequestId GUID – unik begärande-ID<br /><br /> [Svar](#ref-context-response)<br /><br /> [Prenumeration](#ref-context-subscription)<br /><br /> Tidsstämpel DateTime-tidpunkt då begäran togs emot<br /><br /> Spårning: bool-anger om spårning är aktiverat eller inaktiverat <br /><br /> [Användarvänlig](#ref-context-user)<br /><br /> [Variabler](#ref-context-variables): IReadOnlyDictionary < sträng, objekt ><br /><br /> void-spårning (meddelande: sträng)|
 |<a id="ref-context-api"></a>context.Api|ID: sträng<br /><br /> IsCurrentRevision: bool<br /><br />  Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Revision: sträng<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: sträng |
 |<a id="ref-context-deployment"></a>context.Deployment|Region: sträng<br /><br /> ServiceName: sträng<br /><br /> Intyg IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Källa: sträng<br /><br /> Orsak: sträng<br /><br /> Meddelande: sträng<br /><br /> Omfattning: sträng<br /><br /> Avsnitt: sträng<br /><br /> Sökväg: sträng<br /><br /> PolicyId: sträng<br /><br /> För mer information om kontext. LastError, se [fel hantering](api-management-error-handling-policies.md).|
 |<a id="ref-context-operation"></a>Edit. Reparation|ID: sträng<br /><br /> Metod: sträng<br /><br /> Namn: sträng<br /><br /> UrlTemplate: sträng|
-|<a id="ref-context-product"></a>context.Product|N IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Grupper: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: sträng<br /><br /> Namn: sträng<br /><br /> Tillstånd: Enum ProductState {NotPublished, publicerat}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|<a id="ref-context-request"></a>context.Request|Body: [IMessageBody](#ref-imessagebody) eller `null` om begäran saknar brödtext.<br /><br /> Certifikat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Rubriker](#ref-context-request-headers): IReadOnlyDictionary < sträng, string [] ><br /><br /> IP-adress: sträng<br /><br /> MatchedParameters: IReadOnlyDictionary < sträng, sträng ><br /><br /> Metod: sträng<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
+|<a id="ref-context-product"></a>context.Product|N IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Användargrupp IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: sträng<br /><br /> Namn: sträng<br /><br /> Tillstånd: Enum ProductState {NotPublished, publicerat}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
+|<a id="ref-context-request"></a>context.Request|Body: [IMessageBody](#ref-imessagebody) eller `null` om begäran saknar brödtext.<br /><br /> Certifikatmallens System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Rubriker](#ref-context-request-headers): IReadOnlyDictionary < sträng, string [] ><br /><br /> IP-adress: sträng<br /><br /> MatchedParameters: IReadOnlyDictionary < sträng, sträng ><br /><br /> Metod: sträng<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> Adresser [IUrl](#ref-iurl)|
 |<a id="ref-context-request-headers"></a>sträng kontext. Request. headers. GetValueOrDefault (huvud: String, defaultValue: sträng)|Huvud: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsade begär ande huvud värden eller `defaultValue` om huvudet inte hittas.|
 |<a id="ref-context-response"></a>Edit. Svarade|Body: [IMessageBody](#ref-imessagebody)<br /><br /> [Rubriker](#ref-context-response-headers): IReadOnlyDictionary < sträng, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: sträng|
 |<a id="ref-context-response-headers"></a>sträng kontext. Response. headers. GetValueOrDefault (huvud: String, defaultValue: sträng)|Huvud: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsade värden för svars huvud eller `defaultValue` om huvudet inte hittas.|
 |<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate DateTime?<br /><br /> ID: sträng<br /><br /> Nyckel: sträng<br /><br /> Namn: sträng<br /><br /> PrimaryKey: sträng<br /><br /> SecondaryKey: sträng<br /><br /> /SD DateTime?|
-|<a id="ref-context-user"></a>Edit. Användarvänlig|E-post: sträng<br /><br /> FirstName: sträng<br /><br /> Grupper: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: sträng<br /><br /> Identiteter IEnumerable <[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: sträng<br /><br /> Obs! sträng<br /><br /> RegistrationDate: DateTime|
+|<a id="ref-context-user"></a>Edit. Användarvänlig|E-post: sträng<br /><br /> FirstName: sträng<br /><br /> Användargrupp IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: sträng<br /><br /> Identiteter IEnumerable <[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: sträng<br /><br /> Obs! sträng<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|ID: sträng<br /><br /> Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Protokoll IEnumerable < sträng\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|ID: sträng<br /><br /> Namn: sträng|
 |<a id="ref-imessagebody"></a>IMessageBody|Som < T\>(preserveContent: bool = false): Där T: String, byte [], JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Metoderna `context.Request.Body.As<T>` `T`och `context.Response.Body.As<T>` används för att läsa en begäran och svars meddelande texter i en angiven typ. Som standard använder metoden den ursprungliga meddelande text strömmen och återges den otillgänglig när den har returnerats. För att undvika att metoden fungerar på en kopia av bröd text strömmen anger `preserveContent` du parametern till. `true` Gå [hit](api-management-transformation-policies.md#SetBody) om du vill se ett exempel.|

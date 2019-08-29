@@ -1,5 +1,5 @@
 ---
-title: Ändra storlek på SAP Hana på Azure (stora instanser) | Microsoft Docs
+title: Storlek på SAP HANA på Azure (stora instanser) | Microsoft Docs
 description: Storlek på SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -7,33 +7,32 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7a81468fd19d3bd5d6eee79bb8a75396e3021f1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f2540a0f9ea702ff620ccd4b68208cbb2e70aafd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707271"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101146"
 ---
 # <a name="sizing"></a>Storleksändring
 
-Storlek för stora HANA-instansen är inte skiljer sig från att ändra storlek för HANA i allmänhet. För befintliga och distribuerade system som du vill flytta från andra RDBMS för HANA, SAP tillhandahåller ett antal rapporter som körs på dina befintliga SAP-system. Om databasen flyttas till HANA, kontrollera data som de här rapporterna och beräkna minneskraven för HANA-instans. Läs följande SAP-information för mer information om hur du kör dessa rapporter och hämta sina senaste korrigeringsfiler eller versioner:
+Storlek för den stora HANA-instansen skiljer sig från storlek för HANA i allmänhet. För befintliga och distribuerade system som du vill flytta från andra RDBMS till HANA tillhandahåller SAP ett antal rapporter som körs på dina befintliga SAP-system. Om databasen flyttas till HANA, kontrollerar de här rapporterna data och beräknar minnes kraven för HANA-instansen. Mer information om hur du kör dessa rapporter och skaffar de senaste korrigeringarna eller versionerna finns i följande SAP-anteckningar:
 
-- [SAP-kommentar #1793345 - storlek för SAP programsvit på HANA](https://launchpad.support.sap.com/#/notes/1793345)
-- [SAP Obs! #1872170 - programsvit på HANA och s/4 HANA storlek rapport](https://launchpad.support.sap.com/#/notes/1872170)
-- [SAP-kommentar #2121330 – vanliga frågor och svar: SAP BW för HANA som ändrar storlek på rapporten](https://launchpad.support.sap.com/#/notes/2121330)
-- [SAP Obs! #1736976 - storlek rapporten för BW på HANA](https://launchpad.support.sap.com/#/notes/1736976)
-- [SAP Obs! #2296290 - storlek ny rapport för BW på HANA](https://launchpad.support.sap.com/#/notes/2296290)
+- [SAP-anteckning #1793345-storlek för SAP Suite på HANA](https://launchpad.support.sap.com/#/notes/1793345)
+- [SAP-anteckning #1872170-svit på HANA-och S/4 HANA-storleks rapport](https://launchpad.support.sap.com/#/notes/1872170)
+- [SAP-anteckning #2121330 – vanliga frågor och svar: SAP BW på HANA-storleks rapport](https://launchpad.support.sap.com/#/notes/2121330)
+- [SAP-anteckning #1736976 storleks rapport för BW på HANA](https://launchpad.support.sap.com/#/notes/1736976)
+- [SAP-anteckning #2296290-ny storleks rapport för BW på HANA](https://launchpad.support.sap.com/#/notes/2296290)
 
-SAP snabb Ange storlek är tillgänglig att beräkna minneskrav för implementering av SAP-programvara på HANA för implementeringar av grönt fält.
+För gröna fält implementeringar kan SAP Quick Sizeer vara tillgängligt för att beräkna minnes kraven för implementeringen av SAP-programvara ovanpå HANA.
 
-Minneskraven för HANA öka när datavolymen växer. Tänk på din aktuella minnesanvändningen för att förutse vad den ska vara i framtiden. Baserat på minneskrav, kan sedan du mappa din begäran till någon av HANA-SKU: er för stor instans.
+Minneskraven för HANA öka när datavolymen växer. Tänk på den aktuella minnes förbrukningen så att du kan förutsäga vad den kommer att vara i framtiden. Utifrån minnes kraven kan du mappa din efter frågan till en av de stora HANA-instanserna.
 
 **Nästa steg**
-- Se [integrationskrav](hana-onboarding-requirements.md)
+- Se [onboarding-krav](hana-onboarding-requirements.md)

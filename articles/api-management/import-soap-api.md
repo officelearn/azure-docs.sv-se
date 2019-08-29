@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f7a203495e35d9e4143fe247a55adaa43bc5d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22b7b79426829b57f15263f7792dca6596c6641f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817053"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073248"
 ---
 # <a name="import-soap-api"></a>Importera SOAP API
 
@@ -31,7 +30,7 @@ I den här artikeln kan du se hur du:
 > * Testa API:et i Azure Portal
 > * Testa API:et i Developer-portalen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 
@@ -49,7 +48,7 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
     ![Direkt](./media/import-soap-api/pass-through.png)
 5. Tryck tabb.
 
-    Följande fält fylls med information från SOAP-API: Visningsnamn, namn, beskrivning.
+    Följande fält blir ifyllda med informationen från SOAP-API: et: Visnings namn, namn, beskrivning.
 6. Lägg till ett API URL-suffix. Suffixet är ett namn som identifierar det här specifika API:et i den här APIM-instansen. Det måste vara unikt i den här APIM-instansen.
 9. Du kan publicera API:et genom att associera det med en produkt. I det här fallet används den *obegränsade* produkten.  Om du vill att API:et ska publiceras och vara tillgänglig för utvecklare, lägger du till det till en produkt. Du kan göra det vid API-skapandet eller ställa in det senare.
 

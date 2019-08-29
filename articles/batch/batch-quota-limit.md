@@ -10,17 +10,16 @@ ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 118a36587667c815489ddad03426b5cfcfee7382
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1e7d64aabba19f04fb98bd208389dc0b2077bfe4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036683"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094701"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -55,7 +54,7 @@ Storleks gränser för pooler anges av batch-tjänsten. Till skillnad från [res
 | Pool för batch-Fakturapool | 80 |
 | **Compute-noder som [skapats med anpassad VM-avbildning](batch-custom-images.md)**  <sup>1</sup> ||
 | Reserverade noder | 2000 |
-| Lågprioritetsnoder | 1000 |
+| Lågprioriterade virtuella noder | 1000 |
 
 <sup>1</sup> för pooler som inte är kommunikation mellan noder aktive rad.
 

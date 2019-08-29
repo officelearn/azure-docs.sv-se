@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127437"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072343"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
@@ -62,10 +61,11 @@ Så här får du åtkomst till mått:
 
 1. Välj **Mått** på menyn långt ned på sidan.
 
-    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+    ![mått](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. Från listrutan väljer du mått som du är intresserad av. Till exempel **Slutförda gatewaybegäranden**. Du kan också lägga till fler mått i diagrammet.
-3. Diagrammet visar det totala antalet genomförda API-anrop.
+1. Från listrutan väljer du mått som du är intresserad av. Till exempel **begär Anden**. 
+1. Diagrammet visar det totala antalet API-anrop.
+1. Diagrammet kan filtreras med dimensionerna för **begär** ande mått. Klicka till exempel på **Lägg till filter**, Välj **Server del svars kod**, ange 500 som värde. Nu visar diagrammet antalet begär Anden som misslyckats i API-backend-servern.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Konfigurera en aviseringsregel för obehörig begäran
 
@@ -77,28 +77,28 @@ Du kan konfigurera för att ta emot varningar baserat på mått och aktivitetslo
 
 Så här konfigurerar du varningar:
 
-1. Välj **aviseringar** på menyraden långt ned på sidan.
+1. Välj **aviseringar** från meny raden nästan längst ned på sidan.
 
     ![aviseringar](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. Klicka på en **ny aviseringsregel** för den här aviseringen.
+2. Klicka på en **ny aviserings regel** för den här aviseringen.
 3. Klicka på **Lägg till villkor**.
-4. Välj **mått** i signaltyp nedrullningsbar listruta.
-5. Välj **obehörig Gateway begära** signal att övervaka.
+4. Välj **mått** i list rutan signal typ.
+5. Välj **obehörig Gateway-begäran** som den signal som ska övervakas.
 
     ![aviseringar](./media/api-management-azure-monitor/signal-type.png)
 
-6. I den **konfigurera signallogiken** visa, ange ett tröskelvärde efter som aviseringen ska aktiveras och klicka på **klar**.
+6. I vyn **Konfigurera signal logik** anger du ett tröskelvärde efter vilken aviseringen ska utlösas och klickar på **Slutför**.
 
     ![aviseringar](./media/api-management-azure-monitor/threshold.png)
 
-7. Välj en befintlig åtgärdsgrupp eller skapa en ny. I exemplet nedan visas skickas ett e-postmeddelande till administratörerna. 
+7. Välj en befintlig åtgärds grupp eller skapa en ny. I exemplet nedan skickas ett e-postmeddelande till administratörerna. 
 
     ![aviseringar](./media/api-management-azure-monitor/action-details.png)
 
-8. Ange ett namn, beskrivning av regeln och välj allvarlighetsgraden. 
-9. Tryck på **skapa varningsregel**.
-10. Prova att anropa konferens-API utan API-nyckel. Aviseringen utlöses och e-postmeddelandet skickas till administratörerna. 
+8. Ange ett namn, en beskrivning av varnings regeln och välj allvarlighets grad. 
+9. Tryck på **skapa aviserings regel**.
+10. Försök nu att anropa konferens-API utan API-nyckel. Aviseringen aktive ras och e-postmeddelandet skickas till administratörerna. 
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 
@@ -180,41 +180,41 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 }  
 ```
 
-| Egenskap   | Typ | Beskrivning |
+| Egenskap  | Type | Beskrivning |
 | ------------- | ------------- | ------------- |
-| isRequestSuccess | boolesk | True om HTTP-begäran slutfördes med svarsstatuskod inom intervallet 2xx eller 3xx |
+| isRequestSuccess | boolean | True om HTTP-begäran slutfördes med svarsstatuskod inom intervallet 2xx eller 3xx |
 | time | date-time | Tidstämpel för mottagande av HTTP-begäran av gatewayen |
 | operationName | sträng | Konstantvärde ”Microsoft.ApiManagement/GatewayLogs” |
 | category | sträng | Konstantvärde ”GatewayLogs” |
-| durationMs | heltal | Antalet millisekunder från att gatewayen fick begäran till då svaret har skickats fullständigt |
+| durationMs | integer | Antalet millisekunder från att gatewayen fick begäran till då svaret har skickats fullständigt |
 | callerIpAddress | sträng | IP-adress för anropare av omedelbar gateway (kan vara en mellanhand) |
 | correlationId | sträng | Unik http-begäranidentifierare tilldelad av API Management |
 | location | sträng | Namn på Azure-regionen där gatewayen som behandlade begäran hittades |
 | httpStatusCodeCategory | sträng | Kategori för http-svarsstatuskod: Lyckades (301 eller lägre eller 304 eller 307), Ej auktoriserad (401, 403, 429), Felaktig (400, mellan 500 och 600), Annat |
-| resourceId | sträng | ID för API Management-resursen /SUBSCRIPTIONS/\<prenumeration > /RESOURCEGROUPS/\<resursgrupp >/PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/\<namn > |
-| properties | objekt | Egenskaper för aktuell begäran |
-| metod | sträng | HTTP-metod för inkommande begäran |
+| resourceId | sträng | ID för API Management Resource/Subscriptions/\<-prenumerationen >/RESOURCEGROUPS/\<Resource-Group >/providers/Microsoft. API Management/tjänst/\<namn > |
+| properties | object | Egenskaper för aktuell begäran |
+| method | sträng | HTTP-metod för inkommande begäran |
 | url | sträng | URL för inkommande begäran |
 | clientProtocol | sträng | HTTP-protokollversion för inkommande begäran |
 | responseCode | heltal | Statuskod för HTTP-svar som skickas till klient |
 | backendMethod | sträng | HTTP-metod för begäran som skickats till en serverdel |
 | backendUrl | sträng | URL för begäran som skickats till en serverdel |
-| backendResponseCode | heltal | Kod för HTTP-svaret togs emot av en serverdel |
+| backendResponseCode | integer | Kod för HTTP-svaret togs emot av en serverdel |
 | backendProtocol | sträng | HTTP-protokollversion för begäran som skickats till en serverdel | 
 | requestSize | heltal | Antalet byte som tagits emot från en klient under bearbetning av begäran | 
 | responseSize | heltal | Antalet byte som har skickats till en klient under bearbetning av begäran | 
 | cache | sträng | Status för API Management cachemedverkan i behandling av begäran (t.ex. träff, miss, ingen) | 
-| cacheTime | heltal | Antalet millisekunder som ägnats åt övergripande API Management cache-IO (ansluta, skicka och ta emot byte) | 
-| backendTime | heltal | Antalet millisekunder som ägnats åt övergripande serverdels-IO (ansluta, skicka och ta emot byte) | 
-| clientTime | heltal | Antalet millisekunder som ägnats åt övergripande klient-IO (ansluta, skicka och ta emot byte) | 
+| cacheTime | integer | Antalet millisekunder som ägnats åt övergripande API Management cache-IO (ansluta, skicka och ta emot byte) | 
+| backendTime | integer | Antalet millisekunder som ägnats åt övergripande serverdels-IO (ansluta, skicka och ta emot byte) | 
+| clientTime | integer | Antalet millisekunder som ägnats åt övergripande klient-IO (ansluta, skicka och ta emot byte) | 
 | apiId | sträng | API-entitetsidentifierare för aktuell begäran | 
 | operationId | sträng | Åtgärdsentitetsidentifierare för aktuell begäran | 
 | productId | sträng | Produktentitetsidentifierare för aktuell begäran | 
 | userId | sträng | Användarentitetsidentifierare för aktuell begäran | 
 | apimSubscriptionId | sträng | Prenumerationsentitetsidentifierare för aktuell begäran | 
 | backendId | sträng | Serverdelentitetsidentifierare för aktuell begäran | 
-| LastError | objekt | Bearbetningsfel för senaste begäran | 
-| elapsed | heltal | Antalet förflutna millisekunder sedan gatewayen tog emot begäran till den tidpunkt då felet inträffade | 
+| LastError | object | Bearbetningsfel för senaste begäran | 
+| elapsed | integer | Antalet förflutna millisekunder sedan gatewayen tog emot begäran till den tidpunkt då felet inträffade | 
 | source | sträng | Namn på principen eller behandling av intern hanterare som orsakade felet | 
 | scope | sträng | Omfattningen för det dokument som innehåller principen som orsakade felet | 
 | section | sträng | Avsnittet för det dokument som innehåller principen som orsakade felet | 

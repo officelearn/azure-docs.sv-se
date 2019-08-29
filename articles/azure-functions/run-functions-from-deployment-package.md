@@ -6,16 +6,15 @@ documentationcenter: na
 author: ggailey777
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: glenga
-ms.openlocfilehash: 96dbe9b15831a349afc0e68c15c39c1cb31b1032
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: b6a2347ff79268cdaf54993952d59bd700b781bc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444059"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095965"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Köra Azure Functions från en paketfil
 
@@ -61,7 +60,7 @@ Följande visar en Function-app som kon figurer ATS för att köras från en. zi
 
 [Zip-distribution][Zip deployment for Azure Functions] är en funktion i Azure App Service som gör att du kan distribuera ditt app- `wwwroot` projekt till katalogen. Projektet paketeras som en. zip-distributions fil. Samma API: er kan användas för att distribuera paketet till `d:\home\data\SitePackages` mappen. Med appens inställnings `1`värde `d:\home\data\SitePackages` kopierar API: erna för zip-distribution ditt paket till mappen i stället för att extrahera filerna `d:\home\site\wwwroot`till. `WEBSITE_RUN_FROM_PACKAGE` `packagename.txt` Filen skapas också. Function-appen körs sedan från paketet efter en omstart och `wwwroot` blir skrivskyddad. Mer information om zip-distribution finns i [zip-distribution för Azure Functions](deployment-zip-push.md).
 
-## <a name="adding-the-websiterunfrompackage-setting"></a>Lägger till inställningen WEBSITE_RUN_FROM_PACKAGE
+## <a name="adding-the-website_run_from_package-setting"></a>Lägger till inställningen WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 

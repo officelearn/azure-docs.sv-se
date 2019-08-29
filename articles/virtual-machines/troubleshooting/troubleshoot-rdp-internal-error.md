@@ -1,5 +1,5 @@
 ---
-title: Ett internt fel inträffar när du gör en RDP-anslutning till Azure Virtual Machines | Microsoft Docs
+title: Ett internt fel uppstår när du gör en RDP-anslutning till Azure Virtual Machines | Microsoft Docs
 description: Lär dig att felsöka RDP internt fel i Microsoft Azure. | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 4476e4732dfcf8d79c9678a7ff4719eba10e48f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fa00a5b65b0e337c47ca1fa892b8958f0bd2232
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319436"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089812"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ett internt fel inträffar vid försök att ansluta till en Azure-dator via fjärrskrivbord
 
@@ -55,7 +54,7 @@ Felsök problemet genom att använda Seriekonsolen eller [reparera den virtuella
 Ansluta till [seriella konsolen och öppna PowerShell-instans](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Om Seriekonsolen inte är aktiverad på den virtuella datorn går du till den [reparera den virtuella datorn offline](#repair-the-vm-offline) avsnittet.
 
-#### <a name="step-1-check-the-rdp-port"></a>Steg: 1 Kontrollera RDP-porten
+#### <a name="step-1-check-the-rdp-port"></a>Aktivitets 1 kontrol lera RDP-porten
 
 1. I en PowerShell-instans, använder den [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) att kontrollera om port 8080 används av andra program:
@@ -87,7 +86,7 @@ Ansluta till [seriella konsolen och öppna PowerShell-instans](./serial-console-
 
     3. [Uppdatera nätverkssäkerhetsgruppen för den nya porten](../../virtual-network/security-overview.md) i Azure portal RDP-porten.
 
-#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Steg 2: Ange rätt behörigheter för det självsignerade certifikatet för RDP
+#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Steg 2: Ange rätt behörigheter för det självsignerade RDP-certifikatet
 
 1.  Kör följande kommandon ett i taget att förnya det självsignerade certifikatet för RDP i en PowerShell-instans:
 

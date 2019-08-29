@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/29/2019
 ms.author: victorh
-ms.openlocfilehash: ebe02e8bf3fecc03c46bb66c9ab178e4f277e6e4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 119f28bcc4f88f0b4dc0ce65584dbce326087eba
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971619"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114767"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -153,4 +153,12 @@ När en konfigurations ändring används försöker Azure-brandväggen uppdatera
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Finns det en tecken gräns för ett brand Väggs namn?
 
-Ja. Det finns en gräns på 50 tecken för ett brand Väggs namn. 
+Ja. Det finns en gräns på 50 tecken för ett brand Väggs namn.
+
+## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Varför behöver Azure-brandväggen en/26-nätstorlek?
+
+Azure-brandväggen måste etablera fler virtuella dator instanser när den skalas. Ett/26-adressutrymme säkerställer att brand väggen har tillräckligt med IP-adresser för att kunna hantera skalningen.
+
+## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>Måste brand Väggs under näts storleken ändras när tjänsten skalas?
+
+Nej. Azure-brandväggen behöver inte ett undernät som är större än/26.

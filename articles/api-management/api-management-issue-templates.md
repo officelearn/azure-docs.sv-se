@@ -1,6 +1,6 @@
 ---
 title: Utfärda mallar i Azure API Management | Microsoft Docs
-description: Lär dig hur du anpassar innehållet i problemet sidorna i utvecklarportalen i Azure API Management.
+description: Lär dig hur du anpassar innehållet på ärende sidorna i Developer-portalen i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,33 +10,32 @@ ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 93681062b325756f720f6fe8280ee6b874fea284
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656713"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072273"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Utfärda mallar i Azure API Management
-Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar som konfigurerar sitt innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, till exempel [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [tecken resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), har bra möjlighet att konfigurera innehållet i sidorna som du vill med hjälp av dessa mallar.  
+Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, till exempel [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), glyf- [resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna som du ser får plats med mallarna.  
   
- Mallar i det här avsnittet kan du anpassa innehållet på sidorna problemet i developer-portalen.  
+ Med mallarna i det här avsnittet kan du anpassa innehållet på ärende sidorna i Developer-portalen.  
   
--   [Problemet lista](#IssueList)  
+-   [Ärende lista](#IssueList)  
   
 > [!NOTE]
->  Standardmallarna för exemplet ingår i följande dokumentation, men kan komma att ändras på grund av fortlöpande med förbättringar. Du kan visa live standardmallarna i developer-portalen genom att navigera till önskad enskilda mallarna. Mer information om hur du arbetar med mallar finns i [hur du anpassar utvecklarportalen API Management med hjälp av mallar](api-management-developer-portal-templates.md).  
+>  Exempel på standardmallar finns i följande dokumentation, men kan komma att ändras på grund av kontinuerliga förbättringar. Du kan visa standardmallarna för Live i Developer-portalen genom att gå till önskade enskilda mallar. Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).  
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="IssueList"></a> Problemet lista  
- Den **problemet lista** mall kan du anpassa brödtexten i sidan problemet i developer-portalen.  
+##  <a name="IssueList"></a>Ärende lista  
+ Med hjälp av mallen **ärende lista** kan du anpassa bröd texten på sidan ärende lista i Developer-portalen.  
   
- ![Issue List Developer Portal](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM Issue List Developer Portal")  
+ ![Ärende lista] för Developer-portalen (./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM Issue List Developer Portal")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -91,21 +90,21 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```
   
 ### <a name="controls"></a>Kontroller  
- Den `Issue list` mall kan använda följande [sidan kontroller](api-management-page-controls.md).  
+ Mallen kan använda följande [sid kontroller.](api-management-page-controls.md) `Issue list`  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Type|Beskrivning|  
 |--------------|----------|-----------------|  
-|`Issues`|Insamling av [problemet](api-management-template-data-model-reference.md#Issue) entiteter.|Problem som är synliga för den aktuella användaren.|  
-|`Paging`|[Växling](api-management-template-data-model-reference.md#Paging) entitet.|Växling information för programmets samling.|  
-|`IsAuthenticated`|boolean|Om den aktuella användaren är inloggad på developer-portalen.|  
-|`CanReportIssues`|boolean|Om den aktuella användaren har behörighet att skicka in ett ärende.|  
-|`Search`|string|Den här egenskapen är inaktuell och ska inte användas.|  
+|`Issues`|Samling av [Issue](api-management-template-data-model-reference.md#Issue) -entiteter.|De problem som är synliga för den aktuella användaren.|  
+|`Paging`|[Växlings](api-management-template-data-model-reference.md#Paging) enhet.|Växlings informationen för program samlingen.|  
+|`IsAuthenticated`|boolean|Om den aktuella användaren är inloggad på Developer-portalen.|  
+|`CanReportIssues`|boolean|Om den aktuella användaren har behörighet att skicka in ett problem.|  
+|`Search`|sträng|Den här egenskapen är föråldrad och ska inte användas.|  
   
-### <a name="sample-template-data"></a>Mall för exempeldata  
+### <a name="sample-template-data"></a>Exempel mal lin data  
   
 ```json
 {
@@ -137,4 +136,4 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du arbetar med mallar finns i [hur du anpassar utvecklarportalen API Management med hjälp av mallar](api-management-developer-portal-templates.md).
+Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).

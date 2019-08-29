@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b4b70a45758f697c469895bcef6ea8d203065e26
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: ee8d8c54bd618780e00d9975f2fc6950cd795d44
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853963"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098548"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -186,7 +185,7 @@ När din leverantörs åtkomsttoken (inte [sessionstoken](#extend-session-token-
 - **Microsoft-konto**: När du [konfigurerar autentiseringsinställningar för Microsoft-konton](configure-authentication-provider-microsoft.md)väljer `wl.offline_access` du omfånget.
 - **Azure Active Directory**: I [https://resources.azure.com](https://resources.azure.com)utför du följande steg:
     1. Välj **Läs/skriv**längst upp på sidan.
-    2. I den vänstra webbläsaren navigerar du > till prenumerations **_\<\_namn_**  > för prenumerationer**resourceGroups** >  **_\<resurs grupp\_ namn\_>_**  >  **** **leverantörer Microsoft. Web**Sites **_-appensnamn\_> konfiguration\<_**  >  ****  >   >  >  >  **authsettings**. 
+    2. I den vänstra webbläsaren navigerar du > till prenumerations **_\<\_namn_**  > för prenumerationer**resourceGroups** >  **_\<resurs grupp\_ namn\_>_**  > **leverantörer Microsoft. Web**Sites **_-appensnamn\_> konfiguration\<_**  >   >   >  >  >  **authsettings**. 
     3. Klicka på **Redigera**.
     4. Ändra följande egenskap. _Ersätt\<app\_-ID >_ med Azure Active Directory program-ID för den tjänst som du vill komma åt.
 
@@ -233,7 +232,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Med både Microsoft-konto och Azure Active Directory kan du logga in från flera domäner. Till exempel kan Microsoft-konto tillåta _Outlook.com_-, _live.com_-och _hotmail.com_ -konton. Azure Active Directory tillåter ett obegränsat antal anpassade domäner för inloggnings kontona. Det här beteendet kan vara olämpligt för en intern app, som du inte vill att någon med ett _Outlook.com_ -konto får åtkomst till. Följ dessa steg om du vill begränsa domän namnet för inloggnings kontona.
 
-I [https://resources.azure.com](https://resources.azure.com)navigerar **du till**prenumerations **_\_ namnförprenumerationerresourceGroupsResource\<_**  >  >  >  **** **_\<\_ grupp\_ namn >_**  >  **** **** **leverantörer Microsoft. Web**Sites >  - **_appensnamn\_ >\<_**  >  >  >  **konfiguration**  >  **authsettings**. 
+I [https://resources.azure.com](https://resources.azure.com)navigerar >  dutillprenumerations **_\_ namnförprenumerationerresourceGroupsResource\<_**  >  >  **_\<\_ grupp\_ namn >_**  > **leverantörer Microsoft. Web**Sites >  - **_appensnamn\_ >\<_**  >  >  >  **konfiguration**  >  **authsettings**. 
 
 Klicka på **Redigera**, ändra följande egenskap och klicka sedan på **Lägg**till. Se till att ersätta  _\<domän\_namn >_ med den domän som du vill använda.
 

@@ -1,6 +1,6 @@
 ---
-title: Samla in information om alla datorer i en prenumeration med PowerShell | Microsoft Docs
-description: Samla in information om alla datorer i en prenumeration med PowerShell
+title: Samla in information om alla virtuella datorer i en prenumeration med PowerShell | Microsoft Docs
+description: Samla in information om alla virtuella datorer i en prenumeration med PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: v-miegge
@@ -9,23 +9,22 @@ editor: v-miegge
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: b4828b34a089a59e630aaaf7652e8623b3e2c7b8
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: b51c0f7a9fbeadfd0ff79e4578bddad052466b13
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659715"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090791"
 ---
-# <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Samla in information om alla datorer i en prenumeration med PowerShell
+# <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Samla in information om alla virtuella datorer i en prenumeration med PowerShell
 
-Det här skriptet skapar en CSV-fil som innehåller namn, resursgrupp för virtuell dator namn, Region, virtuellt nätverk, undernät, privat IP-adress, OS-typ och offentliga IP-adressen för de virtuella datorerna i den angivna prenumerationen.
+Det här skriptet skapar en CSV som innehåller namnet på den virtuella datorn, resurs gruppens namn, region, Virtual Network, undernät, privat IP-adress, OS-typ och offentliga IP-adress för de virtuella datorerna i den angivna prenumerationen.
 
 Om du inte har en [Azure-prenumeration](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing) kan du skapa ett[kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
@@ -71,14 +70,14 @@ $report | Export-CSV "$home/$reportName"
 ```
 
 ## <a name="script-explanation"></a>Förklaring av skript
-Det här skriptet använder följande kommandon för att skapa en csv-export av information om virtuella datorer i en prenumeration. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+Det här skriptet använder följande kommandon för att skapa en CSV-export av information om virtuella datorer i en prenumeration. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 |Kommando|Anteckningar|
 |-|-|
-|[Select-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|Anger det klient, prenumeration och miljö för cmdletar som ska användas i den aktuella sessionen.|
+|[Select-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|Anger klienten, prenumerationen och miljön för de cmdletar som ska användas i den aktuella sessionen.|
 |[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|Hämtar egenskaperna för en virtuell dator.|
 |[Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzPublicIpAddress)|Hämtar en offentlig IP-adress.|
-|[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzNetworkInterface)|Hämtar ett nätverksgränssnitt.|
+|[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzNetworkInterface)|Hämtar ett nätverks gränssnitt.|
 
 ## <a name="next-steps"></a>Nästa steg
 

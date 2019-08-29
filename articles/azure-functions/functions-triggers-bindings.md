@@ -1,61 +1,60 @@
 ---
 title: Utlösare och bindningar i Azure Functions
-description: Lär dig använda utlösare och bindningar för att ansluta din Azure-funktion till online-händelser och molnbaserade tjänster.
+description: Lär dig att använda utlösare och bindningar för att ansluta din Azure-funktion till online-händelser och molnbaserade tjänster.
 services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 0896a829a24335f3e62581fa3b63e013478781bc
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 914158ba7cfcc7530120d427c62e69036b3bb156
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480996"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085077"
 ---
-# <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
+# <a name="azure-functions-triggers-and-bindings-concepts"></a>Metoder för Azure Functions utlösare och bindningar
 
-Lär dig avancerade begrepp omgivande functions-utlösare och bindningar i den här artikeln.
+I den här artikeln lär du dig de övergripande koncepten som omger funktions utlösare och bindningar.
 
-Utlösare är det orsaka en funktion som ska köras. En utlösare som definierar hur en funktion som anropas och en funktion måste ha exakt en utlösare. Utlösare har associerade data som ofta levereras som nyttolasten för funktionen. 
+Utlösare är orsaken till att en funktion körs. En utlösare definierar hur en funktion anropas och en funktion måste ha exakt en utlösare. Utlösare har associerade data som ofta tillhandahålls som nytto last för funktionen. 
 
-Bindning till en funktion är ett sätt att deklarativt ansluter en annan resurs till funktionen. bindningar kan anslutas som *ange bindningar*, *utdatabindningar*, eller båda. Data från bindningar har angetts för funktionen som parametrar.
+Bindning till en funktion är ett sätt att på ett sätt ansluta en annan resurs till funktionen. bindningar kan vara anslutna som *indata*-bindningar, *utgående bindningar*eller både och. Data från bindningar tillhandahålls till funktionen som parametrar.
 
-Du kan blanda och matcha olika bindningar så att den passar dina behov. Bindningar är valfria och en funktion kan ha en eller flera indata och/eller utdatabindningar.
+Du kan blanda och matcha olika bindningar så att de passar dina behov. Bindningar är valfria och en funktion kan ha en eller flera bindningar för indata och/eller utdata.
 
-Utlösare och bindningar kan du undvika hardcoding åtkomst till andra tjänster. Funktionen tar emot data (till exempel innehållet i ett kömeddelande) i funktionsparametrar. Du kan skicka data (t.ex, för att skapa ett kömeddelande) med hjälp av det returnera värdet för funktionen. 
+Med utlösare och bindningar kan du undvika hårdkoda åtkomst till andra tjänster. Din funktion tar emot data (till exempel innehållet i ett Queue meddelande) i funktions parametrar. Du skickar data (till exempel för att skapa ett Queue meddelande) genom att använda funktionens retur värde. 
 
-Överväg att i följande exempel på hur du kan implementera olika funktioner.
+Tänk på följande exempel på hur du kan implementera olika funktioner.
 
-| Exempel på ett scenario | Utlösare | Indatabindning | Utdata-bindning |
+| Exempel på ett scenario | Utlösare | Binda in | Utgående bindning |
 |-------------|---------|---------------|----------------|
-| Ett nytt kömeddelande kommer som kör en funktion för att skriva till en annan kö. | kön<sup>*</sup> | *Ingen* | kön<sup>*</sup> |
-|Ett schemalagt jobb läser Blob Storage-innehållet och skapar ett nytt Cosmos DB-dokument. | Timer | Blob Storage | Cosmos DB |
-|Event Grid används för att läsa en avbildning från Blob Storage och ett dokument från Cosmos DB för att skicka ett e-postmeddelande. | Event Grid | BLOB-lagring och Cosmos DB | SendGrid |
-| En webhook som använder Microsoft Graph för att uppdatera ett Excel-blad. | HTTP | *Ingen* | Microsoft Graph |
+| Ett nytt Queue-meddelande anländer som kör en funktion för att skriva till en annan kö. | Köjobb<sup>*</sup> | *Alternativet* | Köjobb<sup>*</sup> |
+|Ett schemalagt jobb läser Blob Storage innehåll och skapar ett nytt Cosmos DB-dokument. | Timer | Blobblagring | Cosmos DB |
+|Event Grid används för att läsa en avbildning från Blob Storage och ett dokument från Cosmos DB för att skicka ett e-postmeddelande. | Event Grid | Blob Storage och Cosmos DB | SendGrid |
+| En webhook som använder Microsoft Graph för att uppdatera ett Excel-blad. | HTTP | *Alternativet* | Microsoft Graph |
 
-<sup>\*</sup> Representerar olika köer
+<sup>\*</sup>Representerar olika köer
 
-De här exemplen är inte avsedda att ha grundlig, men tillhandahålls för att illustrera hur du kan använda utlösare och bindningar tillsammans.
+Dessa exempel är inte avsedda att vara uttömmande, men de tillhandahålls för att illustrera hur du kan använda utlösare och bindningar tillsammans.
 
-###  <a name="trigger-and-binding-definitions"></a>Definitioner för utlösare och -bindning
+###  <a name="trigger-and-binding-definitions"></a>Utlösare och bindnings definitioner
 
-Utlösare och bindningar har definierats på olika sätt beroende på utvecklingsmetoder.
+Utlösare och bindningar definieras på olika sätt beroende på utvecklings metoden.
 
-| Plattform | Utlösare och bindningar har konfigurerats av... |
+| Plattform | Utlösare och bindningar konfigureras av... |
 |-------------|--------------------------------------------|
-| C#klassbibliotek | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;att dekorera metoder och parametrar med C# attribut |
-| Alla andra inklusive (Azure-portalen) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uppdaterar [function.json](./functions-reference.md) ([schemat](http://json.schemastore.org/function)) |
+| C#klass bibliotek | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dekorera metoder och parametrar med C# attribut |
+| Alla andra (inklusive Azure Portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uppdaterar [Function. JSON](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
 
-Portalen innehåller ett användargränssnitt för den här konfigurationen, men du kan redigera filen direkt genom att öppna den **Avancerad redigerare** tillgängligt via den **integrera** i din funktion.
+Portalen innehåller ett användar gränssnitt för den här konfigurationen, men du kan redigera filen direkt genom att öppna den **avancerade redigeraren** som är tillgänglig via fliken **integrera** i din funktion.
 
-I .NET definierar parametertypen datatypen för indata. Till exempel använda `string` att binda till texten i en kö-utlösare, en bytematris att läsa som binary och en anpassad typ att deserialisera till ett objekt.
+I .NET definierar parameter typen data typen för indata. Använd `string` till exempel för att binda till texten i en Queue-utlösare, en byte mat ris som ska läsas som binär och en anpassad typ för deserialisering till ett objekt.
 
-Språk som har skrivits dynamiskt, till exempel JavaScript, använda den `dataType` -egenskapen i den *function.json* fil. Exempelvis om du vill läsa innehållet i en HTTP-förfrågan i binärt format, ställer du in `dataType` till `binary`:
+För språk som är dynamiskt skrivna, till exempel Java Script, `dataType` använder du egenskapen i *Function. JSON* -filen. Om du till exempel vill läsa innehållet i en http-begäran i binärt format `dataType` , `binary`ange till:
 
 ```json
 {
@@ -68,31 +67,31 @@ Språk som har skrivits dynamiskt, till exempel JavaScript, använda den `dataTy
 
 Andra alternativ för `dataType` är `stream` och `string`.
 
-## <a name="binding-direction"></a>Riktning för bindning
+## <a name="binding-direction"></a>Bindnings riktning
 
-Alla utlösare och bindningar har en `direction` -egenskapen i den [function.json](./functions-reference.md) fil:
+Alla utlösare och bindningar `direction` har en egenskap i filen [Function. JSON](./functions-reference.md) :
 
-- För utlösare är riktningen alltid `in`
-- Bindningar för indata- och använda `in` och `out`
-- Vissa bindningar stöd för en särskild riktning `inout`. Om du använder `inout`, endast den **Avancerad redigerare** är tillgängligt via den **integrera** i portalen.
+- För utlösare är riktningen alltid`in`
+- Indata och utgående bindningar `in` använder och`out`
+- Vissa bindningar har stöd för en `inout`speciell riktning. Om du använder `inout`är det bara **avancerad redigerare** som är tillgänglig via fliken **integrera** i portalen.
 
-När du använder [attribut i en klassbiblioteket](functions-dotnet-class-library.md) för att konfigurera utlösare och bindningar, riktning har angetts i en attributkonstruktör eller härleds från parametertypen.
+När du använder [attribut i ett klass bibliotek](functions-dotnet-class-library.md) för att konfigurera utlösare och bindningar, anges riktningen i en attributhierarki eller härleds från parameter typen.
 
-## <a name="supported-bindings"></a>Stöds bindningar
+## <a name="supported-bindings"></a>Bindningar som stöds
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-Information om vilka bindningar finns i förhandsversion eller är godkända för användning i produktion finns i [språk som stöds](supported-languages.md).
+Information om vilka bindningar som är i för hands version eller som godkänns för användning av produktion finns i [språk som stöds](supported-languages.md).
 
 ## <a name="resources"></a>Resurser
-- [Uttryck för bindning och mönster](./functions-bindings-expressions-patterns.md)
-- [Med hjälp av Azure funktionsreturvärde](./functions-bindings-return-value.md)
-- [Så här registrerar du ett uttryck för bindning](./functions-bindings-register.md)
-- Testning:
+- [Bindnings uttryck och mönster](./functions-bindings-expressions-patterns.md)
+- [Använda Azures funktions retur värde](./functions-bindings-return-value.md)
+- [Så här registrerar du ett bindnings uttryck](./functions-bindings-register.md)
+- Prestandatester
   - [Strategier för att testa din kod i Azure Functions](functions-test-a-function.md)
-  - [Manuellt köra en icke HTTP-utlöst funktion](functions-manually-run-non-http.md)
-- [Hantering av Bindningsfel](./functions-bindings-errors.md)
+  - [Köra en icke-HTTP-utlöst funktion manuellt](functions-manually-run-non-http.md)
+- [Hanterar bindnings fel](./functions-bindings-errors.md)
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Registrera Azure Functions tillägg av bindning](./functions-bindings-register.md)
+> [Registrera Azure Functions bindnings tillägg](./functions-bindings-register.md)

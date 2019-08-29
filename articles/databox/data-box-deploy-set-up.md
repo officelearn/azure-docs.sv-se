@@ -1,21 +1,33 @@
 ---
-title: Självstudie om du vill ställa in Azure Data Box | Microsoft Docs
+title: Självstudie för att konfigurera Azure Data Box | Microsoft Docs
 description: Lär dig hur du kabelansluter och ansluter till Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 08/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 6a725784c419b67f7738b70ad867d2d6ef8b0785
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4e997998c345e1cbd6ff784aaf84bc9f605f691c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795961"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098643"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Självstudier: Kabelansluta och ansluta till Azure Data Box
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="cable-and-connect-to-your-device"></a>Kabel och Anslut till din enhet
+
+::: zone-end
+
+::: zone target="docs"
 
 I den här självstudien beskrivs hur du kabelansluter, ansluter och slår på Azure Data Box-enheten.
 
@@ -25,7 +37,7 @@ I den här guiden får du lära dig att:
 > * Kabelansluta Data Box
 > * Ansluta till Data Box
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
@@ -40,7 +52,7 @@ Innan du börjar ska du kontrollera att:
     - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men då påverkas kopieringshastigheten. 
 6. Du måste ha tillgång till en plan yta där du kan placera Data Box. Om du vill placera enheten på en standardrackhylla måste du ha en 7U-plats i datacenterracket. Du kan placera enheten liggande eller stående i racket.
 7. Du har skaffat följande kablar för att ansluta Data Box till värddatorn.
-    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Data Box har Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-adaptrar med PCI Express 3.0-nätverksgränssnitt. Därmed bör kablar som är kompatibla med det här gränssnittet fungera. Exempel, en CISCO SFP-H10GB-CU3M 10GBASE CU TWINMAX SFP + 3 M användes kabel för intern testning. Mer information finns i den [listan över stöds kablar och växlar från Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
+    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Data Box har Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-adaptrar med PCI Express 3.0-nätverksgränssnitt. Därmed bör kablar som är kompatibla med det här gränssnittet fungera. Till exempel användes CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP + 3M-kabel för intern testning. Mer information finns i [listan över kablar som stöds och växlar från Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - En RJ-45 CAT 6-nätverkskabel (använd med MGMT-nätverksgränssnitt)
     - En RJ-45 CAT 6A- eller en RJ-45 CAT 6-nätverkskabel (använd med DATA 3-nätverksgränssnitt konfigurerat som 10 Gbps respektive 1 Gbps)
 
@@ -63,6 +75,38 @@ Kabelanslut enheten med hjälp av följande steg.
 4. Leta reda på strömknappen på enhetens frontpanel. Slå på enheten.
 
     ![Strömknappen på Data Box](media/data-box-deploy-set-up/data-box-powered-door-open.png)
+
+::: zone-end
+
+::: zone target="chromeless"
+
+När du har tagit emot enheten måste du kontakta din enhet och ansluta till den. 
+
+## <a name="cable-your-device"></a>Kabelanslut din enhet
+
+1. Fortsätt inte om det finns tecken på att enheten har manipulerats eller skadats. Kontakta Microsoft Support så att de kan skicka en ersättningsenhet.
+2. Se till att du har följande kablar innan du kabelansluter enheten:
+    
+    - (Medföljer) jordad strömkabel graderad 10 A eller högre med en IEC60320 C-13-kontakt i ena änden av enheten.
+    - En RJ-45 CAT 6-nätverkskabel (använd med MGMT-nätverksgränssnitt)
+    - Två 10 GbE SFP+ Twinax-kopparkablar (använd med 10 Gbps DATA 1-, DATA 2-nätverksgränssnitt)
+    - En RJ-45 CAT 6A- eller en RJ-45 CAT 6-nätverkskabel (använd med DATA 3-nätverksgränssnitt konfigurerat som 10 Gbps respektive 1 Gbps)
+
+3. Ta bort och placera enheten på en plan yta. 
+    
+4. Kabelanslut enheten enligt nedan.  
+
+    ![Bakplan på kabelansluten Data Box-enhet](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
+
+    1. Anslut strömkabeln till enheten.
+    2. Använd RJ-45 CAT 6-nätverkskabeln till att ansluta värddatorn till hanteringsporten (MGMT) på enheten. 
+    3. Använd SFP+ Twinax-kopparkabeln till att ansluta minst ett 10 Gbps-nätverksgränssnitt (rekommenderas över 1 Gbps), DATA 1 eller DATA 2 för data. 
+    4. Slå på enheten. Strömknappen finns på enhetens frontpanel.
+
+::: zone-end
+
+::: zone target="docs"
+
 
 ## <a name="connect-to-your-device"></a>Ansluta till din enhet
 
@@ -92,6 +136,22 @@ När datanätverksgränssnitten har konfigurerats kan du även använda IP-adres
 
 När enhetskonfigurationen är klar kan du ansluta till enhetsresurserna och kopiera data från datorn till enheten. 
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="connect-your-device"></a>Anslut enheten
+
+1. Hämta lösenordet för enheten på **Allmänt > Enhetsinformation** på [Azure-portalen](https://portal.azure.com).
+2. Tilldela en statisk IP-adress, 192.168.100.5, och undernät 255.255.255.0 till Ethernet-adaptern på den dator du använder för att ansluta till Data Box. Öppna det lokala webbgränssnittet på enheten på `https://192.168.100.10`. Anslutningen kan upp till 5 minuter att slutföra efter att du slagit på enheten. 
+3. Logga in med lösenordet från Azure-portalen. Ett felmeddelande visas som anger ett problem med webbplatsens säkerhetscertifikat. Följ de webbläsarspecifika instruktionerna för att fortsätta till webbsidan.
+4. Som standard konfigureras nätverksinställningarna för 10 Gbps-datagränssnitt (eller 1 Gbps) som DHCP. Om det behövs kan du konfigurera det här nätverket som statiskt och ange en IP-adress. 
+
+::: zone-end
+
+
+::: zone target="docs"
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
@@ -104,4 +164,6 @@ Gå vidare till nästa självstudiekurs och lär dig hur du kopierar data på en
 
 > [!div class="nextstepaction"]
 > [Kopiera data till Azure Data Box](./data-box-deploy-copy-data.md)
+
+::: zone-end
 

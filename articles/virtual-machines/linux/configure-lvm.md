@@ -1,6 +1,6 @@
 ---
 title: Konfigurera LVM på en virtuell dator som kör Linux | Microsoft Docs
-description: Lär dig hur du konfigurerar LVM på Linux i Azure.
+description: Lär dig hur du konfigurerar LVM i Linux i Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: szarkos
@@ -11,30 +11,29 @@ ms.assetid: 7f533725-1484-479d-9472-6b3098d0aecc
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
 ms.subservice: disks
-ms.openlocfilehash: 0feac4844f5d65119e74713c21f58fb29e3a7956
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 1ab545edf9b45e37082509452a858a154b361251
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671680"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083820"
 ---
-# <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Konfigurera LVM på en Linux-dator i Azure
-Det här dokumentet innehåller information om hur du konfigurerar logiska Volume Manager (LVM) i din Azure-dator. LVM kan användas för OS-disk eller datadiskar i virtuella Azure-datorer, men som standard de flesta molnbilder har inte LVM som konfigurerats på OS-disken. Stegen nedan fokuserar på att konfigurera LVM för dina data-diskar.
+# <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Konfigurera LVM på en virtuell Linux-dator i Azure
+Det här dokumentet beskriver hur du konfigurerar LVM (Logical Volume Manager) på din virtuella Azure-dator. LVM kan användas på operativ system disken eller data diskarna på virtuella Azure-datorer, men som standard har de flesta moln avbildningarna inte LVM konfigurerade på OS-disken. Stegen nedan fokuserar på att konfigurera LVM för dina data diskar.
 
-## <a name="linear-vs-striped-logical-volumes"></a>Linjär jämfört med logiska stripe-volymer
-LVM kan användas för att kombinera flera fysiska diskar till en enda lagringsvolym. Som standard skapar LVM vanligtvis linjär logiska volymer, vilket innebär att det fysiska lagringsutrymmet som tillsammans. I det här fallet skickas läs-/ skrivåtgärder vanligtvis bara till en enskild disk. Däremot kan vi skapa stripe-logiska volymer där läsningar och skrivningar distribueras till flera diskar som ingår i gruppen volym (liknar RAID0). Av prestandaskäl är det troligt att du vill stripe-dina logiska volymer så att läsningar och skrivningar kan du använda alla dina anslutna datadiskar.
+## <a name="linear-vs-striped-logical-volumes"></a>Linjära eller stripe logiska volymer
+LVM kan användas för att kombinera ett antal fysiska diskar till en enda lagrings volym. Som standard skapar LVM linjära logiska volymer, vilket innebär att den fysiska lagringen sammanfogas tillsammans. I det här fallet skickas endast Läs-och skriv åtgärder till en enda disk. Vi kan däremot också skapa Striped logiska volymer där läsningar och skrivningar distribueras till flera diskar i volym gruppen (liknar RAID0). Av prestanda skäl är det troligt att du vill ta bort dina logiska volymer så att läsningar och skrivningar använder alla dina anslutna data diskar.
 
-Det här dokumentet beskriver hur du kombinerar flera datadiskar i en enskild volym-grupp och sedan skapa en logisk stripe-volym. Stegen nedan är generaliserad för att fungera med de flesta distributioner. I de flesta fall är verktyg och arbetsflöden för att hantera LVM på Azure inte helt olika än andra miljöer. Som vanligt också kontakta leverantören Linux för dokumentation och bästa praxis för att använda LVM med din specifika distribution.
+Det här dokumentet beskriver hur du kombinerar flera data diskar till en enda volym grupp och sedan skapar en stripe-logisk volym. Stegen nedan är generaliserade för att fungera med de flesta distributioner. I de flesta fall är verktygen och arbets flödena för att hantera LVM i Azure inte grundläggande annorlunda än andra miljöer. Som vanligt kan du också kontakta din Linux-leverantör för dokumentation och bästa praxis för att använda LVM med din specifika distribution.
 
-## <a name="attaching-data-disks"></a>Koppla datadiskar
-En vill vanligtvis börja med två eller flera tomma datadiskar när du använder LVM. Baserat på dina i/o-behov kan välja du att lägga till diskar som lagras i våra Standard-lagring, med upp till 500-i/o/ps per disk eller vår Premium-lagring med upp till 5 000 i/o/ps per disk. Den här artikeln kommer inte gå in i detalj på hur du etablerar och koppla datadiskar till en Linux-dator. Finns i Microsoft Azure-artikeln [ansluta en disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) detaljerade anvisningar om hur du kopplar en tom datadisk till en Linux-dator på Azure.
+## <a name="attaching-data-disks"></a>Kopplar data diskar
+En är vanligt vis att börja med två eller flera tomma data diskar när du använder LVM. Utifrån dina IO-behov kan du välja att koppla diskar som är lagrade i vår standard lagring, med upp till 500 IO/PS per disk eller vår Premium-lagring med upp till 5000 IO/PS per disk. Den här artikeln går inte närmare om hur du etablerar och ansluter data diskar till en virtuell Linux-dator. Mer information om hur du ansluter en tom datadisk till en virtuell Linux-dator på Azure finns i Microsoft Azure artikeln [bifoga en disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
-## <a name="install-the-lvm-utilities"></a>Installera LVM-verktyg
+## <a name="install-the-lvm-utilities"></a>Installera LVM-verktygen
 * **Ubuntu**
 
     ```bash  
@@ -42,7 +41,7 @@ En vill vanligtvis börja med två eller flera tomma datadiskar när du använde
     sudo apt-get install lvm2
     ```
 
-* **RHEL, CentOS och Oracle Linux**
+* **RHEL, CentOS & Oracle Linux**
 
     ```bash   
     sudo yum install lvm2
@@ -60,16 +59,16 @@ En vill vanligtvis börja med två eller flera tomma datadiskar när du använde
     sudo zypper install lvm2
     ```
 
-    På SLES11, måste du även redigera `/etc/sysconfig/lvm` och ange `LVM_ACTIVATED_ON_DISCOVERED` ”aktivera”:
+    På SLES11 måste du också redigera `/etc/sysconfig/lvm` och ange `LVM_ACTIVATED_ON_DISCOVERED` till "Aktivera":
 
     ```sh   
     LVM_ACTIVATED_ON_DISCOVERED="enable" 
     ```
 
 ## <a name="configure-lvm"></a>Konfigurera LVM
-I den här guiden förutsätter vi att du har kopplat tre datadiskar som vi ska referera till som `/dev/sdc`, `/dev/sdd` och `/dev/sde`. Dessa sökvägar kanske inte matchar sökvägsnamn disk i den virtuella datorn. Du kan köra ”`sudo fdisk -l`” eller liknande kommando för att lista dina tillgängliga diskar.
+I den här guiden kommer vi att anta att du har kopplat tre data diskar, som vi ska `/dev/sdc`referera `/dev/sdd` till `/dev/sde`som och. Dessa sökvägar stämmer inte överens med disk Sök vägens namn i den virtuella datorn. Du kan köra`sudo fdisk -l`kommandot eller liknande för att visa en lista över tillgängliga diskar.
 
-1. Förbereda fysiska volymer:
+1. Förbered de fysiska volymerna:
 
     ```bash    
     sudo pvcreate /dev/sd[cde]
@@ -78,14 +77,14 @@ I den här guiden förutsätter vi att du har kopplat tre datadiskar som vi ska 
     Physical volume "/dev/sde" successfully created
     ```
 
-2. Skapa en volym-grupp. I det här exemplet vi ringer upp gruppen volym `data-vg01`:
+2. Skapa en volym grupp. I det här exemplet anropar vi volym gruppen `data-vg01`:
 
     ```bash    
     sudo vgcreate data-vg01 /dev/sd[cde]
     Volume group "data-vg01" successfully created
     ```
 
-3. Skapa logiska volymer. Kommandot nedan vi skapar en enskild logisk volym som kallas `data-lv01` sträcker sig över hela volymen-grupp, men Observera att det också möjligt att skapa flera logiska volymer i gruppen volym.
+3. Skapa den eller de logiska volymerna. Kommandot nedan skapar en logisk volym som kallas `data-lv01` för att omfatta hela volym gruppen, men Observera att det också är möjligt att skapa flera logiska volymer i volym gruppen.
 
     ```bash   
     sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
@@ -99,19 +98,19 @@ I den här guiden förutsätter vi att du har kopplat tre datadiskar som vi ska 
     ```
    
    > [!NOTE]
-   > Med SLES11 användning `-t ext3` i stället för ext4. SLES11 har endast stöd för skrivskyddad åtkomst till ext4 filsystem.
+   > Med SLES11 använder `-t ext3` du i stället för ext4. SLES11 stöder endast skrivskyddad åtkomst till ext4-filsystem.
 
-## <a name="add-the-new-file-system-to-etcfstab"></a>Lägg till det nya filsystemet i/etc/fstab
+## <a name="add-the-new-file-system-to-etcfstab"></a>Lägg till det nya fil systemet i/etc/fstab
 > [!IMPORTANT]
-> Felaktigt redigerar den `/etc/fstab` filen kan resultera i ett system som inte kan startas. Om du är osäker, finns det distribution dokumentationen för information om hur du ska redigera den här filen. Det är också rekommenderas som en säkerhetskopia av den `/etc/fstab` filen har skapats innan du redigerar.
+> Felaktig redigering av `/etc/fstab` filen kan leda till ett system som inte kan startas. Om du vill veta mer om hur du redigerar den här filen i distributionens dokumentation. Vi rekommenderar också att du skapar en säkerhets kopia `/etc/fstab` av filen innan du redigerar.
 
-1. Skapa den önskade monteringspunkten för ditt nya filsystem, till exempel:
+1. Skapa önskad monterings punkt för det nya fil systemet, till exempel:
 
     ```bash  
     sudo mkdir /data
     ```
 
-2. Leta upp den logiska volymsökväg
+2. Hitta den logiska volym Sök vägen
 
     ```bash    
     lvdisplay
@@ -120,22 +119,22 @@ I den här guiden förutsätter vi att du har kopplat tre datadiskar som vi ska 
     ....
     ```
 
-3. Öppna `/etc/fstab` i en textredigerare och Lägg till en post för det nya filsystemet, till exempel:
+3. Öppna `/etc/fstab` i en text redigerare och Lägg till en post för det nya fil systemet, till exempel:
 
     ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
     ```   
-    Spara och Stäng `/etc/fstab`.
+    Spara och Stäng `/etc/fstab`sedan.
 
-4. Testa den `/etc/fstab` posten är korrekt:
+4. Testa att `/etc/fstab` posten är korrekt:
 
     ```bash    
     sudo mount -a
     ```
 
-    Om det här kommandot resulterar i ett felmeddelande Kontrollera syntaxen i den `/etc/fstab` filen.
+    Om det här kommandot resulterar i ett fel meddelande kontrollerar du syntaxen `/etc/fstab` i filen.
    
-    Nästa körning i `mount` kommandot för att säkerställa att filsystemet är monterad:
+    Kör `mount` sedan kommandot för att se till att fil systemet är monterat:
 
     ```bash    
     mount
@@ -143,9 +142,9 @@ I den här guiden förutsätter vi att du har kopplat tre datadiskar som vi ska 
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. (Valfritt) Felsäker boot parametrar i `/etc/fstab`
+5. Valfritt Failsafe start parametrar i`/etc/fstab`
    
-    Många distributioner innehålla antingen den `nobootwait` eller `nofail` montera parametrar som kan läggas till i `/etc/fstab` fil. Dessa parametrar Tillåt för fel när du monterar en viss fil-system och att Linux-datorn och fortsätta att starta även om det inte går att montera filsystemet RAID korrekt. I din distribution dokumentationen för mer information om dessa parametrar.
+    Många distributioner omfattar antingen `nobootwait` parametrarna eller `nofail` som `/etc/fstab` kan läggas till i filen. Dessa parametrar tillåter fel vid montering av ett visst fil system och gör att Linux-systemet kan fortsätta att starta även om det inte går att montera RAID-filsystemet på rätt sätt. Mer information om dessa parametrar finns i distributionens dokumentation.
    
     Exempel (Ubuntu):
 
@@ -153,18 +152,18 @@ I den här guiden förutsätter vi att du har kopplat tre datadiskar som vi ska 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
     ```
 
-## <a name="trimunmap-support"></a>Stöd för TRIM/UNMAP
-Vissa Linux-kernel stöd för TRIM/UNMAP åtgärder för att ta bort oanvända block på disken. Dessa åtgärder är främst användbart för standardlagring att meddela Azure som tagits bort sidor som inte längre är giltiga och kan ignoreras. Tar bort sidor kan minska kostnaderna om du skapar stora filer och ta bort dem.
+## <a name="trimunmap-support"></a>Stöd för trimning/MAPPNING
+Vissa Linux-Kernels stöder TRIMNINGs-/MAPPNINGs åtgärder för att ta bort oanvända block på disken. Dessa åtgärder är främst användbara i standard lagring för att informera Azure om att borttagna sidor inte längre är giltiga och kan tas bort. Om du tar bort sidor kan du spara pengar om du skapar stora filer och sedan tar bort dem.
 
-Det finns två sätt att aktivera TRIMNING stöd i din Linux-VM. Som vanligt finns distributionen för den rekommenderade metoden:
+Det finns två sätt att aktivera TRIMNINGs stöd i din virtuella Linux-dator. Som vanligt kan du kontakta din distribution för den rekommenderade metoden:
 
-- Använd den `discard` montera alternativet i `/etc/fstab`, till exempel:
+- Använd monterings alternativet i `/etc/fstab`, till exempel: `discard`
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
     ```
 
-- I vissa fall den `discard` alternativet kanske prestanda. Du kan också köra den `fstrim` kommandot manuellt från kommandoraden eller lägga till den i din crontab ska köras regelbundet:
+- I vissa fall `discard` kan alternativet påverka prestandan. Du kan också köra `fstrim` kommandot manuellt från kommando raden eller lägga till det i crontab för att köra regelbundet:
 
     **Ubuntu**
 

@@ -60,6 +60,8 @@
         - name: Dina Marketplace-förmåner
           href: ./gtm-your-marketplace-benefits.md
           items:
+            - name: Deltagande i partnersäljsamarbete
+              href: ./marketplace-co-sell.md
             - name: Önskade lösningar
               href: ./preferred-solutions.md
             - name: Integrerade lösningar
@@ -490,6 +492,13 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Provkör erbjudandet
           href: ./partner-center-portal/test-drive.md
+        - name: Alternativ för säljsamarbete
+          href: ./partner-center-portal/commercial-marketplace-co-sell.md
+          items:
+            - name: Lands- och regionkoder
+              href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
+            - name: Delstatskoder
+              href: ./partner-center-portal/commercial-marketplace-co-sell-states.md
     - name: Publiceringsstatus
       href: ./partner-center-portal/publishing-status.md
     - name: Uppdatera befintliga erbjudanden

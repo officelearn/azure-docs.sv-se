@@ -1,6 +1,6 @@
 ---
-title: Tillgänglighet för SQL Server grupper – Azure Virtual Machines – självstudier | Microsoft Docs
-description: Den här självstudien visar hur du skapar en SQL Server alltid tillgänglighetsgrupp på Azure Virtual Machines.
+title: SQL Server tillgänglighets grupper – självstudie för Azure Virtual Machines – självstudie | Microsoft Docs
+description: I den här självstudien visas hur du skapar en SQL Server Always on-tillgänglighetsgrupper på Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
@@ -9,51 +9,50 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7683812c5ee98d21d5aa8191a88926669b2ed120
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593609"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102369"
 ---
-# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Självstudier: Konfigurera Always On Availability Group i virtuella Azure-datorer manuellt
+# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Självstudier: Konfigurera tillgänglighets gruppen Always on i Azure VM manuellt
 
-Den här självstudien visar hur du skapar en SQL Server alltid tillgänglighetsgrupp på Azure Virtual Machines. Fullständig genomgång skapar en tillgänglighetsgrupp med en databasreplik på två SQL-servrar.
+I den här självstudien visas hur du skapar en SQL Server Always on-tillgänglighetsgrupper på Azure Virtual Machines. Den fullständiga självstudien skapar en tillgänglighets grupp med en databas replik på två SQL-servrar.
 
-**Uppskattad tidsåtgång**: Tar cirka 30 minuter för att slutföra när alla krav är uppfyllda.
+**Tids uppskattning**: Tar cirka 30 minuter att slutföra när kraven är uppfyllda.
 
-Diagrammet visar vad du skapar under kursen.
+Diagrammet visar vad du skapar i självstudien.
 
 ![Tillgänglighetsgrupp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Självstudien förutsätter att du har grundläggande kunskaper om SQL Server Always On-Tillgänglighetsgrupper. Om du behöver mer information finns i [översikt över alltid på Tillgänglighetsgrupper (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+Självstudien förutsätter att du har en grundläggande förståelse för SQL Server Always on-tillgänglighetsgrupper. Om du behöver mer information, se [Översikt över Always on Availability groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
-I följande tabell visas de krav som du måste utföra innan du påbörjar den här självstudiekursen:
+I följande tabell visas de krav som du måste utföra innan du påbörjar den här självstudien:
 
 |  |Krav |Beskrivning |
 |----- |----- |----- |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Två SQL-servrar | – I en Azure-tillgänglighetsuppsättning <br/> – I en enda domän <br/> -Med funktionen för redundanskluster installerat |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Filresurs för klustervittne |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server-tjänstkontot | Domänkonto |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Tjänstkontot för SQL Server Agent | Domänkonto |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Öppna portar i brandväggen | -SQL-Server: **1433** för standardinstans <br/> -Slutpunkten för databasspegling: **5022** eller alla tillgängliga portar <br/> -Tillgänglighetsgruppen läsa in hälsoavsökning för belastningsutjämnaren IP-adress: **59999** eller alla tillgängliga portar <br/> -Klustrets core IP-adress hälsoavsökning för belastningsutjämnaren: **58888** eller alla tillgängliga portar |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Lägg till funktionen för Redundansklustring | Både SQL-servrar kräver den här funktionen |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Domänkonto för installation | – Lokal administratör på varje SQL Server <br/> -Medlem i SQL Server fasta serverrollen sysadmin för varje instans av SQL Server  |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Två SQL-servrar | – I en Azures tillgänglighets uppsättning <br/> -I en enda domän <br/> – När funktionen kluster för växling vid fel har installerats |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Fil resurs för kluster vittne |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server tjänst konto | Domänkonto |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent tjänst konto | Domänkonto |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Brand Väggs portar öppna | -SQL Server: **1433** för standard instans <br/> -Slut punkt för databas spegling: **5022** eller en tillgänglig port <br/> -Tillgänglighets grupps belastnings utjämning IP-adress hälso avsökning: **59999** eller en tillgänglig port <br/> -Kluster kärn belastnings utjämning IP-adress hälso avsökning: **58888** eller en tillgänglig port |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Lägg till funktionen kluster för växling vid fel | Båda SQL-servrarna kräver den här funktionen |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Installations domän konto | – Lokal administratör på varje SQL Server <br/> – Medlem i den fasta Server rollen SQL Server Sysadmin för varje instans av SQL Server  |
 
 
-Innan du påbörjar självstudiekursen måste du [Slutför stegen för att skapa ständigt aktiverade Tillgänglighetsgrupper i Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Om dessa krav har redan slutförts, kan du hoppa till [Skapa kluster](#CreateCluster).
+Innan du påbörjar själv studie kursen måste du [slutföra förutsättningarna för att skapa Always on-tillgänglighetsgrupper i Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Om dessa krav redan har slutförts kan du gå till [skapa kluster](#CreateCluster).
 
   >[!NOTE]
-  > Många av stegen i den här självstudien kan nu automatiseras med [Azure SQL-dator med CLI](virtual-machines-windows-sql-availability-group-cli.md) och [Azure-Snabbstartsmallar](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Många av stegen i den här själv studie kursen kan nu automatiseras med [Azure SQL CLI för virtuella datorer](virtual-machines-windows-sql-availability-group-cli.md) och [Azure snabb starts mallar](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -61,141 +60,141 @@ Innan du påbörjar självstudiekursen måste du [Slutför stegen för att skapa
 <a name="CreateCluster"></a>
 ## <a name="create-the-cluster"></a>Skapa klustret
 
-När kraven har slutförts, är det första steget att skapa ett redundanskluster för Windows-Server som innehåller två SQL-servrar och en witness-server.
+När kraven har slutförts är det första steget att skapa ett Windows Server-redundanskluster som innehåller två SQL-servrar och en vittnes Server.
 
-1. RDP till den första SQL-Server med ett domänkonto som har administratörsbehörighet på både SQL-servrar och vittnesservern.
+1. RDP till den första SQL Server att använda ett domän konto som är en administratör på både SQL-servrar och vittnes servern.
 
    >[!TIP]
-   >Om du har följt den [förutsättningsdokumentet](virtual-machines-windows-portal-sql-availability-group-prereq.md), du har skapat ett konto med namnet **CORP\Install**. Använd det här kontot.
+   >Om du har följt de [nödvändiga dokumenten](virtual-machines-windows-portal-sql-availability-group-prereq.md)skapade du ett konto med namnet **CORP\Install**. Använd det här kontot.
 
-2. I den **Serverhanteraren** instrumentpanelen, väljer **verktyg**, och klicka sedan på **Klusterhanteraren**.
-3. I det vänstra fönstret högerklickar du på **Klusterhanteraren**, och klicka sedan på **skapa ett kluster**.
+2. I instrument panelen **Serverhanteraren** väljer du **verktyg**och klickar sedan på **Klusterhanteraren för växling vid fel**.
+3. I det vänstra fönstret högerklickar du på **Klusterhanteraren för växling vid fel**och klickar sedan på **skapa ett kluster**.
    ![Skapa kluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
-4. Skapa ett kluster med en nod i guiden Skapa kluster genom att stega dig igenom sidorna med inställningarna i tabellen nedan:
+4. Skapa ett kluster med en nod i guiden skapa kluster genom att stega igenom sidorna med inställningarna i följande tabell:
 
-   | Sidan | Inställningar |
+   | Sida | Inställningar |
    | --- | --- |
-   | Innan du börjar |Använd standardvärden |
-   | Välj servrar |Skriv namnet på första SQL Server i **RETUR servernamn** och klicka på **Lägg till**. |
-   | Verifieringsvarning |Välj **Nej. jag inte behöver support från Microsoft för detta kluster och därför inte vill köra verifieringstesterna. När jag klickar på Nästa kommer fortsätta att skapa klustret**. |
-   | Åtkomstpunkt för administration av klustret |Skriv ett namn för klustret, till exempel **SQLAGCluster1** i **klusternamnet**.|
-   | Bekräftelse |Använd standardinställningarna om du inte använder lagringsutrymmen. Se fotnoten efter denna tabell. |
+   | Innan du börjar |Använd standard |
+   | Välj servrar |Skriv det första SQL Server namnet i **Ange server namn** och klicka på **Lägg till**. |
+   | Verifierings varning |Välj **nej. jag behöver inte support från Microsoft för det här klustret, och därför vill du inte köra verifierings testen. Fortsätt att skapa klustret**när jag klickar på Nästa. |
+   | Åtkomst punkt för administration av klustret |Ange ett kluster namn, till exempel **SQLAGCluster1** i **kluster namn**.|
+   | Bekräftelse |Använd standardvärden om du inte använder lagrings utrymmen. Se kommentaren som följer den här tabellen. |
 
-### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Ställ in Windows server failover-kluster IP-adress
+### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Ange IP-adress för Windows Server-redundanskluster
 
-1. I **Klusterhanteraren**, rulla ned till **Klusterkärnresurser** och expandera klusterinformation. Du bör se både den **namn** och **IP-adress** resurser i den **misslyckades** tillstånd. IP-adressresurs kunde inte försättas online eftersom klustret tilldelas samma IP-adress som datorn, därför är det en dubblett-adress.
+1. I **Klusterhanteraren för växling vid fel**rullar du ned till **kluster kärn resurser** och expanderar kluster informationen. Du bör se både **namn** och **IP** -adressresurser i **felaktigt** tillstånd. Det går inte att ansluta till IP-adressresursen eftersom klustret tilldelas samma IP-adress som själva datorn, och därför är det en dubblett av adressen.
 
-2. Högerklicka på den **IP-adress** resursen och klicka sedan på **egenskaper**.
+2. Högerklicka på den felande **IP** -adressresursen och klicka sedan på **Egenskaper**.
 
-   ![Egenskaper för klustret](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
+   ![Kluster egenskaper](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Välj **statisk IP-adress** och ange en tillgänglig adress från samma undernät som virtuella datorer.
+3. Välj **statisk IP-adress** och ange en tillgänglig adress från samma undernät som dina virtuella datorer.
 
-4. I den **Klusterkärnresurser** avsnittet, högerklickar du på klusternamnet och klickar på **Anslut**. Vänta tills båda resurserna är online. När namnet klusterresursen är online uppdaterar DC-servern med ett nytt AD-datorkonto. Använd den här AD-konto för att köra tjänsten Availability Group klustrade senare.
+4. I avsnittet **kluster kärn resurser** högerklickar du på kluster namn och klickar på **ta online**. Vänta tills båda resurserna är online. När kluster namn resursen är online, uppdaterar den DC-servern med ett nytt AD-dator konto. Använd det här AD-kontot för att köra den klustrade tjänsten för tillgänglighets grupper senare.
 
-### <a name="addNode"></a>Lägg till SQL Server i klustret
+### <a name="addNode"></a>Lägg till den andra SQL Server till klustret
 
-Lägg till SQL Server i klustret.
+Lägg till den andra SQL Server i klustret.
 
-1. I webbläsarträdet, högerklicka på klustret och klicka på **Lägg till nod**.
+1. I webb läsar trädet högerklickar du på klustret och klickar på **Lägg till nod**.
 
     ![Lägg till nod i klustret](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/44-addnode.png)
 
-1. I den **guiden Lägg till nod**, klickar du på **nästa**. I den **Välj servrar** lägger du till den andra SQL-servern. Skriv servernamnet i **RETUR servernamn** och klicka sedan på **Lägg till**. När du är klar klickar du på **nästa**.
+1. Klicka på **Nästa**i **guiden Lägg till nod**. På sidan **Välj servrar** lägger du till den andra SQL Server. Skriv in Server namnet i **Ange server namn** och klicka sedan på **Lägg till**. När du är färdig klickar du på **Nästa**.
 
-1. I den **Validation Warning** klickar du på **nr** (i ett produktionsscenario bör du utföra verifieringstesterna). Klicka sedan på **Nästa**.
+1. På sidan **validerings varning** klickar du på **Nej** (i ett produktions scenario ska du utföra verifierings testen). Klicka sedan på **Nästa**.
 
-8. I den **bekräftelse** sidan om du använder lagringsutrymmen, avmarkera kryssrutan **lägga till alla tillgängliga lagringsenheter i klustret.**
+8. På sidan **bekräftelse** om du använder lagrings utrymmen avmarkerar du kryss rutan **Lägg till alla tillgängliga lagrings enheter i klustret.**
 
-   ![Lägg till nod-bekräftelse](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/46-addnodeconfirmation.png)
+   ![Bekräftelse av Lägg till nod](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/46-addnodeconfirmation.png)
 
     >[!WARNING]
-   >Om du använder lagringsutrymmen och inte avmarkera **lägga till alla tillgängliga lagringsenheter i klustret**, Windows kopplar från de virtuella diskarna under klustringsprocessen. Därför kan de visas inte i Diskhanteraren eller Explorer förrän lagringsutrymmen tas bort från klustret och återansluta med hjälp av PowerShell. Lagringsutrymmen grupperar flera diskar i lagringspooler. Mer information finns i [lagringsutrymmen](https://technet.microsoft.com/library/hh831739).
+   >Om du använder lagrings utrymmen och inte avmarkerar **Lägg till alla tillgängliga lagrings enheter i klustret**, kopplar Windows bort de virtuella diskarna under kluster processen. Därför visas de inte i disk hanteraren eller i Utforskaren förrän lagrings utrymmena har tagits bort från klustret och återkopplas med hjälp av PowerShell. Lagrings utrymmen grupper flera diskar i lagringspooler. Mer information finns i [lagrings utrymmen](https://technet.microsoft.com/library/hh831739).
 
 1. Klicka på **Nästa**.
 
 1. Klicka på **Slutför**.
 
-   Hanteraren för redundanskluster visar att klustret har en ny nod och visar den i den **noder** behållare.
+   Klusterhanteraren för växling vid fel visar att klustret har en ny nod och listar det i **noden noder** .
 
 10. Logga ut från fjärrskrivbordssessionen.
 
-### <a name="add-a-cluster-quorum-file-share"></a>Lägg till en filresurs för klustret kvorum
+### <a name="add-a-cluster-quorum-file-share"></a>Lägg till en fil resurs för klusterkvorum
 
-I det här exemplet använder en filresurs i Windows-kluster för att skapa en klustrets kvorum. Den här självstudien används en nod och filresursmajoritet kvorum. Mer information finns i [Om kvorumkonfigurationer i ett redundanskluster](https://technet.microsoft.com/library/cc731739.aspx).
+I det här exemplet använder Windows-klustret en fil resurs för att skapa ett klusterkvorum. I den här självstudien används kvorum för nod-och fil resurs majoritet. Mer information finns i [Understanding Quorum Configurations in a Failover Cluster](https://technet.microsoft.com/library/cc731739.aspx) (Förstå kvorumkonfigurationer i ett redundanskluster).
 
-1. Anslut till resursen vittne medlem filservern med en fjärrskrivbordssession.
+1. Anslut till medlems servern för fil resurs vittnet med en fjärrskrivbordssession.
 
-1. På **Serverhanteraren**, klickar du på **verktyg**. Öppna **Datorhantering**.
+1. Klicka på **verktyg**på **Serverhanteraren**. Öppna **dator hantering**.
 
 1. Klicka på **delade mappar**.
 
-1. Högerklicka på **resurser**, och klicka på **ny resurs...** .
+1. Högerklicka på **resurser**och klicka på **Ny resurs...** .
 
    ![Ny resurs](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
-   Använd **guiden Skapa en delad mapp** att skapa en resurs.
+   Använd **guiden skapa en delad mapp** för att skapa en resurs.
 
-1. På **mappsökväg**, klickar du på **Bläddra** och hitta eller skapa en sökväg för den delade mappen. Klicka på **Nästa**.
+1. På **mappsökväg**klickar du på **Bläddra** och letar upp eller skapar en sökväg till den delade mappen. Klicka på **Nästa**.
 
-1. I **namn, beskrivning och inställningar** Kontrollera resursens namn och sökväg. Klicka på **Nästa**.
+1. I **namn, beskrivning och inställningar** kontrollerar du resursens namn och sökväg. Klicka på **Nästa**.
 
-1. På **delade mappbehörigheter** ange **anpassa behörigheter**. Klicka på **anpassad...** .
+1. Behörigheterna för **delade mappar** har angetts **Anpassa behörigheter**. Klicka på **Anpassad...** .
 
-1. På **anpassa behörigheter**, klickar du på **Lägg till...** .
+1. Klicka på **Lägg till**på **Anpassa behörigheter**...
 
-1. Se till att det konto som används för att skapa klustret har fullständig behörighet.
+1. Kontrol lera att kontot som används för att skapa klustret har fullständig kontroll.
 
    ![Ny resurs](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/50-filesharepermissions.png)
 
 1. Klicka på **OK**.
 
-1. I **delade mappbehörigheter**, klickar du på **Slutför**. Klicka på **Slutför** igen.  
+1. I **behörigheter för delad mapp**klickar du på **Slutför**. Klicka på **Slutför** igen.  
 
 1. Logga ut från servern
 
-### <a name="configure-cluster-quorum"></a>Konfigurera klustrets kvorumdisk
+### <a name="configure-cluster-quorum"></a>Konfigurera klusterkvorum
 
-Nu ska vi Konfigurera klustrets kvorum.
+Ange sedan klustrets kvorum.
 
-1. Ansluta till den första noden i klustret via ett fjärrskrivbord.
+1. Anslut till den första klusternoden med fjärr skrivbord.
 
-1. I **Klusterhanteraren**, högerklickar du på klustret, peka på **fler åtgärder**, och klicka på **konfigurera inställningarna för klusterkvorum...** .
+1. I **Klusterhanteraren för växling vid fel**högerklickar du på klustret, pekar på **fler åtgärder**och klickar på **Konfigurera inställningar för klusterkvorum...** .
 
    ![Ny resurs](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/52-configurequorum.png)
 
-1. I **guiden Konfigurera klusterkvorum**, klickar du på **nästa**.
+1. Klicka på **Nästa**i **guiden Konfigurera klusterkvorum**.
 
-1. I **Välj alternativ för kvorumkonfiguration**, Välj **Välj kvorumvittnet**, och klicka på **nästa**.
+1. I **Välj alternativ för kvorumkonfiguration**väljer **du Välj ett kvorumlogg**och klickar på **Nästa**.
 
-1. På **Välj Kvorumvittne**, klickar du på **konfigurera ett filresursvittne**.
+1. På **Välj kvorumlogg**klickar du på **Konfigurera ett fil resurs vittne**.
 
    >[!TIP]
-   >Windows Server 2016 har stöd för ett molnvittne. Om du väljer den här typen av vittne, behöver du inte en fil dela vittne. Mer information finns i [distribuera ett molnvittne för ett redundanskluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Den här självstudien används ett filresursvittne som stöds av tidigare operativsystem.
+   >Windows Server 2016 har stöd för ett moln vittne. Om du väljer den här typen av vittne behöver du inte ett fil resurs vittne. Mer information finns i [distribuera ett moln vittne för ett redundanskluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). I den här självstudien används ett fil resurs vittne, som stöds av tidigare operativ system.
 
-1. På **konfigurera filresursvittne**, ange sökvägen för den resurs som du skapade. Klicka på **Nästa**.
+1. På sidan **Konfigurera fil resurs vittne**anger du sökvägen till resursen som du skapade. Klicka på **Nästa**.
 
-1. Granska inställningarna på **bekräftelse**. Klicka på **Nästa**.
+1. Verifiera inställningarna vid **bekräftelse**. Klicka på **Nästa**.
 
 1. Klicka på **Slutför**.
 
-Klustrets kärnresurser är konfigurerade med ett filresursvittne.
+Kluster kärn resurserna konfigureras med ett fil resurs vittne.
 
-## <a name="enable-availability-groups"></a>Aktivera Tillgänglighetsgrupper
+## <a name="enable-availability-groups"></a>Aktivera tillgänglighets grupper
 
-Aktivera sedan den **AlwaysOn Availability Groups** funktionen. Utför dessa steg på både SQL-servrar.
+Aktivera sedan **AlwaysOn-tillgänglighetsgrupper** funktionen. Utför de här stegen på båda SQL-servrarna.
 
-1. Från den **starta** skärmen, starta **SQL Server Configuration Manager**.
-2. I webbläsarträdet klickar du på **SQL Server Services**, högerklicka på den **SQL Server (MSSQLSERVER)** tjänsten och klicka på **egenskaper**.
-3. Klicka på den **AlwaysOn hög tillgänglighet** och sedan välja **aktivera AlwaysOn Availability Groups**, enligt följande:
+1. Starta **Konfigurationshanteraren för SQL Server**på **Start** skärmen.
+2. I webb läsar trädet klickar du på **SQL Server tjänster**, högerklickar på tjänsten **SQL Server (MSSQLSERVER)** och klickar på **Egenskaper**.
+3. Klicka på fliken **AlwaysOn med hög tillgänglighet** och välj sedan **Aktivera AlwaysOn-tillgänglighetsgrupper**, enligt följande:
 
-    ![Aktivera AlwaysOn-Tillgänglighetsgrupper](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
+    ![Aktivera AlwaysOn-tillgänglighetsgrupper](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
 
-4. Klicka på **Verkställ**. Klicka på **OK** i en dialogruta.
+4. Klicka på **Verkställ**. Klicka på **OK** i popup-dialogrutan.
 
 5. Starta om SQL Server-tjänsten.
 
-Upprepa dessa steg på SQL Server.
+Upprepa de här stegen på andra SQL Server.
 
 <!-----------------
 ## <a name="endpoint-firewall"></a>Open firewall for the database mirroring endpoint
@@ -219,309 +218,309 @@ On both SQL Servers, open the firewall for the TCP port for the database mirrori
 Repeat these steps on the second SQL Server.
 -------------------------->
 
-## <a name="create-a-database-on-the-first-sql-server"></a>Skapa en databas på den första SQL-servern
+## <a name="create-a-database-on-the-first-sql-server"></a>Skapa en databas på den första SQL Server
 
-1. Starta RDP-filen till den första SQL-servern med ett domänkonto som är medlem i den fasta serverrollen sysadmin.
-1. Öppna SQL Server Management Studio och Anslut till den första SQL-servern.
-7. I **Object Explorer**, högerklicka på **databaser** och klicka på **ny databas**.
-8. I **databasnamn**, typ **MyDB1**, klicka sedan på **OK**.
+1. Starta RDP-filen till den första SQL Server med ett domän konto som är medlem i den fasta Server rollen sysadmin.
+1. Öppna SQL Server Management Studio och Anslut till den första SQL Server.
+7. I **Object Explorer**högerklickar du på **databaser** och klickar på **ny databas**.
+8. I **databas namn**skriver du **MyDB1**och klickar sedan på **OK**.
 
-### <a name="backupshare"></a> Skapa en säkerhetskopiering
+### <a name="backupshare"></a>Skapa en säkerhets kopierings resurs
 
-1. På den första SQL-servern i **Serverhanteraren**, klickar du på **verktyg**. Öppna **Datorhantering**.
+1. Klicka på **verktyg**på den första SQL Server i **Serverhanteraren**. Öppna **dator hantering**.
 
 1. Klicka på **delade mappar**.
 
-1. Högerklicka på **resurser**, och klicka på **ny resurs...** .
+1. Högerklicka på **resurser**och klicka på **Ny resurs...** .
 
    ![Ny resurs](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
-   Använd **guiden Skapa en delad mapp** att skapa en resurs.
+   Använd **guiden skapa en delad mapp** för att skapa en resurs.
 
-1. På **mappsökväg**, klickar du på **Bläddra** och hitta eller skapa en sökväg för delad mapp för säkerhetskopiering. Klicka på **Nästa**.
+1. På **mappsökväg**klickar du på **Bläddra** och letar reda på eller skapar en sökväg för den delade databasen säkerhets kopiering. Klicka på **Nästa**.
 
-1. I **namn, beskrivning och inställningar** Kontrollera resursens namn och sökväg. Klicka på **Nästa**.
+1. I **namn, beskrivning och inställningar** kontrollerar du resursens namn och sökväg. Klicka på **Nästa**.
 
-1. På **delade mappbehörigheter** ange **anpassa behörigheter**. Klicka på **anpassad...** .
+1. Behörigheterna för **delade mappar** har angetts **Anpassa behörigheter**. Klicka på **Anpassad...** .
 
-1. På **anpassa behörigheter**, klickar du på **Lägg till...** .
+1. Klicka på **Lägg till**på **Anpassa behörigheter**...
 
-1. Se till att SQL Server och SQL Server Agent-tjänstkonton för båda servrarna har fullständig behörighet.
+1. Kontrol lera att SQL Server-och SQL Server Agent tjänst kontona för båda servrarna har fullständig kontroll.
 
    ![Ny resurs](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/68-backupsharepermission.png)
 
 1. Klicka på **OK**.
 
-1. I **delade mappbehörigheter**, klickar du på **Slutför**. Klicka på **Slutför** igen.  
+1. I **behörigheter för delad mapp**klickar du på **Slutför**. Klicka på **Slutför** igen.  
 
-### <a name="take-a-full-backup-of-the-database"></a>Ta en fullständig säkerhetskopia av databasen
+### <a name="take-a-full-backup-of-the-database"></a>Gör en fullständig säkerhets kopia av databasen
 
-Du måste säkerhetskopiera den nya databasen att initiera loggkedjan. Om du inte vidtar en säkerhetskopia av den nya databasen kan inte tas med i en tillgänglighetsgrupp.
+Du måste säkerhetskopiera den nya databasen för att initiera logg kedjan. Om du inte gör en säkerhets kopia av den nya databasen kan den inte ingå i en tillgänglighets grupp.
 
-1. I **Object Explorer**, högerklicka på databasen, peka på **uppgifter...** , klickar du på **säkerhetskopiera**.
+1. Högerklicka på databasen i **Object Explorer**, peka på **uppgifter...** , klicka på **säkerhetskopiera**.
 
-1. Klicka på **OK** att ta en fullständig säkerhetskopiering till standardplatsen för säkerhetskopior.
+1. Klicka på **OK** för att göra en fullständig säkerhets kopia till standard platsen för säkerhets kopiering.
 
-## <a name="create-the-availability-group"></a>Skapa Tillgänglighetsgruppen
-Du är nu redo att konfigurera en tillgänglighetsgrupp med följande steg:
+## <a name="create-the-availability-group"></a>Skapa tillgänglighets gruppen
+Du är nu redo att konfigurera en tillgänglighets grupp med hjälp av följande steg:
 
-* Skapa en databas på den första SQL-servern.
-* Ta både en fullständig säkerhetskopia och en säkerhetskopia av databasen log
-* Återställ fullständiga säkerhetskopior och loggsäkerhetskopior till andra SQL Server med den **NORECOVERY** alternativet
-* Skapa Availability-gruppen (**AG1**) med synkront genomförande, automatisk växling vid fel och läsbara sekundära repliker
+* Skapa en databas på den första SQL Server.
+* Gör både en fullständig säkerhets kopiering och en säkerhets kopia av transaktions loggen för databasen
+* Återställa fullständiga säkerhets kopior och logg säkerhets kopior till den andra SQL Server med alternativet NORECOVERY
+* Skapa tillgänglighets gruppen (**AG1**) med synkron genomförande, automatisk redundans och läsbar sekundär repliker
 
-### <a name="create-the-availability-group"></a>Skapa Tillgänglighetsgruppen:
+### <a name="create-the-availability-group"></a>Skapa tillgänglighets gruppen:
 
-1. På fjärrskrivbordssessionen för den första SQL-servern. I **Object Explorer** i SSMS, högerklickar du på **AlwaysOn hög tillgänglighet** och klicka på **guiden Ny tillgänglighetsgrupp**.
+1. I fjärrskrivbordssessionen till den första SQL Server. I **Object Explorer** i SSMS högerklickar du på **AlwaysOn hög tillgänglighet** och klickar på **guiden Ny tillgänglighets grupp**.
 
-    ![Starta guiden Ny tillgänglighetsgrupp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
+    ![Starta guiden Ny tillgänglighets grupp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
-2. I den **introduktion** klickar du på **nästa**. I den **ange tillgänglighetsgruppens namn** anger du ett namn för Tillgänglighetsgruppen, till exempel **AG1**i **tillgänglighetsgruppens namn**. Klicka på **Nästa**.
+2. Klicka på **Nästa**på sidan **Introduktion** . På sidan **Ange tillgänglighets grupp namn** anger du ett namn för tillgänglighets gruppen, till exempel **AG1**, i **tillgänglighets gruppens namn**. Klicka på **Nästa**.
 
-    ![Guiden för ny AG, ange AG-namn](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
+    ![Guiden ny AG, ange AG-namn](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
 
-3. I den **Välj databaser** väljer du databasen och klicka på **nästa**.
-
-   >[!NOTE]
-   >Databasen uppfyller kraven för en tillgänglighetsgrupp eftersom du har utfört minst en fullständig säkerhetskopiering på den avsedda primära repliken.
-
-   ![Guiden för ny AG, Välj databaser](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/60-newagselectdatabase.png)
-4. I den **ange repliker** klickar du på **lägga till repliken**.
-
-   ![Guiden för ny AG, ange repliker](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/62-newagaddreplica.png)
-5. Den **Anslut till Server** dialogrutan som öppnas. Skriv namnet på den andra servern i **servernamn**. Klicka på **Anslut**.
-
-   I den **ange repliker** du bör nu se den andra servern som anges i **Tillgänglighetsrepliker**. Konfigurera replikerna på följande sätt.
-
-   ![Guiden för ny AG, ange repliker (slutförd)](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/64-newagreplica.png)
-
-6. Klicka på **slutpunkter** att se slutpunkten för databasspegling för den här Tillgänglighetsgruppen. Använd samma port som du använde när du ställer in den [brandväggsregel för slutpunkter för databasspegling](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
-
-    ![Guiden för ny AG, Välj inledande datasynkronisering](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
-
-8. I den **Välj inledande datasynkronisering** väljer **fullständig** och ange en delad nätverksplats. För plats, använder den [säkerhetskopieringsresursen du skapade](#backupshare). I det här exemplet var,  **\\ \\ \<första SQLServer\>\Backup\\** . Klicka på **Nästa**.
+3. På sidan **Välj databaser** väljer du din databas och klickar på **Nästa**.
 
    >[!NOTE]
-   >Fullständig synkronisering tar en fullständig säkerhetskopiering av databasen på den första instansen av SQL Server och återställer det till den andra instansen. Fullständig synkronisering rekommenderas inte för stora databaser, eftersom det kan ta lång tid. Du kan minska nu genom att manuellt gör en säkerhetskopia av databasen och återställer dem med `NO RECOVERY`. Om databasen har redan återställts med `NO RECOVERY` på andra SQL Server innan du konfigurerar Availability-gruppen, Välj **Anslut bara**. Om du vill säkerhetskopiera när du har konfigurerat Availability-gruppen, Välj **hoppa över inledande datasynkronisering**.
+   >Databasen uppfyller kraven för en tillgänglighets grupp eftersom du har tagit minst en fullständig säkerhets kopia på den avsedda primära repliken.
 
-    ![Guiden för ny AG, Välj inledande datasynkronisering](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/70-datasynchronization.png)
+   ![Guiden ny AG, Välj databaser](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/60-newagselectdatabase.png)
+4. På sidan **Ange repliker** klickar du på **Lägg till replik**.
 
-9. I den **verifiering** klickar du på **nästa**. Den här sidan bör likna följande bild:
+   ![Guiden ny AG, ange repliker](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/62-newagaddreplica.png)
+5. Dialog rutan **Anslut till Server** öppnas. Skriv namnet på den andra servern i **Server namn**. Klicka på **Anslut**.
 
-    ![Guiden Ny AG, verifiering](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/72-validation.png)
+   På sidan **Ange repliker** bör du nu se den andra servern som listas i **tillgänglighets repliker**. Konfigurera replikerna på följande sätt.
+
+   ![Guiden ny AG, ange repliker (slutförd)](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/64-newagreplica.png)
+
+6. Klicka på **slut punkter** för att se slut punkten för databas spegling för den här tillgänglighets gruppen. Använd samma port som du använde när du konfigurerade [brand Väggs regeln för slut punkter för databas spegling](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
+
+    ![Guiden ny AG väljer du synkronisering av inledande data](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
+
+8. På sidan **Välj inledande data synkronisering** väljer du **fullständig** och anger en delad nätverks plats. För platsen använder du den [säkerhets kopierings resurs som du skapade](#backupshare). I exemplet var  **\\ \\det förstaSQLServer\>\ säkerhets kopiering.\\ \<** Klicka på **Nästa**.
+
+   >[!NOTE]
+   >Fullständig synkronisering tar en fullständig säkerhets kopia av databasen på den första instansen av SQL Server och återställer den till den andra instansen. För stora databaser rekommenderas inte fullständig synkronisering eftersom det kan ta lång tid. Du kan minska den här tiden genom att manuellt göra en säkerhets kopia av databasen och återställa `NO RECOVERY`den med. Om databasen redan har återställts med `NO RECOVERY` den andra SQL Server innan du konfigurerar tillgänglighets gruppen väljer du **Anslut endast**. Om du vill utföra säkerhets kopieringen när du har konfigurerat tillgänglighets gruppen väljer du **hoppa över inledande datasynkronisering**.
+
+    ![Guiden ny AG väljer du synkronisering av inledande data](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/70-datasynchronization.png)
+
+9. På sidan **verifiering** klickar du på **Nästa**. Den här sidan bör se ut ungefär som på följande bild:
+
+    ![Guiden ny AG, verifiering](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/72-validation.png)
 
     >[!NOTE]
-    >Det finns en varning för Lyssnarkonfigurationen eftersom du inte har konfigurerat en lyssningsfunktion. Du kan ignorera den här varningen eftersom på Azure virtual machines lyssnaren skapa när du har skapat Azure load balancer.
+    >Det finns en varning för Listener-konfigurationen eftersom du inte har konfigurerat en lyssnare för tillgänglighets grupp. Du kan ignorera den här varningen eftersom du skapar lyssnaren på virtuella Azure-datorer när du har skapat Azure Load Balancer.
 
-10. I den **sammanfattning** klickar du på **Slutför**, vänta medan guiden konfigurerar nya Tillgänglighetsgruppen. I den **förlopp** sidan som du kan klicka på **mer** att visa detaljerad förloppet. När guiden har slutförts kan du granska den **resultat** sidan för att kontrollera att Tillgänglighetsgruppen har skapats.
+10. På sidan **Sammanfattning** klickar du på **Slutför**och väntar medan guiden konfigurerar den nya tillgänglighets gruppen. På sidan **förlopp** kan du klicka på **Mer information** om du vill se den detaljerade förloppet. När guiden är klar kan du kontrol lera att tillgänglighets gruppen har skapats genom att granska **resultat** sidan.
 
-     ![Guiden för ny AG resultat](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
-11. Klicka på **Stäng** vill avsluta guiden.
+     ![Guiden ny AG, resultat](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
+11. Klicka på **Stäng** för att avsluta guiden.
 
-### <a name="check-the-availability-group"></a>Kontrollera Tillgänglighetsgruppen
+### <a name="check-the-availability-group"></a>Kontrol lera tillgänglighets gruppen
 
-1. I **Object Explorer**, expandera **AlwaysOn hög tillgänglighet**, expandera sedan **Tillgänglighetsgrupper**. Du bör nu se nya Availability-gruppen i den här behållaren. Högerklicka på Tillgänglighetsgruppen och klicka på **visa instrumentpanelen**.
+1. I **Object Explorer**, expandera **AlwaysOn hög tillgänglighet**och expandera sedan **tillgänglighets grupper**. Nu bör du se den nya tillgänglighets gruppen i den här behållaren. Högerklicka på tillgänglighets gruppen och klicka på **Visa instrument panel**.
 
-   ![Visa AG-instrumentpanel](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/76-showdashboard.png)
+   ![Visa AG-instrumentpanelen](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/76-showdashboard.png)
 
-   Din **AlwaysOn instrumentpanelen** bör se ut ungefär så här.
+   Din **AlwaysOn-instrumentpanel** bör se ut ungefär så här.
 
    ![AG-instrumentpanel](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/78-agdashboard.png)
 
-   Du kan se replikerna, redundansläge för varje replik och tillstånd för synkronisering.
+   Du kan se replikerna, redundans läge för varje replik och synkroniseringsstatus.
 
-2. I **Klusterhanteraren**, klickar du på klustret. Välj **roller**. Availability Group-namn som du använde är en roll i klustret. Den Tillgänglighetsgruppen har inte en IP-adress för klientanslutningar, eftersom du inte konfigurerar en lyssnare. När du har skapat en Azure belastningsutjämnare ska du konfigurera lyssnaren.
+2. Klicka på klustret i **Klusterhanteraren för växling vid fel**. Välj **roller**. Namnet på tillgänglighets gruppen som du använde är en roll i klustret. Den tillgänglighets gruppen har ingen IP-adress för klient anslutningar eftersom du inte har konfigurerat en lyssnare. Du kommer att konfigurera lyssnaren när du har skapat en Azure Load Balancer.
 
-   ![AG i hanteraren för redundanskluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
+   ![AG i Klusterhanteraren för växling vid fel](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > Försök inte att redundansväxla Tillgänglighetsgruppen från Klusterhanteraren. Alla redundans åtgärder ska utföras inifrån **AlwaysOn instrumentpanelen** i SSMS. Mer information finns i [begränsningar på med hjälp av i hanteraren för redundanskluster med Tillgänglighetsgrupper](https://msdn.microsoft.com/library/ff929171.aspx).
+   > Försök inte att redundansväxla tillgänglighets gruppen från Klusterhanteraren för växling vid fel. Alla redundansväxling bör utföras inifrån **AlwaysOn** -instrumentpanelen i SSMS. Mer information finns i [begränsningar för att använda Klusterhanteraren för växling vid fel med tillgänglighets grupper](https://msdn.microsoft.com/library/ff929171.aspx).
     >
 
-Nu har du en tillgänglighetsgrupp med repliker på två instanser av SQL Server. Du kan flytta Tillgänglighetsgruppen mellan instanser. Du kan inte ansluta till Tillgänglighetsgruppen ännu eftersom du inte har en lyssnare. I Azure-datorer kräver lyssnaren en belastningsutjämnare. Nästa steg är att skapa belastningsutjämnaren i Azure.
+Nu har du en tillgänglighets grupp med repliker på två instanser av SQL Server. Du kan flytta tillgänglighets gruppen mellan instanser. Du kan inte ansluta till tillgänglighets gruppen ännu eftersom du inte har en lyssnare. På Azure Virtual Machines kräver lyssnaren en belastningsutjämnare. Nästa steg är att skapa belastningsutjämnaren i Azure.
 
 <a name="configure-internal-load-balancer"></a>
 
 ## <a name="create-an-azure-load-balancer"></a>skapa en Azure Load Balancer
 
-På Azure-datorer kräver en belastningsutjämnare i en SQL Server-tillgänglighetsgrupp. Belastningsutjämnaren innehåller IP-adresser för tillgänglighetsgruppens lyssnare och Windows Server-redundanskluster. Det här avsnittet sammanfattas hur du skapar belastningsutjämnaren i Azure-portalen.
+På Azure Virtual Machines kräver en belastnings utjämning för en SQL Server tillgänglighets grupp. Belastningsutjämnaren innehåller IP-adresserna för tillgänglighets gruppens lyssnare och Windows Server-redundansklustret. I det här avsnittet sammanfattas hur du skapar belastningsutjämnaren i Azure Portal.
 
-En Azure Load Balancer kan vara antingen en Standard Load Balancer eller en grundläggande belastningsutjämnare. Standard Load Balancer har fler funktioner än den grundläggande belastningsutjämnaren. För en tillgänglighetsgrupp är Standard Load Balancer krävs om du använder en Tillgänglighetszon (i stället för en Tillgänglighetsuppsättning). Mer information om skillnaden mellan load balancer-typer finns i [Load Balancers SKU jämförelse](../../../load-balancer/load-balancer-overview.md#skus).
+En Azure Load Balancer kan vara antingen en Standard Load Balancer eller en grundläggande Load Balancer. Standard Load Balancer har fler funktioner än de grundläggande Load Balancer. För en tillgänglighets grupp krävs Standard Load Balancer om du använder en tillgänglighets zon (i stället för en tillgänglighets uppsättning). Mer information om skillnaden mellan belastnings Utjämnings typerna finns i [load BALANCER SKU-jämförelse](../../../load-balancer/load-balancer-overview.md#skus).
 
-1. I Azure-portalen går du till resursgruppen där din SQL-servrar är och på **+ Lägg till**.
-1. Sök efter **belastningsutjämnare**. Välj belastningsutjämnare som publicerats av Microsoft.
+1. Gå till resurs gruppen där dina SQL-servrar finns i Azure Portal och klicka på **+ Lägg till**.
+1. Sök efter **Load Balancer**. Välj belastningsutjämnaren som publicerats av Microsoft.
 
-   ![AG i hanteraren för redundanskluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
+   ![AG i Klusterhanteraren för växling vid fel](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
 1. Klicka på **Skapa**.
 1. Konfigurera följande parametrar för belastningsutjämnaren.
 
    | Inställning | Fält |
    | --- | --- |
-   | **Namn** |Använda ett namn för belastningsutjämnaren, till exempel **sqlLB**. |
+   | **Namn** |Använd ett text namn för belastningsutjämnaren, till exempel **sqlLB**. |
    | **Typ** |Intern |
-   | **Virtuellt nätverk** |Använd namnet på Azure-nätverket. |
-   | **Undernät** |Använd namnet på det undernät som den virtuella datorn är i.  |
-   | **IP-adresstilldelning** |Statisk |
-   | **IP-adress** |Använd en tillgänglig adress från undernätet. Använd den här adressen för din tillgänglighetsgruppens lyssnare. Observera att detta skiljer sig från klustrets IP-adress.  |
+   | **Virtuellt nätverk** |Använd namnet på det virtuella Azure-nätverket. |
+   | **Undernät** |Använd namnet på det undernät som den virtuella datorn finns i.  |
+   | **Tilldelning av IP-adress** |Statisk |
+   | **IP-adress** |Använd en tillgänglig adress från under nätet. Använd den här adressen för tillgänglighets gruppens lyssnare. Observera att detta skiljer sig från klustrets IP-adress.  |
    | **Prenumeration** |Använd samma prenumeration som den virtuella datorn. |
-   | **Plats** |Använd samma plats som den virtuella datorn. |
+   | **Location** |Använd samma plats som den virtuella datorn. |
 
-   Azure portalbladet bör se ut så här:
+   Bladet Azure Portal bör se ut så här:
 
    ![Skapa belastningsutjämnare](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/84-createloadbalancer.png)
 
-1. Klicka på **skapa**, för att skapa belastningsutjämnaren.
+1. Skapa belastningsutjämnaren genom att klicka på **skapa**.
 
-Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-adresspool, en avsökning och ange regler för belastningsutjämning. Gör följande i Azure-portalen.
+Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, en avsökning och ange regler för belastnings utjämning. Gör detta i Azure Portal.
 
-### <a name="add-backend-pool-for-the-availability-group-listener"></a>Lägg till serverdelspool för tillgänglighetsgruppens lyssnare
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>Lägg till backend-pool för tillgänglighets gruppens lyssnare
 
-1. I Azure-portalen går du till tillgänglighetsgruppen. Du kan behöva uppdatera vyn för att se den nyligen skapade belastningsutjämnaren.
+1. I Azure Portal går du till din tillgänglighets grupp. Du kan behöva uppdatera vyn för att se den nyligen skapade belastningsutjämnaren.
 
-   ![Hitta belastningsutjämnare i resursgrupp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
+   ![Hitta Load Balancer i resurs gruppen](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Klicka på belastningsutjämnaren, **serverdelspooler**, och klicka på **+ Lägg till**.
+1. Klicka på belastningsutjämnaren, klicka på **backend-pooler**och klicka på **+ Lägg till**.
 
-1. Skriv ett namn för serverdelspoolen.
+1. Ange ett namn för backend-poolen.
 
-1. Koppla serverdelspoolen tillgänglighetsuppsättningen som innehåller de virtuella datorerna.
+1. Koppla backend-poolen till den tillgänglighets uppsättning som innehåller de virtuella datorerna.
 
-1. Under **rikta IP-konfigurationer**, kontrollera **VM** och välja båda de virtuella datorerna som är värd för tillgänglighetsgrupprepliker. Omfattar inte vittne för servern.
+1. Under **mål nätverkets IP-konfigurationer**kontrollerar du den **virtuella datorn** och väljer båda de virtuella datorer som ska vara värd för tillgänglighets grupps repliker. Ta inte med fil resurs vittnes servern.
 
    >[!NOTE]
-   >Om båda de virtuella datorerna inte har angetts, lyckas bara anslutningar till den primära repliken.
+   >Om båda virtuella datorerna inte anges kommer anslutningarna endast att lyckas till den primära repliken.
 
-1. Klicka på **OK** skapa backend-poolen.
+1. Klicka på **OK** för att skapa backend-poolen.
 
 ### <a name="set-the-probe"></a>Ange avsökningen
 
-1. Klicka på belastningsutjämnaren, **hälsoavsökningar**, och klicka på **+ Lägg till**.
+1. Klicka på belastningsutjämnaren, klicka på **hälso**avsökningar och klicka på **+ Lägg till**.
 
-1. Ange hälsoavsökningen lyssnaren på följande sätt:
+1. Ange lyssnar hälso avsökningen enligt följande:
 
    | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointProbe |
    | **Protokoll** | Välj TCP | TCP |
-   | **Port** | Alla oanvända portar | 59999 |
-   | **Intervall**  | Tiden mellan avsökningsförsöken i sekunder |5 |
-   | **Tröskelvärde för ej felfri** | Antalet avsökningsfel som måste inträffa för en virtuell dator för att anses vara defekt  | 2 |
+   | **Port** | Oanvänd port | 59999 |
+   | **Intervall**  | Tiden mellan avsöknings försök i sekunder |5 |
+   | **Tröskelvärde för ej felfri** | Antalet avsöknings fel i följd som måste inträffa för att en virtuell dator ska anses vara ohälsosam  | 2 |
 
-1. Klicka på **OK** att ställa in hälsoavsökningen.
+1. Klicka på **OK** för att ställa in hälso avsökningen.
 
-### <a name="set-the-load-balancing-rules"></a>Ange regler för belastningsutjämning
+### <a name="set-the-load-balancing-rules"></a>Ange regler för belastnings utjämning
 
-1. Klicka på belastningsutjämnaren, **belastningsutjämningsregler**, och klicka på **+ Lägg till**.
+1. Klicka på belastningsutjämnaren, klicka på **belastnings Utjämnings regler**och klicka på **+ Lägg till**.
 
-1. Ange lyssnare reglerna för belastningsutjämning på följande sätt.
+1. Ange reglerna för belastnings utjämning för lyssnare enligt följande.
 
    | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointListener |
-   | **Frontend-IP-adress** | Välj en adress |Använd den adress som du skapade när du skapade belastningsutjämnaren. |
+   | **IP-adress för klient del** | Välj en adress |Använd adressen som du skapade när du skapade belastningsutjämnaren. |
    | **Protokoll** | Välj TCP |TCP |
-   | **Port** | Använd port för tillgänglighetsgruppens lyssnare | 1433 |
-   | **Serverdelsport** | Det här fältet används inte när flytande IP har ställts in för direct server returnerade | 1433 |
-   | **Avsökningen** |Det namn du angav för avsökningen | SQLAlwaysOnEndPointProbe |
-   | **Sessionspermanens** | Nedrullningsbar listruta | **Ingen** |
-   | **Timeout för inaktivitet** | Minuter för att öppna en TCP-anslutning | 4 |
-   | **Flytande IP (direkt serverreturnering)** | |Enabled |
+   | **Port** | Använd porten för tillgänglighets gruppens lyssnare | 1433 |
+   | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 1433 |
+   | **Provtagning** |Det namn som du har angett för avsökningen | SQLAlwaysOnEndPointProbe |
+   | **Beständig session** | Nedrullningsbar listruta | **Alternativet** |
+   | **Timeout för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
+   | **Flytande IP (direkt Server retur)** | |Aktiverad |
 
    > [!WARNING]
-   > Direkt serverreturnering anges när du skapar. Det kan inte ändras.
+   > Direkt Server retur anges när den skapas. Det kan inte ändras.
 
-1. Klicka på **OK** att ställa in lyssnare-regler för belastningsutjämning.
+1. Klicka på **OK** om du vill ange regler för avlyssnings belastnings utjämning.
 
-### <a name="add-the-cluster-core-ip-address-for-the-windows-server-failover-cluster-wsfc"></a>Lägg till klustrets core IP-adress för den Windows Server-redundanskluster (WSFC)
+### <a name="add-the-cluster-core-ip-address-for-the-windows-server-failover-cluster-wsfc"></a>Lägg till klustrets kärn IP-adress för WSFC-klustret (Windows Server failover Cluster)
 
-WSFC-IP-adressen måste också vara på belastningsutjämnaren.
+WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
 
-1. Klicka i portalen på samma Azure-belastningsutjämnaren, **Frontend-IP-konfiguration** och klicka på **+ Lägg till**. Använd IP-adress som du har konfigurerat för WSFC i klustrets kärnresurser. Ange IP-adressen som statisk.
+1. I portalen, i samma Azure Load Balancer, klickar du på **klient delens IP-konfiguration** och klickar på **+ Lägg till**. Använd IP-adressen som du konfigurerade för WSFC i kluster kärn resurserna. Ange IP-adressen som statisk.
 
-1. Klicka på belastningsutjämnaren, **hälsoavsökningar**, och klicka på **+ Lägg till**.
+1. Klicka på **hälso**avsökningar i belastningsutjämnaren och klicka på **+ Lägg till**.
 
-1. Ange hälsoavsökningen för WSFC-klustret core IP-adress på följande sätt:
+1. Ange hälso avsökningen för WSFC-klustrets kärn IP-adress enligt följande:
 
    | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPointProbe |
    | **Protokoll** | Välj TCP | TCP |
-   | **Port** | Alla oanvända portar | 58888 |
-   | **Intervall**  | Tiden mellan avsökningsförsöken i sekunder |5 |
-   | **Tröskelvärde för ej felfri** | Antalet avsökningsfel som måste inträffa för en virtuell dator för att anses vara defekt  | 2 |
+   | **Port** | Oanvänd port | 58888 |
+   | **Intervall**  | Tiden mellan avsöknings försök i sekunder |5 |
+   | **Tröskelvärde för ej felfri** | Antalet avsöknings fel i följd som måste inträffa för att en virtuell dator ska anses vara ohälsosam  | 2 |
 
-1. Klicka på **OK** att ställa in hälsoavsökningen.
+1. Klicka på **OK** för att ställa in hälso avsökningen.
 
-1. Ange regler för belastningsutjämning. Klicka på **belastningsutjämningsregler**, och klicka på **+ Lägg till**.
+1. Ange regler för belastnings utjämning. Klicka på **belastnings Utjämnings regler**och klicka på **+ Lägg till**.
 
-1. Ange kluster core IP-adress reglerna för belastningsutjämning på följande sätt.
+1. Ange belastnings Utjämnings reglerna för klustrets kärn IP-adress enligt följande.
 
    | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPoint |
-   | **Frontend-IP-adress** | Välj en adress |Använd den adress som du skapade när du har konfigurerat WSFC-IP-adress. Detta skiljer sig från IP-adressen för lyssnaren |
+   | **IP-adress för klient del** | Välj en adress |Använd adressen som du skapade när du konfigurerade WSFC-IP-adressen. Detta skiljer sig från IP-adressen för lyssnaren |
    | **Protokoll** | Välj TCP |TCP |
-   | **Port** | Använda porten för klustrets IP-adress. Det här är en tillgänglig port som inte används för avsökning lyssningsport. | 58888 |
-   | **Serverdelsport** | Det här fältet används inte när flytande IP har ställts in för direct server returnerade | 58888 |
-   | **Avsökningen** |Det namn du angav för avsökningen | WSFCEndPointProbe |
-   | **Sessionspermanens** | Nedrullningsbar listruta | **Ingen** |
-   | **Timeout för inaktivitet** | Minuter för att öppna en TCP-anslutning | 4 |
-   | **Flytande IP (direkt serverreturnering)** | |Enabled |
+   | **Port** | Använd porten för klustrets IP-adress. Det här är en tillgänglig port som inte används för avsöknings porten för lyssnaren. | 58888 |
+   | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 58888 |
+   | **Provtagning** |Det namn som du har angett för avsökningen | WSFCEndPointProbe |
+   | **Beständig session** | Nedrullningsbar listruta | **Alternativet** |
+   | **Timeout för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
+   | **Flytande IP (direkt Server retur)** | |Aktiverad |
 
    > [!WARNING]
-   > Direkt serverreturnering anges när du skapar. Det kan inte ändras.
+   > Direkt Server retur anges när den skapas. Det kan inte ändras.
 
-1. Klicka på **OK** att ange regler för belastningsutjämning.
+1. Klicka på **OK** för att ange belastnings Utjämnings regler.
 
-## <a name="configure-listener"></a> Konfigurera lyssnaren
+## <a name="configure-listener"></a>Konfigurera lyssnaren
 
-Nästa sak att göra är att konfigurera en lyssningsfunktion för redundanskluster.
+Nästa sak är att konfigurera en lyssnare för tillgänglighets grupp i redundansklustret.
 
 > [!NOTE]
-> Den här självstudiekursen visar hur du skapar en enda lyssnare - med en ILB IP-adress. För att skapa en eller flera lyssnare med hjälp av en eller flera IP-adresser, se [Create Availability Group-lyssnare och load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Den här självstudien visar hur du skapar en enda lyssnare – med en ILB-IP-adress. Information om hur du skapar en eller flera lyssnare med en eller flera IP-adresser finns i [skapa tillgänglighets grupps lyssnare och belastningsutjämnare | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-## <a name="set-listener-port"></a>Set-lyssnarporten
+## <a name="set-listener-port"></a>Ange lyssnar port
 
-Ange porten för lyssnare i SQL Server Management Studio.
+I SQL Server Management Studio anger du lyssnar porten.
 
 1. Starta SQL Server Management Studio och Anslut till den primära repliken.
 
-1. Gå till **AlwaysOn hög tillgänglighet** | **Tillgänglighetsgrupper** | **tillgänglighetsgruppens lyssnare**.
+1. Navigera till tillgänglighets grupps lyssnare för tillgänglighets**grupper** | med **hög tillgänglighet** | för AlwaysOn.
 
-1. Du bör nu se namnet på lyssnare som du skapade i hanteraren för redundanskluster. Högerklicka på namnet på lyssnare och på **egenskaper**.
+1. Du bör nu se det lyssnar namn som du skapade i Klusterhanteraren för växling vid fel. Högerklicka på namnet på lyssnaren och klicka på **Egenskaper**.
 
-1. I den **Port** skriver du portnumret för tillgänglighetsgruppens lyssnare. 1433 är standardinställningen och klicka sedan på **OK**.
+1. I rutan **port** anger du Port numret för tillgänglighets gruppens lyssnare. 1433 är standard och klickar sedan på **OK**.
 
-Nu har du en SQL Server-tillgänglighetsgrupp i Azure virtuella datorer i Resource Manager-läge.
+Nu har du en SQL Server tillgänglighets grupp i Azure virtuella datorer som körs i Resource Manager-läge.
 
 ## <a name="test-connection-to-listener"></a>Testa anslutning till lyssnare
 
 Så här testar du anslutningen:
 
-1. RDP till en SQL-Server som är i samma virtuella nätverk, men inte äger repliken. Du kan använda SQL Server i klustret.
+1. RDP till en SQL Server som finns i samma virtuella nätverk, men som inte äger repliken. Du kan använda andra SQL Server i klustret.
 
-1. Använd **sqlcmd** verktyg för att testa anslutningen. Till exempel följande skript upprättar en **sqlcmd** anslutning till den primära repliken via lyssnaren med Windows-autentisering:
+1. Använd **SQLCMD** -verktyget för att testa anslutningen. Följande skript upprättar till exempel en **SQLCMD** -anslutning till den primära repliken via lyssnaren med Windows-autentisering:
 
    ```cmd
    sqlcmd -S <listenerName> -E
    ```
 
-   Om lyssnaren använder en annan port än standardvärdet standardporten (1433), ange porten i anslutningssträngen. Till exempel ansluter kommandot sqlcmd till en lyssnare på port 1435:
+   Om lyssnaren använder en annan port än standard porten (1433) anger du porten i anslutnings strängen. Till exempel ansluter följande SQLCMD-kommando till en lyssnare på port 1435:
 
    ```cmd
    sqlcmd -S <listenerName>,1435 -E
    ```
 
-SQLCMD-anslutning ansluter automatiskt till instansen av SQL Server är värd för den primära repliken.
+SQLCMD-anslutningen ansluts automatiskt till den beroende instansen av SQL Server är värd för den primära repliken.
 
 > [!TIP]
-> Se till att den port som du anger är öppen i brandväggen för både SQL-servrar. Båda servrarna kräver en regel för inkommande trafik för TCP-porten som du använder. Mer information finns i [Lägg till eller redigera brandväggsregel](https://technet.microsoft.com/library/cc753558.aspx).
+> Kontrol lera att den port du anger är öppen i brand väggen för båda SQL-servrarna. Båda servrarna kräver en regel för inkommande trafik för TCP-porten som du använder. Mer information finns i [Lägg till eller redigera brand Väggs regel](https://technet.microsoft.com/library/cc753558.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägg till en IP-adress till en belastningsutjämnare för en andra tillgänglighetsgruppen](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).
+- [Lägg till en IP-adress till en belastningsutjämnare för en andra tillgänglighets grupp](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

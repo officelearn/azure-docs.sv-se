@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 0a411e0fe3b89eaaa19f4e18f5e614b03dd1d682
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 90b2a1954d60f1e86ab61afb264483177f4aca3b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599430"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073939"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric nätverks mönster
 Du kan integrera ditt Azure Service Fabric-kluster med andra funktioner i Azure-nätverk. I den här artikeln visar vi hur du skapar kluster som använder följande funktioner:
@@ -604,6 +604,10 @@ I ett kluster med två noder-typ finns en nodtyp på den externa belastningsutj�
     ```
 
 Efter distributionen kan du se två belastningsutjämnare i resurs gruppen. Om du bläddrar i belastningsutjämnare kan du se den offentliga IP-adressen och hanterings slut punkter (portarna 19000 och 19080) som är kopplade till den offentliga IP-adressen. Du kan också se den statiska interna IP-adressen och program slut punkten (port 80) som har tilldelats till den interna belastningsutjämnaren. Båda belastnings utjämningarna använder samma pool för skalnings uppsättning för virtuella datorer.
+
+## <a name="notes-for-production-workloads"></a>Kommentarer till produktions arbets belastningar
+
+Ovanstående GitHub-mallar är utformade för att fungera med standard-SKU: n för Azure Standard Load Balancer (SLB), den grundläggande SKU: n. Detta SLB har inget service avtal för produktions arbets belastningar som standard-SKU: n ska användas. Mer information finns i [Översikt över Azure-standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview). Alla Service Fabric kluster som använder standard-SKU: n för SLB måste se till att varje nodtyp har en regel som tillåter utgående trafik på port 443. Detta är nödvändigt för att slutföra kluster installationen och alla distributioner utan sådan regel kommer att Miss lyckas. I exemplet ovan i en "intern" belastningsutjämnare måste ytterligare en extern belastningsutjämnare läggas till i mallen med en regel som tillåter utgående trafik för port 443.
 
 ## <a name="next-steps"></a>Nästa steg
 [Skapa ett kluster](service-fabric-cluster-creation-via-arm.md)

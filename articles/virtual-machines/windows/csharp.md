@@ -11,16 +11,15 @@ ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: b88bade886bf8cf22387e8733b8710414c944988
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c6d092889deec934f1db1f1c93c06aa0dc217df5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361131"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079598"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp avC# #
 
@@ -41,7 +40,7 @@ Det tar ungefär 20 minuter att utföra dessa steg.
 
 1. Om du inte redan har gjort det installerar du [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.net Desktop Development** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **.NET Framework 4-4,6 utvecklingsverktyg** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen med hjälp av Visual Studio Launcher.
 2. I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
-3. I **mallar** >   **, Välj konsol program (.NET Framework), ange myDotnetProject som namn på projektet, Välj platsen för projektet och klicka sedan på C#**  **OK**.
+3. I **mallar** >  *, Välj* **konsol program (.NET Framework)** , ange myDotnetProject som namn på projektet, Välj platsen för projektet och klicka sedan på **OK**.**C#**
 
 ## <a name="install-the-package"></a>Installera paketet
 

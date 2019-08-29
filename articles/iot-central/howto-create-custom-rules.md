@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: c31fa96457a3945c39fcc34770cb6783af3b81e8
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d89e8f174c7006c1a0f771dd4dfaa816ded3698c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049114"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100992"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>Utöka Azure IoT Central med anpassade regler som skickar meddelanden
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ### <a name="iot-central-application"></a>IoT Central program
 
-Skapa ett IoT Central-program från sidan [Azure IoT Central-mina program](https://aka.ms/iotcentral) med följande inställningar:
+Skapa ett IoT Central-program på webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) med följande inställningar:
 
 | Inställning | Value |
 | ------- | ----- |
@@ -305,7 +305,7 @@ I den här lösningen används en Stream Analytics fråga för att identifiera n
 
 ## <a name="configure-export-in-iot-central"></a>Konfigurera export i IoT Central
 
-Navigera till [IoT Central programmet](https://aka.ms/iotcentral) som du skapade från contoso-mallen. I det här avsnittet konfigurerar du programmet för att strömma Telemetrin från dess simulerade enheter till händelsehubben. Konfigurera exporten:
+På webbplatsen [Azure IoT Central Application Manager](https://aka.ms/iotcentral) navigerar du till det IoT Central program som du skapade från contoso-mallen. I det här avsnittet konfigurerar du programmet för att strömma Telemetrin från dess simulerade enheter till händelsehubben. Konfigurera exporten:
 
 1. Gå till sidan för **kontinuerlig data export** , Välj **+ ny**och sedan **Azure Event Hubs**.
 1. Använd följande inställningar för att konfigurera exporten och välj sedan **Spara**:

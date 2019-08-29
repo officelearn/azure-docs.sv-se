@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: e1285f6bc3bd081eae03cf1e5a124a86cac7a2ae
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 62b96fa8722408aed81e87cb31218140fa4f5da8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335985"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099412"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Pris modell för Azure Logic Apps
 
@@ -61,7 +61,7 @@ En [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-
 
   * **SKU för utvecklare**: Antingen upp till fyra standard konton eller upp till 5 totala standard konton. Inga grundläggande konton.
 
-Mer information om gränser för integrations konton finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Du kan lära dig mer om [integrations konto nivåer och deras pris modell](#integration-accounts) senare i det här avsnittet. 
+Mer information om gränser för integrations konton finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Du kan lära dig mer om [integrations konto nivåer och deras pris modell](#integration-accounts) senare i det här avsnittet.
 
 För Premium ISE-SKU: n har bas enheten fast kapacitet, så om du behöver mer data flöde kan du [lägga till fler skalnings enheter](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), antingen under skapandet eller efteråt. Developer ISE-SKU: n har inte möjlighet att lägga till fler skalnings enheter. Logi Kap par som körs i en ISE ådrar sig inga kostnader för datakvarhållning.
 
@@ -162,7 +162,7 @@ För att hjälpa dig att övervaka din Logic Apps lagrings förbrukning kan du:
 
 1. Välj den åtgärd som du vill visa i tabellen åtgärder i fönstret för att **köra information i Logic app** .
 
-1. I fönstret **åtgärd för Logic app-åtgärd** hittar du storlekarna för åtgärdens indata och utdata visas under  länken indata och **länken utdata**.
+1. I fönstret **åtgärd för Logic app-åtgärd** hittar du storlekarna för åtgärdens indata och utdata visas under länken indata och **länken utdata**.
 
 ## <a name="next-steps"></a>Nästa steg
 

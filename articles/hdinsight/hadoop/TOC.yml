@@ -381,6 +381,8 @@
           href: apache-hadoop-debug-jobs.md
 - name: Referens
   items:
+    - name: Nodkonfigurationer som stöds
+      href: ../hdinsight-supported-node-configuration.md
     - name: Kodexempel
       href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Azure PowerShell

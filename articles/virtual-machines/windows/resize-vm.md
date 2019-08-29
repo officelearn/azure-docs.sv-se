@@ -1,6 +1,6 @@
 ---
-title: Ändra storlek på en Windows-dator i Azure med hjälp av PowerShell | Microsoft Docs
-description: Ändra storlek på en Windows-dator som skapats i Resource Manager-distributionsmodellen, med hjälp av Azure Powershell.
+title: Använd PowerShell för att ändra storlek på en virtuell Windows-dator i Azure | Microsoft Docs
+description: Ändra storlek på en virtuell Windows-dator som skapats i Resource Manager-distributions modellen med hjälp av Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,28 +11,27 @@ ms.assetid: 057ff274-6dad-415e-891c-58f8eea9ed78
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 353bc3499f93eca72dd325c2114cd364145986c6
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 9537744787df7fc6c470bc1ee6862ad3f2991ae9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722893"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088731"
 ---
-# <a name="resize-a-windows-vm"></a>Ändra storlek på en Windows VM
+# <a name="resize-a-windows-vm"></a>Ändra storlek på en virtuell Windows-dator
 
-Den här artikeln visar hur du flyttar en virtuell dator till en annan [VM-storlek](sizes.md) med Azure Powershell.
+Den här artikeln visar hur du flyttar en virtuell dator till en annan [storlek](sizes.md) med hjälp av Azure PowerShell.
 
-När du har skapat en virtuell dator (VM) kan du skala den virtuella datorn upp eller ned genom att ändra virtuella datorstorlek. I vissa fall måste du frigöra den virtuella datorn först. Detta kan inträffa om den nya storleken inte är tillgänglig på klustret maskinvara som för närvarande är värd för den virtuella datorn.
+När du har skapat en virtuell dator (VM) kan du skala upp eller ned den virtuella datorn genom att ändra storleken på den virtuella datorn. I vissa fall måste du frigöra den virtuella datorn först. Detta kan inträffa om den nya storleken inte är tillgänglig i det maskin varu kluster som för närvarande är värd för den virtuella datorn.
 
-Om den virtuella datorn använder Premium Storage kan du se till att du väljer en **s** version av storlek kan få support för Premium Storage. Till exempel välja Standard_E4**s**_v3 i stället för Standard_E4_v3.
+Om din virtuella dator använder Premium Storage, se till att du väljer en **s** -version av storleken för att få Premium Storage support. Välj till exempel Standard_E4**s**_v3 i stället för Standard_E4_v3.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Ändra storlek på en virtuell Windows-dator inte i en tillgänglighetsuppsättning
+## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Ändra storlek på en virtuell Windows-dator som inte finns i en tillgänglighets uppsättning
 
 Ange några variabler. Ersätt värdena med din egen information.
 
@@ -41,13 +40,13 @@ $resourceGroup = "myResourceGroup"
 $vmName = "myVM"
 ```
 
-Lista de storlekar som är tillgängliga på maskinvara klustret där den virtuella datorn finns. 
+Lista de VM-storlekar som är tillgängliga på det maskin varu kluster där den virtuella datorn finns. 
    
 ```powershell
 Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
-Om önskad storlek visas kör du följande kommandon för att ändra storlek på den virtuella datorn. Om önskad storlek inte visas kan du gå vidare till steg 3.
+Om den storlek som du vill ha visas i listan kör du följande kommandon för att ändra storlek på den virtuella datorn. Om önskad storlek inte visas i listan går du vidare till steg 3.
    
 ```powershell
 $vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
@@ -55,7 +54,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-Om önskad storlek inte visas, kör följande kommandon för att frigöra den virtuella datorn, ändra storlek på den och starta om den virtuella datorn. Ersätt  **\<newVMsize >** med önskad storlek.
+Om den storlek som du vill ha inte visas i listan kör du följande kommandon för att frigöra den virtuella datorn, ändra storlek på den och starta om den virtuella datorn. **Ersätt\<newVMsize >** med den storlek som du vill ha.
    
 ```powershell
 Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
@@ -66,26 +65,26 @@ Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 ```
 
 > [!WARNING]
-> Avallokera den virtuella datorn Frigör några dynamiska IP-adresser som tilldelas den virtuella datorn. Operativsystemet och datadiskarna påverkas inte. 
+> Om du avallokerar VM frigör det dynamiska IP-adresser som tilldelats den virtuella datorn. Operativ system-och data diskar påverkas inte. 
 > 
 > 
 
-## <a name="resize-a-windows-vm-in-an-availability-set"></a>Ändra storlek på en virtuell Windows-dator i en tillgänglighetsuppsättning
+## <a name="resize-a-windows-vm-in-an-availability-set"></a>Ändra storlek på en virtuell Windows-dator i en tillgänglighets uppsättning
 
-Om den nya storleken för en virtuell dator i en tillgänglighetsuppsättning inte är tillgänglig på klustret för maskinvara som för närvarande som är värd för den virtuella datorn, måste alla virtuella datorer i tillgänglighetsuppsättningen frigöras för att ändra storlek på den virtuella datorn. Du kan behöva uppdatera storleken på andra virtuella datorer i tillgänglighetsuppsättningen när en virtuell dator har ändrats. Om du vill ändra storlek på en virtuell dator i en tillgänglighetsuppsättning, utför du följande steg.
+Om den nya storleken för en virtuell dator i en tillgänglighets uppsättning inte är tillgänglig på det maskin varu kluster som är värd för den virtuella datorn, måste alla virtuella datorer i tillgänglighets uppsättningen frigöras för att ändra storlek på den virtuella datorn. Du kan också behöva uppdatera storleken på andra virtuella datorer i tillgänglighets uppsättningen när storleken på en virtuell dator har ändrats. Utför följande steg för att ändra storlek på en virtuell dator i en tillgänglighets uppsättning.
 
 ```powershell
 $resourceGroup = "myResourceGroup"
 $vmName = "myVM"
 ```
 
-Lista de storlekar som är tillgängliga på maskinvara klustret där den virtuella datorn finns. 
+Lista de VM-storlekar som är tillgängliga på det maskin varu kluster där den virtuella datorn finns. 
    
 ```powershell
 Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
-Om önskad storlek visas kör du följande kommandon för att ändra storlek på den virtuella datorn. Om det inte visas, gå till nästa avsnitt.
+Om önskad storlek visas kör du följande kommandon för att ändra storlek på den virtuella datorn. Om den inte visas går du till nästa avsnitt.
    
 ```powershell
 $vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName 
@@ -93,9 +92,9 @@ $vm.HardwareProfile.VmSize = "<newVmSize>"
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
     
-Om önskad storlek inte visas, fortsätter du med följande steg för att frigöra alla virtuella datorer i tillgänglighetsuppsättningen, ändra storlek på virtuella datorer och starta sedan om dem.
+Om den storlek som du vill ha inte visas i listan fortsätter du med följande steg för att frigöra alla virtuella datorer i tillgänglighets uppsättningen, ändrar storlek på virtuella datorer och startar om dem.
 
-Stoppa alla virtuella datorer i tillgänglighetsuppsättningen.
+Stoppa alla virtuella datorer i tillgänglighets uppsättningen.
    
 ```powershell
 $as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup
@@ -107,7 +106,7 @@ foreach ($vmId in $vmIDs){
     } 
 ```
 
-Ändra storlek på och starta om de virtuella datorerna i tillgänglighetsuppsättningen.
+Ändra storlek och starta om de virtuella datorerna i tillgänglighets uppsättningen.
    
 ```powershell
 $newSize = "<newVmSize>"
@@ -125,5 +124,5 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## <a name="next-steps"></a>Nästa steg
 
-För extra skalbarhet, kör flera VM-instanser och skala ut. Mer information finns i [skala automatiskt Windows-datorer i Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
+Om du vill ha ytterligare skalbarhet kan du köra flera virtuella dator instanser och skala ut. Mer information finns i skala [Windows-datorer automatiskt i en skalnings uppsättning för virtuella datorer](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 

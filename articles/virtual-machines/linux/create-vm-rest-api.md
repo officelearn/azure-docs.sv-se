@@ -1,6 +1,6 @@
 ---
-title: Skapa en Linux-dator med Azure REST-API | Microsoft Docs
-description: Lär dig hur du skapar en Linux-dator i Azure som använder Managed Disks och SSH-autentisering med Azure REST API.
+title: Skapa en virtuell Linux-dator med Azure-REST API | Microsoft Docs
+description: Lär dig hur du skapar en virtuell Linux-dator i Azure som använder Managed Disks och SSH-autentisering med Azure REST API.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,70 +9,69 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: a7f624bc85d35048a8f9afa0f527ae592a24fbf1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 9851305bdaa2f214e0d00eda3235068cac2ea980
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667950"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083484"
 ---
-# <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en Linux-dator som använder SSH-autentisering med REST API
+# <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en virtuell Linux-dator som använder SSH-autentisering med REST API
 
-En Linux-dator (VM) i Azure består av olika resurser, till exempel diskar och nätverk-gränssnitt och definierar parametrar, till exempel plats, storlek och operativsystemet inställningar för avbildning och autentisering.
+En virtuell Linux-dator (VM) i Azure består av olika resurser, till exempel diskar och nätverks gränssnitt, och definierar parametrar som plats, storlek och operativ system avbildning och autentiseringsinställningar.
 
-Du kan skapa en Linux-VM via Azure portal, Azure CLI 2.0, många Azure SDK: er, Azure Resource Manager-mallar och många verktyg från tredje part, till exempel Ansible eller Terraform. Alla dessa verktyg använda slutligen REST API för att skapa Linux VM.
+Du kan skapa en virtuell Linux-dator via Azure Portal, Azure CLI 2,0, många Azure SDK: er, Azure Resource Manager mallar och många verktyg från tredje part, till exempel Ansible eller terraform. Alla dessa verktyg använder i slut änden REST API för att skapa den virtuella Linux-datorn.
 
-Den här artikeln visar hur du använder REST-API för att skapa en Linux-VM som kör Ubuntu 18.04-LTS med hanterade diskar och SSH-autentisering.
+Den här artikeln visar hur du använder REST API för att skapa en virtuell Linux-dator som kör Ubuntu 18,04-LTS med hanterade diskar och SSH-autentisering.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Innan du skapar och skickar begäran behöver du:
+Innan du skapar och skickar in begäran behöver du:
 
-* Den `{subscription-id}` för din prenumeration
-  * Om du har flera prenumerationer, se [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
-* En `{resourceGroupName}` du har skapat i tid
-* En [virtuellt nätverksgränssnitt](../../virtual-network/virtual-network-network-interface.md) i samma resursgrupp
-* En SSH-nyckelpar (du kan [Generera en ny](mac-create-ssh-keys.md) om du inte har någon)
+* `{subscription-id}` För din prenumeration
+  * Om du har flera prenumerationer kan du läsa [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
+* En `{resourceGroupName}` som du har skapat i förväg
+* Ett [virtuellt nätverks gränssnitt](../../virtual-network/virtual-network-network-interface.md) i samma resurs grupp
+* Ett SSH-nyckelpar (du kan [generera ett nytt](mac-create-ssh-keys.md) om du inte har något)
 
-## <a name="request-basics"></a>Grunderna i begäran
+## <a name="request-basics"></a>Grundläggande om begäran
 
-Om du vill skapa eller uppdatera en virtuell dator, använder du följande *PLACERA* igen:
+Använd följande åtgärd för att skapa eller uppdatera en virtuell dator :
 
 ``` http
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-Förutom den `{subscription-id}` och `{resourceGroupName}` parametrar, måste du ange den `{vmName}` (`api-version` är valfritt, men den här artikeln har testats med `api-version=2017-12-01`)
+Förutom `{subscription-id}` parametrarna och `{resourceGroupName}` måste du ange `{vmName}` (`api-version` är valfritt, men den här artikeln har testats med `api-version=2017-12-01`)
 
-Följande huvuden krävs:
+Följande rubriker krävs:
 
-| Begärandehuvud   | Beskrivning |
+| Begär ande huvud   | Beskrivning |
 |------------------|-----------------|
-| *Content-Type:*  | Obligatoriskt. Ange `application/json`. |
-| *Authorization:* | Obligatoriskt. Ange att ett giltigt `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Innehålls typ:*  | Obligatoriskt. Ange till `application/json`. |
+| *Authorization:* | Obligatoriskt. Ange en giltig `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
-Allmän information om hur du arbetar med REST API-begäranden finns i [komponenterna i en REST API-begäran/svar](/rest/api/azure/#components-of-a-rest-api-requestresponse).
+Allmän information om hur du arbetar med REST API begär Anden finns i [komponenter i en REST API begäran/svar](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
-## <a name="create-the-request-body"></a>Skapa begärandetexten
+## <a name="create-the-request-body"></a>Skapa begär ande texten
 
-Följande vanliga definitioner används för att skapa en brödtext i begäran:
+Följande vanliga definitioner används för att bygga en begär ande text:
 
-| Namn                       | Krävs | Typ                                                                                | Beskrivning  |
+| Name                       | Obligatorisk | Typ                                                                                | Beskrivning  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | Sant     | sträng                                                                              | Resursplats. |
-| name                       |          | sträng                                                                              | Namnet för den virtuella datorn. |
-| properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Anger maskinvaruinställningarna för den virtuella datorn. |
-| properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Anger lagringsinställningar för för virtuella diskar. |
-| properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Anger inställningar för operativsystemet för den virtuella datorn. |
-| properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Anger nätverksgränssnitt för den virtuella datorn. |
+| name                       |          | sträng                                                                              | Namn på den virtuella datorn. |
+| properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Anger maskin varu inställningarna för den virtuella datorn. |
+| properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Anger lagrings inställningarna för de virtuella dator diskarna. |
+| properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Anger operativ system inställningarna för den virtuella datorn. |
+| properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Anger nätverks gränssnitten för den virtuella datorn. |
 
-En exempel-begärandetexten är under. Kontrollera att du anger namnet på virtuell dator i den `{computerName}` och `{name}` parametrar, namnet på nätverksgränssnittet som du har skapat under `networkInterfaces`, ditt användarnamn i `adminUsername` och `path`, och *offentliga*del av din SSH-nyckelpar (finns i, till exempel `~/.ssh/id_rsa.pub`) i `keyData`. Andra parametrar som du kanske vill ändra inkluderar `location` och `vmSize`.  
+Ett exempel på en begär ande text visas nedan. Se till att du anger namnet på den virtuella `{computerName}` datorn `{name}` i parametrarna och, namnet på det nätverks gränssnitt som du har `networkInterfaces`skapat under, ditt `adminUsername` användar `path`namn i och och i den *offentliga* delen av SSH nyckel par (finns i, till exempel `~/.ssh/id_rsa.pub`) i. `keyData` Andra parametrar som du kanske vill ändra inkluderar `location` och `vmSize`.  
 
 ```json
 {
@@ -127,22 +126,22 @@ En exempel-begärandetexten är under. Kontrollera att du anger namnet på virtu
 }
 ```
 
-En fullständig lista över tillgängliga definitioner i begärandetexten, se [virtuella datorer skapa eller uppdatera definitioner för brödtexten för begäran](/rest/api/compute/virtualmachines/createorupdate#definitions).
+En fullständig lista över tillgängliga definitioner i begär ande texten finns i [Virtual Machines Create eller Update Request Body definitions](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
-## <a name="sending-the-request"></a>Begäran skickades
+## <a name="sending-the-request"></a>Begäran skickas
 
-Du kan använda klienten om vill skicka den här HTTP-begäran. Du kan också använda en [webbläsarbaserade verktyget](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) genom att klicka på den **prova** knappen.
+Du kan använda klienten för din preferens för att skicka denna HTTP-begäran. Du kan också använda ett [i webb läsar verktyg](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) genom att klicka på knappen **prova** .
 
 ### <a name="responses"></a>Responses
 
-Det finns två lyckades för åtgärden att skapa eller uppdatera en virtuell dator:
+Det finns två lyckade svar för åtgärden att skapa eller uppdatera en virtuell dator:
 
-| Namn        | Typ                                                                              | Beskrivning |
+| Name        | Typ                                                                              | Beskrivning |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Ok          |
-| 201 Skapad | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Skapad     |
+| 201 har skapats | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Skapad     |
 
-Ett komprimerat *201 Skapad* svar från föregående exempel begärandetexten som skapar en virtuell dator visas en *vmId* har tilldelats och *provisioningState* är *Skapar*:
+Ett komprimerat 201-svar som *skapats* från föregående exempel begär ande text som skapar en virtuell dator visar att ett *vmId* har tilldelats och att *provisioningState* *skapas*:
 
 ```json
 {
@@ -151,13 +150,13 @@ Ett komprimerat *201 Skapad* svar från föregående exempel begärandetexten so
 }
 ```
 
-Mer information om REST API-svar finns i [bearbeta svarsmeddelandet](/rest/api/azure/#process-the-response-message).
+Mer information om REST API svar finns i [bearbeta svars meddelandet](/rest/api/azure/#process-the-response-message).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure REST API: er eller andra hanteringsverktyg, till exempel Azure CLI eller Azure PowerShell finns i följande:
+Mer information om Azure REST-API: er eller andra hanterings verktyg som Azure CLI eller Azure PowerShell finns i följande avsnitt:
 
-- [Azure Compute-providern REST API](/rest/api/compute/)
+- [Azure Compute Provider REST API](/rest/api/compute/)
 - [Kom igång med Azure REST API](/rest/api/azure/)
 - [Azure CLI](/cli/azure/)
-- [Azure PowerShell-modul](/powershell/azure/overview)
+- [Azure PowerShell modul](/powershell/azure/overview)

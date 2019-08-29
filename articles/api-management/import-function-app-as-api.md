@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: f9e5c531e387ba8d2c61c6d46b1e8935bc7d42cf
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7e9215d7250628ed9177e097d127a1554a1f0ea0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67429050"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073340"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importera en Azure-funktionsapp som API i Azure API Management | Microsoft Docs
 
@@ -111,14 +110,14 @@ Följ stegen nedan för att lägga till Azure-funktionsapp till befintligt API.
 
     ![Lägg till från funktionsapp](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization"></a> Auktorisering
+## <a name="authorization"></a>Auktoriseringsregeln
 
 Import av en Azure-funktionsapp genererar automatiskt:
 
-* Värdnyckeln i Funktionsappen med namnet apim-{*Azure API Management-instans tjänstnamnet*},
-* Namngivet värde i Azure API Management-instans med namnet {*din Azure Function-App-instansnamn*}-nyckeln, som innehåller den skapa värdnyckeln.
+* Värd nyckel i Funktionsapp med namnet APIM-{namnet på*din Azure API Management*-tjänstinstans},
+* Namngivet värde i Azure API Management-instansen med namnet {*ditt Azure Funktionsapp instance Name*}-Key, som innehåller den skapade värd nyckeln.
 
-För API: er som skapats efter April 4 2019, skickas serverns värdnyckel HTTP-begäranden från API Management till Funktionsappen i en rubrik. Äldre API: er skickar värdnyckel som [frågeparameter](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Det här beteendet kan ändras via den `PATCH Backend` [REST API-anrop](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) på den *serverdel* entitet som är associerad med appen.
+För API: er som skapats efter 4 april 2019, skickas värd nyckeln i HTTP-begäranden från API Management till Funktionsapp i en rubrik. Äldre API: er skickar värd nyckeln som [en frågeparameter](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Det här beteendet kan ändras via `PATCH Backend` [REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) -anropet på den *Server dels* enhet som är associerad med Funktionsapp.
 
 > [!WARNING]
 > Om du tar bort eller ändrar värdet för antingen värdnyckeln för Azure-funktionsappen eller det namngivna Azure API Management-värdet bryts kommunikationen mellan tjänsterna. Värdena synkroniseras inte automatiskt.

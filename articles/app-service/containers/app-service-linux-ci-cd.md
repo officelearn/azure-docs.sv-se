@@ -1,7 +1,7 @@
 ---
-title: Kontinuerlig distribution med Web App for Containers – Azure App Service | Microsoft Docs
-description: Hur du ställer in kontinuerlig distribution i Web App for Containers.
-keywords: azure app service, linux, docker, acr,oss
+title: Kontinuerlig distribution med Web App for Containers-Azure App Service | Microsoft Docs
+description: Så här konfigurerar du kontinuerlig distribution i Web App for Containers.
+keywords: Azure App Service, Linux, Docker, ACR, oss
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -11,62 +11,61 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: be3768aadb3e256aa7b0ba7fe3d72cf4169e9bb2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1dc776f0a61ac1a29ab3fe3ebdd542469863cd50
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705709"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071364"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kontinuerlig distribution med Web App for Containers
 
-I den här självstudien konfigurerar du kontinuerlig distribution för en anpassad behållaravbildning från hanterade [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) databaser eller [Docker Hub](https://hub.docker.com).
+I den här självstudien konfigurerar du kontinuerlig distribution för en anpassad behållar avbildning från hanterade [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) -databaser eller Docker- [hubb](https://hub.docker.com).
 
 ## <a name="enable-continuous-deployment-with-acr"></a>Aktivera kontinuerlig distribution med ACR
 
-![Skärmbild av ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
+![Skärm bild av ACR-webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj den **Apptjänst** alternativ till vänster på sidan.
-3. Välj namnet på appen som du vill konfigurera kontinuerlig distribution.
-4. På den **Behållarinställningar** väljer **enskild behållare**
+2. Välj alternativet **App Service** till vänster på sidan.
+3. Välj namnet på den app som du vill konfigurera kontinuerlig distribution för.
+4. På sidan **behållar inställningar** väljer du **en behållare**
 5. Välj **Azure Container Registry**
 6. Välj **kontinuerlig distribution > på**
-7. Välj **spara** du aktiverar kontinuerlig distribution.
+7. Välj **Spara** för att aktivera kontinuerlig distribution.
 
-## <a name="use-the-acr-webhook"></a>Använd ACR webhook
+## <a name="use-the-acr-webhook"></a>Använd ACR-webhooken
 
-När kontinuerlig distribution har aktiverats kan visa du den nyligen skapade webhooken på din sida för Azure Container Registry-webhookar.
+När kontinuerlig distribution har Aktiver ATS kan du Visa den nyskapade webhooken på sidan Azure Container Registry Webhooks.
 
-![Skärmbild av ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
+![Skärm bild av ACR-webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
 
-Klicka på Webhooks för att visa aktuella webhooks i ditt Behållarregister.
+Klicka på Webhooks i Container Registry för att visa de aktuella webhookarna.
 
 ## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Aktivera kontinuerlig distribution med Docker Hub (valfritt)
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj den **Apptjänst** alternativ till vänster på sidan.
-3. Välj namnet på appen som du vill konfigurera kontinuerlig distribution.
-4. På den **Behållarinställningar** väljer **enskild behållare**
-5. Välj **Docker Hub**
+2. Välj alternativet **App Service** till vänster på sidan.
+3. Välj namnet på den app som du vill konfigurera kontinuerlig distribution för.
+4. På sidan **behållar inställningar** väljer du **en behållare**
+5. Välj **Docker-hubb**
 6. Välj **kontinuerlig distribution > på**
-7. Välj **spara** du aktiverar kontinuerlig distribution.
+7. Välj **Spara** för att aktivera kontinuerlig distribution.
 
-![Skärmbild av app-inställning](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
+![Skärm bild av appens inställning](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
 
-Kopiera en Webhook-URL. Så lägger du till en webhook för Docker Hub <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">webhooks för Docker Hub</a>.
+Kopiera webhook-URL: en. Om du vill lägga till en webhook för Docker Hub, följer du Webhooks <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">för Docker Hub</a>.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Introduktion till Azure App Service i Linux](./app-service-linux-intro.md)
+* [Introduktion till Azure App Service på Linux](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Skapa en .NET Core-webbapp i App Service på Linux](quickstart-dotnetcore.md)
-* [Skapa en Ruby-webbapp i App Service på Linux](quickstart-ruby.md)
-* [Distribuera en Docker-/ Go-webbapp i Web App for Containers](quickstart-docker-go.md)
+* [Skapa en ruby-webbapp i App Service på Linux](quickstart-ruby.md)
+* [Distribuera en Docker-/go-webbapp i Web App for Containers](quickstart-docker-go.md)
 * [Vanliga frågor och svar om Azure App Service on Linux](./app-service-linux-faq.md)
 * [Hantera webbapp för containrar med Azure CLI](./app-service-linux-cli.md)

@@ -10,7 +10,7 @@
     - name: Distribuera och konfigurera
       href: tutorial-firewall-deploy-portal.md
     - name: Distribuera i hybridnätverk
-      href: tutorial-hybrid-ps.md
+      href: tutorial-hybrid-portal.md
     - name: Filtrera inkommande trafik med DNAT
       href: tutorial-firewall-dnat.md
     - name: Övervaka diagnostikloggar
@@ -39,6 +39,8 @@
   items:
     - name: Distribuera med hjälp av Azure PowerShell
       href: deploy-ps.md
+    - name: Distribuera i hybridnätverk – PowerShell
+      href: tutorial-hybrid-ps.md
     - name: Distribuera med Azure CLI
       href: deploy-cli.md
     - name: Distribuera med hjälp av en mall

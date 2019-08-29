@@ -1,6 +1,6 @@
 ---
-title: Anslutningskonfiguration från virtuella datorer till SAP HANA på Azure (stora instanser) | Microsoft Docs
-description: Anslutningskonfiguration från virtuella datorer för att använda SAP HANA på Azure (stora instanser).
+title: Anslutnings konfiguration från virtuella datorer till SAP HANA på Azure (stora instanser) | Microsoft Docs
+description: Anslutnings inställningar från virtuella datorer för att använda SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -9,144 +9,143 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df60b31ce950cc6c242c8077e59d90c41771e4c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 919e253b6d9ddf8d65f86897a299416e93f3e660
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239514"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099920"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Ansluta virtuella Azure-datorer till HANA – stora instanser
 
-Artikeln [vad är SAP HANA på Azure (stora instanser)?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) Hedersomnämnande som minimal distribution av stora HANA-instanser med SAP-programnivån i Azure som ser ut som följande:
+Artikeln [Vad är SAP HANA på Azure (stora instanser)?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) nämner att den minimala distributionen av HANA-stora instanser med SAP-programlagret i Azure ser ut så här:
 
-![Azure virtuellt nätverk är anslutna till SAP HANA på Azure (stora instanser) och lokala](./media/hana-overview-architecture/image1-architecture.png)
+![Azure VNet är anslutet till SAP HANA på Azure (stora instanser) och lokalt](./media/hana-overview-architecture/image1-architecture.png)
 
-Titta närmare på Azure-nätverk sida, krävs en:
+Titta närmare på Azure Virtual Network-sidan, det finns ett behov av:
 
-- Definition av ett Azure-nätverk som du kommer att distribuera de virtuella datorerna för SAP-programnivån.
-- Definition av ett standardundernät i Azure-nätverk som är verkligen det som de virtuella datorerna distribueras.
-- Azure-nätverk som skapas måste ha minst ett VM-undernät och en Azure ExpressRoute virtuella gateway-undernät. Dessa undernät ska tilldelas de IP-adressintervall som anges och beskrivs i följande avsnitt.
+- Definitionen av ett virtuellt Azure-nätverk som du ska distribuera de virtuella datorerna i SAP-program skiktet till.
+- Definitionen av ett standard-undernät i det virtuella Azure-nätverket som verkligen är det som de virtuella datorerna distribueras till.
+- Det virtuella Azure-nätverket som skapas måste ha minst ett virtuellt dator under nät och ett Azure ExpressRoute-undernät för virtuell nätverksgateway. Dessa undernät ska tilldelas de IP-adressintervall som anges och beskrivs i följande avsnitt.
 
 
-## <a name="create-the-azure-virtual-network-for-hana-large-instances"></a>Skapa Azure-nätverk för HANA stora instanser
+## <a name="create-the-azure-virtual-network-for-hana-large-instances"></a>Skapa det virtuella Azure-nätverket för HANA-stora instanser
 
 >[!Note]
->Azure-nätverket för stora HANA-instanser måste skapas med hjälp av Azure Resource Manager-distributionsmodellen. Den gamla Azure-distribution-modellen, som kallas den klassiska distributionsmodellen stöds inte av lösningen för stora HANA-instansen.
+>Det virtuella Azure-nätverket för HANA-stora instanser måste skapas med hjälp av Azure Resource Manager distributions modell. Den äldre Azure-distributions modellen, som ofta kallas för den klassiska distributions modellen, stöds inte av lösningen HANA stor instans.
 
-Du kan använda Azure portal, PowerShell, en Azure-mall eller Azure CLI för att skapa det virtuella nätverket. (Mer information finns i [skapa ett virtuellt nätverk med Azure portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). I följande exempel tittar vi på ett virtuellt nätverk som har skapats med hjälp av Azure portal.
+Du kan använda Azure Portal, PowerShell, en Azure-mall eller Azure CLI för att skapa det virtuella nätverket. (Mer information finns i [skapa ett virtuellt nätverk med hjälp av Azure Portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). I följande exempel tittar vi på ett virtuellt nätverk som har skapats med hjälp av Azure Portal.
 
-När du refererar till den **adressutrymme** i den här dokumentationen till adressutrymmet som du kan använda Azure-nätverket. Det här adressutrymmet är också det adressintervall som det virtuella nätverket använder för BGP-spridning. Detta **adressutrymme** finns här:
+När du refererar till **adress utrymmet** i den här dokumentationen, till det adress utrymme som det virtuella Azure-nätverket kan använda. Det här adress utrymmet är också det adress intervall som det virtuella nätverket använder för att sprida BGP-vägar. Det här **adress utrymmet** kan visas här:
 
-![Adressutrymmet för ett Azure-nätverk som visas i Azure portal](./media/hana-overview-connectivity/image1-azure-vnet-address-space.png)
+![Adress utrymmet för ett virtuellt Azure-nätverk som visas i Azure Portal](./media/hana-overview-connectivity/image1-azure-vnet-address-space.png)
 
-I exemplet ovan med 10.16.0.0/16, har Azure-nätverket fått ett ganska stora och många IP-adressintervall du använder. Alla IP-adressintervallen i efterföljande undernät i det här virtuella nätverket kan därför ha sina adressintervall inom den adressutrymmen. Vi rekommenderar inte vanligtvis sådana ett stort adressintervall för ett enda virtuellt nätverk i Azure. Men nu ska vi titta i undernät som definierats i Azure-nätverket:
+I föregående exempel med 10.16.0.0/16 angavs det virtuella Azure-nätverket i stället för ett stort och brett IP-adressintervall som ska användas. Därför kan alla IP-adressintervall för efterföljande undernät i det här virtuella nätverket ha sina intervall inom det adress utrymmet. Vi rekommenderar vanligt vis inte ett stort adress intervall för enskilda virtuella nätverk i Azure. Men vi ska titta på de undernät som har definierats i det virtuella Azure-nätverket:
 
-![Azure-nätverk undernät och deras IP-adressintervall](./media/hana-overview-connectivity/image2b-vnet-subnets.png)
+![Undernät för virtuella nätverk i Azure och deras IP-adressintervall](./media/hana-overview-connectivity/image2b-vnet-subnets.png)
 
-Vi tittar på ett virtuellt nätverk med ett första VM-undernät (kallas ”standard” här) och ett undernät med namnet ”GatewaySubnet”.
+Vi tittar på ett virtuellt nätverk med ett första VM-undernät (här kallas "standard") och ett undernät med namnet "GatewaySubnet".
 
-I de två föregående grafik på **virtuella nätverkets adressutrymme** omfattar både **undernätets IP-adressintervall för Azure VM** och att den virtuella nätverksgatewayen.
+I de två föregående bilderna täcker det **virtuella nätverkets adress utrymme** både **under nätets IP-adressintervall för den virtuella Azure-datorn** och den virtuella Nätverksgatewayen.
 
-Du kan begränsa den **virtuella nätverkets adressutrymme** till de specifika adressintervall som används av varje undernät. Du kan också definiera den **virtuella nätverkets adressutrymme** för ett virtuellt nätverk som flera specifika intervall, som visas här:
+Du kan begränsa det **virtuella nätverkets adress utrymme** till de angivna intervallen som används av varje undernät. Du kan också definiera det **virtuella nätverkets adress utrymme** i ett virtuellt nätverk som flera olika intervall, som du ser här:
 
-![Adressutrymme för virtuellt Azure-nätverk med två blanksteg](./media/hana-overview-connectivity/image3-azure-vnet-address-space_alternate.png)
+![Adress utrymme för virtuella Azure-nätverk med två blank steg](./media/hana-overview-connectivity/image3-azure-vnet-address-space_alternate.png)
 
-I det här fallet den **virtuella nätverkets adressutrymme** har två blanksteg som definierats. De är samma som IP-adressintervall som har definierats för undernätets IP-adressintervall för den virtuella Azure-datorn och den virtuella nätverksgatewayen. 
+I det här fallet har det **virtuella nätverkets adress utrymme** två definierade utrymmen. De är samma som de IP-adressintervall som definieras för IP-adressintervallet för under nätet för den virtuella Azure-datorn och den virtuella Nätverksgatewayen. 
 
-Du kan använda valfri namngivningsstandarden som du vill för de här undernäten för klient (undernät för virtuella datorer). Dock **måste alltid vara en och endast en gateway-undernät för varje virtuellt nätverk** som ansluter till SAP HANA på Azure (stora instanser) ExpressRoute-krets. **Den här gateway-undernätet måste ha namnet ”GatewaySubnet”** att se till att ExpressRoute-gatewayen är korrekt placerad.
+Du kan använda valfri namngivnings standard som för dessa klient under nät (VM-undernät). **Det måste dock alltid vara ett, och endast ett Gateway-undernät för varje virtuellt nätverk** som ansluter till SAP HANA på Azure (stora instanser) ExpressRoute-kretsen. **Det här Gateway-undernätet måste ha namnet "GatewaySubnet"** för att säkerställa att ExpressRoute-gatewayen är korrekt placerad.
 
 > [!WARNING] 
-> Det är viktigt att gateway-undernätet alltid ha namnet ”GatewaySubnet”.
+> Det är viktigt att Gateway-undernätet alltid heter "GatewaySubnet".
 
-Du kan använda flera undernät för virtuella datorer och icke-sammanhängande adressintervall. Dessa adressintervall måste omfattas av den **virtuella nätverkets adressutrymme** för det virtuella nätverket. De kan vara aggregerad form. De kan även vara i en lista över de exakta intervall för VM-undernät och gateway-undernätet.
+Du kan använda flera virtuella dator under nät och icke sammanhängande adress intervall. Dessa adress intervall måste täckas av det virtuella nätverkets **adress utrymme** . De kan vara i ett sammanställt formulär. De kan också finnas i en lista med de exakta intervallen för de virtuella dator under näten och gateway-undernätet.
 
-Nedan följer en sammanfattning av viktiga fakta om Azure-nätverk som ansluter till HANA stora instanser:
+Nedan följer en sammanfattning av viktiga fakta om ett virtuellt Azure-nätverk som ansluter till HANA-stora instanser:
 
-- Du måste skicka in den **virtuella nätverkets adressutrymme** till Microsoft när du utför en inledande distribution av stora HANA-instanser. 
-- Den **virtuella nätverkets adressutrymme** kan vara ett större intervall som täcker intervallen för både det IP-adressintervallet för undernätet för den virtuella Azure-datorn och den virtuella nätverksgatewayen.
-- Eller du kan skicka flera adressintervall som täcker de olika IP-adressintervall för VM-undernät IP-adressintervall och virtuella nätverkets gateway IP-adressintervall.
-- Det definierade **virtuella nätverkets adressutrymme** används för routning BGP-spridning.
-- Namnet på gateway-undernätet måste vara: **"GatewaySubnet"** .
-- Adressutrymmet används som ett filter på stora HANA-instansen sida för att tillåta eller neka trafik till stora HANA-instansen enheter från Azure. BGP routningsinformationen av Azure-nätverk och IP-adressintervall som är konfigurerade för filtrering på stora HANA-instansen sida ska matcha. I annat fall kan det uppstå problem med nätverksanslutningen.
-- Det finns vissa information om gateway-undernätet som beskrivs senare i avsnittet **ansluter ett virtuellt nätverk till HANA stora instans ExpressRoute.**
+- Du måste skicka det **virtuella nätverkets adress utrymme** till Microsoft när du utför en första distribution av Hana-stora instanser. 
+- Det **virtuella nätverkets adress utrymme** kan vara ett större intervall som täcker intervallen för både under nätets IP-adressintervall för den virtuella Azure-datorn och den virtuella Nätverksgatewayen.
+- Eller så kan du skicka flera intervall som tar upp de olika IP-adressintervall för virtuella IP-adressintervall och IP-adressintervallet för den virtuella nätverks-gatewayen.
+- Det definierade **virtuella nätverkets adress utrymme** används för spridning av BGP-routning.
+- Namnet på Gateway-undernätet måste vara: **"GatewaySubnet"** .
+- Adress utrymmet används som ett filter på den stora instans sidan i HANA för att tillåta eller neka trafik till de många HANA-instans enheter från Azure. BGP-routningsinformationen för det virtuella Azure-nätverket och de IP-adressintervall som har kon figurer ATS för filtrering på den stora instans sidan i HANA ska matcha. I annat fall kan det uppstå anslutnings problem.
+- Det finns vissa detaljer om Gateway-undernätet som diskuteras senare, i avsnittet **ansluta ett virtuellt nätverk till Hana stor instans ExpressRoute.**
 
 
 
 ## <a name="different-ip-address-ranges-to-be-defined"></a>Olika IP-adressintervall som ska definieras 
 
-Några av de IP-adressintervall som är nödvändiga för att distribuera stora HANA-instanser har introducerats redan. Men det finns flera IP-adressintervall som också är viktiga. Inte alla från följande IP-adressintervall måste skickas till Microsoft. Men behöver du definiera dem innan du skickar en begäran om den första distributionen:
+Några av de IP-adressintervall som krävs för att distribuera HANA stora instanser introducerades redan. Men det finns även fler IP-adressintervall som är viktiga. Inte alla följande IP-adressintervall måste skickas till Microsoft. Du måste dock definiera dem innan du skickar en begäran om inledande distribution:
 
-- **Virtuella nätverkets adressutrymme**: Den **virtuella nätverkets adressutrymme** är de IP-adressintervall som du tilldelar till din adress utrymme parameter i Azure-nätverk. Dessa nätverk ansluta till stor SAP HANA-instans-miljö. Vi rekommenderar att den här adressen utrymme parametern är ett värde för flera rader. Det bör bestå av undernätsintervallet för den virtuella Azure-datorer och undernät range(s) av Azure-gatewayen. Den här undernätsintervall som visas i föregående bilderna. Det får inte överlappa med din lokala eller server IP-pool eller ER P2P-adressintervall. Hur får du de här IP-adressintervall? Leverantören företagsnätverket team eller din tjänst bör ge en eller flera IP-adress adressintervall som inte används i ditt nätverk. Till exempel undernät för den virtuella Azure-datorn är 10.0.1.0/24 och undernätet för Azure gateway-undernätet är 10.0.2.0/28.  Vi rekommenderar att ditt adressutrymme för virtuellt Azure-nätverk definieras som: 10.0.1.0/24 och 10.0.2.0/28. Även om adressen utrymme värden kan aggregeras, rekommenderar vi matchar dem med adressintervall för undernätet. Det här sättet du av misstag undvika återanvända oanvända IP-adressintervall inom större adressutrymmen i nätverket. **Virtuella nätverkets adressutrymme är ett IP-adressintervall. Den behöver skickas till Microsoft när du söker efter en inledande distribution**.
-- **Azure VM IP-adressintervall för undernätet:** Den här IP-adressintervall är det som du tilldelar till Azure-nätverk undernät-parameter. Den här parametern är i Azure-nätverk och ansluter till stor SAP HANA-instans-miljö. Den här IP-adressintervall används för att tilldela IP-adresser till virtuella datorer i Azure. IP-adresser utanför det här intervallet ska kunna ansluta till dina servrar för stora SAP HANA-instansen. Du kan använda flera Virtuella Azure-undernät om det behövs. Vi rekommenderar ett/24 CIDR-block för varje Azure VM-undernät. Den här adressintervallet måste vara en del av de värden som används i Azure virtuella nätverkets adressutrymme. Hur får du den här IP-adressintervall? Leverantören företagsnätverket team eller din tjänst bör ge en IP-adressintervall som inte används i ditt nätverk.
-- **Virtuella IP-adressintervall för gatewayundernät:** Beroende på vilka funktioner som du planerar att använda är den rekommenderade storleken:
-   - ExpressRoute-gateway med ultrahöga prestanda: / 26 Adressblock – krävs för Type II-klassen för SKU: er.
-   - Samverkan med VPN och ExpressRoute med en högpresterande ExpressRoute-gateway för virtuellt nätverk (eller mindre): / 27-Adressblock.
-   - Alla andra situationer: / 28-Adressblock. Den här adressintervallet måste vara en del av de värden som används i ”adressutrymme för virtuellt nätverk”-värden. Den här adressintervallet måste vara en del av de värden som används i Azure-nätverk adress utrymme värdena som du skickar till Microsoft. Hur får du den här IP-adressintervall? Din företagsnätverket team eller service provider ska ge ett IP-adressintervall som används för närvarande inte i ditt nätverk. 
-- **Adressintervall för ER P2P anslutning:** Det här intervallet är IP-adressintervall till SAP HANA stora instanser ExpressRoute (ER) P2P-anslutningen. Den här IP-adressintervall måste vara ett/29 CIDR IP-adressintervall. Det här intervallet får inte överlappa med din lokala eller andra Azure-IP-adressintervall. Den här IP-adressintervall används för att konfigurera ER-anslutning från din virtuella ExpressRoute-gateway till servrar för stora SAP HANA-instansen. Hur får du den här IP-adressintervall? Din företagsnätverket team eller service provider ska ge ett IP-adressintervall som används för närvarande inte i ditt nätverk. **Det här intervallet är ett IP-adressintervall. Den behöver skickas till Microsoft när du söker efter en inledande distribution**.  
-- **Servern IP-adresspoolintervall:** Den här IP-adressintervall används för att tilldela enskilda IP-adressen till HANA stora instansservrar. Den rekommenderade undernät är ett/24 CIDR-block. Det kan vara mindre, med så lite som 64 IP-adresser om det behövs. Från det här intervallet är de 30 första IP-adresserna reserverade för användning av Microsoft. Se till att du ta hänsyn till detta när du väljer storleken på intervallet. Det här intervallet får inte överlappa med din lokala eller andra Azure-IP-adresser. Hur får du den här IP-adressintervall? Din företagsnätverket team eller service provider ska ge ett IP-adressintervall som används för närvarande inte i ditt nätverk.  **Det här intervallet är ett IP-adressintervall som måste skickas till Microsoft vid begäran om en inledande distribution**.
+- **Adress utrymme för virtuellt nätverk**: Det **virtuella nätverkets adress utrymme** är de IP-adressintervall som du tilldelar din adress utrymmes parameter i virtuella Azure-nätverk. Dessa nätverk ansluter till SAP HANA stor instans miljö. Vi rekommenderar att den här adress utrymmes parametern är ett värde med flera rader. Det bör bestå av under näts intervallet för den virtuella Azure-datorn och under nätets intervall i Azure-gatewayen. Det här under näts intervallet visades i föregående bild. Det får inte överlappa din lokala eller Server-IP-pool eller ER-P2P-adressintervall. Hur får du följande IP-adressintervall? Företagets nätverks team eller tjänst leverantör bör tillhandahålla ett eller flera IP-adressintervall som inte används i nätverket. Till exempel är under nätet för den virtuella Azure-datorn 10.0.1.0/24 och under nätet för ditt Azure Gateway-undernät är 10.0.2.0/28.  Vi rekommenderar att det virtuella Azure-nätverkets adress utrymme definieras som: 10.0.1.0/24 och 10.0.2.0/28. Även om värdena för adress utrymme kan aggregeras rekommenderar vi att du matchar dem i under nätets intervall. På så sätt kan du oavsiktligt undvika att återanvända oanvända IP-adressintervall inom större adress utrymmen på annan plats i nätverket. **Det virtuella nätverkets adress utrymme är ett IP-adressintervall. Den måste skickas till Microsoft när du ber om en inledande distribution**.
+- **IP-adressintervall för Azure VM-undernät:** Detta IP-adressintervall är det som du tilldelar till under nätet för Azures virtuella nätverk. Den här parametern finns i ditt virtuella Azure-nätverk och ansluter till SAP HANA stor instans miljö. Det här IP-adressintervallet används för att tilldela IP-adresser till dina virtuella Azure-datorer. IP-adresserna från intervallet är tillåtna för att ansluta till dina SAP HANA stora instans servrar. Om det behövs kan du använda flera virtuella Azure-undernät. Vi rekommenderar ett/24 CIDR-block för varje Azure VM-undernät. Adress intervallet måste vara en del av de värden som används i det virtuella Azure-nätverkets adress utrymme. Hur får du det här IP-adressintervallet? Företagets nätverks team eller tjänst leverantör bör ange ett IP-adressintervall som inte används i nätverket.
+- **IP-adressintervall för undernät för virtuell nätverksgateway:** Beroende på vilka funktioner du planerar att använda är den rekommenderade storleken:
+   - ExpressRoute-Gateway med ultralåg prestanda:/26 adress block--krävs för typ II-klassen för SKU: er.
+   - Samexistens med VPN och ExpressRoute med en ExpressRoute för virtuella nätverk med höga prestanda (eller mindre):/27-Adressblock.
+   - Alla andra situationer:/28-Adressblock. Adress intervallet måste vara en del av de värden som används i värdena för VNet-adressutrymmet. Adress intervallet måste vara en del av de värden som används i det virtuella Azure-nätverkets adress utrymmes värden som du skickar till Microsoft. Hur får du det här IP-adressintervallet? Företagets nätverks team eller tjänst leverantör bör ange ett IP-adressintervall som för närvarande inte används i nätverket. 
+- **Adress intervall för ER-P2P-anslutning:** Intervallet är IP-intervallet för din SAP HANA stora ExpressRoute (ER) P2P-anslutning. Det här intervallet av IP-adresser måste vara ett/29 CIDR IP-adressintervall. Intervallet får inte överlappa dina lokala eller andra Azure IP-adressintervall. Detta IP-adressintervall används för att konfigurera ER-anslutningen från din virtuella ExpressRoute-Gateway till SAP HANA stora instans servrar. Hur får du det här IP-adressintervallet? Företagets nätverks team eller tjänst leverantör bör ange ett IP-adressintervall som för närvarande inte används i nätverket. **Det här intervallet är ett IP-adressintervall. Den måste skickas till Microsoft när du ber om en inledande distribution**.  
+- **Adress intervall för serverns IP-adresspool:** Det här IP-adressintervallet används för att tilldela den enskilda IP-adressen till HANA-stora instans servrar. Den rekommenderade under näts storleken är ett/24 CIDR-block. Vid behov kan det vara mindre, med så få som 64 IP-adresser. Från det här intervallet är de första 30 IP-adresserna reserverade för användning av Microsoft. Se till att du har ett konto för detta faktum när du väljer storlek på intervallet. Intervallet får inte överlappa dina lokala eller andra Azure IP-adresser. Hur får du det här IP-adressintervallet? Företagets nätverks team eller tjänst leverantör bör ange ett IP-adressintervall som för närvarande inte används i nätverket.  **Det här intervallet är ett IP-adressintervall som måste skickas till Microsoft när du begär en inledande distribution**.
 
-Valfria IP-adressintervall som så småningom måste skickas till Microsoft:
+Valfria IP-adressintervall som slutligen måste skickas till Microsoft:
 
-- Om du väljer att använda [ExpressRoute Global räckvidd](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) om du vill aktivera direktroutning från lokalt till stora HANA-instansen enheter du behöver reservera en annan /29 IP-adressintervall. Det här intervallet kan inte överlappar med något av de andra IP-adressintervall som du har definierat innan.
-- Om du väljer att använda [ExpressRoute Global räckvidd](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) om du vill aktivera direktroutning från en klient för stora HANA-instansen i en Azure-region till en annan klient för stora HANA-instansen i en annan Azure-region, du behöver reservera en annan /29 IP-adressintervall . Det här intervallet kan inte överlappar med något av de andra IP-adressintervall som du har definierat innan.
+- Om du väljer att använda [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) för att aktivera dirigerad routning från lokala till Hana stora instans enheter måste du reservera ett annat/29 IP-adressintervall. Det här intervallet får inte överlappa något av de andra IP-adressintervall som du definierade tidigare.
+- Om du väljer att använda [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) för att aktivera dirigerad routning från en-stor instans klient i en Azure-region till en annan Hana stor instans-klient i en annan Azure-region måste du reservera ett annat/29 IP-adressintervall. Det här intervallet får inte överlappa något av de andra IP-adressintervall som du definierade tidigare.
 
-Kontrollera dokument för mer information om ExpressRoute Global räckvidd och kring HANA stora instanser:
+Mer information om ExpressRoute Global Reach och användning av HANA-stora instanser hittar du i dokumenten:
 
-- [Nätverksarkitektur för SAP HANA (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)
-- [Ansluta ett virtuellt nätverk till stora HANA-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)
+- [SAP HANA (stora instanser) nätverks arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)
+- [Anslut ett virtuellt nätverk till HANA-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)
  
-Du måste definiera och planera IP-adressintervall som tidigare beskrivits. Du behöver dock inte överföra dem till Microsoft. IP-adressintervall som du måste namnge till Microsoft är:
+Du måste definiera och planera IP-adressintervall som beskrevs tidigare. Du behöver dock inte skicka alla till Microsoft. De IP-adressintervall som du måste namnge till Microsoft är:
 
-- Azure-nätverk adress space(s)
-- Adressintervall för ER P2P-anslutning
-- Servern IP-adressintervall i poolen
+- Adress utrymme för virtuella Azure-nätverk
+- Adress intervall för ER-P2P-anslutning
+- Adress intervall för serverns IP-adresspool
 
-Om du lägger till ytterligare virtuella nätverk som behöver ansluta till stora HANA-instanser måste du skicka adressutrymmet för nya Azure-nätverk som du lägger till Microsoft. 
+Om du lägger till ytterligare virtuella nätverk som behöver ansluta till HANA-stora instanser måste du skicka det nya adress utrymmet för det virtuella Azure-nätverket som du lägger till i Microsoft. 
 
-Följande är ett exempel på de olika intervall och några exempel-intervall som du behöver att konfigurera och slutligen tillhandahåller Microsoft. Värdet för Azure virtuella nätverkets adressutrymme är inte samman i det första exemplet. Den definieras dock från intervallen för det första virtuella Azure-datorn undernätets IP-adressintervallet och det virtuella IP-adressintervallet för gatewayundernät. 
+Följande är ett exempel på olika intervall och några exempel intervall när du behöver konfigurera och slutligen ge Microsoft. Värdet för adress utrymmet för det virtuella Azure-nätverket sammanställs inte i det första exemplet. Det definieras dock från intervallen för det första IP-adressintervallet för Azure VM-undernätet och IP-adressintervallet för det virtuella nätverkets gateway-undernät. 
 
-Du kan använda flera undernät för virtuella datorer i Azure-nätverket när du konfigurerar och skickar ytterligare IP-adressintervall i ytterligare VM-undernät som en del av Azure virtuella nätverkets adressutrymme.
+Du kan använda flera virtuella dator under nät i det virtuella Azure-nätverket när du konfigurerar och skickar ytterligare IP-adressintervall för de ytterligare virtuella dator under näten som en del av adress utrymmet för det virtuella Azure-nätverket.
 
 ![IP-adressintervall som krävs i SAP HANA på Azure (stora instanser) minimal distribution](./media/hana-overview-connectivity/image4b-ip-addres-ranges-necessary.png)
 
-Bilden visar inte ytterligare IP-adressen adressintervall som krävs för valfritt användningen av ExpressRoute Global räckvidd.
+Bilden visar inte de ytterligare IP-adressintervall som krävs för den valfria användningen av ExpressRoute Global Reach.
 
-Du kan också aggregera data som du skickar till Microsoft. Adressutrymmet för virtuella Azure-nätverket i så fall innehåller bara ett blanksteg. Med hjälp av IP-adressintervall från det tidigare exemplet, aggregerade virtuella nätverkets adressutrymme bör se ut som på följande bild:
+Du kan också samla in de data som du skickar till Microsoft. I så fall innehåller det virtuella Azure-nätverkets adress utrymme bara ett blank steg. Med hjälp av IP-adressintervall från det tidigare exemplet kan det sammanställda virtuella nätverkets adress utrymme se ut som följande bild:
 
-![Andra alternativet med IP-adressintervall som krävs i SAP HANA på Azure (stora instanser) minimal distribution](./media/hana-overview-connectivity/image5b-ip-addres-ranges-necessary-one-value.png)
+![Den andra möjligheten för IP-adressintervall som krävs i SAP HANA på Azure (stora instanser) minimal distribution](./media/hana-overview-connectivity/image5b-ip-addres-ranges-necessary-one-value.png)
 
-I det här exemplet i stället för två mindre adressintervall som definierats i adressutrymmet för det Azure-nätverket har vi ett större intervall som omfattar 4096 IP-adresser. En stor definition av adressutrymmet innebär några ganska stort intervall som inte används. Eftersom vnet-adress utrymme värdena som används för BGP-spridning kan av oanvända lokala platser eller någon annanstans i ditt nätverk orsaka routning problem. Bilden visar inte ytterligare IP-adressen adressintervall som krävs för valfritt användningen av ExpressRoute Global räckvidd.
+I exemplet, i stället för två mindre intervall som definierar adress utrymmet för det virtuella Azure-nätverket, har vi ett större intervall som täcker 4096 IP-adresser. En sådan stor definition av adress utrymmet innebär att några hellre stora områden inte används. Eftersom det virtuella nätverkets adress utrymmes värde (er) används för att sprida BGP-vägar kan användningen av de oanvända intervallen lokalt eller någon annan i nätverket orsaka problem med routningen. Bilden visar inte de ytterligare IP-adressintervall som krävs för den valfria användningen av ExpressRoute Global Reach.
 
-Vi rekommenderar att du behåller det adressutrymme som är anpassad efter faktiska undernätsadressutrymmet som du använder. Om det behövs utan att orsaka driftstopp på det virtuella nätverket, du kan alltid lägga till nya adress utrymme värden senare.
+Vi rekommenderar att du behåller adress utrymmet tätt justerat med det faktiska adress utrymmet för under nätet som du använder. Om det behövs, utan att det uppstår avbrott i det virtuella nätverket, kan du alltid lägga till nya adress utrymmes värden senare.
  
 > [!IMPORTANT] 
-> Varje IP-adressintervall i ER P2P och serverpoolen för IP-adressutrymme för virtuellt Azure-nätverk måste **inte** överlappar varandra eller med andra intervall som används i nätverket. Var och en måste vara diskret. De två föregående grafik visas de också får inte vara ett undernät för alla andra intervall. Om överlappningar ske mellan adressintervall, kan Azure-nätverket inte ansluta till ExpressRoute-kretsen.
+> Varje IP-adressintervall i ER-P2P, serverns IP-pool och det virtuella Azure-nätverkets adress utrymme får **inte** överlappa varandra eller med något annat intervall som används i nätverket. Var och en måste vara diskret. I takt med att de två föregående bilderna visas kan de inte heller vara ett undernät i något annat intervall. Om överlappar inträffar mellan intervallen kanske det virtuella Azure-nätverket inte kan ansluta till ExpressRoute-kretsen.
 
-## <a name="next-steps-after-address-ranges-have-been-defined"></a>Nästa steg efter adressintervall har definierats
-När IP-adressintervall har definierats, måste följande saker händer:
+## <a name="next-steps-after-address-ranges-have-been-defined"></a>Nästa steg efter att adress intervall har definierats
+När IP-adressintervall har definierats måste följande saker inträffa:
 
-1. Skicka IP-adressintervall för Azure virtuella nätverkets adressutrymme, ER P2P anslutning och server IP-adressintervall i poolen, tillsammans med andra data som har varit visas i början av dokumentet. Nu kan börja du också att skapa virtuella nätverk och undernät för virtuella datorer. 
-2. En ExpressRoute-krets har skapats av Microsoft mellan din Azure-prenumeration och stämpel för stora HANA-instansen.
-3. Ett klientnätverk skapas på stämpel för stora instanser av Microsoft.
-4. Microsoft konfigurerar nätverk i SAP HANA på Azure (stora instanser)-infrastruktur att godkänna IP-adresser från ditt adressutrymme för virtuellt Azure-nätverk som kommunicerar med stora HANA-instanser.
-5. Beroende på den specifika SAP-HANA på Azure (stora instanser)-SKU som du har köpt tilldelar Microsoft en beräkningsenhet i ett klientnätverk. Den också allokerar monterar lagring och installerar operativsystemet (SUSE eller Red Hat Linux). IP-adresser för dessa enheter tas ut ur Serverpoolen för IP-adressintervall som du skickade till Microsoft.
+1. Skicka IP-adressintervall för adress utrymmet för det virtuella Azure-nätverket, ER-P2P-anslutningen och adress intervallet för serverns IP-adresspool, tillsammans med andra data som har listats i början av dokumentet. Nu kan du också börja skapa det virtuella nätverket och de virtuella dator under näten. 
+2. En ExpressRoute-krets skapas av Microsoft mellan din Azure-prenumeration och den många HANA-instans stämpeln.
+3. Ett klient nätverk skapas på den stora instans stämplingen av Microsoft.
+4. Microsoft konfigurerar nätverk i den SAP HANA på Azure (stora instanser)-infrastrukturen för att acceptera IP-adresser från ditt Azure Virtual Network-adressutrymme som kommunicerar med HANA-stora instanser.
+5. Beroende på den aktuella SAP HANA på Azure-SKU: n (stor instans) som du har köpt tilldelar Microsoft en beräknings enhet i ett klient nätverk. Dessutom allokeras och monteras lagringen, och operativ systemet installeras (SUSE eller Red Hat Linux). IP-adresserna för de här enheterna tas bort från adress intervallet för serverns IP-adresspool som du skickade till Microsoft.
 
-I slutet av distributionsprocessen levererar Microsoft följande data till dig:
-- Information som behövs för att ansluta din Azure virtuella nätverk till ExpressRoute-krets som ansluter Azure-nätverk till stora HANA-instanser:
-     - Auktorisering nycklar
+I slutet av distributions processen levererar Microsoft följande data till dig:
+- Information som krävs för att ansluta dina virtuella Azure-nätverk till ExpressRoute-kretsen som ansluter virtuella Azure-nätverk till HANA-stora instanser:
+     - Nyckel (er)
      - ExpressRoute PeerID
-- Data för åtkomst till stora HANA-instanser när du har skapat ExpressRoute-krets och Azure-nätverket.
+- Data för att komma åt HANA-stora instanser efter att du upprättat ExpressRoute-krets och Azure Virtual Network.
 
-Du kan också hitta sekvens för att ansluta stora HANA-instanser i dokumentet [SAP HANA på Azure (stora instanser) konfiguration](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Många av följande steg visas i ett exempel på distribution i detta dokument. 
+Du kan också hitta sekvensen för att ansluta HANA-stora instanser i dokumentet [SAP HANA på Azure (stora instanser)-installationen](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Många av följande steg visas i en exempel distribution i dokumentet. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Referera till [ansluter ett virtuellt nätverk till HANA stora instans ExpressRoute](hana-connect-vnet-express-route.md).
+- Se [ansluta ett virtuellt nätverk till Hana stor instans ExpressRoute](hana-connect-vnet-express-route.md).

@@ -1,6 +1,6 @@
 ---
 title: Prenumerationer i Azure API Management | Microsoft Docs
-description: Läs mer om begreppet prenumerationer i Azure API Management.
+description: Lär dig mer om begreppet prenumerationer i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -9,60 +9,59 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: afd43bbf6f52f498ad8f56d5a48b960d45d84137
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9144af131e1427d0b3226655c871921ac1d91665
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243250"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073408"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Prenumerationer i Azure API Management
 
-Prenumerationer är ett viktigt begrepp i Azure API Management. Det är det vanligaste sättet för API-kunderna att få åtkomst till API: er som publicerats via en API Management-instans. Den här artikeln innehåller en översikt över konceptet.
+Prenumerationer är ett viktigt begrepp i Azure API Management. De är det vanligaste sättet för API-konsumenter att få åtkomst till API: er som publiceras via en API Management instans. Den här artikeln innehåller en översikt över konceptet.
 
 ## <a name="what-are-subscriptions"></a>Vad är prenumerationer?
 
-När du publicera API: er via API Management är det enkelt och gemensamma för säker åtkomst till dessa API: er med hjälp av prenumerationsnycklar. Utvecklare som behöver använda den publicerade API: er måste innehålla en giltig prenumerationsnyckel i HTTP-begäranden när de göra anrop till dessa API: er. I annat fall avvisas anrop omedelbart av API Management-gatewayen. De är inte vidarebefordras till backend-tjänster.
+När du publicerar API: er via API Management är det enkelt och vanligt att skydda åtkomsten till dessa API: er med hjälp av prenumerations nycklar. Utvecklare som behöver använda de publicerade API: erna måste innehålla en giltig prenumerations nyckel i HTTP-begäranden när de ringer till dessa API: er. Annars avvisas anropen direkt av API Management Gateway. De vidarebefordras inte till backend-tjänsterna.
 
-Om du vill ha en prenumerationsnyckel för åtkomst till API: er, krävs en prenumeration. En prenumeration är i grunden en namngiven behållare för ett nyckelpar prenumeration. Utvecklare som behöver använda den publicerade API: er kan hämta prenumerationer. Och de behöver inte godkännande från API-utgivare. API-utgivare kan också skapa prenumerationer direkt för API-kunderna.
+En prenumeration krävs för att få en prenumerations nyckel för åtkomst till API: er. En prenumeration är i stort sett en namngiven behållare för ett par prenumerations nycklar. Utvecklare som behöver använda de publicerade API: erna kan få prenumerationer. Och de behöver inte godkännas av API-utgivare. API-utgivare kan också skapa prenumerationer direkt för API-konsumenter.
 
 > [!TIP]
-> API Management stöder även andra metoder för att skydda åtkomst till API: er, inklusive i följande exempel:
+> API Management stöder också andra metoder för att skydda åtkomsten till API: er, inklusive följande exempel:
 > - [OAuth2.0](api-management-howto-protect-backend-with-aad.md)
-> - [Klientcertifikat](api-management-howto-mutual-certificates-for-clients.md)
-> - [IP-vitlistning](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs)
+> - [Klient certifikat](api-management-howto-mutual-certificates-for-clients.md)
+> - [IP-vit listning](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs)
 
-## <a name="scope-of-subscriptions"></a>Omfånget för prenumerationer
+## <a name="scope-of-subscriptions"></a>Prenumerations omfång
 
-Prenumerationer kan associeras med olika omfång: produkten, alla API: er eller en enskild API.
+Prenumerationer kan kopplas till olika scope: produkt, alla API: er eller en enskild API.
 
 ### <a name="subscriptions-for-a-product"></a>Prenumerationer för en produkt
 
-Traditionellt har prenumerationer i API Management har alltid är associerade med en enda [API-produkt](api-management-terminology.md) omfång. Utvecklare att hitta listan över produkter som på Developer-portalen. Sedan skickar de prenumerationsbegäranden för produkterna som de ville använda. När begäran om en prenumeration har godkänts, antingen automatiskt eller av API-utgivare kan utvecklaren använda nycklarna i den att få åtkomst till alla API: er i produkten. För närvarande visar utvecklarportalen bara produktomfattningsnivå prenumerationer under avsnitt för användarprofil. 
+Traditionellt var prenumerationer i API Management alltid kopplade till en enda [API-produkt](api-management-terminology.md) omfattning. Utvecklare hittade listan över produkter på Developer-portalen. Sedan skickar de prenumerations begär Anden för de produkter de ville använda. När en prenumerations förfrågan har godkänts, antingen automatiskt eller av API-utgivare, kan utvecklaren använda nycklarna i den för att få åtkomst till alla API: er i produkten. För närvarande visar Developer-portalen endast produkt omfattnings prenumerationer i avsnittet användar profil. 
 
-![Prenumerationer för produkten](./media/api-management-subscriptions/product-subscription.png)
+![Produkt prenumerationer](./media/api-management-subscriptions/product-subscription.png)
 
 > [!TIP]
-> I vissa fall kanske API-utgivare vill publicera en API-produkt för allmänheten utan krav på prenumerationer. De kan avmarkera den **kräver prenumeration** alternativet på den **inställningar** för produkten i Azure-portalen. Därför kan kan alla API: er under produkten användas utan en API-nyckel.
+> Under vissa scenarier kanske API-utgivare vill publicera en API-produkt till allmänheten utan krav på prenumerationer. De kan avmarkera alternativet **Kräv prenumeration** på sidan **Inställningar** för produkten i Azure Portal. Därför kan alla API: er under produkten nås utan API-nyckel.
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>Prenumerationer för alla API: er eller en enskild API
 
-När vi har infört de [förbrukning](https://aka.ms/apimconsumptionblog) nivå av API Management kan vi gjort några ändringar för att hantera nycklar:
-- Först måste vi har lagt till två fler prenumeration omfång: alla API: er och ett enda API. Omfånget för prenumerationer är inte längre begränsad till en API-produkt. Nu är det möjligt att skapa nycklar som beviljar åtkomst till ett API eller alla API: er i en API Management-instans, utan att behöva skapa en produkt och lägga till API: erna i den först. Varje API Management-instans kommer dessutom nu med en prenumeration som inte kan ändras, alla API: er. Den här prenumerationen gör det enklare och enklare att testa och felsöka API: er i test-konsolen.
+När vi introducerade [förbruknings](https://aka.ms/apimconsumptionblog) nivån för API Management gjorde vi några ändringar för att effektivisera nyckel hanteringen:
+- Först lade vi till två fler prenumerations omfattningar: alla API: er och ett enda API. Prenumerations omfånget är inte längre begränsat till en API-produkt. Nu är det möjligt att skapa nycklar som ger åtkomst till ett API, eller alla API: er inom en API Management instans, utan att behöva skapa en produkt och lägga till API: erna till den först. Dessutom levereras varje API Management instans nu med en oföränderlig prenumeration med alla API: er. Den här prenumerationen gör det enklare och mer enkelt att testa och felsöka API: er i test konsolen.
 
-- Andra API Management nu kan **fristående** prenumerationer. Prenumerationer krävs inte längre att vara associerad med ett utvecklarkonto. Den här funktionen är användbart i scenarier, t.ex när flera utvecklare eller team som delar en prenumeration.
+- För det andra, tillåter API Management nu **fristående** prenumerationer. Prenumerationer behöver inte längre vara associerade med ett utvecklar-konto. Den här funktionen är användbar i scenarier som när flera utvecklare eller team delar en prenumeration.
 
-- Slutligen API-utgivare kan nu [skapa prenumerationer](api-management-howto-create-subscriptions.md) direkt i Azure portal:
+- Slutligen kan API-utgivare nu [skapa prenumerationer](api-management-howto-create-subscriptions.md) direkt i Azure Portal:
 
     ![Flexibla prenumerationer](./media/api-management-subscriptions/flexible-subscription.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Få mer information om API Management:
 
-+ Läs andra [begrepp](api-management-terminology.md) i API Management.
-+ Följ våra [självstudier](import-and-publish.md) mer information om API Management.
-+ Kontrollera våra [FAQ-sida](api-management-faq.md) för vanliga frågor.
++ Lär dig andra [koncept](api-management-terminology.md) i API Management.
++ Följ våra [självstudier](import-and-publish.md) för att lära dig mer om API Management.
++ På [sidan med vanliga frågor och svar](api-management-faq.md) hittar du vanliga frågor.

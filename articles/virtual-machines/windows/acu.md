@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Compute-enhet | Microsoft Docs
-description: 'Översikt över begreppet Azure compute-enheter för Windows. ACU är ett sätt för att jämföra CPU-prestanda mellan Azure SKU: er.'
+title: Översikt över Azure Compute Unit | Microsoft Docs
+description: 'Översikt över konceptet med Azure Compute units för Windows. ACU är ett sätt att jämföra CPU-prestanda i Azure SKU: er.'
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -9,26 +9,25 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: jonbeck
-ms.openlocfilehash: 03c3ffee2437ed0c84bc0ec7a0e58d4381407125
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7a9bd3bcfc0c3f1d77b5f7cf8d56254543e2eede
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721172"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103276"
 ---
-# <a name="azure-compute-unit-acu"></a>Azure-beräkningsenhet (ACU)
+# <a name="azure-compute-unit-acu"></a>Azure Compute Unit (ACU)
 
 [!INCLUDE [virtual-machines-common-acu](../../../includes/virtual-machines-common-acu.md)]
 
 
-Här finns länkar till mer information om olika storlekar:
-- [Allmänt](sizes-general.md)
+Här finns länkar till mer information om de olika storlekarna:
+- [Allmänt-syfte](sizes-general.md)
 - [Minnesoptimerad](../virtual-machines-windows-sizes-memory.md)
 - [Beräkningsoptimerad](sizes-compute.md)
 - [GPU-optimerad](sizes-gpu.md)

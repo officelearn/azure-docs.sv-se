@@ -1,55 +1,123 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: ExpressRoute dokumentation
+### YamlMime:Landing
+title: ExpressRoute-dokumentation
+summary: Lär dig hur du använder ExpressRoute för att konfigurera en snabb, privat anslutning till Microsoft Cloud-tjänster från din infrastruktur på plats eller delade miljö.
 metadata:
-  document_id: null
-  title: ExpressRoute
-  meta.description: 'Learn how to use ExpressRoute. Tutorials, REST APIs and other documentation show you how to configure and manage an ExpressRoute circuit.'
-  author: cherylmc
-  manager: jeconnoc
-  ms.service: ExpressRoute
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  title: ExpressRoute-dokumentation
+  description: Läs mer om ExpressRoute
+  services: expressroute
+  ms.service: expressroute
   ms.topic: landing-page
-  ms.date: 05/18/2018
+  author: cherylmc
   ms.author: cherylmc
-abstract:
-  description: 'Lär dig hur du använder ExpressRoute för att konfigurera en snabb, privat anslutning till Microsoft Cloud-tjänster från din infrastruktur på plats eller delade miljö. Självstudier, REST API:er och annan dokumentation hjälper dig att konfigurera och hantera en ExpressRoute-krets.'
-sections:
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du konfigurerar och hanterar en ExpressRoute-krets.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/expressroute/expressroute-howto-circuit-portal-resource-manager">Skapa och ändra en ExpressRoute-krets</a>
-          - html: <a href="/azure/expressroute/expressroute-howto-routing-portal-resource-manager">Skapa och ändra peering-konfigurationen</a>
-          - html: <a href="/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager">Länka ett virtuellt nätverk till en ExpressRoute-krets</a>
-          - html: <a href="/azure/expressroute/how-to-routefilter-portal">Konfigurera routningsfilter för Microsoft-peering</a>
-  - title: Kostnadsfri videoutbildning för Pluralsight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure-administratör
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-          - title: Azure-lösningsarkitekt
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: '<p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">Azure CLI</a></p>'
-          - title: REST
-            html: '<p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API-referens</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">Referens för klassiskt REST API</a></p>'
+  ms.date: 08/27/2019
+  ms.openlocfilehash: 67a20fb9adf8351ce6024f4c521852bbf7935c0d
+  ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70114530"
+landingContent:
+- title: Om ExpressRoute
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är ExpressRoute?
+      url: expressroute-introduction.md
+  - linkListType: concept
+    links:
+    - text: VANLIGA FRÅGOR OCH SVAR
+      url: expressroute-faqs.md
+- title: Komma igång
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa och ändra en krets
+      url: expressroute-howto-circuit-portal-resource-manager.md
+    - text: Skapa och ändra peering för en krets
+      url: expressroute-howto-routing-portal-resource-manager.md
+    - text: Ansluta till en krets via VNet
+      url: expressroute-howto-linkvnet-portal-resource-manager.md
+    - text: Konfigurera vägfilter
+      url: how-to-routefilter-portal.md
+- title: Planering
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Förutsättningar och checklista
+      url: expressroute-prerequisites.md
+    - text: Arbetsflöden
+      url: expressroute-workflows.md
+    - text: Kretsar och peering
+      url: expressroute-circuit-peerings.md
+    - text: Routningskrav
+      url: expressroute-routing.md
+    - text: BFD via ExpressRoute
+      url: expressroute-bfd.md
+    - text: QOS-krav
+      url: expressroute-qos.md
+    - text: Providrar efter plats
+      url: expressroute-locations-providers.md
+    - text: Platser efter provider
+      url: expressroute-locations.md
+- title: Design
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Anslutningsmodeller
+      url: expressroute-connectivity-models.md
+    - text: Utforma för hög tillgänglighet
+      url: designing-for-high-availability-with-expressroute.md
+    - text: Utforma för haveriberedskap med privat peering
+      url: designing-for-disaster-recovery-with-expressroute-privatepeering.md
+- title: Kryptera trafik
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera ett virtuellt privat nätverk för plats-till-plats via Microsoft-peering
+      url: site-to-site-vpn-over-microsoft-peering.md
+    - text: Konfigurera transportläge för IPsec för privat peering
+      url: expressroute-howto-ipsec-transport-private-windows.md
+- title: Övervakning
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera övervakning, mått och aviseringar
+      url: expressroute-monitoring-metrics-alerts.md
+    - text: Konfigurera Övervakare av nätverksprestanda
+      url: how-to-npm.md
+- title: ExpressRoute Direct
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vad är ExpressRoute Direct?
+      url: expressroute-erdirect-about.md
+    - text: FastPath
+      url: expressroute-about-virtual-network-gateways.md#fastpath
+    - text: ExpressRoute Direct – vanliga frågor och svar
+      url: expressroute-faqs.md#expressRouteDirect
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera ExpressRoute Direct
+      url: expressroute-howto-erdirect.md
+- title: ExpressRoute Global Reach
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vad är Global Reach?
+      url: expressroute-global-reach.md
+    - text: Global Reach – vanliga frågor och svar
+      url: expressroute-faqs.md#globalreach
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera Global Reach
+      url: expressroute-howto-set-global-reach.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/network/express-route
+    - text: Azure PowerShell
+      url: /powershell/module/az.network#expressroute
+    - text: REST
+      url: /rest/api/expressroute

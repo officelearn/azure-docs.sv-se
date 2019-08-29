@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 302f60680d909f39af4573ec38ac8b76993392cd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 890d4ab0dcbaa814b4ce3365025e4c35e4ba4c6b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695547"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103543"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för virtuella Linux-datorer i Azure
 
@@ -94,8 +93,8 @@ I det här exemplet visar vi hur du återställer standardversionen av nginx-web
 7. Välj den virtuella datorn i listan.
 8. Klicka på **Säkerhetskopiering** i avsnittet **Inställningar** på bladet VM. Bladet **Säkerhetskopiera** öppnas. 
 9. På menyn överst på bladet väljer du **Filåterställning**. Bladet **Filåterställning** öppnas.
-10. I **steg 1: Välj återställningspunkt**, Välj en återställningspunkt från listrutan.
-11. I **steg 2: Ladda ned skript för att söka och återställa filer**, klickar du på den **ladda ned körbar fil** knappen. Spara den nedladdade filen till din lokala dator.
+10. I **steg 1: Välj återställnings punkt**, Välj en återställnings punkt i list rutan.
+11. I **steg 2: Ladda ned skript om du vill bläddra**och återställa filer klickar du på knappen **Hämta körbar fil** . Spara den nedladdade filen till din lokala dator.
 7. Klicka på **Ladda ned skript** för att ladda ned skriptfilen lokalt.
 8. Öppna en Bash-kommandotolk och skriv följande, och ersätt *Linux_myVM_05-05-2017.sh* med rätt sökväg och filnamn för skriptet som du har laddat ned, ersätt *azureuser* med användarnamnet för den virtuella datorn och *13.69.75.209* med din virtuella dators offentliga IP-adress.
     
@@ -156,7 +155,7 @@ I det här exemplet visar vi hur du återställer standardversionen av nginx-web
 
     ![Standardversion av nginx-webbsida](./media/tutorial-backup-vms/nginx-working.png)
 
-18. På den lokala datorn, gå tillbaka till webbläsarfliken för Azure-portalen och i **steg3: Demontera diskarna efter återställning** klickar du på den **demontera diskar** knappen. Om du glömmer att utföra det här steget stängs anslutningen till monteringspunkten automatiskt efter 12 timmar. Efter de 12 timmarna måste du ladda ned ett nytt skript för att skapa en ny monteringspunkt.
+18. På den lokala datorn går du tillbaka till fliken webbläsare för Azure Portal och i **steg 3: Demontera diskarna efter återställning** genom att klicka på knappen **demontera diskar** . Om du glömmer att utföra det här steget stängs anslutningen till monteringspunkten automatiskt efter 12 timmar. Efter de 12 timmarna måste du ladda ned ett nytt skript för att skapa en ny monteringspunkt.
 
 
 ## <a name="next-steps"></a>Nästa steg

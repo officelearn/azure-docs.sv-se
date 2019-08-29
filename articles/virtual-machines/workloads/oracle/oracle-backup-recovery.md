@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskopiera och återställa en Oracle Database 12c-databas på en virtuell Azure Linux-dator | Microsoft Docs
-description: Lär dig mer om att säkerhetskopiera och återställa en Oracle Database 12c-databas i Azure-miljön.
+title: Säkerhetskopiera och återställa en Oracle Database 12C-databas på en virtuell Azure Linux-dator | Microsoft Docs
+description: Lär dig hur du säkerhetskopierar och återställer en Oracle Database 12C-databas i din Azure-miljö.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
@@ -9,47 +9,46 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 461f6127111e745fe4a81958aaa225ed1dc4392a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c493f79a066f872be6b38d127622cc757ab3c1cc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707721"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100247"
 ---
-# <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Säkerhetskopiera och återställa en Oracle Database 12c-databas på en virtuell Azure Linux-dator
+# <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Säkerhetskopiera och återställa en Oracle Database 12C-databas på en virtuell Azure Linux-dator
 
-Du kan använda Azure CLI för att skapa och hantera Azure-resurser i en kommandotolk eller använda skript. I den här artikeln använder vi Azure CLI-skript för att distribuera en Oracle Database 12c-databas från en avbildning för Azure Marketplace-galleriet.
+Du kan använda Azure CLI för att skapa och hantera Azure-resurser i en kommando tolk eller använda skript. I den här artikeln använder vi Azure CLI-skript för att distribuera en Oracle Database 12C-databas från en Azure Marketplace-Galleri avbildning.
 
-Innan du börjar måste du kontrollera att Azure CLI är installerat. Mer information finns i den [installationsguiden för Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Innan du börjar ska du kontrol lera att Azure CLI är installerat. Mer information finns i [installations guiden för Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön
 
 ### <a name="step-1-prerequisites"></a>Steg 1: Förutsättningar
 
-*   Om du vill utföra säkerhetskopiering och återställning, måste du först skapa en Linux VM som har en installerad instans av Oracle Database 12c. Marketplace-avbildning som du använder för att skapa den virtuella datorn har namnet *Oracle: Oracle-databas-Ee:12.1.0.2:latest*.
+*   Om du vill utföra säkerhets kopierings-och återställnings processen måste du först skapa en virtuell Linux-dator som har en installerad instans av Oracle Database 12C. Marketplace-avbildningen som du använder för att skapa den virtuella datorn heter *Oracle: Oracle-Database-EE: 12.1.0.2: senaste*.
 
-    Läs hur du skapar en Oracle-databas i den [Oracle database-snabbstarten för att skapa](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
+    Information om hur du skapar en Oracle-databas finns i [snabb starten för Oracle Create Database](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
 
 
 ### <a name="step-2-connect-to-the-vm"></a>Steg 2: Anslut till VM:en
 
-*   Använd följande kommando för att skapa en Secure Shell (SSH)-session med den virtuella datorn. Ersätt IP-adressen och värden namnet tillsammans med den `publicIpAddress` värde för den virtuella datorn.
+*   Använd följande kommando om du vill skapa en SSH-session (Secure Shell) med den virtuella datorn. Ersätt IP-adressen och värd namns kombinationen med `publicIpAddress` värdet för den virtuella datorn.
 
     ```bash 
     ssh <publicIpAddress>
     ```
 
-### <a name="step-3-prepare-the-database"></a>Steg 3: Förbered-databasen
+### <a name="step-3-prepare-the-database"></a>Steg 3: Förbered databasen
 
 1.  Det här steget förutsätter att du har en Oracle-instans (cdb1) som körs på en virtuell dator med namnet *myVM*.
 
-    Kör den *oracle* superanvändare rot- och sedan initiera lyssnaren:
+    Kör katalogen för superanvändare i *Oracle* och initiera sedan lyssnaren:
 
     ```bash
     $ sudo su - oracle
@@ -79,7 +78,7 @@ Innan du börjar måste du kontrollera att Azure CLI är installerat. Mer inform
     The command completed successfully
     ```
 
-2.  (Valfritt) Kontrollera att databasen är i läget för archive loggen:
+2.  Valfritt Kontrol lera att databasen är i arkivet logg läge:
 
     ```bash
     $ sqlplus / as sysdba
@@ -95,7 +94,7 @@ Innan du börjar måste du kontrollera att Azure CLI är installerat. Mer inform
     SQL> ALTER DATABASE OPEN;
     SQL> ALTER SYSTEM SWITCH LOGFILE;
     ```
-3.  (Valfritt) Skapa en tabell för att testa genomförandet:
+3.  Valfritt Skapa en tabell för att testa incheckningen:
 
     ```bash
     SQL> alter session set "_ORACLE_SCRIPT"=true ;
@@ -116,7 +115,7 @@ Innan du börjar måste du kontrollera att Azure CLI är installerat. Mer inform
     SQL> commit;
     Commit complete.
     ```
-4.  Bekräfta eller ändra platsen för säkerhetskopian och storleken:
+4.  Verifiera eller ändra plats och storlek för säkerhets kopierings filen:
 
     ```bash
     $ sqlplus / as sysdba
@@ -126,20 +125,20 @@ Innan du börjar måste du kontrollera att Azure CLI är installerat. Mer inform
     db_recovery_file_dest                string      /u01/app/oracle/fast_recovery_area
     db_recovery_file_dest_size           big integer 4560M
     ```
-5. Säkerhetskopiera databasen med hjälp av Oracle Recovery Manager (RMAN):
+5. Använd Oracle-Recovery Manager (RMAN) för att säkerhetskopiera databasen:
 
     ```bash
     $ rman target /
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Steg 4: Programkonsekvent säkerhetskopiering för virtuella Linux-datorer
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Steg 4: Programkonsekvent säkerhets kopiering för virtuella Linux-datorer
 
-Programkonsekventa säkerhetskopior är en ny funktion i Azure Backup. Du kan skapa och välj skript körs före och efter VM-ögonblicksbild (före och efter ögonblicksbilder).
+Programkonsekventa säkerhets kopieringar är en ny funktion i Azure Backup. Du kan skapa och välja skript som ska köras före och efter ögonblicks bilden av den virtuella datorn (för ögonblicks bilder och efter ögonblicks bilder).
 
-1. Hämta JSON-fil.
+1. Ladda ned JSON-filen.
 
-    Hämta VMSnapshotScriptPluginConfig.json från https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Filinnehållet se ut ungefär så här:
+    Hämta VMSnapshotScriptPluginConfig. JSON från https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Fil innehållet ser ut ungefär så här:
 
     ```azurecli
     {
@@ -166,11 +165,11 @@ Programkonsekventa säkerhetskopior är en ny funktion i Azure Backup. Du kan sk
 
 3. Kopiera JSON-filen.
 
-    Kopiera VMSnapshotScriptPluginConfig.json till mappen/etc/Azure.
+    Kopiera VMSnapshotScriptPluginConfig. JSON till mappen/etc/Azure.
 
 4. Redigera JSON-filen.
 
-    Redigera filen VMSnapshotScriptPluginConfig.json att inkludera den `PreScriptLocation` och `PostScriptlocation` parametrar. Exempel:
+    Redigera filen VMSnapshotScriptPluginConfig. JSON för att inkludera `PreScriptLocation` parametrarna och. `PostScriptlocation` Exempel:
 
     ```azurecli
     {
@@ -187,11 +186,11 @@ Programkonsekventa säkerhetskopior är en ny funktion i Azure Backup. Du kan sk
     }
     ```
 
-5. Skapa före och efter ögonblicksbilder skriptfiler.
+5. Skapa skriptfiler för ögonblicks bild och efter ögonblicks bild.
 
-    Här är ett exempel på skript för före och efter ögonblicksbilder för en ”kalla säkerhetskopiering” (en säkerhetskopiering offline, med avstängning och omstart):
+    Här är ett exempel på skript för ögonblicks bilder och efter ögonblicks bilder för en "kall säkerhets kopiering" (säkerhets kopiering offline, med avstängning och omstart):
 
-    För /etc/azure/pre_script.sh:
+    För/etc/Azure/pre_script.sh:
 
     ```bash
     v_date=`date +%Y%m%d%H%M`
@@ -200,7 +199,7 @@ Programkonsekventa säkerhetskopior är en ny funktion i Azure Backup. Du kan sk
     su - $ORA_OWNER -c "$ORA_HOME/bin/dbshut $ORA_HOME" > /etc/azure/pre_script_$v_date.log
     ```
 
-    För /etc/azure/post_script.sh:
+    För/etc/Azure/post_script.sh:
 
     ```bash
     v_date=`date +%Y%m%d%H%M`
@@ -209,7 +208,7 @@ Programkonsekventa säkerhetskopior är en ny funktion i Azure Backup. Du kan sk
     su - $ORA_OWNER -c "$ORA_HOME/bin/dbstart $ORA_HOME" > /etc/azure/post_script_$v_date.log
     ```
 
-    Här är ett exempel på skript för före och efter ögonblicksbilder för en ”frekvent säkerhetskopiering” (en onlinesäkerhetskopiering):
+    Här är ett exempel på skript före och efter ögonblicks bilder för en "snabb säkerhets kopiering" (en onlinesäkerhetskopiering):
 
     ```bash
     v_date=`date +%Y%m%d%H%M`
@@ -218,7 +217,7 @@ Programkonsekventa säkerhetskopior är en ny funktion i Azure Backup. Du kan sk
     su - $ORA_OWNER -c "sqlplus / as sysdba @/etc/azure/pre_script.sql" > /etc/azure/pre_script_$v_date.log
     ```
 
-    För /etc/azure/post_script.sh:
+    För/etc/Azure/post_script.sh:
 
     ```bash
     v_date=`date +%Y%m%d%H%M`
@@ -227,7 +226,7 @@ Programkonsekventa säkerhetskopior är en ny funktion i Azure Backup. Du kan sk
     su - $ORA_OWNER -c "sqlplus / as sysdba @/etc/azure/post_script.sql" > /etc/azure/pre_script_$v_date.log
     ```
 
-    /Etc/azure/pre_script.sql, ändra i innehållet i filen enligt krav:
+    För/etc/Azure/pre_script.SQL ändrar du filens innehåll enligt dina krav:
 
     ```bash
     alter tablespace SYSTEM begin backup;
@@ -237,7 +236,7 @@ Programkonsekventa säkerhetskopior är en ny funktion i Azure Backup. Du kan sk
     alter system archive log stop;
     ```
 
-    /Etc/azure/post_script.sql, ändra i innehållet i filen enligt krav:
+    För/etc/Azure/post_script.SQL ändrar du filens innehåll enligt dina krav:
 
     ```bash
     alter tablespace SYSTEM end backup;
@@ -246,7 +245,7 @@ Programkonsekventa säkerhetskopior är en ny funktion i Azure Backup. Du kan sk
     alter system archive log start;
     ```
 
-6. Ändra behörigheter för filen:
+6. Ändra fil behörigheter:
 
     ```bash
     # chmod 600 /etc/azure/VMSnapshotScriptPluginConfig.json
@@ -256,73 +255,73 @@ Programkonsekventa säkerhetskopior är en ny funktion i Azure Backup. Du kan sk
 
 7. Testa skripten.
 
-    Om du vill testa skripten, logga in första gången som rot. Kontrollera sedan att det inte finns några fel:
+    Om du vill testa skripten måste du först logga in som rot. Kontrol lera sedan att det inte finns några fel:
 
     ```bash
     # /etc/azure/pre_script.sh
     # /etc/azure/post_script.sh
     ```
 
-Mer information finns i [programkonsekvent säkerhetskopiering för virtuella Linux-datorer](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
+Mer information finns i [programkonsekvent säkerhets kopiering för virtuella Linux-datorer](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
 ### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Steg 5: Använd Azure Recovery Services-valv för att säkerhetskopiera den virtuella datorn
 
-1.  I Azure-portalen, söker du efter **Recovery Services-valv**.
+1.  Sök efter **Recovery Services-valv**i Azure Portal.
 
-    ![Sidan för Recovery Services-valv](./media/oracle-backup-recovery/recovery_service_01.png)
+    ![Sidan Recovery Services valv](./media/oracle-backup-recovery/recovery_service_01.png)
 
-2.  På den **Recovery Services-valv** bladet för att lägga till ett nytt valv, klickar du på **Lägg till**.
+2.  Klicka på **Lägg**till på bladet **Recovery Services valv** för att lägga till ett nytt valv.
 
-    ![Recovery Services-valv Lägg till sida](./media/oracle-backup-recovery/recovery_service_02.png)
+    ![Lägg till sida i Recovery Services valv](./media/oracle-backup-recovery/recovery_service_02.png)
 
-3.  Fortsätt genom att klicka på **myVault**.
+3.  Fortsätt genom att klicka på **valv**.
 
-    ![Recovery Services-valv informationssida](./media/oracle-backup-recovery/recovery_service_03.png)
+    ![Informations sida för Recovery Services valv](./media/oracle-backup-recovery/recovery_service_03.png)
 
-4.  På den **myVault** bladet klickar du på **Backup**.
+4.  På bladet mina **valv** klickar du på **säkerhets kopiering**.
 
-    ![Sidan för säkerhetskopiering för Recovery Services-valv](./media/oracle-backup-recovery/recovery_service_04.png)
+    ![Sidan för säkerhets kopiering av Recovery Services valv](./media/oracle-backup-recovery/recovery_service_04.png)
 
-5.  På den **säkerhetskopieringsmål** bladet använder standardvärden för **Azure** och **VM**. Klicka på **OK**.
+5.  Använd standardvärdena för **Azure** och den **virtuella datorn**på bladet **säkerhets kopierings mål** . Klicka på **OK**.
 
-    ![Recovery Services-valv informationssida](./media/oracle-backup-recovery/recovery_service_05.png)
+    ![Informations sida för Recovery Services valv](./media/oracle-backup-recovery/recovery_service_05.png)
 
-6.  För **säkerhetskopieringspolicy**, använda **DefaultPolicy**, eller välj **Skapa ny princip**. Klicka på **OK**.
+6.  För **säkerhets kopierings princip**använder du **DefaultPolicy**, eller så väljer du **Skapa ny princip**. Klicka på **OK**.
 
-    ![Detaljsidan för princip för säkerhetskopiering för Recovery Services-valv](./media/oracle-backup-recovery/recovery_service_06.png)
+    ![Informations sida för säkerhets kopiering av Recovery Services valv](./media/oracle-backup-recovery/recovery_service_06.png)
 
-7.  På den **Välj virtuella datorer** bladet väljer du den **myVM1** och klicka sedan på **OK**. Klicka på den **Aktivera säkerhetskopiering** knappen.
+7.  På bladet **Välj virtuella datorer** markerar du kryss rutan **myVM1** och klickar sedan på **OK**. Klicka på knappen **Aktivera säkerhets kopiering** .
 
-    ![Recovery Services-valv-objekt till sidan med säkerhetskopiering](./media/oracle-backup-recovery/recovery_service_07.png)
+    ![Recovery Services valv objekt på informations sidan för säkerhets kopiering](./media/oracle-backup-recovery/recovery_service_07.png)
 
     > [!IMPORTANT]
-    > När du klickar på **Aktivera säkerhetskopiering**, säkerhetskopieringen startas inte förrän den schemalagda tiden upphör att gälla. Slutför nästa steg om du vill konfigurera en omedelbar säkerhetskopia.
+    > När du har klickat på **Aktivera säkerhets kopiering**startar inte säkerhets kopieringen förrän den schemalagda tiden har gått ut. Slutför nästa steg för att konfigurera en omedelbar säkerhets kopiering.
 
-8.  På den **myVault - säkerhetskopieringsobjekt** bladet under **säkerhetskopiering OBJEKTANTAL**, Välj antal säkerhetskopieringsobjekt.
+8.  På bladet för att **säkerhetskopiera objekt** under **antal säkerhets kopierings**objekt väljer du antalet säkerhets kopierings objekt.
 
-    ![Recovery Services-valv myVault detaljsidan](./media/oracle-backup-recovery/recovery_service_08.png)
+    ![Informations sida för Recovery Services valv](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  På den **Säkerhetskopieringsobjekt (Azure virtuell dator)** bladet till höger på sidan, klicka på ellipsen ( **...** ) och klickar sedan på **Säkerhetskopiera nu**.
+9.  På bladet **säkerhets kopierings objekt (virtuell Azure-dator)** klickar du på knappen med tre punkter ( **...** ) på höger sida av sidan och klickar sedan på **Säkerhetskopiera nu**.
 
-    ![Recovery Services-valv säkerhetskopiering nu kommandot](./media/oracle-backup-recovery/recovery_service_09.png)
+    ![Kommandot Säkerhetskopiera nu Recovery Services valv](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Klicka på den **Backup** knappen. Vänta tills säkerhetskopieringen ska slutföras. Gå sedan till [steg 6: Ta bort databasfilerna](#step-6-remove-the-database-files).
+10. Klicka på knappen **säkerhetskopiera** . Vänta tills säkerhets kopierings processen har slutförts. Gå sedan till [steg 6: Ta bort databasfilerna](#step-6-remove-the-database-files).
 
-    Om du vill visa statusen för säkerhetskopieringsjobbet, klickar du på **jobb**.
+    Klicka på **jobb**om du vill visa säkerhets kopierings jobbets status.
 
-    ![Recovery Services-valv jobb-sidan](./media/oracle-backup-recovery/recovery_service_10.png)
+    ![Jobb sida för Recovery Services valv](./media/oracle-backup-recovery/recovery_service_10.png)
 
-    Statusen för säkerhetskopieringsjobbet visas i följande bild:
+    Säkerhets kopierings jobbets status visas i följande bild:
 
-    ![Recovery Services-valv jobb-sida med status](./media/oracle-backup-recovery/recovery_service_11.png)
+    ![Jobb sidan Recovery Services valv med status](./media/oracle-backup-recovery/recovery_service_11.png)
 
-11. Åtgärda eventuella fel i loggfilen för en programkonsekvent säkerhetskopiering. Loggfilen finns i /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0.
+11. För en programkonsekvent säkerhets kopiering kan du åtgärda eventuella fel i logg filen. Logg filen finns på/var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0.
 
 ### <a name="step-6-remove-the-database-files"></a>Steg 6: Ta bort databasfilerna 
-Senare i den här artikeln lär du dig att testa återställningsprocessen. Innan du kan testa återställningsprocessen, måste du ta bort databasfilerna.
+Senare i den här artikeln får du lära dig hur du testar återställnings processen. Innan du kan testa återställnings processen måste du ta bort databasfilerna.
 
-1.  Ta bort filerna registerutrymme och säkerhetskopiering:
+1.  Ta bort tabell utrymmet och säkerhets kopian:
 
     ```bash
     $ sudo su - oracle
@@ -332,7 +331,7 @@ Senare i den här artikeln lär du dig att testa återställningsprocessen. Inna
     $ rm -rf *
     ```
     
-2.  (Valfritt) Stäng av den Oracle-instansen:
+2.  Valfritt Stäng av Oracle-instansen:
 
     ```bash
     $ sqlplus / as sysdba
@@ -341,37 +340,37 @@ Senare i den här artikeln lär du dig att testa återställningsprocessen. Inna
     ```
 
 ## <a name="restore-the-deleted-files-from-the-recovery-services-vaults"></a>Återställa de borttagna filerna från Recovery Services-valv
-Om du vill återställa de borttagna filerna, gör du följande:
+Utför följande steg för att återställa de borttagna filerna:
 
-1. I Azure-portalen, söker du efter den *myVault* Recovery Services-valv objekt. På den **översikt** bladet under **Säkerhetskopiera objekt**, väljer du antalet objekt.
+1. I Azure Portal söker du efter objektet valv Recovery Services valv. I **översikts** bladet under **säkerhets kopierings objekt**väljer du antalet objekt.
 
-    ![Recovery Services-valv myVault säkerhetskopierade objekt](./media/oracle-backup-recovery/recovery_service_12.png)
+    ![Säkerhets kopierings objekt för Recovery Services valv](./media/oracle-backup-recovery/recovery_service_12.png)
 
-2. Under **säkerhetskopiering OBJEKTANTAL**, väljer du antalet objekt.
+2. Under **antal säkerhets kopierings objekt**väljer du antalet objekt.
 
-    ![Antal säkerhetskopieringsobjekt för virtuell dator i Azure Recovery Services-valv](./media/oracle-backup-recovery/recovery_service_13.png)
+    ![Recovery Services valv antal säkerhets kopierings objekt för virtuella Azure-datorer](./media/oracle-backup-recovery/recovery_service_13.png)
 
-3. På den **myvm1** bladet klickar du på **filåterställning (förhandsversion)** .
+3. På bladet **myvm1** klickar du på **fil återställning (för hands version)** .
 
-    ![Skärmbild av Recovery Services-valv filen återställningssidan](./media/oracle-backup-recovery/recovery_service_14.png)
+    ![Skärm bild av sidan Recovery Services valv fil återställning](./media/oracle-backup-recovery/recovery_service_14.png)
 
-4. På den **filåterställning (förhandsversion)** fönstret klickar du på **ladda ned skriptet**. Spara sedan filen download (.sh) till en mapp på klientdatorn.
+4. I fönstret **fil återställning (för hands version)** klickar du på **Hämta skript**. Spara sedan filen Download (. sh) i en mapp på klient datorn.
 
-    ![Ladda ned skriptet sparar Filalternativ](./media/oracle-backup-recovery/recovery_service_15.png)
+    ![Hämta alternativ för att spara skript fil](./media/oracle-backup-recovery/recovery_service_15.png)
 
-5. Kopiera SH-fil till den virtuella datorn.
+5. Kopiera. sh-filen till den virtuella datorn.
 
-    I följande exempel visas hur du kan använda en säker kopia (scp) kommando för att flytta filen till den virtuella datorn. Du kan också kopiera innehållet till Urklipp och klistra in innehållet i en ny fil som har ställts in på den virtuella datorn.
+    I följande exempel visas hur du använder ett säkert kopierings kommando (SCP) för att flytta filen till den virtuella datorn. Du kan också kopiera innehållet till Urklipp och sedan klistra in innehållet i en ny fil som har kon figurer ATS på den virtuella datorn.
 
     > [!IMPORTANT]
-    > Se till att du uppdaterar IP-adress och mappen värdena i exemplet nedan. Värdena måste mappas till den mapp där filen sparas.
+    > I följande exempel ser du till att du uppdaterar IP-adress och mappegenskaper. Värdena måste mappas till den mapp där filen sparas.
 
     ```bash
     $ scp Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh <publicIpAddress>:/<folder>
     ```
-6. Ändra filen, så att den ägs av roten.
+6. Ändra filen så att den ägs av roten.
 
-    I följande exempel ändrar du filen så att den ägs av roten. Sedan kan ändra behörigheter.
+    I följande exempel ändrar du filen så att den ägs av roten. Ändra sedan behörigheter.
 
     ```bash 
     $ ssh <publicIpAddress>
@@ -380,7 +379,7 @@ Om du vill återställa de borttagna filerna, gör du följande:
     # chmod 755 /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     # /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     ```
-    I följande exempel visar vad som ska visas när du har kört det här skriptet. När du uppmanas att fortsätta, ange **Y**.
+    I följande exempel visas vad du bör se när du har kört föregående skript. När du uppmanas att fortsätta anger du **Y**.
 
     ```bash
     Microsoft Azure VM Backup - File Recovery
@@ -412,13 +411,13 @@ Om du vill återställa de borttagna filerna, gör du följande:
     Please enter 'q/Q' to exit...
     ```
 
-7. Åtkomst till de monterade volymerna har bekräftats.
+7. Åtkomst till monterade volymer bekräftas.
 
-    Om du vill avsluta, ange **q**, och söker sedan efter monterade volymer. Om du vill skapa en lista över volymer som har lagts till i en kommandotolk, ange **df -k**.
+    Avsluta genom att ange **q**och sedan söka efter de monterade volymerna. Om du vill skapa en lista över de tillagda volymerna skriver du **DF-k**i kommando tolken.
 
-    ![Kommandot df -k](./media/oracle-backup-recovery/recovery_service_16.png)
+    ![Kommandot DF-k](./media/oracle-backup-recovery/recovery_service_16.png)
 
-8. Använd följande skript för att kopiera de saknade filerna till mapparna:
+8. Använd följande skript för att kopiera de saknade filerna tillbaka till mapparna:
 
     ```bash
     # cd /root/myVM-2017XXXXXXX/Volume2/u01/app/oracle/fast_recovery_area/CDB1/backupset/2017_xx_xx
@@ -430,7 +429,7 @@ Om du vill återställa de borttagna filerna, gör du följande:
     # cd /u01/app/oracle/oradata/cdb1
     # chown oracle:oinstall *.dbf
     ```
-9. I följande skript, använder du RMAN för att återställa databasen:
+9. I följande skript använder du RMAN för att återställa databasen:
 
     ```bash
     # sudo su - oracle
@@ -444,80 +443,80 @@ Om du vill återställa de borttagna filerna, gör du följande:
     
 10. Demontera disken.
 
-    I Azure-portalen på den **filåterställning (förhandsversion)** bladet klickar du på **demontera diskar**.
+    I Azure Portal på bladet **fil återställning (för hands version)** klickar du på **demontera diskar**.
 
-    ![Demontera diskar kommando](./media/oracle-backup-recovery/recovery_service_17.png)
+    ![Demontera diskar, kommando](./media/oracle-backup-recovery/recovery_service_17.png)
 
-## <a name="restore-the-entire-vm"></a>Återställa en hel virtuell dator
+## <a name="restore-the-entire-vm"></a>Återställa hela den virtuella datorn
 
-Du kan återställa en hel virtuell dator i stället för att återställa de borttagna filerna från Recovery Services-valv.
+I stället för att återställa de borttagna filerna från Recovery Services-valven kan du återställa hela den virtuella datorn.
 
 ### <a name="step-1-delete-myvm"></a>Steg 1: Ta bort myVM
 
-*   I Azure-portalen går du till den **myVM1** säkerhetskopieringsvalv och välj sedan **ta bort**.
+*   Gå till **myVM1** -valvet i Azure Portal och välj sedan **ta bort**.
 
-    ![Borttagningskommandot för valvet](./media/oracle-backup-recovery/recover_vm_01.png)
+    ![Valv borttagnings kommando](./media/oracle-backup-recovery/recover_vm_01.png)
 
 ### <a name="step-2-recover-the-vm"></a>Steg 2: Återställa den virtuella datorn
 
-1.  Gå till **Recovery Services-valv**, och välj sedan **myVault**.
+1.  Gå till **Recovery Services valv**och välj sedan **valv**.
 
-    ![myVault post](./media/oracle-backup-recovery/recover_vm_02.png)
+    ![post för valv](./media/oracle-backup-recovery/recover_vm_02.png)
 
-2.  På den **översikt** bladet under **Säkerhetskopiera objekt**, väljer du antalet objekt.
+2.  I **översikts** bladet under **säkerhets kopierings objekt**väljer du antalet objekt.
 
-    ![myVault Säkerhetskopiera objekt](./media/oracle-backup-recovery/recover_vm_03.png)
+    ![säkerhetskopierar objekt](./media/oracle-backup-recovery/recover_vm_03.png)
 
-3.  På den **Säkerhetskopieringsobjekt (Azure virtuell dator)** bladet väljer **myvm1**.
+3.  På bladet **säkerhets kopierings objekt (virtuell Azure-dator)** väljer du **myvm1**.
 
-    ![Återställningssidan för virtuell dator](./media/oracle-backup-recovery/recover_vm_04.png)
+    ![Sidan Återställ virtuell dator](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  På den **myvm1** bladet klickar du på ellipsen ( **...** ) och klickar sedan på **återställa en virtuell dator**.
+4.  På bladet **myvm1** klickar du på knappen med tre punkter ( **...** ) och klickar sedan på **Återställ virtuell dator**.
 
     ![Återställ VM-kommando](./media/oracle-backup-recovery/recover_vm_05.png)
 
-5.  På den **: Välj återställningspunkt** bladet, väljer det objekt som du vill återställa och klicka sedan på **OK**.
+5.  På bladet **Välj återställnings punkt** väljer du det objekt som du vill återställa och klickar sedan på **OK**.
 
-    ![Välj återställningspunkten](./media/oracle-backup-recovery/recover_vm_06.png)
+    ![Välj återställnings punkt](./media/oracle-backup-recovery/recover_vm_06.png)
 
-    Om du har aktiverat programkonsekvent säkerhetskopiering, visas en blå vertikalstreck.
+    Om du har aktiverat programkonsekvent säkerhets kopiering visas ett lodrätt blått fält.
 
-6.  På den **återställningskonfiguration** bladet välj namnet på virtuella datorn, väljer du resursgruppen och klicka sedan på **OK**.
+6.  På bladet **Återställ konfiguration** väljer du namnet på den virtuella datorn, väljer resurs gruppen och klickar sedan på **OK**.
 
-    ![Återställa konfigurationsvärden](./media/oracle-backup-recovery/recover_vm_07.png)
+    ![Återställ konfigurations värden](./media/oracle-backup-recovery/recover_vm_07.png)
 
-7.  Om du vill återställa den virtuella datorn klickar du på den **återställa** knappen.
+7.  Om du vill återställa den virtuella datorn klickar du på knappen **Återställ** .
 
-8.  Om du vill visa status för återställningsprocessen, klickar du på **jobb**, och klicka sedan på **säkerhetskopieringsjobb**.
+8.  Visa status för återställnings processen genom att klicka på **jobb**och sedan på **säkerhets kopierings jobb**.
 
-    ![Säkerhetskopieringsjobb status för kommandot](./media/oracle-backup-recovery/recover_vm_08.png)
+    ![Status kommando för säkerhets kopierings jobb](./media/oracle-backup-recovery/recover_vm_08.png)
 
-    Följande bild visar status för återställningen:
+    Följande bild visar status för återställnings processen:
 
-    ![Status för återställningen](./media/oracle-backup-recovery/recover_vm_09.png)
+    ![Status för återställnings processen](./media/oracle-backup-recovery/recover_vm_09.png)
 
 ### <a name="step-3-set-the-public-ip-address"></a>Steg 3: Ange den offentliga IP-adressen
-När den virtuella datorn har återställts kan du konfigurera offentliga IP-adress.
+När den virtuella datorn har återställts konfigurerar du den offentliga IP-adressen.
 
-1.  I sökrutan anger **offentliga IP-adressen**.
+1.  I rutan Sök anger du **offentlig IP-adress**.
 
     ![Lista över offentliga IP-adresser](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  På den **offentliga IP-adresser** bladet klickar du på **Lägg till**. På den **skapa offentlig IP-adress** bladet för **namn**, Välj det offentliga IP-namnet. För **resursgrupp**, väljer du **använd befintlig**. Klicka sedan på **skapa**.
+2.  Klicka på **Lägg till**på bladet **offentliga IP-adresser** . På bladet **skapa offentlig IP-adress** väljerdu namnet på den offentliga IP-adressen. För **resursgrupp**, väljer du **använd befintlig**. Klicka sedan på **skapa**.
 
     ![Skapa IP-adress](./media/oracle-backup-recovery/create_ip_01.png)
 
-3.  Om du vill koppla offentliga IP-adress till nätverksgränssnittet för den virtuella datorn, Sök efter och välj **myVMip**. Klicka sedan på **associera**.
+3.  Om du vill associera den offentliga IP-adressen med nätverks gränssnittet för den virtuella datorn söker du efter och väljer **myVMip**. Klicka sedan på **associera**.
 
     ![Associera IP-adress](./media/oracle-backup-recovery/create_ip_02.png)
 
-4.  För **resurstyp**väljer **nätverksgränssnittet**. Välj nätverksgränssnittet som används av myVM-instansen och klicka sedan på **OK**.
+4.  För **resurs typ**väljer du **nätverks gränssnitt**. Välj det nätverks gränssnitt som används av myVM-instansen och klicka sedan på **OK**.
 
-    ![Välj resurstyp och NIC-värden](./media/oracle-backup-recovery/create_ip_03.png)
+    ![Välj resurs typ och NIC-värden](./media/oracle-backup-recovery/create_ip_03.png)
 
-5.  Sök efter och öppna instansen av myVM som är porteras från portalen. IP-adressen som är associerad med den virtuella datorn visas på myVM **översikt** bladet.
+5.  Sök efter och öppna den instans av myVM som är portad från portalen. Den IP-adress som är associerad med den virtuella datorn visas på bladet myVM- **Översikt** .
 
-    ![IP-adressvärde](./media/oracle-backup-recovery/create_ip_04.png)
+    ![IP-adress värde](./media/oracle-backup-recovery/create_ip_04.png)
 
 ### <a name="step-4-connect-to-the-vm"></a>Steg 4: Anslut till VM:en
 
@@ -528,7 +527,7 @@ När den virtuella datorn har återställts kan du konfigurera offentliga IP-adr
     ```
 
 ### <a name="step-5-test-whether-the-database-is-accessible"></a>Steg 5: Testa om databasen är tillgänglig
-*   Om du vill testa tillgängligheten, Använd följande skript:
+*   Om du vill testa tillgänglighet använder du följande skript:
 
     ```bash 
     $ sudo su - oracle
@@ -537,10 +536,10 @@ När den virtuella datorn har återställts kan du konfigurera offentliga IP-adr
     ```
 
     > [!IMPORTANT]
-    > Om databasen **Start** genererar kommandot ett fel, om du vill återställa databasen, se [steg 6: Använd RMAN för att återställa databasen](#step-6-optional-use-rman-to-recover-the-database).
+    > Om **Start** kommandot för databasen genererar ett fel, se [steg 6 för att återställa databasen. Använd RMAN för att återställa databasen](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Steg 6: (Valfritt) Använd RMAN för att återställa databasen
-*   Om du vill återställa databasen, använder du följande skript:
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Steg 6: Valfritt Använda RMAN för att återställa databasen
+*   Använd följande skript för att återställa databasen:
 
     ```bash
     # sudo su - oracle
@@ -552,11 +551,11 @@ När den virtuella datorn har återställts kan du konfigurera offentliga IP-adr
     RMAN> SELECT * FROM scott.scott_table;
     ```
 
-Säkerhetskopiering och återställning av Oracle Database 12c-databas på en virtuell Linux-dator är nu klar.
+Säkerhets kopiering och återställning av Oracle Database 12C-databasen på en virtuell Azure Linux-dator har nu slutförts.
 
 ## <a name="delete-the-vm"></a>Ta bort den virtuella datorn
 
-När du inte längre behöver den virtuella datorn kan använda du följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
+När du inte längre behöver den virtuella datorn kan du använda följande kommando för att ta bort resurs gruppen, den virtuella datorn och alla relaterade resurser:
 
 ```azurecli
 az group delete --name myResourceGroup

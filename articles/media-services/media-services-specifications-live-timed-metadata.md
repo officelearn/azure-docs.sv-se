@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: d2fec29c96639d21db362f6982b88a90bd6c319f
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: df2a86dd1292f58511765e842ee97daddcff4e3e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019086"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102925"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalerar Timed metadata i Live Streaming 
 
@@ -210,7 +210,7 @@ Schemat för [MPEG-streck] EventStream XML-nyttolasten definieras som (utdrag fr
 ### <a name="built-in-supported-scheme-id-uris"></a>Inbyggda schema-ID: n som stöds
 | Schema-ID-URI                 |  Beskrivning                                             |
 |-------------------------------|----------------------------------------------------------|
-| https://aomedia.org/emsg/ID3   | Beskriver hur [ID3v2] metadata kan överföras som tids bara metadata i en CMAF-kompatibel [MPEGCMAF]-fragmenterad MP4. Mer information finns i de tidsspecifika [metadata i det vanliga medie program formatet (cmaf)](https://aomediacodec.github.io/av1-id3/) |
+| https:\//aomedia.org/EMSG/ID3   | Beskriver hur [ID3v2] metadata kan överföras som tids bara metadata i en CMAF-kompatibel [MPEGCMAF]-fragmenterad MP4. Mer information finns i de tidsspecifika [metadata i det vanliga medie program formatet (cmaf)](https://aomediacodec.github.io/av1-id3/) |
 
 ### <a name="event-processing-and-manifest-signaling"></a>Händelse bearbetning och manifest signalering
 

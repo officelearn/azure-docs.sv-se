@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 0704db7444756fb44c5587ae8e8e743f671c9dcc
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5f34f5e0c622ff107da880d9a4a77c63568b63b0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907950"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100945"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Skydda Azure-data och lagrings tjänster i Azure Security Center
 Det här avsnittet visar hur du visar och implementerar säkerhets rekommendationer för data-och lagrings resurser. Azure Security Center hittade rekommendationerna när du analyserar säkerhets status för dina Azure-resurser.
@@ -78,7 +78,6 @@ Från den här sidan kan du:
 Mer information om rekommendationer som gäller för andra typer av Azure-resurser finns i följande avsnitt:
 
 * [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
-* [Skydda program i Azure Security Center](security-center-application-recommendations.md)
 * [Skydda nätverket i Azure Security Center](security-center-network-recommendations.md)
 
 Mer information om Security Center finns i följande avsnitt:

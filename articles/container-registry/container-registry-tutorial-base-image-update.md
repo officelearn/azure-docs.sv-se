@@ -6,15 +6,15 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 08/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7cd278143ffe482cb51f76b1019413e97a777a3a
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 23b0990be7f215d9cc443c5549ae38de86826d17
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981818"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114620"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Självstudie: Automatisera containeravbildningsversioner när en basavbildning uppdateras i ett Azure-containerregister 
 
@@ -72,7 +72,16 @@ När en basavbildning har uppdaterats kan du behöva återskapa containeravbildn
 
 ### <a name="tasks-triggered-by-a-base-image-update"></a>Aktiviteter som utlöses av en bas avbildnings uppdatering
 
-* För närvarande identifierar en ACR-uppgift beroenden för bas avbildningar i samma Azure Container Registry, en offentlig Docker Hub-lagrings platsen eller en offentlig lagrings platsen i Microsoft Container Registry, för avbildnings versioner från en Dockerfile. Om bas avbildningen som anges i `FROM` instruktionen finns på någon av dessa platser lägger ACR-aktiviteten till en Hook för att se till att avbildningen återskapas varje gång dess bas uppdateras.
+* För avbildningar som bygger på en Dockerfile identifierar en ACR-uppgift beroenden för bas avbildningarna på följande platser:
+
+  * Samma Azure Container Registry där aktiviteten körs
+  * Ett annat Azure Container Registry i samma region 
+  * En offentlig lagrings platsen i Docker Hub 
+  * En offentlig lagrings platsen i Microsoft Container Registry
+
+   Om bas avbildningen som anges i `FROM` instruktionen finns på någon av dessa platser lägger ACR-aktiviteten till en Hook för att se till att avbildningen återskapas varje gång dess bas uppdateras.
+
+* För närvarande spårar en ACR-uppgift endast bas avbildnings uppdateringar för program (*runtime*)-avbildningar. Det spårar inte bas avbildnings uppdateringar för mellanliggande (*buildtime*) avbildningar som används i Dockerfiles med flera steg.  
 
 * När du skapar en ACR-uppgift med kommandot [AZ ACR Task Create][az-acr-task-create] *aktive ras* uppgiften som standard för Utlös ande av en bas avbildnings uppdatering. Det vill säga egenskapen anges till sant. `base-image-trigger-enabled` Om du vill inaktivera det här beteendet i en aktivitet uppdaterar du egenskapen till false. Kör till exempel följande [AZ ACR aktivitets uppdaterings][az-acr-task-update] kommando:
 

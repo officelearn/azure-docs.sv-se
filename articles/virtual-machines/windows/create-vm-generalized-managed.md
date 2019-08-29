@@ -1,6 +1,6 @@
 ---
-title: Skapa virtuell dator från en hanterad avbildning i Azure | Microsoft Docs
-description: Skapa en virtuell Windows-dator från en generaliserad hanterad avbildning med Azure PowerShell eller Azure-portalen i Resource Manager-distributionsmodellen.
+title: Skapa en virtuell dator från en hanterad avbildning i Azure | Microsoft Docs
+description: Skapa en virtuell Windows-dator från en generaliserad hanterad avbildning med Azure PowerShell eller Azure Portal i distributions modellen för Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -10,45 +10,44 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 3ae730389b54fc1034bfac3ffdc7e56a2dc5f3fc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 30e5a7e5953c56ff452b992370e8225ca103abba
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718962"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079701"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Skapa en virtuell dator från en hanterad avbildning
 
-Du kan skapa flera virtuella datorer (VM) från en Azure-hanterade VM bild med hjälp av Azure portal eller PowerShell. En hanterad datoravbildning av virtuell innehåller informationen som krävs för att skapa en virtuell dator, inklusive operativsystem och datadiskar. De virtuella hårddiskarna (VHD) som utgör bilden, inklusive både OS-diskar och eventuella datadiskar lagras som hanterade diskar. 
+Du kan skapa flera virtuella datorer från en Azure-hanterad VM-avbildning med hjälp av Azure Portal eller PowerShell. En hanterad virtuell dator avbildning innehåller den information som krävs för att skapa en virtuell dator, inklusive operativ system och data diskar. De virtuella hård diskar (VHD: er) som utgör avbildningen, inklusive både OS-diskar och data diskar, lagras som hanterade diskar. 
 
-Innan du skapar en ny virtuell dator, måste du [skapa en hanterad virtuell datoravbildning](capture-image-resource.md) ska användas som käll-avbildning och bevilja läsåtkomst till avbildningen till alla användare som ska ha åtkomst till avbildningen. 
+Innan du skapar en ny virtuell dator måste du [skapa en hanterad virtuell dator avbildning](capture-image-resource.md) som ska användas som käll avbildning och ge Läs behörighet på avbildningen till alla användare som ska ha åtkomst till avbildningen. 
 
 
 ## <a name="use-the-portal"></a>Använda portalen
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-2. På menyn till vänster väljer **alla resurser**. Du kan sortera resurser efter **typ** att enkelt hitta dina avbildningar.
-3. Välj den avbildning som du vill använda i listan. Avbildningen **översikt** öppnas.
-4. Välj **Create VM** på menyn.
-5. Ange informationen för den virtuella datorn. Användarnamnet och lösenordet som anges här används för att logga in på den virtuella datorn. När du är klar väljer **OK**. Du kan skapa den nya virtuella datorn i en befintlig resursgrupp eller välj **Skapa nytt** att skapa en ny resursgrupp för att lagra den virtuella datorn.
+2. Välj **alla resurser**på den vänstra menyn. Du kan sortera resurserna efter **typ** för att enkelt hitta dina avbildningar.
+3. Välj den avbildning som du vill använda från listan. Sidan **Översikt över** avbildning öppnas.
+4. Välj **Skapa virtuell dator** på menyn.
+5. Ange informationen för den virtuella datorn. Användar namnet och lösen ordet som anges här kommer att användas för att logga in på den virtuella datorn. När du är klar väljer du **OK**. Du kan skapa den nya virtuella datorn i en befintlig resurs grupp eller välja **Skapa ny** för att skapa en ny resurs grupp för att lagra den virtuella datorn.
 6. Välj en storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. 
-7. Under **inställningar**, gör nödvändiga ändringar och välj **OK**. 
-8. På sidan Sammanfattning du bör se din avbildningsnamn som listas som en **privat avbildning**. Välj **Ok** att starta distributionen av virtuella datorn.
+7. Under **Inställningar**, gör du nödvändiga ändringar och väljer **OK**. 
+8. På sidan Sammanfattning bör du se avbildnings namnet som en **privat bild**. Välj **OK** för att starta distributionen av virtuella datorer.
 
 
 ## <a name="use-powershell"></a>Använd PowerShell
 
-Du kan använda PowerShell för att skapa en virtuell dator från en avbildning med hjälp av förenklad parameteruppsättning för den [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. Avbildningen måste finnas i samma resursgrupp där du skapar den virtuella datorn.
+Du kan använda PowerShell för att skapa en virtuell dator från en avbildning med hjälp av den förenklade parameter uppsättningen för cmdleten [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . Avbildningen måste finnas i samma resurs grupp där du skapar den virtuella datorn.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-En förenklad parameteruppsättning för [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) endast kräver att du anger namn, resursgrupp och Avbildningsnamnet för att skapa en virtuell dator från en avbildning. Nya AzVm kommer att använda värdet för den **-namnet** parametern som namnet på alla resurser som skapas automatiskt. I det här exemplet vi ger mer detaljerad namnen för varje resurs men låta cmdleten skapa dem automatiskt. Du kan också skapa resurser i förväg, till exempel det virtuella nätverket, och skicka resursnamnet i cmdleten. Ny AzVm använder befintliga resurser om det hittar dem efter deras namn.
+Den förenklade parametern som angetts för [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) kräver bara att du anger ett namn, en resurs grupp och ett avbildnings namn för att skapa en virtuell dator från en avbildning. New-AzVm använder värdet för parametern **-Name** som namnet på alla resurser som skapas automatiskt. I det här exemplet ger vi mer detaljerade namn för var och en av resurserna, men låt cmdleten skapa dem automatiskt. Du kan också skapa resurser i förväg, till exempel det virtuella nätverket och skicka resurs namnet till cmdleten. New-AzVm kommer att använda de befintliga resurserna om de kan hitta dem med deras namn.
 
-I följande exempel skapas en virtuell dator med namnet *myVMFromImage*i den *myResourceGroup* resursgrupp från avbildningen med namnet *myImage*. 
+I följande exempel skapas en virtuell dator med namnet *myVMFromImage*i resurs gruppen *myResourceGroup* från avbildningen med namnet *image*. 
 
 
 ```azurepowershell-interactive
@@ -67,5 +66,5 @@ New-AzVm `
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Skapa och hantera virtuella Windows-datorer med modulen Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

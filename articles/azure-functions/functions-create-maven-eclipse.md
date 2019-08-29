@@ -1,27 +1,27 @@
 ---
-title: Skapa en funktionsapp i Azure med Java och Eclipse | Microsoft Docs
-description: Anvisningar för att skapa och publicera en enkel HTTP utlöses app utan server med Java och Eclipse till Azure Functions.
+title: Skapa en Azure Function-app med Java och Sol förmörkelse | Microsoft Docs
+description: Instruktions guide för att skapa och publicera en enkel HTTP-utlöst app utan server med Java och Sol förmörkelse till Azure Functions.
 services: functions
 documentationcenter: na
 author: jeffhollan
 manager: jpconnock
-keywords: Azure functions, funktioner, händelsebearbetning, beräkning, serverlös arkitektur, java
+keywords: Azure Functions, functions, Event Processing, Compute, Server lös arkitektur, Java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
+ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9dcc959e51aa42fd6ef3173dba2aec8d9970deb1
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: b2f5567e037c65d7650b3f95a2ee81b93ac987b7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154608"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085872"
 ---
-# <a name="create-your-first-function-with-java-and-eclipse"></a>Skapa din första funktion med Java och Eclipse 
+# <a name="create-your-first-function-with-java-and-eclipse"></a>Skapa din första funktion med Java och Sol förmörkelse 
 
-Den här artikeln visar hur du skapar en [serverlös](https://azure.microsoft.com/solutions/serverless/) function-projekt med Eclipse IDE och Apache Maven, testa och felsöka det och sedan distribuera den till Azure Functions. 
+Den här artikeln visar hur du skapar ett [Server](https://azure.microsoft.com/solutions/serverless/) lös funktions projekt med Sol förmörkelse IDE-och Apache-maven, testar och felsöker det och distribuerar det sedan till Azure Functions. 
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 
@@ -29,62 +29,62 @@ Den här artikeln visar hur du skapar en [serverlös](https://azure.microsoft.co
 
 ## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
 
-Om du vill utveckla en functions-app med Java och Eclipse, måste du ha följande installerat:
+Om du vill utveckla en Functions-app med Java och Sol förmörkelse måste du ha följande installerat:
 
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
 -  [Apache Maven](https://maven.apache.org), version 3.0 eller senare.
--  [Eclipse](https://www.eclipse.org/downloads/packages/)med Java och Maven stöd.
+-  [Sol förmörkelse](https://www.eclipse.org/downloads/packages/), med stöd för Java och Maven.
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > Miljövariabeln JAVA_HOME måste vara inställd på JDK-installationsplatsen för att snabbstarten ska gå att genomföra.
 
-Vi rekommenderar starkt att även installera [Azure Functions Core Tools version 2](functions-run-local.md#v2), vilket ger en lokal miljö för att köra och felsöka Azure Functions. 
+Vi rekommenderar också att du installerar [Azure Functions Core tools, version 2](functions-run-local.md#v2), som tillhandahåller en lokal miljö för att köra och felsöka Azure Functions. 
 
-## <a name="create-a-functions-project"></a>Skapa ett funktionsprojekt
+## <a name="create-a-functions-project"></a>Skapa ett Functions-projekt
 
-1. I Eclipse väljer den **filen** menyn och välj sedan **New -&gt; Maven-projekt**. 
-1. Acceptera standardinställningarna i den **nytt Maven-projekt** dialog och välj **nästa**.
-1. Välj **lägga till Archetype** och lägga till poster för den [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
-    - Archetype grupp-ID: com.microsoft.azure
-    - Archetype artefakt-ID: azure-functions-archetype
-    - Version: Använd senaste version **1.22 enligt** från [centralt](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Eclipse Maven skapa](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Klicka på **OK** och klicka sedan på **nästa** att ange värden som följande ögonblicksbilden (. Använd en annan appName än **fabrikam-funktion-20170920120101928**), och Så småningom **Slutför**.
-    ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
+1. I Sol förmörkelse väljer du **Arkiv** -menyn och sedan **nytt maven&gt; -projekt**. 
+1. Acceptera standardinställningarna i dialog rutan **nytt Maven-projekt** och välj **Nästa**.
+1. Välj **Lägg till archetype** och Lägg till posterna för [Azure-Functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
+    - Archetype-grupp-ID: com. Microsoft. Azure
+    - Archetype artefakt-ID: Azure-Functions-archetype
+    - Version: Använd den senaste versionen **1,22** från [den centrala databasens](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Sol förmörkelse maven skapa](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
+1. Klicka på **OK** och sedan på **Nästa** för att ange värden som till exempel följande ögonblicks bild (Använd ett annat APPNAME än **Fabrikam-Function-20170920120101928**) och slutligen **Slutför**.
+    ![Sol förmörkelse maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
-Maven skapar projektfiler i en ny mapp med namnet från _artifactId_. Den genererade koden i projektet är en enkel [HTTP-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som utgörs av utlösande HTTP-begäran.
+Maven skapar projektfiler i en ny mapp med namnet från _artifactId_. Den genererade koden i projektet är en enkel [http-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som upprepar texten i den Utlös ande http-begäran.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Köra funktioner lokalt i IDE
 
 > [!NOTE]
-> [Azure Functions Core Tools, version 2](functions-run-local.md#v2) måste installeras om du vill köra och felsöka funktioner lokalt.
+> [Azure Functions Core tools version 2](functions-run-local.md#v2) måste installeras för att köra och felsöka funktioner lokalt.
 
-1. Högerklicka på det genererade projektet och välj sedan **kör som** och **Maven build**.
-1. I den **redigera konfiguration** dialogrutan RETUR `package` i den **mål** och **namn** fält, välj sedan **kör**. Detta kommer att bygga och paketera funktionskoden.
-1. När versionen har slutförts, skapar du en annan kör konfiguration som ovan, med hjälp av `azure-functions:run` som mål och namn. Välj **kör** att köra funktionen i IDE.
+1. Högerklicka på det genererade projektet och välj sedan **Kör som** och **maven build**.
+1. I dialog **rutan Redigera konfiguration** anger `package` du i fälten **mål** och **namn** och väljer sedan **Kör**. Då skapas och paketeras funktions koden.
+1. När build-versionen är klar skapar du en annan körnings konfiguration som `azure-functions:run` ovan och använder som mål och namn. Välj **Kör** för att köra funktionen i IDE.
 
-Avsluta körningen på konsolfönstret när du är klar testa din funktion. Enda funktion värden kan vara aktiv och körs lokalt i taget.
+Avsluta körningen i konsol fönstret när du är klar med att testa din funktion. Endast en funktions värd kan vara aktiv och köras lokalt i taget.
 
-### <a name="debug-the-function-in-eclipse"></a>Felsöka funktionen i Eclipse
+### <a name="debug-the-function-in-eclipse"></a>Felsöka funktionen i Sol förmörkelse
 
-I din **kör som** konfiguration som angetts i föregående steg, ändra `azure-functions:run` till `azure-functions:run -DenableDebug` och kör den uppdaterade konfigurationen för att starta appen i felsökningsläge.
+I din **Kör som** -konfiguration i föregående steg ändrar `azure-functions:run` du till `azure-functions:run -DenableDebug` och kör den uppdaterade konfigurationen för att starta Function-appen i fel söknings läge.
 
-Välj den **kör** menyn och öppna **felsöka konfigurationer**. Välj **fjärranslutna Java-program** och skapa en ny. Namnge din konfiguration och Fyll i inställningarna. Porten bör överensstämma med debug-port som öppnas av funktionen värden, vilket som standard är `5005`. Efter installationen klickar du på `Debug` att starta felsökningen.
+Välj **körnings** menyn och öppna **Debug-konfigurationer**. Välj **fjärr-Java-program** och skapa ett nytt. Ge konfigurationen ett namn och fyll i inställningarna. Porten bör vara konsekvent med fel söknings porten som öppnas av funktions värden, vilket som standard `5005`är. Starta fel sökningen efter installationen `Debug` genom att klicka på på.
 
-![Felsökningsfunktioner i Eclipse](media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
+![Fel söknings funktioner i Sol förmörkelse](media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
 
-Ange brytpunkter och granska objekt i din funktion med hjälp av IDE. Stoppa felsökningsprogrammet och köra funktionen värden när du är klar. Enda funktion värden kan vara aktiv och körs lokalt i taget.
+Ange Bryt punkter och granska objekt i din funktion med IDE. När du är färdig stoppar du fel söknings programmet och den kör funktions värden. Endast en funktions värd kan vara aktiv och köras lokalt i taget.
 
 ## <a name="deploy-the-function-to-azure"></a>Distribuera funktionen till Azure
 
-Under distribueringen till Azure Functions används autentiseringsuppgifter från Azure CLI. [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) innan du fortsätter med hjälp av datorns kommandotolk.
+Under distribueringen till Azure Functions används autentiseringsuppgifter från Azure CLI. [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) innan du fortsätter att använda datorns kommando tolk.
 
 ```azurecli
 az login
 ```
 
-Distribuera koden till ett nytt funktionen med hjälp av den `azure-functions:deploy` Maven-målet i en ny **kör som** konfiguration.
+Distribuera din kod till en ny function-app med `azure-functions:deploy` hjälp av maven-målet i en ny **Kör som** -konfiguration.
 
 När distributionen är klar kan du se den webbadress som används för att få åtkomst till din funktionsapp i Azure:
 

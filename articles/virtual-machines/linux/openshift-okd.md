@@ -9,41 +9,40 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 7db50007dd32c84a360eaec25bf860709272437b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fccb77110eafa131733ecea70fb209b2a168436c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542517"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082499"
 ---
 # <a name="deploy-okd-in-azure"></a>Distribuera OKD i Azure
 
-Du kan använda något av två sätt att distribuera OKD (tidigare OpenShift Origin) i Azure:
+Du kan använda ett av två sätt för att distribuera OKD (tidigare OpenShift Origin) i Azure:
 
-- Du kan manuellt distribuera alla nödvändiga Azure infrastrukturkomponenter och följ sedan de [OKD dokumentation](https://docs.okd.io).
-- Du kan också använda en befintlig [Resource Manager-mall](https://github.com/Microsoft/openshift-origin) som förenklar distributionen av klustret OKD.
+- Du kan distribuera alla nödvändiga komponenter för Azure-infrastrukturen manuellt och följa OKD- [dokumentationen](https://docs.okd.io).
+- Du kan också använda en befintlig [Resource Manager-mall](https://github.com/Microsoft/openshift-origin) som fören klar distributionen av OKD-klustret.
 
-## <a name="deploy-using-the-okd-template"></a>Distribuera med hjälp av mallen OKD
+## <a name="deploy-using-the-okd-template"></a>Distribuera med OKD-mallen
 
-För att distribuera med hjälp av Resource Manager-mall kan använda du en parameterfil för att ange indataparametrarna. För att ytterligare anpassa distributionen, Förgrena GitHub-lagringsplatsen och ändra lämpliga objekt.
+Om du vill distribuera med hjälp av Resource Manager-mallen använder du en parameter fil för att ange indataparametrarna. Om du vill anpassa distributionen ytterligare delar du GitHub-lagrings platsen och ändrar lämpliga objekt.
 
-Vissa vanliga anpassningsalternativ inkludera, men inte begränsat till:
+Några vanliga anpassnings alternativ är, men är inte begränsade till:
 
-- Skyddsmiljö VM-storlek (variabel i azuredeploy.json)
-- Namngivningskonventioner (variabler i azuredeploy.json)
-- OpenShift egenskaper för klustret, du ändrar värdfilen (deployOpenShift.sh)
+- Skydds VM-storlek (variabel i azuredeploy. JSON)
+- Namngivnings konventioner (variabler i azuredeploy. JSON)
+- OpenShift-kluster, information, modifierad via hosts-filen (deployOpenShift.sh)
 
-Den [OKD mall](https://github.com/Microsoft/openshift-origin) har flera grenar som är tillgängliga för olika versioner av OKD.  Utifrån dina behov kan du distribuera direkt från lagringsplatsen eller så kan du Förgrena lagringsplatsen och gör anpassade ändringar innan du distribuerar.
+[OKD-mallen](https://github.com/Microsoft/openshift-origin) har flera grenar som är tillgängliga för olika versioner av OKD.  Utifrån dina behov kan du distribuera direkt från lagrings platsen eller så kan du använda lagrings platsen och göra anpassade ändringar innan du distribuerar.
 
-Använd den `appId` värde från tjänstens huvudnamn som du skapade tidigare för den `aadClientId` parametern.
+Använd värdet från tjänstens huvud namn som du skapade tidigare `aadClientId` för parametern. `appId`
 
-Följande är ett exempel på en parameterfil som heter azuredeploy.parameters.json med alla nödvändiga indata.
+Följande är ett exempel på en parameter fil med namnet azuredeploy. Parameters. JSON med alla nödvändiga indata.
 
 ```json
 {
@@ -117,17 +116,17 @@ Följande är ett exempel på en parameterfil som heter azuredeploy.parameters.j
 }
 ```
 
-Ersätt parametrarna med din specifika information.
+Ersätt parametrarna med din egen information.
 
-Olika versioner kan ha olika parametrar, så kontrollera att de nödvändiga parametrarna för den gren som du använder.
+Olika versioner kan ha olika parametrar, så kontrol lera de nödvändiga parametrarna för den gren som du använder.
 
-### <a name="deploy-using-azure-cli"></a>Distribuera med hjälp av Azure CLI
+### <a name="deploy-using-azure-cli"></a>Distribuera med Azure CLI
 
 
 > [!NOTE] 
-> Kommandot kräver Azure CLI 2.0.8 eller senare. Du kan kontrollera CLI-versionen med den `az --version` kommando. Om du vill uppdatera CLI-version, se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Följande kommando kräver Azure CLI 2.0.8 eller senare. Du kan kontrol lera CLI-versionen med `az --version` kommandot. Information om hur du uppdaterar CLI-versionen finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-I följande exempel distribuerar OKD klustret och alla relaterade resurser i en resursgrupp med namnet openshiftrg, med ett distributionsnamn av myOpenShiftCluster. Mallen refereras direkt från GitHub-lagringsplatsen när du använder en lokal parameterfil som heter azuredeploy.parameters.json.
+I följande exempel distribueras OKD-klustret och alla relaterade resurser till en resurs grupp med namnet openshiftrg, med ett distributions namn på myOpenShiftCluster. Mallen refereras direkt från GitHub-lagrings platsen när en lokal parameter fil med namnet azuredeploy. Parameters. JSON används.
 
 ```azurecli 
 az group deployment create -g openshiftrg --name myOpenShiftCluster \
@@ -135,7 +134,7 @@ az group deployment create -g openshiftrg --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-Distributionen tar minst 30 minuter att slutföra, baserat på det totala antalet noder som har distribuerats. URL till konsolen OpenShift och DNS-namnet på skriver ut master OpenShift till terminalen när distributionen är klar. Du kan också visa outputs-avsnittet för distributionen från Azure-portalen.
+Distributionen tar minst 30 minuter att slutföra, baserat på det totala antalet noder som har distribuerats. URL: en för OpenShift-konsolen och DNS-namnet för OpenShift-bakgrunden skrivs till terminalen när distributionen är klar. Du kan också visa avsnittet utdata i distributionen från Azure Portal.
 
 ```json
 {
@@ -144,11 +143,11 @@ Distributionen tar minst 30 minuter att slutföra, baserat på det totala antale
 }
 ```
 
-Om du inte vill sysselsätta kommandoraden att vänta tills distributionen är slutförd, lägga till `--no-wait` som ett alternativ för gruppdistributionen av. Utdata från distributionen kan hämtas från Azure-portalen under distributionen för resursgruppen.
+Om du inte vill koppla upp kommando raden som väntar på att distributionen ska slutföras, `--no-wait` lägger du till som ett alternativ för grupp distributionen. Utdata från distributionen kan hämtas från Azure Portal i avsnittet distribution för resurs gruppen.
 
-## <a name="connect-to-the-okd-cluster"></a>Anslut till klustret OKD
+## <a name="connect-to-the-okd-cluster"></a>Ansluta till OKD-klustret
 
-När distributionen är klar ansluter du till konsolen OpenShift med din webbläsare med hjälp av den `OpenShift Console Url`. Du kan också SSH till OKD Master-databasen. Följande är ett exempel som använder utdata från distributionen:
+När distributionen är klar ansluter du till OpenShift-konsolen med webbläsaren med hjälp `OpenShift Console Url`av. Du kan också SSH till OKD-huvudservern. Följande är ett exempel som använder utdata från distributionen:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -156,7 +155,7 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Använd den [az group delete](/cli/azure/group) att ta bort resursgruppen, OpenShift klustret och alla relaterade resurser när de inte längre behövs.
+Använd kommandot [AZ Group Delete](/cli/azure/group) för att ta bort resurs gruppen, OpenShift-klustret och alla relaterade resurser när de inte längre behövs.
 
 ```azurecli 
 az group delete --name openshiftrg
@@ -165,5 +164,5 @@ az group delete --name openshiftrg
 ## <a name="next-steps"></a>Nästa steg
 
 - [Uppgifter efter distribution](./openshift-post-deployment.md)
-- [Felsöka distribution för OpenShift](./openshift-troubleshooting.md)
+- [Felsöka OpenShift-distribution](./openshift-troubleshooting.md)
 - [Komma igång med OKD](https://docs.okd.io)

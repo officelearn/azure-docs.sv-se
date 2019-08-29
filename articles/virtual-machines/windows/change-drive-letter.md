@@ -1,6 +1,6 @@
 ---
-title: 'Kontrollera enheten D: för en virtuell dator en datadisk | Microsoft Docs'
-description: 'Beskriver hur du ändrar enhetsbeteckningar för en virtuell Windows-dator så att du kan använda enheten D: som en dataenhet.'
+title: Ändra D:-enheten för en virtuell dator till en data disk | Microsoft Docs
+description: 'Beskriver hur du ändrar enhets beteckningar för en virtuell Windows-dator så att du kan använda enheten D: som en data enhet.'
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,58 +11,57 @@ ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 12986068a761b92611c557a0dfcf08905283b8bd
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 846bb7a5ea6c3f363a2811cf3feb30e37ff30504
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719249"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079866"
 ---
-# <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Använda enheten D: som en dataenhet på en virtuell Windows-dator
-Om programmet behöver för att använda D-hårddisken för att lagra data, följer du dessa instruktioner för att använda en annan enhetsbeteckning för den temporära disken. Använd aldrig den temporära disken för att lagra data som du behöver.
+# <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Använd D:-enheten som en data enhet på en virtuell Windows-dator
+Om ditt program behöver använda D-enheten för att lagra data, följer du dessa instruktioner för att använda en annan enhets beteckning för den tillfälliga disken. Använd aldrig den temporära disken för att lagra data som du behöver behålla.
 
-Om du ändrar storlek eller **stoppa (frigöra)** en virtuell dator, detta kan utlösa placeringen av den virtuella datorn till en ny hypervisor. En planerad eller oplanerad underhållshändelse kan också utlösa den här placering. I det här scenariot kommer den temporära disken omtilldelas till den första tillgängliga enhetsbeteckningen. Om du har ett program som uttryckligen kräver att enheten D:, måste följa dessa steg för att tillfälligt flytta pagefile.sys, koppla en ny datadisk och tilldela den en enhetsbeteckning D och flytta pagefile.sys tillbaka till den temporära enheten. När du är klar tar Azure inte tillbaka mappen D: om den virtuella datorn flyttas till en annan hypervisor.
+Om du ändrar storlek på eller **stoppar (frigör)** en virtuell dator kan detta utlösa placeringen av den virtuella datorn till en ny hypervisor. En planerad eller oplanerad underhålls händelse kan också utlösa denna placering. I det här scenariot omtilldelas den temporära disken till den första tillgängliga enhets beteckningen. Om du har ett program som specifikt kräver D: Drive måste du följa de här stegen för att tillfälligt flytta pagefile. sys, koppla en ny datadisk och tilldela den till den temporära enheten. När den är klar kommer Azure inte att ta tillbaka D: om den virtuella datorn flyttas till en annan hypervisor.
 
-Läs mer om hur Azure använder den temporära disken [förstå den temporära enheten på Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Mer information om hur Azure använder den temporära disken finns i [förstå den temporära enheten på Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-## <a name="attach-the-data-disk"></a>Koppla datadisken
-Först måste du koppla datadisken till den virtuella datorn. Om du vill göra detta med hjälp av portalen finns i [så här kopplar du en hanterad datadisk i Azure-portalen](attach-managed-disk-portal.md).
+## <a name="attach-the-data-disk"></a>Koppla data disken
+Först måste du koppla data disken till den virtuella datorn. Information om hur du gör detta med hjälp av portalen finns i [så här ansluter du en hanterad datadisk i Azure Portal](attach-managed-disk-portal.md).
 
-## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Tillfälligt flytta pagefile.sys till C-enheten
+## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Flytta tillfälligt pagefile. sys till C Drive
 1. Ansluta till den virtuella datorn. 
-2. Högerklicka på den **starta** menyn och välj **System**.
-3. I den vänstra menyn och väljer **avancerade systeminställningar**.
-4. I den **prestanda** väljer **inställningar**.
-5. Välj den **Avancerat** fliken.
-6. I den **virtuellt minne** väljer **ändra**.
-7. Välj den **C** enhet och klicka sedan på **storleken** och klicka sedan på **ange**.
-8. Välj den **D** enhet och klicka sedan på **Ingen växlingsfil** och klicka sedan på **ange**.
-9. Klicka på tillämpa. Du får en varning om att datorn måste startas om för att ändringarna ska börja gälla.
+2. Högerklicka på **Start** -menyn och välj **system**.
+3. På den vänstra menyn väljer du **Avancerade systeminställningar**.
+4. I avsnittet **prestanda** väljer du **Inställningar**.
+5. Välj fliken **Avancerat** .
+6. I avsnittet **virtuellt minne** väljer du **ändra**.
+7. Välj enhet **C** och klicka sedan på **Systemhanterad storlek** och klicka sedan på **Ange**.
+8. Välj enheten **D** och klicka sedan på **ingen växlings fil** och klicka sedan på **Ange**.
+9. Klicka på Använd. Du får en varning om att datorn måste startas om för att ändringarna ska börja gälla.
 10. Starta om den virtuella datorn.
 
-## <a name="change-the-drive-letters"></a>Ändra enhetsbeteckning
-1. När den virtuella datorn har startats om loggar du in på den virtuella datorn.
-2. Klicka på den **starta** meny och skriv **diskmgmt.msc** och tryck på RETUR. Diskhantering startar.
-3. Högerklicka på **D**, tillfälligt lagringsutrymme enhet och välj **ändra enhetsbeteckning och sökvägar**.
-4. Under enhetsbeteckning, välja en ny enhet, till exempel **T** och klicka sedan på **OK**. 
-5. Högerklicka på datadisken och välj **ändra enhetsbeteckning och sökvägar**.
-6. Välj enhet under enhetsbeteckning, **D** och klicka sedan på **OK**. 
+## <a name="change-the-drive-letters"></a>Ändra enhets beteckningar
+1. När den virtuella datorn har startats om loggar du in på den virtuella datorn igen.
+2. Klicka på **Start** -menyn och skriv **diskmgmt. msc** och tryck på RETUR. Disk hantering startar.
+3. Högerklicka på **D**, den tillfälliga lagrings enheten och välj **ändra enhets beteckning och sökvägar**.
+4. Under enhets beteckning väljer du en ny enhet, till exempel **t** och klickar sedan på **OK**. 
+5. Högerklicka på data disken och välj **ändra enhets beteckning och sökvägar**.
+6. Under enhets beteckning väljer du enhet **D** och klickar sedan på **OK**. 
 
-## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Flytta pagefile.sys tillbaka till tillfällig lagring-enhet
-1. Högerklicka på den **starta** menyn och välj **System**
-2. I den vänstra menyn och väljer **avancerade systeminställningar**.
-3. I den **prestanda** väljer **inställningar**.
-4. Välj den **Avancerat** fliken.
-5. I den **virtuellt minne** väljer **ändra**.
-6. Välj storleken på operativsystemenheten **C** och klicka på **Ingen växlingsfil** och klicka sedan på **ange**.
-7. Välj enhet för tillfällig lagring **T** och klicka sedan på **storleken** och klicka sedan på **ange**.
+## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Flytta växlings filen. sys tillbaka till den tillfälliga lagrings enheten
+1. Högerklicka på **Start** -menyn och välj **system**
+2. På den vänstra menyn väljer du **Avancerade systeminställningar**.
+3. I avsnittet **prestanda** väljer du **Inställningar**.
+4. Välj fliken **Avancerat** .
+5. I avsnittet **virtuellt minne** väljer du **ändra**.
+6. Välj OS-enhet **C** och klicka på **ingen växlings fil** och klicka sedan på **Ange**.
+7. Välj den tillfälliga lagrings enheten **T** och klicka sedan på Systemhanterad **storlek** och klicka sedan på **Ange**.
 8. Klicka på **Verkställ**. Du får en varning om att datorn måste startas om för att ändringarna ska börja gälla.
 9. Starta om den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
-* Du kan öka lagringsutrymmet till den virtuella datorn med [ansluta en disk för ytterligare data](attach-managed-disk-portal.md).
+* Du kan öka lagrings utrymmet som är tillgängligt för den virtuella datorn genom att [koppla ytterligare en data disk](attach-managed-disk-portal.md).
 

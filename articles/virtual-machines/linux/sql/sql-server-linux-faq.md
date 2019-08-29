@@ -1,26 +1,25 @@
 ---
-title: SQLServer på Linux Azure Virtual Machines vanliga frågor och svar | Microsoft Docs
-description: Den här artikeln innehåller svar på vanliga frågor om SQL Server körs på virtuella Linux Azure-datorer.
+title: SQL Server på Linux vanliga frågor och svar om Azure Virtual Machines | Microsoft Docs
+description: Den här artikeln innehåller svar på vanliga frågor om att köra SQL Server på Linux virtuella Azure-datorer.
 services: virtual-machines-linux
 documentationcenter: ''
 author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb1cafcf9405576749ea91aeea033c6ee783a026
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e729c608a2cad28c810f8d5236360c909a496b0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60739275"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082034"
 ---
-# <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Vanliga frågor om SQL Server på Linux Azure Virtual Machines
+# <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Vanliga frågor och svar om SQL Server på Linux Azure Virtual Machines
 
 > [!div class="op_single_selector"]
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
@@ -29,84 +28,84 @@ ms.locfileid: "60739275"
 Den här artikeln innehåller svar på några av de vanligaste frågorna om att köra [SQL Server på Linux Azure Virtual Machines](sql-server-linux-virtual-machines-overview.md).
 
 > [!NOTE]
-> Den här artikeln fokuserar på frågor som är specifika för SQL Server på virtuella Linux-datorer. Om du kör SQL Server på virtuella Windows-datorer finns i den [Windows vanliga frågor och svar](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+> Den här artikeln fokuserar på problem som är specifika för SQL Server på Linux virtuella datorer. Om du kör SQL Server på virtuella Windows-datorer kan du läsa [vanliga frågor och svar om Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a> Bilder
+## <a id="images"></a>Avbildningar
 
-1. **Vilken SQL Server-galleriavbildningar av virtuella datorer är tillgängliga?**
+1. **Vilka SQL Server Galleri avbildningar för virtuella datorer är tillgängliga?**
 
-   Azure underhåller avbildningar av virtuella datorer för alla stöds större versioner av SQL Server i alla utgåvor för både Linux och Windows. Mer information finns i den fullständiga listan med [Linux VM-avbildningar](sql-server-linux-virtual-machines-overview.md#create) och [Windows VM-avbildningar](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
+   Azure upprätthåller avbildningar av virtuella datorer för alla stödda större versioner av SQL Server på alla utgåvor för både Linux och Windows. Mer information finns i den fullständiga listan med [virtuella Linux](sql-server-linux-virtual-machines-overview.md#create) -avbildningar och [Windows VM](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)-avbildningar.
 
-1. **Befintliga SQL Server VM-galleriavbildningar uppdateras?**
+1. **Uppdateras befintliga SQL Server Galleri avbildningar för virtuella datorer?**
 
-   Varje två månaderna, SQL Server-avbildningar i galleriet för virtuella datorer uppdateras med den senaste Linux och Windows-uppdateringar. Detta omfattar de senaste uppdateringarna för system för Linux-avbildningar. Detta inkluderar alla uppdateringar som markeras som viktiga i Windows Update, inklusive viktiga uppdateringar för SQL Server-säkerhet och servicepack för Windows-avbildningar. Kumulativa uppdateringar för SQL Server hanteras annorlunda för Linux och Windows. För Linux ingår kumulativa uppdateringar för SQL Server även i uppdateringen. Men för närvarande uppdateras inte Windows-datorer med SQL Server eller Windows Server kumulativa uppdateringar.
+   Varannan månad uppdateras SQL Server avbildningar i galleriet för virtuella datorer med de senaste Linux-och Windows-uppdateringarna. För Linux-avbildningar omfattar detta de senaste system uppdateringarna. För Windows-avbildningar inkluderar detta alla uppdateringar som marker ATS som viktiga i Windows Update, inklusive viktiga SQL Server säkerhets uppdateringar och Service Pack. SQL Server kumulativa uppdateringar hanteras på olika sätt för Linux och Windows. SQL Server kumulativa uppdateringar för Linux ingår också i uppdateringen. Men för tillfället uppdateras inte virtuella Windows-datorer med SQL Server eller Windows Server kumulativa uppdateringar.
 
-1. **Vad relaterade SQL Server-paket installeras också?**
+1. **Vilka relaterade SQL Server paket installeras också?**
 
-   SQL Server-paket som är installerade som standard på SQL Server Linux-datorer finns i [installerade paket](sql-server-linux-virtual-machines-overview.md#packages).
+   Om du vill se de SQL Server-paket som installeras som standard på SQL Server virtuella Linux-datorer, se [installerade paket](sql-server-linux-virtual-machines-overview.md#packages).
 
-1. **Kan det få bort SQL Server-avbildningar från galleriet?**
+1. **Kan SQL Server avbildningar av virtuella datorer ta bort från galleriet?**
 
-   Ja. Azure underhåller en avbildning per större version och utgåva. Till exempel när ett nytt SQL Server servicepack släpps, lägger Azure till en ny avbildning i galleriet för detta servicepack. SQL Server-avbildning för tidigare servicepack tas omedelbart bort från Azure-portalen. Det är dock fortfarande tillgängligt för etablering från PowerShell för de kommande tre månaderna. Föregående bild av service pack är inte längre tillgänglig efter tre månader. Den här principen för borttagning av skulle gäller även om en SQL Server-version blir stöds inte när den når slutet av sin livscykel.
+   Ja. Azure upprätthåller bara en bild per huvud version och utgåva. Till exempel, när en ny SQL Server service pack lanseras, lägger Azure till en ny avbildning till galleriet för den service pack. SQL Server avbildningen för föregående service pack tas omedelbart bort från Azure Portal. Men det är fortfarande tillgängligt för etablering från PowerShell under de kommande tre månaderna. Föregående service packs avbildning är inte tillgänglig längre efter tre månader. Den här borttagnings principen gäller även om en SQL Server-version inte stöds när den når slutet av livs cykeln.
 
-## <a name="creation"></a>Skapa
+## <a name="creation"></a>Flikar
 
-1. **Hur skapar jag en Linux Azure-dator med SQL Server?**
+1. **Hur gör jag för att skapar du en virtuell Linux Azure-dator med SQL Server?**
 
-   Den enklaste lösningen är att skapa en Linux-dator med SQL Server. En självstudiekurs om registreringen i Azure och skapa en SQL-VM från portalen finns i [etablera en Linux SQL Server-dator i Azure-portalen](provision-sql-server-linux-virtual-machine.md). Du har också möjlighet att manuellt installera SQL Server på en virtuell dator med antingen en fritt licensierad version (utvecklare eller Express) eller genom att återanvända en licens för den lokala. Om du använda din egen licens måste du ha [License Mobility genom Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility).
+   Den enklaste lösningen är att skapa en virtuell Linux-dator som innehåller SQL Server. En själv studie kurs om hur du registrerar dig för Azure och skapar en virtuell SQL-dator från portalen finns i [etablera en Linux SQL Server virtuell dator i Azure Portal](provision-sql-server-linux-virtual-machine.md). Du kan också välja att manuellt installera SQL Server på en virtuell dator med antingen en fritt licensierad utgåva (utvecklare eller Express) eller genom att återanvända en lokal licens. Om du använder din egen licens måste du ha [licensmobilitet via Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility).
 
-1. **Varför kan jag lägga till en RHEL eller SLES SQL Server-dator med en Azure-prenumeration som har en utgiftsgräns?**
+1. **Varför kan jag inte etablera en RHEL-eller SLES-SQL Server VM med en Azure-prenumeration som har en utgifts gräns?**
 
-   RHEL- och SLES-datorer kräver en prenumeration med utan utgiftsgräns samt en verifierad betalningsmetod (vanligtvis ett kreditkort) som är associerade med prenumerationen. Om du etablerar en RHEL eller SLES VM utan att ta bort utgiftsgränsen ska inaktiveras din prenumeration och alla virtuella datorer/tjänster stoppas. Om du kör i det här tillståndet återaktivera prenumerationen [ta bort utgiftsgränsen](https://account.windowsazure.com/subscriptions). Dina återstående krediter återställs för den aktuella faktureringsperioden medan en tilläggsavgift för RHEL eller SLES VM-avbildning skickas kreditkortet om du väljer att starta och fortsätta att köra den.
+   RHEL och SLES Virtual Machines kräver en prenumeration utan utgifts gräns och en verifierad betalnings metod (vanligt vis ett kredit kort) som är associerad med prenumerationen. Om du etablerar en RHEL-eller SLES-VM utan att ta bort utgifts gränsen, inaktive ras prenumerationen och alla virtuella datorer/tjänster stoppas. Om du använder det här läget för att återaktivera prenumerationen [tar du bort utgifts gränsen](https://account.windowsazure.com/subscriptions). Dina återstående krediter återställs för den aktuella fakturerings perioden, men en RHEL eller SLES VM Image-tillägg skickas till ditt kredit kort om du väljer att starta om och fortsätta att köra den.
 
-## <a name="licensing"></a>Licensiering
+## <a name="licensing"></a>Licenser
 
 1. **Hur kan jag installera min licensierade version av SQL Server på en virtuell Azure-dator?**
 
-   Skapa först en Linux endast OS-dator. Kör sedan den [SQL Server-installationsstegen](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) för din Linux-distribution. Om du installerar någon av fritt licensierade versioner av SQL Server, måste du också ha en SQL Server-licens och [License Mobility genom Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/).
+   Skapa först en virtuell Linux OS-dator. Kör sedan [SQL Server installations stegen](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) för din Linux-distribution. Om du inte installerar någon av de fritt licensierade versionerna av SQL Server måste du också ha en SQL Server licens och [licensmobilitet via Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
-1. **Finns det Bring-Your-Own-License (BYOL) Linux virtuella datoravbildningar för SQL Server?**
+1. **Finns det BYOL virtuella Linux-dator avbildningar för SQL Server?**
 
-   Det finns inga BYOL Linux-avbildningar för virtuella datorer för SQL Server för tillfället. Men kan du manuellt installera SQL Server på en virtuell dator endast Linux enligt beskrivningen i föregående frågor.
+   För närvarande finns det inga virtuella BYOL Linux-avbildningar för SQL Server. Du kan dock installera SQL Server manuellt på en virtuell Linux-dator som beskrivs i föregående frågor.
 
 1. **Kan jag ändra en virtuell till att använda min egen SQL Server-licens om den skapades från en av galleriavbildningarna med betala per användning?**
 
-   Nej. Du kan inte byta från betala per sekund licensing till att använda din egen licens. Du måste skapa en ny Linux-VM, installera SQL Server och migrera dina data. Se föregående fråga för mer information om hur du aktiverar din egen licens.
+   Nej. Du kan inte växla från betala per sekund-licensiering till att använda din egen licens. Du måste skapa en ny virtuell Linux-dator, installera SQL Server och migrera dina data. Se föregående fråga om du vill ha mer information om hur du aktiverar din egen licens.
 
 ## <a name="administration"></a>Administration
 
-1. **Kan jag hantera en Linux SQL Server-dator med SQL Server Management Studio (SSMS)?**
+1. **Kan jag hantera en virtuell Linux SQL Server-dator med SQL Server Management Studio (SSMS)?**
 
-   Ja, men SSMS är för närvarande endast Windows-verktyget. Du måste ansluta via en fjärranslutning från en Windows-dator att använda SSMS med Linux SQL Server-datorer. Lokalt på Linux, den nya [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) verktyget kan utföra många administrativa uppgifter. Ett plattformsoberoende databas-hanteringsverktyg finns [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
+   Ja, men SSMS är för närvarande ett Windows-verktyg. Du måste fjärrans luta från en Windows-dator för att kunna använda SSMS med Linux SQL Server virtuella datorer. Det nya [MSSQL-conf-](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) verktyget kan utföra många administrativa uppgifter lokalt på Linux. En databas hanterings verktyg över plattformar finns i [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
 1. **Kan jag ta bort SQL Server helt från en virtuell SQL-dator?**
 
-   Ja, men fortsätter du att debiteras för din SQL-VM, enligt beskrivningen i [Pricing guidance för SQL Server Azure VM](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Om du inte längre behöver SQL Server kan du distribuera en ny virtuell dator och migrera data och program till den nya virtuella datorn. Sedan kan du ta bort den virtuella SQL Server-datorn.
+   Ja, men du kommer att fortsätta att debiteras för din virtuella SQL-dator enligt beskrivningen i [pris vägledningen för SQL Server virtuella Azure-datorer](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Om du inte längre behöver SQL Server kan du distribuera en ny virtuell dator och migrera data och program till den nya virtuella datorn. Sedan kan du ta bort den virtuella SQL Server-datorn.
 
-## <a name="updating-and-patching"></a>Uppdatering och uppdatera
+## <a name="updating-and-patching"></a>Uppdatering och uppdatering
 
-1. **Hur uppgraderar jag till en ny version/utgåva av SQL Server i en Azure-dator?**
+1. **Hur gör jag för att uppgradera till en ny version/utgåva av SQL Server på en virtuell Azure-dator?**
 
    För närvarande finns det ingen uppgradering på plats för SQL Server som körs på en virtuell dator i Azure. Skapa en ny virtuell dator i Azure med den önskade versionen/utgåvan av SQL Server och migrera sedan databaserna till den nya servern med hjälp av [standardmetoderna för datamigrering](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
 
 ## <a name="general"></a>Allmänt
 
-1. **Stöds lösningar för hög tillgänglighet för SQL Server på Azure Virtual Machines?**
+1. **Stöds SQL Server lösningar med hög tillgänglighet på virtuella Azure-datorer?**
 
-   Inte just nu. Always On Tillgänglighetsgrupper och redundanskluster båda kräver en klusterlösningen i Linux, till exempel Pacemaker. De Linux-distributionerna som stöds för SQL Server stöder inte sitt tillägg för hög tillgänglighet i molnet.
+   Inte just nu. Always on-tillgänglighetsgrupper och redundanskluster kräver både en kluster lösning i Linux, till exempel pacemaker. Linux-distributioner som stöds för SQL Server har inte stöd för sina hög tillgänglighets tillägg i molnet.
 
 ## <a name="resources"></a>Resurser
 
 **Virtuella Linux-datorer**:
 
-* [Översikt över SQLServer på en virtuell Linux-dator](sql-server-linux-virtual-machines-overview.md)
-* [Etablera en SQL Server Linux VM](provision-sql-server-linux-virtual-machine.md)
+* [Översikt över SQL Server på en virtuell Linux-dator](sql-server-linux-virtual-machines-overview.md)
+* [Etablera en virtuell SQL Server Linux-dator](provision-sql-server-linux-virtual-machine.md)
 * [Dokumentation om SQL Server på Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
 **Virtuella Windows-datorer**:
 
-* [Översikt över SQLServer på en Windows VM](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
-* [Etablera en virtuell dator med SQL Server Windows](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
+* [Översikt över SQL Server på en virtuell Windows-dator](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [Etablera en SQL Server virtuell Windows-dator](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
 * [Vanliga frågor och svar (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)

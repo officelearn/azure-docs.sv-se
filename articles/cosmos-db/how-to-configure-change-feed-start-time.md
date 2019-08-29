@@ -3,15 +3,15 @@ title: Konfigurera Start tiden för Change feed processor-Azure Cosmos DB
 description: Lär dig hur du konfigurerar en Change feed-processor för att börja läsa från ett visst datum och en angiven tid
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 00b1553a018e816b4ec1672d27534d576e71a7f6
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 600556a06d3f58c4d2ec79a49fdee5e8e04d4036
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990773"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093652"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Konfigurera Start tiden för Change feed processor
 

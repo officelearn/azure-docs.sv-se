@@ -1,31 +1,30 @@
 ---
-title: Anpassad orkestreringsstatus i varaktiga funktioner – Azure
-description: Lär dig hur du konfigurerar och använder anpassad orkestreringsstatus för varaktiga funktioner.
+title: Status för anpassad dirigering i Durable Functions – Azure
+description: Lär dig hur du konfigurerar och använder anpassad Dirigerings status för Durable Functions.
 services: functions
 author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8d36c797e80702302a1954d2f00e1e4daabcaa88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b93b0cd5053db7d8a2b6aebd30d32f542670d90
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60710008"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098124"
 ---
-# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Anpassad orkestreringsstatus i varaktiga funktioner (Azure Functions)
+# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status för anpassad dirigering i Durable Functions (Azure Functions)
 
-Anpassad orkestreringsstatus kan du ange ett värde för anpassad status för orchestrator-funktion. Den här statusen tillhandahålls via HTTP GetStatus-API eller `DurableOrchestrationClient.GetStatusAsync` API.
+Med anpassad Orchestration-status kan du ange ett anpassat status värde för din Orchestrator-funktion. Den här statusen tillhandahålls via http-GetStatus API eller `DurableOrchestrationClient.GetStatusAsync` API.
 
-## <a name="sample-use-cases"></a>Exemplet användningsfall
+## <a name="sample-use-cases"></a>Exempel på användnings fall
 
-### <a name="visualize-progress"></a>Visualisera pågår
+### <a name="visualize-progress"></a>Visualisera förlopp
 
-Klienter kan söka slutpunkten status och visa förloppet användargränssnitt som hjälper dig att visualiserar det aktuella steget för körning. I följande exempel visar förloppet delning:
+Klienter kan avsöka status slut punkten och visa ett förlopps gränssnitt som visualiserar det aktuella körnings steget. Följande exempel visar status delning:
 
 #### <a name="c"></a>C#
 
@@ -54,7 +53,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -80,7 +79,7 @@ module.exports = async function(context, name) {
 };
 ```
 
-Och sedan tar klienten emot utdata från orchestration endast när `CustomStatus` anges till ”London”:
+Klienten får sedan endast utdata från dirigeringen när `CustomStatus` fältet är inställt på "London":
 
 #### <a name="c"></a>C#
 
@@ -115,7 +114,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -145,14 +144,14 @@ module.exports = async function(context, req) {
 ```
 
 > [!NOTE]
-> I JavaScript, den `customStatus` fält ska anges när nästa `yield` eller `return` åtgärd har schemalagts.
+> I Java Script `customStatus` anges fältet när nästa `yield` eller `return` åtgärd schemaläggs.
 
 > [!WARNING]
-> När du utvecklar lokalt i JavaScript, behöver du ställa in miljövariabeln `WEBSITE_HOSTNAME` till `localhost:<port>`, t.ex. `localhost:7071` att använda metoder på `DurableOrchestrationClient`. Mer information om det här kravet finns i den [GitHub-ärende](https://github.com/Azure/azure-functions-durable-js/issues/28).
+> När du utvecklar lokalt i Java Script måste du ställa in miljövariabeln `WEBSITE_HOSTNAME` till `localhost:<port>`, t. ex. `localhost:7071`använda metoder på `DurableOrchestrationClient`. Mer information om det här kravet finns i [GitHub-problemet](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="output-customization"></a>Utdata-anpassning
 
-En annan intressant scenario är att segmentera användare genom att returnera anpassade utdata baserat på unika egenskaper eller interaktioner. Med hjälp av anpassad orkestreringsstatus förblir klientkod Allmänt. Alla huvudsakliga ändringar sker på serversidan som visas i följande exempel:
+Ett annat intressant scenario är att segmentera användare genom att returnera anpassade utdata baserat på unika egenskaper eller interaktioner. Med hjälp av anpassad Dirigerings status förblir kod på klient sidan generisk. Alla huvudsakliga ändringar sker på Server sidan som visas i följande exempel:
 
 #### <a name="c"></a>C#
 
@@ -192,7 +191,7 @@ public static void Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -225,9 +224,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-### <a name="instruction-specification"></a>Instruktionen-specifikation
+### <a name="instruction-specification"></a>Instruktions specifikation
 
-Orchestrator kan ge unika instruktioner till klienter via anpassade tillstånd. Anpassade status anvisningarna ska mappas till stegen i orchestration-kod:
+Orchestrator kan tillhandahålla unika instruktioner till klienterna via det anpassade läget. De anpassade status anvisningarna kommer att mappas till stegen i Orchestration-koden:
 
 #### <a name="c"></a>C#
 
@@ -257,7 +256,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -286,7 +285,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="sample"></a>Exempel
 
-I följande exempel och anges anpassade status först.
+I följande exempel anges anpassad status först.
 
 ### <a name="c"></a>C#
 
@@ -303,7 +302,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -319,14 +318,14 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-När orchestration körs, kan externa klienter hämta den här anpassade status:
+Medan dirigeringen körs kan externa klienter hämta den anpassade statusen:
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 ```
 
-Klienter kommer att få följande svar:
+Klienterna får följande svar:
 
 ```http
 {
@@ -340,9 +339,9 @@ Klienter kommer att få följande svar:
 ```
 
 > [!WARNING]
-> Anpassade nyttolasten är begränsad till 16 KB av UTF-16 JSON-texten eftersom den måste kunna få plats i en kolumn för Azure Table Storage. Utvecklare kan använda extern lagring om det behövs större nyttolast.
+> Den anpassade statusen för nytto lasten är begränsad till 16 KB UTF-16 JSON-text eftersom den måste kunna få plats i en Azure Table Storage-kolumn. Utvecklare kan använda extern lagring om de behöver större nytto Last.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om HTTP-API: er i varaktiga funktioner](durable-functions-http-api.md)
+> [Läs mer om HTTP-API: er i Durable Functions](durable-functions-http-api.md)

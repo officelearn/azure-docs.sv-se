@@ -1,6 +1,6 @@
 ---
-title: Ändra en tillgänglighetsuppsättning för virtuella datorer | Microsoft Docs
-description: Lär dig mer om att ändra tillgänglighetsuppsättning för dina virtuella datorer med Azure PowerShell och distributionsmodellen för Resource Manager.
+title: Ändra tillgänglighets uppsättning för virtuella datorer | Microsoft Docs
+description: Lär dig hur du ändrar tillgänglighets uppsättningen för dina virtuella datorer med hjälp av Azure PowerShell och distributions modellen för Resource Manager.
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -11,27 +11,26 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 9e3aa213b2ba58e2a09e0364ab6cd9bc42d131d8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 0a91a80c18b04e257daa9a42fd7933351fe3a35c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719256"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080136"
 ---
-# <a name="change-the-availability-set-for-a-windows-vm"></a>Ändra tillgänglighetsuppsättning för en virtuell Windows-dator
-Följande steg beskriver hur du ändrar tillgänglighetsuppsättning för en virtuell dator med Azure PowerShell. En virtuell dator kan bara läggas till en tillgänglighetsuppsättning när den skapas. Du kan ändra tillgängligheten ange måste du ta bort och återskapa den virtuella datorn. 
+# <a name="change-the-availability-set-for-a-windows-vm"></a>Ändra tillgänglighets uppsättning för en virtuell Windows-dator
+Följande steg beskriver hur du ändrar tillgänglighets uppsättningen för en virtuell dator med hjälp av Azure PowerShell. En virtuell dator kan bara läggas till i en tillgänglighets uppsättning när den skapas. Om du vill ändra tillgänglighets uppsättningen måste du ta bort och sedan återskapa den virtuella datorn. 
 
-Den här artikeln senast har testats på 2/12/2019 med hjälp av den [Azure Cloud Shell](https://shell.azure.com/powershell) och [Az PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.2.0 eller senare.
+Den här artikeln testades senast 2/12/2019 med hjälp av [Azure Cloud Shell](https://shell.azure.com/powershell) och [AZ PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) -modulens version 1.2.0.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="change-the-availability-set"></a>Ändra tillgänglighetsuppsättning 
+## <a name="change-the-availability-set"></a>Ändra tillgänglighets uppsättning 
 
-Följande skript innehåller ett exempel på samla in informationen som krävs, tar bort den ursprungliga virtuella datorn och sedan återskapa den i en ny tillgänglighetsuppsättning.
+Följande skript innehåller ett exempel på hur du samlar in nödvändig information, tar bort den ursprungliga virtuella datorn och sedan återskapar den i en ny tillgänglighets uppsättning.
 
 ```powershell
 # Set variables
@@ -111,5 +110,5 @@ Följande skript innehåller ett exempel på samla in informationen som krävs, 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lägga till ytterligare lagring till den virtuella datorn genom att lägga till ytterligare [datadisk](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Lägg till ytterligare lagrings utrymme i den virtuella datorn [](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)genom att lägga till ytterligare en datadisk.
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 03/12/2019
-ms.openlocfilehash: 9b28a8efcc09954d9046ad1dda3ba5f10f45bdfa
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.date: 08/27/2019
+ms.openlocfilehash: 8948a0fe6112df0d29c0f04685dadbd379a4a382
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840468"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098910"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använd tjänst slut punkter och regler för virtuella nätverk för databas servrar
 
@@ -31,44 +31,7 @@ Om du vill skapa en regel för virtuellt nätverk måste du först vara en [tjä
 
 Om du bara skapar en regel för virtuella nätverk kan du gå vidare till stegen och förklaringen [längre fram i den här artikeln](#anchor-how-to-by-using-firewall-portal-59j).
 
-<a name="anch-terminology-and-description-82f" />
-
-## <a name="terminology-and-description"></a>Terminologi och beskrivning
-
-**Virtuellt nätverk:** Du kan ha virtuella nätverk kopplade till din Azure-prenumeration.
-
-**Delnät** Ett virtuellt nätverk innehåller **undernät**. Alla virtuella datorer i Azure (VM) som du har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra Compute-noder. Compute-noder utanför det virtuella nätverket kan inte komma åt ditt virtuella nätverk om du inte konfigurerar din säkerhet att tillåta åtkomst.
-
-**Virtual Network tjänst slut punkt:** En [Virtual Network tjänst slut punkt][vm-virtual-network-service-endpoints-overview-649d] är ett undernät vars egenskaps värden innehåller ett eller flera formella namn för Azure-tjänst typ. I den här artikeln är vi intresserade av typ namnet **Microsoft. SQL**, som refererar till Azure-tjänsten med namnet SQL Database.
-
-**Regel för virtuellt nätverk:** En regel för virtuella nätverk för din SQL Database-Server är ett undernät som listas i åtkomst kontrol listan (ACL) för din SQL Database-Server. För att det ska finnas i ACL: en för din SQL Database måste under nätet innehålla namnet **Microsoft. SQL** -typ.
-
-En regel för virtuella nätverk instruerar SQL Database servern att acceptera kommunikation från varje nod som finns på under nätet.
-
-<a name="anch-benefits-of-a-vnet-rule-68b" />
-
-## <a name="benefits-of-a-virtual-network-rule"></a>Fördelar med en virtuell nätverks regel
-
-De virtuella datorerna i under näten kan inte kommunicera med din SQL Database förrän du vidtar åtgärder. En åtgärd som upprättar kommunikationen är att skapa en regel för virtuella nätverk. Anledningen till att du väljer regel metoden för VNet kräver en jämförelse-och-kontrast-diskussion som involverar de konkurrerande säkerhets alternativ som erbjuds av brand väggen.
-
-### <a name="a-allow-access-to-azure-services"></a>A. Tillåt åtkomst till Azure-tjänster
-
-Fönstret brand vägg har en **på/av-** knapp med etiketten **Tillåt åtkomst till Azure-tjänster**. Inställningen **on** tillåter kommunikation från alla Azure IP-adresser och alla Azure-undernät. Dessa Azure IP-adresser eller undernät kanske inte ägs av dig. Den här inställningen är förmodligen mer öppen än du vill att din SQL Database ska vara. Funktionen för regel för virtuella nätverk ger en mycket noggrannare detaljerad kontroll.
-
-### <a name="b-ip-rules"></a>B. IP-regler
-
-Med SQL Database brand väggen kan du ange IP-adressintervall från vilka kommunikationen godkänns i SQL Database. Den här metoden är bra för stabila IP-adresser som ligger utanför Azures privata nätverk. Men många noder i det privata Azure-nätverket har kon figurer ATS med *dynamiska* IP-adresser. Dynamiska IP-adresser kan ändras, till exempel när den virtuella datorn startas om. Det skulle vara Folly att ange en dynamisk IP-adress i en brand Väggs regel i en produktions miljö.
-
-Du kan hämta IP-alternativet genom att skaffa en *statisk* IP-adress för den virtuella datorn. Mer information finns i [Konfigurera privata IP-adresser för en virtuell dator med hjälp av Azure Portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
-
-Den statiska IP-metoden kan dock bli svår att hantera, och den är kostsam när den görs i stor skala. Det är enklare att upprätta och hantera virtuella nätverks regler.
-
-> [!NOTE]
-> Du kan inte ha SQL Database i ett undernät än. Om din Azure SQL Database-Server var en nod i ett undernät i det virtuella nätverket kan alla noder i det virtuella nätverket kommunicera med din SQL Database. I det här fallet kan de virtuella datorerna kommunicera med SQL Database utan att behöva några regler för virtuella nätverk eller IP-regler.
-
-Från och med september 2017 är Azure SQL Database tjänsten ännu inte bland de tjänster som kan tilldelas till ett undernät.
-
-<a name="anch-details-about-vnet-rules-38q" />
+<!--<a name="anch-details-about-vnet-rules-38q"/> -->
 
 ## <a name="details-about-virtual-network-rules"></a>Information om regler för virtuella nätverk
 
@@ -141,27 +104,7 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Effekt av att ta bort Tillåt Azure-tjänster åtkomst till servern
 
-Många användare vill ta bort **ge Azure-tjänster åtkomst till servern** från sina Azure SQL-servrar och ersätta dem med en brand Väggs regel för VNet.
-Borttagning av detta påverkar dock följande funktioner:
-
-### <a name="import-export-service"></a>Importera export tjänst
-
-Azure SQL Database importera export tjänsten körs på virtuella datorer i Azure. De här virtuella datorerna finns inte i ditt VNet och kan därför få en Azure IP-adress när du ansluter till databasen. Om du tar bort **Tillåt Azure-tjänster åtkomst till servern** kommer de virtuella datorerna inte att kunna komma åt dina databaser.
-Du kan undvika problemet. Kör BACPAC import eller export direkt i din kod med hjälp av DACFx-API: et. Se till att detta distribueras i en virtuell dator som finns i det VNet-undernät som du har angett brand Väggs regeln för.
-
-### <a name="sql-database-query-editor"></a>Redigera Frågeredigeraren SQL Database
-
-Den Azure SQL Database Frågeredigeraren distribueras på virtuella datorer i Azure. De här virtuella datorerna finns inte i ditt VNet. De virtuella datorerna får därför en Azure IP-adress när de ansluter till din databas. Om du tar bort **Tillåt Azure-tjänster åtkomst till servern**kommer de virtuella datorerna inte att kunna komma åt dina databaser.
-
-### <a name="table-auditing"></a>Tabell granskning
-
-För närvarande finns det två sätt att aktivera granskning på SQL Database. Tabell granskningen Miss lyckas när du har aktiverat tjänstens slut punkter på Azure-SQL Server. Minskning här är att gå vidare till BLOB-granskning.
-
-### <a name="impact-on-data-sync"></a>Inverkan på datasynkronisering
-
-Azure SQL Database har funktionen datasynkronisering som ansluter till dina databaser med hjälp av Azure IP-adresser. När du använder tjänst slut punkter är det troligt att du inaktiverar Tillåt att **Azure-tjänster får åtkomst till Server** åtkomst till din SQL Database-Server. Funktionen för synkronisering av data kommer att brytas.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Effekt av att använda virtuella nätverks slut punkter med Azure Storage
 
@@ -174,6 +117,7 @@ PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från A
 #### <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
@@ -182,12 +126,12 @@ PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från A
 3.  Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information hittar du i den här [hand boken](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) .
  
 #### <a name="steps"></a>Steg
-1. **Registrera din SQL Database-Server** med Azure Active Directory (AAD) i PowerShell:
+1. I PowerShell **registrerar du Azure-SQL Server** som är värd för Azure SQL Data Warehouse-instansen med Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
    Select-AzSubscription -SubscriptionId your-subscriptionId
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
     
    1. Skapa ett **Allmänt-syfte v2-lagrings konto** med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -196,7 +140,7 @@ PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från A
    > - Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [hand boken](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och klickar på **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till din SQL Database-Server.
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och klickar på **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till Azure SQL Server som är värd för din Azure SQL Data Warehouse som du har registrerat med Azure Active DIRECOTORY (AAD) som i steg 1.
 
    > [!NOTE] 
    > Endast medlemmar med ägar behörighet kan utföra det här steget. De olika inbyggda rollerna för Azure-resurser finns i den här [guiden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

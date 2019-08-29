@@ -1,6 +1,6 @@
 ---
-title: Ladda upp en generalize VHD för att skapa flera virtuella datorer i Azure | Microsoft Docs
-description: Ladda upp en generaliserad virtuell Hårddisk till ett Azure storage-konto för att skapa en virtuell Windows-dator ska användas med Resource Manager-distributionsmodellen.
+title: Ladda upp en generaliserad virtuell hård disk för att skapa flera virtuella datorer i Azure | Microsoft Docs
+description: Överför en generaliserad virtuell hård disk till ett Azure Storage-konto för att skapa en virtuell Windows-dator som ska användas med distributions modellen för Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,118 +11,117 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: bdfcb729aed88dd93a2ce61a8d28f34a5c327713
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ac1572a75a3310afb9d0e0a34c6751ed12d839f9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710371"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102426"
 ---
-# <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Ladda upp en generaliserad virtuell Hårddisk till Azure för att skapa en ny virtuell dator
+# <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Överför en generaliserad virtuell hård disk till Azure för att skapa en ny virtuell dator
 
-Det här avsnittet beskriver överföra en generaliserad ohanterade diskar till ett lagringskonto och sedan skapa en ny virtuell dator med hjälp av den överförda disken. En generaliserad avbildning av virtuell Hårddisk har haft all personlig information tas bort med hjälp av Sysprep. 
+Det här avsnittet handlar om att ladda upp en generaliserad ohanterad disk till ett lagrings konto och sedan skapa en ny virtuell dator med hjälp av den uppladdade disken. En generaliserad VHD-avbildning har haft all personlig konto information borttagen med hjälp av Sysprep. 
 
-Om du vill skapa en virtuell dator från en specialiserad virtuell Hårddisk i ett lagringskonto finns i [skapa en virtuell dator från en specialiserad virtuell Hårddisk](sa-create-vm-specialized.md).
+Om du vill skapa en virtuell dator från en specialiserad virtuell hård disk i ett lagrings konto, se [skapa en virtuell dator från en specialiserad virtuell hård disk](sa-create-vm-specialized.md).
 
-Det här avsnittet beskrivs med hjälp av storage-konton, men vi rekommenderar kunder flytten till att använda Managed Disks i stället. En fullständig genomgång av hur du förbereder, ladda upp och skapa en ny virtuell dator med hanterade diskar, se [skapa en ny virtuell dator från en generaliserad virtuell Hårddisk som har överförts till Azure med hjälp av Managed Disks](upload-generalized-managed.md).
+Det här avsnittet beskriver hur du använder lagrings konton, men vi rekommenderar att kunderna flyttar till att använda Managed Disks i stället. En fullständig genom gång av hur du förbereder, laddar upp och skapar en ny virtuell dator med hjälp av Managed disks finns i [skapa en ny virtuell dator från en generaliserad virtuell hård disk som överförs till Azure med hjälp av Managed disks](upload-generalized-managed.md).
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-vm"></a>Förbereda den virtuella datorn
 
-En generaliserad virtuell Hårddisk har haft all personlig information tas bort med hjälp av Sysprep. Om du tänker använda den virtuella Hårddisken som en bild för att skapa nya virtuella datorer från bör du:
+En generaliserad virtuell hård disk har haft all personlig konto information borttagen med hjälp av Sysprep. Om du tänker använda den virtuella hård disken som en avbildning för att skapa nya virtuella datorer från bör du:
   
-  * [Förbereda en Windows virtuell Hårddisk för överföring till Azure](prepare-for-upload-vhd-image.md). 
-  * Generalisera en virtuell dator med Sysprep
+  * [Förbered en virtuell Windows-hårddisk att ladda upp till Azure](prepare-for-upload-vhd-image.md). 
+  * Generalisera den virtuella datorn med Sysprep
 
-### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalisera en Windows-dator med hjälp av Sysprep
-Det här avsnittet visar hur att generalisera den virtuella datorn i Windows för användning som en bild. Sysprep tar bland annat bort all din personliga kontoinformation och förbereder datorn så att den kan användas som en avbildning. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
+### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalisera en virtuell Windows-dator med Sysprep
+Det här avsnittet visar hur du generaliserar din virtuella Windows-dator för användning som en avbildning. Sysprep tar bland annat bort all din personliga kontoinformation och förbereder datorn så att den kan användas som en avbildning. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
 
-Se till att serverroller som körs på datorn som stöds av Sysprep. Mer information finns i [Sysprep-stöd för serverroller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> Om du kör Sysprep innan du laddar upp en virtuell Hårddisk till Azure för första gången, kontrollera att du har [förberett din virtuella dator](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) innan du kör Sysprep. 
+> Om du kör Sysprep innan du laddar upp din virtuella hård disk till Azure för första gången, måste du se till att du har för [berett den virtuella](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) datorn innan du kör Sysprep. 
 > 
 > 
 
-1. Logga in på den virtuella datorn i Windows.
+1. Logga in på den virtuella Windows-datorn.
 2. Öppna Kommandotolken som administratör. Ändra katalogen till **%windir%\system32\sysprep** och kör sedan `sysprep.exe`.
 3. Välj **Starta OOBE för systemet (Out-of-Box Experience)** i dialogrutan **Systemförberedelseverktyget** och kontrollera att kryssrutan **Generalisera** är markerad.
-4. I **Avslutningsalternativ**väljer **avstängning**.
+4. I **avslutnings alternativ**väljer du **Stäng**av.
 5. Klicka på **OK**.
    
     ![Starta Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. När Sysprep har slutförts stängs den virtuella datorn av. 
 
 > [!IMPORTANT]
-> Starta inte om den virtuella datorn förrän du är klar ladda upp den virtuella Hårddisken till Azure eller skapa en avbildning från den virtuella datorn. Om den virtuella datorn av misstag hämtar om, kan du köra Sysprep för att generalisera den igen.
+> Starta inte om den virtuella datorn förrän du är klar med att ladda upp den virtuella hård disken till Azure eller skapa en avbildning från den virtuella datorn. Om den virtuella datorn oavsiktligt startas om kör du Sysprep för att generalisera den igen.
 > 
 > 
 
 
-## <a name="upload-the-vhd"></a>Ladda upp den virtuella Hårddisken
+## <a name="upload-the-vhd"></a>Ladda upp den virtuella hård disken
 
-Ladda upp den virtuella Hårddisken till ett Azure storage-konto.
+Överför den virtuella hård disken till ett Azure Storage-konto.
 
 ### <a name="log-in-to-azure"></a>Logga in på Azure
-Om du inte redan har PowerShell-version 1.4 eller senare installerat, läsa [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+Om du inte redan har PowerShell version 1,4 eller senare installerat läser [du så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
-1. Öppna Azure PowerShell och logga in på ditt Azure-konto. Ett popup-fönster öppnas där du kan ange dina autentiseringsuppgifter för Azure-konto.
+1. Öppna Azure PowerShell och logga in på ditt Azure-konto. Ett popup-fönster öppnas där du kan ange dina autentiseringsuppgifter för Azure-kontot.
    
     ```powershell
     Connect-AzAccount
     ```
-2. Hämta prenumerations-ID för dina tillgängliga prenumerationer.
+2. Hämta prenumerations-ID: na för dina tillgängliga prenumerationer.
    
     ```powershell
     Get-AzSubscription
     ```
-3. Ange rätt prenumeration med hjälp av prenumerations-ID. Ersätt `<subscriptionID>` med ID: T för rätt prenumeration.
+3. Ange rätt prenumeration med prenumerations-ID: t. Ersätt `<subscriptionID>` med ID: t för rätt prenumeration.
    
     ```powershell
     Select-AzSubscription -SubscriptionId "<subscriptionID>"
     ```
 
-### <a name="get-the-storage-account"></a>Hämta lagringskontot
-Du behöver ett lagringskonto i Azure för att lagra den uppladdade avbildningen. Du kan antingen använda ett befintligt lagringskonto eller skapa en ny. 
+### <a name="get-the-storage-account"></a>Hämta lagrings kontot
+Du behöver ett lagrings konto i Azure för att lagra den uppladdade VM-avbildningen. Du kan antingen använda ett befintligt lagrings konto eller skapa ett nytt. 
 
-Om du vill visa tillgängliga storage-konton, skriver du:
+Om du vill visa tillgängliga lagrings konton skriver du:
 
 ```powershell
 Get-AzStorageAccount
 ```
 
-Om du vill använda ett befintligt lagringskonto fortsätter du till överföringen på VM-avbildning.
+Om du vill använda ett befintligt lagrings konto går du vidare till avsnittet Ladda upp avbildningen av den virtuella datorn.
 
-Följ dessa steg om du vill skapa ett lagringskonto:
+Följ dessa steg om du behöver skapa ett lagrings konto:
 
-1. Behöver du namnet på resursgruppen där lagringskontot ska skapas. Om du vill ta reda på alla resursgrupper i prenumerationen, skriver du:
+1. Du behöver namnet på den resurs grupp där lagrings kontot ska skapas. Om du vill ta reda på alla resurs grupper som finns i din prenumeration skriver du:
    
     ```powershell
     Get-AzResourceGroup
     ```
 
-    Skapa en resursgrupp med namnet **myResourceGroup** i den **västra USA** region, typ:
+    Om du vill skapa en resurs grupp med namnet **myResourceGroup** i regionen **USA, västra** , skriver du:
 
     ```powershell
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Skapa ett lagringskonto med namnet **mystorageaccount** i den här resursgruppen med hjälp av den [New AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet:
+2. Skapa ett lagrings konto med namnet **mystorageaccount** i den här resurs gruppen genom att använda cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) :
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
  
-### <a name="start-the-upload"></a>Startas guiden Överför 
+### <a name="start-the-upload"></a>Starta överföringen 
 
-Använd den [Lägg till AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet för att ladda upp avbildningen till en behållare i ditt storage-konto. Det här exemplet överför filen **myVHD.vhd** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagringskonto med namnet **mystorageaccount** i den **myResourceGroup** resursgrupp. Filen ska placeras i behållaren med namnet **mycontainer** och det nya filnamnet blir **myUploadedVHD.vhd**.
+Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp avbildningen till en behållare i ditt lagrings konto. I det här exemplet överförs filen **myVHD. VHD** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagrings konto med namnet **mystorageaccount** i resurs gruppen **myResourceGroup** . Filen kommer att placeras i behållaren som heter behållaren och det nya fil namnet kommer att vara **myUploadedVHD. VHD**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -132,7 +131,7 @@ Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
 ```
 
 
-Om detta lyckas kan du få ett svar som ser ut ungefär så här:
+Om det lyckas får du ett svar som ser ut ungefär så här:
 
 ```powershell
 MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
@@ -146,16 +145,16 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Det här kommandot kan ta en stund att slutföra beroende på din nätverksanslutning och storleken på VHD-filen.
+Beroende på din nätverks anslutning och storleken på VHD-filen kan det här kommandot Ta en stund att slutföra.
 
 
 ## <a name="create-a-new-vm"></a>Skapa en ny virtuell dator 
 
-Du kan nu använda den överförda virtuella Hårddisken för att skapa en ny virtuell dator. 
+Du kan nu använda den överförda virtuella hård disken för att skapa en ny virtuell dator. 
 
-### <a name="set-the-uri-of-the-vhd"></a>Ange URI för den virtuella Hårddisken
+### <a name="set-the-uri-of-the-vhd"></a>Ange URI för den virtuella hård disken
 
-URI för den virtuella Hårddisken ska använda har format: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**VHD. I det här exemplet den virtuella Hårddisken med namnet **myVHD** är i lagringskontot **mystorageaccount** i behållaren **mycontainer**.
+URI: n för den virtuella hård disken som ska användas är i formatet: https:///**mystorageaccount**. blob.Core.Windows.NET/finns**MyVhdName**. VHD. I det här exemplet finns den virtuella hård disken med namnet **myVHD** i lagrings kontot **mystorageaccount** i behållarens behållare.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -163,16 +162,16 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa vNet och undernät för den [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md).
+Skapa vNet och undernät för det [virtuella nätverket](../../virtual-network/virtual-networks-overview.md).
 
-1. Skapa undernätet. Följande exempel skapar ett undernät med namnet **mySubnet** i resursgruppen **myResourceGroup** med adressprefix **10.0.0.0/24**.  
+1. Skapa under nätet. I följande exempel skapas ett undernät med namnet **mitt undernät** i resurs gruppen **myResourceGroup** med adressprefixet **10.0.0.0/24**.  
    
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubnet"
     $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Skapa det virtuella nätverket. I följande exempel skapas ett virtuellt nätverk med namnet **myVnet** i den **västra USA** plats med adressprefix **10.0.0.0/16**.  
+2. Skapa det virtuella nätverket. I följande exempel skapas ett virtuellt nätverk med namnet **myVnet** på platsen **västra USA** med adressprefixet **10.0.0.0/16**.  
    
     ```powershell
     $location = "WestUS"
@@ -181,17 +180,17 @@ Skapa vNet och undernät för den [virtuellt nätverk](../../virtual-network/vir
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
-### <a name="create-a-public-ip-address-and-network-interface"></a>Skapa en offentlig IP-adress och ett nätverksgränssnitt
+### <a name="create-a-public-ip-address-and-network-interface"></a>Skapa en offentlig IP-adress och ett nätverks gränssnitt
 För att upprätta kommunikation med den virtuella datorn i det virtuella nätverket behöver du en [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) och ett nätverksgränssnitt.
 
-1. Skapa en offentlig IP-adress. Det här exemplet skapar en offentlig IP-adress med namnet **myPip**. 
+1. Skapa en offentlig IP-adress. I det här exemplet skapas en offentlig IP-adress med namnet **myPip**. 
    
     ```powershell
     $ipName = "myPip"
     $pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
-2. Skapa nätverkskortet. Det här exemplet skapar ett nätverkskort med namnet **myNic**. 
+2. Skapa NÄTVERKSKORTet. I det här exemplet skapas ett nätverkskort med namnet **myNic**. 
    
     ```powershell
     $nicName = "myNic"
@@ -199,10 +198,10 @@ För att upprätta kommunikation med den virtuella datorn i det virtuella nätve
         -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Skapa nätverkssäkerhetsgruppen och en regel för RDP
-Du måste ha en säkerhetsregel som tillåter RDP-åtkomst på port 3389 för att kunna logga in på den virtuella datorn med RDP. 
+### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Skapa nätverks säkerhets gruppen och en RDP-regel
+Om du vill kunna logga in på den virtuella datorn med RDP måste du ha en säkerhets regel som tillåter RDP-åtkomst på port 3389. 
 
-Det här exemplet skapar en Nätverkssäkerhetsgrupp med namnet **myNsg** som innehåller en regel som kallas **myRdpRule** som tillåter RDP-trafik via port 3389. Mer information om Nätverkssäkerhetsgrupper finns i [öppna portar till en virtuell dator i Azure med hjälp av PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+I det här exemplet skapas en NSG med namnet **myNsg** som innehåller en regel som kallas **MYRDPRULE** som tillåter RDP-trafik över port 3389. Mer information om NSG: er finns i [öppna portar till en virtuell dator i Azure med hjälp av PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ```powershell
 $nsgName = "myNsg"
@@ -218,14 +217,14 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
 
 
 ### <a name="create-a-variable-for-the-virtual-network"></a>Skapa en variabel för det virtuella nätverket
-Skapa en variabel för det virtuella nätverket som slutförda. 
+Skapa en variabel för det slutförda virtuella nätverket. 
 
 ```powershell
 $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ### <a name="create-the-vm"></a>Skapa den virtuella datorn
-Följande PowerShell-skript visar hur du ställer in konfigurationerna för virtuella datorer och använder den uppladdade bilden för virtuell dator som källa för den nya installationen.
+Följande PowerShell-skript visar hur du konfigurerar konfigurationen för virtuella datorer och använder den överförda VM-avbildningen som källa för den nya installationen.
 
 
 
@@ -282,8 +281,8 @@ Följande PowerShell-skript visar hur du ställer in konfigurationerna för virt
     New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
-## <a name="verify-that-the-vm-was-created"></a>Kontrollera att den virtuella datorn har skapats
-När du är klar bör du se den nyligen skapade virtuella datorn i den [Azure-portalen](https://portal.azure.com) under **Bläddra** > **virtuella datorer**, eller genom att använda följande PowerShell kommandon:
+## <a name="verify-that-the-vm-was-created"></a>Verifiera att den virtuella datorn har skapats
+När du är klar bör du se den nyligen skapade virtuella datorn i [Azure Portal](https://portal.azure.com) under **Bläddra** > i**virtuella datorer**, eller genom att använda följande PowerShell-kommandon:
 
 ```powershell
     $vmList = Get-AzVM -ResourceGroupName $rgName
@@ -291,6 +290,6 @@ När du är klar bör du se den nyligen skapade virtuella datorn i den [Azure-po
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-För att hantera din nya virtuella dator med Azure PowerShell, se [hantera virtuella datorer med Azure Resource Manager och PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Information om hur du hanterar din nya virtuella dator med Azure PowerShell finns i [Hantera virtuella datorer med Azure Resource Manager och PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

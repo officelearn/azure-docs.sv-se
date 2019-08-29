@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 08/27/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 260d2774eecb42d0234c33e40b4f10680a4fbfbd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ebb6c05645a991d22ac30ee013e5a51007994eb6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932222"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073852"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -67,6 +67,8 @@ Den här nivån passar bäst för verksamhetskritiska produktionsprogram som kr�
 |S4    |    400     |    100     |
 |S8*    |    320     |    200     |
 |S9*    |    640    |    400     |
+|S8v2*    |    640     |    200     |
+|S9v2*    |    1280    |    400     |
 
 \* Inte tillgänglig i alla regioner.  
 
@@ -82,34 +84,35 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Centrala Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |USA, östra 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|USA, östra 2     |     S8, S9   |    1    |
+|USA, östra 2     |     S8, S9, S8v2, S9v2   |    1    |
 |Norra centrala USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Södra centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Västra centrala USA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Västra USA     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|Västra USA     |    S8, S9   |    2  |
+|Västra USA     |    S8, S9, S8v2, S9v2   |    2  |
 |USA, västra 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|USA, västra 2    |    S8, S9  |    1     |
+|USA, västra 2    |    S8, S9, S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europa
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
 |Norra Europa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
+|Norra Europa     |    S8v2, S9v2      |    3     |
 |Storbritannien, södra     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Västra Europa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Västra Europa    |   S8, S9  |  1  |
+|Västra Europa    |   S8, S9, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Asien och stillahavsområdet 
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
 |Östra Australien     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
-|Östra Australien     |    S8, S9    |    1     |
+|Östra Australien     |    S8, S9, S8v2, S9v2    |    1     |
 |Sydöstra Australien     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Östra Japan     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
+|Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Skala efter behov
@@ -246,7 +249,7 @@ Dokumentation för Azure Analysis Services använder också [GitHub-problem](htt
 
 ## <a name="blogs"></a>Bloggar
 
-Saker och ting ändras snabbt. Få den senaste informationen i [Analysis Services-teambloggen](https://blogs.msdn.microsoft.com/analysisservices/) och i [Azure-bloggen](https://azure.microsoft.com/blog/).
+Saker och ting ändras snabbt. Få den senaste informationen om [Power BI blogg](https://powerbi.microsoft.com/blog/category/analysis-services/) och [Azure-bloggen](https://azure.microsoft.com/blog/).
 
 ## <a name="community"></a>Community
 

@@ -6,14 +6,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 8934306efadc4ec732afbb658c081ada30f232cd
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4b6a140ec428ce3b053c41074f02f65f19b8dc72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312207"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102897"
 ---
-# <a name="dependency-visualization"></a>Visualisering av beroenden
+# <a name="dependency-visualization"></a>Beroendevisualisering
 
 Azure Migrate: Server utvärderingen bedömer grupper med lokala datorer för migrering till Azure. Du kan använda funktionen för beroende visualisering i Server utvärdering för att skapa grupper. Den här artikeln innehåller information om den här funktionen.
 
@@ -28,7 +28,7 @@ Med beroende visualisering i Server utvärdering kan du skapa grupper med hög e
 
 - Se till att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
 - Om du redan har skapat ett projekt ser du till att du har [lagt till](how-to-assess.md) Azure Migrate: Verktyget Server bedömning.
-- Kontrol lera att du har identifierat datorerna i Azure Migrate. Det kan du göra genom att konfigurera en Azure Migrate-enhet för [VMware](how-to-set-up-appliance-vmware.md) eller [Hyper-V](how-to-set-up-appliance-hyper-v.md). Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering. [Läs mer](migrate-appliance.md).
+- Kontrol lera att du har identifierat datorerna i Azure Migrate. Det kan du göra genom att konfigurera en Azure Migrate-enhet för [VMware](how-to-set-up-appliance-vmware.md) eller [Hyper-V](how-to-set-up-appliance-hyper-v.md). Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server Assessment. [Läs mer](migrate-appliance.md).
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
@@ -41,7 +41,7 @@ Azure Migrate använder [tjänstkarta](../operations-management-suite/operations
     3. I **OMS**-arbetsytan klickar du på **kräver konfiguration**.
     4. I **Konfigurera arbets yta**anger du om du vill skapa en ny arbets yta eller Använd en befintlig:
     
-    ![Lägg till arbets yta](./media/how-to-create-group-machine-dependencies/workspace.png)
+    ![Lägg till arbetsyta](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - När du kopplar en arbets yta får du möjlighet att skapa en ny arbets yta eller att koppla en befintlig:
   - När du skapar en ny arbets yta måste du ange ett namn för arbets ytan. Arbets ytan skapas sedan i en region i samma Azure- [geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migreringsjobbet.
@@ -50,16 +50,16 @@ Azure Migrate använder [tjänstkarta](../operations-management-suite/operations
   > [!NOTE]
   > När du har kopplat en arbets yta till ett projekt kan du inte ändra den senare.
 
-- Den associerade arbets ytan är Taggad med det här och värdet **projekt namn**, som du kan använda för att söka i Azure Portal.
-- Om du vill navigera till arbets ytan som är kopplad till projektet kan du  gå till avsnittet Essentials på projekt **översikts** sidan och komma åt arbets ytan
+- Den associerade arbets ytan är Taggad meddet här och värdet **projekt namn**, som du kan använda för att söka i Azure Portal.
+- Om du vill navigera till arbets ytan som är kopplad till projektet kan du gå till avsnittet Essentials på projekt **översikts** sidan och komma åt arbets ytan
 
     ![Navigera Log Analytics arbets ytan](./media/concepts-dependency-visualization/oms-workspace.png)
 
-Om du vill använda beroende visualisering måste du ladda ned och installera agenter på varje lokal dator som du vill analysera.  
+Om du vill använda beroendevisualisering måste du ladda ned och installera agenter på varje lokal dator som du vill analysera.  
 
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) måste installeras på varje dator. [Läs mer](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) om hur du installerar MMA-agenten.
-- [Beroende agenten](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) måste installeras på varje dator. [Läs mer](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) om hur du installerar beroende agenten.
-- Om du dessutom har datorer som saknar Internet anslutning måste du ladda ned och installera Log Analytics gateway på dem.
+- [Beroende agenten](../azure-monitor/platform/agents-overview.md#dependency-agent) måste installeras på varje dator. [Läs mer](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) om hur du installerar beroende agenten.
+- Om du har datorer utan Internetanslutning måste du dessutom ladda ned och installera Log Analytics-gatewayen på dem.
 
 Du behöver inte dessa agenter på datorer som du vill utvärdera om du inte använder beroende visualisering.
 

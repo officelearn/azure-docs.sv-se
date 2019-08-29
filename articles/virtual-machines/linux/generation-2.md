@@ -10,16 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: e551f23c833a5ed88fe14a2f61b03581be0c74fc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 9d94c4be90b408da7635f47567aa8f713f14de86
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480002"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083193"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Stöd för virtuella datorer i generation 2 (för hands version) på Azure
 
@@ -95,7 +94,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 I Azure Portal eller Azure CLI kan du skapa virtuella datorer i generation 2 från en Marketplace-avbildning som stöder UEFI-start.
 
-`windowsserver-gen2preview` Erbjudandet innehåller endast Windows generation 2-avbildningar. Den här förpackningen förhindrar förvirring mellan generation 1 och generation 2-avbildningar. Om du vill skapa en virtuell dator i  generation 2 väljer du avbildningar från det här erbjudandet och följer standard processen för att skapa den virtuella datorn.
+`windowsserver-gen2preview` Erbjudandet innehåller endast Windows generation 2-avbildningar. Den här förpackningen förhindrar förvirring mellan generation 1 och generation 2-avbildningar. Om du vill skapa en virtuell dator i generation 2 väljer du avbildningar från det här erbjudandet och följer standard processen för att skapa den virtuella datorn.
 
 Marketplace erbjuder för närvarande följande Windows generation 2-avbildningar:
 

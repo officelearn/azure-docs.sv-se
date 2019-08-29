@@ -10,53 +10,53 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: ae59e8115ca2d1ba69c8a3a099216eb3d98e2658
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84eb0e230875b999218b67d47a66a3c92b494253
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237700"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072827"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av en event hub
 
-Den här artikeln förklarar hur du skapar och konfigurerar en event hub i Azure Event Hubs. Det beskriver också hur du kör ett exempelprogram för push-händelser till Azure Time Series Insights från Händelsehubbar. Om du har en befintlig händelsehubb med händelser i JSON-format, hoppa över den här självstudien och visa din miljö i [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure Event Hubs. Det beskriver också hur du kör ett exempel program för att push-överföra händelser till Azure Time Series Insights från Event Hubs. Om du har en befintlig händelsehubben med händelser i JSON-format, hoppar du över den här självstudien och visar din miljö i [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Skapa en Event Hub
 
 1. Läs hur du skapar en event hub i den [dokumentation om Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 1. I sökrutan söker du efter **Händelsehubbar**. Välj i den returnerade listan **Händelsehubbar**.
 1. Välj din event hub.
-1. När du skapar en event hub, skapar du ett händelsehubbnamnområde. Om du inte har skapat en händelsehubb i namnområdet, på menyn under **entiteter**, skapa en händelsehubb.  
+1. När du skapar en Event Hub skapar du ett namn område för Event Hub. Om du ännu inte har skapat en händelsehubben i namn området går du till menyn och skaparen Händelsehubben under entiteter.  
 
-    [![Listan över händelsehubbar](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
+    [![Lista över händelse nav](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. När du skapar en event hub, markerar du den i listan över händelsehubbar.
-1. På menyn under **entiteter**väljer **Händelsehubbar**.
+1. På menyn under entiteterväljer du **Event Hubs**.
 1. Välj namnet på händelsehubben för att konfigurera den.
-1. Under **entiteter**väljer **konsumentgrupper**, och välj sedan **konsumentgrupp**.
+1. Under **Översikt**väljer du **konsument grupper**och sedan **konsument grupp**.
 
-    [![Skapa en konsumentgrupp](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
+    [![Skapa en konsument grupp](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
-1. Se till att skapa en konsumentgrupp som enbart används av din Time Series Insights-händelsekälla.
+1. Se till att du skapar en konsument grupp som uteslutande används av din Time Series Insights händelse källa.
 
     > [!IMPORTANT]
-    > Kontrollera att den här konsumentgruppen inte används av någon annan tjänst, till exempel Azure Stream Analytics-jobb eller en annan Time Series Insights-miljö. Om konsumentgruppen används av den andra påverkas negativt tjänster, Läs-och skrivåtgärder både för den här miljön och för andra tjänster. Om du använder **$Default** som konsumentgrupp, andra läsare potentiellt kan återanvända din konsumentgrupp.
+    > Se till att konsument gruppen inte används av någon annan tjänst, till exempel ett Azure Stream Analytics jobb eller någon annan Time Series Insights miljö. Om konsumentgruppen används av den andra påverkas negativt tjänster, Läs-och skrivåtgärder både för den här miljön och för andra tjänster. Om du använder **$Default** som konsumentgrupp, andra läsare potentiellt kan återanvända din konsumentgrupp.
 
-1. På menyn under **inställningar**väljer **principer för delad åtkomst**, och välj sedan **Lägg till**.
+1. Välj **principer för delad åtkomst**på menyn under **Inställningar**och välj sedan **Lägg till**.
 
     [![Välj principer för delad åtkomst och välj sedan knappen Lägg till](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
-1. I den **Lägg till ny princip för delad åtkomst** fönstret Skapa en delad åtkomst med namnet **MySendPolicy**. Du använder denna princip för delad åtkomst för att skicka händelser i den C# exemplen senare i den här artikeln.
+1. I den **Lägg till ny princip för delad åtkomst** fönstret Skapa en delad åtkomst med namnet **MySendPolicy**. Du använder den här delade åtkomst principen för att skicka händelser C# i exemplen senare i den här artikeln.
 
-    [![I rutan princip ange MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
+    [![I rutan princip namn anger du MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
-1. Under **anspråk**väljer den **skicka** markerar du kryssrutan.
+1. Under **anspråk**markerar du kryss rutan **Skicka** .
 
 ## <a name="add-a-time-series-insights-instance"></a>Lägg till en Time Series Insights-instans
 
-Time Series Insights-uppdateringen använder instanser för att lägga till kontextuella data i inkommande telemetridata. Data är ansluten när en fråga körs med hjälp av en **Time Series-ID**. Den **Time Series-ID** för exemplet windmills projektet som vi använder senare i den här artikeln är `id`. Mer information om Time Series Insight-instanser och **Time Series-ID**, se [Time Series modeller](./time-series-insights-update-tsm.md).
+Time Series Insights-uppdateringen använder instanser för att lägga till kontextuella data i inkommande telemetridata. Data är ansluten när en fråga körs med hjälp av en **Time Series-ID**. **Time Series-ID: t** för det exempel Windmills-projekt som vi använder senare i `id`den här artikeln är. Mer information om Time Series Insight-instanser och **Time Series-ID**, se [Time Series modeller](./time-series-insights-update-tsm.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Skapa en händelsekälla för Time Series Insights
 
@@ -68,28 +68,28 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 1. I sökfältet söker du efter **Händelsehubbar**. Välj i den returnerade listan **Händelsehubbar**.
 
-1. Välj din event hub.
+1. Välj Event Hub-instansen.
 
-1. Gå till **delade åtkomstprinciper** > **RootManageSharedAccessKey**. Kopiera värdet för **anslutningssträng – primär nyckel**.
+1. Gå till **principer** > för delad åtkomst**MySendPolicy**. Kopiera värdet för **anslutnings strängen – primär nyckel**.
 
-    [![Kopiera värdet för primärnyckelns anslutningssträng](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
+    [![Kopiera värdet för primär nyckelns anslutnings sträng](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
 1. Gå till https://tsiclientsample.azurewebsites.net/windFarmGen.html. URL: en körs windmill simulerade enheter.
 1. I den **Händelsehubbens anslutningssträng** rutan på webbsidan, klistra in anslutningssträngen som du kopierade i [skicka händelser](#push-events).
   
-    [![Klistra in primärnyckelns anslutningssträng i Event Hub-anslutningssträngen](media/send-events/updated_two.png)](media/send-events/updated_two.png#lightbox)
+    [![Klistra in anslutnings strängen primär nyckel i rutan anslutnings sträng för händelse hubb](media/send-events/updated_two.png)](media/send-events/updated_two.png#lightbox)
 
 1. Välj **Klicka om du vill starta**. Simulatorn genererar instans JSON som du kan använda direkt.
 
-1. Gå tillbaka till din event hub i Azure-portalen. På den **översikt** kan du se de nya händelserna som tas emot av event hub.
+1. Gå tillbaka till din event hub i Azure-portalen. På sidan **Översikt** ser du de nya händelser som tas emot av händelsehubben.
 
-    [![En översikt översiktssidan händelsehubb som visar mått för event hub](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
+    [![En översikts sida för händelsehubben som visar mått för händelsehubben](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 
 ## <a name="json"></a>JSON-former som stöds
 
 ### <a name="example-one"></a>Exempel en
 
-* **Indata**: Ett enda JSON-objekt.
+* Inmatade: Ett enda JSON-objekt.
 
     ```JSON
     {
@@ -106,7 +106,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 ### <a name="example-two"></a>Exempel två
 
-* **Indata**: En JSON-matris med två JSON-objekt. Varje JSON-objekt konverteras till en händelse.
+* Inmatade: En JSON-matris med två JSON-objekt. Varje JSON-objekt konverteras till en händelse.
 
     ```JSON
     [
@@ -130,7 +130,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 ### <a name="example-three"></a>Exempel tre
 
-* **Indata**: En JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt.
+* Inmatade: En JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt.
 
     ```JSON
     {
@@ -157,7 +157,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 ### <a name="example-four"></a>Exempel fyra
 
-* **Indata**: En JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt. Denna indata visar att globala egenskaperna kan representeras av komplexa JSON-objekt.
+* Inmatade: En JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt. Denna indata visar att globala egenskaperna kan representeras av komplexa JSON-objekt.
 
     ```JSON
     {
@@ -198,4 +198,4 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Visa din miljö](https://insights.timeseries.azure.com) i Time Series Insights explorer.
+- [Visa din miljö](https://insights.timeseries.azure.com) i Time Series Insights Explorer.

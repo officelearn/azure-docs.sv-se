@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3db1884fb80ce28dc58f09687ff16cc1ce904679
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8eaa96dd92ab0f18b590b284d59dd7b775738602
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708097"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101741"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för Windows-datorer i Azure
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för virtuella Windows-datorer i Azure
 
 Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller specifika filer. Den här artikeln beskriver hur du återställer en enskild fil till en virtuell dator som kör Windows Server och IIS. Om du inte redan har en virtuell dator kan du skapa en genom att följa anvisningarna i [Windows-snabbstarten](quick-create-portal.md). I den här självstudiekursen får du lära du dig att:
 
@@ -47,11 +46,11 @@ Skapa en enkel schemalagd daglig säkerhetskopiering till ett Recovery Services-
 1. Välj **Virtuella datorer** på menyn till vänster. 
 1. Välj en virtuell dator som du vill säkerhetskopiera i listan.
 1. På VM-bladet går du till avsnittet **Åtgärder** och klickar på **Säkerhetskopiering**. Bladet **Aktivera säkerhetskopiering** öppnas.
-1. I **Recovery Services-valv** klickar du på **Skapa nytt** och anger namnet för det nya valvet. Ett nytt valv skapas i samma resursgrupp och plats som den virtuella datorn.
-1. Under **Välj säkerhetskopieringspolicy**, behåller du standardvärdet **(ny) DailyPolicy**, och klicka sedan på **Aktivera säkerhetskopiering**.
+1. I **Recovery Services-valv** klickar du på **Skapa nytt** och anger namnet för det nya valvet. Ett nytt valv skapas i samma resurs grupp och plats som den virtuella datorn.
+1. Behåll standard **-DailyPolicy (ny)** under **Välj säkerhets kopierings princip**och klicka sedan på **Aktivera säkerhets kopiering**.
 1. Om du vill skapa en första återställningspunkt går du till bladet **Säkerhetskopiera** och klickar på **Säkerhetskopiera nu**.
-1. På den **Säkerhetskopiera nu** bladet klickar du på kalenderikonen, använder kalenderkontrollen för att välja hur länge återställningspunkten ska behållas och klickar på **OK**.
-1. I den **Backup** bladet för den virtuella datorn och du ser hur många återställningspunkter som har slutförts.
+1. På bladet **Säkerhetskopiera nu** klickar du på kalender ikonen, använder kalender kontrollen för att välja hur länge återställnings punkten ska behållas och klickar på **OK**.
+1. I **säkerhets kopierings** bladet för den virtuella datorn ser du hur många återställnings punkter som är klara.
 
 
     ![Återställningspunkter](./media/tutorial-backup-vms/backup-complete.png)
@@ -78,15 +77,15 @@ I det här exemplet beskriver vi hur du återställer bildfilen som används på
 1. Välj **Virtuella datorer** på menyn till vänster och välj den virtuella datorn i listan.
 1. På VM-bladet går du till avsnittet **Åtgärder** och klickar på **Säkerhetskopiering**. Bladet **Säkerhetskopiera** öppnas. 
 1. På menyn överst på bladet väljer du **Filåterställning**. Bladet **Filåterställning** öppnas.
-1. I **steg 1: Välj återställningspunkt**, Välj en återställningspunkt från listrutan.
-1. I **steg 2: Ladda ned skript för att söka och återställa filer**, klickar du på den **ladda ned körbar fil** knappen. Kopiera lösenordet för filen och spara den på en säker plats.
+1. I **steg 1: Välj återställnings punkt**, Välj en återställnings punkt i list rutan.
+1. I **steg 2: Ladda ned skript om du vill bläddra**och återställa filer klickar du på knappen **Hämta körbar fil** . Kopiera lösen ordet för filen och spara det på en säker plats.
 1. Öppna **Utforskaren** på den lokala datorn, navigera till mappen **Hämtningsbara filer** och kopiera den nedladdade EXE-filen. Filnamnet inleds med namnet på den virtuella datorn. 
-1. Klistra in .exe-fil på skrivbordet för den virtuella datorn på den virtuella datorn (med RDP-anslutning). 
-1. Navigera till skrivbordet på den virtuella datorn och dubbelklicka på EXE-filen. Kommandotolken startar. Programmet monterar återställningspunkt som en filresurs som du kan komma åt. När resursen har skapats stänger du kommandotolken genom att skriva **q**.
+1. Klistra in exe-filen på den virtuella datorn på den virtuella datorn (med RDP-anslutningen). 
+1. Navigera till skrivbordet på den virtuella datorn och dubbelklicka på EXE-filen. En kommando tolk kommer att startas. Programmet monterar återställnings punkten som en fil resurs som du har åtkomst till. När resursen har skapats stänger du kommandotolken genom att skriva **q**.
 1. Öppna **Utforskaren** på den virtuella datorn och navigera till enhetsbeteckningen som användes för filresursen.
 1. Navigera till \inetpub\wwwroot, kopiera **iisstart.png** från filresursen och klistra in filen i \inetpub\wwwroot. Kopiera exempelvis F:\inetpub\wwwroot\iisstart.png och klistra in filen i c:\inetpub\wwwroot för att återställa filen.
 1. På din lokala dator öppnar du webbläsarfliken där du är ansluten till den virtuella datorns IP-adress som visar IIS-standardwebbsidan. Tryck på CTRL + F5 för att uppdatera webbläsaren. Nu bör du se att bilden har återställts.
-1. På den lokala datorn, gå tillbaka till webbläsarfliken för Azure-portalen och i **steg3: Demontera diskarna efter återställning** klickar du på den **demontera diskar** knappen. Om du glömmer att utföra det här steget stängs anslutningen till monteringspunkten automatiskt efter 12 timmar. Efter de 12 timmarna måste du hämta ett nytt skript för att skapa en ny monteringspunkt.
+1. På den lokala datorn går du tillbaka till fliken webbläsare för Azure Portal och i **steg 3: Demontera diskarna efter återställning** genom att klicka på knappen **demontera diskar** . Om du glömmer att utföra det här steget stängs anslutningen till monteringspunkten automatiskt efter 12 timmar. Efter de 12 timmarna måste du hämta ett nytt skript för att skapa en ny monterings punkt.
 
 
 

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 08/29/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0a58382b9825a7b32aee69c00b9801d1c77251a
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60192943"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114640"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudier: Filtrera inkommande trafik med Azure Firewall DNAT med hjälp av Azure-portalen
 
@@ -62,8 +62,9 @@ Skapa först de virtuella nätverken och peerkoppla dem sedan.
 
      Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
      > [!NOTE]
-     > Den minsta storleken på AzureFirewallSubnet-undernätet är /26.
-10. I fältet **Adressintervall** skriver du **10.0.1.0/24**.
+     > Storleken på AzureFirewallSubnet-undernätet är/26. Mer information om under näts storleken finns i [vanliga frågor och svar om Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
+10. För **adress intervall**skriver du **10.0.1.0/26**.
 11. Använd övriga standardinställningar och klicka på **Skapa**.
 
 ### <a name="create-a-spoke-vnet"></a>Skapa ett virtuellt spoke-nätverk
@@ -150,9 +151,9 @@ När distributionen är klar antecknar du den privata IP-adressen för den virtu
 
    |Inställning  |Värde  |
    |---------|---------|
-   |Namn     |FW-DNAT-test|
-   |Prenumeration     |\<din prenumeration\>|
-   |Resursgrupp     |**Använd befintlig**: RG-DNAT-Test |
+   |Name     |FW-DNAT-test|
+   |Subscription     |\<din prenumeration\>|
+   |Resource group     |**Använd befintlig**: RG-DNAT-Test |
    |Location     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: VN-Hub|
    |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|

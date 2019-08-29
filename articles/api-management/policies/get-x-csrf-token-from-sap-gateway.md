@@ -1,6 +1,6 @@
 ---
-title: Azure API management princip exempel – implementera X-CSRF mönstret | Microsoft Docs
-description: 'Azure API management princip exempel - visar hur du implementerar X CSRF mönstret som används av många API: er. Det här exemplet är specifikt för SAP-gateway.'
+title: Exempel på Azure API Management policy – implementera X-CSRF-mönster | Microsoft Docs
+description: 'Exempel på Azure API Management policy-visar hur du implementerar CSRF-mönster som används av många API: er. Det här exemplet är specifikt för SAP-gateway.'
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,31 +9,30 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 2f4d26702443ef3113dad98cde1d13b292fe657a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 14ea9113bf5712d6ffce356d02abb7224c21771a
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306707"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067726"
 ---
-# <a name="implement-x-csrf-pattern"></a>Implement X-CSRF pattern
+# <a name="implement-x-csrf-pattern"></a>Implementera X-CSRF-mönster
 
-Den här artikeln visar ett urval av Azure API management-princip som visar hur du implementerar X CSRF mönstret som används av många API: er. Det här exemplet är specifikt för SAP-gateway. Om du vill ange eller redigera en princip för kod, följer du stegen som beskrivs i [ange eller redigera en princip](../set-edit-policies.md). Andra exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du implementerar X-CSRF-mönster som används av många API: er. Det här exemplet är specifikt för SAP-gateway. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
 
 ## <a name="policy"></a>Princip
 
-Klistra in koden i den **inkommande** block.
+Klistra in koden i det **inkommande** blocket.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Get X-CSRF token from SAP gateway using send request.policy.xml)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om APIM-principer:
+Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip-exempel](../policy-samples.md)
++ [Princip exempel](../policy-samples.md)
 

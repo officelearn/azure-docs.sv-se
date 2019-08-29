@@ -1,6 +1,6 @@
 ---
-title: Azure API management princip exempel – Använd OAuth2 för auktorisering mellan gatewayen och en serverdel | Microsoft Docs
-description: Azure API management princip-exempel – visar hur du använder OAuth2 för auktorisering mellan gatewayen och en serverdel. Det visar hur du får en åtkomsttoken från AAD och vidarebefordrar den till serverdelen.
+title: Exempel på Azure API Management policy-använda OAuth2 för auktorisering mellan gatewayen och en server del | Microsoft Docs
+description: Exempel på Azure API Management policy-visar hur du använder OAuth2 för auktorisering mellan gatewayen och en server del. Det visar hur du får en åtkomsttoken från AAD och vidarebefordrar den till serverdelen.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,35 +9,34 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 519233cb9e77bf48f67d869a54af771c17c7827e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fac10b728e4b7f09ec1019c3257f7c9e5d6e7714
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859098"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071867"
 ---
-# <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>Använd OAuth2 för auktorisering mellan gatewayen och en serverdel
+# <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>Använda OAuth2 för auktorisering mellan gatewayen och en server del
 
-Den här artikeln visar ett urval av Azure API management-princip som visar hur du använder OAuth2 för auktorisering mellan gatewayen och en serverdel. Det visar hur du får en åtkomsttoken från AAD och vidarebefordrar den till serverdelen. 
+Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du använder OAuth2 för auktorisering mellan gatewayen och en server del. Det visar hur du får en åtkomsttoken från AAD och vidarebefordrar den till serverdelen. 
 
-Om du vill ange eller redigera en princip för kod, följer du stegen som beskrivs i [ange eller redigera en princip](../set-edit-policies.md). Andra exempel finns i [princip exempel](../policy-samples.md).
+Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
 
-Följande skript använder egenskaperna som visas i {{egenskapen}}. Mer information om egenskaper och hur de används i API Management-principer, se [detta](../api-management-howto-properties.md) avsnittet.
+Följande skript använder egenskaper som visas i {{Property}}. Information om egenskaper och hur du använder dem i API Management-principer finns i [det här](../api-management-howto-properties.md) avsnittet.
  
 ## <a name="policy"></a>Princip
 
-Klistra in koden i den **inkommande** block.
+Klistra in koden i det **inkommande** blocket.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Get OAuth2 access token from AAD and forward it to the backend.policy.xml)]
   
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om APIM-principer:
+Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip-exempel](../policy-samples.md)
++ [Princip exempel](../policy-samples.md)
 

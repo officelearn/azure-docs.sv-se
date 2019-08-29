@@ -1,153 +1,152 @@
 ---
-title: SAP HANA Azure backup baserat på ögonblicksbilder av lagring | Microsoft Docs
-description: Det finns två viktiga säkerhetskopiering möjligheter för SAP HANA på Azure virtual machines, den här artikeln beskriver SAP HANA-säkerhetskopia baserat på ögonblicksbilder av lagring
+title: SAP HANA Azure Backup baserat på lagrings ögonblicks bilder | Microsoft Docs
+description: Det finns två huvudsakliga säkerhets kopierings möjligheter för SAP HANA på virtuella Azure-datorer. i den här artikeln beskrivs SAP HANA säkerhets kopiering baserat på lagrings ögonblicks bilder
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 875060a59cf70d295534c3a4f56136010a560e74
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8bcfdefa2ea9de12ca6029839a41c91111a5c61c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709936"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078604"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>SAP HANA-säkerhetskopia baserat på ögonblicksbilder av lagring
 
 ## <a name="introduction"></a>Introduktion
 
-Det här är en del av en serie med tre delar av relaterade artiklar om säkerhetskopiering av SAP HANA. [Säkerhetskopieringsguide för SAP HANA på Azure Virtual Machines](sap-hana-backup-guide.md) ger en översikt och information om att komma igång och [SAP HANA Azure Backup på filnivå](sap-hana-backup-file-level.md) täcker av filbaserade säkerhetskopieringen.
+Detta ingår i en serie med tre delar av relaterade artiklar på SAP HANA säkerhets kopiering. [Säkerhets kopierings guiden för SAP HANA på Azure Virtual Machines](sap-hana-backup-guide.md) ger en översikt och information om hur du kommer igång och [SAP HANA Azure Backup på filnivå](sap-hana-backup-file-level.md) omfattar det filbaserade säkerhets kopierings alternativet.
 
-När du använder en VM-säkerhetskopieringsfunktion för en enda instans allt-i-ett-demo-system, bör en bra att göra en säkerhetskopiering av virtuella datorer i stället för att hantera HANA säkerhetskopior på operativsystemsnivån. Ett alternativ är att ta ögonblicksbilder av Azure-blob skapa kopior av enskilda virtuella diskar, som är kopplade till en virtuell dator, och hålla HANA datafiler. Men en kritisk är app konsekvens när du skapar en VM-säkerhetskopiering eller disk ögonblicksbild medan systemet är igång och körs. Se _SAP HANA-datakonsekvens när du tar ögonblicksbilder av lagring_ i den relaterade artikeln [guiden Säkerhetskopiering för SAP HANA på Azure Virtual Machines](sap-hana-backup-guide.md). SAP HANA har en funktion som har stöd för dessa typer av ögonblicksbilder av lagring.
+När du använder en funktion för säkerhets kopiering av virtuella datorer för ett demo system med en enda instans, bör du överväga att göra en VM-säkerhetskopiering i stället för att hantera HANA-säkerhetskopiering på operativ system nivå. Ett alternativ är att ta Azure Blob-ögonblicksbilder för att skapa kopior av enskilda virtuella diskar, som är kopplade till en virtuell dator och behålla HANA-datafilerna. Men en kritisk punkt är applikations konsekvens när du skapar en säkerhets kopia av en virtuell dator eller en disk ögonblicks bild medan systemet är igång. Se _SAP HANA data konsekvens när du tar lagrings ögonblicks bilder_ i den relaterade artikeln [säkerhets kopierings guide för SAP HANA på Azure-Virtual Machines](sap-hana-backup-guide.md). SAP HANA har en funktion som stöder dessa typer av lagrings ögonblicks bilder.
 
-## <a name="sap-hana-snapshots-as-central-part-of-application-consistent-backups"></a>SAP HANA-ögonblicksbilder som en central del av programkonsekventa säkerhetskopior
+## <a name="sap-hana-snapshots-as-central-part-of-application-consistent-backups"></a>SAP HANA ögonblicks bilder som central del av program konsekventa säkerhets kopieringar
 
-Det finns en funktion i SAP HANA som har stöd för en ögonblicksbild för lagring. Det finns en begränsning till enskild behållare system. Scenarier registrerar SAP HANA MCS med fler än en klient inte har stöd för den här typen av ögonblicksbild av SAP HANA-databas (se [skapa Storage-ögonblicksbilder (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)).
+Det finns en funktion i SAP HANA som har stöd för lagring av ögonblicks bilder. Det finns en begränsning för system med en container. Scenarier enkel SAP HANA MCS med fler än en klient har inte stöd för den här typen av SAP HANA databas ögonblicks bild (se [skapa en ögonblicks bild av lagring (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)).
 
-Den fungerar på följande sätt:
+Det fungerar på följande sätt:
 
-- Förbereda för en ögonblicksbild för lagring genom att initiera SAP HANA-ögonblicksbilder
-- Kör storage-ögonblicksbilder (Azure blob-ögonblicksbild, till exempel)
-- Bekräfta SAP HANA-ögonblicksbilder
+- Förbered för en lagrings ögonblicks bild genom att initiera SAP HANA ögonblicks bilden
+- Kör lagrings ögonblicks bilden (till exempel Azure Blob snapshot)
+- Bekräfta SAP HANA ögonblicks bilden
 
-![Den här skärmbilden visar att du kan skapa en ögonblicksbild för SAP HANA-data via ett SQL-uttryck](media/sap-hana-backup-storage-snapshots/image011.png)
+![Den här skärm bilden visar att en SAP HANA data ögonblicks bild kan skapas via ett SQL-uttryck](media/sap-hana-backup-storage-snapshots/image011.png)
 
-Den här skärmbilden visar att du kan skapa en ögonblicksbild för SAP HANA-data via en SQL-instruktion.
+Den här skärm bilden visar att en SAP HANA data ögonblicks bild kan skapas via ett SQL-uttryck.
 
-![Ögonblicksbilden sedan visas också i säkerhetskopieringskatalogen i SAP HANA-Studio](media/sap-hana-backup-storage-snapshots/image012.png)
+![Ögonblicks bilden visas sedan även i säkerhets kopie katalogen i SAP HANA Studio](media/sap-hana-backup-storage-snapshots/image012.png)
 
-Ögonblicksbilden sedan visas också i säkerhetskopieringskatalogen i SAP HANA-Studio.
+Ögonblicks bilden visas sedan även i säkerhets kopierings katalogen i SAP HANA Studio.
 
-![På disk, ögonblicksbilden som visas i katalogen för SAP HANA-data](media/sap-hana-backup-storage-snapshots/image013.png)
+![På disk visas ögonblicks bilden i SAP HANA data katalog](media/sap-hana-backup-storage-snapshots/image013.png)
 
-På disk, ögonblicksbilden som visas i katalogen för SAP HANA-data.
+På disk visas ögonblicks bilden i SAP HANA data katalog.
 
-Ett måste se till att filsystemkonsekvens också är korrekt innan du kör storage-ögonblicksbilder när SAP HANA är i förberedelseläge ögonblicksbild. Se _SAP HANA-datakonsekvens när du tar ögonblicksbilder av lagring_ i den relaterade artikeln [guiden Säkerhetskopiering för SAP HANA på Azure Virtual Machines](sap-hana-backup-guide.md).
+En måste säkerställa att fil systemets konsekvens också garanteras innan du kör ögonblicks bilden av lagringen medan SAP HANA är i förberedelse läget för ögonblicks bild. Se _SAP HANA data konsekvens när du tar lagrings ögonblicks bilder_ i den relaterade artikeln [säkerhets kopierings guide för SAP HANA på Azure-Virtual Machines](sap-hana-backup-guide.md).
 
-Det är viktigt att bekräfta SAP HANA-ögonblicksbilder när storage-ögonblicksbilder är klart. Det finns en motsvarande SQL-uttryck som ska köras: Stäng BACKUP DATAÖGONBLICKSBILDEN (se [BACKUP DATA Stäng ÖGONBLICKSBILD-instruktionen (säkerhetskopiering och återställning)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)).
+När ögonblicks bilden av lagringen är färdig är det viktigt att bekräfta SAP HANA ögonblicks bilden. Det finns en motsvarande SQL-instruktion att köra: ÖGONBLICKs bild av säkerhets kopierings DATA (se [säkerhetskopiera data Stäng ögonblicks bilds instruktioner (säkerhets kopiering och återställning)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)).
 
 > [!IMPORTANT]
-> Bekräfta HANA-ögonblicksbilder. På grund av &quot;kopiering vid skrivning,&quot; SAP HANA kan kräva ytterligare diskutrymme i ögonblicksbilden – förbereda läge och det går inte att starta nya säkerhetskopior tills SAP HANA-ögonblicksbilder har bekräftats.
+> Bekräfta HANA-ögonblicksbilden. På grund av&quot;kopieringvid skrivning kan SAP HANA kräva ytterligare disk utrymme i ögonblicks bilds läge och det går inte att starta nya säkerhets kopior förrän SAP HANA ögonblicks bilden har bekräftats. &quot;
 
 ## <a name="hana-vm-backup-via-azure-backup-service"></a>HANA VM-säkerhetskopiering via Azure Backup-tjänsten
 
-Agenten för säkerhetskopiering av Azure Backup-tjänsten är inte tillgänglig för virtuella Linux-datorer. Dessutom har Linux inte liknande funktionalitet som Windows har det med VSS.  Att använda Azure backup på filen eller katalogen-nivå, en skulle kopiera SAP HANA säkerhetskopieringsfiler till en virtuell Windows-dator och sedan använda backup-agenten. 
+Säkerhets kopierings agenten för Azure Backups tjänsten är inte tillgänglig för virtuella Linux-datorer. Dessutom har Linux inte liknande funktioner som Windows har med VSS.  Om du vill använda Azure Backup på fil-/katalog nivå kopierar du SAP HANA säkerhetskopierade filer till en virtuell Windows-dator och använder sedan säkerhets kopierings agenten. 
 
-I annat fall går endast en fullständig Linux VM-säkerhetskopiering via Azure Backup-tjänsten. Se [översikt över funktionerna i Azure Backup](../../../backup/backup-introduction-to-azure-backup.md) och lär dig mer.
+Annars kan endast en fullständig säkerhets kopia av virtuella Linux-datorer göras via tjänsten Azure Backup. Se [Översikt över funktionerna i Azure Backup](../../../backup/backup-introduction-to-azure-backup.md) för att få mer information.
 
-Tjänsten Azure Backup erbjuder ett alternativ för att säkerhetskopiera och återställa en virtuell dator. Mer information om den här tjänsten och hur det fungerar finns i artikeln [planera din infrastruktur för VM-säkerhetskopiering i Azure](../../../backup/backup-azure-vms-introduction.md).
+Tjänsten Azure Backup erbjuder ett alternativ för att säkerhetskopiera och återställa en virtuell dator. Mer information om den här tjänsten och hur den fungerar finns i artikeln [Planera infrastrukturen för säkerhets kopiering av virtuella datorer i Azure](../../../backup/backup-azure-vms-introduction.md).
 
-Det finns två viktiga överväganden enligt den här artikeln:
+Det finns två viktiga överväganden enligt artikeln:
 
-_&quot;För Linux-datorer är endast filkonsekvent säkerhetskopiering möjliga, eftersom Linux inte har en motsvarande plattform i VSS.&quot;_
+_&quot;För virtuella Linux-datorer är bara filkonsekventa säkerhets kopieringar möjliga eftersom Linux inte har en motsvarande plattform för VSS.&quot;_
 
-_&quot;Program måste implementera sina egna &quot;åtgärds-&quot; mekanism för återställda data.&quot;_
+_&quot;Program måste implementera sin egen &quot;&quot; metod för att lösa problemet på återställda data.&quot;_
 
-Ett måste därför kontrollera att SAP HANA är i ett konsekvent tillstånd på disken när säkerhetskopieringen startar. Se _SAP HANA-ögonblicksbilder_ beskrivs tidigare i dokumentet. Men det finns ett potentiellt problem när SAP HANA förblir i det här läget för förberedelse av ögonblicksbild. Se [skapa Storage-ögonblicksbilder (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm) för mer information.
+Därför måste en vara säker på att SAP HANA är i ett konsekvent tillstånd på disken när säkerhets kopieringen startar. Se _SAP HANA ögonblicks bilder_ som beskrivs tidigare i dokumentet. Men det finns ett möjligt problem när SAP HANA stannar kvar i det här läget för ögonblicks bilds förberedelse. Mer information finns i [skapa en ögonblicks bild av lagring (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm) .
 
-Den här artikeln anger:
+Artikel staterna:
 
-_&quot;Vi rekommenderar starkt att bekräfta eller lämna en storage-ögonblicksbilder så snart som möjligt när den har skapats. När storage-ögonblicksbilder förberedd eller skapat ögonblicksbild relevanta data är låsta. Medan ögonblicksbilden relevanta data fortfarande är låsta, kan fortfarande ändras i databasen. Sådana ändringar orsakar inte låsta ögonblicksbild-relevanta data ändras. I stället skrivs ändringarna till positioner i dataområdet som skiljer sig från storage-ögonblicksbilder. Ändringar skrivs också till i loggen. Men ju längre ögonblicksbild relevanta data sparas låsta, desto mer datavolymen kan växa.&quot;_
+_&quot;Vi rekommenderar starkt att du bekräftar eller överger en lagrings ögonblicks bild så snart som möjligt när den har skapats. Medan ögonblicks bilden förbereds eller skapas, är den ögonblicks bild som är relevant att frysa. Även om ögonblicks bilden av relevanta data förblir frusen kan ändringar fortfarande göras i databasen. Sådana ändringar kommer inte att orsaka att ögonblicks bilder som är relevanta för ögonblicks bilder ändras. I stället skrivs ändringarna till positioner i data områden som är åtskilda från ögonblicks bilden av lagringen. Ändringar skrivs också till loggen. Men längre den ögonblicks bild som relevanta data hålls låsta, desto mer data volym kan växa.&quot;_
 
-Azure Backup hand tar om filsystemkonsekvens via Azure VM-tillägg. De här tilläggen är inte tillgängliga fristående och fungerar bara i kombination med Azure Backup-tjänsten. Det är dock fortfarande ett krav på att använda skript för att skapa och ta bort en ögonblicksbild av SAP HANA för att garantera konsekvens för appen.
+Azure Backup sköter fil systemets konsekvens via Azure VM-tillägg. Dessa tillägg är inte tillgängliga fristående och fungerar bara i kombination med Azure Backup-tjänst. Dock är det fortfarande nödvändigt att tillhandahålla skript för att skapa och ta bort en SAP HANA ögonblicks bild för att garantera att appen är konsekvent.
 
-Azure Backup har fyra stora faser:
+Azure Backup har fyra huvud faser:
 
-- Köra förbereda skript - skriptet behöver skapa en ögonblicksbild av SAP HANA
-- Ta ögonblicksbild
-- Kör skript efter ögonblicksbilden - skriptet behöver ta bort SAP HANA som skapats av skriptet Förbered
+- Kör förbereda skript – skript måste skapa en SAP HANA ögonblicks bild
+- Ta ögonblicks bild
+- Kör skript efter ögonblicks bild – skript måste ta bort SAP HANA som skapats av förberedelse skriptet
 - Överför data till valv
 
-Information om var du vill kopiera dessa skript och information om hur Azure Backup fungerar exakt, finns i följande artiklar:
+Mer information om var du kopierar dessa skript och information om hur Azure Backup fungerar exakt finns i följande artiklar:
 
 - [Planera din infrastruktur för VM-säkerhetskopiering i Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
-- [Programkonsekvent säkerhetskopiering av virtuella Linux-datorer](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
+- [Programkonsekvent säkerhets kopiering av virtuella Azure Linux-datorer](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 
 
-Vid denna tidpunkt, inte Microsoft har publicerat förbereda skript och efter ögonblicksbilden skript för SAP HANA. Som kund eller system integrator skulle du behöva skapa dessa skript och konfigurera den procedur som bygger på dokumentation som anges ovan.
+Vid den här tidpunkten har Microsoft inte publicerat förberedelse skript och skript efter ögonblicks bilder för SAP HANA. Du som kund-eller system integrerare måste skapa dessa skript och konfigurera proceduren baserat på den dokumentation som anges ovan.
 
 
-## <a name="restore-from-application-consistent-backup-against-a-vm"></a>Återställa från en programkonsekvent säkerhetskopiering mot en virtuell dator
-Återställningsprocessen för en programkonsekvent säkerhetskopiering tas av Azure backup finns i artikeln [återställa filer från säkerhetskopiering av Azure virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm). 
+## <a name="restore-from-application-consistent-backup-against-a-vm"></a>Återställa från program konsekvent säkerhets kopiering mot en virtuell dator
+Återställnings processen för en program konsekvent säkerhets kopia som tas av Azure Backup dokumenteras i artikeln [återställa filer från säkerhets kopian av virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm). 
 
 > [!IMPORTANT]
-> I artikeln [återställa filer från säkerhetskopiering av Azure virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) är en lista över undantag och steg visas när du använder disk stripe-uppsättningar. Stripe diskar finns troligen vanliga VM-konfigurationen för SAP HANA. Det är därför viktigt att läsa artikeln och testa återställningsprocessen för sådana fall som anges i artikeln. 
+> I artikeln [återställa filer från säkerhets kopian av virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) är en lista över undantag och steg som anges när du använder disk stripe-uppsättningar. Striped disks är förmodligen den normala VM-konfigurationen för SAP HANA. Därför är det viktigt att läsa artikeln och testa återställnings processen för de fall som anges i artikeln. 
 
 
 
-## <a name="hana-license-key-and-vm-restore-via-azure-backup-service"></a>Licensnyckel för HANA och VM återställa via Azure Backup-tjänsten
+## <a name="hana-license-key-and-vm-restore-via-azure-backup-service"></a>HANA-licens nyckel och VM-återställning via Azure Backup-tjänsten
 
-Azure Backup-tjänsten är utformad för att skapa en ny virtuell dator under återställningen. Det finns inga planer på just nu för att göra en &quot;plats&quot; återställning av en befintlig Azure VM.
+Azure Backups tjänsten är utformad för att skapa en ny virtuell dator under återställningen. Det finns ingen plan just nu för att göra &quot;en återställning på&quot; plats av en befintlig virtuell Azure-dator.
 
-![Den här bilden visar alternativ för återställning av Azure-tjänsten i Azure portal](media/sap-hana-backup-storage-snapshots/image019.png)
+![Den här bilden visar alternativet för återställning av Azure-tjänsten i Azure Portal](media/sap-hana-backup-storage-snapshots/image019.png)
 
-Den här bilden visar alternativ för återställning av Azure-tjänsten i Azure-portalen. Kan du välja mellan att skapa en virtuell dator under återställningen eller återställa diskarna. Efter återställning diskarna, är det ändå nödvändigt att skapa en ny virtuell dator över detta. När en ny virtuell dator skapas på Azure det unika ID för virtuell dator ändras (se [åtkomst till och med hjälp av Azure VM unikt ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)).
+Den här bilden visar alternativet för återställning av Azure-tjänsten i Azure Portal. En kan välja mellan att skapa en virtuell dator när du återställer eller återställer diskarna. När du har återställt diskarna är det fortfarande nödvändigt att skapa en ny virtuell dator ovanpå den. När en ny virtuell dator skapas på Azure ändras unika VM-ID-ändringar (se [åtkomst till och använda unikt ID för virtuell Azure-dator](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)).
 
-![Den här bilden visar det unika ID för virtuella Azure-datorn före och efter återställningen via Azure Backup-tjänsten](media/sap-hana-backup-storage-snapshots/image020.png)
+![Den här bilden visar unikt ID för Azure VM före och efter återställningen via Azure Backup-tjänsten](media/sap-hana-backup-storage-snapshots/image020.png)
 
-Den här bilden visar det unika ID för Azure VM före och efter återställningen via Azure Backup-tjänsten. SAP-maskinvarunyckel, som används för SAP-licensiering, använder den här unika VM-ID. En ny SAP-licens har följaktligen installeras när en virtuell dator har återställt.
+Den här bilden visar unikt ID för Azure VM före och efter återställningen via Azure Backup-tjänsten. SAP-maskinvaran, som används för SAP-licensiering, använder detta unika VM-ID. Till följd av detta måste en ny SAP-licens installeras efter en VM-återställning.
 
-En ny funktion i Azure Backup angavs under genereringen av den här säkerhetskopieringsguide i förhandsgranskningsläge. Det gör att en servicenivå filåterställning baserat på VM-ögonblicksbilden som utfördes för den virtuella datorn säkerhetskopiering. På så sätt undviker du behöver distribuera en ny virtuell dator, och därför unikt VM-ID förblir oförändrat och inga nya SAP HANA-licensnyckel krävs. Mer dokumentation om den här funktionen tillhandahålls när den har testats.
+En ny Azure Backup funktion visas i förhands gransknings läge under skapandet av den här säkerhets kopierings guiden. Den tillåter en återställning på filnivå baserat på ögonblicks bilden av den virtuella datorn som togs för säkerhets kopieringen av den virtuella datorn. På så sätt undviker du att distribuera en ny virtuell dator och därför måste det unika VM-ID: t vara detsamma och ingen ny SAP HANA licens nyckel krävs. Mer dokumentation om den här funktionen kommer att tillhandahållas när den har testats fullständigt.
 
-Azure Backup kommer så småningom kan du säkerhetskopiera enskilda Azure virtuella diskar, samt filer och kataloger från inuti den virtuella datorn. En stor fördel med Azure Backup är hanteringen av alla säkerhetskopieringar, sparar kunden från att göra det de behöver. Om en återställning blir nödvändigt, väljer Azure Backup rätt säkerhetskopian att använda.
+Azure Backup kommer till och med att tillåta säkerhets kopiering av enskilda virtuella Azure-diskar samt filer och kataloger inifrån den virtuella datorn. En stor fördel med Azure Backup är dess hantering av alla säkerhets kopior, vilket sparar kunden från att behöva göra det. Om en återställning blir nödvändig kommer Azure Backup att välja rätt säkerhets kopia som ska användas.
 
-## <a name="sap-hana-vm-backup-via-manual-disk-snapshot"></a>SAP HANA säkerhetskopiering via manuella ögonblicksbild
+## <a name="sap-hana-vm-backup-via-manual-disk-snapshot"></a>SAP HANA VM-säkerhetskopiering via manuell disk ögonblicks bild
 
-Istället för att använda Azure Backup-tjänsten, kan en konfigurera en enskild säkerhetskopieringslösning genom att skapa blobögonblicksbilder av virtuella Azure-hårddiskar manuellt via PowerShell. Se [med hjälp av blob-ögonblicksbilder med PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/) en beskrivning av stegen.
+I stället för att använda Azure Backup tjänsten kan du konfigurera en enskild säkerhets kopierings lösning genom att skapa BLOB-ögonblicksbilder från virtuella Azure-hårddiskar manuellt via PowerShell. En beskrivning av stegen finns i [använda BLOB-ögonblicksbilder med PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/) .
 
-Det ger bättre flexibilitet men lösa inte de problem som beskrivs ovan i det här dokumentet:
+Den ger större flexibilitet men löser inte problemen som beskrivits tidigare i det här dokumentet:
 
-- Fortfarande måste du se till att SAP HANA är i ett konsekvent tillstånd genom att skapa en ögonblicksbild av SAP HANA
-- OS-disken kan inte skrivas över även om Virtuellt datorn frigörs på grund av ett felmeddelande om att det finns ett lån. Det fungerar bara när du tar bort den virtuella datorn, vilket skulle leda till ett nytt unikt ID för virtuell dator och behovet av att installera en ny SAP-licens.
+- Du måste fortfarande se till att SAP HANA är i ett konsekvent tillstånd genom att skapa en SAP HANA ögonblicks bild
+- Det går inte att skriva över OS-disken även om den virtuella datorn har frigjorts på grund av ett fel som anger att det finns ett lån. Den fungerar bara när den virtuella datorn har tagits bort, vilket leder till ett nytt unikt VM-ID och behovet av att installera en ny SAP-licens.
 
-![Det går att återställa endast datadiskar på en Azure-dator](media/sap-hana-backup-storage-snapshots/image021.png)
+![Det går bara att återställa data diskarna för en virtuell Azure-dator](media/sap-hana-backup-storage-snapshots/image021.png)
 
-Det är möjligt att återställa endast datadiskar på en Azure-dator, undvika problemet för att få ett nytt unikt ID för virtuell dator och därför ogiltig SAP-licens:
+Det går bara att återställa data diskarna på en virtuell Azure-dator, vilket undviker problemet med att få ett nytt unikt VM-ID och därmed ogiltig SAP-licens:
 
-- För testning, två Azure-datadiskar var kopplat till en virtuell dator och programvaru-RAID har definierats på dem 
-- Det har bekräftats att SAP HANA var i ett konsekvent tillstånd genom att funktionen för SAP HANA-ögonblicksbild
-- Låsa i filsystemet (se _SAP HANA-datakonsekvens när du tar ögonblicksbilder av lagring_ i den relaterade artikeln [guiden Säkerhetskopiering för SAP HANA på Azure Virtual Machines](sap-hana-backup-guide.md))
-- BLOB-ögonblicksbilder är tagna från båda datadiskar
-- Lås upp filsystem
-- Bekräftelse för SAP HANA-ögonblicksbild
-- Om du vill återställa datadiskar, den virtuella datorn stängdes av och är oberoende av båda diskarna
-- När du kopplar från diskarna skrevs de över med de tidigare versionen blobögonblicksbilderna
-- Sedan bifogades de återställda virtuella diskarna igen till den virtuella datorn
-- När du har startat den virtuella datorn, allt för programvaran RAID fungerade bra och har värdet tillbaka tiden för blob-ögonblicksbild
-- HANA angavs tillbaka till HANA-ögonblicksbilder
+- För testningen var två Azure-datadiskarna kopplade till en virtuell dator och en RAID-programvara definierades ovanpå dem 
+- Det bekräftades att SAP HANA var i ett konsekvent tillstånd av SAP HANA ögonblicks bild funktionen
+- Fil Systems frysning (se _SAP HANA data konsekvens när du tar lagrings ögonblicks bilder_ i den relaterade artikeln [säkerhets kopierings guide för SAP HANA på Azure Virtual Machines](sap-hana-backup-guide.md))
+- BLOB-ögonblicksbilder togs från båda data diskarna
+- Det gick inte att låsa fil systemet
+- Bekräfta SAP HANA ögonblicks bild
+- För att återställa data diskarna stängdes den virtuella datorn av och båda diskarna kopplades från
+- När diskarna har kopplats från skrevs de över med tidigare BLOB-ögonblicksbilder
+- Sedan anslöts de återställda virtuella diskarna till den virtuella datorn
+- När du har startat den virtuella datorn har allt på RAID-servern fungerat fint och ställts tillbaka till ögonblicks bilds tiden för BLOB
+- HANA ställdes tillbaka till HANA-ögonblicksbilden
 
-Om det var möjligt att Stäng SAP HANA innan blob-ögonblicksbilder blir proceduren mindre komplex. I så fall kan kan en hoppa över HANA-ögonblicksbilder och, om inget annat som pågår i systemet, också hoppa över filen system-låsning. Ökad komplexitet kommer in i bilden när det är nödvändigt att utföra ögonblicksbilder medan allt är online. Se _SAP HANA-datakonsekvens när du tar ögonblicksbilder av lagring_ i den relaterade artikeln [guiden Säkerhetskopiering för SAP HANA på Azure Virtual Machines](sap-hana-backup-guide.md).
+Om det var möjligt att avsluta SAP HANA före BLOB-ögonblicksbilderna skulle proceduren vara mindre komplex. I så fall kan en hoppa över HANA-ögonblicksbilden och, om inget annat händer i systemet, även hoppa över fil systemets frysning. En ökad komplexitet kommer till bilden när det är nödvändigt att göra ögonblicks bilder medan allt är online. Se _SAP HANA data konsekvens när du tar lagrings ögonblicks bilder_ i den relaterade artikeln [säkerhets kopierings guide för SAP HANA på Azure-Virtual Machines](sap-hana-backup-guide.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Säkerhetskopieringsguide för SAP HANA på Azure Virtual Machines](sap-hana-backup-guide.md) ger en översikt och information om att komma igång.
-* [SAP HANA-säkerhetskopia baserat på filnivå](sap-hana-backup-file-level.md) täcker av filbaserade säkerhetskopieringen.
-* Läs hur du etablerar hög tillgänglighet och planera för katastrofåterställning av SAP HANA på Azure (stora instanser) i [SAP HANA (stora instanser) hög tillgänglighet och katastrofåterställning recovery på Azure](hana-overview-high-availability-disaster-recovery.md).
+* [Säkerhets kopierings guiden för SAP HANA på Azure Virtual Machines](sap-hana-backup-guide.md) ger en översikt och information om att komma igång.
+* [SAP HANA säkerhets kopiering baserat på filnivå](sap-hana-backup-file-level.md) täcker det filbaserade säkerhets kopierings alternativet.
+* Information om hur du upprättar hög tillgänglighet och planerar för haveri beredskap för SAP HANA på Azure (stora instanser) finns i [SAP HANA (stora instanser) hög tillgänglighet och haveri beredskap på Azure](hana-overview-high-availability-disaster-recovery.md).

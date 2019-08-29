@@ -1,6 +1,6 @@
 ---
-title: Hur du använder Azure storage för SQL Server-säkerhetskopiering och återställning | Microsoft Docs
-description: Lär dig mer om att säkerhetskopiera SQL Server till Azure Storage. Förklarar fördelarna med att säkerhetskopiera SQL-databaser till Azure Storage.
+title: Så här använder du Azure Storage för SQL Server säkerhets kopiering och återställning | Microsoft Docs
+description: Lär dig hur du säkerhetskopierar SQL Server till Azure Storage. Förklarar fördelarna med att säkerhetskopiera SQL-databaser till Azure Storage.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MikeRayMSFT
@@ -8,73 +8,72 @@ manager: craigg
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb19dc7262721e672bd3f54b32db9188dad7fee0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477152"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101896"
 ---
-# <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Använda Azure Storage för SQL Server-säkerhetskopiering och återställning
+# <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Använd Azure Storage för säkerhets kopiering och återställning av SQL Server
 ## <a name="overview"></a>Översikt
-Från och med SQL Server 2012 SP1 CU2 kan skriva du SQL Server säkerhetskopieras direkt till Azure Blob storage-tjänsten. Du kan använda den här funktionen för att säkerhetskopiera till och återställa från Azure Blob-tjänsten med en lokal SQL Server-databas eller en SQL Server-databas i Azure-datorer. Säkerhetskopieringen till molnet ger fördelarna med tillgänglighet, obegränsad georeplikerad annan lagring och enkel migrering av data till och från molnet. Du kan utfärda BACKUP eller RESTORE-uttryck med hjälp av Transact-SQL eller SMO.
+Från och med SQL Server 2012 SP1-CU2 kan du nu skriva SQL Server säkerhets kopieringar direkt till Azure Blob Storage-tjänsten. Du kan använda den här funktionen för att säkerhetskopiera till och återställa från Azure-Blob Service med en lokal SQL Server-databas eller en SQL Server-databas på en virtuell Azure-dator. Säkerhets kopiering till molnet erbjuder fördelar med tillgänglighet, obegränsad geo-replikerad lagring utanför platsen och enkel migrering av data till och från molnet. Du kan utfärda säkerhets kopierings-eller återställnings instruktioner med hjälp av Transact-SQL eller SMO.
 
-SQL Server 2016 innehåller nya funktioner; Du kan använda [av säkerhetskopiering](https://msdn.microsoft.com/library/mt169363.aspx) att utföra stort sett ögonblickliga säkerhetskopior och otroligt snabba återställningar.
+SQL Server 2016 introducerar nya funktioner; Du kan använda [säkerhets kopiering med fil-och ögonblicks bilder](https://msdn.microsoft.com/library/mt169363.aspx) för att utföra nästan momentan säkerhets kopieringar och otroligt snabba återställningar.
 
-Det här avsnittet förklarar varför du kan välja att använda Azure storage för SQL-säkerhetskopior och beskriver komponenterna som ingår. Du kan använda de resurser som finns i slutet av artikeln för att komma åt genomgångar och ytterligare information för att börja använda den här tjänsten med SQL Server-säkerhetskopieringar.
+Det här avsnittet förklarar varför du kan välja att använda Azure Storage för SQL-säkerhetskopieringar och beskriver de komponenter som ingår. Du kan använda de resurser som finns i slutet av artikeln för att komma åt genom gångar och ytterligare information för att börja använda tjänsten med dina SQL Server säkerhets kopior.
 
-## <a name="benefits-of-using-the-azure-blob-service-for-sql-server-backups"></a>Fördelarna med att använda Azure Blob-tjänsten för SQL Server-säkerhetskopior
-Det finns flera utmaningar som du stöter på när du säkerhetskopierar SQL Server. De här utmaningarna med att inkludera lagringshantering, risken för fel för lagring, åtkomst till externa lagrings- och maskinvarukonfiguration. Många av dessa problem åtgärdas genom att använda Azure Blob store-tjänsten för SQL Server-säkerhetskopieringar. Överväg följande fördelar:
+## <a name="benefits-of-using-the-azure-blob-service-for-sql-server-backups"></a>Fördelar med att använda Azure Blob service för SQL Server säkerhets kopieringar
+Det finns flera utmaningar som du möter när du säkerhetskopierar SQL Server. Dessa utmaningar omfattar lagrings hantering, risk för lagrings problem, åtkomst till lagring utanför platsen och maskin varu konfiguration. Många av dessa utmaningar åtgärdas med hjälp av Azure Blob Store-tjänsten för SQL Server säkerhets kopieringar. Tänk på följande fördelar:
 
-* **Användarvänlighet**: Lagra säkerhetskopiorna i Azure-blobs kan vara ett enkelt, flexibelt och enkelt att komma åt externa alternativet. Skapa lagerplats för SQL Server-säkerhetskopiering kan vara lika enkelt som att ändra dina befintliga skript/jobb att använda den **säkerhetskopiering till URL** syntax. Lagerplats bör vara tillräckligt långt från produktion databasens plats att förhindra att en enda katastrof som kan påverka både databasplatser på annan plats och produktion. Genom att välja att [geo-replikera din Azure-blobbar](../../../storage/common/storage-redundancy.md), du har ett extra skyddslager vid ett haveri som kan påverka hela regionen.
-* **Säkerhetskopiering Arkiv**: Azure Blob Storage-tjänsten erbjuder ett bättre alternativ att använda band kan arkivera säkerhetskopior. Lagring på band kan kräva fysiska transport till en annan resurs och åtgärder för att skydda mediet. Lagra säkerhetskopiorna i Azure Blob Storage tillhandahåller ett ögonblick med hög tillgänglighet och en durable arkivering alternativet.
-* **Hanterade maskinvara**: Det finns inga kostnader för maskinvara med Azure-tjänster. Azure-tjänster som hanterar maskinvaran och ange geo-replikering för redundans och skydd mot maskinvarufel.
-* **Obegränsad lagring**: Genom att aktivera en direkt säkerhetskopiering till Azure BLOB, har du åtkomst till nästan obegränsad lagring. Du kan också har säkerhetskopiera till en virtuell dator i Azure-disk gränser som baseras på storleken på datorn. Det finns en gräns för antalet diskar som du kan koppla till en Azure virtuell dator för säkerhetskopiering. Den här gränsen är 16 diskar för en extra stor instans och färre för mindre instanser.
-* **Säkerhetskopiera tillgänglighet**: Säkerhetskopior som lagras i Azure BLOB-objekt är tillgängliga från var som helst och när som helst och enkelt kan kommas åt för återställningar till en lokal SQL Server eller en annan SQL Server i en Azure-dator, utan att behöva koppla/frånkoppla databasen eller hämta och koppla den virtuella Hårddisken.
-* **Kostnader**: Betala bara för den tjänst som används. Vara kostnadseffektivt som ett alternativ för arkivet på annan plats och säkerhetskopiering. Finns i den [Azures priskalkylator](https://go.microsoft.com/fwlink/?LinkId=277060 "Priskalkylatorn"), och [priser för Azure artikeln](https://go.microsoft.com/fwlink/?LinkId=277059 "priser artikeln") för mer information.
-* **Ögonblicksbilder av lagring**: När databasfilerna i en Azure-blob och du använder SQL Server 2016, kan du använda [av säkerhetskopiering](https://msdn.microsoft.com/library/mt169363.aspx) att utföra stort sett ögonblickliga säkerhetskopior och otroligt snabba återställningar.
+* **Enkel användning**: Att lagra säkerhets kopior i Azure-blobbar kan vara ett bekvämt, flexibelt och enkelt sätt att få åtkomst till annan plats. Det kan vara lika enkelt att skapa lagrings platser för dina SQL Server säkerhets kopior som att ändra befintliga skript/jobb för att använda syntaxen för **säkerhets kopiering till URL** . Lagring på annan plats bör normalt vara tillräckligt långt från produktions databasens plats för att förhindra en enstaka katastrof som kan påverka både platser utanför platsen och produktions databasen. Genom att välja att [geo-replikera dina Azure-blobbar](../../../storage/common/storage-redundancy.md)har du ett extra skydds lager i händelse av en katastrof som kan påverka hela regionen.
+* **Säkerhets kopierings Arkiv**: Azure Blob Storage-tjänsten erbjuder ett bättre alternativ till det band alternativ som ofta används för att arkivera säkerhets kopior. Band lagring kan kräva fysisk transport till en lokal plats och åtgärder för att skydda mediet. Genom att lagra dina säkerhets kopior i Azure Blob Storage får du en snabb och mycket tillgänglig och ett alternativ för varaktig arkivering.
+* **Hanterad maskin vara**: Det finns inga kostnader för maskin varu hantering med Azure-tjänster. Azure-tjänster hanterar maskin varan och tillhandahåller geo-replikering för redundans och skydd mot maskin varu problem.
+* **Obegränsad lagring**: Genom att aktivera en direkt säkerhets kopiering till Azure-blobbar har du åtkomst till praktiskt taget obegränsad lagring. Ett annat sätt är att säkerhetskopiera till en virtuell Azure-dator disk baserat på datorns storlek. Det finns en gräns för hur många diskar du kan ansluta till en virtuell Azure-dator för säkerhets kopieringar. Den här gränsen är 16 diskar för en extra stor instans och färre för mindre instanser.
+* **Tillgänglighet för säkerhets kopiering**: Säkerhets kopior som lagras i Azure-blobbar är tillgängliga överallt och när som helst och kan enkelt nås för återställningar till antingen en lokal SQL Server eller en annan SQL Server som körs på en virtuell Azure-dator, utan att det behövs databas anslutning/från koppling eller hämtning och kopplar den virtuella hård disken.
+* **Kostnader**: Betala endast för den tjänst som används. Kan vara kostnads effektivt som ett arkiv med säkerhets kopiering utanför platsen och. Se pris Kalkylatorn för pris Kalkylatorn för [Azure](https://go.microsoft.com/fwlink/?LinkId=277060 "")och pris artikeln för [Azure-prissättning](https://go.microsoft.com/fwlink/?LinkId=277059 "") för mer information.
+* **Lagrings ögonblicks bilder**: När databasfiler lagras i en Azure-blob och du använder SQL Server 2016 kan du använda [säkerhets kopiering för fil-och ögonblicks bilder](https://msdn.microsoft.com/library/mt169363.aspx) för att utföra nästan omedelbara säkerhets kopieringar och otroligt snabba återställningar.
 
-Mer information finns i [SQL Server-säkerhetskopiering och återställning med Azure Blob Storage-tjänsten](https://go.microsoft.com/fwlink/?LinkId=271617).
+Mer information finns i [SQL Server säkerhets kopiering och återställning med Azure Blob Storage-tjänsten](https://go.microsoft.com/fwlink/?LinkId=271617).
 
-Följande två avsnitt introducerar Azure Blob storage-tjänsten, inklusive de nödvändiga komponenterna för SQL Server. Det är viktigt att förstå komponenterna och samspelet mellan att använda säkerhetskopiering och återställning från Azure Blob storage-tjänsten.
+I följande två avsnitt introduceras Azure Blob Storage-tjänsten, inklusive nödvändiga SQL Server-komponenter. Det är viktigt att förstå komponenterna och deras interaktion för att kunna använda säkerhets kopiering och återställning från Azure Blob Storage-tjänsten.
 
-## <a name="azure-blob-storage-service-components"></a>Komponenterna i Azure Blob Storage-tjänsten
-Följande Azure-komponenterna används när du säkerhetskopierar till Azure Blob storage-tjänsten.
+## <a name="azure-blob-storage-service-components"></a>Azure Blob Storage Service-komponenter
+Följande Azure-komponenter används när du säkerhetskopierar till Azure Blob Storage-tjänsten.
 
 | Komponent | Beskrivning |
 | --- | --- |
-| **Lagringskonto** |Lagringskontot är startpunkten för alla lagringstjänster. Om du vill få åtkomst till en Azure Blob Storage-tjänst måste du först skapa ett Azure Storage-konto. Läs mer om Azure Blob storage-tjänsten, [hur du använder Azure Blob Storage-tjänsten](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
-| **Behållare** |En behållare grupperar en uppsättning blobar och kan lagra ett obegränsat antal Blobbar. Om du vill skriva en SQL Server säkerhetskopiering till en Azure Blob-tjänst, du måste ha minst Rotbehållare skapas. |
-| **Blob** |En fil av valfri typ och storlek. BLOB-lagring är adresserbara via följande URL-format: **https://[storage account].blob.core.windows.net/[container]/[blob]** . Mer information om Sidblobar finns [Understanding Block- och Sidblobbar](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Lagringskonto** |Lagrings kontot är start punkten för alla lagrings tjänster. För att få åtkomst till en Azure Blob Storage-tjänst måste du först skapa ett Azure Storage-konto. Mer information om Azure Blob Storage-tjänsten finns i [så här använder du tjänsten azure Blob Storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
+| **Behållare** |En behållare ger gruppering av en uppsättning blobbar och kan lagra ett obegränsat antal blobbar. Om du vill skriva en SQL Server säkerhets kopiering till en Azure-Blob Service måste du ha minst en rot behållare skapad. |
+| **Blob** |En fil av valfri typ och storlek. Blobbar är adresser bara med följande URL-format: **https://[Storage Account]. blob. Core. Windows. net/[container]/[BLOB]** . Mer information om sid-blobar finns i [förstå block-och sid](https://msdn.microsoft.com/library/azure/ee691964.aspx) -blobar |
 
 ## <a name="sql-server-components"></a>SQL Server-komponenter
-Följande SQL Server-komponenter som används när du säkerhetskopierar till Azure Blob storage-tjänsten.
+Följande SQL Servers komponenter används när du säkerhetskopierar till Azure Blob Storage-tjänsten.
 
 | Komponent | Beskrivning |
 | --- | --- |
-| **URL** |En URL anger en identifierare URI (Uniform Resource) till en unik säkerhetskopia. URL: en används för att ange plats och namn för SQL Server-säkerhetskopia. URL: en måste peka på en faktiska blob, inte bara en behållare. Om blobben som inte finns skapas den. Om en befintlig blob har angetts, inte det går att säkerhetskopiera, såvida inte den > med formatalternativ har angetts. Följande är ett exempel på den URL som du anger i BACKUP-kommandot: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]** . HTTPS rekommenderas men krävs inte. |
-| **Autentiseringsuppgifter** |Den information som krävs för att ansluta och autentisera till tjänsten Azure Blob storage lagras som en autentiseringsuppgift.  En SQL Server-autentiseringsuppgift måste skapas för SQL Server för att skriva säkerhetskopior till en Azure Blob eller Återställ från den. Mer information finns i [SQL Server-Autentiseringsuppgiften](https://msdn.microsoft.com/library/ms189522.aspx). |
+| **URL** |En URL anger en Uniform Resource Identifier (URI) till en unik säkerhets kopierings fil. URL: en används för att ange plats och namn för den SQL Server säkerhets kopierings filen. URL: en måste peka på en faktisk BLOB, inte bara en behållare. Om blobben inte finns skapas den. Om en befintlig BLOB anges, Miss lyckas säkerhets kopieringen, om inte alternativet > med FORMAT anges. Följande är ett exempel på den URL som du anger i säkerhets kopierings kommandot: **http [s]://[storageaccount]. blob. Core. Windows. net/[container]/[filename. bak]** . HTTPS rekommenderas, men krävs inte. |
+| **Autentiseringsuppgifter** |Den information som krävs för att ansluta och autentisera till Azure Blob Storage-tjänsten lagras som en autentiseringsuppgift.  För att SQL Server ska kunna skriva säkerhets kopior till en Azure-Blob eller återställa från den, måste du skapa en SQL Server autentiseringsuppgift. Mer information finns i [SQL Server Credential](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]
-> SQL Server 2016 har uppdaterats för att stödja blockblob-objekt. Se [självstudien: Med hjälp av Microsoft Azure Blob storage-tjänsten med SQL Server 2016 databaser](https://msdn.microsoft.com/library/dn466438.aspx) för mer information.
+> SQL Server 2016 har uppdaterats för att stödja block-blobar. Se [Självstudier: Använd Microsoft Azure Blob Storage-tjänsten med SQL Server 2016-](https://msdn.microsoft.com/library/dn466438.aspx) databaser för mer information.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-1. Skapa ett Azure-konto om du inte redan har ett. Om du utvärderar Azure kan du överväga att den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
-2. Gå sedan igenom något av följande självstudier som beskriver hur du skapar ett lagringskonto och utför en återställning.
+1. Skapa ett Azure-konto om du inte redan har ett. Om du utvärderar Azure bör du tänka på den [kostnads fria utvärderings versionen](https://azure.microsoft.com/free/).
+2. Gå sedan igenom någon av följande självstudier som vägleder dig genom att skapa ett lagrings konto och utföra en återställning.
    
-   * **SQL Server 2014**: [Självstudier: SQL Server 2014-säkerhetskopiering och återställning till Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
-   * **SQL Server 2016**: [Självstudier: Med hjälp av Microsoft Azure Blob storage-tjänsten med SQL Server 2016-databaser](https://msdn.microsoft.com/library/dn466438.aspx)
-3. Granska ytterligare dokumentation från och med [SQL Server-säkerhetskopiering och återställning med Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj919148.aspx).
+   * **SQL Server 2014**: [Gång SQL Server 2014 säkerhets kopiering och återställning till Microsoft Azure Blob Storage](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx)-tjänsten.
+   * **SQL Server 2016**: [Gång Använda Microsoft Azure Blob Storage-tjänsten med SQL Server 2016-databaser](https://msdn.microsoft.com/library/dn466438.aspx)
+3. Granska ytterligare dokumentation som börjar med [SQL Server säkerhets kopiering och återställning med Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj919148.aspx).
 
-Om du har några problem, läser du igenom avsnittet [SQL Server-säkerhetskopiering till URL: en metodtips och felsökning](https://msdn.microsoft.com/library/jj919149.aspx).
+Om du har problem kan du läsa avsnittet [SQL Server säkerhets kopiering till URL metod tips och fel sökning](https://msdn.microsoft.com/library/jj919149.aspx).
 
-För andra SQL-Server för säkerhetskopiering och återställningsalternativ, se [säkerhetskopiering och återställning av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+Andra SQL Server alternativ för säkerhets kopiering och återställning finns i [säkerhets kopiering och återställning för SQL Server i Azure-Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 

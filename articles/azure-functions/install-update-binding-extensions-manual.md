@@ -1,52 +1,51 @@
 ---
-title: Manuellt installera eller uppdatera tillägg av bindning för Azure Functions
-description: Lär dig mer om att installera eller uppdatera tillägg av Azure Functions-bindning för distribuerade funktionsappar.
+title: Installera eller uppdatera Azure Functions bindnings tillägg manuellt
+description: Lär dig hur du installerar eller uppdaterar Azure Functions bindnings tillägg för distribuerade funktions appar.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: Azure functions, funktion, bindande tillägg, NuGet, uppdateringar
+keywords: Azure Functions, functions, binding Extensions, NuGet, updates
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
-ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7686a9b2df6df6b54851e9c9957186f76be3fafd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61035766"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085057"
 ---
-# <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Manuellt installera eller uppdatera tillägg av Azure Functions-bindning från portalen
+# <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installera eller uppdatera Azure Functions bindnings tillägg manuellt från portalen
 
-Azure Functions version 2.x-körningen använder tillägg av bindning för att implementera kod för utlösare och bindningar. Tillägg av bindning finns i NuGet-paket. Om du vill registrera ett tillägg i stort sett installation av ett paket. När du utvecklar funktioner, beror hur du installerar tillägg av bindning på development environment. Mer information finns i [registrera tillägg av bindning](./functions-bindings-register.md) i utlösare och bindningar artikeln.
+Azure Functions version 2. x runtime använder bindnings tillägg för att implementera kod för utlösare och bindningar. Bindnings tillägg finns i NuGet-paket. För att registrera ett tillägg installerar du i princip ett paket. När du utvecklar funktioner beror det på hur du installerar bindnings tillägg i utvecklings miljön. Mer information finns i avsnittet [Registrera bindnings tillägg](./functions-bindings-register.md) i artikeln utlösare och bindningar.
 
-Ibland måste du manuellt installera eller uppdatera tillägg av bindning i Azure-portalen. Du kan behöva uppdatera en registrerad bindning till en nyare version. Du kan också behöva registrera en stöds bindning som inte kan installeras i den **integrera** i portalen.
+Ibland måste du manuellt installera eller uppdatera dina bindnings tillägg i Azure Portal. Du kan till exempel behöva uppdatera en registrerad bindning till en nyare version. Du kan också behöva registrera en bindning som stöds och som inte kan installeras på fliken **integrera** i portalen.
 
-## <a name="install-a-binding-extension"></a>Installera ett bindningstillägg
+## <a name="install-a-binding-extension"></a>Installera ett bindnings tillägg
 
 Använd följande steg för att manuellt installera eller uppdatera tillägg från portalen.
 
-1. I den [Azure-portalen](https://portal.azure.com), leta upp din funktionsapp och markera den. Välj den **översikt** fliken och markera **stoppa**.  Stoppas funktionsappen låser upp filer så att ändringar kan göras.
+1. Leta upp din Function-app i [Azure Portal](https://portal.azure.com)och markera den. Välj fliken **Översikt** och välj **stoppa**.  Genom att stoppa funktionen i kan du låsa upp filer så att ändringar kan göras.
 
-1. Välj den **plattformsfunktioner** fliken och under **utvecklingsverktyg** Välj **avancerade verktyg (Kudu)** . Kudu-slutpunkten (`https://<APP_NAME>.scm.azurewebsites.net/`) öppnas i ett nytt fönster.
+1. Välj fliken **plattforms funktioner** och under **utvecklingsverktyg** väljer du **Avancerade verktyg (kudu)** . Kudu-slutpunkten (`https://<APP_NAME>.scm.azurewebsites.net/`) öppnas i ett nytt fönster.
 
-1. I fönstret Kudu väljer **Felsökningskonsolen** > **CMD**.  
+1. I fönstret kudu väljer du **Felsök konsol** > **cmd**.  
 
-1. Navigera till i kommandofönstret `D:\home\site\wwwroot` och välj ikonen Ta bort bredvid `bin` ta bort mappen. Välj **OK** att bekräfta borttagningen.
+1. I kommando fönstret navigerar du till `D:\home\site\wwwroot` och väljer ikonen Ta bort `bin` bredvid för att ta bort mappen. Bekräfta borttagningen genom att klicka på **OK** .
 
-1. Välj redigeringsikonen bredvid den `extensions.csproj` -fil som definierar tillägg av bindning för funktionsappen. Projektfilen öppnas i redigeraren online.
+1. Välj redigerings ikonen bredvid `extensions.csproj` filen, som definierar bindnings tilläggen för Function-appen. Projekt filen öppnas i online-redigeraren.
 
-1. Göra nödvändiga tillägg och uppdateringar av **PackageReference** objekt i den **ItemGroup**och välj sedan **spara**. Den aktuella listan över stöds paketversioner finns i den [vilka paket behöver jag?](https://github.com/Azure/azure-functions-host/wiki/Updating-your-function-app-extensions#what-nuget-packages-do-i-need) wiki-artikeln. Alla tre Azure Storage-bindningar kräver att Microsoft.Azure.WebJobs.Extensions.Storage-paketet.
+1. Gör nödvändiga tillägg och uppdateringar av **PackageReference** -objekt i **ItemGroup**och välj sedan **Spara**. Den aktuella listan över paket versioner som stöds finns i artikeln [vilka paket behöver jag?](https://github.com/Azure/azure-functions-host/wiki/Updating-your-function-app-extensions#what-nuget-packages-do-i-need) wiki-artikeln. Alla tre Azure Storage-bindningar kräver paketet Microsoft. Azure. WebJobs. Extensions. Storage.
 
-1. Från den `wwwroot` mapp, kör följande kommando för att återskapa de refererade sammansättningarna i den `bin` mapp.
+1. Kör följande kommando från `bin` mappenförattåterskapaderefereradesammansättningarnaimappen.`wwwroot`
 
     ```cmd
     dotnet build extensions.csproj -o bin --no-incremental --packages D:\home\.nuget
     ```
 
-1. I den **översikt** fliken i portalen **starta** att starta om appen.
+1. Gå tillbaka till fliken **Översikt** i portalen och välj **Starta** för att starta om Function-appen.
 
 ## <a name="next-steps"></a>Nästa steg
 

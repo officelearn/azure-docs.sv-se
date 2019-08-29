@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: a562630ef19c134c227ef44b944c1dd921ff2e46
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726810"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098628"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -96,14 +96,14 @@ Följande är metod tips för att hantera identitets omkretsen.
 **Bästa praxis**: Skydda dina hanterings gränssnitt för virtuella datorer på Hybrid PaaS-och IaaS-tjänster med hjälp av ett hanterings gränssnitt som gör att du kan fjärrhantera de virtuella datorerna direkt.   
 **Information**: Fjärrhanterings protokoll som [SSH](https://en.wikipedia.org/wiki/Secure_Shell)-, [RDP](https://support.microsoft.com/kb/186607)-och [PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) -fjärrkommunikation kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från Internet.
 
-Använd om möjligt alternativa metoder som att använda virtuella privata nätverk i ett virtuellt Azure-nätverk. Om alternativa metoder inte är tillgängliga, se till att du använder komplexa lösen fraser och tvåfaktorautentisering (till exempel [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)).
+Använd om möjligt alternativa metoder som att använda virtuella privata nätverk i ett virtuellt Azure-nätverk. Om alternativa metoder inte är tillgängliga kontrollerar du att du använder komplexa lösen fraser och tvåfaktorautentisering (till exempel [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)).
 
 **Bästa praxis**: Använd kraftfulla plattformar för autentisering och auktorisering.   
 **Information**: Använd federerade identiteter i Azure AD i stället för anpassade användar lager. När du använder federerade identiteter, drar du nytta av en plattforms beroende metod och du delegerar hanteringen av auktoriserade identiteter till dina partner. En federerad identitets metod är särskilt viktig när de anställda avslutas och informationen måste avspeglas genom flera identitets-och auktoriserings system.
 
 Använd de mekanismer för autentisering och auktorisering som tillhandahålls av plattformen i stället för anpassad kod. Orsaken är att utveckla anpassad kod kan vara fel känsligt. De flesta av dina utvecklare är inte säkerhets experter och är inte medvetna om nyanser och den senaste utvecklingen av autentisering och auktorisering. Kommersiell kod (till exempel från Microsoft) är ofta en omfattande säkerhets granskning.
 
-Använd tvåfaktorautentisering. Tvåfaktorautentisering är den aktuella standarden för autentisering och auktorisering eftersom den undviker säkerhets svagheter som finns i användar namn och lösen ords typer för autentisering. Åtkomst till både Azure-hanterings gränssnitten (portal/fjärr-PowerShell) och kund tjänster bör vara utformade och konfigurerade för att använda [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication).
+Använd tvåfaktorautentisering. Tvåfaktorautentisering är den aktuella standarden för autentisering och auktorisering eftersom den undviker säkerhets svagheter som finns i användar namn och lösen ords typer för autentisering. Åtkomst till både Azure-hanterings gränssnitten (portal/fjärr-PowerShell) och kundinriktade tjänster bör utformas och konfigureras för användning av [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication).
 
 Använd standard protokoll för autentisering, till exempel OAuth2 och Kerberos. Dessa protokoll har bearbetats i stor utsträckning och implementeras förmodligen som en del av plattforms biblioteken för autentisering och auktorisering.
 
@@ -116,7 +116,7 @@ I följande tabell visas kliv-hoten och innehåller några exempel på åtgärde
 | --- | --- | --- |
 | Förfalskning | Authentication | Kräv HTTPS-anslutningar. |
 | Manipulation | Integritet | Verifiera SSL-certifikat. |
-| Avvislighet | Oavvislighet | Aktivera [övervakning och diagnostik](/azure/architecture/best-practices/monitoring)i Azure. |
+| Avvislighet | Oavvislig het | Aktivera [övervakning och diagnostik](/azure/architecture/best-practices/monitoring)i Azure. |
 | Avslöjande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänst certifikat](/rest/api/appservice/certificates). |
 | Denial of Service | Tillgänglighet | Övervaka prestanda mått för potentiella denial-of-service-villkor. Implementera anslutnings filter. |
 | Upphöjning av rättigheter | Authorization | Använd [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
@@ -139,7 +139,7 @@ Nedan följer metod tips för hur du använder App Service.
 **Information**: [App Service-miljön](/azure/app-service/environment/intro) har en funktion för integrering av virtuella nätverk som hjälper dig att begränsa inkommande käll-IP-adresser via nätverks säkerhets grupper. Med virtuella nätverk kan du placera Azure-resurser i ett nätverk som inte är Internet och som du styr åtkomsten till. Mer information finns i [integrera din app med ett virtuellt Azure-nätverk](/azure/app-service/web-sites-integrate-with-vnet).
 
 **Bästa praxis**: Övervaka säkerhets status för dina App Services miljöer.   
-**Information**: Använd Azure Security Center för att övervaka App Service miljöer. När Security Center identifierar potentiella säkerhets problem skapas [rekommendationer](/azure/security-center/security-center-virtual-machine-recommendations) som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna.
+**Information**: Använd Azure Security Center för att övervaka App Service miljöer. När Security Center identifierar potentiella säkerhets problem skapas [rekommendationer](../../security-center/security-center-virtual-machine-protection.md) som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna.
 
 > [!NOTE]
 > Övervaknings App Service är i för hands version och endast tillgängligt på [Standard nivån](/azure/security-center/security-center-pricing) för Security Center.

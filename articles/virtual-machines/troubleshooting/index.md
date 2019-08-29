@@ -8,74 +8,81 @@ manager: gwallace
 ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: 1db5829abd52a1b010d38dd8e9151ab2df3f1de5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ed1873fa8e74b2af5734411dc80aeb9089b61a7e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854408"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080442"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Felsöka virtuella Azure-datorer
 
-- Allokeringsfel
-    - [Allokeringsfel](allocation-failure.md)
-    - [Allokeringsfel för klassiska distributioner](allocation-failure-classic.md)
+## <a name="tools-for-troubleshooting"></a>Verktyg för felsökning
+
+- [Seriekonsol](serial-console-windows.md)
 - [Startdiagnostik](boot-diagnostics.md)
-- RDP
-    - [Återställa RDP](reset-rdp.md)
-    - [Felsökning av RDP](troubleshoot-rdp-connection.md)
-    - [Detaljerad felsökning av RDP](detailed-troubleshoot-rdp.md)
-    - [Felsöka specifika fel](troubleshoot-specific-rdp-errors.md)
-- SSH 
-    - [Felsökning av SSH](troubleshoot-ssh-connection.md)
-    - [Detaljerad felsökning av SSH](detailed-troubleshoot-ssh-connection.md)
-    - [Vanliga felmeddelanden](error-messages.md)
-- [Installera agent för virtuell Windows-dator offline](install-vm-agent-offline.md)
-- Felsöka VM-prestanda
-    - [Prestandaproblem med virtuella datorer](performance-diagnostics.md)
-    - Windows
-        - [Använda PerfInsights](how-to-use-perfinsights.md)
-        - [Tillägg för prestandadiagnostik](performance-diagnostics-vm-extension.md)
-    - Linux
-        - [Använda PerfInsights](how-to-use-perfinsights-linux.md)
+- [Virtuell Windows-dator: Koppla OS-disken till en annan virtuell dator för felsökning](troubleshoot-recovery-disks-portal-windows.md)
+- [Virtuell Linux-dator: Koppla OS-disken till en annan virtuell dator för felsökning](troubleshoot-recovery-disks-portal-linux.md)
+
+## <a name="cant-connect-to-the-vm"></a>Jag kan inte ansluta till den virtuella datorn
+
+### <a name="windows"></a>Windows
+
+**Gemensam lösning**
+
+- [Återställa RDP](reset-rdp.md)
+- [Felsökning av RDP](troubleshoot-rdp-connection.md)
+- [Detaljerad felsökning av RDP](detailed-troubleshoot-rdp.md)
+
+**RDP-fel**
+
+- [Ingen licensserver](troubleshoot-rdp-no-license-server.md)
+- [Interna ](Troubleshoot-rdp-internal-error.md)
+- [autentiseringsfel](troubleshoot-authentication-error-rdp-vm.md)
+- [Felsöka specifika fel](troubleshoot-specific-rdp-errors.md)
+
+**Fel vid start av virtuell dator**
+
+* [BitLocker-startfel](troubleshoot-bitlocker-boot-error.md) 
+* [”Kontrollerar filsystem” visas i Windows vid start](troubleshoot-check-disk-boot-error.md)
+* [Fel som visar en blå kraschskärm](troubleshoot-common-blue-screen-error.md)
+* [Uppstarten av den virtuella datorn fastnar i läget ”Förbereder Windows”](troubleshoot-vm-boot-configure-update.md)
+* [Felmeddelandet "KRITISKT TJÄNSTFEL" visas på blå skärm](troubleshoot-critical-service-failed-boot-error.md)
+* [Problem med omstartsloop](troubleshoot-reboot-loop.md)
+* [Uppstarten av den virtuella datorn fastnar i Windows-uppdateringen](troubleshoot-stuck-updating-boot-error.md)
+* [Den virtuella datorn startar i felsäkert läge](troubleshoot-rdp-safe-mode.md)
+
+**Övrigt**
+- [Återställa VM-lösenordet för den virtuella Windows-datorn offline](reset-local-password-without-agent.md)
+- [Återställa NIC efter felaktig konfiguration](reset-network-interface.md)
+
+### <a name="linux"></a>Linux
+
+- [Felsökning av SSH](troubleshoot-ssh-connection.md)
+- [Detaljerad felsökning av SSH](detailed-troubleshoot-ssh-connection.md)
+- [Vanliga felmeddelanden](error-messages.md)
+- [Återställa VM-lösenordet för den virtuella Linux-datorn offline](reset-password.md)
+
+## <a name="vm-deployment-issues"></a>Distributionsproblem för virtuell dator
+
+- [Allokeringsfel](allocation-failure.md)
 - Distribuera om en VM
     - [Linux](redeploy-to-new-node-linux.md)
     - [Windows](redeploy-to-new-node-windows.md)
-- Återställa VM-lösenord
-    - [Windows](reset-local-password-without-agent.md)
-    - [Linux](reset-password.md)
-- [Återställ NIC](reset-network-interface.md)
-- [Starta om eller ändra storlek på en virtuell dator](restart-resize-error-troubleshooting.md)
-- Använda seriekonsolen
-    - [Virtuell Linux-dator](serial-console-linux.md)
-        - [GRUB/läge för en enskild användare för seriekonsol](serial-console-grub-single-user-mode.md)
-        - [NMI/SysRq för seriekonsol](serial-console-nmi-sysrq.md)
-    - [Virtuell Windows-dator](serial-console-windows.md)
-        - [CMD- och PowerShell-kommandon](serial-console-cmd-ps-commands.md)
-- [Fel när du tar bort lagringsresurser](storage-resource-deletion-errors.md      )
-- [Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar](unexpected-reboots-attached-vhds.md)
-- [Problem med Windows-aktivering](troubleshoot-activation-problems.md)
-- [Problem med programåtkomst](troubleshoot-app-connection.md)
 - Felsöka distributioner
     - [Linux](troubleshoot-deploy-vm-linux.md)
     - [Windows](troubleshoot-deploy-vm-windows.md)
 - [Enhetsnamnen har ändrats](troubleshoot-device-names-problems.md)
-- Återställningsåtkomst till virtuell dator
-    - Windows
-        - [PowerShell](troubleshoot-recovery-disks-windows.md)
-        - [Azure Portal](troubleshoot-recovery-disks-portal-windows.md)
-    - Linux
-        - [CLI](troubleshoot-recovery-disks-linux.md)
-    - [Azure Portal](troubleshoot-recovery-disks-portal-linux.md)
-- [Startfel](boot-error-troubleshoot.md)
-- [BitLocker-fel](troubleshoot-bitlocker-boot-error.md)
-- [Kontrollera filsystemfel](troubleshoot-check-disk-boot-error.md)
-- [Fel som visar en blå kraschskärm](troubleshoot-common-blue-screen-error.md)
-- [Begränsningsfel](troubleshooting-throttling-errors.md)
-- [Använda kapslad virtualisering](troubleshoot-vm-by-use-nested-virtualization.md)
-- [Förstå en omstart av systemet](understand-vm-reboot.md)
+- [Installera agent för virtuell Windows-dator offline](install-vm-agent-offline.md)
+- [Starta om eller ändra storlek på en virtuell dator](restart-resize-error-troubleshooting.md)
 
+## <a name="vm-performance-issue"></a>Prestandaproblem med virtuell dator
+- [Prestandaproblem med virtuella datorer](performance-diagnostics.md)
+- Windows
+    - [Använda PerfInsights](how-to-use-perfinsights.md)
+    - [Tillägg för prestandadiagnostik](performance-diagnostics-vm-extension.md)
+- Linux
+    - [Använda PerfInsights](how-to-use-perfinsights-linux.md)

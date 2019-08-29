@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentation om virtuella Azure-datorer för datavetenskap
+title: Dokumentation om Azure Data Science Virtual Machine
 metadata:
   title: Dokumentation om Data Science Virtual Machine – Azure
-  description: 'Lär dig hur du använder Data Science Virtual Machine, en experimenteringsmiljö i Azure-molnet som har utformats för datavetenskap. Populära verktyg för datavetenskap och annat finns förinstallerade och förkonfigurerade så att du kan börja direkt med att skapa intelligenta program för avancerade analyser.'
+  description: 'Läs om hur du använder Data Science Virtual Machine, en experimentell miljö i Azure-molnet som har utformats för datavetenskap. Populära verktyg för datavetenskap och maskininlärning har förinstallerats och förkonfigurerats. Den här designen ger dig en bra start när du vill skapa intelligenta program för avancerad analys.'
   services: machine-learning
   author: vijetajo
   ms.service: machine-learning
@@ -14,12 +14,12 @@ metadata:
   ms.date: 08/19/2019
   ms.author: vijetaj
 abstract:
-  description: "Azure Data Science Virtual Machine (DSVM) är en anpassad VM-avbildning med datavetenskap och maskininlärningsverktyg. Du kan använda den här virtuella datorn för att bygga intelligenta avancerade analysprogram. <a href=\"overview.md\">Läs mer\_...</a>"
+  description: Azure Data Science Virtual Machine (DSVM) är en anpassad VM-avbildning med datavetenskap och maskininlärningsverktyg. Du kan använda den här virtuella datorn för att skapa intelligenta program för avancerad analys. <a href="overview.md">Läs mer</a>.
 sections:
-  - title: Snabbstarter på 5 minuter
+  - title: Snabbstarter på fem minuter
     items:
       - type: paragraph
-        text: 'Lär dig hur du konfigurerar en Windows- eller Linux-baserad virtuell dator för datavetenskap:'
+        text: 'Läs om hur du konfigurerar en Windows- eller Linux-baserad virtuell dator för datavetenskap:'
       - type: paragraph
         text: <b>Windows DSVM</b>
       - type: list

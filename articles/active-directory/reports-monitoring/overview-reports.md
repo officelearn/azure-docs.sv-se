@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf5770cf052a478ea56f906efc19698554a1cd0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: cd3907231ce3963d43fa8279039a736b63fc2043
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989712"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127277"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Vad är rapporter i Azure Active Directory?
 
@@ -54,9 +54,9 @@ Alla utgåvor av Azure AD ger rapporter över användare som har flaggats för r
 
 - I **versionerna Azure Active Directory Free och Basic** har du en lista över användare som har flaggats för risk och riskfyllda inloggningar. 
 
-- Utgåvan **Azure Active Directory Premium 1** har en utökad modell där du även kan utforska några av de underliggande riskhändelser som har identifierats för varje rapport. 
+- **Azure Active Directory Premium 1** -versionen utökar den här modellen genom att även göra det möjligt att undersöka några av de underliggande risk identifieringarna som har identifierats för varje rapport. 
 
-- Utgåvan **Azure Active Directory Premium 2** ger den mest detaljerade informationen om de underliggande riskhändelser och du kan konfigurera säkerhetsprinciper som automatiskt svarar på konfigurerade risknivåer.
+- **Azure Active Directory Premium 2** -versionen ger den mest detaljerade informationen om de underliggande risk identifieringarna och du kan också konfigurera säkerhets principer som automatiskt svarar på konfigurerade risk nivåer.
 
 
 ## <a name="activity-reports"></a>Aktivitetsrapporter

@@ -259,6 +259,8 @@
               href: sql-data-warehouse-install-visual-studio.md
             - name: Källkontrollsintegrering
               href: sql-data-warehouse-source-control-integration.md
+            - name: Kontinuerlig integrering och distribution
+              href: sql-data-warehouse-continuous-integration-and-deployment.md
         - name: Anslut och fråga
           items:
             - name: Visual Studio SSDT

@@ -8,19 +8,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 2b25dff29563dcf44077465f3e563d04f04b3119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7826d34b3489fce9d71da051345cf066b756ef8b
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66157019"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140972"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudier: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Aktuell version](quickstart-create-data-factory-resource-manager-template.md)
 
@@ -369,9 +369,9 @@ Med mallen kan du distribuera följande Data Factory-entiteter:
 - Pipeline med en kopieringsaktivitet
 - Utlösare för att utlösa pipelinen
 
-Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är att använda den **Start AzDataFactoryV2Trigger** PowerShell-cmdlet. Följande procedur innehåller detaljerade anvisningar:
+Den distribuerade utlösaren har stoppats. Ett av sätt att starta utlösaren är att använda PowerShell **-cmdleten Start-AzDataFactoryV2Trigger** . Följande procedur innehåller detaljerade anvisningar:
 
-1. I PowerShell-fönstret skapar du en variabel som anger namnet på resursgruppen. Kopiera följande kommando till PowerShell-fönstret och tryck på RETUR. Om du har angett ett annat resursgruppnamn för kommandot New-AzResourceGroupDeployment, uppdaterar du värdet här.
+1. I PowerShell-fönstret skapar du en variabel som anger namnet på resursgruppen. Kopiera följande kommando till PowerShell-fönstret och tryck på RETUR. Om du har angett ett annat resurs grupp namn för kommandot New-AzResourceGroupDeployment uppdaterar du värdet här.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -603,9 +603,9 @@ Du definierar en pipeline som kopierar data från Azure-blobdatamängden till Az
 }
 ```
 
-#### <a name="trigger"></a>Utlös
+#### <a name="trigger"></a>Utlösare
 
-Du definierar en utlösare som kör pipelinen en gång per timme. Den distribuerade utlösaren har stoppats. Starta utlösaren med hjälp av den **Start AzDataFactoryV2Trigger** cmdlet. Mer information om utlösare finns i artikeln om [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md#triggers).
+Du definierar en utlösare som kör pipelinen en gång per timme. Den distribuerade utlösaren har stoppats. Starta utlösaren med hjälp av cmdleten **Start-AzDataFactoryV2Trigger** . Mer information om utlösare finns i artikeln om [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md#triggers).
 
 ```json
 {

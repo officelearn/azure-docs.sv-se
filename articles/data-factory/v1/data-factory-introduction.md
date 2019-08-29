@@ -3,25 +3,24 @@ title: Introduktion till Data Factory, en dataintegreringstjänst | Microsoft Do
 description: 'Läs om vad Azure Data Factory är: En tjänst för integrering av molndata som samordnar och automatiserar förflyttning och omvandling av data.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: aed073e7d65f193c4123106ba1ae3f4f442965e1
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 2e508839cd343820a36cc715ebde0f47c2ac4ab1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836303"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139507"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-introduction.md)
 > * [Version 2 (aktuell version)](../introduction.md)
 
@@ -141,7 +140,7 @@ Du kan använda något av dessa verktyg eller API:er för att skapa datapipeline
 
 Följ de stegvisa anvisningarna i följande självstudier om du vill lära dig hur du skapar datafabriker med datapipeliner:
 
-| Självstudier | Beskrivning |
+| Självstudie | Beskrivning |
 | --- | --- |
 | [Flytta data mellan två molndatalager](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Skapa en datafabrik med en pipeline som flyttar data från Blob Storage till SQL Database. |
 | [Omvandla data med Hadoop-kluster](data-factory-build-your-first-pipeline.md) |Skapa din första Azure Data Factory med en datapipeline som bearbetar data genom att köra Hive-skriptet på ett Azure HDInsight-kluster (Hadoop). |

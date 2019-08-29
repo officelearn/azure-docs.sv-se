@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – blockera åtkomst när en session risk identifieras med Azure Active Directory villkorlig åtkomst | Microsoft Docs
-description: I den här snabbstarten får du lära dig hur du kan konfigurera en princip för villkorlig åtkomst för Azure Active Directory (Azure AD) för att blockera inloggningar baserat på sessionen risker.
+title: Snabb start – blockera åtkomst när en sessionsgräns identifieras med Azure Active Directory villkorlig åtkomst | Microsoft Docs
+description: I den här snabb starten får du lära dig hur du kan konfigurera en princip för villkorlig åtkomst för Azure Active Directory (Azure AD) för att blockera inloggningar baserat på risker i sessioner.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdbdd0253478200d39501444ae649b87b77e65a4
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 928900c526ec0e77f84c621f630ac5894cdb2d23
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509047"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125660"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabbstart: Blockera åtkomst när en session risk identifieras med Azure Active Directory villkorsstyrd åtkomst  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabbstart: Blockera åtkomst när en sessionsgräns identifieras med Azure Active Directory villkorlig åtkomst  
 
-Om du vill behålla din miljö skyddad, kanske du vill blockera misstänkta användare från att logga in. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyserar varje inloggning och beräknar sannolikheten att en inloggning försök inte har utförts av är tillförlitligt ägare för ett användarkonto. Sannolikheten (låg, medelhög och hög) anges i form av ett beräknat värde med namnet [risknivåer för inloggning](conditions.md#sign-in-risk). Du kan konfigurera principer för villkorlig åtkomst för att svara på specifika inloggningsrisk nivåer genom att ange villkoret inloggningsrisk.
+Om du vill hålla din miljö skyddad kan du blockera misstänkta användare från inloggning. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyserar varje inloggning och beräknar sannolikheten för att ett inloggnings försök inte utfördes av en legitim ägare till ett användar konto. Sannolikheten (låg, medium, hög) anges i form av ett beräknat värde som kallas [inloggnings risk nivåer](conditions.md#sign-in-risk). Genom att ange risk villkor för inloggning kan du konfigurera en princip för villkorlig åtkomst som svarar på speciella risk nivåer för inloggning.
 
-Den här snabbstarten visar hur du konfigurerar en [princip för villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) som blockerar en inloggning vid en konfigurerad inloggningsrisk nivå har identifierats.
+Den här snabb starten visar hur du konfigurerar en [princip för villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) som blockerar en inloggning när en konfigurerad risk nivå för inloggning har upptäckts.
 
 ![Skapa princip](./media/app-sign-in-risk/1000.png)
 
@@ -32,73 +32,73 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För att kunna slutföra scenariot i den här självstudien behöver du:
 
-- **Åtkomst till en Azure AD Premium P2-versionen** -medan villkorlig åtkomst är en funktion i Azure AD Premium P1, P2-versionen måste eftersom scenariot i den här snabbstarten kräver Identity Protection.
-- **Identitetsskydd** -scenariot i den här snabbstarten kräver Identity Protection är aktiverat. Om du inte vet hur du aktiverar du Identity Protection, se [aktiverar Azure Active Directory Identity Protection](../identity-protection/enable.md).
-- **Tor Browser** – [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) är utformat för att bevara sekretessen online. Identity Protection identifierar en inloggning från en Tor Browser som inloggningar från anonyma IP-adresser som har en Medelrisk-nivå. Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](../reports-monitoring/concept-risk-events.md).  
-- **Ett testkonto kallas Alain Charon** – om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- **Åtkomst till en Azure AD Premium P2-version** – medan villkorlig åtkomst är en Azure AD Premium P1-funktion behöver du en P2-utgåva eftersom scenariot i den här snabb starten kräver identitets skydd.
+- **Identitets skydd** – scenariot i den här snabb starten kräver att identitets skydd aktive ras. Om du inte vet hur du aktiverar identitets skydd, se [aktivera Azure Active Directory Identity Protection](../identity-protection/enable.md).
+- **Tor webbläsare** – [webbläsaren Tor](https://www.torproject.org/projects/torbrowser.html.en) är utformad för att hjälpa dig att bevara din sekretess online. Identitets skydd identifierar en inloggning från en Tor webbläsare som inloggningar från anonyma IP-adresser, som har medelhög risk nivå. Mer information finns i [Azure Active Directory risk identifieringar](../reports-monitoring/concept-risk-events.md).  
+- **Ett test konto med namnet Alain Charon** – om du inte vet hur du skapar ett test konto läser du [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Testa din inloggning
 
-Målet med det här steget är att se till att ditt testkonto har åtkomst till din klient med Tor Browser.
+Målet med det här steget är att se till att ditt test konto har åtkomst till din klient med hjälp av Tor-webbläsaren.
 
-**Så här testar din inloggning:**
+**Så här testar du inloggningen:**
 
-1. Logga in på din [Azure-portalen](https://portal.azure.com) som **Alain Charon**.
+1. Logga in på [Azure Portal](https://portal.azure.com) som **Alain Charon**.
 1. Logga ut.
 
-## <a name="create-your-conditional-access-policy"></a>Skapa principer för villkorlig åtkomst
+## <a name="create-your-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-Scenariot i den här snabbstarten använder en inloggning från en Tor Browser för att generera en identifierad **inloggningar från anonyma IP-adresser** riskhändelsen. Risknivån för den här riskhändelsen är medium. Om du vill svara på den här riskhändelsen kan ange du inloggningsrisk villkoret medium. I en produktionsmiljö bör du ange villkoret inloggningsrisk till hög eller medelhög och hög.
+Scenariot i den här snabb starten använder en inloggning från en Tor webbläsare för att generera ett identifierat **inloggnings program från anonyma IP-adresser** risk identifiering. Risk nivån för denna risk identifiering är medels Tor. För att svara på den här identifieringen av risker ställer du in risk villkoret på medel. I en produktions miljö bör du ange risk villkor för inloggning, antingen till hög eller till medium och hög.
 
-Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkomst. Ange i din princip:
+I det här avsnittet visas hur du skapar den nödvändiga principen för villkorlig åtkomst. Ange följande i principen:
 
-| Inställning | Värde |
+| Inställning | Value |
 | --- | --- |
 | Användare och grupper | Alain Charon  |
 | Molnappar | Alla molnappar |
-| Inloggningsrisk | Medel |
+| Inloggnings risk | Medel |
 | Bevilja | Blockera åtkomst |
 
 ![Skapa princip](./media/app-sign-in-risk/130.png)
 
-**Konfigurera principer för villkorlig åtkomst:**
+**Så här konfigurerar du en princip för villkorlig åtkomst:**
 
-1. Logga in på din [Azure-portalen](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
-1. I Azure portal, på det vänstra navigeringsfältet, klickar du på **Azure Active Directory**.
+1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, säkerhets administratör eller en administratör för villkorlig åtkomst.
+1. Klicka på **Azure Active Directory**i Azure Portal i det vänstra navigerings fältet.
 
    ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-1. På den **Azure Active Directory** sidan den **Security** klickar du på **villkorlig åtkomst**.
+1. Klicka på **villkorlig åtkomst**i avsnittet **säkerhet** på sidan **Azure Active Directory** .
 
-   ![Villkorlig åtkomst](./media/app-sign-in-risk/03.png)
+   ![Villkorad åtkomst](./media/app-sign-in-risk/03.png)
 
-1. På den **villkorlig åtkomst** , i verktygsfältet högst upp, klickar du på **Lägg till**.
+1. Klicka på **Lägg till**i verktygsfältet högst upp på sidan för **villkorlig åtkomst** .
 
-   ![Namn](./media/app-sign-in-risk/108.png)
+   ![Name](./media/app-sign-in-risk/108.png)
 
-1. På den **New** sidan den **namn** textrutan typ **blockera åtkomst för medelstora risknivå**.
+1. På sidan **nytt** i text rutan **namn** skriver du **blockera åtkomst för medelhög risk nivå**.
 
-   ![Namn](./media/app-sign-in-risk/104.png)
+   ![Name](./media/app-sign-in-risk/104.png)
 
-1. I den **tilldelning** klickar du på **användare och grupper**.
+1. I avsnittet **tilldelning** klickar du på **användare och grupper**.
 
    ![Användare och grupper](./media/app-sign-in-risk/06.png)
 
-1. På den **användare och grupper** sidan:
+1. På sidan **användare och grupper** :
 
-   ![Villkorlig åtkomst](./media/app-sign-in-risk/107.png)
+   ![Villkorad åtkomst](./media/app-sign-in-risk/107.png)
 
-   1. Klicka på **Välj användare och grupper**, och välj sedan **användare och grupper**.
+   1. Klicka på **Välj användare och grupper**och välj sedan **användare och grupper**.
    1. Klicka på **Välj**.
-   1. På den **Välj** väljer **Alain Charon**, och klicka sedan på **Välj**.
-   1. På den **användare och grupper** klickar du på **klar**.
-1. Klicka på **Molnappar**.
+   1. På sidan **Välj** väljer du **Alain Charon**och klickar sedan på **Välj**.
+   1. På sidan **användare och grupper** klickar du på **Slutför**.
+1. Klicka på **molnappar**.
 
    ![Molnappar](./media/app-sign-in-risk/08.png)
 
-1. På den **Molnappar** sidan:
+1. På sidan **Cloud Apps** :
 
-   ![Villkorlig åtkomst](./media/app-sign-in-risk/109.png)
+   ![Villkorad åtkomst](./media/app-sign-in-risk/109.png)
 
    1. Klicka på **alla molnappar**.
    1. Klicka på **Klar**.
@@ -106,26 +106,26 @@ Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkom
 
    ![Åtkomstkontroller](./media/app-sign-in-risk/19.png)
 
-1. På den **villkor** sidan:
+1. På sidan **villkor** :
 
-   ![Risknivå för inloggning](./media/app-sign-in-risk/21.png)
+   ![Inloggnings risk nivå](./media/app-sign-in-risk/21.png)
 
-   1. Klicka på **inloggningsrisk**.
-   1. Som **konfigurera**, klickar du på **Ja**.
-   1. Logga in risknivå väljer **medel**.
+   1. Klicka på **inloggnings risk**.
+   1. Som **Konfigurera**klickar du på **Ja**.
+   1. Som inloggnings risk nivå väljer du **medel**.
    1. Klicka på **Välj**.
-   1. På den **villkor** klickar du på **klar**.
-1. I den **åtkomstkontroller** klickar du på **bevilja**.
+   1. På sidan **villkor** klickar du på **Slutför**.
+1. I avsnittet **åtkomst kontroller** klickar du på **bevilja**.
 
    ![Åtkomstkontroller](./media/app-sign-in-risk/10.png)
 
-1. På den **bevilja** sidan:
+1. På sidan **beviljande** :
 
-   ![Villkorlig åtkomst](./media/app-sign-in-risk/105.png)
+   ![Villkorad åtkomst](./media/app-sign-in-risk/105.png)
 
    1. Välj **blockera åtkomst**.
    1. Klicka på **Välj**.
-1. I den **aktiverar principen** klickar du på **på**.
+1. I avsnittet **Aktivera princip** klickar du **på på**.
 
    ![Aktivera princip](./media/app-sign-in-risk/18.png)
 
@@ -133,49 +133,49 @@ Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkom
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Utvärdera en simulerad inloggning
 
-Nu när du har konfigurerat principer för villkorlig åtkomst kan vill du förmodligen veta om den fungerar som förväntat. Använda villkorlig åtkomst som ett första steg **vad händer om principen verktyget** att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
+Nu när du har konfigurerat din princip för villkorlig åtkomst vill du förmodligen veta om den fungerar som förväntat. Som ett första steg använder du den villkorliga åtkomsten **vad gör om-princip verktyget** för att simulera en inloggning av test användaren. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
 
-När du kör den **vad händer om principen verktyget** i det här scenariot i **blockera åtkomst för medelstora risknivå** bör visas under **principer som gäller**.
+När du kör **verktyget vad händer om-princip** för det här scenariot ska **blockera åtkomsten för medelhög risk** listas under **principer som ska gälla**.
 
 ![Användare](./media/app-sign-in-risk/117.png)
 
-**Utvärdera din princip för villkorlig åtkomst:**
+**Så här utvärderar du principen för villkorlig åtkomst:**
 
-1. På den [villkorlig åtkomst – principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) i menyn längst upp på sidan klickar du på **vad händer om**.  
+1. På sidan [villkorlig åtkomst – principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) går du till menyn högst upp och klickar på **What If**.  
 
-   ![Tänk om](./media/app-sign-in-risk/14.png)
+   ![What If](./media/app-sign-in-risk/14.png)
 
-1. Klicka på **användaren**väljer **Alan Charon** på den **användare** , och klicka sedan på **Välj**.
+1. Klicka på **användare**, Välj **Alan Charon** på sidan **användare** och klicka sedan på **Välj**.
 
    ![Användare](./media/app-sign-in-risk/116.png)
 
-1. Som **inloggningsrisk**väljer **medel**.
+1. Som **inloggnings risk**väljer du **medel**.
 
    ![Användare](./media/app-sign-in-risk/119.png)
 
-1. Klicka på **vad händer om**.
+1. Klicka på **What If**.
 
 ## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorlig åtkomst
 
-I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad inloggning. Förutom en simulering, bör du också testa principer för villkorlig åtkomst att se till att den fungerar som förväntat.
+I föregående avsnitt har du lärt dig hur du utvärderar en simulerad inloggning. Förutom en simulering bör du också testa principen för villkorlig åtkomst för att se till att den fungerar som förväntat.
 
-Om du vill testa din princip, försöker logga in på din [Azure-portalen](https://portal.azure.com) som **Alan Charon** med Tor Browser. Dina inloggningsförsök ska blockeras av din princip för villkorlig åtkomst.
+Testa principen genom att försöka logga in på [Azure Portal](https://portal.azure.com) som **Alan Charon** med hjälp av webbläsaren Tor. Ditt inloggnings försök ska blockeras av den villkorliga åtkomst principen.
 
 ![Multi-Factor Authentication](./media/app-sign-in-risk/118.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort testanvändaren, Tor Browser och principen för villkorlig åtkomst:
+När de inte längre behövs tar du bort test användaren, Tor webbläsaren och principen för villkorlig åtkomst:
 
-- Om du inte vet hur du tar bort en Azure AD-användare kan se [ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-- Välj din princip för att ta bort principen, och klicka sedan på **ta bort** i verktygsfältet för snabb åtkomst.
+- Om du inte vet hur du tar bort en Azure AD-användare kan du läsa [ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
+- Om du vill ta bort principen väljer du principen och klickar sedan på **ta bort** i verktygsfältet snabb åtkomst.
 
    ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)
 
-- Anvisningar för att ta bort Tor Browser finns i [avinstallerar](https://tb-manual.torproject.org/uninstalling/).
+- Instruktioner för att ta bort Tor-webbläsaren finns i [Avinstallera](https://tb-manual.torproject.org/uninstalling/).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Kräv användningsvillkor godkännas](require-tou.md)
-> [kräver MFA för specifika appar](app-based-mfa.md)
+> [Kräv att användnings villkor godkänns](require-tou.md)
+> [Kräv MFA för vissa appar](app-based-mfa.md)

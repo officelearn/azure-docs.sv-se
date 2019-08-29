@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 9664fd35462ab6084b203fe4ccd3c10435d64991
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: cbc55433517174c8080b941ca8526e5a4fd3427d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035628"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126017"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "70035628"
 
 ::: zone target="chromeless"
 
-# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Kom igång med Azure Data Box Disk med Azure Portal
+## <a name="get-started-with-azure-data-box-disk"></a>Kom igång med Azure Data Box Disk 
 
 ::: zone-end
 
@@ -40,7 +40,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ::: zone target="chromeless"
 
-Den här snabbstarten beskriver hur du distribuerar Azure Data Box Disk med hjälp av Azure Portal. Stegen omfattar gransknings krav, Lås upp diskarna, Anslut och kopiera data till diskar så att de överförs till Azure.
+I den här guiden beskrivs hur du distribuerar Azure Data Box Disk i Azure Portal. Stegen omfattar gransknings krav, Lås upp diskarna och Anslut och kopiera data till diskar så att de överförs till Azure.
 
 ::: zone-end
 
@@ -60,7 +60,7 @@ Logga in på Azure Portal på [https://aka.ms/azuredataboxfromdiskdocs](https://
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Förutsättningar
 
 - Du har placerat din beställning för data Box disk med [hjälp av självstudien: Beställa Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 - Du har tagit emot diskarna och jobbstatusen på portalen har uppdaterats till **Levererade**.

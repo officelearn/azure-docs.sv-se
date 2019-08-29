@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bb1e29735a860f5dc3b6ce8996af9fcd4962871
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: ed5e5e26a27e13ba09ffcc97e0b2b0f1b37bc8bd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335315"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127702"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Snabbstart: Blockera åtkomst när en sessionsgräns identifieras med Azure Active Directory Identity Protection  
 
@@ -34,7 +34,7 @@ För att kunna slutföra scenariot i den här självstudien behöver du:
 
 - **Åtkomst till en Azure AD Premium P2-utgåva** – Azure AD Identity Protection är en Azure AD Premium P2-funktion. 
 - **Identitets skydd** – scenariot i den här snabb starten kräver att identitets skydd aktive ras. Om du inte vet hur du aktiverar identitets skydd, se [aktivera Azure Active Directory Identity Protection](../identity-protection/enable.md).
-- **Tor webbläsare** – [webbläsaren Tor](https://www.torproject.org/projects/torbrowser.html.en) är utformad för att hjälpa dig att bevara din sekretess online. Identitets skydd identifierar en inloggning från en Tor webbläsare som inloggningar **från anonyma IP-adresser**, som har medelhög risk nivå. Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](../reports-monitoring/concept-risk-events.md).  
+- **Tor webbläsare** – [webbläsaren Tor](https://www.torproject.org/projects/torbrowser.html.en) är utformad för att hjälpa dig att bevara din sekretess online. Identitets skydd identifierar en inloggning från en Tor webbläsare som inloggningar **från anonyma IP-adresser**, som har medelhög risk nivå. Mer information finns i [Azure Active Directory risk identifieringar](../reports-monitoring/concept-risk-events.md).  
 - **Ett test konto med namnet Alain Charon** – om du inte vet hur du ska skapa ett test konto går du [till Lägg till en ny användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Testa din inloggning 
@@ -48,7 +48,7 @@ Målet med det här steget är att se till att ditt test konto har åtkomst till
 
 ## <a name="create-your-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst 
 
-Scenariot i den här snabb starten använder en inloggning från en Tor webbläsare för att skapa ett identifierat **inloggnings program från en anonym IP-adress** risk händelse. Risk nivån för den här risk händelsen är medels Tor. För att svara på den här risk händelsen ställer du in risk villkoret på medel. 
+Scenariot i den här snabb starten använder en inloggning från en Tor webbläsare för att generera ett identifierat **inloggnings program från anonyma IP-adresser** risk identifiering. Risk nivån för denna risk identifiering är medels Tor. För att svara på den här identifieringen av risker ställer du in risk villkoret på medel. 
 
 I det här avsnittet visas hur du skapar den nödvändiga villkorliga åtkomst principen för inloggnings risker. Ange följande i principen:
 
@@ -65,11 +65,11 @@ I det här avsnittet visas hur du skapar den nödvändiga villkorliga åtkomst p
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
 2. Gå till [sidan Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/Overview).
 3. Klicka på **inloggnings risk princip**i avsnittet **konfigurera** på sidan **Azure AD Identity Protection** .
-4. På sidan princip i avsnittet tilldelningar  klickar du på **användare**.
+4. På sidan princip i avsnittet tilldelningar klickar du på **användare**.
 5. På sidan **användare** klickar du på **Välj användare**.
 6. På sidan **Välj användare** väljer du **Alain Charon**och klickar sedan på **Välj**.
 7. På sidan **användare** klickar du på **Slutför**. 
-8. På sidan princip i avsnittet tilldelningar  klickar du på **villkor**.
+8. På sidan princip i avsnittet tilldelningar klickar du på **villkor**.
 9. På sidan **villkor** klickar du på **inloggnings risk**.
 10. På sidan **inloggnings risker** väljer du **medium och över**, och klickar sedan på **Välj**. 
 11. På sidan **villkor** klickar du på **Slutför**.
@@ -81,7 +81,7 @@ I det här avsnittet visas hur du skapar den nödvändiga villkorliga åtkomst p
 
 Testa principen genom att försöka logga in på [Azure Portal](https://portal.azure.com) som **Alan Charon** med hjälp av webbläsaren Tor. Ditt inloggnings försök ska blockeras av den villkorliga åtkomst principen.
 
-![Multifaktorautentisering](./media/quickstart-sign-in-risk-policy/203.png)
+![Multi-Factor Authentication](./media/quickstart-sign-in-risk-policy/203.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

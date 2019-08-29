@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f800560aa4ddef52c2274fa8b3f5c98d68189f0f
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 1dc4120ec9f1db8ac34800096ae407b5581758a4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717522"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614160"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå din Azure Cosmos DB faktura
 
@@ -90,7 +90,7 @@ Om du ökar det etablerade data flödet för en behållare eller en uppsättning
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Fakturerings exempel med geo-replikering och flera huvud servrar  
 
-Du kan när som helst lägga till/ta bort Azure-regioner var som helst i världen till ditt Azure Cosmos DB databas konto. Det data flöde som du har konfigurerat för olika Azure Cosmos DB databaser och behållare kommer att reserveras i var och en av de Azure-regioner som är kopplade till ditt Azure Cosmos Database-konto. Om summan av det etablerade data flödet (RU/s) som kon figurer ATS över alla databaser och behållare i ditt Azure Cosmos Database-konto (etablerad per timme) är T och antalet Azure-regioner som är kopplade till ditt databas konto är N, är det totala ett tillhandahållet data flöde för en viss timme, för ditt Azure Cosmos Database-konto, (a) som kon figurer ATS med en enda Skriv region är lika med T x N RU/SEK och (b) som kon figurer ATS med alla regioner som kan bearbeta skrivningar är lika med T x (N + 1) RU/SEK benämningar. Etablerade data flödes kostnader (enkel skrivnings region) $0.008/timme per 100 RU/SEK och tillhandahållet data flöde med flera skrivbara regioner (konfigurationer med flera huvud) $0.016/per timme efter 100 RU/SEK (se [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/)). Oavsett om det är en enskild Skriv region eller flera Skriv regioner kan du med Azure Cosmos DB läsa data från vilken region som helst.
+Du kan när som helst lägga till/ta bort Azure-regioner var som helst i världen till ditt Azure Cosmos Database-konto. Det data flöde som du har konfigurerat för olika Azure Cosmos-databaser och behållare kommer att reserveras i var och en av de Azure-regioner som är kopplade till ditt Azure Cosmos Database-konto. Om summan av det etablerade data flödet (RU/s) som kon figurer ATS över alla databaser och behållare i ditt Azure Cosmos Database-konto (etablerad per timme) är T och antalet Azure-regioner som är kopplade till ditt databas konto är N, är det totala ett tillhandahållet data flöde för en viss timme, för ditt Azure Cosmos Database-konto, (a) som kon figurer ATS med en enda Skriv region är lika med T x N RU/SEK och (b) som kon figurer ATS med alla regioner som kan bearbeta skrivningar är lika med T x (N + 1) RU/SEK benämningar. Etablerade data flödes kostnader (enkel skrivnings region) $0.008/timme per 100 RU/SEK och tillhandahållet data flöde med flera skrivbara regioner (konfigurationer med flera huvud) $0.016/per timme efter 100 RU/SEK (se [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/)). Oavsett om det är en enskild Skriv region eller flera Skriv regioner kan du med Azure Cosmos DB läsa data från vilken region som helst.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Fakturerings exempel: Azure Cosmos-konto med flera regioner, enskild region skrivningar
 
@@ -228,7 +228,7 @@ Total månads kostnad = månatlig kostnad för lagring + månatlig kostnad för 
 
 ## <a name="billing-with-azure-cosmos-db-reserved-capacity"></a>Fakturering med Azure Cosmos DB reserverad kapacitet
 
-Med Azure Cosmos DB reserverad kapacitet kan du köpa etablerade data flöden i förväg (en reserverad kapacitet eller en reservation) som kan tillämpas på alla Azure Cosmos DB-databaser och behållare (för alla API: er eller data modeller) i alla Azure-regioner. Eftersom det etablerade data flödes priset varierar mellan olika regioner, bidrar det till att betrakta reserverad kapacitet som en monetär kredit som du har köpt till en rabatt, som kan hämtas från för det etablerade data flödet till respektive pris i varje region. Anta till exempel att du har ett Azure Cosmos-konto med en enda behållare etablerad med 50-K RU/SEK och globalt replikerade två regioner – östra USA och Japan, öst. Om du väljer alternativet betala per användning betalar du:  
+Med Azure Cosmos DB reserverad kapacitet kan du köpa etablerade data flöden i förväg (en reserverad kapacitet eller en reservation) som kan tillämpas på alla Azure Cosmos-databaser och behållare (för alla API: er eller data modeller) i alla Azure-regioner. Eftersom det etablerade data flödes priset varierar mellan olika regioner, bidrar det till att betrakta reserverad kapacitet som en monetär kredit som du har köpt till en rabatt, som kan hämtas från för det etablerade data flödet till respektive pris i varje region. Anta till exempel att du har ett Azure Cosmos-konto med en enda behållare etablerad med 50-K RU/SEK och globalt replikerade två regioner – östra USA och Japan, öst. Om du väljer alternativet betala per användning betalar du:  
 
 * i östra USA: för 50-K RU/SEK enligt priset $0,008 per 100 RU/SEK i den regionen 
 

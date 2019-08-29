@@ -8,23 +8,16 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: cbrooks
-ms.openlocfilehash: 67e4874fcca93633140b7630ceadd273d1646f86
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 86bbff167a2653fd8d89b566b551c4c53dd3614e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721177"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124556"
 ---
 # <a name="what-are-azure-queues"></a>Vad är Azure-köer?
 
-Azure Queue Storage är en tjänst för att lagra ett stort antal meddelanden. Du kommer åt meddelanden från var som helst i världen via autentiserade anrop med HTTP eller HTTPS. Ett Queue-meddelande kan vara upp till 64 KB stort. En kö kan innehålla miljon tals meddelanden, upp till den totala kapacitets gränsen för ett lagrings konto.
-
-## <a name="common-uses"></a>Vanliga användnings områden
-
-Vanliga användningsområden för Queue Storage är:
-
-* Skapa en lista med kvarvarande uppgifter att bearbeta asynkront
-* Skicka meddelanden från en Azure-webbroll till en Azure-arbetsroll
+Azure Queue Storage är en tjänst för att lagra ett stort antal meddelanden. Du kommer åt meddelanden från var som helst i världen via autentiserade anrop med HTTP eller HTTPS. Ett Queue-meddelande kan vara upp till 64 KB stort. En kö kan innehålla miljon tals meddelanden, upp till den totala kapacitets gränsen för ett lagrings konto. Köer används ofta för att skapa en efter släpning av arbete som ska bearbetas asynkront.
 
 ## <a name="queue-service-concepts"></a>Kötjänst begrepp
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a2420f98bb07686b548dc6641df77dd0fdf7028b
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 8b35d2441db654278f9d66f3cbb4e7a79d70e835
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562806"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128036"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Snabbstart: Kör ditt första Batch-jobb med Python-API
 
@@ -47,7 +47,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-Navigera till den katalog som innehåller Python-skriptet `python_quickstart_client.py`.
+Gå till den katalog som innehåller python-skriptet `python_quickstart_client.py`.
 
 I Python-miljön installerar du de nödvändiga paketen med `pip`.
 
@@ -230,7 +230,7 @@ for task in tasks:
 
 Appen tar automatiskt bort den lagringscontainer den skapar och ger dig möjlighet att ta bort Batch-poolen och jobbet. Du debiteras för poolen medan noderna körs, även om inga jobb är schemalagda. Ta bort poolen när du inte längre behöver den. När du tar bort poolen raderas alla aktivitetsutdata på noderna. 
 
-När de inte längre behövs tar du bort resursgruppen, Batch-kontot och lagringskontot. Om du vill göra det i Azure-portalen väljer du resursgruppen för Batch-kontot och klickar på **Ta bort resursgrupp**.
+När de inte längre behövs tar du bort resursgruppen, Batch-kontot och lagringskontot. Om du vill göra det i Azure Portal väljer du resurs gruppen för batch-kontot och väljer **ta bort resurs grupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 

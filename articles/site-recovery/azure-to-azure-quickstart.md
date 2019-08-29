@@ -1,31 +1,30 @@
 ---
 title: Konfigurera haveriberedskap för en virtuell Azure-dator till en sekundär Azure-region
 description: Den här snabbstarten beskriver de steg som krävs för haveriberedskap för en virtuell Azure IaaS-dator mellan Azure-regioner, med hjälp av Azure Site Recovery-tjänsten.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 05/30/2019
+ms.date: 08/28/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 46376091649a2c2b1498fd13e8775fb161de32c1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: d23d16d1315eeaf224a5291641ab088212fcdc77
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399550"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146957"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Konfigurera haveriberedskap för en sekundär Azure-region för en virtuell Azure-dator        
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
-Den här snabbstarten beskriver hur du konfigurerar haveriberedskap för en Azure virtuell dator genom att replikera den till en annan Azure-region.
+I den här snabb starten beskrivs hur du konfigurerar haveri beredskap för en virtuell Azure-dator genom att replikera den till en annan Azure-region.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
-> Den här artikeln är som en snabb genomgång för nya användare. Den enklaste sökvägen används med standard-alternativ och minsta anpassning.  För en fullständig genomgång granskning [i våra självstudier](azure-to-azure-tutorial-enable-replication.md).
+> Den här artikeln är en snabb genom gång för nya användare. Den använder den enklaste sökvägen, med standard alternativ och minimal anpassning.  En fullständig genom gång finns i [vår självstudie](azure-to-azure-tutorial-enable-replication.md).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -54,8 +53,8 @@ När replikeringen har slutförts kan du kontrollera replikeringsstatus, ändra 
 
 Den virtuella datorn i den primära regionen slutar replikera när du inaktiverar replikering för den:
 
-- Källans replikeringsinställningar rensas automatiskt. Site Recovery-tillägget installerat på den virtuella datorn som en del av replikeringen tas inte bort och måste tas bort manuellt. 
-- Site Recovery-debitering för den virtuella datorn stoppas.
+- Källans replikeringsinställningar rensas automatiskt. Site Recovery tillägget som är installerat på den virtuella datorn som en del av replikeringen tas inte bort och måste tas bort manuellt. 
+- Site Recovery faktureringen för den virtuella datorn stoppas.
 
 Stoppa replikering på följande sätt
 
@@ -66,7 +65,7 @@ Stoppa replikering på följande sätt
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten replikerar du en enda virtuell dator till en sekundär region. Prova att replikera en flera Azure-datorer med hjälp av en återställningsplan.
+I den här snabbstarten replikerar du en enda virtuell dator till en sekundär region. Försök nu att replikera flera virtuella Azure-datorer med en återställnings plan.
 
 > [!div class="nextstepaction"]
 > [Konfigurera haveriberedskap för virtuella Azure-datorer](azure-to-azure-tutorial-enable-replication.md)

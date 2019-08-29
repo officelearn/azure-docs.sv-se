@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99a542d3208d5871d88c966fffc65cf16e0fbeee
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 8b89cab41061376fc1d8b4cbffc8fe87b9677688
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335387"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125683"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Vad är Azure Active Directory Identity Protection?
 
@@ -45,10 +45,10 @@ Azure Active Directory Identity Protection är mer än ett övervaknings-och rap
 - Beräkning av inloggnings risk nivåer
 - Beräkna risk nivåer för användare
 
-**Undersöka risk händelser:**
+**Undersöka risk identifieringar:**
 
-- Skicka meddelanden för risk händelser
-- Undersöka risk händelser med hjälp av relevant och sammanhangsbaserad information
+- Skicka meddelanden om risk identifieringar
+- Undersöka risk identifieringar med hjälp av relevant och sammanhangsbaserad information
 - Tillhandahålla grundläggande arbets flöden för att spåra utredningar
 - Ge enkel åtkomst till åtgärds åtgärder, till exempel återställning av lösen ord
 
@@ -76,10 +76,10 @@ Mer information finns i [tilldela administratörs roller i Azure Active Director
 
 Azure Active Directory Identity Protection analyserar konfigurationen och identifierar sårbarheter som kan påverka användarens identiteter. Mer information finns i [sårbarheter som upptäckts av Azure Active Directory Identity Protection](vulnerabilities.md).
 
-### <a name="risk-events"></a>Riskhändelser
+### <a name="risk-detections"></a>Risk identifieringar
 
-Azure Active Directory använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera misstänkta åtgärder som är relaterade till användarens identiteter. Systemet skapar en post för varje identifierad misstänkt åtgärd. Dessa poster kallas även risk händelser.  
-Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](../active-directory-identity-protection-risk-events.md).
+Azure Active Directory använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera misstänkta åtgärder som är relaterade till användarens identiteter. Systemet skapar en post för varje identifierad misstänkt åtgärd. Dessa poster kallas även risk identifieringar.  
+Mer information finns i [Azure Active Directory risk identifieringar](../active-directory-identity-protection-risk-events.md).
 
 ## <a name="investigation"></a>Undersökning
 
@@ -89,10 +89,10 @@ Din resa genom identitets skydd börjar normalt med instrument panelen för iden
 
 På instrumentpanelen har du åtkomst till:
 
-- Rapporter som användare som har **flaggats för risk**, **risk händelser** och **sårbarheter**
+- Rapporter, till exempel användare som har **flaggats för risk**, **risk identifiering** och **sårbarheter**
 - Inställningar som konfiguration av dina **säkerhets principer**, **meddelanden** och **Multi-Factor Authentication-registrering**
 
-Det är vanligt vis din utgångs punkt för undersökning, som är en process för att granska aktiviteter, loggar och annan relevant information som rör en risk händelse för att avgöra om åtgärder för reparation eller minskning är nödvändiga och hur identiteten var komprometterad och förstå hur den komprometterade identiteten användes.
+Det är vanligt vis din utgångs punkt för undersökning, som är en process för att granska aktiviteter, loggar och annan relevant information som rör en risk identifiering för att avgöra om åtgärder för reparation eller minskning är nödvändiga och hur identiteten var komprometterad och förstå hur den komprometterade identiteten användes.
 
 Du kan knyta dina undersöknings aktiviteter till [meddelanden](notifications.md) Azure Active Directory skydd som skickas per e-post.
 

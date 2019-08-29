@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 15a1e388b17a66bf22fc0fd51744cb0aaa1b36d4
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f44c7a66b6d8fe7ed6ad114ea176c84351ac6493
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415546"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071505"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrera en ASP.NET-app till Azure App Service med hjälp av en Windows-container (förhandsversion)
 
@@ -27,14 +26,14 @@ ms.locfileid: "65415546"
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
 - <a href="https://hub.docker.com/" target="_blank">Registrera dig för ett Docker Hub-konto</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installera Docker för Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2019</a> med den **ASP.NET och webbutveckling** och **Azure development** arbetsbelastningar. Om du har installerat Visual Studio 2019 redan:
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2019</a> med arbets belastningarna **ASP.net och webb utveckling** och **Azure Development** . Om du redan har installerat Visual Studio 2019:
     - Installera de senaste uppdateringarna i Visual Studio genom att klicka på **Hjälp** > **Sök efter uppdateringar**.
     - Lägg till arbetsbelastningarna i Visual Studio genom att klicka på **Verktyg** > **Hämta verktyg och funktioner**.
 
@@ -103,7 +102,7 @@ I Solution Explorer högerklickar du på projektet **CustomFontSample** och väl
 
 ### <a name="create-registry-and-publish"></a>Skapa register och publicera
 
-I publiceringsguiden väljer du **Containerregister** > **Create New Azure Container Registry (Skapa nytt Azure-containerregister)** > **Publicera**.
+I publiceringsguiden väljer du **Containerregister** > **Create New Azure Container Registry (Skapa nytt Azure-containerregister)**  > **Publicera**.
 
 ![Dialogrutan Nytt ASP.NET-projekt](media/app-service-web-tutorial-windows-containers-custom-fonts/create-registry.png)
 

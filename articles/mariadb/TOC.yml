@@ -89,6 +89,10 @@
           href: concepts-read-replicas.md
 - name: Instruktionsguider
   items:
+    - name: Hantera en server
+      items:
+        - name: Azure Portal
+          href: howto-create-manage-server-portal.md
     - name: Brandväggsregler
       items:
         - name: Azure Portal
@@ -123,6 +127,8 @@
       items:
         - name: Azure Portal
           href: howto-auto-grow-storage-portal.md
+        - name: Azure CLI
+          href: howto-auto-grow-storage-cli.md
     - name: Åtkomst till serverloggar
       items:
         - name: Långsamma frågeloggar

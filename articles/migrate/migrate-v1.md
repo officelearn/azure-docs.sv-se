@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905227"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142086"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -201,7 +201,7 @@ Om du vill använda beroende visualisering associerar du en Log Analytics arbets
 1. Om du vill bifoga en Log Analytics arbets yta till ett projekt i **översikt**> **Essentials**klickar du på **kräver konfiguration**.
 2. Du kan skapa en ny arbets yta eller bifoga en befintlig:
   - Ange ett namn för att skapa en ny arbets yta. Arbets ytan skapas i en region i samma Azure- [geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migreringsjobbet.
-  - När du ansluter en befintlig arbets yta kan du välja mellan alla tillgängliga arbets ytor i samma prenumeration som migreringsjobbet. Endast de arbets ytor som har skapats i en [tjänstkarta region som stöds](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Se till att du har "läsare"-åtkomst till arbets ytan för att koppla en arbets yta.
+  - När du ansluter en befintlig arbets yta kan du välja mellan alla tillgängliga arbets ytor i samma prenumeration som migreringsjobbet. Endast de arbets ytor som har skapats i en [tjänstkarta region som stöds](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Se till att du har "läsare"-åtkomst till arbets ytan för att koppla en arbets yta.
 
 > [!NOTE]
 > Du kan inte ändra arbets ytan som är associerad med ett migreringsjobb.

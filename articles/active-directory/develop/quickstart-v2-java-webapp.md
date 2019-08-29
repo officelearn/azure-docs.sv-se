@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/11/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: de2a59f878e0c0258b0619895d8f4c8bfd0670a8
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 549b4457ee38504001e83c4b831cd321e1542068
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036432"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125463"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabbstart: Lägg till inloggning med Microsoft i en Java-webbapp
 
@@ -34,10 +34,9 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 
 > ## <a name="prerequisites"></a>Förutsättningar
 > Om du vill köra det här exemplet behöver du: 
-> - En Internet anslutning.
-> - En fungerande installation av Java och Maven.
-> - En Azure Active Directory-klient (Azure AD). Mer information om hur du skaffar en Azure AD-klient finns i [så här skaffar du en Azure AD-klient.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
-
+> - Java Development Kit (JDK) 8 eller senare och Maven.
+> - En Azure Active Directory-klient (Azure AD). Mer information om hur du skaffar en Azure AD-klient finns i [så här skaffar du en Azure AD-klient.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant)
+>
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
 > Det finns två alternativ för att starta snabbstartsprogrammet:
@@ -143,5 +142,22 @@ Du kan lägga till referensen i MSAL4J genom att lägga till följande kod över
 ```
 import com.microsoft.aad.msal4j.*;
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig mer om behörigheter och medgivande:
+
+> [!div class="nextstepaction"]
+> [Behörigheter och samtycke](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
+
+Om du vill veta mer om auth-flödet för det här scenariot, se OAuth 2,0 Authorization Code Flow:
+
+> [!div class="nextstepaction"]
+> [Auktoriseringskod OAuth-flöde](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+
+Hjälp oss att förbättra Microsoft Identity Platform. Berätta för oss vad du tycker genom att slutföra en kort enkät med två frågor.
+
+> [!div class="nextstepaction"]
+> [Microsoft Identity Platform-undersökning](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

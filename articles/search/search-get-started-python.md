@@ -1,7 +1,7 @@
 ---
 title: 'Python-snabb start: Skapa, läsa in och fråga index med REST API: er – Azure Search'
 description: Förklarar hur du skapar ett index, läser in data och kör frågor med python, Jupyter Notebooks och Azure Search REST API.
-ms.date: 07/11/2019
+ms.date: 08/28/2019
 author: heidisteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: 308e296ba5306949e87e68f14c8c219b85825af4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 352d26a1f3e781f7dbb6e502caea44bdb45b398a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656794"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129392"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Snabbstart: Skapa ett Azure Search-index i python med Jupyter-anteckningsböcker
 > [!div class="op_single_selector"]
@@ -71,6 +71,8 @@ I den här uppgiften startar du en Jupyter-anteckningsbok och kontrollerar att d
    headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
+
+   Om du får ConnectionError `"Failed to establish a new connection"`kontrollerar du att API-nyckeln är en primär eller sekundär administratörs nyckel och att alla inledande och avslutande tecken (`?` och `/`) är på plats.
 
 1. Formulera begäran i den tredje cellen. Den här GET-begäran riktar in sig på index samlingen för Sök tjänsten och väljer egenskapen namn för befintliga index.
 

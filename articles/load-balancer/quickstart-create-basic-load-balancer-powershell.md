@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 58b36265a5e440dbf33a5d6fb85e791abbd006a8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 378904b139edb7fe5d7c4376102ca6b153d84fb6
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274248"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129080"
 ---
 # <a name="get-started"></a>Snabbstart: Skapa en offentlig lastbalanserare med Azure PowerShell
 
@@ -129,7 +129,7 @@ $natrule2 = New-AzLoadBalancerInboundNatRuleConfig `
 -BackendPort 3389
 ```
 
-### <a name="create-load-balancer"></a>Skapa en lastbalanserare
+### <a name="create-load-balancer"></a>Skapa lastbalanserare
 
 Skapa Basic-lastbalanseraren med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). Följande exempel skapar en offentlig Basic-lastbalanserare med namnet myLoadBalancer med klientdelens IP-konfiguration, serverdelspoolen, hälsoavsökningen, lastbalanseringsregeln och NAT-reglerna som du skapade i föregående steg:
 
@@ -295,40 +295,37 @@ Installera IIS med en anpassad webbsida på de båda virtuella datorerna på ser
 
 1. Hämta den offentliga IP-adressen för lastbalanseraren. Med `Get-AzPublicIPAddress` hämtar du den offentliga IP-adressen för lastbalanseraren.
 
-   ```azurepowershell-interactive
-    Get-AzPublicIPAddress `
-    -ResourceGroupName "myResourceGroupLB" `
-    -Name "myPublicIP" | select IpAddress
-   ```
-2. Skapa en anslutning till fjärrskrivbord till VM1 med den offentliga IP-adress du hämtade i föregående steg. 
+    ```azurepowershell-interactive
+    Get-AzPublicIPAddress -ResourceGroupName "myResourceGroupLB" -Name "myPublicIP" | select IpAddress
+    ```
 
-   ```azurepowershell-interactive
+2. **Öppna en kommando tolk eller ett PowerShell-fönster för det här steget på den lokala datorn**.  Skapa en anslutning till fjärrskrivbord till VM1 med den offentliga IP-adress du hämtade i föregående steg. 
 
-      mstsc /v:PublicIpAddress:4221  
-  
-   ```
+    ```azurepowershell-interactive
+    mstsc /v:PublicIpAddress:4221  
+    ```
+
 3. Ange autentiseringsuppgifterna för *VM1* för att starta RDP-sessionen.
 4. Starta Windows PowerShell på VM1 och använd följande kommandon för att installera IIS-servern och uppdatera standard-HTML-filen.
+
     ```azurepowershell-interactive
-    # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
-    # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
-    
-    #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+        # Install IIS
+          Install-WindowsFeature -name Web-Server -IncludeManagementTools
+        
+        # Remove default htm file
+          remove-item  C:\inetpub\wwwroot\iisstart.htm
+        
+        # Add custom htm file
+          Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
     ```
 5. Stäng RDP-anslutningen med *myVM1*.
-6. Skapa en RDP-anslutning med *myVM2* genom att köra kommandot`mstsc /v:PublicIpAddress:4222` och upprepa steg 4 för *VM2*.
+6. **Skapa en RDP-anslutning på din lokala dator** med *myVM2* genom `mstsc /v:PublicIpAddress:4222` att köra kommandot och upprepa steg 4 för *VM2*.
 
 ## <a name="test-load-balancer"></a>Testa lastbalanseraren
 Hämta den offentliga IP-adressen för lastbalanseraren med hjälp av [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
 
 ```azurepowershell-interactive
-Get-AzPublicIPAddress `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Name "myPublicIP" | select IpAddress
+Get-AzPublicIPAddress -ResourceGroupName "myResourceGroupLB" -Name "myPublicIP" | select IpAddress
 ```
 
 Du kan sedan ange den offentliga IP-adressen i en webbläsare. Webbplatsen visas, inklusive värddatornamnet för den virtuella dator som lastbalanseraren distribuerade trafik till, som i följande exempel:

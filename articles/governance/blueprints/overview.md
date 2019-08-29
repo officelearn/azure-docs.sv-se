@@ -3,16 +3,16 @@ title: Översikt över Azure Blueprint
 description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848444"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146101"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Översikt över tjänsten Azure-ritningar
 
@@ -106,21 +106,30 @@ Om du vill tilldela eller ta bort tilldelningar av skisser måste ditt konto ha 
 > [!NOTE]
 > Tilldelningar för skissen skapas på en prenumeration. Behörigheterna för tilldelning och för att ta bort tilldelning av behörigheter måste beviljas för eller ärvas till en prenumerationsomfattning.
 
-Alla behörigheter ovan ingår i rollen **Ägare**. Rollen **Deltagare** har behörighet att skapa skisser och ta bort skisser men har inte behörighet att tilldela skisser. Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad roll](../../role-based-access-control/custom-roles.md).
+Följande inbyggda roller är tillgängliga:
+
+|RBAC-roll | Beskrivning |
+|-|-|
+|[Ägare](../../role-based-access-control/built-in-roles.md#owner) | Förutom andra behörigheter innehåller alla Azure Blueprint-relaterade behörigheter. |
+|[Deltagare](../../role-based-access-control/built-in-roles.md#contributor) | Förutom andra behörigheter kan skapa och ta bort skiss definitioner, men har inte behörighet för skiss tilldelning. |
+|[Skiss deltagare](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Kan hantera skiss definitioner, men tilldela dem inte. |
+|[Skiss operator](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Kan tilldela befintliga publicerade ritningar, men kan inte skapa nya skiss definitioner. Skiss tilldelning fungerar bara om tilldelningen görs med en tilldelad hanterad identitet. |
+
+Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad roll](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > Om du använder en systemtilldelad hanterad identitet, kräver tjänstens huvud namn för Azure-ritningar **ägar** rollen för den tilldelade prenumerationen för att distributionen ska kunna aktive ras. Om du använder portalen är den här rollen automatiskt beviljad och återkallad för distributionen. Om du använder REST API måste den här rollen måste beviljas manuellt, men återkallas fortfarande automatiskt när distributionen är klar. Om du använder en användardefinierad hanterad identitet behöver endast användaren som skapar skiss tilldelningen **ägar** behörigheter.
 
 ## <a name="naming-limits"></a>Namngivnings gränser
 
-Följande är en lista över begränsningar som finns för vissa fält:
+Följande begränsningar finns för vissa fält:
 
 |Object|Fält|Tillåtna tecken|Max. Längd|
 |-|-|-|-|
-|Skiss|Namn|bokstäver, siffror, bindestreck och punkter|48|
+|Skiss|Name|bokstäver, siffror, bindestreck och punkter|48|
 |Skiss|Version|bokstäver, siffror, bindestreck och punkter|20|
-|Skisstilldelning|Namn|bokstäver, siffror, bindestreck och punkter|90|
-|Skiss artefakt|Namn|bokstäver, siffror, bindestreck och punkter|48|
+|Skisstilldelning|Name|bokstäver, siffror, bindestreck och punkter|90|
+|Skiss artefakt|Name|bokstäver, siffror, bindestreck och punkter|48|
 
 ## <a name="video-overview"></a>Videoöversikt
 

@@ -127,8 +127,6 @@
           href: security-center-install-endpoint-protection.md
         - name: Sårbarhetsbedömning inte installerad
           href: security-center-vulnerability-assessment-recommendations.md
-        - name: Aktivera nätverkssäkerhetsgrupper
-          href: security-center-enable-network-security-groups.md
         - name: Hotrapporter
           href: security-center-threat-report.md
         - name: Anpassade aviseringar
@@ -143,8 +141,6 @@
           href: security-center-investigation-user-data.md
         - name: Logic Apps-spelböcker
           href: security-center-playbooks.md
-        - name: Visa händelser
-          href: security-center-events-dashboard.md
         - name: Search
           href: security-center-search.md
         - name: Planering och drift

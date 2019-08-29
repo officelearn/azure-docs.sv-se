@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 08/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f7e26e2f32ba02db9afc0676a99003717ff585
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 3129027da0f28d9c89f7afe75d9531df9bae499e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991081"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125640"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Vad är Azure Active Directory Identity Protection (uppdaterat)?
 
@@ -42,17 +42,17 @@ Azure AD Identity Protection är en funktion i Azure Active Directory Premium P2
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
-## <a name="risk-events"></a>Riskhändelser
+## <a name="risk-detections"></a>Risk identifieringar
 
-Azure AD Identity Protection identifierar följande risk händelser: 
+Azure AD Identity Protection identifierar följande risk identifieringar: 
 
-| Typ av riskhändelse | Beskrivning | Identifieringstyp |
+| Typ av risk identifiering | Beskrivning | Identifieringstyp |
 | --- | --- | --- |
 | Ovanlig resa | Logga in från en ovanlig-plats baserat på användarens senaste inloggningar. | Offline |
 | Anonym IP-adress | Logga in från en anonym IP-adress (till exempel: Tor webbläsare, Anonymizer VPN-nätverk). | Real tids |
 | Okända inloggnings egenskaper | Logga in med egenskaper som vi inte har sett nyligen för den angivna användaren. | Real tids |
 | IP-adress länkad till skadlig kod | Logga in från en länkad IP-adress med skadlig kod | Offline |
-| Läckta autentiseringsuppgifter | Den här risk händelsen anger att användarens giltiga autentiseringsuppgifter har läckts | Offline |
+| Läckta autentiseringsuppgifter | Den här risk identifieringen visar att användarens giltiga autentiseringsuppgifter har läckts | Offline |
 
 ## <a name="types-of-risk"></a>Typer av risker 
 
@@ -80,7 +80,7 @@ En användar risk representerar sannolikheten för att en specifik identitet kom
 Användar risken beräknas genom att ta hänsyn till alla risker som är associerade med användaren:
 
 - Alla riskfyllda inloggningar
-- Alla risk händelser som inte är länkade till en inloggning
+- Alla risk identifieringar som inte är länkade till en inloggning
 - Den aktuella användar risken
 - Eventuella risk reparationer eller avstängnings åtgärder som utförs på användaren fram till datumet
 
@@ -88,7 +88,7 @@ Användar risken beräknas genom att ta hänsyn till alla risker som är associe
 
 Azure AD använder Machine Learning för att identifiera avvikelser och misstänkt aktivitet, med hjälp av båda signaler som upptäckts i real tid under inloggningar samt för icke-real tids signaler relaterade till användare och deras inloggnings aktiviteter. Med hjälp av dessa data beräknar identitets skyddet en real tids inloggnings risk varje gången en användare autentiseras, samt att fastställa en övergripande användar risk nivå för varje användare. Med Identity Protection kan du automatiskt vidta åtgärder för dessa risk identifieringar genom att konfigurera användar risker för identitets skydd och inloggnings risk principer.  
 
-För att förstå hur identitets skydd identifierar risker finns det två viktiga begrepp: användar risk och inloggnings risk. Inloggnings risken visar sannolikheten för att en begäran inte auktoriseras av identitets ägaren. Det finns två typer av inloggnings risker: real tids och total. Inloggnings risk i real tid identifieras vid tidpunkten för det tilldelade inloggnings försöket (till exempel inloggningar från anonyma IP-adresser). Total inloggnings risk är summan av identifierade risker i real tid samt eventuella efterföljande risk händelser som inte är i real tid som är associerade med användarens inloggningar (t. ex. omöjlig resa). Användar risken återspeglar den övergripande sannolikheten att en felaktig aktör har komprometterat en specifik identitet. Användar risken innehåller alla risk aktiviteter för en specifik användare, inklusive:
+För att förstå hur identitets skydd identifierar risker finns det två viktiga begrepp: användar risk och inloggnings risk. Inloggnings risken visar sannolikheten för att en begäran inte auktoriseras av identitets ägaren. Det finns två typer av inloggnings risker: real tids och total. Inloggnings risk i real tid identifieras vid tidpunkten för det tilldelade inloggnings försöket (till exempel inloggningar från anonyma IP-adresser). Total inloggnings risk är summan av identifierade risker i real tid samt eventuella efterföljande risk identifieringar som är associerade med användarens inloggningar (t. ex. omöjlig resa). Användar risken återspeglar den övergripande sannolikheten att en felaktig aktör har komprometterat en specifik identitet. Användar risken innehåller alla risk aktiviteter för en specifik användare, inklusive:
 
 - Inloggnings risk i real tid
 - Efterföljande inloggnings risker
@@ -102,7 +102,7 @@ Bas flödet för identifiering och svar för identitets skydds risker för ett a
 
 Nu ska vi titta på exemplet på en anställd på contoso. 
 
-1. En anställd försöker logga in på Exchange Online från Tor webbläsare. Vid tidpunkten för inloggning identifierar Azure AD real tids risk händelser. 
+1. En anställd försöker logga in på Exchange Online från Tor webbläsare. Vid tidpunkten för inloggning identifierar Azure AD real tids identifieringar av risker. 
 2. Azure AD känner av att den anställda loggar in från en anonym IP-adress, vilket utlöser en medelhög inloggnings risk nivå. 
 3. Medarbetaren ifrågasätts av en MFA-prompt, eftersom Contosos IT-administratör har konfigurerat den villkorliga åtkomst principen för inloggnings risker för identitets skydd. Principen kräver MFA för en inloggnings risk på medel eller högre nivå. 
 4. Medarbetaren skickar MFA-prompten och använder Exchange Online, och deras användar risk nivå ändras inte. 
@@ -115,20 +115,20 @@ Men vad händer om det inte gick att logga in på en anställd?
 2. Azure AD upptäcker att inloggnings försöket kommer från en anonym IP-adress, vilket utlöser en real tids inloggnings risk. 
 3. Den skadliga aktören ifrågasätts av en MFA-prompt eftersom Contosos IT-administratör har konfigurerat den villkorliga åtkomst principen för identitets skydd som kräver MFA när inloggnings risken är medel eller högre. 
 4. Den skadliga aktören Miss lyckas MFA-utmaningen och kan inte komma åt medarbetares Exchange Online-konto. 
-5. Den misslyckade MFA-prompten utlöste en risk händelse som skulle registreras, vilket höjer användar risken för framtida inloggningar. 
+5. Den misslyckade MFA-prompten utlöste en risk identifiering som skulle kunna registreras, vilket höjer användar risken för framtida inloggningar. 
 
 Nu när en skadlig aktör försökte få åtkomst till Sarah-kontot kan vi se vad som händer nästa gång medarbetaren försöker logga in. 
 
-1. Medarbetaren försöker logga in på Exchange Online från Outlook. Vid tidpunkten för inloggning identifierar Azure AD händelser i real tid och eventuella tidigare användar risker. 
+1. Medarbetaren försöker logga in på Exchange Online från Outlook. Vid tidpunkten för inloggning identifierar Azure AD i real tid identifieringar av risker samt eventuella tidigare användar risker. 
 2. Azure AD identifierar inte någon real tids inloggnings risk, men identifierar hög användar risk på grund av den tidigare riskfyllda aktiviteten i föregående scenarier.  
 3. Medarbetaren angrips av en uppmaning om lösen ords återställning, eftersom Contosos IT-administratör har konfigurerat användar risk principen för identitets skydd som kräver lösen ords ändring när en användare med hög risk loggar in. 
 4. Eftersom medarbetaren har registrerats för SSPR och MFA har de återställt sitt lösen ord. 
 5. Genom att återställa sitt lösen ord komprometteras den anställdas autentiseringsuppgifter inte längre och deras identitet återgår till ett säkert tillstånd. 
-6. Den anställdas tidigare risk händelser löses och deras användar risk nivå återställs automatiskt som ett svar för att minska risken för att autentiseringsuppgifterna skadas. 
+6. Den anställdas tidigare risk identifiering löses och deras användar risk nivå återställs automatiskt som ett svar för att minska risken för att autentiseringsuppgifterna skadas. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Hur gör jag för att konfigurerar du identitets skydd? 
 
-För att komma igång med Identity Protection måste du först konfigurera en användar risk princip och en princip för inloggnings risk. När dessa principer har kon figurer ATS och tillämpats på en test grupp kan du simulera risk händelser för att förstå hur identitets skyddet kommer att svara i din miljö. Följande snabb start guider ger en genom gång av hur du konfigurerar de tidigare principerna och testar i din miljö. 
+För att komma igång med Identity Protection måste du först konfigurera en användar risk princip och en princip för inloggnings risk. När dessa principer har kon figurer ATS och tillämpats på en test grupp kan du simulera risk identifieringar för att förstå hur identitets skyddet kommer att svara i din miljö. Följande snabb start guider ger en genom gång av hur du konfigurerar de tidigare principerna och testar i din miljö. 
 
 Identitets skydd stöder tre roller i Azure AD för att balansera hanterings aktiviteterna kring distributionen: 
 

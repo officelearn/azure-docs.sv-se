@@ -16,17 +16,17 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 540bc8a4dbfda83ff6e0480bc216a38742bbef2b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1513dba19221e64d40551ffb13a5e9f33fd9858f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988087"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127244"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Snabbstart: Konfigurera namngivna platser i Azure Active Directory
 
 Du kan använda namngivna platser för att sätta etiketter på betrodda IP-adressintervall i din organisation. Azure AD använder namngivna platser för att:
-- Identifiera falska positiva identifieringar i [riskhändelser](concept-risk-events.md). Inloggning från en betrodd plats minskar en användares inloggningsrisk.   
+- Identifiera falska positiva identifieringar i [risk identifieringar](concept-risk-events.md). Inloggning från en betrodd plats minskar en användares inloggningsrisk.   
 - Konfigurera [plats baserad villkorlig åtkomst](../conditional-access/location-condition.md).
 
 I den här snabbstarten får du lära dig att konfigurera namngivna platser i din miljö.

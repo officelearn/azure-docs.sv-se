@@ -3,16 +3,16 @@ title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Python |
 description: I den här snabbstarten skapar du ett lagringskonto och en container i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Python och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 12/14/2018
+ms.date: 08/29/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0eb4558b7c9c08fc6df964a7e45328a83c60352b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 059e41b744ad92cdec9057e4a17f470b5b769c62
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721985"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142972"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
 
@@ -158,8 +158,8 @@ Ladda ned blobar till din lokala disk med `get_blob_to_path` hjälp av metoden. 
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(
-    local_file_name, '.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, local_file_name.replace(
+   '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(
     container_name, local_file_name, full_path_to_file2)

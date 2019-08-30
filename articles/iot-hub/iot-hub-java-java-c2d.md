@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 4d9a73ee9fb9e4019d30354e6d9fbbe57d081e33
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
-ms.translationtype: HT
+ms.openlocfilehash: 4754d7c2182de79d583dce4982b33395bf037479
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147508"
+ms.locfileid: "70161895"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Skicka meddelanden från moln till enhet med IoT Hub (Java)
 
@@ -47,9 +47,9 @@ I slutet av den här självstudien kör du två Java-konsol program:
 
 * En komplett fungerande version av funktionen [Skicka telemetri från en enhet till en snabb start för IoT Hub](quickstart-send-telemetry-java.md) eller den [konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) själv studie kursen.
 
-* Senaste [Java SE Development Kit 8](https://aka.ms/azure-jdks)
+* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **långsiktigt stöd** för att hämta hämtningar för JDK 8.
 
-* [Maven 3](https://maven.apache.org/install.html)
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 

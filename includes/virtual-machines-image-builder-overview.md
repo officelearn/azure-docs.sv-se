@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: fa34baa7569b0552708cd1a9b57d79186e5acd57
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 4be1ed779ad424d30ac34fd55f117ada3ed9c7a2
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669851"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70166787"
 ---
 Med standardiserade avbildningar av virtuella datorer kan organisationer migrera till molnet och säkerställa konsekvens i distributionerna. Bilder innehåller vanligt vis fördefinierade säkerhets-och konfigurations inställningar och nödvändig program vara. Att konfigurera din egen avbildnings pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder får du bara en enkel konfiguration som beskriver avbildningen, skickar den till tjänsten och avbildningen skapas och distribueras.
  
@@ -73,7 +73,7 @@ Azure Image Builder är en fullständigt hanterad Azure-tjänst som kan nås av 
 
 1. Skapa avbildnings mal len som en. JSON-fil. Den här. JSON-filen innehåller information om avbildningens källa, anpassningar och distribution. Det finns flera exempel i [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)-lagringsplatsen.
 1. Skicka den till tjänsten. då skapas en avbildnings mal len artefakt i den resurs grupp som du anger. I bakgrunden kommer Image Builder att ladda ned käll avbildningen eller ISO och skript efter behov. De lagras i en separat resurs grupp som skapas automatiskt i din prenumeration i formatet: IT_\<DestinationResourceGroup>_\<TemplateName>. 
-1. När du har skapat avbildnings mal len kan du skapa avbildningen. I bakgrunds avbildnings verktyget används mallen och källfilerna för att skapa en virtuell dator, nätverk och lagring i\<IT_ DestinationResourceGroup >\<_ TemplateName > resurs grupp.
+1. När du har skapat avbildnings mal len kan du skapa avbildningen. I Background Image Builder används mall-och källfilerna för att skapa en virtuell dator (D1v2), nätverk, offentlig IP och lagring i IT_\<DestinationResourceGroup > _\<TemplateName > resurs grupp.
 1. Som en del av avbildningen distribuerar Image Builder avbildningen enligt mallen och tar sedan bort de ytterligare resurserna i IT_\<DestinationResourceGroup > _\<TemplateName > resurs grupp som skapades för processen.
 
 

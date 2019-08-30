@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 80bc5ef78a73430dea23bdd644767d9fa9b3c9a8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b079d311e357f4dfb94e55fbca3cafdec198ade9
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124664"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171893"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Vanliga frågor och svar
 På den här sidan besvaras vanliga frågor om Azure Active Directory Domain Services. Fortsätt att söka efter uppdateringar igen.
@@ -79,7 +79,7 @@ Nej. Du har inte beviljats administratörs behörighet för den hanterade domän
 Nej. Det går inte att ändra grupp medlemskap på domäner som hanteras av Azure AD Domain Services. Samma gäller för användarattribut. Du kan dock ändra grupp medlemskap eller användarattribut antingen i Azure AD eller i din lokala domän. Sådana ändringar synkroniseras automatiskt till Azure AD Domain Services.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Hur lång tid tar det innan ändringar jag gör i Azure AD-katalogen visas i min hanterade domän?
-Ändringar som görs i Azure AD-katalogen med hjälp av antingen Azure AD-ANVÄNDARGRÄNSSNITTET eller PowerShell synkroniseras med din hanterade domän. Den här synkroniseringsprocessen körs i bakgrunden. När den första synkroniseringen har slutförts tar det vanligt vis ungefär 20 minuter för ändringar som görs i Azure AD för att avspeglas i den hanterade domänen.
+Ändringar som görs i Azure AD-katalogen med antingen Azure AD-ANVÄNDARGRÄNSSNITTET eller PowerShell synkroniseras automatiskt till din hanterade domän. Den här synkroniseringsprocessen körs i bakgrunden. Det finns ingen definierad tids period för den här synkroniseringen att slutföra alla objekt ändringar.
 
 ### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Kan jag utöka schemat för den hanterade domänen som tillhandahålls av Azure AD Domain Services?
 Nej. Schemat administreras av Microsoft för den hanterade domänen. Schema utökningar stöds inte av Azure AD Domain Services.

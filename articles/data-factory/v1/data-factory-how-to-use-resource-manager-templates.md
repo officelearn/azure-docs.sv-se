@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b33762ae18332854d6c25d49553b533c9b99cc44
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
-ms.translationtype: HT
+ms.openlocfilehash: d2360efe71327f02d5cb7d16cb8141f47c304b0c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139467"
+ms.locfileid: "70164683"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Använda mallar för att skapa Azure Data Factory entiteter
 > [!NOTE]
@@ -32,7 +32,7 @@ I det här fallet måste en uppgift upprepas inom samma miljö, men med olika v�
 I takt med att organisationen vill distribuera dessa 10 data fabriker flera gånger i olika miljöer, kan mallarna använda den här återanvändningen genom att använda separata parameter-filer för utveckling, testning och produktions miljöer.
 
 ## <a name="templating-with-azure-resource-manager"></a>Mall med Azure Resource Manager
-[Azure Resource Manager mallar](../../azure-resource-manager/resource-group-overview.md#template-deployment) är ett bra sätt att uppnå mall i Azure Data Factory. Resource Manager-mallar definierar infrastrukturen och konfigurationen av din Azure-lösning via en JSON-fil. Eftersom Azure Resource Manager mallar fungerar med alla/de flesta Azure-tjänster, kan det vara mycket enkelt att hantera alla resurser i dina Azure-tillgångar. Läs mer om Resource Manager-mallarna i allmänhet i [redigera Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md) .
+[Azure Resource Manager mallar](../../azure-resource-manager/template-deployment-overview.md) är ett bra sätt att uppnå mall i Azure Data Factory. Resource Manager-mallar definierar infrastrukturen och konfigurationen av din Azure-lösning via en JSON-fil. Eftersom Azure Resource Manager mallar fungerar med alla/de flesta Azure-tjänster, kan det vara mycket enkelt att hantera alla resurser i dina Azure-tillgångar. Läs mer om Resource Manager-mallarna i allmänhet i [redigera Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md) .
 
 ## <a name="tutorials"></a>Självstudier
 I följande själv studie kurser finns stegvisa anvisningar för hur du skapar Data Factory entiteter med hjälp av Resource Manager-mallar:

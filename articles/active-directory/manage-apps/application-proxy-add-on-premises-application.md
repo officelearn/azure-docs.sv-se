@@ -12,12 +12,12 @@ ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e13ab3378857bd0254d7cb2fb98249ccc24b1cb7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
-ms.translationtype: HT
+ms.openlocfilehash: fd5b1ffa2d66135e0068ef9f459843d616351c19
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125629"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162604"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudier: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory
 
@@ -94,7 +94,7 @@ Tillåt åtkomst till följande webbadresser:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Kommunikation mellan anslutningsprogrammet och molntjänsten för programproxy |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure använder dessa URL: er för att verifiera certifikat. |
-| login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*. microsoftonline-p.com<br>\*. msauth.net<br>\*. msauthimages.net<br>\*. msecnd.net<br>\*. msftauth.net<br>\*. msftauthimages.net<br>\*. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
 
 Du kan tillåta anslutningar till \*. msappproxy.net och \*. ServiceBus.Windows.net om din brand vägg eller proxy låter dig konfigurera listan över tillåtna DNS-listor. Om inte, måste du tillåta åtkomst till [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519). IP-adressintervallen uppdateras varje vecka.
 

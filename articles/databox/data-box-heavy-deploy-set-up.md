@@ -1,140 +1,163 @@
 ---
-title: Självstudie om du vill ställa in Azure Data Box tung | Microsoft Docs
-description: Lär dig att ansluta och ansluta din Azure Data Box tung
+title: Självstudie för att konfigurera Azure Data Box Heavy | Microsoft Docs
+description: Lär dig hur du kopplar och ansluter din Azure Data Box Heavy
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 3e6bfe4a93ab8c97bcffb84bda08977f8d811fa8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b6b353e0e01f3f598048e5fbb2682603045b1037
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592378"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164465"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Självstudier: Ansluta och ansluta till din Azure Data Box tung
+::: zone target = "docs"
 
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Självstudier: Kabel och Anslut till din Azure Data Box Heavy
 
-Den här självstudien beskrivs hur du kabelanslut, Anslut och aktivera din Azure Data Box tung.
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="get-started-with-azure-data-box-heavy"></a>Kom igång med Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
+
+I den här självstudien beskrivs hur du sätter kablar, ansluter och aktiverar din Azure Data Box Heavy.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Kabelanslut din Data Box-aktiverat
-> * Ansluta till din Data Box-aktiverat
+> * Kabelanslut din Data Box Heavy
+> * Anslut till din Data Box Heavy
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+Den här guiden innehåller anvisningar om hur du granskar krav, kablar och ansluter din enhet, kopierar data, laddar upp till Azure och sedan verifierar överförda data.
+
+::: zone-end
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört självstudien [: Ordna Azure Data Box aktiverat](data-box-heavy-deploy-ordered.md).
-2. Du har fått din Data Box tung och orderstatus i portalen är **levererade**.
-3. Du har granskat den [Data Box tung riktlinjer för säkerhet](data-box-safety.md).
-4. Du måste ha åtkomst till en fast plats i datacenter med närhet till en tillgänglig nätverksanslutning som kan hantera en enhet med den här tjänsten. Den här enheten kan inte monteras i en ställning.
-5. Du har fått fyra förankrad strömkablar ska användas med lagringsenheten.
-6. Du bör ha en värddator som är ansluten till datacenternätverket. Din Data Box tung att kopiera data från den här datorn. Värddatorn måste köra en [stöds operativsystemet](data-box-heavy-system-requirements.md).
+1. Du har slutfört självstudien [: Beställ Azure Data Box Heavy](data-box-heavy-deploy-ordered.md).
+2. Du har fått din Data Box Heavy och order statusen i portalen har levererats.
+3. Du har granskat [rikt linjerna för data Box Heavy säkerhet](data-box-safety.md).
+4. Du måste ha åtkomst till en platt plats i data centret med närhet till en tillgänglig nätverks anslutning som kan hantera en enhet med det här utrymmet. Den här enheten kan inte monteras på en rack.
+5. Du har fått fyra jord-och likströms kablar som du kan använda med lagrings enheten.
+6. Du bör ha en värddator som är ansluten till datacenternätverket. Din Data Box Heavy kommer att kopiera data från den här datorn. Värd datorn måste köra ett [operativ system som stöds](data-box-heavy-system-requirements.md).
 7. Datacentret måste ha höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. 
-8. Du måste ha en bärbar dator med RJ-45 kabeln för att ansluta till lokala Användargränssnittet och konfigurera enheten. Använd den bärbara datorn för att konfigurera varje nod i enheten en gång.
-9. Du behöver en 40-Gbit/s- eller 10 Gbit/s kabel per enhetsnod.
-    - Välj kablar som är kompatibla med den [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) nätverksgränssnitt.
-    - Enheten änden av kabeln måste vara QSFP + för 40 Gbit/s-kabel.
-    - För 10 Gbit/s-kabel behöver du en SFP +-kabel som ansluts till en 10 Gbit/s-växel på en end med en QSFP + SFP + nätverkskort (eller kortet QSA) för end som ansluts till enheten.
+8. Du måste ha en bärbar dator med RJ-45-kabel för att kunna ansluta till det lokala användar gränssnittet och konfigurera enheten. Använd den bärbara datorn för att konfigurera varje nod av enheten en gång.
+9. Du behöver 1 40 Gbit/s kabel eller 10 Gbit/s-kabel per enhet-nod.
+    - Välj kablar som är kompatibla med [MELLANOX MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) Network Interface.
+    - För kabeln på 40 Gbit/s måste enhetens slut punkt vara QSFP +.
+    - För 10 Gbit/s-kabeln behöver du en SFP +-kabel som ansluts till en 10 Gbit/s-växel i ena änden, med en QSFP + till SFP + adapter (eller uppfyller kraven enligt-adaptern) för det slut som kopplas till enheten.
 
-## <a name="cable-your-device-for-power"></a>Kabelanslut din enhet för kraft
+::: zone target = "docs"
 
-Vidta följande åtgärder för att kabelanslut din enhet.
+## <a name="cable-your-device-for-power"></a>Kabelanslut enheten för strömförsörjning
 
-1. Inspektera enheten och leta efter tecken på manipulation eller andra uppenbara skador. Fortsätt inte om enheten har manipulerats eller skadats. [Kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md) direkt för att hjälpa dig att bedöma om enheten är i gott skick och om de behöver för att leverera du ersättning.
-2. Flytta enheten på installationsplatsen.
+Utför följande steg för att kabelansluta enheten.
 
-    ![Data Box tung installationsplats för enhet](media/data-box-heavy-deploy-set-up/data-box-heavy-install-site.png)
+1. Inspektera enheten och leta efter tecken på manipulation eller andra uppenbara skador. Fortsätt inte om enheten har manipulerats eller skadats. [Kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md) omedelbart för att få hjälp att utvärdera om enheten är i fungerande skick och om de behöver leverera en ersättning.
+2. Flytta enheten till installations platsen.
 
-3. Låsa bakre hjul på enheten som visas nedan.
+    ![Installations plats för Data Box Heavy enhet](media/data-box-heavy-deploy-set-up/data-box-heavy-install-site.png)
 
-    ![Data Box tung enheten hjul låst](media/data-box-heavy-deploy-set-up/data-box-heavy-casters-locked.png)
+3. Lås de bakre omvandlarna på enheten enligt nedan.
 
-4. Leta upp rattar som låser du upp klientdelen och bakdörrar för enheten. Låsa upp och flytta åtkomsten tills den är tömning med delen av enheten. Upprepa detta med bakdörr samt.
-    Båda dörrarna måste vara öppen när enheten är tillgängligt för att möjliggöra flöde optimala fram till bak via enheten.
+    ![Data Box Heavy enhets avsändare låsta](media/data-box-heavy-deploy-set-up/data-box-heavy-casters-locked.png)
 
-    ![Data Box tung dörrar öppna](media/data-box-heavy-deploy-set-up/data-box-heavy-doors-open.png)
+4. Leta upp de rattar som låser upp-och bak-dörrarna på enheten. Lås upp och flytta den främre dörren tills den är rensad med sidan av enheten. Upprepa detta även med back luckan.
+    Båda dörrarna måste vara öppna när enheten fungerar för att möjliggöra optimalt ström-till-tillbaka-luft-flöde genom enheten.
 
-5. Systemfältet på baksidan enheten ska ha fyra strömkablar. Ta bort alla kablar från fack och placera dem tagits ur bruk.
+    ![Data Box Heavy dörrar öppna](media/data-box-heavy-deploy-set-up/data-box-heavy-doors-open.png)
 
-    ![Data Box tung strömkablar i systemfältet](media/data-box-heavy-deploy-set-up/data-box-heavy-power-cords-tray.png)
+5. Facket på bak sidan av enheten bör ha fyra ström kablar. Ta bort alla kablar från facket och placera dem i undan.
 
-6. Nästa steg är att identifiera de olika portarna på baksidan av enheten. Det finns två enheten noder **NODE1** och **nod2**. Varje nod har fyra nätverksgränssnitt, **MGMT**, **fil1**, **fil2**, **DATA3**. **MGMT** används för att konfigurera management under den initiala konfigurationen av enheten. **Fil1**-**DATA3** finns dataportar. **MGMT** och **DATA3** portar är 1 Gbit/s, medan **fil1**, **fil2** kan fungera som 40 Gbit/s-portar eller 10 Gbit/s-portar. Längst ned på två enheten noder är fyra power anger enheter (PSUs) som delas mellan två enheten noder. När du träffar på den här enheten, den **PSUs** är **PSU1**, **PSU2**, **PSU3**, och **PSU4** från vänster till höger.
+    ![Data Box Heavy ström sladdar i facket](media/data-box-heavy-deploy-set-up/data-box-heavy-power-cords-tray.png)
 
-    ![Data Box tung portar](media/data-box-heavy-deploy-set-up/data-box-heavy-ports.png)
+6. Nästa steg är att identifiera de olika portarna på bak sidan av enheten. Det finns två enhetsspecifika, **Nod1** och **NOD2**. Varje nod har fyra nätverks gränssnitt, **MGMT**, **fil1**, **data2**, **DATA3**. **MGMT** används för att konfigurera hantering under den inledande konfigurationen av enheten. DATA1-**DATA3** är data portar. **Hanterings** -och **DATA3** -portar är 1 Gbit/ s, men **fil1**kan fungera som 40 Gbit/s-portar eller 10 Gbit/s-portar. Längst ned på de två enhets noderna är fyra strömförsörjnings enheter (PSUs) som delas mellan de två enhets noderna. När du möter den här enheten är **PSUs** **PSU1**, **PSU2**, **PSU3**och **PSU4** från vänster till höger.
 
-7. Anslut alla fyra strömkablarna till strömförsörjning för enheten. Gröna aktivera led: ar och blinka.
-8. Använd knapparna power i front plan för att aktivera enheten noder. Behåll strömknappen nedtryckt under några sekunder tills blå lamporna tänds. Nu bör alla de gröna led: ar för strömförsörjningar på baksidan enheten solid. Operativ frontpanel för enheten innehåller också fel led: ar. När ett fel som LED lyser anger en felaktig PSU eller en fläkt eller ett problem med diskenheterna.  
+    ![Data Box Heavy portar](media/data-box-heavy-deploy-set-up/data-box-heavy-ports.png)
 
-    ![Data Box tung front ops-panelen](media/data-box-heavy-deploy-set-up/data-box-heavy-front-ops-panel.png)
+7. Anslut alla fyra ström kablar till enhetens strömförsörjnings enheter. De gröna lysdioderna sätter på och blinkar.
+8. Använd ström knapparna i det främre planet för att aktivera enhetens noder. Låt ström knappen vara nedtryckt under några sekunder tills de blå lamporna är på. Alla gröna lysdioder för strömförsörjningen på enhetens bak enhet bör nu vara heldragna. Den främre drift panelen på enheten innehåller också fel lampor. När en fel indikator lyser, tyder det på en felaktig PSU eller en fläkt eller ett problem med disk enheterna.  
 
-## <a name="cable-first-node-for-network"></a>Kabel första noden för nätverk
+    ![Panelen Data Box Heavy-front-OPS](media/data-box-heavy-deploy-set-up/data-box-heavy-front-ops-panel.png)
 
-Gör följande på en av noderna i enheten, till kabel för nätverket.
+## <a name="cable-first-node-for-network"></a>Kabelansluten första nod för nätverk
 
-1. Använd en CAT 6 RJ-45 nätverkskabel (blå kabel i bilden) för att ansluta värddatorn till 1 Gbit/s-hanteringsporten.
-2. Använd en QSFP + kabel (fiber eller koppar) för att ansluta till minst en 40-Gbit/s (helst över 1 Gbit/s) nätverksgränssnitt för data. Om du använder en 10 Gbit/s-växel, använda en SFP +-kabel med en QSFP + till SFP + kort (QSA-adapter) för att ansluta 40 Gbit/s-nätverksgränssnitt för data.
+Utför följande steg för kabel för nätverk på en av noderna i enheten.
 
-    ![Data Box tung portar kabelansluten](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
+1. Använd en CAT 6 RJ-45-nätverks kabel (blå kabel i bilden) för att ansluta värddatorn till en hanterings port på 1 Gbit/s.
+2. Använd en QSFP + kabel (fiber eller koppar) för att ansluta minst 1 40 Gbit/s (helst över 1 Gbit/s) nätverks gränssnitt för data. Om du använder en 10 Gbit/s-växel använder du en SFP +-kabel med en QSFP + till SFP + adapter (uppfyller kraven enligt adapter) för att ansluta 40 Gbit/s nätverks gränssnitt för data.
+
+    ![Data Box Heavy portar som är kabelanslutna](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 
     > [!IMPORTANT]
-    > DATA 1 och Fil2 växlas och matchar inte det som visas i det lokala webbgränssnittet.
-    > 40 Gbit/s kabel nätverkskortet ansluter när de infogas på sätt som visas nedan.
+    > DATA 1 och DATA2 växlas och matchar inte vad som visas i det lokala webb gränssnittet.
+    > 40 Gbit/s kabel kort ansluter när det infogas på det sätt som visas nedan.
 
-    ![Data Box tung 40 Gbit/s kabel adapter](media/data-box-heavy-deploy-set-up/data-box-heavy-cable-adaptor.png)
+    ![Data Box Heavy 40-Gbit/s kabel adapter](media/data-box-heavy-deploy-set-up/data-box-heavy-cable-adaptor.png)
 
-## <a name="configure-first-node"></a>Konfigurera första nod
+## <a name="configure-first-node"></a>Konfigurera första noden
 
-Vidta följande steg för att konfigurera din enhet med hjälp av den lokala konfigurationen och Azure-portalen.
+Utför följande steg för att konfigurera din enhet med hjälp av den lokala konfigurationen och Azure Portal.
 
-1. Ladda ned enhetens autentiseringsuppgifter från portalen. Gå till **Allmänt > Enhetsinformation**. Kopiera **enhetslösenordet**. Lösenorden är knutna till en viss ordning i portalen. Motsvarar de två noderna i Data Box tung visas två enhetens serienummer. Enhetens administratörslösenord för båda noderna är samma.
+1. Ladda ned enhetens autentiseringsuppgifter från portalen. Gå till **Allmänt > Enhetsinformation**. Kopiera **enhetslösenordet**. Dessa lösen ord är knutna till en speciell ordning i portalen. Som motsvarar de två noderna i Data Box Heavy ser du de två enhets serie numren. Enhetens administratörs lösen ord för båda noderna är samma.
 
-    ![Data Box tung enhetens autentiseringsuppgifter](media/data-box-heavy-deploy-set-up/data-box-heavy-device-credentials.png)
+    ![Data Box Heavy autentiseringsuppgifter för enhet](media/data-box-heavy-deploy-set-up/data-box-heavy-device-credentials.png)
 
-2. Anslut din klient-arbetsstation till enheten via en CAT6 RJ-45-nätverkssladd.
-3. Konfigurera Ethernet-adaptern på den dator som du använder för att ansluta till enheten med en statisk IP-adress på `192.168.100.5` och undernät `255.255.255.0`.
+2. Anslut klient arbets stationen till enheten via en CAT6 RJ-45-nätverks kabel.
+3. Konfigurera Ethernet-kortet på den dator som du använder för att ansluta till enheten med en statisk IP- `192.168.100.5` adress och `255.255.255.0`ett undernät.
 
-    ![Data Box tung ansluter till lokala webbgränssnittet](media/data-box-heavy-deploy-set-up/data-box-heavy-connect-local-web-ui.png)
+    ![Data Box Heavy ansluter till lokalt webb gränssnitt](media/data-box-heavy-deploy-set-up/data-box-heavy-connect-local-web-ui.png)
 
-4. Ansluta till det lokala webbgränssnittet för enheten på följande URL: `http://192.168.100.10`. Klicka på **Avancerat** och klicka sedan på **gå vidare till 192.168.100.10 (osäkra)** .
+4. Anslut till det lokala webb gränssnittet på enheten på följande URL: `http://192.168.100.10`. Klicka på **Avancerat** och klicka sedan på **Fortsätt till 192.168.100.10 (osäker)** .
 5. En **inloggningssida** visas för det lokala webbgränssnittet.
     
-    - En av serienummer som nod på den här sidan matchar både portalens användargränssnitt och det lokala webbgränssnittet. Anteckna antal noder till serienummer mappningen. Det finns två noder och två Enhetsserienummer i portalen. Den här mappningen hjälper dig att förstå vilken nod som motsvarar vilka tal.
+    - Ett av nodens serie nummer på den här sidan matchar både Portal gränssnittet och det lokala webb gränssnittet. Anteckna antalet noder till serie nummer mappningen. Det finns två noder och två enhets serie nummer i portalen. Den här mappningen hjälper dig att förstå vilken nod som motsvarar vilket serie nummer.
     - Enheten är låst i det här läget.
-    - Ange enhetens administratörslösenord som du hämtade i föregående steg för att logga in på enheten. Klicka på **Logga in**.
+    - Ange enhetens administratörs lösen ord som du fick i föregående steg för att logga in på enheten. Klicka på **Logga in**.
 
-    ![Logga in på Data Box tung lokala webbgränssnittet](media/data-box-heavy-deploy-set-up/data-box-heavy-unlock-device.png)
+    ![Logga in på Data Box Heavy lokalt webb gränssnitt](media/data-box-heavy-deploy-set-up/data-box-heavy-unlock-device.png)
 
-5. Se till att nätverksgränssnitt som är konfigurerade på instrumentpanelen. Det finns fyra nätverksgränssnitt på din enhetsnod, två 1 Gbit/s och två 40 Gbit/s. En av 1 Gbit/s-gränssnittet är ett hanteringsgränssnitt och kan därför inte konfigureras av användaren. De återstående tre nätverksgränssnitt är dedikerade till data och kan konfigureras av användaren.
+5. På instrument panelen kontrollerar du att nätverks gränssnitten har kon figurer ATS. Det finns fyra nätverks gränssnitt på din enhets nod, två 1 Gbit/s och 2 40 Gbit/s. Ett av 1 Gbit/s-gränssnittet är ett hanterings gränssnitt och kan därför inte konfigureras av användaren. De återstående tre nätverks gränssnitten är dedikerade till data och kan konfigureras av användaren.
 
 - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt.
-- Om DHCP inte är aktiverad går att ställa in nätverksgränssnitt och tilldela statiska IP-adresser om det behövs.
+- Om DHCP inte är aktive rad går du till ange nätverks gränssnitt och tilldelar statiska IP-adresser om det behövs.
 
-    ![Data Box tung instrumentpanelen nod 1](media/data-box-heavy-deploy-set-up/data-box-heavy-dashboard-1.png)
+    ![Data Box Heavy-instrumentpanel Node 1](media/data-box-heavy-deploy-set-up/data-box-heavy-dashboard-1.png)
 
-## <a name="configure-second-node"></a>Konfigurera andra nod
+## <a name="configure-second-node"></a>Konfigurera andra noden
 
-Gör stegen som beskrivs i den [konfigurerar den första noden](#configure-first-node) för den andra noden på enheten.
+Gör stegen som beskrivs i [Konfigurera den första noden](#configure-first-node) för den andra noden av enheten.
 
-![Data Box tung instrumentpanelen nod 2](media/data-box-heavy-deploy-set-up/data-box-heavy-dashboard-2.png)
+![Data Box Heavy-instrumentpanel Node 2](media/data-box-heavy-deploy-set-up/data-box-heavy-dashboard-2.png)
 
 När enhetskonfigurationen är klar kan du ansluta till enhetsresurserna och kopiera data från datorn till enheten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig om Azure Data Box tung ämnen som:
+I den här självstudien har du lärt dig om Azure Data Box Heavy ämnen som:
 
 > [!div class="checklist"]
-> * Kabelanslut din Data Box-aktiverat
-> * Ansluta till din Data Box-aktiverat
+> * Kabelanslut din Data Box Heavy
+> * Anslut till din Data Box Heavy
 
-Gå vidare till nästa självstudie och lär dig hur du kopierar data på din Data Box tung.
+Gå vidare till nästa självstudie för att lära dig hur du kopierar data på din Data Box Heavy.
 
 > [!div class="nextstepaction"]
 > [Kopiera data till Azure Data Box](./data-box-heavy-deploy-copy-data.md)
+
+::: zone-end

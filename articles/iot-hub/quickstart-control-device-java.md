@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 977bf07c8383bb1086e7878bd10f2519cc2f40ad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1f05e9916a87f7258dad358ac8fff91c5ba7f25e
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68958641"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172942"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Snabbstart: Kontrollera en enhet som är ansluten till en IoT-hubb (Java)
+# <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Snabbstart: Styra en enhet som är ansluten till en Azure IoT Hub med Java
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -35,9 +35,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-De två exempelprogram som du kör i den här snabbstarten skrivs med Java. Du måste ha Java SE 8 eller senare installerat på utvecklingsdatorn.
+De två exempelprogram som du kör i den här snabbstarten skrivs med Java. Du behöver Java SE 8 på din utvecklings dator.
 
-Du kan hämta Java för flera plattformar från [Oracle](https://aka.ms/azure-jdks).
+Du kan ladda ned Java SE Development Kit 8 för flera plattformar från [Java-långsiktigt stöd för Azure och Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **långsiktigt stöd** för att hämta hämtningar för JDK 8.
 
 Du kan kontrollera den aktuella versionen av Java på utvecklingsdatorn med följande kommando:
 

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 011345cca1ed1c763a628c94401320862182c9cc
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: d3128144a06f4faa46d18650c3dd2c21f72afc1c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707371"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164785"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Snabbstart: Ansikts klient bibliotek för python
 
@@ -71,7 +71,7 @@ pip install --upgrade azure-cognitiveservices-Face
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Face python SDK.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) | Den här klassen representerar ditt tillstånd att använda ansikts tjänsten och du behöver den för alla ansikts funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser. |
 |[FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python)|Den här klassen hanterar de grundläggande identifierings-och igenkännings aktiviteter som du kan göra med människo ansikten. |
@@ -135,7 +135,7 @@ Följande kod skapar en **PersonGroup** med tre olika **person** objekt. Den ass
 
 ### <a name="create-persongroup"></a>Skapa PersonGroup
 
-För att kunna steg i det här scenariot måste du spara följande avbildningar till rot katalogen i projektet https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images:.
+För att gå igenom det här scenariot måste du spara följande avbildningar till rot katalogen i projektet: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 Den här gruppen med bilder innehåller tre uppsättningar ansikts bilder som motsvarar tre olika personer. Koden definierar tre **person** objekt och associerar dem med bildfiler som börjar med `woman`, `man`och `child`.
 
@@ -161,7 +161,7 @@ När du har tilldelat ansikten måste du träna **PersonGroup** så att den kan 
 
 ## <a name="identify-a-face"></a>Identifiera ett ansikte
 
-Följande kod tar en bild med flera ansikten och söker efter identiteten för varje person i avbildningen. Den jämför alla identifierade ansikte till en **PersonGroup**, en databas med olika **person** objekt som var och en har flera ansikten kopplade till sig. 
+Följande kod tar en bild med flera ansikten och söker efter identiteten för varje person i avbildningen. Den jämför alla identifierade ansikte till en **PersonGroup**, en databas med olika **person** objekt vars ansikts funktioner är kända.
 
 > [!IMPORTANT]
 > Om du ska kunna köra det här exemplet måste du först köra koden i [skapa och träna en person grupp](#create-and-train-a-person-group).
@@ -188,7 +188,7 @@ I det här exemplet ska du migrera **PersonGroup** som du skapade i [skapa och t
 
 Först måste du ha en andra Azure-prenumeration med en ansikts resurs. Du kan göra detta genom att följa stegen i avsnittet [Konfigurera inställningar](#setting-up) . 
 
-Skapa sedan följande variabler längst upp i skriptet. Du måste också skapa nya miljövariabler för prenumerations-ID för ditt Azure-konto, samt nyckel-och prenumerations-ID för ditt nya (mål) konto. 
+Skapa sedan följande variabler längst upp i skriptet. Du måste också skapa nya miljövariabler för prenumerations-ID: t för ditt Azure-konto, samt nyckel, slut punkt och prenumerations-ID för ditt nya (mål) konto. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
 

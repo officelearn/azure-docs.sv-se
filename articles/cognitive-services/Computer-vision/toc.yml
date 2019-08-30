@@ -133,12 +133,6 @@
       href: concept-detecting-adult-content.md
 - name: Instruktionsguider
   items:
-    - name: Använda Visuellt innehåll
-      items:
-        - name: Java
-          href: Tutorials/java-tutorial.md
-        - name: JavaScript
-          href: Tutorials/javascript-tutorial.md
     - name: 'Anropa API:et för visuellt innehåll'
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Använda containrar

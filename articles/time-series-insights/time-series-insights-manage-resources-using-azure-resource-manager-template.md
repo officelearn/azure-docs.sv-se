@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: eaa169714006ec948a5790ed5841f9dcf52c2a23
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d3e22df76124185c1e23f04f59145e12a1fec023
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846644"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164248"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights resurser med Azure Resource Manager-mallar
 
@@ -33,7 +33,7 @@ Time Series Insights stöder följande resurser:
 
 En Resource Manager-mall är en JSON-fil som definierar infrastrukturen och konfigurationen av resurser i en resurs grupp. I följande dokument beskrivs mallfiler i större detalj:
 
-- [Azure Resource Manager översikt – Malldistribution](../azure-resource-manager/resource-group-overview.md#template-deployment)
+- [Distribution av Azure Resource Manager-mall](../azure-resource-manager/template-deployment-overview.md)
 - [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Resurs typer för Microsoft. TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 

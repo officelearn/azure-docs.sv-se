@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: bc32ce59a7ec99278fb193f375d4ca945c227d2f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114808"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172191"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter
 
@@ -49,6 +49,13 @@ I följande tabell visas några exempel på kontext platser som stöds för ACR-
 | GitHub-gren | En speciell gren av en GitHub-lagrings platsen.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | GitHub-undermapp | Filer i en undermapp i en GitHub-lagrings platsen. Exempel på en kombination av en gren och undermappar specifikation. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Fjärran tarball | Filer i ett komprimerat Arkiv på en fjärran sluten Server. | `http://remoteserver/myapp.tar.gz` |
+
+Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. `--platform` Ange taggen för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm`). För arm-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till `--platform Linux/arm64/v8`exempel):
+
+| OS | Arkitektur|
+| --- | ------- | 
+| Linux | amd64<br/>koppling<br/>arm64<br/>386 |
+| Windows | amd64 |
 
 ACR-uppgifter är utformade som en primitiv container-livs cykel. Du kan till exempel integrera ACR-uppgifter i din CI/CD-lösning. Genom att köra [AZ-inloggning][az-login] med ett [huvud namn för tjänsten][az-login-service-principal]kan din CI/CD-lösning utfärda [AZ ACR build][az-acr-build] -kommandon för att starta avbildnings byggen.
 

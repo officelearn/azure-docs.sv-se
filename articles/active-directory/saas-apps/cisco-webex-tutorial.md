@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1adda943676eb4918369d3cb8027f559d5dd0f6e
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 141d3062f231e198b3587efcdf4ae6e9a1c97ed6
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050008"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162666"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Cisco WebEx-möten
 
@@ -78,24 +78,24 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com/)på sidan **Cisco WebEx-möten** program integration, letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
-
-   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-1. I avsnittet **grundläggande SAML-konfiguration** laddar du upp den hämtade **tjänst leverantörens metadatafil** och konfigurerar programmet i **IDP** initierat läge genom att utföra följande steg:
-
-    >[!Note]
-    >Du kommer att hämta metadata-filen för tjänst leverantören, som beskrivs senare i avsnittet **Konfigurera Cisco WebEx-möten SSO** i självstudien. 
+1. På sidan **Konfigurera enkel inloggning med SAML** kan du konfigurera programmet i **IDP** initierat läge genom att ladda upp tjänstprovidern för **tjänste leverantören** enligt följande:
 
     a. Klicka på **ladda upp metadatafilen**.
 
     b. Klicka på **mappen logotyp** att välja metadatafilen och klicka på **överför**.
 
-    c. När metadatafilen för tjänstleverantör har laddats upp fylls värdena för **Identifierare** och **Svars-URL** i automatiskt i avsnittet **Grundläggande SAML-konfiguration**:
+    c. När du har slutfört den överförda tjänst leverantörens metadatafil, fylls **URL:** **n** och svars-URL-värden automatiskt i avsnittet **grundläggande SAML-konfiguration** .
 
-5. Utför följande steg om du vill konfigurera programmet i **SP** initierat läge:
+    >[!Note]
+    >Du kommer att hämta metadata-filen för service providern från **Konfigurera Cisco WebEx-möten SSO** , som beskrivs senare i självstudien. 
+
+1. Utför följande steg om du vill konfigurera programmet i **SP** initierat läge:  
+
+    a. I avsnittet **grundläggande SAML-konfiguration** klickar du på ikonen Redigera/penna.
+
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
     
-    I text rutan för inloggnings- **URL** skriver du URL: en med följande mönster:`https://<customername>.webex.com`
+    b. I text rutan för inloggnings- **URL** skriver du URL: en med följande mönster:` https://<customername>.my.webex.com`
 
 5. Cisco WebEx-Mötes program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
 

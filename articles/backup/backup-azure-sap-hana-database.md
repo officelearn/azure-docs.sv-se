@@ -5,21 +5,21 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: a11d454feb965907f3bd4e994c0916eeb7236fa7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6ac15e042f93befe406553d622c790eeabad7c2c
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034570"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060702"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Säkerhetskopiera en SAP HANA-databas till Azure
 
 [Azure Backup](backup-overview.md) stöder säkerhets kopiering av SAP HANA-databaser till Azure.
 
 > [!NOTE]
-> Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion. Den är inte produktions klar och har inget garanterat service avtal. 
+> Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion. Den är inte produktions klar och har inget garanterat service avtal.
 
 ## <a name="scenario-support"></a>Scenariostöd
 
@@ -32,8 +32,11 @@ ms.locfileid: "70034570"
 ### <a name="current-limitations"></a>Aktuella begränsningar
 
 - Du kan bara säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer.
-- Du kan bara konfigurera SAP HANA säkerhets kopiering i Azure Portal. Det går inte att konfigurera funktionen med PowerShell, CLI eller REST API.
-- Du kan bara säkerhetskopiera databaser i skalnings läge.
+- Du kan bara säkerhetskopiera SAP HANA instans som körs på en enda virtuell Azure-dator. Det finns för närvarande inte stöd för flera HANA-instanser i samma virtuella Azure-dator.
+- Du kan bara säkerhetskopiera databaser i skalnings läge. Att skala ut en HANA-instans på flera virtuella Azure-datorer stöds för närvarande inte för säkerhets kopiering.
+- Det går inte att säkerhetskopiera SAP HANA-instansen med dynamisk skiktning i utökad server, d.v.s. dynamisk nivå som finns på en annan nod. Detta är i stort sett skalbart vilket inte stöds.
+- Du kan inte säkerhetskopiera SAP HANA-instansen med dynamisk skiktning aktive rad på samma server. Dynamisk skiktning stöds inte för närvarande.
+- Du kan bara konfigurera SAP HANA säkerhets kopiering i Azure Portal. Det går inte att konfigurera funktionen med PowerShell, CLI.
 - Du kan säkerhetskopiera databas loggar var 15: e minut. Logg säkerhets kopior börjar bara att flyta efter en lyckad fullständig säkerhets kopiering för databasen har slutförts.
 - Du kan göra fullständiga och differentiella säkerhets kopieringar. Stegvis säkerhets kopiering stöds inte för närvarande.
 - Du kan inte ändra säkerhets kopierings principen när du har tillämpat den för SAP HANA säkerhets kopieringar. Om du vill säkerhetskopiera med olika inställningar skapar du en ny princip eller tilldelar en annan princip.
@@ -44,23 +47,16 @@ ms.locfileid: "70034570"
 
 Kontrol lera att du gör följande innan du konfigurerar säkerhets kopior:
 
-1. Installera det officiella Microsoft [.net Core Runtime 2,1](https://dotnet.microsoft.com/download/linux-package-manager/sles/runtime-current) -paketet på den virtuella datorn som kör SAP HANA databasen. Tänk på följande:
-    - Du behöver bara **dotNet-runtime-2,1-** paketet. Du behöver inte **aspnetcore-runtime-2,1**.
-    - Om den virtuella datorn inte har Internet åtkomst kan du spegla eller tillhandahålla en offline-cache för dotNET-runtime-2,1 (och alla beroende RPMs) från Microsoft Package-feeden som anges på sidan.
-    - Under installationen av paketet kan du bli ombedd att ange ett alternativ. I så fall, anger du **Lösning 2**.
-
-        ![Installations alternativ för paket](./media/backup-azure-sap-hana-database/hana-package.png)
-
-2. På den virtuella datorn installerar du och aktiverar ODBC-drivrutinshanteraren från det officiella SLES-paketet/mediet med zypper, enligt följande:
+1. Installera och aktivera ODBC-drivrutinshanteraren från det officiella SLES-paketet/mediet med zypper på den virtuella datorn som kör SAP HANA-databasen, enligt följande:
 
     ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
 
-3. Tillåt anslutning från den virtuella datorn till Internet, så att den kan komma åt Azure, enligt beskrivningen i proceduren [nedan](#set-up-network-connectivity).
+2. Tillåt anslutning från den virtuella datorn till Internet, så att den kan komma åt Azure, enligt beskrivningen i proceduren [nedan](#set-up-network-connectivity).
 
-4. Kör skriptet för för registrering på den virtuella datorn där HANA är installerat som en rot användare. Skriptet anges [i portalen](#discover-the-databases) i flödet och krävs för att ställa in [rätt behörigheter](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
+3. Kör skriptet för för registrering på den virtuella datorn där HANA är installerat som en rot användare. Skriptet anges [i portalen](#discover-the-databases) i flödet och krävs för att ställa in [rätt behörigheter](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
 
 ### <a name="set-up-network-connectivity"></a>Konfigurera nätverks anslutning
 
@@ -68,6 +64,7 @@ För alla åtgärder behöver den SAP HANA virtuella datorn anslutning till offe
 
 - Du kan hämta [IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653) för Azure-datacenter och sedan ge åtkomst till dessa IP-adresser.
 - Om du använder nätverks säkerhets grupper (NSG: er) kan du använda AzureCloud [-tjänst tag gen](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för att tillåta alla offentliga Azure-IP-adresser. Du kan använda [cmdleten Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0) för att ändra NSG-regler.
+- 443-porten ska vara vit listas eftersom transporten är via HTTPS.
 
 ## <a name="onboard-to-the-public-preview"></a>Publicera till den offentliga för hands versionen
 
@@ -79,8 +76,6 @@ Publicera till den offentliga för hands versionen enligt följande:
     ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
-
-
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -182,6 +177,15 @@ Om du vill ta en lokal säkerhets kopia (med HANA Studio) av en databas som säk
     - Ange **log_backup_using_backint** till **True**.
 
 
+## <a name="upgrading-protected-10-dbs-to-20"></a>Uppgradera skyddad 1,0 databaser till 2,0
+
+Om du skyddar SAP HANA 1,0-databaser och vill uppgradera till 2,0 utför du stegen som beskrivs nedan.
+
+- Stoppa skyddet med Behåll data för gammal SDC-databas.
+- Kör ett för registrerings skript igen med korrekt information om (sid och MDC). 
+- Omregistrera tillägg (säkerhets kopiering > Visa information – > väljer den relevanta Azure-> Omregistrera). 
+- Klicka på identifiera databaser igen för samma virtuella dator. Detta ska visa den nya databaser i steg 2 med rätt information (SYSTEMDB och klient databas, inte SDC). 
+- Skydda dessa nya databaser.
 
 ## <a name="next-steps"></a>Nästa steg
 

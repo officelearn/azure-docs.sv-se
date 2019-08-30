@@ -7,25 +7,25 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb81c73f7946a10bae0470a55dcf1c0d55c2b847
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 093ada2b2751540b986154be3a2f333784c1259f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330040"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173294"
 ---
-# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Stoppa eller ta bort Azure Stream Analytics-jobb
+# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Stoppa eller ta bort ditt Azure Stream Analytics jobb
 
-Azure Stream Analytics-jobb kan enkelt stoppas eller tas bort via Azure portal, Azure PowerShell, Azure SDK för .net eller REST API. Ett Stream Analytics-jobb kan inte återställas när det har tagits bort.
+Azure Stream Analytics-jobb kan stoppas eller tas bort via Azure Portal, Azure PowerShell, Azure SDK för .net eller REST API. Ett Stream Analytics jobb kan inte återställas när det har tagits bort.
 
 >[!NOTE] 
 >När du avbryter ditt Stream Analytics-jobb, kvarstår data endast i den inkommande och utgående lagringen, till exempel Event Hubs eller Azure SQL Database. Om du behöver ta bort data från Azure ska du följa den borttagning av processen för inkommande och utgående resurser på ditt Stream Analytics-jobb.
 
 ## <a name="stop-a-job-in-azure-portal"></a>Stoppa ett jobb i Azure-portalen
 
-När du avbryter ett jobb resurserna är deprovisionned och slutar den att bearbeta händelser. Tillägg som hör till det här jobbet också har stoppats. Men all konfiguration sparas och du kan starta om jobbet senare 
+När du stoppar ett jobb avetableras resurserna och den stoppar bearbetningen av händelser. Avgifter som rör detta jobb stoppas också. Men all konfiguration behålls och du kan starta om jobbet senare 
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 
@@ -39,7 +39,7 @@ När du avbryter ett jobb resurserna är deprovisionned och slutar den att bearb
 ## <a name="delete-a-job-in-azure-portal"></a>Ta bort ett jobb i Azure-portalen
 
 >[!WARNING] 
->Ett Stream Analytics-jobb kan inte återställas när det har tagits bort.
+>Ett Stream Analytics jobb kan inte återställas när det har tagits bort.
 
 1. Logga in på Azure Portal. 
 
@@ -54,7 +54,7 @@ När du avbryter ett jobb resurserna är deprovisionned och slutar den att bearb
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om du vill stoppa ett jobb med hjälp av PowerShell, Använd den [Stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) cmdlet. Om du vill ta bort ett jobb med hjälp av PowerShell, Använd den [Remove-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) cmdlet.
+Använd cmdleten [Stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) om du vill stoppa ett jobb med PowerShell. Om du vill ta bort ett jobb med PowerShell använder du cmdleten [Remove-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) .
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>Stoppa eller ta bort ett jobb med Azure SDK för .NET
 

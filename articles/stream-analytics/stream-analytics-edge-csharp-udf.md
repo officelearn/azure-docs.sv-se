@@ -1,5 +1,5 @@
 ---
-title: Skriva en C#-användardefinierad funktion för ett Azure Stream Analytics Edge-jobb i Visual Studio (förhandsversion)
+title: Skriv C# användardefinierade funktioner för Azure Stream Analytics Edge-jobb i Visual Studio (för hands version)
 description: Lär dig hur du skriver användardefinierade funktioner med c# för Stream Analytics Edge-jobb i Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cadc603a94d5d17ad2df419f8507c37f9e3272f8
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204233"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173312"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Självstudie: Skriva en C#-användardefinierad funktion för ett Azure Stream Analytics Edge-jobb (förhandsversion)
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > * Testa ditt Stream Analytics Edge-jobb lokalt.
 > * Publicera ditt Edge-jobb på Azure.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du kontrollera att du har slutfört följande krav:
 
@@ -62,7 +62,7 @@ Containern du skapar används för att lagra kompilerade C#-paketet och distribu
     |**Inställning**  |**Föreslaget värde**  |
     |---------|---------|
     |Sammansättningskälla  |  Referens för det lokala projektet eller CodeBehind   |
-    |Resurs  |  Välj data från det aktuella kontot   |
+    |Resource  |  Välj data från det aktuella kontot   |
     |Prenumeration  |  Välj din prenumeration.   |
     |Lagringskonto  |  Välj ditt lagringskonto.   |
     |Container  |  Välj den container som du skapade i ditt storage-konto.   |

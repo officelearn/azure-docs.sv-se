@@ -1,6 +1,6 @@
 ---
-title: Azure Stream Analytics-utdata till Azure SQL Database
-description: Läs om skickar data till SQL Azure från Azure Stream Analytics och uppnå högre hastigheter för skrivning.
+title: Azure Stream Analytics utdata till Azure SQL Database
+description: Lär dig mer om att lägga till data i SQL Azure från Azure Stream Analytics och få högre Skriv data flödes nivåer.
 services: stream-analytics
 author: chetanmsft
 ms.author: chetang
@@ -8,52 +8,52 @@ manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/18/2019
-ms.openlocfilehash: e0775bff1e7bdeeaf2c544fd815c2ce3bf129eae
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 03/18/2019
+ms.openlocfilehash: 7845833a0269514c8fdbd093e18d4516ff9567d9
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620862"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173005"
 ---
-# <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics-utdata till Azure SQL Database
+# <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics utdata till Azure SQL Database
 
-Den här artikeln beskrivs tips för att uppnå bättre prestanda för skrivåtgärder dataflöde när du läser in data till SQL Azure Database med Azure Stream Analytics.
+Den här artikeln beskriver tips för att få bättre Skriv data flödes prestanda när du läser in data i SQL Azure Database med hjälp av Azure Stream Analytics.
 
-SQL-utdata i Azure Stream Analytics har stöd för skrivning parallellt som ett alternativ. Det här alternativet möjliggör [fullständigt parallella](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) jobb-topologier, där flera partitioner i utdata skrivs till tabellen parallellt. Aktivera det här alternativet i Azure Stream Analytics kanske men inte är tillräckliga för att uppnå högre genomströmning, eftersom den avsevärt beror på din konfiguration för SQL Azure-databas och tabellschemat. Valet av index, klustring nyckel, fyllningsfaktor för index och komprimering påverka tid att läsa in tabeller. Läs mer om hur du optimerar dina SQL Azure database för att förbättra fråga och läsa in prestanda baserat på interna prestandamått [SQL database-prestandaråd](../sql-database/sql-database-performance-guidance.md). Sorteringen av skrivningar garanteras inte när du skriver parallellt till SQL Azure-databas.
+SQL-utdata i Azure Stream Analytics stöder skrivning parallellt som ett alternativ. Med det här alternativet kan du [helt parallella](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) jobb topologier, där flera utgående partitioner skrivs till mål tabellen parallellt. Att aktivera det här alternativet i Azure Stream Analytics kanske inte räcker för att uppnå högre data flöden, eftersom det är beroende av SQL Azure databas konfiguration och tabell schema. Valet av index, kluster nyckel, index fyllnings faktor och komprimering påverkar tiden för att läsa in tabeller. Mer information om hur du optimerar SQL Azure databasen för att förbättra frågor och läsa in prestanda utifrån interna benchmarks finns i [prestanda vägledning för SQL Database](../sql-database/sql-database-performance-guidance.md). Sortering av skrivningar är inte garanterat vid skrivning parallell till SQL Azure databas.
 
-Här följer några konfigurationer inom varje tjänst som bidrar till att förbättra hela dataflödet för din lösning.
+Här följer några konfigurationer i varje tjänst som kan hjälpa till att förbättra det totala data flödet i din lösning.
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-- **Ärv partitionering** – den här SQL utdata configuration alternativet aktiverar ärver partitioneringsschemat av din föregående frågesteg eller indata. Alternativet är aktiverat, skriver till en diskbaserad tabell och gör att en [fullständigt parallella](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topologi för ditt jobb förvänta dig att se bättre genomströmning. Partitionering redan automatiskt sker för många andra [matar ut](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). Tabellen låsning (TABLOCK) har också inaktiverats för bulkinfogningar som gjorts med det här alternativet.
+- **Ärv partitionering** – det här alternativet för konfiguration av SQL-utdata gör att du kan ärva partitionerings schemat i föregående fråge steg eller indata. Med den här inställningen aktive rad, skriver du till en disk-baserad tabell och har en [helt parallell](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topologi för ditt jobb, vilket förväntar dig att se bättre data flöden. Den här partitionen sker redan automatiskt för många andra [utdata](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). Tabell låsning (TABLOCK) är också inaktiverat för Mass infogningar som görs med det här alternativet.
 
 > [!NOTE] 
-> När det finns fler än 8 inkommande partitioner, kanske ärver indata partitioneringsschema inte är det bästa valet. Den här maxgräns observerades i en tabell med en enda identitetskolumn och ett grupperat index. I det här fallet bör du använda [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 i din fråga, kan du uttryckligen ange antalet utdata skrivare. Baserat på schemat och val av index, kan din observationer variera.
+> Om det finns fler än 8 inpartitioner är det inte säkert att du väljer att ärva schemat för inpartitionering. Den övre gränsen har observerats i en tabell med en enda identitets kolumn och ett grupperat index. I det här fallet kan du använda [till](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 i frågan för att uttryckligen ange antalet utgående skrivare. Dina observationer kan variera beroende på schemat och valet av index.
 
-- **Batchstorlek** -konfiguration av SQL-utdata kan du ange den maximala batchstorleken i Azure Stream Analytics SQL utdata baserat på typen av mål tabell/arbetsbelastningen. Batch är det maximala antalet poster som skickas med varje bulk insert transaktion. I klustrade columnstore-index, batch-storlekar runt [100 kB](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) tillåter flera parallellisering, minimal loggning och låsa optimeringar. I diskbaserade tabeller vara 10K (standard) eller lägre optimala för din lösning som högre batch-storlekar kan utlösa Lås eskalering under bulkinfogningar.
+- **Batchstorlek** – med konfiguration av SQL-utdata kan du ange den maximala batchstorleken i en Azure Stream Analytics SQL-utdata baserat på typen av mål tabell/arbets belastning. Batchstorlek är det maximala antalet poster som skickas med varje Mass infognings transaktion. I grupperade columnstore-index kan batch-storlekarna runt [100 000](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) tillåta mer parallellisering, minimal loggning och lås optimeringar. I diskbaserade tabeller kan 10K (standard) eller lägre värde vara optimalt för din lösning, eftersom högre batch-storlekar kan utlösa lås eskalering under Mass infogningar.
 
-- **Ange meddelande justering** – om du har optimerats med ärver partitionering och batch-storlek, ökar antalet inkommande händelser per meddelande per partition hjälper dig att skicka ytterligare upp genomströmning för skrivning. Indatameddelande justering kan batch-storlekar i Azure Stream Analytics vara upp till den angivna storleken för Batch, vilket ger bättre genomflöde. Detta kan uppnås med hjälp av [komprimering](stream-analytics-define-inputs.md) eller att öka indatameddelande storlekar i EventHub- eller Blob.
+- **Justering av indatameddelande av meddelanden** – om du har optimerat med Ärv partitionering och batchstorlek, ökar antalet indata-händelser per meddelande per partition, vilket gör att du kan överföra ditt Skriv-genomflöde ytterligare. Med justering av indata-meddelanden kan batchstorleken i Azure Stream Analytics vara upp till den angivna batchstorleken, vilket förbättrar data flödet. Detta kan uppnås med hjälp av [komprimering](stream-analytics-define-inputs.md) eller ökande storlekar för indatamängds meddelanden i EventHub eller BLOB.
 
 ## <a name="sql-azure"></a>SQL Azure
 
-- **Partitionerade tabeller och index** – med hjälp av en [partitionerade](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) kan avsevärt minska contentions mellan SQL-tabell och partitionerade index för tabellen med samma kolumn som din partitionsnyckel (till exempel PartitionId) partitioner under skrivåtgärder. För en partitionerad tabell måste du skapa en [partitionsfunktioner](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) och en [partitionsschema](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) på den primära filgruppen. Detta ökar också tillgängligheten för befintliga data medan nya data läses. Logg-i/o-begränsning kan träffa baserat på antalet partitioner som kan utökas genom att uppgradera SKU: N.
+- **Partitionerade tabeller och index** – med hjälp av [](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) en partitionerad SQL-tabell och partitionerade index i tabellen med samma kolumn som din partitionsnyckel (till exempel PartitionID) kan du avsevärt minska inblandning mellan partitioner under skrivningar. För en partitionerad tabell måste du skapa en [partitions funktion](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) och ett [PARTITIONSSCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) på den primära fil gruppen. Detta kommer också att öka tillgängligheten för befintliga data medan nya data läses in. Loggens IO-gräns kan uppnås baserat på antalet partitioner som kan ökas genom att du uppgraderar SKU: n.
 
-- **Undvika unika nyckelfel** – om du får [flera felet varningsmeddelanden](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) i aktivitetsloggen för Azure Stream Analytics, se till att jobbet inte påverkas av unik begränsning överträdelser som kan inträffa under återställning fall. Detta kan undvikas genom att ange den [IGNORERA\_Duplicera\_nyckel](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) alternativet på ditt index.
+- **Undvik unika nyckel överträdelser** – om du får [varnings meddelanden om flera nyckel](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) överträdelser i Azure Stream Analytics aktivitets loggen, kontrollerar du att jobbet inte påverkas av unika begränsnings överträdelser som sannolikt kommer att inträffa under återställnings fall. Detta kan undvikas genom att ange alternativet [för\_att\_ignorera duplicera-nyckeln](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) i dina index.
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory och InMemory-tabeller
 
-- **InMemory-tabell som temporär tabell** – [InMemory-tabeller](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) tillåta för mycket snabba Datainläsningen men data som ska få plats i minnet. Prestandamått show massinläsning från en InMemory tabell till en diskbaserad tabell är ungefär 10 gånger snabbare än direkt bulk infoga med en enda skrivare till diskbaserad-tabell med en identity-kolumn och ett grupperat index. Om du vill utnyttja det här bulk insert prestanda ställer du in en [kopieringsjobbet med Azure Data Factory](../data-factory/connector-azure-sql-database.md) som kopierar data från InMemory-tabell till diskbaserad tabell.
+- **InMemory-tabell som temporär tabell** – [i-minnes tabeller](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) möjliggör mycket data inläsning av data, men data måste anpassas i minnet. Benchmarks Visa Mass inläsning från en InMemory-tabell till en diskbaserad tabell är ungefär 10 gånger snabbare än att infoga direkt Mass infogning med hjälp av en enda skrivare i den diskbaserade tabellen med en identitets kolumn och ett grupperat index. Om du vill dra nytta av den här Mass infogningen måste du konfigurera ett [kopierings jobb med Azure Data Factory](../data-factory/connector-azure-sql-database.md) som kopierar data från InMemory-tabellen till den diskbaserade tabellen.
 
-## <a name="avoiding-performance-pitfalls"></a>Undvika vanliga problem
-Samtidigt som infogar data är mycket snabbare än att läsa in data med enskilda infogningar eftersom det upprepade arbetet med att överföra data, parsning insert-instruktionen, som kör instruktionen och utfärda en transaktion post undviks. I stället används en mer effektiv sökväg till lagringsmotorn för att strömma data. Installationsprogrammet kostnaden för den här sökvägen är dock mycket högre än en enda insert-instruktionen i en diskbaserad tabell. Brytpunkten är vanligtvis cirka 100 rader, utöver massbearbetning läser in nästan alltid är mer effektiv. 
+## <a name="avoiding-performance-pitfalls"></a>Undvika prestanda fall GRO par
+Mass infogning av data är mycket snabbare än att läsa in data med enskilda infogningar eftersom den upprepade omkostnaderna vid överföring av data, parsning av INSERT-instruktionen, körning av instruktionen och utfärdande av transaktions poster undviks. I stället används en mer effektiv sökväg i lagrings motorn för att strömma data. Installations kostnaden för den här sökvägen är dock mycket högre än en enda INSERT-instruktion i en diskbaserad tabell. Bryt punkten är vanligt vis runt 100 rader, utöver vilken Mass inläsning är nästan alltid mer effektivt. 
 
-Om takt händelser är låg, kan det enkelt skapa batch-storlekar lägre än 100 rader, vilket gör bulk insert ineffektiv och använder för mycket diskutrymme. För att undvika denna begränsning, kan du göra något av följande:
-* Skapa en INSTEAD OF [utlösaren](/sql/t-sql/statements/create-trigger-transact-sql) att använda enkla insert för varje rad.
-* Använda en temporär tabell i minnet som beskrivs i föregående avsnitt.
+Om frekvensen inkommande händelser är låg kan det enkelt skapa batchgrupper som är mindre än 100 rader, vilket gör Mass infogningen ineffektiv och använder för mycket disk utrymme. Du kan undvika den här begränsningen genom att utföra någon av följande åtgärder:
+* Skapa en i stället [](/sql/t-sql/statements/create-trigger-transact-sql) för utlösare för att använda enkel infogning för varje rad.
+* Använd en temporär tabell i minnet enligt beskrivningen i föregående avsnitt.
 
-Ett annat scenario inträffar när du skriver till ett icke-grupperade columnstore-index (NCCI), där mindre bulkinfogningar kan skapa för många segment som kan krascha indexet. I det här fallet är rekommendationen att använda ett grupperat Columnstore-index i stället.
+Ett annat sådant scenario uppstår när du skriver till ett icke-grupperat columnstore-index (NCCI), där mindre Mass infogningar kan skapa för många segment, vilket kan krascha indexet. I det här fallet är rekommendationen att använda ett grupperat columnstore-index i stället.
 
 ## <a name="summary"></a>Sammanfattning
 
-Sammanfattningsvis med partitionerade utdata-funktionen i Azure Stream Analytics för SQL-utdata justerade parallellisering för dina jobb med en partitionerad tabell i SQL Azure bör du få betydande dataflödet förbättringar. Utnyttjar Azure Data Factory för att samordna dataförflyttning från en InMemory-tabell i diskbaserade tabeller kan ge storleksordning genomflödesvinsterna. Om så är möjligt, kan förbättra meddelande densitet också vara en viktig faktor förbättra hela dataflödet.
+I sammanfattning, med funktionen för partitionerade utdata i Azure Stream Analytics för SQL-utdata, bör parallellisering av jobbet med en partitionerad tabell i SQL Azure ge dig betydande data flödes förbättringar. Genom att använda Azure Data Factory för att dirigera data förflyttning från en InMemory-tabell till diskbaserade tabeller kan du ange storleks vinster för data flödet. Om möjligt kan det också vara en större faktor att förbättra meddelande tätheten för att förbättra det totala data flödet.

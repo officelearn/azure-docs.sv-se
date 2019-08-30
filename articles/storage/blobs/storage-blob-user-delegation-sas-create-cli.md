@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: ef51a1b130323a8799d5334d8d043fda08fcc7ef
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 6ea4dbf07c8ef99c43dbe7add1ae9270056f708c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896967"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164326"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure CLI (för hands version)
 
@@ -112,6 +112,21 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 > [!NOTE]
 > En användar Delegerings-SAS har inte stöd för att definiera behörigheter med en lagrad åtkomst princip.
+
+## <a name="revoke-a-user-delegation-sas"></a>Återkalla en användar Delegerings-SAS
+
+Om du vill återkalla en användar Delegerings-SAS från Azure CLI anropar du kommandot [AZ Storage Account REVOKE-delegering-Keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) . Det här kommandot återkallar alla de användar Delegerings nycklar som är kopplade till det angivna lagrings kontot. Alla signaturer för delad åtkomst som är kopplade till nycklarna är ogiltiga.
+
+Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+
+```azurecli-interactive
+az storage account revoke-delegation-keys \
+    --name <storage-account> \
+    --resource-group <resource-group>
+```
+
+> [!IMPORTANT]
+> Både användar Delegerings nyckeln och RBAC-roll tilldelningar cachelagras av Azure Storage, så det kan uppstå en fördröjning mellan när du initierar återkallnings processen och när en befintlig användar Delegerings-SÄKERHETSASSOCIATIONER blir ogiltig.
 
 ## <a name="next-steps"></a>Nästa steg
 

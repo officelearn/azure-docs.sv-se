@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory integrering med personer | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med personer | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och personer.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 334241683f95496ce9ea0629247bb8fd53364ee9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3a9b8f08a54c978d81a8d33c61ab3d5f5fc7271f
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826115"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164222"
 ---
-# <a name="tutorial-integrate-people-with-azure-active-directory"></a>Självstudier: Integrera personer med Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med personer
 
 I den här självstudien får du lära dig hur du integrerar personer med Azure Active Directory (Azure AD). När du integrerar personer med Azure AD kan du:
 
@@ -47,6 +47,9 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 * Personer stöder **SP** -INITIERAd SSO
 * Mobila program för personer kan nu konfigureras med Azure AD för att aktivera SSO. I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
+>[!NOTE]
+>ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
+
 ## <a name="adding-people-from-the-gallery"></a>Lägga till personer från galleriet
 
 Om du vill konfigurera integreringen av personer i Azure AD måste du lägga till personer från galleriet i listan över hanterade SaaS-appar.
@@ -58,21 +61,20 @@ Om du vill konfigurera integreringen av personer i Azure AD måste du lägga til
 1. I avsnittet **Lägg till från galleriet** , Skriv **personer** i sökrutan.
 1. Välj **personer** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on-for-people"></a>Konfigurera och testa enkel inloggning med Azure AD för personer
 
 Konfigurera och testa Azure AD SSO med personer som använder en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i personer.
 
 Om du vill konfigurera och testa Azure AD SSO med personer, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 2. **[Konfigurera personer SSO](#configure-people-sso)** – för att konfigurera inställningar för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-5. **[Skapa användare som testar användare](#create-people-test-user)** – så att de har en motsvarighet till B. Simon i personer som är länkade till Azure AD-representation av användare.
+    1. **[Skapa användare som testar användare](#create-people-test-user)** – så att de har en motsvarighet till B. Simon i personer som är länkade till Azure AD-representation av användare.
 6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
@@ -100,22 +102,6 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 6. I avsnittet **Konfigurera personer** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
-
-### <a name="configure-people-sso"></a>Konfigurera personer SSO
-
-1. För att få SSO konfigurerat för ditt program måste du logga in på din personal som administratör.
-   
-2. I menyn på vänster sida klickar du på **Inställningar**.
-
-    ![Konfigurera enkel inloggning](./media/people-tutorial/tutorial_people_001.png)
-
-3. Klicka på **Företag**.
-
-    ![Konfigurera enkel inloggning](./media/people-tutorial/tutorial_people_002.png)
-
-4. Klicka på **Bläddra** för att ladda upp den hämtade metadata-filen på **SAML-datafilen med SAML-datafilen i uppladdningen "enkel inloggning**".
-
-    ![Konfigurera enkel inloggning](./media/people-tutorial/tutorial_people_003.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -147,11 +133,35 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
+## <a name="configure-people-sso"></a>Konfigurera personer SSO
+
+1. Om du vill automatisera konfigurationen inom personer måste du installera **webb läsar tillägget Mina appar med säker inloggning** genom att klicka på **installera tillägget**.
+
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+2. När du har lagt till tillägg i webbläsaren, klickar du på **installations programmet** leder dig till programmet People. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på personer. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-6.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+3. Om du vill konfigurera personer manuellt öppnar du ett nytt webbläsarfönster och loggar in på företags webbplatsen för personer som administratör och utför följande steg:
+   
+4. I menyn på vänster sida klickar du på **Inställningar**.
+
+    ![Konfigurera enkel inloggning](./media/people-tutorial/tutorial_people_001.png)
+
+5. Klicka på **Företag**.
+
+    ![Konfigurera enkel inloggning](./media/people-tutorial/tutorial_people_002.png)
+
+6. Klicka på **Bläddra** för att ladda upp den hämtade metadata-filen på **SAML-datafilen med SAML-datafilen i uppladdningen "enkel inloggning**".
+
+    ![Konfigurera enkel inloggning](./media/people-tutorial/tutorial_people_003.png)
+
 ### <a name="create-people-test-user"></a>Skapa användare test användare
 
 I det här avsnittet skapar du en användare som heter B. Simon i personer. Arbeta med [kund support teamet](mailto:customerservices@peoplehr.com) för att lägga till användare på människa-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-### <a name="test-sso"></a>Testa SSO 
+## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
@@ -179,3 +189,4 @@ När du klickar på panelen personer på åtkomst panelen bör du loggas in auto
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Prova personer med Azure AD](https://aad.portal.azure.com)

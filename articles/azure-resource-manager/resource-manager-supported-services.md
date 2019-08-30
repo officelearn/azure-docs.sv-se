@@ -1,6 +1,6 @@
 ---
-title: Azure resursproviders och resurstyper | Microsoft Docs
-description: Beskriver de resursprovidrar som stöd för Resource Manager, deras scheman och tillgängliga API-versioner och de regioner som kan vara värd för resurserna.
+title: Azure-resurs-providers och resurs typer | Microsoft Docs
+description: Beskriver de resurs leverantörer som stöder Resource Manager, deras scheman och tillgängliga API-versioner och de regioner som kan vara värdar för resurserna.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,69 +10,73 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2019
+ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: a3c6eca548eb61d6b7b239b4292b9c77ca2dec6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cbc8843d41b760c52b9ca5ccfb6d940bd454136
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702708"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164809"
 ---
-# <a name="azure-resource-providers-and-types"></a>Azure resursproviders och resurstyper
+# <a name="azure-resource-providers-and-types"></a>Azure-resurs leverantörer och-typer
 
-När du distribuerar resurser kan behöva du ofta hämta information om resursproviders och resurstyper. I den här artikeln kan du se hur du:
+När du distribuerar resurser behöver du ofta hämta information om resurs leverantörer och typer. Om du till exempel vill lagra nycklar och hemligheter arbetar du med resurs leverantören Microsoft. nyckel valv. Den här resurs leverantören erbjuder en resurs typ som kallas valv för att skapa nyckel valvet.
 
-* Visa alla resursprovidrar i Azure
-* Kontrollera registreringsstatus för en resursprovider
-* Registrera en resursleverantör
-* Visa resurstyper för en resursprovider
-* Visa giltiga platser för en resurstyp
-* Visa giltig API-versioner för en resurstyp
+Namnet på en resurstyp skrivs i formatet: **{resursprovidern}/{resurstypen}** . Resurstypen för ett nyckelvalv är **Microsoft.KeyVault\vaults**.
 
-Du kan utföra dessa steg via Azure-portalen, Azure PowerShell eller Azure CLI.
+I den här artikeln kan du se hur du:
 
-En lista som mappar resursprovidrar till Azure-tjänster finns i [resursprovidrar för Azure-tjänster](azure-services-resource-providers.md).
+* Visa alla resurs leverantörer i Azure
+* Kontrol lera registrerings status för en resurs leverantör
+* Registrera en resurs leverantör
+* Visa resurs typer för en resurs leverantör
+* Visa giltiga platser för en resurs typ
+* Visa giltiga API-versioner för en resurs typ
+
+Du kan utföra de här stegen via Azure Portal, Azure PowerShell eller Azure CLI.
+
+En lista som mappar resurs leverantörer till Azure-tjänster finns i [Resource providers för Azure-tjänster](azure-services-resource-providers.md).
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Visa alla resursprovidrar och registreringsstatus för din prenumeration:
+Så här visar du alla resurs leverantörer och registrerings status för din prenumeration:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Alla tjänster**.
 
     ![Välj prenumerationer](./media/resource-manager-supported-services/select-subscriptions.png)
-3. I den **alla tjänster** anger **prenumeration**, och välj sedan **prenumerationer**.
-4. Välj prenumerationen i prenumerationslistan ska visa.
-5. Välj **resursprovidrar** och visa en lista över tillgängliga resursproviders.
+3. I rutan **alla tjänster** anger du **prenumeration**och väljer sedan prenumerationer.
+4. Välj den prenumeration i listan prenumeration som du vill visa.
+5. Välj **resurs leverantörer** och Visa listan över tillgängliga resurs leverantörer.
 
-    ![Visa resursprovidrar](./media/resource-manager-supported-services/show-resource-providers.png)
+    ![Visa resurs leverantörer](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. Registrera en resursleverantör konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Många resursproviders registreras automatiskt som standard. Du kan dock behöva registrera några resursproviders manuellt. Om du vill registrera en resursleverantör måste du ha behörighet att göra den `/register/action` åtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Om du vill registrera en resursleverantör, Välj **registrera**. I föregående skärmbild kan den **registrera** länk markeras för **Microsoft.Blueprint**.
+6. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Omfattningen för registrering är alltid prenumerationen. Som standard registreras många resurs leverantörer automatiskt. Du kan dock behöva registrera vissa resurs leverantörer manuellt. Om du vill registrera en resurs leverantör måste du ha behörighet att utföra `/register/action` åtgärden för resurs leverantören. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera en resurs leverantör genom att välja **Registrera**. I föregående skärm bild är **register** länken markerad för **Microsoft. skiss**.
 
-    Du kan inte avregistrera en resursprovider när du fortfarande har resurstyper från den resursprovidern i din prenumeration.
+    Du kan inte avregistrera en resurs leverantör när du fortfarande har resurs typer från den resurs leverantören i din prenumeration.
 
-Visa information för en viss resursprovider:
+Så här visar du information om en viss resurs leverantör:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Alla tjänster**.
 
     ![Välj alla tjänster](./media/resource-manager-supported-services/more-services.png)
 
-3. I den **alla tjänster** anger **resursläsaren**, och välj sedan **Resursläsaren**.
-4. Expandera **Providers** genom att välja pilen till höger.
+3. I rutan **alla tjänster** anger du **resurs läsaren**och väljer sedan **Resursläsaren**.
+4. Expandera **providers** genom att välja den högra pilen.
 
-    ![Välj providers](./media/resource-manager-supported-services/select-providers.png)
+    ![Välj leverantörer](./media/resource-manager-supported-services/select-providers.png)
 
-5. Expandera en provider för nätverksresurser och resurstyp som du vill visa.
+5. Expandera en resurs leverantör och resurs typ som du vill visa.
 
-    ![Välj resurstyp](./media/resource-manager-supported-services/select-resource-type.png)
+    ![Välj resurs typ](./media/resource-manager-supported-services/select-resource-type.png)
 
-6. Resource Manager stöds i alla regioner, men de resurser som du distribuerar stöds inte i alla regioner. Dessutom kan finnas det begränsningar av prenumerationen som hindrar dig från att använda vissa regioner som har stöd för resursen. Resursläsaren visar giltiga platser för resurstypen.
+6. Resource Manager stöds i alla regioner, men resurserna som du distribuerar kanske inte stöds i alla regioner. Dessutom kan det finnas begränsningar i din prenumeration som hindrar dig från att använda vissa regioner som stöder resursen. Resurs läsaren visar giltiga platser för resurs typen.
 
     ![Visa platser](./media/resource-manager-supported-services/show-locations.png)
 
-7. API-versionen motsvarar en version av REST API-åtgärder som ges ut av resursprovidern. Eftersom en resursprovider ger nya funktioner, släpper en ny version av REST API. Resursläsaren visar giltig API-versioner för resurstypen.
+7. API-versionen motsvarar en version av REST API åtgärder som släpps av resurs leverantören. När en resurs leverantör aktiverar nya funktioner, släpps en ny version av REST API. Resurs läsaren visar giltiga API-versioner för resurs typen.
 
     ![Visa API-versioner](./media/resource-manager-supported-services/show-api-versions.png)
 
@@ -80,13 +84,13 @@ Visa information för en viss resursprovider:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om du vill se alla resursprovidrar i Azure och registreringsstatus för din prenumeration, använder du:
+Om du vill se alla resurs leverantörer i Azure och registrerings status för din prenumeration använder du:
 
 ```azurepowershell-interactive
 Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
-Som returnerar resultat liknar:
+Vilket returnerar resultat som liknar:
 
 ```powershell
 ProviderNamespace                RegistrationState
@@ -98,13 +102,13 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registrera en resursleverantör konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Många resursproviders registreras automatiskt som standard. Du kan dock behöva registrera några resursproviders manuellt. Om du vill registrera en resursleverantör måste du ha behörighet att göra den `/register/action` åtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare.
+När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Omfattningen för registrering är alltid prenumerationen. Som standard registreras många resurs leverantörer automatiskt. Du kan dock behöva registrera vissa resurs leverantörer manuellt. Om du vill registrera en resurs leverantör måste du ha behörighet att utföra `/register/action` åtgärden för resurs leverantören. Den här åtgärden ingår i rollerna Deltagare och Ägare.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
-Som returnerar resultat liknar:
+Vilket returnerar resultat som liknar:
 
 ```powershell
 ProviderNamespace : Microsoft.Batch
@@ -113,15 +117,15 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-Du kan inte avregistrera en resursprovider när du fortfarande har resurstyper från den resursprovidern i din prenumeration.
+Du kan inte avregistrera en resurs leverantör när du fortfarande har resurs typer från den resurs leverantören i din prenumeration.
 
-Om du vill se information för en viss resursprovider, använder du:
+Om du vill se information om en viss resurs leverantör använder du:
 
 ```azurepowershell-interactive
 Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
-Som returnerar resultat liknar:
+Vilket returnerar resultat som liknar:
 
 ```powershell
 {ProviderNamespace : Microsoft.Batch
@@ -132,13 +136,13 @@ Locations         : {West Europe, East US, East US 2, West US...}
 ...
 ```
 
-Om du vill visa resurstyperna för en resursprovider, använder du:
+Om du vill se resurs typerna för en resurs leverantör använder du:
 
 ```azurepowershell-interactive
 (Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
-Som returnerar:
+Returnerar:
 
 ```powershell
 batchAccounts
@@ -147,15 +151,15 @@ locations
 locations/quotas
 ```
 
-API-versionen motsvarar en version av REST API-åtgärder som ges ut av resursprovidern. Eftersom en resursprovider ger nya funktioner, släpper en ny version av REST API.
+API-versionen motsvarar en version av REST API åtgärder som släpps av resurs leverantören. När en resurs leverantör aktiverar nya funktioner, släpps en ny version av REST API.
 
-Hämta tillgängliga API-versioner för en resurstyp med:
+Använd följande för att hämta tillgängliga API-versioner för en resurs typ:
 
 ```azurepowershell-interactive
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
-Som returnerar:
+Returnerar:
 
 ```powershell
 2017-05-01
@@ -165,15 +169,15 @@ Som returnerar:
 2015-07-01
 ```
 
-Resource Manager stöds i alla regioner, men de resurser som du distribuerar stöds inte i alla regioner. Dessutom kan finnas det begränsningar av prenumerationen som hindrar dig från att använda vissa regioner som har stöd för resursen.
+Resource Manager stöds i alla regioner, men resurserna som du distribuerar kanske inte stöds i alla regioner. Dessutom kan det finnas begränsningar i din prenumeration som hindrar dig från att använda vissa regioner som stöder resursen.
 
-Använd följande för att få platser som stöds för en resurstyp.
+Använd för att hämta de platser som stöds för en resurs typ.
 
 ```azurepowershell-interactive
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-Som returnerar:
+Returnerar:
 
 ```powershell
 West Europe
@@ -185,13 +189,13 @@ West US
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Om du vill se alla resursprovidrar i Azure och registreringsstatus för din prenumeration, använder du:
+Om du vill se alla resurs leverantörer i Azure och registrerings status för din prenumeration använder du:
 
 ```azurecli
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
-Som returnerar resultat liknar:
+Vilket returnerar resultat som liknar:
 
 ```azurecli
 Provider                         Status
@@ -203,23 +207,23 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registrera en resursleverantör konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Många resursproviders registreras automatiskt som standard. Du kan dock behöva registrera några resursproviders manuellt. Om du vill registrera en resursleverantör måste du ha behörighet att göra den `/register/action` åtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare.
+När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Omfattningen för registrering är alltid prenumerationen. Som standard registreras många resurs leverantörer automatiskt. Du kan dock behöva registrera vissa resurs leverantörer manuellt. Om du vill registrera en resurs leverantör måste du ha behörighet att utföra `/register/action` åtgärden för resurs leverantören. Den här åtgärden ingår i rollerna Deltagare och Ägare.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
 ```
 
-Som returnerar ett meddelande till denna registrering pågår.
+Som returnerar ett meddelande om att registreringen pågår.
 
-Du kan inte avregistrera en resursprovider när du fortfarande har resurstyper från den resursprovidern i din prenumeration.
+Du kan inte avregistrera en resurs leverantör när du fortfarande har resurs typer från den resurs leverantören i din prenumeration.
 
-Om du vill se information för en viss resursprovider, använder du:
+Om du vill se information om en viss resurs leverantör använder du:
 
 ```azurecli
 az provider show --namespace Microsoft.Batch
 ```
 
-Som returnerar resultat liknar:
+Vilket returnerar resultat som liknar:
 
 ```azurecli
 {
@@ -232,13 +236,13 @@ Som returnerar resultat liknar:
 }
 ```
 
-Om du vill visa resurstyperna för en resursprovider, använder du:
+Om du vill se resurs typerna för en resurs leverantör använder du:
 
 ```azurecli
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
-Som returnerar:
+Returnerar:
 
 ```azurecli
 Result
@@ -249,15 +253,15 @@ locations
 locations/quotas
 ```
 
-API-versionen motsvarar en version av REST API-åtgärder som ges ut av resursprovidern. Eftersom en resursprovider ger nya funktioner, släpper en ny version av REST API.
+API-versionen motsvarar en version av REST API åtgärder som släpps av resurs leverantören. När en resurs leverantör aktiverar nya funktioner, släpps en ny version av REST API.
 
-Hämta tillgängliga API-versioner för en resurstyp med:
+Använd följande för att hämta tillgängliga API-versioner för en resurs typ:
 
 ```azurecli
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
-Som returnerar:
+Returnerar:
 
 ```azurecli
 Result
@@ -269,15 +273,15 @@ Result
 2015-07-01
 ```
 
-Resource Manager stöds i alla regioner, men de resurser som du distribuerar stöds inte i alla regioner. Dessutom kan finnas det begränsningar av prenumerationen som hindrar dig från att använda vissa regioner som har stöd för resursen.
+Resource Manager stöds i alla regioner, men resurserna som du distribuerar kanske inte stöds i alla regioner. Dessutom kan det finnas begränsningar i din prenumeration som hindrar dig från att använda vissa regioner som stöder resursen.
 
-Använd följande för att få platser som stöds för en resurstyp.
+Använd för att hämta de platser som stöds för en resurs typ.
 
 ```azurecli
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 
-Som returnerar:
+Returnerar:
 
 ```azurecli
 Result
@@ -291,7 +295,7 @@ West US
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om hur du skapar Resource Manager-mallar i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md). 
-* Mallscheman för resource provider finns [mallreferensen](/azure/templates/).
-* En lista som mappar resursprovidrar till Azure-tjänster finns i [resursprovidrar för Azure-tjänster](azure-services-resource-providers.md).
-* Åtgärder för en resursprovider finns [Azure REST API](/rest/api/).
+* Information om hur du skapar Resource Manager-mallar finns i [redigera Azure Resource Manager mallar](resource-group-authoring-templates.md). 
+* Om du vill visa resurs leverantörens mall scheman, se [referens för mallar](/azure/templates/).
+* En lista som mappar resurs leverantörer till Azure-tjänster finns i [Resource providers för Azure-tjänster](azure-services-resource-providers.md).
+* Information om hur du visar åtgärder för en resurs leverantör finns i [Azure REST API](/rest/api/).

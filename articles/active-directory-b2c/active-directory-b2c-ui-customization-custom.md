@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0c6186334820d0e419a06b9c60a8279825bf54c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e79d7a4b97f010b035f5c864682b4d3882a21393
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927299"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171924"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C
 
@@ -65,17 +65,16 @@ För att vara värd för detta HTML-innehåll i Blob Storage gör du följande:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. På menyn **hubb** väljer du **nytt** > **lagrings** > **lagrings konto**.
-3. Ange ett unikt **namn** för ditt lagrings konto.
-4. **Distributions modellen** kan vara **Resource Manager**.
-5. Ändra **konto typ** till **Blob Storage**.
-6. **Prestanda** kan vara **standard**.
-7. **Replikeringen** kan förbli **RA-GRS**.
-8. **Åtkomst nivån** kan vara **aktiv**.
-9. **Kryptering av lagrings tjänst** kan vara inaktiverat.
-10. Välj en **prenumeration** för ditt lagrings konto.
-11. Skapa en **resurs grupp** eller Välj en befintlig.
-12. Välj den **geografiska platsen** för ditt lagrings konto.
-13. Skapa lagringskontot genom att klicka på **Skapa**.  
+3. Välj en **prenumeration** för ditt lagrings konto.
+4. Skapa en **resurs grupp** eller Välj en befintlig.
+5. Ange ett unikt **namn** för ditt lagrings konto.
+6. Välj den **geografiska platsen** för ditt lagrings konto. 
+7. **Distributions modellen** kan vara **Resource Manager**.
+8. **Prestanda** kan vara **standard**.
+9. Ändra **konto typ** till **Blob Storage**.
+10. **Replikeringen** kan förbli **RA-GRS**.
+11. **Åtkomst nivån** kan vara **aktiv**. 
+12. Klicka på **Granska + skapa** för att skapa lagrings kontot.  
     När distributionen är klar öppnas bladet **lagrings konto** automatiskt.
 
 ## <a name="create-a-container"></a>Skapa en container

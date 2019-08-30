@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 08/29/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: a0c34e30e52bd2a6d57e2cf8299f231f7f2960d9
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
-ms.translationtype: HT
+ms.openlocfilehash: e883e231988e63d22cb990224d240b1c13fb04b6
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147945"
+ms.locfileid: "70164442"
 ---
 ::: zone target="docs"
 
@@ -335,6 +335,6 @@ Utför följande steg för att verifiera dina data.
 1. Kör `DataBoxDiskValidation.cmd` för validering av kontrollsumma i mappen *DataBoxDiskImport* för din enhet.
 2. Använd alternativ 2 för att validera dina filer och generera kontroll summor. Beroende på datastorleken kan det här steget ta en stund. Om det uppstår fel vid valideringen och genereringen av kontrollsumma meddelas du och du får även en länk till felloggarna.
 
-    Mer information om data verifiering finns i [Verifiera data](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Om det uppstår fel under verifieringen kan du läsa [Felsök validerings fel](https://docs.microsoft.com/en-us/azure/databox/data-box-disk-troubleshoot){: Target = "_ blank"}.
+    Mer information om data verifiering finns i [Verifiera data](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Om det uppstår fel under verifieringen kan du läsa [Felsöka verifierings fel](data-box-disk-troubleshoot.md).
 
 ::: zone-end

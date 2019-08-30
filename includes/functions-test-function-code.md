@@ -4,23 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/24/2019
 ms.author: glenga
-ms.openlocfilehash: a3f75b7273164abc5318f16e9ab8d9883ff0c0aa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9381f436aaeedb31732f853a6c4765ac43c6a752
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187125"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170902"
 ---
 ## <a name="test"></a>Testa funktionen i Azure
 
-Använda cURL för att testa den distribuerade funktionen. Med hjälp av Webbadressen som du kopierade i föregående steg, Lägg till frågesträngen `&name=<yourname>` till URL: en, som i följande exempel:
+Använd sväng för att testa den distribuerade funktionen. Använd URL: en, inklusive funktions nyckeln, som du kopierade från föregående steg, Lägg till frågesträngen `&name=<yourname>` i URL: en.
 
-```bash
-curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
-```
+![Använd sväng för att anropa funktionen i Azure.](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png) 
 
-![med cURL för att anropa funktionen i Azure.](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png) 
+Du kan också klistra in den kopierade URL-adressen, inklusive funktions nyckeln, i webb adressen till webbläsaren. Lägg återigen till frågesträngen `&name=<yourname>` i URL: en innan du kör begäran.
 
-Du kan också klistra in den kopierade Webbadressen i adressen för din webbläsare. Igen, Lägg till frågesträngen `&name=<yourname>` i URL: en innan du kör begäran.
-
-![Använda en webbläsare för att anropa funktionen.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  
+![Använda en webbläsare för att anropa-funktionen.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  

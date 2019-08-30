@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 32628296c5d43a11371b486abc426da2e243d0a7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
-ms.translationtype: HT
+ms.openlocfilehash: 6629a612f7067394d9da83a81bdf46467a6e033a
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138230"
+ms.locfileid: "70163732"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudier: Skapa en värdpool med Azure Marketplace
 
@@ -26,7 +26,11 @@ I den här självstudien beskrivs hur du skapar en adresspool i en Windows-klien
 > * Anslut de virtuella datorerna till Active Directory-domänen.
 > * Registrera de virtuella datorerna med det virtuella Windows-skrivbordet.
 
-Innan du börjar kan du [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det.
+Innan du börjar kan du [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det. Sedan kör du följande cmdlet för att logga in på ditt konto:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

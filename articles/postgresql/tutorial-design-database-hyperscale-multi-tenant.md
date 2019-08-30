@@ -1,6 +1,6 @@
 ---
-title: Utforma en databas för flera innehavare med Azure Database for PostgreSQL – hyperskala (Citus) (förhandsversion) självstudien
-description: Den här självstudien visar hur du skapar, fylla i och frågar distribuerade tabeller på Azure Database för PostgreSQL Hyperscale (Citus) (förhandsversion).
+title: Utforma en databas för flera innehavare med Azure Database for PostgreSQL – citus (för hands version) – självstudie
+description: Den här självstudien visar hur du skapar, fyller i och frågar distribuerade tabeller på Azure Database for PostgreSQL citus (för hands version).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,35 +9,35 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 73d7aebf3dbff59320e0ef92cbd54811503c71b4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ba20a048faecc9e37a2bfbe750de0fbeba88d538
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792274"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163991"
 ---
-# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Självstudie: utforma en databas för flera innehavare med hjälp av Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion)
+# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Självstudie: utforma en databas med flera innehavare med hjälp av Azure Database for PostgreSQL – storskalig (citus) (för hands version)
 
-I den här självstudien använder du Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion) för att lära dig hur du:
+I den här självstudien använder du Azure Database for PostgreSQL-förhandsgranskning (citus) (för hands version) för att lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en servergrupp i hyperskala (Citus)
+> * Skapa en Hyperscale-servergrupp (Citus)
 > * Använd psql-verktyget för att skapa ett schema
-> * Shard tabeller mellan noder
+> * Shard-tabeller över noder
 > * Mata in exempeldata
-> * Fråga klientdata
+> * Fråga klient data
 > * Dela data mellan klienter
-> * Anpassa den schemat per-klienten
+> * Anpassa schemat per klient
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Använd psql-verktyget för att skapa ett schema
 
-Efter att ha anslutit till Azure Database för PostgreSQL – kan hyperskala (Citus) (förhandsversion) med psql, du utföra några grundläggande uppgifter. Den här självstudien visar hur du skapar en webbapp som tillåter annonsörer att spåra sina kampanjer.
+När du är ansluten till Azure Database for PostgreSQL-förhandsgranskning (citus) (för hands version) med psql kan du utföra några grundläggande uppgifter. Den här självstudien vägleder dig genom att skapa en webbapp som gör att annonsörer kan spåra sina kampanjer.
 
-Flera företag kan använda appen, så vi skapar en tabell för att lagra företag och en annan för sina kampanjer. Kör följande kommandon i psql-konsolen:
+Flera företag kan använda appen så vi skapar en tabell för att lagra företag och en annan för deras kampanjer. I psql-konsolen kör du följande kommandon:
 
 ```sql
 CREATE TABLE companies (
@@ -63,7 +63,7 @@ CREATE TABLE campaigns (
 );
 ```
 
-Varje kampanj betalar att köra annonser. Lägg till en tabell för annonser, genom att köra följande kod i psql efter koden ovan:
+Varje kampanj kommer att betala för att köra annonser. Lägg till en tabell för Ads, genom att köra följande kod i psql efter koden ovan:
 
 ```sql
 CREATE TABLE ads (
@@ -84,7 +84,7 @@ CREATE TABLE ads (
 );
 ```
 
-Slutligen kan spårar vi statistik om klick och intrycket för varje annons:
+Slutligen ska vi spåra statistik om klickningar och exponeringar för varje annons:
 
 ```sql
 CREATE TABLE clicks (
@@ -124,13 +124,13 @@ Du kan se de nyligen skapade tabellerna i listan över tabeller nu i psql genom 
 \dt
 ```
 
-Program för flera innehavare kan genomdriva unikhet bara per klient, vilket är anledningen till alla primära nycklar och sekundärnycklar inkluderar företags-ID.
+Program med flera klienter kan endast framtvinga unik användning per klient, vilket är anledningen till att alla primära och externa nycklar innehåller företags-ID.
 
-## <a name="shard-tables-across-nodes"></a>Shard tabeller mellan noder
+## <a name="shard-tables-across-nodes"></a>Shard-tabeller över noder
 
-En storskalig distribution lagrar tabellrader på olika noder baserat på värdet för en kolumn som anges av användaren. Den här ”distributionskolumn” som hämtas som klient äger vilka rader.
+En storskalig distribution lagrar tabell rader på olika noder baserat på värdet för en användardefinierad kolumn. Denna "distributions kolumn" markerar vilken klient som äger vilka rader.
 
-Vi ställer distributionskolumn vara företagets\_-id, klient-ID. Kör dessa funktioner i psql:
+Vi anger att distributions kolumnen ska vara företags\_-ID, klient-ID. I psql kör du följande funktioner:
 
 ```sql
 SELECT create_distributed_table('companies',   'id');
@@ -142,7 +142,7 @@ SELECT create_distributed_table('impressions', 'company_id');
 
 ## <a name="ingest-sample-data"></a>Mata in exempeldata
 
-Ladda ned exempel på datauppsättningar i kommandoraden normala utanpå psql nu:
+Utanför psql nu kan du hämta exempel data uppsättningar på den vanliga kommando raden:
 
 ```bash
 for dataset in companies campaigns ads clicks impressions geo_ips; do
@@ -150,9 +150,11 @@ for dataset in companies campaigns ads clicks impressions geo_ips; do
 done
 ```
 
-Tillbaka i psql massinläsa data. Glöm inte att köra psql i samma katalog som du laddade ned datafilerna.
+Tillbaka i psql, Mass inläsning av data. Se till att köra psql i samma katalog som du laddade ned datafilerna till.
 
 ```sql
+SET CLIENT_ENCODING TO 'utf8';
+
 \copy companies from 'companies.csv' with csv
 \copy campaigns from 'campaigns.csv' with csv
 \copy ads from 'ads.csv' with csv
@@ -160,11 +162,11 @@ Tillbaka i psql massinläsa data. Glöm inte att köra psql i samma katalog som 
 \copy impressions from 'impressions.csv' with csv
 ```
 
-Dessa data kommer nu att sprida över arbetsnoder.
+Dessa data kommer nu att spridas över arbetsnoder.
 
-## <a name="query-tenant-data"></a>Fråga klientdata
+## <a name="query-tenant-data"></a>Fråga klient data
 
-När programmet begär data för en enda klient, kan databasen köra frågan i en enda arbetsnod. Enda klient frågefilter genom en enda klient-ID. Till exempel följande fråga filter `company_id = 5` för annonser och intrycket. Försök att köra den i psql att se resultaten.
+När programmet begär data för en enskild klient kan databasen köra frågan på en enskild arbetsnod. Frågor med en enda klient fråga filtreras efter ett enda klient-ID. Följande fråga filter `company_id = 5` till exempel för annonsering och exponering. Prova att köra det i psql för att se resultatet.
 
 ```sql
 SELECT a.campaign_id,
@@ -183,9 +185,9 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 ## <a name="share-data-between-tenants"></a>Dela data mellan klienter
 
-Fram till nu alla tabeller har distribuerats av `company_id`, men vissa data naturligt ”tillhör inte” klientorganisation särskilt och kan delas. Alla företag i ad-plattformen exempel kanske exempelvis vill få geografisk information för sin publik baserat på IP-adresser.
+Fram till nu har alla tabeller distribuerats `company_id`, men vissa data är inte naturligt "tillhör" en klient i synnerhet och kan delas. Till exempel kanske alla företag i exemplet AD-plattformen vill hämta geografisk information för deras mål grupper baserat på IP-adresser.
 
-Skapa en tabell för att lagra delade geografisk information. Kör följande kommandon i psql:
+Skapa en tabell för att lagra delad geografisk information. Kör följande kommandon i psql:
 
 ```sql
 CREATE TABLE geo_ips (
@@ -197,21 +199,21 @@ CREATE TABLE geo_ips (
 CREATE INDEX ON geo_ips USING gist (addrs inet_ops);
 ```
 
-Därefter gör `geo_ips` ”referenstabellen” att lagra en kopia av tabellen på varje arbetsnod.
+Sedan gör `geo_ips` du en "referens tabell" för att lagra en kopia av tabellen på varje arbetsnod.
 
 ```sql
 SELECT create_reference_table('geo_ips');
 ```
 
-Läs in exempeldata. Kom ihåg att köra det här kommandot i psql från inuti katalogen där du hämtade datauppsättningen.
+Läs in den med exempel data. Kom ihåg att köra det här kommandot i psql inifrån den katalog där du laddade ned data uppsättningen.
 
 ```sql
 \copy geo_ips from 'geo_ips.csv' with csv
 ```
 
-Ansluta till tabellen klick med geo\_IP-adresser är effektivt på alla noder.
-Här är en koppling för att hitta platser för alla som klickat på ad
-290. Försök köra frågan i psql.
+Att gå med i klicknings tabellen\_med geo-IP: er är effektiv på alla noder.
+Här är en koppling för att hitta platserna för alla som klickar på AD
+290. Prova att köra frågan i psql.
 
 ```sql
 SELECT c.id, clicked_at, latlon
@@ -221,14 +223,14 @@ SELECT c.id, clicked_at, latlon
    AND c.ad_id = 290;
 ```
 
-## <a name="customize-the-schema-per-tenant"></a>Anpassa den schemat per-klienten
+## <a name="customize-the-schema-per-tenant"></a>Anpassa schemat per klient
 
-Varje klient kan behöva lagra särskild information som krävs inte för andra. Alla klienter dela dock en vanlig infrastruktur med en identisk databasschemat. Kan de extra data var?
+Varje klient kan behöva lagra särskild information som inte behövs av andra. Alla klienter delar dock en gemensam infrastruktur med ett identiskt databas schema. Var kan extra data gå?
 
-Ett tips är att använda en kunskapsuppsättning Kolumntyp som Postgresql's JSONB.  Vår schemat innehåller ett JSONB fält `clicks` kallas `user_data`.
-Ett företag (exempelvis företaget fem) kan använda kolumnen för att spåra om användaren är på en mobil enhet.
+Ett stick är att använda en kolumn typ med öppen slut som PostgreSQL-JSONB.  Vårt schema har ett JSONB-fält `clicks` i `user_data`kallas.
+Ett företag (till exempel företag fem) kan använda kolumnen för att spåra om användaren finns på en mobil enhet.
 
-Här är en fråga för att hitta som klickar på mer: mobila eller traditionella besökare.
+Här är en fråga för att hitta vem som klickar på mer: mobil eller traditionell besökare.
 
 ```sql
 SELECT
@@ -240,7 +242,7 @@ GROUP BY user_data->>'is_mobile'
 ORDER BY count DESC;
 ```
 
-Vi kan optimera den här frågan för ett enda företag genom att skapa en [partiella index](https://www.postgresql.org/docs/current/static/indexes-partial.html).
+Vi kan optimera den här frågan för ett enskilt företag genom att skapa ett [partiellt index](https://www.postgresql.org/docs/current/static/indexes-partial.html).
 
 ```sql
 CREATE INDEX click_user_data_is_mobile
@@ -248,7 +250,7 @@ ON clicks ((user_data->>'is_mobile'))
 WHERE company_id = 5;
 ```
 
-Generellt kan vi skapa en [GIN index](https://www.postgresql.org/docs/current/static/gin-intro.html) på varje nyckel och värde i kolumnen.
+I allmänhet kan vi skapa en [gin index](https://www.postgresql.org/docs/current/static/gin-intro.html) på varje nyckel och värde i kolumnen.
 
 ```sql
 CREATE INDEX click_user_data
@@ -265,12 +267,12 @@ SELECT id
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I föregående steg skapade du Azure-resurser i en servergrupp. Om du inte tror att du behöver dessa resurser i framtiden kan du ta bort servergruppen. Tryck på den *ta bort* knappen i den *översikt* sidan för din servergrupp. När du uppmanas att göra på en popup-sida bekräfta namnet på servergruppen och klickar på sista *ta bort* knappen.
+I föregående steg skapade du Azure-resurser i en Server grupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort Server gruppen. Tryck på knappen *ta bort* på sidan *Översikt* för Server gruppen. När du uppmanas till ett popup-fönster bekräftar du namnet på Server gruppen och klickar på knappen slutlig *borttagning* .
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att etablera en servergrupp i hyperskala (Citus). Du är ansluten till den med psql, skapas ett schema och distribuerade data. Du har lärt dig att fråga data både inom och mellan klienter och för att anpassa det per klient.
+I den här självstudien har du lärt dig hur du etablerar en Server grupp för storskaliga (citus). Du är ansluten till den med psql, skapat ett schema och distribuerade data. Du har lärt dig att fråga data både inom och mellan klienter och att anpassa schemat per klient.
 
-Därefter lär dig mer om begreppet hyperskala.
+Nu kan du läsa om begreppen storskalighet.
 > [!div class="nextstepaction"]
-> [Hyperskala nodtyper](https://aka.ms/hyperscale-concepts)
+> [Storskaliga nodtyper](https://aka.ms/hyperscale-concepts)

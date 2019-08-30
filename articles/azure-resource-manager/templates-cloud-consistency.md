@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388156"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164768"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Utveckla Azure Resource Manager-mallar för att få konsekvens i molnet
 
@@ -47,7 +47,7 @@ Resten av den här guiden beskriver områdena att tänka på när du planerar at
 * Se till att mallparametrar som du använder fungerar i mål-moln.
 * Kontrollera att resursspecifika egenskaper är tillgängliga mål moln.
 
-En introduktion till Azure Resource Manager-mallar finns i [malldistributionen](resource-group-overview.md#template-deployment).
+En introduktion till Azure Resource Manager-mallar finns i [malldistributionen](template-deployment-overview.md).
 
 ## <a name="ensure-template-functions-work"></a>Se till att arbeta Mallfunktioner
 
@@ -61,7 +61,7 @@ Azure Resource Manager-funktioner kommer alltid att läggas till globala Azure f
 
 1. När du har en lokal klon av lagringsplatsen kan du ansluta till målet Azure Resource Manager med PowerShell.
 
-1. Importera modulen psm1 och kör cmdleten Test-AzureRmureRmTemplateFunctions:
+1. Importera psm1-modulen och kör cmdleten test-AzureRmureRmTemplateFunctions:
 
    ```powershell
    # Import the module
@@ -154,7 +154,7 @@ I mallen, länkar genereras genom att kombinera bas-URI (från den `_artifactsLo
 
 Med den här metoden kan standardvärdet för den `_artifactsLocation` parametern används. Om de länkade mallarna måste hämtas från en annan plats, parametern indata kan användas vid tidpunkten för distribution för att åsidosätta standardvärdet, krävs ingen ändring i själva mallen.
 
-### <a name="use-artifactslocation-instead-of-hardcoding-links"></a>Använda _artifactsLocation i stället för hardcoding länkar
+### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Använda _artifactsLocation i stället för hardcoding länkar
 
 Förutom att användas för kapslade mallar, URL-Adressen i den `_artifactsLocation` parametern används som bas för alla relaterade artefakter i en Distributionsmall. Vissa VM-tillägg innehåller en länk till ett skript som lagras utanför mallen. För de här tilläggen bör du inte hårdkoda länkarna. Anpassat skript och PowerShell DSC-tillägg kan till exempel länka till ett externt skript på GitHub som visas: 
 
@@ -211,7 +211,7 @@ För att konstruera absolut URI för en artefakt, är det bästa sättet att anv
 }
 ```
 
-Med den här metoden kan alla artefakter i distributionen, inklusive konfigurationsskript, lagras på samma plats med själva mallen. Om du vill ändra platsen för alla länkar du behöver bara ange en annan bas-URL för den _artifactsLocation parametrar_.
+Med den här metoden kan alla artefakter i distributionen, inklusive konfigurationsskript, lagras på samma plats med själva mallen. Om du vill ändra platsen för alla länkar behöver du bara ange en annan bas-URL för ArtifactsLocation- _parametrarna_.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Ta hänsyn till skiljer sig regionala funktioner
 

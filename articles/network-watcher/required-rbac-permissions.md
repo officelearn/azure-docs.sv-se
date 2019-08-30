@@ -1,6 +1,6 @@
 ---
-title: Behörigheter som krävs för att använda funktionerna för Azure Network Watcher | Microsoft Docs
-description: Lär dig vilka Azure rollbaserad behörighet krävs för att arbeta med Network Watcher-funktioner.
+title: Behörigheter som krävs för att använda Azure Network Watcher-funktioner | Microsoft Docs
+description: Lär dig vilka Azure-rollbaserade åtkomst kontroll behörigheter som krävs för att kunna arbeta med Network Watcher-funktioner.
 services: network-watcher
 documentationcenter: ''
 author: KumudD
@@ -14,108 +14,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: kumud
-ms.openlocfilehash: 8c8fe6125d9c638fedadc3d299ff0ac0d601fd61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bd7e30a6a95d60bda4b7c3da44be1b8046bb71f
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685700"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163798"
 ---
-# <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Rollbaserad åtkomstbehörighet som krävs för att använda funktionerna för Network Watcher
+# <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Rollbaserad åtkomst kontroll behörigheter som krävs för att använda Network Watcher-funktioner
 
-Azure rollbaserad åtkomstkontroll (RBAC) kan du tilldela bara specifika åtgärder för medlemmar i din organisation som de behöver för att slutföra sina tilldelade ansvarsområden. För att använda Network Watcher-funktioner, måste det konto som du loggar in på Azure med, tilldelas till den [ägare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor), eller [nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) inbyggda roller eller tilldelad till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) som är tilldelade åtgärderna för varje funktion för Network Watcher i avsnitten som följer. Mer information om funktionerna i Network Watcher finns [vad är Network Watcher?](network-watcher-monitoring-overview.md).
+Med rollbaserad åtkomst kontroll i Azure (RBAC) kan du bara tilldela de åtgärder som medlemmarna i din organisation behöver för att kunna slutföra deras tilldelade ansvar. För att kunna använda Network Watcher-funktioner måste det konto som du loggar in på Azure med, tilldelas till de inbyggda rollerna [ägare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor)eller [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) , eller tilldelas till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) som tilldelas de åtgärder som anges för varje Network Watchers funktion i de avsnitt som följer. Mer information om Network Watchers funktioner finns i [Network Watcher?](network-watcher-monitoring-overview.md).
 
 ## <a name="network-watcher"></a>Network Watcher
 
-| Åtgärd                                                              | Namn                                                           |
+| Action                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/read                              | Hämta en network watcher                                          |
-| Microsoft.Network/networkWatchers/write                             | Skapa eller uppdatera en nätverksbevakaren                             |
-| Microsoft.Network/networkWatchers/delete                            | Ta bort en nätverksbevakaren                                       |
+| Microsoft. Network/networkWatchers/Read                              | Hämta en nätverks övervakare                                          |
+| Microsoft. Network/networkWatchers/Write                             | Skapa eller uppdatera en nätverks övervakare                             |
+| Microsoft. Network/networkWatchers/Delete                            | Ta bort en nätverks övervakare                                       |
 
-## <a name="nsg-flow-logs"></a>NSG-flödesloggar
+## <a name="nsg-flow-logs"></a>NSG flödesloggar
 
-| Åtgärd                                                              | Namn                                                           |
+| Action                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/configureFlowLog/action           | Konfigurera ett flöde Log                                           |
-| Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Fråga status för en flow-logg                                    |
+| Microsoft. Network/networkWatchers/configureFlowLog/Action           | Konfigurera en flödes logg                                           |
+| Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Fråga efter status för en flödes logg                                    |
 
 ## <a name="connection-troubleshoot"></a>Felsökning av anslutning
 
-| Åtgärd                                                              | Namn                                                           |
+| Action                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/connectivityCheck/action          | Initiera en anslutning felsöka test
-| Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Resultatet av frågan för en anslutning felsöka test                |
-| Microsoft.Network/networkWatchers/troubleshoot/action               | Kör en anslutning felsöka test                             |
+| Microsoft. Network/networkWatchers/connectivityCheck/Action          | Starta en anslutning felsöka testet
+| Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Fråga resultatet av en anslutning felsöka testet                |
+| Microsoft. Network/networkWatchers/Felsök/åtgärd               | Köra en anslutning felsöka test                             |
 
-## <a name="connection-monitor"></a>Anslutningsövervakaren
+## <a name="connection-monitor"></a>Anslutningsövervakare
 
-| Åtgärd                                                              | Namn                                                           |
+| Action                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/connectionMonitors/start/action   | Starta en anslutningsövervakaren                                     |
-| Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | Stoppa en anslutningsövervakare                                      |
-| Microsoft.Network/networkWatchers/connectionMonitors/query/action   | Fråga en anslutningsövervakare                                     |
-| Microsoft.Network/networkWatchers/connectionMonitors/read           | Hämta en anslutningsövervakare                                       |
-| Microsoft.Network/networkWatchers/connectionMonitors/write          | Skapa en anslutningsövervakare                                    |
-| Microsoft.Network/networkWatchers/connectionMonitors/delete         | Ta bort en anslutningsövervakare                                    |
+| Microsoft. Network/networkWatchers/connectionMonitors/start/Action   | Starta en anslutnings övervakare                                     |
+| Microsoft. Network/networkWatchers/connectionMonitors/stop/action    | Stoppa en anslutnings övervakare                                      |
+| Microsoft.Network/networkWatchers/connectionMonitors/query/action   | Fråga en anslutnings övervakare                                     |
+| Microsoft. Network/networkWatchers/connectionMonitors/Read           | Hämta en anslutnings övervakare                                       |
+| Microsoft. Network/networkWatchers/connectionMonitors/Write          | Skapa en anslutningsövervakare                                    |
+| Microsoft. Network/networkWatchers/connectionMonitors/Delete         | Ta bort en anslutnings övervakare                                    |
 
-## <a name="packet-capture"></a>Paketinsamling
+## <a name="packet-capture"></a>Paketfångst
 
-| Åtgärd                                                              | Namn                                                           |
+| Action                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Fråga status för ett infångat paket                           |
-| Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stoppa ett infångat paket                                          |
-| Microsoft.Network/networkWatchers/packetCaptures/read               | Hämta ett infångat paket                                           |
-| Microsoft.Network/networkWatchers/packetCaptures/write              | Skapa ett infångat paket                                        |
-| Microsoft.Network/networkWatchers/packetCaptures/delete             | Ta bort ett infångat paket                                        |
+| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Fråga om status för en paket fångst                           |
+| Microsoft. Network/networkWatchers/packetCaptures/stop/action        | Stoppa en paket fångst                                          |
+| Microsoft. Network/networkWatchers/packetCaptures/Read               | Hämta en paket fångst                                           |
+| Microsoft. Network/networkWatchers/packetCaptures/Write              | Skapa en paket fångst                                        |
+| Microsoft. Network/networkWatchers/packetCaptures/Delete             | Ta bort en paket avbildning                                        |
 
 ## <a name="ip-flow-verify"></a>Kontrollera IP-flöde
 
-| Åtgärd                                                              | Namn                                                           |
+| Action                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/ipFlowVerify/action               | Verifiera ett IP-flöde                                              |
 
 ## <a name="next-hop"></a>Nästa hopp
 
-| Åtgärd                                                              | Namn                                                           |
+| Action                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/nextHop/action                    | Hämta nästa hopp från en virtuell dator                                     |
+| Microsoft. Network/networkWatchers/nextHop/Action                    | Hämta nästa hopp från en virtuell dator                                     |
 
 ## <a name="network-security-group-view"></a>Vy för nätverkssäkerhetsgrupp
 
-| Åtgärd                                                              | Namn                                                           |
+| Action                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/securityGroupView/action          | Visa säkerhetsgrupper                                           |
+| Microsoft.Network/networkWatchers/securityGroupView/action          | Visa säkerhets grupper                                           |
 
 ## <a name="topology"></a>Topologi
 
-| Åtgärd                                                              | Namn                                                           |
+| Action                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/topology/action                   | Hämta topologin                                                   |
+| Microsoft. Network/networkWatchers/topologi/åtgärd                   | Hämta topologi                                                   |
 
-## <a name="reachability-report"></a>Nätverksåtkomst rapport
+## <a name="reachability-report"></a>Rapport om nåbarhet
 
-| Åtgärd                                                              | Namn                                                           |
+| Action                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Hämta en Azure nätverksåtkomst-rapport                               |
+| Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Hämta en tillgänglighets rapport för Azure                               |
+
 
 ## <a name="additional-actions"></a>Ytterligare åtgärder
 
-Funktioner för Network Watcher kräver även följande åtgärder:
+Network Watcher funktioner kräver också följande åtgärder:
 
-- Microsoft.Authorization/ \* /läsa
-- Microsoft.Resources/subscriptions/resourceGroups/Read
-- Microsoft.Storage/storageAccounts/Read
-- Microsoft.Storage/storageAccounts/listServiceSas/Action
-- Microsoft.Storage/storageAccounts/listAccountSas/Action
-- Microsoft.Storage/storageAccounts/listKeys/Action
-- Microsoft.Compute/virtualMachines/Read
-- Microsoft.Compute/virtualMachines/Write
-- Microsoft.Compute/virtualMachines/extensions/Read
-- Microsoft.Compute/virtualMachines/extensions/Write
-- Microsoft.Compute/virtualMachineScaleSets/Read
-- Microsoft.Compute/virtualMachineScaleSets/Write
-- Microsoft.Compute/virtualMachineScaleSets/extensions/Read
-- Microsoft.Compute/virtualMachineScaleSets/extensions/Write
-- Microsoft.Insights/alertRules/*
-- Microsoft.Support/*
+| Åtgärd (er)                                                           | Beskrivning                                                    |
+| ---------                                                           | -------------                                                  |
+| Microsoft. Authorization/\*/Read                                     | Används för att hämta RBAC-roll tilldelningar och princip definitioner          |
+| Microsoft. Resources/Subscriptions/resourceGroups/Read               | Används för att räkna upp alla resurs grupper i en prenumeration    |
+| Microsoft. Storage/storageAccounts/Read                              | Används för att hämta egenskaperna för det angivna lagrings kontot   |
+| Microsoft. Storage/storageAccounts/listServiceSas/Action, </br> Microsoft. Storage/storageAccounts/listAccountSas/Action, <br> Microsoft. Storage/storageAccounts/Listnycklar/åtgärd| Används för att hämta signaturer för delad åtkomst (SAS) som aktiverar [säker åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) och skriver till lagrings kontot |
+| Microsoft. Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Används för att logga in på den virtuella datorn, göra en paket fångst och ladda upp den till lagrings kontot|
+| Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Används för att kontrol lera om Network Watcher tillägget finns och installera vid behov |
+| Microsoft. Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Används för att komma åt skalnings uppsättningar för virtuella datorer, göra paket insamlade och överföra dem till lagrings kontot|
+| Microsoft. Compute/virtualMachineScaleSets/Extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Används för att kontrol lera om Network Watcher tillägget finns och installera vid behov |
+| Microsoft.Insights/alertRules/*                                     | Används för att ställa in mått varningar                                     |
+| Microsoft.Support/*                                                 | Används för att skapa och uppdatera support biljetter från Network Watcher |

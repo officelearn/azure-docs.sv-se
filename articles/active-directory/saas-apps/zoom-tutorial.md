@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Zoom | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med zoom | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Zoom.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e36d1bb91e70e21ee1940e189bfedaebafa4412
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c0d5a87d4723bcc21b75db1b31ada72823abdf02
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975956"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171409"
 ---
-# <a name="tutorial-integrate-zoom-with-azure-active-directory"></a>Självstudier: Integrera zoom med Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med zoom
 
 I den här självstudien får du lära dig hur du integrerar zoom med Azure Active Directory (Azure AD). När du integrerar zoom med Azure AD kan du:
 
@@ -89,50 +89,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Zooms supportteam](https://support.zoom.us/hc/en-us) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Programmet zooma förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
-
-    ![image](common/edit-attribute.png)
-
-6. Förutom över, förväntar sig programmet att fler attribut ska skickas tillbaka i SAML-svar. I avsnittet **användar anspråk**  ****  i dialog rutan användarattribut, utför följande steg för att lägga till SAML-token-attributet som visas i tabellen nedan: 
-
-    | Namn | Namnområde  |  Källattribut|
-    | ---------------| --------------- | --------- |
-    | E-postadress  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
-    | Förnamn  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
-    | Efternamn  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
-    | Telefonnummer  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
-    | Avdelning  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
-    | role |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
-
-    > [!NOTE]
-    > Klicka på [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) för att få veta hur du konfigurerar rollen i Azure AD
-
-    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
-
-    c. Välj Källa som **Attribut**.
-
-    d. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
-
-    e. Klicka på **Ok**
-
-    f. Klicka på **Spara**.
-
-    > [!NOTE]
-    > Zoom kan förvänta sig gruppanspråk i SAML-nyttolasten. Om du har skapat en grupp kontakta du därför [Zoom-klientsupporten](https://support.zoom.us/hc/en-us) och lämnar information om gruppen så att de kan konfigurera den gruppinformationen på deras sida. Du måste också uppge objekt-ID:t till [Zoom-klientsupporten](https://support.zoom.us/hc/en-us) så att de kan konfigurera det på deras sida. Följ [dokumentet](https://support.zoom.us/hc/en-us/articles/115005887566) när du hämtar objekt-ID:t.
-
-4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-6. I avsnittet **Konfigurera zoomning** kopierar du lämpliga URL: er baserat på ditt krav.
+1. I avsnittet **Konfigurera zoomning** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+> [!NOTE]
+> Information om hur du konfigurerar roller i Azure AD finns i [Konfigurera roll anspråk som utfärdats i SAML-token för företags program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+
+> [!NOTE]
+> Zoomning kan förvänta ett grupp anspråk i SAML-nyttolasten. Om du har skapat några grupper kan du kontakta [support teamet för zoomnings klienten](https://support.zoom.us/hc/en-us) med grupp informationen så att de kan konfigurera grupp informationen på deras slut. Du måste också ange objekt-ID: t för att [Zooma klient support teamet](https://support.zoom.us/hc/en-us) så att de kan konfigurera objekt-ID: t i slutet. Information om hur du hämtar objekt-ID finns i [Konfigurera zoom med Azure](https://support.zoom.us/hc/en-us/articles/115005887566).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -242,3 +211,4 @@ När du klickar på Zoom-panelen i åtkomstpanelen bör du automatiskt loggas in
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Prova att zooma med Azure AD](https://aad.portal.azure.com/)

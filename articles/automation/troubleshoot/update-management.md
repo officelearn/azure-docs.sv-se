@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: aaeaed22b1e09556452a49d7fc63c15ef0c7fcdb
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 48d2463eee2caeaae36118bf736d00eed84c897a
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061341"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186222"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Fel sökning av problem med Uppdateringshantering
 
@@ -113,6 +113,24 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+### <a name="updates-nodeployment"></a>Situationen Uppdateringar installeras utan distribution
+
+### <a name="issue"></a>Problem
+
+När du registrerar en Windows-dator i Uppdateringshantering kan du se uppdateringar som installeras utan en distribution.
+
+### <a name="cause"></a>Orsak
+
+I Windows installeras uppdateringar automatiskt så snart de är tillgängliga. Detta kan orsaka förvirring om du inte schemalägger en uppdatering så att den distribueras till datorn.
+
+### <a name="resolution"></a>Lösning
+
+Windows-registernyckeln, standardvärdet är `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` "4" – **Hämta och installera automatiskt**.
+
+För Uppdateringshantering-klienter rekommenderar vi att du anger den här nyckeln till "3" – **Hämta automatiskt och installera inte automatiskt**.
+
+Mer information finns i [Konfigurera automatiska uppdateringar](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
 ### <a name="nologs"></a>Situationen Datorer visas inte i portalen under Uppdateringshantering
 

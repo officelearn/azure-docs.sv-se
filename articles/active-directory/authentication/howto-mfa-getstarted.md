@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b555ecdf8bbd3d29e440675599041f40ac3c9d0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
-ms.translationtype: HT
+ms.openlocfilehash: 62ea1761cef48ab7808a352789963ab55129d2f8
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125033"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162391"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad Azure Multi-Factor Authentication-distribution
 
@@ -172,6 +172,8 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Konvertera användare från per användare MFA till villkorlig åtkomst baserat MFA
 
 Om dina användare har Aktiver ATS med alternativet per användare aktiverat och tillämpade Azure-Multi-Factor Authentication kan följande PowerShell hjälpa dig att göra konverteringen till Azure Multi-Factor Authentication med villkorlig åtkomst.
+
+Kör PowerShell i ett ISE-fönster eller Spara som. PS1-fil som ska köras lokalt.
 
 ```PowerShell
 # Disable MFA for all users, keeping their MFA methods intact

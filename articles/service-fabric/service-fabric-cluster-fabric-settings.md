@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/12/2019
+ms.date: 08/29/2019
 ms.author: atsenthi
-ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 5d6f1fcba5d93cbd4efb63cd080848258eb2a262
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014428"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172892"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric kluster inställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -236,6 +236,8 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |UserMaxStandByReplicaCount |Int, standard är 1 |Dynamisk|Det maximala antalet vänte läges repliker som systemet behåller för användar tjänster. |
 |UserReplicaRestartWaitDuration |Tid i sekunder, standard är 60,0 \* 30 |Dynamisk|Ange TimeSpan i sekunder. När en bestående replik slutar fungera. Windows Fabric väntar tills den här varaktigheten för repliken kommer att säkerhets kopie ras innan nya ersättnings repliker (som kräver en kopia av status) skapas. |
 |UserStandByReplicaKeepDuration |Tid i sekunder, standard är 3600,0 \* 24 \* 7 |Dynamisk|Ange TimeSpan i sekunder. När en beständiga replik kommer tillbaka från ett tillstånd. den kanske redan har ersatts. Den här timern avgör hur länge FM-replikeringen ska behålla standby-repliken innan den tas bort. |
+|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (60 * 10)|Dynamisk|Ange TimeSpan i sekunder. Konfigurations post för den valfria tids gränsen för WaitForInBuildReplica säkerhets kontroll. Den här konfigurationen definierar tids gränsen för WaitForInBuildReplica säkerhets kontroll för Node-inaktive ring och uppgraderingar. Den här säkerhets kontrollen Miss lyckas om något av följande stämmer:-en primär skapas och storleken på repliken för FT-målet > 1 – om den aktuella repliken är i bygge och bevaras – om detta är den aktuella primära och en ny replik skapas, kommer säkerhets kontrollen att hoppas över inmatningsenhet om tids gränsen går ut även om ett av de tidigare villkoren fortfarande är sant. |
+|WaitForReconfigurationSafetyCheckTimeout|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (60,0 * 10)|Dynamisk|Ange TimeSpan i sekunder. Konfigurations post för den valfria tids gränsen för WaitForReconfiguration säkerhets kontroll. Den här konfigurationen definierar tids gränsen för WaitForReconfiguration säkerhets kontroll för Node-inaktive ring och uppgraderingar. Den här säkerhets kontrollen Miss lyckas om repliken som är markerad är en del av en partition som är under omkonfiguration. Säkerhets kontrollen kommer att hoppas över när tids gränsen har gått ut även om partitionen fortfarande är under omkonfiguration.|
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 

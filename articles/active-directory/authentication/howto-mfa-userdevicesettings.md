@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d500f6c74bb62322a5e14ce3c489e8dba11dc2f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555782"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162401"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Hantera användar inställningar med Azure Multi-Factor Authentication i molnet
 
@@ -32,9 +32,12 @@ Som administratör har tilldelats rollen som administratör för autentisering k
 
 ![Hantera autentiseringsmetoder från Azure Portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
-1. Återställ lösen ord kommer att återställa användarens lösen ord och tilldela ett tillfälligt lösen ord som måste ändras vid nästa inloggning.
-2. Kräv omregistrering av MFA gör det så att när användaren loggar in nästa gång uppmanas de att konfigurera en ny MFA-autentiseringsmetod.
-3. Återkalla MFA-sessioner rensar användarens sparade MFA-sessioner och måste utföra MFA nästa gång det krävs av principen på enheten.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Välj **Azure Active Directory** > användarealla > **användare**till vänster.
+1. Välj den användare som du vill utföra en åtgärd på och välj **autentiseringsmetoder**.
+   - **Återställ lösen ord** kommer att återställa användarens lösen ord och tilldela ett tillfälligt lösen ord som måste ändras vid nästa inloggning.
+   - **Kräv omregistrering av MFA** gör det så att när användaren loggar in nästa gång uppmanas de att konfigurera en ny MFA-autentiseringsmetod.
+   - **Återkalla MFA-sessioner** rensar användarens sparade MFA-sessioner och måste utföra MFA nästa gång det krävs av principen på enheten.
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>Kräv att användarna anger kontakt metoder igen
 
@@ -44,7 +47,7 @@ Den här inställningen tvingar användaren att slutföra registrerings processe
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory** > användarealla > **användare**till vänster.
-3. Välj **Multi-Factor Authentication** i verktygsfältet till höger. Sidan Multi-Factor Authentication öppnas.
+3. Till höger väljer du **Multi-Factor Authentication** i verktygsfältet. Sidan Multi-Factor Authentication öppnas.
 4. Markera kryss rutan bredvid den eller de användare som du vill hantera. En lista med snabb stegs alternativ visas till höger.
 5. Välj **hantera användar inställningar**.
 6. Markera kryss rutan för **Kräv att valda användare ska tillhandahålla kontakt metoder igen**.
@@ -68,7 +71,7 @@ Den här inställningen tar bort alla applösenord som en användare har skapat.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory** > användarealla > **användare**till vänster.
-3. Välj **Multi-Factor Authentication** i verktygsfältet till höger. Sidan Multi-Factor Authentication öppnas.
+3. Till höger väljer du **Multi-Factor Authentication** i verktygsfältet. Sidan Multi-Factor Authentication öppnas.
 4. Markera kryss rutan bredvid den eller de användare som du vill hantera. En lista med snabb stegs alternativ visas till höger.
 5. Välj **hantera användar inställningar**.
 6. Markera kryss rutan för **ta bort alla befintliga applösenord som har genererats av de valda användarna**.
@@ -78,7 +81,7 @@ Den här inställningen tar bort alla applösenord som en användare har skapat.
 
 ## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>Återställ MFA på alla sparade enheter för en användare
 
-En av de konfigurerbara funktionerna i Azure Multi-Factor Authentication ger användarna möjlighet att markera enheter som betrodda. Mer information finns i [Konfigurera inställningar för Azure Multi-Factor Authentication](howto-mfa-mfasettings.md#remember-multi-factor-authentication).
+En av de konfigurerbara funktionerna i Azure Multi-Factor Authentication ger användarna möjlighet att markera enheter som betrodda. Mer information finns i [Konfigurera inställningar för Azure-Multi-Factor Authentication](howto-mfa-mfasettings.md#remember-multi-factor-authentication).
 
 Användare kan välja mellan tvåstegsverifiering för ett konfigurerbart antal dagar på sina vanliga enheter. Om ett konto har komprometterats eller en betrodd enhet förloras måste du kunna ta bort den betrodda statusen och kräva tvåstegsverifiering igen.
 
@@ -88,7 +91,7 @@ När det här alternativet är markerat måste du **återställa Multi-Factor Au
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory** > användarealla > **användare**till vänster.
-3. Välj **Multi-Factor Authentication** i verktygsfältet till höger. Sidan Multi-Factor Authentication öppnas.
+3. Till höger väljer du **Multi-Factor Authentication** i verktygsfältet. Sidan Multi-Factor Authentication öppnas.
 4. Markera kryss rutan bredvid den eller de användare som du vill hantera. En lista med snabb stegs alternativ visas till höger.
 5. Välj **hantera användar inställningar**.
 6. Markera kryss rutan för att **återställa Multi-Factor Authentication på alla sparade enheter**
@@ -98,5 +101,5 @@ När det här alternativet är markerat måste du **återställa Multi-Factor Au
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Få mer information om hur du [konfigurerar inställningar för Azure Multi-Factor Authentication](howto-mfa-mfasettings.md)
+- Få mer information om hur du [konfigurerar inställningar för Azure-Multi-Factor Authentication](howto-mfa-mfasettings.md)
 - Om användarna behöver hjälp kan du peka dem i [användar handboken för](../user-help/multi-factor-authentication-end-user.md) tvåstegsverifiering

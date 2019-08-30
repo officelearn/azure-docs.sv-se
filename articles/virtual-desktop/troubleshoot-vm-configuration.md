@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: f797d3ee525806d8002b19edb1378d0376508b08
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 03a8e8063f1a66b929311f09bf8e20cd4b951e43
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073918"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163307"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -208,7 +208,12 @@ Granska register posterna i listan nedan och bekräfta att värdena stämmer öv
 **Fix:** Följ de här anvisningarna för att installera stacken sida vid sida på den virtuella datorns Session Host.
 
 1. Använd Remote Desktop Protocol (RDP) för att komma direkt till den virtuella datorns värd för sessionen som lokal administratör.
-2. Hämta och importera [Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det.
+2. Hämta och importera [Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i din PowerShell-session, om du inte redan har gjort det, kör denna cmdlet för att logga in på ditt konto:
+    
+    ```powershell
+    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+    ```
+    
 3. Installera stacken sida vid sida med hjälp av [skapa en värdbaserad pool med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Så här åtgärdar du en virtuell Windows-sida vid sida-stack som inte fungerar

@@ -7,16 +7,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: ad08bb19f96aadad42e973eebb8adce6875e07b1
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c6f7e921886a6acdaa31d0f69f57119c339c0b8b
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876598"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172595"
 ---
 # <a name="secure-your-cluster-in-azure-data-explorer"></a>Skydda ditt kluster i Azure Datautforskaren
 
-[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) skyddar och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Den tillhandahåller volym kryptering för operativ system och data diskar för virtuella datorer i klustret. Den integreras också med [Azure Key Vault](/azure/key-vault/) som hjälper dig att styra och hantera disk krypterings nycklar och hemligheter och säkerställer att alla data på de virtuella dator diskarna är krypterade i vila medan du Azure Storage. Med dina kluster säkerhets inställningar kan du aktivera disk kryptering i klustret.
+[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) skyddar och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Den tillhandahåller volym kryptering för operativ system och data diskar för virtuella datorer i klustret. Den integreras också med [Azure Key Vault](/azure/key-vault/) som gör att vi kan styra och hantera disk krypterings nycklar och hemligheter, och se till att alla data på de virtuella dator diskarna är krypterade i vila medan du Azure Storage. 
+
+Med dina kluster säkerhets inställningar kan du aktivera disk kryptering i klustret.
   
 ## <a name="enable-encryption-at-rest"></a>Aktivera kryptering i vila
   
@@ -31,7 +33,7 @@ Att aktivera [kryptering i vila](/azure/security/fundamentals/encryption-atrest)
 1. Välj **Spara**.
  
 > [!NOTE]
-> Krypteringen kan inaktive ras när den har Aktiver ATS.
+> Välj **av** om du vill inaktivera krypteringen när den har Aktiver ATS.
 
 ## <a name="next-steps"></a>Nästa steg
 

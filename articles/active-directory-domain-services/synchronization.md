@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 85b1e3eae9d7472fa829665707fca481a28f0623
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 88a5e5fa1267e834a04c46ed38868cf74acd9bb0
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011281"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171934"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Hur objekt och autentiseringsuppgifter synkroniseras i en Azure AD Domain Services hanterad domän
 
@@ -30,7 +30,7 @@ Följande diagram illustrerar hur synkroniseringen fungerar mellan Azure AD DS, 
 
 ## <a name="synchronization-from-azure-ad-to-azure-ad-ds"></a>Synkronisering från Azure AD till Azure AD DS
 
-Användar konton, grupp medlemskap och autentiseringsuppgifter för autentisering synkroniseras ett sätt från Azure AD till Azure AD DS. Den här synkroniseringsprocessen är automatisk. Du behöver inte konfigurera, övervaka eller hantera den här synkroniseringsprocessen. Den inledande synkroniseringen kan ta några timmar till några dagar, beroende på antalet objekt i Azure AD-katalogen. När den första synkroniseringen är klar tar ändringar som görs i Azure AD, till exempel lösen ord eller attributändringar, ta cirka 20-30 minuter att uppdatera i Azure AD DS.
+Användar konton, grupp medlemskap och autentiseringsuppgifter för autentisering synkroniseras ett sätt från Azure AD till Azure AD DS. Den här synkroniseringsprocessen är automatisk. Du behöver inte konfigurera, övervaka eller hantera den här synkroniseringsprocessen. Den inledande synkroniseringen kan ta några timmar till några dagar, beroende på antalet objekt i Azure AD-katalogen. När den första synkroniseringen är klar synkroniseras ändringar som görs i Azure AD, till exempel lösen ord eller attributändringar, automatiskt till Azure AD DS.
 
 Synkroniseringsprocessen är enkelriktad/enkelriktad genom design. Det finns ingen omvänd synkronisering av ändringar från Azure AD DS tillbaka till Azure AD. En Azure AD DS-hanterad domän är i stort sett skrivskyddad, förutom anpassade organisationsenheter som du kan skapa. Du kan inte göra ändringar i användarattribut, användar lösen ord eller grupp medlemskap i en hanterad Azure AD DS-domän.
 

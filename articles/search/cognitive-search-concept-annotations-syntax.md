@@ -2,7 +2,7 @@
 title: Referens indata och utdata i kognitiva Sök pipeliner – Azure Search
 description: Förklarar anteckningens syntax och hur du refererar till en anteckning i indata och utdata för en färdigheter i en kognitiv Sök pipeline i Azure Search.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.subservice: cognitive-search
@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 5ce2c1aebebe802aa0fd3bda74c168e7a12341c0
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e4b94e7a6e41a5c6beaf94069c0fb6bed795ca6d
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639297"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183511"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Så här refererar du till anteckningar i en kognitiv search-färdigheter
 

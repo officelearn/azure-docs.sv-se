@@ -15,15 +15,15 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
-ms.custom: mvc, seo-java-july2019
-ms.openlocfilehash: 2af33976a3c1d1458136a5d91d51c656ede2d343
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.custom: mvc, seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 483adcccff9f49b3335a453f43fc667dd4f0e61b
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68514087"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171313"
 ---
-# <a name="quickstart-create-a-java-app-in-app-service"></a>Snabbstart: Skapa en Java-app i App Service
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Snabbstart: Skapa en Java-app på Azure App Service i Windows
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Information om hur du distribuerar till App Service på _Linux_finns i [skapa Java-webbapp på Linux](./containers/quickstart-java.md).

@@ -4,15 +4,15 @@ description: Lär dig att publicera en kund till Azure-delegerad resurs hanterin
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 35cf61897d012690f0a0f752a7cb36270e11e10e
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: dabee74dc757a8ccdc4384662f5c9bc09a1e5fbe
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012068"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165031"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 
@@ -61,63 +61,8 @@ az account set --subscription <subscriptionId/name>
 az account show
 ```
 
-
-## <a name="ensure-the-customers-subscription-is-registered-for-onboarding"></a>Se till att kundens prenumeration registreras för onboarding
-
-Varje prenumeration måste vara auktoriserad för onboarding genom att manuellt registrera **Microsoft. ManagedServices** -resurs leverantören. Kunden kan registrera en prenumeration genom att följa stegen som beskrivs i Azures [resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md).
-
-Kunden kan bekräfta att prenumerationen är redo för onboarding på något av följande sätt.
-
-### <a name="azure-portal"></a>Azure Portal
-
-1. I Azure Portal väljer du prenumerationen.
-1. Välj **Resursprovidrar**.
-1. Bekräfta att **Microsoft. ManagedServices** visas som **registrerade**.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Set-AzContext -Subscription <subscriptionId>
-Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
-```
-
-Detta bör returnera resultat som liknar följande:
-
-```output
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationDefinitions}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationAssignments}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {operations}
-Locations         : {}
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-Detta bör returnera resultat som liknar följande:
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
+> [!NOTE]
+> När du registrerar en prenumeration (eller en eller flera resurs grupper i en prenumeration) med hjälp av processen som beskrivs här, registreras **Microsoft. ManagedServices** Resource Provider för den prenumerationen.
 
 ## <a name="define-roles-and-permissions"></a>Definiera roller och behörigheter
 
@@ -129,8 +74,6 @@ För att förenkla hanteringen rekommenderar vi att du använder Azure AD-använ
 > Roll tilldelningar måste använda [Inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)(rollbaserad åtkomst kontroll). Alla inbyggda roller stöds för närvarande med Azure-delegerad resurs hantering förutom för ägare och inbyggda roller med [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) -behörighet. Den inbyggda rollen administratör för användar åtkomst stöds för begränsad användning enligt beskrivningen nedan. Rollerna anpassade roller och [klassisk prenumerations administratör](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) stöds inte heller.
 
 För att kunna definiera auktoriseringar måste du känna till ID-värdena för varje användare, användar grupp eller tjänstens huvud namn som du vill bevilja åtkomst. Du behöver också roll Definitions-ID: t för varje inbyggd roll som du vill tilldela. Om du inte redan har gjort det kan du hämta dem på något av följande sätt.
-
-
 
 ### <a name="powershell"></a>PowerShell
 

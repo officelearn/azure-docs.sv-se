@@ -3,21 +3,31 @@ title: Skapa och Distribuera Azure Functions i python med Visual Studio Code
 description: Använda Visual Studio Code-tillägget för Azure Functions för att skapa server lös funktioner i python och distribuera dem till Azure.
 services: functions
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4f5c10536992f51ac61815507a3869e521520299
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639083"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170716"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Distribuera python till Azure Functions med Visual Studio Code
 
 I den här självstudien använder du Visual Studio Code och Azure Functions-tillägget för att skapa en server lös HTTP-slutpunkt med python och för att även lägga till en anslutning (eller "bindning") till lagringen. Azure Functions kör koden i en miljö utan server utan att behöva etablera en virtuell dator eller publicera en webbapp. Azure Functions-tillägget för Visual Studio Code fören klar processen att använda funktioner automatiskt genom att automatiskt hantera många konfigurations problem.
+
+I den här guiden får du lära dig att:
+
+> [!div class="checklist"]
+> * Installera Azure Functions-tillägget
+> * Skapa en HTTP-utlöst funktion
+> * Felsök lokalt
+> * Synkronisera program inställningar
+> * Visa strömmande loggar
+> * Anslut till Azure Storage
 
 Om du stöter på problem med något av stegen i den här självstudien ska vi gärna höra om detaljerna. Använd knappen **jag körde i ett ärende** i slutet av varje avsnitt för att skicka detaljerad feedback.
 
@@ -100,29 +110,26 @@ Utdata som börjar med Azure Functions-logotypen (du måste rulla utdata uppåt)
     | Välj ett språk för ditt projekt för Function-appen | **Python** | Språket som ska användas för funktionen, vilket avgör vilken mall som används för koden. |
     | Välj en mall för projektets första funktion | **HTTP-utlösare** | En funktion som använder en HTTP-Utlösare körs när en HTTP-förfrågan har gjorts till funktionens slut punkt. (Det finns flera andra utlösare för Azure Functions. Mer information finns i [vad kan jag göra med Functions?](functions-overview.md#what-can-i-do-with-functions).) |
     | Ange ett funktions namn | HttpExample | Namnet används för en undermapp som innehåller funktionens kod tillsammans med konfigurations data och som även definierar namnet på HTTP-slutpunkten. Använd "HttpExample" i stället för att acceptera standardvärdet "HTTPTrigger" för att särskilja funktionen från utlösaren. |
-    | Auktorisationsnivå | **Antal** | Anonym auktorisering gör funktionen offentligt tillgänglig för alla. |
+    | Auktorisationsnivå | **Funktioner** | Anrop som görs till funktions slut punkten kräver en [funktions nyckel](functions-bindings-http-webhook.md#authorization-keys). |
     | Välj hur du vill öppna projektet | **Öppna i aktuellt fönster** | Öppnar projektet i det aktuella Visual Studio Code-fönstret. |
 
-1. Efter en kort stund visas ett meddelande som anger att det nya projektet har skapats. I **Utforskaren**finns undermappen som skapas för funktionen och Visual Studio Code öppnar  *\_ \_filen\_init\_. py* som innehåller standard funktions koden:
+1. Efter en kort stund visas ett meddelande som anger att det nya projektet har skapats. I **Utforskaren**finns undermappen som skapas för funktionen. 
+
+1. Om den inte redan är öppen öppnar du  *\_ \_filen init\_\_. py* som innehåller standard funktions koden:
 
     [![Resultat av att skapa ett nytt python Functions-projekt](media/tutorial-vs-code-serverless-python/project-create-results.png)](media/tutorial-vs-code-serverless-python/project-create-results.png)
 
     > [!NOTE]
-    > Om Visual Studio Code visar att du inte har en python-tolk markerad när  *\_ \_init\_\_.* **py öppnas, öppnar du kommando-paletten (F1) och väljer python: Välj tolks** kommando och välj sedan den virtuella miljön i den lokala `.env` mappen (som skapades som en del av projektet). Miljön måste vara baserad på python 3.6 x särskilt, som tidigare nämnts under [krav](#prerequisites).
+    > När Visual Studio Code visar att du inte har en python-tolk markerad **när du öppnar  *\_ \_\_init\_. py*, öppnar du kommando-paletten (F1) och väljer python: Välj tolks** kommando och välj sedan den virtuella miljön i den lokala `.env` mappen (som skapades som en del av projektet). Miljön måste vara baserad på python 3.6 x särskilt, som tidigare nämnts under [krav](#prerequisites).
     >
     > ![Välja den virtuella miljön som skapats med projektet](media/tutorial-vs-code-serverless-python/select-venv-interpreter.png)
-
-> [!TIP]
-> När du vill skapa en annan funktion i samma projekt använder du kommandot **skapa funktion** i **Azure: Funktions** Utforskaren eller öppna kommando fältet (F1) och **Välj Azure Functions: Create Function** (Skapa funktion). Båda kommandona efterfrågar ett funktions namn (som är namnet på slut punkten) och skapar sedan en undermapp med standardfilerna.
->
-> ![Nytt funktions kommando i Azure: Funktions Utforskaren](media/tutorial-vs-code-serverless-python/function-create-new.png)
 
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=02-create-function)
 
 ## <a name="examine-the-code-files"></a>Undersök filerna i koden
 
-I undermappen för den nyligen skapade funktionen finns tre filer  *\_:\_ \_\_init. py* innehåller funktionens kod, *Function. JSON* beskriver funktionen för att Azure Functions och *Sample. dat* är en exempel data fil. Du kan ta bort *Sample. dat* om du vill, eftersom det bara finns för att visa att du kan lägga till andra filer i undermappen.
+I undermappen för den nyligen skapade _HttpExample_ -funktionen finns tre filer:  *\_ \_\_init\_. py* innehåller funktionens kod, *Function. JSON* beskriver funktionen för Azure Functions och *Sample. dat* är en exempel data fil. Du kan ta bort *Sample. dat* om du vill, eftersom det bara finns för att visa att du kan lägga till andra filer i undermappen.
 
 Nu ska vi titta på *Function. JSON* först och sedan koden i  *\_ \_init\_\_. py*.
 
@@ -135,7 +142,7 @@ Filen function. JSON innehåller nödvändig konfigurations information för Azu
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "authLevel": "anonymous",
+      "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
@@ -155,9 +162,9 @@ Filen function. JSON innehåller nödvändig konfigurations information för Azu
 
 Egenskapen identifierar start filen för koden och koden måste innehålla en python-funktion med namnet `main`. `scriptFile` Du kan faktor din kod i flera filer så länge filen som anges här innehåller en `main` funktion.
 
-`bindings` Elementet innehåller två objekt, ett för att beskriva inkommande begär Anden och det andra för att beskriva http-svaret. För inkommande begär Anden`"direction": "in"`() svarar funktionen på http Get-eller post-begär Anden och kräver inte autentisering. Response (`"direction": "out"`) är ett HTTP-svar som returnerar det värde som returneras `main` från python-funktionen.
+`bindings` Elementet innehåller två objekt, ett för att beskriva inkommande begär Anden och det andra för att beskriva http-svaret. För inkommande begär Anden`"direction": "in"`() svarar funktionen på http Get-eller post-förfrågningar och kräver att du anger funktions nyckeln. Response (`"direction": "out"`) är ett HTTP-svar som returnerar det värde som returneras `main` från python-funktionen.
 
-### <a name="initpy"></a>\_\_init.py\_\_
+### <a name="__initpy__"></a>\_\_init.py\_\_
 
 När du skapar en ny funktion tillhandahåller Azure Functions standard python-kod i  *\_ \_init\_\_. py*:
 
@@ -233,7 +240,7 @@ De viktiga delarna i koden är följande:
 
     Du kan också skapa en fil som *data. JSON* som innehåller `{"name":"Visual Studio Code"}` och använder kommandot. `curl --header "Content-Type: application/json" --request POST --data @data.json http://localhost:7071/api/HttpExample`
 
-1. Testa att felsöka funktionen genom att ange en Bryt punkt på raden som läser `name = req.params.get('name')` och gör en begäran till URL: en igen. Visual Studio Code-felsökaren bör stoppas på den raden, så att du kan granska variabler och gå igenom koden. (En kort genom gång av grundläggande fel sökning finns i [Visual Studio Code-självstudie – konfigurera och kör fel söknings programmet](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger).)
+1. Om du vill felsöka funktionen ställer du in en Bryt punkt på raden `name = req.params.get('name')` som läser och gör en begäran till URL: en igen. Visual Studio Code-felsökaren bör stoppas på den raden, så att du kan granska variabler och gå igenom koden. (En kort genom gång av grundläggande fel sökning finns i [Visual Studio Code-självstudie – konfigurera och kör fel söknings programmet](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger).)
 
 1. När du är nöjd med att du har testat funktionen lokalt, stoppar du fel söknings verktyget (med kommandona **Felsök** > ,**stoppa fel sökning** eller kommandot **Koppla från** i verktygsfältet fel sökning).
 
@@ -423,7 +430,7 @@ I det här avsnittet lägger du till en lagrings bindning till HttpExample-funkt
     | --- | --- |
     | Ange bindnings riktning | genomför |
     | Välj bindning med riktning ut | Azure Queue Storage |
-    | Namnet som identifierar den här bindningen i koden | msg |
+    | Namnet som används för att identifiera den här bindningen i din kod | msg |
     | Kön som meddelandet ska skickas till | utkö |
     | Välj inställningen från *Local. Settings. JSON* (fråga efter lagrings anslutningen) | AzureWebJobsStorage |
 

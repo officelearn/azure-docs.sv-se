@@ -1,40 +1,54 @@
 ---
-title: Systemkrav för Microsoft Azure Data Box-Disk | Microsoft Docs
-description: Läs mer om programvara och nätverkskrav för din Azure Data Box-Disk
+title: Microsoft Azure Data Box Disk System krav | Microsoft Docs
+description: Läs om program-och nätverks kraven för din Azure Data Box Disk
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 10ddf4c42ac5aa2d1cffd7cbca6930896103d2c5
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: e17fbcebc128a7169953ed05de617efa25fc25f8
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147783"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172721"
 ---
-# <a name="azure-data-box-disk-system-requirements"></a>Systemkrav för Azure Data Box-Disk
+::: zone target="docs"
 
-Den här artikeln beskriver viktiga systemkraven för din Microsoft Azure Data Box-Disk-lösning och för klienter som ansluter till Data Box-Disk. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data Box-disken och sedan refererar tillbaka till det som behövs under distributionen och efterföljande driften.
+# <a name="azure-data-box-disk-system-requirements"></a>Azure Data Box Disk System krav
 
-Systemkraven omfattar plattformarna som stöds för klienter som ansluter till diskar, stöds storage-konton och lagringstyper.
+I den här artikeln beskrivs viktiga system krav för din Microsoft Azure Data Box Disk-lösning och för klienter som ansluter till Data Box Disk. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data Box Disk och sedan går tillbaka till den vid behov under distributionen och efterföljande åtgärder.
 
+System kraven omfattar de plattformar som stöds för klienter som ansluter till diskar, lagrings konton som stöds och lagrings typer.
 
-## <a name="supported-operating-systems-for-clients"></a>Operativsystem som stöds för klienter
+::: zone-end
 
-Här är en lista över operativsystem som stöds för disken låsa upp och Datakopieringen via klienter som är anslutna till Data Box-Disk.
+::: zone target="chromeless"
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
+
+- Kör ett operativ system som stöds.
+- Ha annan nödvändig program vara installerad.
+
+::: zone-end
+
+## <a name="supported-operating-systems-for-clients"></a>Operativ system som stöds för klienter
+
+Här är en lista över de operativ system som stöds för disk upplåsningen och data kopierings åtgärden via klienterna som är anslutna till Data Box Disk.
 
 | **Operativsystem** | **Testade versioner** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows (64-bitars) |7, 8, 10 |
-|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
+|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8,11, 9 <br> 7.0 <br> 6,5, 6,9, 7,0, 7,5 |  
 
-## <a name="other-required-software-for-windows-clients"></a>Annan nödvändig programvara för Windows-klienter
+## <a name="other-required-software-for-windows-clients"></a>Annan nödvändig program vara för Windows-klienter
 
-För Windows-klienten installeras även följande.
+För Windows-klienten bör även följande vara installerat.
 
 | **Programvara**| **Version** |
 | --- | --- |
@@ -43,44 +57,48 @@ För Windows-klienten installeras även följande.
 | Windows Management Framework |5.0|
 | BitLocker| - |
 
-## <a name="other-required-software-for-linux-clients"></a>Annan nödvändig programvara för Linux-klienter
+## <a name="other-required-software-for-linux-clients"></a>Annan nödvändig program vara för Linux-klienter
 
-Verktygsuppsättningen för Data Box-Disk installerar följande nödvändig programvara för Linux-klient:
+För Linux-klienten installerar Data Box Disk tools följande nödvändiga program vara:
 
-- dislocker
+- Lås upp
 - OpenSSL
 
-## <a name="supported-connection"></a>Stödd anslutning
+::: zone target="docs"
 
-Klientdatorn som innehåller data måste ha en USB 3.0 eller senare port. Diskarna ansluta till den här klienten med den angivna kabeln.
+## <a name="supported-connection"></a>Anslutning som stöds
+
+Klient datorn som innehåller data måste ha en USB-port på 3,0 eller senare. Diskarna ansluter till den här klienten med den angivna kabeln.
 
 ## <a name="supported-storage-accounts"></a>Stöds storage-konton
 
-Här är en lista över typerna som stöds för Data Box-Disk.
+Här är en lista över de lagrings typer som stöds för Data Box Disk.
 
 | **Lagringskonto** | **Anteckningar** |
 | --- | --- |
 | Klassisk | Standard |
-| Generellt syfte  |Standard. både V1 och V2 stöds. Både frekventa och lågfrekventa nivåer stöds. |
-| BLOB storage-konto | |
+| Generellt syfte  |Standard både v1 och v2 stöds. Både frekventa och låg frekventa nivåer stöds. |
+| Blob Storage-konto | |
 
 >[!NOTE]
-> Azure Data Lake Storage Gen 2-konton stöds inte.
+> Konton för Azure Data Lake Storage gen 2 stöds inte.
 
 
-## <a name="supported-storage-types-for-upload"></a>Lagringstyper som stöds för överföring
+## <a name="supported-storage-types-for-upload"></a>Lagrings typer som stöds för uppladdning
 
-Här är en lista över de lagringstyper som stöds för överförs till Azure med hjälp av Data Box-Disk.
+Här är en lista över de lagrings typer som stöds för uppladdning till Azure med hjälp av Data Box Disk.
 
-| **Filformat** | **Anteckningar** |
+| **Fil format** | **Anteckningar** |
 | --- | --- |
-| Azure blockblob | |
-| Sida för Azure-blob  | |
+| Azure Block-Blob | |
+| Azure Page BLOB  | |
 | Azure Files  | |
 | Managed Disks | |
 
 
 ## <a name="next-step"></a>Nästa steg
 
-* [Distribuera Azure Data Box-Disk](data-box-disk-deploy-ordered.md)
+* [Distribuera Azure Data Box Disk](data-box-disk-deploy-ordered.md)
+
+::: zone-end
 

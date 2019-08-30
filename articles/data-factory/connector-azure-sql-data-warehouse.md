@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 45f7db943499b8a722b8e203d676d1d80eb5091e
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 49a0c7597e8d44e3f60e2d3b6bd4c14cad1524b5
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996684"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172629"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -536,6 +536,10 @@ När dina källdata innehåller rader som är större än 1 MB, kanske du vill d
 
 Du kan också använda icke-PolyBase för att läsa in data med hjälp av ADF genom att inaktivera inställningen Tillåt PolyBase för data med sådana breda kolumner.
 
+### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse resursklass
+
+Tilldela en större resursklass till användaren som läser in data i SQL Data Warehouse via PolyBase för att uppnå bästa möjliga genomflöde.
+
 ### <a name="polybase-troubleshooting"></a>PolyBase-fel sökning
 
 **Läser in till decimal kolumn**
@@ -549,13 +553,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 Lösningen är att avmarkera alternativet**Använd standard**alternativet (som falskt) i kopierings aktiviteten handfat-> PolyBase-inställningar. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )" är en PolyBase-inbyggd konfiguration som anger hur du ska hantera saknade värden i avgränsade textfiler när PolyBase hämtar data från text filen. 
 
-**Andra**
-
-### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse resursklass
-
-Tilldela en större resursklass till användaren som läser in data i SQL Data Warehouse via PolyBase för att uppnå bästa möjliga genomflöde.
-
-### <a name="tablename-in-azure-sql-data-warehouse"></a>**tableName** i Azure SQL Data Warehouse
+**`tableName`i Azure SQL Data Warehouse**
 
 I följande tabell innehåller exempel på hur du anger den **tableName** egenskap i JSON-datauppsättning. Den visar flera kombinationer av schema och tabellnamn.
 
@@ -572,7 +570,7 @@ Om du ser följande fel kan problemet vara värdet du angav för den **tableName
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 ```
 
-### <a name="columns-with-default-values"></a>Kolumner med standardvärden
+**Kolumner med standardvärden**
 
 PolyBase-funktionen i Data Factory accepterar för närvarande endast samma antal kolumner som i måltabellen. Ett exempel är en tabell med fyra kolumner där en av dem har definierats med ett standardvärde. Indata måste fortfarande ha fyra kolumner. En indatauppsättning med tre kolumner ger ett fel som liknar följande meddelande:
 

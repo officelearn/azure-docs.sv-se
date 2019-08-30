@@ -7,20 +7,20 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 12b88e14ed1d20ad26c9c8832877da08d3d98523
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
-ms.translationtype: HT
+ms.openlocfilehash: 235ad37c5cf5f8ac7e801a6d25e961d32c1b7aad
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146126"
+ms.locfileid: "70164922"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Så här skapar du principer för gäst konfiguration
 
-I gäst konfigurationen används en resurs modell för [önskad tillstånds konfiguration](/powershell/dsc) (DSC) för att skapa konfigurationen för granskning av virtuella Azure-datorer. DSC-konfigurationen definierar det villkor som den virtuella datorn ska ha. Om utvärderingen av konfigurationen Miss lyckas utlöses granskningen av princip effekterna och den virtuella datorn betraktas som **icke-kompatibel**.
+I gäst konfigurationen används en resurs modell för [önskad tillstånds konfiguration](/powershell/dsc) (DSC) för att skapa konfigurationen för granskning av Azure-datorer. DSC-konfigurationen definierar det villkor som datorn ska ha. Om utvärderingen av konfigurationen Miss lyckas utlöses **auditIfNotExists** för princip inställningen och datorn betraktas som **icke-kompatibel**.
 
-[Azure policy gäst konfiguration](/azure/governance/policy/concepts/guest-configuration) kan bara användas för att granska inställningar i virtuella datorer. Reparation av inställningar i virtuella datorer är inte tillgänglig ännu.
+[Azure policy gäst konfiguration](/azure/governance/policy/concepts/guest-configuration) kan bara användas för att granska inställningar i datorer. Reparationen av inställningar i datorer är inte tillgänglig ännu.
 
-Använd följande åtgärder för att skapa en egen konfiguration för att verifiera statusen för en virtuell Azure-dator.
+Använd följande åtgärder för att skapa en egen konfiguration för att verifiera statusen för en Azure-dator.
 
 > [!IMPORTANT]
 > Anpassade principer med gäst konfiguration är en förhands gransknings funktion.
@@ -133,18 +133,18 @@ Parametrar för `New-GuestConfigurationPackage` cmdleten:
 - **Sökväg**: Sökväg till målmappen. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
 - **ChefProfilePath**: Fullständig sökväg till INSPEC-profil. Den här parametern stöds bara när du skapar innehåll för att granska Linux.
 
-Det färdiga paketet måste lagras på en plats som de hanterade virtuella datorerna kan komma åt. Exempel är GitHub-databaser, Azure-lagrings platsen eller Azure Storage. Om du inte vill att paketet ska vara offentligt kan du ta med en [SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) -token i URL: en. Du kan också implementera [tjänst slut punkten](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) för virtuella datorer i ett privat nätverk, även om den här konfigurationen endast gäller för åtkomst till paketet och inte kommunicerar med tjänsten.
+Det färdiga paketet måste lagras på en plats som de hanterade virtuella datorerna kan komma åt. Exempel är GitHub-databaser, Azure-lagrings platsen eller Azure Storage. Om du inte vill att paketet ska vara offentligt kan du ta med en [SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) -token i URL: en. Du kan också implementera [tjänstens slut punkt](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) för datorer i ett privat nätverk, även om den här konfigurationen endast gäller för åtkomst till paketet och inte kommunicerar med tjänsten.
 
 ### <a name="working-with-secrets-in-guest-configuration-packages"></a>Arbeta med hemligheter i gäst konfigurations paket
 
 I Azure Policy gäst konfiguration är det bästa sättet att hantera hemligheter som används vid körning att lagra dem i Azure Key Vault. Den här designen implementeras i anpassade DSC-resurser.
 
-Börja med att skapa en användardefinierad hanterad identitet i Azure. Identiteten används av virtuella datorer för att komma åt hemligheter som lagrats i Key Vault. Detaljerade anvisningar finns i [skapa, lista eller ta bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+Börja med att skapa en användardefinierad hanterad identitet i Azure. Identiteten används av datorer för att komma åt hemligheter lagrade i Key Vault. Detaljerade anvisningar finns i [skapa, lista eller ta bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
 Skapa sedan en Key Vault-instans. Detaljerade anvisningar finns i [Ange och hämta en hemlighet – PowerShell](../../../key-vault/quick-create-powershell.md).
 Tilldela behörighet till instansen för att ge den användare som tilldelats åtkomst till hemligheter som lagras i Key Vault. Detaljerade anvisningar finns i [Ange och hämta en hemlighet-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
 
-Tilldela sedan den användare som tilldelats identiteten till den virtuella datorn. Detaljerade anvisningar finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
+Tilldela sedan den användare som tilldelats identiteten till din dator. Detaljerade anvisningar finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
 I skala tilldelar du den här identiteten med Azure Resource Manager via Azure Policy. Detaljerade anvisningar finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av en mall](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
 I din anpassade resurs använder du slutligen det klient-ID som genererades ovan för att få åtkomst Key Vault med hjälp av den token som är tillgänglig från datorn. URL: en till Key Vault-instansen kan skickas till resursen som egenskaper så att resursen inte behöver uppdateras i flera miljöer eller om värdena behöver ändras. [](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema) `client_id`
@@ -165,7 +165,7 @@ $credential = New-Object System.Management.Automation.PSCredential('secret',$val
 
 ## <a name="test-a-guest-configuration-package"></a>Testa ett gäst konfigurations paket
 
-När du har skapat konfigurations paketet, men innan du publicerar det till Azure, kan du testa paketets funktioner från din arbets Station eller CI/CD-miljö. Modulen GuestConfiguration innehåller en cmdlet `Test-GuestConfigurationPackage` som läser in samma agent i utvecklings miljön som används i Azure Virtual Machines. Med den här lösningen kan du utföra integrerings testning lokalt innan du släpper till fakturerade test/frågor/produktions miljöer.
+När du har skapat konfigurations paketet, men innan du publicerar det till Azure, kan du testa paketets funktioner från din arbets Station eller CI/CD-miljö. Modulen GuestConfiguration innehåller en cmdlet `Test-GuestConfigurationPackage` som läser in samma agent i utvecklings miljön som används i Azure-datorer. Med den här lösningen kan du utföra integrerings testning lokalt innan du släpper till fakturerade test/frågor/produktions miljöer.
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsService.zip -Verbose
@@ -187,7 +187,7 @@ Mer information om hur du testar med parametrar finns i avsnittet nedan [använd
 
 ## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>Skapa distributions filerna för Azure Policy definition och initiativ
 
-När ett anpassat princip paket för gäst konfiguration har skapats och laddats upp till en plats som är tillgängliga för de virtuella datorerna skapar du princip definitionen för gäst konfiguration för Azure Policy. Cmdleten tar ett offentligt tillgängligt anpassat princip paket för `New-GuestConfigurationPolicy` gäst konfiguration och skapar en **auditIfNotExists** -och **deployIfNotExists** -princip definition. En definition av princip initiativ som inkluderar båda princip definitionerna skapas också.
+När ett anpassat princip paket för gäst konfiguration har skapats och laddats upp till en plats som är tillgängligt för datorerna skapar du princip definitionen för gäst konfiguration för Azure Policy. Cmdleten tar ett offentligt tillgängligt anpassat princip paket för `New-GuestConfigurationPolicy` gäst konfiguration och skapar en **auditIfNotExists** -och **deployIfNotExists** -princip definition. En definition av princip initiativ som inkluderar båda princip definitionerna skapas också.
 
 I följande exempel skapas princip-och initiativ definitioner i en angiven sökväg från ett anpassat princip paket för gäst konfiguration för Windows och ger ett namn, en beskrivning och en version:
 
@@ -220,7 +220,7 @@ Följande filer skapas av `New-GuestConfigurationPolicy`:
 
 Cmdlet-utdata returnerar ett objekt som innehåller initiativets visnings namn och sökväg.
 
-Om du vill använda det här kommandot för att Autogenerera ett anpassat princip projekt kan du göra ändringar i de här filerna. Ett exempel är att ändra avsnittet IF för att utvärdera om det finns en speciell tagg för virtuella datorer. Mer information om hur du skapar principer finns i [program mässigt skapa principer](./programmatically-create.md).
+Om du vill använda det här kommandot för att Autogenerera ett anpassat princip projekt kan du göra ändringar i de här filerna. Ett exempel är att ändra avsnittet IF för att utvärdera om det finns en speciell tagg för datorer. Mer information om hur du skapar principer finns i [program mässigt skapa principer](./programmatically-create.md).
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Använda parametrar i anpassade gäst konfigurations principer
 
@@ -337,7 +337,7 @@ När innehållet har konverterats är stegen ovan för att skapa ett paket och p
 Anpassade principer för gäst konfiguration använder SHA256 hash för att kontrol lera att princip paketet inte har ändrats från när det publicerades till när det läses av servern som granskas.
 Kunder kan också använda ett certifikat för att signera paket och tvinga gäst konfigurations tillägget att bara tillåta signerat innehåll.
 
-Det finns två steg som du måste utföra för att aktivera det här scenariot. Kör cmdleten för att signera innehålls paketet och Lägg till en tagg till de virtuella datorer som kräver att kod signeras.
+Det finns två steg som du måste utföra för att aktivera det här scenariot. Kör cmdleten för att signera innehålls paketet och Lägg till en tagg till de datorer som kräver att kod signeras.
 
 Om du vill använda funktionen för signaturverifiering kör `Protect-GuestConfigurationPackage` du cmdleten för att signera paketet innan det publiceras. Denna cmdlet kräver ett certifikat för kod signering.
 
@@ -353,17 +353,17 @@ Parametrar för `Protect-GuestConfigurationPackage` cmdleten:
 - **PrivateGpgKeyPath**: Nyckel Sök väg för privat GPG. Den här parametern stöds bara när du signerar innehåll för Linux.
 - **PublicGpgKeyPath**: Offentlig GPG nyckel Sök väg. Den här parametern stöds bara när du signerar innehåll för Linux.
 
-GuestConfiguration-agenten förväntar sig att certifikatets offentliga nyckel finns i "betrodda rot certifikat utfärdare" på Windows- `/usr/local/share/ca-certificates/extra` datorer och i sökvägen på Linux-datorer. För noden för att verifiera signerat innehåll installerar du certifikatets offentliga nyckel på den virtuella datorn innan du använder den anpassade principen. Den här processen kan utföras med hjälp av valfri teknik i den virtuella datorn eller med hjälp av Azure Policy. [Här](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)finns en exempel mall.
+GuestConfiguration-agenten förväntar sig att certifikatets offentliga nyckel finns i "betrodda rot certifikat utfärdare" på Windows- `/usr/local/share/ca-certificates/extra` datorer och i sökvägen på Linux-datorer. För noden för att verifiera signerat innehåll installerar du certifikatets offentliga nyckel på datorn innan du tillämpar den anpassade principen. Den här processen kan utföras med hjälp av valfri teknik i den virtuella datorn eller med hjälp av Azure Policy. [Här](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)finns en exempel mall.
 Principen för Key Vault åtkomst måste tillåta att beräknings resurs leverantören får åtkomst till certifikat under distributioner. Detaljerade anvisningar finns i [konfigurera Key Vault för virtuella datorer i Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
 
-Följande är ett exempel på att exportera den offentliga nyckeln från ett signerings certifikat, för att importera till den virtuella datorn.
+Följande är ett exempel för att exportera den offentliga nyckeln från ett signerings certifikat som ska importeras till datorn.
 
 ```azurepowershell-interactive
 $Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=mycert3") } | Select-Object -First 1
 $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 
-En lämplig referens för att skapa GPG-nycklar som ska användas med virtuella Linux-datorer finns i en artikel på GitHub, vilket [genererar en ny GPG-nyckel](https://help.github.com/en/articles/generating-a-new-gpg-key).
+En referens för att skapa GPG-nycklar som ska användas med Linux-datorer finns i en artikel på GitHub, vilket [genererar en ny GPG-nyckel](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
 När innehållet har publicerats lägger du till en tagg med `GuestConfigPolicyCertificateValidation` namn och `enabled` värde för alla virtuella datorer där kod signering ska krävas. Den här taggen kan levereras i stor skala med hjälp av Azure Policy. Se [Apply-taggen och dess standardvärde](../samples/apply-tag-default-value.md) -exempel.
 När den här taggen är på plats kan princip definitionen som genereras med `New-GuestConfigurationPolicy` hjälp av cmdlet: en aktivera kravet via gäst konfigurations tillägget.

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e726b60a08f234ef021b2901f8ed29ec74f0ff47
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97d900146b3485df5cdf226f07aaa3aee116fc92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087567"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186765"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Köra Runbooks på en Hybrid Runbook Worker
 
@@ -61,7 +61,7 @@ Du kan också använda [InlineScript](automation-powershell-workflow.md#inlinesc
 
 ### <a name="runas-account"></a>Kör som-konto
 
-Som standard använder hybrid Runbook Worker lokalt system för Windows och ett särskilt användar konto `nxautomation` för Linux för att köra Runbooks. I stället för att ha Runbooks som ger sin egen autentisering till lokala resurser kan du ange ett **Kör** som-konto för en hybrid Worker-grupp. Du anger en [inloggnings till gång](automation-credentials.md) som har åtkomst till lokala resurser och alla Runbooks körs under dessa autentiseringsuppgifter när de körs på en hybrid Runbook Worker i gruppen.
+Som standard använder hybrid Runbook Worker lokalt system för Windows och ett särskilt användar konto `nxautomation` för Linux för att köra Runbooks. I stället för att ha Runbooks som ger sin egen autentisering till lokala resurser kan du ange ett **Kör** som-konto för en hybrid Worker-grupp. Du anger en [inloggnings till gång](automation-credentials.md) som har åtkomst till lokala resurser, inklusive certifikat Arkiv och alla Runbooks som körs under dessa autentiseringsuppgifter när de körs på en hybrid Runbook Worker i gruppen.
 
 Användar namnet för autentiseringsuppgiften måste vara i något av följande format:
 

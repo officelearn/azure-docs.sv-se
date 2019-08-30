@@ -1,19 +1,19 @@
 ---
 title: Exempel på avancerade frågor
-description: Använd Azure Resource Graph för att köra vissa avancerade frågor, inklusive VMSS-kapacitet, visa en lista med alla taggar som används och matcha virtuella datorer med reguljära uttryck.
+description: Använd Azure Resource Graph för att köra vissa avancerade frågor, inklusive skalnings uppsättning för virtuella datorer, som visar alla Taggar som används och matchar virtuella datorer med reguljära uttryck.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b5742d4c14d2599b3efa73e427a5d418e5ef1c1e
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691999"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164905"
 ---
 # <a name="advanced-resource-graph-queries"></a>Avancerade frågor för Resource Graph
 
@@ -22,7 +22,7 @@ Det första steget mot att förstå frågor med Azure Resource Graph är en grun
 Vi går igenom följande avancerade frågor:
 
 > [!div class="checklist"]
-> - [Hämta VM scale set kapacitet och storlek](#vmss-capacity)
+> - [Hämta kapacitet och storlek för skalnings uppsättning för virtuell dator](#vmss-capacity)
 > - [Lista alla taggnamn](#list-all-tags)
 > - [Virtuella datorer matchade av regex](#vm-regex)
 
@@ -72,8 +72,8 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 ## <a name="vm-regex"></a>Virtuella datorer matchade av regex
 
-Den här frågan söker efter virtuella datorer som matchar ett [reguljärt uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference) (även kallat _regex_).
-Den **matchar regex \@**  ger oss möjlighet att definiera regex så att de matchar, vilket är `^Contoso(.*)[0-9]+$`. Den regex-definitionen förklaras så här:
+Den här frågan söker efter virtuella datorer som matchar ett [reguljärt uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference) (även kallat _regex_). Med **matchnings \@ -regex** kan vi definiera regex för att matcha, vilket `^Contoso(.*)[0-9]+$`är.
+Den regex-definitionen förklaras så här:
 
 - `^` – Matchningen måste börja i början av strängen.
 - `Contoso` – Skiftlägeskänslig sträng.
@@ -99,6 +99,22 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 ```azurepowershell-interactive
 Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
+
+## <a name="displaynames"></a>Inkludera klient-och prenumerations namn med DisplayName
+
+Den här frågan använder den nya **include** -parametern med alternativ _DisplayName_ för att lägga till **subscriptionDisplayName** och **tenantDisplayName** i resultatet. Den här parametern är endast tillgänglig för Azure CLI och Azure PowerShell.
+
+```azurecli-interactive
+az graph query -q "limit 1" --include displayNames
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "limit 1" -Include DisplayNames
+```
+
+> [!NOTE]
+> Om frågan inte använder **Project** för att ange de returnerade egenskaperna, inkluderas **subscriptionDisplayName** och **tenantDisplayName** automatiskt i resultaten.
+> Om frågan använder **Project**måste var och en av _DisplayName_ -fälten uttryckligen tas med i **projektet** , annars returneras de inte i resultaten, även om parametern **include** används.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fa2a5088e2eae039d43ecf0db080190f74cd772
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7f913eebb2dd3926165a36c37dcb356aa05f2de4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125221"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172059"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Självstudier: Skapa och konfigurera en Azure Active Directory Domain Services instans
 
@@ -202,7 +202,7 @@ Användaren måste utföra följande steg för att ändra lösen ordet för en e
 1. På sidan **ändra lösen ord** anger du det befintliga (gamla) lösen ordet och anger och bekräftar sedan ett nytt lösen ord.
 1. Välj **skicka**.
 
-Det tar några minuter efter att du har ändrat ditt lösen ord för det nya lösen ordet så att det kan användas i Azure AD DS. Efter cirka 20 minuter kan du använda det nya lösen ordet för att logga in på datorer som är anslutna till den hanterade domänen.
+Det tar några minuter efter att du har ändrat ditt lösen ord för att det nya lösen ordet ska kunna användas i Azure AD DS och för att logga in på datorer som är anslutna till den hanterade domänen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/29/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 081061eae07fa3765d032ad155e59ebf5aa3cbc9
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5968536d0bd0fbe2496fd9bf5fca86c7a1c4053d
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512555"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162272"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Vägledning om Azure Active Directory B2B-samarbete och licenser
 
@@ -32,7 +32,7 @@ Gäst användare kan dessutom använda kostnads fria Azure AD-funktioner utan yt
 ## <a name="examples-calculating-guest-user-licenses"></a>Exempel: Beräkna gäst användar licenser
 När du har fastställt hur många gäst användare som behöver få åtkomst till dina betal Azure AD-tjänster måste du se till att du har tillräckligt med Azure AD-betalda licenser för gäst användare i det krav som krävs för 1:5. Här följer några exempel:
 
-- Du vill bjuda in 100 gäst användare till dina Azure AD-appar eller-tjänster och du vill tilldela åtkomst hantering och etablering till alla gäst användare. Du vill också kräva MFA och villkorlig åtkomst för 50 av dessa gäst användare. För att kunna använda den här kombinationen behöver du 10 Azure AD Basic licenser och 10 Azure AD Premium P1-licenser. Om du planerar att använda funktioner för identitets skydd med dina gäst användare behöver du Azure AD Premium P2-licenser i samma 1:5-förhållande för att avse gäst användarna.
+- Du vill bjuda in 100 gäst användare till dina Azure AD-appar eller-tjänster och tillhandahålla åtkomst hantering och etablering. För 50 av dessa gäst användare vill du också kräva MFA och villkorlig åtkomst så att du behöver 10 Azure AD Premium P1-licenser för de funktionerna. Om du planerar att använda funktioner för identitets skydd med dina gäst användare behöver du Azure AD Premium P2-licenser i samma 1:5-förhållande för att avse gäst användarna.
 - Du vill bjuda in 60 gäst användare som alla behöver MFA, så du måste ha minst 12 Azure AD Premium P1-licenser. Du har 10 anställda med Azure AD Premium P1-licenser som ger upp till 50 gäst användare under licens kvoten på 1:5. Du måste köpa två ytterligare Premium P1-licenser för att kunna betala ytterligare 10 gäst användare.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c8ffa7b65e4f97fa537299bf542ba377da026064
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69626409"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174667"
 ---
 Minnesoptimerade VM-storlekar erbjuder ett högt förhållande mellan minne och processor som är bra för Relations databas servrar, medel stora och stora cacheminnen och minnes intern analys. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för varje storlek i den här gruppen.
 
@@ -147,7 +147,7 @@ Mv2-seriens funktion Intel® Hyper-Threading-teknik
 
 <sup>1</sup> dessa stora virtuella datorer kräver en av följande gäst operativ system: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
-<sup>2</sup> virtuella datorer i Mv2-serien är endast generation 2. Om du använder Linux, se följande avsnitt för att hitta och välja en SUSE Linux-avbildning.
+<sup>2</sup> virtuella datorer i Mv2-serien är endast [generation 2](/azure/virtual-machines/linux/generation-2) . Om du använder Linux, se följande avsnitt för att hitta och välja en SUSE Linux-avbildning.
 
 #### <a name="find-a-suse-image"></a>Hitta en SUSE-bild
 

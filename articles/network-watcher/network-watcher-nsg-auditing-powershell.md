@@ -1,6 +1,6 @@
 ---
-title: Automatisera NSG granskning med Azure Network Watcher säkerhetsgruppvy | Microsoft Docs
-description: Den här sidan innehåller anvisningar om hur du konfigurerar granskning av en Nätverkssäkerhetsgrupp
+title: Automatisera NSG granskning med Azure Network Watcher Security Group View | Microsoft Docs
+description: Den här sidan innehåller instruktioner för hur du konfigurerar granskning av en nätverks säkerhets grupp
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 016d68de90088314250fef1fcfdb57d7f155ef79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e0eddd07fc0c473e4777d9dd90d0b2c64145e34
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707160"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165143"
 ---
-# <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatisera NSG granskning med Azure Network Watcher säkerhetsgruppvy
+# <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatisera NSG granskning med vyn Azure Network Watcher säkerhets grupp
 
-Kunder har ofta inför utmaningen med att verifiera säkerhetspositionen för sin infrastruktur. Den här utmaningen skiljer sig inte för sina virtuella datorer i Azure. Det är viktigt att du har en liknande säkerhetsprofil baserat på de regler för Nätverkssäkerhetsgrupp (NSG) som tillämpas. Med den Säkerhetsgruppvy kan få du nu listan över regler som tillämpas på en virtuell dator i en NSG. Du kan definiera en gyllene NSG säkerhetsprofil och initiera Säkerhetsgruppvy på en veckovis takt och jämför utdatan till gyllene profilen och skapa en rapport. På så sätt kan du identifiera enkelt alla virtuella datorer som inte överensstämmer med den föreskrivna säkerhetsprofilen.
+Kunder är ofta inriktade mot utmaningen med att verifiera säkerhets position i sin infrastruktur. Den här utmaningen skiljer sig inte från de virtuella datorerna i Azure. Det är viktigt att ha en liknande säkerhets profil baserat på reglerna för nätverks säkerhets gruppen (NSG) som tillämpas. Med hjälp av vyn säkerhets grupp kan du nu hämta en lista över regler som tillämpas på en virtuell dator i en NSG. Du kan definiera en gyllene NSG säkerhets profil och initiera vyn säkerhets grupp på en veckovis takt och jämföra utdata med den gyllene profilen och skapa en rapport. På så sätt kan du enkelt identifiera alla virtuella datorer som inte överensstämmer med den angivna säkerhets profilen.
 
-Om du inte känner till Nätverkssäkerhetsgrupper [översikt över nätverkssäkerhet](../virtual-network/security-overview.md).
+Om du inte är bekant med nätverks säkerhets grupper kan du läsa [Översikt över nätverks säkerhet](../virtual-network/security-overview.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I det här scenariot kan jämföra du en känd bra baslinje till säkerhet grupp visa resultatet som returneras för en virtuell dator.
+I det här scenariot jämför du en känd, fungerande bas linje för de resultat som returneras för en virtuell dator i säkerhets gruppen.
 
-Det här scenariot förutsätter att du redan har följt stegen i [skapa en Network Watcher](network-watcher-create.md) att skapa en Network Watcher. Det här scenariot förutsätter att det finns en resursgrupp med en giltig virtuell dator för att användas.
+Det här scenariot förutsätter att du redan har följt stegen i [skapa ett Network Watcher](network-watcher-create.md) för att skapa ett Network Watcher. Scenariot förutsätter också att det finns en resurs grupp med en giltig virtuell dator som kan användas.
 
 ## <a name="scenario"></a>Scenario
 
-Det scenario som beskrivs i den här artikeln hämtar säkerhetsgruppvy för en virtuell dator.
+I det scenario som beskrivs i den här artikeln hämtas vyn säkerhets grupp för en virtuell dator.
 
 I det här scenariot kommer du att:
 
-- Hämta en känd bra regeluppsättning
-- Hämta en virtuell dator med Rest API
-- Hämta säkerhetsgruppvy för virtuell dator
+- Hämta en fungerande regel uppsättning
+- Hämta en virtuell dator med REST API
+- Hämta vyn säkerhets grupp för virtuell dator
 - Utvärdera svar
 
-## <a name="retrieve-rule-set"></a>Hämta regeluppsättning
+## <a name="retrieve-rule-set"></a>Hämta regel uppsättning
 
-Det första steget i det här exemplet är att arbeta med en befintlig baslinje. I följande exempel är vissa json som extraheras från en befintlig Nätverkssäkerhetsgrupp med den `Get-AzNetworkSecurityGroup` cmdlet som används som baslinje för det här exemplet.
+Det första steget i det här exemplet är att arbeta med en befintlig bas linje. I följande exempel är en JSON-extraherad från en befintlig nätverks säkerhets grupp `Get-AzNetworkSecurityGroup` med hjälp av den cmdlet som används som bas linje för det här exemplet.
 
 ```json
 [
@@ -116,9 +116,9 @@ Det första steget i det här exemplet är att arbeta med en befintlig baslinje.
 ]
 ```
 
-## <a name="convert-rule-set-to-powershell-objects"></a>Konvertera regeluppsättning till PowerShell-objekt
+## <a name="convert-rule-set-to-powershell-objects"></a>Konvertera regel uppsättning till PowerShell-objekt
 
-I det här steget ska läser vi en json-fil som du skapade tidigare med de regler som förväntas finnas på den nya Nätverkssäkerhetsgruppen i det här exemplet.
+I det här steget läser vi en JSON-fil som skapades tidigare med de regler som förväntas finnas i nätverks säkerhets gruppen för det här exemplet.
 
 ```powershell
 $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
@@ -126,24 +126,23 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## <a name="retrieve-network-watcher"></a>Hämta Network Watcher
 
-Nästa steg är att hämta Network Watcher-instans. Den `$networkWatcher` variabeln skickas till den `AzNetworkWatcherSecurityGroupView` cmdlet.
+Nästa steg är att hämta Network Watcher-instansen. Variabeln skickas `AzNetworkWatcherSecurityGroupView` till cmdleten. `$networkWatcher`
 
 ```powershell
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
 ```
 
 ## <a name="get-a-vm"></a>Hämta en virtuell dator
 
-En virtuell dator krävs för att köra den `Get-AzNetworkWatcherSecurityGroupView` cmdlet mot. I följande exempel hämtas ett VM-objekt.
+En virtuell dator krävs för att köra `Get-AzNetworkWatcherSecurityGroupView` cmdleten mot. I följande exempel hämtas ett VM-objekt.
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName "testrg" -Name "testvm1"
 ```
 
-## <a name="retrieve-security-group-view"></a>Hämta säkerhetsgruppvy
+## <a name="retrieve-security-group-view"></a>Hämta vyn säkerhets grupp
 
-Nästa steg är att hämta security grupp visa resultatet. Det här resultatet jämförs ”baslinje” json som visades tidigare.
+Nästa steg är att hämta resultatet av säkerhets gruppen. Resultatet jämförs med "bas linje" JSON som visades tidigare.
 
 ```powershell
 $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
@@ -151,9 +150,9 @@ $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatche
 
 ## <a name="analyzing-the-results"></a>Analysera resultaten
 
-Svaret är grupperad efter nätverksgränssnitt. De olika typerna av regler som returneras är effektiva och standardsäkerhetsregler. Resultatet är ytterligare fördelat på hur den används, antingen på ett undernät eller ett virtuellt nätverkskort.
+Svaret grupperas efter nätverks gränssnitt. De olika typerna av regler som returneras är effektiva och standard säkerhets regler. Resultatet delas upp ytterligare av hur det tillämpas, antingen på ett undernät eller ett virtuellt nätverkskort.
 
-Följande PowerShell-skript jämför resultaten av Säkerhetsgruppvy den befintliga en NSG-utdata. I följande exempel är ett enkelt exempel på hur resultaten kan jämföras med `Compare-Object` cmdlet.
+Följande PowerShell-skript jämför resultatet av vyn säkerhets grupp med en befintlig utmatning av en NSG. I följande exempel visas ett enkelt exempel på hur resultatet kan jämföras med `Compare-Object` cmdlet.
 
 ```powershell
 Compare-Object -ReferenceObject $nsgbaserules `
@@ -161,7 +160,7 @@ Compare-Object -ReferenceObject $nsgbaserules `
 -Property Name,Description,Protocol,SourcePortRange,DestinationPortRange,SourceAddressPrefix,DestinationAddressPrefix,Access,Priority,Direction
 ```
 
-I följande exempel är resultatet. Du kan se två av de regler som fanns i den första regeln anger inte fanns i jämförelsen.
+Följande exempel är resultatet. Du kan se två av reglerna som fanns i den första regel uppsättningen fanns inte i jämförelsen.
 
 ```
 Name                     : My2ndRuleDoNotDelete
@@ -191,7 +190,7 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om inställningarna har ändrats, se [hantera Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md) att spåra de och Nätverkssäkerhetsregler som är i fråga.
+Om inställningarna har ändrats läser du [Hantera nätverks säkerhets grupper](../virtual-network/manage-network-security-group.md) för att spåra de nätverks säkerhets grupper och säkerhets regler som är i fråga.
 
 
 

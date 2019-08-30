@@ -1,6 +1,6 @@
 ---
-title: Felsök anslutningar med Azure Network Watcher – PowerShell | Microsoft Docs
-description: Lär dig hur du använder anslutningen felsöka funktion i Azure Network Watcher med hjälp av PowerShell.
+title: Felsöka anslutningar med Azure Network Watcher – PowerShell | Microsoft Docs
+description: Lär dig hur du använder anslutningen fel söknings funktion i Azure Network Watcher med hjälp av PowerShell.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -13,37 +13,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: kumud
-ms.openlocfilehash: fe665c425c2b28678ccb29a06d29c20bb11b5c1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f18140036ac762c7383ed1b1d8081aa8d5f877f
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716655"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165126"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Felsöka anslutningar med Azure Network Watcher med hjälp av PowerShell
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Felsöka anslutningar med Azure Network Watcher med PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [Azure CLI](network-watcher-connectivity-cli.md)
-> - [Azure REST-API](network-watcher-connectivity-rest.md)
+> - [Azure-REST API](network-watcher-connectivity-rest.md)
 
-Lär dig hur du använder anslutning felsöka för att kontrollera om en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt kan upprättas.
+Lär dig hur du använder anslutnings fel sökning för att kontrol lera om en direkt TCP-anslutning från en virtuell dator till en specifik slut punkt kan upprättas.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* En instans av Network Watcher i regionen som du vill felsöka en anslutning.
+* En instans av Network Watcher i den region där du vill felsöka en anslutning.
 * Virtuella datorer för att felsöka anslutningar med.
 
 > [!IMPORTANT]
-> Felsökning av anslutning kräver att den virtuella datorn som du felsöker från har den `AzureNetworkWatcherExtension` VM-tillägget installerat. Installera tillägget på en Windows-VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och Linux VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på slutpunkten för målet.
+> Fel sökning av anslutning kräver att den virtuella datorn som du `AzureNetworkWatcherExtension` felsöker från har VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Kontrollera anslutningen till en virtuell dator
+## <a name="check-connectivity-to-a-virtual-machine"></a>Kontrol lera anslutningen till en virtuell dator
 
-Det här exemplet kontrollerar en anslutning till en mål-dator via port 80. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den Virtuella källdatorn.  
+Det här exemplet kontrollerar en anslutning till en virtuell mål dator via port 80. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den virtuella käll datorn.  
 
 ### <a name="example"></a>Exempel
 
@@ -57,15 +57,14 @@ $RG = Get-AzResourceGroup -Name $rgName
 $VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 $VM2 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $destVMName
 
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location} 
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location} 
 
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationId $VM2.Id -DestinationPort 80
 ```
 
 ### <a name="response"></a>Svar
 
-Följande svar är från föregående exempel.  I det här svaret den `ConnectionStatus` är **tillbaka**. Du kan se att alla avsökningar skickas misslyckades. Anslutningen misslyckades på den virtuella installationen på grund av ett användardefinierat `NetworkSecurityRule` med namnet **UserRule_Port80**, konfigurerat att blockera inkommande trafik på port 80. Den här informationen kan användas för att undersöka problem med anslutningen.
+Följande svar är från föregående exempel.  I det här svaret går `ConnectionStatus` det inte att **komma åt**. Du kan se att alla avsökningar som skickats misslyckades. Anslutningen kunde inte utföras på den virtuella installationen på grund av en `NetworkSecurityRule` användardefinierad namngiven **UserRule_Port80**som kon figurer ATS för att blockera inkommande trafik på port 80. Den här informationen kan användas för att undersöka anslutnings problem.
 
 ```
 ConnectionStatus : Unreachable
@@ -136,9 +135,9 @@ Hops             : [
                    ]
 ```
 
-## <a name="validate-routing-issues"></a>Verifiera routningsproblem
+## <a name="validate-routing-issues"></a>Verifiera problem med Routning
 
-Det här exemplet kontrollerar anslutningen mellan en virtuell dator och en fjärrslutpunkten. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den Virtuella källdatorn.  
+Det här exemplet kontrollerar anslutningen mellan en virtuell dator och en fjärrslutpunkt. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den virtuella käll datorn.  
 
 ### <a name="example"></a>Exempel
 
@@ -149,15 +148,14 @@ $sourceVMName = "MultiTierApp0"
 $RG = Get-AzResourceGroup -Name $rgName
 $VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
 
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress 13.107.21.200 -DestinationPort 80
 ```
 
 ### <a name="response"></a>Svar
 
-I följande exempel visas den `ConnectionStatus` visas som **tillbaka**. I den `Hops` information som du kan se `Issues` som trafiken har blockerats på grund av en `UserDefinedRoute`. 
+I följande exempel visas den `ConnectionStatus` som **oåtkomlig**. I informationen kan du `Issues` se att trafiken blockerades på grund av en `UserDefinedRoute`. `Hops` 
 
 ```
 ConnectionStatus : Unreachable
@@ -200,9 +198,9 @@ Hops             : [
                    ]
 ```
 
-## <a name="check-website-latency"></a>Kontrollera svarstid för webbplats
+## <a name="check-website-latency"></a>Kontrol lera svars tid för webbplats
 
-I följande exempel kontrollerar anslutningen till en webbplats. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den Virtuella källdatorn.  
+I följande exempel kontrol leras anslutningen till en webbplats. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den virtuella käll datorn.  
 
 ### <a name="example"></a>Exempel
 
@@ -213,8 +211,7 @@ $sourceVMName = "MultiTierApp0"
 $RG = Get-AzResourceGroup -Name $rgName
 $VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
 
 
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://bing.com/
@@ -222,7 +219,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### <a name="response"></a>Svar
 
-I följande svar, kan du se den `ConnectionStatus` som **nåbar**. När en anslutning lyckas tillhandahålls svarstider.
+I följande svar kan du se `ConnectionStatus` programmen som **tillgängliga**. När en anslutning lyckas, anges latens värden.
 
 ```
 ConnectionStatus : Reachable
@@ -253,9 +250,9 @@ Hops             : [
                    ]
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Kontrollera anslutningen till en slutpunkt för lagring
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Kontrol lera anslutningen till en lagrings slut punkt
 
-I följande exempel kontrollerar anslutningen från en virtuell dator till en blog storage-konto. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den Virtuella källdatorn.  
+I följande exempel kontrol leras anslutningen från en virtuell dator till ett blogg lagrings konto. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den virtuella käll datorn.  
 
 ### <a name="example"></a>Exempel
 
@@ -267,15 +264,14 @@ $RG = Get-AzResourceGroup -Name $rgName
 
 $VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location }
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location }
 
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://contosostorageexample.blob.core.windows.net/ 
 ```
 
 ### <a name="response"></a>Svar
 
-Följande json är exempelsvar från att köra cmdleten tidigare. Eftersom målet kan nås, den `ConnectionStatus` egenskapen visas som **nåbar**.  Du får information om antalet hopp som krävs för att nå lagringsblob och svarstid.
+Följande JSON är exempel svaret från att köra föregående cmdlet. När målet kan kontaktas `ConnectionStatus` visas egenskapen som **nåbar**.  Du får information om antalet hopp som krävs för att komma åt lagrings-bloben och svars tiden.
 
 ```json
 ConnectionStatus : Reachable
@@ -308,6 +304,6 @@ Hops             : [
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta reda på om vissa trafik tillåts i eller utanför din virtuella dator genom att besöka [Kontrollera IP-flödesverifieringen](diagnose-vm-network-traffic-filtering-problem.md).
+Ta reda på om en viss trafik tillåts i eller från den virtuella datorn genom [att gå igenom kontrol lera IP-flöde verifiera](diagnose-vm-network-traffic-filtering-problem.md).
 
-Om trafik blockeras och det får inte vara, se [hantera Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md) att spåra de och Nätverkssäkerhetsregler som har definierats.
+Om trafiken blockeras och den inte bör vara, se [Hantera nätverks säkerhets grupper](../virtual-network/manage-network-security-group.md) för att spåra de nätverks säkerhets grupper och säkerhets regler som har definierats.

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 2fd8934f34b811c0a2532f27e32fc799c2c8186e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
-ms.translationtype: HT
+ms.openlocfilehash: 1fb377d482277a4776214d08b879d99f4234ca40
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141837"
+ms.locfileid: "70163681"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
 
@@ -25,7 +25,7 @@ Börja med att [Hämta och importera Windows Virtual Desktop PowerShell-modulen]
 Kör följande cmdlet för att logga in på Windows-miljön för virtuella skriv bord
 
 ```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Kör sedan denna cmdlet för att skapa en ny adresspool i din Windows-klient för virtuella skriv bord:

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3fd2a50946f0857d527c34b62687b2dbdd71298e
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073895"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172031"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Självstudier: Anslut en Windows Server-virtuell dator till en hanterad domän
 
@@ -214,7 +214,7 @@ Försök att ansluta den virtuella Windows Server-datorn till den hanterade dom�
 * Kontrol lera att det användar konto som du anger tillhör gruppen *AAD DC-administratörer* .
 * Försök att använda UPN-formatet för att ange autentiseringsuppgifter, `contosoadmin@contoso.onmicrosoft.com`till exempel. Om det finns många användare med samma UPN-prefix i din klient organisation eller om ditt UPN-prefix är för långt, kan *sAMAccountName* för ditt konto skapas automatiskt. I dessa fall kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
 * Kontrol lera att du har [aktiverat][password-sync] Lösenordssynkronisering till din hanterade domän. Utan det här konfigurations steget finns de nödvändiga lösen ords-hasharna inte i den hanterade Azure AD DS-domänen för att korrekt autentisera ditt inloggnings försök.
-* Vänta tills Lösenordssynkronisering har slutförts. När ett användar kontos lösen ord ändras kan det ta 15-20 minuter innan lösen ordet är tillgängligt för domän kopplings användning.
+* Vänta tills Lösenordssynkronisering har slutförts. När ett användar kontos lösen ord ändras uppdaterar en automatisk Bakgrundssynkronisering från Azure AD lösen ordet i Azure AD DS. Det tar lite tid för lösen ordet att vara tillgängligt för domän kopplings användning.
 
 ## <a name="next-steps"></a>Nästa steg
 

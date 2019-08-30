@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 76d47353c5b81d7ed735f11a81e3e77514054076
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3cf262f2c2f14ea66a40facfd5b32139fc648e47
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082646"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165330"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Även om Azure Resource Manager erbjuder många fantastiska funktioner, är det viktigt att planera migreringen för att se till att saker går smidigt. När du planerar planeringen ser du till att du inte stöter på problem när du kör migreringsåtgärder. 
@@ -192,7 +192,7 @@ Saker att tänka på:
 Var ändamålsenlig på vilka tjänster du nu vill aktivera i Azure Resource Manager.  Många kunder hittar de nedan övertygande i sina Azure-miljöer:
 
 - [Rollbaserad Access Control](../../role-based-access-control/overview.md).
-- [Azure Resource Manager mallar för enklare och mer kontrollerad distribution](../../azure-resource-manager/resource-group-overview.md#template-deployment).
+- [Azure Resource Manager mallar för enklare och mer kontrollerad distribution](../../azure-resource-manager/template-deployment-overview.md).
 - [Taggar](../../azure-resource-manager/resource-group-using-tags.md).
 - [Aktivitets kontroll](../../azure-resource-manager/resource-group-audit.md)
 - [Azure-principer](../../governance/policy/overview.md)

@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 manager: gwallace
 ms.service: container-registry
-ms.topic: overview
+ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 73d497b4784a91974fab8a94c6f9fe595770ea45
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 50ab3fc92fc980638547bb090c5d0d78aa20ab5f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574398"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172277"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
@@ -64,7 +64,7 @@ Användning av funktionen för geo-replikering i Azure Container Registry ger f�
 
 ## <a name="configure-geo-replication"></a>Konfigurera geo-replikering
 
-Konfiguration av geo-replikering är så enkelt som att klicka på regioner på en karta. Du kan också hantera geo-replikering med hjälp av verktyg som [AZ ACR Replication](/cli/azure/acr/replication) -kommandon i Azure CLI.
+Konfiguration av geo-replikering är så enkelt som att klicka på regioner på en karta. Du kan också hantera geo-replikering med hjälp av verktyg som [AZ ACR Replication](/cli/azure/acr/replication) -kommandon i Azure CLI, eller distribuera ett register som är aktiverat för geo-replikering med en [Azure Resource Manager-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
 Geo-replikering är en funktion som endast finns i [Premium-register](container-registry-skus.md). Om ditt register ännu inte är Premium kan du ändra från Basic och Standard till Premium i [Azure-portalen](https://portal.azure.com):
 

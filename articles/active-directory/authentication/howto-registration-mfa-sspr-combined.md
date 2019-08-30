@@ -1,22 +1,22 @@
 ---
 title: Kom igång med kombinerad registrering för Azure AD SSPR och Multi-Factor Authentication (för hands version) – Azure Active Directory
-description: Aktivera kombinerad Azure AD Multi-Factor Authentication och registrering av självbetjäning för återställning av lösen ord (för hands version)
+description: Aktivera kombinerat Azure AD-Multi-Factor Authentication och registrering av lösen ords återställning via självbetjäning (för hands version)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 08/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fc30c3273528b8cbc08681950e0bd5f03ec7890
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 55e3f073c1d22ef09784f699dc2decb0492d9edf
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561283"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162299"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombinerad säkerhets informations registrering (för hands version)
 
@@ -45,10 +45,10 @@ Utför de här stegen för att aktivera kombinerad registrering:
    ![Aktivera den kombinerade för hands versionen av säkerhets information för alla användare](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
-> Från och med mars 2019 är alternativen för telefonsamtal inte tillgängliga för Multi-Factor Authentication och SSPR-användare i kostnads fria/utvärderings versioner av Azure AD-klienter. SMS-meddelanden påverkas inte av den här ändringen. Telefonsamtals alternativen är fortfarande tillgängliga för användare i betalda Azure AD-klienter.
+> Från och med mars 2019 är Telefonsamtals alternativen inte tillgängliga för att Multi-Factor Authentication och SSPR-användare i kostnads fria/utvärderings versioner av Azure AD-klienter. SMS-meddelanden påverkas inte av den här ändringen. Telefonsamtals alternativen är fortfarande tillgängliga för användare i betalda Azure AD-klienter.
 
 > [!NOTE]
-> När du har aktiverat kombinerad registrering kan användare som registrerar eller bekräftar sina telefonnummer eller mobilappar via den nya upplevelsen använda dem för Multi-Factor Authentication-och SSPR, om dessa metoder är aktiverade i Multi-Factor Authentication och SSPR rikt. Om du sedan inaktiverar den här funktionen, krävs det att användare som går till den tidigare `https://aka.ms/ssprsetup` registrerings sidan för SSPR måste utföra Multi-Factor Authentication innan de kan komma åt sidan.
+> När du har aktiverat kombinerad registrering kan användare som registrerar eller bekräftar sina telefonnummer eller mobilappar via den nya upplevelsen använda dem för Multi-Factor Authentication och SSPR, om dessa metoder är aktiverade i Multi-Factor Authentication och SSPR rikt. Om du sedan inaktiverar den här funktionen, krävs det att användare som går till den tidigare `https://aka.ms/ssprsetup` registrerings sidan för SSPR måste utföra Multi-Factor Authentication innan de kan komma åt sidan.
 
 Om du har konfigurerat plats till zon tilldelnings lista i Internet Explorer måste följande platser finnas i samma zon:
 
@@ -58,7 +58,7 @@ Om du har konfigurerat plats till zon tilldelnings lista i Internet Explorer må
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Principer för villkorlig åtkomst för kombinerad registrering
 
-Nu är det möjligt att skydda när och hur användare registrerar sig för Azure Multi-Factor Authentication och återställning av lösen ord med hjälp av användar åtgärder i principer för villkorlig åtkomst. Den här förhands gransknings funktionen är tillgänglig för organisationer som har aktiverat den [kombinerade](../authentication/concept-registration-mfa-sspr-combined.md)förhands granskningen. Den här funktionen kan vara aktive rad i organisationer där de vill att användarna ska kunna registrera sig för Azure Multi-Factor Authentication och SSPR från en central plats, till exempel en betrott nätverks plats under en TIMMEs onboarding. Mer information om hur du skapar betrodda platser i villkorlig åtkomst finns i artikeln [Vad är plats villkoret i Azure Active Directory villkorlig åtkomst?](../conditional-access/location-condition.md#named-locations)
+Att skydda när och hur användare registrerar sig för Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning är nu möjligt med användar åtgärder i princip för villkorlig åtkomst. Den här förhands gransknings funktionen är tillgänglig för organisationer som har aktiverat den [kombinerade](../authentication/concept-registration-mfa-sspr-combined.md)förhands granskningen. Den här funktionen kan vara aktive rad i organisationer där de vill att användarna ska kunna registrera sig för Azure Multi-Factor Authentication och SSPR från en central plats, till exempel en betrott nätverks plats under en inledande registrering. Mer information om hur du skapar betrodda platser i villkorlig åtkomst finns i artikeln [Vad är plats villkoret i Azure Active Directory villkorlig åtkomst?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Skapa en princip för att kräva registrering från en betrodd plats
 
@@ -89,11 +89,13 @@ Följande princip gäller för alla valda användare, som försöker registrera 
 
 ## <a name="next-steps"></a>Nästa steg
 
+[Tvinga användare att registrera autentiseringsmetoder igen](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+
 [Tillgängliga metoder för Multi-Factor Authentication och SSPR](concept-authentication-methods.md)
 
 [Konfigurera återställning av lösen ord för självbetjäning](howto-sspr-deployment.md)
 
-[Konfigurera Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+[Konfigurera Azure-Multi-Factor Authentication](howto-mfa-getstarted.md)
 
 [Felsöka kombinerad säkerhets informations registrering](howto-registration-mfa-sspr-combined-troubleshoot.md)
 

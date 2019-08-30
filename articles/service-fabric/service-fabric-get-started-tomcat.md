@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: chackdan
-ms.openlocfilehash: f1717cfb7980fc481f01c51c04d076aa2ca0f67d
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 165dc95681b75e98d91c66b490e15c2e96608299
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876498"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098937"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Skapa Service Fabric behållare som kör Apache Tomcat server på Linux
 Apache Tomcat är en populär implementering av Java-servlet och Java-serverns teknik med öppen källkod. Den här artikeln visar hur du skapar en behållare med Apache Tomcat och ett enkelt webb program, distribuerar behållaren till ett Service Fabric kluster som kör Linux och ansluter till webb programmet.  

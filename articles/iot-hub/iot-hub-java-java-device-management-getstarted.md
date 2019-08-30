@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 82c2c6d7ac347949a7cf24226fdb0095313ee689
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
-ms.translationtype: HT
+ms.openlocfilehash: 52d7eb035ed06c368214b8b5cb7ef583cd99b51b
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147691"
+ms.locfileid: "70161988"
 ---
 # <a name="get-started-with-device-management-java"></a>Kom igång med enhets hantering (Java)
 
@@ -53,9 +53,9 @@ I slutet av den här självstudien har du två Java-konsol program:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Java SE 8. [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) beskriver hur du installerar Java för den här själv studie kursen på antingen Windows eller Linux.
+* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **långsiktigt stöd** för att hämta hämtningar för JDK 8.
 
-* Maven 3. [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) beskriver hur du installerar [maven](https://maven.apache.org/what-is-maven.html) för den här själv studie kursen på antingen Windows eller Linux.
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 

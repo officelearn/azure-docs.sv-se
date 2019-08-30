@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: c5e568dd073376295e4865994fba8ae5b5ac59a0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1dfcc69d90daae5869c3b69c922e99eab3585e14
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640993"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164626"
 ---
 # <a name="azure-disk-encryption-overview"></a>Översikt över Azure Disk Encryption
 
@@ -73,6 +73,7 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 * Network File System (NFS).
 * Dynamiska volymer.
 * Tillfälliga OS-diskar.
+* Kryptering av delade/distribuerade fil system som (men inte begränsat till): DFS, GFS, DRDB, CephFS osv.
 
 ## <a name="encryption-features"></a>Krypteringsfunktioner
 

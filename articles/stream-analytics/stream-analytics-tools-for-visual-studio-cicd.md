@@ -1,6 +1,6 @@
 ---
-title: Kontinuerlig integrering och utveckla med Azure Stream Analytics CI/CD NuGet-paketet
-description: Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD NuGet-paketet för att konfigurera en kontinuerlig integrering och distributionsprocessen.
+title: Använd Azure Stream Analytics CI/CD NuGet-paketet för integrering och utveckling
+description: Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD NuGet-paket för att konfigurera en kontinuerlig integrering och distributions process.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -8,78 +8,78 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: f34139dafffe3d4890f17988114dffdd8b480d2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47bcd29ca8a1da0c42f7bc39aeb4ffc1ad8e8571
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827314"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172907"
 ---
-# <a name="continuously-integrate-and-develop-with-azure-stream-analytics-cicd-nuget-package"></a>Kontinuerlig integrering och utveckla med Azure Stream Analytics CI/CD NuGet-paketet
-Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD NuGet-paketet för att konfigurera en kontinuerlig integrering och distributionsprocessen.
+# <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Använd Azure Stream Analytics CI/CD NuGet-paketet för integrering och utveckling 
+Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD NuGet-paketet för att skapa en kontinuerlig integrering och distributions process.
 
-Använd version 2.3.0000.0 eller senare av [Stream Analytics-verktyg för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) kan få support för MSBuild.
+Använd version 2.3.0000.0 eller senare av [Stream Analytics verktyg för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) för att få stöd för MSBuild.
 
-Det finns ett NuGet-paket: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Den visar MSBuild, lokal körning och distributionsverktyg som stöder kontinuerlig integrering och distribution av [Stream Analytics Visual Studio-projekt](stream-analytics-vs-tools.md). 
+Det finns ett NuGet-paket: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Det tillhandahåller de MSBuild-, lokala körnings-och distributions verktyg som har stöd för kontinuerlig integrering och distributions processen för [Stream Analytics Visual Studio-projekt](stream-analytics-vs-tools.md). 
 > [!NOTE]
-> NuGet-paketet kan användas endast med 2.3.0000.0 eller senare version av Stream Analytics Tools för Visual Studio. Om du har projekt som skapats i tidigare versioner av Visual Studio-verktyg kan bara öppna dem med 2.3.0000.0 eller senare version och spara. De nya funktionerna är aktiverade. 
+> NuGet-paketet kan bara användas med 2.3.0000.0 eller över versionen av Stream Analytics Tools för Visual Studio. Om du har projekt som skapats i tidigare versioner av Visual Studio-verktyg öppnar du dem bara med 2.3.0000.0 eller över-versionen och sparar. De nya funktionerna är aktiverade. 
 
-Mer information finns i [Stream Analytics-verktyg för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Mer information finns i [Stream Analytics Tools för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>MSBuild
-Som standard Visual Studio MSBuild-upplevelsen för att skapa ett projekt har du två alternativ. Du kan högerklicka på projektet och välj sedan **skapa**. Du kan också använda **MSBuild** i NuGet-paketet från kommandoraden.
+Precis som med standard Visual Studio MSBuild-upplevelsen kan du bygga ett projekt med två alternativ. Du kan högerklicka på projektet och välja **build**. Du kan också använda **MSBuild** i NuGet-paketet från kommando raden.
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 
 ```
 
-När ett Stream Analytics Visual Studio-projekt skapas har måste genererar följande två Azure Resource Manager mallfiler under den **bin / [Debug/hos återförsäljare] / distribuera** mapp: 
+När en Stream Analytics Visual Studio-projekt skapas, genererar det följande två Azure Resource Manager mallfiler under mappen **bin/[debug/återförsäljarversion]/Deploy** : 
 
-*  Resource Manager-mallfilen
+*  Resource Manager-mallfil
 
        [ProjectName].JobTemplate.json 
 
-*  Resource Manager-parameterfilen
+*  Parameter fil för Resource Manager
 
        [ProjectName].JobTemplate.parameters.json   
 
-Standardparametrarna i filen parameters.JSON är från inställningarna i Visual Studio-projektet. Ersätt parametrarna i enlighet med detta om du vill distribuera till en annan miljö.
+Standard parametrarna i filen Parameters. JSON är från inställningarna i Visual Studio-projektet. Om du vill distribuera till en annan miljö ersätter du parametrarna på motsvarande sätt.
 
 > [!NOTE]
-> För alla autentiseringsuppgifterna som standardvärden anges till null. Du är **krävs** du anger värden innan du distribuerar till molnet.
+> Standardvärdena anges till null för alla autentiseringsuppgifter. Du **måste** ange värdena innan du distribuerar till molnet.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
       "value": null
     },
 ```
-Mer information om hur du [distribuera med en Resource Manager-mallfilen och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Mer information om hur du [använda ett objekt som en parameter i en Resource Manager-mall](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Lär dig mer om hur du [distribuerar med en Resource Manager-mallfil och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Lär dig mer om hur du [använder ett objekt som en parameter i en Resource Manager-mall](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
-Om du vill använda hanterade identiteter för Azure Data Lake Store Gen1 som utdatamottagare, måste du ge åtkomst till tjänstens huvudnamn med hjälp av PowerShell innan du distribuerar till Azure. Mer information om hur du [distribuera ADLS Gen1 med hanterad identitet med Resource Manager-mall](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
+Om du vill använda hanterad identitet för Azure Data Lake Store gen1 som utgående mottagare måste du ge åtkomst till tjänstens huvud namn med hjälp av PowerShell innan du distribuerar till Azure. Lär dig mer om hur du [distribuerar ADLS gen1 med hanterad identitet med Resource Manager-mall](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 
 
-## <a name="command-line-tool"></a>Kommandoradsverktyget
+## <a name="command-line-tool"></a>Kommando rads verktyg
 
 ### <a name="build-the-project"></a>Bygga projektet
-NuGet-paketet har ett kommandoradsverktyg som kallas **SA.exe**. Den stöder projekt build och lokal testning på en valfri dator som du kan använda i dina kontinuerlig integrering och kontinuerlig leverans processen. 
+NuGet-paketet har ett kommando rads verktyg som kallas **sa. exe**. Den har stöd för projekt utveckling och lokal testning på en godtycklig dator, som du kan använda i den kontinuerliga integreringen och den kontinuerliga leverans processen. 
 
-Distribution filerna placeras under den aktuella katalogen som standard. Du kan ange sökvägen för utdata med hjälp av parametern - OutputPath följande:
+Distributions-filerna placeras under den aktuella katalogen som standard. Du kan ange en sökväg för utdata genom att använda följande-OutputPath-parameter:
 
 ```
 ./tools/SA.exe build -Project [Your Project Full Path] [-OutputPath <outputPath>] 
 ```
 
-### <a name="test-the-script-locally"></a>Testa skript lokalt
+### <a name="test-the-script-locally"></a>Testa skriptet lokalt
 
-Om ditt projekt har angetts lokala indatafilerna i Visual Studio, kan du köra ett automatiserat skript-test med hjälp av den *localrun* kommando. Det utgående resultatet placeras under den aktuella katalogen.
+Om ditt projekt har angett lokala indatafiler i Visual Studio kan du köra ett automatiserat skript test med hjälp av kommandot *localrun* . Resultatet av utdata placeras under den aktuella katalogen.
  
 ```
 localrun -Project [ProjectFullPath]
 ```
 
-### <a name="generate-a-job-definition-file-to-use-with-the-stream-analytics-powershell-api"></a>Generera en definitionsfil för jobbet ska användas med Stream Analytics PowerShell-API
+### <a name="generate-a-job-definition-file-to-use-with-the-stream-analytics-powershell-api"></a>Generera en jobb definitions fil som ska användas med Stream Analytics PowerShell-API
 
-Den *arm* kommandot tar jobbmallen och jobbet parametern mallfiler genereras genom build som indata. Sedan kombinerar det dem till en jobbet definition JSON-fil som kan användas med Stream Analytics PowerShell API.
+*Arm* -kommandot tar den jobbmall och den mall för jobb mal len som genereras med hjälp av skapa som inmatade filer. Sedan kombineras de till en JSON-fil för jobb definition som kan användas med Stream Analytics PowerShell API.
 
 ```powershell
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
@@ -93,6 +93,6 @@ Exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabbstart: Skapa cloud Azure Stream Analytics-jobb i Visual Studio](stream-analytics-quick-create-vs.md)
+* [Snabbstart: Skapa ett Azure Stream Analytics moln jobb i Visual Studio](stream-analytics-quick-create-vs.md)
 * [Testa Stream Analytics-frågor lokalt med Visual Studio](stream-analytics-vs-tools-local-run.md)
 * [Utforska Azure Stream Analytics-jobb med Visual Studio](stream-analytics-vs-tools.md)

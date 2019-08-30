@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 624edaea9a0fb56e34eb83f033dfdab64985bd5c
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: fbc24705288d9bb4acf0d1b2d99dfbda32149614
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950714"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163561"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper för en värd pool
 
@@ -20,7 +20,11 @@ Genom att anpassa en värd Pools egenskaper för Remote Desktop Protocol (RDP), 
 
 Se en fullständig lista över vilka egenskaper som stöds och standardvärden för RDP-filinställningar för [fjärr skrivbord](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) .
 
-Börja med att [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det.
+Börja med att [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det. Sedan kör du följande cmdlet för att logga in på ditt konto:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="add-or-edit-a-single-custom-rdp-property"></a>Lägga till eller redigera en enskild anpassad RDP-egenskap
 

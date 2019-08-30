@@ -4,19 +4,19 @@ description: Lär dig hur du publicerar ett hanterat tjänst erbjudande som regi
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: f9d3fad2a98647bcd10d54c03a76e95bc3e05227
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c0c2ccf03292434b3f23b26857ec0d2b3fc3ceed
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011864"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165258"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
 
-I den här artikeln får du lära dig hur du publicerar ett offentligt eller privat hanterat tjänst erbjudande till [Azure Marketplace](https://azuremarketplace.microsoft.com) med hjälp av [Cloud Partner Portal](https://cloudpartner.azure.com/), vilket gör det möjligt för en kund som köper erbjudandet att registreras för Azure delegerad resurs hantering.
+I den här artikeln får du lära dig hur du publicerar ett offentligt eller privat hanterat tjänst erbjudande till [Azure Marketplace](https://azuremarketplace.microsoft.com) med hjälp av [Cloud Partner Portal](https://cloudpartner.azure.com/), vilket gör det möjligt för en kund som köper erbjudandet till onboard-resurser för Azure delegerad resurs hanterings.
 
 > [!NOTE]
 > Du måste ha ett giltigt [konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) för att kunna skapa och publicera dessa erbjudanden. Om du inte redan har ett konto kommer [registrerings processen](https://aka.ms/joinmarketplace) att leda dig genom stegen för att skapa ett konto i Partner Center och registrera dig i programmet för kommersiella marknads platser. Ditt Microsoft Partner Network (MPN) ID kommer [automatiskt](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) att associeras med de erbjudanden du publicerar för att spåra din påverkan på kund engagemang.
@@ -127,6 +127,65 @@ När du har lagt till den här informationen väljer du **Spara.**
 ## <a name="publish-your-offer"></a>Publicera ditt erbjudande
 
 När du är nöjd med all information som du har angett är nästa steg att publicera erbjudandet på Azure Marketplace. Välj knappen **publicera** för att påbörja processen med att göra erbjudandet Live. Mer information om den här processen finns i [publicera Azure Marketplace-och AppSource-erbjudanden](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
+
+## <a name="the-customer-onboarding-process"></a>Kundens onboarding-process
+
+När en kund lägger till erbjudandet kommer de att kunna [delegera en eller flera specifika prenumerationer eller resurs grupper](view-manage-service-providers.md#delegate-resources) som sedan kommer att registreras för Azure-delegerad resurs hantering. Om en kund har accepterat ett erbjudande men ännu inte har delegerat några resurser visas en anteckning längst upp i avsnittet **leverantörs erbjudanden** på sidan [**tjänst leverantörer**](view-manage-service-providers.md) i Azure Portal.
+
+Innan en prenumeration (eller resurs grupper inom en prenumeration) kan registreras måste prenumerationen vara auktoriserad för onboarding genom att manuellt registrera **Microsoft. ManagedServices** -resurs leverantören. En användare i kundens klient organisation med rollen deltagare eller ägare kan göra detta genom att följa stegen som beskrivs i Azures [resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md).
+
+Kunden kan sedan bekräfta att prenumerationen är redo för onboarding på något av följande sätt.
+
+### <a name="azure-portal"></a>Azure Portal
+
+1. I Azure Portal väljer du prenumerationen.
+1. Välj **Resursprovidrar**.
+1. Bekräfta att **Microsoft. ManagedServices** visas som **registrerade**.
+
+### <a name="powershell"></a>PowerShell
+
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+Set-AzContext -Subscription <subscriptionId>
+Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
+```
+
+Detta bör returnera resultat som liknar följande:
+
+```output
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {registrationDefinitions}
+Locations         : {}
+
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {registrationAssignments}
+Locations         : {}
+
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {operations}
+Locations         : {}
+```
+
+### <a name="azure-cli"></a>Azure CLI
+
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
+az account set –subscription <subscriptionId>
+az provider show --namespace "Microsoft.ManagedServices" --output table
+```
+
+Detta bör returnera resultat som liknar följande:
+
+```output
+Namespace                  RegistrationState
+-------------------------  -------------------
+Microsoft.ManagedServices  Registered
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

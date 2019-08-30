@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 21c10e142802914bcf3292ef7f25066675e6cdd1
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 9c956f89d890f93a887d2412c74c906095acf4db
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143923"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Självstudier: Azure Active Directory-integrering med SharePoint lokalt
 
@@ -34,11 +34,11 @@ Om du integrerar lokal SharePoint med Azure AD så får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med lokal SharePoint så behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
 * Lokal SharePoint-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -58,7 +58,7 @@ Om du vill konfigurera integrering av lokal SharePoint i Azure AD så behöver d
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
     > [!NOTE]   
-    > Om elementet inte får vara tillgängliga, det kan även öppnas via den fasta **alla tjänster** längst upp i den vänstra navigeringspanelen. I följande översikt den **Azure Active Directory** länken finns i den **identitet** kan du söka efter avsnitt eller med hjälp av filter-textrutan.
+    > Om elementet inte ska vara tillgängligt kan det också öppnas via länken fasta **alla tjänster** överst i den vänstra navigerings panelen. I följande översikt finns **Azure Active Directory** länken i avsnittet **identitet** eller också kan den sökas i med hjälp av text rutan filter.
 
 2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
@@ -82,9 +82,9 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med lokal SharePoint 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera enkel inloggning för lokal SharePoint](#configure-sharepoint-on-premises-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Skapa en Azure AD-säkerhetsgrupp i Azure-portalen](#create-an-azure-ad-security-group-in-the-azure-portal)**  – om du vill aktivera en ny säkerhetsgrupp i Azure AD för enkel inloggning.
-5. **[Bevilja åtkomst till SharePoint-lokal säkerhetsgrupp](#grant-access-to-sharepoint-on-premises-security-group)**  – bevilja åtkomst för en viss grupp till Azure AD.
-6. **[Tilldela Azure AD-säkerhetsgruppen i Azure-portalen](#assign-the-azure-ad-security-group-in-the-azure-portal)**  – om du vill tilldela gruppen till Azure AD för autentisering.
+4. **[Skapa en Azure AD-säkerhetsgrupp i Azure Portal](#create-an-azure-ad-security-group-in-the-azure-portal)** -om du vill aktivera en ny säkerhets grupp i Azure AD för enkel inloggning.
+5. **[Bevilja åtkomst till SharePoint lokal säkerhets grupp](#grant-access-to-sharepoint-on-premises-security-group)** – bevilja åtkomst för viss grupp till Azure AD.
+6. **[Tilldela Azure AD-säkerhetsgruppen i Azure Portal](#assign-the-azure-ad-security-group-in-the-azure-portal)** – för att tilldela den aktuella gruppen till Azure AD för autentisering.
 7. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -143,7 +143,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med lokal S
 
 ### <a name="configure-sharepoint-on-premises-single-sign-on"></a>Konfigurera enkel inloggning för lokal SharePoint
 
-1. I ett annat webbläsarfönster, loggar du in till SharePoint-webbplatsen lokala företag som administratör.
+1. Logga in på din lokala företags webbplats som administratör i ett annat webbläsarfönster.
 
 2. **Konfigurera en ny betrodd identitetsprovider i SharePoint Server 2016**
 
@@ -201,14 +201,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`  
+    b. I fältet **användar namn** anger du`brittasimon@yourcompanydomain.extension`  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Skapa en Azure AD-säkerhetsgrupp i Azure portal
+### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Skapa en Azure AD-säkerhetsgrupp i Azure Portal
 
 1. Klicka på **Azure Active Directory > alla grupper**.
 
@@ -218,92 +218,92 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Skapa en Azure AD-säkerhetsgrupp](./media/sharepoint-on-premises-tutorial/newgroup.png)
 
-3. Fyll i **grupptyp**, **gruppnamn**, **Gruppbeskrivning**, **Medlemskapstyp**. Klicka på pilen för att välja medlemmar, och sedan söka efter eller klicka på medlemmen som du vill lägga till i gruppen. Klicka på **Välj** för att lägga till de markerade medlemmarna, klicka sedan på **skapa**.
+3. Fyll i **grupp typ**, **grupp namn**, **grupp Beskrivning**, **medlemskaps typ**. Klicka på pilen för att välja medlemmar och Sök sedan efter eller klicka på den medlem som du vill lägga till i gruppen. Klicka på **Välj** för att lägga till de valda medlemmarna och klicka sedan på **skapa**.
 
     ![Skapa en Azure AD-säkerhetsgrupp](./media/sharepoint-on-premises-tutorial/addingmembers.png)
 
     > [!NOTE]
-    > För att kunna tilldela Azure Active Directory-säkerhetsgrupper till SharePoint lokalt, kan det vara nödvändigt att installera och konfigurera [AzureCP](https://yvand.github.io/AzureCP/) i en lokal SharePoint-servergrupp eller utveckla och konfigurera en alternativ anpassade anspråk Provider för SharePoint.  Se avsnittet med mer information i slutet av dokumentet för att skapa dina egna anpassade anspråksprovidern om du inte använder AzureCP.
+    > För att kunna tilldela Azure Active Directory säkerhets grupper till SharePoint lokalt är det nödvändigt att installera och konfigurera [AzureCP](https://yvand.github.io/AzureCP/) i den lokala SharePoint-servergruppen eller utveckla och konfigurera en alternativ anpassad anspråks leverantör för SharePoint.  Mer information finns i avsnittet Mer information i slutet av dokumentet för att skapa en egen kund anspråks leverantör, om du inte använder AzureCP.
 
-### <a name="grant-access-to-sharepoint-on-premises-security-group"></a>Bevilja åtkomst till SharePoint-lokal säkerhetsgrupp
+### <a name="grant-access-to-sharepoint-on-premises-security-group"></a>Bevilja åtkomst till SharePoint lokal säkerhets grupp
 
-**Konfigurera säkerhetsgrupper och behörigheter på Appregistreringen**
+**Konfigurera säkerhets grupper och behörigheter för appens registrering**
 
-1. I Azure-portalen väljer du **Azure Active Directory**och välj sedan **appregistreringar**.
+1. I Azure Portal väljer du **Azure Active Directory**och väljer sedan **Appregistreringar**.
 
     ![Bladet Företagsprogram](./media/sharepoint-on-premises-tutorial/appregistrations.png)
 
-2. Skriv i sökrutan och välj **lokal SharePoint-** .
+2. Skriv och välj **SharePoint lokalt**i rutan Sök.
 
     ![Lokal SharePoint i resultatlistan](./media/sharepoint-on-premises-tutorial/appsearch.png)
 
-3. Klicka på **Manifest**.
+3. Klicka på **manifest**.
 
-    ![Manifest alternativet](./media/sharepoint-on-premises-tutorial/manifest.png)
+    ![Manifest alternativ](./media/sharepoint-on-premises-tutorial/manifest.png)
 
-4. Ändra `groupMembershipClaims`: `NULL`till `groupMembershipClaims`: `SecurityGroup`. Klicka på Spara
+4. Ändra `groupMembershipClaims`: `NULL`, till `groupMembershipClaims`: .`SecurityGroup` Klicka sedan på Spara
 
-    ![Redigera Manifest](./media/sharepoint-on-premises-tutorial/manifestedit.png)
+    ![Redigera manifest](./media/sharepoint-on-premises-tutorial/manifestedit.png)
 
-5. Klicka på **inställningar**, klicka sedan på **behörigheter som krävs för**.
+5. Klicka på **Inställningar**och klicka sedan på **nödvändiga behörigheter**.
 
     ![Nödvändiga behörigheter](./media/sharepoint-on-premises-tutorial/settings.png)
 
-6. Klicka på **lägga till** och sedan **Välj en API**.
+6. Klicka på **Lägg till** och **Välj sedan ett API**.
 
     ![API-åtkomst](./media/sharepoint-on-premises-tutorial/required_permissions.png)
 
-7. Lägga till båda **Windows Azure Active Directory** och **Microsoft Graph API**, men det går bara att välja en i taget.
+7. Lägg till både **Windows Azure Active Directory** och **Microsoft Graph API**, men det går bara att välja ett i taget.
 
-    ![Välj API](./media/sharepoint-on-premises-tutorial/permissions.png)
+    ![API-val](./media/sharepoint-on-premises-tutorial/permissions.png)
 
-8. Välj Windows Azure Active Directory, kontrollera läsa kataloginformation och klicka på Välj. Gå tillbaka och lägga till Microsoft Graph och välja läsa kataloginformation för den, samt.  Klicka på Välj och klicka på klar.
+8. Välj Windows Azure Active Directory, kontrol lera Läs katalog data och klicka på Välj. Gå tillbaka och Lägg till Microsoft Graph och välj Läs katalog data för den även.  Klicka på Välj och på färdig.
 
     ![Aktivera åtkomst](./media/sharepoint-on-premises-tutorial/readpermission.png)
 
-9. Nu under krävs inställningar klickar du på **bevilja** och sedan klicka på Ja om du vill bevilja behörigheter.
+9. Klicka på **bevilja behörigheter** under obligatoriska inställningar och klicka sedan på Ja för att bevilja behörigheter.
 
     ![Bevilja behörigheter](./media/sharepoint-on-premises-tutorial/grantpermission.png)
 
     > [!NOTE]
-    > Kontrollera under meddelanden att avgöra om behörigheterna som har beviljats.  Om de inte är AzureCP fungerar inte och det går inte att konfigurera lokal SharePoint med Azure Active Directory-säkerhetsgrupper.
+    > Kontrol lera under aviseringar för att avgöra om behörigheterna har beviljats.  Om de inte gör det fungerar inte AzureCP korrekt och det går inte att konfigurera SharePoint lokalt med Azure Active Directory säkerhets grupper.
 
-10. Konfigurera AzureCP på en lokal SharePoint-servergruppen eller alternativa anpassade anspråk providern lösning.  I det här exemplet använder vi AzureCP.
+10. Konfigurera AzureCP på den lokala SharePoint-gruppen eller en annan lösning för anspråks leverantörer.  I det här exemplet använder vi AzureCP.
 
     > [!NOTE]
-    > Observera att AzureCP är inte en Microsoft-produkt eller stöds av Microsofts tekniska Support. Hämta, installera och konfigurera AzureCP på en lokal SharePoint-servergruppen per https://yvand.github.io/AzureCP/ 
+    > Observera att AzureCP inte är en Microsoft-produkt eller som stöds av Microsofts tekniska support. Hämta, installera och konfigurera AzureCP i den lokala SharePoint-servergruppen per https://yvand.github.io/AzureCP/ 
 
-11. **Bevilja åtkomst till den Azure Active Directory-säkerhetsgrupp i en lokal SharePoint** :-gruppen måste beviljas åtkomst till programmet i lokal SharePoint.  Använd följande steg för att ange behörighet för att få åtkomst till webbprogrammet.
+11. **Bevilja åtkomst till Azure Active Directory säkerhets grupp i den lokala SharePoint-gruppen** :-grupperna måste beviljas åtkomst till programmet i SharePoint lokalt.  Använd följande steg för att ange åtkomst behörighet till webb programmet.
 
-12. Klicka på programhantering, hantera webbprogram och välj webbprogram för att aktivera menyfliksområdet och klicka på användarprincip i Central Administration.
+12. I Central Administration klickar du på program hantering, hanterar webb program och väljer sedan webb programmet för att aktivera menyfliksområdet och klickar på användar princip.
 
-    ![Central Administration](./media/sharepoint-on-premises-tutorial/centraladministration.png)
+    ![Central administration](./media/sharepoint-on-premises-tutorial/centraladministration.png)
 
-13. Under princip för webbprogram, klickar du på Lägg till användare och sedan välja zonen, klicka på Nästa.  Klicka på adressboken.
+13. Under princip för webb program klickar du på Lägg till användare och väljer sedan zonen. Klicka sedan på Nästa.  Klicka på adress boken.
 
-    ![Princip för webbprogram](./media/sharepoint-on-premises-tutorial/webapp-policy.png)
+    ![Princip för webb program](./media/sharepoint-on-premises-tutorial/webapp-policy.png)
 
-14. Sedan söka efter och lägga till den Azure Active Directory-säkerhetsgrupp och klicka på OK.
+14. Sök sedan efter och Lägg till säkerhets gruppen Azure Active Directory och klicka på OK.
 
-    ![Lägger till säkerhetsgrupp](./media/sharepoint-on-premises-tutorial/securitygroup.png)
+    ![Lägger till säkerhets grupp](./media/sharepoint-on-premises-tutorial/securitygroup.png)
 
-15. Välj behörigheterna och klicka på Slutför.
+15. Välj behörigheter och klicka sedan på Slutför.
 
-    ![Lägger till säkerhetsgrupp](./media/sharepoint-on-premises-tutorial/permissions1.png)
+    ![Lägger till säkerhets grupp](./media/sharepoint-on-premises-tutorial/permissions1.png)
 
-16. Se under princip för webbprogram, Azure Active Directory-grupper har lagts till.  Gruppanspråket visas i Azure Active Directory Security gruppobjekt-ID för användarnamnet.
+16. I under princip för webb program läggs gruppen Azure Active Directory till.  Grupp anspråket visar Azure Active Directory säkerhets grupp objekt-ID för användar namnet.
 
-    ![Lägger till säkerhetsgrupp](./media/sharepoint-on-premises-tutorial/addgroup.png)
+    ![Lägger till säkerhets grupp](./media/sharepoint-on-premises-tutorial/addgroup.png)
 
-17. Bläddra till SharePoint-webbplatssamling och Lägg till gruppen det, samt. Klicka på inställningar och sedan på plats och bevilja behörigheter.  Sök efter grupp rollanspråk, tilldela behörighetsnivån och klicka på Dela.
+17. Bläddra till SharePoint-webbplatssamling och Lägg till gruppen där. Klicka på plats inställningar och klicka sedan på webbplats behörigheter och bevilja behörigheter.  Sök efter grupp Rolls anspråket, tilldela behörighets nivån och klicka på dela.
 
-    ![Lägger till säkerhetsgrupp](./media/sharepoint-on-premises-tutorial/grantpermission1.png)
+    ![Lägger till säkerhets grupp](./media/sharepoint-on-premises-tutorial/grantpermission1.png)
 
 ### <a name="configuring-one-trusted-identity-provider-for-multiple-web-applications"></a>Konfigurera en betrodd identitetsprovider för flera webbprogram
 
 Konfigurationen fungerar för en enkel webbapp, men ytterligare konfiguration krävs om du planerar att använda samma betrodda identitetsprovider för flera webbprogram. Anta exempelvis att vi hade utökat ett webbprogram till att använda URL:en `https://portal.contoso.local` och nu också vill autentisera användare till `https://sales.contoso.local`. För att göra det så måste vi uppdatera identitetsprovider för att respektera parametern WReply och uppdatera programregistreringen i Azure AD för att lägga till en svars-URL.
 
-1. Öppna Azure AD-katalog i Azure-portalen. Klicka på **Appregistreringar** och därefter på **Visa alla program**. Klicka på det program som du skapade tidigare (SharePoint SAML-integrering).
+1. Öppna Azure AD-katalogen i Azure Portal. Klicka på **Appregistreringar** och därefter på **Visa alla program**. Klicka på det program som du skapade tidigare (SharePoint SAML-integrering).
 
 2. Klicka på **Inställningar**.
 
@@ -324,7 +324,7 @@ Konfigurationen fungerar för en enkel webbapp, men ytterligare konfiguration kr
 
 ### <a name="fixing-people-picker"></a>Åtgärda personväljaren
 
-Användare kan nu logga in på SharePoint 2016 med hjälp av identiteter från Azure AD, men det finns fortfarande möjligheter till förbättring av användarupplevelsen. Om du till exempel söker efter en användare så visas flera sökresultat i personväljaren. Det finns ett sökresultat för var och en av de 3 anspråkstyperna som skapades i anspråksmappningen. Om du vill välja en användare med personväljaren så måste du ange deras användarnamn exakt och välja anspråksresultatet **Name**.
+Användare kan nu logga in på SharePoint 2016 med identiteter från Azure AD, men det finns fortfarande möjligheter att förbättra användar upplevelsen. Om du till exempel söker efter en användare så visas flera sökresultat i personväljaren. Det finns ett sökresultat för var och en av de 3 anspråkstyperna som skapades i anspråksmappningen. Om du vill välja en användare med personväljaren så måste du ange deras användarnamn exakt och välja anspråksresultatet **Name**.
 
 ![Anspråkssökresultat](./media/sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
 
@@ -332,7 +332,7 @@ Det finns ingen validering på de värden som du söker efter, vilket kan leda t
 
 För att hjälpa till vid det här scenariot så finns det en öppen källkodslösning som heter [AzureCP](https://yvand.github.io/AzureCP/) som ger en anpassad anspråksprovider för SharePoint 2016. Den använder Azure AD Graph för att matcha vad användare skriver in och utföra validering. Läs mer på [AzureCP](https://yvand.github.io/AzureCP/).
 
-### <a name="assign-the-azure-ad-security-group-in-the-azure-portal"></a>Tilldela Azure AD-säkerhetsgruppen i Azure portal
+### <a name="assign-the-azure-ad-security-group-in-the-azure-portal"></a>Tilldela Azure AD-säkerhetsgruppen i Azure Portal
 
 1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och därefter **lokal SharePoint**.
 
@@ -346,16 +346,16 @@ För att hjälpa till vid det här scenariot så finns det en öppen källkodsl�
 
     ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på den **Lägg till användare**.
+4. Klicka på **Lägg till användare**.
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. Sök efter den säkerhetsgrupp som du vill använda, och sedan klicka på gruppen för att lägga till den i avsnittet väljer medlemmar. Klicka på **Välj**, klicka sedan på **tilldela**.
+5. Sök efter den säkerhets grupp du vill använda och klicka sedan på gruppen för att lägga till den i avsnittet Välj medlemmar. Klicka på **Välj**och sedan på **tilldela**.
 
-    ![Sök säkerhetsgrupp](./media/sharepoint-on-premises-tutorial/securitygroup1.png)
+    ![Sök säkerhets grupp](./media/sharepoint-on-premises-tutorial/securitygroup1.png)
 
     > [!NOTE]
-    > Kontrollera meddelandena på menyraden meddelas att gruppen har tilldelats till företagsprogram i Azure-portalen.
+    > Kontrol lera meddelandena i meny raden för att meddelas att gruppen har tilldelats till företags programmet i Azure Portal.
 
 ### <a name="create-sharepoint-on-premises-test-user"></a>Skapa lokal SharePoint-testanvändare
 

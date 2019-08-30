@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 34ec7c678410b2e0814f8dbb7a69257886cb891d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9fdbf3466256c5e24de17541770fa2095fcf38a4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639152"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171090"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Lägg till en Azure Storage Queue-bindning till python-funktionen
 
@@ -57,7 +57,7 @@ I functions kräver varje typ av bindning att a `direction`, a `type`, och en un
 
 Om du vill skapa en bindning lägger du till ett bindnings konfigurations objekt i function. JSON-filen. Redigera filen function. json i mappen HttpTrigger för att lägga till ett objekt i `bindings` matrisen som har följande egenskaper:
 
-| Egenskap | Värde | Beskrivning |
+| Egenskap | Value | Beskrivning |
 | -------- | ----- | ----------- |
 | **`name`** | `msg` | Namnet som identifierar bindnings parametern som refereras i din kod. |
 | **`type`** | `queue` | Bindningen är en Azure Storage Queue-bindning. |
@@ -194,7 +194,7 @@ Du kan kontrol lera [lagrings köns meddelande](#query-the-storage-queue) för a
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagrings kö. Mer information om hur du utvecklar Azure Functions med python finns i [Azure Functions python Developer Guide](functions-reference-python.md) och [Azure Functions utlösare och bindningar](functions-triggers-bindings.md).
+Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagrings kö. Mer information om hur du utvecklar Azure Functions med python finns i [Azure Functions python Developer Guide](functions-reference-python.md) och [Azure Functions utlösare och bindningar](functions-triggers-bindings.md). Exempel på kompletta funktions projekt i python finns i exempel på [python-funktioner](/samples/browse/?products=azure-functions&languages=python). 
 
 Sedan bör du aktivera Application Insights övervakning för din Function-app:
 

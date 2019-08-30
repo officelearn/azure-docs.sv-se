@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: daea1415c42960970d097753bc657392d4e1a1f4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
-ms.translationtype: HT
+ms.openlocfilehash: fd8abf81589f3338f9e45c6c1d23681269ccc654
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137263"
+ms.locfileid: "70164843"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>Snabbstart: Visuellt innehåll klient bibliotek för Java
 
@@ -142,6 +142,9 @@ Börja med att skapa en **resurs/** mapp i ditt projekts **src/main/-** mapp och
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
 
+> [!NOTE]
+> Du kan också analysera en fjärran sluten avbildning med hjälp av dess URL. Se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) för scenarier som rör fjärranslutna avbildningar.
+
 ### <a name="specify-visual-features"></a>Ange visuella funktioner
 
 Ange sedan vilka visuella funktioner du vill extrahera i analysen. Se [VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable) -uppräkningen för en fullständig lista.
@@ -149,17 +152,59 @@ Ange sedan vilka visuella funktioner du vill extrahera i analysen. Se [VisualFea
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
 ### <a name="analyze"></a>Analysera
-Den här metoden skriver ut detaljerade resultat till-konsolen för varje omfång av bild analys. Vi rekommenderar att du omger det här metod anropet i ett try/catch-block
+Den här metoden skriver ut detaljerade resultat till-konsolen för varje omfång av bild analys. Vi rekommenderar att du omger det här metod anropet i ett try/catch-block. Metoden **analyzeImageInStream** returnerar ett **ImageAnalysis** -objekt som innehåller all extraherad information.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
 
-### <a name="display-results"></a>Visa resultat
+I följande avsnitt visas hur du kan analysera den här informationen i detalj.
 
-Metod anropet ovan returnerar ett ImageAnalysis-objekt som innehåller all extraherad information. Du kan använda ett kodblock som följande för att skriva ut information om en specifik visuell funktion.
+### <a name="get-image-description"></a>Beskrivning av Hämta avbildning
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_display)]
+Följande kod hämtar listan över genererade under texter för avbildningen. Se [Beskriv avbildningar](../concept-describing-images.md) för mer information.
 
-En fullständig uppsättning visnings alternativ finns i exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) .
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
+
+### <a name="get-image-category"></a>Hämta bild kategori
+
+Följande kod hämtar den identifierade kategorin för avbildningen. Se [kategorisera bilder](../concept-categorizing-images.md) för mer information.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
+
+### <a name="get-image-tags"></a>Hämta bild etiketter
+
+Följande kod hämtar en uppsättning identifierade Taggar i avbildningen. Se [innehålls etiketter](../concept-tagging-images.md) för mer information
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
+
+### <a name="get-faces"></a>Hämta ansikten
+
+Följande kod returnerar identifierade ansikten i bilden med deras Rectangle-koordinater och välj ansikts attribut. Mer information finns i [ansikts igenkänning](../concept-detecting-faces.md) .
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
+
+### <a name="get-adult-or-racy-content"></a>Hämta vuxen eller vågat innehåll
+
+Följande kod skriver ut den identifierade förekomsten av vuxen eller vågat innehåll i avbildningen. Se [vuxen och vågatt innehåll](../concept-detecting-adult-content.md) för mer information.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
+
+### <a name="get-image-color-scheme"></a>Hämta färg schema för bild
+
+Följande kod skriver ut de identifierade färgattributen i bilden, till exempel dominerande färger och dekor färg. Se [färg scheman](../concept-detecting-color-schemes.md) för mer information.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
+
+### <a name="get-domain-specific-content"></a>Hämta domänbaserat innehåll
+
+Visuellt innehåll kan använda specialiserad modell för att utföra ytterligare analyser av avbildningar. Se [domänbaserat innehåll](../concept-detecting-domain-content.md) för mer information. 
+
+Följande kod tolkar data om identifierade kändisar i avbildningen.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_celebrities)]
+
+Följande kod tolkar data om identifierade landmärken i bilden.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
 
 ## <a name="run-the-application"></a>Köra programmet
 

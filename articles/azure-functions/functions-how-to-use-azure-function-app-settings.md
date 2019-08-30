@@ -1,26 +1,37 @@
 ---
-title: Konfigurera inställningar för Azure-Funktionsapp | Microsoft Docs
+title: Konfigurera Function app-inställningar i Azure
 description: Lär dig hur du konfigurerar inställningar för Azure Function-appar.
 author: ggailey777
 manager: gwallace
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 08/14/2019
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 27e56c3bcaa08fee25c362cdfed64c61b92873cb
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 7ad7f6156bbd8ea86e3e71bda4b23dac9722a0ef
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982660"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170744"
 ---
-# <a name="how-to-manage-a-function-app"></a>Så här hanterar du en Function-app
+# <a name="manage-your-function-app"></a>Hantera din Function-app 
 
-I Azure Functions tillhandahåller en Function-app körnings kontexten för dina enskilda funktioner. Function-appens beteenden gäller för alla funktioner som finns i en specifik Function-app. I det här avsnittet beskrivs hur du konfigurerar och hanterar dina funktions program i Azure Portal.
+I Azure Functions tillhandahåller en Function-app körnings kontexten för dina enskilda funktioner. Function-appens beteenden gäller för alla funktioner som finns i en specifik Function-app. Alla funktioner i en Function-app måste vara av samma [språk](supported-languages.md). 
 
-Börja genom att gå till [Azure Portal](https://portal.azure.com) och logga in på ditt Azure-konto. I sökfältet längst upp i portalen skriver du namnet på din funktionsapp. Välj den sedan i listan. När du har valt appen funktion visas följande sida:
+Enskilda funktioner i en Function-app distribueras tillsammans och skalas tillsammans. Alla funktioner i samma Function-app delar resurser, per instans, som Function-appen skalar. 
+
+Anslutnings strängar, miljövariabler och andra program inställningar definieras separat för varje Function-app. Alla data som måste delas mellan Functions-appar ska lagras externt i ett sparat lager.
+
+Den här artikeln beskriver hur du konfigurerar och hanterar dina Function-appar. 
+
+> [!TIP]  
+> Många konfigurations alternativ kan också hanteras med hjälp av [Azure CLI]. 
+
+## <a name="get-started-in-the-azure-portal"></a>Kom igång i Azure-portalen
+
+Börja genom att gå till [Azure Portal] och logga in på ditt Azure-konto. I sökfältet längst upp i portalen skriver du namnet på din funktionsapp. Välj den sedan i listan. När du har valt appen funktion visas följande sida:
 
 ![Översikt över Function-appen i Azure Portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
@@ -28,17 +39,37 @@ Du kan navigera till allt du behöver för att hantera din Function-app från ö
 
 ## <a name="settings"></a>Program inställningar
 
-Fliken **program inställningar** innehåller inställningar som används av din Function-app.
+Fliken **program inställningar** innehåller inställningar som används av din Function-app. De här inställningarna lagras krypterade och du måste välja **Visa värden** för att se värdena i portalen. Du kan också komma åt program inställningar med hjälp av Azure CLI.
+
+### <a name="portal"></a>Portalen
+
+Om du vill lägga till en inställning i portalen väljer du **ny program inställning** och lägger till det nya nyckel/värde-paret.
 
 ![Function app-inställningar i Azure Portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-De här inställningarna lagras krypterade och du måste välja **Visa värden** för att se värdena i portalen.
+### <a name="azure-cli"></a>Azure CLI
 
-Om du vill lägga till en inställning väljer du **ny program inställning** och lägger till det nya nyckel/värde-paret.
+[`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) Kommandot returnerar de befintliga program inställningarna, som i följande exempel:
+
+```azurecli-interactive
+az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME>
+```
+
+[`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) Kommandot lägger till eller uppdaterar en program inställning. I följande exempel skapas en inställning med en nyckel med `CUSTOM_FUNCTION_APP_SETTING` namnet och `12345`värdet:
+
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings CUSTOM_FUNCTION_APP_SETTING=12345
+```
+
+### <a name="use-application-settings"></a>Använd program inställningar
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-När du utvecklar en Function-app lokalt, underhålls dessa värden i den lokala. Settings. JSON-projektfilen.
+När du utvecklar en Function-app lokalt måste du upprätthålla lokala kopior av dessa värden i den lokala. Settings. JSON-projektfilen. Mer information finns i [filen med lokala inställningar](functions-run-local.md#local-settings-file).
 
 ## <a name="platform-features"></a>Plattformsfunktioner
 
@@ -49,7 +80,7 @@ Function-appar körs i och underhålls av Azure App Services plattformen. Därf�
 > [!NOTE]
 > Alla App Service funktioner är inte tillgängliga när en Function-App körs på förbruknings värd planen.
 
-Resten av det här avsnittet fokuserar på följande App Service funktioner i Azure Portal som är användbara för funktioner:
+Resten av den här artikeln fokuserar på följande App Service funktioner i Azure Portal som är användbara för funktioner:
 
 + [App Service redigerare](#editor)
 + [Konsol](#console)
@@ -57,67 +88,63 @@ Resten av det här avsnittet fokuserar på följande App Service funktioner i Az
 + [Distributions alternativ](#deployment)
 + [CORS](#cors)
 + [Autentisering](#auth)
-+ [API-definition](#swagger)
 
 Mer information om hur du arbetar med App Service inställningar finns i [konfigurera Azure App Service inställningar](../app-service/configure-common.md).
 
 ### <a name="editor"></a>App Service Editor
 
-| | |
-|-|-|
-| ![Function app App Service Editor.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | App Services redigeraren är en avancerad i-Portal-redigerare som du kan använda för att ändra JSON-konfigurationsfiler och kommandofiler. Om du väljer det här alternativet startas en separat flik i webbläsaren med en grundläggande redigerare. På så sätt kan du integrera med git-lagringsplatsen, köra och felsöka kod och ändra programmets inställningar. Den här redigeraren ger en förbättrad utvecklings miljö för dina funktioner jämfört med bladet standard program för funktion.    |
-
 ![App Service redigeraren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
+
+App Services redigeraren är en avancerad i-Portal-redigerare som du kan använda för att ändra JSON-konfigurationsfiler och kommandofiler. Om du väljer det här alternativet startas en separat flik i webbläsaren med en grundläggande redigerare. På så sätt kan du integrera med git-lagringsplatsen, köra och felsöka kod och ändra programmets inställningar. Den här redigeraren ger en förbättrad utvecklings miljö för dina funktioner jämfört med den inbyggda funktions redigeraren.  
+
+Vi rekommenderar att du tänker utveckla dina funktioner på den lokala datorn. När du utvecklar lokalt och publicerar till Azure är dina projektfiler skrivskyddade i portalen. Mer information finns i [kod-och test Azure Functions lokalt](functions-develop-local.md).
 
 ### <a name="console"></a>Konsolomdirigering
 
-| | |
-|-|-|
-| ![Function app-konsolen i Azure Portal](./media/functions-how-to-use-azure-function-app-settings/function-app-console.png) | Konsolen i-portalen är ett idealiskt utvecklingsverktyg när du föredrar att interagera med din Function-app från kommando raden. Vanliga kommandon är att skapa och navigera mellan kataloger och filer, samt att köra kommandofiler och skript. |
-
 ![Function app-konsol](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
+
+Konsolen i-portalen är ett idealiskt utvecklingsverktyg när du föredrar att interagera med din Function-app från kommando raden. Vanliga kommandon är att skapa och navigera mellan kataloger och filer, samt att köra kommandofiler och skript. 
+
+När du utvecklar lokalt rekommenderar vi att du använder [Azure Functions Core tools](functions-run-local.md) och [Azure CLI].
 
 ### <a name="kudu"></a>Avancerade verktyg (kudu)
 
-| | |
-|-|-|
-| ![Function app-kudu i Azure Portal](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | De avancerade verktygen för App Service (kallas även kudu) ger till gång till avancerade administrativa funktioner i din Function-app. Från kudu kan du hantera system information, appinställningar, miljövariabler, plats tillägg, HTTP-rubriker och servervariabler. Du kan också starta **kudu** genom att bläddra till SCM-slutpunkten för din Function-app, t. ex.`https://<myfunctionapp>.scm.azurewebsites.net/` |
-
 ![Konfigurera kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
-
-### <a name="a-namedeploymentdeployment-options"></a><a name="deployment">Distributions alternativ
-
-| | |
-|-|-|
-| ![Funktions program distributions alternativ i Azure Portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Med Functions kan du utveckla din funktions kod på den lokala datorn. Sedan kan du ladda upp ditt lokala Function-appaket till Azure. Förutom traditionell FTP-uppladdning kan du distribuera din Function-app med populära lösningar för kontinuerlig integrering, t. ex. GitHub, Azure DevOps, Dropbox, BitBucket och andra. Mer information finns i [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md). Om du vill ladda upp manuellt med FTP eller lokal git måste du också [Konfigurera autentiseringsuppgifterna för distributionen](functions-continuous-deployment.md#credentials). |
+De avancerade verktygen för App Service (kallas även kudu) ger till gång till avancerade administrativa funktioner i din Function-app. Från kudu kan du hantera system information, appinställningar, miljövariabler, plats tillägg, HTTP-rubriker och servervariabler. Du kan också starta **kudu** genom att bläddra till SCM-slutpunkten för din Function-app, t. ex.`https://<myfunctionapp>.scm.azurewebsites.net/` 
 
 
-### <a name="cors"></a>CORS
+### <a name="deployment"></a>Distributions Center
 
-| | |
-|-|-|
-| ![Function app CORS i Azure Portal](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | För att förhindra körning av skadlig kod i dina tjänster, App Service blockerar dina funktions program från externa källor. Functions stöder resurs delning mellan ursprung (CORS) så att du kan definiera en "vitlista" av tillåtna ursprung som dina funktioner kan använda för att acceptera fjärrbegäranden.  |
+När du använder en käll kontroll lösning för att utveckla och underhålla din funktions kod kan du skapa och distribuera från käll kontroll i Deployment Center. Ditt projekt skapas och distribueras till Azure när du gör uppdateringar. Mer information finns [i distributions tekniker i Azure Functions](functions-deployment-technologies.md).
 
-![Konfigurera Funktionsapps CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
+### <a name="cors"></a>Resurs delning mellan ursprung
+
+För att förhindra körning av skadlig kod på klienten blockerar moderna webbläsare förfrågningar från webb program till resurser som körs i en separat domän. Med [resurs delning mellan ursprung (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) kan en `Access-Control-Allow-Origin` rubrik deklarera vilka ursprung som får anropa slut punkter i din Function-app.
+
+#### <a name="portal"></a>Portalen
+
+När du konfigurerar listan över **tillåtna ursprung** för din Function- `Access-Control-Allow-Origin` app läggs rubriken automatiskt till i alla svar från http-slutpunkter i din Function-app. 
+
+![Konfigurera CORS-listan för Function-appen](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
+
+När jokertecknet (`*`) används ignoreras alla andra domäner. 
+
+[`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) Använd kommandot för att lägga till en domän i listan över tillåtna ursprung. I följande exempel läggs contoso.com-domänen till:
+
+```azurecli-interactive
+az functionapp cors add --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--allowed-origins https://contoso.com
+```
+
+[`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) Använd kommandot för att visa en lista över aktuella tillåtna ursprung.
 
 ### <a name="auth"></a>Anspråksautentisering
 
-| | |
-|-|-|
-| ![Function app-autentisering i Azure Portal](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | När funktioner använder en HTTP-utlösare kan du kräva att anrop först ska autentiseras. App Service stöder Azure Active Directory autentisering och logga in med sociala leverantörer, till exempel Facebook, Microsoft och Twitter. Mer information om hur du konfigurerar vissa autentiseringsproviders finns i [Översikt över Azure App Service autentisering](../app-service/overview-authentication-authorization.md). |
-
 ![Konfigurera autentisering för en Function-app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
-
-### <a name="swagger"></a>API-definition
-
-| | |
-|-|-|
-| ![Swagger-definition för Function app API i Azure Portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions har stöd för Swagger som gör det lättare för klienter att använda HTTP-utlösta funktioner. Mer information om hur du skapar API-definitioner med Swagger finns [i värd a RESTful API with CORS i Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). Du kan också använda Functions-proxyservrar för att definiera en enskild API-yta för flera funktioner. Mer information finns i [arbeta med Azure Functions-proxyservrar](functions-proxies.md). |
-
-![Konfigurera Funktionsapp s API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
-
+När funktioner använder en HTTP-utlösare kan du kräva att anrop först ska autentiseras. App Service stöder Azure Active Directory autentisering och inloggning med sociala leverantörer, till exempel Facebook, Microsoft och Twitter. Mer information om hur du konfigurerar vissa autentiseringsproviders finns i [Översikt över Azure App Service autentisering](../app-service/overview-authentication-authorization.md). 
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -125,5 +152,5 @@ Mer information om hur du arbetar med App Service inställningar finns i [konfig
 + [Konfigurera Azure App Service inställningar](../app-service/configure-common.md)
 + [Löpande distribution för Azure Functions](functions-continuous-deployment.md)
 
-
-
+[Azure CLI]: /cli/azure/
+[Azure Portal]: https://portal.azure.com

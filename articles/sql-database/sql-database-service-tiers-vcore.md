@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 06/26/2019
-ms.openlocfilehash: c35863ed1d564adf4190efa1888d24f4f4f68ddf
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
-ms.translationtype: HT
+ms.date: 08/29/2019
+ms.openlocfilehash: 4af269faab21207e1a754e309cac16e5e0a94b69
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147858"
+ms.locfileid: "70164348"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Välj bland vCore-tjänst nivåerna och migrera från DTU-tjänstens nivåer
 
 Med den virtuella Core-baserade inköps modellen (vCore) kan du skala beräknings-och lagrings resurser oberoende av varandra, matcha lokala prestanda och optimera priset. Du kan också välja att skapa maskin vara:
 
-- **Gen4**: Upp till 24 logiska processorer baserade på Intel E5-2673 v3 (Haswell) 2,4-GHz-processorer, vCore = 1 PP (fysisk kärna), 7 GB per kärna, kopplat SSD
-- **Gen5**: Upp till 80 logiska processorer baserade på Intel E5-2673 v4 (Broadwell) 2,3-GHz-processorer, vCore = 1 LP (Hyper-Thread), 5,1 GB per kärna, snabb eNVM SSD
+- **Gen4**: Upp till 24 logiska processorer baserade på Intel E5-2673 v3 (Haswell) 2,4-GHz-processorer, vCore = 1 PP (fysisk kärna), 7 GB per vCore, kopplat SSD
+- **Gen5**: Upp till 80 logiska processorer baserade på Intel E5-2673 v4 (Broadwell) 2,3-GHz-processorer, vCore = 1 LP (Hyper-Thread), 5,1 GB per vCore för etablerad beräkning och upp till 24 GB per vCore för Server lös beräkning, snabb eNVM SSD
 
 Gen4-maskinvara erbjuder betydligt mer minne per vCore. Med Gen5 maskin vara kan du dock skala upp beräknings resurserna mycket högre.
 
@@ -44,9 +44,9 @@ I följande tabell förklaras skillnaderna mellan de tre nivåerna:
 |---|---|---|---|
 |Passar bäst|De flesta företags arbets belastningar. Erbjuder budget orienterade, balanserade och skalbara beräknings-och lagrings alternativ.|Affärs program med höga I/O-krav. Ger högsta möjliga återhämtning till problem genom att använda flera isolerade repliker.|De flesta företags arbets belastningar med mycket skalbara lagrings-och Läs skalnings krav.|
 |Compute|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor<br/>**Server lös beräkning**:<br/>Gen5 0,5 – 16 virtuella kärnor|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor|
-|Minne|**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore<br/>**Server lös beräkning**:<br/>Gen5 3 GB per vCore|**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore |**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore|
-|Storage|Använder Fjärrlagring.<br/>**Allokerad data bearbetning för enskild databas**:<br/>5 GB – 4 TB<br/>**Beräkning av Server lös enkel databas**:<br/>5 GB-1 TB<br/>**Hanterad instans**: 32 GB - 8 TB |Använder lokal SSD-lagring.<br/>**Allokerad data bearbetning för enskild databas**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
-|I/O-genomflöde (ungefärligt)|**Enkel databas**: 500 IOPS per vCore med 7000 högsta IOPS.<br/>**Hanterad instans**: Beror på [fil storleken](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per kärna med 200 000 högsta IOPS|Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPs är beroende av arbets belastningen.|
+|Minne|**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore<br/>**Server lös beräkning**:<br/>Gen5 Upp till 24 GB per vCore|**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore |**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore|
+|Storage|Använder Fjärrlagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Server lös beräkning**:<br/>5 GB-3 TB<br/>**Hanterad instans**: 32 GB - 8 TB |Använder lokal SSD-lagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
+|I/O-genomflöde (ungefärligt)|**Enkel databas och elastisk pool**: 500 IOPS per vCore upp till 40000 högsta IOPS.<br/>**Hanterad instans**: Beror på [fil storleken](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per kärna upp till 200 000 maximal IOPS|Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPs är beroende av arbets belastningen.|
 |Tillgänglighet|1 replik, inga storskaliga repliker|3 repliker, 1 [storskalig replik](sql-database-read-scale-out.md),<br/>zon-redundant hög tillgänglighet (HA)|1 Läs-och skriv replik, plus [](sql-database-read-scale-out.md) 0-4 storskalig repliker|
 |Säkerhetskopior|[Geo-redundant lagring med Läs behörighet (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|Ögonblicks bilds säkerhets kopieringar i Azure Remote Storage. Återställningar använder dessa ögonblicks bilder för snabb återställning. Säkerhets kopieringar är omedelbara och påverkar inte beräknings-I/O-prestanda. Återställningar är snabba och är inte en storleks data åtgärd (tar några minuter i stället för timmar eller dagar).|
 |Minnesintern|Stöds inte|Stöds|Stöds inte|

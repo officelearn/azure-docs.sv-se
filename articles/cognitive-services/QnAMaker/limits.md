@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b90b4806e86ed0ba33500cf31a6ed892241ceabe
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 27526f4940cb7ab538992f3506c1a35a81cec9bc
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423450"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165013"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker kunskapsbas begränsningar och gränser
 
@@ -44,19 +44,31 @@ Det maximala antalet djup länkar som kan crawlas för extrahering av kring frå
 
 ## <a name="metadata-limits"></a>Metadata-gränser
 
+### <a name="by-azure-search-pricing-tier"></a>Per Azure Search pris nivå
+
 Det maximala antalet metadata-fält per kunskaps bas baseras på **[Azure Search nivå gränser](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
 
 |**Azure Search-nivå** | **Kostnadsfri** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Maximal metadatafält per QnA Maker-tjänsten (över alla KB-artiklar)|1,000|100 *|1,000|1,000|1,000|1,000|
 
+### <a name="by-name-and-value"></a>Efter namn och värde
+
+Längden på och godkända tecken för namn och värde för metadata visas i följande tabell.
+
+|Objekt|Tillåtna tecken|Matchning av regex-mönster|Max tecken|
+|--|--|--|--|
+|Name|Innebär<br>alfanumeriskt (bokstäver och siffror)<br>`_`under streck|`^[a-zA-Z0-9_]+$`|100|
+|Value|Tillåter allt utom<br>`:`kolon<br>`|`(lodrät pipe)|`^[^:|]+$`|500|
+|||||
+
 ## <a name="knowledge-base-content-limits"></a>Gränser för kunskapsbas
 Övergripande gränser för innehållet i kunskapsbasen:
 * Svars textens längd: 25,000
 * Längd på frågetext: 1,000
 * Längd på nyckel/värde-text för metadata: 100
-* Tecken som stöds för metadata: Alfabet, siffror och _  
-* Tecken som stöds för metadata-värde: Alla utom: och | 
+* Tecken som stöds för metadata: Alfabet, siffror och`_`  
+* Tecken som stöds för metadata-värde: Alla utom `:` och`|` 
 * Fil namnets längd: 200
 * Filformat som stöds: ”TSV”, ”.pdf”, ”.txt”, ”.docx”, ”.xlsx”.
 * Maximalt antal alternativa frågor: 300

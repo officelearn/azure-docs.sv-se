@@ -1,8 +1,6 @@
 ---
 title: Skapa en HTTP-utlöst funktion i Azure
 description: Lär dig hur du skapar din första Python-funktion i Azure med hjälp av Azure Functions Core Tools och Azure CLI.
-services: functions
-keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 04/24/2019
@@ -10,13 +8,13 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
-manager: jeconnoc
-ms.openlocfilehash: 5b90702f89af260a67b69bf96c2e079a45298723
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+manager: gwallace
+ms.openlocfilehash: cb7f5a10169c8baaecae0fc1916a439d61bfbf7c
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575440"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170883"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Skapa en HTTP-utlöst funktion i Azure
 
@@ -28,7 +26,7 @@ Den här artikeln är den första av två snabb starter för Azure Functions. N�
 
 Innan du börjar måste du ha följande:
 
-+ Installera [Python 3.6](https://www.python.org/downloads/).
++ Installera [python 3.6. x](https://www.python.org/downloads/).
 
 + Installera [Azure Functions Core tools](./functions-run-local.md#v2) version 2.7.1575 eller en senare version.
 
@@ -104,7 +102,7 @@ En undermapp med namnet _HttpTrigger_ skapas, som innehåller följande filer:
 
 Följande kommando startar Function-appen, som körs lokalt med samma Azure Functions-körning som finns i Azure.
 
-```bash
+```console
 func host start
 ```
 
@@ -134,7 +132,7 @@ Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-        HttpTrigger: http://localhost:7071/api/MyHttpTrigger
+        HttpTrigger: http://localhost:7071/api/HttpTrigger
 
 [8/27/2018 10:38:27 PM] Host started (29486ms)
 [8/27/2018 10:38:27 PM] Job host started
@@ -168,7 +166,33 @@ Det här kommandot etablerar även en associerad Azure Application insikts-insta
 
 Nu är du redo att publicera ditt lokala Functions-projekt till Function-appen i Azure.
 
-[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
+## <a name="deploy-the-function-app-project-to-azure"></a>Distribuera funktionsapprojektet till Azure
+
+När du har skapat Function-appen i Azure kan du använda [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) kommandot Core Tools för att distribuera projekt koden till Azure. I de här exemplen `<APP_NAME>` ersätter du med namnet på din app från föregående steg.
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
+
+`--build remote` Alternativet skapar ett fjärran slutet python-projekt i Azure från filerna i distributions paketet. 
+
+Du ser utdata som liknar följande, som har trunkerats för läsbarhet:
+
+```output
+Getting site publishing info...
+...
+
+Preparing archive...
+Uploading content...
+Upload completed successfully.
+Deployment completed successfully.
+Syncing triggers...
+Functions in myfunctionapp:
+    HttpTrigger - [httpTrigger]
+        Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
+```
+
+Kopiera värdet för din `HttpTrigger`, som du nu kan använda för att testa din funktion i Azure. `Invoke url` URL: en innehåller `code` ett sträng värde för frågan som är din funktions nyckel. Den här nyckeln gör det svårt för andra att anropa en slut punkt för HTTP-utlösare i Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

@@ -1,22 +1,20 @@
 ---
 title: Snabb start – skapa en BLOB i Azure Storage med hjälp av Java Script och HTML i webbläsaren
-description: Lär dig använda en instans av BlobService och överföra, lista och ta bort blobar med hjälp av JavaScript på en HTML-sida.
+description: Lär dig att ladda upp, lista och ta bort blobar med hjälp av Java Script på en HTML-sida.
 services: storage
-keywords: storage, javascript, html
 author: KarlErickson
 ms.custom: mvc
 ms.service: storage
 ms.author: karler
-ms.reviewer: seguler
-ms.date: 05/20/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: ea5dfe2261be4512d4ba8edda1e7fbd5219a50c0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: fc6ccaae698043db631c7724c6aabbca16f4328f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986883"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172849"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -38,7 +36,7 @@ Innan ditt webb program kan komma åt en blob-lagring från klienten måste du k
 
 Återgå till Azure Portal och välj ditt lagringskonto. Om du vill definiera en ny CORS-regel går du till avsnittet **Inställningar** och klickar på **CORS** -länken. Klicka sedan på knappen **Lägg till** för att öppna fönstret **Lägg till CORS-regel**. För den här snabbstarten skapar du en öppen CORS-regel:
 
-![CORS-inställningar för Azure Blob Storage-konto](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
+![CORS-inställningar för Azure Blob Storage-konto](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
 I följande tabell beskrivs varje CORS-inställning och de värden som används för att definiera regeln.
 

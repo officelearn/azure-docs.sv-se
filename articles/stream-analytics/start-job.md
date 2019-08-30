@@ -1,6 +1,6 @@
 ---
-title: Hur du startar Azure Stream Analytics-jobb
-description: Den här artikeln beskrivs hur du startar ett Stream Analytics-jobb.
+title: Starta ett Azure Stream Analytics jobb
+description: Den här artikeln beskriver hur du startar ett Stream Analytics jobb från Azure Portal, PowerShell och Visual Studio.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -8,38 +8,38 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 9bc3e4132919e5fc5baadc78841e66efd3c34bcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e4cb63accf7e89ac02451e9c25b9902a8a10812
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61362273"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173277"
 ---
-# <a name="how-to-start-an-azure-stream-analytics-job"></a>Hur du startar Azure Stream Analytics-jobb
+# <a name="how-to-start-an-azure-stream-analytics-job"></a>Starta ett Azure Stream Analytics jobb
 
-Du kan börja din Azure Stream Analytics-jobb med Azure portal, Visual Studio och PowerShell. När du startar ett jobb, väljer du en gång för att jobbet ska börja skapa utdata. Azure-portalen, Visual Studio och PowerShell har olika metoder för att ange starttiden. Dessa metoder beskrivs nedan.
+Du kan starta ditt Azure Stream Analytics-jobb med hjälp av Azure Portal, Visual Studio och PowerShell. När du startar ett jobb väljer du en tid då jobbet ska börja skapa utdata. Azure Portal, Visual Studio och PowerShell har olika metoder för att ange start tiden. Dessa metoder beskrivs nedan.
 
-## <a name="start-options"></a>Starta alternativ
-Följande tre alternativ är tillgängliga för att starta ett jobb. Observera att hela tiden som anges nedan är de som anges i [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics). Om TIMESTAMP BY inte anges, används ankomsttid.
-* **Nu**: Gör startpunkt händelsens utdata strömma samma som när jobbet startas. Om du använder en temporal operator (t.ex. tidsfönster, FÖRDRÖJNING eller Anslut till), Azure Stream Analytics ska automatiskt gå tillbaka till data i Indatakällan. Om du startar ett jobb ”nu” och om din fråga använder 5 minuter rullande fönster, till exempel genomsöks Azure Stream Analytics data från 5 minuter sedan i indata.
-Den första händelsen eventuella utdata skulle ha en tidsstämpel som är lika med eller större än den aktuella tiden och ASA garanterar att alla inkommande händelser som logiskt kan bidra till utdata är klara för. Exempelvis kan genereras inga partiella fönsteraggregeringar. Det är alltid fullständiga aggregerat värde.
+## <a name="start-options"></a>Start alternativ
+Följande tre alternativ är tillgängliga för att starta ett jobb. Observera att alla de tider som anges nedan är de som anges i [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics). Om tidsstämpel BY inte anges används införsel tiden.
+* **Nu**: Gör start punkten för utmatnings händelse strömmen densamma som när jobbet startas. Om en temporal operator används (t. ex. tidsfönster, fördröjning eller koppling) ser Azure Stream Analytics automatiskt tillbaka till data i Indatakällan. Om du till exempel startar ett jobb "nu" och om din fråga använder ett rullande-fönster för 5 minuter söker Azure Stream Analytics efter data från 5 minuter sedan i indata.
+Den första möjliga utdata-händelsen skulle ha en tidsstämpel som är lika med eller större än den aktuella tiden, och ASA garanterar att alla indata-händelser som logiskt kan bidra till utdata har redovisats. Till exempel genereras inte partiella fönster mängder. Det är alltid hela det sammanlagda värdet.
 
-* **Anpassat**: Du kan välja startpunkten för utdata. På samma sätt till den **nu** alternativ, Azure Stream Analytics läser automatiskt data före nu om du använder en temporal operator 
+* **Anpassat**: Du kan välja Start punkten för utdata. På samma sätt som alternativet **nu** kommer Azure Stream Analytics automatiskt att läsa data före den här tiden om en temporal operator används 
 
-* **Senast stoppad**. Det här alternativet är tillgängligt när jobbet påbörjades tidigare, men stoppades manuellt eller misslyckades. När du väljer det här alternativet använder Azure Stream Analytics tid för senaste utdata för att starta om jobbet så att ingen data går förlorad. På samma sätt till föregående alternativ läser Azure Stream Analytics automatiskt data före nu om du använder en temporal operator. Eftersom flera inkommande partitioner kan ha olika tid, så snart som möjligt stopptiden för alla partitioner används kan därför vissa dubbletter kan ses i utdata. Mer information om exakt-när bearbetningen är tillgänglig på sidan [händelse Leveransgarantier](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics).
+* **När den senast stoppades**. Det här alternativet är tillgängligt när jobbet startades tidigare, men stoppades manuellt eller misslyckades. När du väljer det här alternativet Azure Stream Analytics kommer att använda den senaste utgångs tiden för att starta om jobbet så att inga data förloras. På samma sätt som föregående alternativ kommer Azure Stream Analytics automatiskt att läsa data före den här tiden om en temporal operator används. Eftersom flera indata-partitioner kan ha olika tid, används den tidigaste stopp tiden för alla partitioner, vilket innebär att vissa dubbletter kan visas i utdata. Mer information om exakt en bearbetning finns på sidan om sid [händelse leverans garantier](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics).
 
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Gå till ditt jobb i Azure-portalen och välj **starta** på översiktssidan. Välj en **starttid för jobbutdata** och välj sedan **starta**.
+Gå till jobbet i Azure Portal och välj **Starta** på översikts sidan. Välj en **Start tid för jobb utdata** och välj sedan **Starta**.
 
-Välj något av alternativen för **starttid för jobbutdata**. Alternativen är *nu*, *anpassade*, och om jobbet har körts tidigare, *senast stoppad*. Mer information om de här alternativen finns ovan.
+Välj ett av alternativen för **Start tid för jobb utskrift**. Alternativen är *nu* *anpassade*och, om jobbet kördes tidigare, *när det senast stoppades*. Se ovan för mer information om de här alternativen.
 
 ## <a name="visual-studio"></a>Visual Studio
 
-I jobbvyn, väljer du den gröna pilen för att starta jobbet. Ange den **jobbet utdata starta läget** och välj **starta**. Jobbstatusen ändras till **kör**.
+I vyn jobb väljer du den gröna pilknappen för att starta jobbet. Ange **Start läget för jobb utdata** och välj **Starta**. Jobbets status ändras till **körs**.
 
-Det finns tre alternativ för **jobbet utdata starta läget**: *JobStartTime*, *CustomTime*, och *LastOutputEventTime*. Om den här egenskapen inte finns, är standardvärdet *JobStartTime*. Mer information om de här alternativen finns ovan.
+Det finns tre alternativ för **Start läge för jobb utdata**: *JobStartTime*, *CustomTime*och *LastOutputEventTime*. Om den här egenskapen saknas är standardvärdet *JobStartTime*. Se ovan för mer information om de här alternativen.
 
 
 ## <a name="powershell"></a>PowerShell
@@ -53,12 +53,12 @@ Start-AzStreamAnalyticsJob `
   -OutputStartMode 'JobStartTime'
 ```
 
-Det finns tre alternativ för **OutputStartMode**: *JobStartTime*, *CustomTime*, och *LastOutputEventTime*. Om den här egenskapen inte finns, är standardvärdet *JobStartTime*. Mer information om de här alternativen finns ovan.
+Det finns tre alternativ för **OutputStartMode**: *JobStartTime*, *CustomTime*och *LastOutputEventTime*. Om den här egenskapen saknas är standardvärdet *JobStartTime*. Se ovan för mer information om de här alternativen.
 
-Mer information om den `Start-AzStreamAnalyitcsJob` cmdlet, visa den [Start AzStreamAnalyticsJob referens](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
+Mer information om `Start-AzStreamAnalyitcsJob` cmdleten finns i [Start-AzStreamAnalyticsJob-referensen](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](stream-analytics-quick-create-portal.md)
-* [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure Stream Analytics-verktyg för Visual Studio](stream-analytics-quick-create-vs.md)
+* [Snabbstart: Skapa ett Stream Analytics jobb genom att använda Azure Portal](stream-analytics-quick-create-portal.md)
+* [Snabbstart: Skapa ett Stream Analytics jobb med Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Snabbstart: Skapa ett Stream Analytics jobb med hjälp av Azure Stream Analytics verktyg för Visual Studio](stream-analytics-quick-create-vs.md)

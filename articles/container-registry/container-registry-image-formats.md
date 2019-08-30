@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/18/2019
+ms.date: 08/30/2019
 ms.author: danlep
-ms.openlocfilehash: c804dd7b73ea4a51c02c8b342a4ac60d992ec7c5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: d49aab89c9568f168808c40508b4fe7d3175e902
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310681"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164527"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Innehålls format som stöds i Azure Container Registry
 
@@ -29,11 +29,17 @@ Följande versioner av Docker-behållar avbildningar stöds:
 
 ## <a name="oci-images"></a>OCI-avbildningar
 
-Azure Container Registry stöder också bilder som uppfyller specifikationen för [avbildnings formatet Open container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Paket formaten innehåller ett [bild format för bilder (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
+Azure Container Registry stöder avbildningar som uppfyller [specifikationen för avbildnings formatet Open container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Paket formaten innehåller ett [bild format för bilder (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
+
+## <a name="oci-artifacts"></a>OCI-artefakter
+
+Azure Container Registry stöder [OCI](https://github.com/opencontainers/distribution-spec)-distributions specifikationen, en leverantörs oberoende, molnbaserad oberoende-specifikation för att lagra, dela, säkra och distribuera behållar avbildningar och andra innehålls typer (artefakter). Specifikationen gör det möjligt för ett register att lagra en mängd olika artefakter utöver behållar avbildningar. Du kan använda verktyg som är lämpliga för artefakten för att skicka och ta emot artefakter. Ett exempel finns i [skicka och hämta en OCI-artefakt med ett Azure Container Registry](container-registry-oci-artifacts.md).
+
+Mer information om OCI-artefakter finns i [OCI-registret as Storage (ORAS)](https://github.com/deislabs/oras) lagrings platsen och [OCI](https://github.com/opencontainers/artifacts) -artefakterna lagrings platsen på GitHub.
 
 ## <a name="helm-charts"></a>Helm-diagram
 
-Azure Container Registry kan vara värd för databaser för [Helm-diagram](https://helm.sh/), ett paket format som används för att snabbt hantera och distribuera program för Kubernetes. [Helm](https://docs.helm.sh/using_helm/#installing-helm) -2.11.0 eller senare stöds.
+Azure Container Registry kan vara värd för databaser för [Helm-diagram](https://helm.sh/), ett paket format som används för att snabbt hantera och distribuera program för Kubernetes. [Helm-klient](https://docs.helm.sh/using_helm/#installing-helm) version 2 (2.11.0 eller senare) stöds.
 
 ## <a name="next-steps"></a>Nästa steg
 

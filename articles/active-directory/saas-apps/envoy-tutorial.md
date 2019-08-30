@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Envoy | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med mottagare | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Envoy.
 services: active-directory
 documentationCenter: na
@@ -8,145 +8,157 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 71f7afcc-1033-4098-9b7e-4f9f2b26f734
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/06/2019
+ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0f5de59d0a0188db4eac68c428de3818c12b303
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28f3fca731c9ceb28f66ecd1c178e5c025f80ede
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103130"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163533"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Självstudier: Azure Active Directory-integrering med Envoy
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med mottagare
 
-I den här självstudien lär du dig att integrera Envoy med Azure Active Directory (AD Azure).
-Integreringen av Envoy med Azure AD medför följande fördelar:
+I den här självstudien får du lära dig hur du integrerar mottagare med Azure Active Directory (Azure AD). När du integrerar mottagare med Azure AD kan du:
 
-* Du kan i Azure AD styra vem som har åtkomst till Envoy.
-* Du kan göra så att dina användare automatiskt loggas in på Envoy (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till mottagare.
+* Gör det möjligt för användarna att logga in automatiskt till mottagare med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Envoy behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Envoy-prenumeration med enkel inloggning aktiverat
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Mottagare för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Envoy har stöd för **SP**-initierad enkel inloggning
 
 * Envoy har stöd för **just-in-time**-användaretablering
 
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
+
 ## <a name="adding-envoy-from-the-gallery"></a>Lägga till Envoy från galleriet
 
 För att konfigurera integrering av Envoy i Azure AD behöver du lägga till Envoy från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Envoy från galleriet:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **mottagare** i sökrutan.
+1. Välj **mottagare** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-envoy"></a>Konfigurera och testa enkel inloggning med Azure AD för mottagare
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+Konfigurera och testa Azure AD SSO med mottagare med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i mottagare.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+Om du vill konfigurera och testa Azure AD SSO med mottagare, slutför du följande Bygg stenar:
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera mottagare SSO](#configure-envoy-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa mottagare test User](#create-envoy-test-user)** -om du vill ha en motsvarighet till B. Simon i mottagare som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-    ![Knappen Nytt program](common/add-new-app.png)
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-4. I sökrutan skriver du **Envoy**, väljer **Envoy** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **mottagare** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-     ![Envoy i resultatlistan](common/search-new-app.png)
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD till Envoy baserat på en testanvändare med namnet **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Envoy upprättas.
-
-För att konfigurera och testa enkel inloggning för Azure AD med Envoy behöver du slutföra följande byggstenar:
-
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Envoy](#configure-envoy-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Envoy-testanvändare](#create-envoy-test-user)** – för att ha en motsvarighet för Britta Simon i Envoy som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
-
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
-
-Utför följande steg för att konfigurera enkel inloggning med Azure AD för Envoy:
-
-1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Envoy** och väljer **Enkel inloggning**.
-
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
-
-    ![Envoy-domän och information om URL:er för enkel inloggning](common/sp-signonurl.png)
+1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
 
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [supportteamet för Envoy](https://envoy.com/contact/) och be om värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. I avsnittet **SAML-signeringscertifikat** klickar du på knappen **Redigera** för att öppna dialogrutan **SAML-signeringscertifikat**.
+1. I avsnittet **SAML-signeringscertifikat** klickar du på knappen **Redigera** för att öppna dialogrutan **SAML-signeringscertifikat**.
 
     ![Redigera SAML-signeringscertifikat](common/edit-certificate.png)
 
-6. I avsnittet **SAML-signeringscertifikat** kopierar du **Tumavtryck** och sparar det på datorn.
+1. I avsnittet **SAML-signeringscertifikat** , kopierar du **värdet tumavtryck** och sparar det på din dator.
 
     ![Kopiera värdet för Tumavtryck](common/copy-thumbprint.png)
 
-7. I avsnittet **Konfigurera Envoy** kopierar du lämpliga URL:er enligt dina behov.
+1. I avsnittet **Konfigurera mottagare** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-    b. Azure AD-identifierare
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-    c. Utloggnings-URL
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
-### <a name="configure-envoy-single-sign-on"></a>Konfigurera enkel inloggning för Envoy
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-1. I ett annat webbläsarfönster loggar du in på din Envoy-företagswebbplats som administratör.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till mottagare.
 
-2. I verktygsfältet längst upp klickar du på **Inställningar**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I programlistan väljer du **Envoy**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+
+    ![Länken Lägg till användare](common/add-assign-user.png)
+
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+## <a name="configure-envoy-sso"></a>Konfigurera mottagare SSO
+
+1. Om du vill automatisera konfigurationen i mottagare måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
+
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+2. När du har lagt till tillägg i webbläsaren, klickar du på **installations mottagare** för att dirigera dig till mottagare-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på mottagare. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+3. Om du vill konfigurera mottagare manuellt öppnar du ett nytt webbläsarfönster och loggar in på din mottagare-företags webbplats som administratör och utför följande steg:
+
+4. I verktygsfältet längst upp klickar du på **Inställningar**.
 
     ![Envoy](./media/envoy-tutorial/ic776782.png "Envoy")
 
-3. Klicka på **Företag**.
+5. Klicka på **Företag**.
 
     ![Företag](./media/envoy-tutorial/ic776783.png "Företag")
 
-4. Klicka på **SAML**.
+6. Klicka på **SAML**.
 
     ![SAML](./media/envoy-tutorial/ic776784.png "SAML")
 
-5. I avsnittet för konfiguration av **SAML-autentisering** utför du följande steg:
+7. I avsnittet för konfiguration av **SAML-autentisering** utför du följande steg:
 
     ![SAML-autentisering](./media/envoy-tutorial/ic776785.png "SAML-autentisering")
     
@@ -157,64 +169,13 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för En
     
     b. Klistra in det värde för **inloggnings-URL** som du har kopierat från Azure-portalen i textrutan **IDENTITY PROVIDER HTTP SAML URL** (identitetsproviderns HTTP SAML-URL).
     
-    c. Klicka på **Spara ändringar**.
-
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
-
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
-
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Envoy.
-
-1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Envoy**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-2. I programlistan väljer du **Envoy**.
-
-    ![Länken för Envoy i programlistan](common/all-applications.png)
-
-3. På menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+    c. Klicka på **spara ändringar**.
 
 ### <a name="create-envoy-test-user"></a>Skapa Envoy-testanvändare
 
-Det finns ingen uppgift som du behöver utföra för att konfigurera användaretablering till Envoy. När en tilldelad användare försöker logga in till Envoy med hjälp av åtkomstpanelen kontrollerar Envoy om användaren finns. Om det inte finns något tillgängligt användarkonto ännu skapas det automatiskt av Envoy.
+I det här avsnittet skapas en användare som kallas Britta Simon i mottagare. Mottagare stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i mottagare skapas en ny efter autentiseringen.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
@@ -222,9 +183,11 @@ När du klickar på Envoy-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova mottagare med Azure AD](https://aad.portal.azure.com/)
 

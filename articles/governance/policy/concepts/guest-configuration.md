@@ -1,6 +1,6 @@
 ---
-title: Förstå hur du granskar innehållet i en virtuell dator
-description: Lär dig hur Azure Policy använder gäst-konfiguration för att granska inställningar i en Azure virtuell dator.
+title: Förstå hur du granskar innehållet på en dator
+description: Lär dig hur Azure Policy använder gäst konfiguration för att granska inställningar i en Azure-dator.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/18/2019
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 18a85fae7d2d241bd8d582db73c71e1d1472f04d
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b6c9e50334a25b505655a49a02cd98165d04740b
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036324"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164955"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
-Förutom att granska och [Reparera](../how-to/remediate-resources.md) Azure-resurser kan Azure policy granska inställningarna i en virtuell dator. Verifieringen utförs av gäst-konfiguration-tillägget och klienten. Tillägget med klienten, verifierar inställningar, till exempel konfigurationen av operativsystemet, programkonfigurationen eller närvaro, miljöinställningar och mer.
+Förutom att granska och [Reparera](../how-to/remediate-resources.md) Azure-resurser kan Azure policy granska inställningarna i en dator. Verifieringen utförs av gäst-konfiguration-tillägget och klienten. Tillägget med klienten, verifierar inställningar, till exempel konfigurationen av operativsystemet, programkonfigurationen eller närvaro, miljöinställningar och mer.
 
 För tillfället utför Azure Policy-gäst konfigurationen bara en granskning av inställningarna i datorn.
 Det går inte att använda konfigurationer än.
@@ -26,7 +26,7 @@ Det går inte att använda konfigurationer än.
 
 ## <a name="extension-and-client"></a>Tillägget och klient
 
-Granska inställningarna inuti en virtuell dator, en [tillägg för virtuell dator](../../../virtual-machines/extensions/overview.md) är aktiverad. Tillägget hämtar tillämpliga principtilldelning och motsvarande-konfigurationsdefinition.
+Om du vill granska inställningarna i en dator är ett [tillägg för virtuell dator](../../../virtual-machines/extensions/overview.md) aktiverat. Tillägget hämtar tillämpliga principtilldelning och motsvarande-konfigurationsdefinition.
 
 ### <a name="limits-set-on-the-exension"></a>Begränsningar som angetts för exension
 
@@ -60,7 +60,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ## <a name="validation-tools"></a>Verifieringsverktyg för
 
-Inuti den virtuella datorn använder klienten gäst Configuration lokala verktyg för att köra granskningen.
+I datorn använder gäst konfigurations klienten lokala verktyg för att köra granskningen.
 
 I följande tabell visas en lista över de lokala verktyg som används på varje operativsystem som stöds:
 
@@ -71,7 +71,7 @@ I följande tabell visas en lista över de lokala verktyg som används på varje
 
 ### <a name="validation-frequency"></a>Validerings frekvens
 
-Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. När en gäst tilldelning tas emot kontrol leras inställningarna på 15-minuters intervall. Resultat skickas till resurs leverantören för gäst konfigurationen så snart granskningen är klar. När en utlösare för princip [utvärdering](../how-to/get-compliance-data.md#evaluation-triggers) inträffar skrivs datorns tillstånd till resurs leverantören för gäst konfiguration. Detta gör att Azure Policy utvärdera Azure Resource Manager egenskaper. En utvärdering på begäran Azure Policy hämtar det senaste värdet från resurs leverantören för gäst konfigurationen. Den utlöser dock inte en ny granskning av konfigurationen i den virtuella datorn.
+Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. När en gäst tilldelning tas emot kontrol leras inställningarna på 15-minuters intervall. Resultat skickas till resurs leverantören för gäst konfigurationen så snart granskningen är klar. När en utlösare för princip [utvärdering](../how-to/get-compliance-data.md#evaluation-triggers) inträffar skrivs datorns tillstånd till resurs leverantören för gäst konfiguration. Detta gör att Azure Policy utvärdera Azure Resource Manager egenskaper. En utvärdering på begäran Azure Policy hämtar det senaste värdet från resurs leverantören för gäst konfigurationen. Den utlöser dock inte en ny granskning av konfigurationen på datorn.
 
 ## <a name="supported-client-types"></a>Stöds klienttyper
 
@@ -96,7 +96,7 @@ Windows Server Nano Server stöds inte i någon version.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Nätverks krav för gäst konfigurations tillägg
 
-För att kunna kommunicera med resurs leverantören för gäst konfiguration i Azure måste virtuella datorer ha utgående åtkomst till Azure-datacenter på port **443**. Om du använder ett privat virtuellt nätverk i Azure och inte tillåter utgående trafik måste undantag konfigureras med regler för [nätverks säkerhets grupper](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . För tillfället finns det ingen service tag för Azure Policy gäst konfiguration.
+För att kunna kommunicera med resurs leverantören för gäst konfiguration i Azure måste datorer ha utgående åtkomst till Azure-datacenter på port **443**. Om du använder ett privat virtuellt nätverk i Azure och inte tillåter utgående trafik måste undantag konfigureras med regler för [nätverks säkerhets grupper](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . För tillfället finns det ingen service tag för Azure Policy gäst konfiguration.
 
 I IP-adress listor kan du hämta [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och har de för närvarande distribuerade intervallen och eventuella kommande ändringar i IP-intervallen. Du behöver bara tillåta utgående åtkomst till IP-adresserna i de regioner där de virtuella datorerna distribueras.
 
@@ -105,12 +105,12 @@ I IP-adress listor kan du hämta [Microsoft Azure Data Center IP-intervall](http
 
 ## <a name="guest-configuration-definition-requirements"></a>Definition av gäst konfigurationskrav
 
-Varje konfiguration för gransknings körning av gäst kräver två princip definitioner, en **DeployIfNotExists** -definition och en **AuditIfNotExists** -definition. **DeployIfNotExists** -definitionen används för att förbereda den virtuella datorn med gäst konfigurations agenten och andra komponenter som stöder [verifierings verktygen](#validation-tools).
+Varje konfiguration för gransknings körning av gäst kräver två princip definitioner, en **DeployIfNotExists** -definition och en **AuditIfNotExists** -definition. **DeployIfNotExists** -definitionen används för att förbereda datorn med gäst konfigurations agenten och andra komponenter som stöder [verifierings verktygen](#validation-tools).
 
 Den **DeployIfNotExists** principdefinitionen kontrollerar och korrigerar följande objekt:
 
-- Verifiera den virtuella datorn har tilldelats en konfiguration som ska utvärderas. Om ingen tilldelning finns för närvarande kan hämta tilldelningen och förbereda den virtuella datorn med:
-  - Autentisering till den virtuella datorn med en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md)
+- Verifiera att datorn har tilldelats en konfiguration som ska utvärderas. Om ingen tilldelning för närvarande finns kan du hämta tilldelningen och förbereda datorn genom att:
+  - Autentisera till datorn med en hanterad [identitet](../../../active-directory/managed-identities-azure-resources/overview.md)
   - Installera den senaste versionen av den **Microsoft.GuestConfiguration** tillägg
   - Installera [verifieringsverktyg](#validation-tools) och beroenden, om det behövs
 
@@ -125,11 +125,11 @@ Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus**
 > **DeployIfNotExists** -principen krävs för att **AuditIfNotExists** -principen ska returnera resultat.
 > Utan **DeployIfNotExists**visar **AuditIfNotExists** -principen "0 av 0" resurser som status.
 
-Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet *[för hands version]: Granska säkerhets inställningar för lösen ord i virtuella Linux-* och Windows-datorer innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
+Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet *[för hands version]: Granska lösen ords säkerhets inställningar i Linux-och* Windows-datorer innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
 
 ### <a name="multiple-assignments"></a>Flera tilldelningar
 
-Principer för gäst konfiguration stöder för närvarande bara tilldelning av samma gäst tilldelning en gång per virtuell dator, även om princip tilldelningen använder olika parametrar.
+Principer för gäst konfiguration stöder för närvarande bara tilldelning av samma gäst tilldelning en gång per dator, även om princip tilldelningen använder olika parametrar.
 
 ## <a name="client-log-files"></a>Loggfiler för klienter
 

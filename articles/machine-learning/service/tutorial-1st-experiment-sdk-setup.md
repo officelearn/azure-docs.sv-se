@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
-ms.openlocfilehash: 21da8dce7a77a086381bd21dc0129b614fa65ad3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
-ms.translationtype: HT
+ms.date: 08/28/2019
+ms.openlocfilehash: df74d2d07937634e2b656746c0a9fc9cd86b8c93
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138416"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182615"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>Självstudier: Kom igång med att skapa ditt första ML-experiment
 
@@ -51,10 +51,11 @@ Från din arbets yta skapar du en moln resurs för att komma igång med Jupyter-
 
      ![Välj ny virtuell dator](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
-1. Ange ett namn för den virtuella datorn. Välj sedan **Skapa**.
+1. Ange ett namn för den virtuella datorn. 
+   + Namnet på den virtuella dator datorn måste innehålla mellan 2 och 16 tecken. Giltiga tecken är bokstäver, siffror och tecknet-Character.  
+   + Namnet måste också vara unikt i din Azure-prenumeration.
 
-    > [!NOTE]
-    > Namnet på den virtuella dator datorn måste innehålla mellan 2 och 16 tecken. Giltiga tecken är bokstäver, siffror och tecknet-Character.  Namnet måste också vara unikt i din Azure-prenumeration.
+1. Välj sedan **Skapa**. Det kan ta en stund att konfigurera den virtuella datorn.
 
 1. Vänta tills statusen ändras till **körs**.
 
@@ -66,43 +67,16 @@ När den virtuella datorn har körts använder du avsnittet **Notebook VM** : ar
 
     ![Starta Jupyter Notebook-servern](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
-    Länken startar din Notebook-Server och öppnar Jupyter Notebook-webbsida på en ny flik i webbläsaren.  Den här länken fungerar bara för den person som skapar den virtuella datorn. Varje användare av arbets ytan måste skapa sin egen virtuella dator.
+   Länken startar din Notebook-Server och öppnar Jupyter Notebook-webbsida på en ny flik i webbläsaren.  Den här länken fungerar bara för den person som skapar den virtuella datorn. Varje användare av arbets ytan måste skapa sin egen virtuella dator.
 
-1. På webb sidan Jupyter Notebook är det främsta namnet ditt användar namn.  Välj den här mappen.
+1. På webb sidan för Jupyter Notebook väljer du den översta mappnamn som innehåller ditt användar namn.  
 
-    > [!TIP]
-    > Den här mappen finns på [lagrings kontot](concept-workspace.md#resources) i din arbets yta i stället för på själva Notebook-datorn.  Du kan ta bort den virtuella Notebook-datorn och fortsätta att ha allt ditt arbete.  När du skapar en ny Notebook VM senare, kommer den att läsa in samma mapp. Om du delar din arbets yta med andra, kommer de att se din mapp och du ser dem.
+   Den här mappen finns i [lagrings kontot](concept-workspace.md#resources) för arbets ytan i stället för på själva Notebook-datorn.  Om du tar bort den virtuella Notebook-datorn behåller du fortfarande allt ditt arbete.  När du skapar en ny Notebook VM senare, kommer den att läsa in samma mapp. Om du delar din arbets yta med andra, kommer de att se din mapp och du ser dem.
 
-1. `samples-*` Öppna under katalogen och öppna sedan`tutorials/tutorial-1st-experiment-sdk-train.ipynb`
+1. `samples-*` Öppna under katalogen och öppna Jupyter Notebook`tutorials/tutorial-1st-experiment-sdk-train.ipynb`
 
-> [!Warning]
-> Se till att du `tutorial-1st-experiment-sdk-train.ipynb` öppnar filen , inte `.yml` filen i > samma namn. 
-
-I **del två** av självstudien kör du koden i `tutorial-1st-experiment-sdk-train.ipynb` för att träna en maskin inlärnings modell.
-
-## <a name="end"></a>Rensa resurser
-
-Slutför inte det här avsnittet om du planerar att fortsätta till **del 2** av själv studie kursen.
-
-### <a name="stop-the-notebook-vm"></a>Stoppa den virtuella Notebook-datorn
-
-Om du har använt en molnbaserad Notebook-Server stoppar du den virtuella datorn när du inte använder den för att minska kostnaderna.
-
-1. I arbets ytan väljer du **Notebook VM**: ar.
-
-   ![Stoppa VM-servern](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. Välj den virtuella datorn i listan.
-
-1. Välj **stoppa**.
-
-1. När du är redo att använda servern igen väljer du **Starta**.
-
-### <a name="delete-everything"></a>Ta bort allt
-
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
-
-Du kan också behålla resursgruppen men ta bort en enstaka arbetsyta. Visa arbetsytans egenskaper och välj **Ta bort**.
+   > [!Warning]
+   > Se till att du `tutorial-1st-experiment-sdk-train.ipynb` öppnar filen , inte `.yml` filen i > samma namn. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -111,7 +85,10 @@ I den här självstudien har du slutfört följande uppgifter:
 * Skapade en Azure Machine Learning service-arbetsyta.
 * Skapat och konfigurerat en molnbaserad Notebook-server i din arbets yta.
 
-Fortsätt med **del 2** av den här självstudien för att träna en enkel Machine Learning-modell.
+I **del två** av självstudien kör du koden i `tutorial-1st-experiment-sdk-train.ipynb` för att träna en maskin inlärnings modell. 
 
 > [!div class="nextstepaction"]
 > [Självstudier: Träna din första modell](tutorial-1st-experiment-sdk-train.md)
+
+> [!IMPORTANT]
+> Om du inte planerar följande del 2 av den här själv studie kursen eller någon annan själv studie kurs bör du [stoppa den virtuella datorn i molnet Notebook-servern](tutorial-1st-experiment-sdk-train.md#clean-up-resources) när du inte använder den för att minska kostnaderna.

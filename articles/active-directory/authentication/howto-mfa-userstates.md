@@ -1,5 +1,5 @@
 ---
-title: Användar tillstånd för Azure Multi-Factor Authentication – Azure Active Directory
+title: Användar tillstånd för Azure-Multi-Factor Authentication – Azure Active Directory
 description: Lär dig mer om användar tillstånd i Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,37 +11,37 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc83f59d51e1552d9d68089d0b9fa23d924f491c
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: c0c941ec5010b6f9c35e81fdbcacd2093724eb21
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561287"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162358"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Så här kräver du tvåstegsverifiering för en användare
 
 Du kan utföra en av två metoder för att kräva tvåstegsverifiering, som båda kräver att du använder ett globalt administratörs konto. Det första alternativet är att aktivera varje användare för Azure Multi-Factor Authentication (MFA). När användare Aktiver ATS individuellt utför de tvåstegsverifiering varje gång de loggar in (med vissa undantag, till exempel när de loggar in från betrodda IP-adresser eller när funktionen _sparade enheter_ aktive RAS). Det andra alternativet är att konfigurera en princip för villkorlig åtkomst som kräver tvåstegsverifiering under vissa förhållanden.
 
 > [!TIP]
-> Den rekommenderade metoden är att aktivera Azure Multi-Factor Authentication med principer för villkorlig åtkomst. Att ändra användar tillstånd rekommenderas inte längre om licenserna inte innehåller villkorlig åtkomst eftersom det krävs att användarna utför MFA varje gång de loggar in.
+> Den rekommenderade metoden är att aktivera Azure Multi-Factor Authentication att använda principer för villkorlig åtkomst. Att ändra användar tillstånd rekommenderas inte längre om licenserna inte innehåller villkorlig åtkomst eftersom det krävs att användarna utför MFA varje gång de loggar in.
 
 ## <a name="choose-how-to-enable"></a>Välj hur du vill aktivera
 
 **Aktive rad genom att ändra användar tillstånd** – det här är den traditionella metoden för att kräva tvåstegsverifiering och beskrivs i den här artikeln. Det fungerar med både Azure MFA i molnet och Azure MFA-servern. Om du använder den här metoden måste användarna utföra tvåstegsverifiering **varje gång** de loggar in och åsidosätter principer för villkorlig åtkomst.
 
-Aktive rad med princip för villkorlig åtkomst – det här är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Aktivering med principen för villkorlig åtkomst fungerar bara för Azure MFA i molnet och är en Premium funktion i Azure AD. Mer information om den här metoden finns i [distribuera molnbaserad Azure Multi-Factor Authentication](howto-mfa-getstarted.md).
+Aktive rad med princip för villkorlig åtkomst – det här är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Aktivering med principen för villkorlig åtkomst fungerar bara för Azure MFA i molnet och är en Premium funktion i Azure AD. Mer information om den här metoden finns i [distribuera molnbaserad Azure-Multi-Factor Authentication](howto-mfa-getstarted.md).
 
 Aktive rad av Azure AD Identity Protection – med den här metoden används principen Azure AD Identity Protection risk för att kräva tvåstegsverifiering endast baserat på inloggnings risk för alla moln program. Den här metoden kräver Azure Active Directory P2-licensiering. Du hittar mer information om den här metoden i [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
 
 > [!Note]
-> Mer information om licenser och priser finns på [pris sidorna för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
-) och [Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) .
+> Mer information om licenser och priser finns på sidan med pris [information för](https://azure.microsoft.com/pricing/details/active-directory/
+) Azure AD och [Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) .
 
 ## <a name="enable-azure-mfa-by-changing-user-state"></a>Aktivera Azure MFA genom att ändra användar tillstånd
 
 Användar konton i Azure Multi-Factor Authentication har följande tre distinkta tillstånd:
 
-| Status | Beskrivning | Icke-webbläsarbaserade appar som påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering påverkas |
+| State | Beskrivning | Icke-webbläsarbaserade appar som påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering påverkas |
 |:---:|:---:|:---:|:--:|:--:|
 | Inaktiverad |Standard läget för en ny användare som inte har registrerats i Azure MFA. |Nej |Nej |Nej |
 | Aktiverad |Användaren har registrerats i Azure MFA, men har inte registrerats. De får ett meddelande om att registrera sig nästa gången de loggar in. |Nej.  De fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure MFA-registrering.| Ja. När åtkomsttoken upphör att gälla krävs Azure MFA-registrering. |
@@ -136,7 +136,9 @@ som också kan kortas av:
 
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Konvertera användare från per användare MFA till villkorlig åtkomst baserat MFA
 
-Följande PowerShell kan hjälpa dig att göra konverteringen till villkorlig åtkomst baserat på Azure Multi-Factor Authentication.
+Följande PowerShell kan hjälpa dig att göra konverteringen till baserade Azure-Multi-Factor Authentication med villkorlig åtkomst.
+
+Kör PowerShell i ett ISE-fönster eller Spara som. PS1-fil som ska köras lokalt.
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -197,6 +199,6 @@ Get-MsolUser -All | Disable-MFA -KeepMethods
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Varför uppmanas användaren eller inte att göra MFA? Se avsnittet [Azure AD-inloggningar i rapporterna i Azure Multi-Factor Authentication-dokument](howto-mfa-reporting.md#azure-ad-sign-ins-report).
-* Information om hur du konfigurerar ytterligare inställningar som tillförlitliga IP-adresser, anpassade röst meddelanden och bedrägeri aviseringar finns i artikeln [Konfigurera inställningar för Azure Multi-Factor Authentication](howto-mfa-mfasettings.md)
-* Information om hur du hanterar användar inställningar för Azure Multi-Factor Authentication finns i artikeln [hantera användar inställningar med Azure Multi-Factor Authentication i molnet](howto-mfa-userdevicesettings.md)
+* Varför uppmanas användaren eller inte att göra MFA? Se avsnittet [Azure AD-inloggningar i rapporterna i azure Multi-Factor Authentication-dokumentet](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+* Information om hur du konfigurerar ytterligare inställningar som tillförlitliga IP-adresser, anpassade röst meddelanden och bedrägeri aviseringar finns i artikeln [Konfigurera Azure Multi-Factor Authentication inställningar](howto-mfa-mfasettings.md)
+* Information om hur du hanterar användar inställningar för Azure Multi-Factor Authentication finns i artikeln [hantera användar inställningar med azure Multi-Factor Authentication i molnet](howto-mfa-userdevicesettings.md)

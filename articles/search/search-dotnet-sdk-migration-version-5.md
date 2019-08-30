@@ -1,8 +1,8 @@
 ---
 title: Uppgradera till Azure Search .NET SDK version 5 – Azure Search
-description: Migrera kod till Azure Search .NET SDK version 5 från äldre versioner. Läs mer om nyheterna och vilka kodändringar krävs.
+description: Migrera kod till Azure Search .NET SDK version 5 från äldre versioner. Läs om vad som är nytt och vilka kod ändringar som krävs.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
@@ -10,95 +10,95 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 8382884b4ce2965dee4acf191f82eb012b670713
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c64d13e4bcad11ef729f34ee71b7c7461a507fc7
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147480"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183257"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Uppgradera till Azure Search .NET SDK version 5
 
-Om du använder version 4.0-förhandsversion eller äldre av den [Azure Search .NET SDK](https://aka.ms/search-sdk), den här artikeln hjälper dig att uppgradera programmet att använda version 5.
+Om du använder version 4,0 – för hands version eller äldre av [Azure Search .NET SDK](https://aka.ms/search-sdk)hjälper den här artikeln dig att uppgradera ditt program till att använda version 5.
 
-En mer allmän genomgång av SDK inklusive exempel finns i [hur du använder Azure Search från .NET-program](search-howto-dotnet-sdk.md).
+En mer allmän genom gång av SDK inklusive exempel finns i [så här använder du Azure Search från ett .NET-program](search-howto-dotnet-sdk.md).
 
-Version 5 av Azure Search .NET SDK innehåller vissa ändringar från tidigare versioner. Det här är främst mindre, så ändra din kod kräver bara minimal ansträngning. Se [stegen för att uppgradera](#UpgradeSteps) anvisningar om hur du ändrar din kod till den nya versionen av SDK.
+Version 5 av Azure Search .NET SDK innehåller vissa ändringar från tidigare versioner. Dessa är huvudsakligen mindre, så att ändringar i din kod bara kräver minimal ansträngning. Se [steg för att uppgradera](#UpgradeSteps) för instruktioner om hur du ändrar din kod till att använda den nya SDK-versionen.
 
 > [!NOTE]
-> Om du använder version 2.0 preview eller äldre, bör du uppgradera till version 3 först och sedan uppgraderar till version 5. Se [uppgradering till Azure Search .NET SDK version 3](search-dotnet-sdk-migration.md) anvisningar.
+> Om du använder version 2,0-Preview eller äldre, bör du uppgradera till version 3 först och sedan uppgradera till version 5. Instruktioner finns i [Uppgradera till Azure Search .NET SDK version 3](search-dotnet-sdk-migration.md) .
 >
-> Din Azure Search-tjänstinstans har stöd för flera REST API-versioner, inklusive det senaste. Du kan fortsätta att använda en version när den inte längre det senaste, men vi rekommenderar att du migrerar din kod för att använda den senaste versionen. När du använder REST API, måste du ange API-versionen i varje begäran via parametern api-versionen. När du använder .NET SDK, avgör version av SDK: N som du använder motsvarande version av REST API. Om du använder en äldre SDK kan fortsätta du att köra koden utan ändringar, även om tjänsten uppgraderas för att stödja en nyare API-version.
+> Din Azure Search tjänst instans stöder flera REST API versioner, inklusive den senaste. Du kan fortsätta att använda en version när den inte längre är den senaste, men vi rekommenderar att du migrerar din kod för att använda den senaste versionen. När du använder REST API måste du ange API-versionen i varje begäran via parametern API-version. När du använder .NET SDK fastställer den version av SDK som du använder motsvarande version av REST API. Om du använder en äldre SDK kan du fortsätta att köra koden utan ändringar även om tjänsten uppgraderas till att stödja en nyare API-version.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-5"></a>Vad är nytt i version 5
-Azure Search .NET SDK version 5 riktar sig mot senast allmänt tillgängliga versionen av Azure Search-REST-API, särskilt 2017-11-11. Detta gör det möjligt att använda nya funktioner i Azure Search från .NET-program, inklusive följande:
+Version 5 av Azure Search .NET SDK riktar sig till den senaste allmänt tillgängliga versionen av Azure Search REST API, särskilt 2017-11-11. Detta gör det möjligt att använda nya funktioner i Azure Search från ett .NET-program, inklusive följande:
 
 * [Synonymer](search-synonyms.md).
-* Du kan nu via programmering komma åt varningar i indexeraren körningstiden (finns i den `Warning` egenskapen för `IndexerExecutionResult` i den [.NET-referens](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) för mer information).
+* Du kan nu program mässigt komma åt varningar i körnings historiken för Indexer `Warning` (se `IndexerExecutionResult` egenskapen för i [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) -referensen för mer information).
 * Stöd för .NET Core 2.
-* Ny paketet struktur stöder bara delarna av SDK: N som du behöver (se [större ändringar i version 5](#ListOfChanges) information).
+* Den nya paket strukturen stöder bara de delar av SDK: n som du behöver (se [bryta ändringar i version 5](#ListOfChanges) för mer information).
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="steps-to-upgrade"></a>Steg för att uppgradera
-Först uppdatera dina NuGet-referens för `Microsoft.Azure.Search` med hjälp av NuGet Package Manager-konsolen eller genom att högerklicka på projektreferenserna och välja ”hantera NuGet-paket...” i Visual Studio.
+Först uppdaterar du din NuGet-referens `Microsoft.Azure.Search` för med hjälp av NuGet Package Manager-konsolen eller genom att högerklicka på dina projekt referenser och välja "hantera NuGet-paket..." i Visual Studio.
 
-Återskapa ditt projekt när NuGet har laddats ned nya paket och deras beroenden. Beroende på hur din kod är strukturerade, kan den återskapa har. I så, fall är du redo att sätta igång!
+När NuGet har laddat ned de nya paketen och deras beroenden kan du återskapa projektet. Beroende på hur koden är strukturerad kan den återskapas. I så fall är det dags att sätta igång!
 
-Om din version misslyckas, bör du se ett build-fel som liknar följande:
+Om din version Miss lyckas bör du se ett build-fel som följande:
 
     The name 'SuggesterSearchMode' does not exist in the current context
 
-Nästa steg är att åtgärda den här build-fel. Se [större ändringar i version 5](#ListOfChanges) mer information om vad som orsakar felet och hur du åtgärdar den.
+Nästa steg är att åtgärda det här build-felet. Mer information om vad som orsakar felet och hur du kan åtgärda det finns i avsnittet om att [bryta ändringar i version 5](#ListOfChanges) .
 
-Tänk på att på grund av ändringar i Azure Search .NET SDK förpackningen, måste du bygga upp ditt program för att kunna använda version 5. Dessa ändringar finns beskrivna i [större ändringar i version 5](#ListOfChanges).
+Observera att på grund av ändringar i packningen av Azure Search .NET SDK måste du återskapa ditt program för att kunna använda version 5. De här ändringarna beskrivs i de större [ändringarna i version 5](#ListOfChanges).
 
-Du kan se ytterligare build-varningar relaterade till föråldrade metoder eller egenskaper. Varningar innehåller information om vad du ska använda i stället för föråldrad funktion. Exempel: om programmet använder den `IndexingParametersExtensions.DoNotFailOnUnsupportedContentType` metoden bör du får ett varningsmeddelande som säger ”det här beteendet är nu aktiverad som standard så anropa den här metoden är inte längre nödvändigt”.
+Du kan se ytterligare build-varningar relaterade till föråldrade metoder eller egenskaper. Varningarna innehåller instruktioner om vad som ska användas i stället för den föråldrade funktionen. Om ditt program exempelvis använder `IndexingParametersExtensions.DoNotFailOnUnsupportedContentType` metoden, ska du få en varning om att "det här beteendet är aktiverat som standard, så att anropa den här metoden är inte längre nödvändig".
 
-När du har lösts build-fel eller varningar kan du ändra ditt program att kunna utnyttja nya funktioner om du vill. Nya funktioner i SDK finns beskrivna i [Nyheter i version 5](#WhatsNew).
+När du har åtgärdat eventuella build-fel eller varningar kan du göra ändringar i programmet för att dra nytta av nya funktioner om du vill. Nya funktioner i SDK beskrivs i [Vad är nytt i version 5](#WhatsNew).
 
 <a name="ListOfChanges"></a>
 
-## <a name="breaking-changes-in-version-5"></a>Större ändringar i version 5
+## <a name="breaking-changes-in-version-5"></a>Bryta ändringar i version 5
 
-### <a name="new-package-structure"></a>Ny paketet struktur
+### <a name="new-package-structure"></a>Ny paket struktur
 
-Den mest betydande stora ändringen i version 5 är att den `Microsoft.Azure.Search` sammansättning och dess innehåll har delats upp i fyra separata sammansättningar som nu har distribuerats som fyra separata NuGet-paket:
+Den mest betydande brytande ändringen i version 5 är att `Microsoft.Azure.Search` sammansättningen och dess innehåll har delats in i fyra separata sammansättningar som nu är distribuerade som fyra separata NuGet-paket:
 
- - `Microsoft.Azure.Search`: Det här är ett meta-paket som innehåller alla andra Azure Search-paketen som beroenden. Om du uppgraderar från en tidigare version av SDK: N bör borde bara uppgradera det här paketet och att bygga om räcka att börja använda den nya versionen.
- - `Microsoft.Azure.Search.Data`: Använd det här paketet om du utvecklar ett .NET-program som använder Azure Search och du behöver bara frågor eller uppdaterar dokument i ditt index. Om du behöver också att skapa eller uppdatera index, synonymmappningar eller andra resurser på tjänstenivå, använda den `Microsoft.Azure.Search` paketet i stället.
- - `Microsoft.Azure.Search.Service`: Använd det här paketet om du utvecklar automatisering i .NET för att hantera Azure Search-index, synonymmappningar, indexerare, datakällor eller andra resurser för servicenivå. Om du bara behöver fråga eller uppdatera dokument i ditt index kan du använda den `Microsoft.Azure.Search.Data` paketet i stället. Om du behöver alla funktioner i Azure Search kan du använda den `Microsoft.Azure.Search` paketet i stället.
- - `Microsoft.Azure.Search.Common`: Vanliga typer som krävs av Azure Search .NET-bibliotek. Du behöver inte använda det här paketet direkt i dina program. Det är endast avsett att användas som ett beroende.
+ - `Microsoft.Azure.Search`: Detta är ett meta-paket som innehåller alla andra Azure Search-paket som beroenden. Om du uppgraderar från en tidigare version av SDK behöver du bara uppgradera det här paketet och skapa en ny version för att kunna börja använda den nya versionen.
+ - `Microsoft.Azure.Search.Data`: Använd det här paketet om du utvecklar ett .NET-program med hjälp av Azure Search och du bara behöver fråga eller uppdatera dokument i dina index. Om du också behöver skapa eller uppdatera index, synonym mappningar eller andra resurser på tjänst nivå använder du `Microsoft.Azure.Search` paketet i stället.
+ - `Microsoft.Azure.Search.Service`: Använd det här paketet om du utvecklar automatisering i .NET för att hantera Azure Search index, synonym kartor, indexerare, data källor eller andra resurser på tjänst nivå. Om du bara behöver fråga eller uppdatera dokument i dina index använder du `Microsoft.Azure.Search.Data` paketet i stället. Om du behöver alla funktioner i Azure Search använder du `Microsoft.Azure.Search` paketet i stället.
+ - `Microsoft.Azure.Search.Common`: Vanliga typer som krävs av Azure Search .NET-bibliotek. Du behöver inte använda det här paketet direkt i ditt program. Den är endast avsedd att användas som ett beroende.
  
-Den här ändringen tekniskt sett större eftersom många typer flyttades mellan sammansättningar. Det är därför återskapa ditt program krävs för att uppgradera till version 5 av SDK: N.
+Den här ändringen är tekniskt avhuggen eftersom många typer har flyttats mellan sammansättningar. Det är därför nödvändigt att bygga om ditt program för att kunna uppgradera till version 5 av SDK: n.
 
-Ett litet antal andra avgörande förändringar i version 5 som kan kräva kod ändrar det förutom återskapa ditt program.
+Det finns ett litet antal andra ändringar i version 5 som kan kräva kod ändringar förutom att återskapa ditt program.
 
-### <a name="change-to-suggesters"></a>Ändra till förslagsställare 
+### <a name="change-to-suggesters"></a>Ändra till förslag 
 
-Den `Suggester` konstruktor har inte längre en `enum` parametern för `SuggesterSearchMode`. Den här uppräkningen endast hade ett värde och har därför redundant. Om du ser fel till följd av detta i bygge, helt enkelt ta bort referenser till den `SuggesterSearchMode` parametern.
+Konstruktorn har inte längre någon `enum` parameter för `SuggesterSearchMode`. `Suggester` Den här uppräkningen hade bara ett värde och var därför redundant. Om du ser build-fel som ett resultat av detta tar du bara bort referenser `SuggesterSearchMode` till parametern.
 
-### <a name="removed-obsolete-members"></a>Ta bort föråldrade medlemmar
+### <a name="removed-obsolete-members"></a>Borttagna föråldrade medlemmar
 
-Du kan se Skapa fel som rör metoder eller egenskaper som har markerats som föråldrad i tidigare versioner och därefter tas bort i version 5. Om du stöter på sådana fel är här hur du löser dem:
+Du kan se build-fel som rör metoder eller egenskaper som marker ATS som föråldrade i tidigare versioner och sedan tagits bort i version 5. Gör så här om du stöter på sådana fel:
 
-- Om du använde den `IndexingParametersExtensions.IndexStorageMetadataOnly` metod, Använd `SetBlobExtractionMode(BlobExtractionMode.StorageMetadata)` i stället.
-- Om du använde den `IndexingParametersExtensions.SkipContent` metod, Använd `SetBlobExtractionMode(BlobExtractionMode.AllMetadata)` i stället.
+- Om du använde `IndexingParametersExtensions.IndexStorageMetadataOnly` metoden använder `SetBlobExtractionMode(BlobExtractionMode.StorageMetadata)` du i stället.
+- Om du använde `IndexingParametersExtensions.SkipContent` metoden använder `SetBlobExtractionMode(BlobExtractionMode.AllMetadata)` du i stället.
 
-### <a name="removed-preview-features"></a>Borttagna förhandsversionsfunktioner
+### <a name="removed-preview-features"></a>Borttagna för hands versions funktioner
 
-Om du uppgraderar från version 4.0-förhandsversion till version 5, Tänk på att JSON-matris och CSV parsning stöd för Blob-indexerare har tagits bort eftersom dessa funktioner är fortfarande i förhandsversion. Mer specifikt kan följande metoder i den `IndexingParametersExtensions` klassen har tagits bort:
+Om du uppgraderar från version 4,0 – för hands version till version 5 bör du vara medveten om att JSON-matrisen och stöd för CSV-parsning för BLOB-indexerare har tagits bort eftersom dessa funktioner fortfarande är i för hands version. Mer specifikt har följande metoder för `IndexingParametersExtensions` klassen tagits bort:
 
 - `ParseJsonArrays`
 - `ParseDelimitedTextFiles`
 
-Om ditt program har ett fast beroende på de här funktionerna kan du inte uppgradera till version 5 av Azure Search .NET SDK. Du kan fortsätta att använda version 4.0-förhandsversion. Men. Tänk på att **rekommenderar vi inte använder förhandsversionen av SDK: er i produktionsprogram**. Funktioner i förhandsversion är för utvärdering endast och kan ändras.
+Om programmet har ett hårt beroende av dessa funktioner kommer du inte att kunna uppgradera till version 5 av Azure Search .NET SDK. Du kan fortsätta att använda version 4,0 – för hands version. Tänk dock på att **vi inte rekommenderar att du använder för hands versioner av SDK: er i produktions program**. För hands versions funktionerna är endast för utvärdering och kan ändras.
 
 ## <a name="conclusion"></a>Sammanfattning
-Om du behöver mer information om hur du använder Azure Search .NET SDK kan du läsa den [.NET How-to](search-howto-dotnet-sdk.md).
+Om du behöver mer information om hur du använder Azure Search .NET SDK, se [.net How-to](search-howto-dotnet-sdk.md).
 
-Vi uppskattar din feedback om SDK. Om du får problem kan passa på att be om hjälp oss på [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Om du har hittat ett programfel kan du rapportera problemet i den [Azure .NET SDK på GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/issues). Se till att din Ärenderubrik med ”[Azure Search]”-prefix.
+Vi välkomnar din feedback om SDK. Om du stöter på problem kan du be oss om hjälp om [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Om du hittar en bugg kan du ange ett problem i [Azure .NET SDK GitHub](https://github.com/Azure/azure-sdk-for-net/issues)-lagringsplatsen. Var noga med att ange din ärende rubrik med "[Azure Search]".
 
-Tack för att använda Azure Search!
+Tack för att du använder Azure Search!

@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 244779e647c4b184b036b1a5ea77aac199be5994
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0c5b9a16a7b52239f1ef16d42e1b4be344863a04
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60570708"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140626"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -63,7 +62,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). 
 
@@ -173,9 +172,9 @@ END
 ### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Skapa datatyper och ytterligare lagrade procedurer i Azure SQL-databasen
 Kör följande fråga för att skapa två lagrade procedurer och två datatyper i SQL-databasen. De används för att slå samman data från källtabellerna till måltabellerna. 
 
-För att göra vägen enkelt att börja med vi använda dessa lagrade procedurer som passerar delta-data i via en tabellvariabel direkt och sedan Sammanfoga den dem i målarkiv. Var försiktig med att den inte förväntar ett ”stora” antal delta rader (fler än 100) som ska lagras i tabellvariabeln.  
+För att göra resan lätt att börja med, använder vi direkt dessa lagrade procedurer som skickar delta data i via en tabell variabel och sedan sammanfogar dem till mål lagret. Var försiktig med att det inte förväntar sig ett "stort" antal delta rader (mer än 100) som ska lagras i tabell variabeln.  
 
-Om du behöver slå samman ett stort antal delta rader till målarkiv föreslår vi att du kan använda Kopieringsaktivitet för att kopiera delta-data i en tillfällig tabell som ”mellanlagring” i målet lagra först och sedan skapat en egen lagrad procedur utan att använda tabellen vari Det går att slå samman dem från tabellen ”mellanlagring” till ”sista”-tabellen. 
+Om du behöver slå samman ett stort antal delta-rader i mål lagret, rekommenderar vi att du använder kopierings aktivitet för att kopiera alla delta data till en tillfällig "mellanlagrings tabell" i mål lagret först och sedan skapa en egen lagrad procedur utan att använda tabell variation kan koppla dem från tabellen "mellanlagring" till den slutgiltiga tabellen. 
 
 
 ```sql

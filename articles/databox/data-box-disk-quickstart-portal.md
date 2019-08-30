@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 08/30/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: cbc55433517174c8080b941ca8526e5a4fd3427d
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7623244d8b7de012d80e7e4844a9b3693ccdd662
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126017"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186686"
 ---
 ::: zone target="docs"
 
@@ -40,7 +41,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ::: zone target="chromeless"
 
-I den här guiden beskrivs hur du distribuerar Azure Data Box Disk i Azure Portal. Stegen omfattar gransknings krav, Lås upp diskarna och Anslut och kopiera data till diskar så att de överförs till Azure.
+Den här guiden vägleder dig genom stegen för att använda Azure Data Box Disk i Azure Portal. Den här guiden hjälper dig att besvara följande frågor.
 
 ::: zone-end
 
@@ -60,17 +61,16 @@ Logga in på Azure Portal på [https://aka.ms/azuredataboxfromdiskdocs](https://
 
 ::: zone target="chromeless"
 
-### <a name="prerequisites"></a>Förutsättningar
-
-- Du har placerat din beställning för data Box disk med [hjälp av självstudien: Beställa Azure Data Box Disk](data-box-disk-deploy-ordered.md).
-- Du har tagit emot diskarna och jobbstatusen på portalen har uppdaterats till **Levererade**.
-- Du har markerat antalet diskar som du har tagit emot och att du har en anslutnings kabel per disk.
-- Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
-
-    - Kör ett [operativ system som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Ha [andra nödvändiga program](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installerade om det är en Windows-klient.
+> [!div class="checklist"]
+>
+> - **Granska krav**: Kontrol lera antalet diskar och kablar, operativ system och annan program vara.
+> - **Anslut och lås upp**: Anslut enheten och lås upp disken för att kopiera data.
+> - **Kopiera data till disken och verifiera**: Kopiera data till diskarna till de förskapade mapparna.
+> - **Returnera diskarna**: Returnera diskarna till Azure-datacentret där data överförs till ditt lagrings konto.
+> - **Verifiera data i Azure**: Kontrol lera att dina data har laddats upp till ditt lagrings konto innan du tar bort det från käll datum servern.
 
 ::: zone-end
+
 
 ::: zone target="docs"
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: a86dd021d8f9cfe275b3af3f0cb71b99857c26d7
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 753f0bece5b8b52ebb50ab2a6e93056ce209cfbc
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971521"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183557"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
 
@@ -23,7 +23,7 @@ Lär dig hur du använder en anpassad Docker-bas avbildning när du distribuerar
 
 När du distribuerar en utbildad modell till en webb tjänst eller IoT Edge enhet skapas ett paket som innehåller en webb server för att hantera inkommande begär Anden.
 
-Azure Machine Learning tjänsten tillhandahåller en standard Docker-bas avbildning så att du inte behöver oroa dig för att skapa en. Du kan också använda en anpassad bas avbildning som du skapar som en _bas avbildning_. 
+Azure Machine Learning tjänsten tillhandahåller en standard Docker-bas avbildning så att du inte behöver oroa dig för att skapa en. Du kan också använda Azure Machine Learning tjänst __miljöer__ för att välja en enskild bas avbildning eller använda en anpassad som du anger.
 
 En bas avbildning används som start punkt när en avbildning skapas för en distribution. Det tillhandahåller underliggande operativ system och komponenter. Distributions processen lägger sedan till ytterligare komponenter, till exempel din modell, Conda-miljö och andra till gångar, till avbildningen innan du distribuerar den.
 
@@ -193,6 +193,8 @@ Microsoft tillhandahåller flera Docker-avbildningar på en offentligt tillgäng
 > [!IMPORTANT]
 > Microsoft-avbildningar som använder CUDA eller TensorRT får endast användas på Microsoft Azure-tjänster.
 
+Mer information finns i [Azure Machine Learning tjänst behållare](https://github.com/Azure/AzureML-Containers).
+
 > [!TIP]
 >__Om din modell tränas på Azure Machine Learning Compute__, med __version 1.0.22 eller senare__ av Azure Machine Learning SDK, skapas en avbildning under utbildningen. Använd `run.properties["AzureML.DerivedImageName"]`om du vill identifiera namnet på den här avbildningen. Följande exempel visar hur du använder den här avbildningen:
 >
@@ -203,29 +205,50 @@ Microsoft tillhandahåller flera Docker-avbildningar på en offentligt tillgäng
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Använd en avbildning med Azure Machine Learning SDK
 
-Om du vill använda en anpassad avbildning anger `base_image` du egenskapen för [konfigurations objektets konfigurations objekt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) till adressen för avbildningen:
+Om du vill använda en avbildning som lagras i **Azure Container Registry för din arbets yta**, eller ett behållar **register som är offentligt tillgängligt**, anger du följande miljöattribut: [](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)
+
++ `docker.enabled=True`
++ `docker.base_image`: Ange till registret och sökvägen till avbildningen.
 
 ```python
-# use an image from a registry named 'myregistry'
-inference_config.base_image = "myregistry.azurecr.io/myimage:v1"
+from azureml.core import Environment
+# Create the environment
+myenv = Environment(name="myenv")
+# Enable Docker and reference an image
+myenv.docker.enabled = True
+myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
 ```
 
-Det här formatet fungerar för både avbildningar som lagras i Azure Container Registry för din arbets yta och dina behållar register som är tillgängliga för allmänheten. I följande kod används till exempel en standard avbildning från Microsoft:
+Om du vill använda en avbildning från ett __privat behållar register__ som inte finns i din arbets `docker.base_image_registry` yta, måste du använda för att ange adressen till lagrings platsen och ett användar namn och lösen ord:
 
 ```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+# Set the container registry information
+myenv.docker.base_image_repository.address = "myregistry.azurecr.io"
+myenv.docker.base_image_repository.username = "username"
+myenv.docker.base_image_repository.password = "password"
 ```
 
-Om du vill använda en avbildning från ett __privat behållar register__ som inte finns i din arbets yta, måste du ange adressen till lagrings platsen och ett användar namn och lösen ord:
+När du har definierat miljön använder du den med ett [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) -objekt för att definiera den miljö för miljön och webb tjänsten som ska köras.
 
 ```python
-# Use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
+from azureml.core.model import InferenceConfig
+# Use environment in InferenceConfig
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
 ```
+
+Nu kan du fortsätta med distributionen. Följande kodfragment skulle till exempel distribuera en webb tjänst lokalt med hjälp av konfigurations konfigurationen och den anpassade avbildningen:
+
+```python
+from azureml.core.webservice import LocalWebservice, Webservice
+
+deployment_config = LocalWebservice.deploy_configuration(port=8890)
+service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
+service.wait_for_deployment(show_output = True)
+print(service.state)
+```
+
+Mer information om distribution finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
 
 ### <a name="use-an-image-with-the-machine-learning-cli"></a>Använd en avbildning med Machine Learning CLI
 

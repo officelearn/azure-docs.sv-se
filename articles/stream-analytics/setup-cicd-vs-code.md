@@ -1,6 +1,6 @@
 ---
-title: Kontinuerlig integrering och utveckla med Azure Stream Analytics CI/CD npm-paket
-description: Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD npm-paket för att konfigurera en kontinuerlig integrering och distributionsprocessen.
+title: Använd Azure Stream Analytics CI/CD NPM-paketet
+description: Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD NPM-paket för att konfigurera en kontinuerlig integrering och distributions process.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -8,21 +8,21 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: fa5a57afa379c6bbe027be80f400fc176800d289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df9afaaeeb7e41c111fe6bd053047095a9cb9349
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158508"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173349"
 ---
-# <a name="continuously-integrate-and-develop-with-stream-analytics-cicd-npm-package"></a>Kontinuerlig integrering och utveckla med Stream Analytics CI/CD npm-paket
-Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD npm-paket för att konfigurera en kontinuerlig integrering och distributionsprocessen.
+# <a name="use-the-stream-analytics-cicd-npm-package"></a>Använd Stream Analytics CI/CD NPM-paketet
+Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD NPM-paketet för att skapa en kontinuerlig integrering och distributions process.
 
-## <a name="build-the-vs-code-project"></a>Skapa VS Code-projektet
+## <a name="build-the-vs-code-project"></a>Bygg VS Code-projektet
 
-Du kan aktivera kontinuerlig integrering och distribution för Azure Stream Analytics-jobb med hjälp av den **asa-streamanalytics-cicd** npm-paket. Npm-paketet innehåller verktyg för att skapa Azure Resource Manager-mallar för [Stream Analytics Visual Studio Code projekt](quick-create-vs-code.md). Det kan användas i Windows, macOS och Linux utan att installera Visual Studio Code.
+Du kan aktivera kontinuerlig integrering och distribution för Azure Stream Analytics jobb med hjälp av NPM **-paketet ASA-streamanalytics-cicd** . NPM-paketet innehåller verktyg för att skapa Azure Resource Manager mallar för [Stream Analytics Visual Studio Code-projekt](quick-create-vs-code.md). Den kan användas i Windows, macOS och Linux utan att installera Visual Studio Code.
 
-När du har [hämtade paketet](https://www.npmjs.com/package/azure-streamanalytics-cicd), använder du följande kommando för att mata ut Azure Resource Manager-mallar. Den **scriptPath** argumentet är den absoluta sökvägen till den **asaql** filen i projektet. Kontrollera att det asaproj.json och JobConfig.json filer finns i samma mapp med skriptfilen. Om den **outputPath** inte anges mallarna kommer att placeras i den **distribuera** mapp under projektets **bin** mapp.
+När du har [hämtat paketet](https://www.npmjs.com/package/azure-streamanalytics-cicd)använder du följande kommando för att skriva ut Azure Resource Manager-mallarna. Argumentet **scriptPath** är den absoluta sökvägen till **asaql** -filen i projektet. Kontrol lera att filerna asaproj. JSON och JobConfig. JSON finns i samma mapp som skript filen. Om **outputPath** inte har angetts placeras mallarna i mappen **Deploy** i mappen **bin** för projektet.
 
 ```powershell
 azure-streamanalytics-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
@@ -32,31 +32,31 @@ Exempel (på macOS)
 azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/script.asaql" 
 ```
 
-När ett Stream Analytics Visual Studio Code-projekt skapas har måste genererar följande två Azure Resource Manager mallfiler under den **bin / [Debug/hos återförsäljare] / distribuera** mapp: 
+När ett Stream Analytics Visual Studio Code-projekt skapas, genererar det följande två Azure Resource Manager mallfiler under mappen **bin/[debug/återförsäljarversion]/Deploy** : 
 
-*  Resource Manager-mallfilen
+*  Resource Manager-mallfil
 
        [ProjectName].JobTemplate.json 
 
-*  Resource Manager-parameterfilen
+*  Parameter fil för Resource Manager
 
        [ProjectName].JobTemplate.parameters.json   
 
-Standardparametrarna i filen parameters.json är från inställningarna i ditt projekt i Visual Studio Code. Ersätt parametrarna i enlighet med detta om du vill distribuera till en annan miljö.
+Standard parametrarna i filen Parameters. JSON är från inställningarna i ditt Visual Studio Code-projekt. Om du vill distribuera till en annan miljö ersätter du parametrarna på motsvarande sätt.
 
 > [!NOTE]
-> För alla autentiseringsuppgifterna som standardvärden anges till null. Du är **krävs** du anger värden innan du distribuerar till molnet.
+> Standardvärdena anges till null för alla autentiseringsuppgifter. Du **måste** ange värdena innan du distribuerar till molnet.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
       "value": null
     },
 ```
-Mer information om hur du [distribuera med en Resource Manager-mallfilen och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Mer information om hur du [använda ett objekt som en parameter i en Resource Manager-mall](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Lär dig mer om hur du [distribuerar med en Resource Manager-mallfil och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Lär dig mer om hur du [använder ett objekt som en parameter i en Resource Manager-mall](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
-Om du vill använda hanterade identiteter för Azure Data Lake Store Gen1 som utdatamottagare, måste du ge åtkomst till tjänstens huvudnamn med hjälp av PowerShell innan du distribuerar till Azure. Mer information om hur du [distribuera ADLS Gen1 med hanterad identitet med Resource Manager-mall](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
+Om du vill använda hanterad identitet för Azure Data Lake Store gen1 som utgående mottagare måste du ge åtkomst till tjänstens huvud namn med hjälp av PowerShell innan du distribuerar till Azure. Lär dig mer om hur du [distribuerar ADLS gen1 med hanterad identitet med Resource Manager-mall](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabbstart: Skapa cloud Azure Stream Analytics-jobb i Visual Studio Code (förhandsversion)](quick-create-vs-code.md)
-* [Testa Stream Analytics-frågor lokalt med Visual Studio Code (förhandsversion)](vscode-local-run.md)
-* [Utforska Azure Stream Analytics med Visual Studio Code (förhandsversion)](vscode-explore-jobs.md)
+* [Snabbstart: Skapa ett Azure Stream Analytics moln jobb i Visual Studio Code (för hands version)](quick-create-vs-code.md)
+* [Testa Stream Analytics frågor lokalt med Visual Studio Code (för hands version)](vscode-local-run.md)
+* [Utforska Azure Stream Analytics med Visual Studio Code (för hands version)](vscode-explore-jobs.md)

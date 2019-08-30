@@ -2,18 +2,18 @@
 title: Azure SQL-hanterad instans anslutning för Sök indexering – Azure Search
 description: Aktivera offentlig slut punkt för att tillåta anslutningar till SQL-hanterade instanser från en indexerare på Azure Search.
 author: vl8163264128
-manager: briansmi
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: victliu
-ms.openlocfilehash: ae947e85f600b3bc380898ad5820239aa823794d
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 07bc1a55c0222fda87b28acbaa8bfe552fb8e6ed
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229133"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186650"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-managed-instance"></a>Konfigurera en anslutning från en Azure Search indexerare till SQL-hanterad instans
 Som anges i [ansluta Azure SQL Database för att Azure Search med hjälp av indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), stöds att skapa indexerare mot **SQL-hanterade instanser** av Azure Search via den offentliga slut punkten.
@@ -24,7 +24,7 @@ Skapa en SQL-hanterad instans med alternativet **Aktivera offentlig slut punkt**
    ![Aktivera offentlig slut punkt](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Aktivera offentlig slut punkt")
 
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Aktivera offentlig slut punkt för Azure SQL Managed instance
-Du kan också aktivera offentlig slut punkt på en befintlig SQL-hanterad instans under**offentlig slut punkt** > för **säkerhet** > **virtuellt nätverk** >  **.**
+Du kan också aktivera offentlig slut punkt på en befintligSQL-hanterad instans under**offentlig slut punkt** > för **säkerhet** > **virtuellt nätverk** > .
 
    ![Aktivera offentlig slut punkt](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Aktivera offentlig slut punkt")
 

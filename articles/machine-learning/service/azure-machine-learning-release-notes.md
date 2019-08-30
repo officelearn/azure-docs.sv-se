@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1e35baf24b59e7864982d131f44f79458e0d9015
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 01ee8e5b9d7ab1e8ab4086e559ce8dd8df76252f
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971497"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182698"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -84,6 +84,7 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
     + Tillåt AutoML-användare att släppa inlärnings serier som inte är tillräckligt långa vid prognoser.
     + Tillåt AutoML-användare att släppa kärnor från test uppsättningen som inte finns i inlärnings uppsättningen vid prognostisering.
     + Nu AutoMLStep passerar genom automl config till Server del för att undvika problem vid ändringar eller tillägg av nya konfigurations parametrar.
+    + AutoML data Guardrail finns nu som offentlig för hands version. Användaren ser en data Guardrail-rapport (för klassificerings-och Regressions aktiviteter) efter utbildning och kan också komma åt den via SDK-API.
   + **azureml-train-core**
     + Stöd för Torch 1,2 har lagts till i PyTorch-uppskattningen.
   + **azureml – widgetar**

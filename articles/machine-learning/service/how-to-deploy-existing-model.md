@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: cbbfd5f7beb7270bf55e952c818b4802d9d9ecab
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f30ac3d5e20b3f797e083972ac179fd29f6b1475
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847995"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182537"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning-service"></a>Använd en befintlig modell med Azure Machine Learning tjänsten
 
@@ -76,23 +76,40 @@ Mer information om modell registrering i allmänhet finns i [Hantera, distribuer
 
 ## <a name="define-inference-configuration"></a>Definiera konfiguration av härledning
 
-Konfigurationen av konfigurationen definierar den miljö som används för att köra den distribuerade modellen. Konfigurations konfigurationen refererar till följande filer som används för att köra modellen när den har distribuerats:
+Konfigurationen av konfigurationen definierar den miljö som används för att köra den distribuerade modellen. Konfigurations konfigurationen refererar till följande entiteter, som används för att köra modellen när den distribueras:
 
-* Körningen. Det enda giltiga värdet för körning för närvarande är python.
 * Ett Entry-skript. Den här filen ( `score.py`Named) läser in modellen när den distribuerade tjänsten startar. Den ansvarar också för att ta emot data, skicka den till modellen och sedan returnera ett svar.
-* En Conda-miljö fil. Den här filen definierar de python-paket som behövs för att köra modell-och registrerings skriptet. 
+* En Azure Machine Learning tjänst [miljö](how-to-use-environments.md). En miljö definierar de program beroenden som krävs för att köra modell-och registrerings skriptet.
 
-I följande exempel visas en grundläggande konfiguration med python-SDK: n:
+I följande exempel visas hur du använder SDK för att skapa en miljö och sedan använder den med en konfigurations konfiguration:
 
 ```python
 from azureml.core.model import InferenceConfig
+from azureml.core import Environment
+from azureml.core.environment import CondaDependencies
 
-inference_config = InferenceConfig(runtime= "python", 
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml")
+# Create the environment
+myenv = Environment(name="myenv")
+conda_dep = CondaDependencies()
+
+# Define the packages needed by the model and scripts
+conda_dep.add_conda_package("tensorflow")
+conda_dep.add_conda_package("numpy")
+conda_dep.add_conda_package("scikit-learn")
+conda_dep.add_pip_package("keras")
+
+# Adds dependencies to PythonSection of myenv
+myenv.python.conda_dependencies=conda_dep
+
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
 ```
 
-Mer information finns i referensen till [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) .
+Mer information finns i följande artiklar:
+
++ [Använda miljöer](how-to-use-environments.md).
++ [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) -referens.
+
 
 CLI läser in konfigurationen från en YAML-fil:
 
@@ -102,6 +119,20 @@ CLI läser in konfigurationen från en YAML-fil:
    "runtime": "python",
    "condaFile": "myenv.yml"
 }
+```
+
+Med CLI definieras Conda-miljön i `myenv.yml` filen som den här konfigurations konfigurationen refererar till. Följande YAML är innehållet i den här filen:
+
+```yaml
+name: inference_environment
+dependencies:
+- python=3.6.2
+- tensorflow
+- numpy
+- scikit-learn
+- pip:
+    - azureml-defaults
+    - keras
 ```
 
 Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
@@ -190,24 +221,6 @@ def predict(text, include_neutral=True):
 ```
 
 Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
-
-### <a name="conda-environment"></a>Conda-miljö
-
-I följande YAML beskrivs den Conda-miljö som krävs för att köra modellen och skriptet:
-
-```yaml
-name: inference_environment
-dependencies:
-- python=3.6.2
-- tensorflow
-- numpy
-- scikit-learn
-- pip:
-    - azureml-defaults
-    - keras
-```
-
-Mer information finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
 
 ## <a name="define-deployment"></a>Definiera distribution
 

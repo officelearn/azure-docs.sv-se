@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 08/16/2019
-ms.openlocfilehash: 6357b5a477390f484a47167a0b9d2e524d37c9ac
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 08/29/2019
+ms.openlocfilehash: 73aeea42cd843716c845d7712539ae5c81f03dca
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035778"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173078"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
-Grupper med automatisk redundans är en SQL Database funktion som gör att du kan hantera replikering och redundans för en grupp databaser på en SQL Database-Server eller alla databaser i en hanterad instans till en annan region. Det är en deklarativ abstraktion ovanpå den befintliga funktionen [aktiv geo-replikering](sql-database-active-geo-replication.md) som är utformad för att förenkla distribution och hantering av geo-replikerade databaser i stor skala. Du kan initiera redundans manuellt eller så kan du delegera den till SQL Database tjänst baserat på en användardefinierad princip. Med det senare alternativet kan du automatiskt återställa flera relaterade databaser i en sekundär region efter ett oåterkalleligt fel eller annan oplanerad händelse som resulterar i fullständig eller partiell förlust av SQL Database tjänstens tillgänglighet i den primära regionen. En failover-grupp kan innehålla en eller flera databaser, som vanligt vis används av samma program. Dessutom kan du använda de läsbara sekundära databaserna för att avlasta skrivskyddade arbets belastningar. Eftersom grupper med automatisk redundans omfattar flera databaser, måste dessa databaser konfigureras på den primära servern. Både primära och sekundära servrar för databaserna i gruppen redundans måste vara i samma prenumeration. Grupper för automatisk redundans stöder replikering av alla databaser i gruppen till endast en sekundär server i en annan region.
+Grupper med automatisk redundans är en SQL Database funktion som gör att du kan hantera replikering och redundans för en grupp databaser på en SQL Database-Server eller alla databaser i en hanterad instans till en annan region. Det är en deklarativ abstraktion ovanpå den befintliga funktionen [aktiv geo-replikering](sql-database-active-geo-replication.md) som är utformad för att förenkla distribution och hantering av geo-replikerade databaser i stor skala. Du kan initiera redundans manuellt eller så kan du delegera den till SQL Database tjänst baserat på en användardefinierad princip. Med det senare alternativet kan du automatiskt återställa flera relaterade databaser i en sekundär region efter ett oåterkalleligt fel eller annan oplanerad händelse som resulterar i fullständig eller partiell förlust av SQL Database tjänstens tillgänglighet i den primära regionen. En failover-grupp kan innehålla en eller flera databaser, som vanligt vis används av samma program. Dessutom kan du använda de läsbara sekundära databaserna för att avlasta skrivskyddade arbets belastningar. Eftersom grupper med automatisk redundans omfattar flera databaser, måste dessa databaser konfigureras på den primära servern. Grupper för automatisk redundans stöder replikering av alla databaser i gruppen till endast en sekundär server i en annan region.
 
 > [!NOTE]
 > När du arbetar med enskilda databaser eller databaser på en SQL Database-Server och vill ha flera sekundära servrar i samma eller olika regioner, använder du [aktiv geo-replikering](sql-database-active-geo-replication.md). 
@@ -191,12 +191,20 @@ Om programmet använder hanterad instans som datanivå, följer du dessa allmän
 
   För att säkerställa icke-avbruten anslutning till den primära instansen efter redundans måste båda de primära och sekundära instanserna finnas i samma DNS-zon. Det garanterar att samma certifikat för flera domäner (SAN) kan användas för att autentisera klient anslutningarna till någon av de två instanserna i gruppen redundans. När programmet är redo för produktions distribution skapar du en sekundär instans i en annan region och kontrollerar att den delar DNS-zonen med den primära instansen. Du kan göra det genom att ange `DNS Zone Partner` en valfri parameter med hjälp av Azure Portal, PowerShell eller REST API. 
 
-  Mer information om hur du skapar den sekundära instansen i samma DNS-zon som den primära instansen finns i [Hantera redundanskluster med hanterade instanser (för hands version)](#powershell-managing-failover-groups-with-managed-instances-preview).
+  Mer information om hur du skapar den sekundära instansen i samma DNS-zon som den primära instansen finns i [skapa en sekundär hanterad instans](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
 
 - **Aktivera replikeringstrafik mellan två instanser**
 
   Eftersom varje instans är isolerad i sitt eget VNet måste dubbelriktad trafik mellan dessa virtuella nätverk tillåtas. Se [Azure VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
+- **Skapa en failover-grupp mellan hanterade instanser i olika prenumerationer**
+
+  Du kan skapa en failover-grupp mellan hanterade instanser i två olika prenumerationer. När du använder PowerShell API kan du göra det genom att `PartnerSubscriptionId` ange parametern för den sekundära instansen. När du använder REST API kan varje instans-ID som `properties.managedInstancePairs` ingår i parametern ha sitt eget subscriptionID. 
+  
+  > [!IMPORTANT]
+  > Azure Portal har inte stöd för redundansväxla grupper över olika prenumerationer.
+
+  
 - **Konfigurera en failover-grupp för att hantera redundans för hela instansen**
 
   Gruppen redundans hanterar redundansväxlingen för alla databaser i instansen. När en grupp skapas blir varje databas i instansen automatiskt geo-replikerad till den sekundära instansen. Du kan inte använda grupper för växling vid fel för att initiera en delvis redundansväxling av en delmängd av databaserna.
@@ -326,34 +334,16 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 > Ett exempel skript finns i [Konfigurera och redundansväxla en failover-grupp för en enskild databas](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
 >
 
-### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Hantera grupper med hanterade instanser (förhands granskning)
+### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell: Hantera failover-grupper för SQL-databas med hanterade instanser 
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installera den nyaste för hands versionen av PowerShell
-
-1. Uppdatera PowerShellGet-modulen till 1.6.5 (eller den nyaste för hands versionen). Se [PowerShell-webbplatsen för för hands versionen](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
-
-   ```powershell
-      install-module PowerShellGet -MinimumVersion 1.6.5 -force
-   ```
-
-2. Kör följande kommandon i ett nytt PowerShell-fönster:
-
-   ```powershell
-      import-module PowerShellGet
-      get-module PowerShellGet #verify version is 1.6.5 (or newer)
-      install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
-      import-module azurerm.sql
-   ```
-
-#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>PowerShell-cmdletarna för att skapa en grupp för redundans
-
-| API | Beskrivning |
+| Cmdlet: | Beskrivning |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Ändrar konfigurationen för redundans gruppen|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Hämtar konfigurationen för redundans gruppen|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Utlöser redundans för gruppen redundans till den sekundära servern|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Tar bort en failover-grupp|
+| [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
+| [Set-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Ändrar konfigurationen för redundans gruppen|
+| [Get-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) |Hämtar konfigurationen för redundans gruppen|
+| [Switch-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Utlöser redundans för gruppen redundans till den sekundära servern|
+| [Remove-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | Tar bort en failover-grupp|
+|  | |
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: Hantera failover-grupper för SQL-databas med enkla databaser och databaser i pooler
 

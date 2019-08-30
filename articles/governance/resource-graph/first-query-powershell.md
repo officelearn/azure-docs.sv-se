@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: a8221de15dfa48b4eebcf0fe0df29ea0c3a1868e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 92d397a1bac5a4c65de41b3cb61f566cf42877f2
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854957"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164941"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Snabbstart: Köra din första Resource Graph-fråga med hjälp av Azure PowerShell
 
@@ -48,7 +48,7 @@ Resource Graph-modulen för PowerShell är **Az.ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Kontrol lera att modulen har importer ATS och att den är rätt version (0.7.3):
+1. Kontrol lera att modulen har importer ATS och är den senaste versionen (0.7.5):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module

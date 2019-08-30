@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 08/29/2019
 ms.author: dapine
-ms.openlocfilehash: 3c0129275ecf78e6a4e6b9286f975ded2b6f9ae3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 25ea4c96a0e392db2af9c25a150696ca2b25b2dd
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051201"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164538"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installera och kör formulär igenkännings behållare
 
@@ -58,28 +58,25 @@ De minsta och rekommenderade processor kärnor och minne som ska allokeras för 
 
 | Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
-|cognitive-services-form-recognizer | 2 kärnor, 4 GB minne | 4 kärnor, 8 GB minne |
+| Formigenkänning | 2 kärnor, 4 GB minne | 4 kärnor, 8 GB minne |
+| Identifiera text | 1 kärna, 8 GB minne | 2 kärnor, 8 GB minne |
 
 * Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
-* TPS-transaktioner per sekund
 * Core och minne motsvarar `--cpus` inställningarna och `--memory` som `docker run` används som en del av kommandot.
 
 > [!Note]
 > De lägsta och rekommenderade värdena baseras på Docker-gränser och *inte* värd datorns resurser.
 
-## <a name="get-the-container-image-with-the-docker-pull-command"></a>Hämta behållar avbildningen med Docker pull-kommandot
+## <a name="get-the-container-images-with-the-docker-pull-command"></a>Hämta behållar avbildningarna med kommandot Docker pull
 
-Behållar avbildningar för formulär igenkänning är tillgängliga i följande lagrings plats:
+Behållar avbildningar för både **formulär tolken** och **identifiera text** erbjudanden är tillgängliga i följande behållar register:
 
-| Container | Lagringsplats |
+| Container | Fullständigt kvalificerat avbildnings namn |
 |-----------|------------|
-| cognitive-services-form-recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+| Formigenkänning | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+| Identifiera text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
-Om du tänker använda `cognitive-services-recognize-text` [behållaren](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull), i stället för formulär tolknings tjänsten, kontrollerar du `docker pull` att du använder kommandot med rätt behållar namn: 
-
-```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
+Du behöver båda behållarna, Observera att text behållaren för **tolkning** är [detaljerad utanför den här artikeln.](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull)
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -91,6 +88,15 @@ Använd följande kommando för att hämta formulär tolkens behållare:
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
+```
+### <a name="docker-pull-for-the-recognize-text-container"></a>Docker-hämtning för Identifiera text container
+
+#### <a name="recognize-text"></a>Identifiera text
+
+Använd följande kommando för att hämta Identifiera text container:
+
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>Använda behållaren

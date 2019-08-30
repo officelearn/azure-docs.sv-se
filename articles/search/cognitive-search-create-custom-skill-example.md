@@ -1,7 +1,7 @@
 ---
 title: 'Exempel: Skapa en anpassad kognitiv kompetens med API för entitetsökning i Bing-Azure Search'
 description: Visar hur du använder tjänsten Entitetssökning i Bing i en anpassad färdighet som är mappad till en kognitiv Sök indexerings pipeline i Azure Search.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 58f98f3807955db0b32cbcd1ed0d409814e35a76
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d77b4e3a002757bcf6c91b6611876e732273fcf9
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639903"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183520"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exempel: Skapa en anpassad kunskap med hjälp av API för entitetsökning i Bing
 

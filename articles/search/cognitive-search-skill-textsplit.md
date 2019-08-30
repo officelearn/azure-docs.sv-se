@@ -2,7 +2,7 @@
 title: Text delning kognitiv Sök kompetens – Azure Search
 description: Dela upp text i segment eller sidor med text baserat på längd i en Azure Search anriknings pipeline.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 03ebf39db264c9d6f78b228f3af4239c6e249b26
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: fcde448c664ad85b78d275304dd01a1eedaca006
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635949"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183297"
 ---
 #   <a name="text-split-cognitive-skill"></a>Text delning kognitiv kunskap
 
@@ -79,7 +79,7 @@ Parametrar är Skift läges känsliga.
 }
 ```
 
-##  <a name="sample-input"></a>Exempel på inmatade
+##  <a name="sample-input"></a>Exempel på indata
 
 ```json
 {

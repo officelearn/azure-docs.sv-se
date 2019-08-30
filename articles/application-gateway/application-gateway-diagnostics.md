@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 3acae8f7d34bb02905e6e8d479b7de5ccab1bb7a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d9b0c551cdfb92b380a967aaa5bdce7c278fd39e
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850987"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183583"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsa, diagnostikloggar och mått för Application Gateway
 
@@ -105,7 +105,7 @@ Du kan använda olika typer av loggar i Azure för att hantera och felsöka prog
 Du har tre alternativ för att lagra dina loggar:
 
 * **Lagringskonto**: Lagrings konton används bäst för loggar när loggar lagras under en längre tid och granskas vid behov.
-* **Event Hub**: Event Hub är ett bra alternativ för att integrera med andra verktyg för säkerhets informations-och händelse hantering (SEIM) för att få aviseringar om dina resurser.
+* **Event Hub**: Event Hub är ett bra alternativ för att integrera med andra verktyg för säkerhets informations-och händelse hantering (SIEM) för att få aviseringar om dina resurser.
 * **Azure Monitor loggar**: Azure Monitor loggar används bäst för allmänt real tids övervakning av ditt program eller tittar på trender.
 
 ### <a name="enable-logging-through-powershell"></a>Aktivera loggning via PowerShell
@@ -157,7 +157,7 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 
 Åtkomst loggen skapas endast om du har aktiverat den på varje Application Gateway instans, enligt beskrivningen i föregående steg. Data lagras i det lagrings konto som du angav när du aktiverade loggningen. Varje åtkomst till Application Gateway loggas i JSON-format, som du ser i följande exempel för v1:
 
-|Värde  |Beskrivning  |
+|Value  |Beskrivning  |
 |---------|---------|
 |instanceId     | Application Gateway instans som hanterade begäran.        |
 |clientIP     | Ursprunglig IP för begäran.        |

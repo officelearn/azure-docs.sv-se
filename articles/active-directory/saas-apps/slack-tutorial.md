@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e15f704fc9604bd18a1f4848e84065fc507314
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1c2d877a1dc611e02e9fbc245df230ca669a2ae4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563095"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171433"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med slack
 
@@ -47,6 +47,9 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 * Slack har stöd för **SP**-initierad enkel inloggning
 * Slack stöder **just-in-time**-användaretablering
 * Slack har stöd för [**automatisk** användaretablering](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/slack-provisioning-tutorial)
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-slack-from-the-gallery"></a>Lägga till Slack från galleriet
 
@@ -90,36 +93,6 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     > [!NOTE]
     > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Slack-kundsupporten](https://slack.com/help/contact) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
-
-1. Slack-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialog rutan **användarattribut** .
-
-    ![image](common/edit-attribute.png)
-
-    > [!NOTE]
-    > Om du har användare som har tilldelats **e-** postadressen inte finns på en Office365-licens visas inte anspråket **användare. e-post** i SAML-token. I sådana fall föreslår vi att du använder **user.userprincipalname** som **User.Email**-attributvärdet att mappa som **unik identifierare** istället.
-
-1. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
-
-    | Namn | Källattribut |
-    | --- | --- |
-    | first_name | user.givenname |
-    | last_name | user.surname |
-    | User.Email | user.mail |
-    | User.Username | user.userprincipalname |
-
-    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
-
-    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
-
-    c. Lämna **Namnrymd** tom.
-
-    d. Välj Källa som **Attribut**.
-
-    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
-
-    f. Klicka på **Ok**
-
-    g. Klicka på **Spara**.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -187,7 +160,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="create-slack-test-user"></a>Skapa Slack-testanvändare
 
-Målet med det här avsnittet är att skapa en användare med namnet Britta Simon i Slack. Slack har stöd för just-in-time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid ett försök att få åtkomst till Slack, om den inte redan finns. Slack stöder även automatisk användaretablering. Mer information finns [här](slack-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i slack. Slack har stöd för just-in-time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid ett försök att få åtkomst till Slack, om den inte redan finns. Slack stöder även automatisk användaretablering. Mer information finns [här](slack-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
 > [!NOTE]
 > Om du behöver skapa en användare manuellt måste du kontakta [Slack-supporten](https://slack.com/help/contact).

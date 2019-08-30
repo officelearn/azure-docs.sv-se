@@ -3,16 +3,16 @@ title: Stöd mat ris för Microsoft Azure Recovery Services (MARS)-agenten – A
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 author: dcurwin
 ms.service: backup
-ms.date: 02/17/2019
+ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 599d3f97ea30b096999d754a995af2ba660c0bc3
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951986"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186169"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -72,20 +72,22 @@ Nätverks begränsning | Inte tillgängligt för säkerhetskopierade datorer som
 
 Du kan använda MARS-agenten för att säkerhetskopiera direkt till Azure på vissa operativ system som körs på lokala datorer och virtuella Azure-datorer. Operativ systemen måste vara 64-bitars och köra de senaste paketen och uppdateringarna. I följande tabell sammanfattas dessa operativ system:
 
-**Operativsystem** | **Filer/mappar** | **System tillstånd** 
---- | --- | --- 
-Windows 10 (Enterprise, Pro, Home) | Ja | Nej
-Windows 8,1 (Enterprise, Pro)| Ja |Nej
-Windows 8 (Enterprise, Pro) | Ja | Nej
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Ja | Nej
-Windows Server 2016 (Standard, Datacenter, Essentials) | Ja | Ja
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Ja | Ja
-Windows Server 2012 (Standard, Datacenter, Foundation) | Ja | Ja
-Windows Server 2008 R2 (standard, Enterprise, data Center, Foundation) | Ja | Ja
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Ja | Nej
-Windows Storage Server 2016/2012 R2/2012 (standard, arbets grupp) | Ja | Nej
+**Operativsystem** | **Filer/mappar** | **System tillstånd** | **Krav för program/modul**
+--- | --- | --- | ---
+Windows 10 (Enterprise, Pro, Home) | Ja | Nej |  Kontrol lera motsvarande Server version för program-/modul krav
+Windows 8,1 (Enterprise, Pro)| Ja |Nej | Kontrol lera motsvarande Server version för program-/modul krav
+Windows 8 (Enterprise, Pro) | Ja | Nej | Kontrol lera motsvarande Server version för program-/modul krav
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Ja | Nej | Kontrol lera motsvarande Server version för program-/modul krav
+Windows Server 2016 (Standard, Datacenter, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
+Windows Server 2012 (Standard, Datacenter, Foundation) | Ja | Ja |– .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildning (DISM. exe)
+Windows Server 2008 R2 (standard, Enterprise, data Center, Foundation) | Ja | Ja | – .NET 3,5, .NET 4,5 <br> – Windows PowerShell <br> -Kompatibel Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildning (DISM. exe)
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Ja | Nej | – .NET 3,5, .NET 4,5 <br> – Windows PowerShell <br> -Kompatibel Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildning (DISM. exe) <br> – Virtual Server 2005 Base + KB KB948515
+Windows Storage Server 2016/2012 R2/2012 (standard, arbets grupp) | Ja | Nej | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
+Windows Server 2019 (Standard, Datacenter, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 
 Mer information finns i [Mabs-och DPM-operativsystem som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+
 
 ## <a name="backup-limits"></a>Säkerhets kopierings gränser
 

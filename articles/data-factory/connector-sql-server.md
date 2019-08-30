@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: f5ddd9928194c477d8f8b6f4c9569a8fe58f39d3
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 90d77d511c76d8d718c8b0b3dea9ef8536b2e864
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967386"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172654"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från och till en SQL Server databas till alla mottagar data lager som stöds. Du kan också kopiera data från alla käll data lager som stöds till en SQL Server databas. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från en SQL Server-databas till alla mottagar data lager som stöds. Du kan också kopiera data från alla käll data lager som stöds till en SQL Server databas. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Mer specifikt stöder den här SQL Server-anslutningen:
 

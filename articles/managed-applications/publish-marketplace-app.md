@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e2e161c22ee87d11156c4818bd689c316799e87
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 372c65f1ac9a08d066f26e637f3af86807b35f11
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305619"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182819"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure-hanterade program på Marketplace
 
@@ -177,5 +177,6 @@ När du har fyllt i alla avsnitt väljer du **Publicera** för att påbörja pro
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Information om vad som händer när du har klickat på **publicera**finns i [publicera Azure-program erbjudande](../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 * En introduktion till hanterade program finns i [Managed application overview](overview.md) (Översikt över hanterade program).
 * Information om hur du publicerar en tjänstkatalog för hanterade program finns i [Skapa och publicera en tjänstkatalog för hanterade program](publish-service-catalog-app.md).

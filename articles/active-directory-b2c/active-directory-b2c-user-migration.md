@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 08ace7170a982fbaa186b77b27e342f16349aadd
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c922799b650de7f921cc0493eb3feb2ad90b9d92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613302"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183157"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Användarmigrering
 
@@ -139,7 +139,9 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 ## <a name="step-2-pre-migration-application-sample"></a>Steg 2: Exempel på program för migrering
 
-[Hämta och kör exempel koden][UserMigrationSample]. Du kan ladda ned den som en. zip-fil.
+Du hittar kod exemplet före migrering i GitHub-lagringsplatsen som hanteras `azure-ad-b2c/user-migration` av gruppen:
+
+[Azure-AD-B2C/User-migration/för migrering][UserMigrationSample-code] GitHub
 
 ### <a name="step-21-edit-the-migration-data-file"></a>Steg 2.1: Redigera data filen för migrering
 
@@ -364,7 +366,7 @@ Du kan visa och övervaka loggnings information i nära real tid.
 
 ## <a name="optional-download-the-complete-policy-files"></a>Valfritt Hämta fullständiga principfiler
 
-När du har slutfört [Kom igång med anpassade principer][B2C-GetStartedCustom] , rekommenderar vi att du skapar ditt scenario genom att använda dina egna anpassade principfiler. Vi har angett [exempel på principfiler][UserMigrationSample]för din referens.
+När du har slutfört [Kom igång med anpassade principer][B2C-GetStartedCustom] , rekommenderar vi att du skapar ditt scenario genom att använda dina egna anpassade principfiler. Vi har angett [exempel på principfiler][UserMigrationSample-policy]för din referens.
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
 [AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
@@ -375,4 +377,5 @@ När du har slutfört [Kom igång med anpassade principer][B2C-GetStartedCustom]
 [B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
 [B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
-[UserMigrationSample]: https://github.com/azure-ad-b2c/user-migration
+[UserMigrationSample-code]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/source-code
+[UserMigrationSample-policy]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/policy

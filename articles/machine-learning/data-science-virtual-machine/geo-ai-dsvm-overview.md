@@ -1,7 +1,7 @@
 ---
 title: Översikt över Geo AI Data Science Virtual Machine
 titleSuffix: Azure
-description: Geo AI Data Science Virtual Machine ger ArcGIS Pro för att arbeta med geografiska data. Den innehåller också Python, R och data science tookits för att arbeta med maskininlärning och artificiell intelligens.
+description: Geo AI Data Science Virtual Machine ger ArcGIS Pro för att arbeta med geografiska data. Den innehåller också python-, R-och data vetenskaps verktyg för att arbeta med Machine Learning och artificiell intelligens (AI).
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, geospatial analys
 services: machine-learning
 documentationcenter: ''
@@ -17,39 +17,39 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 03/05/2018
 ms.author: vijetaj
-ms.openlocfilehash: 2f9572e58ec53d53025a02e42818488a838732d0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 05596ea9a4456b73ec1e398e4a27ec3a49457cd9
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591965"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172876"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introduktion till Geo AI Data Science Virtual Machine
 
-Azure **Geo AI Data Science VM** (Geo-DSVM) som levererar geospatiala funktionerna logganalys från Microsoft Data Science VM. Mer specifikt den här virtuella datorn utökar AI och data science verktyg i den [virtuell dator för datavetenskap](overview.md) genom att lägga till ESRI är marknadsledande [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) geografiska informationssystem.
+Geo artificiell intelligens-Data Science Virtual Machine (kallas även geo AI Data Science VM eller geo-DSVM) levererar geospatiala analys funktioner från Azure-Data Science Virtual Machine (DSVM). Mer specifikt utökar den här virtuella datorn AI och data vetenskaps verktygen i [DSVM](overview.md) genom att lägga till marknads ledande [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) geografiskt informations system från Ersi.
 
-Geo AI Data Science VM är en produkt som erbjuder som uppstår till följd ut av samarbete mellan ESRI och Microsoft. Resultatet är en kraftfull miljö som ger dig möjlighet att:
+ Geo AI Data Science VM är ett produkt erbjudande som har utkommit från samarbetet mellan ESRI och Microsoft. Resultatet är en kraftfull miljö som ger dig möjlighet att:
 
-- Utforska data med de mest populära AI och verktyg för datavetenskap
-- använda data med geografiska eller spatial aspekterna statistiska analyser
-- Skapa modeller för förutsägelseanalys med machine learning och algoritmer för djupinlärning
-- Skapa omfattande visualisering
+- Utforska data med de mest populära AI-och data vetenskaps verktygen
+- Tillämpa statistisk analys på data med geografiska eller spatiala aspekter
+- Träna modeller för förutsägelse analys med hjälp av algoritmer för maskin inlärning och djup inlärning
+- Skapa omfattande visualiseringar
 
-Den stöds på Windows 2016 Data Science Virtual Machine. Python- och R-gränssnitt för att ArcGIS är också förkonfigurerade på Geo-DSVM aktiverar Programmeringsåtkomst till geospatial analys i dina AI-program. Jupyter Notebook exempel medföljer också för att komma igång med att skapa AI-program som infused med geospatial intelligens.
+Geo AI-Data Science VM stöds på Windows 2016-DSVM. Python-och R-gränssnitt till ArcGIS är också förkonfigurerade på Geo-DSVM, vilket möjliggör programmatisk åtkomst till geospatial analys i dina AI-program. Dessutom finns Jupyter Notebook exempel för att hjälpa dig att komma igång med att skapa AI-program som är säkrade med geospatial intelligens.
 
 
 ## <a name="why-geo-ai-data-science-vm"></a>Varför Geo-spatial AI Data Science VM? 
 
-Integrera geografi och plats med dina data ger en kraftfull ny dimension till att förstå en värld som alltmer utrustade med IOT-enheter. En mängd olika program som finns i stort sett alla segment i civilrättsliga society om kommersiella, statliga, akademisk eller inte för icke vinstdrivande aktiviteter. Geospatial analys ger robusta verktyg för att samla in, hantera och analysera geografiska och plats-baserade data och kraftfull visualisering som kan möjliggöra unika insikter om betydelsen av sådana data. 
+Genom att integrera geografi-och plats information i dina data får du en kraftfull, ny dimension för att förstå en värld i allt större instrument med IoT-enheter. Det finns nu en mängd olika program i stort sett varje segment av civil samhälle, oavsett om det gäller kommersiell, statlig, akademisk eller inte – vinst. Geospatial analys tillhandahåller robusta verktyg för att samla in, hantera och analysera geografiska och platsbaserade data. De erbjuder också kraftfull visualisering som kan möjliggöra unika insikter om betydelsen av sådana data.
 
-Den [Data Science Virtual Machine (DSVM)](overview.md) från Microsoft är en populär experimentering och modellering miljön i Azure, som ger en mängd AI, Machine Learning och data science-verktyg. Dessa plattformar och verktyg är allt bekvämt förkonfigurerade för att vara produktiv direkt. 
+[Data science Virtual Machine (DSVM)](overview.md) från Microsoft är en populär experiment-och modell miljö på Azure, som tillhandahåller en värd för AI-, Machine Learning-och data vetenskaps verktyg. Dessa plattformar och verktyg är helt enkelt förkonfigurerade för att hjälpa dig att bli produktiv direkt.
 
-Genom att kombinera förutsägande funktionerna i den virtuella datorn för datavetenskap med skalbarheten i Azure-molnet och analytics geodataprogramvara från [ESRI](https://www.esri.com), dataforskare och geospatial analytiker har en produktiv plattform från nu som du vill få nya insikter från sina data och hitta nya möjligheter. 
+Geo AI Data Science VM kombinerar de förutsägande funktionerna i DSVM med skalbarheten för Azure-molnet och geospatiala analys program från [Esri](https://www.esri.com). Den här Ban brytande-integreringen ger data experter och geospatiala analyser med en produktiv plattform från vilken de kan hämta ny information från sina data och identifiera nya affärs möjligheter.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Etablera en Geo AI Data Science VM och komma igång med vägledning från följande avsnitt:
+Etablera en geo AI-Data Science VM och kom igång med hjälp av den med vägledning från följande resurser:
 
 * [Etablera en Geo-spatial AI Data Science VM](provision-geo-ai-dsvm.md)
 * [Använda Geo-spatial AI Data Science VM](use-geo-ai-dsvm.md)

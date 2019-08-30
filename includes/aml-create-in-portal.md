@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/14/2019
-ms.openlocfilehash: 507a6d998f83f5a399f78566967067d0ed92f8b0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 3955995ed1a7a48cfe323db5bf0e767446d89534
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534420"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164063"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för den Azure-prenumeration du använder. 
 
@@ -37,7 +37,10 @@ ms.locfileid: "69534420"
 
 1. När du är färdig med konfigurationen av arbets ytan väljer du **skapa**. 
 
-   Det kan ta en stund att skapa arbets ytan.
+   > [!Warning] 
+   > Det kan ta flera minuter att skapa din arbets yta i molnet.
 
-   När processen är klar visas ett meddelande om lyckad distribution. Om du vill visa den nya arbets ytan väljer du **gå till resurs**.
+   När processen är klar visas ett meddelande om lyckad distribution. 
+ 
+ 1. Om du vill visa den nya arbets ytan väljer du **gå till resurs**.
 

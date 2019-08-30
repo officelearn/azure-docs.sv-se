@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f4f081001f2573bccc58205ccc7955739b7f5c4c
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: ca7985ee302b35f8e7b39c46c229c7b0b263ffce
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779281"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170665"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions nätverks alternativ
 
@@ -52,8 +52,10 @@ Läs mer i [Azure App Service statiska åtkomst begränsningar](../app-service/a
 ## <a name="private-site-access"></a>Åtkomst till privat plats
 
 Åtkomst till privata webbplatser syftar bara på att göra appen tillgänglig från ett privat nätverk, till exempel från ett virtuellt Azure-nätverk. 
-* Åtkomst till privata webbplatser är tillgängligt i [Premium](./functions-premium-plan.md) -och [App Service plan](functions-scale.md#app-service-plan) när **tjänst slut punkter** konfigureras. Mer information finns i [tjänst slut punkter för virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md)
-    * Tänk på att med tjänst slut punkter har din funktion fortfarande fullständig utgående åtkomst till Internet, även om du har konfigurerat Virtual Network-integrering.
+* Åtkomst till privata webbplatser är tillgängligt i [Premium](./functions-premium-plan.md)- [](functions-scale.md#consumption-plan) , förbruknings-och [App Service plan](functions-scale.md#app-service-plan) när **tjänst slut punkter** konfigureras. 
+    * Tjänstens slut punkter kan konfigureras per app under plattforms funktioner > nätverks > Konfigurera åtkomst begränsningar > Lägg till regel. Virtuella nätverk kan väljas nu som "typ" för en regel.
+    * Mer information finns i [tjänst slut punkter för virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md)
+        * Tänk på att med tjänst slut punkter har din funktion fortfarande fullständig utgående åtkomst till Internet, även om du har konfigurerat Virtual Network-integrering.
 * Åtkomst till privata webbplatser är också tillgänglig med en App Service-miljön som kon figurer ATS med en intern belastningsutjämnare (ILB). Mer information finns i [skapa och använda en intern belastningsutjämnare med en app service-miljön](../app-service/environment/create-ilb-ase.md).
 
 ## <a name="virtual-network-integration"></a>Virtual Network-integration
@@ -99,6 +101,13 @@ Integrering av virtuella nätverk i functions använder delad infrastruktur med 
 * [Gateway krävs VNet-integrering](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 Mer information om hur du använder integrering med virtuella nätverk finns i [integrera en Function-app med ett virtuellt Azure-nätverk](functions-create-vnet.md).
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Begränsa ditt lagrings konto till ett virtuellt nätverk
+
+> [!note] 
+> Tillfälligt kan det ta upp till 12 timmar innan ditt lagrings konto blir tillgängligt för din Function-app när du har konfigurerat åtkomst begränsningar för det lagrings kontot. Under den här tiden kommer programmet att bli helt offline.
+
+För att tillhandahålla en högre säkerhets nivå kan du begränsa programmets lagrings konto till ett virtuellt nätverk. Du måste sedan integrera din webbplats med det virtuella nätverket för att komma åt ditt lagrings konto. Den här konfigurationen stöds på alla planer som stöder integrering av virtuella nätverk.
 
 ## <a name="virtual-network-triggers-non-http"></a>Virtuella nätverks utlösare (icke-HTTP)
 

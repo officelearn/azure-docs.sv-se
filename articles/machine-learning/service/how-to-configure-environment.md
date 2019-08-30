@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
-ms.translationtype: HT
+ms.openlocfilehash: 33ee006a704cec1fb0d75a953629aec68461a4f4
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128346"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165193"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -76,7 +76,7 @@ Den virtuella Notebook-datorn är:
 
 + **Anpassningsbar**. Även om det finns ett hanterat och säkert VM-erbjudande behåller du full till gång till maskin varu funktionerna och anpassar dem till ditt hjärta. Du kan till exempel snabbt skapa den senaste NVidia V100-baserade virtuella datorn för att utföra steg-för-steg-felsökning av den nya neurala-nätverks arkitekturen.
 
-[Stoppa den virtuella Notebook](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm)-datorn om du vill sluta debitera VM-kostnader för bärbara datorer. 
+[Stoppa den virtuella Notebook](tutorial-1st-experiment-sdk-train.md#clean-up-resources)-datorn om du vill sluta debitera VM-kostnader för bärbara datorer. 
 
 ## <a id="dsvm"></a>Virtuell dator för datavetenskap
 

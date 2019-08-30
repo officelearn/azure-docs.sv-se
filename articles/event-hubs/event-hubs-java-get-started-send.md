@@ -10,14 +10,14 @@ ms.topic: article
 ms.custom: seodec18, seo-java-august2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: c85d69b823956a5cf5e7f9d6dfa3c39b918cd465
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 8684e786de64f91acba0c61017083015288ca4eb
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034816"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172776"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>Skicka händelser till eller ta emot händelser från Azure Event Hubs med Java
+# <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Använd Java för att skicka händelser till eller ta emot händelser från Azure Event Hubs
 
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 

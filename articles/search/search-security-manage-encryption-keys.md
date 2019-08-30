@@ -2,19 +2,19 @@
 title: Kryptering – rest med Kundhanterade nycklar i Azure Key Vault (för hands version) – Azure Search
 description: Kompletterande kryptering på Server sidan över index och synonymer mappar i Azure Search via nycklar som du skapar och hanterar i Azure Key Vault.
 author: NatiNimni
-manager: jlembicz
+manager: nitinme
 ms.author: natinimn
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d4494cb46bece7402b1284ee6324ca9ff86e0f3
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: ce7a8af1416664a3a94b248c95203c8e775e805c
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779093"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182405"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Search kryptering med Kundhanterade nycklar i Azure Key Vault
 

@@ -8,15 +8,15 @@ ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: seodec18, seo-java-july2019
-ms.openlocfilehash: 625e40b4dcb8ac558831508b292fd5cbcfb90b5b
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.custom: seodec18, seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 27b30bae80e2959698d71279efbfa2531498d8de
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489460"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171195"
 ---
-# <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Självstudie: Skapa ett Java-webbprogram med Spring och Azure Cosmos DB
+# <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Självstudier: Bygg en Java våren Boot Web-App med Azure App Service på Linux och Azure Cosmos DB
 
 Den här självstudien vägleder dig genom processen för att skapa, konfigurera, distribuera och skala Java-webbappar på Azure. När du är klar har du en [Spring Boot](https://projects.spring.io/spring-boot/)-app som lagrar data i [Azure Cosmos DB](/azure/cosmos-db) och körs på [Azure App Service på Linux](/azure/app-service/containers).
 

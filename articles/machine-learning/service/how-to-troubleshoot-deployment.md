@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24716a9b9fa5174d899cf0678b83b2da0c59957c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358671"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183538"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsöka Azure Machine Learning tjänsten Azure Kubernetes service och Azure Container Instances distribution
 
@@ -204,6 +204,9 @@ print(prediction)
 
 Under lokal testning kan du behöva uppdatera `score.py` filen för att lägga till loggning eller försöka lösa eventuella problem som du har identifierat. Om du vill läsa in ändringarna `score.py` i filen igen `reload()`använder du. Följande kod läser till exempel in skriptet för tjänsten och skickar sedan data till den. Data får poäng med den uppdaterade `score.py` filen:
 
+> [!IMPORTANT]
+> `reload` Metoden är endast tillgänglig för lokala distributioner. Information om hur du uppdaterar en distribution till ett annat beräknings mål finns i avsnittet uppdatering i [Distribuera modeller](how-to-deploy-and-where.md#update).
+
 ```python
 service.reload()
 print(service.run(input_data=test_sample))
@@ -240,7 +243,7 @@ När avbildningen har skapats försöker systemet starta en behållare med hjäl
 
 Använd informationen i avsnittet [Granska Docker](#dockerlog) -loggen för att kontrol lera loggarna.
 
-## <a name="function-fails-getmodelpath"></a>Funktionen misslyckas: get_model_path()
+## <a name="function-fails-get_model_path"></a>Funktionen misslyckas: get_model_path()
 
 I `init()` funktionen i bedömnings skriptet, anropas ofta funktionen [modell. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) för att hitta en modell fil eller en mapp med modell filer i behållaren. Om modell filen eller mappen inte kan hittas Miss lyckas funktionen. Det enklaste sättet att felsöka det här felet är att köra den nedan Python-kod i behållaren shell:
 
@@ -255,7 +258,7 @@ Det här exemplet skriver ut den lokala sökvägen (i `/var/azureml-app`förhål
 
 Om du ställer in loggnings nivån på fel sökning kan det leda till att ytterligare information loggas, vilket kan vara användbart vid identifiering av felet.
 
-## <a name="function-fails-runinputdata"></a>Funktionen misslyckas: run(input_data)
+## <a name="function-fails-runinput_data"></a>Funktionen misslyckas: run(input_data)
 
 Om tjänsten har distribuerats, men den kraschar när du publicerar data till bedömnings-slutpunkten, du kan lägga till fel vid identifiering av instruktionen i din `run(input_data)` så att den returnerar detaljerat felmeddelande i stället. Exempel:
 

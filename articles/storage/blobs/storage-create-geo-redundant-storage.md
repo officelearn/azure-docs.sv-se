@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 0ccd57e1614f23d775df2fe8e963d2cc7f9a4358
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 124b10607f710ddfb76787eac09dea7ec6ffc03c
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360750"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173055"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudier: Skapa ett program med hög tillgänglighet med Blob-lagring
 
@@ -82,7 +82,7 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
    | **Distributionsmodell** | Resource Manager  | Resource Manager innehåller de senaste funktionerna.|
    | **Typ av konto** | StorageV2 | Mer information om kontotyper finns i [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Prestanda** | Standard | Standard är tillräckligt för exempelscenariot. |
-   | **Replikering**| Read-Access Geo-Redundant Storage (RA-GRS) | Detta krävs för att exemplet ska fungera. |
+   | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta krävs för att exemplet ska fungera. |
    |**Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Location** | East US | Välj en plats. |
@@ -120,7 +120,7 @@ git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 [Hämta exempelprojektet](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) och packa upp filen. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett Basic Node. js-program.
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
+git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 ```
 
 ---
@@ -234,8 +234,8 @@ Det här exemplet skapar en test fil i din standard katalog. För Windows-använ
 - Ange **P** om du vill köra en skicka BLOB-åtgärd överförs en tillfällig fil till ditt lagrings konto via det här kommandot.
 - Ange **L** för att utföra en List-BLOB-åtgärd, visar det här kommandot de blobar som för närvarande finns i din behållare.
 - Ange **G** om du vill utföra en get-BLOB-åtgärd laddar detta kommando ned en fil från ditt lagrings konto till din lokala dator.
-- Om **du vill köra** en Delete BLOB-åtgärd, tar det här kommandot bort blobben från ditt lagrings konto.
-- Om **du vill stänga** exemplet tar du även bort alla resurser som exemplet skapade.
+- Om du vill köra en Delete BLOB-åtgärd, tar det här kommandot bort blobben från ditt lagrings konto.
+- Om du vill stänga exemplet tar du även bort alla resurser som exemplet skapade.
 
 Det här exemplet visar dina utdata om du kör programmet på Windows.
 

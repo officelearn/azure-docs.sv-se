@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/11/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: 549b4457ee38504001e83c4b831cd321e1542068
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fa3ad71dcc7738169f78f4dab94bd9bdf4d4cc89
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125463"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182966"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabbstart: Lägg till inloggning med Microsoft i en Java-webbapp
 
@@ -39,9 +39,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 >
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
-> Det finns två alternativ för att starta snabbstartsprogrammet:
-> * Uttrycker [Alternativ 1: Registrera och konfigurera appen automatiskt och ladda ned kod exemplet.](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * Bok [Alternativ 2: Registrera dig och konfigurera programmet och kod exemplet manuellt.](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> Det finns två alternativ för att starta ditt snabb starts program: Express (alternativ 1) eller manuell (alternativ 2)
 > 
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
@@ -123,7 +121,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 ### <a name="getting-msal"></a>Hämtar MSAL
 MSAL4J är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Du kan lägga till MSAL4J i ditt program genom att använda maven eller Gradle för att hantera dina beroenden genom att göra följande ändringar i filen Pom. XML eller build. Gradle i ditt program. 
 
-```
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>
@@ -139,7 +137,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
 ### <a name="msal-initialization"></a>Msal-initiering
 Du kan lägga till referensen i MSAL4J genom att lägga till följande kod överst i filen där du kommer att använda MSAL4J: 
 
-```
+```Java
 import com.microsoft.aad.msal4j.*;
 ```
 

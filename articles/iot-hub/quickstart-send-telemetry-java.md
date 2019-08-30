@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 15d9447d7078fd4858a7957448dd30d07049d6e9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4ef5c8c9defd0a5da4bc0579d457113f8f4c5e4d
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68958621"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172946"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läs den med ett serverdelsprogram (Java)
+# <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Snabbstart: Skicka telemetri till en Azure IoT-hubb och läsa det med ett Java-program
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -31,9 +31,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-De två exempelprogram som du kör i den här snabbstarten skrivs med Java. Du måste ha Java SE 8 eller senare installerat på utvecklingsdatorn.
+De två exempelprogram som du kör i den här snabbstarten skrivs med Java. Du behöver Java SE 8 på din utvecklings dator.
 
-Du kan hämta Java för flera plattformar från [Oracle](https://aka.ms/azure-jdks).
+Du kan ladda ned Java SE Development Kit 8 för flera plattformar från [Java-långsiktigt stöd för Azure och Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **långsiktigt stöd** för att hämta hämtningar för JDK 8.
 
 Du kan kontrollera den aktuella versionen av Java på utvecklingsdatorn med följande kommando:
 

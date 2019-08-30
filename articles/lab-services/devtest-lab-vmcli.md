@@ -13,55 +13,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 48a30ef86cdb10b540ffe1231294542ccff87255
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11ac4e10cbd116ed204a8a11274408f5a5a9b4d9
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622328"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183127"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Skapa och hantera virtuella datorer med DevTest Labs med Azure CLI
-Den här snabbstarten får du hjälp att skapa, starta, ansluta, uppdaterar och rensar en utvecklingsdator i labbet. 
+Den här snabb starten hjälper dig att skapa, starta, ansluta, uppdatera och rensa en utvecklings dator i labbet. 
 
 Innan du börjar:
 
-* Om ett labb inte har skapat instruktioner finns [här](devtest-lab-create-lab.md).
+* Om ett labb inte har skapats kan du hitta instruktioner [här](devtest-lab-create-lab.md).
 
-* [Installera Azure CLI](/cli/azure/install-azure-cli). Börja genom att köra az-inloggning för att skapa en anslutning till Azure. 
+* [Installera Azure CLI](/cli/azure/install-azure-cli). Starta genom att köra AZ-inloggning för att skapa en anslutning till Azure. 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>Skapa och verifiera den virtuella datorn 
-Innan du kör DevTest Labs-relaterade kommandon, ange rätt kontext i Azure med hjälp av den `az account set` kommando:
+Innan du kör DevTest Labs relaterade kommandon anger du lämplig Azure-kontext med hjälp `az account set` av kommandot:
 
 ```azurecli
 az account set --subscription 11111111-1111-1111-1111-111111111111
 ```
 
-Kommandot för att skapa en virtuell dator är: `az lab vm create`. Resursgrupp för labbet, labbnamn och namn på virtuell dator är alla nödvändiga. Resten av argumenten ändras beroende på vilken typ av virtuell dator.
+Kommandot för att skapa en virtuell dator är: `az lab vm create`. Resurs gruppen för labb, labb namn och namn på virtuella datorer krävs. Resten av argumenten ändras beroende på vilken typ av virtuell dator du har.
 
-Följande kommando skapar en Windows-baserad avbildning från Azure Marketplace. Namnet på avbildningen är samma som du vill se när du skapar en virtuell dator med Azure-portalen. 
+Följande kommando skapar en Windows-baserad avbildning från Azures marknads plats. Namnet på bilden är detsamma som du ser när du skapade en virtuell dator med hjälp av Azure Portal. 
 
 ```azurecli
-az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "Visual Studio Community 2017 on Windows Server 2016 (x64)" --image-type gallery --size 'Standard_D2s_v3’ --admin-username 'AdminUser' --admin-password 'Password1!'
+az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "Visual Studio Community 2017 on Windows Server 2016 (x64)" --image-type gallery --size 'Standard_D2s_v3' --admin-username 'AdminUser' --admin-password 'Password1!'
 ```
 
-Följande kommando skapar en virtuell dator baserat på en anpassad avbildning som är tillgängliga i laboratoriet:
+Följande kommando skapar en virtuell dator baserat på en anpassad avbildning som är tillgänglig i labbet:
 
 ```azurecli
 az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "My Custom Image" --image-type custom --size 'Standard_D2s_v3' --admin-username 'AdminUser' --admin-password 'Password1!'
 ```
 
-Den **bildtyp** argumentet har ändrats från **galleriet** till **anpassade**. Namnet på bilden matchar det som visas om du skapar den virtuella datorn i Azure-portalen.
+Argumentet **bild typ** har ändrats från **Galleri** till **anpassat**. Namnet på avbildningen matchar vad du ser om du skapade den virtuella datorn i Azure Portal.
 
-Följande kommando skapar en virtuell dator från en marketplace-avbildning med ssh autentisering:
+Följande kommando skapar en virtuell dator från en Marketplace-avbildning med SSH-autentisering:
 
 ```azurecli
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
 
-Du kan också skapa virtuella datorer baserat på formler genom att ange den **bildtyp** parameter **formeln**. Om du vill välja ett specifikt virtuellt nätverk för den virtuella datorn kan använda den **vnet-name** och **undernät** parametrar. Mer information finns i [az lab vm skapa](/cli/azure/lab/vm#az-lab-vm-create).
+Du kan också skapa virtuella datorer baserat på formler genom att ange parametern för **bild typ** till **formel**. Om du behöver välja ett särskilt virtuellt nätverk för den virtuella datorn använder du parametrarna **VNet-Name** och **Subnet** . Mer information finns i [AZ Lab VM Create](/cli/azure/lab/vm#az-lab-vm-create).
 
-## <a name="verify-that-the-vm-is-available"></a>Kontrollera att den virtuella datorn är tillgänglig.
-Använd den `az lab vm show` kommandot för att kontrollera att den virtuella datorn är tillgänglig innan du startar och ansluta till den. 
+## <a name="verify-that-the-vm-is-available"></a>Kontrol lera att den virtuella datorn är tillgänglig.
+`az lab vm show` Använd kommandot för att kontrol lera att den virtuella datorn är tillgänglig innan du startar och ansluter till den. 
 
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand 'properties($expand=ComputeVm,NetworkInterface)' --query '{status: computeVm.statuses[0].displayStatus, fqdn: fqdn, ipAddress: networkInterface.publicIpAddress}'
@@ -74,20 +74,20 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 }
 ```
 
-## <a name="start-and-connect-to-the-virtual-machine"></a>Starta och ansluta till den virtuella datorn
-Följande exempelkommando startar en virtuell dator:
+## <a name="start-and-connect-to-the-virtual-machine"></a>Starta och Anslut till den virtuella datorn
+Följande exempel kommando startar en virtuell dator:
 
 ```azurecli
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
 
-Anslut till en virtuell dator: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) eller [fjärrskrivbord](../virtual-machines/windows/connect-logon.md).
+Anslut till en virtuell dator: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) eller [fjärr skrivbord](../virtual-machines/windows/connect-logon.md).
 ```bash
 ssh userName@ipAddressOrfqdn 
 ```
 
 ## <a name="update-the-virtual-machine"></a>Uppdatera den virtuella datorn
-Kommandot i följande exempel gäller artefakter till en virtuell dator:
+Följande exempel kommando använder artefakter på en virtuell dator:
 
 ```azurecli
 az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resource-group sampleResourceGroup  --artifacts @/artifacts.json
@@ -123,7 +123,7 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 ]
 ```
 
-Lista artefakter i laboratoriet.
+Lista artefakter som är tillgängliga i labbet.
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand "properties(\$expand=artifacts)" --query 'artifacts[].{artifactId: artifactId, status: status}'
 ```
@@ -135,7 +135,7 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 ```
 
 ## <a name="stop-and-delete-the-virtual-machine"></a>Stoppa och ta bort den virtuella datorn    
-Kommandot i följande exempel stoppar en virtuell dator.
+Följande exempel kommando stoppar en virtuell dator.
 
 ```azurecli
 az lab vm stop --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
@@ -147,4 +147,4 @@ az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group s
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande innehåll: [Azure CLI-dokumentationen för Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest). 
+Se följande innehåll: [Azure CLI-dokumentation för Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest). 

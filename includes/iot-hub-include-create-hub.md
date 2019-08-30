@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: dc31abaadf3f39d31a4c1b04f9911b5ce1677916
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e01bb13b904aaf8671512daa3ef3cbad182f01e3
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048585"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70161938"
 ---
 I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.azure.com) för att skapa en IoT-hubb.
 
@@ -50,7 +50,7 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
     - **Avancerade inställningar** > **enhet-till-moln-partitioner**: Den här egenskapen avser antalet meddelanden från enhet till moln för samtidiga läsare av meddelandena. De flesta hubbar behöver bara fyra partitioner.
 
-1. I den här självstudien accepterar du standard alternativen och väljer sedan **Granska + skapa** för att granska dina val. Du ser något som liknar den här skärmen.
+1. I den här artikeln godkänner du standard alternativen och väljer sedan **Granska + skapa** för att granska dina val. Du ser något som liknar den här skärmen.
 
    ![Granska informationen för att skapa den nya hubben](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
 

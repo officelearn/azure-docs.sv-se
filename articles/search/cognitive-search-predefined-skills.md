@@ -1,7 +1,7 @@
 ---
 title: Inbyggd data extrahering, naturligt språk, bild bearbetning – Azure Search
 description: Data extrahering, naturligt språk, kognitiva bild bearbetnings kunskaper Lägg till semantik och struktur till rå data i en Azure Search pipeline.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 08f4d94f1cd5afc9e626d4b774c3924b89cbbfad
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 8d367f7588feb892f667522a515ad4411bf96624
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639115"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183436"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Fördefinierade kunskaper för innehålls anrikning (Azure Search)
 

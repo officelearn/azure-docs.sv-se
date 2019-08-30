@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/03/2019
-ms.openlocfilehash: e9cc5aaaf11a799b17cc87b40113e166fcd93afb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/29/2019
+ms.openlocfilehash: cdbc79ca6764dd49f427b395dbaf8502c58bf63a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569002"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173437"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en Azure SQL-databas
 
@@ -24,7 +24,7 @@ Azure SQL Database innehåller flera metoder för att skapa en transaktions kons
 
 ## <a name="overview"></a>Översikt
 
-En databas kopia är en ögonblicks bild av käll databasen vid tidpunkten för kopierings förfrågan. Du kan välja samma server eller en annan server. Du kan också välja att behålla tjänst nivån och beräknings storleken, eller använda en annan beräknings storlek inom samma service nivå (utgåva). När kopieringen är klar blir den en fullständigt fungerande, oberoende databas. I det här läget kan du uppgradera eller nedgradera det till vilken version som helst. Inloggningar, användare och behörigheter kan hanteras oberoende av varandra.  
+En databas kopia är en ögonblicks bild av käll databasen vid tidpunkten för kopierings förfrågan. Du kan välja samma server eller en annan server. Du kan också välja att behålla tjänst nivån och beräknings storleken, eller använda en annan beräknings storlek inom samma service nivå (utgåva). När kopieringen är klar blir den en fullständigt fungerande, oberoende databas. I det här läget kan du uppgradera eller nedgradera det till vilken version som helst. Inloggningar, användare och behörigheter kan hanteras oberoende av varandra. Kopian skapas med hjälp av Geo-Replication-tekniken och när dirigeringen är klar avslutas geo-replikeringslänken automatiskt. Alla krav för att använda geo-replikering gäller för databas kopierings åtgärden. Mer information finns i [Översikt över aktiv geo-replikering](sql-database-active-geo-replication.md) .
 
 > [!NOTE]
 > [Automatiserade databas säkerhets kopieringar](sql-database-automated-backups.md) används när du skapar en databas kopia.
@@ -61,6 +61,26 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 ```
 
 Ett fullständigt exempel skript finns i [Kopiera en databas till en ny server](scripts/sql-database-copy-database-to-new-server-powershell.md).
+
+Databas kopieringen är en asynkron åtgärd, men mål databasen skapas direkt efter att begäran har godkänts. Om du vill avbryta kopieringen medan du fortfarande pågår släpper du mål databasen med hjälp av cmdleten [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) .  
+
+## <a name="rbac-roles-to-manage-database-copy"></a>RBAC-roller för att hantera databas kopia
+
+Om du vill skapa en databas kopia måste du ha följande roller
+
+- Prenumerations ägare eller
+- SQL Server deltagar roll eller
+- Anpassad roll för käll-och mål databaserna med följande behörighet:
+
+   Microsoft. SQL/Servers/databaser/läsa Microsoft. SQL/Servers/databaser/skriva
+
+Om du vill avbryta en databas kopia måste du ha följande roller
+
+- Prenumerations ägare eller
+- SQL Server deltagar roll eller
+- Anpassad roll för käll-och mål databaserna med följande behörighet:
+
+   Microsoft. SQL/Servers/databaser/läsa Microsoft. SQL/Servers/databaser/skriva
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>Kopiera en databas med hjälp av Transact-SQL
 
@@ -107,6 +127,10 @@ Du kan använda stegen som beskrivs i föregående avsnitt för att kopiera data
 
 > [!NOTE]
 > Om du väljer att avbryta kopieringen medan den pågår kör du [Drop Database](https://msdn.microsoft.com/library/ms178613.aspx) -instruktionen på den nya databasen. Om du kör DROP DATABASE-instruktionen på käll databasen avbryts även kopierings processen.
+
+> [!IMPORTANT]
+> Om du behöver skapa en kopia med ett betydligt mindre service nivå mål än källan, kanske mål databasen inte har tillräckligt med resurser för att slutföra initierings processen och det kan leda till att kopieringen Miss lyckas. I det här scenariot använder du en geo-Restore-begäran för att skapa en kopia på en annan server och/eller en annan region. Mer information finns i [återställa en Azure SQL-databas med hjälp av databas säkerhets kopior](sql-database-recovery-using-backups.md#geo-restore) .
+
 
 ## <a name="resolve-logins"></a>Lösa inloggningar
 

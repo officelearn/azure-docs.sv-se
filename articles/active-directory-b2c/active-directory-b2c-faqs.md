@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 7b569454696717913c325581ca1f00479a371984
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061368"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183187"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor och svar (FAQ)
 
@@ -143,7 +143,7 @@ Följ de här stegen för att ta bort din Azure AD B2C klient:
 1. Välj **Visa alla program**
 1. Välj programmet med namnet **B2C-Extensions-app**, Välj **ta bort**och välj sedan **Ja** när du uppmanas att göra det.
 1. Under **Hantera**väljer du **användar inställningar**.
-1. Under **LinkedIn-konto anslutningar**väljer du **Nej**och väljer sedan **Spara**.
+1. Om det är tillgängligt väljer du **Nej**under **LinkedIn-konto anslutningar**och väljer sedan **Spara**.
 1. Under **Hantera**, väljer du **Egenskaper**
 1. Under **åtkomst hantering för Azure-resurser**väljer du **Ja**och väljer sedan **Spara**.
 1. Logga ut från Azure Portal och logga sedan in igen för att uppdatera åtkomsten.

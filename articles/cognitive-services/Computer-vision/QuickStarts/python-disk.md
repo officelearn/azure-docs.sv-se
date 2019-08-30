@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 01d9ebeb10a9bd2105d9db64cb25cc0c45a08fe9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cbb3d2fea7b48da8ce899d53901f7fb22bc66e35
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603582"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141308"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-python"></a>Snabbstart: Analysera en lokal avbildning med hjälp av REST API för visuellt innehåll och Python
+# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-python"></a>Snabbstart: Analysera en lokal avbildning med hjälp av Visuellt innehåll REST API och python
 
 I den här snabbstarten analyserar du en lokalt lagrad bild för att extrahera visuella funktioner med hjälp av REST API:et för visuellt innehåll. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
 
@@ -31,8 +31,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [Python](https://www.python.org/downloads/) installerat om du vill köra exemplet lokalt.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
-- Du måste ha följande Python-paket installeras. Du kan använda [pip](https://packaging.python.org/tutorials/installing-packages/) att installera Python-paket.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `COMPUTER_VISION_SUBSCRIPTION_KEY` med `COMPUTER_VISION_ENDPOINT`namnet respektive.
+- Du måste ha följande python-paket installerade. Du kan använda [pip](https://packaging.python.org/tutorials/installing-packages/) för att installera python-paket.
     - Begäranden
     - [matplotlib](https://matplotlib.org/)
     - [pillow](https://python-pillow.org/)
@@ -42,10 +42,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
-1. Gör nedanstående ändringar i koden där det behövs:
-    1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
-    1. Ersätt värdet för `vision_base_url` med slutpunktsadressen för resursen för visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
-    1. Du kan också ersätta värdet för `image_path` med sökvägen och filnamnet för en annan bild som du vill analysera.
+1. Du kan också ersätta värdet för `image_path` med sökvägen och filnamnet för en annan bild som du vill analysera.
 1. Spara koden som en fil med tillägget `.py`. Till exempel `analyze-local-image.py`.
 1. Öppna ett kommandotolksfönster.
 1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python analyze-local-image.py`.
@@ -58,20 +55,17 @@ import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
 
-# Replace <Subscription Key> with your valid subscription key.
-subscription_key = "<Subscription Key>"
-assert subscription_key
+# Add your Computer Vision subscription key and endpoint to your environment variables.
+if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
+    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
+else:
+    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
+    sys.exit()
 
-# You must use the same region in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from
-# westus, replace "westcentralus" in the URI below with "westus".
-#
-# Free trial subscription keys are generated in the "westcentralus" region.
-# If you use a free trial subscription key, you shouldn't need to change
-# this region.
-vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
+if 'COMPUTER_VISION_ENDPOINT' in os.environ:
+    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-analyze_url = vision_base_url + "analyze"
+analyze_url = endpoint + "vision/v2.0/analyze"
 
 # Set image_path to the local path of an image that you want to analyze.
 image_path = "C:/Documents/ImageToAnalyze.jpg"

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aefa6d21488b617b26ddefe5fa4fc61cdd203f96
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: MT
+ms.openlocfilehash: e13ab3378857bd0254d7cb2fb98249ccc24b1cb7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032535"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125629"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudier: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory
 
@@ -36,7 +36,7 @@ I den här självstudien:
 
 Om du vill lägga till ett lokalt program i Azure AD behöver du:
 
-* En [Microsoft Azure AD Basic-eller Premium-prenumeration](https://azure.microsoft.com/pricing/details/active-directory)
+* En [Microsoft Azure AD Premium-prenumeration](https://azure.microsoft.com/pricing/details/active-directory)
 * Ett program administratörs konto
 * Användar identiteter måste synkroniseras från en lokal katalog eller skapas direkt i dina Azure AD-klienter. Identitetssynkronisering gör det möjligt för Azure AD att förautentisera användare innan de beviljar åtkomst till App proxy-publicerade program och att ha nödvändig information om användar-ID för att utföra enkel inloggning (SSO).
 

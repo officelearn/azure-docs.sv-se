@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 1c6a0ce3e4e8d098d2bc048a331b0ae0cb5c6b13
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bb28171ceca9861fb5cc0b7be1db9ab58ef72a1b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881393"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124105"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
@@ -258,6 +258,7 @@ Ibland kanske du vill anpassa hur komponent namn visas i [program kartan](../../
 ## <a name="next-steps"></a>Nästa steg
 
 - Skriv [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md).
+- Avancerade korrelations scenarier i ASP.NET Core och ASP.NET finns i artikeln [spåra anpassade åtgärder](custom-operations-tracking.md) .
 - Lär dig mer om att [ställa in cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) för andra SDK: er.
 - Publicera alla komponenter i mikrotjänsten på Application Insights. Kolla in de [plattformar som stöds](../../azure-monitor/app/platforms.md).
 - Se [data modellen](../../azure-monitor/app/data-model.md) för Application Insights typer.

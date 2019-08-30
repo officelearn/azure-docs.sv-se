@@ -17,14 +17,18 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 719939b393b01938a4d4faa41a5dca163b2a8949
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 611947c8c1d202cf4abf4222dfe0072aced58507
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834710"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135729"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Auktorisera åtkomst till Azure Active Directory-webbprogram med beviljandeflödet för OAuth 2.0-kod
+
+> [!NOTE]
+>  Om du inte talar om för servern vilken resurs du planerar att anropa, kommer servern inte att utlösa principer för villkorlig åtkomst för den resursen. För att du ska kunna använda MFA-utlösaren måste du inkludera en resurs i din URL. 
+>
 
 Azure Active Directory (Azure AD) använder OAuth 2,0 för att ge åtkomst till webb program och webb-API: er i Azure AD-klienten. Den här guiden är språk oberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda några av våra [bibliotek med öppen källkod](active-directory-authentication-libraries.md).
 
@@ -278,6 +282,8 @@ RFC 6750-specifikationen definierar följande fel för resurser som använder si
 Åtkomsttoken är korta och måste uppdateras när de har gått ut för att fortsätta att få åtkomst till resurser. Du kan `access_token` uppdatera genom att skicka en annan `POST` begäran till `/token` slut punkten, `code`men den här gången ger `refresh_token` i stället för.  Uppdateringstoken är giltiga för alla resurser som din klient redan har gett tillåtelse att komma åt, och en uppdateringstoken som utfärdats på en begäran för `resource=https://graph.microsoft.com` kan användas för att begära en ny åtkomsttoken för. `resource=https://contoso.com/api` 
 
 Uppdaterade token har inte angivna livs längder. Normalt är livs längden för uppdateringstoken relativt lång. Men i vissa fall går det inte att uppdatera token, återkallas eller saknar tillräcklig behörighet för önskad åtgärd. Ditt program måste vänta och hantera fel som returneras av slut punkten för utfärdande av token korrekt.
+
+[!NOTE] Du hittar livs längder för åtkomst-token här: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes#configurable-token-lifetime-properties Standardvärdet för åtkomsttoken är 1 timme och standardvärdet för uppdateringstoken är 90 dagar. Du kan ändra dessa livstider genom att konfigurera livs längden för token. 
 
 När du får ett svar med ett uppdaterings-token tar du bort den aktuella uppdateringstoken och begär en ny auktoriseringskod eller åtkomsttoken. I synnerhet när du använder en uppdateringstoken i flödet bevilja flöde, om du får ett svar med `interaction_required` -eller `invalid_grant` -felkoderna, tar du bort uppdateringstoken och begär en ny auktoriseringskod.
 

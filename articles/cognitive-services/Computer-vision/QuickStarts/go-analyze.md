@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 679dd8d1216d4d4893cca15a02230f58bff2ff32
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8b762b712d9a68cb75f9642d93b899a4990ae129
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605951"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141396"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-go"></a>Snabbstart: Analysera en fjärr-avbildning med hjälp av den REST API för visuellt innehåll med Go
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-go"></a>Snabbstart: Analysera en fjärravbildning med hjälp av Visuellt innehåll REST API med go
 
 I den här snabbstarten analyserar du en fjärrlagrad bild för att extrahera visuella funktioner med hjälp av REST API:et för visuellt innehåll. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
 
@@ -27,17 +27,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [Go](https://golang.org/dl/) installerat.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `COMPUTER_VISION_SUBSCRIPTION_KEY` med `COMPUTER_VISION_ENDPOINT`namnet respektive.
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
 Så här skapar du och kör exemplet:
 
-1. Kopiera den nedan kod i en textredigerare.
-1. Gör nedanstående ändringar i koden där det behövs:
-    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
-    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
-    1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
+1. Kopiera koden nedan till en text redigerare.
+1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
 1. Spara koden som en fil med tillägget `.go`. Till exempel `analyze-image.go`.
 1. Öppna ett kommandotolksfönster.
 1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Till exempel `go build analyze-image.go`.
@@ -56,19 +53,18 @@ import (
 )
 
 func main() {
-    // Replace <Subscription Key> with your valid subscription key.
-    const subscriptionKey = "<Subscription Key>"
+    // Add your Computer Vision subscription key and endpoint to your environment variables.
+    subscriptionKey := os.Getenv("COMPUTER_VISION_SUBSCRIPTION_KEY")
+    if (subscriptionKey == "") {
+        log.Fatal("\n\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n" +
+            "**Restart your shell or IDE for changes to take effect.**\n")
 
-    // You must use the same Azure region in your REST API method as you used to
-    // get your subscription keys. For example, if you got your subscription keys
-    // from the West US region, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the "westcentralus" region.
-    // If you use a free trial subscription key, you shouldn't need to change
-    // this region.
-    const uriBase =
-        "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze"
+    endpoint := os.Getenv("COMPUTER_VISION_ENDPOINT")
+    if ("" == endpoint) {
+        log.Fatal("\n\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n" +
+            "**Restart your shell or IDE for changes to take effect.**")
+    }
+    const uriBase = endpoint + "vision/v2.0/analyze"
     const imageUrl =
         "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
 

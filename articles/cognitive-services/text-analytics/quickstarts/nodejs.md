@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: eadac393a7224876e3cb494dd39116bd3b5b0eb7
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5d441b51d75f032ecf6e60419218ef3f902e2cbd
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697384"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142740"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Node.js  
 <a name="HOLTop"></a>
@@ -34,74 +34,71 @@ Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk d
 
 API:et för språkidentifiering identifierar språket i ett textdokument, med metoden [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
+1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
-2. Lägg till den kod som anges nedan till `.js` en ny fil.
-3. `accessKey` Ersätt värdet med en prenumerations nyckel från din textanalys-resurs i Azure.
-4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node detect.js`
+1. Lägg till den kod som anges nedan till `.js` en ny fil.
+1. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node detect.js`
 
 ```javascript
 'use strict';
 
 let https = require ('https');
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
+if (!process.env[key_var]) {
+    throw new Error('please set/export the following environment variable: ' + key_var);
+}
+const subscription_key = process.env[key_var];
 
-// Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
+const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
+if (!process.env[endpoint_var]) {
+    throw new Error('please set/export the following environment variable: ' + endpoint_var);
+}
+const endpoint = process.env[endpoint_var];
 
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-let uri = 'westus.api.cognitive.microsoft.com';
 let path = '/text/analytics/v2.1/languages';
 
 let response_handler = function (response) {
     let body = '';
-    response.on ('data', function (d) {
+    response.on('data', function (d) {
         body += d;
     });
-    response.on ('end', function () {
-        let body_ = JSON.parse (body);
-        let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
+    response.on('end', function () {
+        let body_ = JSON.parse(body);
+        let body__ = JSON.stringify(body_, null, '  ');
+        console.log(body__);
     });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
+    response.on('error', function (e) {
+        console.log('Error: ' + e.message);
     });
 };
 
 let get_language = function (documents) {
-    let body = JSON.stringify (documents);
+    let body = JSON.stringify(documents);
 
     let request_params = {
-        method : 'POST',
-        hostname : uri,
-        path : path,
-        headers : {
-            'Ocp-Apim-Subscription-Key' : accessKey,
+        method: 'POST',
+        hostname: (new URL(endpoint)).hostname,
+        path: path,
+        headers: {
+            'Ocp-Apim-Subscription-Key': subscription_key,
         }
     };
 
-    let req = https.request (request_params, response_handler);
-    req.write (body);
-    req.end ();
+    let req = https.request(request_params, response_handler);
+    req.write(body);
+    req.end();
 }
 
-let documents = { 'documents': [
-    { 'id': '1', 'text': 'This is a document written in English.' },
-    { 'id': '2', 'text': 'Este es un document escrito en Español.' },
-    { 'id': '3', 'text': '这是一个用中文写的文件' }
-]};
+let documents = {
+    'documents': [
+        { 'id': '1', 'text': 'This is a document written in English.' },
+        { 'id': '2', 'text': 'Este es un document escrito en Español.' },
+        { 'id': '3', 'text': '这是一个用中文写的文件' }
+    ]
+};
 
-get_language (documents);
+get_language(documents);
 ```
 
 **Svar vid språkidentifiering**
@@ -156,73 +153,70 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). Sentiment-analys kan användas för att ta reda på vad kunderna tycker om ditt varumärke eller ämne genom att analysera rå text för LED trådar om positiv eller negativ sentiment. I följande exempel visas poängen för två dokument, ett på engelska och ett annat på spanska.
 
+1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
-2. Lägg till den kod som anges nedan till `.js` en ny fil.
-3. `accessKey` Ersätt värdet med en prenumerations nyckel från din textanalys-resurs i Azure.
-4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node sentiment.js`
+1. Lägg till den kod som anges nedan till `.js` en ny fil.
+1. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node sentiment.js`
 
 ```javascript
 'use strict';
 
 let https = require ('https');
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
+if (!process.env[key_var]) {
+    throw new Error('please set/export the following environment variable: ' + key_var);
+}
+const subscription_key = process.env[key_var];
 
-// Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
+const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
+if (!process.env[endpoint_var]) {
+    throw new Error('please set/export the following environment variable: ' + endpoint_var);
+}
+const endpoint = process.env[endpoint_var];
 
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-let uri = 'westus.api.cognitive.microsoft.com';
 let path = '/text/analytics/v2.1/sentiment';
 
 let response_handler = function (response) {
     let body = '';
-    response.on ('data', function (d) {
+    response.on('data', function (d) {
         body += d;
     });
-    response.on ('end', function () {
-        let body_ = JSON.parse (body);
-        let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
+    response.on('end', function () {
+        let body_ = JSON.parse(body);
+        let body__ = JSON.stringify(body_, null, '  ');
+        console.log(body__);
     });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
+    response.on('error', function (e) {
+        console.log('Error: ' + e.message);
     });
 };
 
 let get_sentiments = function (documents) {
-    let body = JSON.stringify (documents);
+    let body = JSON.stringify(documents);
 
     let request_params = {
-        method : 'POST',
-        hostname : uri,
-        path : path,
-        headers : {
-            'Ocp-Apim-Subscription-Key' : accessKey,
+        method: 'POST',
+        hostname: (new URL(endpoint)).hostname,
+        path: path,
+        headers: {
+            'Ocp-Apim-Subscription-Key': subscription_key,
         }
     };
 
-    let req = https.request (request_params, response_handler);
-    req.write (body);
-    req.end ();
+    let req = https.request(request_params, response_handler);
+    req.write(body);
+    req.end();
 }
 
-let documents = { 'documents': [
-    { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
-    { 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' },
-]};
+let documents = {
+    'documents': [
+        { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
+        { 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' },
+    ]
+};
 
-get_sentiments (documents);
+get_sentiments(documents);
 ```
 
 **Svar vid attitydanalys**
@@ -252,74 +246,71 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). Extrahering av nyckel fraser används för att snabbt identifiera huvud punkterna i ett dokument eller en text. I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
+1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
-2. Lägg till den kod som anges nedan till `.js` en ny fil.
-3. `accessKey` Ersätt värdet med en prenumerations nyckel från din textanalys-resurs i Azure.
-4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node key-phrases.js`
+1. Lägg till den kod som anges nedan till `.js` en ny fil.
+1. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node key-phrases.js`
 
 ```javascript
 'use strict';
 
 let https = require ('https');
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
+if (!process.env[key_var]) {
+    throw new Error('please set/export the following environment variable: ' + key_var);
+}
+const subscription_key = process.env[key_var];
 
-// Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
+const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
+if (!process.env[endpoint_var]) {
+    throw new Error('please set/export the following environment variable: ' + endpoint_var);
+}
+const endpoint = process.env[endpoint_var];
 
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-let uri = 'westus.api.cognitive.microsoft.com';
 let path = '/text/analytics/v2.1/keyPhrases';
 
 let response_handler = function (response) {
     let body = '';
-    response.on ('data', function (d) {
+    response.on('data', function (d) {
         body += d;
     });
-    response.on ('end', function () {
-        let body_ = JSON.parse (body);
-        let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
+    response.on('end', function () {
+        let body_ = JSON.parse(body);
+        let body__ = JSON.stringify(body_, null, '  ');
+        console.log(body__);
     });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
+    response.on('error', function (e) {
+        console.log('Error: ' + e.message);
     });
 };
 
 let get_key_phrases = function (documents) {
-    let body = JSON.stringify (documents);
+    let body = JSON.stringify(documents);
 
     let request_params = {
-        method : 'POST',
-        hostname : uri,
-        path : path,
-        headers : {
-            'Ocp-Apim-Subscription-Key' : accessKey,
+        method: 'POST',
+        hostname: (new URL(endpoint)).hostname,
+        path: path,
+        headers: {
+            'Ocp-Apim-Subscription-Key': subscription_key,
         }
     };
 
-    let req = https.request (request_params, response_handler);
-    req.write (body);
-    req.end ();
+    let req = https.request(request_params, response_handler);
+    req.write(body);
+    req.end();
 }
 
-let documents = { 'documents': [
-    { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
-    { 'id': '2', 'language': 'es', 'text': 'Si usted quiere comunicarse con Carlos, usted debe de llamarlo a su telefono movil. Carlos es muy responsable, pero necesita recibir una notificacion si hay algun problema.' },
-    { 'id': '3', 'language': 'en', 'text': 'The Grand Hotel is a new hotel in the center of Seattle. It earned 5 stars in my review, and has the classiest decor I\'ve ever seen.' }
-]};
+let documents = {
+    'documents': [
+        { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
+        { 'id': '2', 'language': 'es', 'text': 'Si usted quiere comunicarse con Carlos, usted debe de llamarlo a su telefono movil. Carlos es muy responsable, pero necesita recibir una notificacion si hay algun problema.' },
+        { 'id': '3', 'language': 'en', 'text': 'The Grand Hotel is a new hotel in the center of Seattle. It earned 5 stars in my review, and has the classiest decor I\'ve ever seen.' }
+    ]
+};
 
-get_key_phrases (documents);
+get_key_phrases(documents);
 ```
 
 **Svar vid extrahering av diskussionsämne**
@@ -368,72 +359,69 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är. `https://en.wikipedia.org/wiki/United_States`  I följande exempel identifieras entiteter för engelska dokument.
 
+1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
-2. Lägg till den kod som anges nedan till `.js` en ny fil.
-3. `accessKey` Ersätt värdet med en prenumerations nyckel från din textanalys-resurs i Azure.
-4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node entities.js`
+1. Lägg till den kod som anges nedan till `.js` en ny fil.
+1. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node entities.js`
 
 ```javascript
 'use strict';
 
 let https = require ('https');
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
+if (!process.env[key_var]) {
+    throw new Error('please set/export the following environment variable: ' + key_var);
+}
+const subscription_key = process.env[key_var];
 
-// Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
+const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
+if (!process.env[endpoint_var]) {
+    throw new Error('please set/export the following environment variable: ' + endpoint_var);
+}
+const endpoint = process.env[endpoint_var];
 
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-let uri = 'westus.api.cognitive.microsoft.com';
 let path = '/text/analytics/v2.1/entities';
 
 let response_handler = function (response) {
     let body = '';
-    response.on ('data', function (d) {
+    response.on('data', function (d) {
         body += d;
     });
-    response.on ('end', function () {
-        let body_ = JSON.parse (body);
-        let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
+    response.on('end', function () {
+        let body_ = JSON.parse(body);
+        let body__ = JSON.stringify(body_, null, '  ');
+        console.log(body__);
     });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
+    response.on('error', function (e) {
+        console.log('Error: ' + e.message);
     });
 };
 
 let get_entities = function (documents) {
-    let body = JSON.stringify (documents);
+    let body = JSON.stringify(documents);
 
     let request_params = {
-        method : 'POST',
-        hostname : uri,
-        path : path,
-        headers : {
-            'Ocp-Apim-Subscription-Key' : accessKey,
+        method: 'POST',
+        hostname: (new URL(endpoint)).hostname,
+        path: path,
+        headers: {
+            'Ocp-Apim-Subscription-Key': subscription_key,
         }
     };
 
-    let req = https.request (request_params, response_handler);
-    req.write (body);
-    req.end ();
+    let req = https.request(request_params, response_handler);
+    req.write(body);
+    req.end();
 }
 
-let documents = { 'documents': [
-    { 'id': '1', 'language': 'en', 'text': 'Microsoft is an It company.' }
-]};
+let documents = {
+    'documents': [
+        { 'id': '1', 'language': 'en', 'text': 'Microsoft is an It company.' }
+    ]
+};
 
-get_entities (documents);
+get_entities(documents);
 ```
 
 **Svar vid entitetextrahering**

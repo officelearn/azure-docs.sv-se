@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
-ms.openlocfilehash: fc3a4bb1fad836d8f3dadd5a06169b705ef4d4fc
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4fdafee622a67582787829bb63331a8d0225506f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881259"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137494"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Använd Visuellt innehåll funktioner med REST API och Java
 
@@ -44,7 +44,7 @@ Den här självstudien har utvecklats med hjälp av NetBeans IDE. Mer specifikt 
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Prenumerera på API för visuellt innehåll och få en prenumerationsnyckel
 
-Innan du skapar exemplet måste du prenumerera på API för visuellt innehåll som ingår i Azure Cognitive Services. Information om prenumeration och nyckelhantering finns i [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/). Både de primära och sekundära nycklarna kan användas i den här självstudien.
+Innan du skapar exemplet måste du ha en prenumerations nyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Anteckna även tjänstens slut punkts-URL.
 
 ## <a name="acquire-incomplete-tutorial-project"></a>Hämta ofullständigt självstudie projekt
 

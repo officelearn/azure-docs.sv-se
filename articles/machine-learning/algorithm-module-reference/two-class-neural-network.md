@@ -1,7 +1,7 @@
 ---
-title: 'Två Neuralt nätverk: Modulreferens'
+title: 'Neurala nätverk i två klasser: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen Tvåklassförhöjt Neuralt nätverk i Azure Machine Learning-tjänsten för att skapa en modell för neurala nätverk som kan användas för att förutsäga ett mål som har bara två värden.
+description: Lär dig hur du använder neurala-modulen i två klasser i Azure Machine Learning-tjänsten för att skapa en neurala-nätverks modell som kan användas för att förutsäga ett mål som bara har två värden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,85 +9,84 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 7ea852fcd312c6f7b1b716278ed538b7accde5bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f0ad3cc6f506efdc0579f7b8949c41b539ade6a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029227"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128355"
 ---
-# <a name="two-class-neural-network-module"></a>Två Neural Network-modulen
+# <a name="two-class-neural-network-module"></a>Neurala-modul i två klasser
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen för att skapa en modell för neurala nätverk som kan användas för att förutsäga ett mål som har bara två värden.
+Använd den här modulen för att skapa en neurala-nätverks modell som kan användas för att förutsäga ett mål som bara har två värden.
 
-Klassificering med hjälp av neurala nätverk är en metod för övervakad inlärning och därför kräver ett *taggade datauppsättning*, som innehåller en kolumn för etiketten. Exempelvis kan du använda den här modellen neuralt nätverk för att förutsäga binära resultat som huruvida en patient har en viss sjukdom, eller om en dator troligen misslyckas inom en angiven tidsperiod.  
+Klassificering med neurala-nätverk är en övervakad inlärnings metod och kräver därför en *Taggad data uppsättning*som innehåller en etikett kolumn. Du kan till exempel använda den här neurala-nätverks modellen till att förutsäga binära resultat, till exempel om en patient har en viss sjukdom eller om en dator sannolikt kommer att sluta inom ett visst tidsintervall.  
 
-När du har definierat modellen tränar den genom att tillhandahålla en taggade datauppsättning och modellen som indata till [träna modell](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för nya indata.
+När du har definierat modellen tränar du den genom att tillhandahålla en taggad data uppsättning och modellen som indata för att [träna modellen](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för nya indata.
 
-### <a name="more-about-neural-networks"></a>Mer om neurala nätverk
+### <a name="more-about-neural-networks"></a>Mer om neurala-nätverk
 
-Ett neurala nätverk är en uppsättning sammankopplade lager. Indata är det första lagret och är anslutna till ett lager för utdata med en Acyklisk graf som består av viktad kanter och noder.
+Ett neurala-nätverk är en uppsättning sammankopplade lager. Indata är det första lagret och är anslutna till ett utmatnings lager med ett acykliska diagram som består av viktade kanter och noder.
 
-Du kan infoga flera dolda lager mellan indata- och lager. De flesta förutsägande uppgifter kan utföras enkelt med bara en eller några dolda lager. Senaste forskning har dock visas att djupa neurala nätverk (DNN) med många lager kan vara effektiva i komplexa uppgifter som bild eller taligenkänning. Efterföljande lagren används för att modellera ökande nivåer av semantiska djup.
+Mellan indata-och utdata-lagren kan du infoga flera dolda lager. De flesta förutsägande uppgifter kan enkelt utföras med bara ett eller flera dolda lager. Den senaste forskningen har dock visat att djup neurala-nätverk (DNN) med många lager kan vara effektiva i komplexa uppgifter som bild-eller tal igenkänning. Efterföljande lager används för att modellera ökande nivåer av semantiskt djup.
 
-Relationen mellan indata och utdata är vet tränar det neurala nätverket på indata. Riktning för diagrammet fortsätter från indata via det dolda lagret och i utdata-lagret. Alla noder i ett lager är anslutna med viktad kanter till noder i nästa lager.
+Relationen mellan indata och utdata har lärts från att träna neurala-nätverket på indatan. Riktningen på diagrammet fortsätter från indatan via det dolda lagret och till output-lagret. Alla noder i ett lager ansluts med de viktade kanterna till noderna i nästa lager.
 
-För att beräkna resultatet av nätverk för en viss indata beräknas ett värde vid varje nod i de dolda lager och utdata-lagret. Värdet anges genom att beräkna viktad summan av värdena för noder från det föregående lagret. En funktion för aktivering tillämpas sedan på den viktad summan.
+För att beräkna nätverkets utdata för ett visst indata beräknas ett värde vid varje nod i de dolda lagren och i utmatnings lagret. Värdet anges genom att beräkna den viktade summan av värdena för noderna från föregående skikt. En aktiverings funktion används sedan för den viktade summan.
   
 ## <a name="how-to-configure"></a>Så här konfigurerar du
 
-1.  Lägg till den **Tvåklassförhöjt Neural Network** modulen i experimentet. Du hittar den här modulen under **Maskininlärning**, **initiera**i den **klassificering** kategori.  
+1.  Lägg till **neurala-modulen i två klasser** i experimentet. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **klassificerings** kategorin.  
   
-2.  Ange hur du vill att modellen ska tränas genom att ange den **skapande trainer läge** alternativet.  
+2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enkel parametern**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.  
+    -   **Enskild parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.  
 
-3.  För **dolda lager-specifikationen**, Välj typ av nätverksarkitektur att skapa.  
+3.  För **dolda lager specifikation**väljer du vilken typ av nätverks arkitektur som ska skapas.  
   
-    -   **Anslutas fullständigt fallet**: Använder standard neuralt nätverksarkitektur, som definierats för två neurala nätverk på följande sätt:
+    -   **Fullständigt anslutet ärende**: Använder standard nätverks arkitekturen neurala, som definieras för neurala-nätverk i två klasser på följande sätt:
   
-        -   Har ett dolda lager.
+        -   Har ett dolt lager.
   
-        -   Utdata-lagret är anslutet till det dolda lagret och det dolda lagret anslutas fullständigt till inkommande lagret.
+        -   Utmatnings lagret är fullständigt anslutet till det dolda lagret och det dolda lagret är fullständigt anslutet till inmatnings lagret.
   
-        -   Antalet noder i det inkommande lagret är lika med antalet funktioner i träningsdata.
+        -   Antalet noder i inmatnings lagret är lika med antalet funktioner i tränings data.
   
-        -   Antalet noder i det dolda lagret har angetts av användaren. Standardvärdet är 100.
+        -   Antalet noder i det dolda lagret anges av användaren. Standardvärdet är 100.
   
-        -   Antalet noder som är lika med antalet klasser. För ett tvåklassförhöjt neurala nätverk innebär det att alla indata måste mappas till en av två noder i utdata-lagret.
+        -   Antalet noder är lika med antalet klasser. För ett neurala nätverk med två klasser innebär detta att alla indata måste mappas till en av två noder i output-lagret.
 
-5.  För **inlärningsfrekvensen**, definiera storleken för de steg som togs vid varje iteration innan korrigering. Ett större värde för learning hastighet kan orsaka modellen att Konvergera snabbare, men det kan överskridande lokala minimi.
+5.  För **inlärnings takt**definierar du storleken på steget som tas vid varje iteration, före korrigeringen. Ett större värde för inlärnings frekvensen kan göra att modellen konvergerar snabbare, men den kan överskotta lokala minimi.
 
-6.  För **antalet learning iterationer**, ange det maximala antalet gånger som algoritmen som ska bearbetas i träningsfall.
+6.  I **antal inlärnings iterationer**anger du det maximala antalet gånger som algoritmen ska bearbeta inlärnings fallen.
 
-7.  För **inledande learning viktas diameter**, ange noden vikterna i början av processen learning.
+7.  För **den inledande utbildningen för inlärnings viktning**anger du nodens vikt i början av inlärnings processen.
 
-8.  För **dynamiska**, ange en vikt och tillämpa under learning till noder från föregående iterationer  
+8.  För **det**här steget anger du en vikt att tillämpa vid inlärning till noder från föregående iterationer  
 
-10. Välj den **blanda exempel** alternativet blanda fall mellan iterationer. Om du avmarkerar det här alternativet kan bearbetas fall i exakt samma ordning varje gång du kör experimentet.
+10. Välj alternativet **blanda exempel** för att blanda fall mellan iterationer. Om du avmarkerar det här alternativet bearbetas ärenden i exakt samma ordning varje gång du kör experimentet.
   
-11. För **nummer slumptal**, skriver ett värde som ska användas som startvärde.
+11. Ange ett värde som ska användas som startvärdet för **slumpmässig numrering av utsäde**.
   
-     Ange ett startvärde är värdet användbart när du vill säkerställa repeterbarhet över körningar av samma experimentet.  I annat fall används ett systemklockan värdet som startvärde, vilket kan orsaka lite olika resultat varje gång du kör experimentet.
+     Att ange ett Seed-värde är användbart när du vill säkerställa repeterbarhet i flera körningar av samma experiment.  Annars används ett system klock värde som startvärdet, vilket kan orsaka något annorlunda resultat varje gången du kör experimentet.
   
-13. Lägg till en taggade datauppsättning till arbetsytan för experimentet och koppla ett av de [utbildningsmoduler](module-reference.md).  
+13. Lägg till en taggad data uppsättning i experimentet och Anslut en av [träna](module-reference.md)-modulerna.  
   
-    -   Om du ställer in **skapande trainer läge** till **enda Parameter**, använda den [Träningsmodell](train-model.md) modulen.  
+    -   Om du ställer in **skapa** utbildare för **en parameter**använder du modulen [träna modell](train-model.md) .  
   
 14. Kör experimentet.
 
 ## <a name="results"></a>Resultat
 
-När utbildning har slutförts:
+När utbildningen är klar:
 
-+ För att visa en sammanfattning av modellens parametrar, tillsammans med funktionen vikterna som registrerats från utbildnings- och andra parametrar för det neurala nätverket, högerklicka på utdata från [Träningsmodell](./train-model.md), och välj **visualisera**.  
++ Om du vill se en översikt över modellens parametrar, tillsammans med funktions vikterna från träningen och andra parametrar för neurala-nätverket, högerklickar du på utdata från [träna modell](./train-model.md)och väljer **visualisera**.  
 
-+ Spara en ögonblicksbild av den tränade modellen genom att högerklicka på den **Trained model** utdata och välj **Spara som Trained Model**. Den här modellen uppdateras inte på efterföljande körningar av samma experimentet.
++ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den tränade modellens utdata och väljer **Spara som utbildad modell**. Den här modellen uppdateras inte vid efterföljande körningar av samma experiment.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

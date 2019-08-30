@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 52cb11b015bb231b91184a2270e333e4c9aa8303
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e9284d34d3c5bc51c7d0648b24877a051df423d9
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424292"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140697"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
@@ -122,7 +121,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     ```sql
     Select * from watermarktable
     ```
-    Utdata: 
+    Resultat: 
 
     ```
     TableName  | WatermarkValue
@@ -306,7 +305,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     1. Som **Namn på lagrad procedur** väljer du **usp_write_watermark**. 
     2. När du ska ange värden för parametrarna för lagrad procedur klickar du på **Importera parameter** och anger följande värden för parametern: 
 
-        | Namn | Typ | Value | 
+        | Name | Typ | Value | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Sträng | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |

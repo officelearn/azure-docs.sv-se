@@ -1,62 +1,59 @@
 ---
-title: Använda Resource Manager-mallar i Data Factory | Microsoft Docs
-description: Lär dig hur du skapar och använder Azure Resource Manager-mallar för att skapa Data Factory-entiteter.
+title: Använd Resource Manager-mallar i Data Factory | Microsoft Docs
+description: Lär dig hur du skapar och använder Azure Resource Manager mallar för att skapa Data Factory entiteter.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
-ms.assetid: 37724021-f55f-4e85-9206-6d4a48bda3d8
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: ca8b3930b9d9f708d83dc760be3ee89737b074dc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: b33762ae18332854d6c25d49553b533c9b99cc44
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583374"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139467"
 ---
-# <a name="use-templates-to-create-azure-data-factory-entities"></a>Använd mallar för att skapa Azure Data Factory-entiteter
+# <a name="use-templates-to-create-azure-data-factory-entities"></a>Använda mallar för att skapa Azure Data Factory entiteter
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. 
 
 ## <a name="overview"></a>Översikt
-När du använder Azure Data Factory för dina databehov integration, kan bli återanvända samma mönster i olika miljöer eller utför samma uppgift upprepade gånger inom samma lösning. Mallar kan du implementera och hantera dessa scenarier på ett enkelt sätt. Mallar i Azure Data Factory är perfekt för scenarier som innefattar återanvändning och upprepas.
+När du använder Azure Data Factory för dina data integrerings behov kan du behöva återanvända samma mönster i olika miljöer eller implementera samma uppgift upprepade gånger inom samma lösning. Med hjälp av mallar kan du implementera och hantera dessa scenarier på ett enkelt sätt. Mallar i Azure Data Factory är idealiska för scenarier som involverar åter användning och upprepning.
 
-Överväg att situation där en organisation har 10 fabriker över hela världen. Loggar från varje anläggning lagras i en separat lokal SQL Server-databas. Företaget vill skapa ett enda datalager i molnet för ad hoc-analyser. Det vill också har den samma logik, men olika konfigurationer för utveckling, testning och produktionsmiljöer.
+Ta hänsyn till den situation där en organisation har 10 tillverknings anläggningar över hela världen. Loggarna från varje anläggning lagras i en separat lokal SQL Server databas. Företaget vill bygga ett enda informations lager i molnet för ad hoc-analys. Det vill också ha samma logik men olika konfigurationer för utvecklings-, test-och produktions miljöer.
 
-I det här fallet måste en uppgift du upprepa i samma miljö, men med olika värden över 10 datafabriker för varje anläggning. I praktiken **upprepning** finns. Mall kan abstraktion av den här Allmänt flöde (det vill säga pipelines som har samma aktiviteter i varje data factory), men använder en separat parameterfil för varje anläggning.
+I det här fallet måste en uppgift upprepas inom samma miljö, men med olika värden i de 10 data fabrikerna för varje tillverknings anläggning. I praktiken finns **upprepning** . Mall tillåter abstraktion av detta generiska flöde (det vill säga pipelines med samma aktiviteter i varje data fabrik), men använder en separat parameter fil för varje tillverknings anläggning.
 
-Dessutom som organisationen vill distribuera dessa 10 datafabriker flera gånger i olika miljöer, mallar kan använda den här **återanvändningsmöjligheter** genom att använda separata parameterfiler för utveckling, test, och produktionsmiljöer.
+I takt med att organisationen vill distribuera dessa 10 data fabriker flera gånger i olika miljöer, kan mallarna använda den här återanvändningen genom att använda separata parameter-filer för utveckling, testning och produktions miljöer.
 
 ## <a name="templating-with-azure-resource-manager"></a>Mall med Azure Resource Manager
-[Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-overview.md#template-deployment) är ett bra sätt att uppnå mall i Azure Data Factory. Resource Manager-mallar definierar infrastrukturen och konfigurationen av din Azure-lösning via en JSON-fil. Eftersom Azure Resource Manager-Mallar fungerar med alla/de flesta Azure-tjänster kan användas det brett att enkelt hantera alla resurser för dina Azure-tillgångar. Se [redigera Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md) vill veta mer om Resource Manager-mallar i allmänhet.
+[Azure Resource Manager mallar](../../azure-resource-manager/resource-group-overview.md#template-deployment) är ett bra sätt att uppnå mall i Azure Data Factory. Resource Manager-mallar definierar infrastrukturen och konfigurationen av din Azure-lösning via en JSON-fil. Eftersom Azure Resource Manager mallar fungerar med alla/de flesta Azure-tjänster, kan det vara mycket enkelt att hantera alla resurser i dina Azure-tillgångar. Läs mer om Resource Manager-mallarna i allmänhet i [redigera Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md) .
 
 ## <a name="tutorials"></a>Självstudier
-Se följande självstudiekurser för stegvisa instruktioner för att skapa Data Factory-entiteter med hjälp av Resource Manager-mallar:
+I följande själv studie kurser finns stegvisa anvisningar för hur du skapar Data Factory entiteter med hjälp av Resource Manager-mallar:
 
-* [Självstudie: Skapa en pipeline för att kopiera data med hjälp av Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-* [Självstudie: Skapa en pipeline för att bearbeta data med hjälp av Azure Resource Manager-mall](data-factory-build-your-first-pipeline.md)
+* [Självstudier: Skapa en pipeline för att kopiera data med hjälp av Azure Resource Manager mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Självstudier: Skapa en pipeline för att bearbeta data med hjälp av Azure Resource Manager mall](data-factory-build-your-first-pipeline.md)
 
-## <a name="data-factory-templates-on-github"></a>Data Factory-mallar på GitHub
-Kolla in följande Snabbstart för Azure-mallar på GitHub:
+## <a name="data-factory-templates-on-github"></a>Data Factory mallar på GitHub
+Kolla in följande Azure-mallar för snabb start på GitHub:
 
-* [Skapa en Data factory för att kopiera data från Azure Blob Storage till Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
-* [Skapa en datafabrik med Hive-aktivitet i Azure HDInsight-kluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
-* [Skapa en Data factory för att kopiera data från Salesforce till Azure-Blobar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
-* [Skapa en datafabrik som länkar aktiviteter: kopierar data från en FTP-server till Azure Blobs, anropar en hive-skript i ett kluster för HDInsight på begäran för att omvandla data och kopierar resultat till Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
+* [Skapa en data fabrik för att kopiera data från Azure Blob Storage till Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
+* [Skapa en data fabrik med Hive-aktivitet i Azure HDInsight-kluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
+* [Skapa en data fabrik för att kopiera data från Salesforce till Azure-blobbar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
+* [Skapa en data fabrik som bevarar aktiviteter: kopierar data från en FTP-server till Azure-blobbar, anropar ett Hive-skript på ett HDInsight-kluster på begäran för att transformera data och kopiera resultatet till Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
 
-Passa på att dela din Azure Data Factory-mallar i samband med [Azure snabbstartsguiden](https://azure.microsoft.com/documentation/templates/). Referera till den [bidragsguiden](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) när du utvecklar mallar som kan delas via den här databasen.
+Du kan dela dina Azure Data Factory mallar på [Azure snabb start](https://azure.microsoft.com/documentation/templates/). Se bidrags [hand boken](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) när du utvecklar mallar som kan delas via den här lagrings platsen.
 
-Följande avsnitt innehåller information om hur du definierar Data Factory-resurser i en Resource Manager-mall.
+I följande avsnitt finns information om hur du definierar Data Factory resurser i en Resource Manager-mall.
 
-## <a name="defining-data-factory-resources-in-templates"></a>Definiera Data Factory-resurser i mallar
-Översta mallen för att definiera en datafabrik är:
+## <a name="defining-data-factory-resources-in-templates"></a>Definiera Data Factory resurser i mallar
+Mallen på den översta nivån för att definiera en data fabrik är:
 
 ```JSON
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -96,7 +93,7 @@ Du definierar en datafabrik i Resource Manager-mallen enligt följande exempel:
     "location": "East US"
 }
 ```
-DataFactoryName definieras i ”variabler” som:
+DataFactoryName definieras i "variabler" som:
 
 ```JSON
 "dataFactoryName": "[concat('<myDataFactoryName>', uniqueString(resourceGroup().id))]",
@@ -114,9 +111,9 @@ DataFactoryName definieras i ”variabler” som:
 }
 ```
 
-Se [länkad lagringstjänst](data-factory-azure-blob-connector.md#azure-storage-linked-service) eller [beräkna länkade tjänster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) mer information om JSON-egenskaper för den länkade tjänst du vill distribuera. Parametern ”dependsOn” anger namnet på motsvarande data factory. Ett exempel på att definiera en länkad tjänst för Azure Storage visas i följande JSON-definition:
+Mer information om JSON-egenskaperna för den länkade tjänst som du vill distribuera finns i länkade tjänster för [lagring](data-factory-azure-blob-connector.md#azure-storage-linked-service) eller Compute- [tjänster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Parametern "dependsOn" anger namnet på motsvarande data fabrik. Ett exempel på att definiera en länkad tjänst för Azure Storage visas i följande JSON-definition:
 
-### <a name="define-datasets"></a>Definiera datauppsättningar
+### <a name="define-datasets"></a>Definiera data uppsättningar
 
 ```JSON
 "type": "datasets",
@@ -130,7 +127,7 @@ Se [länkad lagringstjänst](data-factory-azure-blob-connector.md#azure-storage-
     ...
 }
 ```
-Referera till [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mer information om JSON-egenskaper för den specifika datauppsättningstypen som du vill distribuera. Obs! ”dependsOn”-parametern anger namnet på den motsvarande data factory och lagring länkad tjänst. Ett exempel på Definitionstyp datauppsättning för Azure blob-lagring visas i följande JSON-definition:
+Se [data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) för information om JSON-egenskaperna för den angivna data mängds typ som du vill distribuera. Observera att parametern "dependsOn" anger namnet på den motsvarande länkade tjänsten för Data Factory och lagring. Ett exempel på hur du definierar data uppsättnings typ för Azure Blob Storage visas i följande JSON-definition:
 
 ```JSON
 "type": "datasets",
@@ -156,7 +153,7 @@ Referera till [datalager som stöds](data-factory-data-movement-activities.md#su
 }
 ```
 
-### <a name="define-pipelines"></a>Definiera pipelines
+### <a name="define-pipelines"></a>Definiera pipeliner
 
 ```JSON
 "type": "dataPipelines",
@@ -176,7 +173,7 @@ Referera till [datalager som stöds](data-factory-data-movement-activities.md#su
 }
 ```
 
-Referera till [definiera pipelines](data-factory-create-pipelines.md#pipeline-json) mer information om JSON-egenskaper för att definiera den specifika pipeline och aktiviteter som du vill distribuera. Observera ”dependsOn”-parametern anger namnet på datafabriken och eventuella motsvarande länkade tjänster eller datauppsättningar. Ett exempel på en pipeline som kopierar data från Azure Blob Storage till Azure SQL Database visas i följande JSON-kodfragmentet:
+I [definiera pipeliner](data-factory-create-pipelines.md#pipeline-json) finns mer information om JSON-egenskaperna för att definiera den aktuella pipelinen och de aktiviteter som du vill distribuera. Observera att parametern "dependsOn" anger namnet på data fabriken och eventuella motsvarande länkade tjänster eller data uppsättningar. Ett exempel på en pipeline som kopierar data från Azure Blob Storage till Azure SQL Database visas i följande JSON-kodfragment:
 
 ```JSON
 "type": "datapipelines",
@@ -230,13 +227,13 @@ Referera till [definiera pipelines](data-factory-create-pipelines.md#pipeline-js
     "end": "2016-10-04T00:00:00Z"
 }
 ```
-## <a name="parameterizing-data-factory-template"></a>Parameterisera Data Factory-mall
-Bästa metoder för Parameterisera Se [bästa praxis för att skapa Azure Resource Manager-mallar](../../azure-resource-manager/resource-manager-template-best-practices.md). I allmänhet parameteranvändningen värden ska minimeras, särskilt om variabler kan användas i stället. Endast ange parametrar i följande scenarier:
+## <a name="parameterizing-data-factory-template"></a>Parametriserad Data Factory mall
+Metod tips för hur du använder parametrar finns i [metod tips för att skapa Azure Resource Manager mallar](../../azure-resource-manager/resource-manager-template-best-practices.md). I allmänhet bör parameter användningen minimeras, särskilt om variabler kan användas i stället. Ange endast parametrar i följande scenarier:
 
 * Inställningarna varierar beroende på miljö (exempel: utveckling, testning och produktion)
-* Hemligheter (till exempel lösenord)
+* Hemligheter (till exempel lösen ord)
 
-Om du behöver att hämta hemligheter från [Azure Key Vault](../../key-vault/key-vault-overview.md) när du distribuerar Azure Data Factory-entiteter med hjälp av mallar, ange den **nyckelvalv** och **hemligt namn** enligt den följande exempel:
+Om du behöver hämta hemligheter från [Azure Key Vault](../../key-vault/key-vault-overview.md) när du distribuerar Azure Data Factory entiteter med hjälp av mallar, anger du **nyckel valvet** och det **hemliga namnet** som visas i följande exempel:
 
 ```JSON
 "parameters": {
@@ -253,6 +250,6 @@ Om du behöver att hämta hemligheter från [Azure Key Vault](../../key-vault/ke
 ```
 
 > [!NOTE]
-> Exportera mallar för befintliga datafabriker för närvarande inte stöds ännu, är det i fungerar.
+> Det finns för närvarande inte stöd för att exportera mallar för befintliga data fabriker, men det finns i Works.
 >
 >

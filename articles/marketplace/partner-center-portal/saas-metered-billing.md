@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 4b24805cd59d1eb9d28591749d5169486e54d506
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3fa485c9fb2835b8270cb35fc75b57251476005f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250124"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141778"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Avgiftsbelagd fakturering med Marketplace-avläsning
 
@@ -73,7 +73,7 @@ Fakturerings dimensioner delas i alla planer för ett erbjudande.  Vissa attribu
 De attribut som definierar själva dimensionen delas i alla planer för ett erbjudande.  Innan du publicerar erbjudandet påverkar en ändring av dessa attribut från kontexten för varje plan dimensions definitionen för alla planer.  När du har publicerat erbjudandet kan dessa attribut inte längre redige ras.  Dessa attribut är:
 
 * identifierare
-* Namn
+* Name
 * Måttenhet
 
 De andra attributen för en dimension är speciella för varje plan och kan ha olika värden för att planera.  Innan du publicerar planen kan du redigera dessa värden och endast den här planen kommer att påverkas.  När du publicerar planen går dessa attribut inte längre att redige ras.  Dessa attribut är:
@@ -84,13 +84,13 @@ De andra attributen för en dimension är speciella för varje plan och kan ha o
 
 Dimensioner har också två särskilda begrepp, "aktiverade" och "oändliga":
 
-* **Aktiverat** anger att den här planen ingår i den här dimensionen.  Du kanske vill lämna detta omarkerat om du skapar en ny plan som inte skickar användnings händelser baserat på den här dimensionen.  Dessutom visas nya dimensioner som lagts till efter att en plan först publicerats som "inte aktive rad" i den redan publicerade planen.  En inaktive rad dimension visas nu i alla listor med dimensioner för en plan som visas av kunderna.
+* **Aktiverat** anger att den här planen ingår i den här dimensionen.  Du kanske vill lämna detta omarkerat om du skapar en ny plan som inte skickar användnings händelser baserat på den här dimensionen.  Dessutom visas nya dimensioner som lagts till efter att en plan först publicerats som "inte aktive rad" i den redan publicerade planen.  En inaktive rad dimension visas inte i några listor med dimensioner för en plan som visas av kunderna.
 * **Oändligt**, representerat av oändlighets symbolen "∞", anger att den här planen ingår i den här dimensionen, men inte mätar användning mot den här dimensionen.  Om du vill ange för dina kunder att de funktioner som representeras av den här dimensionen ingår i planen, men utan någon begränsad användning.  En dimension med oändlig användning visas i listor över dimensioner för en plan som ses av kunder, med en indikation om att den aldrig debiteras för den här planen.
 
 >[!Note] 
 >Följande scenarier stöds uttryckligen: <br> – Du kan lägga till en ny dimension till en ny plan.  Den nya dimensionen kommer inte att aktive ras för redan publicerade planer. <br> – Du kan publicera en plan för **fast pris** utan några dimensioner och sedan lägga till en ny plan och konfigurera en ny dimension för planen. Den nya dimensionen kommer inte att aktive ras för redan publicerade planer.
 
-## <a name="constraints"></a>Villkor
+## <a name="constraints"></a>Begränsningar
 
 ### <a name="trial-behavior"></a>Utvärderings beteende
 
@@ -103,7 +103,7 @@ Eftersom en dimension som används med Marketplace-mätnings tjänsten represent
 När ett erbjudande publiceras med en dimension kan informationen om erbjudande nivå för den dimensionen inte längre ändras:
 
 * identifierare
-* Namn
+* Name
 * Måttenhet
 
 När en plan har publicerats kan informationen på Plans nivå inte längre ändras:

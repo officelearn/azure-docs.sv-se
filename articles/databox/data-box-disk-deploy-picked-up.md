@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1c102d05d4c570f9415fad18c004847de11d50cc
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e58e33efebfe372bd5cacc45f0a8045cec18878d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035711"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135046"
 ---
 ::: zone target="chromeless"
 
-# <a name="return-azure-data-box-disk"></a>Returnera Azure Data Box Disk 
+## <a name="return-azure-data-box-disk"></a>Returnera Azure Data Box Disk 
 
 ::: zone-end
 
@@ -49,22 +49,9 @@ Innan du börjar bör du slutföra följande [självstudie: Kopiera data till en
     - Vi rekommenderar att du packar diskar med en välsäkrad omslutning.
     - Se till att anpassningen är Snug för att minska eventuella rörelser i rutan.
 
-Nästa steg bestäms av var du returnerar enheten.
+Nästa steg bestäms av var du returnerar enheten. Instruktionerna skiljer sig åt för USA/Kanada, Australien eller länder i Asien.
 
-
-
-- [Schemalägg en upphämtning med UPS om du returnerar enheten i USA och Kanada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-- [Schemalägg hämtning med DHL för Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) genom att besöka deras webbplats och ange flyg faktura nummer.
-- [Schemalägg en upphämtning i Australien](data-box-disk-deploy-picked-up.md#pick-up-in-australia).
-- [Schemalägg hämtning för länder i Asien](data-box-disk-deploy-picked-up.md#pick-up-in-asia) , till exempel Japan, Korea och Singapore.
-
-::: zone target="chromeless"
-
-När diskarna har hämtats av operatören, uppdateras order statusen i portalen och ett spårnings-ID visas.
-
-::: zone-end
-
-## <a name="pick-up-in-us-canada"></a>Hämta i USA, Kanada
+### <a name="pick-up-in-us-canada"></a>Hämta i USA, Kanada
 
 Utför följande steg om du returnerar enheten i USA eller Kanada.
 
@@ -80,7 +67,7 @@ Utför följande steg om du returnerar enheten i USA eller Kanada.
     - Om spårnings numret inte anges kräver UPS att du betalar ytterligare en kostnad under upphämtningen.
     - I stället för att schemalägga upphämtningen kan du också ta bort Data Box Disk på den närmaste List rutan.
 
-## <a name="pick-up-in-europe"></a>Hämta i Europa
+### <a name="pick-up-in-europe"></a>Hämta i Europa
 
 Utför följande steg om du returnerar enheten i Europa.
 
@@ -93,7 +80,7 @@ Utför följande steg om du returnerar enheten i Europa.
 4. Gå till webbplatsen för land/region DHL Express och välj **bok en courier-samling > eReturn-försändelse**.    
 3. Identifiera ditt fraktsedelsnummer och klicka på **Boka upphämtning**.
 
-## <a name="pick-up-in-australia"></a>Hämta i Australien
+### <a name="pick-up-in-australia"></a>Hämta i Australien
 
 Azure-datacenter i Australien har ytterligare en säkerhets avisering. Alla inkommande leveranser måste ha en avancerad avisering. Utför följande steg för att hämta i Australien.
 
@@ -104,11 +91,11 @@ Azure-datacenter i Australien har ytterligare en säkerhets avisering. Alla inko
     - Adress
     - Kontaktnamn
 
-## <a name="pick-up-in-asia"></a>Hämta i Asien
+### <a name="pick-up-in-asia"></a>Hämta i Asien
 
 Anvisningarna för hämtning skiljer sig för Japan, Korea och Singapore.
 
-### <a name="pick-up-in-japan"></a>Hämta i Japan
+#### <a name="pick-up-in-japan"></a>Hämta i Japan
 
 1. Skriv företagets namn och adress information på frakt sedeln som avsändar information.
 2. Quantium-lösning för e-post med hjälp av följande e-postmall.
@@ -135,7 +122,7 @@ Vid behov kan du kontakta Quantium Solution support (japanska språk) med följa
 - ÅtkomstCustomerservice.JP@quantiumsolutions.com 
 - Telefon: 03-5755-0150 
 
-### <a name="pick-up-in-korea"></a>Hämta i Korea
+#### <a name="pick-up-in-korea"></a>Hämta i Korea
 
 1. Se till att inkludera retur frakt sedeln.
 2. Så här begär du hämtning av frakt sedel:
@@ -149,13 +136,10 @@ Vid behov kan du kontakta Quantium Solution support (japanska språk) med följa
     3. Om courier inte tar emot insamling kan du anropa *Quantium Solutions International* Hotline för alternativa arrangemang. 
     4. Du får en muntlig bekräftelse om begäran görs via telefon.
 
-### <a name="pick-up-in-singapore"></a>Hämta i Singapore
+#### <a name="pick-up-in-singapore"></a>Hämta i Singapore
 
 1. Skriv ut etiketten frakt och bifoga till rutan. Om etiketten är skadad eller förlorad:
     - Gå till **översikt > Ladda ned frakt etikett** och hämta en etikett för retur leverans.
-
-        ![Ladda ned adressetikett](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Fäst etiketten på enheten. Kontrol lera att etiketten är synlig.
 
 2. Så här begär du hämtning:

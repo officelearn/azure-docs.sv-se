@@ -6,19 +6,31 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 796335fddf6107284b589d70094ff4f5a0e3acd5
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
-ms.translationtype: MT
+ms.openlocfilehash: a0c34e30e52bd2a6d57e2cf8299f231f7f2960d9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049999"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147945"
 ---
 ::: zone target="docs"
 
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Självstudier: Kopiera data till Azure Data Box Disk och verifiera
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="copy-data-to-azure-data-box-disk-and-validate"></a>Kopiera data till Azure Data Box Disk och validera
+
+När diskarna är anslutna och olåsta kan du kopiera data från käll data servern till diskarna. När data kopieringen är klar bör du kopiera de data som du har kopierat. Verifieringen säkerställer att data överförs till Azure senare.
+
+::: zone-end
+
+::: zone target="docs"
 
 Den här självstudien beskriver hur du kopierar data från värddatorn och genererar kontrollsummor för att kontrollera dataintegriteten.
 
@@ -294,19 +306,18 @@ Gå vidare till nästa självstudie och lär dig hur du returnerar Data Box-disk
 
 ::: zone target="chromeless"
 
-## <a name="copy-data-to-disks"></a>Kopiera data till diskar
+### <a name="copy-data-to-disks"></a>Kopiera data till diskar
 
 Utför följande steg för att ansluta och kopiera data från datorn till Data Box Disk.
 
 1. Visa innehållet på den upplåsta enheten. Listan över de förskapade mapparna och undermapparna i enheten varierar beroende på vilka alternativ som har valts när du placerar Data Box Disks ordningen.
 2. Kopiera data till mappar som motsvarar lämpligt data format. Kopiera till exempel ostrukturerade data till mappen för *BlockBlob* -mappen, VHD-eller VHDX-data till *PageBlob* -mappen och filer till *AzureFile*. Om data formatet inte matchar lämplig mapp (lagrings typ) i ett senare steg, går det inte att överföra data till Azure.
 
-    - Se till att alla behållare, blobbar och filer följer namngivnings konventioner för [Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) och storleks gränser för [Azure-objekt](data-box-disk-limits.md#azure-object-size-limits). Om dessa regler eller gränser inte följs, kommer data överföringen till Azure att Miss förfalla.
-    - En container skapas i Azure Storage-kontot för varje undermapp under mapparna BlockBlob och PageBlob. Alla filer under *BlockBlob* och *PageBlob* mappar kopieras till en standard behållare $root under Azure Storage kontot. 
-    - Alla filer i $root container överförs alltid som block-blobbar.
-    - Kopiera filer till en mapp i *AzureFile* -mappen. En undermapp i *AzureFile* -mappen skapar en fil resurs. Filer som kopierats direkt till *AzureFile* -mappen kraschar och överförs som block-blobar.
-    - Om det finns filer och mappar i rotkatalogen måste du flytta dem till en annan mapp innan du börjar kopiera data.
+    - Se till att alla behållare, blobbar och filer följer namngivnings konventioner för [Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) och storleks gränser för [Azure-objekt](data-box-disk-limits.md#azure-object-size-limits). Om dessa regler eller gränser inte följs, kommer data överföringen till Azure att Miss förfalla.     
     - Om din beställning har Managed Disks som en av lagrings målen, se namngivnings konventionerna för [hanterade diskar](data-box-disk-limits.md#managed-disk-naming-conventions).
+    - En container skapas i Azure Storage-kontot för varje undermapp under mapparna BlockBlob och PageBlob. Alla filer under *BlockBlob* och *PageBlob* mappar kopieras till en standard behållare $root under Azure Storage kontot. Alla filer i $root container överförs alltid som block-blobbar.
+    - Skapa en underordnad mapp i *AzureFile* -mappen. Den här undermappen mappar till en fileshare i molnet. Kopiera filer till undermappen. Filer som kopierats direkt till *AzureFile* -mappen kraschar och överförs som block-blobar.
+    - Om det finns filer och mappar i rotkatalogen måste du flytta dem till en annan mapp innan du börjar kopiera data.
 
 3. Använd dra och släpp med Utforskaren eller ett SMB-kompatibelt fil kopierings verktyg som Robocopy för att kopiera dina data. Flera kopierings jobb kan initieras med hjälp av följande kommando:
 
@@ -317,13 +328,13 @@ Utför följande steg för att ansluta och kopiera data från datorn till Data B
 
 Använd den valfria proceduren [dela och kopiera](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks) när du använder flera diskar och har en stor data uppsättning som måste delas upp och kopieras på alla diskar.
 
-## <a name="validate-data"></a>Verifiera data
+### <a name="validate-data"></a>Verifiera data
 
 Utför följande steg för att verifiera dina data.
 
 1. Kör `DataBoxDiskValidation.cmd` för validering av kontrollsumma i mappen *DataBoxDiskImport* för din enhet.
 2. Använd alternativ 2 för att validera dina filer och generera kontroll summor. Beroende på datastorleken kan det här steget ta en stund. Om det uppstår fel vid valideringen och genereringen av kontrollsumma meddelas du och du får även en länk till felloggarna.
 
-    Mer information om data verifiering finns i [Verifiera data](data-box-disk-deploy-copy-data.md#validate-data). Om det uppstår fel under verifieringen kan du läsa [Felsöka verifierings fel](data-box-disk-troubleshoot.md).
+    Mer information om data verifiering finns i [Verifiera data](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Om det uppstår fel under verifieringen kan du läsa [Felsök validerings fel](https://docs.microsoft.com/en-us/azure/databox/data-box-disk-troubleshoot){: Target = "_ blank"}.
 
 ::: zone-end

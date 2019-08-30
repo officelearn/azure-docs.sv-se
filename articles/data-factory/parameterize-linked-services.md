@@ -1,6 +1,6 @@
 ---
 title: Parameterisera länkade tjänster i Azure Data Factory | Microsoft Docs
-description: Lär dig mer om att Parameterisera länkade tjänster i Azure Data Factory och skicka dynamiska värden vid körning.
+description: Lär dig hur du Parameterisera länkade tjänster i Azure Data Factory och skickar dynamiska värden vid körning.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,32 +8,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/18/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 0239c53f98fba201b6d70e1e2212eea36134e30d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 285b7c182fc218a590b7a3980e43175c76555106
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60635558"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140962"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parameterisera länkade tjänster i Azure Data Factory
 
-Du kan nu Parameterisera en länkad tjänst och skicka dynamiska värden vid körning. Om du vill ansluta till olika databaser på samma Azure SQL Database-server kan du nu Parameterisera namnet på databasen i länkade tjänstedefinition. Detta gör att du slipper skapa en länkad tjänst för varje databas i Azure SQL database-server. Du kan Parameterisera andra egenskaper i den länkade tjänstdefinitionen samt – till exempel *användarnamn.*
+Nu kan du Parameterisera en länkad tjänst och skicka dynamiska värden vid körning. Om du till exempel vill ansluta till olika databaser på samma Azure SQL Database-Server kan du nu Parameterisera databas namnet i den länkade tjänst definitionen. Detta gör att du inte behöver skapa en länkad tjänst för varje databas på Azure SQL Database-servern. Du kan också Parameterisera andra egenskaper i den länkade tjänst definitionen, till exempel *användar namn.*
 
-Du kan använda Data Factory-Användargränssnittet på Azure-portalen eller ett programmeringsgränssnitt för att Parameterisera länkade tjänster.
+Du kan använda Data Factory gränssnittet i Azure Portal eller ett programmerings gränssnitt för att Parameterisera länkade tjänster.
 
 > [!TIP]
-> Vi rekommenderar inte för att Parameterisera lösenord eller hemligheter. I stället Store alla anslutningssträngar i Azure Key Vault och Parameterisera den *hemligt namn*.
+> Vi rekommenderar att du inte Parameterisera lösen ord eller hemligheter. Lagra alla anslutnings strängar i Azure Key Vault i stället och Parameterisera det *hemliga namnet*.
 
-Titta på följande videoklipp för en sju minuters introduktion och demonstration av den här funktionen:
+En introduktion till sju minuter och demonstration av den här funktionen finns på följande video:
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
-## <a name="supported-data-stores"></a>Lagrar data som stöds
+## <a name="supported-data-stores"></a>Data lager som stöds
 
-För närvarande stöds länkade tjänsten parameterisering i Användargränssnittet för Data Factory i Azure portal för följande datalager. För alla andra datalager du Parameterisera den länkade tjänsten genom att välja den **kod** -ikonen i den **anslutningar** fliken och använder JSON-redigerare.
+För närvarande stöds länkade tjänst Parameterisering i användar gränssnittet för Data Factory i Azure Portal för följande data lager. För alla andra data lager kan du Parameterisera den länkade tjänsten genom att välja **kod** ikonen på fliken **anslutningar** och använda JSON-redigeraren.
 - Azure SQL Database
 - Azure SQL Data Warehouse
 - SQL Server
@@ -45,7 +45,7 @@ För närvarande stöds länkade tjänsten parameterisering i Användargränssni
 
 ## <a name="data-factory-ui"></a>Data Factory-användargränssnitt
 
-![Lägg till dynamiskt innehåll till länkade tjänstens definition](media/parameterize-linked-services/parameterize-linked-services-image1.png)
+![Lägg till dynamiskt innehåll i den länkade tjänst definitionen](media/parameterize-linked-services/parameterize-linked-services-image1.png)
 
 ![Skapa en ny parameter](media/parameterize-linked-services/parameterize-linked-services-image2.png)
 

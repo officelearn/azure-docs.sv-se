@@ -16,12 +16,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf6190ae35a573ab4b9a37f5cd1f2bd75f06ca46
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 3c6ad7e305958131c4f544dfa2022e7471e9adac
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667146"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147114"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Kontrol lera status för användar etablering
 
@@ -62,7 +62,7 @@ Gransknings loggar för etablering registrerar alla åtgärder som utförs av et
 Mer information om hur du läser gransknings loggarna i Azure Portal finns i rapporterings [hand boken för etablering](check-status-user-account-provisioning.md).
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Hur lång tid tar det att etablera användare?
-När du använder automatisk användar etablering med ett program, etablerar Azure AD automatiskt och uppdaterar användar konton i en app baserat på saker som [användar-och grupp tilldelning](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) enligt ett regelbundet schemalagt tidsintervall, vanligt vis var tionde minut.
+När du använder automatisk användar etablering med ett program, etablerar Azure AD automatiskt och uppdaterar användar konton i en app baserat på saker som [användar-och grupp tilldelning](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) enligt ett regelbundet schemalagt tidsintervall, vanligt vis var 40: e minut.
 
 Hur lång tid det tar för en specifik användare att tillhandahållas beror huvudsakligen på om ditt etablerings jobb kör en inledande synkronisering eller en stegvis synkronisering.
 

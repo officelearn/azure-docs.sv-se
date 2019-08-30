@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 160be4224e31793b5bb172f5b913c364ae2c8a59
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 7d7333a9316e4d39fd550872c3df04024a75d21d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013030"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128330"
 ---
 # <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Vad är ML pipelines i Azure Machine Learning service?
 
@@ -47,13 +47,14 @@ Azure-molnet tillhandahåller flera andra pipelines, var och en med olika ändam
 
 Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning så att du kan fokusera på din expertis, maskin inlärning i stället för infrastruktur och automatisering.
 
-Pipelines skapas utifrån flera **steg**, som är distinkta beräknings enheter i pipelinen. Varje steg kan köras oberoende och använda isolerade beräknings resurser. Detta gör det möjligt för flera data forskare att arbeta med samma pipeline samtidigt utan beskattnings beräknings resurser och gör det också enkelt att använda olika beräknings typer/storlekar för varje steg.
+Pipelines skapas utifrån flera **steg**, som är distinkta beräknings enheter i pipelinen. Varje steg kan köras oberoende och använda isolerade beräknings resurser.
+Oberoende steg gör det möjligt för flera data forskare att arbeta med samma pipeline samtidigt utan beskattnings beräknings resurser och gör det också enkelt att använda olika beräknings typer/storlekar för varje steg.
 
-Efter att pipelinen har utformats finns det ofta mer fin justering av pipelinens inlärnings slinga. När du kör en pipeline igen fortsätter körningen till de distinkta stegen som måste köras igen, till exempel ett uppdaterat utbildnings skript och hoppar över vad som inte har ändrats. Samma paradigmet gäller oförändrade skript som används för körningen av steget. Den här funktionen hjälper till att undvika att köra kostsamma och tids krävande steg som data inmatning och omvandling om underliggande data inte har ändrats.
+Efter att pipelinen har utformats finns det ofta mer fin justering av pipelinens inlärnings slinga. När du kör en pipeline igen fortsätter körningen till de distinkta stegen som måste köras igen, till exempel ett uppdaterat utbildnings skript och hoppar över vad som inte har ändrats. Samma paradigmet gäller oförändrade skript som används för körningen av steget. Den här åter användnings funktionen hjälper till att undvika att köra kostsamma och tids krävande steg som data inmatning och omvandling om underliggande data inte har ändrats.
 
 Med Azure Machine Learning kan du använda olika verktyg och ramverk, till exempel PyTorch eller TensorFlow, för varje steg i din pipeline. Azure-koordinater mellan de olika [beräknings målen](concept-azure-machine-learning-architecture.md) som du använder, så att dina mellanliggande data kan delas med de underordnade beräknings målen enkelt.
 
-Du kan [spåra mått för din pipeline-experiment](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) direkt i Azure-portalen. När en pipeline har publicerats kan du konfigurera en REST-slutpunkt som gör att du kan köra pipelinen igen från vilken plattform eller stack som helst.
+Du kan [spåra mått för din pipeline-experiment](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) direkt i Azure-portalen. När en pipeline har publicerats kan du konfigurera en REST-slutpunkt, vilket gör att du kan köra pipelinen igen från valfri plattform eller stack.
 
 ## <a name="key-advantages"></a>Viktiga fördelar
 
@@ -62,7 +63,7 @@ De främsta fördelarna med att använda pipeliner för dina Machine Learning-ar
 |Stor fördel|Beskrivning|
 |:-------:|-----------|
 |**Obevakad&nbsp;körs**|Schemalägg steg som ska köras parallellt eller i följd på ett tillförlitligt och obevakat sätt. Förberedelse av data och modellering kan senaste dagar eller veckor, och pipelines gör att du kan fokusera på andra uppgifter medan processen körs. |
-|**Heterogena-beräkning**|Använd flera pipelines som är tillförlitligt koordinerade över heterogena och skalbara beräknings resurser och lagrings platser. Kör enskilda pipeline-steg på olika beräknings mål, till exempel HDInsight, GPU: ar för data vetenskap och Databricks. Detta ger effektiv användning av tillgängliga beräknings alternativ.|
+|**Heterogena-beräkning**|Använd flera pipelines som är tillförlitligt koordinerade över heterogena och skalbara beräknings resurser och lagrings platser. Effektiv användning av tillgängliga beräknings resurser genom att köra enskilda pipeline-steg för olika beräknings mål, till exempel HDInsight, GPU: ar för data vetenskap och Databricks.|
 |**Återanvändningsmöjligheter**|Skapa pipeline-mallar för vissa scenarier, till exempel omskolning och batch-poäng. Utlös publicerade pipelines från externa system via enkla REST-anrop.|
 |**Spårning och versionshantering**|I stället för att manuellt spåra data och resultat Sök vägar när du itererar, använder du pipelines SDK för att explicit namnge och version av data källor, indata och utdata. Du kan också hantera skript och data separat för ökad produktivitet.|
 |**Samarbete**|Pipelines gör det möjligt för data experter att samar beta över alla områden i design processen för maskin inlärning, samtidigt som de kan arbeta med pipeline-steg samtidigt.|
@@ -75,7 +76,11 @@ Du kan med hjälp av deklarativa databeroenden, för att optimera dina uppgifter
 
 Spara dina pipelines som mallar och distribuera dem till en REST-slutpunkt för batch-poäng eller återträna jobb.
 
-Det finns två python-paket för pipelines med Azure Machine Learning: [azureml-pipeline-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) och [azureml-pipeline – steg](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/?view=azure-ml-py).
+Det finns två python-paket för pipelines med Azure Machine Learning: [azureml-pipeline-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) och [azureml-pipeline – steg](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Kom igång snabbt genom att använda en av de fördefinierade modulerna, till exempel:
+
+* Köra Python-skript i ett steg med [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep)
+* Överföra data mellan lagrings alternativ med [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep)
+* Skapa ett AutoML pipeline-steg med [AutoMLStep](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlstep)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -83,6 +88,6 @@ Det finns två python-paket för pipelines med Azure Machine Learning: [azureml-
 
 + Lär dig hur du [kör batch-förutsägelser på stora data](how-to-run-batch-predictions.md).
 
-+ Läs [SDK-referens dokument för pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py)
++ Se [SDK-referens dokument för pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py).
 
 + Prova Jupyter Notebooks som demonstrerar [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Lär dig hur du [Kör antecknings böcker för att utforska den här tjänsten](samples-notebooks.md).

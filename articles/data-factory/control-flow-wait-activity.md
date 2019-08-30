@@ -1,25 +1,24 @@
 ---
-title: Wait-aktivitet i Azure Data Factory | Microsoft Docs
-description: Wait-aktivitet pausar körningen av pipelinen för den angivna perioden.
+title: Vänta-aktivitet i Azure Data Factory | Microsoft Docs
+description: Aktiviteten vänta pausar körningen av pipelinen för den angivna perioden.
 services: data-factory
 documentationcenter: ''
-author: shlo
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.author: shlo
-ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48a722979e61209a855dd1fec22fcdcc756ae1ce
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764759"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142422"
 ---
-# <a name="execute-wait-activity-in-azure-data-factory"></a>Kör wait-aktivitet i Azure Data Factory
+# <a name="execute-wait-activity-in-azure-data-factory"></a>Kör vänta-aktivitet i Azure Data Factory
 När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den angivna tidsperioden innan körningen återupptas med alla efterföljande aktiviteter. 
 
 ## <a name="syntax"></a>Syntax
@@ -35,21 +34,21 @@ När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den an
 
 ```
 
-## <a name="type-properties"></a>Egenskaperna för anslutningstypen
+## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-name | Namnet på den `Wait` aktivitet. | String | Ja
-type | Måste vara inställt på **vänta**. | String | Ja
-waitTimeInSeconds | Hur många sekunder som väntar pipelinen innan du fortsätter med bearbetningen. | Integer | Ja
+name | `Wait` Aktivitetens namn. | Sträng | Ja
+type | Måste vara inställd på **wait**. | Sträng | Ja
+waitTimeInSeconds | Antalet sekunder som pipelinen väntar innan bearbetningen fortsätter. | Integer | Ja
 
 ## <a name="example"></a>Exempel
 
 > [!NOTE]
-> Det här avsnittet innehåller JSON-definitioner och exempel PowerShell-kommandon för att köra pipelinen. En genomgång med stegvisa instruktioner för att skapa Data Factory-pipeline med hjälp av Azure PowerShell och JSON-definitioner finns i [självstudie: skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genom gång med stegvisa instruktioner för att skapa en Data Factory pipeline med hjälp av Azure PowerShell-och JSON-definitioner finns i [Självstudier: skapa en data fabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-wait-activity"></a>Pipeline med Wait-aktivitet
-I det här exemplet har pipelinen två aktiviteter: **Tills** och **vänta**. Wait-aktivitet är konfigurerad för att vänta på en sekund. Pipelinen körs Web-aktivitet i en loop med en sekund väntetiden mellan varje körning. 
+### <a name="pipeline-with-wait-activity"></a>Pipeline med vänta-aktivitet
+I det här exemplet har pipelinen två aktiviteter: **Till** och med **vänta**. Vänta-aktiviteten är konfigurerad att vänta en sekund. Pipelinen kör webb aktiviteten i en slinga med en andra vänte tid mellan varje körning. 
 
 ```json
 {
@@ -100,12 +99,12 @@ I det här exemplet har pipelinen två aktiviteter: **Tills** och **vänta**. Wa
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
+Se andra kontroll flödes aktiviteter som stöds av Data Factory: 
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 - [Lookup-aktivitet](control-flow-lookup-activity.md)
-- [Webbaktivitet](control-flow-web-activity.md)
+- [Webb aktivitet](control-flow-web-activity.md)
 - [Until-aktivitet](control-flow-until-activity.md)

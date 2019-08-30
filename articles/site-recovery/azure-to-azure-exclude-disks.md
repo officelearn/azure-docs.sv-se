@@ -1,50 +1,49 @@
 ---
-title: Azure Site Recovery - undanta diskar vid replikering av virtuella Azure-datorer med hjälp av Azure PowerShell | Microsoft Docs
-description: Lär dig hur du undantar diskar Azure-datorer under Azure Site Recovery med hjälp av Azure PowerShell.
-services: site-recovery
+title: Azure Site Recovery-exkludera diskar vid replikering av virtuella Azure-datorer med hjälp av Azure PowerShell | Microsoft Docs
+description: Lär dig hur du undantar diskar av virtuella Azure-datorer under Azure Site Recovery med hjälp av Azure PowerShell.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: asgang
-ms.openlocfilehash: 54a32d7f7aa4bcab73f5828da3e7eba9d25276be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81d22250262351e3c1bbb2fe28960b3d158bbf57
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160298"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147051"
 ---
-# <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Undanta diskar från PowerShell replikering av virtuella Azure-datorer
+# <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Undanta diskar från PowerShell-replikering av virtuella Azure-datorer
 
-Den här artikeln beskriver hur du undantar diskar när du replikerar virtuella Azure-datorer. Du kan undanta diskar för att optimera replikeringsbandbredden eller de resurser som använder dessa diskar. Den här funktionen är för närvarande bara tillgänglig via Azure PowerShell.
+Den här artikeln beskriver hur du undantar diskar när du replikerar virtuella Azure-datorer. Du kan utesluta diskar för att optimera bandbredden för förbrukad replikering eller de resurser på mål sidan som dessa diskar använder. Den här funktionen är för närvarande endast tillgänglig via Azure PowerShell.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
-- Se till att du förstår de [katastrofåterställning arkitektur och komponenter](azure-to-azure-architecture.md).
+- Se till att du förstår [arkitekturen och komponenterna för katastrof återställning](azure-to-azure-architecture.md).
 - Granska [kraven för stöd](azure-to-azure-support-matrix.md) för alla komponenter.
-- Se till att du har AzureRm PowerShell ”Az” modulen. Om du vill installera eller uppdatera PowerShell, se [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Kontrollera att du har skapat ett recovery services-valv och skyddade virtuella datorer i minst en gång. Om du inte gjort detta, följer du processen vid [konfigurera haveriberedskap för virtuella Azure-datorer med Azure PowerShell](azure-to-azure-powershell.md).
+- Kontrol lera att du har AzureRm PowerShell-modulen "AZ". Information om hur du installerar eller uppdaterar PowerShell finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Se till att du har skapat ett Recovery Services-valv och skyddade virtuella datorer minst en gång. Om du inte har gjort det följer du processen för att [Konfigurera haveri beredskap för virtuella Azure-datorer med hjälp av Azure PowerShell](azure-to-azure-powershell.md).
 
-## <a name="why-exclude-disks-from-replication"></a>Varför ska jag undanta diskar från replikering
-Du kan behöva undanta diskar från replikering eftersom:
+## <a name="why-exclude-disks-from-replication"></a>Varför undanta diskar från replikering
+Du kan behöva utesluta diskar från replikeringen eftersom:
 
-- Den virtuella datorn har nått [Azure Site Recovery-gränserna för att replikera data ändras priserna](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+- Den virtuella datorn har nått [Azure Site Recovery gränser för att replikera data ändrings takten](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
 
-- Data på den undantagna disken är inte viktigt eller behöver inte replikeras.
+- De data som är indelade på den uteslutna disken är inte viktiga eller behöver inte replikeras.
 
-- Vill du spara lagrings- och nätverksresurser genom att inte replikera data.
+- Du vill spara lagrings-och nätverks resurser genom att inte replikera data.
 
-## <a name="how-to-exclude-disks-from-replication"></a>Hur du undantar diskar från replikering
+## <a name="how-to-exclude-disks-from-replication"></a>Så här undantar du diskar från replikering
 
-I vårt exempel replikera vi en virtuell dator som har ett operativsystem och tre datadiskar som finns i regionen östra USA till regionen USA, västra 2. Namnet på den virtuella datorn är *AzureDemoVM*. Vi undanta disk 1 och hålla diskar 2 och 3.
+I vårt exempel replikerar vi en virtuell dator som har ett operativ system och tre data diskar i regionen USA, östra till regionen USA, västra 2. Namnet på den virtuella datorn är *AzureDemoVM*. Vi undantar disk 1 och behåller diskar 2 och 3.
 
-## <a name="get-details-of-the-virtual-machines-to-replicate"></a>Hämta information om de virtuella datorerna att replikera
+## <a name="get-details-of-the-virtual-machines-to-replicate"></a>Hämta information om de virtuella datorer som ska replikeras
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -69,18 +68,18 @@ ProvisioningState  : Succeeded
 StorageProfile     : {ImageReference, OsDisk, DataDisks}
 ```
 
-Få information om den virtuella datorns diskar. Den här informationen används senare när du startar replikeringen av den virtuella datorn.
+Hämta information om den virtuella datorns diskar. Den här informationen kommer att användas senare när du startar replikering av den virtuella datorn.
 
 ```azurepowershell
 $OSDiskVhdURI = $VM.StorageProfile.OsDisk.Vhd
 $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 ```
 
-## <a name="replicate-an-azure-virtual-machine"></a>Replikera virtuella Azure-datorer
+## <a name="replicate-an-azure-virtual-machine"></a>Replikera en virtuell Azure-dator
 
-I följande exempel förutsätter vi att du redan har ett cachelagringskonto och replikeringsprincip mappningar. Om du inte har dessa saker, följer du processen vid [konfigurera haveriberedskap för virtuella Azure-datorer med Azure PowerShell](azure-to-azure-powershell.md).
+I följande exempel förutsätter vi att du redan har ett cache Storage-konto, replikeringsprincip och mappningar. Om du inte har dessa saker följer du processen vid [Konfigurera haveri beredskap för virtuella Azure-datorer med hjälp av Azure PowerShell](azure-to-azure-powershell.md).
 
-Replikera virtuella Azure-datorer med *hanterade diskar*.
+Replikera en virtuell Azure-dator med *hanterade diskar*.
 
 ```azurepowershell
 
@@ -128,14 +127,14 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk2ReplicationConfig, $DataDisk
 $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 ```
 
-När start-replikeringsåtgärden lyckas replikeras virtuella datorns data till återställningsregionen.
+När åtgärden starta-replikeringen lyckades replikeras VM-data till återställnings regionen.
 
-Du kan gå till Azure portal och se de replikerade virtuella datorerna under ”replikerade objekt”.
+Du kan gå till Azure Portal och se de replikerade virtuella datorerna under replikerade objekt.
 
-Replikeringen startar genom att seeda en kopia av replikeringsdiskarna för den virtuella datorn i återställningsregionen. Det här steget kallas fasen den inledande replikeringen.
+Replikeringen börjar genom att en kopia av de replikerade diskarna för den virtuella datorn i återställnings regionen dirigeras. Den här fasen kallas fasen inledande-replikering.
 
-När replikeringen har slutförts flyttar replikering till fasen differentiell synkronisering. Nu kan är den virtuella datorn skyddad. Välj den skyddade virtuella datorn för att se om alla diskar undantas.
+När den inledande replikeringen har slutförts flyttas replikeringen vidare till fasen differentiell-synkronisering. Den virtuella datorn är i det här läget skyddad. Välj den skyddade virtuella datorn för att se om några diskar är uteslutna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [som kör ett redundanstest](site-recovery-test-failover-to-azure.md).
+Lär dig mer om att [köra ett redundanstest](site-recovery-test-failover-to-azure.md).

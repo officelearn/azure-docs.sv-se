@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 08/28/2019
 ms.author: tasharm
-ms.openlocfilehash: 3f18b77fe436328e79df351b9c5edcf6dc289ad7
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5e1578d88d6e151479961aeaf7a54c130419f282
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697275"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142703"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>Snabbstart: Anropa tjänsten Textanalys med hjälp av ruby SDK
 
@@ -40,10 +40,10 @@ Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk d
 1. Skapa ett nytt ruby-projekt och Lägg till en ny `Gemfile`fil med namnet.
 2. Lägg till Textanalys SDK till projektet genom att lägga till nedanstående kod i `Gemfile`.
 
-    ```ruby
-    source 'https://rubygems.org'
-    gem 'azure_cognitiveservices_textanalytics', '~>0.17.3'
-    ```
+```ruby
+source 'https://rubygems.org'
+gem 'azure_cognitiveservices_textanalytics', '~>0.17.3'
+```
 
 ## <a name="create-a-text-analytics-client"></a>Skapa en text Analytics-klient
 
@@ -53,22 +53,37 @@ Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk d
 
 3. Skapa klienten med rätt Textanalys slut punkt.
 
-    ```ruby
-    require 'azure_cognitiveservices_textanalytics'
-    
-    include Azure::CognitiveServices::TextAnalytics::V2_1::Models
-    
-    credentials =
-        MsRestAzure::CognitiveServicesCredentials.new("enter key here")
-    # Replace 'westus' with the correct region for your Text Analytics subscription
-    endpoint = String.new("https://westus.api.cognitive.microsoft.com/")
-    
-    textAnalyticsClient =
-        Azure::TextAnalytics::Profiles::Latest::Client.new({
-            credentials: credentials
-        })
-    textAnalyticsClient.endpoint = endpoint
-    ```
+```ruby
+# encoding: UTF-8
+# Without this encoding directive, you might get an error such as:
+# sdk.rb:60: invalid multibyte char (UTF-8)
+
+require 'azure_cognitiveservices_textanalytics'
+
+include Azure::CognitiveServices::TextAnalytics::V2_1::Models
+
+key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
+if (!ENV[key_var])
+    raise "Please set/export the following environment variable: " + key_var
+else
+    subscription_key = ENV[key_var]
+end
+
+endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
+if (!ENV[endpoint_var])
+    raise "Please set/export the following environment variable: " + endpoint_var
+else
+    endpoint = ENV[endpoint_var]
+end
+
+credentials = MsRestAzure::CognitiveServicesCredentials.new(subscription_key)
+
+textAnalyticsClient =
+    Azure::TextAnalytics::Profiles::Latest::Client.new({
+        credentials: credentials
+    })
+textAnalyticsClient.endpoint = endpoint
+```
 
 <a name="SentimentAnalysis"></a>
 
@@ -80,55 +95,55 @@ Med hjälp av Textanalys SDK eller API kan du utföra sentiment analyser på en 
 
 2. Definiera en uppsättning `MultiLanguageInput` objekt som ska analyseras. Lägg till ett språk och en text för varje objekt. ID: t kan vara vilket värde som helst.
 
-    ```ruby
-    def SentimentAnalysisExample(client)
-      # The documents to be analyzed. Add the language of the document. The ID can be any value.
-      input_1 = MultiLanguageInput.new
-      input_1.id = '1'
-      input_1.language = 'en'
-      input_1.text = 'I had the best day of my life.'
-    
-      input_2 = MultiLanguageInput.new
-      input_2.id = '2'
-      input_2.language = 'en'
-      input_2.text = 'This was a waste of my time. The speaker put me to sleep.'
-    
-      input_3 = MultiLanguageInput.new
-      input_3.id = '3'
-      input_3.language = 'es'
-      input_3.text = 'No tengo dinero ni nada que dar...'
-    
-      input_4 = MultiLanguageInput.new
-      input_4.id = '4'
-      input_4.language = 'it'
-      input_4.text = "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
-    ```
+```ruby
+def SentimentAnalysisExample(client)
+    # The documents to be analyzed. Add the language of the document. The ID can be any value.
+    input_1 = MultiLanguageInput.new
+    input_1.id = '1'
+    input_1.language = 'en'
+    input_1.text = 'I had the best day of my life.'
+
+    input_2 = MultiLanguageInput.new
+    input_2.id = '2'
+    input_2.language = 'en'
+    input_2.text = 'This was a waste of my time. The speaker put me to sleep.'
+
+    input_3 = MultiLanguageInput.new
+    input_3.id = '3'
+    input_3.language = 'es'
+    input_3.text = 'No tengo dinero ni nada que dar...'
+
+    input_4 = MultiLanguageInput.new
+    input_4.id = '4'
+    input_4.language = 'it'
+    input_4.text = "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
+```
 
 3. I samma funktion kombinerar du dokumenten till en lista. Lägg till den i `documents` fältet för ett `MultiLanguageBatchInput` objekt. 
 
 4. Anropa klientens `sentiment()` funktion `MultiLanguageBatchInput` med objektet som en parameter för att skicka dokumenten. Skriv ut alla resultat som returneras.
-    ```ruby
-      input_documents =  MultiLanguageBatchInput.new
-      input_documents.documents = [input_1, input_2, input_3, input_4]
-    
-      result = client.sentiment(
-          multi_language_batch_input: input_documents
-      )
-      
-      if (!result.nil? && !result.documents.nil? && result.documents.length > 0)
+```ruby
+    input_documents =  MultiLanguageBatchInput.new
+    input_documents.documents = [input_1, input_2, input_3, input_4]
+
+    result = client.sentiment(
+        multi_language_batch_input: input_documents
+    )
+  
+    if (!result.nil? && !result.documents.nil? && result.documents.length > 0)
         puts '===== SENTIMENT ANALYSIS ====='
         result.documents.each do |document|
-          puts "Document Id: #{document.id}: Sentiment Score: #{document.score}"
+            puts "Document Id: #{document.id}: Sentiment Score: #{document.score}"
         end
-      end
     end
-    ```
+end
+```
 
 5. Anropa funktionen `SentimentAnalysisExample()`.
 
-    ```ruby
-    SentimentAnalysisExample(textAnalyticsClient)
-    ```
+```ruby
+SentimentAnalysisExample(textAnalyticsClient)
+```
 
 ### <a name="output"></a>Output
 
@@ -150,50 +165,49 @@ Textanalyss tjänsten kan identifiera språket i ett text dokument på ett stort
 
 2. Definiera en uppsättning `LanguageInput` objekt som ska analyseras. Lägg till ett språk och en text för varje objekt. ID: t kan vara vilket värde som helst.
 
-    ```ruby
-    def DetectLanguageExample(client)
-       # The documents to be analyzed.
-       language_input_1 = LanguageInput.new
-       language_input_1.id = '1'
-       language_input_1.text = 'This is a document written in English.'
-    
-       language_input_2 = LanguageInput.new
-       language_input_2.id = '2'
-       language_input_2.text = 'Este es un document escrito en Español..'
-    
-       language_input_3 = LanguageInput.new
-       language_input_3.id = '3'
-       language_input_3.text = '这是一个用中文写的文件'
-    ```
+```ruby
+def DetectLanguageExample(client)
+    # The documents to be analyzed.
+    language_input_1 = LanguageInput.new
+    language_input_1.id = '1'
+    language_input_1.text = 'This is a document written in English.'
+
+    language_input_2 = LanguageInput.new
+    language_input_2.id = '2'
+    language_input_2.text = 'Este es un document escrito en Español..'
+
+    language_input_3 = LanguageInput.new
+    language_input_3.id = '3'
+    language_input_3.text = '这是一个用中文写的文件'
+```
 
 3. I samma funktion kombinerar du dokumenten till en lista. Lägg till den i `documents` fältet för ett `LanguageBatchInput` objekt. 
 
 4. Anropa klientens `detect_language()` funktion `LanguageBatchInput` med objektet som en parameter för att skicka dokumenten. Skriv ut alla resultat som returneras.
-    ```ruby
-       input_documents = LanguageBatchInput.new
-       input_documents.documents = [language_input_1, language_input_2, language_input_3]
-    
-    
-       result = client.detect_language(
-           language_batch_input: input_documents
-       )
-    
-       if (!result.nil? && !result.documents.nil? && result.documents.length > 0)
-         puts '===== LANGUAGE DETECTION ====='
-         result.documents.each do |document|
-           puts "Document ID: #{document.id} , Language: #{document.detected_languages[0].name}"
-         end
-       else
-         puts 'No results data..'
-       end
-     end
-    ```
+```ruby
+    input_documents = LanguageBatchInput.new
+    input_documents.documents = [language_input_1, language_input_2, language_input_3]
+
+    result = client.detect_language(
+        language_batch_input: input_documents
+    )
+
+    if (!result.nil? && !result.documents.nil? && result.documents.length > 0)
+        puts '===== LANGUAGE DETECTION ====='
+        result.documents.each do |document|
+            puts "Document ID: #{document.id} , Language: #{document.detected_languages[0].name}"
+        end
+    else
+        puts 'No results data..'
+    end
+end
+```
 
 5. Anropa funktionen`DetectLanguageExample`
 
-    ```ruby
-    DetectLanguageExample(textAnalyticsClient)
-    ```
+```ruby
+DetectLanguageExample(textAnalyticsClient)
+```
 
 ### <a name="output"></a>Output
 
@@ -214,54 +228,54 @@ Textanalyss tjänsten kan särskilja och extrahera olika entiteter (personer, pl
 
 2. Definiera en uppsättning `MultiLanguageInput` objekt som ska analyseras. Lägg till ett språk och en text för varje objekt. ID: t kan vara vilket värde som helst.
 
-    ```ruby
-      def RecognizeEntitiesExample(client)
-        # The documents to be analyzed.
-        input_1 = MultiLanguageInput.new
-        input_1.id = '1'
-        input_1.language = 'en'
-        input_1.text = 'Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.'
-    
-        input_2 = MultiLanguageInput.new
-        input_2.id = '2'
-        input_2.language = 'es'
-        input_2.text = 'La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.'
+```ruby
+def RecognizeEntitiesExample(client)
+    # The documents to be analyzed.
+    input_1 = MultiLanguageInput.new
+    input_1.id = '1'
+    input_1.language = 'en'
+    input_1.text = 'Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.'
+
+    input_2 = MultiLanguageInput.new
+    input_2.id = '2'
+    input_2.language = 'es'
+    input_2.text = 'La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.'
     ```
 
-3. I samma funktion kombinerar du dokumenten till en lista. Lägg till den i `documents` fältet för ett `MultiLanguageBatchInput` objekt. 
+3. Within the same function, combine the documents into a list. Add it to the `documents` field of a `MultiLanguageBatchInput` object. 
 
-4. Anropa klientens `entities()` funktion `MultiLanguageBatchInput` med objektet som en parameter för att skicka dokumenten. Skriv ut alla resultat som returneras.
+4. Call the client's `entities()` function with the `MultiLanguageBatchInput` object as a parameter to send the documents. If any results are returned, print them.
 
-    ```ruby
-        input_documents =  MultiLanguageBatchInput.new
-        input_documents.documents = [input_1, input_2]
-    
-        result = client.entities(
-            multi_language_batch_input: input_documents
-        )
-    
-        if (!result.nil? && !result.documents.nil? && result.documents.length > 0)
-          puts '===== ENTITY RECOGNITION ====='
-          result.documents.each do |document|
+```ruby
+    input_documents = MultiLanguageBatchInput.new
+    input_documents.documents = [input_1, input_2]
+
+    result = client.entities(
+    multi_language_batch_input: input_documents
+    )
+
+    if (!result.nil? && !result.documents.nil? && result.documents.length > 0)
+        puts '===== ENTITY RECOGNITION ====='
+        result.documents.each do |document|
             puts "Document ID: #{document.id}"
-              document.entities.each do |entity|
+            document.entities.each do |entity|
                 puts "\tName: #{entity.name}, \tType: #{entity.type == nil ? "N/A": entity.type},\tSub-Type: #{entity.sub_type == nil ? "N/A": entity.sub_type}"
                 entity.matches.each do |match|
-                  puts "\tOffset: #{match.offset}, \Length: #{match.length},\tScore: #{match.entity_type_score}"
+                    puts "\tOffset: #{match.offset}, \Length: #{match.length},\tScore: #{match.entity_type_score}"
                 end
                 puts
-              end
-          end
-        else
-          puts 'No results data..'
+            end
         end
-      end
-    ```
+    else
+        puts 'No results data..'
+    end
+end
+```
 
 5. Anropa funktionen`RecognizeEntitiesExample`
-    ```ruby
-    RecognizeEntitiesExample(textAnalyticsClient)
-    ```
+```ruby
+RecognizeEntitiesExample(textAnalyticsClient)
+```
 
 ### <a name="output"></a>Output
 
@@ -313,61 +327,61 @@ Textanalyss tjänsten kan extrahera nyckel fraser i meningar. I följande exempe
 
 2. Definiera en uppsättning `MultiLanguageInput` objekt som ska analyseras. Lägg till ett språk och en text för varje objekt. ID: t kan vara vilket värde som helst.
 
-    ```ruby
-    def KeyPhraseExtractionExample(client)
-      # The documents to be analyzed.
-      input_1 = MultiLanguageInput.new
-      input_1.id = '1'
-      input_1.language = 'ja'
-      input_1.text = '猫は幸せ'
-  
-      input_2 = MultiLanguageInput.new
-      input_2.id = '2'
-      input_2.language = 'de'
-      input_2.text = 'Fahrt nach Stuttgart und dann zum Hotel zu Fu.'
-  
-      input_3 = MultiLanguageInput.new
-      input_3.id = '3'
-      input_3.language = 'en'
-      input_3.text = 'My cat is stiff as a rock.'
-  
-      input_4 = MultiLanguageInput.new
-      input_4.id = '4'
-      input_4.language = 'es'
-      input_4.text = 'A mi me encanta el fútbol!'
-      ```
+```ruby
+def KeyPhraseExtractionExample(client)
+    # The documents to be analyzed.
+    input_1 = MultiLanguageInput.new
+    input_1.id = '1'
+    input_1.language = 'ja'
+    input_1.text = '猫は幸せ'
+
+    input_2 = MultiLanguageInput.new
+    input_2.id = '2'
+    input_2.language = 'de'
+    input_2.text = 'Fahrt nach Stuttgart und dann zum Hotel zu Fu.'
+
+    input_3 = MultiLanguageInput.new
+    input_3.id = '3'
+    input_3.language = 'en'
+    input_3.text = 'My cat is stiff as a rock.'
+
+    input_4 = MultiLanguageInput.new
+    input_4.id = '4'
+    input_4.language = 'es'
+    input_4.text = 'A mi me encanta el fútbol!'
+```
 
 3. I samma funktion kombinerar du dokumenten till en lista. Lägg till den i `documents` fältet för ett `MultiLanguageBatchInput` objekt. 
 
 4. Anropa klientens `key_phrases()` funktion `MultiLanguageBatchInput` med objektet som en parameter för att skicka dokumenten. Skriv ut alla resultat som returneras.
 
-    ```ruby
-      input_documents =  MultiLanguageBatchInput.new
-      input_documents.documents = [input_1, input_2, input_3, input_4]
-    
-      result = client.key_phrases(
-          multi_language_batch_input: input_documents
-      )
-    
-      if (!result.nil? && !result.documents.nil? && result.documents.length > 0)
+```ruby
+    input_documents =  MultiLanguageBatchInput.new
+    input_documents.documents = [input_1, input_2, input_3, input_4]
+
+    result = client.key_phrases(
+        multi_language_batch_input: input_documents
+    )
+
+    if (!result.nil? && !result.documents.nil? && result.documents.length > 0)
         result.documents.each do |document|
-          puts "Document Id: #{document.id}"
-          puts '  Key Phrases'
-          document.key_phrases.each do |key_phrase|
-            puts "    #{key_phrase}"
-          end
+            puts "Document Id: #{document.id}"
+            puts '  Key Phrases'
+            document.key_phrases.each do |key_phrase|
+                puts "    #{key_phrase}"
+            end
         end
-      else
+    else
         puts 'No results data..'
-      end
     end
-    ```
+end
+```
 
 5. Anropa funktionen`KeyPhraseExtractionExample`
 
-    ```ruby
-    KeyPhraseExtractionExample(textAnalyticsClient)
-    ```
+```ruby
+KeyPhraseExtractionExample(textAnalyticsClient)
+```
 
 ### <a name="output"></a>Output
 

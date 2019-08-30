@@ -11,27 +11,27 @@ manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27ff7512bb3f9422ed4c8edd7ab50fce23f0ed07
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 939f08fd16cf27e641cf6436a00396ad2db8e6c3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499565"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126395"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Instruktioner: Konfigurera registrerings principen för Azure Multi-Factor Authentication
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Instruktioner: Konfigurera registrerings principen för Azure-Multi-Factor Authentication
 
 Azure AD Identity Protection hjälper dig att hantera distributionen av Multi-Factor Authentication-registrering (MFA) genom att konfigurera en princip för villkorlig åtkomst för att kräva MFA-registrering oavsett vilken modern app för autentisering som du loggar in på. Den här artikeln förklarar vad principen kan användas för och hur du konfigurerar den.
 
 
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Vad är en registrerings princip för Azure Multi-Factor Authentication?
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Vad är registrerings principen för Azure-Multi-Factor Authentication?
 
-Med Azure Multi-Factor Authentication kan du verifiera vem du använder mer än bara ett användar namn och lösen ord. Det innehåller ett andra säkerhets lager för användar inloggningar. För att användarna ska kunna svara på MFA-prompter måste de först registrera sig för Azure Multi-Factor Authentication.
+Med Azure Multi-Factor Authentication kan du kontrol lera vem du använder mer än bara ett användar namn och lösen ord. Det innehåller ett andra säkerhets lager för användar inloggningar. För att användarna ska kunna svara på MFA-prompter måste de först registrera sig för Azure Multi-Factor Authentication.
 
 Vi rekommenderar att du kräver Azure Multi-Factor Authentication för användar inloggningar eftersom det:
 
 - Ger stark autentisering med en rad enkla verifierings alternativ
-- Spelar en viktig roll i förbereda din organisation för att skydda och återställa från risk händelser i identitets skydd
+- Spelar en viktig roll i förbereda din organisation för att skydda och återställa från risk identifieringar i identitets skydd
 
 Mer information om MFA finns i [Vad är Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 

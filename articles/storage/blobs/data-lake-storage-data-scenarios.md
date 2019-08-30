@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2954f0bfcfe78243c2df12182f45034f46c8391d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 68e1bcfeaa998b0698554fd93fd7ed2e88a29739
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991894"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70143002"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen2 för Big data-krav
 
@@ -39,10 +39,10 @@ Här är en lista med verktyg som du kan använda för att skapa en behållare f
 
 |Verktyg | Riktlinjer |
 |---|--|
-|Azure Lagringsutforskaren | [Skapa en behållare med hjälp av Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|Azure Lagringsutforskaren | [Skapa en behållare med hjälp av Storage Explorer](data-lake-storage-explorer.md#create-a-container) |
 |AzCopy | [Skapa en BLOB-behållare eller fil resurs med hjälp av AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
-|Kommando rads gränssnitt för Hadoop container (HDFS) med HDInsight |[Skapa en behållare med hjälp av HDFS med HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|Kod i en Azure Databricks Notebook|[Skapa en lagrings konto behållare (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Skapa en behållare och montera den (python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
+|Kommando rads gränssnitt för Hadoop container (HDFS) med HDInsight |[Skapa en behållare med hjälp av HDFS med HDInsight](data-lake-storage-use-hdfs-data-lake-storage.md#create-a-container) |
+|Kod i en Azure Databricks Notebook|[Skapa en lagrings konto behållare (Scala)](data-lake-storage-quickstart-create-databricks-account.md#create-storage-account-container) <br><br> [Skapa en behållare och montera den (python)](data-lake-storage-use-databricks-spark.md#create-a-container-and-mount-it)|
 
 Det är enklast att skapa fil system med hjälp av Storage Explorer eller AzCopy. Det tar lite mer arbete att skapa fil system med hjälp av HDInsight och Databricks. Men om du planerar att använda HDInsight-eller Databricks-kluster för att bearbeta dina data ändå, kan du skapa dina kluster först och använda HDFS CLI för att skapa fil system.  
 

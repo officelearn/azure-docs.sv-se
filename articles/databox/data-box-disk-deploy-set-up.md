@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b062f484a48d8376bbbb8fa9dd5bd3e39bbba14f
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 15960c39878e0c8ae22f94197ed1937597f1ee02
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049971"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126132"
 ---
 ::: zone target="docs"
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 ::: zone target="chromeless"
 
-# <a name="unpack-connect-and-unlock-azure-data-box-disk"></a>Packa upp, Anslut och lås upp Azure Data Box Disk
+## <a name="unpack-connect-and-unlock-azure-data-box-disk"></a>Packa upp, Anslut och lås upp Azure Data Box Disk
 
 ::: zone-end
 
@@ -313,7 +313,9 @@ Om du stöter på problem när du låser upp diskarna går du till [Felsöka pro
 
 När disken har låsts upp kan du visa innehållet på disken.
 
-Mer information om hur du konfigurerar och låser upp diskarna finns i [Självstudier: Packa upp, Anslut och lås upp Azure Data Box Disk](data-box-disk-deploy-set-up.md).
+Mer information om hur du konfigurerar diskar finns i [packa upp data Box disk](data-box-disk-deploy-set-up.md#unpack-your-disks).
+
+Mer information om hur du låser upp diskar finns i [låsa upp data Box disk på Windows-klienten](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client).
 
 ::: zone-end
 

@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc02b8b5dccbec106e90430fc1714253df6ad847
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: e30f8264870272fc12dcb7e15b37e5fd30688bcb
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334010"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126532"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory Identity Protection vanliga frågor och svar
 
 Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory (Azure AD) Identity Protection. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). 
 
-## <a name="why-do-some-risk-events-have-closed-system-status"></a>Varför har vissa risk händelser "stängt (system)" status?
+## <a name="why-do-some-risk-detections-have-closed-system-status"></a>Varför har vissa risk identifieringar statusen "stängt (system)"?
 
-**S:** Dessa risk händelser har identifierats av identitets skydd och senare stängs eftersom händelserna inte längre ansågs vara riskfyllda. Dessa händelser räknas inte mot användarens risk nivå. 
+**S:** Dessa risk identifieringar identifierades av identitets skydd och senare stängs eftersom händelserna inte längre ansågs vara riskfyllda. Dessa händelser räknas inte mot användarens risk nivå. 
 
 ---
 

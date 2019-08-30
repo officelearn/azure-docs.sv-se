@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 1b35533eeb4c4a364588dbea11f74e8d6b76df3b
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: d9f1afdff53ada2df7722fcfdd7014fb6c417e39
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998228"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135178"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database mått och diagnostikloggning
 
@@ -555,7 +555,7 @@ Läs mer om [väntande statistik data för Query Store](https://docs.microsoft.c
 |SourceSystem|Alltid Azure |
 |TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |type|Alltid AzureDiagnostics |
-|ResourceProvider|Namnet på resurs leverantören. Alltid MICROSOFT. KV |
+|ResourceProvider|Namnet på resurs leverantören. Alltid UTFORSKAREN. SQL |
 |Category|Kategorins namn. Alltid Fel |
 |OperationName|Åtgärdens namn. Alltid ErrorEvent |
 |Resource|Namn på resursen |

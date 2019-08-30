@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38383685f74020f5208d42df4428f896931fbe2a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6dd50aa00368469a9c5b42c41826da28566268d4
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931792"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125417"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering? 
 
@@ -41,7 +41,24 @@ Autentiserings systemet ändrar och lägger till funktioner kontinuerligt för a
 
 ## <a name="upcoming-changes"></a>Kommande ändringar
 
-2019 augusti: Framtvinga POST-semantik enligt URL-parsningsfel – dubbla parametrar utlöser ett fel, citat tecken över parametrar kommer inte längre att ignoreras och [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) ignoreras.
+September 2019: Ytterligare tvång av POST-semantik enligt URL-parsningsfel – dubbla parametrar utlöser ett fel och en [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) ignoreras.
+
+## <a name="august-2019"></a>2019 augusti
+
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>Ifyllning av POST formulär kommer att tvingas mer strikta blank steg och citat tecken ignoreras
+
+**Start datum**: 2 september 2019
+
+**Påverkade slut punkter**: Både v 1.0 och v 2.0
+
+**Protokoll som påverkas**: Överallt-POST används ([klientautentiseringsuppgifter](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [auktoriseringskod](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)och [Refresh token inlösen](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+
+Med början av veckan 9/2 verifieras autentiseringsbegäranden som använder POST-metoden med strängare HTTP-standarder.  Mer specifikt kommer blank steg och dubbla citat tecken (") inte längre att tas bort från begär ande formulär värden. De här ändringarna förväntas inte bryta några befintliga klienter och säkerställer att förfrågningar som skickas till Azure AD hanteras på ett tillförlitligt sätt varje gång. I framtiden (se ovan) planerar vi att även avvisa dubbla parametrar och ignorera strukturen i begär Anden. 
+
+Exempel:
+
+`?e=f&g=h` `e`  ==  Idagparsas`f`de likadant som de är.`?e=    "f"&g=h`  Med den här ändringen kommer den nu att tolkas så att `e`  ==  `    "f"` -det är osannolikt att det är ett giltigt argument, och begäran kunde nu inte utföras. 
+
 
 ## <a name="july-2019"></a>Juli 2019
 

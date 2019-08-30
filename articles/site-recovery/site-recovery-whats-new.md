@@ -5,25 +5,36 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.author: raynew
-ms.openlocfilehash: 3dc20036ead29c62d47b4a628d7ce8101b9d31f4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 5cd4b86c9c70f713a207f7feea9fa8efc06b6247
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972524"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146906"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
 Tjänsten [Azure Site Recovery](site-recovery-overview.md) uppdateras och förbättras regelbundet. I den här artikeln får du information om de senaste versionerna, nya funktioner och nytt innehåll som hjälper dig att hålla dig uppdaterad. Den här sidan uppdateras regelbundet.
 
-Om du har förslag på Site Recovery funktioner, vill vi gärna [höra dina synpunkter](https://feedback.azure.com/forums/256299-site-recovery).
+Du kan följa och prenumerera på Site Recovery uppdaterings meddelanden i [Azure updates](https://azure.microsoft.com/updates/?product=site-recovery) -kanalen.
 
+## <a name="supported-updates"></a>Uppdateringar som stöds
 
-## <a name="installing-updates"></a>Installera uppdateringar
+För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste utgivna versionen. Dessa sammanfattas i följande tabell.
 
-[Läs den här artikeln](service-updates-how-to.md) för Site Recovery uppdaterings support och anvisningar.
+**Uppdatering** |  **Enhetlig installation** | **Konfigurations Server för ägg** | **Mobilitets tjänst agent** | **Site Recovery Provider** | **Recovery Services agent** 
+--- | --- | --- | --- | ---
+[Samlad uppdatering 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
+[Samlad uppdatering 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+[Samlad uppdatering 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
+[Samlad uppdatering 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
+[Samlad uppdatering 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0 
+        
+
+[Läs mer](service-updates-how-to.md) om installation och stöd för uppdateringar.
+
 
 ## <a name="updates-august-2019"></a>Uppdateringar (augusti 2019)
 

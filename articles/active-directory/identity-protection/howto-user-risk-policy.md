@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 92bfb921833d99a3538ffa8c4c5d16a9f0cd3acd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335451"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126289"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Instruktioner: Konfigurera riskprincipen för användare
 
@@ -26,9 +26,9 @@ Den här artikeln innehåller den information du behöver för att konfigurera e
 
 ## <a name="what-is-a-user-risk-policy"></a>Vad är en användar risk princip?
 
-Azure AD analyserar varje inloggning av en användare. Syftet med analysen är att identifiera misstänkta åtgärder som kommer tillsammans med inloggningen. I Azure AD kan de misstänkta åtgärder som systemet kan identifiera kallas även risk händelser. Vissa risk händelser kan upptäckas i real tid, men det finns också risk händelser som kräver mer tid. Om du till exempel vill upptäcka en omöjlig resa till ovanlig-platser, kräver systemet en inledande inlärnings period på 14 dagar för att lära dig om en användares normala beteende. Det finns flera alternativ för att lösa identifierade risk händelser. Du kan till exempel lösa enskilda risk händelser manuellt eller så kan du få dem att lösas med hjälp av en inloggnings risk eller en användar risk princip för villkorlig åtkomst.
+Azure AD analyserar varje inloggning av en användare. Syftet med analysen är att identifiera misstänkta åtgärder som kommer tillsammans med inloggningen. I Azure AD kan de misstänkta åtgärder som systemet kan identifiera också kallas för risk identifiering. Vissa risk identifieringar kan upptäckas i real tid, men det finns också risk identifieringar som kräver mer tid. Om du till exempel vill upptäcka en omöjlig resa till ovanlig-platser, kräver systemet en inledande inlärnings period på 14 dagar för att lära dig om en användares normala beteende. Det finns flera alternativ för att lösa identifierade risk identifieringar. Du kan till exempel lösa enskilda risk identifieringar manuellt eller så kan du få dem att lösas med hjälp av en inloggnings risk eller en användar risk princip för villkorlig åtkomst.
 
-Alla risk händelser som har identifierats för en användare och inte lösts kallas aktiva risk händelser. De aktiva risk händelser som är associerade med en användare kallas användar risk. Utifrån användar risken beräknar Azure AD en sannolikhet (låg, medel, hög) som en användare har komprometterat. Sannolikheten kallas användar risk nivå.
+Alla risk identifieringar som har identifierats för en användare och inte löstes kallas för aktiva risk identifieringar. De aktiva risk identifieringar som är associerade med en användare kallas användar risk. Utifrån användar risken beräknar Azure AD en sannolikhet (låg, medel, hög) som en användare har komprometterat. Sannolikheten kallas användar risk nivå.
 
 ![Användar risker](./media/howto-user-risk-policy/1031.png)
 
@@ -72,8 +72,8 @@ Du kan ange en säkerhets princip för användar risk för att blockera använda
 
 Blockerar en inloggning:
 
-* Förhindrar generering av nya användar risk händelser för den berörda användaren
-* Gör det möjligt för administratörer att manuellt reparera risk händelser som påverkar användarens identitet och återställa den till ett säkert tillstånd
+* Förhindrar generering av nya användar risk identifieringar för den berörda användaren
+* Gör det möjligt för administratörer att manuellt reparera risk identifieringar som påverkar användarens identitet och återställa den till ett säkert tillstånd
 
 ## <a name="best-practices"></a>Bästa praxis
 

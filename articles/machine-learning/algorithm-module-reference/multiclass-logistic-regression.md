@@ -1,7 +1,7 @@
 ---
-title: 'Inom Logistic Regression: Modulreferens'
+title: 'Logistik regression i multiklass: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder Multiclass Logistic Regression-modulen i Azure Machine Learning-tjänsten för att skapa en logistic regression-modell som kan användas för att förutsäga flera värden.
+description: Lär dig hur du använder MultiClass Logistisk regression-modulen i Azure Machine Learning service för att skapa en logistik Regressions modell som kan användas för att förutsäga flera värden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,63 +9,62 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: ac4310e851808d6e6d89d1a2b506975eea3b1d69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d51bc48944204b4c7c50790949927849869f26fc
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029332"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128638"
 ---
-# <a name="multiclass-logistic-regression-module"></a>Inom Logistic Regression-modul
+# <a name="multiclass-logistic-regression-module"></a>Logistik Regressions-modul för multiklass
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen för att skapa en logistic regression-modell som kan användas för att förutsäga flera värden.
+Använd den här modulen för att skapa en logistik Regressions modell som kan användas för att förutsäga flera värden.
 
-Klassificering med hjälp av logistic regression är en metod för övervakad inlärning och därför kräver en taggade datauppsättning. Du tränar modellen genom att ange modellen och märkta datauppsättningen som indata till en modul som [träna modell](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för nya inkommande exempel.
+Klassificering med Logistisk regression är en övervakad inlärnings metod och kräver därför en etikettad data uppsättning. Du tränar modellen genom att tillhandahålla modellen och den märkta data uppsättningen som indata till en modul, till exempel [träna modell](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för nya exempel på ingångar.
 
-Azure Machine Learning tillhandahåller också en [Tvåklassförhöjt Logistic Regression](./two-class-logistic-regression.md) modulen, som är lämpligt för klassificering av binära eller dichotomous variabler.
+Azure Machine Learning tillhandahåller också en [logistik Regressions modell med två klasser](./two-class-logistic-regression.md) som passar för klassificering av binära variabler eller dichotomous variabler.
 
-## <a name="about-multiclass-logistic-regression"></a>Om inom logistic regression
+## <a name="about-multiclass-logistic-regression"></a>Om multiklass logistik regression
 
-Logistic regression är en välkänd metod i statistik som används för att förutse sannolikheten för ett resultat och används ofta för klassificering. Algoritmen som förutsäger sannolikheten för förekomst av en händelse effektivare data till en logistisk funktion. 
+Logistisk regression är en välkänd metod i statistik som används för att förutsäga sannolikheten för ett resultat och är populär för klassificerings aktiviteter. Algoritmen förutsäger sannolikheten för förekomst av en händelse genom att anpassa data till en logistik funktion. 
 
-I inom logistic regression kan klassificeraren användas för att förutsäga flera resultat.
+I multiklass Logistisk regression kan klassificeraren användas för att förutsäga flera resultat.
 
-## <a name="configure-a-multiclass-logistic-regression"></a>Konfigurera en inom logistisk regression
+## <a name="configure-a-multiclass-logistic-regression"></a>Konfigurera en logistik regression med multiklass
 
-1. Lägg till den **Multiclass Logistic Regression** modulen till arbetsytan för experimentet.
+1. Lägg till **logistik Regressions** -modulen för multiklass i experimentet.
 
-2. Ange hur du vill att modellen ska tränas genom att ange den **skapande trainer läge** alternativet.
+2. Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .
 
-    + **Enkel parametern**: Använd det här alternativet om du vet hur du vill konfigurera modellen och ange en specifik uppsättning värden som argument.
+    + **Enskild parameter**: Använd det här alternativet om du vet hur du vill konfigurera modellen och ange en speciell uppsättning värden som argument.
 
-    + **Intervallet för parametern**: Använd det här alternativet om du inte är säker på de lämpligaste parametrarna och vill använda en parameterrensning.
+    + **Parameter intervall**: Använd det här alternativet om du inte är säker på de bästa parametrarna och vill använda en parameter rensning.
 
-3. **Optimering tolerans**, ange tröskelvärde för optimering konvergens. Om förbättring mellan iterationer är mindre än tröskelvärdet, stoppar algoritmen och returnerar den aktuella modellen.
+3. **Optimerings tolerans**, ange tröskelvärdet för optimerings konvergens. Om förbättringen mellan iterationer är mindre än tröskelvärdet stannar algoritmen och returnerar den aktuella modellen.
 
-4. **L1 regularisering vikt**, **L2 regularisering vikt**: Ange ett värde för parametrarna regularisering L1 och L2. Ett annat värde än noll rekommenderas för båda.
+4. **L1 regulariseringshastigheten vikt**, **L2 regulariseringshastigheten vikt**: Ange ett värde som ska användas för regulariseringshastigheten-parametrarna L1 och L2. Ett värde som inte är noll rekommenderas för båda.
 
-    Regularisering är en metod för att förhindra overfitting av penalizing modeller med extrem koefficienten värden. Regularisering fungerar genom att lägga till den särskilda avgifter som är associerad med koefficienten värden till fel hypotesen. En korrekt modell med extrem koefficienten värden skulle vara mer straffas, men en mindre exakta modell med mer konservativ värden skulle straffas mindre.
+    Regulariseringshastigheten är en metod för att förhindra övermontering genom att motverka modeller med extrema koefficient värden. Regulariseringshastigheten fungerar genom att lägga till den påföljd som är kopplad till koefficienterna till felet i hypotesen. En korrekt modell med extrema koefficienter skulle innebära mer, men en mindre exakt modell med fler restriktiva värden skulle bli mindre.
 
-     L1 och L2 regulariseringshastighet har olika effekter och använder. L1 kan tillämpas på null-optimerade modeller, vilket är användbart när du arbetar med hög-dimensionell data. L2 regularisering är däremot bättre för data som inte är null-optimerad.  Den här algoritmen stöder en linjär värdekombinationen L1 och L2 regularisering: det vill säga om `x = L1` och `y = L2`, `ax + by = c` definierar linjär loppet av regularisering villkoren.
+     L1-och L2-regulariseringshastigheten har olika effekter och användnings områden. L1 kan användas för sparse-modeller, vilket är användbart när du arbetar med avancerade data. L2-regulariseringshastigheten är däremot bättre för data som inte är sparse.  Den här algoritmen stöder en linjär kombination av L1-och L2-regulariseringshastigheten värden: `x = L1` det `y = L2`vill `ax + by = c` säga, om och, definierar det linjära omfånget för regulariseringshastigheten-villkoren.
 
-     Olika linjära kombinationer av L1 och L2 villkoren planeras för logistiska regressionsmodeller, till exempel [elastiska net regularisering](https://wikipedia.org/wiki/Elastic_net_regularization).
+     Olika linjära kombinationer av L1-och L2-villkor har gjorts för logistik Regressions modeller som [elastiska net regulariseringshastigheten](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-6. **Slumpmässigt nummer seed**: Ange ett heltalsvärde som ska användas som startvärde för algoritmen om du vill att resultatet ska upprepningsbara över körningar. I annat fall används ett systemklockan värde som det startvärde som kan ge lite olika resultat i körningar av samma experimentet.
+6. **Värde för slumpmässig siffra**: Ange ett heltals värde som ska användas som startvärdet för algoritmen om du vill att resultatet ska upprepas vid körning. Annars används ett system klock värde som Seed, vilket kan producera något annorlunda resultat i körningar av samma experiment.
 
-8. Anslut en taggade datauppsättning och en av modulerna som träna:
+8. Anslut en data uppsättning med etiketter och en av träna-modulerna:
 
-    + Om du ställer in **skapande trainer läge** till **enda Parameter**, använda den [Träningsmodell](./train-model.md) modulen.
+    + Om du ställer in **skapa** utbildare för **en parameter**använder du modulen [träna modell](./train-model.md) .
 
 9. Kör experimentet.
 
 ## <a name="results"></a>Resultat
 
-När utbildning är klar visas en sammanfattning av modellens parametrar, tillsammans med funktionen vikterna vet utbildning, högerklicka på utdata från den [Träningsmodell](./train-model.md) modul och välj **visualisera**.
+När utbildningen är klar kan du se en översikt över modellens parametrar, tillsammans med funktions vikterna från träningen, högerklicka på utdata från modulen [träna modell](./train-model.md) och välja **visualisera**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

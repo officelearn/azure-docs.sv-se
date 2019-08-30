@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 656934f00879b47669fac4deaac5156cb100e159
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
-ms.translationtype: MT
+ms.openlocfilehash: caeb89332bd46b4f0cf2d0f9e5654aebca4d765d
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898756"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147254"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>För hands version – skapa och hantera flera resurspooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -101,12 +101,15 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --enable-vmss \
-    --node-count 1 \
+    --node-count 2 \
     --generate-ssh-keys \
     --kubernetes-version 1.13.10
 ```
 
 Det tar några minuter att skapa klustret.
+
+> [!NOTE]
+> För att säkerställa att klustret fungerar tillförlitligt bör du köra minst två (två) noder i standardnoden, eftersom viktiga system tjänster körs i den här noden.
 
 När klustret är klart använder du kommandot [AZ AKS get-credentials][az-aks-get-credentials] för att hämta autentiseringsuppgifter för klustret för användning med `kubectl`:
 
@@ -133,7 +136,7 @@ Om du vill se status för dina nodkonfigurationer använder du kommandot [AZ AKS
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-Följande exempel på utdata visar att *mynodepool* har skapats med tre noder i Node-poolen. När AKS-klustret skapades i föregående steg skapades en standard- *nodepool1* med antalet noder *1*.
+Följande exempel på utdata visar att *mynodepool* har skapats med tre noder i Node-poolen. När AKS-klustret skapades i föregående steg skapades en standard- *nodepool1* med antalet noder *2*.
 
 ```console
 $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
@@ -151,7 +154,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -166,11 +169,14 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > Om ingen *OrchestratorVersion* eller *VmSize* anges när du lägger till en Node-pool, skapas noderna baserat på standardvärdena för AKS-klustret. I det här exemplet var Kubernetes version *1.13.10* och Node-storlek för *Standard_DS2_v2*.
 
 ## <a name="upgrade-a-node-pool"></a>Uppgradera en Node-pool
-
+ 
 > [!NOTE]
 > Uppgraderings-och skalnings åtgärder i ett kluster eller en Node-pool kan inte anges samtidigt. Det går inte att ha ett kluster eller en Node-pool samtidigt för uppgradering och skalning. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Läs mer om detta i vår [fel söknings guide](https://aka.ms/aks-pending-upgrade).
 
 När ditt AKS-kluster skapades i det första steget angavs `--kubernetes-version` en av *1.13.10* . Detta anger Kubernetes-versionen för både kontroll planet och den första noden. Det finns olika kommandon för att uppgradera Kubernetes-versionen av kontroll planet och Node-poolen. Kommandot används för att uppgradera kontroll planet, `az aks nodepool upgrade` medan används för att uppgradera en enskild Node-pool. `az aks upgrade`
+
+> [!NOTE]
+> Operativ system avbildnings versionen för Node-poolen är kopplad till Kubernetes-versionen av klustret. Du kan bara hämta uppgraderingar av operativ Systems avbildningar efter en kluster uppgradering.
 
 Nu ska vi uppgradera *mynodepool* till Kubernetes *1.13.10*. Använd kommandot [Uppgradera AZ AKS Node pool][az-aks-nodepool-upgrade] för att uppgradera Node-poolen, som visas i följande exempel:
 
@@ -206,7 +212,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -269,7 +275,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -319,7 +325,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -372,7 +378,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -389,7 +395,7 @@ Det tar några minuter innan *gpunodepool* har skapats.
 
 ## <a name="schedule-pods-using-taints-and-tolerations"></a>Schemalägg poddar med hjälp av utsmakar och tolererar
 
-Nu har du två noder i klustret – standardpoolen som ursprungligen skapades och den GPU-baserade Node-poolen. Använd kommandot [kubectl get Nodes][kubectl-get] för att visa noderna i klustret. Följande exempel på utdata visar en nod i varje Node-pool:
+Nu har du två noder i klustret – standardpoolen som ursprungligen skapades och den GPU-baserade Node-poolen. Använd kommandot [kubectl get Nodes][kubectl-get] för att visa noderna i klustret. Följande exempel på utdata visar noderna:
 
 ```console
 $ kubectl get nodes

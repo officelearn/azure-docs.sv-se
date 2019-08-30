@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
-ms.openlocfilehash: e5d2e485283f71b27bb5e93330a54e1b987044c4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: abf8b18d13e2990f053dd4273645dd7b9a324c77
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883816"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147750"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Kom igång med IoT Hub modulens identitet och modul, dubbla (.NET)
 
@@ -31,7 +31,7 @@ I slutet av den här självstudiekursen har du två .NET-konsolappar:
 > [!NOTE]
 > Information om Azure IoT SDK: er som du kan använda för att skapa båda programmen som ska köras på enheter och Server delen av lösningen finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
-För att slutföra den här självstudien, finns följande förhandskrav:
+## <a name="prerequisites"></a>Förutsättningar
 
 * Visual Studio.
 

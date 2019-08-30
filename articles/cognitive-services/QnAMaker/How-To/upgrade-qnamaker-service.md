@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 08/26/2019
 ms.author: diberry
-ms.openlocfilehash: df4aa2d6a3c4690fb1fc38b0f4f7d49afccdd657
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ba9c2cd5a85e02a7dd4b1091a050d76e94861964
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640489"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147090"
 ---
 # <a name="share-or-upgrade-your-qna-maker-service"></a>Dela eller uppgradera QnA Maker-tjänsten
 Dela eller uppgradera dina QnA Maker-tjänster för att hantera resurserna bättre. 
@@ -26,13 +26,14 @@ Du kan välja att uppgradera enskilda komponenter i QnA Maker stacken efter den 
 
 QnA Maker skapar flera Azure-resurser. För att minska hanteringen och dra nytta av kostnads delning kan du använda följande tabell för att förstå vad du kan och inte kan dela:
 
-|Tjänsten|Dela|
-|--|--|
-|Cognitive Services|X|
-|Apptjänstavtal|✔|
-|Apptjänst|X|
-|Application Insights|✔|
-|Söktjänst|✔|
+|Tjänsten|Dela|Reason|
+|--|--|--|
+|Cognitive Services|X|Inte möjlig enligt design|
+|Apptjänstavtal|✔|Fast disk utrymme som allokerats för en app service-plan. Om andra appar, delar samma App Service plan, använder upp till ett stort disk utrymme, kommer QnAMaker App Service att stöta på problem.|
+|Apptjänst|X|Inte möjlig enligt design|
+|Application Insights|✔|Kan delas|
+|Söktjänst|✔|1. `testkb` är ett reserverat namn för QnAMaker-tjänsten och den kan inte användas av andra.<br>2. Synonym mappning med namnet `synonym-map` är reserverat för QnAMaker-tjänsten.<br>3. Antalet publicerade KB begränsas av Sök tjänst nivån. Om det finns lediga index är andra tjänster som kan använda den.|
+
 
 ## <a name="upgrade-qna-maker-management-sku"></a>Uppgradera QnA Maker Management SKU
 

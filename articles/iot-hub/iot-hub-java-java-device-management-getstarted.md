@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 7fed6caa719824dd51b19789a7066ffaea13d336
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
-ms.translationtype: MT
+ms.openlocfilehash: 82c2c6d7ac347949a7cf24226fdb0095313ee689
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907766"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147691"
 ---
 # <a name="get-started-with-device-management-java"></a>Kom igång med enhets hantering (Java)
 
@@ -52,8 +52,6 @@ I slutet av den här självstudien har du två Java-konsol program:
 > Information om SDK: er som du kan använda för att skapa program som ska köras på enheter och Server delen av lösningen finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
 ## <a name="prerequisites"></a>Förutsättningar
-
-För att slutföra den här kursen behöver du:
 
 * Java SE 8. [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) beskriver hur du installerar Java för den här själv studie kursen på antingen Windows eller Linux.
 

@@ -1,6 +1,6 @@
 ---
-title: Omvandla data med Databricks Python – Azure | Microsoft Docs
-description: Lär dig hur du bearbeta eller omvandla data genom att köra en Databricks-Python.
+title: Transformera data med Databricks python – Azure | Microsoft Docs
+description: Lär dig hur du bearbetar eller transformerar data genom att köra en Databricks python.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,28 +8,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02c4644c4440c3a00a21ef22674bcc0d00902ac2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002836"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140795"
 ---
-# <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformera data genom att köra en Python-aktivitet i Azure Databricks
+# <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformera data genom att köra en python-aktivitet i Azure Databricks
 
-Azure Databricks Python-aktiviteten i en [Data Factory-pipeline](concepts-pipelines-activities.md) körs en Python-fil i ditt Azure Databricks-kluster. Den här artikeln bygger vidare på den [datatransformeringsaktiviteter](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter. Azure Databricks är en hanterad plattform för att köra Apache Spark.
+Azure Databricks python-aktivitet i en [Data Factory pipeline](concepts-pipelines-activities.md) kör en python-fil i Azure Databricks klustret. Den här artikeln bygger på artikeln [data omvandlings aktiviteter](transform-data.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds. Azure Databricks är en hanterad plattform för att köra Apache Spark.
 
 Om du vill se en introduktion och demonstration av den här funktionen rekommenderar vi följande videoklipp (11 minuter):
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
-## <a name="databricks-python-activity-definition"></a>Databricks Python aktivitetsdefinition
+## <a name="databricks-python-activity-definition"></a>Databricks python-aktivitets definition
 
-Här är exempel JSON-definition för en Databricks Python aktivitet:
+Här är exempel-JSON-definitionen för en Databricks python-aktivitet:
 
 ```json
 {
@@ -58,23 +58,23 @@ Här är exempel JSON-definition för en Databricks Python aktivitet:
 }
 ```
 
-## <a name="databricks-python-activity-properties"></a>Databricks Python Aktivitetsegenskaper
+## <a name="databricks-python-activity-properties"></a>Egenskaper för Databricks python-aktivitet
 
-I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
+I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 
-|Egenskap|Beskrivning|Krävs|
+|Egenskap|Beskrivning|Obligatorisk|
 |---|---|---|
 |name|Namnet på aktiviteten i pipelinen.|Ja|
-|description|Text som beskriver hur aktiviteten ska hantera.|Nej|
-|type|För Databricks Python-aktivitet är aktivitetstypen DatabricksSparkPython.|Ja|
-|linkedServiceName|Namnet på den länkade tjänsten för Databricks där Python-aktiviteten körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
-|pythonFile|URI för Python-fil som ska köras. Endast DBFS sökvägar stöds.|Ja|
-|parameters|Kommandoradsparametrar som ska skickas till Python-filen. Det här är en matris med strängar.|Nej|
-|Bibliotek|En lista med bibliotek som ska installeras på det kluster som ska utföra jobbet. Det kan vara en matris med < sträng, objekt->|Nej|
+|description|Text som beskriver vad aktiviteten gör.|Nej|
+|type|Aktivitets typen är DatabricksSparkPython för Databricks python-aktivitet.|Ja|
+|linkedServiceName|Namnet på den länkade Databricks-tjänst som python-aktiviteten körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .|Ja|
+|pythonFile|URI för python-filen som ska köras. Endast DBFS-sökvägar stöds.|Ja|
+|parameters|Kommando rads parametrar som ska skickas till python-filen. Detta är en sträng mat ris.|Nej|
+|biblioteksfliken|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med < sträng, objekt >|Nej|
 
-## <a name="supported-libraries-for-databricks-activities"></a>Stöds-bibliotek för databricks-aktiviteter
+## <a name="supported-libraries-for-databricks-activities"></a>Bibliotek som stöds för databricks-aktiviteter
 
-I ovanstående Databricks aktivitetsdefinitionen anger du dessa typer av dokumentbibliotek: *jar*, *ägg*, *maven*, *pypi*,  *cran*.
+I ovanstående Databricks-aktivitets definition anger du dessa biblioteks typer: *jar*, *ägg*, *maven*, *pypi*, *cran*.
 
 ```json
 {
@@ -108,18 +108,18 @@ I ovanstående Databricks aktivitetsdefinitionen anger du dessa typer av dokumen
 
 ```
 
-Mer information finns [dokumentation för Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) för bibliotekstyper.
+Mer information finns i [Databricks-dokumentationen](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) för biblioteks typer.
 
-## <a name="how-to-upload-a-library-in-databricks"></a>Hur du överför ett bibliotek i Databricks
+## <a name="how-to-upload-a-library-in-databricks"></a>Ladda upp ett bibliotek i Databricks
 
-#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Med hjälp av Användargränssnittet för Databricks-arbetsyta](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Använda användar gränssnittet för Databricks-arbetsyta](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
 
-Du kan använda för att få antingen sökvägen till biblioteket har lagts till med hjälp av Användargränssnittet kan [Databricks CLI (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+Du kan hämta dBFS-sökvägen till biblioteket som lagts till med hjälp av användar gränssnittet genom att använda [DATABRICKS CLI (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Vanligtvis Jar-bibliotek lagras under dbfs: / FileStore/JAR: er när du använder Användargränssnittet. Du kan lista alla via CLI: *databricks fs ls dbfs: / FileStore/JAR-filer* 
+Vanligt vis lagras jar-biblioteken under dBFS:/FileStore/jar v7 när du använder användar gränssnittet. Du kan visa alla via CLI: *databricks FS LS dBFS:/FileStore/jar v7* 
 
 
 
 #### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Kopiera bibliotek med Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
 
-Exempel: *databricks fs cp SparkPi-sammansättningen-0.1.jar dbfs: / FileStore/JAR-filer*
+Exempel: *databricks FS CP sparkpi-Assembly-0,1. jar dBFS:/FileStore/jar v7*

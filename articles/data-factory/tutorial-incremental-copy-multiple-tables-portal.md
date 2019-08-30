@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d46c460f7158635e520b47517fb3aab005af94a2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582388"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140756"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -65,7 +64,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). 
 
@@ -175,9 +174,9 @@ END
 ### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Skapa datatyper och ytterligare lagrade procedurer i Azure SQL-databasen
 Kör följande fråga för att skapa två lagrade procedurer och två datatyper i SQL-databasen. De används för att slå samman data från källtabellerna till måltabellerna.
 
-För att göra vägen enkelt att börja med vi använda dessa lagrade procedurer som passerar delta-data i via en tabellvariabel direkt och sedan Sammanfoga den dem i målarkiv. Var försiktig med att den inte förväntar ett ”stora” antal delta rader (fler än 100) som ska lagras i tabellvariabeln.  
+För att göra resan lätt att börja med, använder vi direkt dessa lagrade procedurer som skickar delta data i via en tabell variabel och sedan sammanfogar dem till mål lagret. Var försiktig med att det inte förväntar sig ett "stort" antal delta rader (mer än 100) som ska lagras i tabell variabeln.  
 
-Om du behöver slå samman ett stort antal delta rader till målarkiv föreslår vi att du kan använda Kopieringsaktivitet för att kopiera delta-data i en tillfällig tabell som ”mellanlagring” i målet lagra först och sedan skapat en egen lagrad procedur utan att använda tabellen vari Det går att slå samman dem från tabellen ”mellanlagring” till ”sista”-tabellen. 
+Om du behöver slå samman ett stort antal delta-rader i mål lagret, rekommenderar vi att du använder kopierings aktivitet för att kopiera alla delta data till en tillfällig "mellanlagrings tabell" i mål lagret först och sedan skapa en egen lagrad procedur utan att använda tabell variation kan koppla dem från tabellen "mellanlagring" till den slutgiltiga tabellen. 
 
 
 ```sql
@@ -284,7 +283,7 @@ När du flyttar data från ett datalager i ett privat nätverk (lokalt) till ett
 1. Klicka på **Click here to launch the express setup for this computer** (Klicka här för att starta expressinstallation för den här datorn) i avsnittet **Option 1: Express setup** (Alternativ 1: Expressinstallation). 
 
    ![Klicka på länken för expressinstallation](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
-1. Klicka på **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)**. 
+1. Klicka på **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)** . 
 
    ![Integration Runtime har installerats](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
 1. Klicka på **Slutför** i webbläsaren för att stänga installationsfönstret för **Integration Runtime**. 
@@ -426,7 +425,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     ![Ny pipeline – meny](./media/tutorial-incremental-copy-multiple-tables-portal/new-pipeline-menu.png)
 1. På fliken **Allmänt** i fönstret **Egenskaper** skriver du **IncrementalCopyPipeline** som **namn**. 
 
-    ![Namn på pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
+    ![Pipelinenamn](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. Gör följande i fönstret **Egenskaper**: 
 
     1. Klicka på **+ Ny**. 
@@ -440,7 +439,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 1. Växla till fliken **Settings** (Inställningar) i fönstret **Egenskaper** och ange `@pipeline().parameters.tableList` för **Items** (objekt). Aktiviteten ForEach upprepas över listan med tabeller och utför följande inkrementella kopieringsåtgärd. 
 
     ![Aktiviteten ForEach – inställningar](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
-1. Markera aktiviteten **ForEach** i pipelinen om det inte redan är markerat. Klicka på knappen **Redigera (pennikonen)**.
+1. Markera aktiviteten **ForEach** i pipelinen om det inte redan är markerat. Klicka på knappen **Redigera (pennikonen)** .
 
     ![Aktiviteten ForEach – redigera](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
 1. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper **sökningen** på pipelinedesignytan. Ange **LookupOldWaterMarkActivity** som **Namn**.
@@ -491,11 +490,11 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 1. Växla till fliken **Sink** (Mottagare) och markera **SinkDataset** för **Sink Dataset** (Datauppsättning för mottagare). 
         
     ![Kopiera aktivitet – inställningar för mottagare](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. Utför följande steg:
+1. Gör så här:
 
-    1. I den **datauppsättning** -egenskapen för **SinkTableName** parameter, ange `@{item().TABLE_NAME}`.
-    1. För **namn på lagrad procedur** egenskapen, ange `@{item().StoredProcedureNameForMergeOperation}`.
-    1. För **tabelltyp** egenskapen, ange `@{item().TableType}`.
+    1. I egenskapen **dataset** , för parametern **SinkTableName** , anger `@{item().TABLE_NAME}`du.
+    1. Som egenskap för **lagrad procedur namn** anger `@{item().StoredProcedureNameForMergeOperation}`du.
+    1. För egenskapen **tabell typ** anger `@{item().TableType}`du.
 
 
         ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
@@ -514,10 +513,10 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     1. Välj **Importera parameter**. 
     1. Ange följande värden för parametrarna: 
 
-        | Namn | Typ | Värde | 
+        | Name | Typ | Value | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | Datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | TableName | Sträng | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Klicka på **Publicera** i rutan till vänster. Den här åtgärden publicerar de enheter du skapade till Data Factory-tjänsten. 

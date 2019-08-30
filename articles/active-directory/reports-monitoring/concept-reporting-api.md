@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30669c8f5aeefc14db42a32d87f333419758327
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 28c64653ee0f9135e6da4c3768b89f9a0b25b2ef
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989864"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127365"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Kom igång med API: et för Azure Active Directory rapportering
 
@@ -49,7 +49,7 @@ Detaljerade anvisningar finns i [krav för att komma åt Azure Active Directory 
 
 Microsoft Graph API-slutpunkten för gransknings loggar är `https://graph.microsoft.com/beta/auditLogs/directoryAudits` och Microsoft Graph-API-slutpunkten för inloggningar är. `https://graph.microsoft.com/beta/auditLogs/signIns` Mer information finns i API- [referens för granskning](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) och [INLOGGNINGs-API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
-Dessutom kan du använda [API: et för identitets skydds risk händelser](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) för att få program mässig åtkomst till säkerhets identifieringar med hjälp av Microsoft Graph. Mer information finns i [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](../identity-protection/graph-get-started.md). 
+Dessutom kan du använda [identitets skyddets identifierings-API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) för att få program mässig åtkomst till säkerhets identifieringar med hjälp av Microsoft Graph. Mer information finns i [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](../identity-protection/graph-get-started.md). 
 
 > [!NOTE]
 >  Slut **punkten för\/https\/:\/Graph.Windows.net\>-klientens\/namnrapporter\/ är inaktuell.\<** Använd de nya API-slutpunkter som beskrivs ovan för att program mässigt komma åt aktivitets-och säkerhets rapporter.

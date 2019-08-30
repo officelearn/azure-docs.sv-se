@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 73bf7424e7c1aedff271ed3653592d174416003c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
-ms.translationtype: HT
+ms.openlocfilehash: 1bd850fe2cac7194d78005f4c0a57523bc8323c6
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090194"
+ms.locfileid: "70124490"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd serie konsolen för att komma åt GRUB och enanvändarläge
 GRUB är GRand Unified starter, vilket förmodligen är det första du kommer att se när du startar en virtuell dator. Eftersom det visar sig innan operativ systemet har startats går det inte att komma åt via SSH. Från GRUB kan du ändra start konfigurationen till att starta i enanvändarläge, bland annat.
@@ -58,9 +58,24 @@ När du är i enanvändarläge gör du följande för att lägga till en ny anv�
 RHEL kommer att släppa dig i enanvändarläge automatiskt om det inte går att starta normalt. Men om du inte har konfigurerat rot åtkomst för enanvändarläge, kommer du inte att ha ett rot lösen ord och kommer inte att kunna logga in. Det finns en lösning (se "ange manuellt läge för enkel användare" nedan), men förslaget är att konfigurera rot åtkomst initialt.
 
 ### <a name="grub-access-in-rhel"></a>GRUB-åtkomst i RHEL
-RHEL levereras med GRUB aktive rad. Starta om den virtuella datorn med `sudo reboot` och tryck på valfri tangent för att ange grub. Skärmen GRUB visas.
+RHEL levereras med GRUB aktive rad. Starta om den virtuella datorn med `sudo reboot` och tryck på valfri tangent för att ange grub. Skärmen GRUB visas. Om den inte visas kontrollerar du att följande rader finns i din GRUB-fil (`/etc/default/grub`):
 
-> Obs! Red Hat innehåller också dokumentation för att starta i undsättnings läge, nödfalls läge, fel söknings läge och återställa rot lösen ordet. [Klicka här för att komma åt den](https://aka.ms/rhel7grubterminal).
+#### <a name="rhel-8"></a>RHEL 8:
+```
+GRUB_TIMEOUT=5
+GRUB_TERMINAL="serial console"
+GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+```
+
+#### <a name="rhel-7"></a>RHEL 7:
+```
+GRUB_TIMEOUT=5
+GRUB_TERMINAL_OUTPUT="serial console"
+GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 net.ifnames=0"
+```
+
+> [!NOTE]
+> Red Hat innehåller också dokumentation för att starta i undsättnings läge, nödfalls läge, fel söknings läge och återställa rot lösen ordet. [Klicka här för att komma åt den](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Konfigurera rot åtkomst för ett enskilt användarläge i RHEL
 Single-User-läget i RHEL kräver att rot användaren är aktive rad, vilket är inaktiverat som standard. Om du behöver aktivera enanvändarläge använder du följande instruktioner:
@@ -193,7 +208,7 @@ Du kommer automatiskt att tas bort från nödfall om SLES inte kan starta normal
 Till skillnad från Red Hat Enterprise Linux kräver enanvändarläge i Oracle Linux GRUB och rot användaren måste vara aktive rad.
 
 ### <a name="grub-access-in-oracle-linux"></a>GRUB åtkomst i Oracle Linux
-Oracle Linux levereras med GRUB aktive rad. Om du vill ange grub startar du om `sudo reboot` den virtuella datorn med och trycker på ESC. Skärmen GRUB visas. Om du inte ser grub kontrollerar du att `GRUB_TERMINAL` radens värde innehåller "serie konsol", så här:. `GRUB_TERMINAL="serial console"`
+Oracle Linux levereras med GRUB aktive rad. Om du vill ange grub startar du om `sudo reboot` den virtuella datorn med och trycker på ESC. Skärmen GRUB visas. Om du inte ser grub kontrollerar du att `GRUB_TERMINAL` radens värde innehåller "serie konsol", så här:. `GRUB_TERMINAL="serial console"` Återskapa GRUB med `grub2-mkconfig -o /boot/grub/grub.cfg`.
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Läge för enkel användare i Oracle Linux
 Följ anvisningarna för RHEL ovan för att aktivera enanvändarläge i Oracle Linux.

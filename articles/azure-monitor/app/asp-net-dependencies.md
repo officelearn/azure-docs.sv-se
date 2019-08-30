@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 858508e949f8a880498e1a3d983dc76224010c31
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 5e07243720872ff4555d4c000dcb7b0b7236e66f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534613"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126744"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Beroende spårning i Azure Application insikter 
 
@@ -39,6 +39,7 @@ Application Insights SDK: er för .net-och .net `DependencyTrackingTelemetryModu
 |[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 och senare. |
 |Azure Cosmos DB | Spåras endast automatiskt om HTTP/HTTPS används. TCP-läge samlas inte in av Application Insights. |
 
+Om du saknar ett beroende eller om du använder ett annat SDK ser du till att det finns i listan över [automatiskt](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)insamlade beroenden. Om beroendet inte automatiskt samlas in kan du fortfarande spåra det manuellt med ett [spår beroende anrop](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>Konfigurera automatisk beroende spårning i konsol program
 

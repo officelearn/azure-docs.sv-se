@@ -1,6 +1,6 @@
 ---
-title: Diagnostisera, felsöka och lösa problem i Azure Time Series Insights | Microsoft Docs
-description: Den här artikeln beskriver hur du diagnostiserar, felsöka och lösa vanliga problem som kan uppstå i din Azure Time Series Insights-miljö.
+title: Diagnostisera, Felsök och lös problem i Azure Time Series Insights | Microsoft Docs
+description: Den här artikeln beskriver hur du diagnostiserar, felsöker och löser vanliga problem som kan uppstå i din Azure Time Series Insightss miljö.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -9,111 +9,112 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 05/07/2019
+ms.date: 08/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa2e26666ce863d98b5c47201eeadb1d7f6a5d2c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e7c5786f4510e11d431f9e80dd52d1ffc3adb410
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164500"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129122"
 ---
-# <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i din Time Series Insights-miljö
+# <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i din Time Series Insightss miljö
 
-Den här artikeln beskriver några problem som kan uppstå i din Azure Time Series Insights-miljö. Artikeln erbjuder möjliga orsaker och lösningar för matchning.
+I den här artikeln beskrivs några problem som kan uppstå i din Azure Time Series Insightss miljö. Artikeln innehåller möjliga orsaker och lösningar för lösning.
 
 ## <a name="video"></a>Video
 
-### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Läs mer om vanliga Time Series Insights kundutmaningar och åtgärder.</br>
+### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Läs om vanliga Time Series Insights kund utmaningar och begränsningar.</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
 ## <a name="problem-no-data-is-shown"></a>Problem: inga data visas
 
-Inga data i den [Azure Time Series Insights explorer](https://insights.timeseries.azure.com) kan ha flera vanliga orsaker:
+Inga data i [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com) kan uppstå på grund av flera vanliga orsaker:
 
-### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Orsak s: händelse källdata finns inte i JSON-format
+### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Orsak till: händelse källans data är inte i JSON-format
 
-Azure Time Series Insights har endast stöd för JSON-data. JSON-exempel finns [stöds JSON-former](./how-to-shape-query-json.md).
+Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns [stöds JSON-former](./how-to-shape-query-json.md).
 
-### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Orsak B: händelse källa nyckel saknas för en behörighet som krävs
+### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Orsak B: händelse käll nyckeln saknar en nödvändig behörighet
 
-* För en IoT-hubb i Azure IoT Hub måste du ange den nyckel som har **tjänsten ansluta** behörigheter. Något av de **iothubowner** eller **service** principer kommer att fungera eftersom de båda har **tjänsten ansluta** behörigheter.
+* För en IoT-hubb i Azure IoT Hub måste du ange den nyckel som har behörighet för **tjänst anslutning** . Någon av **iothubowner** -eller **-tjänst** principerna fungerar eftersom de båda har behörigheter för **tjänst anslutning** .
 
-   [![IoT Hub-tjänsten ansluta behörigheter](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
+   [![IoT Hub service Connect-behörigheter](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
-* För en händelsehubb i Azure Event Hubs, måste du ange den nyckel som har **lyssna** behörigheter. Något av de **läsa** eller **hantera** principer kommer att fungera eftersom de båda har **lyssna** behörigheter.
+* För en Event Hub i Azure Event Hubs måste du ange den nyckel som har **avlyssnings** behörigheter. Någon av metoderna för att **läsa** eller **Hantera** fungerar eftersom båda har **avlyssnings** behörighet.
 
-   [![Event hub listen behörigheter](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [![Lyssnar behörigheter för Event Hub](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
-### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Orsak C: konsumentgruppen tillhandahålls inte är exklusivt för Time Series Insights
+### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Orsak C: den angivna konsument gruppen är inte exklusiv för Time Series Insights
 
-När du registrerar en IoT-hubb eller en event hub, är det viktigt att ställa in konsumentgrupp som du vill använda för att läsa data. Den här konsumentgruppen *kan inte delas*. Om konsumentgruppen delas den underliggande IoT hub eller event hub automatiskt och slumpmässigt kopplar från en av läsarna. Ange en unik konsumentgrupp för Time Series Insights att läsa från.
+När du registrerar en IoT-hubb eller en händelsehubben är det viktigt att ange den konsument grupp som du vill använda för att läsa data. Det *går inte att dela*den här konsument gruppen. Om konsument gruppen delas, kommer den underliggande IoT-hubben eller händelsehubben att automatiskt koppla bort en av läsarna. Ange en unik konsument grupp för Time Series Insights att läsa från.
 
 ## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problem: vissa data visas, men data saknas
 
-När data visas endast delvis och data verkar vara släpar, bör du överväga alternativen.
+När data endast visas delvis och data verkar vara i ett släp, bör du överväga flera möjligheter.
 
-### <a name="cause-a-your-environment-is-being-throttled"></a>Orsak s: miljön har begränsats
+### <a name="cause-a-your-environment-is-being-throttled"></a>Orsak A: din miljö begränsas
 
-Begränsning är ett vanligt problem när miljöer etableras när du har skapat en händelsekälla som innehåller data. Azure IoT Hub och Azure händelser Hubs kan du lagra data i upp till sju dagar. Time Series Insights alltid börja med den äldsta händelsen i källan (först in, först ut-metoden, eller *FIFO*).
+Begränsning är ett vanligt problem när miljöer är etablerade när du har skapat en händelse källa som innehåller data. Azure IoT Hub-och Azure Events-hubbar lagrar data i upp till sju dagar. Time Series Insights startar alltid med den äldsta händelsen i händelse källan (först in, först ut eller *FIFO*).
 
-Om du har 5 miljoner händelser i en händelsekälla när du ansluter till en S1, läser integrerade Time Series Insights-miljö, Time Series Insights cirka 1 miljon händelser per dag. Det verkar som om Time Series Insights har fem dagars svarstid. Vad som händer är dock att miljön har begränsats.
+Om du till exempel har 5 000 000 händelser i en händelse källa när du ansluter till en enhet Time Series Insights miljö i S1, Time Series Insights läser cirka 1 000 000 händelser per dag. Det kan se ut som Time Series Insights har fem dagars latens. Men vad som händer är att miljön begränsas.
 
-Om du har gamla händelser i din händelsekälla kan ITU du begränsning i ett av två sätt:
+Om du har gamla händelser i din händelse källa kan du använda begränsning på något av följande sätt:
 
-- Ändra din händelsekälla gräns för datakvarhållning för att ta bort gamla händelser som du inte vill ska visas i Time Series Insights.
-- Etablera en större miljöstorlek (antal enheter) för att öka genomflödet av gamla händelser. Med hjälp av föregående exempel, om du ökar samma S1-miljö till fem enheter under en dag, miljön bör komma ifatt inom en dag. Om din stabil händelse i produktionsmiljön är 1 miljon eller färre händelser per dag, kan du minska kapaciteten för händelsen till en enhet efter att den fångar upp.
+- Ändra händelse källans kvarhållningsintervall för att hjälpa till att ta bort gamla händelser som du inte vill ska visas i Time Series Insights.
+- Etablera en större miljö storlek (antal enheter) för att öka data flödet för gamla händelser. I föregående exempel, om du ökar samma S1-miljö till fem enheter under en dag, bör miljön fångas upp inom en dag. Om din stabila händelse produktion är 1 000 000 eller färre händelser per dag kan du minska händelsens kapacitet till en enhet när den har fångats upp.
 
-Gränsen tillämpas utifrån den miljö SKU-typen och kapacitet. Alla händelsekällor i miljön dela den här kapaciteten. Om händelsekällan för din IoT hub eller event hub skickar data utöver de tvingande gränserna, visas begränsning och en fördröjning.
+Begränsnings gränsen tillämpas baserat på miljöns SKU-typ och kapacitet. Alla händelse källor i miljön delar den här kapaciteten. Om händelse källan för din IoT-hubb eller händelsehubben skickar data bortom de tvingade gränserna visas begränsning och en fördröjning.
 
-Följande bild visar en Time Series Insights-miljö som har en SKU för S1 och en kapacitet på 3. Kan den ingående 3 miljoner händelser per dag.
+Följande bild visar en Time Series Insights miljö som har en SKU av S1 och en kapacitet på 3. Det kan intränga 3 000 000 händelser per dag.
 
-![Aktuell miljö SKU-kapacitet](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[![Aktuell kapacitet för miljö-SKU](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
-Anta exempelvis att den här miljön matar in meddelanden från en event hub. Följande bild visar den ingående hastigheten:
+Anta till exempel att en miljö matar in meddelanden från en händelsehubben. Den dagliga ingångs frekvensen är ~ 67 000 meddelanden. Den här hastigheten översätter cirka 46 meddelanden varje minut. 
 
-[![Exempel inledningshändelser priset för en händelsehubb](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
+* Om varje Event Hub-meddelande utplattas till ett enda Time Series Insights-händelse inträffar inte begränsningen. 
+* Om varje Event Hub-meddelande utplattas till 100 Time Series Insights händelser ska 4 600-händelser matas in varje minut. 
 
-Den dagliga ingångshändelser avgiften är ~ 67,000 meddelanden. Priset som översätts till cirka 46 meddelanden varje minut. Om varje event hub-meddelande är utplattad till en enda Time Series Insights-händelse, inträffar begränsning inte. Om varje event hub-meddelande är utplattad på 100 Time Series Insights-händelser, ska 4,600 händelser matas in varje minut. En S1 SKU-miljö som har en kapacitet på 3 kan endast 2 100 ingångshändelser varje minut (1 miljon händelser per dag = 700 händelser per minut på tre enheter = 2 100 händelser per minut). För den här konfigurationen kan se du en fördröjning på grund av begränsning.
+En S1 SKU-miljö som har en kapacitet på 3 kan bara intränga 2 100 händelser varje minut (1 000 000 händelser per dag = 700 händelser per minut vid tre enheter = 2 100 händelser per minut). 
 
-En översikt över hur förenkling logic fungerar, se [stöds JSON-former](./how-to-shape-query-json.md).
+En övergripande förståelse för hur förenkling av logik fungerar finns i [JSON-former som stöds](./how-to-shape-query-json.md).
 
-#### <a name="recommended-resolutions-for-excessive-throttling"></a>Rekommenderade lösningar för hög begränsning
+#### <a name="recommended-resolutions-for-excessive-throttling"></a>Rekommenderade lösningar för överdriven begränsning
 
-Öka SKU-kapaciteten för din miljö för att åtgärda fördröjningen. Mer information finns i [skala din Time Series Insights-miljö](time-series-insights-how-to-scale-your-environment.md).
+Om du vill åtgärda fördröjningen ökar du SKU-kapaciteten för din miljö. Mer information finns i [skala din Time Series Insights-miljö](time-series-insights-how-to-scale-your-environment.md).
 
-### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Orsak B: inledande inmatning av historiska data saktar ingress
+### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Orsak B: inledande inmatning av historiska data går långsamt
 
-Om du ansluter en befintlig händelsekälla, är det troligt att din IoT hub eller event hub redan innehåller data. Miljön startar hämta data från början av den händelsekälla kvarhållningsperiod för meddelandet. Den här standard bearbetningen kan inte åsidosättas. Du kan engagera begränsning. Begränsning kan ta en stund att läsa den matar in historiska data.
+Om du ansluter en befintlig händelse källa är det troligt att din IoT-hubb eller händelsehubben redan innehåller data. Miljön börjar hämta data från början av händelse källans kvarhållning av meddelanden. Den här standard bearbetningen kan inte åsidosättas. Du kan engagera begränsning. Begränsningen kan ta en stund att fånga upp när den matar in historiska data.
 
-#### <a name="recommended-resolutions-for-large-initial-ingestion"></a>Rekommenderade lösningar för stora inledande inmatning
+#### <a name="recommended-resolutions-for-large-initial-ingestion"></a>Rekommenderade lösningar för stor inledande inmatning
 
-Åtgärda fördröjningen:
+Så här åtgärdar du fördröjningen:
 
-1. Öka SKU-kapacitet till det högsta tillåtna värdet (i det här fallet 10). När du ökar kapaciteten startar ingress-processen komma ikapp mycket snabbare. Du debiteras för ökad kapacitet. För att visualisera hur snabbt du Ja och så upp, som du kan visa Tillgänglighetsdiagrammet i den [Time Series Insights explorer](https://insights.timeseries.azure.com).
+1. Öka SKU-kapaciteten till det högsta tillåtna värdet (10, i det här fallet). När du har ökat kapaciteten börjar ingångs processen att fånga upp mycket snabbare. Du debiteras för den ökade kapaciteten. Om du vill visualisera hur snabbt du får upp kan du Visa tillgänglighets diagrammet i [Time Series Insights Explorer](https://insights.timeseries.azure.com).
 
-2. När fördröjningen fått allt, minska SKU-kapacitet till normal ingångshändelser.
+2. När fördröjningen har fångats upp minskar du SKU-kapaciteten till din normala ingångs taxa.
 
-## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problem: min händelsekälla tidsstämpel egenskapen name inställningen fungerar inte
+## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problem: min händelse källans egenskaps namn för tidsstämpel fungerar inte
 
-Se till att den egenskapsnamn för tidsstämpeln och värdet överensstämmer med följande regler:
+Se till att egenskaps namnet och värdet för tidsstämpeln uppfyller följande regler:
 
-* Egenskapsnamnet för tidsstämpeln är skiftlägeskänsligt.
-* Tidsstämpel-egenskapsvärde som kommer från din händelsekälla som en JSON-sträng som ska ha formatet _åååå-MM-ddTHH. FFFFFFFK_. Ett exempel är **2008-04-12T12:53Z**.
+* Egenskaps namnet för tidsstämpeln är Skift läges känsligt.
+* Värdet för egenskapen tidsstämpel som kommer från din händelse källa som en JSON-sträng ska ha formatet _ÅÅÅÅ-MM-ddTHH: mm: SS. FFFFFFFK_. Ett exempel är **2008-04-12T12:53Z**.
 
-Det enklaste sättet att säkerställa att din egenskapsnamn för tidsstämpeln är skapas och fungerar är att använda i Time Series Insights-Utforskaren. Välj en tidsperiod när du har angett egenskapsnamn för tidsstämpeln i Time Series Insights explorer med hjälp av tabellen. Högerklicka på markeringen och välj sedan den **utforska händelser** alternativet.
+Det enklaste sättet att se till att namnet på Tidsstämpelns egenskap är infångat och fungerar korrekt är att använda Time Series Insights Explorer. I Time Series Insights Explorer, med hjälp av diagrammet, väljer du en tids period när du har angett namnet på Tidsstämpelns egenskap. Högerklicka på markeringen och välj sedan alternativet för att **utforska händelser** .
 
-Första kolumnrubriken ska vara egenskapsnamn för tidsstämpeln. Bredvid ordet **tidsstämpel**, bör du se **($ts)** .
+Den första kolumn rubriken ska vara namnet på din timestamp-egenskap. Bredvid ordet tidsstämpelbör du se **($TS)** .
 
 Du bör inte se följande värden:
 
-- *(abc)* : Anger att Time Series Insights läser datavärdena som strängar.
-- *Ikon för kalender*: Anger att Time Series Insights läser datavärdet är *datetime*.
-- *#* : Anger att Time Series Insights läser datavärdena som ett heltal.
+- *(abc)* : Anger att Time Series Insights läser data värden som strängar.
+- *Kalender ikon*: Anger att Time Series Insights läser data värdet som *datetime*.
+- *#* : Anger att Time Series Insights läser data värden som ett heltal.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du behöver hjälp att starta en konversation i den [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+- Om du behöver hjälp startar du en konversation i [MSDN-forumet](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
 
-- Vilka supportalternativ använda [Azure-supporten](https://azure.microsoft.com/support/options/).
+- Om du behöver support alternativ använder du [Azure](https://azure.microsoft.com/support/options/)-supporten.

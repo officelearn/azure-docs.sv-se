@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 2a14140a395e8ccd2bf0092d5922d639914b01a7
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8640a283cf81ddafdb8402d9bdfc46f88b35fa45
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900412"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135274"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQL Server
 
@@ -135,7 +135,7 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | [SQL-analys](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Ja | Ja |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Ja | Nej |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-moln tjänst. | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-moln tjänst. |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av Azure SQL Database och körs på Azure SSIS Integration Runtime (IR), se [Skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Information om hur du jämför SSIS-funktionerna i SQL Database Server och en hanterad instans finns i [jämför Azure SQL Database enstaka databaser/elastiska pooler och hanterade instanser](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av hanterade instanser och körs på Azure SSIS Integration Runtime (IR), se [Skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Om du vill jämföra SSIS-funktionerna i SQL Database och hanterade instanser, se [jämför Azure SQL Database enstaka databaser/elastiska pooler och hanterade instanser](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av Azure SQL Database och körs på Azure SSIS Integration Runtime (IR), se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Information om hur du jämför SSIS-funktionerna i SQL Database Server och en hanterad instans finns i [jämför Azure SQL Database enstaka databaser/elastiska pooler och hanterade instanser](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av hanterade instanser och körs på Azure SSIS Integration Runtime (IR), se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Om du vill jämföra SSIS-funktionerna i SQL Database och hanterade instanser, se [jämför Azure SQL Database enstaka databaser/elastiska pooler och hanterade instanser](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No- [se Power BI](https://docs.microsoft.com/power-bi/) | No- [se Power BI](https://docs.microsoft.com/power-bi/) |
 | [Fråga prestanda insikter (QPI)](sql-database-query-performance.md) | Ja | Nej. Använd inbyggda rapporter i SQL Server Management Studio och Azure Data Studio. |
 | [VNet](../virtual-network/virtual-networks-overview.md) | Delvis, den ger begränsad åtkomst med [VNet](sql-database-vnet-service-endpoint-rule-overview.md) -slutpunkter | Ja, den hanterade instansen matas in i kundens VNet. Se [undernät](sql-database-managed-instance-transact-sql-information.md#subnet) och [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
@@ -160,6 +160,16 @@ Azure SQL Database har stöd för olika data verktyg som kan hjälpa dig att han
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Inga – se [utökade händelser](sql-database-xevent-db-diff-from-svr.md) | Ja |
 | [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [Ja](https://www.microsoft.com/download/details.aspx?id=38829) | Nej |
+
+## <a name="migration-methods"></a>Metoder för migrering
+
+Du kan använda olika metoder för migrering för att flytta data mellan SQL Server, Enkel databas och hanterade instans databaser. Vissa metoder är **online** och alla ändringar som görs på källan hämtas när du kör migreringen, men i **offline** -metoder måste du stoppa arbets belastningen som ändrar data på källan medan migreringen pågår.
+
+| **Källa** | **Enkel databas och elastisk pool** | **Hanterad instans** |
+| --- | --- | --- |
+| SQL Server (lokal, AzureVM, Amazon RDS) | **Onlinemallar** [Data migration service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [transaktionell replikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Onlinemallar** [Data migration service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [transaktionell replikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** Inbyggd säkerhets kopiering/återställning, [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [ögonblicks bilds replikering](sql-database-managed-instance-transactional-replication.md) |
+| Enskild databas | **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |
+| Managed Instance | **Onlinemallar** [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [ögonblicks bilds replikering](sql-database-managed-instance-transactional-replication.md) | **Onlinemallar** [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** Återställning mellan instansen för tidpunkt ([Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase?#examples) eller [Azure CLI](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [inbyggd säkerhets kopiering/återställning](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore), [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [ögonblicks bild replikering](sql-database-managed-instance-transactional-replication.md) |
 
 ## <a name="next-steps"></a>Nästa steg
 

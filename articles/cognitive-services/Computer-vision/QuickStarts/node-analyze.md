@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7659196463d8b1f7affdb4019045116d94a06f97
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: bf14af7a9edd0418217b61ceb26c35237a103de0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605892"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137766"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Snabbstart: Analysera en fjärr-avbildning med hjälp av den REST API för visuellt innehåll med Node.js
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Snabbstart: Analysera en fjärravbildning med hjälp av Visuellt innehåll REST API med Node. js
 
 I den här snabbstarten analyserar du en fjärrlagrad bild för att extrahera visuella funktioner med hjälp av REST API:et för visuellt innehåll. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
 
@@ -28,7 +28,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 - Du måste ha [Node.js](https://nodejs.org) 4.x eller senare installerat.
 - Du måste ha [npm](https://www.npmjs.com/) installerat.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `COMPUTER_VISION_SUBSCRIPTION_KEY` med `COMPUTER_VISION_ENDPOINT`namnet respektive.
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
@@ -45,11 +45,8 @@ Så här skapar du och kör exemplet:
    1. Stäng kommandotolksfönstret när paketet har installerats.
 
 1. Kopiera följande kod till en textredigerare.
-1. Gör nedanstående ändringar i koden där det behövs:
-    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
-    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
-    1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
-    1. Du kan också ersätta värdet för parametern `language` för begäran med ett annat språk.
+1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
+1. Du kan också ersätta värdet för parametern `language` för begäran med ett annat språk.
 1. Spara koden som en fil med tillägget `.js`. Till exempel `analyze-image.js`.
 1. Öppna ett kommandotolksfönster.
 1. Kör filen i kommandotolken med kommandot `node`. Till exempel `node analyze-image.js`.
@@ -59,14 +56,11 @@ Så här skapar du och kör exemplet:
 
 const request = require('request');
 
-// Replace <Subscription Key> with your valid subscription key.
-const subscriptionKey = '<Subscription Key>';
+let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
+let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
+if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-// You must use the same location in your REST call as you used to get your
-// subscription keys. For example, if you got your subscription keys from
-// westus, replace "westcentralus" in the URL below with "westus".
-const uriBase =
-    'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze';
+var uriBase = endpoint + 'vision/v2.0/analyze';
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';

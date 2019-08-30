@@ -1,6 +1,6 @@
 ---
 title: Planera och köra en Azure Multi-Factor Authentication-distribution – Azure Active Directory
-description: Distributions planering för Microsoft Azure Multi-Factor Authentication
+description: Microsoft Azure Multi-Factor Authentication distributions planering
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776a73f8a20a3f5ad4e97a08ff3871e805a61eb3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
-ms.translationtype: MT
+ms.openlocfilehash: 4b555ecdf8bbd3d29e440675599041f40ac3c9d0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879125"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125033"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad Azure Multi-Factor Authentication-distribution
 
@@ -76,7 +76,7 @@ Principer för villkorlig åtkomst framtvingar registrering, vilket kräver att 
 * Inloggningar från angripna enheter
 * Inloggningar från IP-adresser med misstänkta aktiviteter
 
-Några av de risk händelser som upptäcks av Azure Active Directory Identity Protection uppstår i real tid och vissa kräver offline-bearbetning. Administratörer kan välja att blockera användare som har uppvisat riskfyllda beteenden och reparera manuellt, kräva en lösen ords ändring eller kräva Multi-Factor Authentication som en del av principerna för villkorlig åtkomst.
+Några av de risker som identifieras av Azure Active Directory Identity Protection uppstår i real tid och vissa kräver offline-bearbetning. Administratörer kan välja att blockera användare som har uppvisat riskfyllda beteenden och reparera manuellt, kräva en lösen ords ändring eller kräva Multi-Factor Authentication som en del av principerna för villkorlig åtkomst.
 
 ## <a name="define-network-locations"></a>Definiera nätverks platser
 
@@ -95,7 +95,7 @@ Vi rekommenderar att organisationer använder villkorlig åtkomst för att defin
       2. Ange IP-intervall
    2. Om du använder länder/regioner
       1. Expandera den nedrullningsbara menyn och välj de länder eller regioner som du vill definiera för den här namngivna platsen.
-      2. Bestäm om du vill inkludera okända områden. Okända områden är IP-adresser som inte kan mappas till ett land/region.
+      2. Bestäm om du vill inkludera okända områden. Okända områden är IP-adresser som inte kan mappas till ett land/en region.
 7. Klicka på **Skapa**
 
 ## <a name="plan-authentication-methods"></a>Planera autentiseringsmetoder
@@ -123,14 +123,14 @@ Ett textmeddelande som innehåller en verifierings kod skickas till användaren,
 
 ### <a name="choose-verification-options"></a>Välj verifierings alternativ
 
-1. Bläddra till **Azure Active Directory**, **användare**, **Multi-Factor Authentication**.
+1. Bläddra till **Azure Active Directory**, **användare** **Multi-Factor Authentication**.
 
-   ![Åtkomst till Multi-Factor Authentication-portalen från Azure AD-användargrupper i Azure Portal](media/howto-mfa-getstarted/users-mfa.png)
+   ![Öppna Multi-Factor Authentication portal från Azure AD-bladet i Azure Portal](media/howto-mfa-getstarted/users-mfa.png)
 
 1. På den nya fliken som öppnas Bläddra till **tjänst inställningar**.
 1. Under **verifierings alternativ**markerar du alla rutor för metoder som är tillgängliga för användare.
 
-   ![Konfigurera verifierings metoder på fliken Inställningar i Multi-Factor Authentication Service](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
+   ![Konfigurera verifierings metoder på fliken Multi-Factor Authentication tjänst inställningar](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
 
 1. Klicka på **Spara**.
 1. Stäng fliken **tjänst inställningar** .
@@ -171,7 +171,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Konvertera användare från per användare MFA till villkorlig åtkomst baserat MFA
 
-Om användarna aktiverades med hjälp av per användare aktiverade och tillämpade Azure Multi-Factor Authentication kan följande PowerShell hjälpa dig att göra konverteringen till villkorlig åtkomst baserat på Azure Multi-Factor Authentication.
+Om dina användare har Aktiver ATS med alternativet per användare aktiverat och tillämpade Azure-Multi-Factor Authentication kan följande PowerShell hjälpa dig att göra konverteringen till Azure Multi-Factor Authentication med villkorlig åtkomst.
 
 ```PowerShell
 # Disable MFA for all users, keeping their MFA methods intact
@@ -274,13 +274,13 @@ Program som autentiserar direkt med Azure AD och har modern autentisering (WS-ut
 
 ### <a name="use-azure-mfa-with-azure-ad-application-proxy"></a>Använda Azure MFA med Azure AD-programproxy
 
-Program som finns lokalt kan publiceras till din Azure AD-klient via [azure AD-programproxy](../manage-apps/application-proxy.md) och kan dra nytta av Azure Multi-Factor Authentication om de är konfigurerade för att använda förautentisering i Azure AD.
+Program som finns lokalt kan publiceras till din Azure AD-klient via [azure AD-programproxy](../manage-apps/application-proxy.md) och kan dra nytta av Azure Multi-Factor Authentication om de är konfigurerade för att använda Azure AD-förautentisering.
 
 De här programmen omfattas av principer för villkorlig åtkomst som tvingar Azure Multi-Factor Authentication, precis som andra Azure AD-integrerade program.
 
-På samma sätt, om Azure Multi-Factor Authentication tillämpas för alla användar inloggningar, kommer lokala program som publiceras med Azure AD-programproxy att skyddas.
+På samma sätt kommer, om Azure Multi-Factor Authentication tillämpas för alla användar inloggningar, lokala program som publiceras med Azure AD-programproxy att skyddas.
 
-### <a name="integrating-azure-multi-factor-authentication-with-network-policy-server"></a>Integrera Azure Multi-Factor Authentication med nätverks princip servern
+### <a name="integrating-azure-multi-factor-authentication-with-network-policy-server"></a>Integrera Azure-Multi-Factor Authentication med nätverks princip Server
 
 Nätverks princip Server (NPS)-tillägget för Azure MFA lägger till molnbaserade MFA-funktioner till din infrastruktur för autentisering med hjälp av befintliga servrar. Med NPS-tillägget kan du lägga till telefonsamtal, textmeddelande eller standardapp för ditt befintliga autentiseringspaket. Denna integrering har följande begränsningar:
 
@@ -312,7 +312,7 @@ Syftet med den här inställningen är att fastställa vad som ska göras när e
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrera med Active Directory Federation Services (AD FS)
 
-Om din organisation är federerad med Azure AD kan du använda [Azure Multi-Factor Authentication för att skydda AD FS resurser](multi-factor-authentication-get-started-adfs.md), både lokalt och i molnet. Med Azure MFA kan du minska lösen ord och tillhandahålla ett säkrare sätt att autentisera. Från och med Windows Server 2016 kan du nu konfigurera Azure MFA för primär autentisering.
+Om din organisation är federerad med Azure AD kan du använda [azure Multi-Factor Authentication för att skydda AD FS resurser](multi-factor-authentication-get-started-adfs.md), både lokalt och i molnet. Med Azure MFA kan du minska lösen ord och tillhandahålla ett säkrare sätt att autentisera. Från och med Windows Server 2016 kan du nu konfigurera Azure MFA för primär autentisering.
 
 Till skillnad från AD FS i Windows Server 2012 R2 integrerar AD FS 2016 Azure MFA-adaptern direkt med Azure AD och kräver inte en lokal Azure MFA-Server. Azure MFA-adaptern är inbyggd i Windows Server 2016 och det finns inget behov av en ytterligare installation.
 
@@ -365,7 +365,7 @@ Nu när du har planerat din lösning kan du implementera genom att följa stegen
 
 Rapporter för Azure MFA
 
-Azure Multi-Factor Authentication tillhandahåller rapporter via Azure Portal:
+Azure Multi-Factor Authentication ger rapporter via Azure Portal:
 
 | Rapport | Location | Beskrivning |
 | --- | --- | --- |
@@ -373,10 +373,10 @@ Azure Multi-Factor Authentication tillhandahåller rapporter via Azure Portal:
 
 ## <a name="troubleshoot-mfa-issues"></a>Felsök MFA-problem
 
-Hitta lösningar på vanliga problem med Azure MFA i [artikeln om fel sökning av Azure Multi-Factor Authentication](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) på Microsoft Support Center.
+Hitta lösningar på vanliga problem med Azure MFA i [artikeln om fel sökning av Azure-Multi-Factor Authentication](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) i Microsoft Support Center.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är autentiseringsmetoder?](concept-authentication-methods.md)
-* [Aktivera konvergerad registrering för Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning i Azure AD](concept-registration-mfa-sspr-converged.md)
-* Varför uppmanas användaren eller inte att göra MFA? Se avsnittet [Azure AD-inloggningar i rapporterna i Azure Multi-Factor Authentication-dokument](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+* [Aktivera konvergerad registrering för Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning i Azure AD](concept-registration-mfa-sspr-converged.md)
+* Varför uppmanas användaren eller inte att göra MFA? Se avsnittet [Azure AD-inloggningar i rapporterna i azure Multi-Factor Authentication-dokumentet](howto-mfa-reporting.md#azure-ad-sign-ins-report).

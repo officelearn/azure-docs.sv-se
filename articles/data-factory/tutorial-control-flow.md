@@ -3,21 +3,20 @@ title: Branchning i Azure Data Factory-pipeline | Microsoft Docs
 description: Lär dig hur du styr flödet av data i Azure Data Factory genom branchning och kedjesammansättning av aktiviteter.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
-ms.author: shlo
-ms.openlocfilehash: 9a03094683a973db16aa949f0610bc7f9914be45
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 264d8e049cc7b714e00aaa77441cdc81a1e0a0c9
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457030"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140741"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 
@@ -41,12 +40,12 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
 * **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 * **Visual Studio** 2013, 2015 eller 2017. I den här artikeln används Visual Studio 2017.
-* **Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)**.
+* **Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)** .
 * **Skapa en app i Azure Active Directory** med hjälp av [de här instruktionerna](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Observera följande värden som du kommer att använda i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela program till rollen **Deltagare** enligt instruktionerna i samma artikel.
 
 ### <a name="create-blob-table"></a>Skapa blob-tabell
@@ -66,7 +65,7 @@ Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2015/2017.
 
 1. Starta **Visual Studio**.
 2. Klicka på **Arkiv**, peka på **Nytt** och klicka på **Projekt**. .NET version 4.5.2 eller senare krävs.
-3. Välj **Visual C#** -> **Konsolprogram (.NET Framework)** i listan över projekttyper till höger.
+3. Välj **Visual C#**  -> **Konsolprogram (.NET Framework)** i listan över projekttyper till höger.
 4. Ange **ADFv2BranchTutorial** som namn.
 5. Klicka på **OK** för att skapa projektet.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 33e29b02adfccf94da84dd99451117485b892ba3
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c6b9c0a8615960772ccac824c293b5f4ea6cfe55
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072911"
+ms.locfileid: "70129200"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -717,7 +717,7 @@ Felet beror på att lagrings kontot har redundansväxlats till en annan region. 
 | **Fel sträng** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
 | **Reparation krävs** | Nej |
 
-Det här felet uppstår på grund av ett internt problem med Sync-databasen. Det här felet löses automatiskt när Azure File Sync när synkroniseringen försöker igen. Om felet fortsätter under en längre tid kan du skapa en supportbegäran så kontaktar vi dig för att hjälpa dig att lösa problemet.
+Det här felet uppstår på grund av ett internt problem med Sync-databasen. Det här felet löses automatiskt när nya försök synkroniseras. Om felet fortsätter under en längre tid kan du skapa en supportbegäran så kontaktar vi dig för att hjälpa dig att lösa problemet.
 
 <a id="-2134364024"></a>**Synkroniseringen misslyckades på grund av ändringar i Azure Active Directory klient organisationen**  
 

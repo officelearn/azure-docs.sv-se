@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: f6cb364c231c2415bf49a24e6e9406a14640b892
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ada570196c916a8101e8e968d284a3b280199cf3
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600275"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142808"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Snabbstart: Formulär tolkens klient bibliotek för .NET
 
@@ -95,7 +95,7 @@ Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett n
 
 Följande klasser hanterar huvud funktionerna i formulär igenkännings-SDK: n.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|Den här klassen krävs för alla formulär igenkännings funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser.|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| Du använder den här klassen för att träna en anpassad formulär igenkännings modell med hjälp av egna utbildnings indata. |
@@ -173,6 +173,10 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+Om du har tränat en anpassad modell som du vill ta bort från ditt konto använder du dessutom följande metod:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_deletemodel)]
 
 ## <a name="next-steps"></a>Nästa steg
 

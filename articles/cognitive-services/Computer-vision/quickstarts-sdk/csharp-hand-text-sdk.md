@@ -11,20 +11,20 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ba72fdce42a8313903a26aead4a1c1922a9bb586
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 315e35535c29771fb12a97f26e6e2c294e888d07
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603466"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137430"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Snabbstart: Extrahera handskriven text med visuellt C# SDK
+# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Snabbstart: Extrahera handskriven text med C# hjälp av visuellt innehåll SDK
 
 I den här snabbstarten extraherar du handskriven eller tryckt text från en bild med hjälp av SDK:n för C# för visuellt innehåll. Om du vill kan du ladda ned koden i den här guiden som en komplett exempelapp från [Cognitive Services Csharp Vision](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)-lagringsplatsen på GitHub.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En prenumerationsnyckel för visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
+* En prenumerations nyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `COMPUTER_VISION_SUBSCRIPTION_KEY` med `COMPUTER_VISION_ENDPOINT`namnet respektive.
 * Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
 * NuGET-paketet för [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision)-klientbiblioteket. Du behöver inte ladda ned paketet. Installationsinstruktioner finns nedan.
 
@@ -37,7 +37,7 @@ För att köra exemplet följer du dessa steg:
     1. Klicka på **Verktyg** på menyn, välj **NuGet Package Manager** (NuGet-pakethanteraren) och välj sedan **Manage NuGet Packages for Solution** (Hantera NuGet-paket för lösning).
     1. Klicka på fliken **Bläddra** och skriv ”Microsoft.Azure.CognitiveServices.Vision.ComputerVision” i rutan **Sök**.
     1. Välj **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** när det visas. Klicka på kryssrutan bredvid namnet på ditt projekt och sedan på **Installera**.
-1. Ersätt `Program.cs` med följande kod. Den `BatchReadFileAsync` och `BatchReadFileInStreamAsync` metoder omsluter den [Batch tillgång till API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) för fjärr- och lokala avbildningar respektive. Den `GetReadOperationResultAsync` metoden radbryter den [få läsa åtgärd resultatet API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d).
+1. Ersätt `Program.cs` med följande kod. Metoderna `BatchReadFileAsync` och`BatchReadFileInStreamAsync` radbryter [batch-läsa-API:](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) t för fjärranslutna och lokala avbildningar. Metoden innebär att API: [t för att hämta Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d)bryts. `GetReadOperationResultAsync`
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;

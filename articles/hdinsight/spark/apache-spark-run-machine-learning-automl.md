@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: ff6a071a2d157bf79ab27fcbf4f9753fdbcac118
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a731d9e0c97cb8431b1294d961ad46ff324f32be
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354870"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141187"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Kör Azure Machine Learning-arbetsbelastningar med automatiserad Machine Learning (AutoML) på Apache Spark i Azure HDInsight
 
@@ -34,7 +34,7 @@ Du kan också använda Zeppelin-anteckningsböcker för att använda AutoML.
 
 ## <a name="authentication-for-workspace"></a>Autentisering för arbets yta
 
-Skapandet av arbets ytan och experimentet kräver en autentiseringstoken. Denna token kan genereras med hjälp av ett [Azure AD-program](../../active-directory/develop/app-objects-and-service-principals.md). En [Azure AD-användare](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python) kan också användas för att generera en obligatorisk autentiseringstoken om Multi-Factor Authentication inte har Aktiver ATS för kontot.  
+Skapandet av arbets ytan och experimentet kräver en autentiseringstoken. Denna token kan genereras med hjälp av ett [Azure AD-program](../../active-directory/develop/app-objects-and-service-principals.md). En [Azure AD-användare](/azure/python/python-sdk-azure-authenticate) kan också användas för att generera en obligatorisk autentiseringstoken om Multi-Factor Authentication inte har Aktiver ATS för kontot.  
 
 Följande kodfragment skapar en autentiseringstoken med hjälp av ett **Azure AD-program**.
 

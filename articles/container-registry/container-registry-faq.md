@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 2b835765bbd40ffbd4a5117f767a7ba163e41dda
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 293f2a704fecb04bc6b65e49743ea80905f2394f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309288"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142678"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -31,7 +31,7 @@ Den här artikeln handlar om vanliga frågor och kända problem med Azure Contai
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Kan jag skapa en Azure Container Registry med hjälp av en Resource Manager-mall?
 
-Ja. Här är [en mall](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) som du kan använda för att skapa ett register.
+Ja. Här är [en mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) som du kan använda för att skapa ett register.
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Finns det någon säkerhets risk som söker efter avbildningar i ACR?
 
@@ -432,7 +432,7 @@ Hitta IP-adressen för den virtuella växeln Docker VM:
 
 Konfigurera Docker-proxyn till utdata från föregående kommando och port 8888 (till exempel 10.0.75.1:8888)
 
-## <a name="tasks"></a>Uppgifter
+## <a name="tasks"></a>Aktiviteter
 
 - [Vill du avbryta körningen av batch Hur gör jag för att batch?](#how-do-i-batch-cancel-runs)
 - [Hur gör jag för att inkludera mappen. git i AZ ACR build-kommandot?](#how-do-i-include-the-git-folder-in-az-acr-build-command)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 879e2831dc099eabe43f1eefb81b1b7373c665dc
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a173272600bab71264ed3b85ce5141814c0a6aed
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898716"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147212"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>För hands version – skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI
 
@@ -121,8 +121,11 @@ Följande exempelutdata visar den resursgrupp som skapats:
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
 För att kunna köra ett AKS-kluster som har stöd för resurspooler för Windows Server-behållare, måste klustret använda en nätverks princip som använder [Azure cni][azure-cni-about] (avancerat) nätverks-plugin. Mer detaljerad information om hur du planerar ut nödvändiga undernät och nätverks överväganden finns i [Konfigurera Azure cni Networking][use-advanced-networking]. Använd kommandot [AZ AKS Create][az-aks-create] för att skapa ett AKS-kluster med namnet *myAKSCluster*. Med det här kommandot skapas nödvändiga nätverks resurser om de inte finns.
-  * Klustret har kon figurer ATS med en nod
+  * Klustret har kon figurer ATS med två noder
   * Parametrarna *Windows-Admin-Password* och *Windows-Admin-username* anger admin-autentiseringsuppgifter för alla Windows Server-behållare som skapats i klustret.
+
+> [!NOTE]
+> För att klustret ska fungera på ett tillförlitligt sätt bör du köra minst två noder (två) i standardnodens pool.
 
 Ange en egen säker *PASSWORD_WIN* (kom ihåg att kommandona i den här artikeln anges i ett bash-gränssnitt):
 
@@ -132,7 +135,7 @@ PASSWORD_WIN="P@ssw0rd1234"
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --enable-addons monitoring \
     --kubernetes-version 1.14.6 \
     --generate-ssh-keys \
@@ -184,7 +187,7 @@ Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl
 kubectl get nodes
 ```
 
-Följande exempelutdata visar den enskilda nod som skapades i föregående steg. Kontrollera att status för noden är *Klar*:
+I följande exempel på utdata visas alla noder i klustret. Kontrol lera att status för alla noder är *klar*:
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION

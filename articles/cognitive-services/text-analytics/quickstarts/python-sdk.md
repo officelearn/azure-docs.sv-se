@@ -8,14 +8,14 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/05/2019
+ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 1d7ad19a58327ba508ccb4e47d12d3d0f50465f4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0543bc639e60c65d9ab5a6cc810ddf6b7d10087a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884007"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142732"
 ---
 # <a name="quickstart-text-analytics-client-library-for-python"></a>Snabbstart: Klient bibliotek för text analys för python
 <a name="HOLTop"></a>
@@ -66,16 +66,24 @@ from azure.cognitiveservices.language.textanalytics import TextAnalyticsClient
 from msrest.authentication import CognitiveServicesCredentials
 ```
 
-Skapa variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln.
+Skapa variabler för resursens Azure-slut punkt och prenumerations nyckel. Hämta de här värdena från miljövariablerna TEXT_ANALYTICS_SUBSCRIPTION_KEY och TEXT_ANALYTICS_ENDPOINT. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 
 [!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```python
-# replace this endpoint with the correct one for your Azure resource. 
-text_analytics_url = "https://westcentralus.api.cognitive.microsoft.com/"
-# This sample assumes you have created an environment variable for your key
-key = os.environ["TEXT_ANALYTICS_SUBSCRIPTION_KEY"]
-credentials = CognitiveServicesCredentials(key)
+import os
+
+key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
+
+credentials = CognitiveServicesCredentials(subscription_key)
 ```
 
 ## <a name="object-model"></a>Objekt modell

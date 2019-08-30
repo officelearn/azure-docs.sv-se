@@ -4,7 +4,7 @@ description: Dubbelriktad serie konsol för Azure Virtual Machines och Virtual M
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: gwallace
+manager: borisb
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4e0c91096d5efdcc9639a7127126d8e4b89ef068
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f6e08f113e29b44e4ec94d14624d62c1c3d48d45
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090149"
+ms.locfileid: "70124471"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azures serie konsol för Linux
 
@@ -49,34 +49,6 @@ Information om en dokumentation för Windows i serie konsolen finns i [serie kon
 - Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste konfigureras för seriella utdata på `ttys0`. Det här är standardinställningen för Azure-avbildningar, men du behöver bara markera det här på anpassade avbildningar. Information [nedan](#custom-linux-images).
 
 
-## <a name="get-started-with-the-serial-console"></a>Kom igång med serie konsolen
-Serie konsolen för virtuella datorer och skalnings uppsättningen för virtuella datorer kan bara nås via Azure Portal:
-
-### <a name="serial-console-for-virtual-machines"></a>Serie konsol för Virtual Machines
-Serie konsolen för virtuella datorer är lika enkel som att klicka på **seriell konsol** i avsnittet **support och fel sökning** i Azure Portal.
-  1. Öppna [Azure-portalen](https://portal.azure.com).
-
-  1. Gå till **alla resurser** och välj en virtuell dator. Översikts sidan för den virtuella datorn öppnas.
-
-  1. Rulla ned till den **Support och felsökning** och väljer **seriekonsolen**. Ett nytt fönster med seriell konsol öppnas och börjar anslutningen.
-
-     ![Fönstret för seriella Linux-konsol](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
-### <a name="serial-console-for-virtual-machine-scale-sets"></a>Serie konsol för Virtual Machine Scale Sets
-Serie konsolen är tillgänglig per instans för skalnings uppsättningar för virtuella datorer. Du måste gå till den enskilda instansen av en skalnings uppsättning för virtuella datorer innan du ser knappen **seriell konsol** . Om den virtuella datorns skalnings uppsättning inte har startdiagnostik aktive rad, se till att du uppdaterar modell för skalnings uppsättning för virtuella datorer för att aktivera startdiagnostik, och uppgradera sedan alla instanser till den nya modellen för att få åtkomst till serie konsolen.
-  1. Öppna [Azure-portalen](https://portal.azure.com).
-
-  1. Gå till **alla resurser** och välj en skalnings uppsättning för virtuell dator. Översikts sidan för skalnings uppsättningen för den virtuella datorn öppnas.
-
-  1. Navigera till **instanser**
-
-  1. Välj en instans för skalnings uppsättning för virtuell dator
-
-  1. I avsnittet **support och fel sökning** väljer du **seriell konsol**. Ett nytt fönster med seriell konsol öppnas och börjar anslutningen.
-
-     ![Serie konsol för skalnings uppsättning för virtuella Linux-datorer](./media/virtual-machines-serial-console/vmss-start-console.gif)
-
-
 > [!NOTE]
 > Serie konsolen kräver en lokal användare med ett konfigurerat lösen ord. Virtuella datorer eller skalnings uppsättningar för virtuella datorer som kon figurer ATS med en offentlig SSH-nyckel kan inte logga in i serie konsolen. Om du vill skapa en lokal användare med ett lösen ord använder du [tillägget VMAccess](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), som är tillgängligt i portalen genom att välja **Återställ lösen ord** i Azure Portal och skapa en lokal användare med ett lösen ord.
 > Du kan också återställa administratörs lösen ordet i ditt konto genom [att använda grub för att starta i enanvändarläge](./serial-console-grub-single-user-mode.md).
@@ -97,7 +69,7 @@ SUSE        | Nyare SLES-avbildningar som är tillgängliga i Azure har åtkomst
 Oracle Linux        | Seriell konsol åtkomst aktiverat som standard.
 
 ### <a name="custom-linux-images"></a>Anpassade Linux-avbildningar
-Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra `ttyS0`en terminal på. Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`.
+Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra `ttyS0`en terminal på. Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service`.
 
 Du ska också lägga till ttyS0 som mål för seriella utdata. Mer information om hur du konfigurerar en anpassad avbildning för att arbeta med serie konsolen finns i system krav för att [skapa och ladda upp en Linux-VHD i Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
@@ -114,47 +86,8 @@ Problem med SSH-konfiguration | Komma åt seriekonsolen och ändra inställninga
 Interagera med startprogrammet | Starta om den virtuella datorn från bladet för serie konsolen för att få åtkomst till GRUB på din virtuella Linux-dator. Mer information och distribution information finns i [använda serie konsolen för att komma åt grub och enanvändarläge](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Inaktivera serie konsolen
-Som standard har alla prenumerationer åtkomst till seriell konsol. Du kan inaktivera serie konsolen antingen på prenumerations nivå eller skal uppsättnings nivå för virtuell dator/virtuell dator. Observera att startdiagnostik måste vara aktiverat på en virtuell dator för att serie konsolen ska fungera.
 
-### <a name="vmvirtual-machine-scale-set-level-disable"></a>Inaktivera skalnings uppsättning på VM/virtuell dator
-Serie konsolen kan inaktive ras för en angiven virtuell dator eller en virtuell dators skalnings uppsättning genom att inaktivera inställningen för startdiagnostik. Inaktivera startdiagnostik från Azure Portal för att inaktivera serie konsolen för den virtuella datorn eller skalnings uppsättningen för den virtuella datorn. Om du använder en seriell konsol på en skalnings uppsättning för virtuella datorer måste du uppgradera de virtuella datorernas skalnings uppsättnings instanser till den senaste modellen.
-
-> [!NOTE]
-> Om du vill aktivera eller inaktivera seriekonsol för en prenumeration, måste du ha skrivbehörighet till prenumerationen. Dessa behörigheter inkluderar administratörs-eller ägar roller. Anpassade roller kan också ha skrivbehörighet.
-
-### <a name="subscription-level-disable"></a>Prenumerationsnivå inaktivera
-Seriell konsol kan inaktiveras för en hel prenumeration via den [inaktivera konsolen REST API-anrop](/rest/api/serialconsole/console/disableconsole). Den här åtgärden kräver åtkomst till deltagar nivå eller över till prenumerationen. Du kan använda den **prova** funktionen som är tillgängliga på den här API-dokumentationssidan inaktiverar och aktiverar Seriell konsol för en prenumeration. Ange ditt prenumerations-ID för **subscriptionId**, ange **standard** som standard och välj sedan **Kör**. Azure CLI-kommandon är ännu inte tillgängliga.
-
-Om du vill återaktivera en serie konsol för en prenumeration använder du [REST API anrop för att aktivera konsolen](/rest/api/serialconsole/console/enableconsole).
-
-![Testa REST-API](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
-
-Du kan också använda följande uppsättning bash-kommandon i Cloud Shell för att inaktivera, aktivera och visa inaktiverad status för seriekonsolen för en prenumeration:
-
-* Hämta inaktiverad status för seriekonsolen för en prenumeration:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
-    ```
-* Inaktivera seriekonsol för en prenumeration:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
-* Så här aktiverar Seriell konsol för en prenumeration:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
+Som standard har alla prenumerationer åtkomst till seriell konsol. Du kan inaktivera serie konsolen antingen på prenumerations nivå eller skal uppsättnings nivå för virtuell dator/virtuell dator. Detaljerade anvisningar finns [i Aktivera och inaktivera Azures serie konsol](./serial-console-enable-disable.md).
 
 ## <a name="serial-console-security"></a>Seriell konsol-säkerhet
 
@@ -184,18 +117,6 @@ Använd den **fliken** på tangentbordet för att navigera i gränssnittet Serie
 
 ### <a name="use-serial-console-with-a-screen-reader"></a>Använda en-serie konsol med en skärm läsare
 Seriekonsolen har inbyggt stöd för Skärmläsaren. Navigera med en skärmläsare aktiveras kan alternativ text för knappen är markerade som ska läsas upp av Skärmläsaren.
-
-## <a name="errors"></a>Fel
-Eftersom de flesta felen är tillfälliga kan försöker anslutningen ofta åtgärda dem. I följande tabell visas en lista över fel och åtgärder. Dessa fel och begränsningar gäller för både virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer.
-
-Fel                            |   Åtgärd
-:---------------------------------|:--------------------------------------------|
-Det gick inte att hämta inställningarna för startdiagnostik för  *&lt;VMNAME&gt;* . Se till att startdiagnostik har aktiverats för den här virtuella datorn om du vill använda seriekonsolen. | Kontrollera att den virtuella datorn har [startdiagnostik](boot-diagnostics.md) aktiverat.
-Den virtuella datorn är i tillståndet stoppad frigjord. Starta den virtuella datorn och försök Seriell konsol-anslutning. | Den virtuella datorn måste vara i ett startat tillstånd för att få åtkomst till serie konsolen.
-Du har inte de behörigheter som krävs för att använda den här virtuella datorn i serie konsolen. Kontrollera att du har minst deltagarbehörigheter för virtuell dator.| Åtkomst till serie konsolen kräver vissa behörigheter. Mer information finns i [krav](#prerequisites).
-Det går inte att fastställa resursgruppen för startdiagnostiklagringskonto  *&lt;STORAGEACCOUNTNAME&gt;* . Kontrollera att startdiagnostik har aktiverats för den här virtuella datorn och du har åtkomst till det här lagringskontot. | Åtkomst till serie konsolen kräver vissa behörigheter. Mer information finns i [krav](#prerequisites).
-Web socket är stängd eller kunde inte öppnas. | Du kan behöva godkänna `*.console.azure.com`. En mer detaljerad men längre metod är att godkänna den [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653), som ändras relativt regelbundet.
-Ett ”förbjuden”-svar påträffades vid åtkomst till den här Virtuella datorns lagringskonto för startdiagnostik. | Se till att startdiagnostik inte har en konto brand vägg. Ett lagringskonto för tillgänglig startdiagnostik är nödvändiga för seriekonsolen ska fungera.
 
 ## <a name="known-issues"></a>Kända problem
 Vi är medvetna om några problem med seriell konsol. Här är en lista över dessa problem och åtgärder för problemlösning. Dessa problem och begränsningar gäller för både virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer.
@@ -241,7 +162,7 @@ A. Avbildningen är antagligen felkonfigurerad för seriell konsolåtkomst. Info
 
 **FRÅGOR OCH. Är seriell konsol som är tillgänglig för VM-skalningsuppsättningar?**
 
-A. Ja det är det! Se [serie konsolen för Virtual Machine Scale Sets](#serial-console-for-virtual-machine-scale-sets)
+A. Ja det är det! Se [serie konsolen för Virtual Machine Scale Sets](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
 **FRÅGOR OCH. Kan jag fortfarande använda den seriella konsolen för att ansluta till min VM/virtuell dators skalnings uppsättnings instans om jag konfigurerar den virtuella datorn eller den virtuella datorns skalnings uppsättning med endast autentisering med SSH-nyckel?**
 

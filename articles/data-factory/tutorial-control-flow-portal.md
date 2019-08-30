@@ -3,21 +3,20 @@ title: Branchning i Azure Data Factory-pipeline | Microsoft Docs
 description: Lär dig hur du styr flödet av data i Azure Data Factory genom branchning och kedjesammansättning av aktiviteter.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: shlo
-ms.openlocfilehash: f2a8983ae5306ec2ada7b4b537c2f17425b8717d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8e4c17307b35295f37f1f84db912d04ca625b6a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60719118"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140910"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 I den här självstudiekursen skapar du en Data Factory-pipeline som visar några av funktionerna för att styra flödet. Den här pipelinen skapar en enkel kopia från en container i Azure Blob Storage till en annan container i samma lagringskonto. Om kopieringen lyckas skickar pipelinen information om den lyckade kopieringsåtgärden (till exempel hur mycket data som har skrivits) i ett e-postmeddelande. Om kopieringen misslyckas skickar pipelinen information om att kopieringen misslyckades (till exempel ett felmeddelande) i ett e-postmeddelande. I självstudiekursen visas olika exempel på hur du skickar parametrar.
@@ -38,7 +37,7 @@ I den här självstudiekursen får du göra följande:
 
 I den här självstudien används Azure Portal. Du kan använda andra metoder för att interagera med Azure Data Factory (se Snabbstarter i innehållsförteckningen).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 * **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
@@ -127,7 +126,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**:
+1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**:
    
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -272,7 +271,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
 23. Dra den **röda** knappen bredvid kopieringsaktiviteten till den andra webbaktiviteten, **SendFailureEmailActivity**. Du kan flytta aktiviteterna så att pipelinen ser ut som på följande bild: 
 
     ![Fullständig pipeline med alla aktiviteter](./media/tutorial-control-flow-portal/full-pipeline.png)
-24. Verifiera pipelinen genom att klicka på **Verifiera** i verktygsfältet. Stäng fönstret **Pipeline Validation Output** (Resultat av pipelineverifiering) genom att klicka på **>>**.
+24. Verifiera pipelinen genom att klicka på **Verifiera** i verktygsfältet. Stäng fönstret **Pipeline Validation Output** (Resultat av pipelineverifiering) genom att klicka på **>>** .
 
     ![Verifiera pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
 24. Om du vill publicera entiteter (datauppsättningar, pipeliner osv.) till Data Factory-tjänsten väljer du **Publicera alla**. Vänta tills du ser meddelandet om att entiteterna **har publicerats**.

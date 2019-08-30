@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a687823d1344ca11864523cb9187f48d7373fd41
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989640"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127129"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
 
@@ -65,11 +65,11 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Åtkomstgranskningar|Ta bort länk till programkontroll|
 |Åtkomstgranskningar|Uppdatera åtkomstgranskning|
 |Åtkomstgranskningar|Uppdatera registrerings status för Azure AD åtkomst granskningar|
-|Åtkomstgranskningar|Uppdatera inställningarna för e-postaviseringar för åtkomstgranskning|
-|Åtkomstgranskningar|Uppdatera inställningen för upprepningsantal för åtkomstgranskning|
-|Åtkomstgranskningar|Uppdatera inställningen för varaktigheten i dagar för upprepning av åtkomstgranskning|
-|Åtkomstgranskningar|Uppdatera inställningen för sluttyp för åtkomstgranskning|
-|Åtkomstgranskningar|Uppdatera inställningen för upprepningstyp för åtkomstgranskning|
+|Åtkomstgranskningar|Uppdatera inställningar för e-postavisering om åtkomstgranskning|
+|Åtkomstgranskningar|Uppdatera inställningen för upprepnings antal för åtkomst granskning|
+|Åtkomstgranskningar|Uppdatera upprepnings varaktighet för åtkomst granskning i dagar|
+|Åtkomstgranskningar|Uppdatera inställning för upprepnings slut typ för åtkomst granskning|
+|Åtkomstgranskningar|Uppdatera inställningen för upprepnings typ för åtkomst granskning|
 |Åtkomstgranskningar|Uppdatera inställningarna för åtkomstgranskningpåminnelse|
 |Åtkomstgranskningar|Uppdatera program|
 |Åtkomstgranskningar|Uppdatera godkännande av begäran|
@@ -348,10 +348,10 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 
 |Granskningskategori|Aktivitet|
 |---|---|
-|Hantering av administrativ enhet|Ladda ned en enskild riskhändelsetyp|
+|Hantering av administrativ enhet|Hämta en identifierings typ för enskild risk|
 |Hantering av administrativ enhet|Ladda ned administratörer och status för sammandrag av veckan|
-|Hantering av administrativ enhet|Ladda ned alla riskhändelsetyper|
-|Hantering av administrativ enhet|Ladda ned kostnadsfria användarriskhändelser|
+|Hantering av administrativ enhet|Hämta alla typer av risk identifiering|
+|Hantering av administrativ enhet|Ladda ned kostnads fria identifieringar av användar risker|
 |Hantering av administrativ enhet|Ladda ned användare som har flaggats för risk|
 |Programhantering|Bearbetade batchinbjudningar|
 |Programhantering|Överförda batchinbjudningar|
@@ -517,11 +517,11 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |---|---|
 |Grupphantering|Granska begäran om godkännande|
 |Grupphantering|Uppdatera åtkomstgranskning|
-|Grupphantering|Uppdatera inställningarna för e-postaviseringar för åtkomstgranskning|
-|Grupphantering|Uppdatera inställningen för upprepningsantal för åtkomstgranskning|
-|Grupphantering|Uppdatera inställningen för varaktigheten i dagar för upprepning av åtkomstgranskning|
-|Användarhantering|Uppdatera inställningen för sluttyp för åtkomstgranskning|
-|Användarhantering|Uppdatera inställningen för upprepningstyp för åtkomstgranskning|
+|Grupphantering|Uppdatera inställningar för e-postavisering om åtkomstgranskning|
+|Grupphantering|Uppdatera inställningen för upprepnings antal för åtkomst granskning|
+|Grupphantering|Uppdatera upprepnings varaktighet för åtkomst granskning i dagar|
+|Användarhantering|Uppdatera inställning för upprepnings slut typ för åtkomst granskning|
+|Användarhantering|Uppdatera inställningen för upprepnings typ för åtkomst granskning|
 
 
 

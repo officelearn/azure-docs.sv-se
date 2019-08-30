@@ -1,72 +1,71 @@
 ---
-title: Uppdatera Machine Learning-modeller med Azure Data Factory | Microsoft Docs
-description: Beskriver hur du skapar skapa förutsägande pipelines med Azure Data Factory och Azure Machine Learning
+title: Uppdatera Machine Learning modeller med Azure Data Factory | Microsoft Docs
+description: Beskriver hur du skapar skapa förutsägande pipelines med hjälp av Azure Data Factory och Azure Machine Learning
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 0c0e0e3983344bba76f5f305ecaf73f91110f3bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a980f269c8b88618ffa3311c05310a88ade379ed
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567339"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140461"
 ---
-# <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Uppdaterar Azure Machine Learning-modeller med Uppdateringsresursaktivitet
+# <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Uppdatera Azure Machine Learning modeller med uppdatering av resurs aktivitet
 
-> [!div class="op_single_selector" title1="Transformeringsaktiviteter"]
+> [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
 > * [Hive-aktivitet](data-factory-hive-activity.md) 
-> * [Piggningsåtgärd](data-factory-pig-activity.md)
+> * [Aktivitet i gris](data-factory-pig-activity.md)
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
-> * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+> * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
 > * [Machine Learning Batch-körningsaktivitet](data-factory-azure-ml-batch-execution-activity.md)
 > * [Machine Learning-uppdateringsresursaktivitet](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
-> * [.NET-anpassad aktivitet](data-factory-use-custom-activities.md)
+> * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)
 
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [uppdatera machine learning-modeller i Data Factory](../update-machine-learning-models.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory kan du läsa mer [i uppdatera maskin inlärnings modeller i Data Factory](../update-machine-learning-models.md).
 
-Den här artikeln kompletterar huvudsakliga Azure Data Factory - artikeln för Azure Machine Learning-integrering: [Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Om du inte redan gjort det, kan du läsa den huvudsakliga artikeln innan du läser igenom den här artikeln. 
+Den här artikeln kompletterar huvud artikeln Azure Data Factory-Azure Machine Learning-integrering: [Skapa förutsägande pipelines med hjälp av Azure Machine Learning och Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Läs igenom huvud artikeln innan du läser igenom den här artikeln, om du inte redan gjort det. 
 
 ## <a name="overview"></a>Översikt
-Framöver kommer måste förutsägande modeller i Azure ML bedömning experiment vara modellkomponenten med hjälp av nya indatauppsättningar. När du är klar med att träna, som du vill uppdatera bedömning av webbtjänsten med retrained ML-modellen. Vanliga stegen för att aktivera omtränings och uppdatera Azure ML-modeller via webbtjänster är:
+Med tiden måste de förutsägande modellerna i test experimentet i Azure ML återanvändas med nya data uppsättningar. När du är färdig med omträningen vill du uppdatera bedömnings-webbtjänsten med den retränade ML-modellen. Vanliga steg för att aktivera omskolning och uppdatering av Azure ML-modeller via webb tjänster är:
 
-1. Skapa ett experiment i [Azure ML Studio](https://studio.azureml.net).
-2. När du är nöjd med modellen kan du också använda Azure ML Studio för att publicera webbtjänster för både den **träningsexperiment** och bedömning /**förutsägelseexperiment**.
+1. Skapa ett experiment i [Azure ml Studio](https://studio.azureml.net).
+2. När du är nöjd med modellen använder du Azure ML Studio för att publicera webb tjänster för både **utbildnings experimentet** och poängsättningen/**förutsägande experiment**.
 
-I följande tabell beskrivs de webbtjänster som används i det här exemplet.  Se [träna om Machine Learning-modeller via programmering](../../machine-learning/machine-learning-retrain-models-programmatically.md) mer information.
+I följande tabell beskrivs de webb tjänster som används i det här exemplet.  Mer information finns i [omträna Machine Learning modeller program mässigt](../../machine-learning/machine-learning-retrain-models-programmatically.md) .
 
-- **Utbildning webbtjänsten** – tar emot träningsdata och producerar tränade modeller. Utdata från omtrimning är en .ilearner-fil i Azure Blob storage. Den **standard endpoint** skapas automatiskt för dig när du publicerar utbildningen experiment som en webbtjänst. Du kan skapa fler slutpunkter, men i exemplet används bara standardslutpunkten.
-- **Bedömning av webbtjänsten** – tar emot omärkta data exempel och förutsägelser. Utdata för förutsägelse kan ha olika former, till exempel en .csv-fil eller rader i en Azure SQL-databas, beroende på konfigurationen av experimentet. Standardslutpunkten skapas automatiskt åt dig när du publicerar förutsägelseexperiment som en webbtjänst. 
+- **Utbildning** -webbtjänst – tar emot utbildnings data och genererar utbildade modeller. Resultatet av omträningen är en. ilearner-fil i en Azure Blob Storage. **Standard slut punkten** skapas automatiskt åt dig när du publicerar övnings experimentet som en webb tjänst. Du kan skapa fler slut punkter, men exemplet använder bara standard slut punkten.
+- **Bedömnings webb tjänst** – tar emot omärkta data exempel och gör förutsägelser. Resultatet av förutsägelsen kan ha olika formulär, till exempel en CSV-fil eller rader i en Azure SQL-databas, beroende på hur experimentet är. Standard slut punkten skapas automatiskt åt dig när du publicerar ett förutsägelse experiment som en webb tjänst. 
 
-Följande bild visar relationen mellan träning och bedömning slutpunkter i Azure ML.
+Följande bild illustrerar förhållandet mellan utbildning och poäng slut punkter i Azure ML.
 
 ![Webbtjänster](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-Du kan anropa den **utbildning webbtjänsten** med hjälp av den **Azure ML-Batchkörningsaktivitet**. Anropa en webbtjänst för utbildning är samma som anropar en Azure Machine Learning-webbtjänst (värdera webbtjänst) för bedömnings data. I föregående avsnitt beskriver hur du anropar en Azure Machine Learning-webbtjänst från en Azure Data Factory-pipeline i detalj. 
+Du kan anropa **utbildnings webb tjänsten** med hjälp av **aktiviteten Azure ml batch-körning**. Att anropa en webb tjänst för utbildning är detsamma som att anropa en Azure ML-webbtjänst (poängsättnings webb tjänst) för att värdera Poäng information. Föregående avsnitt beskriver hur du anropar en Azure ML-webbtjänst från en Azure Data Factory pipeline i detalj. 
 
-Du kan anropa den **värdera webbtjänst** med hjälp av den **Azure ML uppdatera resurs aktivitet** att uppdatera webbtjänsten med den nyligen tränade modellen. I följande exempel innehåller definitioner för länkad tjänst: 
+Du kan anropa **bedömnings webb tjänsten** med hjälp av **resurs aktiviteten Azure ml-uppdatering** för att uppdatera webb tjänsten med den nyligen utbildade modellen. I följande exempel finns länkade tjänst definitioner: 
 
-## <a name="scoring-web-service-is-a-classic-web-service"></a>Bedömning av webbtjänsten är en klassiska webbtjänst
-Om bedömning av webbtjänsten är en **klassisk webbtjänst**, skapa andra **inte är standard och uppdateras endpoint** med hjälp av Azure portal. Se [skapa slutpunkter](../../machine-learning/machine-learning-create-endpoint.md) i artikeln. När du har skapat den uppdatera inte är standard-slutpunkten, gör du följande:
+## <a name="scoring-web-service-is-a-classic-web-service"></a>Webb tjänsten poängsättning är en klassisk webb tjänst
+Om bedömnings webb tjänsten är en **klassisk webb tjänst**skapar du den andra **icke-standard-och uppdaterings bara slut punkten** med hjälp av Azure Portal. Se artikeln [skapa slut punkter](../../machine-learning/machine-learning-create-endpoint.md) för steg. När du har skapat den uppdaterings bara slut punkten som inte är standard, utför följande steg:
 
-* Klicka på **BATCHKÖRNING** att hämta URI-värdet för den **mlEndpoint** JSON-egenskap.
-* Klicka på **RESURSUPPDATERING** länk till URI-värdet för den **updateResourceEndpoint** JSON-egenskap. API-nyckel är på slutpunkten för själva sidan (i det nedre högra hörnet).
+* Klicka på **batch-körning** för att hämta URI-värdet för **mlEndpoint** JSON-egenskapen.
+* Klicka på **Uppdatera resurs** länk för att hämta URI-värdet för **updateResourceEndpoint** JSON-egenskapen. API-nyckeln finns på slut punkts sidan (i det nedre högra hörnet).
 
-![uppdateringsbara slutpunkt](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
+![uppdaterings bar slut punkt](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
-I följande exempel innehåller en exempel-JSON-definition för länkad AzureML-tjänst. Den länkade tjänsten använder apiKey för autentisering.  
+I följande exempel visas ett exempel på en JSON-definition för den länkade tjänsten AzureML. Den länkade tjänsten använder apiKey för autentisering.  
 
 ```json
 {
@@ -82,14 +81,14 @@ I följande exempel innehåller en exempel-JSON-definition för länkad AzureML-
 }
 ```
 
-## <a name="scoring-web-service-is-azure-resource-manager-web-service"></a>Bedömning av webbtjänsten är Azure Resource Manager-webbtjänst 
-Om webbtjänsten är den nya typen av webbtjänsten som Exponerar en Azure Resource Manager-slutpunkt, behöver du inte lägga till andra **avviker från standarden** slutpunkt. Den **updateResourceEndpoint** i den länkade tjänsten har följande format: 
+## <a name="scoring-web-service-is-azure-resource-manager-web-service"></a>Webb tjänsten poängsättning är Azure Resource Manager-webbtjänst 
+Om webb tjänsten är den nya typen av webb tjänst som exponerar en Azure Resource Manager-slutpunkt behöver du inte lägga till den andra slut punkten som **inte är standard** . **UpdateResourceEndpoint** i den länkade tjänsten har formatet: 
 
 ```
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Du kan hämta värden för platshållare i URL: en vid frågor till webbtjänsten på den [Azure Machine Learning Web Services-portalen](https://services.azureml.net/). Den nya typen av slutpunkt för resursen kräver en AAD (Azure Active Directory)-token. Ange **servicePrincipalId** och **servicePrincipalKey**i AzureML länkad tjänst. Se [skapa tjänstens huvudnamn och tilldela behörigheter för att hantera Azure-resurs](../../active-directory/develop/howto-create-service-principal-portal.md). Här är ett exempel AzureML länkade tjänstdefinitionen: 
+Du kan hämta värden för plats hållare i URL: en när du frågar webb tjänsten på [Azure Machine Learning Web Services-portalen](https://services.azureml.net/). Den nya typen av uppdaterings resurs slut punkt kräver en AAD-token (Azure Active Directory). Ange **servicePrincipalId** och **servicePrincipalKey**i den länkade tjänsten azureml. Se [hur du skapar tjänstens huvud namn och tilldelar behörigheter för att hantera Azure-resurser](../../active-directory/develop/howto-create-service-principal-portal.md). Här är ett exempel på en AzureML länkad tjänst definition: 
 
 ```json
 {
@@ -109,22 +108,22 @@ Du kan hämta värden för platshållare i URL: en vid frågor till webbtjänste
 }
 ```
 
-Följande scenario innehåller mer information. Den innehåller ett exempel för att träna och uppdatera Azure ML-modeller från en Azure Data Factory-pipeline.
+Följande scenario innehåller mer information. Det finns ett exempel på omskolning och uppdatering av Azure ML-modeller från en Azure Data Factory pipeline.
 
-## <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Scenario: träna och uppdatera en Azure ML-modell
-Det här avsnittet innehåller ett exempel på pipeline som använder den **Azure ML-batchkörningsaktivitet** att träna en modell. Pipelinen använder också den **aktivitet för Azure ML uppdatera resurs** att uppdatera modellen i bedömning av webbtjänsten. Avsnittet ger också JSON-kodfragment för alla länkade tjänster, datauppsättningar och pipeline i det här exemplet.
+## <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Scenario: omträning och uppdatering av en Azure ML-modell
+Det här avsnittet innehåller en exempel pipeline som använder **aktiviteten Azure ml batch-körning** för att omträna en modell. Pipelinen använder också **resurs aktiviteten Azure ml-uppdatering** för att uppdatera modellen i poängsättnings webb tjänsten. Avsnittet innehåller också JSON-kodfragment för alla länkade tjänster, data uppsättningar och pipeline i exemplet.
 
-Här är i diagramvyn på exempel-pipeline. Som du ser Azure ML-Batchkörningsaktivitet tar utbildning indata och producerar en utbildning utdata (iLearner-fil). Azure ML-Uppdateringsresursaktivitet tar den här utdatan för utbildning och uppdaterar modellen i bedömnings webbtjänstslutpunkt. Den Uppdateringsresursaktivitet producerar inte några utdata. PlaceholderBlob är bara en dummy utdata-datauppsättning som krävs av Azure Data Factory-tjänsten att köra en pipeline.
+Här är diagramvyn för exempel pipelinen. Som du kan se är körnings aktiviteten i Azure ML batch indata för utbildning och genererar en utbildnings utmatning (iLearner-fil). Resurs aktiviteten för Azure ML-uppdateringen tar denna utbildning och uppdaterar modellen i poängsättnings webb tjänstens slut punkt. Aktiviteten uppdatera resurs genererar inga utdata. PlaceholderBlob är bara en data uppsättning för en dummy-datauppsättning som krävs av Azure Data Factorys tjänsten för att köra pipelinen.
 
-![diagram med datapipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+![Pipeline-diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
-### <a name="azure-blob-storage-linked-service"></a>Azure Blob storage-länkade tjänst:
+### <a name="azure-blob-storage-linked-service"></a>Länkad Azure Blob Storage-tjänst:
 Azure Storage innehåller följande data:
 
-* träningsdata. Indata för webbtjänsten för Azure ML-utbildning.  
-* iLearner-fil. Utdata från webbtjänsten för Azure ML-utbildning. Den här filen är också indata till aktiviteten resursuppdatering.  
+* tränings data. Indata för webb tjänsten Azure ML-utbildning.  
+* iLearner-fil. Utdata från Azure ML Training-webbtjänsten. Den här filen är också indata för resurs aktiviteten uppdatera.  
 
-Här är exempel JSON-definition för den länkade tjänsten:
+Här är exempel-JSON-definitionen för den länkade tjänsten:
 
 ```JSON
 {
@@ -138,8 +137,8 @@ Här är exempel JSON-definition för den länkade tjänsten:
 }
 ```
 
-### <a name="training-input-dataset"></a>Utbildning datauppsättningen för indata:
-Följande datauppsättning representerar inkommande träningsdata för webbtjänsten för Azure ML-utbildning. Azure ML-batchkörningsaktivitet tar den här datauppsättningen som indata.
+### <a name="training-input-dataset"></a>Data uppsättning för utbildning:
+Följande data uppsättning representerar indata för träning för Azure ML-webbtjänsten. Körnings aktiviteten i Azure ML batch använder den här data uppsättningen som indata.
 
 ```JSON
 {
@@ -169,8 +168,8 @@ Följande datauppsättning representerar inkommande träningsdata för webbtjän
 }
 ```
 
-### <a name="training-output-dataset"></a>Datauppsättning för träning utdata:
-Följande datauppsättningen representerar den iLearner-fil med utdata från webbtjänsten för Azure ML-utbildning. Azure ML-Batchkörningsaktivitet skapar den här datauppsättningen. Den här datauppsättningen är också indata till aktiviteten Azure ML-resursuppdatering.
+### <a name="training-output-dataset"></a>Data uppsättning för utbildning av utdata:
+Följande data uppsättning representerar den utgående iLearner-filen från Azure ML Training-webbtjänsten. Körnings aktiviteten i Azure ML batch genererar den här data uppsättningen. Den här data uppsättningen är också indata för resurs aktiviteten Azure ML-uppdatering.
 
 ```JSON
 {
@@ -193,8 +192,8 @@ Följande datauppsättningen representerar den iLearner-fil med utdata från web
 }
 ```
 
-### <a name="linked-service-for-azure-ml-training-endpoint"></a>Länkad tjänst för Azure ML-slutpunkten för utbildning
-Följande JSON-kodfragmentet definierar en Azure Machine Learning-länkade tjänst som pekar på standardslutpunkten för webbtjänsten utbildning.
+### <a name="linked-service-for-azure-ml-training-endpoint"></a>Länkad tjänst för Azure ML Training-slutpunkt
+Följande JSON-kodfragment definierar en Azure Machine Learning länkad tjänst som pekar på standard slut punkten för utbildnings webb tjänsten.
 
 ```JSON
 {    
@@ -209,16 +208,16 @@ Följande JSON-kodfragmentet definierar en Azure Machine Learning-länkade tjän
 }
 ```
 
-I **Azure ML Studio**, gör du följande för att hämta värden för **mlEndpoint** och **apiKey**:
+I **Azure ml Studio**gör du följande för att hämta värden för **mlEndpoint** och **apiKey**:
 
-1. Klicka på **WEBBTJÄNSTER** på den vänstra menyn.
-2. Klicka på den **utbildning webbtjänsten** i listan över webbtjänster.
-3. Klicka på Kopiera bredvid **API-nyckel** textrutan. Klistra in nyckeln i Urklipp i Data Factory JSON-redigerare.
-4. I den **Azure ML studio**, klickar du på **BATCHKÖRNING** länk.
-5. Kopiera den **begär URI** från den **begära** avsnittet och klistra in den i Data Factory JSON-redigerare.   
+1. Klicka på **webb tjänster** på den vänstra menyn.
+2. Klicka på **webb tjänsten utbildning** i listan med webb tjänster.
+3. Klicka på Kopiera bredvid text rutan **API-nyckel** . Klistra in nyckeln i Urklipp i Data Factory JSON-redigeraren.
+4. I **Azure ml Studio**klickar du på **batch-körning** länk.
+5. Kopiera **begärd URI** från avsnittet **begäran** och klistra in den i Data Factory JSON-redigeraren.   
 
-### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Länkad tjänst för Azure ML uppdateras bedömnings-slutpunkten:
-Följande JSON-kodfragmentet definierar en Azure Machine Learning-länkade tjänst som pekar på den icke-standard uppdatera slutpunkten för bedömning av webbtjänsten.  
+### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Länkad tjänst för Azure ML-uppdatering av resultat slut punkt:
+Följande JSON-kodfragment definierar en Azure Machine Learning länkad tjänst som pekar på den icke-standardinställda slut punkten för bedömnings webb tjänsten.  
 
 ```JSON
 {
@@ -237,8 +236,8 @@ Följande JSON-kodfragmentet definierar en Azure Machine Learning-länkade tjän
 }
 ```
 
-### <a name="placeholder-output-dataset"></a>Platshållaren datauppsättningen för utdata:
-Azure ML-resursuppdatering aktiviteten genererar inte några utdata. Azure Data Factory kräver dock en utdatauppsättning att driva schemat för en pipeline. Därför använder vi en dummy/platshållaren datauppsättning i det här exemplet.  
+### <a name="placeholder-output-dataset"></a>Data uppsättning för placeholder-utdata:
+Resurs aktiviteten för Azure ML-uppdateringen genererar inga utdata. Azure Data Factory kräver dock en data uppsättning för utdata för att driva schemat för en pipeline. Vi använder därför en data uppsättning med dummy/placeholder i det här exemplet.  
 
 ```JSON
 {
@@ -261,9 +260,9 @@ Azure ML-resursuppdatering aktiviteten genererar inte några utdata. Azure Data 
 ```
 
 ### <a name="pipeline"></a>Pipeline
-Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateResource**. Azure ML-batchkörningsaktivitet tar träningsdata som indata och genererar en iLearner-fil som utdata. Aktiviteten anropar webbtjänsten utbildning (träningsexperiment visas som en webbtjänst) med utbildningsdata som indata och tar emot den ilearner-fil från webbtjänsten. PlaceholderBlob är bara en dummy utdata-datauppsättning som krävs av Azure Data Factory-tjänsten att köra en pipeline.
+Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateResource**. Körnings aktiviteten i Azure ML batch använder tränings data som indata och skapar en iLearner-fil som utdata. Aktiviteten anropar webb tjänsten utbildning (inlärnings experiment som visas som en webb tjänst) med indata och tar emot ilearner-filen från webb tjänsten. PlaceholderBlob är bara en data uppsättning för en dummy-datauppsättning som krävs av Azure Data Factorys tjänsten för att köra pipelinen.
 
-![diagram med datapipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+![Pipeline-diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 ```JSON
 {

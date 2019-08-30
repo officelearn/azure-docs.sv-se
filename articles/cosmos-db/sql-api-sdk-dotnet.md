@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 4380bf81d05aa5247b57605b2aa53d24a73a0f68
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 431ede41e115c82c877041da4a0eb93eacf83cbd
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638585"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142642"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL API: Information om hämtning och version
 > [!div class="op_single_selector"]
@@ -218,7 +218,7 @@ ms.locfileid: "68638585"
 * Åtgärdar att göra SDK mer robust för automatisk redundans under vissa omständigheter.
 
 ### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
-* Åtgärda ett problem som ibland orsakar en WebException: Fjärrnamnet kunde inte lösas.
+* Åtgärda ett problem som ibland orsakar en WebException: Det gick inte att matcha fjärrnamnet.
 * Lagt till stöd för att läsa in ett skrivet dokument genom att lägga till nya överlagringar till ReadDocumentAsync API direkt.
 
 ### <a name="a-name11211121"></a><a name="1.12.1"/>1.12.1
@@ -377,6 +377,10 @@ Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella S
 
 Förfrågningar till Azure Cosmos DB med hjälp av en tillbakadragen SDK avvisas av tjänsten.
 
+> [!WARNING]
+> Alla versioner **1. x** av .NET SDK för SQL API kommer att dras tillbaka den **30 augusti 2020**.
+> 
+>
 <br/>
 
 | Version | Utgivningsdatum | Slutdatum |
@@ -394,52 +398,52 @@ Förfrågningar till Azure Cosmos DB med hjälp av en tillbakadragen SDK avvisas
 | [2.1.1](#2.1.1) |27 september 2018 |--- |
 | [2.1.0](#2.1.0) |21 september 2018 |--- |
 | [2.0.0](#2.0.0) |07 september 2018 |--- |
-| [1.22.0](#1.22.0) |19 april 2018 |--- |
-| [1.21.1](#1.20.1) |09 mars 2018 |--- |
-| [1.20.2](#1.20.1) |21 februari 2018 |--- |
-| [1.20.1](#1.20.1) |05 februari 2018 |--- |
-| [1.19.1](#1.19.1) |16 november 2017 |--- |
-| [1.19.0](#1.19.0) |Den 10 november 2017 |--- |
-| [1.18.1](#1.18.1) |Den 07 november 2017 |--- |
-| [1.18.0](#1.18.0) |Den 17 oktober 2017 |--- |
-| [1.17.0](#1.17.0) |10 augusti 2017 |--- |
-| [1.16.1](#1.16.1) |07 augusti 2017 |--- |
-| [1.16.0](#1.16.0) |02 augusti 2017 |--- |
-| [1.15.0](#1.15.0) |30 juni 2017 |--- |
-| [1.14.1](#1.14.1) |Den 23 maj 2017 |--- |
-| [1.14.0](#1.14.0) |10 maj 2017 |--- |
-| [1.13.4](#1.13.4) |09 maj 2017 |--- |
-| [1.13.3](#1.13.3) |Maj 06, 2017 |--- |
-| [1.13.2](#1.13.2) |19 april 2017 |--- |
-| [1.13.1](#1.13.1) |Den 29 mars 2017 |--- |
-| [1.13.0](#1.13.0) |24 mars 2017 |--- |
-| [1.12.2](#1.12.2) |20 mars 2017 |--- |
-| [1.12.1](#1.12.1) |14 mars 2017 |--- |
-| [1.12.0](#1.12.0) |15 februari 2017 |--- |
-| [1.11.4](#1.11.4) |06 februari 2017 |--- |
-| [1.11.3](#1.11.3) |26 januari 2017 |--- |
-| [1.11.1](#1.11.1) |Den 21 december 2016 |--- |
-| [1.11.0](#1.11.0) |Den 08 december 2016 |--- |
-| [1.10.0](#1.10.0) |27 september 2016 |--- |
-| [1.9.5](#1.9.5) |01 september 2016 |--- |
-| [1.9.4](#1.9.4) |24 augusti 2016 |--- |
-| [1.9.3](#1.9.3) |15 augusti 2016 |--- |
-| [1.9.2](#1.9.2) |23 juli 2016 |--- |
-| [1.8.0](#1.8.0) |Den 14 juni 2016 |--- |
-| [1.7.1](#1.7.1) |Maj 06, 2016 |--- |
-| [1.7.0](#1.7.0) |26 april 2016 |--- |
-| [1.6.3](#1.6.3) |08, 2016 |--- |
-| [1.6.2](#1.6.2) |Den 29 mars 2016 |--- |
-| [1.5.3](#1.5.3) |19 februari 2016 |--- |
-| [1.5.2](#1.5.2) |14 december 2015 |--- |
-| [1.5.1](#1.5.1) |23 november 2015 |--- |
-| [1.5.0](#1.5.0) |05 oktober 2015 |--- |
-| [1.4.1](#1.4.1) |25 augusti 2015 |--- |
-| [1.4.0](#1.4.0) |13 augusti 2015 |--- |
-| [1.3.0](#1.3.0) |05 augusti 2015 |--- |
-| [1.2.0](#1.2.0) |06 juli 2015 |--- |
-| [1.1.0](#1.1.0) |30 april 2015 |--- |
-| [1.0.0](#1.0.0) |08, 2015 |--- |
+| [1.22.0](#1.22.0) |19 april 2018 | 30 augusti 2020 |
+| [1.21.1](#1.20.1) |09 mars 2018 |30 augusti 2020 |
+| [1.20.2](#1.20.1) |21 februari 2018 |30 augusti 2020 |
+| [1.20.1](#1.20.1) |05 februari 2018 |30 augusti 2020 |
+| [1.19.1](#1.19.1) |16 november 2017 |30 augusti 2020 |
+| [1.19.0](#1.19.0) |Den 10 november 2017 |30 augusti 2020 |
+| [1.18.1](#1.18.1) |Den 07 november 2017 |30 augusti 2020 |
+| [1.18.0](#1.18.0) |Den 17 oktober 2017 |30 augusti 2020 |
+| [1.17.0](#1.17.0) |10 augusti 2017 |30 augusti 2020 |
+| [1.16.1](#1.16.1) |07 augusti 2017 |30 augusti 2020 |
+| [1.16.0](#1.16.0) |02 augusti 2017 |30 augusti 2020 |
+| [1.15.0](#1.15.0) |30 juni 2017 |30 augusti 2020 |
+| [1.14.1](#1.14.1) |Den 23 maj 2017 |30 augusti 2020 |
+| [1.14.0](#1.14.0) |10 maj 2017 |30 augusti 2020 |
+| [1.13.4](#1.13.4) |09 maj 2017 |30 augusti 2020 |
+| [1.13.3](#1.13.3) |Maj 06, 2017 |30 augusti 2020 |
+| [1.13.2](#1.13.2) |19 april 2017 |30 augusti 2020 |
+| [1.13.1](#1.13.1) |Den 29 mars 2017 |30 augusti 2020 |
+| [1.13.0](#1.13.0) |24 mars 2017 |30 augusti 2020 |
+| [1.12.2](#1.12.2) |20 mars 2017 |30 augusti 2020 |
+| [1.12.1](#1.12.1) |14 mars 2017 |30 augusti 2020 |
+| [1.12.0](#1.12.0) |15 februari 2017 |30 augusti 2020 |
+| [1.11.4](#1.11.4) |06 februari 2017 |30 augusti 2020 |
+| [1.11.3](#1.11.3) |26 januari 2017 |30 augusti 2020 |
+| [1.11.1](#1.11.1) |Den 21 december 2016 |30 augusti 2020 |
+| [1.11.0](#1.11.0) |Den 08 december 2016 |30 augusti 2020 |
+| [1.10.0](#1.10.0) |27 september 2016 |30 augusti 2020 |
+| [1.9.5](#1.9.5) |01 september 2016 |30 augusti 2020 |
+| [1.9.4](#1.9.4) |24 augusti 2016 |30 augusti 2020 |
+| [1.9.3](#1.9.3) |15 augusti 2016 |30 augusti 2020 |
+| [1.9.2](#1.9.2) |23 juli 2016 |30 augusti 2020 |
+| [1.8.0](#1.8.0) |Den 14 juni 2016 |30 augusti 2020 |
+| [1.7.1](#1.7.1) |Maj 06, 2016 |30 augusti 2020 |
+| [1.7.0](#1.7.0) |26 april 2016 |30 augusti 2020 |
+| [1.6.3](#1.6.3) |08, 2016 |30 augusti 2020 |
+| [1.6.2](#1.6.2) |Den 29 mars 2016 |30 augusti 2020 |
+| [1.5.3](#1.5.3) |19 februari 2016 |30 augusti 2020 |
+| [1.5.2](#1.5.2) |14 december 2015 |30 augusti 2020 |
+| [1.5.1](#1.5.1) |23 november 2015 |30 augusti 2020 |
+| [1.5.0](#1.5.0) |05 oktober 2015 |30 augusti 2020 |
+| [1.4.1](#1.4.1) |25 augusti 2015 |30 augusti 2020 |
+| [1.4.0](#1.4.0) |13 augusti 2015 |30 augusti 2020 |
+| [1.3.0](#1.3.0) |05 augusti 2015 |30 augusti 2020 |
+| [1.2.0](#1.2.0) |06 juli 2015 |30 augusti 2020 |
+| [1.1.0](#1.1.0) |30 april 2015 |30 augusti 2020 |
+| [1.0.0](#1.0.0) |08, 2015 | 30 augusti 2020 |
 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR

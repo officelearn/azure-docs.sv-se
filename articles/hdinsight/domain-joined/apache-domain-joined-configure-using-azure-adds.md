@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 300fd31632a6b3c9043c19dd9b47f40258080261
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1165cbeff1144567e43f408c0866c0b8a571882d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614218"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125594"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security-paket med hjälp av Azure Active Directory Domain Services
 
@@ -22,12 +22,12 @@ Enterprise Security Package (ESP)-kluster ger åtkomst till flera användare på
 I den här artikeln får du lära dig hur du konfigurerar ett HDInsight-kluster med ESP genom att använda Azure Active Directory Domain Services (Azure AD-DS).
 
 > [!NOTE]  
-> ESP är allmänt tillgängligt i HDInsight 3,6 och 4,0 för kluster typer: Apache Spark, Interactive, Apache Hadoop och HBase. ESP för Apache Kafka kluster typ är i för hands version.
+> ESP är allmänt tillgängligt i HDInsight 3,6 och 4,0 för kluster typer: Apache Spark, Interactive, Hadoop och HBase. ESP för Apache Kafka kluster typ är i för hands version med stöd för bästa prestanda. ESP-kluster som skapats före ESP GA-datum (1 oktober 2018) stöds inte.
 
 ## <a name="enable-azure-ad-ds"></a>Aktivera Azure AD-DS
 
 > [!NOTE]  
-> Endast klient organisations administratörer har behörighet att aktivera Azure AD-DS. Om kluster lagringen är Azure Data Lake Storage (ADLS) gen1 eller Gen2, måste du inaktivera Multi-Factor Authentication (MFA) för användare som behöver åtkomst till klustret med hjälp av grundläggande Kerberos-autentiseringar. Du kan använda [betrodda IP-adresser](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) eller [villkorlig åtkomst](../../active-directory/conditional-access/overview.md) för att inaktivera MFA för vissa användare endast när de ansluter till HDInsight-klustrets VNet-IP-intervall. Om du använder villkorlig åtkomst ser du till att AD service-slutpunkten är aktive rad i HDInsight-VNET.
+> Endast klient organisations administratörer har behörighet att aktivera Azure AD-DS. Om kluster lagringen är Azure Data Lake Storage (ADLS) gen1 eller Gen2 måste du inaktivera Multi-Factor Authentication (MFA) för användare som behöver åtkomst till klustret med hjälp av grundläggande Kerberos-autentiseringar. Du kan använda [betrodda IP-adresser](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) eller [villkorlig åtkomst](../../active-directory/conditional-access/overview.md) för att inaktivera MFA för vissa användare endast när de ansluter till HDInsight-klustrets VNet-IP-intervall. Om du använder villkorlig åtkomst ser du till att AD service-slutpunkten är aktive rad i HDInsight-VNET.
 >
 > Om kluster lagringen är Azure Blob Storage (WASB) ska du inte inaktivera MFA.
 

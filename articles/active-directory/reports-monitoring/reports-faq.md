@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a9b1144e3ef1f1a49c39d694f465653da5881cb
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e8c3138b82c7dc4a7217e8cb67448a5d824398ba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987928"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127010"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Vanliga frågor och svar kring Azure Active Directory rapporter
 
@@ -37,7 +37,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory
 
 **F: Jag använder `https://graph.windows.net/<tenant-name>/reports/` för närvarande slut punkts-API: er för att hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) till våra rapporterings system program mässigt. Vad ska jag byta till?**
 
-**S:** Du kan använda [identitets skydds-API: et](../identity-protection/graph-get-started.md) för att få åtkomst till säkerhets identifieringar via Microsoft Graph. Det nya formatet ger större flexibilitet i hur du kan fråga efter data, med avancerad filtrering, val av fält med mera och standardisera risk händelser till en typ för enklare integrering i Siem och andra data insamlings verktyg. Eftersom data har ett annat format kan du inte ersätta en ny fråga för dina gamla frågor. [Det nya API: et använder dock Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), som är Microsoft-standarden för sådana API: er som O365 eller Azure AD. Det arbete som krävs kan antingen utöka dina aktuella MS-diagram-investeringar eller hjälpa dig att börja över gången till den nya standard plattformen.
+**S:** Du kan använda [identitets skyddets identifierings-API](../identity-protection/graph-get-started.md) för att få åtkomst till säkerhets identifieringar via Microsoft Graph. Det nya formatet ger större flexibilitet i hur du kan fråga data, med avancerad filtrering, val av fält med mera och standardisera risk identifieringar till en typ för enklare integrering i Siem och andra data insamlings verktyg. Eftersom data har ett annat format kan du inte ersätta en ny fråga för dina gamla frågor. [Det nya API: et använder dock Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), som är Microsoft-standarden för sådana API: er som O365 eller Azure AD. Det arbete som krävs kan antingen utöka dina aktuella MS-diagram-investeringar eller hjälpa dig att börja över gången till den nya standard plattformen.
 
 ---
 
@@ -107,7 +107,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory
 
 ## <a name="risky-sign-ins"></a>Riskfyllda inloggningar
 
-**F: Det finns en risk händelse i identitets skydd men jag kan inte se motsvarande inloggning i inloggnings rapporten. Förväntas detta?**
+**F: Det finns en risk identifiering i identitets skydd men jag kan inte se motsvarande inloggning i inloggnings rapporten. Förväntas detta?**
 
 **S:** Ja, identitets skyddet utvärderar risker för alla autentiserings flöden oavsett om de är interaktiva eller icke-interaktiva. Alla inloggnings rapporter visar dock bara de interaktiva inloggningarna.
 
@@ -115,7 +115,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory
 
 **F: Hur gör jag för att veta varför en inloggning eller en användare har flaggats som riskfylld i Azure Portal?**
 
-**S:** Om du har en **Azure AD Premium** prenumeration kan du lära dig mer om de underliggande risk händelserna genom att välja användaren i **användare som har flaggats för risk** eller genom att välja en post i rapporten **riskfyllda inloggningar** . Om du har en **kostnads fri** eller **grundläggande** prenumeration kan du visa rapporterna användare i risk-och riskfyllda inloggningar, men du kan inte se information om underliggande risk händelser.
+**S:** Om du har en **Azure AD Premium** prenumeration kan du lära dig mer om de underliggande risk identifieringarna genom att välja användaren i **användare som har flaggats för risk** eller genom att välja en post i rapporten **riskfyllda inloggningar** . Om du har en **kostnads fri** eller **grundläggande** prenumeration kan du visa rapporterna användare i risk-och riskfyllda inloggningar, men du kan inte se information om underliggande risk identifiering.
 
 ---
 
@@ -125,7 +125,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory
 
 ---
 
-**F: Vad innebär risk händelsen "inloggning med ytterligare risk upptäckt"?**
+**F: Vad innebär identifieringen av risk identifieringen "inloggning med ytterligare risk upptäckt"?**
 
 **S:** För att ge dig insikter om alla riskfyllda inloggningar i din miljö, "inloggning med ytterligare risk upptäckt" fungerar som plats hållare för inloggningar som är exklusiva för att Azure AD Identity Protection prenumeranter.
 

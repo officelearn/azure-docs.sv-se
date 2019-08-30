@@ -1,20 +1,20 @@
 ---
-title: Skapa ett Azure Data Explorer-kluster och en databas med hjälp av Python
-description: Lär dig hur du skapar ett Azure Data Explorer-kluster och en databas med hjälp av Python.
+title: Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av python
+description: Lär dig hur du skapar ett Azure Datautforskaren-kluster och-databas med hjälp av python.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: caac53aec08e234f320ee4278a5a58bbc62bff68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3f58e596db26c04a8f3be4f87eb129fadf5e328
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494583"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141742"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Skapa ett Azure Data Explorer-kluster och en databas med hjälp av Python
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av python
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
@@ -24,15 +24,15 @@ ms.locfileid: "66494583"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här artikeln skapar du ett kluster och en databas med hjälp av Python.
+Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här artikeln skapar du ett kluster och en databas med hjälp av python.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="install-python-package"></a>Installera Python-paketet
 
-Öppna en kommandotolk med Python i dess sökväg för att installera Python-paketet för Azure Data Explorer (Kusto). Kör följande kommando:
+Om du vill installera python-paketet för Azure Datautforskaren (Kusto) öppnar du en kommando tolk med python i sökvägen. Kör följande kommando:
 
 ```
 pip install azure-mgmt-kusto
@@ -71,7 +71,7 @@ pip install azure-mgmt-kusto
 
     Det finns ytterligare parametrar som du kan använda, till exempel kapaciteten för klustret.
     
-1. Ange [ *dina autentiseringsuppgifter*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
+1. Ange [ *dina autentiseringsuppgifter*](/azure/python/python-sdk-azure-authenticate)
 
 1. Kör följande kommando för att kontrollera om klustret har skapats:
 
@@ -104,7 +104,7 @@ Om resultatet innehåller `provisioningState` med värdet `Succeeded` har klustr
    |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
    |---|---|---|
    | cluster_name | *mykustocluster* | Namnet på det kluster där databasen ska skapas.|
-   | databasnamn | *mykustodatabase* | Namn på databasen.|
+   | database_name | *mykustodatabase* | Namn på databasen.|
    | resource_group_name | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
    | soft_delete_period | *3650 dagar, 0:00:00* | Hur lång tid data ska behållas för att vara tillgängliga för frågor. |
    | hot_cache_period | *3650 dagar, 0:00:00* | Hur lång tid data ska behållas i cache. |
@@ -119,7 +119,7 @@ Nu har du ett kluster och en databas.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-* Om du planerar att följa våra andra artiklar, bevara alla resurser som du skapade.
+* Behåll de resurser du har skapat om du planerar att följa våra andra artiklar.
 * Ta bort klustret om du vill rensa resurser. När du tar bort ett kluster, raderas också alla databaser i den. Använd följande kommando för att ta bort klustret:
 
     ```Python
@@ -128,4 +128,4 @@ Nu har du ett kluster och en databas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Mata in data med hjälp av Azure Data Explorer Python-bibliotek](python-ingest-data.md)
+* [Mata in data med Azure Datautforskaren python-biblioteket](python-ingest-data.md)

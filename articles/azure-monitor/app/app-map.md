@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 73cf6fd1c20f2e4208d1f7c28a756f28a2fad839
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: ce44be5bae5aaa8f86d04068cce1c4bc919b0893
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302578"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126959"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Program karta: Prioritering distribuerade program
 
@@ -50,7 +50,7 @@ Klicka på en komponent om du vill se relaterade insikter och gå till prioriter
 
 ![Fällbar](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>Undersök felen
+### <a name="investigate-failures"></a>Undersök fel
 
 Välj **Undersök haverier** för att starta fönstret problem.
 
@@ -74,7 +74,7 @@ Välj **gå till information** för att utforska den slutliga transaktions upple
 
 ![Skärm bild av transaktions information från slut punkt till slut punkt](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Visa i analys
+### <a name="view-in-analytics"></a>Visa i Analytics
 
 Om du vill fråga efter och undersöka program data ytterligare klickar du på **Visa i analys**.
 
@@ -84,7 +84,7 @@ Om du vill fråga efter och undersöka program data ytterligare klickar du på *
 
 ### <a name="alerts"></a>Aviseringar
 
-Om du vill visa aktiva aviseringar och underliggande regler som orsakar att aviseringarna utlöses väljer du aviseringar.
+Om du vill visa aktiva aviseringar och underliggande regler som orsakar att aviseringarna utlöses väljerdu aviseringar.
 
 ![Skärm bild av knappen aviseringar](media/app-map/alerts.png)
 
@@ -272,4 +272,6 @@ Använd feedback-alternativet för att ge feedback.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förstå korrelation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* Mer information om hur korrelation fungerar i Application Insights finns i [telemetri korrelations artikel] (https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
+* Den [diagnostiska transaktionen från slut punkt till slut punkt](transaction-diagnostics.md) motsvarar telemetri från Server sidan från alla dina Application Insights övervakade komponenter till en enda vy.
+* Avancerade korrelations scenarier i ASP.NET Core och ASP.NET finns i artikeln [spåra anpassade åtgärder](custom-operations-tracking.md) .

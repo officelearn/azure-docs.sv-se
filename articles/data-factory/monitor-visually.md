@@ -3,21 +3,20 @@ title: Övervaka Azure-datafabriker visuellt Microsoft Docs
 description: Lär dig att visuellt övervaka Azures data fabriker
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: shlo
-ms.openlocfilehash: e680610263830c856a3ff902d8e55cd8b2b4a158
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 99ae0139d7b12c0bfb87030d2b749b12834a4f96
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114571"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141099"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Övervaka Azure-datafabriker visuellt
 Azure Data Factory är en molnbaserad data integrerings tjänst. Du kan använda den för att skapa data drivna arbets flöden i molnet för att dirigera och automatisera data förflyttning och data omvandling. Med hjälp av Azure Data Factory kan du:

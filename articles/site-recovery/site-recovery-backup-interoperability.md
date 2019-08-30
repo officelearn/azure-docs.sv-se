@@ -1,29 +1,28 @@
 ---
-title: Stöd för användning av Azure Site Recovery med Azure Backup | Microsoft Docs
+title: Stöd för att använda Azure Site Recovery med Azure Backup
 description: Innehåller en översikt över hur Azure Site Recovery och Azure Backup kan användas tillsammans.
-services: site-recovery
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sideeksh
-ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2078aa33ca735b91b5923d94028a286427f107a6
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61035783"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146863"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Stöd för att använda Site Recovery med Azure Backup
 
-Den här artikeln sammanfattas stöd för användning av den [Site Recovery-tjänsten](site-recovery-overview.md) tillsammans med den [Azure Backup-tjänsten](https://docs.microsoft.com/azure/backup/backup-overview).
+I den här artikeln sammanfattas stödet för att använda tjänsten [Site Recovery](site-recovery-overview.md) tillsammans med [tjänsten Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
 
-**Åtgärd** | **Site Recovery-stöd** | **Detaljer**
+**Åtgärd** | **Site Recovery support** | **Detaljer**
 --- | --- | ---
-**Distribuera tjänster tillsammans** | Stöds | Tjänster är kompatibla och kan konfigureras tillsammans.
-**Filen säkerhetskopiering/återställning** | Stöds | När säkerhetskopiering och replikering har aktiverats för en virtuell dator och säkerhetskopior tas, finns det något problem i återställningen på käll-virtuella datorer eller grupp med virtuella datorer. Replikering fortsätter som vanligt med ingen ändring i replikeringen.
-**Disk säkerhetskopiering/återställning** | Inga aktuella support | Om du återställer en säkerhetskopierade disk måste du inaktivera och återaktivera replikering för den virtuella datorn igen.
-**VM-säkerhetskopiering/återställning** | Inga aktuella support | Om du säkerhetskopierar eller återställer en virtuell dator eller en grupp med virtuella datorer måste du inaktivera och återaktivera replikering för den virtuella datorn.  
+**Distribuera tjänster tillsammans** | Stöds | Tjänsterna är kompatibla och kan konfigureras tillsammans.
+**Säkerhets kopiering/återställning av fil** | Stöds | När säkerhets kopiering och replikering har Aktiver ATS för en virtuell dator och säkerhets kopior görs, finns det inga problem med att återställa filer på virtuella datorer på den virtuella datorn eller en grupp med virtuella datorer. Replikeringen fortsätter som vanligt utan att någon ändring av replikeringstillståndet har ändrats.
+**Säkerhets kopiering/återställning av disk** | Inget aktuellt stöd | Om du återställer en säkerhets kopie rad disk måste du inaktivera och återaktivera replikering för den virtuella datorn igen.
+**Säkerhets kopiering/återställning av virtuella datorer** | Inget aktuellt stöd | Om du säkerhetskopierar eller återställer en virtuell dator eller grupp av virtuella datorer måste du inaktivera och återaktivera replikering för den virtuella datorn.  
 
 

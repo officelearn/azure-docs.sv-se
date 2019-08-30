@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 27b548d03e6b05179da744e636a5c887e6b01ad5
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 4292b2e83c55ce62db777d846206e5857bf81ca7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624678"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142583"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node. js SDK för SQL API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -409,49 +409,70 @@ Inte alltid de mest synliga ändringarna, men de hjälper vårt team att leverer
 ## <a name="release--retirement-dates"></a>Fri & Släpp dras tillbaka datum
 Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds.
 
-Nya funktioner och funktionalitet och optimeringar läggs endast till den aktuella SDK, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt.
+Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt.
 
 Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjänsten.
 
+> [!WARNING]
+> Alla versioner **1. x** av Node SDK för SQL API kommer att dras tillbaka den **30 augusti 2020**.
+> 
+>
 <br/>
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [3.1.0](#3.1.0) |26 juli 2019 |--- |
+| [3.0.4](#3.0.4) |22 juli 2019 |--- |
+| [3.0.3](#3.0.3) |17 juli 2019 |--- |
+| [3.0.2](#3.0.2) |9 juli 2019 |--- |
+| [3.0.0](#3.0.0) |28 juni 2019 |--- |
+| [2.1.5](#2.1.5) |20 mars 2019 |--- |
+| [2.1.4](#2.1.4) |15 mars 2019 |--- |
+| [2.1.3](#2.1.3) |8 mars 2019 |--- |
+| [2.1.2](#2.1.2) |28 januari 2019 |--- |
+| [2.1.1](#2.1.1) |5 december 2018 |--- |
+| [2.1.0](#2.1.0) |4 december 2018 |--- |
+| [2.0.5](#2.0.5) |7 november 2018 |--- |
+| [2.0.4](#2.0.4) |30 oktober 2018 |--- |
+| [2.0.3](#2.0.3) |30 oktober 2018 |--- |
+| [2.0.2](#2.0.2) |10 oktober 2018 |--- |
+| [2.0.1](#2.0.1) |25 september 2018 |--- |
+| [2.0.0](#2.0.0) |24 september 2018 |--- |
 | [2.0.0-3 (RC)](#2.0.0-3) |2 augusti 2018 |--- |
-| [1.14.4](#1.14.4) |Den 03 maj 2018 |--- |
-| [1.14.3](#1.14.3) |Den 03 maj 2018 |--- |
-| [1.14.2](#1.14.2) |21 december 2017 |--- |
-| [1.14.1](#1.14.1) |Den 10 november 2017 |--- |
-| [1.14.0](#1.14.0) |9 november 2017 |--- |
-| [1.13.0](#1.13.0) |11 oktober 2017 |--- |
-| [1.12.2](#1.12.2) |10 augusti 2017 |--- |
-| [1.12.1](#1.12.1) |10 augusti 2017 |--- |
-| [1.12.0](#1.12.0) |10 maj 2017 |--- |
-| [1.11.0](#1.11.0) |16 mars 2017 |--- |
-| [1.10.2](#1.10.2) |27 januari 2017 |--- |
-| [1.10.1](#1.10.1) |22 december 2016 |--- |
-| [1.10.0](#1.10.0) |03 oktober 2016 |--- |
-| [1.9.0](#1.9.0) |Den 07 juli 2016 |--- |
-| [1.8.0](#1.8.0) |Den 14 juni 2016 |--- |
-| [1.7.0](#1.7.0) |26 april 2016 |--- |
-| [1.6.0](#1.6.0) |Den 29 mars 2016 |--- |
-| [1.5.6](#1.5.6) |08 mars 2016 |--- |
-| [1.5.5](#1.5.5) |Februari 02 2016 |--- |
-| [1.5.4](#1.5.4) |01 februari 2016 |--- |
-| [1.5.2](#1.5.2) |26 januari 2016 |--- |
-| [1.5.2](#1.5.2) |Den 22 januari 2016 |--- |
-| [1.5.1](#1.5.1) |4 januari 2016 |--- |
-| [1.5.0](#1.5.0) |Den 31 december 2015 |--- |
-| [1.4.0](#1.4.0) |06 oktober 2015 |--- |
-| [1.3.0](#1.3.0) |06 oktober 2015 |--- |
-| [1.2.2](#1.2.2) |10 september 2015 |--- |
-| [1.2.1](#1.2.1) |15 augusti 2015 |--- |
-| [1.2.0](#1.2.0) |05 augusti 2015 |--- |
-| [1.1.0](#1.1.0) |09 juli 2015 |--- |
-| [1.0.3](#1.0.3) |04 juni 2015 |--- |
-| [1.0.2](#1.0.2) |23 maj 2015 |--- |
-| [1.0.1](#1.0.1) |15 maj, 2015 |--- |
-| [1.0.0](#1.0.0) |08, 2015 |--- |
+| [1.14.4](#1.14.4) |Den 03 maj 2018 |30 augusti 2020 |
+| [1.14.3](#1.14.3) |Den 03 maj 2018 |30 augusti 2020 |
+| [1.14.2](#1.14.2) |21 december 2017 |30 augusti 2020 |
+| [1.14.1](#1.14.1) |Den 10 november 2017 |30 augusti 2020 |
+| [1.14.0](#1.14.0) |9 november 2017 |30 augusti 2020 |
+| [1.13.0](#1.13.0) |11 oktober 2017 |30 augusti 2020 |
+| [1.12.2](#1.12.2) |10 augusti 2017 |30 augusti 2020 |
+| [1.12.1](#1.12.1) |10 augusti 2017 |30 augusti 2020 |
+| [1.12.0](#1.12.0) |10 maj 2017 |30 augusti 2020 |
+| [1.11.0](#1.11.0) |16 mars 2017 |30 augusti 2020 |
+| [1.10.2](#1.10.2) |27 januari 2017 |30 augusti 2020 |
+| [1.10.1](#1.10.1) |22 december 2016 |30 augusti 2020 |
+| [1.10.0](#1.10.0) |03 oktober 2016 |30 augusti 2020 |
+| [1.9.0](#1.9.0) |Den 07 juli 2016 |30 augusti 2020 |
+| [1.8.0](#1.8.0) |Den 14 juni 2016 |30 augusti 2020 |
+| [1.7.0](#1.7.0) |26 april 2016 |30 augusti 2020 |
+| [1.6.0](#1.6.0) |Den 29 mars 2016 |30 augusti 2020 |
+| [1.5.6](#1.5.6) |08 mars 2016 |30 augusti 2020 |
+| [1.5.5](#1.5.5) |Februari 02 2016 |30 augusti 2020 |
+| [1.5.4](#1.5.4) |01 februari 2016 |30 augusti 2020 |
+| [1.5.2](#1.5.2) |26 januari 2016 |30 augusti 2020 |
+| [1.5.2](#1.5.2) |Den 22 januari 2016 |30 augusti 2020 |
+| [1.5.1](#1.5.1) |4 januari 2016 |30 augusti 2020 |
+| [1.5.0](#1.5.0) |Den 31 december 2015 |30 augusti 2020 |
+| [1.4.0](#1.4.0) |06 oktober 2015 |30 augusti 2020 |
+| [1.3.0](#1.3.0) |06 oktober 2015 |30 augusti 2020 |
+| [1.2.2](#1.2.2) |10 september 2015 |30 augusti 2020 |
+| [1.2.1](#1.2.1) |15 augusti 2015 |30 augusti 2020 |
+| [1.2.0](#1.2.0) |05 augusti 2015 |30 augusti 2020 |
+| [1.1.0](#1.1.0) |09 juli 2015 |30 augusti 2020 |
+| [1.0.3](#1.0.3) |04 juni 2015 |30 augusti 2020 |
+| [1.0.2](#1.0.2) |23 maj 2015 |30 augusti 2020 |
+| [1.0.1](#1.0.1) |15 maj, 2015 |30 augusti 2020 |
+| [1.0.0](#1.0.0) |08, 2015 |30 augusti 2020 |
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

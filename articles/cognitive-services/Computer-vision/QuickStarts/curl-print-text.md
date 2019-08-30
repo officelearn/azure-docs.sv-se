@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 10cab0a1b5bfea603de56a366473a68ca2fcb009
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6862c48493c2fdf3cbc4e4a9da70d6da70c723de
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604412"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141459"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-curl"></a>Snabbstart: Extrahera utskrivna text (OCR) med hjälp av REST API för visuellt innehåll och cURL
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-curl"></a>Snabbstart: Extrahera utskriven text (OCR) med hjälp av Visuellt innehåll REST API och sväng
 
 I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR) från en bild med hjälp av REST API:et för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [cURL](https://curl.haxx.se/windows).
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel.
 
 ## <a name="create-and-run-the-sample-command"></a>Skapa och köra exempelkommandot
 
@@ -36,8 +36,9 @@ Så här skapar du och kör exemplet:
 1. Kopiera följande kommando till en textredigerare.
 1. Gör följande ändringar i kommandot där det behövs:
     1. Ersätt värdet för `<subscriptionKey>` med din prenumerationsnyckel.
-    1. Ersätt värdet för fråge-URL:en (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr`) med slutpunktsadressen för metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) från Azure-regionen där du fått dina prenumerationsnycklar om det behövs.
-    1. Du kan också ändra bild-URL:en i begärandetexten (`https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\`) till URL:en för en annan bild som ska analyseras.
+    1. Ersätt den första delen av URL: en för`westcentralus`begäran () med texten i din egen slut punkts-URL.
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+    1. Du kan också ändra bildens URL i begärandetexten (`https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\`) till URL:en för en annan bild som du vill analysera.
 1. Öppna ett kommandotolksfönster.
 1. Klistra in kommandot från textredigeraren i kommandotolkens fönster och kör sedan kommandot.
 

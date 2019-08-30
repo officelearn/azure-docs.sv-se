@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356412bfca19e72d09338faf8c8bcac5ec8f273a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988293"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127395"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitets rapporter i Azure Portal
 
@@ -112,12 +112,12 @@ Du kan använda inloggnings rapporten för att visa information om program anvä
 
 ### <a name="anomalous-activity-reports"></a>Avvikande aktivitets rapporter
 
-Avvikande aktivitets rapporter innehåller information om säkerhetsrelaterade risk händelser som Azure AD kan identifiera och rapportera om.
+Avvikande aktivitets rapporter innehåller information om säkerhetsrelaterade risk identifieringar som Azure AD kan identifiera och rapportera om.
 
-I följande tabell visas säkerhets rapporter i Azure AD-avvikande aktivitet och motsvarande risk händelse typer i Azure Portal. Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](concept-risk-events.md).  
+I följande tabell visas säkerhets rapporter i Azure AD-avvikande aktivitet och motsvarande typer av risk identifiering i Azure Portal. Mer information finns i [Azure Active Directory risk identifieringar](concept-risk-events.md).  
 
 
-| Rapport om avvikande aktiviteter i Azure AD |  Typ av risk händelse för identitets skydd|
+| Rapport om avvikande aktiviteter i Azure AD |  Typ av risk identifiering för identitets skydd|
 | :--- | :--- |
 | Används med läckta autentiseringsuppgifter | Läckta autentiseringsuppgifter |
 | Oregelbunden inloggningsaktivitet | Omöjligt att resa till ovanliga platser |
@@ -126,15 +126,15 @@ I följande tabell visas säkerhets rapporter i Azure AD-avvikande aktivitet och
 | Inloggningar från IP-adresser med misstänkt aktivitet | Inloggningar från IP-adresser med misstänkt aktivitet |
 | - | Inloggningar från okända platser |
 
-Följande säkerhets rapporter i Azure AD-avvikande aktivitet ingår inte som risk händelser i Azure Portal:
+Följande säkerhets rapporter i Azure AD-avvikande aktivitet ingår inte som identifieringar av risker i Azure Portal:
 
 * Inloggningar efter flera fel
 * Inloggningar från flera geografiska områden
 
 
-### <a name="detected-risk-events"></a>Identifierade risk händelser
+### <a name="detected-risk-detections"></a>Identifierade risk identifieringar
 
-Du kan komma åt rapporter om identifierade risk händelser i avsnittet **säkerhet** på bladet **Azure Active Directory** i [Azure Portal](https://portal.azure.com). Identifierade risk händelser spåras i följande rapporter:   
+Du kan komma åt rapporter om identifierade risk identifieringar i avsnittet **säkerhet** på bladet **Azure Active Directory** i [Azure Portal](https://portal.azure.com). Identifierade risk identifieringar spåras i följande rapporter:   
 
 - [Användare i riskzonen](concept-user-at-risk.md)
 - [Riskfyllda inloggningar](concept-risky-sign-ins.md)
@@ -147,7 +147,7 @@ Du kan komma åt rapporter om identifierade risk händelser i avsnittet **säker
 
 #### <a name="symptoms"></a>Symtom 
 
-Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte se alla poster för den tid som jag har valt. Varför då? 
+Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte se alla poster för den tid som jag har valt. Varför? 
 
  ![Rapportering](./media/troubleshoot-missing-data-download/01.png)
  
@@ -205,7 +205,7 @@ Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. O
 
 #### <a name="symptoms"></a>Symtom
 
-Jag kan inte se mer än 30 dagars inloggnings- och granskningsdata från Azure-portalen. Varför då? 
+Jag kan inte se mer än 30 dagars inloggnings- och granskningsdata från Azure-portalen. Varför? 
 
  ![Rapportering](./media/troubleshoot-missing-audit-data/03.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9be48d8f403d3ddde993ebdcf0142b55e52afce
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 675e970bbdaeb035273eb87394dda610e070aa39
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779679"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125116"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en elastisk strategi för hantering av åtkomst kontroll med Azure Active Directory
 
@@ -80,12 +80,12 @@ Den här exempel princip uppsättningen beviljar valda användare i **AppUsers**
 * Princip 1: Blockera åtkomst till personer utanför mål grupper
   * Användare och grupper: Inkludera alla användare. Undanta AppUsers, CoreAdmins och EmergencyAccess
   * Molnappar: Ta med alla appar
-  * Kraven (Ingen)
+  * Kraven Alternativet
   * Bevilja kontroll: Blockera
 * Princip 2: Bevilja åtkomst till AppUsers som kräver MFA eller betrodd enhet.
   * Användare och grupper: Inkludera AppUsers. Uteslut CoreAdmins och EmergencyAccess
   * Molnappar: Ta med alla appar
-  * Kraven (Ingen)
+  * Kraven Alternativet
   * Bevilja kontroll: Bevilja åtkomst, kräver Multi-Factor Authentication, kräver att enheten är kompatibel. För flera kontroller: Kräv en av de valda kontrollerna.
 
 ### <a name="contingencies-for-user-lockout"></a>Eventualförpliktelser/eventualtillgångar för användar utelåsning
@@ -232,7 +232,7 @@ Beroende på vilka åtgärder som används under ett avbrott kan din organisatio
 1. Som en del av din strategi för ändrings kontroll måste du dokumentera varje ändring och det tidigare läget så att du kan återställa eventuella eventualförpliktelser som du har implementerat så snart åtkomst kontrollerna är helt operativa.
 2. Anta att skadliga aktörer kommer att försöka att skörda lösen ord genom lösen ords spridning eller nätfiske-attacker när du har inaktiverat MFA. Dessutom kanske Felaktiga aktörer redan har lösen ord som tidigare inte beviljade åtkomst till någon resurs som kan provas under det här fönstret. För viktiga användare som chefer, kan du delvis minimera den här risken genom att återställa sina lösen ord innan du inaktiverar MFA för dem.
 3. Arkivera all inloggnings aktivitet för att identifiera vem som har åtkomst till vad under tiden MFA har inaktiverats.
-4. [Prioritering alla risk händelser som rapporter ATS](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) under det här fönstret.
+4. [Prioritering alla risk identifieringar som rapporter ATS](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) i det här fönstret.
 
 ## <a name="after-a-disruption"></a>Efter ett avbrott
 
@@ -242,7 +242,7 @@ Beroende på vilka åtgärder som används under ett avbrott kan din organisatio
 2. Inaktivera dina katastrof principer. 
 3. Återställa andra ändringar som du har gjort och dokumenterat under avbrott.
 4. Om du har använt ett konto för nödfalls åtkomst måste du komma ihåg att återskapa autentiseringsuppgifter och fysiskt skydda de nya autentiseringsuppgifterna som en del av dina konto procedurer för nöd åtkomst.
-5. Fortsätt att [prioritering alla risk händelser som rapporter ATS](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) efter avbrott för misstänkt aktivitet.
+5. Fortsätt att [prioritering alla risk identifieringar som rapporter ATS](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) efter avbrott för misstänkt aktivitet.
 6. Återkalla alla uppdateringstoken som utfärdats [med PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) för att rikta in dig på en uppsättning användare. Att återkalla alla uppdateringstoken är viktigt för privilegierade konton som används under avbrottet och det tvingar dem att autentisera och uppfylla kontrollen över de återställda principerna.
 
 ## <a name="emergency-options"></a>Nöd alternativ
@@ -254,7 +254,7 @@ Om din organisation använder äldre MFA-principer per användare, kan du överv
    1. Om du inte har inventeringen av utgående IP-adresser, eller om du behöver aktivera åtkomst i och utanför företags nätverket, kan du lägga till hela IPv4-adress utrymmet som betrodda IP-adresser genom att ange 0.0.0.0/1 och 128.0.0.0/1.
 
 >[!IMPORTANT]
- > Om du utökar de betrodda IP-adresserna för att blockera åtkomst kommer risk händelser som är kopplade till IP-adresser (till exempel omöjliga resor eller okända platser) inte att genereras.
+ > Om du utökar de betrodda IP-adresserna för att blockera åtkomst kommer risk identifieringar som är associerade med IP-adresser (till exempel omöjliga resor eller okända platser) inte att genereras.
 
 >[!NOTE]
  > Det går bara att konfigurera [betrodda IP-adresser](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) för Azure MFA med [Azure AD Premium licenser](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).

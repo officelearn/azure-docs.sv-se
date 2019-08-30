@@ -1,7 +1,7 @@
 ---
-title: 'Rensa Data som saknas: Modulreferens'
+title: 'Rensa saknade data: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen Rensa Data som saknas i Azure Machine Learning-tjänsten för att ta bort, ersätta eller härleda värden som saknas.
+description: Lär dig hur du använder modulen rensa data som saknas i Azure Machine Learning tjänsten för att ta bort, ersätta eller härleda saknade värden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,110 +9,109 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: de81204219a102734f1820258a3c32e59a64c685
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a65e8224b00bb592d6e0e42abdd304cf325d4412
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028792"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128938"
 ---
-# <a name="clean-missing-data-module"></a>Rensa Data som saknas-modul
+# <a name="clean-missing-data-module"></a>Rensa data modul som saknas
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen om du vill ta bort, ersätta eller härleda värden som saknas. 
+Använd den här modulen för att ta bort, ersätta eller härleda saknade värden. 
 
-Dataexperter Kontrollera ofta data för saknade värden och utföra olika åtgärder för att korrigera data eller infoga nya värden. Målet med sådana rengöringsband åtgärder är att förhindra problem på grund av saknade data som kan uppstå när träna en modell. 
+Data forskare kontrollerar ofta data för saknade värden och utför sedan olika åtgärder för att åtgärda data eller infoga nya värden. Målet med sådana rengörings åtgärder är att förhindra problem som orsakas av saknade data som kan uppstå när du tränar en modell. 
 
-Den här modulen stöder flera typ av åtgärder för ”Rensa” saknade värden, inklusive:
+Den här modulen stöder flera typer av åtgärder för "Rensa"-saknade värden, inklusive:
 
-+ Ersätt värden som saknas med platshållare, medel eller andra värde
-+ Helt ta bort rader och kolumner som har värden som saknas
-+ Härledning av värden som baseras på statistiska metoder
++ Ersätta saknade värden med en plats hållare, ett medelvärde eller något annat värde
++ Ta bort rader och kolumner som saknar värden fullständigt
++ Härleda värden baserat på statistiska metoder
 
 
-Med den här modulen ändras inte datauppsättningen för källan. Istället skapas en ny datauppsättning i din arbetsyta som du kan använda i efterföljande arbetsflödet. Du kan också spara nya, rensade datauppsättningen för återanvändning.
+Om du använder den här modulen ändras inte käll data uppsättningen. I stället skapas en ny data uppsättning i arbets ytan som du kan använda i det efterföljande arbets flödet. Du kan också spara den nya, rensade data uppsättningen för åter användning.
 
-Den här modulen returnerar också en definition av omvandling används för att rensa värden som saknas. Du kan återanvända den här omvandlingen andra datauppsättningar som har samma schema med hjälp av den [gäller omvandling](./apply-transformation.md) modulen.  
+I den här modulen visas också en definition av den omvandling som används för att rensa de värden som saknas. Du kan använda den här omvandlingen igen på andra data uppsättningar som har samma schema, med hjälp av modulen [Använd omvandling](./apply-transformation.md) .  
 
-## <a name="how-to-use-clean-missing-data"></a>Hur du använder Rensa Data som saknas
+## <a name="how-to-use-clean-missing-data"></a>Använda rensade data som saknas
 
-Den här modulen kan du definiera en rengöringsåtgärden. Du kan också spara rengöringsåtgärden så att du kan använda den senare för nya data. Se följande länkar för en beskrivning av hur du skapar och sparar en process som rengöringsband: 
+Med den här modulen kan du definiera en rensnings åtgärd. Du kan också spara rensnings åtgärden så att du kan använda den senare på nya data. Se följande länkar för en beskrivning av hur du skapar och sparar en rensnings process: 
  
-+ Ersätt värden som saknas
++ Ersätta saknade värden
   
-+ Att tillämpa en rengöringsband omvandling till nya data
++ Tillämpa en rensnings omvandling för nya data
  
 > [!IMPORTANT]
-> Metoden rengöringsband som du använder för att hantera värden som saknas kan avsevärt påverka resultatet. Vi rekommenderar att du experimentera med olika metoder. Överväg att båda anledningen för användning av en viss metod och resultatets kvalitet.
+> Den rengörings metod som du använder för att hantera saknade värden kan dramatiskt påverka resultatet. Vi rekommenderar att du experimenterar med olika metoder. Överväg både motiveringen för användning av en viss metod och kvaliteten på resultaten.
 
-### <a name="replace-missing-values"></a>Ersätt värden som saknas  
+### <a name="replace-missing-values"></a>Ersätt saknade värden  
 
-Varje gång som du har utfört den [Rensa Data som saknas](./clean-missing-data.md) modul till en datauppsättning med samma rengöringsåtgärden tillämpas på alla kolumner som du väljer. Om du vill rensa olika kolumner med olika metoder kan du därför använda separata instanser av modulen.
+Varje gången du använder modulen [Rensa data som saknas](./clean-missing-data.md) i en uppsättning data tillämpas samma rengörings åtgärd på alla kolumner som du väljer. Om du behöver rensa olika kolumner med olika metoder kan du därför använda separata instanser av modulen.
 
-1.  Lägg till den [Rensa Data som saknas](./clean-missing-data.md) modul till ditt experiment, och anslut den datauppsättning som har värden som saknas.  
+1.  Lägg till modulen [Rensa data som saknas](./clean-missing-data.md) i experimentet och Anslut den data uppsättning som saknar värden.  
   
-2.  För **kolumner som ska rensas bort**, Välj de kolumner som innehåller de värden som saknas och som du vill ändra. Du kan välja flera kolumner, men du måste använda samma metod som ersättning i alla valda kolumner. Därför vanligtvis måste du rensa strängkolumner och numeriska kolumner separat.
+2.  För **kolumner**som ska rensas väljer du de kolumner som innehåller de saknade värden som du vill ändra. Du kan välja flera kolumner, men du måste använda samma ersättnings metod i alla valda kolumner. Därför behöver du vanligt vis rensa sträng kolumner och numeriska kolumner separat.
 
-    Till exempel vill söka efter saknade värden i alla numeriska kolumner:
+    Om du till exempel vill söka efter saknade värden i alla numeriska kolumner:
 
-    1. Öppna kolumnväljaren och välj **med regler**.
-    2. För **börjar med**väljer **nr kolumner**.
+    1. Öppna kolumn väljaren och välj **med regler**.
+    2. För **börja med**väljer du **inga kolumner**.
 
-        Du kan också starta med alla kolumner och utesluta kolumner. Inledningsvis är regler visas inte om du först på **alla kolumner**, men du kan klicka på **nr kolumner** och klicka sedan på **alla kolumner** igen för att börja med alla kolumner och sedan filtrera ut (exkludera) kolumner baserat på namn, datatyp, eller index för kolumner.
+        Du kan också börja med alla kolumner och sedan utesluta kolumner. Inlednings vis visas inte regler om du först klickar på **alla kolumner**, men du kan klicka på **inga kolumner** och sedan klicka på **alla kolumner** igen för att börja med alla kolumner och sedan filtrera bort (exkludera) kolumner baserat på indexet namn, data typ eller kolumn.
 
-    3. För **inkludera**väljer **kolumntyp** från listrutan och välj sedan **numeriska**, eller en mer specifik numerisk typ. 
+    3. I **Inkludera**väljer du **kolumn typ** i list rutan och väljer sedan **numerisk**eller en mer speciell numerisk typ. 
   
-    Valfri rengöras eller ersättning metod som du väljer måste tillämpas på **alla** kolumner i urvalet. Om data i valfri kolumn är inte kompatibel med den angivna åtgärden modulen returnerar ett fel och stoppar experimentet.
+    Eventuella rensnings-eller ersättnings metoder som du väljer måste vara tillämpliga på **alla** kolumner i markeringen. Om data i en kolumn är inkompatibla med den angivna åtgärden returnerar modulen ett fel och stoppar experimentet.
   
-3.  För **minsta saknas värdet förhållandet**, ange det minsta antalet värden som saknas och som krävs för åtgärden som ska utföras.  
+3.  Ange det minsta antalet saknade värden som krävs för att åtgärden ska utföras för **minsta värde för saknad värde**.  
   
-    Du använder det här alternativet i kombination med **maximalt värde förhållande som saknas** och definierar de villkor som ett rengöringsband åtgärden utförs på datauppsättningen. Om det finns för många eller för få rader som saknar värden, det går inte att utföra åtgärden. 
+    Du kan använda det här alternativet i kombination med **maximalt värde för saknat värde** för att definiera de villkor under vilka en rengörings åtgärd utförs i data uppsättningen. Åtgärden kan inte utföras om det finns för många eller för få rader som saknar värden. 
   
-    Det tal du anger representerar den **förhållande** värden som saknas på alla värdena i kolumnen. Som standard den **minsta saknas värdet förhållandet** egenskapen till 0. Det innebär att värden som saknas rensas även om det finns bara ett värde som saknas. 
+    Talet som du anger representerar **förhållandet mellan** saknade värden och alla värden i kolumnen. Som standard är den **minsta värdes kvot** egenskapen som anges till 0. Det innebär att saknade värden rensas även om det bara finns ett värde som saknas. 
 
     > [!WARNING]
-    > Det här villkoret måste uppfyllas av varje kolumn för den angivna åtgärden tillämpas. Anta exempelvis att du har valt tre kolumner och sedan ange den minsta kontrastförhållande på saknade värden till.2 (20%), men endast en kolumn har faktiskt 20% värden som saknas. I det här fallet gäller Rensningsåtgärden endast för kolumnen med över 20% saknar värden. Därför kan är de andra kolumnerna oförändrade.
+    > Detta villkor måste uppfyllas av varje kolumn för att den angivna åtgärden ska kunna tillämpas. Anta till exempel att du har valt tre kolumner och sedan anger minimi förhållandet för saknade värden till 2 (20%), men bara en kolumn har i själva verket 20% värden som saknas. I det här fallet gäller rensnings åtgärden endast för kolumnen med fler än 20% saknade värden. De andra kolumnerna skulle därför vara oförändrade.
     > 
-    > Om du är osäker om saknade värden har ändrats, markerar du alternativet **generera saknas indikator kolumnen**. En kolumn läggs till i datauppsättningen som visar huruvida varje kolumn uppfyller de angivna villkoren för de minsta och största intervall.  
+    > Om du är osäker på om de värden som saknas har ändrats väljer du alternativet och **genererar kolumnen indikator för saknat värde**. En kolumn läggs till i data uppsättningen för att ange om varje kolumn uppfyller de angivna villkoren för minsta och högsta intervall.  
   
-4. För **maximalt värde förhållande som saknas**, ange det maximala antalet värden som saknas som kan finnas för åtgärden som ska utföras.   
+4. Ange det maximala antalet saknade värden som kan finnas för den åtgärd som ska utföras för **maximal värdes kvot som saknas**.   
   
-    Du kanske exempelvis vill utföra saknas värdet ersättningen om 30% eller färre rader innehåller värden som saknas, men lämna värden som-är om mer än 30% av rader har värden som saknas.  
+    Till exempel kanske du vill utföra värde ersättning som saknas om 30% eller färre rader innehåller värden som saknas, men lämna värdena som-är om fler än 30% av raderna innehåller värden som saknas.  
   
-    Du kan ange hur många som förhållandet mellan värden som saknas på alla värdena i kolumnen. Som standard den **maximalt värde förhållande som saknas** har angetts till 1. Det innebär att värden som saknas rensas även om 100% av värdena i kolumnen saknas.  
+    Du definierar talet som förhållandet mellan saknade värden och alla värden i kolumnen. Som standard är det **maximala värdet för saknad värde** inställt på 1. Det innebär att saknade värden rensas även om 100% av värdena i kolumnen saknas.  
   
    
   
-5. För **rensning läge**, väljer du något av följande alternativ för att ersätta eller ta bort saknas värden:  
+5. För **rengörings läge**väljer du något av följande alternativ för att ersätta eller ta bort värden som saknas:  
   
   
-    + **Anpassade ersättningsvärde**: Använd det här alternativet om du vill ange ett platshållarvärde (t.ex 0 eller NA) som gäller för alla värden som saknas. Det värde som du anger som en ersättning måste vara kompatibel med datatypen för kolumnen.
+    + **Anpassat ersättnings värde**: Använd det här alternativet om du vill ange ett plats hållares värde (t. ex. 0 eller NA) som gäller för alla saknade värden. Det värde som du anger som ersättning måste vara kompatibelt med data typen för kolumnen.
   
-    + **Ersätt med medelvärdet**: Beräknar medelvärdet för kolumnen och använder medelvärdet som ersättningsvärdet för varje saknas värde i kolumnen.  
+    + **Ersätt med**: Beräknar kolumn medelvärdet och använder medelvärdet som ersättnings värde för varje saknat värde i kolumnen.  
   
-        Gäller enbart för kolumner som har Integer, Double eller booleskt datatyper.  
+        Gäller endast för kolumner som har data typerna Integer, Double eller Boolean.  
   
-    + **Ersätt med median**: Beräknar kolumnen medianvärdet och använder medianvärdet som ersättningen för alla saknade värden i kolumnen.  
+    + **Ersätt med median**: Beräknar kolumnens median värde och använder median värdet som ersättning för ett saknat värde i kolumnen.  
   
-        Gäller enbart för kolumner som har heltal eller dubbel datatyper. 
+        Gäller endast för kolumner som har heltals-eller dubbla data typer. 
   
-    + **Ersätt med läget**: Beräknar läge för kolumnen och använder läget som ersättningsvärdet för varje saknas värde i kolumnen.  
+    + **Ersätt med läge**: Beräknar läget för kolumnen och använder läget som ersättnings värde för alla saknade värden i kolumnen.  
   
-        Gäller för kolumner som har Integer, Double, booleskt värde eller Kategoriskt datatyper. 
+        Gäller för kolumner som har data typerna Integer, Double, Boolean eller kategoriska. 
   
-    + **Ta bort hela raden**: Fullständigt tar bort alla rader i den datauppsättning som har en eller flera av de värden som saknas. Detta är användbart om värden som saknas kan anses slumpmässigt saknas.  
+    + **Ta bort hela raden**: Tar helt bort alla rader i data uppsättningen som har ett eller flera värden som saknas. Detta är användbart om det saknade värdet kan anses slumpmässigt saknas.  
   
-    + **Ta bort hela kolumnen**: Fullständigt tar bort en kolumn i datauppsättningen som har en eller flera av de värden som saknas.  
+    + **Ta bort hel kolumn**: Tar helt bort alla kolumner i data uppsättningen som har ett eller flera värden som saknas.  
   
     
   
-6. Alternativet **ersättningsvärdet** är tillgänglig om du har valt alternativet **värde för anpassat ersättningen**. Ange ett nytt värde som används som ersättningsvärdet för alla värden som saknas i kolumnen.  
+6. Alternativet **ersättnings värde** är tillgängligt om du har valt alternativet, **anpassat ersättnings värde**. Ange ett nytt värde som ska användas som ersättnings värde för alla saknade värden i kolumnen.  
   
-    Observera att du kan använda det här alternativet endast i kolumner som har datatyper Integer, Double, booleskt värde eller datum. För datumkolumner, ersättningsvärdet kan också anges som du antalet intervall om 100 nanosekunder sedan 1/1/0001 12:00 A.M.  
+    Observera att du bara kan använda det här alternativet i kolumner som har data typerna Integer, Double, Boolean eller date. För datum kolumner kan ersättnings värdet också anges som antalet 100-nanosekunder-Tick sedan 1/1/0001 12:00 A.M.  
   
-7. **Generera saknas indikator kolumnen**: Välj det här alternativet om du vill spara någon indikation på om värdena i kolumnen uppfylls kriterierna för saknade värden rensning. Det här alternativet är särskilt användbart när du hur du konfigurerar en ny rengöringsåtgärden och vill kontrollera att den fungerar som avsett.
+7. **Generera kolumn för saknad värde indikator**: Välj det här alternativet om du vill visa en indikation om värdena i kolumnen uppfyllde villkoren för rengöring av värde saknas. Det här alternativet är särskilt användbart när du konfigurerar en ny rengörings åtgärd och vill se till att den fungerar som den ska.
   
 8. Kör experimentet.
 
@@ -120,30 +119,30 @@ Varje gång som du har utfört den [Rensa Data som saknas](./clean-missing-data.
 
 Modulen returnerar två utdata:  
 
--   **Rensade datauppsättningen**: En datauppsättning som består av de markerade kolumnerna med värden som saknas hanteras enligt vad som anges tillsammans med en kolumn för indikatorn, om du har valt det alternativet.  
+-   **Rensad data mängd**: En data uppsättning som består av de markerade kolumnerna, där värden som saknas hanteras som angivna, tillsammans med en indikator kolumn, om du har valt det alternativet.  
 
-    Kolumner som inte valts för rensning också skickas ”via”.  
+    Kolumner som inte har valts för rengöring är också "passerade".  
   
--  **Rensa omvandling**: En Dataomvandling används för rensning, som kan sparas på din arbetsyta och tillämpas på nya data senare.
+-  **Rensa omvandling**: En datatransformering som används för rengöring, som kan sparas på din arbets yta och tillämpas på nya data senare.
 
-### <a name="apply-a-saved-cleaning-operation-to-new-data"></a>Använda en sparad rengöringsåtgärden nya data  
+### <a name="apply-a-saved-cleaning-operation-to-new-data"></a>Använd en sparad Rensnings åtgärd för nya data  
 
-Om du behöver upprepa rengöringsband åtgärder ofta, rekommenderar vi att du sparar din recept för Datarensning som en *transformera*, för att återanvända med samma datamängd. Sparar en transformation som rengöringsband är särskilt användbart om du måste importera ofta på nytt och sedan rensa data som har samma schema.  
+Om du ofta behöver upprepa rengörings åtgärder rekommenderar vi att du sparar ditt recept för data rengöring som en *transformering*, för att återanvända med samma data uppsättning. Att spara en rengörings omvandling är särskilt användbart om du ofta måste importera på nytt och sedan Rensa data som har samma schema.  
       
-1.  Lägg till den [gäller omvandling](./apply-transformation.md) modulen i experimentet.  
+1.  Lägg till modulen [Använd omvandling](./apply-transformation.md) i experimentet.  
   
-2.  Lägg till den datauppsättning som du vill rensa och Anslut datauppsättningen till den högra indataporten.  
+2.  Lägg till den data uppsättning som du vill rensa och Anslut data uppsättningen till den högra porten för indata.  
   
-3.  Expandera den **omvandlar** i den vänstra rutan i gränssnittet. Leta upp den sparade omvandlingen och dra det till experimentet.  
+3.  Expandera gruppen **transformeringar** i det vänstra fönstret i gränssnittet. Leta upp den sparade omvandlingen och dra den till experimentet.  
   
-4.  Anslut den sparade omvandlingen till den vänstra indataporten för [gäller omvandling](./apply-transformation.md). 
+4.  Anslut den sparade omvandlingen till den vänstra Indataporten för [Apply Transformation](./apply-transformation.md). 
 
-    När du använder en sparad omvandling så kan du markera de kolumner som används som omvandlingen. Det beror omvandlingen redan har definierats och gäller automatiskt för de kolumner som anges i den ursprungliga åtgärden.
+    När du använder en sparad omvandling kan du inte välja de kolumner som transformationen tillämpas på. Det beror på att omvandlingen redan har definierats och tillämpas automatiskt på de kolumner som anges i den ursprungliga åtgärden.
 
-    Anta dock att du har skapat en omvandling på en delmängd av numeriska kolumner. Du kan använda den här omvandlingen till en datauppsättning för blandade kolumntyper utan att ett fel eftersom dessa värden ändras endast i de matchande numeriska kolumnerna.
+    Anta dock att du har skapat en omvandling på en delmängd av numeriska kolumner. Du kan använda den här omvandlingen till en data uppsättning med blandade kolumn typer utan att ett fel uppstår, eftersom de saknade värdena bara ändras i de matchande numeriska kolumnerna.
 
 6.  Kör experimentet.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

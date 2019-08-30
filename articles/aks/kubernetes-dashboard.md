@@ -1,119 +1,136 @@
 ---
-title: Hantera ett Azure Kubernetes Service-kluster med web-instrumentpanelen
-description: Lär dig hur du använder den inbyggda Kubernetes-instrumentpanelen för Webbgränssnitt för att hantera ett kluster i Azure Kubernetes Service (AKS)
+title: Hantera ett Azure Kubernetes service-kluster med webb instrument panelen
+description: Lär dig hur du använder det inbyggda Kubernetes-webbgränssnittets instrument panel för att hantera ett Azure Kubernetes service-kluster (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: mlearned
-ms.openlocfilehash: 0de2f285b5eca88a098a2d7cfe1608ad2f0db71b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5aa8268fee7d43ad13ea8710760ba493683f502e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615242"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126858"
 ---
-# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Komma åt Kubernetes web-instrumentpanelen i Azure Kubernetes Service (AKS)
+# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Få åtkomst till Kubernetes-webbinstrumentpanelen i Azure Kubernetes service (AKS)
 
-Kubernetes innehåller en webbinstrumentpanel som kan användas för grundläggande hanteringsåtgärder. Den här instrumentpanelen kan du visa grundläggande hälsostatus och mått för dina program, skapa och distribuera tjänster och redigera befintliga program. Den här artikeln visar hur du kommer åt Kubernetes-instrumentpanelen med hjälp av Azure CLI och hjälper dig att vissa grundläggande instrumentpanel-åtgärder.
+Kubernetes innehåller en webb instrument panel som kan användas för grundläggande hanterings åtgärder. På den här instrument panelen kan du visa grundläggande hälso status och mått för dina program, skapa och distribuera tjänster och redigera befintliga program. Den här artikeln visar hur du kommer åt Kubernetes-instrumentpanelen med hjälp av Azure CLI och vägleder dig genom några grundläggande instrument panels åtgärder.
 
-Mer information om Kubernetes-instrumentpanelen finns i [Kubernetes-instrumentpanel för Webbgränssnitt][kubernetes-dashboard].
+Mer information om instrument panelen för Kubernetes finns i [webb gränssnitts instrument panelen för Kubernetes][kubernetes-dashboard].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en `kubectl` anslutning med klustret. Om du vill skapa ett AKS-kluster finns i den [AKS-Snabbstart][aks-quickstart].
+De steg som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster `kubectl` och har upprättat en anslutning till klustret. Om du behöver skapa ett AKS-kluster kan du läsa [snabb][aks-quickstart]starten för AKS.
 
-Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
+Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="start-the-kubernetes-dashboard"></a>Starta Kubernetes-instrumentpanelen
 
-Starta Kubernetes-instrumentpanelen med den [az aks Bläddra][az-aks-browse] kommando. I följande exempel öppnas instrumentpanelen för klustret med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*:
+Starta Kubernetes-instrumentpanelen med kommandot [AZ AKS Browse][az-aks-browse] . I följande exempel öppnas instrument panelen för klustret med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*:
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Det här kommandot skapar en proxy mellan utvecklingssystemet och Kubernetes-API och öppnar en webbläsare till Kubernetes-instrumentpanelen. Om en webbläsare inte öppnas Kubernetes-instrumentpanelen, kopiera och klistra in URL-adressen som anges i Azure CLI, vanligtvis `http://127.0.0.1:8001`.
+Det här kommandot skapar en proxy mellan utvecklings systemet och Kubernetes-API: et och öppnar en webbläsare till Kubernetes-instrumentpanelen. Om en webbläsare inte öppnas på Kubernetes-instrumentpanelen kopierar du och klistrar in URL-adressen som anges i Azure CLI `http://127.0.0.1:8001`, vanligt vis.
 
-![Översiktssidan för Kubernetes web-instrumentpanelen](./media/kubernetes-dashboard/dashboard-overview.png)
+![Inloggnings sidan för Kubernetes-webbinstrumentpanelen](./media/kubernetes-dashboard/dashboard-login.png)
 
-### <a name="for-rbac-enabled-clusters"></a>För RBAC-aktiverade kluster
+Du har följande alternativ för att logga in på ditt klusters instrument panel:
 
-Om AKS-klustret använder RBAC, en *ClusterRoleBinding* måste skapas innan du har korrekt åtkomst till instrumentpanelen. Som standard Kubernetes-instrumentpanelen har distribuerats med minimal läsbehörighet och visar RBAC åtkomstfel. Kubernetes-instrumentpanelen stöder för närvarande inte användaren tillhandahåller autentiseringsuppgifter för att avgöra vilken åtkomstnivå, i stället används de roller som beviljats till kontot. En Klusteradministratör kan välja att ge ytterligare åtkomst till den *kubernetes-instrumentpanelen* tjänstkonto, men det kan vara en vektor för eskalering. Du kan också integrera Azure Active Directory-autentisering för att ge en mer detaljerad nivå av åtkomst.
-
-Du kan skapa en bindning med den [kubectl skapa clusterrolebinding][kubectl-create-clusterrolebinding] kommandot som visas i följande exempel. 
+* En [kubeconfig-fil][kubeconfig-file]. Du kan skapa en kubeconfig-fil med [AZ AKS get-credentials][az-aks-get-credentials].
+* En token, till exempel en token för ett [tjänst konto][aks-service-accounts] eller en användartoken. I [AAD-aktiverade kluster][aad-cluster]skulle denna token vara en AAD-token. Du kan använda `kubectl config view` för att visa en lista över tokens i din kubeconfig-fil. Mer information om hur du skapar en AAD-token för användning med ett AKS-kluster finns i [integrera Azure Active Directory med Azure Kubernetes service med Azure CLI][aad-cluster].
+* Standard kontot för instrument panels tjänsten som används om du klickar på *hoppa över*.
 
 > [!WARNING]
-> Det här exemplet bindningen gäller inte några ytterligare autentisering-komponenter och kan leda till osäkert användning. Kubernetes-instrumentpanelen är öppen för alla med åtkomst till URL: en. Exponera inte Kubernetes-instrumentpanelen offentligt.
+> Exponera aldrig Kubernetes-instrumentpanelen offentligt, oavsett vilken autentiseringsmetod som används.
+> 
+> När du konfigurerar autentisering för Kubernetes-instrumentpanelen rekommenderar vi att du använder en token via standard kontot för instrument panelen. Med en token kan varje användare använda sina egna behörigheter. Med standard kontot för instrument panels tjänsten kan en användare kringgå sina egna behörigheter och använda tjänst kontot i stället.
+> 
+> Om du väljer att använda standard kontot för instrument panels tjänsten och ditt AKS-kluster använder RBAC, måste du skapa en *ClusterRoleBinding* innan du kan få åtkomst till instrument panelen korrekt. Som standard distribueras instrument panelen Kubernetes med minimal Läs behörighet och visar RBAC-åtkomst fel. En kluster administratör kan välja att bevilja ytterligare åtkomst till *Kubernetes-instrument panelens* tjänst konto, men det kan vara en Vector för eskalering av privilegier. Du kan också integrera Azure Active Directory-autentisering för att ge en mer detaljerad åtkomst nivå.
 >
-> Mer information om hur du använder de olika autentiseringsmetoderna finns i wiki för Kubernetes-instrumentpanelen på [åtkomstkontroller][dashboard-authentication].
+> Om du vill skapa en bindning använder du kommandot [kubectl Create clusterrolebinding][kubectl-create-clusterrolebinding] som visas i följande exempel. **Den här exempel bindningen tillämpar inte några ytterligare autentiseringspaket och kan leda till osäker användning.**
+>
+> ```console
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+> ```
+> 
+> Nu kan du komma åt Kubernetes-instrumentpanelen i ditt RBAC-aktiverade kluster. Starta Kubernetes-instrumentpanelen med hjälp av kommandot [AZ AKS Browse][az-aks-browse] enligt beskrivningen i föregående steg.
+>
+> Om klustret inte använder RBAC, rekommenderar vi inte att skapa en *ClusterRoleBinding*.
+> 
+> Mer information om hur du använder olika autentiseringsmetoder finns i Kubernetes-instrumentpanelen wiki på [åtkomst kontroller][dashboard-authentication].
 
-```console
-kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
-```
+När du har valt en metod för att logga in visas instrument panelen för Kubernetes. Om du väljer att använda *token* eller *Skip*, använder Kubernetes-instrumentpanelen behörigheter för den inloggade användaren för att komma åt klustret.
 
-Du kan nu komma åt Kubernetes-instrumentpanelen i klustret RBAC-aktiverade. Starta Kubernetes-instrumentpanelen med den [az aks Bläddra][az-aks-browse] kommandot som beskrivs i föregående steg.
+![Sidan översikt på Kubernetes-webbinstrumentpanelen](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ## <a name="create-an-application"></a>Skapa ett program
 
-Om du vill se hur Kubernetes-instrumentpanelen kan minska komplexiteten av hanteringsuppgifter, nu ska vi skapa ett program. Du kan skapa ett program på Kubernetes-instrumentpanelen genom att tillhandahålla textinmatning, en YAML-fil eller via en grafisk Guide.
+För att se hur Kubernetes-instrumentpanelen kan minska komplexiteten med hanterings uppgifter ska vi skapa ett program. Du kan skapa ett program från Kubernetes-instrumentpanelen genom att tillhandahålla text indata, en YAML-fil eller en grafisk guide.
 
-Om du vill skapa ett program utför du följande steg:
+Utför följande steg för att skapa ett program:
 
-1. Välj den **skapa** knappen i det övre högra fönstret.
-1. Om du vill använda grafisk guide, välja att **skapa en app**.
+1. Välj knappen **skapa** i det övre högra fönstret.
+1. Om du vill använda den grafiska guiden väljer du att **skapa en app**.
 1. Ange ett namn för distributionen, till exempel *nginx*
-1. Ange namnet för behållaravbildningen att använda, till exempel *nginx:1.15.5*
-1. Om du vill exponera port 80 för webbtrafik, skapar du ett Kubernetes-tjänst. Under **Service**väljer **externa**, ange sedan **80** för både porten och målport.
-1. När du är klar väljer **distribuera** att skapa appen.
+1. Ange namnet på behållar avbildningen som ska användas, t. ex. *nginx: 1.15.5*
+1. För att exponera port 80 för webb trafik skapar du en Kubernetes-tjänst. Under **tjänst**väljer du **extern**och anger sedan **80** för både port-och mål porten.
+1. När du är klar väljer du **distribuera** för att skapa appen.
 
-![Distribuera en app i Kubernetes web-instrumentpanelen](./media/kubernetes-dashboard/create-app.png)
+![Distribuera en app i Kubernetes-webbinstrumentpanelen](./media/kubernetes-dashboard/create-app.png)
 
-Det tar en minut eller två för en offentlig extern IP-adress som ska tilldelas till Kubernetes-tjänst. På den vänstra storleken under **identifiering och belastningsutjämning** Välj **Services**. Tjänsten för ditt program visas, inklusive den *externa slutpunkter*, enligt följande exempel:
+Det tar en minut eller två för en offentlig extern IP-adress som ska tilldelas till Kubernetes-tjänsten. På den vänstra storleken under **identifiering och belastnings utjämning** väljer du **tjänster**. Programmets tjänst visas, inklusive *externa slut punkter*, som du ser i följande exempel:
 
-![Visa en lista över tjänster och slutpunkter](./media/kubernetes-dashboard/view-services.png)
+![Visa lista över tjänster och slut punkter](./media/kubernetes-dashboard/view-services.png)
 
-Välj slutpunktsadressen att öppna ett webbläsarfönster till NGINX-standardsida:
+Välj slut punkts adress för att öppna ett webbläsarfönster till standard NGINX-sidan:
 
-![Visa NGINX standardsidan för det distribuerade programmet](./media/kubernetes-dashboard/default-nginx.png)
+![Visa standard NGINX-sidan för det distribuerade programmet](./media/kubernetes-dashboard/default-nginx.png)
 
-## <a name="view-pod-information"></a>Visa pod information
+## <a name="view-pod-information"></a>Visa information om Pod
 
-Kubernetes-instrumentpanelen kan ge grundläggande övervakning av mått- och felsökningsinformation, till exempel loggar.
+Kubernetes-instrumentpanelen kan ge grundläggande övervaknings mått och felsöknings information, till exempel loggar.
 
-Om du vill se mer information om programmet poddarna **Poddar** på den vänstra menyn. Listan över tillgängliga poddar visas. Välj din *nginx* pod att visa information, till exempel användning av databasresurser:
+Om du vill se mer information om din program poddar väljer du **poddar** i den vänstra menyn. Listan över tillgängliga poddar visas. Välj din *nginx* -Pod för att visa information, till exempel resursförbrukning:
 
-![Visa pod information](./media/kubernetes-dashboard/view-pod-info.png)
+![Visa information om Pod](./media/kubernetes-dashboard/view-pod-info.png)
 
 ## <a name="edit-the-application"></a>Redigera programmet
 
-Förutom att skapa och visa program, kan Kubernetes-instrumentpanelen användas för att redigera och uppdatera programdistributioner. För ytterligare redundans för programmet kan vi öka antalet repliker för NGINX.
+Förutom att skapa och Visa program kan Kubernetes-instrumentpanelen användas för att redigera och uppdatera program distributioner. För att ge ytterligare redundans för programmet ska vi öka antalet NGINX-repliker.
 
-Så här redigerar du en distribution:
+Redigera en distribution:
 
-1. Välj **distributioner** på den vänstra menyn och välj sedan din *nginx* distribution.
-1. Välj **redigera** i det övre högra navigeringsfältet.
-1. Leta upp den `spec.replica` värde, på runt rad 20. För att öka antalet repliker för programmet kan ändra det här värdet från *1* till *3*.
-1. Välj **uppdatering** när redo.
+1. Välj **distributioner** på menyn till vänster och välj sedan din *nginx* -distribution.
+1. Välj **Redigera** i det övre högra navigerings fältet.
+1. Leta upp `spec.replica` värdet på rad 20. Om du vill öka antalet repliker för programmet ändrar du värdet från *1* till *3*.
+1. Välj **Uppdatera** när du är klar.
 
 ![Redigera distributionen för att uppdatera antalet repliker](./media/kubernetes-dashboard/edit-deployment.png)
 
-Det tar en liten stund för nya poddarna som ska skapas i en replikuppsättning. I den vänstra menyn, Välj **replikuppsättningar**, och välj sedan din *nginx* replikuppsättningen. Listan över poddar nu visar uppdaterade replikantalet, som visas i följande Exempelutdata:
+Det tar en stund för den nya poddar att skapas i en replik uppsättning. Välj **replik uppsättningar**på den vänstra menyn och välj sedan *nginx* replik uppsättning. Listan över poddar visar nu det uppdaterade antalet repliker, vilket visas i följande exempel på utdata:
 
-![Visa information om uppsättningen](./media/kubernetes-dashboard/view-replica-set.png)
+![Visa information om replik uppsättningen](./media/kubernetes-dashboard/view-replica-set.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Kubernetes-instrumentpanelen finns i den [Kubernetes-instrumentpanel för Webbgränssnitt][kubernetes-dashboard].
+Mer information om instrument panelen för Kubernetes finns på [instrument panelen för Kubernetes-][kubernetes-dashboard]webbgränssnittet.
 
 <!-- LINKS - external -->
-[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubeconfig-file]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 <!-- LINKS - internal -->
+[aad-cluster]: ./azure-ad-integration-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[install-azure-cli]: /cli/azure/install-azure-cli
+[aks-service-accounts]: ./concepts-identity.md#kubernetes-service-accounts
+[az-account-get-access-token]: /cli/azure/account?view=azure-cli-latest#az-account-get-access-token
 [az-aks-browse]: /cli/azure/aks#az-aks-browse
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[install-azure-cli]: /cli/azure/install-azure-cli

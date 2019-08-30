@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a71c83a190bd7e88edd5008edef670b32905add
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66168940"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140811"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsinformation 
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i källans Azure SQL-databas till en Azure bloblagring.  
@@ -152,7 +151,7 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**: 
+1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**: 
    
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -261,7 +260,7 @@ I det här steget skapar du en datamängd för att representera data som kopiera
 
     1. Välj **AzureStorageLinkedService** för **Länkad tjänst**.
     2. Ange **adftutorial/incchgtracking** för **mappdelen** i **filePath**.
-    3. Ange  **\@CONCAT (' inkrementella-', pipeline(). RunId, '.txt')** för **filen** en del av den **filePath**.  
+    3. Ange concat  **("stegvis",pipeline()\@. RunId, '. txt ')** för en fil del av **fil** **Sök vägen**.  
 
        ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -294,7 +293,7 @@ I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar 
 5. Växla till fliken **Mottagare** och markera **SinkDataset** för fältet för **datauppsättning för mottagare**. 
 
     ![Kopiera aktivitet – mottagare](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png)
-6. Verifiera pipeline-definitionen genom att klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Stäng **verifieringsrapporten för pipeline** genom att klicka på **>>**. 
+6. Verifiera pipeline-definitionen genom att klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Stäng **verifieringsrapporten för pipeline** genom att klicka på **>>** . 
 
     ![Verifiera pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Klicka på **Publicera** om du vill publicera entiteter (länkade tjänster, datauppsättningar och pipeliner). Vänta tills publiceringen har lyckats. 
@@ -361,7 +360,7 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
     ![Meny för ny pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. En ny flik öppnas för inställningar för pipelinen. Du kan också se pipelinen i trädvyn. I fönstret **Egenskaper** ändrar du pipelinenamnet till **IncrementalCopyPipeline**.
 
-    ![Namn på pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
+    ![Pipelinenamn](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
 3. Visa verktygslådan **Allmänt** i verktygslådan **Aktiviteter** och dra och släpp **sökningen** på pipelinedesignytan. Ange aktivitetens namn som **LookupLastChangeTrackingVersionActivity**. Den här aktiviteten hämtar ändringsspårningsversionen som användes i den sista kopieringsåtgärden, som lagras i tabellen **table_store_ChangeTracking_version**.
 
     ![Namn för sökningsaktivitet](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
@@ -414,16 +413,16 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
     2. Välj **Importera parameter**. 
     3. I avsnittet **Parametrar för lagrad procedur** anger du följande värden för parametrarna: 
 
-        | Namn | Typ | Värde | 
+        | Name | Typ | Value | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
-        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
+        | TableName | Sträng | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Lagrad proceduraktivitet – Parametrar](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Ansluta aktiviteten Kopiera till den Lagrade proceduraktiviteten**. Dra och släpp den **gröna** knappen som är kopplad till aktiviteten Kopiera till aktiviteten Lagrad procedur. 
 
     ![Ansluta Kopierings- och Lagrade proceduraktiviteter](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
-15. Klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Stäng fönstret med **verifieringsrapporten för pipeline** genom att klicka på **>>**. 
+15. Klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Stäng fönstret med **verifieringsrapporten för pipeline** genom att klicka på **>>** . 
 
     ![Verifieringsknapp](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Publicera entiteter (länkade tjänster, datauppsättningar och pipeliner) till Data Factory-tjänsten genom att klicka på knappen **Publicera alla**. Vänta tills du ser meddelandet **Publiceringen är klar**. 

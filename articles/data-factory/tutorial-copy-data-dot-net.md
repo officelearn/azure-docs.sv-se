@@ -8,22 +8,21 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: dbf45853f5f7a440578f3a9005831a4ef63d85e7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 49b5b03356790bd45b2ad29897a57b746af1abe1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65778868"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140687"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
 
 I de här självstudierna skapar du en datafabrikpipeline som kopierar Azure Blob Storage till Azure SQL Database. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
- I de här självstudierna går du igenom följande steg:
+I de här självstudierna går du igenom följande steg:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
@@ -37,12 +36,12 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
 * **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 * **Visual Studio** 2015 eller 2017. I den här genomgången används Visual Studio 2017.
-* **Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)**.
+* **Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)** .
 * **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Observera följande värden som du kommer att använda i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela program till rollen **Deltagare** enligt instruktionerna i samma artikel.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Skapa en blob och en SQL-tabell
@@ -89,7 +88,7 @@ Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2015/2017.
 
 1. Starta **Visual Studio**.
 2. Klicka på **Arkiv**, peka på **Nytt** och klicka på **Projekt**.
-3. Välj **Visual C#** -> **Konsolprogram (.NET Framework)** i listan över projekttyper till höger. .NET version 4.5.2 eller senare krävs.
+3. Välj **Visual C#**  -> **Konsolprogram (.NET Framework)** i listan över projekttyper till höger. .NET version 4.5.2 eller senare krävs.
 4. Ange **ADFv2Tutorial** som namn.
 5. Klicka på **OK** för att skapa projektet.
 

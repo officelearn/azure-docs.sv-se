@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 28d01f1acbc6d9ff033567b10efc801925752191
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
-ms.translationtype: MT
+ms.openlocfilehash: 4d9a73ee9fb9e4019d30354e6d9fbbe57d081e33
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618493"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147508"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Skicka meddelanden från moln till enhet med IoT Hub (Java)
 
@@ -43,7 +43,7 @@ I slutet av den här självstudien kör du två Java-konsol program:
 > [!NOTE]
 > IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java, python och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
 
-För att kunna genomföra den här kursen behöver du följande:
+## <a name="prerequisites"></a>Förutsättningar
 
 * En komplett fungerande version av funktionen [Skicka telemetri från en enhet till en snabb start för IoT Hub](quickstart-send-telemetry-java.md) eller den [konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) själv studie kursen.
 

@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
-ms.translationtype: MT
+ms.openlocfilehash: 12b88e14ed1d20ad26c9c8832877da08d3d98523
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543509"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146126"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Så här skapar du principer för gäst konfiguration
 
@@ -142,7 +142,7 @@ I Azure Policy gäst konfiguration är det bästa sättet att hantera hemlighete
 Börja med att skapa en användardefinierad hanterad identitet i Azure. Identiteten används av virtuella datorer för att komma åt hemligheter som lagrats i Key Vault. Detaljerade anvisningar finns i [skapa, lista eller ta bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
 Skapa sedan en Key Vault-instans. Detaljerade anvisningar finns i [Ange och hämta en hemlighet – PowerShell](../../../key-vault/quick-create-powershell.md).
-Tilldela behörighet till instansen för att ge den användare som tilldelats åtkomst till hemligheter som lagras i Key Vault. Detaljerade anvisningar finns i [Ange och hämta en hemlighet-.net](../../../key-vault/quick-create-net.md#assign-permissions-to-your-application-to-read-secrets-from-key-vault).
+Tilldela behörighet till instansen för att ge den användare som tilldelats åtkomst till hemligheter som lagras i Key Vault. Detaljerade anvisningar finns i [Ange och hämta en hemlighet-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
 
 Tilldela sedan den användare som tilldelats identiteten till den virtuella datorn. Detaljerade anvisningar finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
 I skala tilldelar du den här identiteten med Azure Resource Manager via Azure Policy. Detaljerade anvisningar finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av en mall](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
@@ -318,11 +318,11 @@ Med de princip-och initiativ definitioner som skapats i Azure är det sista steg
 
 När du har publicerat en anpassad Azure Policy med det anpassade innehålls paketet finns det två fält som måste uppdateras om du vill publicera en ny version.
 
-- **Version**: När du kör cmdlet `New-GuestConfigurationPolicy` -cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat.  Detta uppdaterar versionen av gäst konfigurations tilldelningen i den nya princip filen så att tillägget identifierar att paketet har uppdaterats.
-- **contentHash**: Detta uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten.  Det är ett hash-värde för det paket som `New-GuestConfigurationPackage`skapats av.  Detta måste vara korrekt för den `.zip` fil som du publicerar.  Om bara `contentUri` egenskapen uppdateras, till exempel i det fall där någon kan göra en manuell ändring i princip definitionen från portalen, accepterar tillägget inte innehålls paketet.
+- **Version**: När du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat.  Egenskapen uppdaterar versionen av gäst konfigurations tilldelningen i den nya princip filen så att tillägget identifierar att paketet har uppdaterats.
+- **contentHash**: Den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten.  Det är ett hash-värde för det paket som `New-GuestConfigurationPackage`skapats av.  Egenskapen måste vara korrekt för den `.zip` fil som du publicerar.  Om bara `contentUri` egenskapen uppdateras, till exempel i det fall där någon kan göra en manuell ändring i princip definitionen från portalen, accepterar inte tillägget innehålls paketet.
 
 Det enklaste sättet att frigöra ett uppdaterat paket är att upprepa processen som beskrivs i den här artikeln och ange ett uppdaterat versions nummer.
-Det garanterar att alla egenskaper har uppdaterats korrekt.
+Den processen garanterar att alla egenskaper har uppdaterats korrekt.
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Konvertera Windows grupprincip-innehåll till Azure Policy gäst konfiguration
 
@@ -330,7 +330,7 @@ Gäst konfiguration, vid granskning av Windows-datorer, är en implementering av
 DSC-communityn har publicerat verktyg för att konvertera exporterade grupprincip mallar till DSC-format.
 Genom att använda det här verktyget tillsammans med de konfigurations-cmdletar för gäst som beskrivs ovan kan du konvertera Windows grupprincip-innehåll och paket/publicera det för att Azure Policy granska.
 Mer information om hur du använder verktyget finns i artikeln [snabb start: Konvertera grupprincip till DSC](/powershell/dsc/quickstarts/gpo-quickstart).
-När innehållet har konverterats är stegen ovan för att skapa en pakcage och publicera den som Azure Policy är samma som för alla DSC-innehåll.
+När innehållet har konverterats är stegen ovan för att skapa ett paket och publicera det som Azure Policy är samma som för alla DSC-innehåll.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>VALFRITT Signerar gäst konfigurations paket
 

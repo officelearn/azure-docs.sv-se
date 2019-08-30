@@ -1,70 +1,68 @@
 ---
 title: Användningsfall - Kundprofilering
-description: Lär dig hur Azure Data Factory för att skapa en datadriven arbetsflöde (pipeline) för att profilera spel kunder.
+description: Lär dig hur Azure Data Factory används för att skapa ett data drivet arbets flöde (pipeline) för att profilera spel kunder.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: e07d55cf-8051-4203-9966-bdfa1035104b
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: bb7d6531da330bcfbf6de786ffb19984cfd1964e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 866a7fdabaf51738333d8583bea5d0fa9fabf6f2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487220"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139858"
 ---
 # <a name="use-case---customer-profiling"></a>Användningsfall - Kundprofilering
-Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite med Lösningsacceleratorer.  Mer information om Cortana Intelligence finns [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). I det här dokumentet beskriver vi ett enkelt exempel som hjälper dig att komma igång med att förstå hur Azure Data Factory kan lösa vanliga problem med analytics.
+Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite av lösnings acceleratorer.  Mer information om Cortana Intelligence finns [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). I det här dokumentet beskriver vi ett enkelt användnings fall som hjälper dig att komma igång med att förstå hur Azure Data Factory kan lösa vanliga analys problem.
 
 ## <a name="scenario"></a>Scenario
-Contoso är ett spelföretag som skapar spel för flera plattformar: konsoler, som när enheter och datorer (datorer). När spelare spelar dessa spel, produceras stort antal loggdata som spårar de användningsmönster, spel-format och användarens inställningar.  När de kombineras med demografiska, regionala och produktdata, Contoso kan utföra analyser som hjälper dem om hur du förbättrar spelarnas upplevelse och mål för uppgraderingar och i spelet inköp. 
+Contoso är ett spel företag som skapar spel för flera plattformar: spel konsoler, handhållna enheter och persondatorer (datorer). När spelarna spelar dessa spel skapas stora mängder loggdata som spårar användnings mönster, spel stil och inställningar för användaren.  Tillsammans med demografiska, regionala och aktuella produkt data kan Contoso utföra analyser för att hjälpa dem att förbättra spelarens upplevelse och rikta dem mot uppgraderingar och köp av spel. 
 
-Contosos målet är att identifiera möjligheter för upp-säljer/korsförsäljning baserat på spel historiken för dess spelare och Lägg till attraktiva funktioner att öka tillväxten och ge kunderna en bättre upplevelse. För det här användningsfallet använder vi ett spelföretag som ett exempel på ett företag. Företaget vill optimera dess spel baserat på spelarnas beteende. Dessa principer gäller för alla verksamheter som vill engagera kunderna runt dess varor och tjänster och förbättra kundernas upplevelse.
+Contosos mål är att identifiera affärs-och kors försäljnings möjligheter baserat på spel historiken för sina spelare och lägga till övertygande funktioner för att öka företagets tillväxt och ge en bättre upplevelse för kunderna. För det här användnings fallet använder vi ett spel företag som ett exempel på ett företag. Företaget vill optimera sina spel utifrån spelarens beteende. Dessa principer gäller för alla verksamheter som vill engagera sina kunder runt sina varor och tjänster och förbättra sina kunders erfarenhet.
 
-Contoso vill utvärdera effekten av en marknadsföringskampanj som den har nyligen lanserat i den här lösningen. Vi börja med loggarna raw spel, bearbeta och utöka dem med geoplatsdata, träffa annonserar referensdata och slutligen kopierar du dem till en Azure SQL-databas för att analysera kampanjens påverkan.
+I den här lösningen vill contoso utvärdera effektiviteten hos en marknadsförings kampanj som den nyligen har lanserat. Vi börjar med de obehandlade spel loggarna, bearbetar och utvärderar dem med information om geolokalisering, går med i annonserings referens data och kopierar dem slutligen till en Azure SQL Database för att analysera kampanjens påverkan.
 
-## <a name="deploy-solution"></a>Distribuera lösningen
-Allt du behöver för att komma åt och prova att använda den här enkelt exempel är en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/), en [Azure Blob storage-konto](../../storage/common/storage-quickstart-create-account.md), och en [Azure SQL Database](../../sql-database/sql-database-get-started.md). Du distribuerar kundprofilering pipeline från den **exempel pipelines** panelen på startsidan på din datafabrik.
+## <a name="deploy-solution"></a>Distribuera lösning
+Allt du behöver för att komma åt och testa det här enkla användnings fallet är en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/), ett [Azure Blob Storage-konto](../../storage/common/storage-quickstart-create-account.md)och en [Azure SQL Database](../../sql-database/sql-database-get-started.md). Du distribuerar pipeline för kund profilering från panelen **exempel pipelines** på Start sidan för din data fabrik.
 
-1. Skapa en data factory eller öppna en befintlig datafabrik. Se [kopiera data från Blob Storage till SQL Database med Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) steg att skapa en datafabrik.
-2. I den **DATA FACTORY** bladet för data factory klickar du på den **exempel pipelines** panelen.
+1. Skapa en data fabrik eller öppna en befintlig data fabrik. Information om hur du skapar en data fabrik finns i [Kopiera data från Blob Storage till SQL Database med Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+2. På **Data Factory** -bladet för data fabriken klickar du på panelen **exempel pipelines** .
 
-    ![Exemplet pipelines panel](./media/data-factory-samples/SamplePipelinesTile.png)
-3. I den **exempel pipelines** bladet klickar du på den **kundprofilering** som du vill distribuera.
+    ![Exempel panel för exempel](./media/data-factory-samples/SamplePipelinesTile.png)
+3. På bladet **exempel pipelines** klickar du på den **kund profil** som du vill distribuera.
 
-    ![Exemplet pipelines bladet](./media/data-factory-samples/SampleTile.png)
-4. Ange konfigurationsinställningar för exemplet. Till exempel din Azure storage-kontonamn och nyckel, Azure SQL-servernamnet, databas, användar-ID och lösenord.
+    ![Exempel på pipeline-blad](./media/data-factory-samples/SampleTile.png)
+4. Ange konfigurations inställningar för exemplet. Till exempel namnet på ditt Azure Storage-konto och din nyckel, Azure SQL Server-namn, databas, användar-ID och lösen ord.
 
-    ![Exempel-bladet](./media/data-factory-samples/SampleBlade.png)
-5. När du är klar med att ange konfigurationsinställningarna, klickar du på **skapa** att skapa/distribuera exempelpipelines och länkade tjänster/tabeller som används av pipelines.
-6. Du ser status för distributionen på panelen exempel du klickade på tidigare på den **exempel pipelines** bladet.
+    ![Exempel blad](./media/data-factory-samples/SampleBlade.png)
+5. När du är klar med att ange konfigurations inställningarna klickar du på **skapa** för att skapa/distribuera exempel pipeliner och länkade tjänster/tabeller som används av pipelinen.
+6. Du ser status för distributionen i exempel panelen som du klickade på tidigare på bladet **exempel pipelines** .
 
     ![Status för distribution](./media/data-factory-samples/DeploymentStatus.png)
-7. När du ser den **distributionen lyckades** meddelande på panelen för det här exemplet Stäng den **exempel pipelines** bladet.  
-8. På **DATA FACTORY** bladet som du ser att länkade tjänster, datauppsättningar och pipeliner läggs till din datafabrik.  
+7. När du ser meddelandet **distributionen har slutförts** på panelen för exemplet stänger du bladet **exempel pipelines** .  
+8. På bladet **data fabrik** ser du att länkade tjänster, data uppsättningar och pipeliner läggs till i din data fabrik.  
 
     ![Bladet Datafabrik](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="solution-overview"></a>Lösningsöversikt
-Den här enkelt exempel kan användas som ett exempel på hur du kan använda Azure Data Factory för att mata in, förbereda, transformera, analysera och publicera data.
+Det här enkla användnings fallet kan användas som ett exempel på hur du kan använda Azure Data Factory för att mata in, förbereda, transformera, analysera och publicera data.
 
 ![Arbetsflödet slutpunkt till slutpunkt](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
 
-Den här bilden illustrerar hur data-pipelines visas i Azure portal när de har distribuerats.
+Den här bilden illustrerar hur data pipelinen visas i Azure Portal när de har distribuerats.
 
-1. Den **PartitionGameLogsPipeline** läser raw spelhändelser från blob storage och skapar partitioner som baseras på år, månad och dag.
-2. Den **EnrichGameLogsPipeline** ansluter till partitionerade spelhändelser med referensdata för geo-kod och förbättra data genom att mappa IP-adresser till motsvarande geoplatser.
-3. Den **AnalyzeMarketingCampaignPipeline** pipeline använder avancerad och data och bearbetar dessa med reklam-data för att skapa det slutgiltiga resultatet som innehåller marknadsföring kampanjens effektivitet.
+1. **PartitionGameLogsPipeline** läser obehandlade spel händelser från Blob Storage och skapar partitioner baserat på år, månad och dag.
+2. **EnrichGameLogsPipeline** ansluter till partitionerade spel händelser med geo Code-referens data och berikar data genom att mappa IP-adresser till motsvarande geo-platser.
+3. **AnalyzeMarketingCampaignPipeline** -pipelinen använder de data som berikas och bearbetar dem med annonserings data för att skapa de slutliga utdata som innehåller marknads kampanjens effektivitet.
 
-I det här exemplet används Data Factory för att dirigera aktiviteter som kopierar indata, transformera och bearbeta data och den slutgiltiga utdata till en Azure SQL Database.  Du kan också visualisera nätverket av datapipelines, hantera och övervaka deras status i användargränssnittet.
+I det här exemplet används Data Factory för att dirigera aktiviteter som kopierar indata, transformerar och bearbetar data och skickar ut de slutliga data till en Azure SQL Database.  Du kan också visualisera nätverket för datapipeliner, hantera dem och övervaka deras status från användar gränssnittet.
 
 ## <a name="benefits"></a>Fördelar
-Genom att optimera sina användare profil analytics och justerar detta till affärsmålen kan spelföretag snabbt samla in användningsmönster och analysera effektiviteten i dess marknadsföringskampanjer.
+Genom att optimera användar profils analysen och justera den med affärs mål kan spel företaget snabbt samla in användnings mönster och analysera effektiviteten hos dess marknadsförings kampanjer.
 

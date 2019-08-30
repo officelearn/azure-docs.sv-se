@@ -3,21 +3,20 @@ title: Data uppsättningar i Azure Data Factory | Microsoft Docs
 description: Lär dig mer om data uppsättningar i Data Factory. Data uppsättningar representerar indata/utdata.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-ms.openlocfilehash: bbf7159abf88ce70cc62d202a8375aad302a0552
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 788fee724f381ab317b97a682aa21d17ec1ffa9d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019972"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137304"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Data uppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -147,9 +146,7 @@ Observera följande punkter:
 - linkedServiceName refererar till en länkad tjänst av typen AzureSqlDatabase, som definieras i nästa JSON-kodfragment.
 
 ## <a name="dataset-type"></a>Data uppsättnings typ
-Det finns många olika typer av data uppsättningar, beroende på vilket data lager du använder. I följande tabell finns en lista över data lager som stöds av Data Factory. Klicka på ett data lager om du vill veta hur du skapar en länkad tjänst och en data uppsättning för det data lagret.
-
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/connector-activity-support-matrix.md)]
+Det finns många olika typer av data uppsättningar, beroende på vilket data lager du använder. Du hittar en lista över data som lagras som stöds av Data Factory [](connector-overview.md) från översikts artikeln. Klicka på ett data lager om du vill veta hur du skapar en länkad tjänst och en data uppsättning för det data lagret.
 
 I exemplet i föregående avsnitt är typ av data uppsättning inställd på **AzureSqlTable**. På samma sätt anges typ av data uppsättning till **AzureBlob**för en Azure Blob-datamängd, som du ser i följande JSON:
 

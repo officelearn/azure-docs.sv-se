@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 497a00570d85ab83f71416e979e485db4685b64a
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: e5d5d36e82914f1d6d03299db0ed1427ac5a389a
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992115"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147575"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Skapa och få åtkomst till data uppsättningar (för hands version) i Azure Machine Learning
 
@@ -45,9 +45,11 @@ Om du vill skapa och arbeta med data uppsättningar behöver du:
 
 ## <a name="dataset-types"></a>Data uppsättnings typer
 
-Data uppsättningar kategoriseras i olika typer baserat på hur användarna använder dem i utbildningen. För närvarande stöder vi [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) som representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Det ger dig möjlighet att materialisera data till en Pandas-DataFrame. Ett `TabularDataset` objekt kan skapas från CSV-, TSV-, Parquet-filer, SQL-frågeresultat osv. En fullständig lista finns i vår dokumentation.
+Data uppsättningar kategoriseras i olika typer baserat på hur användarna använder dem i utbildningen. Lista över data uppsättnings typer:
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Det ger dig möjlighet att materialisera data till en Pandas-DataFrame. Ett `TabularDataset` objekt kan skapas från CSV-, TSV-, Parquet-filer, SQL-frågeresultat osv. En fullständig lista finns i vår [dokumentation](https://aka.ms/tabulardataset-api-reference).
+* FileDataset refererar till en eller flera filer i dina data lager eller offentliga URL: er. Det ger dig möjlighet att ladda ned eller montera filerna i din beräkning. Filerna kan vara i valfritt format, vilket möjliggör en större mängd maskin inlärnings scenarier, inklusive djup inlärning.
 
-Om du vill veta mer om kommande API-ändringar, se [Vad är Azure Machine Learning tjänst?](https://aka.ms/tabular-dataset) 
+Läs mer om kommande API-ändringar i [här](https://aka.ms/tabular-dataset).
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar 
 
@@ -101,6 +103,25 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, fru. John Bradley (Florence Briggs to...|kvinna|38,0|1|0|PC 17599|71,2833|C85|C
 2|3|1|3|Heikkinen, saknar. Laina|kvinna|26,0|0|0|STON/O2. 3101282|7,9250||s
 
+### <a name="create-filedatasets"></a>Skapa FileDatasets
+Använd metoden i `FileDatasetFactory` klassen för att läsa in filer i valfritt format och skapa en oregistrerad FileDataset. `from_files()`
+
+```Python
+# create a FileDataset from multiple paths in datastore
+datastore_paths = [
+                  (datastore, 'animals/dog/1.jpg'),
+                  (datastore, 'animals/dog/2.jpg'),
+                  (datastore, 'animals/dog/*.jpg')
+                 ]
+animal_ds = Dataset.File.from_files(path=datastore_paths)
+
+# create a FileDataset from image and label files behind public web urls
+web_paths = [
+            'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
+            'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
+           ]          
+mnist_ds = Dataset.File.from_files(path=web_paths)
+```
 ## <a name="register-datasets"></a>Registrera data uppsättningar
 
 För att slutföra skapandet av processen registrerar du dina data uppsättningar med arbets ytan:

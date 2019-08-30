@@ -1,97 +1,95 @@
 ---
-title: Azure Data Factory – vanliga frågor och svar
-description: Vanliga frågor om Azure Data Factory.
+title: Vanliga frågor och svar om Azure Data Factory
+description: Vanliga frågor och svar om Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: f33a59105d1be94ccd4fb24ae3d962b36c2efbdd
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 7c0b5cbfe77a39cbc8ac660178a1c573d1fe8f7d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839359"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139821"
 ---
-# <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory – vanliga frågor och svar
+# <a name="azure-data-factory---frequently-asked-questions"></a>Vanliga frågor och svar om Azure Data Factory
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [vanliga frågor och svar – Data Factory](../frequently-asked-questions.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [vanliga frågor och svar – Data Factory](../frequently-asked-questions.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Allmänna frågor
 ### <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?
-Data Factory är en molnbaserad dataintegrering tjänst som **automatiserar flytt och omvandling av data**. Precis som en fabrik som använder maskiner till att omvandla råmaterial och omvandla dem till färdiga produkter, samordnar Data Factory befintliga tjänster som samlar in rådata och omvandla det till färdiga att använda information.
+Data Factory är en molnbaserad data integrerings tjänst som **automatiserar flytt och transformering av data**. Precis som en fabrik som kör utrustning för att ta råmaterial och omvandla dem till färdiga varor, Data Factory dirigerar befintliga tjänster som samlar in rå data och omvandlar dem till information som är klar att använda.
 
-Data Factory kan du skapa datadrivna arbetsflöden som flyttar data mellan både lokala och molndatalager samt bearbeta/omvandla data med hjälp av Beräkningstjänster, till exempel Azure HDInsight och Azure Data Lake Analytics. När du har skapat en pipeline som utför den åtgärd som du behöver kan du schemalägga den så att den körs regelbundet (varje timme, varje dag, vecka osv.).   
+Med Data Factory kan du skapa data drivna arbets flöden för att flytta data mellan både lokala och molnbaserade data lager samt bearbeta/transformera data med hjälp av beräknings tjänster som Azure HDInsight och Azure Data Lake Analytics. När du har skapat en pipeline som utför den åtgärd som du behöver kan du schemalägga den så att den körs regelbundet (varje timme, varje dag, varje vecka osv.).   
 
-Mer information finns i [översikt och nyckelkoncept](data-factory-introduction.md).
+Mer information finns i [översikt & viktiga begrepp](data-factory-introduction.md).
 
-### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Var hittar jag prisinformation för Azure Data Factory?
-Se [Data Factory prisinformation om sidan][adf-pricing-details] för prisinformation för Azure Data Factory.  
+### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Var hittar jag pris information för Azure Data Factory?
+Se pris information för [Data Factory][adf-pricing-details] för Azure Data Factory.  
 
-### <a name="how-do-i-get-started-with-azure-data-factory"></a>Hur kommer jag igång med Azure Data Factory?
-* En översikt över Azure Data Factory finns i [introduktion till Azure Data Factory](data-factory-introduction.md).
-* En självstudiekurs om hur du **kopiera/flytta data** med Kopieringsaktivitet finns i [kopiera data från Azure Blob Storage till Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-* En självstudiekurs om hur du **Transformera data** med hjälp av HDInsight Hive-aktivitet. Se [bearbetar data genom att köra Hive-skript på Hadoop-kluster](data-factory-build-your-first-pipeline.md)
+### <a name="how-do-i-get-started-with-azure-data-factory"></a>Hur gör jag för att kom igång med Azure Data Factory?
+* En översikt över Azure Data Factory finns i [Introduktion till Azure Data Factory](data-factory-introduction.md).
+* En själv studie kurs om hur du **kopierar/flyttar data** med hjälp av kopierings aktivitet finns i [Kopiera data från Azure Blob Storage till Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* En själv studie kurs om hur du **omvandlar data** med HDInsight Hive-aktivitet. Se [bearbeta data genom att köra Hive-skript på Hadoop-kluster](data-factory-build-your-first-pipeline.md)
 
-### <a name="what-is-the-data-factorys-region-availability"></a>Vad är Data Factory regiontillgänglighet?
-Data Factory finns i **västra USA** och **Nordeuropa**. Beräknings- och tjänsterna som används av datafabriker kan finnas i andra regioner. Se [regioner som stöds](data-factory-introduction.md#supported-regions).
+### <a name="what-is-the-data-factorys-region-availability"></a>Vad är Data Factory regions tillgänglighet?
+Data Factory finns i **västra USA** och **Nord Europa**. De beräknings-och lagrings tjänster som används av data fabriker kan finnas i andra regioner. Se [regioner som stöds](data-factory-introduction.md#supported-regions).
 
-### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Vad är gränser för antal data fabriker/pipelines/aktiviteter/datauppsättningar?
-Se **Azure Data Factory-gränser** delen av den [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md#data-factory-limits) artikeln.
+### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Vilka är gränserna för antalet data fabriker/pipelines/Activities/data uppsättningar?
+Se avsnittet **Azure Data Factory gränser** i artikeln om [begränsningar, kvoter och begränsningar för Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md#data-factory-limits) .
 
-### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Vad är redigering/utvecklarupplevelsen med Azure Data Factory-tjänsten?
-Du kan redigera/skapa datafabriker med någon av följande verktyg/SDK: erna:
+### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Vad är upplevelsen för redigering/utvecklare med Azure Data Factory tjänsten?
+Du kan skapa/skapa data fabriker med något av följande verktyg/SDK: er:
 
-* **Visual Studio** du kan använda Visual Studio för att skapa en Azure-datafabrik. Se [skapa din första datapipeline med hjälp av Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) mer information.
-* **Azure PowerShell** Se [skapa och övervaka Azure-Datafabrik med hjälp av Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) en självstudie/genomgång för att skapa en datafabrik med hjälp av PowerShell. Se [Cmdlet-referens för Data Factory][adf-powershell-reference] innehållet i MSDN Library för en omfattande dokumentation om Data Factory-cmdletar.
-* **.NET-klassbiblioteket** du kan skapa datafabriker programmässigt med hjälp av Data Factory .NET SDK. Se [skapa, övervaka och hantera datafabriker med hjälp av .NET SDK](data-factory-create-data-factories-programmatically.md) en genomgång för att skapa en datafabrik med hjälp av .NET SDK. Se [biblioteksreferens för Data Factory klass][msdn-class-library-reference] för en omfattande dokumentation för Data Factory .NET SDK.
-* **REST API** du kan också använda REST-API som visas av Azure Data Factory-tjänsten för att skapa och distribuera datafabriker. Se [Data Factory REST API-referens][msdn-rest-api-reference] för en omfattande dokumentation för Data Factory REST API.
-* **Azure Resource Manager-mall** Se [självstudien: Skapa din första Azure-datafabrik med hjälp av Azure Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md) fo information.
+* **Visual Studio** Du kan använda Visual Studio för att skapa en Azure-datafabrik. Mer information finns i [bygga din första data pipeline med Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .
+* **Azure PowerShell** Se [skapa och övervaka Azure Data Factory att använda Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) för självstudier/genom gång för att skapa en data fabrik med hjälp av PowerShell. Mer information om Data Factory-cmdletar finns i referens innehåll för [Data Factory][adf-powershell-reference] -cmdleten i MSDN Library.
+* **.NET-klass bibliotek** Du kan skapa data fabriker program mässigt genom att använda Data Factory .NET SDK. Se [skapa, övervaka och hantera data fabriker med hjälp av .NET SDK](data-factory-create-data-factories-programmatically.md) för en genom gång av hur du skapar en data fabrik med hjälp av .NET SDK. Se [Data Factory klass biblioteks referens][msdn-class-library-reference] för en omfattande dokumentation av Data Factory .NET SDK.
+* **REST API** Du kan också använda REST API som exponeras av tjänsten Azure Data Factory för att skapa och distribuera data fabriker. Se [Data Factory REST API Reference][msdn-rest-api-reference] för en omfattande dokumentation av Data Factory REST API.
+* **Azure Resource Manager mall** Se [Självstudier: Bygg din första Azure-datafabrik med hjälp](data-factory-build-your-first-pipeline-using-arm.md) av Azure Resource Manager mall för information.
 
-### <a name="can-i-rename-a-data-factory"></a>Kan jag byta namn på en data factory?
-Nej. Namnet på en Azure-datafabrik som andra Azure-resurser kan inte ändras.
+### <a name="can-i-rename-a-data-factory"></a>Kan jag byta namn på en data fabrik?
+Nej. Precis som andra Azure-resurser kan du inte ändra namnet på en Azure Data Factory.
 
-### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>Kan jag flytta en data factory från en Azure-prenumeration till en annan?
-Ja. Använd den **flytta** knapp på din data factory-blad som du ser i följande diagram:
+### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>Kan jag flytta en data fabrik från en Azure-prenumeration till en annan?
+Ja. Använd knappen **Flytta** på Data Factory-bladet, som du ser i följande diagram:
 
-![Flytta data factory](media/data-factory-faq/move-data-factory.png)
+![Flytta data fabrik](media/data-factory-faq/move-data-factory.png)
 
-### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Vilka är de beräkningsmiljöer som stöds av Data Factory?
-Följande tabell innehåller en lista över de beräkningsmiljöer som stöds av Data Factory och de aktiviteter som kan köras på dem.
+### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Vilka beräknings miljöer stöds av Data Factory?
+Följande tabell innehåller en lista över beräknings miljöer som stöds av Data Factory och de aktiviteter som kan köras på dem.
 
 | Compute-miljö | activities |
 | --- | --- |
-| [HDInsight-kluster på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) eller [ett eget HDInsight-kluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
+| [HDInsight-kluster på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) eller [ditt eget HDInsight-kluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [gris](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning-aktiviteter: Batchkörning och resursuppdatering](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning aktiviteter: Batch-körning och uppdaterings resurs](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Lagrad procedur](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service) [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Lagrad procedur](data-factory-stored-proc-activity.md) |
 
-### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Hur jämfört med SQL Server Integration Services (SSIS) i Azure Data Factory? 
-Se den [jämfört med Azure Data Factory. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) presentation från en av våra MVP (Most värdefull Professionals): Reza Rad. Vissa av de senaste ändringarna i Data Factory kan inte visas i presentationen. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi kommer införliva de här uppdateringarna i jämförelse av data Integreringstekniker från Microsoft en stund senare i år.   
+### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Hur jämför Azure Data Factory med SQL Server Integration Services (SSIS)? 
+[Se Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) -presentation från någon av våra MVP: er (mest värdefulla tekniker): Reza rad. Några av de senaste ändringarna i Data Factory kanske inte visas i bild däcket. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi kommer att införliva dessa uppdateringar i jämförelsen av data integrerings tekniker från Microsoft senare i år.   
 
 ## <a name="activities---faq"></a>Aktiviteter – vanliga frågor och svar
-### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Vilka är de olika typerna av aktiviteter som du kan använda i Data Factory-pipeline?
-* [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) att flytta data.
-* [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) att bearbeta/Transformera data.
+### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Vilka är de olika typerna av aktiviteter som du kan använda i en Data Factory pipeline?
+* [Data förflyttnings aktiviteter](data-factory-data-movement-activities.md) för att flytta data.
+* [Data omvandlings aktiviteter](data-factory-data-transformation-activities.md) för att bearbeta/transformera data.
 
 ### <a name="when-does-an-activity-run"></a>När körs en aktivitet?
-Den **tillgänglighet** konfigurationsinställning i utdatatabellen avgör när aktiviteten körs. Om indatauppsättningar anges, aktiviteten kontrollerar om alla indata-beroenden uppfylls (det vill säga **redo** tillstånd) innan den börjar köras.
+Inställningen **tillgänglighets** konfiguration i tabellen utdata avgör när aktiviteten körs. Om indata-datauppsättningar anges, kontrollerar aktiviteten om alla indata-databeroenden är uppfyllda (vilket är **klart** ) innan det börjar köras.
 
-## <a name="copy-activity---faq"></a>Kopiera aktivitet – vanliga frågor och svar
+## <a name="copy-activity---faq"></a>Kopierings aktivitet – vanliga frågor och svar
 ### <a name="is-it-better-to-have-a-pipeline-with-multiple-activities-or-a-separate-pipeline-for-each-activity"></a>Är det bättre att ha en pipeline med flera aktiviteter eller en separat pipeline för varje aktivitet?
-Pipelines som är avsedda för att paketera relaterade aktiviteter. Om de datauppsättningar som kopplar ihop dem inte förbrukas av andra aktiviteter utanför pipelinen, behåller du aktiviteter i en pipeline. På så sätt kan du inte behöver kedja pipeline aktiva perioder så att de överensstämmer med varandra. Dessutom bevaras bättre dataintegriteten i tabellerna som är interna för pipelinen vid uppdatering av pipelinen. Pipeline-uppdatering i stort sett stoppar alla aktiviteter i pipelinen, tar bort dem och skapar dem igen. Från redigerar perspektiv, kan det också vara lättare att se flödet av data i de relaterade aktiviteterna i en JSON-fil för pipelinen.
+Pipelines ska paketera relaterade aktiviteter. Om data uppsättningarna som ansluter dem inte används av någon annan aktivitet utanför pipelinen kan du behålla aktiviteterna i en pipeline. På så sätt behöver du inte kedje aktiva perioder för pipeline så att de överensstämmer med varandra. Dessutom bevaras data integriteten i tabellerna som är interna för pipelinen när pipelinen uppdateras. Pipeline-uppdateringen stoppar i princip alla aktiviteter i pipelinen, tar bort dem och skapar dem igen. Från redigerings perspektivet kan det också vara lättare att se data flödet i de relaterade aktiviteterna i en JSON-fil för pipelinen.
 
-### <a name="what-are-the-supported-data-stores"></a>Vilka är datalager som stöds?
+### <a name="what-are-the-supported-data-stores"></a>Vilka är de data lager som stöds?
 Kopieringsaktiviteten i Data Factory kopierar data från källans datalager till mottagarens datalager. Data Factory har stöd för följande datalager. Data kan skrivas från valfri källa till valfri mottagare. Klicka på ett datalager om du vill veta hur du kopierar data till och från det datalagret.
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
@@ -99,26 +97,26 @@ Kopieringsaktiviteten i Data Factory kopierar data från källans datalager till
 > [!NOTE]
 > Datalager med * kan finnas lokalt eller på Azure IaaS, och kräver att du installerar [Data Management Gateway](data-factory-data-management-gateway.md) på en lokal/Azure IaaS-dator.
 
-### <a name="what-are-the-supported-file-formats"></a>Vilka är filformat som stöds?
+### <a name="what-are-the-supported-file-formats"></a>Vilka fil format stöds?
 [!INCLUDE [data-factory-file-format](../../../includes/data-factory-file-format.md)]
 
-### <a name="where-is-the-copy-operation-performed"></a>Där utförs kopieringen?
-Se [globalt tillgänglig dataförflyttning](data-factory-data-movement-activities.md#global) information. När ett lokalt datalager ingår, utförs i korthet kopieringen av Data Management Gateway i din lokala miljö. Och när dataförflyttning mellan två molnbaserade datalager kopieringen utförs i regionen som är närmast mottagaren plats i samma geografiska område.
+### <a name="where-is-the-copy-operation-performed"></a>Var utförs kopierings åtgärden?
+Mer information finns i avsnittet om [globalt tillgänglig data förflyttning](data-factory-data-movement-activities.md#global) . Kort, när ett lokalt data lager är involverat, utförs kopierings åtgärden av Data Management Gateway i din lokala miljö. När data flytten är mellan två moln lager, utförs kopierings åtgärden i den region som ligger närmast platsen för mottagaren i samma geografi.
 
 ## <a name="hdinsight-activity---faq"></a>HDInsight-aktivitet – vanliga frågor och svar
 ### <a name="what-regions-are-supported-by-hdinsight"></a>Vilka regioner stöds av HDInsight?
-Se avsnittet geografisk tillgänglighet i följande artikel: eller [HDInsight – prisinformation][hdinsight-supported-regions].
+Se avsnittet geografisk tillgänglighet i följande artikel: eller [pris information för HDInsight][hdinsight-supported-regions].
 
-### <a name="what-region-is-used-by-an-on-demand-hdinsight-cluster"></a>Vilken region som ska användas av ett HDInsight-kluster på begäran?
-HDInsight-kluster på begäran skapas i samma region där den lagring som du angav för att användas med klustret finns.    
+### <a name="what-region-is-used-by-an-on-demand-hdinsight-cluster"></a>Vilken region används av ett HDInsight-kluster på begäran?
+HDInsight-klustret på begäran skapas i samma region där det lagrings utrymme som du har angett ska användas med klustret finns.    
 
-### <a name="how-to-associate-additional-storage-accounts-to-your-hdinsight-cluster"></a>Så här associerar du ytterligare lagringskonton till HDInsight-kluster?
-Om du använder ett eget HDInsight-kluster (ta med din egen kluster - BYOC), finns i följande avsnitt:
+### <a name="how-to-associate-additional-storage-accounts-to-your-hdinsight-cluster"></a>Hur kopplar du ytterligare lagrings konton till ditt HDInsight-kluster?
+Om du använder ett eget HDInsight-kluster (BYOC-ta med ditt eget kluster) kan du läsa följande avsnitt:
 
-* [Använda ett HDInsight-kluster med alternativa Lagringskonton och Metastores][hdinsight-alternate-storage]
-* [Använda ytterligare Lagringskonton med Hive i HDInsight][hdinsight-alternate-storage-2]
+* [Använda ett HDInsight-kluster med alternativa lagrings konton och Metastores][hdinsight-alternate-storage]
+* [Använd ytterligare lagrings konton med HDInsight Hive][hdinsight-alternate-storage-2]
 
-Om du använder ett kluster på begäran som skapas av Data Factory-tjänsten kan du ange ytterligare lagringskonton för HDInsight-länkad tjänst så att Data Factory-tjänsten kan registrera dem för din räkning. I JSON-definitionen för den länkade tjänsten på begäran använder **, additionallinkedservicenames,** egenskapen ange alternativa lagringskonton som visas i följande JSON-kodfragment:
+Om du använder ett kluster på begäran som skapats av tjänsten Data Factory, anger du ytterligare lagrings konton för den länkade HDInsight-tjänsten så att tjänsten Data Factory kan registrera dem åt dig. Använd egenskapen **additionalLinkedServiceNames** i JSON-definitionen för den länkade tjänsten på begäran för att ange alternativa lagrings konton som visas i följande JSON-kodfragment:
 
 ```JSON
 {
@@ -137,25 +135,25 @@ Om du använder ett kluster på begäran som skapas av Data Factory-tjänsten ka
     }
 }
 ```
-I exemplet ovan motsvarar otherLinkedServiceName1 och otherLinkedServiceName2 du länkade tjänster vars definitioner innehåller autentiseringsuppgifter som HDInsight-klustret behöver åtkomst till alternativa lagringskonton.
+I exemplet ovan representerar otherLinkedServiceName1 och otherLinkedServiceName2 länkade tjänster vars definitioner innehåller autentiseringsuppgifter som HDInsight-klustret behöver för att komma åt alternativa lagrings konton.
 
-## <a name="slices---faq"></a>Sektorer – vanliga frågor och svar
-### <a name="why-are-my-input-slices-not-in-ready-state"></a>Varför är min indatasektorerna inte i färdigt tillstånd?
-Ett vanligt fel inte ange **externa** egenskap **SANT** för indatauppsättningen när indata är extern till data factory (inte tillverkas av data factory).
+## <a name="slices---faq"></a>Segment – vanliga frågor och svar
+### <a name="why-are-my-input-slices-not-in-ready-state"></a>Varför är mina indataportar inte i klart läge?
+Ett vanligt fel är att inte ställa in **extern** egenskap på **True** för indata-datauppsättningen när indata är externa i data fabriken (som inte produceras av data fabriken).
 
-I följande exempel behöver du bara ange **externa** TRUE på **dataset1**.  
+I följande exempel behöver du bara ange **external** till true för **DataSet1**.  
 
-**DataFactory1** Pipeline-1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3 -> activity3 dataset4 ->
+**DataFactory1** Pipeline 1: DataSet1-> Activity1-> DataSet2-> Activity2-> dataset3 pipeline 2: dataset3-> Activity3-> dataset4
 
-Om du har en annan data factory med en pipeline som tar dataset4 (produceras av pipelinen 2 i data factory 1) kan du markera dataset4 som en extern datauppsättning eftersom datauppsättningen produceras av en annan data factory (DataFactory1, inte DataFactory2).  
+Om du har en annan data fabrik med en pipeline som tar dataset4 (producerad av pipelinen 2 i Data Factory 1) markerar du dataset4 som en extern data uppsättning eftersom data uppsättningen produceras av en annan data fabrik (DataFactory1, inte DataFactory2).  
 
 **DataFactory2**    
-Pipeline 1: dataset4 -> activity4 dataset5 ->
+Pipeline 1: dataset4-> Activity4-> dataset5
 
-Om den externa egenskapen har konfigurerats korrekt, kontrollerar du om det finns indata på den plats som anges i datauppsättningen för indata.
+Om den externa egenskapen har angetts korrekt kontrollerar du om indata finns på den plats som anges i definitionen för data uppsättningen för indata.
 
-### <a name="how-to-run-a-slice-at-another-time-than-midnight-when-the-slice-is-being-produced-daily"></a>Hur du kör en sektor vid ett senare tillfälle än midnatt när sektorn produceras varje dag?
-Använd den **offset** egenskap anger du den tid som du vill att sektorn som produceras. Se [tillgänglighet för datauppsättningar](data-factory-create-datasets.md#dataset-availability) finns mer information om den här egenskapen. Här är ett enkelt exempel:
+### <a name="how-to-run-a-slice-at-another-time-than-midnight-when-the-slice-is-being-produced-daily"></a>Hur kör man en sektor vid en annan tidpunkt än midnatt när sektorn produceras dagligen?
+Använd egenskapen **offset** för att ange när du vill att sektorn ska produceras. Mer information om den här egenskapen finns i avsnittet om [data uppsättnings tillgänglighet](data-factory-create-datasets.md#dataset-availability) . Här är ett snabbt exempel:
 
 ```json
 "availability":
@@ -165,36 +163,36 @@ Använd den **offset** egenskap anger du den tid som du vill att sektorn som pro
     "offset": "06:00:00"
 }
 ```
-Dagliga sektorer som börjar vid **06: 00** i stället för standard-midnatt.     
+De dagliga sektorerna börjar kl. **6** i stället för standard midnatt.     
 
-### <a name="how-can-i-rerun-a-slice"></a>Hur kan jag köra en sektor?
-Du kan köra en sektor i ett av följande sätt:
+### <a name="how-can-i-rerun-a-slice"></a>Hur gör jag för att köra en sektor igen?
+Du kan köra om en sektor på något av följande sätt:
 
-* Använda appen övervaka och hantera för att köra ett aktivitetsfönster eller segment. Se [kör den markerade aktivitetsfönster](data-factory-monitor-manage-app.md#perform-batch-actions) anvisningar.   
-* Klicka på **kör** i kommandofältet på den **DATASEKTOR** bladet för sektorn i Azure-portalen.
-* Kör **Set-AzDataFactorySliceStatus** cmdlet: en med statusen inställd **väntar på** för sektorn.   
+* Använd övervaka och hantera app för att köra ett aktivitets fönster eller en sektor igen. Mer information finns i [köra om valt aktivitets fönster](data-factory-monitor-manage-app.md#perform-batch-actions) .   
+* Klicka på **Kör** i kommando fältet på bladet **data sektor** för sektorn i Azure Portal.
+* Kör **set-AzDataFactorySliceStatus-** cmdlet med status inställt på **väntar** på sektorn.   
 
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  Se [Set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] mer information om cmdlet: en.
+  Se [set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] för information om cmdleten.
 
-### <a name="how-long-did-it-take-to-process-a-slice"></a>Hur lång tid tog den för att bearbeta en sektor?
-Använd aktiviteten fönstret Explorer i övervaknings- och Hanteringsappen veta hur lång tid det tog för att bearbeta en datasektor. Se [aktivitet fönstret Explorer](data-factory-monitor-manage-app.md#activity-window-explorer) mer information.
+### <a name="how-long-did-it-take-to-process-a-slice"></a>Hur lång tid tog det att bearbeta en sektor?
+Använd aktivitets fönstret i Övervakare för & Hantera appar för att veta hur lång tid det tog att bearbeta en data sektor. Mer information finns i [Utforskaren för aktivitets fönstret](data-factory-monitor-manage-app.md#activity-window-explorer) .
 
-Du kan också göra följande i Azure portal:  
+Du kan också göra följande i Azure Portal:  
 
-1. Klicka på **datauppsättningar** panel på den **DATA FACTORY** bladet för din datafabrik.
-2. Klicka på den specifika datauppsättningen på den **datauppsättningar** bladet.
-3. Välj den sektor som du är intresserad från den **nyliga sektorer** lista på den **tabell** bladet.
-4. Klicka på den aktivitet som körs från den **Aktivitetskörningar** i listan den **DATASEKTOR** bladet.
-5. Klicka på **egenskaper** panel på den **AKTIVITETSKÖRNINGSINFORMATION** bladet.
-6. Du bör se den **varaktighet** med ett värde. Det här värdet är den tid det tar att bearbeta sektorn.   
+1. Klicka på panelen data **uppsättningar** på **Data Factory** -bladet för din data fabrik.
+2. Klicka på den angivna data uppsättningen på bladet **data uppsättningar** .
+3. Välj den sektor som du är intresse rad av från listan **senaste segment** på bladet **tabell** .
+4. Klicka på aktiviteten Kör från listan **aktivitets körningar** på bladet **data sektor** .
+5. Klicka på panelen **Egenskaper** på bladet **AKTIVITETS körnings information** .
+6. Du bör se **varaktighets** fältet med ett värde. Det här värdet är den tid det tar att bearbeta sektorn.   
 
-### <a name="how-to-stop-a-running-slice"></a>Hur du stoppar ett pågående segment?
-Om du vill stoppa pipelinen körs kan du använda [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet. För närvarande pausar pipelinen inte att stoppa den sektor körningar som pågår. När den pågående körningar är klar, hämtas inga extra sektorn.
+### <a name="how-to-stop-a-running-slice"></a>Så här stoppar du en sektor som körs?
+Om du behöver stoppa pipelinen från att köra kan du använda cmdleten [suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) . För närvarande stoppas inte de sektor körningar som pågår för tillfället genom att pausa pipelinen. När pågående körningar är slutförd hämtas ingen extra sektor.
 
-Om du vill stoppa alla körningar direkt, är det enda sättet att ta bort pipelinen och skapa det igen. Om du väljer att ta bort pipelinen, behöver du inte ta bort tabeller och länkade tjänster som används av pipelinen.
+Om du verkligen vill stoppa körningen direkt är det enda sättet att ta bort pipelinen och skapa den igen. Om du väljer att ta bort pipelinen behöver du inte ta bort tabeller och länkade tjänster som används av pipelinen.
 
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models

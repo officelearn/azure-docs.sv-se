@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: fa1e7fcf89ccc06e429831191ba5dfce3cf33797
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 7fea6d16c8846909a8ce9bb33aae74ce343018fa
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828309"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142326"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -199,17 +199,17 @@ Linux-OS som inte stöds | Datorn kan starta i Azure, men Azure ger inget operat
 Okänt operativ system | Operativ systemet för den virtuella datorn angavs som "Övrigt" i vCenter Server. Det här beteendet blockerar Azure Migrate från att verifiera den virtuella datorns Azure-beredskap. Kontrol lera att datorns operativ system [stöds](https://aka.ms/azureoslist) av Azure innan du migrerar datorn.
 OS-bitar som inte stöds | Virtuella datorer med ett 32-bitars operativ system kan starta i Azure, men vi rekommenderar att du uppgraderar operativ systemet på den virtuella datorn till 64-bitars innan du migrerar till Azure.
 Kräver en Microsoft Visual Studio-prenumeration | Datorn kör ett Windows-klient-OS som bara stöds via en Visual Studio-prenumeration.
-Det gick inte att hitta någon virtuell dator för nödvändiga lagringsprestanda | Lagrings prestandan (indata/utdata per sekund [IOPS] och data flöde) som krävs för datorn överskrider stöd för virtuella Azure-datorer. Minska lagrings kraven för datorn innan du migrerar.
-Det gick inte att hitta någon virtuell dator för nödvändig nätverksprestanda | Nätverks prestandan (in/ut) som krävs för datorn överskrider stöd för virtuella Azure-datorer. Minska nätverks kraven för datorn.
-Det gick inte att hitta någon virtuell dator på den angivna platsen | Använd en annan målplats innan migreringen.
+Den virtuella datorn hittades inte för lagrings prestanda som krävs | Lagrings prestandan (indata/utdata per sekund [IOPS] och data flöde) som krävs för datorn överskrider stöd för virtuella Azure-datorer. Minska lagrings kraven för datorn innan du migrerar.
+Det gick inte att hitta den virtuella datorn för den nödvändiga nätverks prestandan | Nätverks prestandan (in/ut) som krävs för datorn överskrider stöd för virtuella Azure-datorer. Minska nätverks kraven för datorn.
+Den virtuella datorn hittades inte på den angivna platsen | Använd en annan målplats innan migreringen.
 En eller flera olämpliga diskar | En eller flera diskar som är anslutna till den virtuella datorn uppfyller inte kraven för Azure. Azure Migrate: Server utvärderingen stöder för närvarande inte Ultra SSD diskar och utvärderar diskarna baserat på disk gränserna för Premium Managed disks (32 TB).  För varje disk som är ansluten till den virtuella datorn ser du till att storleken på disken är < 64 TB (stöds av Ultra SSD diskar), om inte, minskar du disk storleken innan du migrerar till Azure eller använder flera diskar i Azure och tar bort [dem tillsammans](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) för att få högre lagrings gränser. Kontrol lera att prestandan (IOPS och data flödet) som krävs för varje disk stöds av Azure- [hanterade virtuella dator diskar](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).
 Ett eller flera olämpliga nätverkskort. | Ta bort oanvända nätverkskort från datorn innan migreringen.
 Antalet diskar överskrider gränsen | Ta bort oanvända diskar från datorn innan migreringen.
 Diskstorleken överskrider gränsen | Azure Migrate: Server utvärderingen stöder för närvarande inte Ultra SSD diskar och utvärderar diskarna baserat på Premium disk gränser (32 TB). Azure har dock stöd för diskar med upp till 64 TB-storlek (stöds av Ultra SSD diskar). Minska diskar till mindre än 64 TB innan migrering eller Använd flera diskar i Azure och dela upp [dem](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) för att få högre lagrings gränser.
 Disken är inte tillgänglig på den angivna platsen | Kontrol lera att disken finns på mål platsen innan du migrerar.
-Disken är ej tillgänglig för den angivna redundansen | Disken bör använda den redundans lagrings typ som definierats i utvärderings inställningarna (LRS som standard).
+Disken är inte tillgänglig för den angivna redundansen | Disken bör använda den redundans lagrings typ som definierats i utvärderings inställningarna (LRS som standard).
 Det gick inte att fastställa diskens lämplighet på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
-Det gick inte att hitta någon virtuell dator med nödvändiga kärnor och minne | Azure kunde inte hitta en lämplig VM-typ. Minska minnet och antalet kärnor för den lokala datorn innan du migrerar.
+Det gick inte att hitta den virtuella datorn med nödvändiga kärnor och minne | Azure kunde inte hitta en lämplig VM-typ. Minska minnet och antalet kärnor för den lokala datorn innan du migrerar.
 Det gick inte att fastställa VM-lämplighet på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
 Det gick inte att fastställa lämplighet för en eller flera diskar på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
 Det gick inte att fastställa lämplighet för ett eller flera nätverkskort på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
@@ -271,7 +271,7 @@ Och [här är en lista över Linux-operativsystem som stöds av MMA](https://doc
 
 ### <a name="what-operating-systems-does-the-dependency-agent-support"></a>Vilka operativ system stöder beroende agenten?
 
-[Här är en lista över Windows-operativsystem som stöds av beroende agenten](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems). Och [här är en lista över Linux-operativsystem som stöds av beroende agenten](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+[Här är en lista över [Windows-och Linux-operativsystem som Azure Monitor for VMS stöder](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems).
 
 ### <a name="i-cant-visualize-dependencies-in-azure-migrate-for-more-than-a-one-hour-duration"></a>Jag kan inte visualisera beroenden i Azure Migrate i mer än en timmes varaktighet.
 I Azure Migrate kan du visualisera beroenden i upp till en timmes varaktighet. Även om Azure Migrate ger dig möjlighet att gå tillbaka till ett visst datum under den senaste månaden, är den längsta varaktigheten som du kan visualisera beroenden en timme.

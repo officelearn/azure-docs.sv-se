@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 0bd8c0417b32e93a4f52b545c4d7fc532992a0b1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 4a20318a4779b06e60d849dea0774d717d87e48e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854336"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141853"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimera ExpressRoute-routning
 När du har flera ExpressRoute-kretsar måste ha du mer än en sökväg för att ansluta till Microsoft. Därför kan en icke-optimal routning inträffa - vilket innebär att din trafik får en längre sökväg till Microsoft, och Microsoft till nätverket. Ju längre nätverkssökvägen är, desto längre svarstid. Svarstiden har direkt inverkan på programmens prestanda och användarupplevelse. Den här artikeln beskriver problemet och förklarar hur du optimerar routning med standardroutningstekniker.
@@ -75,7 +75,7 @@ Det finns två lösningar på problemet. Den första är att du bara annonserar 
 Den andra lösningen är att du fortsätter att annonsera båda prefixen för båda ExpressRoute-kretsarna, men dessutom ger du oss en ledtråd för vilka prefix som ligger nära dina kontor. Du kan konfigurera AS PATH för ditt prefix om du vill påverka routningen eftersom vi stöder BGP. I det här exemplet kan du förlänga AS PATH för 172.2.0.0/31 i USA, östra så att vi prioriterar ExpressRoute-kretsen i USA, västra för trafik till det prefixet (vårt nätverk kommer att tro att sökvägen till prefixet är kortare i väst). På samma sätt kan du förlänga AS PATH för 172.2.0.2/31 i USA, västra så att vi prioriterar ExpressRoute-kretsen i USA, östra. Routning är optimerat för båda kontoren. Med den här designen kan Exchange Online fortfarande nå dig via en annan ExpressRoute-krets och ditt WAN om en ExpressRoute-krets bryts. 
 
 > [!IMPORTANT]
-> Vi tar bort privata AS-nummer i AS PATH för de prefix som togs emot med Microsoft-peering. Du måste lägga till offentliga AS-nummer i AS PATH som påverkar routningen för Microsoft-peering.
+> Vi tar bort privata AS-nummer i AS-sökvägen för de prefix som tagits emot på Microsoft-peering när de använder ett privat AS-nummer. Du måste använda peer med en offentlig som och lägga till offentliga som nummer i AS-sökvägen för att påverka routningen för Microsoft-peering.
 > 
 > 
 

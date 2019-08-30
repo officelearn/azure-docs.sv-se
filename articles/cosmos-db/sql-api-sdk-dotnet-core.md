@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 58db76401439befd476bc78c1a1a20eeed5c2342
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1b1e9338f92aaefab8e7754139066ac03e8b8213
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779172"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142620"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -220,7 +220,7 @@ ms.locfileid: "68779172"
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
-* Åtgärda ett problem som ibland orsakar en WebException: Fjärrnamnet kunde inte lösas.
+* Åtgärda ett problem som ibland orsakar en WebException: Det gick inte att matcha fjärrnamnet.
 * Lagt till stöd för att läsa in ett skrivet dokument genom att lägga till nya överlagringar till ReadDocumentAsync API direkt.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
@@ -251,7 +251,19 @@ Förhandsversion av Azure Cosmos DB .NET Core SDK har funktionsparitet med den s
 
 Om du har frågor som rör detta SDK, publicera på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb)eller fil ett problem i GitHub- [lagringsplatsen](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
-## <a name="release--retirement-dates"></a>Fri & Släpp dras tillbaka datum
+## <a name="release--retirement-dates"></a>Frisläpp & indragnings datum
+Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds.
+
+Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt. 
+
+Förfrågningar till Azure Cosmos DB med hjälp av en tillbakadragen SDK avvisas av tjänsten.
+
+> [!WARNING]
+> Alla versioner **1. x** av .net Core SDK för SQL API kommer att dras tillbaka den **30 augusti 2020**.
+> 
+>
+<br/>
+
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
@@ -268,26 +280,26 @@ Om du har frågor som rör detta SDK, publicera på [StackOverflow](https://stac
 | [2.1.1](#2.1.1) |27 september 2018 |--- |
 | [2.1.0](#2.1.0) |21 september 2018 |--- |
 | [2.0.0](#2.0.0) |07 september 2018 |--- |
-| [1.9.1](#1.9.1) |09 mars 2018 |--- |
-| [1.8.2](#1.8.2) |21 februari 2018 |--- |
-| [1.8.1](#1.8.1) |05 februari 2018 |--- |
-| [1.7.1](#1.7.1) |16 november 2017 |--- |
-| [1.7.0](#1.7.0) |Den 10 november 2017 |--- |
-| [1.6.0](#1.6.0) |Den 17 oktober 2017 |--- |
-| [1.5.1](#1.5.1) |02 oktober 2017 |--- |
-| [1.5.0](#1.5.0) |10 augusti 2017 |--- | 
-| [1.4.1](#1.4.1) |07 augusti 2017 |--- |
-| [1.4.0](#1.4.0) |02 augusti 2017 |--- |
-| [1.3.2](#1.3.2) |12 juni 2017 |--- |
-| [1.3.1](#1.3.1) |Den 23 maj 2017 |--- |
-| [1.3.0](#1.3.0) |10 maj 2017 |--- |
-| [1.2.2](#1.2.2) |19 april 2017 |--- |
-| [1.2.1](#1.2.1) |Den 29 mars 2017 |--- |
-| [1.2.0](#1.2.0) |25 mars 2017 |--- |
-| [1.1.2](#1.1.2) |20 mars 2017 |--- |
-| [1.1.1](#1.1.1) |14 mars 2017 |--- |
-| [1.1.0](#1.1.0) |16 februari 2017 |--- |
-| [1.0.0](#1.0.0) |Den 21 december 2016 |--- |
+| [1.9.1](#1.9.1) |09 mars 2018 |30 augusti 2020 |
+| [1.8.2](#1.8.2) |21 februari 2018 |30 augusti 2020 |
+| [1.8.1](#1.8.1) |05 februari 2018 |30 augusti 2020 |
+| [1.7.1](#1.7.1) |16 november 2017 |30 augusti 2020 |
+| [1.7.0](#1.7.0) |Den 10 november 2017 |30 augusti 2020 |
+| [1.6.0](#1.6.0) |Den 17 oktober 2017 |30 augusti 2020 |
+| [1.5.1](#1.5.1) |02 oktober 2017 |30 augusti 2020 |
+| [1.5.0](#1.5.0) |10 augusti 2017 |30 augusti 2020 | 
+| [1.4.1](#1.4.1) |07 augusti 2017 |30 augusti 2020 |
+| [1.4.0](#1.4.0) |02 augusti 2017 |30 augusti 2020 |
+| [1.3.2](#1.3.2) |12 juni 2017 |30 augusti 2020 |
+| [1.3.1](#1.3.1) |Den 23 maj 2017 |30 augusti 2020 |
+| [1.3.0](#1.3.0) |10 maj 2017 |30 augusti 2020 |
+| [1.2.2](#1.2.2) |19 april 2017 |30 augusti 2020 |
+| [1.2.1](#1.2.1) |Den 29 mars 2017 |30 augusti 2020 |
+| [1.2.0](#1.2.0) |25 mars 2017 |30 augusti 2020 |
+| [1.1.2](#1.1.2) |20 mars 2017 |30 augusti 2020 |
+| [1.1.1](#1.1.1) |14 mars 2017 |30 augusti 2020 |
+| [1.1.0](#1.1.0) |16 februari 2017 |30 augusti 2020 |
+| [1.0.0](#1.0.0) |Den 21 december 2016 |30 augusti 2020 |
 | [0.1.0-Preview](#0.1.0-preview) |Den 15 november 2016 |Den 31 december 2016 |
 
 ## <a name="see-also"></a>Se även

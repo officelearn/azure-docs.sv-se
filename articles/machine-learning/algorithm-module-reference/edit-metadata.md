@@ -1,7 +1,7 @@
 ---
-title: 'Edit Metadata: Modulreferens'
+title: 'Redigera metadata: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen redigera Metadata i Azure Machine Learning-tjänsten för att ändra metadata som associeras med kolumner i en datauppsättning.
+description: Lär dig hur du använder modulen redigera metadata i Azure Machine Learning-tjänsten för att ändra metadata som är associerade med kolumner i en data uppsättning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,94 +9,93 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 282652adb917450c262e08bf10c3c6e537b829e7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 642b2a038ec434584c8af6dd72d58810e136ed57
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072709"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128872"
 ---
-# <a name="edit-metadata-module"></a>Redigera Metadata-modul
+# <a name="edit-metadata-module"></a>Redigera metadata-modul
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learnings tjänsten.
 
-Använd modulen redigera Data för att ändra metadata som associeras med kolumner i en datauppsättning. Värde och datatyp för datauppsättningen ändras efter att redigera Metadata-modulen.
+Använd modulen redigera data om du vill ändra metadata som är associerade med kolumner i en data uppsättning. Data uppsättningens värde och datatyp ändras efter användningen av modulen redigera metadata.
 
-Vanliga metadata förändringarna kan innefatta:
+Typiska metadata-ändringar kan innehålla:
   
-+ Behandla booleskt eller numeriska kolumner som kategoriska värden.
++ Behandlar booleska eller numeriska kolumner som kategoriska-värden.
   
-+ Som anger vilken kolumn som innehåller den **klass** etiketten eller innehåller de värden som du vill att kategorisera eller förutsäga.
++ Anger vilken kolumn som innehåller **klass** etiketten eller innehåller de värden som du vill kategorisera eller förutsäga.
   
-+ Markera kolumner som funktioner.
++ Markerar kolumner som funktioner.
   
-+ Ändra datum/tid-värden till numeriska värden eller vice versa.
++ Ändra datum-/tids värden till numeriska värden eller vice versa.
   
 + Byta namn på kolumner.
   
- Använd redigera Metadata när du behöver att ändra definitionen för en kolumn, vanligtvis för att uppfylla kraven för en underordnad modul. Till exempel vissa moduler fungerar bara med specifika datatyper eller kräver flaggor för kolumner, till exempel `IsFeature` eller `IsCategorical`.  
+ Använd redigera metadata när som helst behöver du ändra definitionen för en kolumn, vanligt vis för att uppfylla kraven för en underordnad modul. Till exempel fungerar vissa moduler bara med vissa data typer eller kräver flaggor på kolumnerna, till `IsFeature` exempel eller. `IsCategorical`  
   
- När du har utfört den nödvändiga åtgärden kan du återställa metadata till det ursprungliga tillståndet.
+ När du har utfört den begärda åtgärden kan du återställa metadata till dess ursprungliga tillstånd.
   
-## <a name="configure-edit-metadata"></a>Konfigurera redigera Metadata
+## <a name="configure-edit-metadata"></a>Konfigurera redigera metadata
   
-1. Lägg till modulen redigera Metadata till ditt experiment i Azure Machine Learning och anslut den datauppsättning som du vill uppdatera. Du kan hitta datauppsättningen under **Dataomvandling** i den **ändra** kategori.
+1. I Azure Machine Learning lägger du till modulen redigera metadata i experimentet och ansluter den data uppsättning som du vill uppdatera. Du kan hitta data uppsättningen under **dataomvandling** i kategorin för **manipulering** .
   
-1. Välj **starta kolumnväljaren** och välj den kolumn eller en uppsättning kolumner att arbeta med. Du kan välja kolumner individuellt efter namn eller index eller välja en grupp med kolumner av typen.  
+1. Välj **Starta kolumn väljaren** och välj den kolumn eller uppsättning kolumner som du vill arbeta med. Du kan välja kolumner individuellt efter namn eller index, eller så kan du välja en grupp med kolumner efter typ.  
   
-1. Välj den **datatypen** alternativet om du vill tilldela en annan datatyp till de markerade kolumnerna. Du kan behöva ändra datatypen för vissa åtgärder. Till exempel om datauppsättningen för källan har siffror som hanteras som text, måste du ändra dem till en numerisk datatyp innan du använder matematiska åtgärder.
+1. Välj alternativet **datatyp** om du behöver tilldela en annan datatyp till de markerade kolumnerna. Du kan behöva ändra data typen för vissa åtgärder. Om din käll data uppsättning exempelvis har tal som hanteras som text, måste du ändra dem till en numerisk datatyp innan du använder matematiska åtgärder.
 
-    + Datatyper som stöds är **sträng**, **heltal**, **dubbla**, **booleskt**, och **DateTime**.
+    + De data typer som stöds är **sträng**, **heltal**, **Double**, **Boolean**och **datetime**.
 
-    + Om du väljer flera kolumner, måste du aktivera metadata ändringarna *alla* markerade kolumner. Anta exempelvis att du väljer två eller tre numeriska kolumner. Du kan ändra dem alla till en sträng datatypen och byta namn på dem i en enda åtgärd. Du kan dock ändra en kolumn till datatypen string och en annan kolumn från ett flyttal till ett heltal.
+    + Om du väljer flera kolumner måste du tillämpa metadata-ändringarna på *alla* valda kolumner. Anta till exempel att du väljer två eller tre numeriska kolumner. Du kan ändra dem till en sträng data typ och byta namn på dem i en enda åtgärd. Du kan dock inte ändra en kolumn till en sträng data typ och en annan kolumn från ett flyttal till ett heltal.
   
-    + Om du inte anger en ny datatyp, är kolumnmetadata oförändrade.
+    + Om du inte anger någon ny datatyp, ändras inte kolumnens metadata.
 
-    + Kolumntypen och värden ändras när du utför åtgärden Redigera Metadata. Du kan återställa den ursprungliga datatypen när som helst genom att använda Redigera Metadata för att återställa Kolumndatatypen.  
+    + Kolumn typen och värdena kommer att ändras när du har utfört åtgärden redigera metadata. Du kan återställa den ursprungliga data typen när som helst genom att använda redigera metadata för att återställa kolumn data typen.  
 
     > [!NOTE]
-    > Om du ändrar någon typ av tal till det **DateTime** skriver, lämna den **DateTime-Format** tomt. För närvarande kan det inte går att ange formatet för mål-data.  
+    > Om du ändrar någon typ av tal till **datetime** -typen lämnar du fältet **datetime-format** tomt. Det går för närvarande inte att ange mål data formatet.  
 
-1. Välj den **Kategoriskt** alternativet för att ange att värdena i de markerade kolumnerna ska behandlas som kategorier.
+1. Välj alternativet **kategoriska** för att ange att värdena i de markerade kolumnerna ska behandlas som kategorier.
 
-    Du kan till exempel har en kolumn som innehåller talen 0, 1 och 2 men vet att talen faktiskt betyder ”Smoker”, ”icke-smoker” och ”okänt”. I så fall genom att flagga kolumnen som kategoriska du se till att värdena används endast att gruppera data och inte i numeriska beräkningar.
+    Du kan till exempel ha en kolumn som innehåller siffrorna 0, 1 och 2, men vet att siffrorna faktiskt betyder "Röke", "icke-Röke" och "okänd". I så fall kan du genom att flagga kolumnen som kategoriska se till att värdena endast används för att gruppera data och inte i numeriska beräkningar.
   
-1. Använd den **fält** om du vill ändra hur att Azure Machine Learning använder data i en modell.
+1. Använd alternativet **fält** om du vill ändra hur Azure Machine Learning använder data i en modell.
 
-    + **Funktionen**: Använd det här alternativet för att flagga en kolumn som en funktion i moduler som fungerar endast för funktionen kolumner. Som standard behandlas först alla kolumner som funktioner.  
+    + **Funktion**: Använd det här alternativet om du vill flagga en kolumn som en funktion i moduler som endast fungerar på funktions kolumner. Som standard behandlas alla kolumner som inlednings vis som-funktioner.  
   
-    + **Etiketten**: Använd det här alternativet för att markera den etiketten, som kallas även för förutsägbara attributet eller mål-variabeln. Många moduler kräver exakt en etikettkolumnen är tillgänglig i datauppsättningen.
+    + **Etikett**: Använd det här alternativet för att markera etiketten, som även kallas för det förutsägbara attributet eller mål variabeln. Många moduler kräver att exakt en etikett kolumn finns i data uppsättningen.
 
-        I många fall kan Azure Machine Learning härleda att en kolumn innehåller en klass etikett. Genom att ange dessa metadata kan du se till att kolumnen identifieras korrekt. Det här alternativet ändras inte datavärden. Ändras det enda sättet att hantera vissa maskininlärningsalgoritmer data.
+        I många fall kan Azure Machine Learning härleda att en kolumn innehåller en klass etikett. Genom att ange dessa metadata kan du se till att kolumnen identifieras korrekt. Om du väljer det här alternativet ändras inte data värden. Den ändrar bara det sätt på vilket vissa algoritmer för maskin inlärning hanterar data.
   
     > [!TIP]
-    > Har du data som inte passar in i följande kategorier? Din datauppsättning kan exempelvis innehålla värden som unika identifierare som inte är användbart som variabler. Sådana ID: N kan ibland orsaka problem när de används i en modell.
+    > Har du data som inte passar in i dessa kategorier? Din data uppsättning kan till exempel innehålla värden som unika identifierare som inte är användbara som variabler. Ibland kan sådana ID: n orsaka problem när de används i en modell.
     >
-    > Som tur är kan Azure Machine Learning och ser till alla dina data så att du inte behöver ta bort sådana kolumner från datauppsättningen. När du vill utföra åtgärder på en särskild uppsättning kolumner kan bara ta bort alla andra kolumner tillfälligt med hjälp av den [Välj kolumner i datauppsättning](select-columns-in-dataset.md) modulen. Du kan senare införa kolumnerna i datauppsättningen med hjälp av den [Lägg till kolumner](add-columns.md) modulen.  
+    > Lyckligt vis behåller Azure Machine Learning alla dina data så att du inte behöver ta bort sådana kolumner från data uppsättningen. När du behöver utföra åtgärder på vissa särskilda kolumner tar du bara bort alla andra kolumner med hjälp av modulen [Välj kolumner i data uppsättning](select-columns-in-dataset.md) . Senare kan du sammanfoga kolumnerna till data uppsättningen igen med hjälp av modulen [Lägg till kolumner](add-columns.md) .  
   
 1. Använd följande alternativ för att rensa tidigare val och återställa metadata till standardvärdena.  
   
-    + **Rensa funktionen**: Använd det här alternativet för att ta bort flaggan för funktionen.  
+    + **Rensa funktion**: Använd det här alternativet om du vill ta bort funktions flaggan.  
   
-         Alla kolumner behandlas först som funktioner. Du kan behöva använda det här alternativet för att förhindra att numeriska kolumner som behandlas som variabler för moduler som utför matematiska operationer.
+         Alla kolumner behandlas från början som funktioner. För moduler som utför matematiska åtgärder kan du behöva använda det här alternativet för att förhindra att numeriska kolumner behandlas som variabler.
   
-    + **Rensa etikett**: Använd det här alternativet för att ta bort den **etikett** metadata från den angivna kolumnen.  
+    + **Rensa etikett**: Använd det här alternativet om du vill ta bort etikettens metadata från den angivna kolumnen.  
   
-    + **Rensa poäng**: Använd det här alternativet för att ta bort den **poäng** metadata från den angivna kolumnen.  
+    + **Ta bort Poäng**: Använd det här alternativet om du vill ta bort **score** metadata från den angivna kolumnen.  
   
-         Du markera för närvarande inte uttryckligen en kolumn som en poäng i Azure Machine Learning. Men resultera vissa åtgärder i en kolumn som flaggas som en poäng internt. Dessutom kan en anpassad R-modul utdata poäng värden.
+         Du kan för närvarande inte uttryckligen Markera en kolumn som en poäng i Azure Machine Learning. Vissa åtgärder resulterar dock i en kolumn som flaggas som ett resultat internt. Dessutom kan en anpassad R-modul returnera Poäng värden.
 
-1. För **nya kolumnnamnen**, ange det nya namnet på den markerade kolumnen eller kolumnerna.  
+1. För **nya kolumn namn**anger du det nya namnet på den markerade kolumnen eller kolumnerna.  
   
-    + Kolumnnamn kan använda tecken som stöds av UTF-8-kodning. Tomma strängar, null-värden eller namn som består enbart av blanksteg är inte tillåtna.  
+    + Kolumn namn får endast använda tecken som stöds av UTF-8-kodning. Tomma strängar, null-värden eller namn som består av enbart blank steg är inte tillåtna.  
   
-    + Byt namn på flera kolumner genom att ange namnen som en kommaavgränsad lista efter vilka kolumnindex.  
+    + Om du vill byta namn på flera kolumner anger du namnen som en kommaavgränsad lista i ordningen för kolumn index.  
   
-    + Alla valda kolumner måste ändras. Du kan inte utelämna eller hoppa över kolumner.  
+    + Alla markerade kolumner måste byta namn. Du kan inte utelämna eller hoppa över kolumner.  
   
 1. Kör experimentet.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten.
+Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning.

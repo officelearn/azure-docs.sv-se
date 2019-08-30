@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 41e357ee53d4c2fbc6683be3446ba2527dd9253f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623984"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128284"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
 
@@ -178,16 +178,7 @@ För att du ska kunna ställa in anpassade aviseringar och åtgärder lagras all
 
 ## <a name="retrain-your-model-after-drift"></a>Träna om din modell efter drift
 
-När data påverkar negativ påverkan på den distribuerade modellens prestanda är det dags att omträna modellen. Med följande [ `diff()` metodfårdueninledandeuppfattningomvadsomharändratsmellandegamlaochnyainlärningsdatauppsättningarna.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
-) 
-
-```python
-from azureml.core import Dataset
-
-old_training_dataset.diff(new_training_dataset)
-```
-
-Baserat på utdata från föregående kod kanske du vill träna om modellen. Det gör du genom att gå vidare med följande steg.
+När data påverkar negativ påverkan på den distribuerade modellens prestanda är det dags att omträna modellen. Det gör du genom att gå vidare med följande steg.
 
 * Undersök insamlade data och Förbered data för att träna den nya modellen.
 * Dela upp den i träna/testa data.

@@ -3,21 +3,20 @@ title: Länkade tjänster i Azure Data Factory | Microsoft Docs
 description: Lär dig mer om länkade tjänster i Data Factory. Länkade tjänster länkar beräknings-/data lager till Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-ms.openlocfilehash: 904e063ae64a971de7f34fbfac63b7679f3bc363
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 80e9cee0d973dc8575e9645c537b6b69fbeef700
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019957"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137120"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Länkade tjänster i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -92,14 +91,11 @@ Följande länkade tjänst är en Azure Storage länkad tjänst. Observera att t
 ```
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
+
 Du kan skapa länkade tjänster med något av dessa verktyg eller SDK: [er: .NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager mall och Azure Portal
 
 ## <a name="data-store-linked-services"></a>Länkade tjänster för data lager
-Du kan hitta en anslutning till data lager i våra [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats). Referera till listan för de olika anslutnings egenskaper som krävs för olika butiker.
-
-## <a name="data-store-supported-activities"></a>Aktiviteter som stöds av data lager
-
-[!INCLUDE [Connector-activity support matrix](../../includes/connector-activity-support-matrix.md)]
+Du hittar en lista över data som lagras som stöds av Data Factory [](copy-activity-overview.md#supported-data-stores-and-formats) från översikts artikeln. Klicka på ett data lager om du vill veta vilka anslutnings egenskaper som stöds.
 
 ## <a name="compute-linked-services"></a>Länkade tjänster för Compute
 Referens [beräknings miljöer som stöds](compute-linked-services.md) för information om olika beräknings miljöer som du kan ansluta till från din data fabrik samt de olika konfigurationerna.

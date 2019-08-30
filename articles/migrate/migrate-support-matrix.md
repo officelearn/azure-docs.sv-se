@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 08/29/2019
 ms.author: raynew
-ms.openlocfilehash: 49bd193303255cdf7d18fd5da9dec8d84c50a829
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 99ef5c8a4a4291dd1b9d047da9006623dacd0b53
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019192"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147864"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate support mat ris
 
@@ -31,10 +31,10 @@ Det finns två versioner av tjänsten Azure Migrate:
 
 Tabellen sammanfattar migrerings scenarier som stöds.
 
-**Distribution** | **Information*** 
+**Distribution** | **Detaljer** 
 --- | --- 
 **Lokal utvärdering** | Utvärdera lokala arbets belastningar och data som körs på virtuella VMware-datorer och virtuella Hyper-V-datorer. Utvärdera med hjälp av Azure Migrate Server utvärdering och Microsoft Data Migration Assistant (DMA) och verktyg från tredje part som omfattar Cloudamize, samhyres teknik och Turbonomic-Server.
-**Lokal migrering till Azure** | Migrera arbets belastningar och data som körs på fysiska servrar, virtuella VMware-datorer, virtuella Hyper-V-datorer och på AWS/GCP-instanser till Azure. Migrera med hjälp av Azure Migrate Server Assessment and Azure Database Migration Service (DMS) och med verktyg från tredje part som innehåller Carbonite och CorentTech.
+**Lokal migrering till Azure** | Migrera arbets belastningar och data som körs på fysiska servrar, virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar och molnbaserade virtuella datorer till Azure. Migrera med hjälp av Azure Migrate Server Assessment and Azure Database Migration Service (DMS) och med verktyg från tredje part som innehåller Carbonite och CorentTech.
 
 Stöd för ett speciellt verktyg sammanfattas på följande sätt.
 
@@ -53,7 +53,7 @@ CorentTech | Migrering | [Läs mer](https://www.corenttech.com/).
 
 **Support** | **Detaljer**
 --- | ---
-Subscription | Du kan ha ett enda Azure Migrate-projekt i en prenumeration.
+Subscription | Du kan ha flera Azure Migrate projekt i en prenumeration.
 Azure-behörigheter | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
 VMwares virtuella datorer  | Utvärdera upp till 35 000 virtuella VMware-datorer i ett enda projekt.
 Hyper-V:s virtuella datorer | Utvärdera upp till 10 000 virtuella Hyper-V-datorer i ett enda projekt.

@@ -1,7 +1,7 @@
 ---
-title: 'Två Logistic Regression: Modulreferens'
+title: 'Logistik regression med två klasser: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder två Logistic Regression-modulen i Azure Machine Learning-tjänsten för att skapa en logistic regression-modell som kan användas för att förutsäga resultat för två (och bara två).
+description: Lär dig hur du använder en logistik Regressions modell med två klasser i Azure Machine Learning service för att skapa en logistik Regressions modell som kan användas för att förutsäga två (och bara två) resultat.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,83 +9,82 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: aacaf6c64ef77d0e694f97e3675060eca33794ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 818b8627decd5ee7db711abc417f71c83e32b6c0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029257"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128386"
 ---
-# <a name="two-class-logistic-regression-module"></a>Två Logistic Regression-modulen
+# <a name="two-class-logistic-regression-module"></a>Logistik Regressions modul i två klasser
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen för att skapa en logistic regression-modell som kan användas för att förutsäga resultat för två (och bara två). 
+Använd den här modulen för att skapa en logistik Regressions modell som kan användas för att förutsäga två (och endast två) resultat. 
 
-Logistic regression är en välkänd statistiska teknik som används för modellering av många olika typer av problem. Den här algoritmen är en *övervakad inlärning* metoden.  Därför måste du ange en datauppsättning som redan innehåller resultat för att träna modellen.  
+Logistisk regression är en välkänd statistisk teknik som används för att modellera många typer av problem. Den här algoritmen är en övervakad inlärnings metod.  Därför måste du ange en data uppsättning som redan innehåller resultatet för att träna modellen.  
 
-### <a name="about-logistic-regression"></a>Om logistic regression  
+### <a name="about-logistic-regression"></a>Om Logistisk regression  
 
-Logistic regression är en välkänd metod i statistik som används för att förutse sannolikheten för ett resultat och används särskilt ofta för klassificering. Algoritmen som förutsäger sannolikheten för förekomst av en händelse effektivare data till en logistisk funktion.
+Logistisk regression är en välkänd metod i statistik som används för att förutsäga sannolikheten för ett resultat och är särskilt populär för klassificerings uppgifter. Algoritmen förutsäger sannolikheten för förekomst av en händelse genom att anpassa data till en logistik funktion.
   
-I den här modulen är algoritmen för klassificering optimerat för dichotomous eller binär variabler. Om du vill klassificera flera resultat kan du använda den [Multiclass Logistic Regression](./multiclass-logistic-regression.md) modulen.
+I den här modulen är klassificerings algoritmen optimerad för dichotomous eller binära variabler. Om du behöver klassificera flera resultat använder du [logistik Regressions](./multiclass-logistic-regression.md) modulen multiklass.
 
 ##  <a name="how-to-configure"></a>Så här konfigurerar du  
 
-Du måste ange en datauppsättning som innehåller en etikett eller klass kolumn för att träna modellen. Eftersom den här modulen är avsedd för två problem, måste kolumnen etikett eller klass innehålla exakt två värden. 
+För att träna den här modellen måste du ange en data uppsättning som innehåller en etikett eller klass kolumn. Eftersom den här modulen är avsedd för två klass problem måste etiketten eller klass kolumnen innehålla exakt två värden. 
 
-Till exempel etikettkolumnen kan vara [röstat] med möjliga värdena för ”Yes” eller ”No”. Eller så kan det vara [kreditrisk] med möjliga värdena för ”hög” eller ”låg”. 
+Etikett kolumnen kan till exempel vara [röstat] med möjliga värden "Yes" eller "No". Eller så kan det vara [kredit risk], med möjliga värden "hög" eller "låg". 
   
-1.  Lägg till den **Tvåklassförhöjt Logistic Regression** modulen i experimentet.  
+1.  Lägg till en **logistik Regressions-modul i två klass** i experimentet.  
   
-2.  Ange hur du vill att modellen ska tränas genom att ange den **skapande trainer läge** alternativet.  
+2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enkel parametern**: Om du vet hur du vill konfigurera modellen kan ange du en specifik uppsättning värden som argument.  
+    -   **Enskild parameter**: Om du vet hur du vill konfigurera modellen kan du ange en speciell uppsättning värden som argument.  
   
-3.  För **optimering tolerans**, ange ett tröskelvärde som ska användas för att optimera modellen. Om förbättring mellan iterationer sjunker under det angivna tröskelvärdet, algoritmen anses ha konvergerat på en lösning och utbildning stoppas.  
+3.  För **optimerings tolerans**anger du ett tröskelvärde som ska användas när modellen optimeras. Om förbättringen mellan iterationer sjunker under det angivna tröskelvärdet anses algoritmen ha konvergerat till en lösning och träningen stoppas.  
   
-4.  För **L1 regularisering vikt** och **L2 regularisering vikt**, ange ett värde för parametrarna regularisering L1 och L2. Ett annat värde än noll rekommenderas för båda.  
+4.  För **L1-regulariseringshastigheten vikt** och **L2-regulariseringshastigheten**anger du ett värde som ska användas för regulariseringshastigheten-parametrarna L1 och L2. Ett värde som inte är noll rekommenderas för båda.  
   
-     *Regularisering* är en metod för att förhindra overfitting av penalizing modeller med extrem koefficienten värden. Regularisering fungerar genom att lägga till den särskilda avgifter som är associerad med koefficienten värden till fel hypotesen. Därför skulle straffas en korrekt modell med extrem koefficienten värden mer, men en mindre exakta modell med mer konservativ värden skulle straffas mindre.  
+     *Regulariseringshastigheten* är en metod för att förhindra övermontering genom att motverka modeller med extrema koefficient värden. Regulariseringshastigheten fungerar genom att lägga till den påföljd som är kopplad till koefficienterna till felet i hypotesen. Därför skulle en korrekt modell med extrema koefficienter bli mer, men en mindre exakt modell med fler restriktiva värden skulle bli mindre.  
   
-     L1 och L2 regulariseringshastighet har olika effekter och använder.  
+     L1-och L2-regulariseringshastigheten har olika effekter och användnings områden.  
   
-    -   L1 kan tillämpas på null-optimerade modeller, vilket är användbart när du arbetar med hög-dimensionell data.  
+    -   L1 kan användas för sparse-modeller, vilket är användbart när du arbetar med avancerade data.  
   
-    -   L2 regularisering är däremot bättre för data som inte är null-optimerad.  
+    -   L2-regulariseringshastigheten är däremot bättre för data som inte är sparse.  
   
-     Den här algoritmen stöder en linjär värdekombinationen L1 och L2 regularisering: det vill säga om <code>x = L1</code> och <code>y = L2</code>, sedan <code>ax + by = c</code> definierar linjär loppet av regularisering villkoren.  
+     Den här algoritmen stöder en linjär kombination av L1-och L2-regulariseringshastigheten värden: <code>x = L1</code> det <code>y = L2</code>vill säga <code>ax + by = c</code> om och definierar den linjära omfånget för regulariseringshastigheten-villkoren.  
   
     > [!NOTE]
-    >  Vill du veta mer om L1 och L2 regularisering? I följande artikel finns en beskrivning av hur L1 och L2 regularisering är olika och hur de påverkar modellen anslutning med kodexempel för logistic regression och modeller av neurala nätverk:  [L1 och L2 Regulariseringshastighet för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Vill du veta mer om L1-och L2-regulariseringshastigheten? Följande artikel innehåller en beskrivning av hur L1-och L2-regulariseringshastigheten är olika och hur de påverkar modell anpassning, med kod exempel för logistik regression och neurala nätverks modeller:  [L1-och L2-Regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
     >
-    > Olika linjära kombinationer av L1 och L2 villkoren planeras för logistiska regressionsmodeller: till exempel [elastiska net regularisering](https://wikipedia.org/wiki/Elastic_net_regularization). Vi rekommenderar att du referera till dessa kombinationer för att definiera en linjär kombination som är effektivt i din modell.
+    > Olika linjära kombinationer av L1-och L2-villkor har gjorts för logistik Regressions modeller: till exempel [elastiska net-regulariseringshastigheten](https://wikipedia.org/wiki/Elastic_net_regularization). Vi rekommenderar att du refererar till dessa kombinationer för att definiera en linjär kombination som är effektiv i din modell.
       
-5.  För **minnesstorleken för L BFGS**, ange mängden minne som ska användas för *L BFGS* optimering.  
+5.  För **minnes storlek för l-BFGS**anger du hur mycket minne som ska användas för att optimera *l-BFGS* .  
   
-     L-BFGS står för ”begränsat minne Broyden-Fletcher-Goldfarb-Shanno”. Det är en optimering-algoritm som används ofta för parametern kostnadsuppskattning. Den här parametern anger antalet tidigare positioner och toningar att lagra för beräkning av nästa steg.  
+     L-BFGS står för "begränsat minne Broyden-Fletcher-Goldfarb-Shanno". Det är en optimerings algoritm som är populär för parameter uppskattning. Den här parametern anger antalet tidigare positioner och toningar som ska lagras för att beräkna nästa steg.  
   
-     Den här parametern för optimering begränsar mängden minne som används för att beräkna nästa steg och riktning. När du anger mindre minne är utbildning snabbare men mindre exakta.  
+     Den här optimerings parametern begränsar mängden minne som används för att beräkna nästa steg och riktning. När du anger mindre minne är träningen snabbare men mindre exakt.  
   
-6.  För **nummer slumptal**, ange ett heltalsvärde. Definiera en seed-värdet är viktigt om du vill att resultatet ska reproducerbar över flera körningar av samma experimentet.  
+6.  Ange ett heltals värde för **slumpmässig numrering av utsäde**. Det är viktigt att definiera ett Seed-värde om du vill att resultatet ska vara reproducerbart vid flera körningar av samma experiment.  
   
   
-8. Lägg till en taggade datauppsättning till arbetsytan för experimentet och koppla ett av de [utbildningsmoduler](module-reference.md).  
+8. Lägg till en taggad data uppsättning i experimentet och Anslut en av [träna](module-reference.md)-modulerna.  
   
-    -   Om du ställer in **skapande trainer läge** till **enda Parameter**, använda den [Träningsmodell](./train-model.md) modulen.  
+    -   Om du ställer in **skapa** utbildare för **en parameter**använder du modulen [träna modell](./train-model.md) .  
   
 9. Kör experimentet.  
   
 ## <a name="results"></a>Resultat
 
-När utbildning har slutförts:
+När utbildningen är klar:
 
-+ Om du vill visa en sammanfattning av modellens parametrar, tillsammans med funktionen vikterna vet utbildning, högerklickar du på utdata från [Träningsmodell](./train-model.md) och välj **visualisera**.   
++ Om du vill se en översikt över modellens parametrar, tillsammans med funktions vikterna från träningen, högerklickar du på utdata från [träna modell](./train-model.md) och väljer **visualisera**.   
   
-+ Om du vill göra förutsägelser kring nya data, använder du den tränade modellen och nya data som indata för den [Poängmodell](./score-model.md) modulen. 
++ Om du vill göra förutsägelser för nya data använder du den tränade modellen och nya data som indata till modulen [Poäng modell](./score-model.md) . 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

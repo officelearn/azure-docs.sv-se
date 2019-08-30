@@ -11,29 +11,29 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce4e2958978de9339f4340755e3740730025a5f
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: f244c28b99c429fef5641bb4fc399e09fd451069
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334025"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126556"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instruktioner: Konfigurera risk principer i Azure Active Directory identitets skydd (uppdateras)
 
-Azure AD identifierar risk händelser som är indikatorer för potentiellt komprometterade identiteter. Genom att konfigurera risk principer kan du definiera automatiserade svar på identifierings resultaten:
+Azure AD identifierar risk identifieringar som är indikatorer för potentiellt komprometterade identiteter. Genom att konfigurera risk principer kan du definiera automatiserade svar på identifierings resultaten:
 
-- Med inloggnings risk principen kan du konfigurera ett svar på händelser i real tid som upptäcktes under en användares inloggning. 
+- Med inloggnings risk principen kan du konfigurera ett svar på risk identifieringar i real tid som upptäcktes under en användares inloggning. 
 - Med principen för användar risk kan du konfigurera ett svar på alla aktiva användar risker som har identifierats för en användare över tid.  
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>Vad är inloggnings risk principen?
 
-Azure AD analyserar varje inloggning av en användare. Syftet med analysen är att identifiera misstänkta åtgärder som kommer tillsammans med inloggningen. Till exempel är inloggningen som görs med en anonym IP-adress eller så har inloggningen initierats från en okänd plats? I Azure AD kan de misstänkta åtgärder som systemet kan identifiera kallas även risk händelser. Baserat på risk händelser som har identifierats under en inloggning beräknar Azure AD ett värde. Värdet representerar sannolikheten (låg, medium, hög) som inloggningen inte utförs av den legitima användaren. Sannolikheten kallas **inloggnings risk nivå**.
+Azure AD analyserar varje inloggning av en användare. Syftet med analysen är att identifiera misstänkta åtgärder som kommer tillsammans med inloggningen. Till exempel är inloggningen som görs med en anonym IP-adress eller så har inloggningen initierats från en okänd plats? I Azure AD kan de misstänkta åtgärder som systemet kan identifiera också kallas för risk identifiering. Baserat på risk identifieringar som har identifierats under en inloggning beräknar Azure AD ett värde. Värdet representerar sannolikheten (låg, medium, hög) som inloggningen inte utförs av den legitima användaren. Sannolikheten kallas **inloggnings risk nivå**.
 
 Principen för inloggnings risker är ett automatiserat svar som du kan konfigurera för en enskild risk nivå för inloggning. I ditt svar kan du blockera åtkomst till dina resurser eller kräva en Multi-Factor Authentication-utmaning (MFA) för att få åtkomst.
 
-När en användare har slutfört en MFA-prompt som utlöses av inloggnings risk principen, ger den feedback till identitets skydd som inloggningen har fått från den legitima användaren. Därmed stängs den inloggnings risk händelse som utlöste MFA-prompten automatiskt och identitets skyddet förhindrar att den här händelsen bidrar till utökningen av användar risken. Genom att aktivera principen för inloggnings risker kan du minska noisiness i vyn riskfyllda inloggningar genom att tillåta att användare själv åtgärdas när de uppmanas att använda MFA och sedan stänga av den associerade riskfyllda inloggningen automatiskt.
+När en användare har slutfört en MFA-prompt som utlöses av inloggnings risk principen, ger den feedback till identitets skydd som inloggningen har fått från den legitima användaren. Därmed stängs identifieringen av inloggnings risker som utlöste MFA-prompten automatiskt och identitets skyddet förhindrar att den här händelsen bidrar till utökningen av användar risken. Genom att aktivera principen för inloggnings risker kan du minska noisiness i vyn riskfyllda inloggningar genom att tillåta att användare själv åtgärdas när de uppmanas att använda MFA och sedan stänga av den associerade riskfyllda inloggningen automatiskt.
 
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Hur gör jag för att åtkomst till inloggnings risk principen?
    
@@ -51,7 +51,7 @@ När du konfigurerar inloggnings risk principen måste du ange:
 
 - Den inloggnings risk nivå som utlöser principen:
 
-   ![Risknivå för inloggning](./media/howto-configure-risk-policies/12.png)
+   ![Inloggnings risk nivå](./media/howto-configure-risk-policies/12.png)
 
 - Den typ av åtkomst du vill tillämpa när inloggnings risk nivån har uppfyllts:  
 
@@ -93,9 +93,9 @@ En översikt över den relaterade användar upplevelsen finns i:
 
 ## <a name="what-is-a-user-risk-policy"></a>Vad är en användar risk princip?
 
-Azure AD analyserar varje inloggning av en användare. Syftet med analysen är att identifiera misstänkta åtgärder som kommer tillsammans med inloggningen. I Azure AD kan de misstänkta åtgärder som systemet kan identifiera kallas även risk händelser. Vissa risk händelser kan upptäckas i real tid, men det finns också risk händelser som kräver mer tid. Om du till exempel vill upptäcka en omöjlig resa till ovanlig-platser, kräver systemet en inledande inlärnings period på 14 dagar för att lära dig om en användares normala beteende. Det finns flera alternativ för att lösa identifierade risk händelser. Du kan till exempel lösa enskilda risk händelser manuellt eller så kan du få dem att lösas med hjälp av en inloggnings risk eller en användar risk princip för villkorlig åtkomst.
+Azure AD analyserar varje inloggning av en användare. Syftet med analysen är att identifiera misstänkta åtgärder som kommer tillsammans med inloggningen. I Azure AD kan de misstänkta åtgärder som systemet kan identifiera också kallas för risk identifiering. Vissa risk identifieringar kan upptäckas i real tid, men det finns också risk identifieringar som kräver mer tid. Om du till exempel vill upptäcka en omöjlig resa till ovanlig-platser, kräver systemet en inledande inlärnings period på 14 dagar för att lära dig om en användares normala beteende. Det finns flera alternativ för att lösa identifierade risk identifieringar. Du kan till exempel lösa enskilda risk identifieringar manuellt eller så kan du få dem att lösas med hjälp av en inloggnings risk eller en användar risk princip för villkorlig åtkomst.
 
-Alla risk händelser som har identifierats för en användare och inte lösts kallas aktiva risk händelser. De aktiva risk händelser som är associerade med en användare kallas användar risk. Utifrån användar risken beräknar Azure AD en sannolikhet (låg, medel, hög) som en användare har komprometterat. Sannolikheten kallas användar risk nivå.
+Alla risk identifieringar som har identifierats för en användare och inte löstes kallas för aktiva risk identifieringar. De aktiva risk identifieringar som är associerade med en användare kallas användar risk. Utifrån användar risken beräknar Azure AD en sannolikhet (låg, medel, hög) som en användare har komprometterat. Sannolikheten kallas användar risk nivå.
 
 ![Användar risker](./media/howto-configure-risk-policies/11031.png)
 
@@ -139,8 +139,8 @@ Du kan ange en säkerhets princip för användar risk för att blockera använda
 
 Blockerar en inloggning:
 
-* Förhindrar generering av nya användar risk händelser för den berörda användaren
-* Gör det möjligt för administratörer att manuellt reparera risk händelser som påverkar användarens identitet och återställa den till ett säkert tillstånd
+* Förhindrar generering av nya användar risk identifieringar för den berörda användaren
+* Gör det möjligt för administratörer att manuellt reparera risk identifieringar som påverkar användarens identitet och återställa den till ett säkert tillstånd
 
 ## <a name="best-practices"></a>Bästa praxis
 

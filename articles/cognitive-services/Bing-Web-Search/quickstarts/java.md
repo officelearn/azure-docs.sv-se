@@ -10,15 +10,15 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018, seo-java-july2019
-ms.openlocfilehash: 42cb270955846f1333b79389c3ca979dc4808f05
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 24197cc708789381e0f160268bea96b25457ba8f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489635"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70123723"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Snabbstart: Söka på webben med hjälp av REST-API för webbsökning i Bing och Java
+# <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Snabbstart: Använd Java för att söka på webben med Webbsökning i Bing REST API, en Azure-tjänst för inlärning
 
 Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Java-programmet skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 

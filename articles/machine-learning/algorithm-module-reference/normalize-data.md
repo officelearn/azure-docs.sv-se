@@ -1,7 +1,7 @@
 ---
-title: 'Normalisera Data: Modulreferens'
+title: 'Normalisera data: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen normalisera Data i Azure Machine Learning-tjänsten för att omvandla en datauppsättning via *normalisering*...
+description: Lär dig hur du använder modulen normalisera data i Azure Machine Learning-tjänsten för att transformera en data uppsättning via *normalisering*..
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,105 +9,104 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 95069bafa94770511c7ee40e82068960298fd6c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 504224ae586e18fc5bf9294b537e730da37a2423
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029452"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128570"
 ---
-# <a name="normalize-data-module"></a>Normalisera datamodulen
+# <a name="normalize-data-module"></a>Normalisera datamodul
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen för att transformera en datauppsättning via *normalisering*.
+Använd den här modulen för att transformera en data uppsättning via *normalisering*.
 
-Normalisering är en teknik som används ofta som en del av förberedelse av data för machine learning. Målet med normalisering är att ändra värdena för numeriska kolumner i datauppsättningen för att använda en gemensam skala utan snedvridande skillnader i intervallen för värden eller att förlora information. Normalisering krävs också för vissa algoritmer för att modellera data korrekt.
+Normalisering är en teknik som ofta används som en del av data förberedelsen för maskin inlärning. Målet med normalisering är att ändra värdena för numeriska kolumner i data uppsättningen till att använda en gemensam skala, utan att förvränga skillnader i värde intervallen eller förlora information. Normalisering krävs också för att vissa algoritmer ska kunna modellera data korrekt.
 
-Anta exempelvis att ditt indatauppsättningen innehåller en kolumn med värden mellan 0 och 1 och en annan kolumn med värden som sträcker sig från 10 000 till 100 000. Bra skillnad i den *skala* för tal kan orsaka problem när du försöker kombinera värdena som funktioner under modellering.
+Anta till exempel att indata-datauppsättningen innehåller en kolumn med värden mellan 0 och 1, och en annan kolumn med värden som sträcker sig från 10 000 till 100 000. Den stora skillnaden i *skalan* i talen kan orsaka problem när du försöker kombinera värdena som funktioner under modellering.
 
-*Normalisering* undviker de här problemen genom att skapa nya värden som upprätthåller allmän distribution och förhållanden i källdata, samtidigt som värden i en skala som tillämpas på alla numeriska kolumner som används i modellen.
+*Normalisering* förhindrar de här problemen genom att skapa nya värden som upprätthåller den allmänna distributionen och förhållandet i källdata, samtidigt som värden i en skala används för alla numeriska kolumner som används i modellen.
 
-Den här modulen erbjuder flera alternativ för hur du transformerar numeriska data:
+I den här modulen finns flera alternativ för att transformera numeriska data:
 
-- Du kan ändra alla värden till 0 – 1 skala eller transformerar värdena som dem som: e percentilen rankar i stället för absoluta värden.
-- Du kan använda normalisering på en eller flera kolumner i samma datauppsättning.
-- Om du vill upprepa experimentet eller använda samma normalisering steg för andra data kan du spara steg som en normalisering transformering och tillämpa den på andra datauppsättningar som har samma schema.
+- Du kan ändra alla värden till en 0-1-skala eller transformera värdena genom att representera dem som percentils rang snarare än absoluta värden.
+- Du kan tillämpa normalisering på en enskild kolumn eller flera kolumner i samma data uppsättning.
+- Om du behöver upprepa experimentet eller tillämpa samma normaliserings steg för andra data kan du spara stegen som en normaliserings omvandling och tillämpa den på andra data uppsättningar som har samma schema.
 
 > [!WARNING]
-> Vissa algoritmer kräver att data anges normaliseras innan träna en modell. Andra algoritmer utföra sina egna data skalning eller normalisering. När du väljer en machine learning-algoritm som ska användas för att skapa en förutsägbar modell, bör du granska datakrav av algoritmen innan du använder normalisering på träningsdata.
+> Vissa algoritmer kräver att data normaliseras innan du tränar en modell. Andra algoritmer utför sin egen data skalning eller normalisering. När du väljer en Machine Learning-algoritm som ska användas för att skapa en förutsägelse modell måste du därför se över data kraven för algoritmen innan du använder normalisering på tränings data.
 
-##  <a name="configure-normalize-data"></a>Konfigurera normalisera Data
+##  <a name="configure-normalize-data"></a>Konfigurera normaliserade data
 
-Du kan använda bara en normalisering av metoderna i taget med den här modulen. Därför används samma normalisering metod på alla kolumner som du väljer. Om du vill använda olika normalisering metoder, använder du en andra instans av **normalisera Data**.
+Du kan bara använda en normaliserings metod i taget med den här modulen. Därför används samma normaliserings metod för alla kolumner som du väljer. Om du vill använda olika normaliserings metoder använder du en andra instans av **normalisering av data**.
 
-1. Lägg till den **normalisera Data** modulen i experimentet. Du kan hitta modulen i Azure Machine Learning, under **Dataomvandling**i den **skalbarhet och minska** kategori.
+1. Lägg till modulen **normalisera data** i experimentet. Du hittar modulen i Azure Machine Learning under **data omvandling**i kategorin **skala och minska** .
 
-2. Ansluta en datauppsättning som innehåller minst en kolumn med tal.
+2. Anslut en data uppsättning som innehåller minst en kolumn med alla tal.
 
-3. Använd kolumnväljaren för att välja de numeriska kolumnerna att normalisera. Om du inte väljer enskilda kolumner, som standard **alla** numerisk typkolumner i inkommande ingår och samma normaliseringsprocessen tillämpas på alla valda kolumner. 
+3. Använd kolumn väljaren för att välja de numeriska kolumner som ska normaliseras. Om du inte väljer enskilda kolumner inkluderas som standard **alla** numeriska typ kolumner i inaktuella inaktuella kolumner och samma normaliserings process tillämpas på alla markerade kolumner. 
 
-    Detta kan leda till onormalt resultat om du lägger till numeriska kolumner som inte bör anges normaliseras! Kontrollera alltid kolumnerna noggrant.
+    Detta kan leda till onormala resultat om du inkluderar numeriska kolumner som inte ska normaliseras! Kontrol lera alltid kolumnerna noggrant.
 
-    Om inga numeriska kolumner identifieras måste du kontrollera kolumnmetadata för att kontrollera att datatypen för kolumnen är en numerisk typ som stöds.
+    Om inga numeriska kolumner identifieras kontrollerar du kolumnens metadata för att kontrol lera att kolumnens datatyp är en numerisk typ som stöds.
 
     > [!TIP]
-    > För att säkerställa att kolumnerna i en viss typ har angetts som indata, försök att använda den [Välj kolumner i datauppsättning](./select-columns-in-dataset.md) modulen innan **normalisera Data**.
+    > För att säkerställa att kolumner av en speciell typ tillhandahålls som indata kan du prova att använda modulen [Välj kolumner i data uppsättning](./select-columns-in-dataset.md) innan du **normaliserar data**.
 
-4. **Använd 0 för konstant kolumner när alternativet är markerat**:  Välj det här alternativet när en numerisk kolumn innehåller ett fast värde. Detta säkerställer att sådana kolumner inte används i normalisering åtgärder.
+4. **Använd 0 för konstanta kolumner när**det här alternativet är markerat:  Välj det här alternativet när en numerisk kolumn innehåller ett enskilt värde som inte ändras. Detta säkerställer att sådana kolumner inte används i normaliserings åtgärder.
 
-5. Från den **omvandling metoden** listrutan väljer du en enda matematisk funktion ska tillämpas på alla valda kolumner. 
+5. I list rutan **omvandlings metod** väljer du en enskild matematisk funktion som ska användas för alla markerade kolumner. 
   
-    - **Zscore**: Konverterar alla värden till ett z-värde.
+    - **Zscore**: Konverterar alla värden till ett z-poäng.
     
       Värdena i kolumnen omvandlas med hjälp av följande formel:  
   
-      ![normalisering med z&#45;poäng](media/module/aml-normalization-z-score.png)
+      ![normalisering med z&#45;-resultat](media/module/aml-normalization-z-score.png)
   
-      Mean- och standard avvikelse beräknas separat för varje kolumn. Populationens standardavvikelse används.
+      Medelvärdet och standard avvikelsen beräknas för varje kolumn separat. Populationens standard avvikelse används.
   
-    - **MinMax**: Min – max normaliserare ändrar linjärt skalan alla funktioner till intervallet [0,1].
+    - **MinMax**: Det minsta normaliserings intervallet skalar linjärt om varje funktion till intervallet [0, 1].
     
-      Skalas om till intervallet [0,1] görs genom att ändra värdena för varje funktion så att det minimala värdet är 0 och sedan dividera med det nya värdet för maximal (vilket är skillnaden mellan de ursprungliga värdena för maximal och minimal).
+      Omskalning till [0, 1]-intervallet görs genom att ändra värdena för varje funktion så att det minimala värdet är 0, och dividera sedan med det nya maximala värdet (vilket är skillnaden mellan de ursprungliga maximala och minimala värdena).
       
       Värdena i kolumnen omvandlas med hjälp av följande formel:  
   
-      ![normalisering med det minsta värdet&#45;max funktionen](media/module/aml-normalization-minmax.png "AML_normalization minmax")  
+      ![normalisering med minsta&#45;Max-funktionen](media/module/aml-normalization-minmax.png "AML_normalization – MinMax")  
   
-    - **Logistic**: Värdena i kolumnen omvandlas med hjälp av följande formel:
+    - **Logistik**: Värdena i kolumnen omvandlas med hjälp av följande formel:
 
-      ![formeln för normalisering av logistic funktion](media/module/aml-normalization-logistic.png "AML_normalization logistic")  
+      ![formel för normalisering efter logistisk funktion](media/module/aml-normalization-logistic.png "AML_normalization-logistik")  
   
-    - **LogNormal**: Det här alternativet konverterar alla värden till en lognormala skala.
+    - **Lognormala**: Med det här alternativet konverteras alla värden till en lognormala skala.
   
       Värdena i kolumnen omvandlas med hjälp av följande formel:
   
-      ![formeln log&#45;normalfördelning](media/module/aml-normalization-lognormal.png "AML_normalization lognormala")
+      ![Normal distribution&#45;i formel logg](media/module/aml-normalization-lognormal.png "AML_normalization – lognormala")
     
-      Här följer μg och σmax parametrarna för distribution, beräknad empiriskt från data som maximalt sannolikheten beräkningar för varje kolumn separat.  
+      Här μ och σ är parametrarna för distributionen, beräknade empiriskt från data som maximal sannolikhets uppskattningar, för varje kolumn separat.  
   
-    - **TanH**: Alla värden som konverteras till en hyperboliska tangens.
+    - **TanH**: Alla värden konverteras till en hyperbolisk tangens.
     
       Värdena i kolumnen omvandlas med hjälp av följande formel:
     
-      ![normalisering med hjälp av funktionen tanh](media/module/aml-normalization-tanh.png "AML_normalization tanh")
+      ![normalisering med funktionen tanh](media/module/aml-normalization-tanh.png "AML_normalization – tanh")
 
-6. Kör experimentet eller dubbelklicka på den **normalisera Data** modul och välj **kör valda**. 
+6. Kör experimentet eller dubbelklicka på modulen **normalisera data** och välj **Kör valda**. 
 
 ## <a name="results"></a>Resultat
 
-Den **normalisera Data** modulen genererar två utdata:
+**Normaliserings data** module genererar två utdata:
 
-- Om du vill visa transformerade värden, högerklicka på modulen, Välj **omvandlade datauppsättningen**, och klicka på **visualisera**.
+- Om du vill visa transformerade värden högerklickar du på modulen, väljer **transformerad data uppsättning**och klickar på **visualisera**.
 
-    Som standard omvandlas värden på plats. Om du vill jämföra transformerade värden till de ursprungliga värdena kan du använda den [Lägg till kolumner](./add-columns.md) modulen att kombinera datauppsättningarna och visa kolumner sida vid sida.
+    Som standard omvandlas värdena på plats. Om du vill jämföra omvandlade värden till de ursprungliga värdena använder du modulen [Lägg till kolumner](./add-columns.md) för att kombinera data uppsättningarna igen och Visa kolumnerna sida vid sida.
 
-- Om du vill spara omvandlingen så att du kan använda samma metod som normalisering för en annan liknande datauppsättningar, högerklicka på modulen, Välj **Transformation-funktion**, och klicka på **Spara som transformeringen**.
+- Om du vill spara omvandlingen så att du kan använda samma normaliserings metod på en annan liknande data uppsättning, högerklickar du på modulen, väljer **omvandlings funktion**och klickar på **Spara som transformering**.
 
-    Du kan sedan läsa in sparade omvandlingar från den **omvandlar** i det vänstra navigeringsfönstret och tillämpa den på en datauppsättning med samma schema med hjälp av [. / gäller omvandling](apply-transformation.md).  
+    Du kan sedan läsa in de sparade omvandlingarna från gruppen **transformeringar** i det vänstra navigerings fönstret och tillämpa den på en data uppsättning med samma schema med hjälp av [./Apply-omvandling](apply-transformation.md).  
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

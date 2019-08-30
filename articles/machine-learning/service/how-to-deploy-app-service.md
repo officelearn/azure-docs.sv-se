@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 889158aeb40cfcbc69291845acfee833af0930b6
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 20a90a70c66310f6838b41a40aa945308bf338d4
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114283"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147909"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 
@@ -265,8 +265,8 @@ print(response.json())
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du konfigurerar webbappen finns i [app service på Linux](/azure/app-service/containers/) -dokumentationen.
-* Mer information om skalning finns i [Kom igång med automatisk skalning i Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* Mer information om SSL-stöd finns [i använda ett SSL-certifikat i Azure App Service](/azure/app-service/app-service-web-ssl-cert-load).
-* Mer information om autentisering finns i [Konfigurera din app service app för att använda Azure Active Directory inloggning](/azure/app-service/configure-authentication-provider-aad).
+* Lär dig hur du konfigurerar din webbapp i [App Service i Linux](/azure/app-service/containers/) -dokumentationen.
+* Lär dig mer om skalning i [Kom igång med automatisk skalning i Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
+* [Använd ett SSL-certifikat i Azure App Service](/azure/app-service/app-service-web-ssl-cert-load).
+* [Konfigurera App Service-appen så att den använder Azure Active Directory inloggning](/azure/app-service/configure-authentication-provider-aad).
 * [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)

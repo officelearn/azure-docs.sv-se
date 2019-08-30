@@ -1,45 +1,44 @@
 ---
 title: Transformera data med Hive-aktivitet – Azure | Microsoft Docs
-description: Lär dig hur du kan använda Hive-aktivitet i Azure data factory för att köra Hive-frågor på ett på-begäran/your own HDInsight-kluster.
+description: Lär dig hur du kan använda Hive-aktiviteten i en Azure Data Factory för att köra Hive-frågor på ett eget HDInsight-kluster på begäran.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: a63ef969f17fc48145174d99fec53e77b61885a4
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 8a7e6748f450ae398a05097ac6b192d074f5f1f7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827981"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139540"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformera data med Hive-aktivitet i Azure Data Factory 
-> [!div class="op_single_selector" title1="Transformeringsaktiviteter"]
+> [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
 > * [Hive-aktivitet](data-factory-hive-activity.md) 
-> * [Piggningsåtgärd](data-factory-pig-activity.md)
+> * [Aktivitet i gris](data-factory-pig-activity.md)
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
-> * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+> * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
 > * [Machine Learning Batch-körningsaktivitet](data-factory-azure-ml-batch-execution-activity.md)
 > * [Machine Learning-uppdateringsresursaktivitet](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
-> * [.NET-anpassad aktivitet](data-factory-use-custom-activities.md)
+> * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [Transformera data med Hive-aktivitet i Data Factory](../transform-data-using-hadoop-hive.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [transformera data med Hive-aktivitet i Data Factory](../transform-data-using-hadoop-hive.md).
 
-HDInsight Hive-aktivitet i en Datafabrik [pipeline](data-factory-create-pipelines.md) kör Hive-frågor på [egna](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-baserat HDInsight-kluster. Den här artikeln bygger vidare på den [datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter.
+HDInsight Hive-aktiviteten i en Data Factory [pipelinen](data-factory-create-pipelines.md) kör Hive-frågor på [ditt eget](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller Windows/Linux-baserade HDInsight-kluster [på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Den här artikeln bygger på artikeln [data omvandlings aktiviteter](data-factory-data-transformation-activities.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds.
 
 > [!NOTE] 
-> Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azure Data Factory](data-factory-introduction.md) och igenom självstudien: [Skapa din första datapipeline](data-factory-build-your-first-pipeline.md) innan du läser den här artikeln. 
+> Om du inte har använt Azure Data Factory läser du igenom [Introduktion till Azure Data Factory](data-factory-introduction.md) och gör självstudien: [Bygg din första data pipeline innan du](data-factory-build-your-first-pipeline.md) läser den här artikeln. 
 
 ## <a name="syntax"></a>Syntax
 
@@ -73,22 +72,22 @@ HDInsight Hive-aktivitet i en Datafabrik [pipeline](data-factory-create-pipeline
 }
 ```
 ## <a name="syntax-details"></a>Information om syntax
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | name |Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används till |Nej |
+| description |Text som beskriver vad aktiviteten används för |Nej |
 | type |HDinsightHive |Ja |
-| inputs |Indata som används av Hive-aktivitet |Nej |
-| outputs |Utdata som produceras av Hive-aktivitet |Ja |
-| linkedServiceName |Referens till HDInsight-kluster som är registrerad som en länkad tjänst i Data Factory |Ja |
-| script |Ange infogat för Hive-skript |Nej |
-| scriptPath |Store Hive-skriptet i Azure blob storage och ange sökvägen till filen. Använd ”skript” eller ”scriptPath-egenskapen. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänsligt. |Nej |
-| defines |Ange parametrar som nyckel/värde-par för refererar till Hive-skript med hjälp av ”hiveconf” |Nej |
+| inputs |Indata som används av Hive-aktiviteten |Nej |
+| outputs |Utdata som produceras av Hive-aktiviteten |Ja |
+| linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Ja |
+| script |Ange Hive-skriptet infogat |Nej |
+| scriptPath |Lagra Hive-skriptet i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Nej |
+| defines |Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet med hjälp av "hiveconf" |Nej |
 
 ## <a name="example"></a>Exempel
-Anta att du har ett exempel på spel loggar analytics där du vill identifiera den tid som krävs av användare som spelar spel som startas av ditt företag. 
+Nu ska vi titta på ett exempel på spel loggar för att identifiera hur lång tid det tar för användare att spela spel som lanserats av ditt företag. 
 
-Följande loggen är en game exempellogg, kommatecken (`,`) avgränsade och innehåller följande fält – profil-ID, SessionStart, varaktighet, SrcIPAddress och GameType.
+Följande logg är en exempel spel logg, som är komma (`,`) separerad och innehåller följande fält – profil, SessionStart, duration, SrcIPAddress och gametype.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
@@ -98,7 +97,7 @@ Följande loggen är en game exempellogg, kommatecken (`,`) avgränsade och inne
 .....
 ```
 
-Den **registreringsdatafilen** att bearbeta dessa data:
+**Hive-skriptet** för att bearbeta dessa data:
 
 ```
 DROP TABLE IF EXISTS HiveSampleIn; 
@@ -125,18 +124,18 @@ Select
 FROM HiveSampleIn Group by ProfileID
 ```
 
-Du behöver göra följande för att köra den här Hive-skript i en Data Factory-pipeline
+Om du vill köra det här Hive-skriptet i en Data Factory pipeline måste du göra följande
 
-1. Skapa en länkad tjänst för att registrera [ditt eget HDInsight-kluster för beräkningar](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller konfigurera [på begäran HDInsight-kluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vi kan kalla den här länkade tjänsten ”HDInsightLinkedService”.
-2. Skapa en [länkad tjänst](data-factory-azure-blob-connector.md) att konfigurera anslutningen till Azure Blob storage som är värd för data. Vi kan kalla den här länkade tjänsten ”StorageLinkedService”
-3. Skapa [datauppsättningar](data-factory-create-datasets.md) som pekar på indata och utdata. Vi kan kalla den inkommande datauppsättningen ”HiveSampleIn” och datamängd för utdata ”HiveSampleOut”
-4. Kopiera Hive-frågan som en fil till Azure Blob Storage som är konfigurerade i steg #2. Om lagring för som är värd för data skiljer sig från den som är värd för den här frågefilen, skapa en separat länkad Azure Storage-tjänst och referera till det i aktiviteten. Använd **scriptPath** att ange sökvägen för att hive-fråga fil och **scriptLinkedService** att ange Azure-lagring som innehåller skriptfilen. 
+1. Skapa en länkad tjänst för att registrera [ditt eget HDInsight Compute-kluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller konfigurera [kluster för HDInsight-beräkning på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vi kallar den här länkade tjänsten "HDInsightLinkedService".
+2. Skapa en [länkad tjänst](data-factory-azure-blob-connector.md) för att konfigurera anslutningen till Azure Blob Storage som är värd för data. Vi kallar den här länkade tjänsten "StorageLinkedService"
+3. Skapa [data uppsättningar](data-factory-create-datasets.md) som pekar på indata och utdata. Låt oss anropa indata-datauppsättningen "HiveSampleIn" och utdata-datauppsättningen "HiveSampleOut"
+4. Kopiera Hive-frågan som en fil till Azure Blob Storage som konfigurerades i steg #2. om lagringen för att vara värd för data skiljer sig från den som är värd för den här frågan skapar du en separat Azure Storage länkad tjänst och refererar till den i aktiviteten. Använd **scriptPath** för att ange sökvägen till Hive-frågefiler och **scriptLinkedService** för att ange den Azure-lagring som innehåller skript filen. 
    
    > [!NOTE]
-   > Du kan också ange infogade för Hive-skript i aktivitetsdefinitionen med hjälp av den **skriptet** egenskapen. Vi rekommenderar inte den här metoden som alla specialtecken i ett skript i JSON-dokument måste undantas och kan orsaka problem för felsökning. Det bästa sättet är att följa steg #4.
+   > Du kan också ange Hive-skriptet infogat i aktivitets definitionen med hjälp av **skript** egenskapen. Vi rekommenderar inte den här metoden eftersom alla specialtecken i skriptet i JSON-dokumentet måste vara undantagna och kan orsaka fel söknings problem. Den bästa metoden är att följa steg #4.
    > 
    > 
-5. Skapa en pipeline med HDInsightHive-aktiviteten. Aktiviteten processer/omvandlingar data.
+5. Skapa en pipeline med HDInsightHive-aktiviteten. Aktivitets processerna/transformerar data.
 
     ```JSON   
     {   
@@ -170,15 +169,15 @@ Du behöver göra följande för att köra den här Hive-skript i en Data Factor
         }
     }
     ```
-6. Distribuera pipelinen. Se [skapa pipelines](data-factory-create-pipelines.md) nedan för information. 
-7. Övervaka pipeline med hjälp av data factory övervakning och hantering av vyer. Se [övervakning och hantera Data Factory-pipelines](data-factory-monitor-manage-pipelines.md) nedan för information. 
+6. Distribuera pipelinen. Mer information finns i artikeln om att [skapa pipeliner](data-factory-create-pipelines.md) . 
+7. Övervaka pipelinen med hjälp av vyerna för övervakning och hantering av data fabrik. Mer information finns i artikeln [övervaka och hantera data Factory pipelines](data-factory-monitor-manage-pipelines.md) . 
 
-## <a name="specifying-parameters-for-a-hive-script"></a>Ange parametrar för Hive-skript
-I det här exemplet spel loggar är varje dag matas in i Azure Blob Storage och lagras i en mapp som är partitionerad med datum och tid. Du vill Parameterisera Hive-skriptet och skicka den inkommande mapplatsen dynamiskt under körning och även producerar utdata som är partitionerad med datum och tid.
+## <a name="specifying-parameters-for-a-hive-script"></a>Ange parametrar för ett Hive-skript
+I det här exemplet matas spel loggar in dagligen i Azure Blob Storage och lagras i en mapp som partitionerats med datum och tid. Du vill Parameterisera Hive-skriptet och skicka platsen för indata-mappen dynamiskt under körning och även skapa utdata som partitionerats med datum och tid.
 
-Gör följande för att använda parametriserade Hive-skript
+Gör följande om du vill använda parametriserade Hive-skript
 
-* Definiera parametrar i **definierar**.
+* Definiera parametrarna i **definierar**.
 
     ```JSON  
     {
@@ -216,7 +215,7 @@ Gör följande för att använda parametriserade Hive-skript
       }
     }
     ```
-* Referera till en parameter med hjälp av Hive-skriptet **${hiveconf:parameterName}** . 
+* I Hive-skriptet, referera till-parametern med **$ {hiveconf: parameterName}** . 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 
@@ -243,9 +242,9 @@ Gör följande för att använda parametriserade Hive-skript
     FROM HiveSampleIn Group by ProfileID
     ```
   ## <a name="see-also"></a>Se även
-* [Piggningsåtgärd](data-factory-pig-activity.md)
+* [Aktivitet i gris](data-factory-pig-activity.md)
 * [MapReduce-aktivitet](data-factory-map-reduce.md)
-* [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+* [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 * [Anropa Spark-program](data-factory-spark.md)
 * [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 

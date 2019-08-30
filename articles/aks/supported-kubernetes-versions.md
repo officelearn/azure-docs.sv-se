@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 0e26b9b5aee61f399a39c032cdbd2084884538c9
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 27b180d8d95d7dad967b8ac2495a795ed70836b9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982699"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147225"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes service (AKS)
 
@@ -49,13 +49,13 @@ AKS har stöd för fyra lägre Kubernetes-versioner:
 
 Detta kallas "N-3"-(N (senaste versionen)-3 (lägre versioner)).
 
-Om AKS till exempel introducerar *1.13. x* idag tillhandahålls support för följande versioner:
+Om AKS till exempel introducerar *1.13. a* idag tillhandahålls support för följande versioner:
 
 Ny del version    |    Versions lista som stöds
 -----------------    |    ----------------------
-1.13.x               |    1.12. a, 1.12. b, 1.11. a, 1.11. b, 1.10. a, 1.10. b
+1.13. a               |    1.12. a, 1.12. b, 1.11. a, 1.11. b, 1.10. a, 1.10. b
 
-Där "x" och ". a" och ". b" är representativa korrigerings versioner.
+Där ". a" och ". b" är representativa korrigerings versioner. " en "från 1.13. a kan skilja sig från 1.12. a. Till exempel 1.13.9 och 1.12.8.
 
 Information om kommunikation om versions ändringar och förväntningar finns i "kommunikation" nedan.
 
@@ -72,7 +72,7 @@ När en ny del version introduceras, är den äldsta lägre versionen och de nya
 1.9.b
 ```
 
-AKS släpper 1.13. x, vilket innebär att de 1.9. x-versionerna (alla 1,9-versioner) tas bort och inte stöds.
+Och AKS släpper 1,13. *innebär detta att 1,9.* versioner (alla 1,9-versioner) tas bort och stöds inte.
 
 > [!NOTE]
 > Observera att om kunderna kör en Kubernetes-version som inte stöds uppmanas de att uppgradera när de begär support för klustret. Kluster som kör Kubernetes-versioner som inte stöds omfattas inte av [support principerna för AKS](https://docs.microsoft.com/azure/aks/support-policies).
@@ -126,7 +126,7 @@ Vissa korrigerings versioner kan hoppas över eller att distributionen accelerer
 
 ### <a name="azure-portal-and-cli-default-versions"></a>Standard versioner av Azure Portal och CLI
 
-När du distribuerar ett AKS-kluster i portalen eller med Azure CLI är klustret alltid inställt på den lägre versionen av N-1 och den senaste korrigeringen. Om AKS till exempel stöder *1.13. x*, *1.12. a* + *1.12. b*, *1.11. a* + *1.11. b*, *1.10. a* + *1.10 b*, är standard versionen för nya kluster *1.12. b* .
+När du distribuerar ett AKS-kluster i portalen eller med Azure CLI är klustret alltid inställt på den lägre versionen av N-1 och den senaste korrigeringen. Om AKS till exempel stöder *1.13. a*, *1.12. a* + *1.12. b*, *1.11. a* + *1.11. b*, *1.10. a* + *1.10 b*, är standard versionen för nya kluster *1.12. b* .
 
 AKS är standardvärdet N-1 (minor. latestPatch, tex 1.12. b) för att ge kunderna en känd, stabil och korrigerad version som standard.
 
@@ -161,8 +161,8 @@ KubernetesVersion    Upgrades
 
 Om du använder *n-4-* versionen är du utanför supporten och kommer att bli ombedd att uppgradera. Om uppgraderingen från version n-4 till n-3 lyckas är du nu i våra support principer. Exempel:
 
-- Om de AKS-versioner som stöds är *1.13. x*, *1.12. a* + *1.12. b*, *1.11. c* + *1.11 d*, och *1.10. e* + *1.10 f* och du är på *1,9. g* eller *1,9. h*är du utanför supporten.
-- Om uppgraderingen är från *1,9. g* eller *1,9. h* till *1.10. e* eller *1.10. f* lyckades, du är tillbaka i våra support principer.
+- Om de AKS-versioner som stöds är *1.13. a*, *1.12. b* + *1.12. c*, *1.11. d* + *1.11. e*, och *1.10. f* + *1.10. g* och du är på *1,9. h* eller *1,9. i* är du utanför supporten.
+- Om uppgraderingen från *1,9. h* eller *1,9. i* till *1.10. f* eller *1.10. g* lyckas, är du tillbaka i våra support principer.
 
 Uppgraderingar till versioner som är äldre än *n-4* stöds inte. I sådana fall rekommenderar vi att kunderna skapar nya AKS-kluster och distribuerar om sina arbets belastningar.
 

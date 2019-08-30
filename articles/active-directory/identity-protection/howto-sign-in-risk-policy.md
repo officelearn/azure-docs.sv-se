@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0645e01c8ad9c620b77abd9af6cf7fe7c26ab4ea
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: d00376c6689b6be773f24e8acd09c3697fb6a799
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335404"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126298"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Instruktioner: Konfigurera riskprincipen för inloggning
 
-Azure Active Directory identifierar [risk händelse typer](../reports-monitoring/concept-risk-events.md#risk-event-types) i real tid och offline. Varje risk händelse som har identifierats för en användares inloggning bidrar till ett logiskt begrepp som kallas riskfylld inloggning. En riskfylld inloggning är en indikator för ett inloggnings försök som kanske inte har utförts av en legitim ägare till ett användar konto.
+Azure Active Directory identifierar [risk identifierings typer](../reports-monitoring/concept-risk-events.md#risk-detection-types) i real tid och offline. Varje risk identifiering som har identifierats för en användares inloggning bidrar till ett logiskt begrepp som kallas riskfylld inloggning. En riskfylld inloggning är en indikator för ett inloggnings försök som kanske inte har utförts av en legitim ägare till ett användar konto.
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>Vad är inloggnings risk principen?
 
-Azure AD analyserar varje inloggning av en användare. Syftet med analysen är att identifiera misstänkta åtgärder som kommer tillsammans med inloggningen. Till exempel är inloggningen som görs med en anonym IP-adress eller så har inloggningen initierats från en okänd plats? I Azure AD kan de misstänkta åtgärder som systemet kan identifiera kallas även risk händelser. Baserat på risk händelser som har identifierats under en inloggning beräknar Azure AD ett värde. Värdet representerar sannolikheten (låg, medium, hög) som inloggningen inte utförs av den legitima användaren. Sannolikheten kallas **inloggnings risk nivå**.
+Azure AD analyserar varje inloggning av en användare. Syftet med analysen är att identifiera misstänkta åtgärder som kommer tillsammans med inloggningen. Till exempel är inloggningen som görs med en anonym IP-adress eller så har inloggningen initierats från en okänd plats? I Azure AD kan de misstänkta åtgärder som systemet kan identifiera också kallas för risk identifiering. Baserat på risk identifieringar som har identifierats under en inloggning beräknar Azure AD ett värde. Värdet representerar sannolikheten (låg, medium, hög) som inloggningen inte utförs av den legitima användaren. Sannolikheten kallas **inloggnings risk nivå**.
 
 Principen för inloggnings risker är ett automatiserat svar som du kan konfigurera för en enskild risk nivå för inloggning. I ditt svar kan du blockera åtkomst till dina resurser eller kräva en Multi-Factor Authentication-utmaning (MFA) för att få åtkomst.
    
@@ -44,7 +44,7 @@ När du konfigurerar inloggnings risk principen måste du ange:
 
 - Den inloggnings risk nivå som utlöser principen:
 
-    ![Risknivå för inloggning](./media/howto-sign-in-risk-policy/12.png)
+    ![Inloggnings risk nivå](./media/howto-sign-in-risk-policy/12.png)
 
 - Den typ av åtkomst du vill tillämpa när inloggnings risk nivån har uppfyllts:  
 

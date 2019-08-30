@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 1c365790e1633a74be9f5baf41098e7511f99a7d
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
-ms.translationtype: MT
+ms.openlocfilehash: 2fd8934f34b811c0a2532f27e32fc799c2c8186e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563282"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141837"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
 
@@ -82,7 +82,7 @@ För att lyckas med domän koppling gör du följande på varje virtuell dator:
 5. Autentisera med ett domän konto som har behörighet att ansluta till datorer med domän anslutning.
 
     >[!NOTE]
-    > Om du ansluter dina virtuella datorer till en Azure AD Domain Services-miljö måste du se till att din domän anslutning också är medlem i [Administratörs gruppen för AAD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group)-domänkontrollanten.
+    > Om du ansluter dina virtuella datorer till en Azure Active Directory Domain Services (Azure AD DS)-miljö måste du se till att din domän anslutning också är medlem i [Administratörs gruppen för AAD](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group)-domänkontrollanten.
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrera de virtuella datorerna på Windows-poolen för för hands version av virtuella skriv bord
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: MT
+ms.openlocfilehash: c35863ed1d564adf4190efa1888d24f4f4f68ddf
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637291"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147858"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Välj bland vCore-tjänst nivåerna och migrera från DTU-tjänstens nivåer
 
@@ -43,7 +43,7 @@ I följande tabell förklaras skillnaderna mellan de tre nivåerna:
 ||**Generellt syfte**|**Verksamhets kritisk**|**Hyperskala**|
 |---|---|---|---|
 |Passar bäst|De flesta företags arbets belastningar. Erbjuder budget orienterade, balanserade och skalbara beräknings-och lagrings alternativ.|Affärs program med höga I/O-krav. Ger högsta möjliga återhämtning till problem genom att använda flera isolerade repliker.|De flesta företags arbets belastningar med mycket skalbara lagrings-och Läs skalnings krav.|
-|Compute|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor<br/>**Server lös beräkning**:<br/>Gen5 0,5 – 4 virtuella kärnor|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor|
+|Compute|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor<br/>**Server lös beräkning**:<br/>Gen5 0,5 – 16 virtuella kärnor|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor|
 |Minne|**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore<br/>**Server lös beräkning**:<br/>Gen5 3 GB per vCore|**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore |**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore|
 |Storage|Använder Fjärrlagring.<br/>**Allokerad data bearbetning för enskild databas**:<br/>5 GB – 4 TB<br/>**Beräkning av Server lös enkel databas**:<br/>5 GB-1 TB<br/>**Hanterad instans**: 32 GB - 8 TB |Använder lokal SSD-lagring.<br/>**Allokerad data bearbetning för enskild databas**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
 |I/O-genomflöde (ungefärligt)|**Enkel databas**: 500 IOPS per vCore med 7000 högsta IOPS.<br/>**Hanterad instans**: Beror på [fil storleken](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per kärna med 200 000 högsta IOPS|Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPs är beroende av arbets belastningen.|

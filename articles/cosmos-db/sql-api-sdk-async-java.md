@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 3bee473adde9c4762cf400dff6190eb76a4cc8d7
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 156699b8d8c1a645961f4e919bdd843d995a3d18
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624696"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142654"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB asynkron Java SDK för SQL API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -152,6 +152,10 @@ Nya funktioner och funktionalitet och optimeringar läggs endast till den aktuel
 
 Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjänsten.
 
+> [!WARNING]
+> Alla versioner **1. x** av ASYNKRON Java SDK för SQL API kommer att dras tillbaka den **30 augusti 2020**.
+> 
+>
 <br/>
 
 | Version | Utgivningsdatum | Slutdatum |
@@ -169,9 +173,9 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | [2.1.0](#2.1.0) |Den 5 september 2018|--- |
 | [2.0.1](#2.0.1) |16 augusti 2018|--- |
 | [2.0.0](#2.0.0) |20 juni 2018|--- |
-| [1.0.2](#1.0.2) |Den 18 maj 2018|--- |
-| [1.0.1](#1.0.1) |Den 20 april 2018|--- |
-| [1.0.0](#1.0.0) |27 februari 2018|--- |
+| [1.0.2](#1.0.2) |Den 18 maj 2018|30 augusti 2020 |
+| [1.0.1](#1.0.1) |Den 20 april 2018|30 augusti 2020 |
+| [1.0.0](#1.0.0) |27 februari 2018|30 augusti 2020 |
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

@@ -1,26 +1,25 @@
 ---
-title: Aktiviteten för gruppverifiering i Azure Data Factory | Microsoft Docs
-description: Aktiviteten för Gruppverifiering fortsätter inte körning av pipelinen förrän den validerar anslutna datauppsättningen med vissa kriterier som användaren anger.
+title: Validerings aktivitet i Azure Data Factory | Microsoft Docs
+description: Validerings aktiviteten fortsätter inte att köra pipelinen förrän den verifierar den bifogade data uppsättningen med vissa villkor som användaren anger.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: shlo
-ms.openlocfilehash: 46447bdbea93d1f99c5682cf878c2035e6f49b78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77fdab04e03429d135875cb2ef223e8c23d312a2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764330"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141608"
 ---
-# <a name="validation-activity-in-azure-data-factory"></a>Aktiviteten för gruppverifiering i Azure Data Factory
-Du kan använda en verifiering i en pipeline för att säkerställa att pipelinen endast fortsätter körningen när den har verifierat den bifogade datamängdsreferens finns, att den uppfyller de angivna villkoren eller timeout har uppnåtts.
+# <a name="validation-activity-in-azure-data-factory"></a>Validerings aktivitet i Azure Data Factory
+Du kan använda en verifiering i en pipeline för att se till att pipelinen bara fortsätter att köra när den har verifierat att den bifogade data uppsättnings referensen finns, att den uppfyller de angivna villkoren eller att tids gränsen har nåtts.
 
 
 ## <a name="syntax"></a>Syntax
@@ -57,26 +56,26 @@ Du kan använda en verifiering i en pipeline för att säkerställa att pipeline
 ```
 
 
-## <a name="type-properties"></a>Egenskaperna för anslutningstypen
+## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-name | Namnet på 'Verifiera'-aktivitet | String | Ja |
-type | Måste vara inställt på **verifiering**. | String | Ja |
-dataset | Aktiviteten ska blockera körning tills den här datauppsättningen referensen har verifierats finns och att den uppfyller de angivna villkoren eller timeout har uppnåtts. Datauppsättning som angetts ska ha stöd för egenskapen ”MinimumSize” eller ”ChildItems”. | Datamängdsreferens | Ja |
-timeout | Anger tidsgränsen för aktivitetens körning. Om inget värde anges är standardvärdet sju dagar (”7.00:00:00”). Formatet är d.hh:mm:ss | String | Nej |
-Strömsparläge | En fördröjning i sekunder mellan försöken för verifiering. Om inget värde anges är standardvärdet 10 sekunder. | Integer | Nej |
-childItems | Kontrollerar om mappen har underordnade objekt. Kan anges till true: Kontrollera att mappen finns och att det finns objekt. Blockerar tills det finns minst ett objekt i mappen eller tidsgränsen har nåtts.-false: Kontrollera att mappen finns och att den är tom. Värde att block tills mappen är tom eller tills tidsgränsen uppnås. Om inget värde har angetts, blockeras aktiviteten tills mappen finns eller tidsgränsen har nåtts. | Boolean | Nej |
+name | Namnet på validerings aktiviteten | Sträng | Ja |
+type | Måste vara inställd på **verifiering**. | Sträng | Ja |
+data uppsättning | Aktiviteten blockerar körningen tills den har verifierat att den här data uppsättnings referensen finns och att den uppfyller de angivna villkoren, eller också har tids gränsen nåtts. Den angivna data uppsättningen ska ha stöd för egenskapen "MinimumSize" eller "ChildItems". | Referens för data mängd | Ja |
+timeout | Anger tidsgränsen för aktivitetens körning. Om inget värde anges är standardvärdet 7 dagar ("7.00:00:00"). Formatet är d. hh: mm: SS | Sträng | Nej |
+Spar | En fördröjning i sekunder mellan verifierings försök. Om inget värde anges är standardvärdet 10 sekunder. | Integer | Nej |
+childItems | Kontrollerar om mappen har underordnade objekt. Kan anges till-True: Kontrol lera att mappen finns och att den har objekt. Block tills minst ett objekt finns i mappen eller så har timeout-värdet nåtts.-falskt: Kontrol lera att mappen finns och att den är tom. Blockerar tills mappen är tom eller tills timeout-värdet nås. Om inget värde anges blockerar aktiviteten tills mappen finns eller tills tids gränsen har nåtts. | Boolesk | Nej |
 minimumSize | Minsta storlek på en fil i byte. Om inget värde anges är standardvärdet 0 byte | Integer | Nej |
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontrollflödesaktiviteter som stöds av Data Factory:
+Se andra kontroll flödes aktiviteter som stöds av Data Factory:
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 - [Lookup-aktivitet](control-flow-lookup-activity.md)
-- [Webbaktivitet](control-flow-web-activity.md)
+- [Webb aktivitet](control-flow-web-activity.md)
 - [Until-aktivitet](control-flow-until-activity.md)

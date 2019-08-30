@@ -15,26 +15,26 @@ ms.date: 01/17/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 950d0dc2f4a1a88e0c317b3398c7492cc6c52e2a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 3e6b79c7d5c2ed9744dc00eb1588c35f8ea94a76
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989845"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127641"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Rapport över användare som har flaggats för risk i Azure-portalen
 
-Azure Active Directory (Azure AD) identifierar misstänkta åtgärder relaterade till dina användarkonton. För varje identifierad åtgärd skapas en post med namnet [riskhändelse](concept-risk-events.md).
+Azure Active Directory (Azure AD) identifierar misstänkta åtgärder relaterade till dina användarkonton. För varje identifierad åtgärd skapas en post som kallas [identifiering av risker](concept-risk-events.md) .
 
 Du kan komma åt säkerhetsrapporterna via [Azure-portalen](https://portal.azure.com) genom att välja bladet **Azure Active Directory** och sedan navigera till avsnittet **Säkerhet**. 
 
-De identifierade riskhändelserna används för att beräkna:
+Identifierade risk identifieringar används för att beräkna:
 
 - **Riskfyllda inloggningar** – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. 
 
 - **Användare som har flaggats för risk** – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. 
 
-Information om hur du konfigurerar principer som utlöser dessa riskhändelser finns i [Konfigurera riskprincipen för användare](../identity-protection/howto-user-risk-policy.md). 
+Information om hur du konfigurerar principerna som utlöser dessa risk identifieringar finns i [så här konfigurerar du principen för användar risk](../identity-protection/howto-user-risk-policy.md). 
 
 ![Riskfyllda inloggningar](./media/concept-user-at-risk/10.png)
 
@@ -45,9 +45,9 @@ Alla utgåvor av Azure Active Directory ger rapporter över användare som har f
 
 - I **versionerna Azure Active Directory Free och Basic** finns en lista över användare som har flaggats för risk. 
 
-- Dessutom kan du med utgåvan **Azure Active Directory Premium 1** utforska några av de underliggande riskhändelser som har identifierats för varje rapport. 
+- Dessutom kan du med **Azure Active Directory Premium 1** -versionen granska några av de underliggande risk identifieringarna som har identifierats för varje rapport. 
 
-- Utgåvan **Azure Active Directory Premium 2** ger den mest detaljerade informationen om alla underliggande riskhändelser och du kan konfigurera säkerhetsprinciper som automatiskt svarar på konfigurerade risknivåer.
+- **Azure Active Directory Premium 2** -versionen ger den mest detaljerade informationen om alla underliggande risk identifieringar och du kan också konfigurera säkerhets principer som automatiskt svarar på konfigurerade risk nivåer.
 
 
 ## <a name="users-at-risk-report-for-azure-ad-free-and-basic-editions"></a>Rapport över användare i farozonen för Azure AD Free och Basic
@@ -73,7 +73,7 @@ Rapporten om användare som flaggats för risk i Azure AD Premium-versionerna in
 
 - En lista över användarkonton som kan ha drabbats 
 
-- Sammanställd information om de [riskhändelsetyper](concept-risk-events.md) som har identifierats
+- Sammanställd information om de [risk identifierings typer](concept-risk-events.md) som har identifierats
 
 - Ett alternativ för att ladda ned rapporten
 
@@ -87,13 +87,13 @@ När du väljer en användare får du en detaljerad rapportvy för den här anv�
 
 - Återställ användarens lösenord
 
-- Ignorera alla händelser
+- Stäng alla händelser
 
-- Undersök rapporterade riskhändelser för användaren. 
+- Undersök rapporterade risk identifieringar för användaren. 
 
 ![Riskfyllda inloggningar](./media/concept-user-at-risk/324.png)
 
-Om du vill undersöka en riskhändelse, markerar du en på listan för att öppna bladet med **Information** om den riskhändelsen. På bladet **Information** har du möjlighet att antingen stänga en riskhändelse manuellt eller återaktivera en manuellt stängd riskhändelse. 
+Om du vill undersöka en risk identifiering väljer du en i listan för att öppna **informations** bladet för den här identifieringen av risker. På bladet **information** har du möjlighet att antingen manuellt stänga en risk identifiering eller återaktivera en manuellt stängd risk identifiering. 
 
 ![Riskfyllda inloggningar](./media/concept-user-at-risk/325.png)
 

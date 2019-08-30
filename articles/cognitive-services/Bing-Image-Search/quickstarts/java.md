@@ -11,15 +11,15 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018, seo-java-july2019
-ms.openlocfilehash: a4a8535aa204cbad76d4da4c466c0f4aba99db9a
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 3cd7af766b3881eb1abe054105423aaa3d0591de
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489659"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124079"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Snabbstart: Sök efter bilder med API:et för bildsökning i Bing och Java
+# <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>Snabbstart: Sök efter avbildningar med API för bildsökning i Bing, en Azure-tjänst för inlärning 
 
 Använd den här snabbstarten till att börja skicka sökbegäranden till API:et för bildsökning i Bing. Java-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 

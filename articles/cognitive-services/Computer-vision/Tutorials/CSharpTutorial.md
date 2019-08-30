@@ -1,7 +1,7 @@
 ---
 title: 'Exempel: Utforska en bildbearbetningsapp i C#'
 titleSuffix: Azure Cognitive Services
-description: Utforska en grundläggande Windows-app som använder den API för visuellt innehåll i Azure Cognitive Services. Utför OCR, skapa miniatyrer och arbeta med visuella funktioner i en bild.
+description: Utforska en grundläggande Windows-app som använder API för visuellt innehåll i Azure Cognitive Services. Utför OCR, skapa miniatyrer och arbeta med visuella funktioner i en bild.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3da22d11dce1e535763476d906ac45f3da22bc8d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60408197"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141277"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exempel: Utforska en bildbearbetningsapp med C#
 
@@ -28,12 +28,12 @@ Utforska ett grundläggande Windows-program som använder Visuellt innehåll fö
 > * Köra exempelappen och interagera med den för att utföra olika scenarier
 > * Utforska de olika scenarier som ingår i exempelappen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du utforskar exempelappen ska du uppfylla följande förutsättningar:
 
 * Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare.
-* Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
+* Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Anteckna även tjänstens slut punkts-URL.
 
 ## <a name="get-the-sample-app"></a>Hämta exempelappen
 
@@ -79,8 +79,9 @@ Du kan köra exempelappen om du vill se hur den interagerar med dig och med klie
 1. När exempelappen visas väljer du **Subscription Key Management** (Hantering av prenumerationsnyckel) från navigeringsfönstret för att visa sidan för hantering av prenumerationsnyckel.
    ![Sidan för hantering av prenumerationsnyckel](../Images/Vision_UI_Subscription.PNG)  
 1. Ange din prenumerationsnyckel i **Prenumerationsnyckel**.
-1. Ange slutpunkts-URL. Ta inte med `/vision/v1.0` för Visuellt innehåll-resursen för din prenumerationsnyckel i **Slutpunkt**.  
-   Exempel: Om du använder prenumerationsnyckeln från den kostnadsfria utvärderingsversionen av Visuellt innehåll anger du följande slutpunkts-URL för Azure-regionen USA, västra centrala: `https://westcentralus.api.cognitive.microsoft.com`
+1. Ange slut punkts-URL: en i **slut punkten**.  
+   Om du till exempel använder prenumerations nyckeln från den Visuellt innehåll kostnads fria utvärderings versionen anger du följande slut punkts-URL:`https://westcentralus.api.cognitive.microsoft.com`
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Om du inte vill ange prenumerationsnyckeln och slutpunkts-URL:en nästa gång du kör exempelappen väljer du **Save Setting** (Spara inställning) för att spara prenumerationsnyckeln och slutpunkts-URL:en till datorn. Om du vill ta bort din tidigare sparade prenumerationsnyckel och slutpunkts-URL väljer du **Delete Setting** (Ta bort inställning).
 
    > [!NOTE]

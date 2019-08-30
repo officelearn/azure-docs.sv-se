@@ -1,37 +1,37 @@
 ---
-title: Azure PowerShell-exempel för Azure Data Factory | Microsoft Docs
-description: Azure PowerShell-exempel – skript som hjälper dig att skapa och hantera datafabriker.
+title: Azure PowerShell exempel för Azure Data Factory | Microsoft Docs
+description: Azure PowerShell exempel – skript som hjälper dig att skapa och hantera data fabriker.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: c822ebdea2bab6f4c6c05cf2d4a4b822d6e02f3f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 02ec7de918b0704a3d72611f6f3e47cda2d23fae
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60635025"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140862"
 ---
-# <a name="azure-powershell-samples-for-azure-data-factory"></a>Azure PowerShell-exempel för Azure Data Factory
+# <a name="azure-powershell-samples-for-azure-data-factory"></a>Azure PowerShell exempel för Azure Data Factory
 
-I följande tabell innehåller länkar till Azure PowerShell-exempelskript för Azure Data Factory.
+Följande tabell innehåller länkar till exempel Azure PowerShell skript för Azure Data Factory.
 
 | |  |
 |---|---|
-|**Kopieringsdata**||
-|[Kopiera blobar från en mapp till en annan mapp i Azure Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet kopierar blobar från en mapp i Azure Blob Storage till en annan mapp i samma Blob Storage. |
-|[Kopiera data från en lokal SQL Server till Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Den här PowerShell.skript kopierar data från en lokal SQL Server-databas till Azure blob storage. |
-|[Masskopiering](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-exempelskript kopierar data från flera tabeller i en Azure SQL-databas till en Azure SQL data warehouse. |
-|[Inkrementell kopia](scripts/incremental-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här Skriptexemplet för PowerShell läser bara nya eller uppdaterade posterna från källans datalager till mottagarens datalager efter den inledande fullständig kopian av data från källan till mottagaren. |
-|**Omvandla data**||
-|[Transformera data med ett Spark-kluster](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Den här PowerShell.skript transformerar data genom att köra ett program på ett Spark-kluster. |
-|**Lyfta och växla SSIS-paket till Azure**||
-|[Skapa Azure-SSIS integration runtime](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Den här PowerShell-skriptet etablerar en Azure-SSIS integration runtime som kör SQL Server Integration Services (SSIS)-paket i Azure. |
+|**Kopiera data**||
+|[Kopiera blobbar från en mapp till en annan mapp i ett Azure-Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet kopierar blobbar från en mapp i Azure Blob Storage till en annan mapp i samma Blob Storage. |
+|[Kopiera data från lokala SQL Server till Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet kopierar data från en lokal SQL Server-databas till Azure Blob Storage. |
+|[Mass kopiering](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här exemplet på PowerShell-skriptet kopierar data från flera tabeller i en Azure SQL-databas till ett Azure SQL Data Warehouse. |
+|[Stegvis kopia](scripts/incremental-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här exemplet på PowerShell-skriptet läser bara in nya eller uppdaterade poster från ett käll data lager till ett data lager för mottagare efter den första fullständiga kopian av data från källan till mottagaren. |
+|**Transformera data**||
+|[Transformera data med ett Spark-kluster](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet transformerar data genom att köra ett program i ett Spark-kluster. |
+|**Lyft och Shift SSIS-paket till Azure**||
+|[Skapa Azure-SSIS integration runtime](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet etablerar en Azure-SSIS integration runtime som kör SQL Server Integration Services-paket (SSIS) i Azure. |
 
 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 86b17efdb811e9e4040b8b267c161b950f6de5fd
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6278e848a82fb31939117fa9b916a92a2fb74a3e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036179"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129282"
 ---
 # <a name="azure-advanced-threat-detection"></a>Avancerad hot identifiering i Azure
 
@@ -30,13 +30,13 @@ Azure erbjuder ett brett utbud av alternativ för att konfigurera och anpassa s�
 
 ## <a name="azure-active-directory-identity-protection"></a>Identitetsskydd för Azure Active Directory
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) är en [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) Edition-funktion som ger en översikt över risk händelser och potentiella sårbarheter som kan påverka organisationens identiteter. Identitets skydd använder befintliga funktioner för identifiering av Azure AD-avvikelse som är tillgängliga via [rapporter i Azure AD-avvikande aktivitet](../../active-directory/active-directory-reporting-azure-portal.md)och introducerar nya risk händelse typer som kan identifiera real tids avvikelser.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) är en [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) Edition-funktion som ger en översikt över risk identifiering och potentiella sårbarheter som kan påverka organisationens identiteter. Identitets skydd använder befintliga funktioner för identifiering av Azure AD-avvikelse som är tillgängliga via [rapporter om avvikande rapporter i Azure AD](../../active-directory/active-directory-reporting-azure-portal.md)och introducerar nya risk identifierings typer som kan identifiera real tids avvikelser.
 
 ![Azure AD Identity Protection diagram](./media/threat-detection/azure-threat-detection-fig1.png)
 
-Identity Protection använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera avvikelser och risk händelser som kan tyda på att en identitet har komprometterats. Med hjälp av dessa data genererar identitets skydd rapporter och aviseringar så att du kan undersöka dessa risk händelser och vidta lämpliga åtgärder för reparation eller åtgärder.
+Identitets skydd använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera avvikelser och risk identifieringar som kan tyda på att en identitet har komprometterats. Med hjälp av dessa data genererar identitets skydd rapporter och aviseringar så att du kan undersöka dessa risk identifieringar och vidta lämpliga åtgärder för att åtgärda problemet.
 
-Azure Active Directory Identity Protection är mer än ett övervaknings-och rapporterings verktyg. Med hjälp av risk händelser beräknar identitets skyddet en användar risk nivå för varje användare, så att du kan konfigurera riskfyllda principer för att automatiskt skydda organisationens identiteter.
+Azure Active Directory Identity Protection är mer än ett övervaknings-och rapporterings verktyg. Baserat på risk identifieringar beräknar Identity Protection en användar risk nivå för varje användare, så att du kan konfigurera riskfyllda principer för att automatiskt skydda organisationens identiteter.
 
 Dessa riskbaserade principer, förutom andra [villkorliga åtkomst kontroller](../../active-directory/active-directory-conditional-access-azure-portal.md) som tillhandahålls av Azure Active Directory och [EMS](../../active-directory/active-directory-conditional-access-azure-portal.md), kan automatiskt blockera eller erbjuda anpassningsbara åtgärds åtgärder som inkluderar återställning av lösen ord och Multi-Factor Tvingad autentisering.
 
@@ -46,14 +46,14 @@ Azure Active Directory Identity Protection är mer än ett övervaknings-och rap
 
 Exempel på några av de sätt som Azure Identity Protection kan hjälpa till att skydda dina konton och identiteter är:
 
-[Identifiera risk händelser och riskfyllda konton](../../active-directory/identity-protection/overview.md)
--   Identifiera sex risk händelse typer med hjälp av maskin inlärnings-och heuristiska regler.
+[Identifiera risk identifieringar och riskfyllda konton](../../active-directory/identity-protection/overview.md)
+-   Identifiera sex risk identifierings typer med hjälp av maskin inlärnings-och heuristiska regler.
 -   Beräkna risk nivåer för användare.
 -   Ange anpassade rekommendationer för att förbättra den övergripande säkerhets position genom att markera sårbarheter.
 
-[Undersöka risk händelser](../../active-directory/identity-protection/overview.md)
--   Skicka meddelanden om risk händelser.
--   Undersök risk händelser med hjälp av relevant och sammanhangsbaserad information.
+[Undersöka risk identifieringar](../../active-directory/identity-protection/overview.md)
+-   Skicka meddelanden om risk identifieringar.
+-   Undersök risk identifieringar med hjälp av relevant och sammanhangsbaserad information.
 -   Ange grundläggande arbets flöden för att spåra utredningar.
 -   Ger enkel åtkomst till reparations åtgärder som återställning av lösen ord.
 

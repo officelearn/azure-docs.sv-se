@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: cc6f0a4c3fda2c5e474295704f3edddb678e9ed2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9c7c85ae9573efa202f5fc27ae78aee57fa67ab8
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697194"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142700"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Ruby
 <a name="HOLTop"></a>
@@ -34,36 +34,35 @@ Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk d
 
 API:et för språkidentifiering identifierar språket i ett textdokument, med metoden [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
+1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat de här miljövariablerna när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till miljövariablerna.
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
+1. Lägg till koden nedan.
+1. Kör programmet.
 
 ```ruby
+# encoding: UTF-8
+
 require 'net/https'
 require 'uri'
 require 'json'
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
+if (!ENV[key_var])
+    raise "Please set/export the following environment variable: " + key_var
+else
+    subscription_key = ENV[key_var]
+end
 
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
+endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
+if (!ENV[endpoint_var])
+    raise "Please set/export the following environment variable: " + endpoint_var
+else
+    endpoint = ENV[endpoint_var]
+end
 
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
 path = '/text/analytics/v2.1/languages'
 
-uri = URI(uri + path)
+uri = URI(endpoint + path)
 
 documents = { 'documents': [
     { 'id' => '1', 'text' => 'This is a document written in English.' },
@@ -75,7 +74,7 @@ puts 'Please wait a moment for the results to appear.'
 
 request = Net::HTTP::Post.new(uri)
 request['Content-Type'] = "application/json"
-request['Ocp-Apim-Subscription-Key'] = accessKey
+request['Ocp-Apim-Subscription-Key'] = subscription_key
 request.body = documents.to_json
 
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -137,36 +136,35 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
 
+1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du skapar miljövariabeln när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
+1. Lägg till koden nedan.
+1. Kör programmet.
 
 ```ruby
+# encoding: UTF-8
+
 require 'net/https'
 require 'uri'
 require 'json'
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
+if (!ENV[key_var])
+    raise "Please set/export the following environment variable: " + key_var
+else
+    subscription_key = ENV[key_var]
+end
 
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
+endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
+if (!ENV[endpoint_var])
+    raise "Please set/export the following environment variable: " + endpoint_var
+else
+    endpoint = ENV[endpoint_var]
+end
 
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
 path = '/text/analytics/v2.1/sentiment'
 
-uri = URI(uri + path)
+uri = URI(endpoint + path)
 
 documents = { 'documents': [
     { 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -177,7 +175,7 @@ puts 'Please wait a moment for the results to appear.'
 
 request = Net::HTTP::Post.new(uri)
 request['Content-Type'] = "application/json"
-request['Ocp-Apim-Subscription-Key'] = accessKey
+request['Ocp-Apim-Subscription-Key'] = subscription_key
 request.body = documents.to_json
 
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -213,37 +211,36 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
+1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du skapar miljövariabeln när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
+1. Lägg till koden nedan.
+1. Kör programmet.
 
 
 ```ruby
+# encoding: UTF-8
+
 require 'net/https'
 require 'uri'
 require 'json'
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
+if (!ENV[key_var])
+    raise "Please set/export the following environment variable: " + key_var
+else
+    subscription_key = ENV[key_var]
+end
 
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
+endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
+if (!ENV[endpoint_var])
+    raise "Please set/export the following environment variable: " + endpoint_var
+else
+    endpoint = ENV[endpoint_var]
+end
 
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
 path = '/text/analytics/v2.1/keyPhrases'
 
-uri = URI(uri + path)
+uri = URI(endpoint + path)
 
 documents = { 'documents': [
     { 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -255,7 +252,7 @@ puts 'Please wait a moment for the results to appear.'
 
 request = Net::HTTP::Post.new(uri)
 request['Content-Type'] = "application/json"
-request['Ocp-Apim-Subscription-Key'] = accessKey
+request['Ocp-Apim-Subscription-Key'] = subscription_key
 request.body = documents.to_json
 
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -310,37 +307,35 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för entiteter identifierar entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifieras entiteter för engelska dokument.
 
+1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du skapar miljövariabeln när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
-
+1. Lägg till koden nedan.
+1. Kör programmet.
 
 ```ruby
+# encoding: UTF-8
+
 require 'net/https'
 require 'uri'
 require 'json'
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
+if (!ENV[key_var])
+    raise "Please set/export the following environment variable: " + key_var
+else
+    subscription_key = ENV[key_var]
+end
 
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
+endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
+if (!ENV[endpoint_var])
+    raise "Please set/export the following environment variable: " + endpoint_var
+else
+    endpoint = ENV[endpoint_var]
+end
 
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
 path = '/text/analytics/v2.1/entities'
 
-uri = URI(uri + path)
+uri = URI(endpoint + path)
 
 documents = { 'documents': [
     { 'id' => '1', 'language' => 'en', 'text' => 'Microsoft is an It company.' }
@@ -350,7 +345,7 @@ puts 'Please wait a moment for the results to appear.'
 
 request = Net::HTTP::Post.new(uri)
 request['Content-Type'] = "application/json"
-request['Ocp-Apim-Subscription-Key'] = accessKey
+request['Ocp-Apim-Subscription-Key'] = subscription_key
 request.body = documents.to_json
 
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|

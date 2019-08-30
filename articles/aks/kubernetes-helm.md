@@ -1,39 +1,39 @@
 ---
 title: Distribuera behållare med Helm i Kubernetes på Azure
-description: Lär dig hur du använder verktyget Helm paketering för att distribuera behållare i ett kluster i Azure Kubernetes Service (AKS)
+description: Lär dig hur du använder Helm packnings verktyg för att distribuera behållare i ett Azure Kubernetes service-kluster (AKS)
 services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 76a5391cbe142851d9b1f60ea9346af2e7a35d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27d557ab12093223450fd7bc1b88c68e1f156947
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66392141"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135506"
 ---
-# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installera program med Helm i Azure Kubernetes Service (AKS)
+# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installera program med Helm i Azure Kubernetes service (AKS)
 
-[Helm] [ helm] är ett verktyg med öppen källkod paketering som hjälper dig att installera och hantera livscykeln för Kubernetes-program. Liknar Linux pakethanterare som *APT* och *Yum*, Helm används för att hantera Kubernetes-diagram, som är paket med förkonfigurerade Kubernetes-resurser.
+[Helm][helm] är ett paket med öppen källkod som hjälper dig att installera och hantera livs cykeln för Kubernetes-program. Precis som Linux-paket hanterare som *apt* och *yum*, används Helm för att hantera Kubernetes-diagram, som är paket med förkonfigurerade Kubernetes-resurser.
 
-Den här artikeln visar hur du konfigurerar och använder Helm i en Kubernetes-kluster i AKS.
+Den här artikeln visar hur du konfigurerar och använder Helm i ett Kubernetes-kluster på AKS.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
-Du måste också Helm CLI-verktyget, vilket är den klient som körs i utvecklingssystemet. Det kan du starta, stoppa och hantera program med Helm. Om du använder Azure Cloud Shell är Helm CLI redan installerad. Installationsanvisningar på din lokala plattform finns [installera Helm][helm-install].
+Du behöver också Helm CLI installerat, som är den klient som körs i utvecklings systemet. Du kan starta, stoppa och hantera program med Helm. Om du använder Azure Cloud Shell är Helm CLI redan installerat. Installationsinstruktioner på din lokala plattform finns i [Installera Helm][helm-install].
 
 > [!IMPORTANT]
-> Helm är avsedd att köras på Linux-noder. Om du har Windows Server-noder i klustret måste du kontrollera att Helm poddar endast är schemalagda att köras på Linux-noder. Du måste också se till att alla Helm-diagram som du installerar också är schemalagda att köras på rätt noderna. Kommandona i den här artikeln [noden väljare] [ k8s-node-selector] att kontrollera att poddar schemaläggs för att rätta noder, men inte alla Helm-diagram kan exponera en nod-väljare. Du kan också överväga att använda andra alternativ på klustret som [taints][taints].
+> Helm är avsedd att köras på Linux-noder. Om du har Windows Server-noder i klustret måste du se till att Helm-poddar endast är schemalagda att köras på Linux-noder. Du måste också se till att alla Helm-diagram som du installerar också är schemalagda att köras på rätt noder. Kommandona i den här artikeln använder [Node-selectrs][k8s-node-selector] för att se till att poddar är schemalagda till rätt noder, men inte alla Helm-diagram kan visa en Node-selektor. Du kan också överväga att använda andra alternativ i klustret, till exempel för-och- [smak][taints].
 
-## <a name="create-a-service-account"></a>Skapa ett tjänstkonto
+## <a name="create-a-service-account"></a>Skapa ett tjänst konto
 
-Innan du kan distribuera Helm i en RBAC-aktiverade AKS-kluster, behöver du ett tjänstkonto och rollen bindning för Tiller-tjänsten. Mer information om hur du skyddar Helm / Tiller i en RBAC aktiverat kluster, se [Tiller namnområden och RBAC][tiller-rbac]. Hoppa över det här steget om AKS-klustret inte är aktiverat RBAC.
+Innan du kan distribuera Helm i ett RBAC-aktiverat AKS-kluster behöver du ett tjänst konto och en roll bindning för till-tjänsten. Mer information om hur du skyddar Helm/till i ett RBAC-aktiverat kluster finns i [till exempel, namnrymder och RBAC][tiller-rbac]. Om ditt AKS-kluster inte är RBAC-aktiverat, hoppar du över det här steget.
 
-Skapa en fil med namnet `helm-rbac.yaml` och kopiera följande YAML:
+Skapa en fil med `helm-rbac.yaml` namnet och kopiera i följande yaml:
 
 ```yaml
 apiVersion: v1
@@ -56,27 +56,27 @@ subjects:
     namespace: kube-system
 ```
 
-Skapa kontot och rollen bindning med den `kubectl apply` kommando:
+Skapa tjänst kontot och roll bindningen med `kubectl apply` kommandot:
 
 ```console
 kubectl apply -f helm-rbac.yaml
 ```
 
-## <a name="secure-tiller-and-helm"></a>Skydda Tiller och Helm
+## <a name="secure-tiller-and-helm"></a>Skydda till-och Helm
 
-Helm-klienten och Tiller tjänsten autentisera och kommunicera med varandra med hjälp av TLS/SSL. Den här autentiseringsmetoden hjälper till att skydda Kubernetes-klustret och vilka tjänster kan distribueras. Du kan skapa egna självsignerade certifikat för att förbättra säkerheten. Varje Helm-användare ska få sina egna klientcertifikatet och Tiller skulle initieras i Kubernetes-kluster med certifikat som används. Mer information finns i [med hjälp av TLS/SSL mellan Helm och Tiller][helm-ssl].
+Helm-klienten och till-tjänsten autentiserar och kommunicerar med varandra med TLS/SSL. Den här autentiseringsmetoden hjälper till att skydda Kubernetes-klustret och vilka tjänster som kan distribueras. Du kan förbättra säkerheten genom att skapa egna signerade certifikat. Varje Helm-användare får sitt eget klient certifikat och till gången initieras i Kubernetes-klustret med certifikat som tillämpas. Mer information finns i [using TLS/SSL mellan Helm och till][helm-ssl].
 
-Du kan styra åtkomstnivån som Tiller har till klustret med en RBAC-aktiverade Kubernetes-kluster. Du kan definiera Kubernetes namnområdes Tiller distribuerad i och begränsa vilka namnområden Tiller kan sedan distribuera resurser i. Den här metoden kan du skapa Tiller-instanser i olika namnområden och gränsen distribution gränser och begränsa användare av Helm-klienten till vissa namnområden. Mer information finns i [Helm rollbaserade åtkomstkontroller][helm-rbac].
+Med ett RBAC-aktiverat Kubernetes-kluster kan du styra åtkomst nivån till klustret. Du kan definiera Kubernetes-namnområdet som används för att distribueras i och begränsa vilka namn områden som ska användas för att distribuera resurser i. Med den här metoden kan du skapa till-instanser i olika namn områden och begränsa distributions gränser och omfånget användare av Helm-klienten till vissa namn områden. Mer information finns i [Helm-rollbaserade åtkomst kontroller][helm-rbac].
 
 ## <a name="configure-helm"></a>Konfigurera Helm
 
-För att distribuera en grundläggande Tiller i ett AKS-kluster måste använda den [”helm init”] [ helm-init] kommando. Om klustret inte är aktiverat RBAC, ta bort den `--service-account` argument och värde. Om du har konfigurerat TLS/SSL för Tiller och Helm, hoppa över det här steget för grundläggande initieringen och i stället ange de nödvändiga `--tiller-tls-` som visas i nästa exempel.
+Om du vill distribuera en Basic-till-till-AKS-kluster använder du kommandot [Helm init][helm-init] . Om klustret inte är RBAC-aktiverat tar du `--service-account` bort argumentet och värdet. Om du har konfigurerat TLS/SSL för till gång och Helm, hoppar du över detta grundläggande initierings steg och `--tiller-tls-` anger i stället det krav som visas i nästa exempel.
 
 ```console
-helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
+helm init --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
-Om du har konfigurerat TLS/SSL mellan Helm och Tiller ger den `--tiller-tls-*` parametrar och namnen på dina egna certifikat, som visas i följande exempel:
+Om du har konfigurerat TLS/SSL mellan Helm och till, anger `--tiller-tls-*` du parametrar och namn för dina egna certifikat, som du ser i följande exempel:
 
 ```console
 helm init \
@@ -91,13 +91,13 @@ helm init \
 
 ## <a name="find-helm-charts"></a>Hitta Helm-diagram
 
-Helm-diagram för att distribuera program till ett Kubernetes-kluster. För att söka efter färdiga Helm-diagram, Använd den [helm search] [ helm-search] kommando:
+Helm-diagram används för att distribuera program till ett Kubernetes-kluster. Om du vill söka efter tidigare skapade Helm-diagram använder du kommandot [Helm search][helm-search] :
 
 ```console
 helm search
 ```
 
-Följande komprimerade exempel på utdata visar några av de Helm-diagram som är tillgängliga för användning:
+I följande komprimerade exempel utdata visas några av Helm-diagrammen som är tillgängliga för användning:
 
 ```
 $ helm search
@@ -132,7 +132,7 @@ stable/datadog                 0.18.0           6.3.0        DataDog Agent
 ...
 ```
 
-Uppdatera en lista över diagram med de [helm-lagringsplatsen update] [ helm-repo-update] kommando. I följande exempel visar en lyckad lagringsplatsen uppdatering:
+Om du vill uppdatera listan över diagram använder du kommandot [Helm lagrings platsen Update][helm-repo-update] . I följande exempel visas en lyckad lagrings platsen-uppdatering:
 
 ```console
 $ helm repo update
@@ -143,9 +143,9 @@ Hold tight while we grab the latest from your chart repositories...
 Update Complete. ⎈ Happy Helming!⎈
 ```
 
-## <a name="run-helm-charts"></a>Kör Helm-diagram
+## <a name="run-helm-charts"></a>Köra Helm-diagram
 
-Om du vill installera diagram med Helm, den [helm install] [ helm-install] kommandot och ange namnet på diagrammet för att installera. Om du vill se installerar ett Helm-diagram i praktiken ska vi installera en grundläggande nginx-distribution med ett Helm-diagram. Om du har konfigurerat TLS/SSL kan du lägga till den `--tls` parametern för att använda ditt Helm-klientcertifikat.
+Om du vill installera diagram med Helm använder du kommandot [Helm install][helm-install] och anger namnet på det diagram som ska installeras. Om du vill se hur du installerar ett Helm-diagram i praktiken ska vi installera en grundläggande nginx-distribution med ett Helm-diagram. Om du har konfigurerat TLS/SSL lägger du `--tls` till parametern för att använda Helm-klientcertifikatet.
 
 ```console
 helm install stable/nginx-ingress \
@@ -153,7 +153,7 @@ helm install stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-Följande komprimerade exempel på utdata visar Distributionsstatus för Kubernetes-resurser som skapas av Helm-diagrammet:
+I följande komprimerade exempel utdata visas distributions status för de Kubernetes-resurser som skapats av Helm-diagrammet:
 
 ```
 $ helm install stable/nginx-ingress --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
@@ -180,11 +180,11 @@ flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none> 
 ...
 ```
 
-Det tar en minut eller två innan den *extern IP-adress* -adressen för nginx-ingress-controller-tjänsten ska fyllas i och gör att du kan komma åt den med en webbläsare.
+Det tar en minut eller två för den *externa IP* -adressen för nginx-tjänsten att fyllas i och ger dig åtkomst till den med en webbläsare.
 
-## <a name="list-helm-releases"></a>Lista Helm versioner
+## <a name="list-helm-releases"></a>Visa lista Helm-versioner
 
-Om du vill se en lista över versioner som är installerad på ditt kluster, använda den [helm lista] [ helm-list] kommando. I följande exempel visas den nginx-ingress-versionen som distribuerats i föregående steg. Om du har konfigurerat TLS/SSL kan du lägga till den `--tls` parametern för att använda ditt Helm-klientcertifikat.
+Om du vill se en lista över installerade versioner i klustret använder du kommandot [Helm List][helm-list] . I följande exempel visas den nginx-ingångs version som distribuerats i föregående steg. Om du har konfigurerat TLS/SSL lägger du `--tls` till parametern för att använda Helm-klientcertifikatet.
 
 ```console
 $ helm list
@@ -195,7 +195,7 @@ flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingres
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du distribuerar ett Helm-diagram, skapas ett antal Kubernetes-resurser. Dessa resurser inkluderar poddar, distributioner och tjänster. Om du vill rensa de här resurserna kan använda den `helm delete` kommandot och ange namnet på din version som hittades i föregående `helm list` kommando. I följande exempel tar bort den versionen med namnet *flailing alpaca*:
+När du distribuerar ett Helm-diagram skapas ett antal Kubernetes-resurser. Dessa resurser omfattar poddar, distributioner och tjänster. Om du vill rensa resurserna använder du `helm delete` kommandot och anger namnet på din utgåva, som du hittar i föregående `helm list` kommando. I följande exempel tar vi bort versionen med namnet *Flailing-Alpaca*:
 
 ```console
 $ helm delete flailing-alpaca
@@ -205,10 +205,10 @@ release "flailing-alpaca" deleted
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du hanterar Kubernetes programdistributioner med Helm finns i Helm-dokumentationen.
+Mer information om hur du hanterar Kubernetes program distributioner med Helm finns i Helm-dokumentationen.
 
 > [!div class="nextstepaction"]
-> [Helm-dokumentation][helm-documentation]
+> [Dokumentation om Helm][helm-documentation]
 
 <!-- LINKS - external -->
 [helm]: https://github.com/kubernetes/helm/

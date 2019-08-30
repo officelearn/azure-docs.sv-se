@@ -6,14 +6,14 @@ author: laurenhughes
 manager: gwallace
 ms.service: batch
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: lahugh
-ms.openlocfilehash: 00da17512cbc2e713955ea83c7d9fa7517958169
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3c2213c25a8fdc6d6545711bd2af9b94662ee609
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036691"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141833"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-pool"></a>Använd det delade avbildnings galleriet för att skapa en pool
 
@@ -23,7 +23,7 @@ När du skapar en Azure Batch-pool med den virtuella dator konfigurationen anger
 
 När du använder det delade avbildnings galleriet för din anpassade avbildning har du kontroll över operativ systemets typ och konfiguration, samt typ av data diskar. Den delade avbildningen kan innehålla program och referens data som blir tillgängliga på alla noder i batch-poolen så snart de är etablerade.
 
-Du kan också ha flera versioner av en avbildning efter behov för din miljö. När du använder en avbildnings version för att skapa en virtuell dator används avbildnings versionen för att skapa nya diskar för den virtuella datorn. 
+Du kan också ha flera versioner av en avbildning efter behov för din miljö. När du använder en avbildnings version för att skapa en virtuell dator används avbildnings versionen för att skapa nya diskar för den virtuella datorn.
 
 Genom att använda en delad avbildning sparar du tid när du förbereder poolens datornoder för att köra batch-arbetsbelastningen. Det är möjligt att använda en Azure Marketplace-avbildning och installera program vara på varje Compute-nod efter etableringen, men med hjälp av en delad avbildning är det oftast mer effektivt. Dessutom kan du ange flera repliker för den delade avbildningen, så när du skapar pooler med många virtuella datorer (över 600 virtuella datorer) sparar du tid när du skapar en pool.
 
@@ -91,6 +91,19 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
     ...
 }
 ```
+
+## <a name="create-a-pool-from-a-shared-image-using-the-azure-portal"></a>Skapa en pool från en delad avbildning med hjälp av Azure Portal
+
+Använd följande steg för att skapa en pool från en delad avbildning i Azure Portal.
+
+1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Gå till **batch-konton** och välj ditt konto.
+1. Välj **pooler** och **Lägg** sedan till för att skapa en ny pool.
+1. I avsnittet **avbildnings typ** väljer du **delat avbildnings Galleri**.
+1. Slutför de återstående avsnitten med information om din hanterade avbildning.
+1. Välj **OK**.
+
+![Skapa en pool med från en delad avbildning med portalen.](media/batch-custom-images/create-custom-pool.png)
 
 ## <a name="considerations-for-large-pools"></a>Att tänka på för stora pooler
 

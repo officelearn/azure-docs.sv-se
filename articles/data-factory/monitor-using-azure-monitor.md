@@ -3,21 +3,20 @@ title: Övervaka data fabriker med Azure Monitor | Microsoft Docs
 description: Lär dig hur du använder Azure Monitor för att övervaka Data Factory pipelines genom att aktivera diagnostikloggar med information från Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: shlo
-ms.openlocfilehash: 6bad74d33f5d50bb7a35de69927bf97daad07798
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0614de8bbb1429c84bf5f2e55c1765f3e4863f3a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326846"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141132"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka data fabriker med hjälp av Azure Monitor
 Moln program är komplexa med många rörliga delar. Övervakning tillhandahåller data för att säkerställa att programmet hålls igång i felfritt tillstånd. Det hjälper dig också att Stave av potentiella problem eller att felsöka tidigare. Dessutom kan du använda övervaknings data för att få djupgående insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda eller hanterbarhet eller automatisera åtgärder som annars skulle kräva manuell åtgärd.
@@ -108,7 +107,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | storageAccountId |String | Resurs-ID för det lagrings konto som du vill skicka diagnostikloggar till |
 | serviceBusRuleId |String | Service Bus-regelns ID för Service Bus-namnområdet som du vill ha Event Hubs skapat för för strömnings diagnostikloggar. Regel-ID: t har formatet {Service Bus Resource ID}/authorizationrules/{Key Name}.|
 | workspaceId | Komplex typ | Mat ris tids kornig het och deras bevarande principer. Den här egenskapen är för närvarande tom. |
-|metrics| Parameter värden för pipeline-körningen som ska skickas till den anropade pipelinen| Ett JSON-objekt som mappar parameter namn till argument värden |
+|mått| Parameter värden för pipeline-körningen som ska skickas till den anropade pipelinen| Ett JSON-objekt som mappar parameter namn till argument värden |
 | logs| Komplex typ| Namnet på en diagnostisk logg kategori för en resurs typ. Om du vill hämta en lista över diagnostiska logg kategorier för en resurs, utför först en Hämta diagnostiska inställningar-åtgärd. |
 | category| String| Matris med logg kategorier och deras bevarande principer |
 | timeGrain | String | Granularitet för mått som samlas in i ISO 8601-varaktighets format. Måste vara PT1M (en minut)|
@@ -509,7 +508,7 @@ Logga in på Azure Portal och klicka på **övervaka** > **aviseringar** för at
 
 1.  Klicka på **+ ny varnings regel** för att skapa en ny avisering.
 
-    ![Ny varnings regel](media/monitor-using-azure-monitor/alerts_image4.png)
+    ![Ny aviseringsregel](media/monitor-using-azure-monitor/alerts_image4.png)
 
 2.  Definiera **varnings villkoret**.
 

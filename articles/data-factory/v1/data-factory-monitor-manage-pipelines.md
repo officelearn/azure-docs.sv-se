@@ -1,181 +1,179 @@
 ---
-title: Övervaka och hantera pipelines med hjälp av Azure-portalen och PowerShell | Microsoft Docs
-description: Lär dig hur du använder Azure-portalen och Azure PowerShell för att övervaka och hantera Azure-datafabriker och pipelines som du har skapat.
+title: Övervaka och hantera pipelines med hjälp av Azure Portal och PowerShell | Microsoft Docs
+description: Lär dig hur du använder Azure Portal och Azure PowerShell för att övervaka och hantera Azure-datafabriker och pipeliner som du har skapat.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122813"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139663"
 ---
-# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory-pipelines med hjälp av Azure-portalen och PowerShell
+# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av Azure Portal och PowerShell
 > [!div class="op_single_selector"]
-> * [Med hjälp av Azure portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-> * [Med hjälp av övervaknings- och hanteringsappen](data-factory-monitor-manage-app.md)
+> * [Använda Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+> * [Använda övervaknings-och hanterings program](data-factory-monitor-manage-app.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [övervaka och hantera Data Factory-pipelines i](../monitor-visually.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [övervaka och hantera data Factory pipeliner i](../monitor-visually.md).
 
-Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med hjälp av Azure-portalen och PowerShell.
-
-> [!IMPORTANT]
-> Övervakning och hantering av programmet ger en bättre stöd för övervakning och hantera dina datapipelines och felsöka eventuella problem. Mer information om hur du använder programmet finns i [övervaka och hantera Data Factory-pipelines med hjälp av övervakning och hantering av appen](data-factory-monitor-manage-app.md). 
+Den här artikeln beskriver hur du övervakar, hanterar och felsöker dina pipelines med hjälp av Azure Portal och PowerShell.
 
 > [!IMPORTANT]
-> Azure Data Factory version 1 nu använder den nya [Azure Monitor-aviseringar infrastruktur](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Den gamla aviseringsdata infrastrukturen är inaktuell. Därför kan konfigurerats dina befintliga aviseringar för version 1 data fabriker inte längre att fungera. Din befintliga aviseringar för v1-datafabriker migreras inte automatiskt. Du måste återskapa dessa aviseringar på den nya aviseringsdata infrastrukturen. Logga in på Azure portal och väljer **övervakaren** att skapa nya aviseringar för mått (till exempel misslyckade körningar eller lyckade körningar) för din version 1 datafabriker.
+> Hanterings programmet för övervakning & ger bättre stöd för övervakning och hantering av datapipeliner och fel sökning av eventuella problem. Mer information om hur du använder programmet finns i [övervaka och hantera data Factory pipelines med hjälp av appen övervakning och hantering](data-factory-monitor-manage-app.md). 
+
+> [!IMPORTANT]
+> Azure Data Factory version 1 använder nu den nya [Azure Monitor aviserings infrastrukturen](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Den gamla aviserings infrastrukturen är föråldrad. Därför fungerar inte dina befintliga aviseringar som kon figurer ATS för data fabriker av version 1. Dina befintliga aviseringar för v1-datafabriker migreras inte automatiskt. Du måste återskapa de här aviseringarna på den nya aviserings infrastrukturen. Logga in på Azure Portal och välj **övervaka** för att skapa nya aviseringar för mått (till exempel misslyckade körningar eller lyckade körningar) för dina data fabriker för version 1.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="understand-pipelines-and-activity-states"></a>Pipelines och aktivitetsstatus
-Med hjälp av Azure-portalen, kan du:
+## <a name="understand-pipelines-and-activity-states"></a>Förstå pipelines och aktivitets tillstånd
+Med hjälp av Azure Portal kan du:
 
-* Visa din data factory som ett diagram.
+* Visa din data fabrik som ett diagram.
 * Visa aktiviteter i en pipeline.
-* Visa in- och utdatauppsättningar.
+* Visa data uppsättningar för indata och utdata.
 
-Det här avsnittet beskriver också hur en datamängdssektor övergår från ett tillstånd till ett annat tillstånd.   
+Det här avsnittet beskriver också hur en data uppsättnings sektor övergår från ett tillstånd till ett annat tillstånd.   
 
-### <a name="navigate-to-your-data-factory"></a>Gå till din data factory
+### <a name="navigate-to-your-data-factory"></a>Navigera till din data fabrik
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på **datafabriker** på menyn till vänster. Om du inte ser det klickar du på **fler tjänster >** , och klicka sedan på **datafabriker** under den **information + analys** kategori.
+2. Klicka på **data fabriker** på menyn till vänster. Om du inte ser det klickar du på **fler tjänster >** och klickar sedan på **data fabriker** under kategorin **information + analys** .
 
-   ![Bläddra igenom alla > datafabriker](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
-3. På den **datafabriker** bladet välj datafabrik som du är intresserad av.
+   ![Bläddra bland alla > data fabriker](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
+3. På bladet **data** fabriker väljer du den data fabrik som du är intresse rad av.
 
     ![Välja datafabrik](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
-   Du bör se startsidan för datafabriken.
+   Du bör se start sidan för data fabriken.
 
    ![Bladet Datafabrik](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
-#### <a name="diagram-view-of-your-data-factory"></a>Diagramvy i din data factory
-Den **Diagram** vy av en data factory tillhandahåller en enda glasruta att övervaka och hantera data factory och dess tillgångar. Se den **Diagram** visa i din data factory, klickar du på **Diagram** på startsidan för datafabriken.
+#### <a name="diagram-view-of-your-data-factory"></a>Diagramvy över din data fabrik
+**Diagramvyn** för en data fabrik innehåller ett fönster med glas för att övervaka och hantera data fabriken och dess till gångar. Om du vill se **diagramvyn** för din data fabrik klickar du på **diagram** på Start sidan för data fabriken.
 
 ![Diagramvy](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-Du kan zooma in, Zooma ut, Zooma om du vill anpassa, Zooma till 100%, låsa layouten för diagrammet och automatiskt placera pipelines och datauppsättningar. Du kan också se data härkomstinformation (det vill säga visa överordnade och underordnade objekt för de valda objekten).
+Du kan zooma in, zooma ut, zooma in, zooma till 100%, låsa diagrammets layout och automatiskt placera pipeliner och data uppsättningar. Du kan också se information om data härkomst (det vill säga Visa överordnade och underordnade objekt i valda objekt).
 
 ### <a name="activities-inside-a-pipeline"></a>Aktiviteter i en pipeline
-1. Högerklicka på pipelinen och klicka sedan på **öppna pipeline** att se alla aktiviteter i pipelinen tillsammans med indata- och utdatauppsättningar för aktiviteter. Den här funktionen är användbart när din pipeline innehåller fler än en aktivitet och du vill förstå operativa härkomst av en enda pipeline.
+1. Högerklicka på pipelinen och klicka sedan på **Öppna pipeline** för att se alla aktiviteter i pipeline, tillsammans med indata och utdata för data uppsättningar för aktiviteterna. Den här funktionen är användbar när din pipeline innehåller fler än en aktivitet och du vill förstå drift härkomst i en enda pipeline.
 
     ![Menyn Öppna pipeline](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
-2. I följande exempel ser du en Kopieringsaktivitet i pipelinen med indata och utdata. 
+2. I följande exempel visas en kopierings aktivitet i pipelinen med indata och utdata. 
 
     ![Aktiviteter i en pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
-3. Du kan gå tillbaka till startsidan för datafabriken genom att klicka på den **datafabrik** länken i länken i det övre vänstra hörnet.
+3. Du kan gå tillbaka till data fabrikens start sida genom att klicka på länken **data fabrik** i spåret i det övre vänstra hörnet.
 
-    ![Gå tillbaka till data factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
+    ![Gå tillbaka till Data Factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
 
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Visa status för varje aktivitet i en pipeline
-Du kan visa det aktuella tillståndet för en aktivitet genom att visa status för alla de datamängder som produceras av aktiviteten.
+Du kan visa det aktuella tillståndet för en aktivitet genom att visa status för alla data uppsättningar som skapas av aktiviteten.
 
-Genom att dubbelklicka på den **OutputBlobTable** i den **Diagram**, du kan se alla sektorer som genereras av olika aktivitetskörningar i en pipeline. Du kan se att Kopieringsaktivitet kördes har för de senaste åtta timmarna och produceras sektorer i den **redo** tillstånd.  
+Genom att dubbelklicka på **OutputBlobTable** i **diagrammet**kan du se alla segment som produceras av olika aktivitets körningar inuti en pipeline. Du kan se att kopierings aktiviteten har lyckats under de senaste åtta timmarna och gav sektorerna statusen **klar** .  
 
 ![Status för pipelinen](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-Datauppsättningen segment i datafabriken kan ha något av följande statusar:
+Data uppsättnings sektorerna i data fabriken kan ha en av följande status:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Undertillståndet</th><th align="left">Beskrivning</th>
+    <th align="left">State</th><th align="left">Undertillstånd</th><th align="left">Beskrivning</th>
 </tr>
 <tr>
-    <td rowspan="8">Väntar på</td><td>ScheduleTime</td><td>Tiden har inte inne för att köra sektorn.</td>
+    <td rowspan="8">Väntar på</td><td>ScheduleTime</td><td>Tiden har inte kommit för att sektorn ska kunna köras.</td>
 </tr>
 <tr>
-<td>DatasetDependencies</td><td>Uppströmsberoendena är inte redo.</td>
+<td>DatasetDependencies</td><td>De överordnade beroendena är inte klara.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>Beräkningsresurserna är inte tillgängliga.</td>
+<td>ComputeResources</td><td>Beräknings resurserna är inte tillgängliga.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>Alla aktivitetsinstanserna är upptagna med att köra andra sektorer.</td>
+<td>ConcurrencyLimit</td> <td>Alla aktivitets instanser är upptagna med andra sektorer.</td>
 </tr>
 <tr>
-<td>ActivityResume</td><td>Aktiviteten har pausats och kan inte köra sektorerna förrän aktiviteten återupptas.</td>
+<td>ActivityResume</td><td>Aktiviteten har pausats och kan inte köra sektorerna förrän aktiviteten har återupptagits.</td>
 </tr>
 <tr>
-<td>Försök igen</td><td>Körningsmiljön för aktiviteten görs.</td>
+<td>Försök igen</td><td>Det görs ett nytt försök att köra aktiviteten.</td>
 </tr>
 <tr>
 <td>Validering</td><td>Verifieringen har inte startat ännu.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>Verifiering väntar på att skickas igen.</td>
+<td>ValidationRetry</td><td>Verifieringen väntar på att göras om.</td>
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Pågår</td><td>Verifiera</td><td>Verifiering pågår.</td>
+<td rowspan="2">Pågår</td><td>Verifierar</td><td>Verifiering pågår.</td>
 </tr>
 <td>-</td>
-<td>Sektorn behandlas.</td>
+<td>Sektorn bearbetas.</td>
 </tr>
 <tr>
-<td rowspan="4">Misslyckad</td><td>TimedOut</td><td>Körningsmiljön för aktiviteten tog längre tid än vad som är tillåtet av aktiviteten.</td>
+<td rowspan="4">Misslyckad</td><td>TimedOut</td><td>Aktivitets körningen tog längre tid än vad som tillåts av aktiviteten.</td>
 </tr>
 <tr>
-<td>Avbrutna</td><td>Sektorn avbröts av användaren.</td>
+<td>Avbrutna</td><td>Sektorn avbröts av en användar åtgärd.</td>
 </tr>
 <tr>
 <td>Validering</td><td>Verifieringen misslyckades.</td>
 </tr>
 <tr>
-<td>-</td><td>Det gick inte att vara genereras och/eller verifiera sektorn.</td>
+<td>-</td><td>Det gick inte att generera sektorn och/eller verifiera den.</td>
 </tr>
-<td>Redo</td><td>-</td><td>Sektorn är klar för användning.</td>
-</tr>
-<tr>
-<td>Hoppades över</td><td>Ingen</td><td>Sektorn bearbetas inte.</td>
+<td>Klar</td><td>-</td><td>Sektorn är klar för användning.</td>
 </tr>
 <tr>
-<td>Ingen</td><td>-</td><td>En sektor som brukade finnas med en annan status, men den har återställts.</td>
+<td>Hoppades över</td><td>Inga</td><td>Sektorn bearbetas inte.</td>
+</tr>
+<tr>
+<td>Inga</td><td>-</td><td>En sektor som används för att existera med en annan status, men som har återställts.</td>
 </tr>
 </table>
 
 
 
-Du kan visa information om en sektor genom att klicka på en sektor-post på den **nyligen uppdaterade sektorer** bladet.
+Du kan visa information om en sektor genom att klicka på en segment post på bladet **nyligen uppdaterade segment** .
 
-![Information om datasektorn](./media/data-factory-monitor-manage-pipelines/slice-details.png)
+![Information om segment](./media/data-factory-monitor-manage-pipelines/slice-details.png)
 
-Om sektorn har körts flera gånger, ser du flera rader i den **aktivitetskörningar** lista. Du kan visa information om en aktivitet som körs genom att klicka på posten kör i den **aktivitetskörningar** lista. I listan visas alla loggfiler, tillsammans med ett felmeddelande om det finns en. Den här funktionen är användbar för att visa loggar och felsökningsloggar utan att behöva lämna din data factory.
+Om sektorn har körts flera gånger visas flera rader i listan **aktivitets körningar** . Du kan visa information om en aktivitets körning genom att klicka på körnings posten i listan **aktivitets körningar** . I listan visas alla loggfiler, tillsammans med ett fel meddelande om det finns en sådan. Den här funktionen är användbar för att visa och felsöka loggar utan att behöva lämna din data fabrik.
 
 ![Aktivitetskörningsinformation](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Om sektorn inte finns i den **redo** tillstånd, kan du se sektorer uppströms som inte är redo och som blockerar aktuell sektor från att köras i den **sektorer uppströms som inte är redo** lista. Den här funktionen är användbar när din sektorn har **väntar på** tillstånd och du vill förstå uppströmsberoendena sektorn väntar på.
+Om sektorn inte har statusen **klar** kan du se de överordnade segmenten som inte är klara och blockerar den aktuella sektorn från att köras i de **överordnade segment som inte är klara** . Den här funktionen är användbar när din sektor är i vänte läge och du vill förstå de överordnade överordnade beroenden som sektorn väntar på.
 
-![Sektorer uppströms som inte är redo](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
+![Överordnade segment som inte är klara](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
-### <a name="dataset-state-diagram"></a>Datauppsättningen tillståndsdiagram
-När du distribuerar en data factory pipelines har en ogiltig aktiv period och skär datauppsättningen övergång från ett tillstånd till ett annat. För närvarande följande statusen för sektorn diagrammet nedan tillstånd:
+### <a name="dataset-state-diagram"></a>Diagram över data uppsättnings tillstånd
+När du har distribuerat en data fabrik och pipelinen har en giltig aktiv period, övergår data uppsättnings segmenten över från ett tillstånd till ett annat. För närvarande följer sektor statusen följande tillstånds diagram:
 
-![Tillståndsdiagram](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
+![Tillstånds diagram](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-Datauppsättningen tillstånd övergången flödet i data factory är följande: Väntar -> förloppet/i-pågår (verifierar) -> redo/misslyckades.
+Flödet för data uppsättnings överföring i Data Factory är följande: Väntar-> pågående/pågående (validering)-> redo/misslyckade.
 
-Sektorn startar i en **väntar på** tillstånd, väntar på villkor vara uppfyllda innan den kan köras. Sedan aktiviteten startar körning och sektorn hamnar i ett **pågår** tillstånd. Körningsmiljön för aktiviteten kan lyckas eller misslyckas. Sektorn har markerats som **redo** eller **misslyckades**, baserat på resultatet av körningen.
+Sektorn startar i ett **vänte** läge, vilket väntar på att villkor ska uppfyllas innan den körs. Sedan startar aktiviteten och sektorn hamnar **i ett pågående** tillstånd. Aktivitets körningen kan lyckas eller Miss lyckas. Sektorn har marker ATS som **klar** eller **misslyckad**, baserat på resultatet av körningen.
 
-Du kan återställa sektorn gå tillbaka från den **redo** eller **misslyckades** tillstånd till den **väntar på** tillstånd. Du kan också markera sektorn läget till **hoppa över**, vilket förhindrar aktivitet från körning och inte bearbeta sektorn.
+Du kan återställa sektorn så att den går tillbaka från det **färdiga** eller **misslyckade** läget till **vänte** läge. Du kan också markera sektor tillstånd att **hoppa över**, vilket förhindrar att aktiviteten körs och inte bearbetar sektorn.
 
-## <a name="pause-and-resume-pipelines"></a>Pausa och återuppta pipelines
-Du kan hantera dina pipelines med hjälp av Azure PowerShell. Du kan till exempel pausa och återuppta pipelines genom att köra Azure PowerShell-cmdlets. 
+## <a name="pause-and-resume-pipelines"></a>Pausa och återuppta pipeliner
+Du kan hantera dina pipelines med hjälp av Azure PowerShell. Du kan till exempel pausa och återuppta pipeliner genom att köra Azure PowerShell-cmdletar. 
 
 > [!NOTE] 
-> I diagramvyn stöder inte pausar och återupptar pipelines. Använd övervaknings- och hantera program om du vill använda ett användargränssnitt. Mer information om hur du använder programmet finns i [övervaka och hantera Data Factory-pipelines med hjälp av övervakning och hantering av appen](data-factory-monitor-manage-app.md) artikeln. 
+> Diagramvyn har inte stöd för att pausa och återuppta pipeliner. Om du vill använda ett användar gränssnitt använder du övervaknings-och hanterings programmet. Mer information om hur du använder programmet finns i [övervaka och hantera data Factory pipelines med hjälp av appen övervakning och hantering](data-factory-monitor-manage-app.md) . 
 
-Du kan Pausa/Pausa pipelines med hjälp av den **Suspend-AzDataFactoryPipeline** PowerShell-cmdlet. Denna cmdlet är användbar när du inte vill att köra dina pipelines förrän problemet har lösts. 
+Du kan pausa/pausa pipelines med hjälp av PowerShell-cmdleten **suspend-AzDataFactoryPipeline** . Denna cmdlet är användbar när du inte vill köra pipelines förrän ett problem har åtgärd ATS. 
 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -186,7 +184,7 @@ Exempel:
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
-När problemet har åtgärdats med pipeline, kan du återuppta pausade pipelinen genom att köra följande PowerShell-kommando:
+När problemet har åtgärd ATS med pipelinen kan du återuppta den pausade pipelinen genom att köra följande PowerShell-kommando:
 
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -197,29 +195,29 @@ Exempel:
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
-## <a name="debug-pipelines"></a>Felsök pipelines
-Azure Data Factory innehåller omfattande funktioner för dig att felsöka pipelines med hjälp av Azure-portalen och Azure PowerShell.
+## <a name="debug-pipelines"></a>Felsöka pipelines
+Azure Data Factory innehåller omfattande funktioner som du kan använda för att felsöka och felsöka pipelines med hjälp av Azure Portal och Azure PowerShell.
 
 > [!NOTE] 
-> Det är mycket enklare att Felsökte fel med övervaknings- och Hanteringsappen. Mer information om hur du använder programmet finns i [övervaka och hantera Data Factory-pipelines med hjälp av övervakning och hantering av appen](data-factory-monitor-manage-app.md) artikeln. 
+> Det är mycket enklare att troubleshot fel med hjälp av appen övervakning & hantering. Mer information om hur du använder programmet finns i [övervaka och hantera data Factory pipelines med hjälp av appen övervakning och hantering](data-factory-monitor-manage-app.md) . 
 
 ### <a name="find-errors-in-a-pipeline"></a>Hitta fel i en pipeline
-Om det inte går att aktiviteten kör i en pipeline kan är datauppsättningen som produceras av pipelinen i ett feltillstånd på grund av felet. Du kan felsöka och Felsök i Azure Data Factory med hjälp av följande metoder.
+Om aktivitets körningen Miss lyckas i en pipeline, är data uppsättningen som skapas av pipelinen i ett fel tillstånd på grund av felet. Du kan felsöka och felsöka fel i Azure Data Factory med hjälp av följande metoder.
 
-#### <a name="use-the-azure-portal-to-debug-an-error"></a>Använda Azure-portalen för att felsöka ett fel
-1. På den **tabell** bladet klickar du på sektorn problem som har den **Status** inställd **misslyckades**.
+#### <a name="use-the-azure-portal-to-debug-an-error"></a>Felsöka ett fel med hjälp av Azure Portal
+1. På bladet **tabell** klickar du på det problem segment som har **statusen** inställt på **misslyckad**.
 
-   ![Tabellblad med problem](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-2. På den **datasektor** bladet, klickar du på aktiviteten kör som misslyckades.
+   ![Tabell blad med problem sektor](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
+2. På bladet **data sektor** klickar du på aktivitets körningen som misslyckades.
 
-   ![Datasektorn med ett fel](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
-3. På den **aktivitetskörningsinformation** bladet som du kan hämta de filer som är kopplade till HDInsight-bearbetning. Klicka på **hämta** för Status/stderr att ladda ned loggfilen som innehåller information om felet.
+   ![Data sektor med fel](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
+3. På bladet **aktivitets körnings information** kan du ladda ned de filer som är associerade med HDInsight-bearbetningen. Klicka på **Hämta** för status/stderr för att hämta fel logg filen som innehåller information om felet.
 
-   ![Aktivitetskörning informationsbladet med fel](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
+   ![Bladet körnings information för aktivitet med fel](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
-#### <a name="use-powershell-to-debug-an-error"></a>Använd PowerShell för att felsöka ett fel
+#### <a name="use-powershell-to-debug-an-error"></a>Felsöka ett fel med PowerShell
 1. Starta **PowerShell**.
-2. Kör den **Get-AzDataFactorySlice** kommando för att visa segment och deras status. Du bör se en sektor med statusen **misslyckades**.        
+2. Kör kommandot **Get-AzDataFactorySlice** för att se sektorerna och deras status. Du bör se en sektor med statusen **misslyckades**.        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -230,8 +228,8 @@ Om det inte går att aktiviteten kör i en pipeline kan är datauppsättningen s
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
-   Ersätt **StartDateTime** med starttiden för din pipeline. 
-3. Kör nu den **Get-AzDataFactoryRun** cmdlet för att få information om aktiviteten kör för sektorn.
+   Ersätt **StartDateTime** med start tiden för din pipeline. 
+3. Kör nu cmdleten **Get-AzDataFactoryRun** för att få information om aktivitets körningen för sektorn.
 
     ```powershell   
     Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
@@ -244,8 +242,8 @@ Om det inte går att aktiviteten kör i en pipeline kan är datauppsättningen s
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
     ```
 
-    Värdet för StartDateTime är starttiden för den sektor i fel/problem som du antecknade i föregående steg. Datum / tid ska omges av dubbla citattecken.
-4. Du bör se utdata med information om fel som liknar följande:
+    Värdet för StartDateTime är start tiden för det fel/problem-segment som du noterade i föregående steg. Datum/tid ska omges av dubbla citat tecken.
+4. Du bör se utdata med information om felet som liknar följande:
 
     ```   
     Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
@@ -269,73 +267,73 @@ Om det inte går att aktiviteten kör i en pipeline kan är datauppsättningen s
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. Du kan köra den **spara AzDataFactoryLog** cmdlet med Id-värde som du ser utdata och ladda ned filerna med hjälp av den **- DownloadLogsoption** för cmdleten.
+5. Du kan köra cmdleten **Save-AzDataFactoryLog** med det ID-värde som visas i utdata och ladda ned loggfilerna med hjälp av cmdleten **-DownloadLogsoption** för cmdleten.
 
     ```powershell
     Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
     ```
 
-## <a name="rerun-failures-in-a-pipeline"></a>Kör fel i en pipeline
+## <a name="rerun-failures-in-a-pipeline"></a>Köra om felen i en pipeline
 
 > [!IMPORTANT]
-> Det är enklare att felsöka och köra misslyckade sektorer med hjälp av övervaknings- och Hanteringsappen. Mer information om hur du använder programmet finns i [övervaka och hantera Data Factory-pipelines med hjälp av övervakning och hantering av appen](data-factory-monitor-manage-app.md). 
+> Det är enklare att felsöka fel och köra Felaktiga segment igen med hjälp av appen övervakning & hantering. Mer information om hur du använder programmet finns i [övervaka och hantera data Factory pipelines med hjälp av appen övervakning och hantering](data-factory-monitor-manage-app.md). 
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
-När du felsöker och felsöka fel i en pipeline kan du köra fel genom att gå till fel sektorn och klicka på **kör** knappen i kommandofältet.
+När du har fel söknings-och fel söknings fel i en pipeline kan du köra om fel genom att gå till fel sektorn och klicka på knappen **Kör** i kommando fältet.
 
-![Kör en misslyckad sektor](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
+![Köra en felaktig sektor igen](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
-I fallet sektorn valideringen misslyckades på grund av en princip-fel (till exempel om data är inte tillgängligt), kan du åtgärda felet och validera igen genom att klicka på den **verifiera** knappen i kommandofältet.
+Om sektorn inte kunde verifieras på grund av ett princip fel (till exempel om data inte är tillgängliga) kan du åtgärda felet och verifiera det igen genom att klicka på knappen **Verifiera** i kommando fältet.
 
-![Åtgärda fel och verifiera](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+![Åtgärda fel och validera](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Använda Azure PowerShell
-Du kan köra fel med hjälp av den **Set-AzDataFactorySliceStatus** cmdlet. Se den [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) avsnittet syntax och annan information om cmdlet: en.
+Du kan köra om ett problem med cmdleten **set-AzDataFactorySliceStatus** . Se avsnittet [set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) för syntax och annan information om cmdleten.
 
 **Exempel:**
 
-I följande exempel anger status för alla segment för tabellen ”DAWikiAggregatedData” till att vänta i Azure data factory 'WikiADF'.
+I följande exempel anges status för alla segment för tabellen ' DAWikiAggregatedData ' till ' waiting ' i Azure Data Factory ' WikiADF '.
 
-Uppdateringstyp är inställd på 'UpstreamInPipeline ”, vilket innebär att status för varje segment för tabellen och alla beroende (överordnad) tabeller är inställda på” väntar ”. Det andra möjliga värdet för den här parametern är ”person”.
+"Uppdateringstyp" är inställt på "UpstreamInPipeline", vilket innebär att status för varje sektor för tabellen och alla beroende (överordnade) tabeller anges till "väntar". Det andra möjliga värdet för den här parametern är ' individ '.
 
 ```powershell
 Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
-## <a name="create-alerts-in-the-azure-portal"></a>Skapa aviseringar i Azure portal
+## <a name="create-alerts-in-the-azure-portal"></a>Skapa aviseringar i Azure Portal
 
-1.  Logga in på Azure portal och väljer **övervakaren -> aviseringar** att öppna sidan aviseringar.
+1.  Logga in på Azure Portal och välj **övervaka-> aviseringar** för att öppna sidan aviseringar.
 
     ![Öppna sidan aviseringar.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
 
-2.  Välj **+ ny aviseringsregel** att skapa en ny avisering.
+2.  Välj **+ ny varnings regel** för att skapa en ny avisering.
 
     ![Skapa en ny avisering](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Definiera den **Avisera villkor**. (Se till att välja **datafabriker** i den **filtrera efter resurstyp** fält.) Du kan även ange värden för **dimensioner**.
+3.  Definiera **varnings villkoret**. (Se till att välja **data fabriker** i fältet **Filtrera efter resurs typ** .) Du kan också ange värden för **dimensioner**.
 
-    ![Definiera aviseringsvillkoren - Välj mål](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+    ![Definiera aviserings villkoret – Välj mål](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 
-    ![Definiera villkoret för aviseringen – lägga till aviseringsvillkoren](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+    ![Definiera aviserings villkoret – Lägg till aviserings villkor](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
 
-    ![Definiera villkoret för aviseringen – lägga till aviseringslogik](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+    ![Definiera aviserings villkoret – Lägg till aviserings logik](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
 
-4.  Definiera den **aviseringsinformation**.
+4.  Definiera **aviserings informationen**.
 
-    ![Definiera Aviseringsinformationen](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+    ![Definiera aviserings informationen](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
 
-5.  Definiera den **åtgärdsgrupp**.
+5.  Definiera **Åtgärds gruppen**.
 
-    ![Definiera åtgärdsgruppen – skapa en ny åtgärdsgrupp](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+    ![Definiera åtgärds gruppen – Skapa en ny åtgärds grupp](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
 
-    ![Definiera åtgärdsgruppen – ange egenskaper](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+    ![Definiera egenskaper för åtgärds grupps uppsättning](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
 
-    ![Definiera åtgärdsgruppen – ny åtgärdsgrupp har skapats](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
+    ![Definiera åtgärds gruppen – ny åtgärds grupp har skapats](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
-## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Flytta en data factory till en annan resursgrupp eller prenumeration
-Du kan flytta en data factory till en annan resursgrupp eller en annan prenumeration med hjälp av den **flytta** kommandot liggande knappen på startsidan på din datafabrik.
+## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Flytta en data fabrik till en annan resurs grupp eller prenumeration
+Du kan flytta en data fabrik till en annan resurs grupp eller en annan prenumeration genom att använda knappen **Flytta** kommando fält på Start sidan för din data fabrik.
 
-![Flytta data factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+![Flytta data fabrik](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
-Du kan också flytta alla relaterade resurser (till exempel aviseringar som är associerade med data factory), tillsammans med data factory.
+Du kan också flytta relaterade resurser (till exempel aviseringar som är associerade med data fabriken) tillsammans med data fabriken.
 
-![Dialogrutan för flytta resurser](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+![Dialog rutan Flytta resurser](./media/data-factory-monitor-manage-pipelines/MoveResources.png)

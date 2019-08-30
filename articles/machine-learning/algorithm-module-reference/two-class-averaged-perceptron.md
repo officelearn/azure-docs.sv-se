@@ -1,7 +1,7 @@
 ---
-title: 'Beslutsskog Regression: Modulreferens'
+title: 'Besluts skogs regression: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen Tvåklassförhöjt i genomsnitt Perceptron i Azure Machine Learning-tjänsten för att skapa en machine learning-modell som baseras på genomsnittlig perceptron algoritmen.
+description: Lär dig hur du använder den genomsnittliga Perceptron-modulen med två klasser i Azure Machine Learning service för att skapa en maskin inlärnings modell baserat på den genomsnittliga Perceptron-algoritmen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,57 +9,56 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: f0fec525ed87f91cf102053383b2934aac4b71c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f560923b0a5457ac5fd03c7f76fc4315c6ca08e8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029242"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128428"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>Tvåklassförhöjt i genomsnitt Perceptron modul
+# <a name="two-class-averaged-perceptron-module"></a>Genomsnittlig Perceptron-modul med två klasser
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen för att skapa en machine learning-modell som baseras på genomsnittlig perceptron-algoritmen.  
+Använd den här modulen för att skapa en Machine Learning-modell som baseras på den genomsnittliga Perceptron-algoritmen.  
   
-Den här klassificeringen algoritmen är en metod för övervakad inlärning och kräver en *taggade datauppsättning*, som innehåller en kolumn för etiketten. Du kan träna modellen genom att ange modellen och taggade datauppsättningen som indata till [träna modell](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya inkommande exempel.  
+Den här klassificerings algoritmen är en övervakad inlärnings metod och kräver en *Taggad data uppsättning*som innehåller en etikett kolumn. Du kan träna modellen genom att tillhandahålla modellen och den taggade data uppsättningen som indata för att [träna modellen](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya ingångs exemplen.  
 
-### <a name="about-averaged-perceptron-models"></a>Genomsnittlig perceptron modeller
+### <a name="about-averaged-perceptron-models"></a>Om Genomsnittligt antal Perceptron-modeller
 
-Den *perceptron-metod i genomsnitt* är en tidig och enkel version av ett neurala nätverk. Den här metoden kan klassificeras indata till flera möjliga utdata utifrån en linjär funktion och sedan kombineras med en uppsättning vikterna som härleds från funktionen vektor – därför namnet ”perceptron”.
+Den *genomsnittliga Perceptron-metoden* är en tidig och enkel version av ett neurala-nätverk. I den här metoden klassificeras indata i flera möjliga utdata baserat på en linjär funktion och kombineras sedan med en uppsättning vikter som härleds från funktions vektorn, och därför namnet "Perceptron".
 
-Enklare perceptron modeller passar bra för learning linjärt kan särskiljas mönster, medan neurala nätverk (särskilt djupa neurala nätverk) kan utforma mer komplexa klassgränser. Men perceptrons är snabbare och eftersom de bearbetar fall seriellt perceptrons kan användas med kontinuerlig utbildning.
+De enklare Perceptron-modellerna är lämpliga för inlärning av linjärt särskiljande mönster, medan neurala-nätverk (särskilt djup neurala-nätverk) kan modellera mer komplexa klass gränser. Perceptrons är dock snabbare, och eftersom de behandlar ärenden seriellt kan perceptrons användas med kontinuerlig utbildning.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>Så här konfigurerar du två genomsnitt Perceptron
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Konfigurera genomsnittlig Perceptron i två klasser
 
-1.  Lägg till den **Tvåklassförhöjt i genomsnitt Perceptron** modulen i experimentet.  
+1.  Lägg till den **genomsnittliga Perceptron-modulen med två klasser** i experimentet.  
 
-2.  Ange hur du vill att modellen ska tränas genom att ange den **skapande trainer läge** alternativet.  
+2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enkel parametern**: Om du vet hur du vill konfigurera modellen kan du ange en specifik uppsättning värden som argument.
+    -   **Enskild parameter**: Om du vet hur du vill konfigurera modellen anger du en angiven uppsättning värden som argument.
   
-3.  För **Learning rate**, ange ett värde för den *learning rate*. Inlärningsfrekvensen värdena kontroll storleken på det steg som används i stokastisk brantaste lutningsmetoden varje gång modellen testas och korrigerade.
+3.  För **inlärnings frekvens**anger du ett värde för *inlärnings takten*. Inlärnings takt svärdet styr storleken på det steg som används i Stochastic gradient-brantaste varje gång modellen testas och korrigeras.
   
-     Genom att minska frekvensen storlek testa du modellen oftare, med risken att du kan hämta fastnat i en lokal platå. Genom att göra steget större, kan du samlar in snabbare, dess risk överskridande SANT minimi.
+     Genom att göra hastigheten mindre testar du modellen oftare, med den risk att du kan fastna i en lokal platå. Genom att göra steget större kan du konvergera snabbare, vid risken för att den sanna minimi överskrids.
   
-4.  För **maximalt antal iterationer**, ange hur många gånger du vill att algoritmen för att undersöka träningsdata.  
+4.  För **maximalt antal iterationer**anger du hur många gånger du vill att algoritmen ska undersöka tränings data.  
   
-     Stoppa tidigt ofta ger bättre generalisering. Öka antalet iterationer förbättrar montering, dess risk overfitting.
+     Att stoppa tidigt ger ofta bättre generalisering. Genom att öka antalet iterationer kan du förbättra anpassningen vid risk för överanpassning.
   
-5.  För **nummer slumptal**kan du också ange ett heltalsvärde som används som startvärdet. Med hjälp av ett startvärde rekommenderas om du vill kontrollera att reproducerbarhet av experimentet över kan köras.  
+5.  Om du vill använda **slumpmässigt antal frön**kan du ange ett heltals värde som ska användas som start värde. Du rekommenderas att använda ett start värde om du vill säkerställa reproducerbarheten för experimentet i flera körningar.  
   
-1.  Anslut en datauppsättning för träning och en av modulerna som utbildning:
+1.  Anslut en data uppsättning för utbildning och en av inlärnings modulerna:
   
-    -   Om du ställer in **skapande trainer läge** till **enda Parameter**, använda den [Träningsmodell](train-model.md) modulen.
+    -   Om du ställer in **skapa** utbildare för **en parameter**använder du modulen [träna modell](train-model.md) .
 
 ## <a name="results"></a>Resultat
 
-När utbildning har slutförts:
+När utbildningen är klar:
 
-+ Om du vill visa en sammanfattning av modellens parametrar, tillsammans med funktionen vikterna vet utbildning, högerklickar du på utdata från [Träningsmodell](./train-model.md).
++ Om du vill se en översikt över modellens parametrar, tillsammans med funktions vikten från träningen, högerklickar du på utdata från [träna modell](./train-model.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

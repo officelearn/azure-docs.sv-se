@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: c53bc9527eeb6c7ca8194ef056177a79dd880957
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2ba93ad347783d467d467b72cfa49ffccf309fa0
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874777"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147345"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig avisering & övervakning i Azure Monitor ersätter klassisk avisering & övervakning
 
@@ -72,6 +72,10 @@ I slutet av augusti 2019 i Azure Monitor:
 > [!IMPORTANT]
 > Microsoft Azure övervakare har distribuerats i faser- [verktyget för att frivilligt migrera](alerts-using-migration-tool.md) sina klassiska varnings regler till den nya plattformen snart. Och kör det i kraft för alla klassiska varnings regler som fortfarande finns och som kan migreras, från och med 2019 september. Kunderna måste se till att den klassiska varnings regel nytto lasten är anpassad för att hantera den nya nytto lasten från [enhetliga mått och aviseringar i Application Insights](#unified-metrics-and-alerts-in-application-insights) eller [enhetliga mått och aviseringar för andra Azure-resurser](#unified-metrics-and-alerts-for-other-azure-resources), efter migreringen av de klassiska varnings reglerna. Mer information finns i [förbereda för klassisk migrering av aviserings regel](alerts-prepare-migration.md)
 
+Den här artikeln uppdateras kontinuerligt med länkar & information om de nya funktionerna för Azure Monitoring-& avisering, samt tillgänglighet för verktyg för att hjälpa användarna att införa den nya Azure Monitor-plattformen.
+
+## <a name="pricing-for-migrated-alert-rules"></a>Priser för migrerade varnings regler
+
 Vi distribuerar ett Migreringsverktyg för att hjälpa dig att migrera dina Azure Monitor [klassiska aviseringar](../../azure-monitor/platform/alerts-classic.overview.md) till den nya aviserings upplevelsen. De migrerade varnings reglerna och motsvarande migrerade åtgärds grupper (e-post, webhook eller LogicApp) är kostnads fria. De funktioner som du har haft med klassiska aviseringar, inklusive möjligheten att redigera tröskeln, sammansättnings typ och agg regerings kornig het, fortsätter att vara tillgängliga kostnads fritt med den migrerade varnings regeln. Men om du redigerar den migrerade varnings regeln för att använda någon av de nya varnings plattforms funktionerna, meddelanden eller åtgärds typer, kommer en motsvarande avgift att gälla. Mer information om priser för varnings regler och aviseringar finns i [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
 
 Följande är exempel på fall där du får en avgift för aviserings regeln:
@@ -82,9 +86,6 @@ Följande är exempel på fall där du får en avgift för aviserings regeln:
 - Alla anpassade mått som lagras bortom kostnads fria enheter som ingår i Azure Monitor
 - Eventuella migrerade varnings regler som redige ras för att använda nya mått, t. ex. frekvens, flera resurser/dimensioner, [dynamiska tröskelvärden](alerts-dynamic-thresholds.md), ändring av resurs/signal och så vidare.
 - Alla migrerade åtgärds grupper som redige ras för att använda nyare meddelanden eller åtgärds typer som SMS, röst samtal och/eller ITSM-integrering.
-
-Den här artikeln uppdateras kontinuerligt med länkar & information om de nya funktionerna för Azure Monitoring-& avisering, samt tillgänglighet för verktyg för att hjälpa användarna att införa den nya Azure Monitor-plattformen.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

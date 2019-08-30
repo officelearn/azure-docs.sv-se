@@ -1,6 +1,6 @@
 ---
-title: Delegera minst Privilegierade roller genom att administratören uppgift – Azure Active Directory | Microsoft Docs
-description: Roller att delegera för identitet uppgifter i Azure Active Directory
+title: Delegera minst privilegierade roller efter administratörs uppgift – Azure Active Directory | Microsoft Docs
+description: Roller som ska delegeras för identitets uppgifter i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,335 +15,337 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21136046bad8cb58432de367f0de06d1d0457eec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62814bb1e2934c406dc5fb1eb3b3bc3f3d2ee3b7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083791"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135558"
 ---
-# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörsroller av admin-aktivitet i Azure Active Directory
+# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörs roller efter administratörs uppgift i Azure Active Directory
 
-I den här artikeln hittar du information som behövs för att begränsa en användares administratörsbehörighet genom att tilldela minst Privilegierade roller i Azure Active Directory (AD Azure). Du hittar administratörsåtgärder ordnade efter funktionsområde och minst Privilegierade roller som krävs för att utföra varje uppgift, tillsammans med ytterligare icke - globala administratörsroller som kan utföra uppgiften.
+I den här artikeln hittar du den information som behövs för att begränsa en användares administratörs behörighet genom att tilldela minst privilegierade roller i Azure Active Directory (Azure AD). Du hittar administratörs uppgifter ordnade efter funktions områden och den minst privilegierade rollen som krävs för att utföra varje aktivitet, tillsammans med ytterligare icke-globala administratörs roller som kan utföra uppgiften.
 
 ## <a name="application-proxy"></a>Programproxy
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Konfigurera application proxy-app | Programadministratör | 
-Konfigurera egenskaper för anslutning | Programadministratör | 
-Skapa programregistrering när möjligheten är inaktiverad för alla användare | Programutvecklare | Molnprogramadministratör, programadministratör
-Skapa anslutningsgrupp | Programadministratör | 
-Ta bort anslutningsgrupp | Programadministratör | 
+Konfigurera Application Proxy-appen | Programadministratör | 
+Konfigurera egenskaper för kopplings grupp | Programadministratör | 
+Skapa program registrering när möjligheten är inaktive rad för alla användare | Programutvecklare | Moln program administratör, program administratör
+Skapa anslutnings grupp | Programadministratör | 
+Ta bort anslutnings grupp | Programadministratör | 
 Inaktivera programproxy | Programadministratör | 
 Hämta anslutningsapptjänsten | Programadministratör | 
-Läsa alla konfigurationen | Programadministratör | 
+Läs all konfiguration | Programadministratör | 
 
 ## <a name="b2c"></a>B2C
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Skapa Azure AD B2C-kataloger | Alla icke-gästanvändare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Skapa Azure AD B2C kataloger | Alla användare som inte är gäst ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Skapa B2C-program | Global administratör | 
-Skapa företagsprogram | Molnprogramadministratör | Programadministratör
+Skapa företags program | Molnprogramadministratör | Programadministratör
 Skapa, läsa, uppdatera och ta bort B2C-principer | Global administratör | 
-Skapa, läsa, uppdatera och ta bort identitetsprovidrar | Global administratör | 
-Skapa, läsa, uppdatera och ta bort användarflöden med återställning av lösenord | Global administratör | 
-Skapa, läsa, uppdatera och ta bort profilredigering användarflöden | Global administratör | 
-Skapa, läsa, uppdatera och ta bort på användarens flöden | Global administratör | 
-Skapa, läsa, uppdatera och ta bort registrering användarflödet |Global administratör | 
+Skapa, läsa, uppdatera och ta bort identitets leverantörer | Global administratör | 
+Skapa, läsa, uppdatera och ta bort användar flöden för lösen ords återställning | Global administratör | 
+Skapa, läsa, uppdatera och ta bort profil redigera användar flöden | Global administratör | 
+Skapa, läsa, uppdatera och ta bort användar flöden för inloggning | Global administratör | 
+Skapa, läsa, uppdatera och ta bort användar flöde för registrering |Global administratör | 
 Skapa, läsa, uppdatera och ta bort användarattribut | Global administratör | 
-Skapa, läsa, uppdatera och ta bort användare | Global administratör ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
-Läsa alla konfigurationen | Global administratör | 
-Läs B2C-granskningsloggar | Global administratör ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+Skapa, läsa, uppdatera och ta bort användare | Global administratör ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
+Läs all konfiguration | Global administratör | 
+Läs gransknings loggar för B2C | Global administratör ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
 > [!NOTE]
-> Azure AD B2C-globala administratörer har inte samma behörigheter som global Azure AD-administratörer. Om du har behörighet för global administratör för Azure AD B2C kan du kontrollera att du är i en Azure AD B2C-katalog och inte en Azure AD-katalog.
+> Azure AD B2C globala administratörer har inte samma behörigheter som globala Azure AD-administratörer. Om du har Azure AD B2C global administratörs behörighet kontrollerar du att du är i en Azure AD B2C katalog och inte i Azure AD-katalogen.
 
 ## <a name="company-branding"></a>Företagsanpassning
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Konfigurera varumärkesexponering | Global administratör | 
-Läsa alla konfigurationen | Katalogläsare | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Konfigurera företagsanpassning | Global administratör | 
+Läs all konfiguration | Katalogläsare | Standard användar roll ([se dokumentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
-## <a name="company-properties"></a>Egenskaper för företag
+## <a name="company-properties"></a>Företags egenskaper
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Konfigurera egenskaper för företag | Global administratör | 
+Konfigurera företags egenskaper | Global administratör | 
 
 ## <a name="connect"></a>Anslut
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Direktautentisering | Global administratör | 
-Läsa alla konfigurationen | Global administratör | 
+Genom strömnings autentisering | Global administratör | 
+Läs all konfiguration | Global administratör | 
 Smidig enkel inloggning | Global administratör | 
 
 ## <a name="connect-health"></a>Connect Health
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Lägga till eller ta bort tjänster | Ägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
-Tillämpa korrigeringar till fel | Deltagare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Ägare
-Konfigurera meddelanden | Deltagare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Ägare
-Konfigurera inställningar | Ägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
-Konfigurera synkronisering meddelanden | Deltagare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Ägare
-Läs ADFS säkerhetsrapporter | Säkerhetsläsare | Deltagare, ägare
-Läsa alla konfigurationen | Läsare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
-Läs synkroniseringsfel | Läsare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
-Läs synkroniseringstjänster | Läsare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
-Visa mått och aviseringar | Läsare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
-Visa mått och aviseringar | Läsare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
-Visa sync-tjänstmått och aviseringar | Läsare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
+Lägg till eller ta bort tjänster | Ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
+Tillämpa fel korrigeringar på synkroniseringsfel | Bidrags givare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Ägare
+Konfigurera meddelanden | Bidrags givare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Ägare
+Konfigurera inställningar | Ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
+Konfigurera sync-meddelanden | Bidrags givare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Ägare
+Läsa ADFS säkerhets rapporter | Säkerhetsläsare | Deltagare, ägare
+Läs all konfiguration | Läsare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
+Fel vid läsning av synkroniseringsfel | Läsare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
+Läs Sync Services | Läsare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
+Visa mått och aviseringar | Läsare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
+Visa mått och aviseringar | Läsare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
+Visa mått och aviseringar för synkroniseringstjänst | Läsare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Deltagare, ägare
 
 
-## <a name="custom-domain-names"></a>Egna domännamn
+## <a name="custom-domain-names"></a>Anpassade domännamn
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
 Hantera domäner | Global administratör | 
-Läsa alla konfigurationen | Katalogläsare | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Läs all konfiguration | Katalogläsare | Standard användar roll ([se dokumentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
 ## <a name="domain-services"></a>Domain Services
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Skapa Azure AD Domain Services-instans | Global administratör | 
-Utföra alla uppgifter i Azure AD Domain Services | Azure AD DC-administratörsgruppen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
-Läsa alla konfigurationen | Läsare på Azure-prenumeration som innehåller AD DS-tjänsten | 
+Skapa Azure AD Domain Services instans | Global administratör | 
+Utföra alla Azure AD Domain Services uppgifter | Gruppen Azure AD DC-administratörer ([Se dokumentationen](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
+Läs all konfiguration | Läsare på Azure-prenumeration som innehåller AD DS-tjänsten | 
 
 ## <a name="devices"></a>Enheter
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Inaktivera enhet | Molnenhetsadministratör | 
-Aktivera enhet | Molnenhetsadministratör | 
-Läs grundläggande konfiguration | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Läs BitLocker-nycklar | Säkerhetsläsare | För lösenordsadministratör, säkerhetsadministratör
+Inaktivera enheten | Molnenhetsadministratör | 
+Aktivera enheten | Molnenhetsadministratör | 
+Läsa grundläggande konfiguration | Standard användar roll ([se dokumentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Läs BitLocker-nycklar | Säkerhetsläsare | Lösen ords administratör, säkerhets administratör
 
 ## <a name="enterprise-applications"></a>Företagsprogram
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Godkänna alla delegerade behörigheter | Molnprogramadministratör | Programadministratör
-Godkänna programbehörigheter inte, inklusive Microsoft Graph eller Azure AD Graph | Molnprogramadministratör | Programadministratör
-Godkänner du behörigheter för programmet till Microsoft Graph eller Azure AD Graph | Global administratör | 
-Samtycka till program som har åtkomst till egna data | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Skapa företagsprogram | Molnprogramadministratör | Programadministratör
-Hantera Application Proxy | Programadministratör | 
+Medgivande till alla delegerade behörigheter | Molnprogramadministratör | Programadministratör
+Medgivande till program behörigheter som inte inkluderar Microsoft Graph eller Azure AD Graph | Molnprogramadministratör | Programadministratör
+Medgivande till program behörigheter till Microsoft Graph eller Azure AD Graph | Global administratör | 
+Medgivande till program som har åtkomst till egna data | Standard användar roll ([se dokumentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Skapa företags program | Molnprogramadministratör | Programadministratör
+Hantera programproxy | Programadministratör | 
 Hantera användarinställningar | Global administratör | 
-Läs åtkomstgranskning för en grupp eller en app | Säkerhetsläsare | Säkerhetsadministratör Användaradministratör
-Läsa alla konfigurationen | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Uppdatera enterprise programtilldelningar | Enterprise programmets ägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Molnprogramadministratör, programadministratör
-Uppdatera enterprise programägare | Enterprise programmets ägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Molnprogramadministratör, programadministratör
-Uppdatera egenskaper för enterprise-program | Enterprise programmets ägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Molnprogramadministratör, programadministratör
-Uppdatera enterprise programetablering | Enterprise programmets ägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Molnprogramadministratör, programadministratör
-Uppdatera företagsprogram via självbetjäning | Enterprise programmets ägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Molnprogramadministratör, programadministratör
-Uppdatera egenskaper för enkel inloggning | Enterprise programmets ägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Molnprogramadministratör, programadministratör
+Läs åtkomst granskning av en grupp eller en app | Säkerhetsläsare | Säkerhets administratör, användar administratör
+Läs all konfiguration | Standard användar roll ([se dokumentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Uppdatera företags program tilldelningar | Företags program ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Moln program administratör, program administratör
+Uppdatera företags program ägare | Företags program ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Moln program administratör, program administratör
+Uppdatera egenskaper för företags program | Företags program ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Moln program administratör, program administratör
+Uppdatera företags applikations etablering | Företags program ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Moln program administratör, program administratör
+Uppdatera Self-service för företags program | Företags program ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Moln program administratör, program administratör
+Uppdatera egenskaper för enkel inloggning | Företags program ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Moln program administratör, program administratör
+
+
 
 ## <a name="groups"></a>Grupper
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
 Tilldela licens | Användaradministratör | 
 Skapa grupp | Användaradministratör | 
-Skapa, uppdatera eller ta bort åtkomstgranskning för en grupp eller en app | Användaradministratör | 
-Hantera förfallodatum | Användaradministratör | 
+Skapa, uppdatera eller ta bort åtkomst granskning för en grupp eller en app | Användaradministratör | 
+Hantera grupp förfallo datum | Användaradministratör | 
 Hantera gruppinställningar | Global administratör | 
-Läsa alla konfigurationen (utom dolda medlemskap) | Katalogläsare | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Läsa dolda medlemskap | Gruppmedlem | Gruppägare, lösenordsadministratör, Exchange-administratör, SharePoint-administratör, Teams administratör, Användaradministratör
-Läsa medlemskap i grupper med dolda medlemskap | Supportavdelningsadministratör | Användaradministratör, Teams-administratör
+Läs all konfiguration (förutom dolt medlemskap) | Katalogläsare | Standard användar roll ([se dokumentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Läs dolt medlemskap | Grupp medlem | Grupp ägare, lösen ords administratör, Exchange-administratör, SharePoint-administratör, team administratör, användar administratör
+Läsa medlemskap i grupper med dolt medlemskap | Supportavdelningsadministratör | Användar administratör, team administratör
 Återkalla licens | Licensadministratör | Användaradministratör
-Uppdatera medlemskap | Gruppägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användaradministratör
-Uppdatera gruppägare | Gruppägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användaradministratör
-Uppdatera gruppegenskaper | Gruppägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användaradministratör
+Uppdatera grupp medlemskap | Grupp ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användaradministratör
+Uppdatera grupp ägare | Grupp ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användaradministratör
+Uppdatera grupp egenskaper | Grupp ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användaradministratör
 
 ## <a name="identity-protection"></a>Identity Protection
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Konfigurera aviseringar| Säkerhetsadministratör | 
+Konfigurera aviserings meddelanden| Säkerhetsadministratör | 
 Konfigurera och aktivera eller inaktivera MFA-principen| Säkerhetsadministratör | 
-Konfigurera och aktivera eller inaktivera riskprincip för inloggning| Säkerhetsadministratör | 
-Konfigurera och aktivera eller inaktivera riskprincip för användare | Säkerhetsadministratör | 
-Konfigurera veckovisa sammandrag | Säkerhetsadministratör| 
-Stäng alla riskhändelser | Säkerhetsadministratör | 
-Åtgärda och avvisa säkerhetsproblem | Säkerhetsadministratör | 
-Läsa alla konfigurationen | Säkerhetsläsare | 
-Läsa alla riskhändelser | Säkerhetsläsare | 
-Läsa sårbarheter | Säkerhetsläsare | 
+Konfigurera och aktivera eller inaktivera inloggnings risk princip| Säkerhetsadministratör | 
+Konfigurera och aktivera eller inaktivera användar risk princip | Säkerhetsadministratör | 
+Konfigurera vecko sammandrag | Säkerhetsadministratör| 
+Ignorera alla risk identifieringar | Säkerhetsadministratör | 
+Åtgärda eller ignorera sårbarhet | Säkerhetsadministratör | 
+Läs all konfiguration | Säkerhetsläsare | 
+Läs alla risk identifieringar | Säkerhetsläsare | 
+Läs sårbarheter | Säkerhetsläsare | 
 
 ## <a name="licenses"></a>Licenser
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
 Tilldela licens | Licensadministratör | Användaradministratör
-Läsa alla konfigurationen | Katalogläsare | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Läs all konfiguration | Katalogläsare | Standard användar roll ([se dokumentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Återkalla licens | Licensadministratör | Användaradministratör
-Försök eller köp prenumeration | Faktureringsadministratör | 
+Prova eller köp prenumerationen | Faktureringsadministratör | 
 
 
-## <a name="monitoring---audit-logs"></a>Övervakning - granskningsloggar
+## <a name="monitoring---audit-logs"></a>Övervakning – gransknings loggar
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Läs granskningsloggar | Rapportläsare | Security-läsare, säkerhetsadministratör
+Läs gransknings loggar | Rapportläsare | Säkerhets läsare, säkerhets administratör
 
-## <a name="monitoring---sign-ins"></a>Övervakning - inloggningar
+## <a name="monitoring---sign-ins"></a>Övervakning-inloggnings program
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Läsa inloggning loggar | Rapportläsare | Security-läsare, säkerhetsadministratör
+Läs inloggnings loggar | Rapportläsare | Säkerhets läsare, säkerhets administratör
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Ta bort alla befintliga applösenord som de valda användarna | Global administratör | 
+Ta bort alla befintliga applösenord som har genererats av de valda användarna | Global administratör | 
 Inaktivera MFA | Global administratör | 
 Aktivera MFA | Global administratör | 
-Hantera MFA-tjänstinställningar | Global administratör | 
-Kräv att valda användare ska uppge kontaktmetoder igen | Autentisering-administratör | 
-Återställ multifaktorautentisering på alla sparade enheter  | Autentisering-administratör | 
+Hantera inställningar för MFA-tjänsten | Global administratör | 
+Kräv att valda användare ska tillhandahålla kontakt metoder igen | Autentiseringsadministratör | 
+Återställa Multi-Factor Authentication på alla sparade enheter  | Autentiseringsadministratör | 
 
-## <a name="mfa-server"></a>MFA-server
+## <a name="mfa-server"></a>MFA Server
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
 Blockera/avblockera användare | Global administratör | 
-Konfigurera kontoutelåsning | Global administratör | 
-Konfigurera cachelagringsregler | Global administratör | 
-Konfigurera bedrägerivarning | Global administratör
+Konfigurera konto utelåsning | Global administratör | 
+Konfigurera regler för cachelagring | Global administratör | 
+Konfigurera bedrägeri avisering | Global administratör
 Konfigurera meddelanden | Global administratör | 
-Konfigurera engångsförbikoppling | Global administratör | 
-Konfigurera inställningarna för telefonsamtal | Global administratör | 
+Konfigurera en kringgåd körning | Global administratör | 
+Konfigurera inställningar för telefonsamtal | Global administratör | 
 Konfigurera providers | Global administratör | 
-Konfigurera serverinställningar för | Global administratör | 
-Läsa Aktivitetsrapport | Global administratör | 
-Läsa alla konfigurationen | Global administratör | 
-Läsa serverstatus | Global administratör |  
+Konfigurera Server inställningar | Global administratör | 
+Läs aktivitets rapport | Global administratör | 
+Läs all konfiguration | Global administratör | 
+Läs Server status | Global administratör |  
 
-## <a name="organizational-relationships"></a>Organisationens relationer
+## <a name="organizational-relationships"></a>Organisationsrelationer
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Hantera Identitetsproviders | Global administratör | 
+Hantera identitetsproviders | Global administratör | 
 Hantera inställningar | Global administratör | 
-Hantera användningsvillkor | Global administratör | 
-Läsa alla konfigurationen | Global administratör | 
+Hantera användnings villkor | Global administratör | 
+Läs all konfiguration | Global administratör | 
 
-## <a name="password-reset"></a>Lösenordsåterställning
+## <a name="password-reset"></a>Återställ lösenord
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
 Konfigurera autentiseringsmetoder | Global administratör |
 Konfigurera anpassning | Global administratör |
-Konfigurera meddelanden | Global administratör |
+Konfigurera meddelande | Global administratör |
 Konfigurera lokal integrering | Global administratör |
-Konfigurera egenskaper för återställning av lösenord | Användaradministratör | Global administratör
+Konfigurera egenskaper för lösen ords återställning | Användaradministratör | Global administratör
 Konfigurera registrering | Global administratör |
-Läsa alla konfigurationen | Säkerhetsadministratör | Användaradministratör |
+Läs all konfiguration | Säkerhetsadministratör | Användaradministratör |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Tilldela användare till roller | Privilegierad rolladministratör | 
-Konfigurera rollinställningar | Privilegierad rolladministratör | 
-Visa aktivitetsrapporter | Säkerhetsläsare | 
-Visa rollmedlemskap | Säkerhetsläsare | 
+Tilldela användare till roller | Administratör för privilegierad roll | 
+Konfigurera rollinställningar | Administratör för privilegierad roll | 
+Visa gransknings aktivitet | Säkerhetsläsare | 
+Visa roll medlemskap | Säkerhetsläsare | 
 
 ## <a name="roles-and-administrators"></a>Roller och administratörer
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Hantera rolltilldelningar | Privilegierad rolladministratör | 
-Läs åtkomstgranskning av en Azure AD-roll  | Säkerhetsläsare | Säkerhetsadministratör privilegierad rolladministratör
-Läsa alla konfigurationen | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Hantera rolltilldelningar | Administratör för privilegierad roll | 
+Läs åtkomst granskning av en Azure AD-roll  | Säkerhetsläsare | Säkerhets administratör, privilegie rad roll administratör
+Läs all konfiguration | Standard användar roll ([se dokumentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 
-## <a name="security---authentication-methods"></a>Säkerhet – autentiseringsmetoder
+## <a name="security---authentication-methods"></a>Metoder för säkerhet – autentisering
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
 Konfigurera autentiseringsmetoder | Global administratör | 
-Läsa alla konfigurationen | Global administratör | 
+Läs all konfiguration | Global administratör | 
 
-## <a name="security---conditional-access"></a>Säkerhet – villkorlig åtkomst
+## <a name="security---conditional-access"></a>Säkerhet-villkorlig åtkomst
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Konfigurera MFA betrodda IP-adresser | Administratör för villkorlig åtkomst | 
-Skapa anpassade kontroller | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Skapa namngivna platser | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Skapa principer | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Skapa användningsvillkor | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Skapa certifikat för VPN-anslutning | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Ta bort den klassiska principen | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Ta bort användningsvillkor | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Ta bort certifikat för VPN-anslutning | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Inaktivera den klassiska principen | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Hantera anpassade kontroller | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Hantera namngivna platser | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Hantera användningsvillkor | Administratör för villkorlig åtkomst | Säkerhetsadministratör
-Läsa alla konfigurationen | Säkerhetsläsare | Säkerhetsadministratör
-Läs namngivna platser | Säkerhetsläsare | Villkorlig åtkomst-administratör, säkerhetsadministratör
+Konfigurera MFA-betrodda IP-adresser | Administratör av villkorsstyrd åtkomst | 
+Skapa anpassade kontroller | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Skapa namngivna platser | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Skapa principer | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Skapa användnings villkor | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Skapa VPN-anslutnings certifikat | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Ta bort klassisk princip | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Ta bort användnings villkor | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Ta bort VPN-anslutningens certifikat | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Inaktivera klassisk princip | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Hantera anpassade kontroller | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Hantera namngivna platser | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Hantera användnings villkor | Administratör av villkorsstyrd åtkomst | Säkerhetsadministratör
+Läs all konfiguration | Säkerhetsläsare | Säkerhetsadministratör
+Läs namngivna platser | Säkerhetsläsare | Administratör för villkorlig åtkomst, säkerhets administratör
 
-## <a name="security---identity-security-score"></a>Säkerhet – identitet säkerhetspoäng
+## <a name="security---identity-security-score"></a>Säkerhets resultat för säkerhet och identitet
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller | 
+Uppgift | Minst privilegie rad roll | Ytterligare roller | 
 ---- | --------------------- | ----------------
-Läsa alla konfigurationen | Säkerhetsläsare | Säkerhetsadministratör
-Läs säkerhetspoäng | Säkerhetsläsare | Säkerhetsadministratör
-Uppdateringsstatus för händelse | Säkerhetsadministratör | 
+Läs all konfiguration | Säkerhetsläsare | Säkerhetsadministratör
+Läs säkerhets Poäng | Säkerhetsläsare | Säkerhetsadministratör
+Uppdatera händelse status | Säkerhetsadministratör | 
 
 ## <a name="security---risky-sign-ins"></a>Säkerhet – riskfyllda inloggningar
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Läsa alla konfigurationen | Säkerhetsläsare | 
+Läs all konfiguration | Säkerhetsläsare | 
 Läs riskfyllda inloggningar | Säkerhetsläsare | 
 
 ## <a name="security---users-flagged-for-risk"></a>Säkerhet – användare som har flaggats för risk
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Ignorera alla händelser | Säkerhetsadministratör | 
-Läsa alla konfigurationen | Säkerhetsläsare | 
-Läsa användare som har flaggats för risk | Säkerhetsläsare | 
+Stäng alla händelser | Säkerhetsadministratör | 
+Läs all konfiguration | Säkerhetsläsare | 
+Läs användare som har flaggats för risk | Säkerhetsläsare | 
 
 ## <a name="users"></a>Användare
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Lägga till användare till katalogroll | Privilegierad rolladministratör | 
-Lägga till användare i grupp | Användaradministratör | 
+Lägg till rollen användare i katalog | Administratör för privilegierad roll | 
+Lägg till användaren i gruppen | Användaradministratör | 
 Tilldela licens | Licensadministratör | Användaradministratör
-Skapa gästanvändare | Gäst bjuder in | Användaradministratör
+Skapa gäst användare | Gästinbjudare | Användaradministratör
 Skapa användare | Användaradministratör | 
 Ta bort användare | Användaradministratör | 
-Ogiltigförklara uppdateringstoken för begränsade administratörer (se dokumentationen) | Användaradministratör | 
-Ogiltigförklara uppdateringstoken för icke-administratörer (se dokumentationen) | Lösenordsadministratör | Användaradministratör
-Ogiltigförklara uppdateringstoken för privilegierade administratörer (se dokumentationen) | Global administratör | 
-Läs grundläggande konfiguration | Standard-användarrollen ([finns i dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-Återställa lösenord för begränsade administratörer (se dokumentationen) | Användaradministratör | 
-Återställa lösenord för icke-administratörer (se dokumentationen) | Lösenordsadministratör | Användaradministratör
-Återställa lösenord för privilegierade administratörer | Global administratör | 
+Invalidera uppdateringstoken för begränsade administratörer (se dokumentationen) | Användaradministratör | 
+Ogiltig verifiering av uppdateringstoken för icke-administratörer (se dokumentationen) | Lösenordsadminitratör | Användaradministratör
+Ogiltig verifiering av uppdateringstoken för privilegierade administratörer (se dokumentationen) | Global administratör | 
+Läsa grundläggande konfiguration | Standard användar roll ([se dokumentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
+Återställ lösen ord för begränsade administratörer (se dokumentationen) | Användaradministratör | 
+Återställ lösen ord för icke-administratörer (se dokumentationen) | Lösenordsadminitratör | Användaradministratör
+Återställ lösen ord för privilegierade administratörer | Global administratör | 
 Återkalla licens | Licensadministratör | Användaradministratör
-Uppdatera alla egenskaper utom User Principal Name | Användaradministratör | 
-Uppdatera användarens huvudnamn för begränsade administratörer (se dokumentationen) | Användaradministratör | 
-Uppdatera User Principal Name-egenskapen på Privilegierade administratörer (se dokumentationen) | Global administratör | 
-Uppdatera användarinställningarna | Global administratör | 
+Uppdatera alla egenskaper utom användarens huvud namn | Användaradministratör | 
+Uppdatera användarens huvud namn för begränsade administratörer (se dokumentationen) | Användaradministratör | 
+Uppdatera egenskapen för användarens huvud namn i privilegierade administratörer (se dokumentationen) | Global administratör | 
+Uppdatera användar inställningar | Global administratör | 
 
 
 ## <a name="support"></a>Support
 
-Aktivitet | Minst Privilegierade roller | Ytterligare roller
+Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Skicka supportbegäran | Tjänstadministratör | Programadministratör, Azure Information Protection-administratör, fakturering, Molnprogramadministratör, efterlevnad administratör, Dynamics 365-administratör, skrivbord Analytics administratör, Exchange-administratören administratörslösenord Administratör, Intune-administratör, Skype för företagsadministratören, Power BI-administratör, Privilegierade autentisering administratör, SharePoint-administratör, Teams kommunikation administratör, Teams-administratör kan användare med rollen, Workplace Analytics-administratör
+Skicka support ärende | Tjänstadministratör | Program administratör, Azure Information Protection administratör, fakturerings administratör, moln program administratör, kompatibilitets administratör, Dynamics 365-administratör, Desktop Analytics-administratör, Exchange-administratör, lösen ord Administratör, Intune-administratör, Skype för företag-administratör, Power BI administratör, Privileged Authentication Administrator, SharePoint-administratör, teams kommunikations administratör, team administratör, användar administratör, Administratör för arbets plats analys
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Tilldela eller ta bort azure AD-administratörsroller](directory-manage-roles-portal.md)
-* [Referera till Azure AD-administratörsroller](directory-assign-admin-roles.md)
+* [Tilldela eller ta bort administratörs roller för Azure AD](directory-manage-roles-portal.md)
+* [Roll referens för Azure AD-administratörer](directory-assign-admin-roles.md)

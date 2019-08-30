@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 23e8c82bad60675338a0482155ed8a92cdad3d3d
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 886cacc5e90136380a183f6b9ddd1123d726dcf3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617676"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129230"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Aktivera Azure Active Directory Domain Services autentisering över SMB för Azure Files
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -46,11 +46,9 @@ Innan du aktiverar Azure AD över SMB för Azure Files bör du kontrol lera att 
 
 2.  **Aktivera Azure AD Domain Services på Azure AD-klienten.**
 
-< < < < < < < huvud för att stödja autentisering med Azure AD-autentiseringsuppgifter måste du aktivera Azure AD Domain Services för Azure AD-klienten. Om du inte är administratör för Azure AD-klienten kontaktar du administratören och följer steg-för-steg-vägledningen för att [aktivera Azure Active Directory Domain Services att använda Azure Portal](../../active-directory-domain-services/tutorial-create-instance.md).
-= = = = = = = Om du vill ha stöd för autentisering med Azure AD-autentiseringsuppgifter måste du aktivera Azure AD DS för Azure AD-klienten. Om du inte är administratör för Azure AD-klienten kontaktar du administratören och följer steg-för-steg-vägledningen för att [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../../active-directory-domain-services/create-instance.md).
->>>>>>> 5f049740fef320adb172d59f68bd161bdc4318e1
+    Om du vill ha stöd för autentisering med Azure AD-autentiseringsuppgifter måste du aktivera Azure AD Domain Services för din Azure AD-klient. Om du inte är administratör för Azure AD-klienten kontaktar du administratören och följer steg-för-steg-vägledningen för att [aktivera Azure Active Directory Domain Services att använda Azure Portal](../../active-directory-domain-services/tutorial-create-instance.md).
 
-    It typically takes about 15 minutes for an Azure AD DS deployment to complete. Verify that the health status of Azure AD DS shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
+    Det tar vanligt vis ungefär 15 minuter för en Azure AD DS-distribution att slutföras. Kontrol lera att hälso statusen för Azure AD DS visaratt den är aktive rad och att synkronisering av lösen ord är aktiverat, innan du fortsätter till nästa steg.
 
 3.  **Domän – Anslut till en virtuell Azure-dator med Azure AD DS.**
 

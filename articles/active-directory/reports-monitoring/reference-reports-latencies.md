@@ -17,12 +17,12 @@ ms.date: 05/13/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f57f09f146e542768c83fa034f0b4e65bc6b2ae
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ce62a5059304fe83d933a46ae69f4b8e0c276ba7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987914"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127039"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory rapporterings fördröjning
 
@@ -64,11 +64,11 @@ I följande tabell visas svars tids informationen för säkerhets rapporter.
 | Användare i farozonen          | 5 minuter   | 15 minuter  | 2 timmar  |
 | Riskfyllda inloggningar         | 5 minuter   | 15 minuter  | 2 timmar  |
 
-## <a name="risk-events"></a>Riskhändelser
+## <a name="risk-detections"></a>Risk identifieringar
 
-Azure AD använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera misstänkta åtgärder som är relaterade till dina användar konton. Varje misstänkt misstänkt åtgärd lagras i en post som kallas **risk händelse**.
+Azure AD använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera misstänkta åtgärder som är relaterade till dina användar konton. Varje misstänkt misstänkt åtgärd lagras i en post som kallas för **identifiering av risker**.
 
-I följande tabell visas svars informationen för risk händelser.
+I följande tabell visas svars informationen för risk identifieringar.
 
 | Rapport | Minimum | Average | Maximal |
 | :-- | --- | --- | --- |
@@ -84,4 +84,4 @@ I följande tabell visas svars informationen för risk händelser.
 
 * [Översikt över Azure AD-rapporter](overview-reports.md)
 * [Programmerings åtkomst till Azure AD-rapporter](concept-reporting-api.md)
-* [Azure Active Directory-riskhändelser](concept-risk-events.md)
+* [Azure Active Directory risk identifieringar](concept-risk-events.md)

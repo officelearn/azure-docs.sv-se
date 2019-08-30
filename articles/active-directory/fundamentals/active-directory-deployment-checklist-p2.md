@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 767e3caf577bc1b7a49bd56570b8aeedbe307edc
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 7b5678fb0edcecae9ffa6a3c27f3dc6334ecf505
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693881"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125350"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Distributions guide för Azure Active Directory funktion
 
@@ -53,10 +53,10 @@ I den här fasen aktiverar administratörer grundläggande säkerhets funktioner
 | [Inaktivera regelbunden återställning av lösen ord för molnbaserade användar konton](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Regelbundna lösen ords återställning uppmanar användarna att öka sina befintliga lösen ord. Använd rikt linjerna i Microsofts rikt linjer för lösen Ords vägledning och spegla din lokala princip till endast molnbaserade användare. | Azure AD Kostnadsfri |
 | [Anpassa Azure Active Directory Smart utelåsning](../authentication/howto-password-smart-lockout.md) | Stoppa utelåsning från molnbaserade användare från att replikeras till lokala Active Directory användare | |
 | [Aktivera smart utelåsning för extra nät för AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | AD FS extra näts utelåsning skyddar mot brute force lösen ords gissning, samtidigt som giltiga AD FS användare fortsätter att använda sina konton. | |
-| [Distribuera Multi-Factor Authentication för Azure AD med principer för villkorlig åtkomst](../authentication/howto-mfa-getstarted.md) | Kräv att användarna utför tvåstegsverifiering vid åtkomst till känsliga program med hjälp av principer för villkorlig åtkomst. | Azure AD Premium P1 |
+| [Distribuera Azure AD Multi-Factor Authentication att använda principer för villkorlig åtkomst](../authentication/howto-mfa-getstarted.md) | Kräv att användarna utför tvåstegsverifiering vid åtkomst till känsliga program med hjälp av principer för villkorlig åtkomst. | Azure AD Premium P1 |
 | [Aktivera Azure Active Directory Identity Protection](../identity-protection/enable.md) | Aktivera spårning av riskfyllda inloggningar och komprometterade autentiseringsuppgifter för användare i din organisation. | Azure AD Premium P2 |
-| [Använd risk händelser för att utlösa Multi-Factor Authentication-och lösen ords ändringar](../authentication/tutorial-risk-based-sspr-mfa.md) | Aktivera automatisering som kan utlösa händelser, till exempel Multi-Factor Authentication, återställning av lösen ord och blockering av inloggningar baserat på risk. | Azure AD Premium P2 |
-| [Aktivera konvergerade registrering för lösenordsåterställning via självbetjäning och Azure AD Multi-Factor Authentication (förhandsversion)](../authentication/concept-registration-mfa-sspr-converged.md) | Tillåt att användarna registrerar sig för både Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning. | Azure AD Premium P1 |
+| [Använda risk identifieringar för att utlösa Multi-Factor Authentication-och lösen ords ändringar](../authentication/tutorial-risk-based-sspr-mfa.md) | Aktivera automatisering som kan utlösa händelser, till exempel Multi-Factor Authentication, återställning av lösen ord och blockering av inloggningar baserat på risk. | Azure AD Premium P2 |
+| [Aktivera konvergerade registrering för lösenordsåterställning via självbetjäning och Azure AD Multi-Factor Authentication (förhandsversion)](../authentication/concept-registration-mfa-sspr-converged.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure-Multi-Factor Authentication och lösen ords återställning via självbetjäning. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fas 2: Importera användare, aktivera synkronisering och hantera enheter
 

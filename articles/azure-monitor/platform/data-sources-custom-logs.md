@@ -11,16 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: bwren
-ms.openlocfilehash: 397272c3a47aca2aa73394f443d76dead66308e0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9ecae51d996e2e065b15d1fa70bdaf796f8f197b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555339"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124173"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Anpassade loggar i Azure Monitor
+
 Med data källan för anpassade loggar i Azure Monitor kan du samla in händelser från textfiler på både Windows-och Linux-datorer. Många program loggar information till textfiler i stället för standard loggnings tjänster som Windows-händelseloggen eller syslog. När du har samlat in kan du antingen parsa data i enskilda fält i dina frågor eller extrahera data under samlingen till enskilda fält.
 
 ![Anpassad logg samling](media/data-sources-custom-logs/overview.png)
@@ -46,6 +47,9 @@ De loggfiler som ska samlas in måste matcha följande kriterier.
 > * Det maximala antalet tecken för kolumn namnet är 500. 
 >
 
+>[!IMPORTANT]
+>För anpassad logg samling krävs att programmet skriver logg filen tömmer logg innehållet till disken med jämna mellanrum. Detta beror på att den anpassade logg samlingen förlitar sig på fil Systems ändrings meddelanden för logg filen som spåras.
+
 ## <a name="defining-a-custom-log"></a>Definiera en anpassad logg
 Använd följande procedur för att definiera en anpassad loggfil.  Gå till slutet av den här artikeln för en genom gång av ett exempel på hur du lägger till en anpassad logg.
 
@@ -64,7 +68,6 @@ Du börjar med att ladda upp ett exempel på den anpassade loggen.  Guiden komme
 
 Om en tidsbegränsare för tidsstämpel används fylls egenskapen TimeGenerated för varje post som lagras i Azure Monitor med den datum/tid som angetts för posten i logg filen.  Om en ny rad avgränsare används fylls TimeGenerated med datum och tid som Azure Monitor samlade in posten.
 
-
 1. Klicka på **Bläddra** och bläddra till en exempel fil.  Observera att den här knappen kan vara märkt **Välj fil** i vissa webbläsare.
 2. Klicka på **Nästa**.
 3. Guiden Anpassad logg överför filen och listar de poster som den identifierar.
@@ -75,7 +78,6 @@ Om en tidsbegränsare för tidsstämpel används fylls egenskapen TimeGenerated 
 Du måste definiera en eller flera sökvägar på agenten där den kan hitta den anpassade loggen.  Du kan antingen ange en speciell sökväg och ett namn för logg filen, eller så kan du ange en sökväg med ett jokertecken för namnet. Detta stöder program som skapar en ny fil varje dag eller när en fil når en viss storlek. Du kan också ange flera sökvägar för en enskild loggfil.
 
 Ett program kan till exempel skapa en loggfil varje dag med datumet som ingår i namnet som i log20100316. txt. Ett mönster för en sådan logg kan vara *log\*. txt* som gäller för alla loggfiler som följer programmets namngivnings schema.
-
 
 Följande tabell innehåller exempel på giltiga mönster för att ange olika loggfiler.
 
@@ -105,7 +107,6 @@ När Azure Monitor börjar samla in från den anpassade loggen är dess poster t
 > [!NOTE]
 > Om egenskapen RawData saknas i frågan kan du behöva stänga och öppna webbläsaren igen.
 
-
 ### <a name="step-6-parse-the-custom-log-entries"></a>Steg 6. Parsa de anpassade logg posterna
 Hela logg posten kommer att lagras i en enskild egenskap som kallas **RawData**.  Du kommer förmodligen att vilja separera de olika delarna av informationen i varje post i enskilda egenskaper för varje post. Se [parsa text data i Azure Monitor](../log-query/parse-text.md) för alternativ för att parsa **RawData** i flera egenskaper.
 
@@ -114,7 +115,6 @@ Använd följande process i Azure Portal för att ta bort en anpassad logg som d
 
 1. I menyn **data** i **Avancerade inställningar** för din arbets yta väljer du **anpassade loggar** för att visa en lista över alla dina anpassade loggar.
 2. Klicka på **ta bort** bredvid den anpassade loggen som ska tas bort.
-
 
 ## <a name="data-collection"></a>Datainsamling
 Azure Monitor samlar in nya poster från varje anpassad logg ungefär var femte minut.  Agenten registrerar sitt ställe i varje loggfil som den samlar in från.  Om agenten går offline under en viss tids period, kommer Azure Monitor att samla in poster från var den senast slutade, även om dessa poster skapades medan agenten var offline.
@@ -135,11 +135,11 @@ Anpassade logg poster har en typ med logg namnet som du anger och egenskaperna i
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exempel på genom gång av hur du lägger till en anpassad logg
 I följande avsnitt beskrivs ett exempel på hur du skapar en anpassad logg.  Exempel loggen som samlas in har en enda post på varje rad som börjar med ett datum och en tid och sedan kommaavgränsade fält för kod, status och meddelande.  Flera exempel poster visas nedan.
 
-    2016-03-10 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2016-03-10 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2016-03-10 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2016-03-10 01:38:22 302,Error,Application could not connect to database
-    2016-03-10 01:31:34 303,Error,Application lost connection to database
+    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+    2019-08-27 01:38:22 302,Error,Application could not connect to database
+    2019-08-27 01:31:34 303,Error,Application lost connection to database
 
 ### <a name="upload-and-parse-a-sample-log"></a>Ladda upp och parsa en exempel logg
 Vi tillhandahåller en av loggfilerna och kan se de händelser som den kommer att samla in.  I det här fallet är den nya raden en tillräckligt avgränsare.  Om en enskild post i loggen kan sträcka sig över flera rader, måste en tids gräns för tidsstämpel användas.
@@ -157,14 +157,10 @@ Vi använder ett namn på *MyApp_CL* och anger en **Beskrivning**.
 ![Logg namn](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>Verifiera att de anpassade loggarna samlas in
-Vi använder en fråga av *typen = MyApp_CL* för att returnera alla poster från den insamlade loggen.
+Vi använder en enkel fråga för *MyApp_CL* för att returnera alla poster från den insamlade loggen.
 
 ![Logg fråga utan anpassade fält](media/data-sources-custom-logs/query-01.png)
 
-### <a name="parse-the-custom-log-entries"></a>Parsa de anpassade logg posterna
-Vi använder anpassade fält för att definiera fälten *EventTime*, *kod*, *status*och *meddelande* och vi kan se skillnaden i de poster som returneras av frågan.
-
-![Logg fråga med anpassade fält](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="alternatives-to-custom-logs"></a>Alternativ till anpassade loggar
 Även om anpassade loggar är användbara om dina data uppfyller de villkor som anges i, men det finns fall som följande där du behöver en annan strategi:

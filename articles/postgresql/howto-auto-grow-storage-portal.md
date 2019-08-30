@@ -1,45 +1,45 @@
 ---
-title: Auto-väx storage med hjälp av Azure-portalen i Azure Database för PostgreSQL – enskild Server
-description: Den här artikeln beskrivs hur du kan aktivera automatisk växa storage med hjälp av Azure-portalen i Azure Database för PostegreSQL - enskild Server
+title: Utöka lagringen automatiskt med hjälp av Azure Portal i Azure Database for PostgreSQL-enskild server
+description: Den här artikeln beskriver hur du kan aktivera automatisk storleks ökning med hjälp av Azure Portal i Azure Database for PostgreSQL-enskild server
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/29/2019
-ms.openlocfilehash: 9f88fe3e8a30dd80c5331bd6c8ea7aec401c6fb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d028093b030e1f2cf00ceae9297563c36c314c5
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66676765"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142880"
 ---
-# <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Auto-väx storage med hjälp av Azure-portalen i Azure Database för PostgreSQL – enskild Server
-Den här artikeln beskrivs hur du kan konfigurera en Azure Database for PostgreSQL-serverlagring att växa utan att påverka arbetsbelastningen.
+# <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Utöka lagringen automatiskt med hjälp av Azure Portal i Azure Database for PostgreSQL-enskild server
+I den här artikeln beskrivs hur du kan konfigurera en Azure Database for PostgreSQL Server lagring så att den växer utan att arbets belastningen påverkas.
 
-När en server når gränsen allokerat lagringsutrymme, har servern markerats som skrivskyddad. Men om du aktiverar storage auto väx ökar serverlagring för att tillgodose det växande data. För servrar med färre än 100 GB etablerad lagring ökar den allokerade lagringsstorleken med 5 GB när det lediga lagringsutrymmet som understiger det större av 1 GB eller 10% av allokerat lagringsutrymme. För servrar med fler än 100 GB allokerat lagringsutrymme ökar den allokerade lagringsstorleken med 5% när det lediga utrymmet är mindre än 5% av den allokerade lagringsstorleken. Maximalt lagringsutrymme gränser som anges [här](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage) gäller.
+När en server når den tilldelade lagrings gränsen markeras servern som skrivskyddad. Men om du aktiverar automatisk storleks ökning ökar server lagringen för att rymma växande data. För servrar med mindre än 100 GB allokerat lagrings utrymme ökas den allokerade lagrings storleken med 5 GB så snart det lediga lagrings utrymmet är lägre än eller lika med 1 GB eller 10% av det allokerade lagrings utrymmet. För servrar som har mer än 100 GB allokerat lagrings utrymme ökas den allokerade lagrings storleken med 5% när det lediga lagrings utrymmet är under 5% av den allokerade lagrings storleken. De maximala lagrings gränser som anges [här](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage) gäller.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra den här guiden:
-- En [Azure Database for PostgreSQL-server](quickstart-create-server-database-portal.md)
+- En [Azure Database for postgresql-server](quickstart-create-server-database-portal.md)
 
-## <a name="enable-storage-auto-grow"></a>Aktivera storage automatiskt växa 
+## <a name="enable-storage-auto-grow"></a>Aktivera automatisk storleks ökning för lagring 
 
-Följ dessa steg om du vill ange PostgreSQL server storage auto väx:
+Följ de här stegen för att ställa in PostgreSQL Server Storage Auto:
 
-1. I den [Azure-portalen](https://portal.azure.com/), Välj din Azure Database for PostgreSQL-server.
+1. I [Azure Portal](https://portal.azure.com/)väljer du din befintliga Azure Database for postgresql-server.
 
-2. På sidan PostgreSQL server under **inställningar**, klickar du på **prisnivå** att öppna sidan med priser nivå.
+2. På sidan PostgreSQL Server under **Inställningar**klickar du på **pris nivå** för att öppna sidan pris nivå.
 
-3. I den **automatisk tillväxt** väljer **Ja** för att aktivera storage automatiskt växa.
+3. I avsnittet **automatisk utökning** väljer du **Ja** för att aktivera automatisk storleks ökning.
 
-    ![Azure Database for PostgreSQL - Settings_Pricing_tier - automatisk tillväxt](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    ![Azure Database for PostgreSQL-Settings_Pricing_tier-Auto-EXPTREND](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
 
 4. Klicka på **OK** för att spara ändringarna.
 
-5. Ett meddelande bekräftar att automatiskt växa har aktiverats.
+5. Ett meddelande bekräftar att den automatiska utökningen har Aktiver ATS.
 
-    ![Azure Database för PostgreSQL – automatisk tillväxt lyckades](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
+    ![Azure Database for PostgreSQL-automatisk tillväxt lyckades](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [så skapa aviseringar för mått](howto-alert-on-metric.md).
+Lär dig mer om [hur du skapar aviseringar för mått](howto-alert-on-metric.md).

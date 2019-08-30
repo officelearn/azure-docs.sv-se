@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cea353df0337b062b89cd440f79f7869450f8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9289bfe9e90186896a753e5853d81d2f06669917
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113212"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125184"
 ---
-# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Självstudier: Använda riskhändelser för att utlösa multifaktorautentisering och lösenordsändringar
+# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Självstudier: Använda risk identifieringar för att utlösa Multi-Factor Authentication-och lösen ords ändringar
 
 I den här självstudien aktiverar du funktionerna för Azure Active Directory (Azure AD) Identity Protection, en Azure AD Premium P2-funktion som är mer än bara ett övervaknings- och rapporteringsverktyg. För att skydda organisationens identiteter kan du konfigurera riskbaserade principer som automatiskt svarar på riskfyllda beteenden. Dessa principer kan antingen automatiskt blockera eller initiera reparationer, inklusive att kräva lösenordsändring och framtvinga multifaktorautentisering.
 
-Azure AD Identity Protection-principer kan användas utöver befintliga principer för villkorlig åtkomst som ett extra skyddslager. Det kan hända att användarna aldrig utlöser en riskfyllt beteende som kräver någon av dessa principer, men som administratör vet du att de ändå är skyddade.
+Azure AD Identity Protection principer kan användas tillsammans med befintliga principer för villkorlig åtkomst som ett extra skydds lager. Det kan hända att användarna aldrig utlöser en riskfyllt beteende som kräver någon av dessa principer, men som administratör vet du att de ändå är skyddade.
 
-Vissa objekt som kan utlösa en riskhändelse är:
+Vissa objekt som kan utlösa en risk identifiering är:
 
-* Användare med läckta autentiseringsuppgifter
+* Används med läckta autentiseringsuppgifter
 * Inloggningar från anonyma IP-adresser
 * Omöjliga resor till ovanliga platser
 * Inloggningar från angripna enheter
@@ -40,7 +40,7 @@ Mer information om Azure AD Identity Protection finns i artikeln [Vad är Azure 
 > * Aktivera riskbaserade lösenordsändringar
 > * Aktivera riskbaserad multifaktorautentisering
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Åtkomst till en aktiv Azure AD-klientorganisation med minst en utvärderingslicens för Azure AD Premium P2 som tilldelats.
 * Ett konto med behörigheter som global administratör i Azure AD-klientorganisationen.
@@ -61,7 +61,7 @@ Azure AD Identity Protection innehåller en standardprincip som kan hjälpa dig 
    1. Om du anger den här principen måste alla användare registrera metoder för att förbereda användningen av multifaktorautentisering.
 1. Klicka på **Spara**.
 
-   ![Kräv att användare ska registrera för MFA vid inloggning](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+   ![Kräv att användare registrerar sig för MFA vid inloggning](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
 ### <a name="enable-risk-based-password-changes"></a>Aktivera riskbaserade lösenordsändringar
 

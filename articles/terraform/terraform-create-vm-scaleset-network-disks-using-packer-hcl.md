@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/29/2017
-ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/28/2019
+ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884969"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138349"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Använd Terraform för att skapa en VM-skalningsuppsättning för Azure från en anpassad Packer-avbildning
 
@@ -44,7 +44,7 @@ Skapa tre nya filer i en tom katalog med följande namn:
 
 - ```variables.tf``` Den här filen innehåller värdena för variablerna som används i mallen.
 - ```output.tf``` Den här filen beskriver inställningarna som visas efter distributionen.
-- ```vmss.tf``` Den här filen innehåller koden för infrastrukturen som du distribuerar.
+- ```vmss.tf```Den här filen innehåller koden för den infrastruktur som du distribuerar.
 
 ##  <a name="create-the-variables"></a>Skapa variablerna 
 
@@ -124,7 +124,7 @@ resource "azurerm_public_ip" "vmss" {
   name                         = "vmss-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}"
 
   tags {
@@ -175,12 +175,12 @@ Följ självstudien för att skapa en avetablerad Ubuntu-avbildning med NGINX in
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>Redigera infrastrukturen för att lägga till VM-skalningsuppsättningen
 
 I det här steget skapar du följande resurser i nätverket som distribuerades tidigare:
-- Azure-belastningsutjämnare för att hantera programmet och koppla det till den offentliga IP-adressen som distribuerades i steg 4
+- Azure Load Balancer för att betjäna programmet och koppla det till den offentliga IP-adress som distribuerats tidigare.
 - En Azure-belastningsutjämnare och regler för att hantera programmet och koppla det till den offentliga IP-adress som konfigurerades tidigare.
-- Tilldela adresspoolen för Azure-serverdelen till belastningsutjämnaren 
-- En avsökningsport för hälsotillstånd som används av programmet och konfigureras i belastningsutjämnaren 
-- En VM-skalningsuppsättning som finns bakom belastningsutjämnaren och körs på det virtuella nätverket som distribuerades tidigare
-- [Nginx](https://nginx.org/) på noderna i VM-skalningsuppsättningen som installerats från anpassad avbildning
+- Azure-backend-adresspool och tilldela den till belastningsutjämnaren.
+- En hälso avsöknings port som används av programmet och som är konfigurerad på belastningsutjämnaren.
+- En skalnings uppsättning för virtuella datorer som finns bakom belastningsutjämnaren, körs på det virtuella nätverk som distribuerats tidigare.
+- [Nginx](https://nginx.org/) på noderna i den virtuella datorns skala installerade från den anpassade avbildningen.
 
 
 Lägg till följande kod i slutet av filen `vmss.tf`.
@@ -290,6 +290,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
       name                                   = "IPConfiguration"
       subnet_id                              = "${azurerm_subnet.vmss.id}"
       load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+      primary = true
     }
   }
   
@@ -355,7 +356,7 @@ resource "azurerm_public_ip" "jumpbox" {
   name                         = "jumpbox-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}-ssh"
 
   tags {

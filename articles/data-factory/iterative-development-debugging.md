@@ -1,6 +1,6 @@
 ---
-title: Iterativ utveckling och felsökning i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du utvecklar och felsöker Data Factory-pipelines upprepade gånger i Azure-portalen.
+title: Iterativ utveckling och fel sökning i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du utvecklar och felsöker Data Factory pipelines iterativt i Azure Portal.
 ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
@@ -8,67 +8,67 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: a8028fdde93d06f7b25bf9bd8b4ed5a560a35f83
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: afc51735fcbd8f4131b2a4066a0fc4adbb8f1a41
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60686315"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142339"
 ---
-# <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Iterativ utveckling och felsökning med Azure Data Factory
+# <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Iterativ utveckling och fel sökning med Azure Data Factory
 
-Azure Data Factory kan du utveckla och felsöka Data Factory-pipelines upprepade gånger.
+Med Azure Data Factory kan du iterativt utveckla och felsöka Data Factory pipeliner.
 
-Titta på följande videoklipp för ett 8-minuters introduktion och demonstration av den här funktionen:
+I en åtta minuters introduktion och demonstration av den här funktionen kan du titta på följande video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
-## <a name="iterative-debugging-features"></a>Iterativ felsökningsfunktioner
-Skapa pipelines och testa med den **felsöka** funktionen i rityta för pipelinen utan att behöva skriva en enda rad kod.
+## <a name="iterative-debugging-features"></a>Iterativa fel söknings funktioner
+Skapa pipelines och kör test med hjälp av **fel söknings** funktionen i pipeline-arbetsytan utan att skriva en enda rad kod.
 
-![Felsöka-funktionen på ritytan för din pipeline](media/iterative-development-debugging/iterative-development-image1.png)
+![Fel söknings funktion på pipeline-arbetsytan](media/iterative-development-debugging/iterative-development-image1.png)
 
-Visa resultatet av testet körs i den **utdata** tidsfönster rityta för pipelinen.
+Visa resultatet av test körningarna i fönstret **utdata** på arbets ytan för pipelinen.
 
-![Utdatafönstret för rityta för pipelinen](media/iterative-development-debugging/iterative-development-image2.png)
+![Fönstret utdata för pipeline-arbetsytan](media/iterative-development-debugging/iterative-development-image2.png)
 
-När en testkörning lyckas, lägga till fler aktiviteter i din pipeline och fortsätta felsökningen i en iterativ sätt. Du kan också **Avbryt** en testkörning medan det pågår.
+När en testkörning lyckas lägger du till fler aktiviteter i din pipeline och fortsätter att felsöka på ett iterativt sätt. Du kan också **avbryta** en test körning medan den pågår.
 
-![Avbryt en testkörning](media/iterative-development-debugging/iterative-development-image3.png)
+![Avbryta en test körning](media/iterative-development-debugging/iterative-development-image3.png)
 
-När du testar körs kan du inte behöver publicera ändringarna till data factory innan du väljer **felsöka**. Den här funktionen är användbart i scenarier där du vill se till att ändringarna fungerar som förväntat innan du uppdaterar data factory-arbetsflöde.
+När du utför test körningar behöver du inte publicera dina ändringar i data fabriken innan du väljer **Felsök**. Den här funktionen är användbar i scenarier där du vill se till att ändringarna fungerar som förväntat innan du uppdaterar data Factory-arbetsflödet.
 
 > [!IMPORTANT]
-> Att välja **felsöka** faktiskt kör pipelinen. Så till exempel kopierar om det innehåller kopieringsaktiviteten i pipelinen, test-körningen data från källa till mål. Därför rekommenderar vi att du använder test mappar i dina kopieringsaktiviteter och andra aktiviteter när du felsöker. När du har den felsöks pipelinen, byta till de mappar som du vill använda under normal drift.
+> Om du väljer **Felsök** körs pipelinen. Om pipelinen t. ex. innehåller kopierings aktivitet kopierar test körningen data från källa till mål. Därför rekommenderar vi att du använder test-mappar i dina kopierings aktiviteter och andra aktiviteter vid fel sökning. När du har felsökt pipelinen växlar du till de faktiska mapparna som du vill använda i normal drift.
 
-## <a name="visualizing-debug-runs"></a>Visualiserar debug körs
+## <a name="visualizing-debug-runs"></a>Visualiserar fel söknings körningar
 
-Du kan visualisera alla debug-körningar som pågår för din datafabrik i ett och samma ställe. Välj **visa debug körs** i det övre högra hörnet på sidan. Den här funktionen är användbart i scenarier där du har master pipelines drog debug körningar för underordnade pipelines och du vill att en enda vy för att se alla aktiva debug körs.
+Du kan visualisera alla fel söknings körningar som pågår för din data fabrik på ett och samma ställe. Välj **Visa fel söknings körningar** i det övre högra hörnet på sidan. Den här funktionen är användbar i scenarier där du har huvud pipeliner som startar fel söknings körningar för underordnade pipelines, och du vill ha en enda vy för att se alla aktiva fel söknings körningar.
 
-![Välj ikonen Visa aktiva debug körningar](media/iterative-development-debugging/view-debug-runs-image1.png)
+![Välj ikonen Visa aktiva fel söknings körningar](media/iterative-development-debugging/view-debug-runs-image1.png)
 
-![Exempellistan över aktiva debug körningar](media/iterative-development-debugging/view-debug-runs-image2.png)
+![Exempel lista över aktiva fel söknings körningar](media/iterative-development-debugging/view-debug-runs-image2.png)
 
-## <a name="monitoring-debug-runs"></a>Övervaka debug körs
+## <a name="monitoring-debug-runs"></a>Övervaka fel söknings körningar
 
-Testet körs initierades med den **felsöka** funktionen är inte tillgängliga i listan på den **övervakaren** fliken. Du kan bara se körs utlösta med **Utlös nu**, **schema**, eller **rullande fönster** utlöser i den **övervakaren** fliken. Du kan se den senaste testkörning initierades med den **felsöka** kapaciteten i den **utdata** tidsfönster rityta för pipelinen.
+Test körningar som initieras med **fel söknings** funktionen är inte tillgängliga i listan på fliken **övervaka** . Du kan bara se körningar som har utlösts med utlösare **nu**, **schema**eller **rullande fönster** utlösare på fliken **övervakning** . Du kan se att den senaste test körningen har initierats med **fel söknings** funktionen i fönstret **utdata** på pipeline-arbetsytan.
 
-## <a name="setting-breakpoints-for-debugging"></a>Ange brytpunkter för felsökning
+## <a name="setting-breakpoints-for-debugging"></a>Ange Bryt punkter för fel sökning
 
-Data Factory kan du felsöka tills du når en viss aktivitet på rityta för pipelinen. Lägg bara till en brytpunkt på den aktivitet som du vill testa och välj **felsöka**. Data Factory säkerställer att testet körs tills aktiviteten brytpunkt på rityta för pipelinen. Detta *felsöka tills* funktionen är användbar när du inte vill att testa hela pipelinen, men endast en delmängd av aktiviteter i pipelinen.
+Data Factory kan också felsöka tills du når en viss aktivitet på pipeline-arbetsytan. Placera bara en Bryt punkt för aktiviteten tills du vill testa och välj **Felsök**. Data Factory säkerställer att testet bara körs tills Bryt punkts aktiviteten på pipeline-arbetsytan. Den här *fel sökningen tills* funktionen är användbar när du inte vill testa hela pipelinen, men endast en delmängd av aktiviteter i pipelinen.
 
-![Brytpunkter på rityta för pipelinen](media/iterative-development-debugging/iterative-development-image4.png)
+![Bryt punkter på pipeline-arbetsytan](media/iterative-development-debugging/iterative-development-image4.png)
 
-Ange en brytpunkt genom att markera ett element på rityta för pipelinen. En *felsöka tills* alternativet visas som en tom röd cirkel i det övre högra hörnet av elementet.
+Om du vill ange en Bryt punkt väljer du ett element på pipeline-arbetsytan. Ett *fel söknings* alternativ visas som en tom röd cirkel i det övre högra hörnet av elementet.
 
-![Innan du anger en brytpunkt på det valda elementet](media/iterative-development-debugging/iterative-development-image5.png)
+![Innan du anger en Bryt punkt för det valda elementet](media/iterative-development-debugging/iterative-development-image5.png)
 
-När du har valt den *felsöka tills* alternativet ändras till en fylld röd cirkel att visa brytpunkten har aktiverats.
+När du har valt alternativet *Felsök tills* ändras den till en fylld röd cirkel som visar att Bryt punkten är aktive rad.
 
-![När du har angett en brytpunkt på det valda elementet](media/iterative-development-debugging/iterative-development-image6.png)
+![När du har angett en Bryt punkt för det valda elementet](media/iterative-development-debugging/iterative-development-image6.png)
 
 ## <a name="next-steps"></a>Nästa steg
 [Kontinuerlig integrering och distribution i Azure Data Factory](continuous-integration-deployment.md)

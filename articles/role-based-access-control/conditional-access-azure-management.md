@@ -15,14 +15,17 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: d4036b2aaa59eeb8e38a5881e465031d7a2f15e3
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: e4b7ce0701349cae3ef501213d0f822ee8d150d0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899711"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142835"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Hantera åtkomst till Azure-hantering med villkorlig åtkomst
+
+> [!CAUTION]
+> Se till att du förstår hur villkorlig åtkomst fungerar innan du konfigurerar en princip för hantering av åtkomst till Azure-hantering. Se till att du inte skapar villkor som kan blockera din egen åtkomst till portalen.
 
 Villkorlig åtkomst i Azure Active Directory (Azure AD) styr åtkomsten till molnappar baserat på särskilda villkor som du anger. För att tillåta åtkomst skapar du principer för villkorlig åtkomst som tillåter eller blockerar åtkomst baserat på om kraven i principen är uppfyllda. 
 
@@ -44,7 +47,5 @@ Principen som du skapar gäller för alla slut punkter för Azure-hantering, ink
 
 Observera att principen gäller för Azure PowerShell, som anropar Azure Resource Manager API. Den gäller inte för [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), som anropar Microsoft Graph.
 
-> [!CAUTION]
-> Se till att du förstår hur villkorlig åtkomst fungerar innan du konfigurerar en princip för hantering av åtkomst till Azure-hantering. Se till att du inte skapar villkor som kan blockera din egen åtkomst till portalen.
 
 Mer information om hur du konfigurerar och använder villkorlig åtkomst finns i [villkorlig åtkomst i Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).

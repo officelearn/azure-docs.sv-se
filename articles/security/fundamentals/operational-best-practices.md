@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 9da58bf3152867bc13dd1879ec57a69b8bd38cb0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828723"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129331"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -218,7 +218,7 @@ Mer information finns i [skapa och hantera principer för att genomdriva efterle
 **Information**: Dokument mappning i din organisations dokumentation eller i själva Azure-principen genom att lägga till en referens till organisations principen i beskrivningen av Azure- [principen](../../governance/policy/concepts/definition-structure.md#display-name-and-description) eller beskrivningen av Azure policy [Initiative](../../governance/policy/concepts/definition-structure.md#initiatives) .
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Övervaka Azure AD-riskfyllda rapporter
-De flesta säkerhets överträdelser sker när angripare får åtkomst till en miljö genom att stjäla en användares identitet. Det är ingen enkel uppgift att identifiera komprometterade identiteter. Azure AD använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera misstänkta åtgärder som är relaterade till dina användar konton. Varje misstänkt misstänkt åtgärd lagras i en post som kallas [risk händelse](../../active-directory/reports-monitoring/concept-risk-events.md). Risk händelser registreras i säkerhets rapporter i Azure AD. Mer information finns i artikeln om säkerhets [rapporter för användare](../../active-directory/reports-monitoring/concept-user-at-risk.md) och [riskfyllda inloggningar](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
+De flesta säkerhets överträdelser sker när angripare får åtkomst till en miljö genom att stjäla en användares identitet. Det är ingen enkel uppgift att identifiera komprometterade identiteter. Azure AD använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera misstänkta åtgärder som är relaterade till dina användar konton. Varje misstänkt misstänkt åtgärd lagras i en post som kallas för [identifiering av risker](../../active-directory/reports-monitoring/concept-risk-events.md). Identifieringar av risker registreras i Azure AD-säkerhetsrapporter. Mer information finns i artikeln om säkerhets [rapporter för användare](../../active-directory/reports-monitoring/concept-user-at-risk.md) och [riskfyllda inloggningar](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Se [metod tips och mönster för Azure-säkerhet](best-practices-and-patterns.md) för att få bättre säkerhets metoder att använda när du utformar, distribuerar och hanterar dina moln lösningar med hjälp av Azure.

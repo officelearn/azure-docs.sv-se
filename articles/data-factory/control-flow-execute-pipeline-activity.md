@@ -1,26 +1,25 @@
 ---
-title: Kör Pipeline-aktivitet i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kan använda Kör Pipeline-aktivitet för att anropa en Data Factory-pipeline från en annan Data Factory-pipeline.
+title: Kör pipeline-aktivitet i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kan använda aktiviteten kör pipeliner för att anropa en Data Factory pipeline från en annan Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1611f740f6b55ecf9f15ecd234d63b5e95baeba1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808843"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141709"
 ---
-# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Kör Pipeline-aktivitet i Azure Data Factory
-Kör Pipeline-aktiviteten kan Data Factory-pipeline anropa en annan pipeline.
+# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Kör pipeline-aktivitet i Azure Data Factory
+Med aktiviteten kör pipeliner kan en Data Factory pipeline anropa en annan pipeline.
 
 ## <a name="syntax"></a>Syntax
 
@@ -58,23 +57,23 @@ Kör Pipeline-aktiviteten kan Data Factory-pipeline anropa en annan pipeline.
 }
 ```
 
-## <a name="type-properties"></a>Egenskaperna för anslutningstypen
+## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-name | Namnet på execute pipeline-aktivitet. | String | Ja
-type | Måste anges till: **ExecutePipeline**. | String | Ja
-pipeline | Pipelinereferens till beroende pipelinen som anropar denna pipeline. En pipeline-referensobjektet har två egenskaper: **referenceName** och **typ**. Egenskapen referenceName anger namnet på referens-pipeline. Type-egenskapen måste anges till PipelineReference. | PipelineReference | Ja
-parameters | Parametrar som ska skickas till anropad pipeline | En JSON-objekt som motsvarar argumentvärden parameternamn | Nej
-waitOnCompletion | Definierar om körningsmiljön för aktiviteten ska vänta tills beroende pipeline-åtgärd ska slutföras. Standardvärdet är false. | Boolean | Nej
+name | Namnet på aktiviteten kör pipeliner. | Sträng | Ja
+type | Måste vara inställt på: **ExecutePipeline**. | Sträng | Ja
+pipelina | Pipeline-referens till den beroende pipelinen som den här pipelinen anropar. Ett pipeline-referens objekt har två egenskaper: **referenceName** och **Type**. Egenskapen referenceName anger namnet på referens pipelinen. Egenskapen Type måste anges till PipelineReference. | PipelineReference | Ja
+parameters | Parametrar som ska skickas till den anropade pipelinen | Ett JSON-objekt som mappar parameter namn till argument värden | Nej
+waitOnCompletion | Definierar om aktivitets körningen väntar på att körningen av beroende pipelinen ska slutföras. Standardvärdet är false. | Boolesk | Nej
 
 ## <a name="sample"></a>Exempel
-Det här scenariot har du två pipelines:
+Det här scenariot har två pipeliner:
 
-- **Master pipeline** – den här pipelinen har en kör Pipeline-aktivitet som anropar anropad pipeline. Master pipelinen har två parametrar: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
-- **Anropad pipeline** – den här pipelinen har en Kopieringsaktivitet som kopierar data från en Azure Blob-källan till Azure Blob-mottagaren. Anropade pipelinen har två parametrar: `sourceBlobContainer`, `sinkBlobContainer`.
+- **Huvud pipeline** – den här pipelinen har en utför pipeline-aktivitet som anropar den anropade pipelinen. Huvud-pipeline tar två parametrar: `masterSourceBlobContainer`,. `masterSinkBlobContainer`
+- **Anropad pipeline** – den här pipelinen har en kopierings aktivitet som kopierar data från en Azure Blob-källa till Azure Blob-mottagare. Den anropade pipelinen tar två parametrar: `sourceBlobContainer`, `sinkBlobContainer`.
 
-### <a name="master-pipeline-definition"></a>Master pipeline-definition
+### <a name="master-pipeline-definition"></a>Huvud pipeline-definition
 
 ```json
 {
@@ -116,7 +115,7 @@ Det här scenariot har du två pipelines:
 
 ```
 
-### <a name="invoked-pipeline-definition"></a>Anropad pipeline-definition
+### <a name="invoked-pipeline-definition"></a>Definition av anropad pipeline
 
 ```json
 {
@@ -178,7 +177,7 @@ Det här scenariot har du två pipelines:
 }
 ```
 
-**Källdatauppsättning**
+**Käll data uppsättning**
 ```json
 {
     "name": "SourceBlobDataset",
@@ -199,7 +198,7 @@ Det här scenariot har du två pipelines:
 }
 ```
 
-**Datauppsättning för mottagare**
+**Data uppsättning för mottagare**
 ```json
 {
     "name": "sinkBlobDataset",
@@ -219,9 +218,9 @@ Det här scenariot har du två pipelines:
 }
 ```
 
-### <a name="running-the-pipeline"></a>Kör pipelinen
+### <a name="running-the-pipeline"></a>Köra pipelinen
 
-Om du vill köra master pipelinen i det här exemplet skickas följande värden för parametrarna masterSourceBlobContainer och masterSinkBlobContainer: 
+För att köra huvud pipelinen i det här exemplet skickas följande värden för parametrarna masterSourceBlobContainer och masterSinkBlobContainer: 
 
 ```json
 {
@@ -230,7 +229,7 @@ Om du vill köra master pipelinen i det här exemplet skickas följande värden 
 }
 ```
 
-Master pipelinen vidarebefordrar dessa värden till anropad pipeline som du ser i följande exempel: 
+Huvud pipelinen vidarebefordrar dessa värden till den anropade pipelinen som visas i följande exempel: 
 
 ```json
 {
@@ -256,9 +255,9 @@ Master pipelinen vidarebefordrar dessa värden till anropad pipeline som du ser 
 
 ```
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
+Se andra kontroll flödes aktiviteter som stöds av Data Factory: 
 
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 - [Lookup-aktivitet](control-flow-lookup-activity.md)
-- [Webbaktivitet](control-flow-web-activity.md)
+- [Webb aktivitet](control-flow-web-activity.md)

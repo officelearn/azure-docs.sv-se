@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4430e2115e4282ba7bb618184139a845547a06ed
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 064724b3c6a5faa485850ecdfa3d3759d3631be0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967083"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124911"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegera aktiviteter i hantering av Azure AD-rättigheter (för hands version)
 
@@ -30,13 +30,15 @@ ms.locfileid: "68967083"
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Globala administratörer och användar administratörer kan som standard skapa och hantera alla aspekter av hantering av Azure AD-rättigheter. Användare i dessa roller kanske inte känner till alla scenarier där åtkomst paket krävs. Vanligt vis är det användare inom avdelningar som vet vem som behöver samar beta.
+Globala administratörer och användar administratörer kan som standard skapa och hantera alla aspekter av hantering av Azure AD-rättigheter. Användare i dessa roller kanske inte känner till alla scenarier där åtkomst paket krävs. Vanligt vis är det användare inom avdelningar som vet vem som behöver samar beta. 
 
-I stället för att ge användarna obegränsad behörighet till icke-administratörer, kan du ge användarna minst de behörigheter de behöver för att utföra sitt jobb och undvika att skapa motstridiga eller olämpliga åtkomst rättigheter. Den här artikeln beskriver de roller som du kan tilldela för att delegera olika aktiviteter i hantering av rättigheter.
+I stället för att ge användarna obegränsad behörighet till icke-administratörer, kan du ge användarna minst de behörigheter de behöver för att utföra sitt jobb och undvika att skapa motstridiga eller olämpliga åtkomst rättigheter. Den här artikeln beskriver de roller som du kan tilldela för att delegera olika aktiviteter i hantering av rättigheter. 
 
 ## <a name="delegate-example-for-departmental-adoption"></a>Ombuds exempel för att införa en avdelning
 
-För att förstå hur du kan delegera aktiviteter i hantering av rättigheter, kan det vara ett exempel. Anta att din organisation har följande fem användare:
+För att förstå hur du kan delegera aktiviteter i hantering av rättigheter, kan det vara ett exempel. 
+
+Anta att din organisation har följande fem användare:
 
 | Användare | Avdelning | Anteckningar |
 | --- | --- | --- |
@@ -59,6 +61,7 @@ Både forskar-och marknadsförings avdelningen vill använda rättighets hanteri
 Nu kan forsknings-och marknadsförings avdelningen använda hantering av rättigheter. Bob, Carol, Dave och ELISA kan skapa och hantera åtkomst paket i sina respektive kataloger.
 
 ![Ombuds exempel för rättighets hantering](./media/entitlement-management-delegate/elm-delegate.png)
+
 
 ## <a name="entitlement-management-roles"></a>Rättighets hanterings roller
 
@@ -113,6 +116,7 @@ För en användare som inte är en global administratör eller en användar admi
 | [Program administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  |  | :heavy_check_mark: |  |
 | [Moln program administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  |  | :heavy_check_mark: |  |
 | Användare | Katalog ägare | Endast om grupp ägare | Endast om grupp ägare | Endast om app-ägare |  |
+
 
 ## <a name="add-a-catalog-creator"></a>Lägg till en katalog skapare
 

@@ -1,131 +1,131 @@
 ---
-title: Skapa en pool för förhandsversion för virtuella skrivbord i Windows-värd med hjälp av Azure Marketplace – Azure
-description: Hur du skapar en pool för förhandsversion för virtuella skrivbord i Windows-värd med hjälp av Azure Marketplace.
+title: Skapa en Windows-pool för för hands version av virtuella datorer med Azure Marketplace – Azure
+description: Så här skapar du en Windows Virtual Desktop för hands version av poolen med hjälp av Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: f692303140db1441aa34aacef62523d7f596dba1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
-ms.translationtype: MT
+ms.openlocfilehash: 32628296c5d43a11371b486abc426da2e243d0a7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204742"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138230"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudier: Skapa en pool med värden med hjälp av Azure Marketplace
+# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudier: Skapa en värdpool med Azure Marketplace
 
-Värd-pooler är en samling av en eller flera identiska virtuella datorer i förhandsversion för virtuella skrivbord i Windows klient-miljöer. Varje värd-pool kan innehålla en appgrupp som användare kan interagera med precis som på en fysisk dator.
+Lagringspooler är en samling av en eller flera identiska virtuella datorer i Windows Virtual Desktop Preview-klient miljöer. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
 
-Den här självstudien beskrivs hur du skapar en pool för värden i ett virtuellt skrivbord i Windows-klient med hjälp av ett Microsoft Azure Marketplace-erbjudande. Aktiviteterna är:
+I den här självstudien beskrivs hur du skapar en adresspool i en Windows-klient för virtuella skriv bord med hjälp av ett Microsoft Azure Marketplace erbjudande. Uppgifterna omfattar:
 
 > [!div class="checklist"]
-> * Skapa en pool med värden i virtuella Windows-skrivbordet.
-> * Skapa en resursgrupp med virtuella datorer i en Azure-prenumeration.
+> * Skapa en adresspool i det virtuella Windows-skrivbordet.
+> * Skapa en resurs grupp med virtuella datorer i en Azure-prenumeration.
 > * Anslut de virtuella datorerna till Active Directory-domänen.
-> * Registrera de virtuella datorerna med virtuella Windows-skrivbordet.
+> * Registrera de virtuella datorerna med det virtuella Windows-skrivbordet.
 
-Innan du börjar [hämta och importera modulen Windows PowerShell för virtuella skrivbord](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) ska användas i PowerShell-sessionen om du inte redan har gjort.
+Innan du börjar kan du [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på [Azure Portal](https://portal.azure.com).
 
-## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Köra Azure Marketplace erbjuder att etablera en ny värd-pool
+## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Kör Azure Marketplace-erbjudandet för att etablera en ny värdbaserad pool
 
-Köra Azure Marketplace erbjuder att etablera en ny pool för värden:
+Så här kör du Azure Marketplace-erbjudandet för att etablera en ny adresspool:
 
 1. Välj **+** eller **+ skapa en resurs**.
-2. Ange **virtuella Windows-skrivbordet** i sökfönstret Marketplace.
-3. Välj **Windows virtuellt skrivbord – etablera poolen värden**, och välj sedan **skapa**.
+2. Ange **virtuellt Windows-skrivbord** i fönstret Marketplace search.
+3. Välj **Windows Virtual Desktop – etablera en adresspool**och välj sedan **skapa**.
 
-Följ anvisningarna för att ange information för lämpliga blad.
+Följ anvisningarna för att ange informationen för lämpliga blad.
 
-### <a name="basics"></a>Grundläggande inställningar
+### <a name="basics"></a>Grundinställningar
 
-Här är vad du gör den **grunderna** bladet:
+Det här kan du göra på bladet **grundläggande** :
 
-1. Ange ett namn för värd-poolen som är unikt i virtuellt skrivbord i Windows-klient.
-2. Välj lämpligt alternativ för ett personligt skrivbord. Om du väljer **Ja**, varje användare som ansluter till den här värden poolen tilldelas permanent till en virtuell dator.
-3. Ange en kommaavgränsad lista över användare som kan logga in till virtuella skrivbord i Windows-klienter och tillgång till en stationär dator när Azure Marketplace erbjuder har slutförts. Exempel: Om du vill tilldela user1@contoso.com och user2@contoso.com öppna genom att ange ”user1@contoso.com,user2@contoso.com”.
-4. Välj **Skapa nytt** och ange ett namn för den nya resursgruppen.
-5. För **plats**, välj platsen som det virtuella nätverket som är ansluten till Active Directory-servern.
+1. Ange ett namn för den värdbaserade poolen som är unik i Windows-klienten för virtuella skriv bord.
+2. Välj lämpligt alternativ för ett personligt skriv bord. Om du väljer **Ja**, kommer varje användare som ansluter till den här poolen permanent att tilldelas till en virtuell dator.
+3. Ange en kommaavgränsad lista med användare som kan logga in på de virtuella Windows-klienterna och få åtkomst till en stationär dator när Azure Marketplace-erbjudandet har slutförts. Om du till exempel vill user1@contoso.com tilldela och user2@contoso.com komma åt anger du "user1@contoso.com,user2@contoso.com".
+4. Välj **Skapa nytt** och ange ett namn för den nya resurs gruppen.
+5. För **plats**väljer du samma plats som det virtuella nätverk som har anslutning till Active Directory-servern.
 6. Välj **OK**.
 
 ### <a name="configure-virtual-machines"></a>Konfigurera virtuella datorer
 
-För den **Konfigurera virtuella datorer** bladet:
+För bladet **Konfigurera virtuella datorer** :
 
 1. Acceptera standardvärdena eller anpassa antalet och storleken på de virtuella datorerna.
-2. Ange ett prefix för namnen på de virtuella datorerna. Exempel: Om du anger ”namnprefix” virtuella datorer kallas ”prefix-0”, ”prefix-1” och så vidare.
+2. Ange ett prefix för namnen på de virtuella datorerna. Om du till exempel anger namnet "prefix" kommer de virtuella datorerna att kallas "prefix-0," prefix-1, "och så vidare.
 3. Välj **OK**.
 
 ### <a name="virtual-machine-settings"></a>Inställningar för virtuella datorer
 
-För den **inställningar för virtuella datorer** bladet:
+För bladet **Inställningar för virtuell dator** :
 
 >[!NOTE]
-> Om du ska ansluta dina virtuella datorer till en Azure Active Directory Domain Services (Azure AD DS)-miljö, kontrollera att din anslutning till domänanvändare även är medlem i den [AAD DC-administratörsgruppen](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+> Om du ansluter dina virtuella datorer till en Azure Active Directory Domain Services (Azure AD DS)-miljö måste du se till att din domän anslutning också är medlem i [Administratörs gruppen för AAD](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group)-domänkontrollanten.
 
-1. För **Bildkälla**, väljer du den och ange information om hur du hittar det och hur du lagrar den. Om du väljer att inte använda hanterade diskar, väljer du det lagringskonto som innehåller VHD-filen.
-2. Ange användarens huvudnamn och lösenordet för domänkontot som ansluter till de virtuella datorerna till Active Directory-domän. Det här samma användarnamn och lösenord kommer att skapas på de virtuella datorerna som ett lokalt konto. Senare kan du återställa dessa lokala konton.
-3. Välj det virtuella nätverk som är ansluten till Active Directory-servern och välj sedan ett undernät som värd för de virtuella datorerna.
+1. För **avbildnings källa**väljer du källan och anger den information som krävs för att hitta den och hur den ska lagras. Om du väljer att inte använda hanterade diskar väljer du det lagrings konto som innehåller VHD-filen.
+2. Ange User Principal Name och lösen ord för det domän konto som ska ansluta till de virtuella datorerna till Active Directorys domänen. Samma användar namn och lösen ord kommer att skapas på de virtuella datorerna som ett lokalt konto. Du kan återställa de här lokala kontona senare.
+3. Välj det virtuella nätverk som har anslutning till Active Directory-servern och välj sedan ett undernät som är värd för de virtuella datorerna.
 4. Välj **OK**.
 
-### <a name="windows-virtual-desktop-preview-tenant-information"></a>Förhandsversion av virtuella Windows Desktop-klientinformation
+### <a name="windows-virtual-desktop-preview-tenant-information"></a>Information om för hands versionen av Windows Virtual Desktop
 
-För den **klientinformation för virtuella Windows-skrivbordet** bladet:
+För bladet **information om virtuella Windows-datorer med virtuella skriv bord** :
 
-1. För **gruppnamn för virtuella Windows-skrivbordet klient**, anger du namnet för den klient-grupp som innehåller din klient. Lämna den som standard såvida inte du har en specifik klient gruppnamn.
-2. För **klientnamnet för virtuella Windows-skrivbordet**, anger du namnet på klienten där du ska skapa den här poolen för värden.
-3. Ange vilken typ av autentiseringsuppgifter som du vill använda för att autentisera som innehavare RDS ägare för virtuella Windows-skrivbordet. Om du har slutfört den [skapa tjänstens huvudnamn och rolltilldelningar med PowerShell självstudiekursen](./create-service-principal-role-powershell.md)väljer **tjänstens huvudnamn**. När **Azure AD-klient-ID** visas, ange ID för Azure Active Directory-instans som innehåller tjänstens huvudnamn.
-4. Ange autentiseringsuppgifterna för klientorganisationens administratörskonto. Tjänstens huvudnamn med autentiseringsuppgifter för lösenord stöds.
+1. Ange namnet på klient gruppen som innehåller din klient organisation för **Windows Virtual Desktop klient grupp namn**. Lämna det som standard om du inte angav ett angivet klient grupps namn.
+2. Ange namnet på den klient där du vill skapa den här poolen för **Windows Virtual Desktop klient namn**.
+3. Ange vilken typ av autentiseringsuppgifter du vill använda för att autentisera som Windows-ägare för klient organisation för virtuella skriv bord. Om du har slutfört [guiden skapa tjänst huvud namn och roll tilldelningar med PowerShell](./create-service-principal-role-powershell.md)väljer du **tjänstens huvud namn**. När **Azure AD-klient-ID** visas anger du ID: t för Azure Active Directory-instansen som innehåller tjänstens huvud namn.
+4. Ange autentiseringsuppgifterna för klient organisationens administratörs konto. Det finns bara stöd för tjänst huvud namn med autentiseringsuppgifter för lösen ord.
 5. Välj **OK**.
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>Slutför installationen och skapa den virtuella datorn
 
 För de två sista bladen:
 
-1. På den **sammanfattning** bladet granska installationsinformationen om. Om du vill ändra något gå tillbaka till bladet lämplig och gör dina ändringar innan du fortsätter. Om informationen är korrekt, väljer **OK**.
-2. På den **köpa** bladet hittar du ytterligare information om ditt köp från Azure Marketplace.
-3. Välj **skapa** att distribuera din värd-pool.
+1. Granska installations informationen på bladet **Sammanfattning** . Om du behöver ändra något går du tillbaka till lämpligt blad och gör din ändring innan du fortsätter. Om informationen ser bra ut väljer du **OK**.
+2. På bladet **köp** granskar du ytterligare information om ditt köp på Azure Marketplace.
+3. Välj **skapa** för att distribuera din värd-pool.
 
-Beroende på hur många virtuella datorer som du skapar, kan den här processen ta 30 minuter eller mer att slutföra.
+Beroende på hur många virtuella datorer du skapar kan den här processen ta 30 minuter eller mer att slutföra.
 
-## <a name="optional-assign-additional-users-to-the-desktop-application-group"></a>(Valfritt) Tilldela ytterligare användare i gruppen skrivbordsprogram
+## <a name="optional-assign-additional-users-to-the-desktop-application-group"></a>Valfritt Tilldela ytterligare användare till program gruppen Skriv bord
 
-När du har Azure Marketplace erbjuder har slutförts, kan du tilldela fler användare i gruppen skrivbordsprogram innan du startar testerna fullständig session-skrivbord på dina virtuella datorer. Om du redan har lagt till standardanvändare i Azure Marketplace-erbjudande och inte vill lägga till fler, kan du hoppa över det här avsnittet.
+När Azure Marketplace-erbjudandet har slutförts kan du tilldela fler användare till gruppen Skriv bords program innan du börjar testa alla Station ära datorer på dina virtuella datorer. Om du redan har lagt till standard användare i Azure Marketplace-erbjudandet och inte vill lägga till fler kan du hoppa över det här avsnittet.
 
-Om du vill tilldela användare till gruppen skrivbordsprogram, måste du öppna ett PowerShell-fönster. Efter det måste du ange följande två cmdletar.
+Om du vill tilldela användare till program gruppen Skriv bord måste du först öppna ett PowerShell-fönster. Efter det måste du ange följande två cmdletar.
 
-Kör följande cmdlet för att logga in på den virtuella skrivbordet i Windows-miljön:
+Kör följande cmdlet för att logga in på Windows-miljön för virtuella skriv bord:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Lägg till användare i gruppen skrivbordsprogram genom att använda denna cmdlet:
+Lägg till användare i program gruppen Skriv bord med hjälp av denna cmdlet:
 
 ```powershell
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-Användarens UPN måste matcha användarens identitet i Azure Active Directory (till exempel user1@contoso.com). Om du vill lägga till flera användare måste du köra denna cmdlet för varje användare.
+Användarens UPN ska matcha användarens identitet i Azure Active Directory (till exempel user1@contoso.com). Om du vill lägga till flera användare måste du köra denna cmdlet för varje användare.
 
-När du har slutfört de här stegen kan kan användare läggs till i gruppen skrivbordsprogram logga in på virtuella Windows-skrivbordet med Remote Desktop-klienter som stöds och se en resurs för ett session-skrivbord.
+När du har slutfört de här stegen kan användare som har lagts till i gruppen Skriv bord logga in på Windows Virtual Desktop med stöd för fjärr skrivbords klienter och se en resurs för en session.
 
-Här följer de aktuella klienterna som stöds:
+Här är de klienter som stöds:
 
-- [Fjärrskrivbordsklient för Windows 7 och Windows 10](connect-windows-7-and-10.md)
-- [Virtuella Windows-skrivbordet webbklienten](connect-web.md)
+- [Fjärr skrivbords klient för Windows 7 och Windows 10](connect-windows-7-and-10.md)
+- [Webb klient för Windows Virtual Desktop](connect-web.md)
 
 >[!IMPORTANT]
->Om du vill att skydda din miljö för virtuella Windows-skrivbordet i Azure, rekommenderar vi du inte öppna inkommande port 3389 på dina virtuella datorer. Virtuella Windows-skrivbordet kräver inte en öppen inkommande port 3389 för användare att komma åt värden poolens virtuella datorer. Om du måste öppna port 3389 för felsökningsändamål kan vi rekommenderar att du använder [åtkomst till Virtuella just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>Vi rekommenderar att du inte öppnar den inkommande port 3389 på dina virtuella datorer för att skydda din Windows-miljö för virtuella skriv bord i Azure. Virtuella Windows-datorer kräver inte en öppen inkommande port 3389 för att användare ska kunna komma åt värddatorns virtuella datorer. Om du måste öppna port 3389 för fel söknings syfte rekommenderar vi att du använder [just-in-Time VM-åtkomst](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har gjort en värd pool och tilldelade användare att komma åt dess desktop, kan du fylla i din värd-pool med RemoteApp-program. Mer information om hur du hanterar appar i Windows virtuellt skrivbord finns den här självstudien:
+Nu när du har skapat en adresspool och tilldelat användare åtkomst till Skriv bordet kan du fylla i din värddator med RemoteApp-program. Mer information om hur du hanterar appar i virtuella Windows-datorer finns i den här självstudien:
 
 > [!div class="nextstepaction"]
-> [Hantera grupper självstudier](./manage-app-groups.md)
+> [Själv studie kurs för hantering av app-grupper](./manage-app-groups.md)

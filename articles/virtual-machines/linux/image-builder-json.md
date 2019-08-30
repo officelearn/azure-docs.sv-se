@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 240e0dadaebde6725974604b578328ede0b20652
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816318"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129061"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Förhandsversion: Skapa en Azure Image Builder-mall 
 
@@ -190,6 +190,7 @@ Anger käll avbildningen av en befintlig avbildnings version i ett galleri för 
 `imageVersionId` Ska vara avbildnings versionens ResourceID. Använd [AZ sig-avbildning – versions lista](/cli/azure/sig/image-version#az-sig-image-version-list) för att lista avbildnings versioner.
 
 ## <a name="properties-buildtimeoutinminutes"></a>Egenskaper: buildTimeoutInMinutes
+
 Som standard körs Image Builder i 240 minuter. Efter det kommer timeout och stoppas, oavsett om avbildningen är slutförd eller inte. Om tids gränsen har nåtts visas ett fel som liknar detta:
 
 ```text
@@ -203,7 +204,6 @@ Om du upptäcker att du behöver mer tid för att anpassningarna ska slutföras,
 
 
 ## <a name="properties-customize"></a>Egenskaper: anpassa
-
 
 Avbildnings verktyget stöder flera "anpassningar". Anpassningar är funktioner som används för att anpassa din avbildning, till exempel köra skript eller starta om servrar. 
 

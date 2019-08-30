@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 509bd472fe5f930ac830b8b4016129f8acb67324
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80bc5ef78a73430dea23bdd644767d9fa9b3c9a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612879"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124664"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Vanliga frågor och svar
 På den här sidan besvaras vanliga frågor om Azure Active Directory Domain Services. Fortsätt att söka efter uppdateringar igen.
@@ -61,6 +61,9 @@ Nej. Den domän som tillhandahålls av Azure AD Domain Services är en hanterad 
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Kan gäst användare som bjuds in till min katalog använda Azure AD Domain Services?
 Nej. Gäst användare som bjudits in till din Azure AD-katalog med [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) -beställnings processen synkroniseras med din Azure AD Domain Services hanterade domänen. Lösen ord för dessa användare lagras dock inte i Azure AD-katalogen. Azure AD Domain Services har därför inget sätt att synkronisera NTLM-och Kerberos-hashvärden för dessa användare till din hanterade domän. Därför kan sådana användare inte logga in på den hanterade domänen eller ansluta datorer till den hanterade domänen.
+
+### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Kan jag flytta en befintlig Azure AD Domain Services hanterad domän till en annan prenumeration, resurs grupp, region eller virtuellt nätverk?
+Nej. När du har skapat en Azure AD Domain Services hanterad domän kan du inte flytta instansen till en annan resurs grupp, ett virtuellt nätverk, en prenumeration osv. Var noga med att välja den lämpligaste prenumerationen, resurs gruppen, regionen och det virtuella nätverket när du distribuerar Azure AD DS-instansen.
 
 ## <a name="administration-and-operations"></a>Administration och åtgärder
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Kan jag ansluta till domänkontrollanten för min hanterade domän med hjälp av fjärr skrivbord?

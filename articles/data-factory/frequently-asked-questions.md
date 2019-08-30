@@ -1,146 +1,145 @@
 ---
 title: 'Azure Data Factory: Vanliga frågor och svar | Microsoft Docs'
-description: Få svar på vanliga frågor och svar om Azure Data Factory.
+description: Få svar på vanliga frågor om Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: shlo
-ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4836d519556e5a031f81279fef4891ba8d47c05
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61345762"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141571"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
-Den här artikeln innehåller svar på vanliga frågor och svar om Azure Data Factory.  
+Den här artikeln innehåller svar på vanliga frågor om Azure Data Factory.  
 
 ## <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory? 
-Data Factory är en fullständigt hanterad, molnbaserad, dataintegrering-tjänst som automatiserar flytt och omvandling av data. Som en fabrik som använder maskiner för att omvandla råmaterial till färdiga produkter, samordnar Azure Data Factory befintliga tjänster som samlar in rådata och omvandla det till färdiga att använda information. 
+Data Factory är en helt hanterad, molnbaserad, data integrerings tjänst som automatiserar flytt och transformering av data. Som en fabrik som kör utrustning för att transformera råmaterial till färdiga varor, Azure Data Factory dirigerar befintliga tjänster som samlar in rå data och omvandlar dem till information som är klar att använda. 
 
-Med hjälp av Azure Data Factory kan du kan skapa datadrivna arbetsflöden för att flytta data mellan lokala och molnbaserade datalager. Och du kan bearbeta och omvandla data med hjälp av Beräkningstjänster som Azure HDInsight, Azure Data Lake Analytics och SQL Server Integration Services (SSIS) integration runtime. 
+Med hjälp av Azure Data Factory kan du skapa data drivna arbets flöden för att flytta data mellan lokala och molnbaserade data lager. Och du kan bearbeta och transformera data med hjälp av beräknings tjänster som Azure HDInsight, Azure Data Lake Analytics och integrerings körningen för SQL Server Integration Services (SSIS). 
 
-Du kan köra din databearbetning på en Azure-baserade cloud Services eller i din egen egenhanterad beräkningsmiljö som SSIS, SQL Server eller Oracle med Data Factory. När du har skapat en pipeline som utför den åtgärd som du behöver kan du schemalägga den så att den körs regelbundet (per timme, varje dag eller varje vecka, till exempel), tidsperioden för schemaläggning eller utlösa pipeline från en händelsen. Mer information finns i [Introduktion till Azure Data Factory](introduction.md).
+Med Data Factory kan du köra din data behandling antingen på en Azure-baserad moln tjänst eller i din egen dator med egen värd miljö, till exempel SSIS, SQL Server eller Oracle. När du har skapat en pipeline som utför den åtgärd du behöver kan du schemalägga att den ska köras regelbundet (varje timme, varje dag eller varje vecka, till exempel), tids periods schemaläggning eller utlösa pipelinen från en händelse förekomst. Mer information finns i [Introduktion till Azure Data Factory](introduction.md).
 
-### <a name="control-flows-and-scale"></a>Kontrollen flöden och skala 
-Som stöd för integreringsflöden och mönster i ett modernt informationslager, aktiverar Data Factory pipeline flexibel data modellering. Detta innebär att fullständig Kontrollflöde programming paradigm, bland annat villkorlig körning, branchning i datapipelines och möjligheten att explicit skicka parametrar inom och mellan dessa flöden. Kontrollflöde omfattar även hur du transformerar data via aktivitetssändning till externa körning motorer och data flow-funktioner, inklusive dataförflyttning i skala, via kopieringsaktiviteten.
+### <a name="control-flows-and-scale"></a>Kontrol lera flöden och skala 
+För att stödja olika integrerings flöden och mönster i det moderna informations lagret kan Data Factory aktivera flexibel data pipeline-modellering. Detta omfattar programmerings paradigm för full kontroll flöde, som omfattar villkorlig körning, förgrening i datapipeliner och möjligheten att explicit skicka parametrar inom och mellan dessa flöden. Kontroll flödet omfattar även omvandling av data via aktivitets sändning till externa körnings motorer och data flödes funktioner, inklusive data förflyttning i stor skala, via kopierings aktiviteten.
 
-Data Factory tillhandahåller friheten att alla flödesstilar som krävs för dataintegrering och som kan skickas på begäran eller regelbundet enligt ett schema. Några vanliga flöden som gör att den här modellen är:   
+Data Factory ger friheten att modellera alla flödes format som krävs för data integrering och som kan skickas på begäran eller upprepade gånger enligt ett schema. Några vanliga flöden som den här modellen möjliggör är:   
 
-- Kontrollen flöden:
-    - Aktiviteter kan sammanlänkas i en sekvens inom en pipeline.
-    - Aktiviteter kan vara förgrenade inom en pipeline.
+- Kontroll flöden:
+    - Aktiviteter kan länkas samman i en sekvens i en pipeline.
+    - Aktiviteter kan förgrenas i en pipeline.
     - Parametrar:
-        - Parametrar kan definieras på pipelinenivå och argument kan skickas när du anropar pipelinen på begäran eller från en utlösare.
+        - Parametrar kan definieras på pipeline-nivå och argument kan skickas när du anropar pipelinen på begäran eller från en utlösare.
         - Aktiviteter kan använda argumenten som skickas till pipelinen.
-    - Skicka anpassade tillstånd:
-        - Aktivitetsutdata inklusive tillstånd, kan användas av en efterföljande aktivitet i pipelinen.
-    - Loopningsbehållare:
-        - Foreach-aktiviteten upprepas över en angiven samling av aktiviteter i en loop. 
-- Utlösningsbaserade flöden:
-    - Pipelines kan utlösas på begäran eller genom wall-clock-tid.
-- Deltaflöden:
-    - Parametrar kan användas för att definiera ditt övre vattenmärke för deltakopiering vid förflyttning av dimensions- eller referenstabeller från en relationslagringsplats, antingen lokalt eller i molnet, för att läsa in data i sjön. 
+    - Anpassad tillstånds överföring:
+        - Uppgiftsutdata, inklusive State, kan förbrukas av en efterföljande aktivitet i pipelinen.
+    - Upprepnings behållare:
+        - Förgrunds aktiviteten itererar över en angiven samling aktiviteter i en slinga. 
+- Utlös ande flöden:
+    - Pipelines kan utlösas på begäran eller vid tid för vägg-klockan.
+- Delta flöden:
+    - Du kan använda parametrar för att definiera ett vatten märke för delta kopian samtidigt som du flyttar dimensions-eller referens tabeller från ett relationellt lager, antingen lokalt eller i molnet, för att läsa in data i sjön. 
 
-Mer information finns i [Självstudie: Kontrollera flöden](tutorial-control-flow.md).
+Mer information finns i [Självstudie: Kontroll flöden](tutorial-control-flow.md).
 
-### <a name="data-transformed-at-scale-with-code-free-pipelines"></a>Data omvandlas i stor skala med kodfria pipelines
-Den nya webbläsarbaserade verktyg-guiden innehåller kodfria pipeline skapande och distribution med en modern, interaktiv webbaserad upplevelse.
+### <a name="data-transformed-at-scale-with-code-free-pipelines"></a>Data omvandlas i skala med kod fria pipeliner
+Den nya webbläsarbaserade verktygs upplevelsen ger kod fri pipeline-redigering och-distribution med en modern, interaktiv webbaserad upplevelse.
 
-För utvecklare för visuella data och datatekniker är Data Factory-webbgränssnittet kodfria designmiljön som du använder för att skapa pipeliner. Den är helt integrerat med Visual Studio Online Git och ger integrering för CI/CD och iterativ utveckling med startalternativen.
+För utvecklare av visuella data och data tekniker är Data Factory Web UI den kod fria design miljön som du kommer att använda för att skapa pipeliner. Den är helt integrerad med Visual Studio Online git och ger integrering för CI/CD och iterativ utveckling med fel söknings alternativ.
 
-### <a name="rich-cross-platform-sdks-for-advanced-users"></a>Omfattande plattformsoberoende SDK: er för avancerade användare
-Data Factory V2 tillhandahåller en omfattande uppsättning SDK: er som kan användas för att skapa, hantera och övervaka pipelines med hjälp av din favorit-IDE, inklusive:
+### <a name="rich-cross-platform-sdks-for-advanced-users"></a>Omfattande plattforms oberoende SDK: er för avancerade användare
+Data Factory v2 innehåller en omfattande uppsättning SDK: er som kan användas för att skapa, hantera och övervaka pipelines med hjälp av din favorit-IDE, inklusive:
 * Python SDK
 * PowerShell CLI
 * C#-SDK
 
-Användare kan också använda dokumenterade REST API: er för gränssnittet med Data Factory V2.
+Användare kan också använda de dokumenterade REST API: erna för gränssnitt med Data Factory v2.
 
-### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Iterativ utveckling och felsökning med hjälp av visuella verktyg
-Azure Data Factory visuella verktyg aktivera iterativ utveckling och felsökning. Du kan skapa dina pipelines och testa körningar med hjälp av den **felsöka** funktionen i rityta för pipelinen utan att behöva skriva en enda rad kod. Du kan visa resultatet av dina testkörningar i den **utdata** tidsfönster rityta för pipelinen. När du kör testet lyckas, kan du lägga till fler aktiviteter i din pipeline och fortsätta felsökning i en iterativ sätt. Du kan också avbryta din testkörningar när de har pågår. 
+### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Iterativ utveckling och fel sökning med hjälp av visuella verktyg
+Azure Data Factory visuella verktyg möjliggör iterativ utveckling och fel sökning. Du kan skapa dina pipelines och utföra test körningar med hjälp av **fel söknings** funktionen i pipeline-arbetsytan utan att skriva en enda rad med kod. Du kan visa resultatet av dina test körningar i fönstret **utdata** för din pipeline-arbetsyta. När test körningen lyckas kan du lägga till fler aktiviteter i din pipeline och fortsätta fel sökningen på ett iterativt sätt. Du kan också avbryta test körningarna när de pågår. 
 
-Du behöver inte att publicera ändringarna till data factory-tjänsten innan du väljer **felsöka**. Det här är användbart i scenarier där du vill kontrollera att den nya tillägg eller ändringar kommer att fungera som förväntat innan du uppdaterar din data factory-arbetsflöden i miljöer för utveckling, testning eller produktion. 
+Du behöver inte publicera dina ändringar i Data Factory-tjänsten innan du väljer **Felsök**. Detta är användbart i scenarier där du vill se till att de nya tilläggen eller ändringarna fungerar som förväntat innan du uppdaterar data Factory-arbetsflöden i utvecklings-, test-eller produktions miljöer. 
 
-### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Möjligheten att distribuera SSIS-paket till Azure 
-Om du vill flytta SSIS-arbetsbelastningar kan du skapa en Datafabrik och etablera en Azure-SSIS integration runtime. En Azure-SSIS integration runtime är ett fullständigt hanterat kluster av virtuella Azure-datorer (noder) dedikerade för att köra dina SSIS-paket i molnet. Stegvisa instruktioner finns i den [distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md) självstudien. 
+### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Möjlighet att distribuera SSIS-paket till Azure 
+Om du vill flytta dina SSIS-arbetsbelastningar kan du skapa en Data Factory och etablera en Azure-SSIS integration Runtime. En Azure-SSIS integration runtime är ett fullständigt hanterat kluster med virtuella Azure-datorer (noder) som är dedikerade att köra dina SSIS-paket i molnet. Stegvisa instruktioner finns i själv studie kursen [distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md) . 
  
 ### <a name="sdks"></a>SDK:er
-Om du är en avancerad användare och behöver ett programmeringsgränssnitt har Data Factory tillhandahåller en omfattande uppsättning SDK: er som du kan använda för att skapa, hantera och övervaka pipelines med hjälp av din favorit-IDE. Språk som stöds omfattar .NET, PowerShell, Python och REST.
+Om du är en avancerad användare och söker efter ett programmerings gränssnitt innehåller Data Factory en omfattande uppsättning SDK: er som du kan använda för att skapa, hantera eller övervaka pipelines med hjälp av din favorit-IDE. Språk stöd omfattar .NET, PowerShell, python och REST.
 
 ### <a name="monitoring"></a>Övervakning
-Du kan övervaka dina Datafabriker via PowerShell, SDK eller Visual övervakningsverktyg i det webbläsarbaserade användargränssnittet. Du kan övervaka och hantera på begäran, utlösningsbaserade och clock-drivna anpassade flöden på ett effektivt sätt. Avbryt befintliga aktiviteter, se fel på ett ögonblick, granska nedåt för att få detaljerade felmeddelanden och felsöka problem, allt från en enda glasruta utan kontext växlar eller navigera fram och tillbaka mellan skärmar. 
+Du kan övervaka dina data fabriker via PowerShell, SDK eller visuella övervaknings verktyg i webbläsarens användar gränssnitt. Du kan övervaka och hantera på begäran, Utlös ande och klock baserade anpassade flöden på ett effektivt och effektivt sätt. Avbryt befintliga uppgifter, se fel snabbt, öka detalj nivån för att få detaljerade fel meddelanden och Felsök problemen, allt från en enda ruta utan Sammanhangs beroende eller navigering fram och tillbaka mellan skärmar. 
 
 ### <a name="new-features-for-ssis-in-data-factory"></a>Nya funktioner för SSIS i Data Factory
-Eftersom det första offentligt förhandsversionen 2017, Data Factory har lagt till följande funktioner för SSIS:
+Eftersom den första offentliga för hands versionen i 2017 har Data Factory lagt till följande funktioner för SSIS:
 
--   Stöd för tre flera konfigurationer/varianter av Azure SQL Database som värd för SSIS-databasen (SSISDB) med projekt /-paket:
--   SQL-databas med tjänstslutpunkter i virtuella nätverk
+-   Stöd för tre fler konfigurationer/varianter av Azure SQL Database som är värdar för SSIS-databasen (SSISDB) för projekt/paket:
+-   SQL Database med tjänst slut punkter för virtuellt nätverk
 -   Hanterad instans
 -   Elastisk pool
--   Stöd för en Azure Resource Manager-nätverk på ett klassiskt virtuellt nätverk till att bli inaktuella i framtiden, där du kan mata in/anslutning till din Azure-SSIS integration runtime till ett virtuellt nätverk som konfigurerats för SQL-databas med virtual network-tjänsten åtkomst till slutpunkter MI/och lokala data. Mer information finns också [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).
--   Stöd för Azure Active Directory (Azure AD)-autentisering och SQL-autentisering för att ansluta till SSISDB, vilket gör att Azure AD-autentisering med din Data Factory hanterad identitet för Azure-resurser
--   Stöd för att leverera dina egna lokala SQL Server-licens och få betydande kostnadsbesparingar från alternativet Azure Hybrid-förmånen
--   Stöd för Enterprise-versionen av Azure-SSIS integration runtime som låter dig använda avancerade/premium-funktioner, en anpassad installation-gränssnittet för att installera ytterligare komponenter/tillägg och ett partnerekosystem. Mer information finns också [Enterprise Edition, anpassad installation och 3 part utökningsbarhet för SSIS i ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
--   Djupare integrering av SSIS i Data Factory som låter dig anropa/utlösare förstklassig köra SSIS-paket aktiviteter i Data Factory-pipeliner och schemalägger dem via SSMS. Mer information finns också [Modernize och utöka dina ETL/ELT-arbetsflöden med SSIS-aktiviteter i ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
+-   Stöd för ett Azure Resource Manager virtuellt nätverk ovanpå ett klassiskt virtuellt nätverk för att bli inaktuellt i framtiden, vilket gör att du kan mata in/ansluta din Azure-SSIS integration runtime till ett virtuellt nätverk som har kon figurer ATS för SQL Database med Virtual Network Service slut punkter/MI/lokal data åtkomst. Mer information finns även i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).
+-   Stöd för Azure Active Directory (Azure AD)-autentisering och SQL-autentisering för att ansluta till SSISDB, vilket ger Azure AD-autentisering med din Data Factory hanterade identitet för Azure-resurser
+-   Stöd för att ta med din egen lokala SQL Server-licens för att få avsevärda kostnads besparingar från Azure Hybrid-förmåns alternativet
+-   Stöd för Enterprise-utgåvan av Azure-SSIS integration runtime som gör att du kan använda avancerade/Premium-funktioner, ett anpassat installations gränssnitt för att installera ytterligare komponenter/tillägg och ett eko system för partner. Mer information finns i [Enterprise Edition, anpassad installation och utökning från tredje part för SSIS i ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
+-   Djupare integrering av SSIS i Data Factory som låter dig anropa/utlösa den första klassens kör SSIS-programpaket aktiviteter i Data Factory pipelines och Schemalägg dem via SSMS. Mer information finns även i [modernisera och utöka dina ETL/ELT-arbetsflöden med SSIS-aktiviteter i ADF-pipeline](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
 
 
-## <a name="what-is-the-integration-runtime"></a>Vad är integreringskörningen?
-Integration runtime är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla följande funktioner för dataintegrering i olika nätverksmiljöer:
+## <a name="what-is-the-integration-runtime"></a>Vad är integrerings körningen?
+Integrerings körningen är den beräknings infrastruktur som Azure Data Factory använder för att tillhandahålla följande funktioner för data integrering i olika nätverks miljöer:
 
-- **Dataförflyttning**: Vid dataförflyttning flyttar integration runtime data mellan käll- och datalager, även stöd för inbyggda anslutningsprogram, Formatkonvertering, kolumnmappning och bättre och skalbar dataöverföring.
-- **Skicka ut aktiviteter**: För transformering har innehåller integration runtime internt körning av SSIS-paket.
-- **Köra SSIS-paket**: Integration runtime körs internt SSIS-paket i en hanterad Azure-beräkningsmiljö. Integration runtime har även stöd för att skicka och övervaka transformeringsaktiviteter som körs på en rad olika Beräkningstjänster som Azure HDInsight, Azure Machine Learning, SQL Database och SQL Server.
+- **Data förflyttning**: Vid data förflyttning flyttar integration runtime data mellan käll-och mål data lager och ger stöd för inbyggda anslutnings program, format konvertering, kolumn mappning och utförd och skalbar data överföring.
+- **Sändnings aktiviteter**: För omvandling ger integrerings körningen möjlighet att internt köra SSIS-paket.
+- **Kör SSIS-paket**: Integrerings körningen utför internt SSIS-paket i en hanterad Azure Compute-miljö. Integrerings körningen har även stöd för att skicka och övervaka omvandlings aktiviteter som körs på en mängd olika beräknings tjänster, till exempel Azure HDInsight, Azure Machine Learning, SQL Database och SQL Server.
 
-Du kan distribuera en eller flera instanser av integration runtime som krävs för att flytta och omvandla data. Integration runtime kan köras på en Azures offentliga nätverk eller i ett privat nätverk (lokalt, Azure Virtual Network eller Amazon Web Services virtuellt privat moln [VPC]). 
+Du kan distribuera en eller flera instanser av integration runtime efter behov för att flytta och transformera data. Integrerings körningen kan köras på ett offentligt Azure-nätverk eller i ett privat nätverk (lokalt, Azure Virtual Network eller Amazon Web Services virtuellt privat moln [VPC]). 
 
 Mer information finns i [Integration Runtime i Azure Data Factory](concepts-integration-runtime.md).
 
-## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Vad är gränsen för antalet integreringskörningar?
-Det finns ingen hård gräns för antalet integration runtime-instanser som du kan ha i en data factory. Det finns dock en gräns för antalet VM-kärnor som integration runtime kan använda per prenumeration för körning av SSIS-paket. Mer information finns i [Data Factory begränsar](../azure-subscription-service-limits.md#data-factory-limits).
+## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Vad är gränsen för antalet integrerings körningar?
+Det finns ingen hård gräns för antalet integration runtime-instanser som du kan ha i en data fabrik. Det finns dock en gräns för antalet virtuella dator kärnor som integration runtime kan använda per prenumeration för körning av SSIS-paket. Mer information finns i [Data Factory gränser](../azure-subscription-service-limits.md#data-factory-limits).
 
-## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Vad är toppnivåbegrepp i Azure Data Factory?
-En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller datafabriker). Azure Data Factory innehåller fyra nyckelkomponenter som samverkar som en plattform där du kan skapa datadrivna arbetsflöden med steg för att flytta och omvandla data.
+## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Vilka är de viktigaste begreppen i Azure Data Factory?
+En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller datafabriker). Azure Data Factory innehåller fyra viktiga komponenter som fungerar tillsammans som en plattform där du kan skapa data drivna arbets flöden med steg för att flytta och transformera data.
 
-### <a name="pipelines"></a>Pipelines
-En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering av aktiviteter för att utföra en arbetsprocess. Aktiviteterna i en pipeline utför en uppgift tillsammans. En pipeline kan till exempel innehålla en grupp med aktiviteter som matar in data från en Azure-blob och sedan köra en Hive-fråga på ett HDInsight-kluster för att partitionera data. Fördelen är att du kan använda en pipeline för att hantera aktiviteterna som en uppsättning i stället för att hantera varje aktivitet enskilt. Du kan länka ihop aktiviteter i en pipeline kan köras sekventiellt dem, eller du kan använda dem oberoende av varandra, parallellt.
+### <a name="pipelines"></a>Rörledningar
+En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering av aktiviteter för att utföra en arbets enhet. Aktiviteterna i en pipeline utför en uppgift tillsammans. En pipeline kan till exempel innehålla en grupp med aktiviteter som matar in data från en Azure-blob och sedan kör en Hive-fråga på ett HDInsight-kluster för att partitionera data. Fördelen är att du kan använda en pipeline för att hantera aktiviteterna som en uppsättning i stället för att behöva hantera varje aktivitet individuellt. Du kan kedja samman aktiviteterna i en pipeline för att kunna använda dem i tur och ordning, eller så kan du använda dem oberoende av varandra parallellt.
 
 ### <a name="activities"></a>Aktiviteter
-Aktiviteter representerar ett bearbetningssteg i en pipeline. Du kan till exempel använda en Kopieringsaktivitet för att kopiera data från ett datalager till ett annat datalager. På samma sätt kan du använda en Hive-aktivitet som kör en Hive-fråga på ett Azure HDInsight-kluster för att transformera eller analysera dina data. Data Factory stöder tre typer av aktiviteter: dataförflyttning, datatransformering och kontroll.
+Aktiviteter representerar ett bearbetningssteg i en pipeline. Du kan till exempel använda en kopierings aktivitet för att kopiera data från ett data lager till ett annat data lager. På samma sätt kan du använda en Hive-aktivitet som kör en Hive-fråga på ett Azure HDInsight-kluster för att transformera eller analysera dina data. Data Factory stöder tre typer av aktiviteter: dataförflyttning, datatransformering och kontroll.
 
 ### <a name="datasets"></a>Datauppsättningar
 Datauppsättningar representerar datastrukturer i datalager som pekar på eller refererar till de data som du vill använda i dina aktiviteter som indata eller utdata. 
 
 ### <a name="linked-services"></a>Länkade tjänster
-Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Tänk på det sätt: Datamängden representerar strukturen för data och länkade tjänsten definierar anslutningen till datakällan. Till exempel anger en länkad Azure Storage-tjänsten anslutningssträngen för att ansluta till Azure Storage-kontot. Och en Azure blob-datauppsättning anger vilken blobbehållare och mapp som innehåller data.
+Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Tänk på det på det här sättet: En länkad tjänst definierar anslutningen till data källan och en data uppsättning representerar data strukturen. Till exempel anger en länkad tjänst en Azure Storage anslutnings strängen för att ansluta till Azure Storage-kontot. Och en Azure Blob-datauppsättning anger BLOB-behållaren och mappen som innehåller data.
 
-Länkade tjänster har två syften i Data Factory:
+Länkade tjänster har två syfte i Data Factory:
 
-- Att representera en *datalager* som omfattar men är inte begränsat till, en lokal SQL Server-instans, en Oracle database-instans, en filresurs eller ett Azure Blob storage-konto. En lista över datalager som stöds finns i [Kopieringsaktivitet i Azure Data Factory](copy-activity-overview.md).
-- Så här visar du en *beräkningsresurs* som kan vara värd för körningen av en aktivitet. Till exempel körs HDInsight Hive-aktiviteten på ett HDInsight Hadoop-kluster. En lista över transformeringsaktiviteter och beräkningsmiljöer som stöds finns i [Transformera data i Azure Data Factory](transform-data.md).
+- För att representera ett *data lager* som inkluderar, men inte är begränsat till, en lokal SQL Server instans, en Oracle Database-instans, en fil resurs eller ett Azure Blob Storage-konto. En lista över data lager som stöds finns i [Kopiera aktivitet i Azure Data Factory](copy-activity-overview.md).
+- Så här visar du en *beräkningsresurs* som kan vara värd för körningen av en aktivitet. HDInsight Hive-aktiviteten körs till exempel på ett HDInsight Hadoop-kluster. En lista över omvandlings aktiviteter och beräknings miljöer som stöds finns i [transformera data i Azure Data Factory](transform-data.md).
 
 ### <a name="triggers"></a>Utlösare
-Utlösare representerar enheter av bearbetning som avgör när en pipeline-åtgärd har startats. Det finns olika typer av utlösare för olika typer av händelser. 
+Utlösare representerar bearbetnings enheter som avgör när en pipeline-körning startas. Det finns olika typer av utlösare för olika typer av händelser. 
 
 ### <a name="pipeline-runs"></a>Pipelinekörningar
-En pipelinekörning är en instans av en pipelinekörning. Du vanligtvis skapa en instans av en pipeline som körs genom att skicka argument till parametrar som definierats i pipelinen. Du kan skicka argumenten manuellt eller i en utlösardefinition.
+En pipeline-körning är en instans av en pipeline-körning. Du instansierar vanligt vis en pipeline-körning genom att skicka argument till de parametrar som har definierats i pipelinen. Du kan skicka argumenten manuellt eller inom utlösnings definitionen.
 
 ### <a name="parameters"></a>Parametrar
-Parametrar är nyckel / värde-par i en skrivskyddad konfiguration. Du kan definiera parametrar i en pipeline och argumenten för de definierade parametrarna skickas vid körning från en körningskontexten. Körningskontexten skapas av en utlösare eller från en pipeline som du kör manuellt. Aktiviteter i pipelinen använder parametervärdena.
+Parametrar är nyckel/värde-par i en skrivskyddad konfiguration. Du definierar parametrar i en pipeline och du skickar argumenten för de definierade parametrarna under körningen från en körnings kontext. Körnings kontexten skapas av en utlösare eller från en pipeline som du kör manuellt. Aktiviteter i pipelinen använder parametervärdena.
 
-En datauppsättning är en starkt typifierad parameter och en entitet som du kan återanvända eller referera till. En aktivitet kan referera till datauppsättningar och den kan använda egenskaperna som definierats i definitionen för datauppsättningen.
+En data uppsättning är en starkt skriven parameter och en entitet som du kan återanvända eller referera till. En aktivitet kan referera till data uppsättningar och kan använda de egenskaper som har definierats i data uppsättnings definitionen.
 
-En länkad tjänst är också en starkt typifierad parameter som innehåller anslutningsinformationen till antingen ett datalager eller en beräkningsmiljö. Det är också en entitet som du kan återanvända eller referera till.
+En länkad tjänst är också en starkt skriven parameter som innehåller anslutnings information till antingen ett data lager eller en beräknings miljö. Det är också en entitet som du kan återanvända eller referera till.
 
 ### <a name="control-flows"></a>Styr flöden
-Kontrollen flöden dirigera pipelineaktiviteter som innehåller kedjesammansättning av aktiviteter i en sekvens, branchning, parametrar som du anger på pipelinenivå och argument som du skickar du anropa pipeline på begäran eller från en utlösare. Kontrollen flöden inkluderar även skicka anpassade tillstånd och loopbehållare (det vill säga foreach-Iteratorer).
+Kontroll flöden dirigerar pipeline-aktiviteter som innefattar länkning av aktiviteter i en sekvens, förgrening, parametrar som du definierar på pipelinen och argument som du skickar när du anropar pipelinen på begäran eller från en utlösare. Kontroll flöden omfattar också anpassade tillstånds pass och upprepnings behållare (det vill säga, förfallna iteratorer).
 
 
 Mer information om Data Factory-begrepp finns i följande artiklar:
@@ -149,67 +148,67 @@ Mer information om Data Factory-begrepp finns i följande artiklar:
 - [Pipelines och aktiviteter](concepts-pipelines-activities.md)
 - [Integration runtime](concepts-integration-runtime.md)
 
-## <a name="what-is-the-pricing-model-for-data-factory"></a>Vad är prismodellen för Data Factory?
-Azure Data Factory prisinformation, se [Data Factory prisinformation](https://azure.microsoft.com/pricing/details/data-factory/).
+## <a name="what-is-the-pricing-model-for-data-factory"></a>Vad är pris sättnings modellen för Data Factory?
+Azure Data Factory pris information finns i [Data Factory pris information](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Hur kan jag hålla dig uppdaterad med information om Data Factory?
-Den senaste informationen om Azure Data Factory finns på följande webbplatser:
+För den senaste informationen om Azure Data Factory går du till följande webbplatser:
 
 - [Blogg](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [Startsida för dokumentation](/azure/data-factory)
-- [Startsida för produkten](https://azure.microsoft.com/services/data-factory/)
+- [Dokumentations start sida](/azure/data-factory)
+- [Produktens start sida](https://azure.microsoft.com/services/data-factory/)
 
-## <a name="technical-deep-dive"></a>Teknisk djupdykning 
+## <a name="technical-deep-dive"></a>Teknisk djupgående 
 
 ### <a name="how-can-i-schedule-a-pipeline"></a>Hur kan jag schemalägga en pipeline? 
-Du kan använda scheduler-utlösare eller utlösare för tid fönster för att schemalägga en pipeline. Utlösaren använder en kalender tidsschema, som kan schemalägga pipelines med jämna mellanrum eller i kalender-baserade återkommande mönster till exempel på (måndagar kl 6:00) och torsdag kl. 9:00. Mer information finns i [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
+Du kan använda utlösaren för Scheduler eller tids perioden för att schemalägga en pipeline. Utlösaren använder ett schema med en klock kalender som kan schemalägga pipeliner regelbundet eller i kalenderbaserade omaktuella mönster (till exempel på måndagar kl. 6:00 PM och torsdag på 9:00 PM). Mer information finns i [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
 
 ### <a name="can-i-pass-parameters-to-a-pipeline-run"></a>Kan jag skicka parametrar till en pipeline-körning?
-Ja, parametrar är ett förstklassigt, översta koncept i Data Factory. Du kan definiera parametrar på pipelinenivå och skicka argument när du kör den pipeline som körs på begäran eller genom att använda en utlösare.  
+Ja, parametrarna är ett första klass koncept på översta nivån i Data Factory. Du kan definiera parametrar på pipeline-nivå och skicka argument när du kör pipelinen körs på begäran eller genom att använda en utlösare.  
 
-### <a name="can-i-define-default-values-for-the-pipeline-parameters"></a>Kan jag ange standardvärden för pipeline-parametrar? 
-Ja. Du kan definiera standardvärden för parametrar i pipelines. 
+### <a name="can-i-define-default-values-for-the-pipeline-parameters"></a>Kan jag definiera standardvärden för pipeline-parametrarna? 
+Ja. Du kan definiera standardvärden för parametrarna i pipelinen. 
 
-### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>En aktivitet i en pipeline kan använda argumenten som skickas till en pipelinekörning? 
-Ja. Varje aktivitet i pipeline kan använda det parametervärde som har skickats till pipelinen och fungerar med den `@parameter` konstruera. 
+### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>Kan en aktivitet i en pipeline förbruka argument som skickas till en pipeline-körning? 
+Ja. Varje aktivitet i pipelinen kan använda det parameter värde som skickas till pipelinen och köras med `@parameter` konstruktionen. 
 
-### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Kan en aktivitetsegenskap utdata användas i en annan aktivitet? 
-Ja. Aktivitetsutdata kan användas i en efterföljande aktivitet med den `@activity` konstruera.
+### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Kan en aktivitets utmatnings egenskap användas i en annan aktivitet? 
+Ja. En aktivitets utdata kan förbrukas i en efterföljande aktivitet `@activity` med konstruktionen.
  
-### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Hur ska jag ett smidigt sätt hantera null-värden i en aktivitetsutdata? 
-Du kan använda den `@coalesce` konstruera i uttryck att hantera null-värden utan problem. 
+### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Hur gör jag för att hantera null-värden korrekt i en aktivitets utdata? 
+Du kan använda `@coalesce` konstruktionen i uttrycken för att hantera null-värden på ett smidigt sätt. 
 
-## <a name="mapping-data-flows"></a>Mappningen dataflöden
+## <a name="mapping-data-flows"></a>Mappa data flöden
 
-### <a name="which-data-factory-version-do-i-use-to-create-data-flows"></a>Vilken Data Factory-version ska jag använda för att skapa dataflöden?
-Använd Data Factory V2-version för att skapa dataflöden.
+### <a name="which-data-factory-version-do-i-use-to-create-data-flows"></a>Vilken Data Factory version använder jag för att skapa data flöden?
+Använd Data Factory v2-versionen för att skapa data flöden.
   
-### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>Jag har en tidigare av privata förhandsversionskund som har använt dataflöden och jag har använt förhandsversionen Data Factory V2 för dataflöden.
-Den här versionen är nu föråldrad. Använd Data Factory V2 för dataflöden.
+### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>Jag var en tidigare privat förhands gransknings kund som använde data flöden och använde Data Factory v2 för hands versionen av data flöden.
+Den här versionen är nu föråldrad. Använd Data Factory v2 för data flöden.
   
-### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>Vad har ändrats från privat förhandsgranskning för den begränsade offentliga förhandsversionen gäller dataflöden?
-Du kommer inte längre behöva ta med din egen Azure Databricks-kluster. Data Factory att hantera klustret har skapats och tear nedåt. BLOB-datauppsättningar och Azure Data Lake Storage Gen2 datauppsättningar är indelade i avgränsad text och Apache Parquet-datauppsättningar. Du kan fortfarande använda Data Lake Storage Gen2 och Blob storage för att lagra filerna. Använd lämplig länkad tjänst för de motorerna för lagring.
+### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>Vad har ändrats från privat förhands granskning till en begränsad offentlig för hands version i avseende på data flöden?
+Du kommer inte längre behöva ta med dina egna Azure Databricks-kluster. Data Factory hanterar skapande och avrivnings kluster. BLOB-datauppsättningar och Azure Data Lake Storage Gen2 data uppsättningar är indelade i avgränsade text-och Apache Parquet-datauppsättningar. Du kan fortfarande använda Data Lake Storage Gen2-och blob-lagring för att lagra dessa filer. Använd lämplig länkad tjänst för dessa lagrings motorer.
 
-### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>Kan jag migrera min privat förhandsgranskning fabriker till Data Factory V2?
+### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>Kan jag migrera mina privata förhands gransknings fabriker till Data Factory v2?
 
-Ja. [Följ instruktionerna](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
+Ja. [Följ anvisningarna](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
 
-### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>Jag behöver hjälp med att felsöka min logik för flödet av data. Vilken information behöver jag för att få hjälp?
+### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>Jag behöver hjälp med att felsöka min data flödes logik. Vilken information behöver jag tillhandahålla för att få hjälp?
 
-När Microsoft tillhandahåller hjälp eller felsökning med dataflöden, ange DSL kod planen. Det gör du genom att följa dessa steg:
+När Microsoft tillhandahåller hjälp eller fel sökning med data flöden, ska du ange en kod för DSL-koden. Det gör du genom att följa dessa steg:
 
-1. Data flödar Designer väljer **kod** i det övre högra hörnet. Då visas redigerbar JSON-koden för dataflödet.
-2. Välj kodvyn **planera** i det övre högra hörnet. Den här växlingsknappen växlar från JSON till skrivskyddad formaterade DSL skriptet planen.
-3. Kopiera och klistra in det här skriptet eller spara den i en textfil.
+1. Välj **kod** i det övre högra hörnet i data flödes designern. Då visas den redigerbara JSON-koden för data flödet.
+2. I kodvyn väljer du **plan** i det övre högra hörnet. Den här växlingen växlar från JSON till den skrivskyddade DSL-skript planen.
+3. Kopiera och klistra in det här skriptet eller spara det i en textfil.
 
-### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>Hur kommer jag åt data med hjälp av andra 80 datauppsättningstyper i Data Factory?
+### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>Hur gör jag för att åtkomst till data genom att använda de andra 80 data uppsättnings typerna i Data Factory?
 
-Funktionen för mappning av dataflöde kan för närvarande Azure SQL Database, Azure SQL Data Warehouse avgränsade textfiler från Azure Blob storage eller Azure Data Lake Storage Gen2 och Parquet-filer från Blob storage eller Data Lake Storage Gen2 internt för källa och mottagare. 
+Funktionen mappa data flöde tillåter för närvarande Azure SQL Database, Azure SQL Data Warehouse, avgränsade textfiler från Azure Blob Storage eller Azure Data Lake Storage Gen2 och Parquet-filer från Blob Storage eller Data Lake Storage Gen2 internt för källa och mottagare. 
 
-Använda kopieringsaktiviteten för att organisera data från någon av de andra anslutningsapparna och sedan köra aktiviteten dataflöde för att omvandla data när det mellanlagras. Till exempel din pipeline kopieras först till Blob-lagring och sedan aktiviteten dataflöde använder en datauppsättning i källan för att transformera data.
+Använd kopierings aktiviteten till att mellanlagra data från någon av de andra kopplingarna och kör sedan en data flödes aktivitet för att transformera data när de har mellanlagrats. Till exempel kommer din pipeline först att kopieras till Blob Storage och sedan använder en data flödes aktivitet en data uppsättning i källan för att transformera dessa data.
 
 ## <a name="next-steps"></a>Nästa steg
-Stegvisa instruktioner för att skapa en datafabrik, finns i följande Självstudier:
+Steg-för-steg-instruktioner för att skapa en data fabrik finns i följande Självstudier:
 
-- [Snabbstart: Skapa en datafabrik](quickstart-create-data-factory-dot-net.md)
-- [Självstudie: Kopieringsdata i molnet](tutorial-copy-data-dot-net.md)
+- [Snabbstart: Skapa en data fabrik](quickstart-create-data-factory-dot-net.md)
+- [Självstudier: Kopiera data i molnet](tutorial-copy-data-dot-net.md)

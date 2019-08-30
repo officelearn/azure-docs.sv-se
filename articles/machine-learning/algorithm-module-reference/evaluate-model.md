@@ -1,7 +1,7 @@
 ---
-title: 'Utvärdera modellen: Modulreferens'
+title: 'Utvärdera modell: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig mer om att använda modulen utvärdera modell i Azure Machine Learning-tjänsten för att mäta det arbete du utfört en tränad modell.
+description: Lär dig hur du använder modulen utvärdera modell i Azure Machine Learning-tjänsten för att mäta noggrannheten i en utbildad modell.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,122 +9,121 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 40a8247c22da1f7a057e222565ffb2ec4c6b7fb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17263c8e7300f427b7d82aea65e1f83edf6d6fc4
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028747"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128857"
 ---
-# <a name="evaluate-model-module"></a>Utvärdera modell
+# <a name="evaluate-model-module"></a>Utvärdera modell modul
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Du kan använda den här modulen för att mäta det arbete du utfört en tränad modell. Du anger en datauppsättning som innehåller resultat som genereras från en modell och **utvärdera modell** modulen beräknar en uppsättning utvärderingsmått branschstandard.
+Använd den här modulen för att mäta noggrannheten för en utbildad modell. Du anger en data uppsättning som innehåller resultat som genererats från en modell, och modulen **utvärdera modell** beräknar en uppsättning utvärderings mått som är bransch standard.
   
- De mätvärden som returneras av **utvärdera modell** beror på vilken typ av modell som du utvärderar:  
+ Måtten som returneras av **evaluate-modellen** beror på vilken typ av modell du utvärderar:  
   
--   **Klassificering modeller**    
--   **Regressionsmodeller**    
+-   **Klassificerings modeller**    
+-   **Regressions modeller**    
 
 
 
 > [!TIP]
-> Om du är nybörjare på modellen utvärderingen rekommenderar vi videoserien av Dr. Stephen Elston, som en del av den [datorn utbildningen](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) från EdX. 
+> Om du inte har använt modell utvärderingen rekommenderar vi video serien av Dr. Stephen Elston, som en del av [Machine Learning-kursen](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) från EDX. 
 
 
-Det finns tre sätt att använda den **utvärdera modell** modulen:
+Det finns tre sätt att använda modulen **utvärdera modell** :
 
-+ Generera poäng över dina utbildningsdata och utvärdera modellen baserat på dessa poäng
-+ Generera poäng på modellen, men jämföra dessa resultat att poäng på en reserverad testmängden
-+ Jämför resultat för två relaterade modeller med samma uppsättning data
++ Generera poäng över dina utbildnings data och utvärdera modellen baserat på dessa Poäng
++ Generera poäng i modellen, men jämför dessa resultat med resultat från en reserverad test uppsättning
++ Jämför poängen för två olika men relaterade modeller med samma uppsättning data
 
-## <a name="use-the-training-data"></a>Använd träningsdata
+## <a name="use-the-training-data"></a>Använd tränings data
 
-Om du vill utvärdera en modell, måste du ansluta en datauppsättning som innehåller en uppsättning indatakolumner och poäng.  Om inga andra data är tillgängliga, kan du använda din ursprungliga datauppsättning.
+Om du vill utvärdera en modell måste du ansluta en data uppsättning som innehåller en uppsättning kolumner och resultat.  Om inga andra data är tillgängliga kan du använda den ursprungliga data uppsättningen.
 
-1. Ansluta den **poängsätts datauppsättning** utdata av de [Poängmodell](./score-model.md) till indata för **utvärdera modell**. 
-2. Klicka på **utvärdera modell** modulen och kör experimentet att generera utvärdering poängen.
+1. Anslut poängen för **data uppsättningen** i [Poäng modellen](./score-model.md) till indata för **utvärdera modell**. 
+2. Klicka på **utvärdera modell** modul och kör experimentet för att generera utvärderings poängen.
 
-## <a name="use-testing-data"></a>Använda testdata
+## <a name="use-testing-data"></a>Använd test data
 
-Ett vanligt scenario i machine learning är att dela din ursprungliga datauppsättningen i träning och testning datauppsättningar som använder den [dela](./split-data.md) modulen eller [partitionera och ta prover](./partition-and-sample.md) modulen. 
+Ett vanligt scenario i Machine Learning är att separera din ursprungliga data uppsättning till utbildning och testning av data uppsättningar, med hjälp av modulen [Split](./split-data.md) eller modulen [partition och exempel](./partition-and-sample.md) . 
 
-1. Ansluta den **poängsätts datauppsättning** utdata av de [Poängmodell](score-model.md) till indata för **utvärdera modell**. 
-2. Anslut utdataporten för modulen dela Data som innehåller testdata till den högra indataporten för **utvärdera modell**.
-2. Klicka på **utvärdera modell** modul och välj **kör valda** att generera utvärdering poängen.
+1. Anslut poängen för **data uppsättningen** i [Poäng modellen](score-model.md) till indata för **utvärdera modell**. 
+2. Anslut utdata från modulen dela data som innehåller test data till den högra inmatningen av **utvärdera modell**.
+2. Klicka på **utvärdera modell** modul och välj **Kör valt** för att generera utvärderings poängen.
 
-## <a name="compare-scores-from-two-models"></a>Jämför resultatet från två modeller
+## <a name="compare-scores-from-two-models"></a>Jämför resultat från två modeller
 
-Du kan också ansluta till en annan uppsättning resultat till **utvärdera modell**.  Poängen kan vara en delad utvärdering uppsättning som har visat resultaten eller en uppsättning resultat från en annan modell för samma data.
+Du kan också ansluta en andra uppsättning Poäng för att **utvärdera modellen**.  Poängen kan vara en delad utvärderings uppsättning som har kända resultat eller en uppsättning resultat från en annan modell för samma data.
 
-Den här funktionen är bra eftersom du enkelt kan jämföra resultaten från två olika modeller på samma data. Eller så kan du jämföra resultat från två olika körningar av samma data med olika parametrar.
+Den här funktionen är användbar eftersom du enkelt kan jämföra resultat från två olika modeller på samma data. Eller så kan du jämföra resultat från två olika körningar över samma data med olika parametrar.
 
-1. Ansluta den **poängsätts datauppsättning** utdata av de [Poängmodell](score-model.md) till indata för **utvärdera modell**. 
-2. Anslut utdataporten för modulen poängsätta modell för den andra modellen till den högra indataporten för **utvärdera modell**.
-3. Högerklicka på **utvärdera modell**, och välj **kör valda** att generera utvärdering poängen.
+1. Anslut poängen för **data uppsättningen** i [Poäng modellen](score-model.md) till indata för **utvärdera modell**. 
+2. Anslut utdata från modulen Poäng modell för den andra modellen till den högra inmatningen av **utvärdera modell**.
+3. Högerklicka på **utvärdera modell**och välj **Kör valda** för att generera utvärderings poängen.
 
 ## <a name="results"></a>Resultat
 
-När du har kört **utvärdera modell**, högerklickar du på modulen och välj **utvärderingsresultat** att se resultaten. Du kan:
+När du har kört **utvärdera modell**högerklickar du på modulen och väljer **utvärderings resultat** för att se resultatet. Du kan:
 
-+ Spara resultatet som en datauppsättning för enklare analys med andra verktyg
++ Spara resultatet som en data uppsättning för enklare analys med andra verktyg
 + Generera en visualisering i gränssnittet
 
-Om du ansluter datauppsättningar till både indata för **utvärdera modell**, resultatet innehåller mått för båda uppsättning data eller båda modellerna.
-Modellen eller data som bifogas till den vänstra porten visas först i rapporten, följt av mått för datauppsättningen eller modellen på rätt port.  
+Om du ansluter data uppsättningar till båda indata för **utvärdera modell**kommer resultatet att innehålla mått för båda data uppsättningarna eller båda modellerna.
+Modellen eller data som är kopplade till den vänstra porten visas först i rapporten följt av måtten för data uppsättningen eller modellen som är kopplad till rätt port.  
 
-Följande bild representerar till exempel en jämförelse av resultaten från två klustring modeller som skapats på samma data, men med olika parametrar.  
+Följande bild visar till exempel en jämförelse av resultat från två kluster modeller som bygger på samma data, men med olika parametrar.  
 
 ![AML&#95;Comparing2Models](media/module/aml-comparing2models.png "AML_Comparing2Models")  
 
-Eftersom det här är en klustringsmodell skiljer utvärderingsresultaten sig från om jämfört med resultat från två regressionsmodeller, eller jämföra två modeller för klassificering. Den övergripande presentationen är dock desamma. 
+Eftersom det här är en kluster modell är utvärderings resultatet annorlunda än om du jämför resultat från två Regressions modeller eller jämför två klassificerings modeller. Den övergripande presentationen är dock densamma. 
 
 ## <a name="metrics"></a>Mått
 
-Det här avsnittet beskrivs de mätvärden som returneras för specifika typer av modeller som stöds för användning med **utvärdera modell**:
+I det här avsnittet beskrivs de mått som returneras för de olika typerna av modeller som stöds för användning med **utvärdera modell**:
 
-+ [klassificering modeller](#bkmk_classification)
-+ [regressionsmodeller](#bkmk_regression)
++ [klassificerings modeller](#bkmk_classification)
++ [Regressions modeller](#bkmk_regression)
 
-###  <a name="bkmk_classification"></a> Mått för klassificering modeller
+###  <a name="bkmk_classification"></a>Mått för klassificerings modeller
 
-Följande mått rapporteras vid utvärdering av modeller för klassificering. Om du jämför modeller är de rankade efter det mått som du väljer för utvärdering.  
+Följande mått rapporteras när klassificerings modeller utvärderas. Om du jämför modeller rangordnas de efter det mått som du väljer för utvärdering.  
   
--   **Precision** mäter godis av en klassificeringsmodellen som SANT resultaten till totalt antal fall.  
+-   **Noggrannhet** mäter en klassificerings modells lämplighet som andel sanna resultat av totalt antal fall.  
   
--   **Precision** är andelen SANT resultat över alla positiva resultat.  
+-   **Precision** är förhållandet mellan faktiska resultat och alla positiva resultat.  
   
--   **Kom ihåg** är andelen av alla korrekta resultat som returneras av modellen.  
+-   **Återkallande** är bråk delen av alla korrekta resultat som returneras av modellen.  
   
--   **F-score** beräknas som ett viktat medelvärde av precision och återkallande mellan 0 och 1, där det perfekta F-score-värdet är 1.  
+-   **F-score** beräknas som viktat medelvärde för precision och åter kallelse mellan 0 och 1, där det idealiska värdet F-Poäng är 1.  
   
--   **AUC** mått området under kurvan ritas med true positiva identifieringar på y-axeln och FALSKT positiva på x-axeln. Det här måttet är användbart eftersom det ger ett enda tal som gör att du jämför modeller av olika typer.  
+-   **AUC** mäter ytan under kurvan som ritas med sant positiva resultat på y-axeln och falska positiva identifieringar på x-axeln. Det här måttet är användbart eftersom det innehåller ett enda nummer som gör det möjligt att jämföra modeller av olika typer.  
   
-- **Genomsnittlig logg förlust** är ett enda värde som används för att uttrycka särskilda avgifter för felaktiga resultat. Det beräknas som skillnaden mellan två sannolikheten distributioner – det SANT och ett i modellen.  
+- **Genomsnittlig logg förlust** är ett enda poäng som används för att uttrycka sanktionen för fel resultat. Det beräknas som skillnaden mellan två sannolikhets fördelningar – det sanna, och den som finns i modellen.  
   
-- **Utbildning log förlust** är en enda riskpoäng som representerar utnyttja klassificeraren över en slumpmässig förutsägelse. Log förlusten mäter osäkerheten på om din modell genom att jämföra troliga den matar ut till kända värden (grunden sanningen) i etiketter. Du vill minimera logg för modellen som helhet.
+- **Inlärnings logg förlusten** är en enda poäng som representerar fördelen med klassificeraren över en slumpmässig förutsägelse. Logg förlusten mäter osäkerheten för din modell genom att jämföra sannolikheten att den matas till kända värden (mark sanningen) i etiketterna. Du vill minimera logg förlusten för modellen som helhet.
 
-##  <a name="bkmk_regression"></a> Mått för regressionsmodeller
+##  <a name="bkmk_regression"></a>Mät värden för Regressions modeller
  
-De mätvärden som returneras för regressionsmodeller Allmänt utformade för att beräkna hur mycket av fel.  En modell anses data får plats bra om skillnaden mellan observerade och förväntade värden är liten. Dock ser tittar på mönstret för restbelopp (skillnaden mellan helst för en förväntad och dess motsvarande faktiskt värde) du mycket om potentiella bias i modellen.  
+Mät värdena som returneras för Regressions modeller är vanligt vis utformade för att uppskatta mängden fel.  En modell anses vara bra anpassad om skillnaden mellan observerade och förväntade värden är liten. Men om du tittar på resten av resten (skillnaden mellan en förutsägande punkt och dess motsvarande faktiska värde) kan du få mycket information om potentiell förskjutning i modellen.  
   
- Följande mått rapporteras för att utvärdera regressionsmodeller. När du jämför modeller är de rankade efter det mått som du väljer för utvärdering.  
+ Följande mått rapporteras för utvärdering av Regressions modeller. När du jämför modeller rangordnas de efter det mått som du väljer för utvärdering.  
   
-- **Medelabsolutfel (MAE)** mäter hur nära förutsägelserna kommer de faktiska resultaten; därför en lägre poäng är bättre.  
+- **Medelvärde för absolut fel (Mae)** hur nära förutsägelserna är till de faktiska resultatet; Därför är en lägre poäng bättre.  
   
-- **Rot innebära kvadratfel (RMSE)** skapar ett enda värde som sammanfattar felet i modellen. Av squaring skillnaden ignorerar måttet skillnaden mellan över förutsägelse och under förutsägelse.  
+- **Rot genomsnitts fel (rmse)** skapar ett enskilt värde som sammanfattar felet i modellen. Genom att squaring skillnaden ignorerar måttet skillnaden mellan överförutsägelse och under förutsägelse.  
   
-- **Relativa absoluta fel (RAE)** är den relativa absoluta skillnaden mellan förväntade och faktiska värden; relativa eftersom medeldifferens divideras med det aritmetiska medelvärdet.  
+- **Relativ absolut fel (RAE)** är den relativa absoluta skillnaden mellan förväntade och faktiska värden. relativ eftersom genomsnitts skillnaden divideras med det aritmetiska medelvärdet.  
   
-- **Relativ cirkels fel (RSE)** på samma sätt normaliserar totala kvadratfel av de förväntade värdena genom att dividera med den totala kvadratfel över faktiska värden.  
+- **Ett relativt kvadratvärde (RSE)** normaliserar på samma sätt det totala antalet fel i det förväntade värdet genom att dividera med det totala antalet fel i det faktiska värdet.  
   
-- **Innebära noll ett fel (MZOE)** anger om förutsägelsen har rätt eller inte.  Med andra ord: `ZeroOneLoss(x,y) = 1` när `x!=y`, annars `0`.
+- **Genomsnitt noll ett fel (MZOE)** anger om förutsägelsen var korrekt eller inte.  Med andra ord: `ZeroOneLoss(x,y) = 1` när `x!=y`; annars `0`.
   
-- **Bestämningskoefficient**, vilket ofta kallas R<sup>2</sup>, representerar förutsägande modellen som ett värde mellan 0 och 1. Noll innebär att modellen är slumpmässig (förklarar ingenting); 1 innebär att det finns en perfekt passning. Dock försiktig vid tolkningen R<sup>2</sup> värden, som låga värden kan vara helt normal och hög värdena kan vara tveksamma.
+- **Koefficienten för bestämning**, som ofta kallas R<sup>2</sup>, representerar modellens förutsägande effekt som ett värde mellan 0 och 1. Noll betyder att modellen är slumpmässig (förklarar ingenting). 1 betyder en perfekt anpassning. Vi bör dock använda försiktighet i tolkningen av R<sup>2</sup> -värden, eftersom låga värden kan vara helt normala och höga värden kan vara misstänkta.
   
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

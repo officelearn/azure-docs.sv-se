@@ -3,23 +3,20 @@ title: Skapa din första datafabrik (Azure Portal) | Microsoft Docs
 description: I den här självstudien skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av Data Factory Editor i Azure Portal.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: ''
-editor: ''
-ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 2a7e2f9e5018bdad2a1ed2c6edcb727a2ffdcddd
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: b60f6adf6c13bc86fb4c4604dda7d4b92963b7ca
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839117"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140575"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Självstudier: Skapa din första datafabrik med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
@@ -34,7 +31,7 @@ ms.locfileid: "67839117"
 > Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig. Om du använder den aktuella versionen av Data Factory-tjänsten bör du läsa [Snabbstart: Skapa en datafabrik med hjälp av Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 > [!WARNING]
-> JSON-redigeraren i Azure Portal för skapande och distribution av ADF v1 pipelines kommer att vara inaktiverad och med 31 juli 2019. Efter den 31 juli 2019 som du kan fortsätta att använda [ADF v1 Powershell-cmdletar](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), [ADF v1 .net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), [ADF v1 REST API: er](https://docs.microsoft.com/rest/api/datafactory/) att skapa och distribuera din ADF v1 pipelines.
+> JSON-redigeraren i Azure Portal för redigering & distribuerar ADF v1-pipeliner inaktive ras den 31 juli 2019. Efter 31 juli 2019 kan du fortsätta att använda [ADF v1 PowerShell](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2)-cmdlets, [ADF v1 .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), [ADF v1 REST-API: er](https://docs.microsoft.com/rest/api/datafactory/) för att skapa & distribuera dina ADF v1-pipeliner.
 
 I den här artikeln får du lära dig hur du använder [Azure Portal](https://portal.azure.com/) till att skapa din första datafabrik. Om du vill gå igenom självstudien med andra verktyg/SDK:er kan du välja något av alternativen i listrutan. 
 
@@ -211,7 +208,7 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
     ```
     Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
-   | Egenskap | Kapslat under | Beskrivning |
+   | Egenskap | Kapslad under | Beskrivning |
    |:--- |:--- |:--- |
    | type | properties |Egenskapen type sätts till **AzureBlob** eftersom data finns i bloblagringen. |
    | linkedServiceName | format |Refererar till den AzureStorageLinkedService du skapade tidigare. |

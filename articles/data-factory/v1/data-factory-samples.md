@@ -1,91 +1,89 @@
 ---
-title: Azure Data Factory - exempel
-description: Innehåller information om exemplen som levereras med Azure Data Factory-tjänsten.
+title: Azure Data Factory-exempel
+description: Innehåller information om exempel som medföljer tjänsten Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: c0538b90-2695-4c4c-a6c8-82f59111f4ab
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: f7ebc57e09691af1583815ae9672e1afb820145b
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 63db1810cbdd2133bc0577530325351997b31f30
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462068"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139268"
 ---
-# <a name="azure-data-factory---samples"></a>Azure Data Factory - exempel
+# <a name="azure-data-factory---samples"></a>Azure Data Factory-exempel
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [PowerShell-exempel i Data Factory](../samples-powershell.md) och [kodexempel i kodexempel för Azure-galleriet](https://azure.microsoft.com/resources/samples/?service=data-factory).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factorys tjänsten, se [PowerShell-exempel i Data Factory](../samples-powershell.md) och [kod exempel i galleriet med Azure kod exempel](https://azure.microsoft.com/resources/samples/?service=data-factory).
 
 
 ## <a name="samples-on-github"></a>Exempel på GitHub
-Den [GitHub Azure-DataFactory databasen](https://github.com/azure/azure-datafactory) innehåller flera exempel som hjälper dig att snabbt plugga med Azure Data Factory-tjänsten (eller) Ändra skripten och använda egna program. Mappen Samples\JSON innehåller JSON-kodfragment för vanliga scenarier.
+[GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) -lagringsplatsen innehåller flera exempel som hjälper dig att snabbt öka rampen med Azure Data Factory tjänst (eller) ändra skripten och använda den i ett eget program. Mappen Samples\JSON innehåller JSON-kodfragment för vanliga scenarier.
 
 | Exempel | Beskrivning |
 |:--- |:--- |
-| [ADF Walkthrough](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFWalkthrough) |Det här exemplet innehåller en slutpunkt till slutpunkt-genomgång för att bearbeta loggfiler med hjälp av Azure Data Factory för att förvandla data från loggfiler i till insikter. <br/><br/>I den här genomgången Data Factory-pipeline samlar in exempelloggar, processer och berikar data från loggar med referensdata och omvandlar data för att utvärdera effekten av en marknadsföringskampanj som startades senast. |
-| [JSON-exempel](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Det här exemplet visar JSON-exempel för vanliga scenarier. |
-| [Data om HTTP-Installationshämtaren exempel](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Det här exemplet presenterar hämtning av data från en HTTP-slutpunkt i Azure Blob Storage med hjälp av anpassad .NET-aktivitet. |
-| [Mellan AppDomain punkt Net aktivitet exemplet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Det här exemplet kan du skapa en anpassad .NET-aktivitet som inte är begränsad till sammansättningen-versioner som används av ADF-startprogrammet (till exempel WindowsAzure.Storage verze 4.3.0, Newtonsoft.Json v6.0.x osv.). |
-| [Köra R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Det här exemplet innehåller den anpassade aktiviteten i Data Factory som kan användas för att anropa RScript.exe. Det här exemplet fungerar bara med din egen (inte) HDInsight-kluster på begäran som redan finns R har installerats på datorn. |
-| [Anropa Spark-jobb på HDInsight Hadoop-kluster](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Det här exemplet visar hur du använder MapReduce-aktivitet för att anropa en Spark-programmet. Spark-programmet kopierar bara data från Azure Blob-behållare till en annan. |
-| [Twitter-analys med hjälp av Azure Machine Learning Batch bedömning aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Detta exempel visar hur du använder AzureMLBatchScoringActivity för att anropa en Azure Machine Learning-modell som utför attitydanalys för twitter, bedömning förutsägelse osv. |
-| [Twitter-analys med anpassad aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Det här exemplet visar hur du använder en anpassad .NET-aktivitet för att anropa en Azure Machine Learning-modell som utför attitydanalys för twitter, bedömning förutsägelse osv. |
-| [Parametriserade Pipelines för Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |Det innehåller en slutpunkt till slutpunkt C# kod för att distribuera N pipelines för bedömning och träna var och en med en annan region parameter där listan över regioner som kommer från en parameters.txt-fil som ingår i det här exemplet. |
-| [Referens för datauppdatering för Azure Stream Analytics-jobb](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |Det här exemplet visar hur du använder Azure Data Factory och Azure Stream Analytics tillsammans att köra frågor med referensdata och installera uppdateringar för referensdata enligt ett schema. |
-| [Hybrid-Pipeline med en lokal Hortonworks Hadoop](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HybridPipelineWithOnPremisesHortonworksHadoop) |Exemplet använder ett lokalt Hadoop-kluster som en beräkningsmål för att köra jobb i Data Factory, precis som du skulle lägga till andra beräkningsmål som ett HDInsight-baserat Hadoop-kluster i molnet. |
-| [JSON-verktyget för konvertering](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSONConversionTool) |Det här verktyget kan du konvertera för från tidigare 2015-07-01-preview till senaste eller 2015-07-01-preview (standard). |
-| [Indatafilen för U-SQL-exempel](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/U-SQL%20Sample%20Input%20File) |Den här filen är en exempelfil som används av en U-SQL-aktivitet. |
-| [Ta bort blob-fil](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity) | Det här exemplet visar en C# -fil som kan användas som en del av ADF anpassad .net-aktivitet för att ta bort filer från Azure Blob-plats-källan när filerna har kopierats.|
+| [ADF Walkthrough](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFWalkthrough) |Det här exemplet innehåller en slut punkt till slut punkts genom gång för bearbetning av loggfiler med Azure Data Factory för att omvandla data från loggfiler till insikter. <br/><br/>I den här genom gången samlar Data Factory pipelinen ut exempel loggar, bearbetar och berikar data från loggar med referens data och transformerar data för att utvärdera effektiviteten hos en marknadsförings kampanj som nyligen har startats. |
+| [JSON-exempel](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Det här exemplet innehåller JSON-exempel för vanliga scenarier. |
+| [Exempel på http-datahämtare](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |I det här exemplet demonstreras hämtning av data från en HTTP-slutpunkt till Azure Blob Storage med hjälp av anpassad .NET-aktivitet. |
+| [Exempel på punkt net-aktivitet i Cross AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Med det här exemplet kan du skapa en anpassad .NET-aktivitet som inte är begränsad till sammansättnings versioner som används av ADF-Start programmet (till exempel WindowsAzure. Storage v 4.3.0, Newtonsoft. JSON v. x osv.). |
+| [Kör R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Det här exemplet innehåller Data Factory anpassad aktivitet som kan användas för att anropa RScript. exe. Det här exemplet fungerar bara med ditt eget HDInsight-kluster (inte på begäran) som redan har R installerat på det. |
+| [Anropa Spark-jobb på HDInsight Hadoop-kluster](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Det här exemplet visar hur du använder MapReduce-aktivitet för att anropa ett Spark-program. Spark-programmet kopierar bara data från en Azure Blob-behållare till en annan. |
+| [Twitter-analys med Azure Machine Learning batch-bedömnings aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Det här exemplet visar hur du använder AzureMLBatchScoringActivity för att anropa en Azure Machine Learning modell som utför Twitter-sentiment analys, poängsättning, förutsägelser osv. |
+| [Twitter-analys med anpassad aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Det här exemplet visar hur du använder en anpassad .NET-aktivitet för att anropa en Azure Machine Learning modell som utför Twitter-sentiment analys, poängsättning, förutsägelser osv. |
+| [Parameterstyrda pipelines för Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |Exemplet innehåller en slutpunkt-till-slutpunkt C# -kod för att distribuera N pipelines för att kunna ta del av och öva på var och en med en annan region parameter där listan över regioner kommer från en Parameters. txt-fil som ingår i det här exemplet. |
+| [Referens data uppdatering för Azure Stream Analytics jobb](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |Det här exemplet visar hur du använder Azure Data Factory och Azure Stream Analytics tillsammans för att köra frågorna med referens data och konfigurera uppdatering av referens data enligt ett schema. |
+| [Hybrid pipelines med lokal Hortonworks Hadoop](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HybridPipelineWithOnPremisesHortonworksHadoop) |Exemplet använder ett lokalt Hadoop-kluster som ett beräknings mål för jobb som körs i Data Factory precis som du skulle lägga till andra beräknings mål som ett HDInsight-baserat Hadoop-kluster i molnet. |
+| [JSON Conversion Tool](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSONConversionTool) |Med det här verktyget kan du konvertera JSON-objekt från tidigare versioner än 2015-07-01 – för hands version till senaste eller 2015-07-01 – för hands version (standard). |
+| [U-SQL exempel indatafil](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/U-SQL%20Sample%20Input%20File) |Den här filen är en exempel fil som används av en U-SQL-aktivitet. |
+| [Ta bort BLOB-fil](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity) | Det här exemplet demonstrerar C# en fil som kan användas som en del av den anpassade .net-AKTIVITETEN i ADF för att ta bort filer från käll Azure-Blob-platsen när filerna har kopierats.|
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
-Du hittar följande Azure Resource Manager-mallar för Data Factory på GitHub.
+Du kan hitta följande Azure Resource Manager mallar för Data Factory på GitHub.
 
 | Mall | Beskrivning |
 | --- | --- |
-| [Kopiera från Azure Blob Storage till Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Distribuera den här mallen skapar en Azure-datafabrik med en pipeline som kopierar data från den angivna Azure blobblagringen till Azure SQL-databas |
-| [Kopiera från Salesforce till Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Distribuera den här mallen skapar en Azure-datafabrik med en pipeline som kopierar data från det angivna Salesforce-kontot till Azure blob storage. |
-| [Transformera data genom att köra Hive-skript på ett Azure HDInsight-kluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |Distribuera den här mallen skapar en Azure-datafabrik med en pipeline som transformerar data genom att köra Hive-skriptet för exemplet på ett Azure HDInsight Hadoop-kluster. |
+| [Kopiera från Azure Blob Storage till Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Genom att distribuera den här mallen skapas en Azure-datafabrik med en pipeline som kopierar data från Azure Blob Storage till Azure SQL Database |
+| [Kopiera från Salesforce till Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Genom att distribuera den här mallen skapas en Azure-datafabrik med en pipeline som kopierar data från det angivna Salesforce-kontot till Azure Blob Storage. |
+| [Transformera data genom att köra Hive-skript på ett Azure HDInsight-kluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |Genom att distribuera den här mallen skapas en Azure-datafabrik med en pipeline som transformerar data genom att köra Hive-skriptet på ett Azure HDInsight Hadoop-kluster. |
 
-## <a name="samples-in-azure-portal"></a>Exempel på Azure-portalen
-Du kan använda den **exempel pipelines** panelen på startsidan på din datafabrik för att distribuera exemplen och deras associerade entiteter (datauppsättningar och länkade tjänster) i till din datafabrik.
+## <a name="samples-in-azure-portal"></a>Exempel i Azure Portal
+Du kan använda panelen **exempel pipelines** på Start sidan för din data fabrik för att distribuera exempel pipeliner och deras associerade entiteter (data uppsättningar och länkade tjänster) i till din data fabrik.
 
-1. Skapa en data factory eller öppna en befintlig datafabrik. Se [kopiera data från Blob Storage till SQL Database med Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) steg att skapa en datafabrik.
-2. I den **DATA FACTORY** bladet för data factory klickar du på den **exempel pipelines** panelen.
+1. Skapa en data fabrik eller öppna en befintlig data fabrik. Information om hur du skapar en data fabrik finns i [Kopiera data från Blob Storage till SQL Database med Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+2. På **Data Factory** -bladet för data fabriken klickar du på panelen **exempel pipelines** .
 
-    ![Exemplet pipelines panel](./media/data-factory-samples/SamplePipelinesTile.png)
-3. I den **exempel pipelines** bladet klickar du på den **exempel** som du vill distribuera.
+    ![Exempel panel för exempel](./media/data-factory-samples/SamplePipelinesTile.png)
+3. I bladet **exempel** på pipelines klickar du på det **exempel** som du vill distribuera.
 
-    ![Exemplet pipelines bladet](./media/data-factory-samples/SampleTile.png)
-4. Ange konfigurationsinställningar för exemplet. Till exempel ditt Azure storage-konto och kontonyckeln, Azure SQL-servernamnet, databas, användar-ID och lösenord, osv.
+    ![Exempel på pipeline-blad](./media/data-factory-samples/SampleTile.png)
+4. Ange konfigurations inställningar för exemplet. Till exempel Azure Storage-kontots namn och konto nyckel, Azure SQL Server-namn, databas, användar-ID och lösen ord, osv.
 
-    ![Exempel-bladet](./media/data-factory-samples/SampleBlade.png)
-5. När du är klar med att ange konfigurationsinställningarna, klickar du på **skapa** att skapa/distribuera exempelpipelines och länkade tjänster/tabeller som används av pipelines.
-6. Du ser status för distributionen på panelen exempel du klickade på tidigare på den **exempel pipelines** bladet.
+    ![Exempel blad](./media/data-factory-samples/SampleBlade.png)
+5. När du är klar med att ange konfigurations inställningarna klickar du på **skapa** för att skapa/distribuera exempel pipeliner och länkade tjänster/tabeller som används av pipelinen.
+6. Du ser status för distributionen i exempel panelen som du klickade på tidigare på bladet **exempel pipelines** .
 
     ![Status för distribution](./media/data-factory-samples/DeploymentStatus.png)
-7. När du ser den **distributionen lyckades** meddelande på panelen för det här exemplet Stäng den **exempel pipelines** bladet.  
-8. På **DATA FACTORY** bladet som du ser att länkade tjänster, datauppsättningar och pipeliner läggs till din datafabrik.  
+7. När du ser meddelandet **distributionen har slutförts** på panelen för exemplet stänger du bladet **exempel pipelines** .  
+8. På bladet **data fabrik** ser du att länkade tjänster, data uppsättningar och pipeliner läggs till i din data fabrik.  
 
     ![Bladet Datafabrik](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
-## <a name="samples-in-visual-studio"></a>Exemplen i Visual Studio
+## <a name="samples-in-visual-studio"></a>Exempel i Visual Studio
 ### <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande installerat på datorn:
 
 * Visual Studio 2013 eller Visual Studio 2015
 * Hämta Azure SDK för Visual Studio 2013 eller Visual Studio 2015. Gå till [Azures hämtningssida](https://azure.microsoft.com/downloads/) och klicka på **VS 2013** eller **VS 2015** i **.NET**-avsnittet.
-* Ladda ned det senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Om du använder Visual Studio 2013 kan uppdatera du även plugin-programmet genom att göra följande: I menyn klickar du på **Verktyg** -> **Tillägg och uppdateringar** -> **Online** -> **Visual Studio-galleriet** -> **Microsoft Azure Data Factory-verktyg för Visual Studio** -> **Uppdatera**.
+* Ladda ned det senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Om du använder Visual Studio 2013 kan du också uppdatera plugin-programmet genom att utföra följande steg: I menyn klickar du på **Verktyg** -> **Tillägg och uppdateringar** -> **Online** -> **Visual Studio-galleriet** -> **Microsoft Azure Data Factory-verktyg för Visual Studio** -> **Uppdatera**.
 
-### <a name="use-data-factory-templates"></a>Använd Data Factory-mallar
-1. Klicka på **filen** på menyn, peka på **New**, och klicka på **projekt**.
+### <a name="use-data-factory-templates"></a>Använda Data Factory mallar
+1. Klicka på **Arkiv** på menyn, peka på **nytt**och klicka på **projekt**.
 2. Gör följande steg i dialogrutan **Nytt projekt**:
 
    1. Välj **DataFactory** under **mallar**.
@@ -95,21 +93,21 @@ Du måste ha följande installerat på datorn:
    5. Klicka på **OK**.
 
       ![Dialogrutan Nytt projekt](./media/data-factory-samples/vs-new-project-adf-templates.png)
-3. I den **Data Factory mallar** dialogrutan Välj exempelmallen från den **användningsfall mallar** , och klicka **nästa**. I följande steg beskriver hur du använder den **kunden profilering** mall. Stegen är liknande för andra exempel.
+3. I dialog rutan **Data Factory mallar** väljer du exempel mal len från avsnittet **använda-Case-mallar** och klickar på **Nästa**. Följande steg beskriver hur du använder mallen för **kund profilering** . Stegen är liknande för de andra exemplen.
 
-    ![Dialogrutan för data Factory-mallar](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
-4. I den **Datafabrikskonfiguration** dialogrutan klickar du på **nästa** på den **Data Factory grunderna** sidan.
-5. På den **konfigurera datafabrik** gör du följande steg:
-   1. Välj **Skapa ny Datafabrik**. Du kan också välja **använda befintliga data factory**.
-   2. Ange en **namn** för data factory.
-   3. Välj den **Azure-prenumeration** som du vill att datafabriken ska skapas.
-   4. Välj den **resursgrupp** för data factory.
-   5. Välj den **västra USA**, **USA, östra**, eller **Nordeuropa** för den **region**.
+    ![Dialog rutan Data Factory mallar](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
+4. I dialog rutan **Data Factory konfiguration** klickar du på **Nästa** på sidan för **Data Factory grundläggande** information.
+5. Utför följande steg på sidan **Konfigurera data fabrik** :
+   1. Välj **Skapa ny Data Factory**. Du kan också välja **Använd befintlig data fabrik**.
+   2. Ange ett **namn** för data fabriken.
+   3. Välj den **Azure-prenumeration** där du vill att data fabriken ska skapas.
+   4. Välj **resurs grupp** för data fabriken.
+   5. Välj **västra USA**, **östra USA**eller **norra Europa** för **regionen**.
    6. Klicka på **Nästa**.
-6. I den **konfigurera datalager** anger du en befintlig **Azure SQL-databas** och **Azure storage-konto** (eller) skapa databaslagring/och klicka på Nästa.
-7. I den **konfigurera beräkna** , Välj standardvärden och klicka på **nästa**.
-8. I den **sammanfattning** , granska alla inställningar och klicka på **nästa**.
-9. I den **Distributionsstatus** , vänta tills distributionen är klar och klicka på **Slutför**.
+6. På sidan **Konfigurera data lager** anger du en befintlig **Azure SQL-databas** och **Azure Storage-konto** (eller) skapa databas/lagring och klickar på Nästa.
+7. På sidan **Konfigurera beräkning** väljer du standardvärden och klickar på **Nästa**.
+8. Granska alla inställningar på sidan **Sammanfattning** och klicka på **Nästa**.
+9. På sidan **distributions status** väntar du tills distributionen är klar och klickar på **Slutför**.
 10. I Solution Explorer högerklickar du på projektet och klickar sedan på **Publicera**.
 11. Om du ser dialogrutan **Logga in på ditt Microsoft-konto**, anger du dina autentiseringsuppgifter för det konto som har Azure-prenumerationen. Klicka sedan på **Logga in**.
 12. Du bör se följande dialogruta:
@@ -117,11 +115,11 @@ Du måste ha följande installerat på datorn:
     ![Dialogrutan Publicera](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 13. På sidan **Konfigurera datafabrik** går du igenom följande steg:
 
-    1. Bekräfta att **använda befintliga data factory** alternativet.
-    2. Välj den **datafabrik** när du tidigare väljer med hjälp av mallen.
+    1. Bekräfta att alternativet **Använd befintlig data fabrik** .
+    2. Välj den **data fabrik** du valde när du använde mallen.
     3. Klicka på **Nästa** för att växla till sidan **Publicera objekt**. (Tryck på **TAB** för att flytta ut från namnfältet om knappen **Nästa** är inaktiverad.)
 14. På sidan **Publicera objekt** kontrollerar du att alla datafabriksentiteter har valts. Klicka på **Nästa** för att växla till sidan **Sammanfattning**.     
 15. Granska sammanfattningen och klicka på **Nästa** för att starta distributionsprocessen och visa **Distributionsstatus**.
 16. På sidan **Distributionsstatus** bör du se statusen för distributionen. Klicka på Slutför när distributionen är klar.
 
-Se [skapa din första datafabrik (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) mer information om hur du använder Visual Studio för att utforma Data Factory-entiteter och publicera dem på Azure.          
+Se [skapa din första data fabrik (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) om du vill ha mer information om hur du använder Visual Studio för att redigera data Factory entiteter och publicera dem till Azure.          

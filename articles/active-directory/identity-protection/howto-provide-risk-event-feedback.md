@@ -1,6 +1,6 @@
 ---
-title: Ge feedback om risk händelser i Azure AD Identity Protection-Azure Active Directory
-description: Hur och varför bör du ge feedback om identitets skydds risk händelser.
+title: Ge feedback om risk identifieringar i Azure AD Identity Protection-Azure Active Directory
+description: Hur och varför bör du ge feedback om identifieringar av identitets skydds risker.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd0984a78860192f507323491952e895c8de8bf
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 32480e66a71c9e706b1f3eee1a3d459737120c5c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370196"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126334"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Instruktioner: Ge risk för feedback i Azure AD Identity Protection
 
@@ -24,7 +24,7 @@ Med Azure AD Identity Protection kan du ge feedback om riskbedömningen. I följ
 
 ## <a name="what-is-a-detection"></a>Vad är en identifiering?
 
-Identifiering av identitets skydd är en indikation på misstänkt aktivitet från ett identitets risk perspektiv. Dessa misstänkta aktiviteter kallas risk händelser. Dessa identitetsbaserade identifieringar kan baseras på heuristik, maskin inlärning eller kan komma från partner produkter. Dessa identifieringar används för att fastställa inloggnings risker och användar risker.
+Identifiering av identitets skydd är en indikation på misstänkt aktivitet från ett identitets risk perspektiv. Dessa misstänkta aktiviteter kallas risk identifieringar. Dessa identitetsbaserade identifieringar kan baseras på heuristik, maskin inlärning eller kan komma från partner produkter. Dessa identifieringar används för att fastställa inloggnings risker och användar risker.
 
 * Användar risken representerar sannolikheten för att en identitet komprometteras.
 * Inloggnings risk representerar sannolikheten för att en inloggning är komprometterad (till exempel att inloggningen inte är auktoriserad av identitets ägaren).
@@ -49,15 +49,15 @@ Här är scenarier och mekanismer för att ge feedback till Azure AD.
 | --- | --- | --- | --- |
 | **Inloggning är inte komprometterad (falskt positivt)** <br> Rapporten riskfyllda inloggningar visar en risk inloggning [risk tillstånd = i fara], men den inloggningen har inte komprometterats. | Välj inloggning och klicka på bekräfta inloggning säker. | Azure AD flyttar inloggnings summan risk till ingen [risk tillstånd = bekräftat säker, Risk nivå (agg regering) =-] och kommer att återföra sin inverkan på användar risken. | För närvarande är alternativet "bekräfta inloggning säker" endast tillgängligt i rapporten om riskfyllda inloggningar. |
 | **Inloggning komprometterad (sant positivt)** <br> Rapporten riskfyllda inloggningar visar en risk inloggning [risk tillstånd = i fara] med låg risk [risk nivå (agg regering) = låg] och att inloggningen faktiskt har komprometterats. | Välj inloggningen och klicka på bekräfta att inloggningen är komprometterad. | Azure AD flyttar inloggnings mängdens sammanlagda risk och användar risken till hög [risk tillstånd = bekräftat komprometterad; Risk nivå = hög]. | För närvarande finns inte alternativet bekräfta att inloggningen är komprometterat i rapporten om riskfyllda inloggningar. |
-| **Komprometterad användare (sant positivt)** <br> Rapporten "riskfyllda användare" visar en risk användare [risk tillstånd = i fara] med låg risk [risk nivå = låg] och användaren har komprometterats. | Välj användaren och klicka på bekräfta komprometterad användare. | Azure AD kommer att flytta användar risken till hög [risk tillstånd = bekräftat komprometterad; Risk nivå = hög] och lägger till en ny "administratör som bekräftat att användaren har komprometterats". | Alternativet bekräfta användare som är komprometterat är för närvarande endast tillgängligt i rapporten riskfyllda användare. <br> Identifierings administratören bekräftade att användaren är komprometterad visas på fliken risk händelser som inte är länkade till en inloggning i rapporten riskbaserade användare. |
-| **Användaren åtgärdade utanför Azure AD Identity Protection (sant positiv + åtgärdad)** <br> Rapporten "riskfyllda användare" visar en risk användare och har sedan reparerat användaren utanför Azure AD Identity Protection. | 1. Välj användaren och klicka på bekräfta komprometterad användare. (Den här processen bekräftar till Azure AD att användaren verkligen har komprometterats.) <br> 2. Vänta tills användarens risk nivå går till hög. (Den här gången ger Azure AD den tid som krävs för att ta ovanstående feedback till risk motorn.) <br> 3. Välj användaren och klicka på "Stäng användar risk". (Den här processen bekräftar till Azure AD att användaren inte längre komprometteras.) |  Azure AD flyttar användar risken till ingen [risk tillstånd = avstängd; Risk nivå =-] och stänger risken för alla befintliga inloggningar som har aktiva risker. | Om du klickar på "ignorera användar risk" stängs all risk för användaren och tidigare inloggningar. Det går inte att ångra den här åtgärden. |
-| **Användaren är inte komprometterad (falskt positivt)** <br> Rapporten "riskfyllda användare" visar vid risk användare, men användaren är inte komprometterad. | Välj användaren och klicka på "Stäng användar risk". (Den här processen bekräftar till Azure AD att användaren inte har komprometterats.) | Azure AD flyttar användar risken till ingen [risk tillstånd = avstängd; Risk nivå =-]. | Om du klickar på "ignorera användar risk" stängs all risk för användaren och tidigare inloggningar. Det går inte att ångra den här åtgärden. |
-| Jag vill stänga användar risken, men jag är inte säker på om användaren är komprometterad/säker. | Välj användaren och klicka på "Stäng användar risk". (Den här processen bekräftar till Azure AD att användaren inte längre komprometteras.) | Azure AD flyttar användar risken till ingen [risk tillstånd = avstängd; Risk nivå =-]. | Om du klickar på "ignorera användar risk" stängs all risk för användaren och tidigare inloggningar. Det går inte att ångra den här åtgärden. Vi rekommenderar att du reparerar användaren genom att klicka på Återställ lösen ord eller be användaren att återställa eller ändra sina autentiseringsuppgifter på ett säkert sätt. |
+| **Komprometterad användare (sant positivt)** <br> Rapporten "riskfyllda användare" visar en risk användare [risk tillstånd = i fara] med låg risk [risk nivå = låg] och användaren har komprometterats. | Välj användaren och klicka på bekräfta komprometterad användare. | Azure AD kommer att flytta användar risken till hög [risk tillstånd = bekräftat komprometterad; Risk nivå = hög] och lägger till en ny "administratör som bekräftat att användaren har komprometterats". | Alternativet bekräfta användare som är komprometterat är för närvarande endast tillgängligt i rapporten riskfyllda användare. <br> Identifierings administratören bekräftade att användaren har komprometterats visas på fliken risk identifieringar som inte är länkade till en inloggning i rapporten riskbaserade användare. |
+| **Användaren åtgärdade utanför Azure AD Identity Protection (sant positiv + åtgärdad)** <br> Rapporten "riskfyllda användare" visar en risk användare och har sedan reparerat användaren utanför Azure AD Identity Protection. | 1. Välj användaren och klicka på bekräfta komprometterad användare. (Den här processen bekräftar till Azure AD att användaren verkligen har komprometterats.) <br> 2. Vänta tills användarens risk nivå går till hög. (Den här gången ger Azure AD den tid som krävs för att ta ovanstående feedback till risk motorn.) <br> 3. Välj användaren och klicka på "Stäng användar risk". (Den här processen bekräftar till Azure AD att användaren inte längre komprometteras.) |  Azure AD flyttar användar risken till ingen [risk tillstånd = avstängd; Risk nivå =-] och stänger risken för alla befintliga inloggningar som har aktiva risker. | Om du klickar på "ignorera användar risk" stängs all risk för användaren och tidigare inloggningar. Det går inte att utföra den här åtgärden. |
+| **Användaren är inte komprometterad (falskt positivt)** <br> Rapporten "riskfyllda användare" visar vid risk användare, men användaren är inte komprometterad. | Välj användaren och klicka på "Stäng användar risk". (Den här processen bekräftar till Azure AD att användaren inte har komprometterats.) | Azure AD flyttar användar risken till ingen [risk tillstånd = avstängd; Risk nivå =-]. | Om du klickar på "ignorera användar risk" stängs all risk för användaren och tidigare inloggningar. Det går inte att utföra den här åtgärden. |
+| Jag vill stänga användar risken, men jag är inte säker på om användaren är komprometterad/säker. | Välj användaren och klicka på "Stäng användar risk". (Den här processen bekräftar till Azure AD att användaren inte längre komprometteras.) | Azure AD flyttar användar risken till ingen [risk tillstånd = avstängd; Risk nivå =-]. | Om du klickar på "ignorera användar risk" stängs all risk för användaren och tidigare inloggningar. Det går inte att utföra den här åtgärden. Vi rekommenderar att du reparerar användaren genom att klicka på Återställ lösen ord eller be användaren att återställa eller ändra sina autentiseringsuppgifter på ett säkert sätt. |
 
-Feedback om användar risk händelser i identitets skydd bearbetas offline och kan ta lite tid att uppdatera. I kolumnen risk bearbetnings tillstånd visas det aktuella läget för feedback-bearbetning.
+Feedback om användar risk identifieringar i identitets skydd bearbetas offline och kan ta lite tid att uppdatera. I kolumnen risk bearbetnings tillstånd visas det aktuella läget för feedback-bearbetning.
 
 ![Risk bearbetnings tillstånd för riskfyllda användar rapporter](./media/howto-provide-risk-event-feedback/risky-users-provide-feedback.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Referens för Azure Active Directory Identity Protection risk händelser](risk-events-reference.md)
+[Referens för Azure Active Directory Identity Protection risk identifiering](risk-events-reference.md)

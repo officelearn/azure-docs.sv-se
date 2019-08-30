@@ -1,7 +1,7 @@
 ---
-title: 'Skapa Python-modell: Modulreferens'
+title: 'Skapa python-modell: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modellen skapa Python-modell i Azure Machine Learning-tjänsten för att skapa anpassade modellering eller bearbetning av modulen.
+description: Lär dig hur du använder Create python modell-modellen i Azure Machine Learning-tjänsten för att skapa anpassade modeller eller data bearbetnings moduler.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,39 +9,38 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: ea9b50cede3e2d264ca0476b6a987ca6896c3c79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6d7aabd41e9d0e872926adbbcb2d18332cb7d5e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029752"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128925"
 ---
 # <a name="create-python-model"></a>Skapa Python-modell
 
-Den här artikeln beskriver hur du använder den **skapa Python-modell** modul för att skapa en modell för omdöme från ett Python-skript. 
+Den här artikeln beskriver hur du använder modulen **skapa python-modell** för att skapa en modell som inte är tränad från ett Python-skript. 
 
-Du kan basera modellen på alla learner som ingår i ett Python-paket i Azure Machine Learning-miljö. 
+Du kan basera modellen på valfri elev som ingår i ett python-paket i Azure Machine Learnings miljön. 
 
-När du skapar modellen kan du använda [träna modell](train-model.md) som andra learner i Azure Machine Learning för att träna modellen på en datauppsättning. Den tränade modellen kan skickas till [Poängmodell](score-model.md) du använder modellen för att göra förutsägelser. Den tränade modellen kan sedan sparas och bedömnings arbetsflödet kan publiceras som en webbtjänst.
+När du har skapat modellen kan du använda [träna modell](train-model.md) för att träna modellen på en data uppsättning, t. ex. en annan elev i Azure Machine Learning. Den tränade modellen kan skickas till [Poäng modell](score-model.md) för att använda modellen för att göra förutsägelser. Den tränade modellen kan sedan sparas och poängsättnings arbets flödet kan publiceras som en webb tjänst.
 
 > [!WARNING]
-> För närvarande går det inte att skicka poängsatta resultatet av en Python-modell till [utvärdera modell](evaluate-model.md). Om du vill utvärdera en modell kan du skriva anpassad Python-skript och kör den med hjälp av den [kör Python-skript](execute-python-script.md) modulen.  
+> För närvarande går det inte att skicka resultatet av en python-modell för att [utvärdera modellen](evaluate-model.md). Om du behöver utvärdera en modell kan du skriva anpassat Python-skript och köra det med hjälp av modulen [Kör Python-skript](execute-python-script.md) .  
 
 
-## <a name="how-to-configure-create-python-model"></a>Så här konfigurerar du skapa Python-modell
+## <a name="how-to-configure-create-python-model"></a>Konfigurera skapande av python-modell
 
-Användningen av den här modulen kräver mellanliggande eller expert kunskaper om Python. Användning av alla learner som ingår i Python-paket som redan är installerad i Azure Machine Learning har stöd för modulen. Se förinstallerade Python paketlistan i [kör Python-skript](execute-python-script.md).
+Användningen av den här modulen kräver en mellanliggande eller expert kunskap om python. Modulen stöder användning av valfri elev som ingår i python-paketen som redan har installerats i Azure Machine Learning. Se förinstallerade python-paket lista i [Kör Python-skript](execute-python-script.md).
   
 
-Den här artikeln beskriver hur du använder den **skapa Python-modell** med ett enkelt experiment. Nedan visas i diagrammet av experimentet.
+I den här artikeln visas hur du använder **create python-modellen** med ett enkelt experiment. Nedan visas experimentets graf.
 
-![Skapa-python-modell](./media/module/aml-create-python-model.png)
+![Skapa python-modell](./media/module/aml-create-python-model.png)
 
-1.  Klicka på **skapa Python-modell**, redigera skriptet för att implementera din modellering eller bearbeta datahantering. Du kan basera modellen på alla learner som ingår i ett Python-paket i Azure Machine Learning-miljö.
+1.  Klicka på **skapa python-modell**, redigera skriptet för att implementera modellerings-eller data hanterings processen. Du kan basera modellen på valfri elev som ingår i ett python-paket i Azure Machine Learnings miljön.
 
 
-    Nedan följer ett kodexempel i två Naive Bayes klassificerare med hjälp av populära *sklearn* paketet.
+    Nedan visas en exempel kod för Naive Bayes-klassificeraren i två klasser med hjälp av det populära *sklearn* -paketet.
 
 ```Python
 
@@ -76,11 +75,11 @@ class AzureMLModel:
 ```
 
 
-2. Anslut den **skapa Python-modell** modulen som du nyss skapade till en **Träningsmodell** och **poängsätta modell**
+2. Anslut den **skapa python modell** -modul som du nyss skapade till en modell och **Poäng modell**
 
-3. Om du vill utvärdera modellen kan du lägga till en [kör Python-skript](execute-python-script.md) och redigera Python-skriptet för att implementera utvärdering.
+3. Om du behöver utvärdera modellen lägger du till ett [Kör Python-skript](execute-python-script.md) och redigerar python-skriptet för att implementera utvärderingen.
 
-Nedan visas exempelkod för utvärdering.
+Nedan visas en exempel utvärderings kod.
 
 ```Python
 

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Använda Azure Database Migration Service för att utföra en online-migrering av PostgreSQL till Azure Database för PostgreSQL | Microsoft Docs'
-description: Lär dig att utföra en online-migrering från PostgreSQL på lokala till Azure Database för PostgreSQL med hjälp av Azure Database Migration Service.
+title: 'Självstudier: Använd Azure Database Migration Service för att utföra migrering av PostgreSQL till Azure Database for PostgreSQL | Microsoft Docs'
+description: Lär dig att utföra en online-migrering från PostgreSQL lokalt till Azure Database for PostgreSQL genom att använda Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -11,31 +11,31 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 96bfb80602efe8e63f814fc9bf6cff3ae52e5983
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 29776c1a49161daf9cf972c43c1378e52f5c3069
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461539"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141508"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudier: Migrera PostgreSQL till Azure Database for PostgreSQL online med DMS
 
-Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal PostgreSQL-instans till [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) med minimal avbrottstid. Migrering kan med andra ord ske med minimalt avbrott för programmet. I den här självstudien får du migrera den **DVD hyra** exempeldatabasen från en lokal instans av PostgreSQL 9.6 till Azure Database för PostgreSQL med hjälp av aktiviteten onlinemigrering i Azure Database Migration Service.
+Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal PostgreSQL-instans till [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) med minimal stillestånds tid. Med andra ord kan migreringen uppnås med minimal stillestånds tid för programmet. I den här självstudien migrerar du exempel databasen för **DVD-hyra** från en lokal instans av postgresql 9,6 till Azure Database for PostgreSQL med hjälp av aktiviteten online-migrering i Azure Database migration service.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
 >
-> * Migrera exempel schemat med pg_dump-verktyget.
+> * Migrera exempel schema med pg_dump-verktyget.
 > * Skapa en instans av Azure Database Migration Service.
 > * Skapa ett migreringsprojekt med hjälp av Azure Database Migration Service.
 > * Köra migreringen.
 > * Övervaka migreringen.
 
 > [!NOTE]
-> Med hjälp av Azure Database Migration Service för att utföra en online-migrering måste du skapa en instans baserat på premiumprisnivån.
+> Om du använder Azure Database Migration Service för att utföra en online-migrering måste du skapa en instans utifrån pris nivån Premium.
 
 > [!IMPORTANT]
-> För en optimal migreringsupplevelse Microsoft rekommenderar att skapa en instans av Azure Database Migration Service i samma Azure-region som måldatabasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
+> För en optimal migrering rekommenderar Microsoft att du skapar en instans av Azure Database Migration Service i samma Azure-region som mål databasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -46,24 +46,24 @@ För att slutföra den här kursen behöver du:
     Dessutom måste den lokala PostgreSQL-version matcha Azure Database for PostgreSQL-versionen. Exempelvis kan PostgreSQL 9.5.11.5 endast migreras till Azure Database for PostgreSQL 9.5.11 och inte till version 9.6.7.
 
     > [!NOTE]
-    > För PostgreSQL version 10 stöder för närvarande DMS endast migrering av version 10.3 till Azure Database för PostgreSQL.
+    > För PostgreSQL version 10 stöder för närvarande DMS endast migrering av version 10,3 till Azure Database for PostgreSQL.
 
 * [Skapa en instans i Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-* Skapa ett Azure-nätverk (VNet) för Azure Database Migration Service med hjälp av Azure Resource Manager-distributionsmodellen, som tillhandahåller plats-till-plats-anslutning till dina lokala källservrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information om hur du skapar ett virtuellt nätverk finns i den [dokumentation om virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/), och särskilt artiklarna i snabbstarten med stegvis information.
+* Skapa ett Azure-Virtual Network (VNet) för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modell, som tillhandahåller plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information om hur du skapar ett VNet finns i [Virtual Network-dokumentationen](https://docs.microsoft.com/azure/virtual-network/)och i synnerhet snabb starts artiklar med stegvisa anvisningar.
 
     > [!NOTE]
-    > Under installationen av virtuellt nätverk, om du använder ExpressRoute med nätverks-peering till Microsoft, lägger du till följande tjänst [slutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) till undernätet där tjänsten ska etableras:
-    > * Mål-database-slutpunkten (till exempel SQL-slutpunkten och Cosmos DB-slutpunkt)
-    > * Slutpunkt för lagring
-    > * Service bus-slutpunkt
+    > Om du använder ExpressRoute med nätverks-peering till Microsoft under VNet-installationen lägger du till följande tjänst [slut punkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) i under nätet där tjänsten ska tillhandahållas:
+    > * Slut punkt för mål databas (till exempel SQL-slutpunkt, Cosmos DB slut punkt och så vidare)
+    > * Lagrings slut punkt
+    > * Service Bus-slutpunkt
     >
-    > Den här konfigurationen är nödvändigt eftersom Azure Database Migration Service saknar Internetanslutning.
+    > Den här konfigurationen är nödvändig eftersom den Azure Database Migration Service saknar Internet anslutning.
 
-* Se till att dina VNet Nätverkssäkerhetsgrupp (NSG)-regler inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om Azure VNet NSG-trafikfiltrering finns i artikeln [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Se till att NSG-reglerna (VNet Network Security Group) inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om Azure VNet NSG trafik filtrering finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Konfigurera din [Windows-brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Öppna din Windows-brandväggen så att Azure Database Migration Service att få åtkomst till källan PostgreSQL-Server, vilket som standard är TCP-port 5432.
+* Öppna Windows-brandväggen för att tillåta Azure Database Migration Service att få åtkomst till PostgreSQL-servern, som standard är TCP-port 5432.
 * När du använder en brandväggsinstallation framför dina källdatabaser kanske du måste lägga till brandväggsregler för att tillåta Azure Database Migration Service att komma åt källdatabaserna för migrering.
-* Skapa en servernivå [brandväggsregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) för Azure Database for PostgreSQL så att Azure Database Migration Service att få åtkomst till måldatabaserna. Ange undernätsintervallet för det virtuella nätverket som används för Azure Database Migration Service.
+* Skapa en [brand Väggs regel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för Azure Database for PostgreSQL för att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det VNet som används för Azure Database Migration Service.
 * Det finns två metoder för att anropa CLI:
 
   * Välj knappen Cloud Shell längst upp till höger i Azure Portal:
@@ -145,7 +145,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
     Kör släpp sekundärnyckeln (som är den andra kolumnen) i frågeresultatet.
 
-5. Utlösare i dina data (infoga eller uppdatera utlösare) tillämpar den dataintegritet i målet före replikerade data från källan. Vi rekommenderar att du inaktiverar utlösare i alla tabeller **på angivna** under migreringen och sedan återaktivera utlösare när migreringen är slutföra.
+5. Utlösare i dina data (infoga eller uppdatera utlösare) tillämpar den dataintegritet i målet före replikerade data från källan. Vi rekommenderar att du inaktiverar utlösare i alla tabeller **vid målet** under migreringen och sedan aktiverar utlösarna igen när migreringen är klar.
 
     Om du vill inaktivera utlösare i måldatabasen använder du följande kommando:
 
@@ -154,7 +154,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     from information_schema.triggers;
     ```
 
-6. Om det finns data uppräkningstypen i alla tabeller, rekommenderar vi att du tillfälligt uppdatera den till en tecken varierande datatyp i måltabellen. När replikering av data är klar kan du återställa datatypen till ENUM.
+6. Om det finns en uppräknings data typ i alla tabeller, rekommenderar vi att du uppdaterar den tillfälligt till data typen "Character varierande" i mål tabellen. När replikering av data är klar kan du återställa datatypen till ENUM.
 
 ## <a name="provisioning-an-instance-of-dms-using-the-cli"></a>Etablera en instans av DMS med hjälp av CLI
 
@@ -268,7 +268,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
    * Målplattform: AzureDbForPostgreSql
 
      ```
-     az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
+     az dms project create -l westcentralus -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
      ```
 
 6. Skapa en uppgift för migrering av PostgreSQL med följande steg.
@@ -297,7 +297,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
                }
        ```
 
-   * Det finns också en databas alternativet json-fil som innehåller de json-objekt. För PostgreSQL visas formatet för JSON-objekt för databasalternativet nedan:
+   * Det finns också en JSON-fil för databas alternativ som visar JSON-objekten. För PostgreSQL visas formatet för JSON-objekt för databasalternativet nedan:
 
        ```
        [
@@ -526,4 +526,4 @@ Om du vill avbryta eller ta bort en DMS-aktivitet, ett projekt eller en tjänst,
 
 * Information om kända problem och begränsningar när du utför onlinemigreringar till Azure Database for PostgreSQL finns i artikeln [Kända problem och lösningar för Azure Database for PostgreSQL-onlinemigreringar](known-issues-azure-postgresql-online.md).
 * Mer information om Azure Database Migration Service finns i artikeln [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview) (Vad är Azure Database Migration Service?).
-* Information om Azure Database för PostgreSQL, finns i artikeln [vad är Azure Database för PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).
+* Mer information om Azure Database for PostgreSQL finns i artikeln [Vad är Azure Database for PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).

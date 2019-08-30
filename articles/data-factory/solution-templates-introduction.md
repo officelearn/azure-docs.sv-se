@@ -8,15 +8,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: d239e44364c3a4879f2f131717511385a4bd7037
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c4a3fc20e806ec91ed2646e6131f682bf5c80e38
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234449"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140841"
 ---
 # <a name="templates"></a>Mallar
 
@@ -34,7 +34,7 @@ Du kan komma igång med att skapa en Data Factory pipeline från en mall på fö
 
     ![Öppna mallgalleriet från fliken författare](media/solution-templates-introduction/templates-intro-image2.png)
 
-## <a name="template-gallery"></a>Mallgalleriet
+## <a name="template-gallery"></a>Galleri över mallar
 
 ![Mallgalleriet](media/solution-templates-introduction/templates-intro-image3.png)
 

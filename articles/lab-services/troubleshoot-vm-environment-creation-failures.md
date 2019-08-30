@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: bcdb549ce5b522b2d456e2cbeb5471b9df984514
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 945afd4f0a5049985955bbc71bbf6b2250f68d2a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774414"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129038"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Felsöka fel i den virtuella datorn (VM) och miljö skapande i Azure DevTest Labs
 DevTest Labs ger dig varningar om ett dator namn är ogiltigt eller om du är på väg att bryta mot en labb princip. Ibland visas röda `X` intill din labb-VM eller miljö status som informerar dig om att något har gått fel.  Den här artikeln innehåller några knep som du kan använda för att hitta det underliggande problemet och kan förhoppnings vis undvika problemet i framtiden.
 
 ## <a name="portal-notifications"></a>Portal meddelanden
-Om du använder Azure Portal, är det första stället att titta på **meddelande panelen**.  Panelen meddelanden, som är tillgänglig i huvud kommando fältet genom att klicka på **klock ikonen**, visar om den virtuella labb datorn eller miljön har skapats.  Om ett fel uppstår visas ett fel meddelande som är kopplat till felet. Informationen ger ofta ytterligare information som kan hjälpa dig att lösa problemet. I följande exempel gick det inte att skapa den virtuella datorn eftersom det inte gick att köra kärnor. I det detaljerade meddelandet får du information om hur du löser problemet och begär en ökad kärn kvot.
+Om du använder Azure Portal, är det första stället att titta på **meddelande panelen**.  Panelen meddelanden, som är tillgänglig i huvud kommando fältet genom att klicka på **klock ikonen**, visar om den virtuella labb datorn eller miljön har skapats.  Om ett fel uppstår visas ett fel meddelande som är kopplat till felet. Informationen ger ofta ytterligare information som kan hjälpa dig att lösa problemet. I följande exempel gick det inte att skapa den virtuella datorn eftersom det inte gick att köra kärnor. I det detaljerade meddelandet får du information om hur du löser problemet och begär en ökad kärn kvot.
 
 ![Azure Portal meddelande](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
 

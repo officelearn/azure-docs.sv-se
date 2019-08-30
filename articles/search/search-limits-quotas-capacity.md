@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: 9ddc7ad8882b30a17be5820116da72c5ab32fad9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 308eb90e7ae244442a603491044e90dc3b8d052a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640609"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141153"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänst begränsningar i Azure Search
 De maximala gränserna för lagring, arbets belastningar och kvantiteter av index, dokument och andra objekt är beroende av om du [etablerar Azure Search](search-create-service-portal.md) på kostnads nivåer som är **kostnads fria**, **Basic**, **standard**eller **Storage** .
@@ -124,6 +124,15 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 <sup>4</sup> maximalt 30 kunskaper per färdigheter.
 
 <sup>5</sup> kognitiv sökning arbets belastningar och bild analys i Azure Blob-indexering har kortare körnings tider än vanlig text indexering. Bild analys och naturlig språk bearbetning är i beräknings intensiva och använder oproportionerliga mängder tillgängliga processor kraft. Körnings tiden sänktes för att ge andra jobb i kön en möjlighet att köra.  
+
+## <a name="synonym-limits"></a>Synonym gränser
+
+Det högsta tillåtna antalet synonym Maps varierar beroende på pris nivå. Varje regel kan ha upp till 20 expansionar, där en expansion är en equivalvent-period. Till exempel skulle "katt", Association med "Kitty", "Feline" och "Felis" (släktet för katter) räknas som 3 expansionar.
+
+| Resource | Lediga | Basic | S1 | S2 | S3 | S3 – HD |L1 | L2 |
+| -------- | -----|------ |----|----|----|-------|---|----|
+| Maximalt synonyma kartor |3 |3|5 |10 |20 |20 | 10 | 10 |
+| Maximalt antal regler per karta |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
 ## <a name="queries-per-second-qps"></a>Frågor per sekund (frågor per sekund)
 

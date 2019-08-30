@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 7ed81375912613995d573b110607e7913adfd10f
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
-ms.translationtype: MT
+ms.openlocfilehash: 21da8dce7a77a086381bd21dc0129b614fa65ad3
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051656"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138416"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>Självstudier: Kom igång med att skapa ditt första ML-experiment
 
@@ -71,7 +71,7 @@ När den virtuella datorn har körts använder du avsnittet **Notebook VM** : ar
 1. På webb sidan Jupyter Notebook är det främsta namnet ditt användar namn.  Välj den här mappen.
 
     > [!TIP]
-    > Den här mappen finns på [lagrings behållaren](concept-workspace.md#resources) på din arbets yta i stället för på själva Notebook-datorn.  Du kan ta bort den virtuella Notebook-datorn och fortsätta att ha allt ditt arbete.  När du skapar en ny Notebook VM senare, kommer den att läsa in samma mapp. Om du delar din arbets yta med andra, kommer de att se din mapp och du ser dem.
+    > Den här mappen finns på [lagrings kontot](concept-workspace.md#resources) i din arbets yta i stället för på själva Notebook-datorn.  Du kan ta bort den virtuella Notebook-datorn och fortsätta att ha allt ditt arbete.  När du skapar en ny Notebook VM senare, kommer den att läsa in samma mapp. Om du delar din arbets yta med andra, kommer de att se din mapp och du ser dem.
 
 1. `samples-*` Öppna under katalogen och öppna sedan`tutorials/tutorial-1st-experiment-sdk-train.ipynb`
 

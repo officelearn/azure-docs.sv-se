@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ce9566618870419e22dc9c420e77ef2ed6cd3c81
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 191840b8f49dad4903af362d1651206adda9eef2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836540"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140319"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Självstudier: Skapa en Data Factory-pipeline som flyttar data med hjälp av Azure PowerShell
 > [!div class="op_single_selector"]
@@ -103,7 +102,7 @@ En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en ell
     ```
     
     Vissa av stegen i den här självstudien förutsätter att du använder resursgruppen med namnet **ADFTutorialResourceGroup**. Om du använder en annan resursgrupp måste du använda den i stället för ADFTutorialResourceGroup i den här självstudiekursen.
-1. Kör den **New-AzDataFactory** cmdlet för att skapa en datafabrik med namnet **ADFTutorialDataFactoryPSH**:  
+1. Kör cmdleten **New-AzDataFactory** för att skapa en data fabrik med namnet **ADFTutorialDataFactoryPSH**:  
 
     ```powershell
     $df=New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
@@ -163,7 +162,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
      }
     ``` 
 1. I **Azure PowerShell** växlar du till appen **ADFGetStartedPSH**.
-1. Kör den **New AzDataFactoryLinkedService** cmdlet för att skapa den länkade tjänsten: **AzureStorageLinkedService**. Med den här cmdleten och andra Data Factory-cmdlets som du använder i den här självstudien måste du ange värden för parametrarna **ResourceGroupName** och **DataFactoryName**. Du kan också skicka DataFactory-objektet som returneras av cmdleten New-AzDataFactory utan att ange ResourceGroupName och DataFactoryName varje gång du kör en cmdlet. 
+1. Kör cmdleten **New-AzDataFactoryLinkedService** för att skapa den länkade tjänsten: **AzureStorageLinkedService**. Med den här cmdleten och andra Data Factory-cmdlets som du använder i den här självstudien måste du ange värden för parametrarna **ResourceGroupName** och **DataFactoryName**. Alternativt kan du skicka DataFactory-objektet som returneras av cmdleten New-AzDataFactory utan att skriva ResourceGroupName och DataFactoryName varje gång du kör en cmdlet. 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
@@ -456,7 +455,7 @@ Schemat styrs för närvarande av utdatamängd. I den här självstudiekursen ä
 ## <a name="monitor-the-pipeline"></a>Övervaka pipeline
 I det här steget använder du Azure PowerShell till att övervaka vad som händer i en Azure Data Factory.
 
-1. Ersätt &lt;DataFactoryName&gt; med namnet på din datafabrik och kör **Get-AzDataFactory**, och tilldela utdatan till en variabel $df.
+1. Ersätt &lt;DataFactoryName&gt; med namnet på din data fabrik och kör **Get-AzDataFactory**och tilldela utdata till en variabel $DF.
 
     ```powershell  
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
@@ -480,7 +479,7 @@ I det här steget använder du Azure PowerShell till att övervaka vad som händ
     Properties        : Microsoft.Azure.Management.DataFactories.Models.DataFactoryProperties
     ProvisioningState : Succeeded
     ```
-1. Kör **Get-AzDataFactorySlice** att få information om alla sektorer av den **OutputDataset**, vilket är utdatan för pipelinen.  
+1. Kör **Get-AzDataFactorySlice** för att få information om alla segment i **OutputDataset**, vilket är utdata-datauppsättningen för pipelinen.  
 
     ```powershell   
     Get-AzDataFactorySlice $df -DatasetName OutputDataset -StartDateTime 2017-05-11T00:00:00Z
@@ -524,7 +523,7 @@ I det här steget använder du Azure PowerShell till att övervaka vad som händ
     LatencyStatus     :
     LongRetryCount    : 0
     ```
-1. Kör **Get-AzDataFactoryRun** för att hämta information om aktiviteten som körs för en **specifika** sektorn. Kopiera datum-/tid-värde från utdata från det föregående kommandot för att ange värdet för parametern StartDateTime. 
+1. Kör **Get-AzDataFactoryRun** för att hämta information om aktivitets körningar för en **speciell** sektor. Kopiera datum-/tid-värde från utdata från det föregående kommandot för att ange värdet för parametern StartDateTime. 
 
     ```powershell  
     Get-AzDataFactoryRun $df -DatasetName OutputDataset -StartDateTime "5/11/2017 09:00:00 PM"

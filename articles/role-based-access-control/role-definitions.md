@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 2ec3872b9e11830f7891e98f5fc0182b99e1586d
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 4bf2e057f4c5dad650834f9b42c75be3aedec46e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997331"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142847"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Förstå roll definitioner för Azure-resurser
 
@@ -165,7 +165,7 @@ Om du vill visa och arbeta med data åtgärder måste du ha rätt versioner av v
 | [Azure för .NET](/dotnet/azure/) | 2.8.0 – för hands version eller senare |
 | [Azure SDK för Go](/azure/go/azure-sdk-go-install) | 15.0.0 eller senare |
 | [Azure för Java](/java/azure/) | 1.9.0 eller senare |
-| [Azure för python](/python/azure) | 0.40.0 eller senare |
+| [Azure för python](/azure/python/) | 0.40.0 eller senare |
 | [Azure SDK för Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 eller senare |
 
 Om du vill visa och använda data åtgärder i REST API måste du ange parametern för **API-version** till följande version eller senare:

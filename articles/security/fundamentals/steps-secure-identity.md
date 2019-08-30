@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 80c1ffd27b0668f19fd87e7eda62e578c861ba64
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fb17d1b95d74a67f220651cf198f367bdd31f19f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934609"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129306"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att säkra din identitetsinfrastruktur
 
@@ -130,7 +130,7 @@ Azure Active Directory har många funktioner som automatiskt fångar upp attacke
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Implementera säkerhets princip för användar risk med Azure AD Identity Protection
 
-Användar risk anger sannolikheten för att en användares identitet har komprometterats och beräknas utifrån de [användar risk händelser](../../active-directory/identity-protection/overview.md) som är associerade med en användares identitet. En användar risk princip är en princip för villkorlig åtkomst som utvärderar risk nivån för en speciell användare eller grupp. Utifrån låg, medel, hög risk nivå kan en princip konfigureras för att blockera åtkomst eller kräva en säker ändring av lösen ord med hjälp av Multi-Factor Authentication. Microsofts rekommendation är att kräva en säker lösen ords ändring för användare med hög risk.
+Användar risken indikerar sannolikheten för att en användares identitet har komprometterats och beräknas utifrån de [användar risk identifieringar](../../active-directory/identity-protection/overview.md) som är associerade med en användares identitet. En användar risk princip är en princip för villkorlig åtkomst som utvärderar risk nivån för en speciell användare eller grupp. Utifrån låg, medel, hög risk nivå kan en princip konfigureras för att blockera åtkomst eller kräva en säker ändring av lösen ord med hjälp av Multi-Factor Authentication. Microsofts rekommendation är att kräva en säker lösen ords ändring för användare med hög risk.
 
 ![Användare som har flaggats för risk](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
@@ -156,7 +156,7 @@ Microsoft Azure tjänster och funktioner ger dig möjlighet att konfigurera säk
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Övervaka Azure AD Identity Protection händelser
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) är ett meddelande, övervaknings-och rapporterings verktyg som du kan använda för att identifiera potentiella sårbarheter som påverkar organisationens identiteter. Den identifierar risk händelser, t. ex. läckta autentiseringsuppgifter, omöjliga resor och inloggningar från angripna enheter, anonyma IP-adresser, IP-adresser som är kopplade till den misstänkta aktiviteten och okända platser. Aktivera aviseringar om du vill få e-postaviseringar för användare med risk och/eller ett vecko sammandrag e-postmeddelande.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) är ett meddelande, övervaknings-och rapporterings verktyg som du kan använda för att identifiera potentiella sårbarheter som påverkar organisationens identiteter. Den identifierar risk identifieringar, t. ex. läckta autentiseringsuppgifter, omöjliga resor och inloggningar från angripna enheter, anonyma IP-adresser, IP-adresser som är kopplade till den misstänkta aktiviteten och okända platser. Aktivera aviseringar om du vill få e-postaviseringar för användare med risk och/eller ett vecko sammandrag e-postmeddelande.
 
 Azure AD Identity Protection ger två viktiga rapporter som du bör övervaka dagligen:
 1. Riskfyllda inloggnings rapporter kan användas för användarnas inloggnings aktiviteter som du bör undersöka, den legitima ägaren kanske inte har utfört inloggningen.

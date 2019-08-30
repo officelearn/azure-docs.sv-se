@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64d1b3e2f36256164420ae6b2e699f0ef48e2e78
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 3cf3281e00560a289fbb4adfe57083644e1a86e3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576555"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125431"
 ---
-# <a name="conditional-access-risk-based-conditional-access"></a>Villkorlig åtkomst: Riskfylld villkorlig åtkomst
+# <a name="conditional-access-risk-based-conditional-access"></a>Villkorlig åtkomst: Risk- och villkorsbaserad åtkomst
 
-Organisationer med Azure AD Premium P2-licenser kan skapa principer för villkorlig åtkomst som innehåller Azure AD Identity Protection risk händelser. Det finns tre standard principer som kan aktive ras från rutan. 
+Organisationer med Azure AD Premium P2-licenser kan skapa principer för villkorlig åtkomst som innehåller Azure AD Identity Protection risk identifieringar. Det finns tre standard principer som kan aktive ras från rutan. 
 
 * Kräv att alla användare registrerar sig för Azure Multi-Factor Authentication.
 * Kräv en lösen ords ändring för användare med hög risk.

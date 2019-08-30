@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 7ff4db2e349d0da811ef262e308477bde3b27a3c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ac9a62a810a957c67d9c24063d01eff822c8294f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934584"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129302"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens säkerhets behov.
@@ -61,7 +61,7 @@ Säkerhets fördelarna med Azure Active Directory (Azure AD) inkluderar möjligh
 
 - Ge åtkomst till enkel inloggning till dina program, inklusive tusentals förintegrerade SaaS-appar.
 
-- Aktivera program åtkomst säkerhet genom att tvinga fram principbaserad Multi-Factor Authentication för både lokala program och moln program.
+- Aktivera program åtkomst säkerhet genom att verkställa regler baserade Multi-Factor Authentication för både lokala och molnbaserade program.
 
 - Etablera säker fjärråtkomst till lokala webb program via Azure AD-programproxy.
 
@@ -73,7 +73,7 @@ Följande är grundläggande funktioner för Azure Identity Management:
 
 - Enkel inloggning
 
-- Multifaktorautentisering
+- Multi-Factor Authentication
 
 - Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
 
@@ -95,9 +95,9 @@ Många organisationer förlitar sig på SaaS-program (program vara som en tjäns
 
 Användare behöver inte bara hantera flera uppsättningar användar namn och lösen ord, program åtkomsten kan automatiskt etableras eller avetableras baserat på organisations grupper och deras status som anställd. [Azure AD introducerar säkerhets-och åtkomst styrnings kontroller](../../active-directory/active-directory-enterprise-apps-manage-sso.md) som gör att du centralt kan hantera användarnas åtkomst i SaaS-program.
 
-#### <a name="multi-factor-authentication"></a>Multifaktorautentisering
+#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/multi-factor-authentication.md) är en autentiseringsmetod som kräver användning av mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets skikt för användar inloggningar och transaktioner. [MFA hjälper](../../active-directory/authentication/concept-mfa-howitworks.md) till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Den ger stark autentisering via ett antal verifierings alternativ – telefonsamtal, textmeddelande eller meddelande från mobilapp eller verifierings kod och OAuth-token från tredje part.
+[Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/multi-factor-authentication.md) är en metod för autentisering som kräver användning av mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets lager för användar inloggningar och transaktioner. [MFA hjälper](../../active-directory/authentication/concept-mfa-howitworks.md) till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Den ger stark autentisering via ett antal verifierings alternativ – telefonsamtal, textmeddelande eller meddelande från mobilapp eller verifierings kod och OAuth-token från tredje part.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
 
@@ -147,7 +147,7 @@ Med Azure AD Privileged Identity Management kan du:
 
 #### <a name="identity-protection"></a>Identitetsskydd
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) är en säkerhets tjänst som tillhandahåller en samlad vy över risk händelser och potentiella sårbarheter som påverkar organisationens identiteter. Identitets skydd använder befintliga Azure Active Directorys avvikelse identifierings funktioner (tillgängliga via Azure ADs avvikande aktivitets rapporter) och introducerar nya risk händelse typer som kan identifiera avvikelser i real tid.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) är en säkerhets tjänst som tillhandahåller en samlad vy över risk identifieringar och potentiella sårbarheter som påverkar organisationens identiteter. Identitets skydd använder befintliga Azure Active Directorys avvikelse identifierings funktioner (tillgängliga via Azure ADs avvikande aktivitets rapporter) och introducerar nya risk identifierings typer som kan identifiera avvikelser i real tid.
 
 ## <a name="secure-resource-access"></a>Säker resurs åtkomst
 

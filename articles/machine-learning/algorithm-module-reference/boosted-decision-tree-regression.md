@@ -1,7 +1,7 @@
 ---
-title: 'Regression för beslutsträd: Modulreferens'
+title: 'Regressions analys av besluts träd: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen förstärkta Regression för beslut i Azure Machine Learning-tjänsten för att skapa en ensemble för regressionsträd med boosting.
+description: Lär dig hur du använder den förstärkta besluts träds Regressions modulen i Azure Machine Learning-tjänsten för att skapa en ensemble med Regressions träd med förstärkning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,80 +9,79 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 67e54f10074ee566ce974dbd27485904bfe0a653
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de4135c2e516eb7f26e1b99a22a60501f4577cce
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411552"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128964"
 ---
-# <a name="boosted-decision-tree-regression-module"></a>Bättre beslut förbättrad Regression modul
+# <a name="boosted-decision-tree-regression-module"></a>Regressions modul för besluts träd
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen för att skapa en ensemble för regressionsträd med boosting. *Öka* innebär att varje trädet är beroende av tidigare träd. Algoritmen som lär sig effektivare återstående för träd som föregås den. Därför tenderar boosting i ett beslut trädet ensemble att öka noggrannheten med en liten risk för mindre täckning.  
+Använd den här modulen för att skapa en ensemble of Regressions träd med förstärkning. *Förstärkning* innebär att varje träd är beroende av föregående träd. Algoritmen lär sig genom att anpassa resten av de träd som föregår det. Därför är det bättre att öka noggrannheten i besluts trädets ensemblen för att förbättra noggrannheten med liten risk för mindre täckning.  
   
-Den här metoden regression är en metod för övervakad inlärning och därför kräver ett *märkta datauppsättning*. Etikettkolumnen måste innehålla numeriska värden.  
+Den här Regressions metoden är en övervakad inlärnings metod och kräver därför en *etikettad data uppsättning*. Etikett kolumnen måste innehålla numeriska värden.  
 
 > [!NOTE]
-> Använd den här modulen endast med datauppsättningar som använder numeriska variabler.  
+> Använd endast den här modulen med data uppsättningar som använder numeriska variabler.  
 
-När du har definierat modellen kan du tränar den med hjälp av den [träna modell](./train-model.md).
+När du har definierat modellen tränar du den med hjälp av [träna-modellen](./train-model.md).
 
 > [!TIP]
-> Vill du veta mer om träd som har skapats? När modellen har tränats, högerklickar du på utdata från den [Träningsmodell](./train-model.md) modul och välj **visualisera** i trädet som har skapats för varje iteration. Du kan granska nedåt i delningar för varje träd och finns i reglerna för varje nod.  
+> Vill du veta mer om de träd som har skapats? När modellen har tränats högerklickar du på utdata från modulen [träna modell](./train-model.md) och väljer **visualisera** för att se trädet som skapades i varje iteration. Du kan öka detalj nivån i delningarna för varje träd och se reglerna för varje nod.  
   
-## <a name="more-about-boosted-regression-trees"></a>Mer om förbättrat regressionsträd  
+## <a name="more-about-boosted-regression-trees"></a>Mer om Boosted Regressions träd  
 
-Öka är en av flera klassiska metoder för att skapa ensemble modeller, tillsammans med förpackningskapacitet, slumpmässigt skogar och så vidare.  I Azure Machine Learning använder förbättrat beslutsträd en effektiv implementering av MART-gradient boosting algoritmen. Gradient boosting är en machine learning-teknik för regressionsproblem. Den bygger varje regression trädet i ett steg för steg så sätt, med hjälp av en fördefinierad förlust funktion att mäta felet i varje steg och åtgärda den i nästa. Därför är förutsägelse modellen faktiskt en ensemble av svagare förutsägelsemodeller.  
+Förstärkning är en av flera klassiska metoder för att skapa Ensemble-modeller, tillsammans med bagage, slumpmässiga skogar och så vidare.  I Azure Machine Learning använder förstärkta besluts träd en effektiv implementering av algoritmen för MART-gradient-Boost. Tonings förstärkning är en maskin inlärnings teknik för Regressions problem. Det skapar varje Regressions träd i ett steg-ett steg, med en fördefinierad förlust funktion för att mäta felet i varje steg och korrigera det i nästa steg. Därför är förutsägelse modellen faktiskt en ensemble med svagare förutsägelse modeller.  
   
-I regressionsproblem boosting bygger en serie träd steg för steg så och väljer sedan optimala trädet med hjälp av en godtyckligt differentiable förlust-funktion.  
+Vid Regressions problem skapar förstärkningen en serie träd i ett stegvist sätt och väljer sedan det optimala trädet med en godtycklig differentiable-förlust funktion.  
   
 Mer information finns i följande artiklar:  
   
 + [https://wikipedia.org/wiki/Gradient_boosting#Gradient_tree_boosting](https://wikipedia.org/wiki/Gradient_boosting)
 
-    Den här Wikipedia-artikel gradient boosting innehåller bakgrundsinformation om bättre träd. 
+    Den här Wikipedia-artikeln om tonings förstärkning ger viss bakgrund i förstärkta träd. 
   
 -  [https://research.microsoft.com/apps/pubs/default.aspx?id=132652](https://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
 
     Microsoft Research: Från RankNet till LambdaRank till LambdaMART: En översikt. Av J.C. Burges.
 
-Gradient boosting metod kan även användas för klassificering, problem genom att minska dem till regression med en lämplig förlust-funktion. Mer information om implementering bättre träd för klassificering finns i [Tvåklassförhöjt beslutsträd](./two-class-boosted-decision-tree.md).  
+Metoden för tonings förstärkning kan också användas för klassificerings problem genom att minska dem till regression med lämplig förlust funktion. Mer information om implementerade träd för klassificerings aktiviteter finns i besluts [trädet i två klasser](./two-class-boosted-decision-tree.md).  
 
-## <a name="how-to-configure-boosted-decision-tree-regression"></a>Så här konfigurerar du förstärkta Regression för beslut
+## <a name="how-to-configure-boosted-decision-tree-regression"></a>Så här konfigurerar du Regressions trädet för besluts träd
 
-1.  Lägg till den **beslutsträd** modulen i experimentet. Du hittar den här modulen under **Maskininlärning**, **initiera**under den **Regression** kategori. 
+1.  Lägg till modulen för **besluts trädet** i experimentet. Du hittar den här modulen under **Machine Learning**, **initiera**under Regressions kategorin. 
   
-2.  Ange hur du vill att modellen ska tränas genom att ange den **skapande trainer läge** alternativet.  
+2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enkel parametern**: Välj det här alternativet om du vet hur du vill konfigurera modellen och ange en specifik uppsättning värden som argument.  
+    -   **Enskild parameter**: Välj det här alternativet om du vet hur du vill konfigurera modellen och ange en speciell uppsättning värden som argument.  
    
   
-3. **Maximalt antal blad per trädet**: Ange det maximala antalet terminal noder (löv) som kan skapas i valfri trädet.  
+3. **Maximalt antal löv per träd**: Ange det maximala antalet terminalserversessioner (löv) som kan skapas i alla träd.  
 
-    Genom att öka det här värdet du potentiellt öka storleken på trädet och få bättre noggrannhet på millisekunder, dess risk overfitting och utbildning längre tid.  
+    Genom att öka det här värdet kan du öka storleken på trädet och få bättre precision vid överanpassning och längre inlärnings tid.  
 
-4. **Minsta antal prover per lövnod**: Ange det minsta antalet fall som krävs för att skapa en terminal nod (löv-) i ett träd.
+4. **Minsta antal sampel per lövnod**: Ange det minsta antal fall som krävs för att skapa en Terminal-nod (löv) i ett träd.
 
-    Genom att öka det här värdet kan du öka tröskelvärdet för att skapa nya regler. Med standardvärdet 1 kan till exempel även ett enda fall orsaka en ny regel som ska skapas. Om du ökar värdet till 5, skulle träningsdata behöva innehålla minst 5 ärenden som uppfyller villkor som är samma.
+    Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler. Till exempel, med standardvärdet 1, kan ett enda ärende orsaka att en ny regel skapas. Om du ökar värdet till 5 måste tränings data innehålla minst 5 fall som uppfyller samma villkor.
 
-5. **Learning rate**: Ange ett tal mellan 0 och 1 som definierar Stegstorlek vid learning. Inlärningsfrekvensen avgör hur snabb eller långsam eleven konvergerar på den bästa lösningen. Om Stegstorlek är för stor, kan du överskridande den bästa lösningen. Om Stegstorlek är för liten, tar utbildning längre tid att Konvergera på den bästa lösningen.
+5. **Inlärnings frekvens**: Ange ett tal mellan 0 och 1 som definierar steg storleken medan du lär dig. Inlärnings frekvensen avgör hur snabbt eller långsamt en elev konvergerar på den optimala lösningen. Om steg storleken är för stor kanske du överbelastar den optimala lösningen. Om steg storleken är för liten tar inlärningen längre tid att konvergera i den bästa lösningen.
 
-6. **Antal träd konstrueras**: Visa det totala antalet beslutsträd för att skapa i ensemble. Du kan eventuellt få bättre täckning genom att skapa mer beslutsträd, men utbildningstid ökar.
+6. **Antal skapade träd**: Ange det totala antalet besluts träd som ska skapas i ensemble. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden ökar.
 
-    Det här värdet styr också antalet träd som visas när visualisera den tränade modellen. Om du vill visa eller skriva ut en ingle trädet, kan du ange värdet 1. men bara en trädet produceras (trädet med den första uppsättningen parametrar) och inga ytterligare iterationer utförs.
+    Det här värdet styr också antalet träd som visas vid visualisering av den tränade modellen. Om du vill visa eller skriva ut ett Ingle-träd kan du ange värdet till 1. dock skapas endast ett träd (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
 
-7. **Slumpmässigt nummer seed**: Ange ett valfritt positivt heltal som ska användas som slumpmässiga seed-värdet. Ange ett startvärde, vilket ger reproducerbarhet i körningar som har samma data och parametrar.
+7. **Värde för slumpmässig siffra**: Ange ett valfritt icke-negativt heltal som ska användas som det slumpmässiga startvärdet. Genom att ange ett utsäde säkerställer du reproducerbarhet i körningar som har samma data och parametrar.
 
-    Som standard anges slumpmässig dirigering till 0, vilket innebär att inledande seed-värdet hämtas från systemklockan.
+    Som standard är det slumpmässiga startvärdet inställt på 0, vilket innebär att det första startvärdet hämtas från system klockan.
   
-8. **Tillåt okända kategoriska nivåer**: Välj det här alternativet för att skapa en grupp för okända värden i uppsättningar för träning och verifiering. Om du avmarkerar det här alternativet kan modellen Acceptera bara de värdena som finns i träningsdata. Modellen kan vara mindre exakt för kända värden, men det kan ge bättre förutsägelser för nya (okänd) värden.
+8. **Tillåt okända kategoriska-nivåer**: Välj det här alternativet om du vill skapa en grupp för okända värden i inlärnings-och validerings uppsättningarna. Om du avmarkerar det här alternativet kan modellen bara acceptera de värden som finns i tränings data. Modellen kan vara mindre exakt för kända värden, men den kan ge bättre förutsägelser för nya (okända) värden.
 
-9. Lägg till en datauppsättning för träning och en av modulerna som utbildning:
+9. Lägg till en data uppsättning för utbildning och en av inlärnings modulerna:
 
-    - Om du ställer in **skapande trainer läge** alternativet att **enda Parameter**, använda den [Träningsmodell](train-model.md) modulen.  
+    - Om du anger alternativet **skapa utbildare läge** till **en enskild parameter**använder du modulen [träna modell](train-model.md) .  
   
     
 
@@ -90,16 +89,16 @@ Gradient boosting metod kan även användas för klassificering, problem genom a
   
 ### <a name="results"></a>Resultat
 
-När utbildning har slutförts:
+När utbildningen är klar:
 
-+ Om du vill se i trädet som har skapats för varje iteration, högerklickar du på utdata från den [Träningsmodell](train-model.md) modul och välj **visualisera**.
++ Om du vill se trädet som skapades på varje iteration högerklickar du på utdata från modulen [träna modell](train-model.md) och väljer **visualisera**.
   
-     Klicka på varje träd för att granska nedåt i delningen och se regler för varje nod.  
+     Klicka på varje träd för att öka detalj nivån i delningarna och se reglerna för varje nod.  
 
-+ Om du vill använda modellen för bedömning, Anslut den till [Poängmodell](./score-model.md), för att förutsäga värden för nya inkommande exempel.
++ Om du vill använda modellen för poängsättning ansluter du den till [Poäng modellen](./score-model.md)och förutsäger värdena för nya ingångs exempel.
 
-+ Spara en ögonblicksbild av den tränade modellen genom att högerklicka på den **Trained model** utdata från modulen för utbildning och välj **Spara som**. Kopia av den tränade modellen som du har sparat uppdateras inte på efterföljande körningar av experimentet.
++ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den tränade modellens utdata i modulen utbildning och väljer **Spara som**. Kopian av den tränade modellen som du sparar uppdateras inte vid efterföljande körningar av experimentet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

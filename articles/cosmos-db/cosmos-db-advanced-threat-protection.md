@@ -4,15 +4,15 @@ description: Lär dig hur Azure Cosmos DB tillhandahåller kryptering av data i 
 author: monhaber
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 08/21/2019
 ms.author: v-mohabe
 ms.custom: seodec18
-ms.openlocfilehash: e22e05618c8b8977ba8b03afd3b654d27d4fa6bd
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 035c7e9ed5ab33c89a2a55b1133294db434bfe81
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981736"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70123854"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Avancerat skydd för Azure Cosmos DB
 
@@ -56,6 +56,31 @@ Använd följande PowerShell-cmdletar:
 * [Aktivera avancerat skydd](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
 * [Hämta Avancerat skydd](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
 * [Inaktivera Avancerat skydd](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
+
+### <a name="using-azure-resource-manager-templates"></a>Använda Azure Resource Manager mallar
+
+Använd en Azure Resource Manager-mall för att konfigurera Cosmos DB med avancerat skydd aktiverat.
+Mer information finns i [skapa ett CosmosDB-konto med avancerat skydd](https://azure.microsoft.com/en-us/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
+
+### <a name="using-azure-policy"></a>Använda Azure Policy
+
+Använd en Azure Policy för att aktivera avancerat skydd mot Cosmos DB.
+
+1. Starta sidan Azure **policy-definitions** och Sök efter principen **distribuera avancerat skydd för Cosmos DB** .
+
+    ![Sök princip](./media/cosmos-db-advanced-threat-protection/cosmos-db.png) 
+
+1. Klicka på principen **distribuera Avancerat skydd för CosmosDB** och klicka sedan på **tilldela**.
+
+    ![Välj prenumeration eller grupp](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png)
+
+
+1. Klicka på de tre punkterna i fältet **scope** , Välj en Azure-prenumeration eller resurs grupp och klicka sedan på **Välj**.
+
+    ![Sidan princip definitioner](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png)
+
+
+1. Ange de andra parametrarna och klicka på **tilldela**.
 
 ## <a name="manage-atp-security-alerts"></a>Hantera säkerhets aviseringar för ATP
 

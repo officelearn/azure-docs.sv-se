@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 049fc534c6bf3d777268363968ac2a8b92ca8d1c
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 98ec53d384186968d69c3f84cdfa12fbdbe92b71
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904442"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147455"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>Kom igång med enhets hantering (Node. js)
 
@@ -34,8 +34,6 @@ I slutet av den här självstudien har du två Node. js-konsol program:
 * **dmpatterns_getstarted_service. js**, som anropar en direkt metod i den simulerade Device-appen, visar svaret och visar de uppdaterade egenskaper som rapporteras.
 
 ## <a name="prerequisites"></a>Förutsättningar
-
-För att slutföra den här kursen behöver du:
 
 * Node. js version 10.0. x eller senare. [Förbered utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node. js för den här själv studie kursen i Windows eller Linux.
 

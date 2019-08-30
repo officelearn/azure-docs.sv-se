@@ -1,7 +1,7 @@
 ---
-title: 'Dela Data: Modulreferens'
+title: 'Dela data: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen dela Data i Azure Machine Learning-tjänsten för att dela upp en datauppsättning i två olika uppsättningar.
+description: Lär dig hur du använder modulen dela data i Azure Machine Learning-tjänsten för att dela upp en data uppsättning i två distinkta mängder.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,110 +9,109 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: a7395280ed9a2e9dcb94a081f0b3bf10a28da719
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31612e10e7978e94f1ed467b5ffbecde40910ef9
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029407"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128469"
 ---
-# <a name="split-data-module"></a>Dela data
+# <a name="split-data-module"></a>Modulen dela data
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen för att dela upp en datauppsättning i två olika uppsättningar.
+Använd den här modulen för att dela upp en data uppsättning i två distinkta mängder.
 
-Den här modulen är särskilt användbart när du behöver att avgränsa data i utbildning och testningsuppsättningar. Du kan anpassa hur data delas även. Vissa alternativ stöder slumpmässig för data. andra är skräddarsydda för en viss datatyp av eller modelltypen.
+Den här modulen är särskilt användbar när du behöver separera data i utbildning och testnings uppsättningar. Du kan anpassa hur data delas upp. Vissa alternativ stöder slumpmässig data, andra skräddarsys för en viss datatyp eller modell typ.
 
 ## <a name="how-to-configure"></a>Så här konfigurerar du
 
 > [!TIP]
-> Du behöver följande innan du väljer delande läge, läsa alla alternativ för att bestämma vilken typ av delning.
-> Om du ändrar läget som delar upp gick att återställa alla andra alternativ.
+> Innan du väljer delnings läget kan du läsa alla alternativ för att avgöra vilken typ av delning du behöver.
+> Om du ändrar delnings läget kan alla andra alternativ återställas.
 
-1. Lägg till den **dela Data** modulen i experimentet i gränssnittet. Du hittar den här modulen under **Dataomvandling**i den **exemplet och dela** kategori.
+1. Lägg till modulen **dela data** i ditt experiment i gränssnittet. Du hittar den här modulen under **data omvandling**, i kategorin **exempel och Split** .
 
-2. **Dela upp läge**: Välj något av följande lägen, beroende på vilken typ av data som du har och hur du vill dela upp den. Det finns olika alternativ för varje delande läge. Klicka på följande avsnitt för detaljerade anvisningar och exempel. 
+2. **Delnings läge**: Välj något av följande lägen, beroende på vilken typ av data du har och hur du vill dela upp den. Varje delnings läge har olika alternativ. Klicka på följande avsnitt om du vill ha detaljerade instruktioner och exempel. 
 
-    - **Dela upp rader**: Använd det här alternativet om du bara vill dela upp data i två delar. Du kan ange hur stor procentandel av data ska placeras i varje delning, men som standard data delas 50 – 50.
+    - **Dela rader**: Använd det här alternativet om du bara vill dela upp data i två delar. Du kan ange den procent andel av data som ska placeras i varje delning, men som standard delas data upp 50-50.
 
-        Du kan också slumpgenerera valet av rader i varje grupp och använda stratified sampling. Du måste välja en kolumn med data som du vill använda värden som ska fördelas jämnt mellan de två resultat datauppsättningarna i stratified sampling.  
+        Du kan också göra en slumpmässig markering av rader i varje grupp och använda Stratified-sampling. I Stratified-sampling måste du välja en enskild kolumn med data för vilka du vill att värden ska fördelas lika mellan de två resultat data uppsättningarna.  
 
-    - **Reguljära uttryck dela** välja det här alternativet när du vill dela upp datauppsättningen genom att testa en enda kolumn för ett värde.
+    - **Delning av reguljärt uttryck**  Välj det här alternativet om du vill dela upp data uppsättningen genom att testa en enskild kolumn för ett värde.
 
-        Till exempel om du analyserar sentiment, kan du kontrollera om finns ett visst Produktnamn i ett textfält och sedan dela upp datauppsättningen i rader med produktnamnet som mål och de som saknar.
+        Om du till exempel analyserar sentiment kan du kontrol lera om det finns ett visst produkt namn i ett textfält och sedan dela upp data uppsättningen i rader med mål produktens namn och de utan.
 
-    - **Relativa uttryck dela**:  Använd det här alternativet när du vill tillämpa ett villkor till en kolumn med tal. Kan vara ett datum/tid-fält, en kolumn som innehåller ålder eller kronor eller även en procentandel. Du kanske exempelvis vill dela upp datauppsättningen beroende på kostnaden för objekt, gruppera personer efter åldersintervall eller separat data efter ett kalenderdatum.
+    - **Delning av relativt uttryck**:  Använd det här alternativet när du vill tillämpa ett villkor för en tal kolumn. Talet kan vara ett datum/tid-fält, en kolumn som innehåller ålders-eller dollar belopp eller till och med en procent andel. Du kanske t. ex. vill dela upp din data uppsättning beroende på kostnaden för objekten, gruppera personer efter ålders intervall eller dela data efter kalender datum.
 
-### <a name="split-rows"></a>Dela upp rader
-1.  Lägg till den [dela Data](./split-data.md) modulen i experimentet i gränssnittet, och anslut den datauppsättning som du vill dela.
+### <a name="split-rows"></a>Dela rader
+1.  Lägg till modulen [dela data](./split-data.md) i ditt experiment i gränssnittet och Anslut den data uppsättning som du vill dela.
   
-2.  För **dela läge**, Välj **dela rader**. 
+2.  För **delnings läge**väljer du **dela upp rader**. 
 
-3.  **Del av rader i den första utdatauppsättningen**. Använd det här alternativet för att avgöra hur många rader som går in i första (vänster) utdata. Alla andra rader skickas till den andra (till högra) utdatan.
+3.  **Bråkdel av rader i den första data uppsättningen för utdata**. Använd det här alternativet för att avgöra hur många rader som ska gå till den första (vänstra) utmatningen. Alla andra rader flyttas till den andra (högra) utmatningen.
 
-    Förhållandet mellan representerar procentandelen av rader som skickas till den första utdatauppsättningen så att du måste ange ett värde mellan 0 och 1.
+    Förhållandet representerar procent andelen rader som har skickats till den första data uppsättningen, så du måste ange ett decimal tal mellan 0 och 1.
      
-     Om du skriver 0,75 som värde skulle datamängden delas med hjälp av ett 75:25-förhållande med 75% av de rader som skickas till den första utdatauppsättningen och 25% som skickas till andra datauppsättningen för utdata.
+     Om du till exempel skriver 0,75 som värde, skulle data uppsättningen delas med hjälp av ett 75:25-förhållande, med 75% av raderna som skickas till den första data uppsättningen och 25% som skickas till den andra utdata-datauppsättningen.
   
-4. Välj den **Randomized dela** om du vill att slumpgenerera valet av data i två grupper. Det här är alternativet som rekommenderas när du skapar datauppsättningar för träning och testning.
+4. Välj det **slumpmässiga delnings** alternativet om du vill slumpmässig data urvalet i de två grupperna. Det här är det bästa alternativet när du skapar utbildnings-och test data uppsättningar.
 
-5.  **Slumpmässig dirigering**: Ange ett värde för icke-negativt heltal för att initiera pseudoslumpvisa serie instanser som ska användas. Det här standardvärdet för dirigering används i alla moduler som genererar slumptal. 
+5.  **Slumpmässigt utsäde**: Ange ett icke-negativt heltals värde för att initiera pseudorandom-sekvensen av instanser som ska användas. Standardvärdet för start används i alla moduler som genererar slumpmässiga tal. 
 
-     Ange ett startvärde blir resultatet Allmänt reproducerbar. Om du vill upprepa resultatet av en split-åtgärden bör du ange ett startvärde för slumpmässiga talgeneratorns startvärden. Annars är slumpmässig dirigering som standard till 0, vilket innebär att inledande seed-värdet hämtas från systemklockan. Därför kan kan fördelningen av data vara något annorlunda varje gång som du utför en delning. 
+     Om du anger ett startvärden blir resultatet i allmänhet reproducerat. Om du behöver upprepa resultatet av en delad åtgärd bör du ange ett start värde för slump tals generatorn. Annars anges det slumpmässiga startvärdet som standard till 0, vilket innebär att det första startvärdet hämtas från system klockan. Därför kan data fördelningen vara något annorlunda varje gången du utför en delning. 
 
-6. **Stratified dela**: Välja alternativet **SANT** att säkerställa att de två utdata datauppsättningarna innehåller ett representativt urval av värdena i den *strata kolumnen* eller *stratifiering nyckelkolumn*. 
+6. **Stratified-delning**: Ange det här alternativet till **Sant** för att säkerställa att de två data uppsättningarna innehåller ett representativt exempel på värdena i *kolumnen Strata* eller *Stratification Key*. 
 
-    Data delas med stratified sampling så att varje utdatauppsättningen hämtar ungefär samma procentvärdet för varje mål. Du kanske exempelvis vill vara säker på att din utbildning och testningsuppsättningar är ungefär balanserade avseende resultatet eller med hänsyn ot vissa andra kolumn, till exempel kön.
+    Med Stratified-sampling delas data upp så att varje utdata-datauppsättning får ungefär samma procent andel av varje målvärde. Du kanske till exempel vill se till att dina utbildnings-och test uppsättningar är ungefär balanserade med avseende på resultatet eller med avseende på en annan kolumn, till exempel kön.
 
 7. Kör experimentet.
 
 
-## <a name="regular-expression-split"></a>Reguljärt uttryck dela
+## <a name="regular-expression-split"></a>Delning av reguljärt uttryck
 
-1.  Lägg till den [dela Data](./split-data.md) modul till ditt experiment, och koppla den som indata till den datauppsättning som du vill dela.  
+1.  Lägg till modulen [dela data](./split-data.md) i experimentet och Anslut den som indata till den data uppsättning som du vill dela.  
   
-2.  För **dela läge**väljer **reguljärt uttryck dela**.
+2.  För **delnings läge**väljer du **delad reguljära uttryck**.
 
-3. I den **reguljärt uttryck** skriver du ett giltigt reguljärt uttryck. 
+3. I rutan **reguljära uttryck** skriver du ett giltigt reguljärt uttryck. 
   
-   Det reguljära uttrycket bör följa Python syntax för reguljära uttryck.
+   Det reguljära uttrycket bör följa syntaxen för reguljära uttryck i python.
 
 
 4. Kör experimentet.
 
-    Utifrån det reguljära uttrycket som du anger datauppsättningen är uppdelad i två uppsättningar med rader: rader med värden som matchar uttrycket och alla återstående rader. 
+    Baserat på det reguljära uttrycket som du anger är data uppsättningen uppdelad i två uppsättningar med rader: rader med värden som matchar uttrycket och alla återstående rader. 
 
-## <a name="relative-expression-split"></a>Relativa uttryck dela.
+## <a name="relative-expression-split"></a>Delat relativt uttryck.
 
-1. Lägg till den [dela Data](./split-data.md) modul till ditt experiment, och koppla den som indata till den datauppsättning som du vill dela.
+1. Lägg till modulen [dela data](./split-data.md) i experimentet och Anslut den som indata till den data uppsättning som du vill dela.
   
-2. För **dela läge**väljer **relativa uttryck dela**.
+2. För **delnings läge**väljer du **delat relativt uttryck**.
   
-3. I den **relationella uttrycket** anger du ett uttryck som utför en jämförelse, på en enda kolumn:
+3. I text rutan **Relations uttryck** skriver du ett uttryck som utför en jämförelse-åtgärd i en enskild kolumn:
 
 
  - Numerisk kolumn:
-    - Kolumnen innehåller många olika numeriska datatyper, inklusive datum/tid-datatyper.
+    - Kolumnen innehåller siffror av vilken numerisk datatyp som helst, inklusive datum-och tids data typer.
 
-    - Uttrycket kan referera till högst ett kolumnnamn.
+    - Uttrycket kan referera till högst ett kolumn namn.
 
-    - Använd et-tecken (&) för AND-åtgärd och Använd vertikalstrecket (|) för OR-åtgärden.
+    - Använd et-tecknet (&) för och-åtgärden och Använd pipe-tecknet (|) för åtgärden eller.
 
-    - Följande operatorer som stöds: `<`, `>`, `<=`, `>=`, `==`, `!=`
+    - Följande operatorer stöds: `<` `<=` `>`, `>=` ,`==`,,,`!=`
 
-    - Du kan gruppera åtgärder med hjälp av `(` och `)`.
+    - Du kan inte gruppera åtgärder med `(` hjälp `)`av och.
 
- - Strängkolumn: 
-    - Följande operatorer som stöds: `==`, `!=`
+ - Sträng kolumn: 
+    - Följande operatorer stöds: `==`,`!=`
 
 
 
 4. Kör experimentet.
 
-    Uttrycket som delar upp datauppsättningen i två uppsättningar med rader: rader med värden som uppfyller villkoret och alla återstående rader.
+    Uttrycket delar in data uppsättningen i två uppsättningar med rader: rader med värden som uppfyller villkoret och alla återstående rader.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

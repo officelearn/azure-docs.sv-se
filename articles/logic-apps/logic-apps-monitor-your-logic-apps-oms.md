@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 08/16/2019
-ms.openlocfilehash: 2f82bd9c0bcacf2c552df84cdd4f8f2cd6a68c8a
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.date: 08/29/2019
+ms.openlocfilehash: a038a05f03ce7a209ae82203441750749bc6c4c4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543216"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138700"
 ---
 # <a name="get-insights-and-debugging-data-for-logic-apps-by-using-azure-monitor-logs"></a>Hämta insikter och fel söknings data för logi Kap par genom att använda Azure Monitor loggar
 
@@ -55,7 +55,7 @@ Innan du börjar måste du ha en Log Analytics-arbetsyta. Lär dig [hur du skapa
 
 ## <a name="install-logic-apps-management-solution"></a>Installera Logic Apps hanterings lösning
 
-Om du redan har aktiverat Azure Monitor loggar när du skapade din Logic app, hoppar du över det här steget. Du har redan den Logic Apps hanterings lösningen installerad.
+Hoppa över det här steget om du redan har konfigurerat Azure Monitor loggar när du skapade din Logic app. Du har redan den Logic Apps hanterings lösningen installerad.
 
 1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. Sök efter "Log Analytics-arbetsytor" i sökrutan och välj **Log Analytics arbets ytor**.
 
@@ -107,23 +107,21 @@ När din Logic app har körts kan du Visa status och antal för dessa körningar
 
    Här är ett exempel som visar alla körningar för en speciell Logic-app:
 
-   ![Visa körningar för en Logic app eller en status](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
+   ![Visa körnings-och status för Logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   På den här sidan finns följande avancerade alternativ:
+   Den här sidan har avancerade alternativ: 
 
-   * **Spårade egenskaper:**
+   * Kolumnen **spårade egenskaper** : För en Logic app där du ställer in spårade egenskaper, som är grupperade efter åtgärder, kan du visa dessa egenskaper från den här kolumnen. Om du vill visa de här spårade egenskaperna väljer du **Visa**. Om du vill söka efter de spårade egenskaperna använder du kolumn filtret.
 
-     Den här kolumnen visar de spårade egenskaperna, som är grupperade efter åtgärder, för Logic app. Om du vill visa de spårade egenskaperna väljer du **Visa**. Om du vill söka efter de spårade egenskaperna använder du kolumn filtret.
+      ![Visa spårade egenskaper för en Logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
-     ![Visa spårade egenskaper för en Logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+      Alla nyligen tillagda spårade egenskaper kan ta 10-15 minuter innan de visas första gången. Lär dig [hur du lägger till spårade egenskaper i din Logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-     Alla nyligen tillagda spårade egenskaper kan ta 10-15 minuter innan de visas första gången. Lär dig [hur du lägger till spårade egenskaper i din Logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
-
-   * **Skicka** Du kan skicka en eller flera Logic app-körningar som misslyckades, lyckades eller fortfarande körs. Markera kryss rutorna för de körningar som du vill skicka igen och välj **Skicka igen**.
+   * **Skicka igen**: Du kan skicka om en eller flera Logi Kap par-körningar som misslyckats, lyckades eller fortfarande körs. Markera kryss rutorna för de körningar som du vill skicka igen och välj sedan **Skicka igen**.
 
      ![Skicka om Logic app-körningar](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
-1. För att filtrera dessa resultat kan du utföra både klient-och Server sidans filtrering.
+1. För att filtrera resultaten kan du utföra både klient-och Server sidans filtrering.
 
    * **Filter på klient sidan**: För varje kolumn väljer du de filter som du vill använda, till exempel:
 
@@ -133,25 +131,21 @@ När din Logic app har körts kan du Visa status och antal för dessa körningar
 
      ![Ändra tids perioden](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
 
-1. Om du vill visa alla åtgärder och deras information för en speciell körning väljer du en rad för en Logic app-körning.
+1. Om du vill visa alla åtgärder och deras information för en speciell körning väljer du raden för en Logic app-körning.
 
-   Här är ett exempel som visar alla åtgärder för en speciell Logic app-körning:
+   Här är ett exempel som visar alla åtgärder och utlösare för en speciell Logic app-körning:
 
    ![Visa åtgärder för en Logic app-körning](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
 
-1. På alla resultat sidor kan du Visa frågan bakom resultaten eller Visa alla resultat genom att välja **Visa alla**, som öppnar logg Sök sidan.
+1. På alla resultat sidor kan du Visa frågan bakom resultaten eller Visa alla resultat genom att välja **Visa alla**, som öppnar sidan **loggar** .
 
-   ![Visa alla på resultat sidor](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
+   ![Visa alla resultat](media/logic-apps-monitor-your-logic-apps-oms/logic-app-see-all.png)
 
-   På sidan loggs ökning kan du välja de här alternativen:
+   På sidan **loggar** kan du välja följande alternativ:
 
    * Om du vill visa frågeresultaten i en tabell väljer du **tabell**.
 
-   * Om du vill ändra frågan kan du redigera frågesträngen i Sök fältet. För en bättre upplevelse väljer du **Avancerad analys**.
-
-     ![Visa åtgärder och information för en Logic app-körning](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-
-     På sidan Log Analytics kan du uppdatera frågor och visa resultatet från tabellen. Den här frågan använder [Kusto frågespråk](https://aka.ms/LogAnalyticsLanguageReference), som du kan redigera om du vill visa olika resultat.
+   * Frågor använder [Kusto frågespråk](https://aka.ms/LogAnalyticsLanguageReference), som du kan redigera om du vill visa olika resultat. Om du vill ändra frågan uppdaterar du frågesträngen och väljer **Kör** för att visa resultaten i tabellen. 
 
      ![Log Analytics-frågevy](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

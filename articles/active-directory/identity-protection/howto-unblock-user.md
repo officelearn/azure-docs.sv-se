@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28e30b8e44b6888cdb7416b9c7b563b955a68ce
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 4e3756435703c4e8c887a4e7b9d4f75a6701d840
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335373"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126256"
 ---
 # <a name="how-to-unblock-users"></a>Instruktioner: Avblockera användare
 
@@ -31,7 +31,7 @@ Du kan hämta den typ av princip som har blockerat en användare från rubriken 
 
 | Princip | Användar dialog ruta |
 | --- | --- |
-| Inloggningsrisk |![Blockerad inloggning](./media/howto-unblock-user/02.png) |
+| Inloggnings risk |![Blockerad inloggning](./media/howto-unblock-user/02.png) |
 | Användarrisk |![Blockerat konto](./media/howto-unblock-user/104.png) |
 
 En användare som blockeras av:
@@ -52,7 +52,7 @@ Om du vill avblockera en misstänkt inloggning har du följande alternativ:
 Om du vill avblockera ett konto med risk har du följande alternativ:
 
 1. **Återställ lösen ord** – du kan återställa användarens lösen ord. 
-2. **Ignorera alla risk händelser** – användar risk principen blockerar en användare om den konfigurerade användar risk nivån för blockerad åtkomst har nåtts. Du kan minska risk nivån för en användare genom att manuellt stänga rapporterade risk händelser. 
+2. **Ignorera alla risk identifieringar** – användar risk principen blockerar en användare om den konfigurerade användar risk nivån för blockerad åtkomst har nåtts. Du kan minska risk nivån för en användare genom att manuellt stänga rapporterade identifieringar av risker. 
 3. **Exkludera från princip** – om du tror att den aktuella konfigurationen av din inloggnings princip orsakar problem för specifika användare kan du undanta användarna från den. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 4. **Inaktivera princip** – om du tror att princip konfigurationen orsakar problem för alla dina användare kan du inaktivera principen. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8df01c204a6893f4e2ff1c2ff22fa337d77c519b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a762009a7aaf1a965333ac573efe55d792c3f04b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637597"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125005"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Smart utelåsning
 
@@ -45,7 +45,7 @@ När du använder [direktautentisering](../hybrid/how-to-connect-pta.md)måste d
 * Tröskelvärdet för Azure AD-utelåsning är **mindre** än tröskelvärdet för Active Directory konto utelåsning. Ange värdena så att tröskelvärdet för Active Directory konto utelåsning är minst två eller tre gånger längre än tröskelvärdet för Azure AD-utelåsning. 
 * Azure AD-utelåsningsens varaktighet måste vara längre än Active Directory Återställ räknaren för konto utelåsning efter varaktighet. Tänk på att Azure AD-varaktigheten anges i sekunder, medan AD-varaktigheten anges i minuter. 
 
-Om du till exempel vill att din Azure AD-räknare ska vara högre än AD blir Azure AD 120 sekunder (2 minuter) medan lokal AD har angetts till 1 minut (60 sekunder).
+Om du till exempel vill att din Azure AD-räknare ska vara högre än AD blir Azure AD 120 sekunder (2 minuter) medan din lokala AD har angetts till 1 minut (60 sekunder).
 
 > [!IMPORTANT]
 > För närvarande kan en administratör inte låsa upp användarnas moln konton om de har låsts av funktionen Smart utelåsning. Administratören måste vänta tills utelåsnings tiden upphör att gälla. Användaren kan dock låsa upp med hjälp av självbetjäning för återställning av lösen ord (SSPR) från en betrodd enhet eller plats.
@@ -67,7 +67,7 @@ Med hjälp av dina organisations krav kan smarta utelåsnings värden behöva an
 
 Använd följande steg för att kontrol lera eller ändra de smarta utelåsnings värdena för din organisation:
 
-1. Logga in på [Azure Portal](https://portal.azure.com)och klicka på **Azure Active Directory**och sedan **autentiseringsmetoder**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till **Azure Active Directory** > **autentiseringsmetoder** > **lösen ords skydd**.
 1. Ange tröskelvärdet för **utelåsning**, baserat på hur många misslyckade inloggningar som tillåts på ett konto före det första utelåsning. Standardvärdet är 10.
 1. Ange **utelåsnings tiden i sekunder**till längden i sekunder för varje utelåsning. Standardvärdet är 60 sekunder (en minut).
 

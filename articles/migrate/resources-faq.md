@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: af95ad892b62cb5d8bece554d6026525d9279777
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 03651ecb073d02a373c434b8cb55bdafec6d142a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102877"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142208"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Vanliga frågor och svar (FAQ)
 
@@ -172,7 +172,7 @@ Nej, det går inte att exportera beroende visualiseringen. Men eftersom Azure Mi
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-the-dependency-agent"></a>Hur kan jag automatisera installationen av Microsoft Monitoring Agent (MMA) och beroende agenten?
 
-Använd det här [skriptet för att installera agenterna](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples). Följ de här [anvisningarna för att installera MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) med hjälp av kommando raden eller Automation. Använd [det här skriptet](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)för MMA.
+Använd det här [skriptet för att installera beroende agenten](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Följ de här [anvisningarna för att installera MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) med hjälp av kommando raden eller Automation. Använd [det här skriptet](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)för MMA.
 
 Förutom skript kan du också använda distributions verktyg som System Center Configuration Manager och [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) för att distribuera agenterna.
 
@@ -183,8 +183,7 @@ Förutom skript kan du också använda distributions verktyg som System Center C
 
 ### <a name="what-operating-systems-are-supported-by-the-dependency-agent"></a>Vilka operativ system stöds av beroende agenten?
 
-- Visa listan över [Windows-operativsystem som stöds av beroende agenten](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
-- Visa listan över [Linux-operativsystem som stöds av beroende agenten](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+Visa listan över [Windows-och Linux-operativsystem som Azure Monitor for VMS stöder](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-an-hour"></a>Kan jag visualisera beroenden i Azure Migrate i mer än en timme?
 Nej. Du kan visualisera beroenden i upp till en timme. Du kan gå tillbaka till ett visst datum i historiken, så långt tillbaka som en månad, men den maximala varaktigheten för visualiseringen är en timme. Du kan till exempel använda varaktigheten för tiden i beroende kartan för att Visa beroenden för igår, men du kan bara visa det för ett Tim fönster. Du kan dock använda Azure Monitor loggar för att [fråga beroende data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) över en längre tid.

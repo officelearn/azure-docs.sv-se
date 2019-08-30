@@ -11,23 +11,23 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2be6625fa2c21c3ece767f270746171c3928a774
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0c52bf9b62026caec54a09acd10a52f89ca98d52
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604440"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138013"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-curl"></a>Snabbstart: Analysera en fjärr-avbildning med hjälp av REST API för visuellt innehåll och cURL
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-curl"></a>Snabbstart: Analysera en fjärravbildning med hjälp av Visuellt innehåll REST API och svängen
 
-I den här snabbstarten kan du analysera ett fjärranslutet lagrad bild för att extrahera visuella funktioner med datorn Vision REST API. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
+I den här snabb starten analyserar du en fjärrlagrad avbildning för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [cURL](https://curl.haxx.se/windows).
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. 
 
 ## <a name="create-and-run-the-sample-command"></a>Skapa och köra exempelkommandot
 
@@ -36,7 +36,8 @@ Så här skapar du och kör exemplet:
 1. Kopiera följande kommando till en textredigerare.
 1. Gör följande ändringar i kommandot där det behövs:
     1. Ersätt värdet för `<subscriptionKey>` med din prenumerationsnyckel.
-    1. Ersätt webbadressen för begäran (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`) med slutpunktsadressen för metoden [Analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
+    1. Ersätt den första delen av URL: en för`westcentralus`begäran () med texten i din egen slut punkts-URL.
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Du kan också ändra språkparametern för webbadressen (`language=en`) att använda ett annat språk som stöds.
     1. Du kan också ändra bildens URL i begärandetexten (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) till URL:en för en annan bild som du vill analysera.
 1. Öppna ett kommandotolksfönster.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0f1a2e0bad39b54edc153416e4120bbc6912578c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532938"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125456"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Bas linje princip: Slut användar skydd (för hands version)
 
@@ -24,7 +24,7 @@ Vi rekommenderar att du tror att administratörs konton är de enda konton som b
 
 För att uppnå en rimlig balans mellan säkerhet och användbarhet behöver användarna inte tillfrågas varje gång de loggar in. Autentiseringsbegäranden som reflekterar normala användar beteenden, t. ex. inloggning från samma enhet från samma plats, har en låg risk för angrepp. Endast inloggningar som bedöms som riskfyllda och visar egenskaper hos en felaktig aktör bör tillfrågas om MFA-utmaningar.
 
-End User Protection är en riskhanterings [bas linje princip](concept-baseline-protection.md) som skyddar alla användare i en katalog, inklusive alla administratörs roller. Att aktivera den här principen kräver att alla användare registreras för MFA med hjälp av Authenticator-appen. Användare kan ignorera MFA-registrerings frågan i 14 dagar, sedan de kommer att blockeras från att logga in tills de registreras för MFA. När de har registrerats för MFA tillfrågas användarna om MFA endast under riskfyllda inloggnings försök. Komprometterade användar konton blockeras tills lösen ordet har återställts och risk händelser har stängts.
+End User Protection är en riskhanterings [bas linje princip](concept-baseline-protection.md) som skyddar alla användare i en katalog, inklusive alla administratörs roller. Att aktivera den här principen kräver att alla användare registreras för MFA med hjälp av Authenticator-appen. Användare kan ignorera MFA-registrerings frågan i 14 dagar, sedan de kommer att blockeras från att logga in tills de registreras för MFA. När de har registrerats för MFA tillfrågas användarna om MFA endast under riskfyllda inloggnings försök. Komprometterade användar konton blockeras tills lösen ordet återställs och risk identifieringar har stängts.
 
 > [!NOTE]
 > Den här principen gäller alla användare, inklusive gäst konton och kommer att utvärderas när de loggar in på alla program.
@@ -33,7 +33,7 @@ End User Protection är en riskhanterings [bas linje princip](concept-baseline-p
 
 För att hjälpa till att skydda våra kunder hittar Microsofts läckta autentiseringsuppgifter-tjänsten offentligt tillgängliga användar namn/lösen ord. Om de matchar någon av våra användare bidrar vi till att skydda kontot omedelbart. Användare som identifieras som en läckt autentiseringsuppgifter bekräftas komprometteras. Användarna kommer att blockeras från att logga in tills lösen ordet återställs.
 
-Användare som har tilldelats en Azure AD Premium-licens kan återställa åtkomst via självbetjäning för återställning av lösen ord (SSPR) om funktionen är aktive rad i sin katalog. Användare utan en Premium-licens som blockeras måste kontakta en administratör för att utföra en manuell lösen ords återställning och stänga av den flaggade användar risk händelsen.
+Användare som har tilldelats en Azure AD Premium-licens kan återställa åtkomst via självbetjäning för återställning av lösen ord (SSPR) om funktionen är aktive rad i sin katalog. Användare utan en Premium-licens som blockeras måste kontakta en administratör för att utföra en manuell lösen ords återställning och stänga av den flaggade identifieringen av användar risker.
 
 ### <a name="steps-to-unblock-a-user"></a>Steg för att avblockera en användare
 

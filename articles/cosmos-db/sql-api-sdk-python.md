@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: ed90c22fa8c5b94567a9886ca71c9b35fbb103f0
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6bc636b751d12bdb576e54f26536ac0045839229
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624632"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137347"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB python SDK för SQL API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -145,7 +145,12 @@ Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella S
 Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas av tjänsten.
 
 > [!WARNING]
-> Alla versioner av Azure SQL SDK för python före version **1.0.0** drogs tillbaka den **29 februari 2016**. 
+> Alla versioner av python SDK för SQL API före version **1.0.0** drogs tillbaka den **29 februari 2016**. 
+> 
+> 
+
+> [!WARNING]
+> Alla versioner 1. x och 2. x av python SDK för SQL API kommer att dras tillbaka den **30 augusti 2020**. 
 > 
 > 
 
@@ -155,27 +160,27 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 | --- | --- | --- |
 | [3.0.2](#3.0.2) |Den 15 november 2018 |--- |
 | [3.0.1](#3.0.1) |Okt 04, 2018 |--- |
-| [2.3.3](#2.3.3) |Sept 08, 2018 |--- |
-| [2.3.2](#2.3.2) |08 maj, 2018 |--- |
-| [2.3.1](#2.3.1) |21 december 2017 |--- |
-| [2.3.0](#2.3.0) |Den 10 november 2017 |--- |
-| [2.2.1](#2.2.1) |Sep 29, 2017 |--- |
-| [2.2.0](#2.2.0) |10 maj 2017 |--- |
-| [2.1.0](#2.1.0) |01 maj, 2017 |--- |
-| [2.0.1](#2.0.1) |Den 30 oktober 2016 |--- |
-| [2.0.0](#2.0.0) |29 september 2016 |--- |
-| [1.9.0](#1.9.0) |Den 07 juli 2016 |--- |
-| [1.8.0](#1.8.0) |Den 14 juni 2016 |--- |
-| [1.7.0](#1.7.0) |26 april 2016 |--- |
-| [1.6.1](#1.6.1) |08, 2016 |--- |
-| [1.6.0](#1.6.0) |Den 29 mars 2016 |--- |
-| [1.5.0](#1.5.0) |03 januari 2016 |--- |
-| [1.4.2](#1.4.2) |06 oktober 2015 |--- |
-| 1.4.1 |06 oktober 2015 |--- |
-| [1.2.0](#1.2.0) |06 augusti 2015 |--- |
-| [1.1.0](#1.1.0) |09 juli 2015 |--- |
-| [1.0.1](#1.0.1) |25 maj 2015 |--- |
-| [1.0.0](#1.0.0) |07 april 2015 |--- |
+| [2.3.3](#2.3.3) |Sept 08, 2018 |30 augusti 2020 |
+| [2.3.2](#2.3.2) |08 maj, 2018 |30 augusti 2020 |
+| [2.3.1](#2.3.1) |21 december 2017 |30 augusti 2020 |
+| [2.3.0](#2.3.0) |Den 10 november 2017 |30 augusti 2020 |
+| [2.2.1](#2.2.1) |Sep 29, 2017 |30 augusti 2020 |
+| [2.2.0](#2.2.0) |10 maj 2017 |30 augusti 2020 |
+| [2.1.0](#2.1.0) |01 maj, 2017 |30 augusti 2020 |
+| [2.0.1](#2.0.1) |Den 30 oktober 2016 |30 augusti 2020 |
+| [2.0.0](#2.0.0) |29 september 2016 |30 augusti 2020 |
+| [1.9.0](#1.9.0) |Den 07 juli 2016 |30 augusti 2020 |
+| [1.8.0](#1.8.0) |Den 14 juni 2016 |30 augusti 2020 |
+| [1.7.0](#1.7.0) |26 april 2016 |30 augusti 2020 |
+| [1.6.1](#1.6.1) |08, 2016 |30 augusti 2020 |
+| [1.6.0](#1.6.0) |Den 29 mars 2016 |30 augusti 2020 |
+| [1.5.0](#1.5.0) |03 januari 2016 |30 augusti 2020 |
+| [1.4.2](#1.4.2) |06 oktober 2015 |30 augusti 2020 |
+| 1.4.1 |06 oktober 2015 |30 augusti 2020 |
+| [1.2.0](#1.2.0) |06 augusti 2015 |30 augusti 2020 |
+| [1.1.0](#1.1.0) |09 juli 2015 |30 augusti 2020 |
+| [1.0.1](#1.0.1) |25 maj 2015 |30 augusti 2020 |
+| [1.0.0](#1.0.0) |07 april 2015 |30 augusti 2020 |
 | 0.9.4-prelease |14 januari 2015 |Den 29 februari 2016 |
 | 0.9.3-prelease |Den 9 december 2014 |Den 29 februari 2016 |
 | 0.9.2-prelease |25 november 2014 |Den 29 februari 2016 |

@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: fa3aedf138564fedafe555adfbaf6c56efc1813e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 9bb53a8e68866e2ed346277171e2706f5907e8af
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360837"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141918"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Använda Service Bus köer med python
 
@@ -36,7 +36,7 @@ I den här självstudien får du lära dig hur du skapar python-program för att
 
         > [!NOTE]
         > Du skapar en **kö** i Service Bus namn området genom att använda python i den här självstudien. 
-1. Installera python eller [python Azure Service Bus-paketet][Python Azure Service Bus package]finns i [installations guiden för python](../python-how-to-install.md). Läs den fullständiga dokumentationen för Service Bus python SDK [här](/python/api/overview/azure/servicebus?view=azure-python).
+1. Installera python eller [python Azure Service Bus-paketet][Python Azure Service Bus package]finns i [installations guiden för python](/azure/python/python-sdk-azure-install). Läs den fullständiga dokumentationen för Service Bus python SDK [här](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Skapa en kö
 Med **ServiceBusClient** -objektet kan du arbeta med köer. Lägg till följande kod nära överkanten av en python-fil som du vill ha åtkomst till Service Bus via programmering:
@@ -112,7 +112,7 @@ Meddelanden tas bort från kön när de läses när parametern `peek_lock` har a
 
 Beteendet att läsa och ta bort meddelandet som en del av Receive-åtgärden är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera att inte bearbeta ett meddelande i händelse av ett fel. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran. Eftersom Service Bus har markerat meddelandet som förbrukat, och när programmet startas om och börjar förbruka meddelanden igen, kommer det att ha missat meddelandet som förbrukades innan kraschen.
 
-Om parametern är inställd på Sant blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas.  `peek_lock` När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa **Delete** -metoden i objektet **Message** . Metoden **Delete** kommer att markera meddelandet som förbrukat och ta bort det från kön.
+Om parametern är inställd på Sant blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. `peek_lock` När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa **Delete** -metoden i objektet **Message** . Metoden **Delete** kommer att markera meddelandet som förbrukat och ta bort det från kön.
 
 ```python
 msg.delete()

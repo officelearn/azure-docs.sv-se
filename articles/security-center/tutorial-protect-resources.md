@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: v-mohabe
-ms.openlocfilehash: 8fc287826d1a98b5d61229979544fdb3780455d4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 7533a8636697db92a69cfec99d0e89138164d7b7
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967940"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147889"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudier: Skydda dina resurser med Azure Security Center
 Security Center begränsar din exponering för hot med kontroller för åtkomst och program för att blockera skadlig aktivitet. JIT-åtkomst (just-in-time) till virtuella datorer (VM) minskar din exponering för attacker genom att du kan neka beständig åtkomst till virtuella datorer. Istället tillhandahåller du kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs. Anpassningsbara programkontroller hjälper till att skydda virtuella datorer mot skadlig programvara genom att kontrollera vilka program du kan köra på dina virtuella datorer. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
@@ -72,8 +72,6 @@ Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara �
 
 ## <a name="harden-vms-against-malware"></a>Förstärka virtuella mot skadlig programvara
 Anpassningsbara programkontroller hjälper dig att definiera en uppsättning program som ska tillåtas att köras på konfigurerade resursgrupper, vilket bland annat hjälper dig skydda dina virtuella datorer mot skadlig kod. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
-
-Den här funktionen är endast tillgänglig för Windows-datorer.
 
 1. Gå tillbaka till Security Center-menyn. Under **Avancerat molnskydd** väljer du **Anpassningsbara programkontroller**.
 
@@ -128,7 +126,7 @@ I den här självstudien har du lärt dig att begränsa din exponering för hot 
 Gå vidare till nästa kurs om du vill veta mer om att hantera säkerhetsincidenter.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
+> [Självstudier: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

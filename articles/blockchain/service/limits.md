@@ -1,8 +1,8 @@
 ---
-title: Azure Blockchain gränser
-description: Översikt över tjänsten och funktionella gränser i Azure Blockchain-tjänsten
+title: Azure blockchain-gränser
+description: Översikt över tjänster och funktionella gränser i Azure blockchain-tjänsten
 services: azure-blockchain
-keywords: blockchain
+keywords: Blockchain
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
@@ -10,58 +10,58 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 169ec7a8ef407af3f754046aa8e3b06793a7e962
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aeed84f19da3843d043eafef9d7444661901c53e
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028177"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147133"
 ---
-# <a name="limits-in-azure-blockchain-service"></a>Begränsningar i Azure Blockchain-tjänst
+# <a name="limits-in-azure-blockchain-service"></a>Gränser i Azure blockchain-tjänsten
 
-Azure Blockchain Service har tjänsten och funktionella begränsningar, till exempel antalet noder som en medlem kan ha consortium begränsningar och lagring belopp.
+Azure blockchain-tjänsten har tjänster och funktionella gränser, till exempel antalet noder som en medlem kan ha, konsortiets begränsningar och lagrings mängder.
 
 ## <a name="pricing-tier"></a>Prisnivå
 
-Övre gräns för transaktioner och verifieraren noder beror på om du etablerar Azure Blockchain-tjänsten på Basic eller Standard prisnivåer.
+De maximala gränserna för transaktioner och validator-noder beror på om du etablerar Azure blockchain service på Basic-eller standard pris nivån.
 
-| Prisnivå | Maximalt antal transaktioner noder | Max verifieraren noder |
+| Prisnivå | Max transaktions noder | Max verifierings-noder |
 |:---|:---:|:---:|
 | Basic | 10 | 1 |
 | Standard | 10 | 2 |
 
-Ändra prisnivån mellan Basic och Standard efter skapande av medlem inte stöds.
+Det finns inte stöd för att ändra pris nivån mellan Basic och standard när medlems skapande har skapats.
 
 ## <a name="storage-capacity"></a>Lagringskapacitet
 
-Den maximala mängden lagringsutrymme som används per nod för redovisningsdata och loggar är 1 terabyte.
+Den maximala mängden lagring som kan användas per nod för redovisnings data och loggar är 1,8 terabyte.
 
-Minska lagringsstorlek redovisning och log stöds inte.
+Det finns inte stöd för minskning av redovisning och logg lagrings storlek.
 
-## <a name="consortium-limits"></a>Consortium gränser
+## <a name="consortium-limits"></a>Konsortial gränser
 
-* **Consortium och medlemmen måste vara unika** från alla andra consortium och medlem i Azure Blockchain-tjänsten.
+* **Konsortiet och medlems namn måste vara unika** för andra konsortier och medlems namn i Azure blockchain-tjänsten.
 
-* **Medlemmen och consortium namn kan inte ändras**
+* **Det går inte att ändra namn på medlemmar och konsortier**
 
-* **Alla medlemmar i ett konsortium måste finnas i samma prisnivå**
+* **Alla medlemmar i ett konsortium måste vara på samma pris nivå**
 
-* **Alla medlemmar som deltar i ett konsortium måste finnas i samma region**
+* **Alla medlemmar som ingår i ett konsortium måste finnas i samma region**
 
-    Den första medlemmen som skapats i ett konsortium avgör regionen. Inbjudna medlemmar att consortium måste finnas i samma region som den första medlemmen. Begränsa alla medlemmar samma region säkerställer nätverk konsensus inte påverkas negativt.
+    Den första medlemmen som skapas i ett konsortium bestämmer regionen. Inbjudna medlemmar till konsortiet måste finnas i samma region som den första medlemmen. Att begränsa alla medlemmar till samma region bidrar till att säkerställa att nätverks konsensus inte påverkas negativt.
 
 * **Ett konsortium måste ha minst en administratör**
 
-    Om det finns bara en administratör i ett konsortium, kan inte de ta bort själva från consortium eller ta bort sina medlemmar tills en annan administratör har lagts till eller framhävs i consortium.
+    Om det bara finns en administratör i ett konsortium, kan de inte ta bort sig själva från konsortiet eller ta bort sina medlemmar förrän en annan administratör läggs till eller höjs i konsortiet.
 
-* **Medlemmar tas bort från consortium kan inte läggas till igen**
+* **Medlemmar som har tagits bort från konsortiet kan inte läggas till igen**
 
-    I stället måste de bjudas in att delta consortium och skapa en ny medlem. Deras befintlig medlem resurs tas inte bort om du vill bevara historiska transaktioner.
+    De måste i stället ombjudas till att ansluta till konsortiet och skapa en ny medlem. Deras befintliga medlems resurs tas inte bort för att bevara historiska transaktioner.
 
-* **Alla medlemmar i ett konsortium måste använda samma transaktionsregister version**
+* **Alla medlemmar i ett konsortium måste använda samma redovisnings version**
 
-    Mer information om uppdatering, uppdateringar och redovisning-versioner som är tillgängliga i Azure Blockchain-tjänsten finns i [uppdatering, uppdateringar och versioner](ledger-versions.md).
+    Mer information om korrigeringar, uppdateringar och redovisnings versioner som är tillgängliga i Azure blockchain-tjänsten finns i [korrigering, uppdateringar och versioner](ledger-versions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Uppdatering, uppdateringar och versioner](ledger-versions.md)
+* [Korrigeringar, uppdateringar och versioner](ledger-versions.md)

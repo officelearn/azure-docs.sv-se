@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 56cb9a17054faace65ae1b65ed0ddbedf1e8af99
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 7fa2a5088e2eae039d43ecf0db080190f74cd772
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011361"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125221"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Självstudier: Skapa och konfigurera en Azure Active Directory Domain Services instans
 
@@ -43,6 +43,9 @@ För att slutföra den här självstudien behöver du följande resurser och beh
 * Du behöver *Global administratörs* behörighet i Azure AD-klienten för att aktivera Azure AD DS.
 * Du behöver *deltagar* behörighet i din Azure-prenumeration för att skapa de nödvändiga Azure AD DS-resurserna.
 * Azure AD-klienten måste [konfigureras för lösen ords återställning][configure-sspr]via självbetjäning.
+
+> [!IMPORTANT]
+> När du har skapat en Azure AD DS-hanterad domän kan du inte flytta instansen till en annan resurs grupp, ett virtuellt nätverk, en prenumeration osv. Var noga med att välja den lämpligaste prenumerationen, resurs gruppen, regionen och det virtuella nätverket när du distribuerar Azure AD DS-instansen.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 

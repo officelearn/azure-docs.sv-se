@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8fffc74075abf6dcc4b5c293819f739a9725646b
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998175"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128207"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -30,15 +30,15 @@ Artikeln visar hur du använder [Ladda upp video](https://api-portal.videoindexe
 När videon har laddats upp Video Indexer kan du koda videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med alternativet betald skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
 
 ## <a name="uploading-considerations"></a>Att tänka på gällande uppladdning
-
-- När du laddar upp videon baserat på URL:en (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare)
-- Uppladdnings storleken med URL-alternativet är begränsad till 30 GB
-- Längden på URL: en för begäran är begränsad till 2048 tecken
-- Uppladdnings storleken med alternativet byte mat ris är begränsad till 2 GB
-- Tids gränsen nåddes för byte mat ris-alternativet efter 30 min
-- URL:en som anges i parametern `videoURL` måste kodas
-- Indexering av Media Services till gångar har samma begränsning som indexering från URL
-- Video Indexer har en maximal tids gräns på 4 timmar för en enskild fil
+ 
+- När du laddar upp videon baserat på URL (önskad) måste slut punkten skyddas med TLS 1,2 (eller högre).
+- Uppladdnings storleken med URL-alternativet är begränsad till 30 GB.
+- Längden på fråge-URL: en är begränsad till 6144 tecken där Frågesträngens URL-längd är begränsad till 4096 tecken.
+- Uppladdnings storleken med alternativet byte mat ris är begränsad till 2 GB.
+- Tids gränsen nåddes för byte mat ris-alternativet efter 30 min.
+- Den URL som anges i `videoURL` param måste vara kodad.
+- Indexering av Media Services till gångar har samma begränsning som indexering från URL: en.
+- Video Indexer har en maximal tids gräns på 4 timmar för en enskild fil.
 
 > [!Tip]
 > Det rekommenderas att du använder .NET Framework version 4.6.2 eller senare eftersom äldre .NET Framework-versioner inte använder TLS 1.2 som standard.

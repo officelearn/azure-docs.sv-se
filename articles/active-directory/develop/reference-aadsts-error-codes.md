@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57ec69f4bc2e73bfb390a6b23b1da627d77f9b5e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8cfefe02b8c9325a2d501289b10b09bc153b0593
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874239"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135764"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Autentisering och felkoder vid autentisering
 
@@ -194,6 +194,7 @@ Letar du efter information om de AADSTS-felkoder som returneras från Azure Acti
 | AADSTS90019 | MissingTenantRealm-Azure AD kunde inte fastställa klient-ID: n från begäran. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat – huvud namnets format är inte giltigt eller uppfyller inte det förväntade `name[/host][@realm]` formatet. Huvud namnet är obligatoriskt, värden och sfär är valfria och kan anges till null. |
 | AADSTS90023 | InvalidRequest-begäran om autentiseringsfel är ogiltig. |
+| AADSTS9002313 | InvalidRequest-begäran är felaktig eller ogiltig. – Problemet här beror på att det uppstod något fel med begäran till en viss slut punkt. Förslaget till det här problemet är att få en Fiddler spårning av felet som inträffar och se om begäran faktiskt har formaterats eller inte. |
 | AADSTS90024 | RequestBudgetExceededError – ett tillfälligt fel har inträffat. Försök igen. |
 | AADSTS90033 | MsodsServiceUnavailable – Microsoft Online Directory Service (MSODS) är inte tillgängligt. |
 | AADSTS90036 | MsodsServiceUnretryableFailure-ett oväntat fel som inte går att försöka igen från den WCF-tjänst som är värd för MSODS har inträffat. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet. |

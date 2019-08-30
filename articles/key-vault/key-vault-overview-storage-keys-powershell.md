@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: df377b19d78a63b3cfc57347fff00345a9c63ead
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 21b046a54c2fbe309113222f54dbad4405fc409d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562534"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136571"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault hanterat lagrings konto – PowerShell
 
@@ -21,6 +21,7 @@ ms.locfileid: "69562534"
 > - Autentisera klient programmet med hjälp av ett program eller en användar identitet, i stället för autentiseringsuppgifterna för lagrings kontot. 
 > - Använd en [hanterad Azure AD-identitet](/azure/active-directory/managed-identities-azure-resources/) när du kör på Azure. Hanterade identiteter tar bort behovet av klientautentisering tillsammans och lagrar autentiseringsuppgifter i eller med ditt program.
 > - Använd rollbaserad Access Control (RBAC) för att hantera auktorisering, som också stöds av Key Vault.
+> - AAD-åtkomst till lagrings kontot fungerar inte för att komma åt tabeller ännu.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -142,7 +143,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Aktivera nyckel återskapande
 
-Om du vill Key Vault återskapa dina lagrings konto nycklar med jämna mellanrum kan du ange en återställnings period. I följande exempel ställer vi in en tids period på tre dagar. Efter tre dagar kommer Key Vault att återskapa ' KEY1 ' och byta den aktiva nyckeln från ' key2 ' till ' KEY1 '.
+Om du vill Key Vault återskapa dina lagrings konto nycklar med jämna mellanrum kan du ange en återställnings period. I följande exempel ställer vi in en tids period på tre dagar. Efter tre dagar kommer Key Vault att återskapa ' key2 ' och byta den aktiva nyckeln från ' key2 ' till ' KEY1 '.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

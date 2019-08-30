@@ -1,7 +1,7 @@
 ---
 title: 'Tillämpa omvandling: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du ändrar en indatauppsättning baserat på en tidigare beräknade omvandling med modulen gäller transformering i Azure Machine Learning-tjänsten.
+description: Lär dig hur du använder modulen Använd omvandling i Azure Machine Learning-tjänsten för att ändra en indata-datauppsättning baserat på en tidigare beräknad omvandling.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,42 +9,41 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 810f375642af49814049589cb83ad17fea578b13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b4ec9e71d9ce932a7b206467db91760f4a4fc47
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028717"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128971"
 ---
 # <a name="apply-transformation-module"></a>Tillämpa omvandling modul
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen för att ändra en indatauppsättning baserat på en tidigare beräknade omvandling.  
+Använd den här modulen för att ändra en data uppsättning som baseras på en tidigare beräknad omvandling.  
   
-Exempel: Om du använde z-poäng för att normalisera dina utbildningsdata med hjälp av den **normalisera Data** modulen, som du vill använda z-score-värde som beräknades för träning under den bedömnings fasen. I Azure Machine Learning, du kan spara metoden normalisering som en transformering och sedan använda **gäller omvandling** att tillämpa z-poäng på indata innan bedömning.
+Om du till exempel använde z-poängen för att normalisera dina utbildnings data med hjälp av modulen **normalisera data** , skulle du vilja använda det z-Poäng värde som har beräknats för utbildning under bedömnings fasen. I Azure Machine Learning kan du spara normaliserings metoden som en transformering och sedan använda **tillämpa omvandling** för att tillämpa z-poängen i indata innan du påsöker.
   
-Azure Machine Learning har stöd för att skapa och använda många olika typer av anpassade transformeringar. Du kanske vill spara och återanvända transformeringar som:  
+Azure Machine Learning ger stöd för att skapa och använda många olika typer av anpassade transformeringar. Du kanske till exempel vill spara och återanvända omvandlingar till:  
   
-- Ta bort eller ersätta saknade värden, med hjälp av **Rensa Data som saknas**
-- Normalisera data med **normalisera Data**
+- Ta bort eller Ersätt saknade värden med **rensade data som saknas**
+- Normalisera data med normaliserade **data**
   
 
-## <a name="how-to-use-apply-transformation"></a>Hur du använder gäller omvandling  
+## <a name="how-to-use-apply-transformation"></a>Använda tillämpa omvandling  
   
-1. Lägg till den **gäller omvandling** modulen i experimentet. Du hittar den här modulen under **Maskininlärning**i den **poäng** kategori. 
+1. Lägg till modulen **Använd omvandling** i experimentet. Du hittar den här modulen under **Machine Learning**i kategorin **Poäng** . 
   
-2. Hitta en befintlig transformering ska användas som indata.  Tidigare sparade omvandlingar kan hittas i den **omvandlar** i det vänstra navigeringsfönstret.  
+2. Leta upp en befintlig omvandling som ska användas som inmatad.  Tidigare sparade omvandlingar finns i gruppen Transforms i det vänstra navigerings fönstret.  
   
    
   
-3. Anslut den datauppsättning som du vill omvandla. Datauppsättningen ska ha exakt samma schema (antal kolumner, kolumnnamn, datatyper) som den datamängd som transformeringen ursprungligen utvecklades.  
+3. Anslut den data uppsättning som du vill transformera. Data uppsättningen ska ha exakt samma schema (antal kolumner, kolumn namn, data typer) som den data uppsättning som omvandlingen först konstruerades för.  
   
-4. Inga andra parametrar måste anges eftersom alla anpassningar görs när du definierar transformeringen.  
+4. Inga andra parametrar måste anges eftersom all anpassning utförs när omvandlingen definieras.  
   
-5. Kör experimentet för att tillämpa en omvandling till den nya datauppsättningen.  
+5. Om du vill tillämpa en omvandling på den nya data uppsättningen kör du experimentet.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

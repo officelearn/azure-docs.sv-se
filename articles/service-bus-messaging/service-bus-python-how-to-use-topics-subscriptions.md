@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d294ceaaf77175a3010131b18864b71c7b26b88b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: ef0237b38c8f640c0fc4b1b1788215c8804a5cd4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360825"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141887"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Använda Service Bus ämnen och prenumerationer med python
 
@@ -39,7 +39,7 @@ I den här artikeln beskrivs hur du använder Service Bus-ämnen och -prenumerat
 
     > [!NOTE]
     > Du kommer att skapa ett **ämne** och en **prenumeration** på avsnittet med hjälp av **python** i den här snabb starten. 
-3. Installera [Azure python-paketet][Azure Python package]. Se [installations guiden för python](../python-how-to-install.md).
+3. Installera [Azure python-paketet][Azure Python package]. Se [installations guiden för python](/azure/python/python-sdk-azure-install).
 
 ## <a name="create-a-topic"></a>Skapa ett ämne
 
@@ -161,7 +161,7 @@ Meddelanden tas bort från prenumerationen när de läses när parametern `peek_
 
 Beteendet att läsa och ta bort meddelandet som en del av Receive-åtgärden är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera att inte bearbeta ett meddelande när det uppstår ett fel. För att förstå det här beteendet bör du överväga ett scenario där klienten utfärdar Receive-begäran och sedan kraschar innan den bearbetas. Eftersom Service Bus har markerat meddelandet som förbrukat, när programmet startas om och börjar förbruka meddelanden igen, har det fått meddelandet som förbrukades innan kraschen.
 
-Om parametern är inställd på Sant blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas.  `peek_lock` När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom `delete` att anropa metoden i objektet **Message** . `delete` Metoden markerar meddelandet som förbrukat och tar bort det från prenumerationen.
+Om parametern är inställd på Sant blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. `peek_lock` När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom `delete` att anropa metoden i objektet **Message** . `delete` Metoden markerar meddelandet som förbrukat och tar bort det från prenumerationen.
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)

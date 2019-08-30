@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e606b4fee2c46f66f13c45586bcc25577bd90a1f
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67616006"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147191"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
 
@@ -100,6 +100,9 @@ För associerade metod tips, se [metod tips för grundläggande funktioner i Sch
 ### <a name="node-pools"></a>Nodpooler
 
 Noder i samma konfiguration grupperas tillsammans i *noder i pooler*. Ett Kubernetes-kluster innehåller en eller flera Node-pooler. Det ursprungliga antalet noder och storlek definieras när du skapar ett AKS-kluster, vilket skapar en *standardnod*. Denna standardnod i AKS innehåller de underliggande virtuella datorerna som kör dina agent-noder. Stöd för flera Node-pooler är för närvarande en för hands version i AKS.
+
+> [!NOTE]
+> För att klustret ska fungera på ett tillförlitligt sätt bör du köra minst två noder (två) i standardnodens pool.
 
 När du skalar eller uppgraderar ett AKS-kluster utförs åtgärden mot standardnoden. Du kan också välja att skala eller uppgradera en angiven Node-pool. För uppgraderings åtgärder schemaläggs körning av behållare på andra noder i Node-poolen tills alla noder har uppgraderats.
 

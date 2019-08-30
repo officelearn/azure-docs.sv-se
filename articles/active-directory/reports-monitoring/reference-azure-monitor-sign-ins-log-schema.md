@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a82cc4da3b9f4f0c654c95b9889a8bf73fd8ec5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4cc07ac2644ac9f97146e980a1961b9b84e7c561
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989609"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127050"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Tolka schemat för inloggnings loggar för Azure AD i Azure Monitor
 
@@ -154,11 +154,11 @@ I den här artikeln beskrivs inloggnings logg schema för Azure Active Directory
 | ResultType | Resultatet av inloggnings åtgärden kan lyckas eller Miss *lyckas* . | 
 | ResultSignature | Innehåller eventuell felkod för inloggnings åtgärden. |
 | ResultDescription | Innehåller fel beskrivningen för inloggnings åtgärden. |
-| riskDetail | riskDetail | Visar orsaken till ett särskilt tillstånd för en riskfylld användare, inloggning eller en risk händelse. De möjliga värdena är: `none` `userPerformedSecuredPasswordChange`, `adminGeneratedTemporaryPassword` `userPerformedSecuredPasswordReset` ,,`adminConfirmedSigninCompromised`,,,,,, .`unknownFutureValue` `adminConfirmedSigninSafe` `aiConfirmedSigninSafe` `userPassedMFADrivenByRiskBasedPolicy` `adminDismissedAllRiskForUser` Värdet `none` innebär att ingen åtgärd har utförts för användaren eller inloggning hittills. <br>**Obs:** Information om den här egenskapen kräver en Azure AD Premium P2-licens. Andra licenser returnerar värdet `hidden`. |
-| riskEventTypes | riskEventTypes | Risk händelse typer som är associerade med inloggningen. Möjliga värden är: `unlikelyTravel` ,`malwareInfectedIPAddress` ,,`investigationsThreatIntelligence`,,, ,`generic`, och .`unknownFutureValue` `anonymizedIPAddress` `maliciousIPAddress` `unfamiliarFeatures` `suspiciousIPAddress` `leakedCredentials` |
+| riskDetail | riskDetail | Tillhandahåller orsaken bakom ett särskilt tillstånd för en riskfylld användare, inloggning eller risk identifiering. De möjliga värdena är: `none` `userPerformedSecuredPasswordChange`, `adminGeneratedTemporaryPassword` `userPerformedSecuredPasswordReset` ,,`adminConfirmedSigninCompromised`,,,,,, .`unknownFutureValue` `adminConfirmedSigninSafe` `aiConfirmedSigninSafe` `userPassedMFADrivenByRiskBasedPolicy` `adminDismissedAllRiskForUser` Värdet `none` innebär att ingen åtgärd har utförts för användaren eller inloggning hittills. <br>**Obs:** Information om den här egenskapen kräver en Azure AD Premium P2-licens. Andra licenser returnerar värdet `hidden`. |
+| riskEventTypes | riskEventTypes | Typer av risk identifiering som är associerade med inloggningen. Möjliga värden är: `unlikelyTravel` ,`malwareInfectedIPAddress` ,,`investigationsThreatIntelligence`,,, ,`generic`, och .`unknownFutureValue` `anonymizedIPAddress` `maliciousIPAddress` `unfamiliarFeatures` `suspiciousIPAddress` `leakedCredentials` |
 | riskLevelAggregated | riskLevel | Aggregerad risk nivå. Möjliga värden `none`är: `low` `medium`, ,,,`high`och .`unknownFutureValue` `hidden` Värdet `hidden` innebär att användaren eller inloggningen inte har Aktiver ATS för Azure AD Identity Protection. **Obs:** Information om den här egenskapen är endast tillgänglig för Azure AD Premium P2-kunder. Alla andra kunder kommer att returneras `hidden`. |
 | riskLevelDuringSignIn | riskLevel | Risk nivå under inloggningen. Möjliga värden `none`är: `low` `medium`, ,,,`high`och .`unknownFutureValue` `hidden` Värdet `hidden` innebär att användaren eller inloggningen inte har Aktiver ATS för Azure AD Identity Protection. **Obs:** Information om den här egenskapen är endast tillgänglig för Azure AD Premium P2-kunder. Alla andra kunder kommer att returneras `hidden`. |
-| riskState | riskState | Rapporterar status för den riskfyllda användaren, inloggningen eller en risk händelse. `none`Möjliga värden är: `confirmedSafe` `remediated`, ,,`dismissed`,,, .`unknownFutureValue` `atRisk` `confirmedCompromised` |
+| riskState | riskState | Rapporterar status för riskfylld användare, inloggning eller risk identifiering. `none`Möjliga värden är: `confirmedSafe` `remediated`, ,,`dismissed`,,, .`unknownFutureValue` `atRisk` `confirmedCompromised` |
 | . Durationms |  Värdet är omappat och du kan bortse från det här fältet. |
 | CallerIpAddress | IP-adressen för klienten som gjorde begäran. | 
 | CorrelationId | Det valfria GUID som skickas av klienten. Det här värdet kan hjälpa till att korrelera åtgärder på klient sidan med åtgärder på Server sidan, och det är användbart när du spårar loggar som omfattar tjänster. |

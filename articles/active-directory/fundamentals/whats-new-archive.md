@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a978e2755818e88cad580753e041eacd50a9e6d2
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 1b5615de8df42bca64822b0e459c7815412300af
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980482"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125385"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arkiveringsjobb för vad som är nytt? i Azure Active Directory
 
@@ -1843,11 +1843,11 @@ Läs mer om att lista ditt program i Azure AD-appgalleri [lista ditt program i A
 **Tjänste kategori:** Identity Protection  
 **Produkt kapacitet:** & Skydd för identitets säkerhet
 
-Den information som du får en identifierad riskhändelse är kopplad till din Azure AD-prenumeration. Med Azure AD Premium P2-versionen får du den mest detaljerade informationen om alla underliggande identifieringar.
+De insikter som du får för en identifierad risk identifiering är knutna till din Azure AD-prenumeration. Med Azure AD Premium P2-versionen får du den mest detaljerade informationen om alla underliggande identifieringar.
 
-Med Azure AD Premium P1-versionen visas identifieringar som inte omfattas av din licens som riskhändelse inloggning med identifierad ytterligare risk.
+Med Azure AD Premium P1-versionen visas identifieringar som inte täcks av din licens som inloggning med risk identifiering med ytterligare risk upptäckt.
 
-Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
+Mer information finns i [Azure Active Directory risk identifieringar](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
  
 ---
 
@@ -1913,7 +1913,7 @@ Med den allmänna tillgängligheten för nya Azure Active Directory-Administrati
 
 **Vad är tillgängliga?**
 
-Som en del av övergången till den nya administratörskonsolen, har vi gjort 2 nya API: er tillgängliga för hämtning av Azure AD-aktivitetsloggar. Den nya uppsättningen API: er ger bättre filtrering och sortering funktioner förutom att tillhandahålla bättre gransknings- och inloggningsaktiviteter. Data som tidigare var tillgängliga via security-rapporter kan nu nås via Identity Protection riskhändelser API i Microsoft Graph.
+Som en del av övergången till den nya administratörskonsolen, har vi gjort 2 nya API: er tillgängliga för hämtning av Azure AD-aktivitetsloggar. Den nya uppsättningen API: er ger bättre filtrering och sortering funktioner förutom att tillhandahålla bättre gransknings- och inloggningsaktiviteter. Data som tidigare var tillgängliga via säkerhets rapporterna kan nu nås via identitets skyddets identifierings-API i Microsoft Graph.
 
 Mer information finns i:
 
@@ -2264,13 +2264,13 @@ Mer information finns i [kontroller i villkorlig åtkomst för Azure AD](https:/
  
 ---
 
-### <a name="aggregation-of-real-time-risk-events"></a>Sammanställning av i realtid riskhändelser
+### <a name="aggregation-of-real-time-risk-detections"></a>Agg regering av risk identifieringar i real tid
 
 **Bastyp** Ändrad funktion    
 **Tjänste kategori:** Identitetsskydd  
 **Produkt kapacitet:** Identitets säkerhet och skydd
 
-I Azure AD Identity Protection sammanställs nu alla i realtid riskhändelser som kommer från samma IP-adress på en viss dag för varje typ av riskhändelse. Den här ändringen begränsar mängden riskhändelser visas utan ändringar i användarsäkerhet.
+I Azure AD Identity Protection sammanställs nu alla risk identifieringar i real tid som kommer från samma IP-adress på en bestämd dag för varje typ av risk identifiering. Den här ändringen begränsar mängden risk identifieringar som visas utan några ändringar i användar säkerheten.
 
 Den underliggande realtidsidentifiering fungerar varje gång användaren loggar in. Om du har en säkerhetsprincip för inloggningsrisk konfigurera Multifaktorautentisering eller blockera åtkomst till utlöst den fortfarande under varje riskfyllda inloggningen.
  
@@ -2388,7 +2388,7 @@ Mer information finns i [dölja ett program från tredje part från en användar
 
 **Vad är tillgängliga?**
 
- Som en del av övergången till den nya administratörskonsolen, två nya API: er för att hämta Azure AD activity loggar är tillgängliga. Den nya uppsättningen API: er ger bättre filtrering och sortering funktioner förutom att tillhandahålla bättre gransknings- och inloggningsaktiviteter. Tidigare var tillgängliga via säkerhetsrapporter nu data kan nås via Identity Protection Risk händelse-API i Microsoft Graph.
+ Som en del av övergången till den nya administratörskonsolen, två nya API: er för att hämta Azure AD activity loggar är tillgängliga. Den nya uppsättningen API: er ger bättre filtrering och sortering funktioner förutom att tillhandahålla bättre gransknings- och inloggningsaktiviteter. De data som tidigare var tillgängliga via säkerhets rapporterna kan nu nås via identitets skydds identifieraren API i Microsoft Graph.
 
 
 ## <a name="september-2017"></a>September 2017

@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4eb5b4c634fe495a0ed149016d862defc2eb45
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532459"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124932"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Fyra steg till en stark identitets grund med Azure Active Directory
 
@@ -141,7 +141,7 @@ Som standard låser Azure AD upp konton när en lösen ords återställning utf�
 
 Azure ger rapporter som du och din organisation kan använda för att se till att användare registreras för MFA-och SSPR. Användare som inte har registrerat kan behöva bli sammanutbildade i processen.
 
-Rapporten MFA [-inloggningar](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) innehåller information om MFA-användning och ger dig insikter om hur MFA arbetar i din organisation. Att ha åtkomst till inloggnings aktivitet (och granskningar och risk händelser) för Azure AD är avgörande för fel sökning, användnings analys och data utredning undersökningar.
+Rapporten MFA [-inloggningar](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) innehåller information om MFA-användning och ger dig insikter om hur MFA arbetar i din organisation. Att ha till gång till inloggnings aktivitet (och granskningar och risk identifieringar) för Azure AD är avgörande för fel sökning, användnings analys och data utredning undersökningar.
 
 På samma sätt kan du använda [rapporten för lösen ords hantering](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) med självbetjäning för att fastställa vem som har (eller inte har) registrerat för SSPR.
 

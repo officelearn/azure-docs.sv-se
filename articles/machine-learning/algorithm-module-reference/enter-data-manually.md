@@ -1,7 +1,7 @@
 ---
-title: 'Ange Data manuellt: Modulreferens'
+title: 'Ange data manuellt: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen ange Data manuellt i Azure Machine Learning-tjänsten för att skapa en liten datamängd genom att ange värden. Datauppsättningen kan ha flera kolumner.
+description: Lär dig hur du använder modulen ange data manuellt i Azure Machine Learning tjänst för att skapa en liten data uppsättning genom att ange värden. Data uppsättningen kan ha flera kolumner.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,61 +9,60 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: ee15b6fb7160ece907d55e790b0ae38ee458ab96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d7e6cede12f5a348f59db83b31b19c89266dfdf7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028612"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128845"
 ---
-# <a name="enter-data-manually-module"></a>Ange Data manuellt modul
+# <a name="enter-data-manually-module"></a>Ange modulen data manuellt
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen för att skapa en liten datamängd genom att ange värden. Datauppsättningen kan ha flera kolumner.
+Använd den här modulen för att skapa en liten data uppsättning genom att ange värden. Data uppsättningen kan ha flera kolumner.
   
-Den här modulen kan vara användbart i scenarier som följande:  
+Den här modulen kan vara till hjälp i scenarier som dessa:  
   
-- Generera en liten uppsättning värden för testning  
+- Genererar en liten uppsättning värden för testning  
   
 - Skapa en kort lista med etiketter
   
-- Att skriva en lista med kolumnnamn för att infoga i en datauppsättning
+- Ange en lista med kolumn namn som ska infogas i en data uppsättning
 
 ## <a name="enter-data-manually"></a>Ange data manuellt 
   
-1.  Lägg till den [ange Data manuellt](./enter-data-manually.md) modulen i experimentet. Du hittar den här modulen i den **Data indata och utdata** kategori i Azure Machine Learning. 
+1.  Lägg till modulen [ange data manuellt](./enter-data-manually.md) i experimentet. Du hittar den här modulen i kategorin **data indata och utdata** i Azure Machine Learning. 
   
-2.  För **DataFormat**, väljer du något av följande alternativ. Dessa alternativ anger hur data som du anger ska parsas. Kraven för varje format skilja sig åt avsevärt, så var noga med att läsa Närliggande ämnen.  
+2.  Välj något av följande alternativ för **dataformat**. De här alternativen avgör hur de data som du anger ska tolkas. Kraven för varje format skiljer sig kraftigt, så se till att läsa närliggande ämnen.  
   
-    -   **ARFF**. Attributrelation filformatet används av Weka.   
+    -   **ARFF**. Fil formatet för attribut-relation som används av Wekas.   
   
-    -   **CSV**. Kommaavgränsade värden format. Mer information finns i [konvertera till CSV](./convert-to-csv.md).  
+    -   **CSV**. Format med kommaavgränsade värden. Mer information finns i [konvertera till CSV](./convert-to-csv.md).  
   
-    -   **SVMLight**. Ett format som används av Vowpal Wabbit och andra ramverk för maskininlärning.  
+    -   **SVMLight**. Ett format som används av Vowpal Wabbit och andra ramverk för maskin inlärning.  
   
-    -   **TSV**. Tabbavgränsade värden format.
+    -   **TSV**. Format med Tabbavgränsade värden.
 
-     Om du väljer ett format och ger inte data som uppfyller specifikationerna format, inträffar ett fel under körning.
+     Ett körnings fel uppstår om du väljer ett format och inte tillhandahåller data som uppfyller format kraven.
   
-3.  Klicka i den **Data** textrutan för att börja föra in data. Följande format kräver särskild uppmärksamhet:  
+3.  Klicka i text rutan **data** för att börja ange data. Följande format kräver särskild uppmärksamhet:  
   
-    - **CSV**:  Klistra in i CSV-text för att skapa flera kolumner, eller ange flera kolumner med hjälp av kommatecken mellan fält.
+    - **CSV**:  Om du vill skapa flera kolumner klistrar du in i kommaavgränsad text eller skriver flera kolumner med kommatecken mellan fälten.
   
-        Om du väljer den **HasHeader** alternativet, du kan använda den första raden med värden som på kolumnens rubrik.  
+        Om du väljer alternativet **HasHeader** kan du använda den första raden med värden som kolumn rubrik.  
   
-        Om du avmarkerar det här alternativet, kolumnnamnen, Kol1, Col2 och så vidare används. Du kan lägga till eller ändra kolumner namn senare med [redigera Metadata](./edit-metadata.md).  
+        Om du avmarkerar det här alternativet används kolumn namnen, Col1, Col2 och så vidare. Du kan lägga till eller ändra kolumn namn senare med hjälp av [Redigera metadata](./edit-metadata.md).  
   
-    - **TSV**: Klistra in tabbavgränsad text för att skapa flera kolumner, eller ange flera kolumner med hjälp av flikarna mellan fält.  
+    - **TSV**: Om du vill skapa flera kolumner klistrar du in tabbavgränsad text eller skriver flera kolumner med flikar mellan fält.  
   
-        Om du väljer den **HasHeader** alternativet, du kan använda den första raden med värden som på kolumnens rubrik.  
+        Om du väljer alternativet **HasHeader** kan du använda den första raden med värden som kolumn rubrik.  
   
-        Om du avmarkerar det här alternativet, kolumnnamnen, Kol1, Col2 och så vidare används. Du kan lägga till eller ändra kolumner namn senare med [redigera Metadata](./edit-metadata.md).  
+        Om du avmarkerar det här alternativet används kolumn namnen, Col1, Col2 och så vidare. Du kan lägga till eller ändra kolumn namn senare med hjälp av [Redigera metadata](./edit-metadata.md).  
   
-    -   **ARFF**:  Klistra in en befintlig ARFF-fil. Om du skriver värden direkt, måste du lägga till valfria rubriken och obligatoriska attributfält i början av data. 
+    -   **ARFF**:  Klistra in i en befintlig ARFF-format fil. Om du skriver värden direkt ska du se till att lägga till de valfria rubrik fälten och de obligatoriska attributen i början av data. 
     
-        Till exempel kunde följande rubrik och attributet rader läggas till en enkel lista. Kolumnrubriken skulle vara `SampleText`.
+        Till exempel kan följande rader för sidhuvud och attribut läggas till i en enkel lista. Kolumn rubriken är `SampleText`.
     
         ```text
         % Title: SampleText.ARFF  
@@ -73,9 +72,9 @@ Den här modulen kan vara användbart i scenarier som följande:
         \<type first data row here>  
         ```
 
-    -   **SVMLight**: Skriv eller klistra in värden med hjälp av SVMLight-format.  
+    -   **SVMLight**: Skriv eller klistra in värden med SVMLight-formatet.  
   
-        I följande exempel representerar till exempel de första par raderna med blodgivning datauppsättningen i SVMight format:  
+        Följande exempel representerar till exempel de första raderna i data uppsättningen blod donation i SVMight-format:  
   
         ```text  
         # features are [Recency], [Frequency], [Monetary], [Time]  
@@ -83,24 +82,24 @@ Den här modulen kan vara användbart i scenarier som följande:
         1 1:0 2:13 3:3250 4:28   
         ```  
   
-        När du kör den [ange Data manuellt](./enter-data-manually.md) modulen, dessa rader konverteras till en datauppsättning med kolumner och index värden enligt följande:  
+        När du kör modulen [ange data manuellt](./enter-data-manually.md) , konverteras dessa rader till en data uppsättning kolumner och index värden enligt följande:  
   
-        |Kol1|Col2|Col3|Col4|Etiketter|  
+        |Col1|Col2|Col3|Col4|Etiketter|  
         |-|-|-|-|-|  
-        |0.00016|0.004|0.999961|0.00784|1|  
-        |0|0.004|0.999955|0.008615|1|  
+        |0,00016|0,004|0,999961|0,00784|1|  
+        |0|0,004|0,999955|0,008615|1|  
   
-4.  Tryck på RETUR efter varje rad att starta en ny rad.  
+4.  Tryck på RETUR efter varje rad för att påbörja en ny rad.  
   
-     **Var noga med att trycka på RETUR efter den sista raden.** 
+     **Se till att trycka på RETUR efter den sista raden.** 
      
-     Om du trycker på RETUR flera gånger för att lägga till flera tomma efterföljande rader, den slutliga tomma raden tas bort trimmade, men andra tomma rader behandlas som värden som saknas.  
+     Om du trycker på RETUR flera gånger för att lägga till flera tomma efterföljande rader tas den sista tomma raden bort, men andra tomma rader behandlas som saknade värden.  
   
-     Om du skapar rader med värden som saknas kan filtrera du alltid dem senare.  
+     Om du skapar rader med värden som saknas kan du alltid filtrera dem senare.  
   
-5.  Högerklicka på modulen och välj **kör valda** parsa data och läsa in den i din arbetsyta som en datauppsättning.  
+5.  Högerklicka på modulen och välj **Kör valt** för att parsa data och läsa in dem i arbets ytan som en data uppsättning.  
   
-     Om du vill visa datauppsättningen, klicka på utdataporten och välj **visualisera**.  
+     Om du vill visa data uppsättningen klickar du på utdataporten och väljer **visualisera**.  
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

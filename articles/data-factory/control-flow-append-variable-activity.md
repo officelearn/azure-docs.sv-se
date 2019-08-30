@@ -1,38 +1,38 @@
 ---
-title: Lägg till variabel aktiviteten i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du ställer in aktiviteten lägga till variabeln för att lägga till ett värde i en befintlig matrisvariabel som definierats i Data Factory-pipeline
+title: Lägg till variabel aktivitet i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du ställer in aktiviteten Lägg till variabel för att lägga till ett värde till en befintlig mat ris variabel som definieras i en Data Factory pipeline
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.date: 10/09/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: a5efe946000eb00e65d314ae53d7136761e2109d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24808c9ed4bda5e8d3b0ce23ab93bc59eb260374
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557230"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141730"
 ---
-# <a name="append-variable-activity-in-azure-data-factory"></a>Lägg till variabel aktiviteten i Azure Data Factory
+# <a name="append-variable-activity-in-azure-data-factory"></a>Lägg till variabel aktivitet i Azure Data Factory
 
-Använd aktiviteten lägga till variabeln för att lägga till ett värde i en befintlig matrisvariabel som definierats i Data Factory-pipeline.
+Använd aktiviteten Lägg till variabel för att lägga till ett värde till en befintlig mat ris variabel som definierats i en Data Factory pipeline.
 
-## <a name="type-properties"></a>Egenskaperna för anslutningstypen
+## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Krävs
+Egenskap | Beskrivning | Obligatorisk
 -------- | ----------- | --------
-name | Namnet på aktiviteten i pipelinen | Ja
-description | Text som beskriver vad aktiviteten används | nej
-type | Aktivitetstyp är AppendVariable | ja
-value | Sträng literal eller uttryck Objektvärde som används för att lägga till en specifik variabel | ja
-variableName | Namnet på variabeln som kommer att ändras av aktiviteten, variabeln måste vara av typen 'Array' | ja
+name | Namn på aktiviteten i pipeline | Ja
+description | Text som beskriver vad aktiviteten gör | nej
+type | Aktivitets typen är AppendVariable | ja
+value | Sträng tecken eller uttrycks objekt värde som används för att lägga till angiven variabel | ja
+variableName | Namnet på variabeln som ska ändras av aktivitet, variabeln måste vara av typen matris | ja
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om en relaterade kontrollflödesaktivitet som stöds av Data Factory: 
+Lär dig mer om en relaterad kontroll flödes aktivitet som stöds av Data Factory: 
 
-- [Ställ in variabeln aktivitet](control-flow-set-variable-activity.md)
+- [Ange variabel aktivitet](control-flow-set-variable-activity.md)

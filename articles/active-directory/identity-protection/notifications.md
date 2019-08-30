@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dcc7d2d03b3c4a3f4c8c772f38aa3785080d986
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 9da0552e3ccc707c6b2f228b402f4e9db7dafee3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335365"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125711"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection meddelanden
 
-Azure AD Identity Protection skickar två typer av automatiserade e-postmeddelanden som hjälper dig att hantera användar risker och risk händelser:
+Azure AD Identity Protection skickar två typer av automatiserade e-postmeddelanden som hjälper dig att hantera användar risker och risk identifieringar:
 
 - Användare med skadligt upptäckt e-post
 - E-postmeddelande om veckovis sammandrag
@@ -31,7 +31,7 @@ Den här artikeln ger en översikt över både e-postaviseringar.
 
 Som svar på ett identifierat konto vid risk genererar Azure AD Identity Protection en e-postavisering med **användare som riskerar att identifieras** som ämne. E-postmeddelandet innehåller en länk till de användare som har **[flaggats för risk](../reports-monitoring/concept-user-at-risk.md)** rapporten. Som bästa praxis bör du omedelbart undersöka de användare som är utsatta för risk.
 
-Med konfigurationen för den här aviseringen kan du ange på vilken nivå för användar risk du vill att aviseringen ska genereras. E-postmeddelandet skapas när användarens risk nivå når det du har angett. du får dock inga nya användare när de riskerar att identifiera e-postaviseringar för den här användaren när de har flyttat till den här användar risk nivån. Om du t. ex. ställer in principen för att varna om medelhög användar risk och din användare John flyttar till medelhög risk, får användarna ett hot som upptäckts via e-post för John. Men du kommer inte att få en andra användare vid risk identifiering om John sedan flyttar till hög risk eller har ytterligare risk händelser.
+Med konfigurationen för den här aviseringen kan du ange på vilken nivå för användar risk du vill att aviseringen ska genereras. E-postmeddelandet skapas när användarens risk nivå når det du har angett. du får dock inga nya användare när de riskerar att identifiera e-postaviseringar för den här användaren när de har flyttat till den här användar risk nivån. Om du t. ex. ställer in principen för att varna om medelhög användar risk och din användare John flyttar till medelhög risk, får användarna ett hot som upptäckts via e-post för John. Men du kommer inte att få en andra användare vid risk identifiering om John sedan flyttar till hög risk eller har ytterligare risk identifieringar.
 
 ![Användare med skadligt upptäckt e-post](./media/notifications/01.png)
 
@@ -42,13 +42,13 @@ Som administratör kan du ange:
 - **Den användar risk nivå som utlöser genereringen av det här e** -postmeddelandet som standard är risk nivån inställd på "hög" risk.
 - Mottagare **av det här e** -postmeddelandet är som standard alla globala administratörer. Globala administratörer kan också lägga till andra globala administratörer, säkerhets administratörer och säkerhets läsare som mottagare.  
 
-Öppna dialog rutan relaterad genom att klicka  på aviseringar i avsnittet **Inställningar** på sidan för **identitets skydd** .
+Öppna dialog rutan relaterad genom att klicka på aviseringar i avsnittet **Inställningar** på sidan för **identitets skydd** .
 
 ![Användare med skadligt upptäckt e-post](./media/notifications/05.png)
 
 ## <a name="weekly-digest-email"></a>E-postmeddelande om veckovis sammandrag
 
-E-postmeddelandet om veckovis sammandrag innehåller en sammanfattning av nya risk händelser.  
+E-postmeddelandet om veckovis sammandrag innehåller en sammanfattning av nya risk identifieringar.  
 Den innehåller:
 
 - Användare i farozonen

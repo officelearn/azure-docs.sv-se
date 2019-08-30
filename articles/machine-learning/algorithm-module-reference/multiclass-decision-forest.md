@@ -1,7 +1,7 @@
 ---
-title: 'Beslutsskog med multiclass: Modulreferens'
+title: 'Skog med flera klasser: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder Multiclass Beslutsskog-modulen i Azure Machine Learning-tjänsten för att skapa en machine learning-modell som baseras på den *beslut skog* algoritmen.
+description: Lär dig hur du använder modulen för besluts skogar i flera klasser i Azure Machine Learning-tjänsten för att skapa en Machine Learning-modell som baseras på algoritmen för *besluts skogar* .
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,84 +9,83 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 10364d014431a500e7c38a02d47f432cd464feb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b56f08dfd1a14ffedffb612bb8974086ee08ede7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411455"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128619"
 ---
-# <a name="multiclass-decision-forest-module"></a>Beslutsskog med multiclass modul
+# <a name="multiclass-decision-forest-module"></a>Modul för besluts skog för flera klasser
 
-Den här artikeln beskrivs en modul av det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen för att skapa en machine learning-modell som baseras på den *beslut skog* algoritmen. En beslutsskog är en ensemble-modell som snabbt bygger en serie beslutsträd vid learning från taggade data.
+Använd den här modulen för att skapa en Machine Learning-modell som baseras på algoritmen för *besluts skogar* . En besluts skog är en ensemble-modell som snabbt skapar en serie besluts träd, medan man lär sig från Taggade data.
 
-## <a name="more-about-decision-forests"></a>Mer om beslutet skogar
+## <a name="more-about-decision-forests"></a>Mer om besluts skogar
 
-Beslutet skog algoritmen är en ensemble learning metod för klassificering. Algoritmen fungerar genom att skapa flera beslutsträd och sedan *röstande* om klassen populäraste utdata. Rösta är en typ av aggregering, i vilken varje trädet i ett klassificeringsbeslut skog matar ut ett icke-normaliserat frekvens histogram för etiketter. Processen för aggregering summerar dessa histogram och normaliserar resultatet för att få ”sannolikhet” för varje etikett. Träd som har hög förutsägelsen har en högre vikt i det slutliga beslutet i ensemble.
+Besluts skogens algoritm är en ensemble Learning-metod för klassificering. Algoritmen fungerar genom att skapa flera besluts träd och sedan *rösta* på den mest populära utmatnings klassen. Röstning är en form av agg regering, där varje träd i en klassificerings besluts skog utvärderar ett icke-normaliserat frekvens histogram med etiketter. Agg regerings processen summerar dessa histogram och normaliserar resultatet för att få "sannolikhet" för varje etikett. De träd som har hög förutsägelse säkerhet har en större vikt i det slutliga beslutet av ensemblen.
 
-Beslutsträd är i allmänhet icke-parametrisk modeller, vilket innebär att de har stöd för data med olika distributioner. I varje trädet körs en sekvens med enkla tester för varje klass, vilket ökar nivåer av en trädstruktur tills en lövnod (beslut) har uppnåtts.
+Besluts träd i allmänhet är icke-parameter modeller, vilket innebär att de har stöd för data med varierande distributioner. I varje träd körs en sekvens med enkla tester för varje klass, vilket ökar nivåerna i en träd struktur tills en lövnod (beslut) har nåtts.
 
-Beslutsträd har många fördelar:
+Besluts träd har många fördelar:
 
-+ De kan representera icke-linjära beslut gränser.
-+ De är effektiva i beräknings- och minnesanvändning under träning och förutsägelser.
-+ De utför val av integrerade funktioner och klassificering.
-+ De är flexibel när det finns störningar funktioner.
++ De kan representera icke-linjära besluts gränser.
++ De är effektiva för beräknings-och minnes användning vid utbildning och förutsägelse.
++ De utför integrerade funktions val och klassificering.
++ De är elastiska i närvaro av brus funktioner.
 
-Beslutet skog Klassificeraren i Azure Machine Learning består av en ensemble för beslutsträd. I allmänhet ger ensemble modeller bättre täckning och noggrannhet än enkel beslutsträd. Mer information finns i [Decision trees](https://go.microsoft.com/fwlink/?LinkId=403677).
+Besluts skogens klassificerare i Azure Machine Learning består av en ensemble i besluts träd. Vanligt vis ger Ensemble-modeller bättre täckning och exakthet än enskilda besluts träd. Mer information finns i [besluts träd](https://go.microsoft.com/fwlink/?LinkId=403677).
 
-## <a name="how-to-configure-multiclass-decision-forest"></a>Så här konfigurerar du Multiclass Beslutsskog
+## <a name="how-to-configure-multiclass-decision-forest"></a>Konfigurera besluts skogen i flera klasser
 
 
 
-1. Lägg till den **Multiclass Beslutsskog** modulen i experimentet i gränssnittet. Du hittar den här modulen under **Maskininlärning**, **initiera modell**, och **klassificering**.
+1. Lägg till modulen **besluts skog** för flera klasser i experimentet i gränssnittet. Du kan hitta den här modulen under **Machine Learning**, **initiera modell**och **klassificering**.
 
-2. Dubbelklicka på modulen att öppna den **egenskaper** fönstret.
+2. Dubbelklicka på modulen för att öppna fönstret **Egenskaper** .
 
-3. För **sampla metoden**, välja den metod som används för att skapa enskilda träd.  Du kan välja från förpackningskapacitet eller replikering.
+3. För **metoden**för att sampla om väljer du den metod som används för att skapa enskilda träd.  Du kan välja mellan bagage eller replikering.
 
-    + **Bagging**: Kallas även för förpackningskapacitet *bootstrap sammanställa*. I den här metoden är varje träd odlas på ett nytt stickprov som skapats av slumpmässigt sampling den ursprungliga datauppsättningen med ersättning förrän du har en datauppsättning storleken på ursprungligt. Utdata för modellerna kombineras med *röstande*, vilket är en typ av aggregering. Mer information finns i posten för sammanställning av Bootstrap Wikipedia.
+    + **Bagage**: Bagaget kallas även *bootstrap-aggregering*. I den här metoden odlas varje träd på ett nytt exempel som skapats genom att slumpmässigt sampla den ursprungliga data uppsättningen med ersättning tills du har en data uppsättning som är den ursprungliga storleken. Modellernas utdata kombineras med *röstning*, vilket är en form av agg regering. Mer information finns i Wikipedia-posten för start agg regering.
 
-    + **Replikera**: I replikering tränas varje träd på exakt samma inkommande data. Bestämning av vilka dela predikatet används för varje trädnod förblir slumpmässiga skapar olika träd.
+    + **Replikera**: I replikering tränas varje träd på exakt samma indata. Bestämning av vilka delade predikat som används för varje trädnod förblir slumpmässiga och skapar olika träd.
 
    
 
-4. Ange hur du vill att modellen ska tränas genom att ange den **skapande trainer läge** alternativet.
+4. Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .
 
-    + **Enkel parametern**: Välj det här alternativet om du vet hur du vill konfigurera modellen och tillhandahåller en uppsättning värden som argument.
-
-
-5. **Antal beslutsträd**: Ange det maximala antalet beslutsträd som kan skapas i ensemble. Du kan eventuellt få bättre täckning genom att skapa mer beslutsträd, men utbildning kan öka.
-
-    Det här värdet styr också antalet träd som visas i resultaten när visualisera den tränade modellen. Om du vill visa eller skriva ut ett enda träd, kan du ange värdet 1. Detta innebär dock bara en trädet kan vara produceras (trädet med den första uppsättningen parametrar) och inga ytterligare iterationer utförs.
-
-6. **Maximalt djup för beslutsträd**: Ange ett tal som begränsar det maximala djupet på alla beslutsträdet. Öka djupet i trädet kan öka noggrannhet på millisekunder, dess risk utbildningstid overfitting och ökad.
-
-7. **Antal slumpmässiga delningar per nod**: Ange antalet delningar ska användas för att skapa varje nod i trädet. En *dela* innebär att funktioner i varje nivå i trädet (node) delas slumpmässigt.
-
-8. **Minsta antal prover per lövnod**: Ange det minsta antalet fall som krävs för att skapa en terminal nod (löv-) i ett träd. Genom att öka det här värdet kan du öka tröskelvärdet för att skapa nya regler.
-
-    Med standardvärdet 1 kan till exempel även ett enda fall orsaka en ny regel som ska skapas. Om du ökar värdet till 5, skulle träningsdata behöva innehålla minst fem ärenden som uppfyller villkor som är samma.
+    + **Enskild parameter**: Välj det här alternativet om du vet hur du vill konfigurera modellen och ange en uppsättning värden som argument.
 
 
+5. **Antal besluts träd**: Ange det maximala antalet besluts träd som kan skapas i ensemblen. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden kan öka.
 
-10. Anslut en taggade datauppsättning och en av modulerna som utbildning:
+    Det här värdet styr också antalet träd som visas i resultaten vid visualisering av den tränade modellen. Om du vill se eller skriva ut ett enda träd kan du ange värdet till 1. Det innebär dock att endast ett träd kan skapas (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
 
-    + Om du ställer in **skapande trainer läge** till **enda Parameter**, använda den [Träningsmodell](./train-model.md) modulen.
+6. **Maximalt djup för besluts träden**: Ange ett tal för att begränsa det maximala djupet för ett besluts träd. Att öka djupet i trädet kan öka precisionen på risken för viss överanpassning och ökad inlärnings tid.
+
+7. **Antal slumpmässiga delningar per nod**: Ange antalet delningar som ska användas när du skapar varje nod i trädet. En *delning* innebär att funktionerna i varje nivå i trädet (noden) är slumpmässigt uppdelade.
+
+8. **Minsta antal sampel per lövnod**: Ange det minsta antal fall som krävs för att skapa en Terminal-nod (löv) i ett träd. Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler.
+
+    Till exempel, med standardvärdet 1, kan ett enda ärende orsaka att en ny regel skapas. Om du ökar värdet till 5 måste tränings data innehålla minst fem fall som uppfyller samma villkor.
+
+
+
+10. Anslut en etikettad data uppsättning och en av modulerna för utbildning:
+
+    + Om du ställer in **skapa** utbildare för **en parameter**använder du modulen [träna modell](./train-model.md) .
 
 11. Kör experimentet.
 
 ## <a name="results"></a>Resultat
 
-När utbildning har slutförts:
+När utbildningen är klar:
 
-+ Om du vill se i trädet som har skapats för varje iteration, högerklickar du på utdata från den [Träningsmodell](./train-model.md) modul och välj **visualisera**.
-+ Om du vill visa reglerna för varje nod, klickar du på varje trädet om du vill granska nedåt i delningen.
++ Om du vill se trädet som skapades på varje iteration högerklickar du på utdata från modulen [träna modell](./train-model.md) och väljer **visualisera**.
++ Om du vill se reglerna för varje nod klickar du på varje träd för att öka detalj nivån i delningarna.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

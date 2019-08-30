@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: 98b5fb06bf018c9176fc989786d8bd1821914f43
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: db020092c076680eddd575f8e7e85a2060603dd8
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558454"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147776"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Ladda upp filer från enheten till molnet med IoT Hub (.NET)
 
@@ -47,7 +47,7 @@ I slutet av den här självstudien kör du två .NET-konsol program:
 > [!NOTE]
 > IoT Hub stöder många enhets plattformar och språk, inklusive C, Java, python och Java Script, via SDK: er för Azure IoT-enheter. I [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) hittar du stegvisa instruktioner för hur du ansluter enheten till Azure IoT Hub.
 
-För att slutföra den här självstudien, finns följande förhandskrav:
+## <a name="prerequisites"></a>Förutsättningar
 
 * Visual Studio
 

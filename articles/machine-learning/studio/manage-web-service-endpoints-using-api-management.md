@@ -1,5 +1,5 @@
 ---
-title: Hantera webbtjänster som använder API Management
+title: Hantera webb tjänster med API Management
 titleSuffix: Azure Machine Learning Studio
 description: En guide som visar hur du hanterar AzureML-webbtjänster som använder API Management. Hantera din REST API-slutpunkter genom att definiera användaråtkomst, begränsning av nätverksbandbredd och instrumentpanelen för övervakning.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8b424696c3350ff2592df9a97189dde3df57845f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347387"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138561"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio-webbtjänster som använder API Management
 ## <a name="overview"></a>Översikt
@@ -24,7 +24,7 @@ Den här guiden visar hur du snabbt kommer igång med att använda API Managemen
 ## <a name="what-is-azure-api-management"></a>Vad är Azure API Management?
 Azure API Management är en Azure-tjänst som låter dig hantera REST API-slutpunkter genom att definiera användaråtkomst, begränsning av nätverksbandbredd och instrumentpanelen för övervakning. Klicka på [här](https://azure.microsoft.com/services/api-management/) för information om Azure API Management. Klicka på [här](/azure/api-management/import-and-publish) en guide om hur du kommer igång med Azure API Management. Den här andra guiden som den här guiden är baserad på omfattar flera ämnen, t.ex. meddelande-konfigurationer, priserna för nivån, hantering av svar, autentisering av användare, skapa produkter, developer prenumerationer och användning dashboarding.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra den här guiden:
 
 * Ett Azure-konto. Om du inte har ett Azure-konto, klickar du på [här](https://azure.microsoft.com/pricing/free-trial/) mer information om hur du skapar ett kostnadsfritt konto.
@@ -182,11 +182,11 @@ Byt namn på den till **SimpleFeatureHashingExperiment**. Expandera **sparade da
 
 Expandera **Dataomvandling** och **manipulering av** och dra **Välj kolumner i datauppsättning** till ditt experiment. Ansluta **boka granskningar från Amazon** till **Välj kolumner i datauppsättning**.
 
-![Anslut modulen boken granskningar datauppsättning till en modul för Projektkolumner](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Anslut datauppsättnings modulen för bok granskningar till en modul för projekt kolumner](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Klicka på **Välj kolumner i datauppsättning** och klicka sedan på **starta kolumnväljaren** och välj **Col2**. Klicka på bockmarkeringen för att tillämpa ändringarna.
 
-![Välj kolumner med hjälp av kolumnnamn](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Välj kolumner med kolumn namn](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Expandera **textanalys** och dra **funktions-hashning** till experimentet. Ansluta **Välj kolumner i datauppsättning** till **funktions-hashning**.
 
@@ -214,7 +214,7 @@ Klicka på **Ja** att publicera experimentet.
 ![Ja att publicera](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testa webbtjänsten
-En AzureML-webbtjänst består av skalning på Mottagarsidan (begäran/svar-service) och BES (batch execution service) slutpunkter. RSS är för synkron körning. BES är för asynkron jobbkörning. Om du vill testa din webbtjänst med exemplet Python källan nedan, du kan behöva hämta och installera Azure SDK för Python (se: [Så här installerar du Python](../../python-how-to-install.md)).
+En AzureML-webbtjänst består av skalning på Mottagarsidan (begäran/svar-service) och BES (batch execution service) slutpunkter. RSS är för synkron körning. BES är för asynkron jobbkörning. Om du vill testa din webb tjänst med python-källan nedan kan du behöva hämta och installera Azure SDK för python (se: [Så här installerar du python](/azure/python/python-sdk-azure-install)).
 
 Du måste också den **arbetsytan**, **service**, och **api_key** av experimentet för källan exemplet nedan. Du hittar den arbetsytan och tjänsten genom att klicka på antingen **begäran/svar** eller **batchkörning** för experimentet i instrumentpanelen för webbtjänsten.
 

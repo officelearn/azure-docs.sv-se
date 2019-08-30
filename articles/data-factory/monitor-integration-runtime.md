@@ -8,18 +8,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b84ea0b9859e69eaf45cd9a89b2443cf42949f79
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122628"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141086"
 ---
-# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integration runtime i Azure Data Factory  
-**Integreringskörningen** är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla olika funktioner för dataintegrering i olika nätverksmiljöer. Det finns tre typer av integration Runtime som erbjuds av Data Factory:
+# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integrerings körning i Azure Data Factory  
+**Integration runtime** är den beräknings infrastruktur som används av Azure Data Factory för att tillhandahålla olika funktioner för data integrering i olika nätverks miljöer. Det finns tre typer av integrerings körningar som erbjuds av Data Factory:
 
 - Azure Integration Runtime
 - Integration Runtime med egen värd
@@ -27,31 +27,31 @@ ms.locfileid: "66122628"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Kör följande PowerShell-kommando för att hämta status för en instans av integration runtime (IR): 
+Kör följande PowerShell-kommando för att hämta statusen för en instans av integration Runtime (IR): 
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
-Cmdleten returnerar olika typer av information för olika typer av integration runtime. Den här artikeln beskriver egenskaper och status för varje typ av integration runtime.  
+Cmdleten returnerar annan information för olika typer av integration Runtime. I den här artikeln beskrivs egenskaper och status för varje typ av integration Runtime.  
 
 ## <a name="azure-integration-runtime"></a>Azure Integration Runtime
-Beräkningsresurs för en Azure integration runtime är fullständigt hanterad Elastiskt i Azure. I följande tabell innehåller beskrivningar av egenskaper som returneras av den **Get-AzDataFactoryV2IntegrationRuntime** kommando:
+Beräknings resursen för en Azure integration runtime hanteras helt elastiskt i Azure. Följande tabell innehåller beskrivningar av egenskaper som returneras av kommandot **Get-AzDataFactoryV2IntegrationRuntime** :
 
-### <a name="properties"></a>Egenskaper
-Följande tabell innehåller beskrivningar av egenskaper som returneras av cmdlet: en för en Azure integration runtime:
+### <a name="properties"></a>properties
+Följande tabell innehåller beskrivningar av egenskaper som returneras av cmdleten för en Azure integration Runtime:
 
 | Egenskap | Description |
 -------- | ------------- | 
-| Name | Namnet på Azure integration runtime. |  
-| State | Status för Azure integration runtime. | 
-| Location | Platsen för Azure integration runtime. Mer information om platsen för en Azure integration runtime finns [introduktion till integration runtime](concepts-integration-runtime.md). |
-| DataFactoryName | Namnet på datafabriken som tillhör Azure integration runtime. | 
-| ResourceGroupName | Namnet på resursgruppen som datafabriken tillhör.  |
-| Description | Beskrivning av integration runtime.  |
+| Name | Namnet på Azure integration Runtime. |  
+| State | Status för Azure integration Runtime. | 
+| Location | Platsen för Azure integration Runtime. Mer information om platsen för en Azure integration runtime finns i [Introduktion till integration runtime](concepts-integration-runtime.md). |
+| DataFactoryName | Namnet på den data fabrik som Azure integration runtime tillhör. | 
+| ResourceGroupName | Namnet på den resurs grupp som data fabriken tillhör.  |
+| Description | Beskrivning av integrerings körningen.  |
 
 ### <a name="status"></a>State
-Följande tabell innehåller olika statusar av en Azure integration runtime:
+Följande tabell innehåller möjliga status värden för en Azure integration Runtime:
 
 | State | Kommentarer/scenarier | 
 | ------ | ------------------ |
@@ -59,66 +59,66 @@ Följande tabell innehåller olika statusar av en Azure integration runtime:
 | Offline | Azure integration runtime är offline på grund av ett internt fel. |
 
 ## <a name="self-hosted-integration-runtime"></a>Integration Runtime med egen värd
-Det här avsnittet innehåller beskrivningar av egenskaper som returneras av cmdleten Get-AzDataFactoryV2IntegrationRuntime. 
+Det här avsnittet innehåller beskrivningar av egenskaper som returneras av Get-AzDataFactoryV2IntegrationRuntime-cmdleten. 
 
 > [!NOTE] 
-> Innehåller information om övergripande lokal integration runtime och varje nod i runtime egenskaperna som returneras och status.  
+> De returnerade egenskaperna och statusen innehåller information om den övergripande integrerings körningen med egen värd och varje nod i körnings miljön.  
 
-### <a name="properties"></a>Egenskaper
+### <a name="properties"></a>properties
 
-Följande tabell innehåller beskrivningar av övervakning av egenskaper för **varje nod**:
+Följande tabell innehåller beskrivningar av övervaknings egenskaper för **varje nod**:
 
 | Egenskap | Description | 
 | -------- | ----------- | 
-| Name | Namnet på den lokala integreringskörningen och noder som är kopplade till den. Noden är en lokal Windows-dator som har en lokal integration runtime installerad. |  
-| State | Status för övergripande lokal integration runtime och varje nod. Exempel: Online/Offline/Limited/osv. Information om dessa statusar finns i nästa avsnitt. | 
-| Version | Versionen av lokal integration runtime och varje nod. Versionen av den lokala integreringskörningen bestäms baserat på version av merparten av noder i gruppen. Om det finns noder med olika versioner i lokal integration runtime-installationsprogrammet kan egenvärdbaserade endast noderna med samma versionsnummer som den logiska integration runtime funktionen korrekt. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering misslyckas). | 
-| Tillgängligt minne | Tillgängligt minne på en lokal integration runtime-noden. Det här värdet är en nästan i realtid ögonblicksbild. | 
-| CPU-användning | CPU-utnyttjande på en lokal integration runtime-noden. Det här värdet är en nästan i realtid ögonblicksbild. |
-| Nätverk (In/ut) | Nätverksanvändningen för en lokal integration runtime-noden. Det här värdet är en nästan i realtid ögonblicksbild. | 
-| Samtidiga jobb (körs / begränsa) | **Kör**. Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nästan i realtid ögonblicksbild. <br/><br/>**Gränsen**. Gränsen innebär det att maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på storleken på datorn. Du kan höja gränsen att skala upp samtidiga jobbkörning i avancerade scenarier när tidsgränsen nåddes även när CPU, minne eller nätverket är underutnyttjade för aktiviteter. Den här funktionen är också tillgängliga med en enda nod lokal integration runtime. |
-| Roll | Det finns två typer av roller i ett flernodigt lokal integration runtime – dispatcher- och arbetsroller. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-noden som används för att hämta uppgifter/jobb från cloud services och skicka dem till olika arbetsnoder. Dispatcher-noden är också en underordnad nod. |
+| Name | Namnet på den egna värdbaserade integrerings körningen och noder som är kopplade till den. Node är en lokal Windows-dator som har den lokala integrerings körningen installerad. |  
+| State | Status för den övergripande integrerings körningen med egen värd och varje nod. Exempel: Online/offline/begränsat/osv. Information om dessa statusar finns i nästa avsnitt. | 
+| Version | Versionen av integration runtime med egen värd och varje nod. Versionen av den lokala integration runtime-versionen bestäms baserat på den version av majoriteten av noderna i gruppen. Om det finns noder med olika versioner i installations programmet för lokal installation av integration runtime fungerar bara noderna med samma versions nummer som den logiska integrerings körningen för egen värd. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering Miss lyckas). | 
+| Ledigt minne | Tillgängligt minne på en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. | 
+| CPU-användning | CPU-användning för en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. |
+| Nätverk (in/ut) | Nätverks användning av en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. | 
+| Samtidiga jobb (som körs/begränsas) | **Körs**. Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nära real tids ögonblicks bild. <br/><br/>**Begränsa**. Gränsen visar maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på datorns storlek. Du kan öka gränsen för att skala upp samtidiga jobb körningar i avancerade scenarier, när aktiviteterna är tids gräns, även om processor, minne eller nätverk används. Den här funktionen är också tillgänglig med en lokal integration runtime med egen värd. |
+| Role | Det finns två typer av roller i en integration runtime med egen värd för flera noder – dispatcher och Worker. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-nod som används för att hämta aktiviteter/jobb från moln tjänster och skicka dem till olika arbetsnoder. Dispatcher-noden är också en arbetsnod. |
 
-Vissa inställningar i egenskaperna för att klarna mer när det finns två eller flera noder i en lokal integration runtime (det vill säga i en skalbar scenariot).
+Vissa inställningar för egenskaperna är mer begripliga när det finns två eller fler noder i den egna värdbaserade integrerings körningen (det vill säga i ett scenario med skala ut).
 
 #### <a name="concurrent-jobs-limit"></a>Gräns för samtidiga jobb
 
-Standardvärdet för samtidiga jobb anges gränsen baserat på storleken på datorn. De faktorer som används för att beräkna det här värdet beror på mängden RAM-minne och antalet CPU-kärnor för datorn. Fler kärnor och mer minne, desto högre begränsa så standardvärdet av samtidiga jobb.
+Standardvärdet för gränsen för samtidiga jobb anges baserat på datorns storlek. De faktorer som används för att beräkna detta värde beror på mängden RAM-minne och antalet processor kärnor för datorn. Så ju fler kärnor och mer minne, desto högre är standard gränsen för samtidiga jobb.
 
-Du skala ut genom att öka antalet noder. När du ökar antalet noder, är samtidiga jobb gränsen summan av gränsvärdena för samtidiga jobb av alla tillgängliga noder.  Till exempel om en nod kan du köra upp till tolv samtidiga jobb, kan lägger till tre fler liknande noder du köra upp till 48 samtidiga jobb (4 x 12). Vi rekommenderar att du ökar gräns för samtidiga jobb bara när du ser låg Resursanvändning med standardvärdena på varje nod.
+Du skalar ut genom att öka antalet noder. När du ökar antalet noder är gränsen för samtidiga jobb summan av gräns värdena för samtidiga jobb för alla tillgängliga noder.  Om du till exempel använder en nod för att köra maximalt tolv samtidiga jobb, kan du köra högst 48 samtidiga jobb genom att lägga till tre likartade noder (det vill säga 4 × 12). Vi rekommenderar att du bara ökar gränsen för samtidiga jobb när du ser låg resursanvändning med standardvärdena på varje nod.
 
-Du kan åsidosätta beräknade standardvärdet i Azure-portalen. Välj Skapa > anslutningar > Integreringskörningar > Redigera > noder > ändra värdet för samtidiga jobb per nod. Du kan också använda PowerShell [uppdatering Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) kommando.
+Du kan åsidosätta det beräknade standardvärdet i Azure Portal. Välj författare > anslutningar > integrerings körningar > Redigera > noder > ändra värdet för samtidiga jobb per nod. Du kan också använda PowerShell [Update-Azdatafactoryv2integrationruntimenode-](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) kommandot.
   
 ### <a name="status-per-node"></a>Status (per nod)
-Följande tabell innehåller olika statusar en lokal integration runtime-noden:
+Följande tabell innehåller möjliga status värden för en egen värd för integration runtime-noden:
 
 | State | Description |
 | ------ | ------------------ | 
-| Online | Noden är ansluten till Data Factory-tjänsten. |
+| Online | Noden är ansluten till Data Factory tjänsten. |
 | Offline | Noden är offline. |
-| Uppgradera | Noden uppdateras automatiskt. |
-| Begränsad | På grund av ett problem med anslutningen. Kanske på grund av HTTP-port 8050 problemet, service bus-anslutningsproblem eller ett problem för synkronisering av autentiseringsuppgifter. |
-| Inaktiva | Noden är i en konfiguration som skiljer sig från konfigurationen av andra majoritet noder. |
+| Uppgraderar | Noden uppdateras automatiskt. |
+| Begränsad | På grund av ett anslutnings problem. Kan bero på HTTP-port 8050 problem, problem med Service Bus-anslutning eller problem med synkronisering av autentiseringsuppgifter. |
+| Inaktiv | Noden har en annan konfiguration än konfigurationen av andra majoritets noder. |
 
 En nod kan vara inaktiv när den inte kan ansluta till andra noder.
 
-### <a name="status-overall-self-hosted-integration-runtime"></a>Status (övergripande lokal integration runtime)
-Följande tabell innehåller olika statusar av en lokal integration runtime. Denna status är beroende av status för alla noder som tillhör körningen. 
+### <a name="status-overall-self-hosted-integration-runtime"></a>Status (övergripande integrerings körning med egen värd)
+Följande tabell innehåller möjliga status värden för en lokal integration Runtime. Den här statusen beror på status för alla noder som tillhör körnings miljön. 
 
 | State | Description |
 | ------ | ----------- | 
-| Behöver registrering | Någon nod är registrerad för den här lokala integreringskörningen ännu. |
+| Behöver registrering | Ingen nod har registrerats för den här integrerings körningen med egen värd. |
 | Online | Alla noder är online. |
-| Offline | Någon nod är online. |
-| Begränsad | Inte alla noder i det här lokal integration runtime är i felfritt tillstånd. Den här statusen är en varning om att vissa noder kanske inte körs. Den här statusen kan bero på en autentiseringsuppgift synkroniseringsproblem på dispatcher-/ arbetsnoden. |
+| Offline | Ingen nod är online. |
+| Begränsad | Alla noder i den här integration runtime med egen värd är i felfritt tillstånd. Denna status är en varning om att vissa noder kan vara nere. Den här statusen kan bero på ett problem med synkronisering av autentiseringsuppgifter på dispatcher/arbetsnoden. |
 
-Använd den **Get-AzDataFactoryV2IntegrationRuntimeMetric** cmdlet för att hämta JSON-nyttolasten som innehåller detaljerade egenskaper för integration runtime med egen värd och deras ögonblicksbild värden under tiden för körningen av cmdlet: en.
+Använd cmdleten **Get-AzDataFactoryV2IntegrationRuntimeMetric** för att hämta JSON-nyttolasten som innehåller de detaljerade egenskaperna för den egna värdbaserade integrerings körningen och deras värden för ögonblicks bilder under körningen av cmdleten.
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
 ```
 
-Exempel på utdata (förutsätter att det finns två noder som är associerade med den här lokal integration runtime):
+Exempel på utdata (förutsätter att det finns två noder kopplade till den här integrerings körningen med egen värd):
 
 ```json
 {
@@ -153,33 +153,33 @@ Exempel på utdata (förutsätter att det finns två noder som är associerade m
 
 
 ## <a name="azure-ssis-integration-runtime"></a>Azure SSIS Integration Runtime
-Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure virtuella datorer (eller noder) som dedikerade för att köra dina SSIS-paket. Alla andra aktiviteter i Azure Data Factory körs inte. När du har etablerat kan du övervaka dess status för övergripande/nodspecifik fråga efter dess egenskaper.
+Azure-SSIS integration runtime är ett fullständigt hanterat kluster av virtuella Azure-datorer (eller noder) som är dedikerade för att köra dina SSIS-paket. Den kör inga andra aktiviteter av Azure Data Factory. När du har upprättat kan du fråga dess egenskaper och övervaka de övergripande/Node-/regionsspecifika statusarna.
 
-### <a name="properties"></a>Egenskaper
+### <a name="properties"></a>properties
 
-| Egenskapen/Status | Description |
+| Egenskap/status | Description |
 | --------------- | ----------- |
-| CreateTime | UTC-tid när din Azure-SSIS integration runtime har skapats. |
-| Noder | Allokerat/tillgängliga noder på din Azure-SSIS integration runtime med nodspecifik status (startar/tillgängliga/återvinning/är inte tillgänglig) och fel som behöver åtgärdas. |
-| OtherErrors | De icke-nod-specifika fel som behöver åtgärdas på din Azure-SSIS integration runtime. |
-| LastOperation | Resultatet av åtgärd som senast Starta/Stoppa på din Azure-SSIS integration runtime med användbara fel om den misslyckades. |
-| State | Övergripande status (första/starta/igång/stoppa/stoppad) för din Azure-SSIS integration runtime. |
-| Location | Platsen för din Azure-SSIS integration runtime. |
-| NodeSize | Storleken på varje nod i din Azure-SSIS integration runtime. |
-| NodeCount | Antalet noder i din Azure-SSIS integration runtime. |
-| MaxParallelExecutionsPerNode | Antalet parallella körningar per nod i din Azure-SSIS integration runtime. |
-| CatalogServerEndpoint | Slutpunkten för din befintliga Azure SQL Database/hanterad instans-server som värd för SSISDB. |
-| CatalogAdminUserName | Administratörens användarnamn för din befintliga Azure SQL Database/hanterad instans-server. Data Factory-tjänsten använder denna information för att förbereda och hantera SSISDB för din räkning. |
-| CatalogAdminPassword | Administratörslösenordet för din befintliga Azure SQL Database/hanterad instans-server. |
-| CatalogPricingTier | Prisnivå för SSISDB som värd för din befintliga Azure SQL Database-server.  Ej tillämpligt för Azure SQL Database Managed Instance som är värd för SSISDB. |
-| VNetId | Det virtuella resource ID för din Azure-SSIS integration runtime att ansluta till. |
-| Undernät | Namnet på undernätet för din Azure-SSIS integration runtime kan anslutas till. |
-| ID | Resurs-ID för din Azure-SSIS integration runtime. |
-| Typ | Typen (hanterade/Self-signed-Hosted) på din Azure-SSIS integration runtime. |
-| ResourceGroupName | Namnet på din Azure-resursgrupp som din data factory och Azure-SSIS integration runtime har skapats. |
-| DataFactoryName | Namnet på din Azure data factory. |
-| Name | Namnet på din Azure-SSIS integration runtime. |
-| Description | Beskrivning av din Azure-SSIS integration runtime. |
+| CreateTime | UTC-tiden när din Azure-SSIS integration runtime skapades. |
+| Noder | De allokerade/tillgängliga noderna i din Azure-SSIS integration runtime med platsspecifika status (start/tillgänglighet/åter användning/ej tillgänglig) och fel som kan åtgärdas. |
+| OtherErrors | Icke-nods åtgärds bara fel i Azure-SSIS integration Runtime. |
+| LastOperation | Resultatet av den senaste start-/stopp åtgärden på din Azure-SSIS integration runtime med åtgärds bara fel om det Miss lyckas. |
+| State | Övergripande status (första/starta/starta/stoppa/stoppas) för din Azure-SSIS integration Runtime. |
+| Location | Platsen för din Azure-SSIS integration Runtime. |
+| NodeSize | Storleken på varje nod i din Azure-SSIS integration Runtime. |
+| NodeCount | Antalet noder i din Azure-SSIS integration Runtime. |
+| MaxParallelExecutionsPerNode | Antalet parallella körningar per nod i din Azure-SSIS integration Runtime. |
+| CatalogServerEndpoint | Slut punkten för din befintliga Azure SQL Database/hanterade instans server som värd för SSISDB. |
+| CatalogAdminUserName | Admin-användarnamnet för din befintliga Azure SQL Database/hanterade instans Server. Data Factory tjänsten använder den här informationen för att förbereda och hantera SSISDB för din räkning. |
+| CatalogAdminPassword | Administratörs lösen ordet för den befintliga Azure SQL Database/hanterade instans servern. |
+| CatalogPricingTier | Pris nivån för SSISDB som finns på din befintliga Azure SQL Database-Server.  Inte tillämpligt för Azure SQL Database Hanterad instans som är värd för SSISDB. |
+| VNetId | Det virtuella nätverks resurs-ID: t för din Azure-SSIS integration runtime för anslutning. |
+| Subnet | Under näts namnet för din Azure-SSIS integration runtime för anslutning. |
+| id | Resurs-ID för Azure-SSIS integration Runtime. |
+| type | Typen (hanterad/egen värd) för din Azure-SSIS integration Runtime. |
+| ResourceGroupName | Namnet på din Azure-resurs, där din Data Factory och Azure-SSIS integration runtime skapades. |
+| DataFactoryName | Namnet på din Azure Data Factory. |
+| Name | Namnet på din Azure-SSIS integration Runtime. |
+| Description | Beskrivningen av din Azure-SSIS integration Runtime. |
 
   
 ### <a name="status-per-node"></a>Status (per nod)
@@ -188,30 +188,30 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure v
 | ------ | ----------- | 
 | Startar | Den här noden förbereds. |
 | Tillgängligt | Den här noden är redo att distribuera/köra SSIS-paket. |
-| Återvinning | Den här noden är att reparera/omstart. |
-| Ej tillgänglig | Den här noden är inte redo att distribuera/köra SSIS-paket och användbara fel/problem som du kan lösa. |
+| Pappers | Den här noden repareras/startas om. |
+| Ej tillgänglig | Den här noden är inte klar för att distribuera/köra SSIS-paket och har åtgärds bara fel/problem som du kan lösa. |
 
-### <a name="status-overall-azure-ssis-integration-runtime"></a>Status (övergripande Azure-SSIS integration runtime)
+### <a name="status-overall-azure-ssis-integration-runtime"></a>Status (övergripande Azure-SSIS integration Runtime)
 
 | Övergripande status | Description | 
 | -------------- | ----------- | 
-| Inledande | Noderna på din Azure-SSIS integration runtime har inte allokerats/förberett. | 
-| Startar | Noderna på din Azure-SSIS integration runtime som ska allokeras/förberedd och fakturering har startats. |
-| Igång | Noderna på din Azure-SSIS integration runtime har allokerats/förberedd och de är redo att distribuera/köra SSIS-paket. |
-| Stoppar  | Noderna på din Azure-SSIS integration runtime släpps. |
-| Stoppad | Noderna på din Azure-SSIS integration runtime har publicerats och fakturering har stoppats. |
+| Inledande | Noderna i din Azure-SSIS integration Runtime har inte allokerats/för berett. | 
+| Startar | Noderna i Azure-SSIS integration runtime tilldelas/förbereds och faktureringen har påbörjats. |
+| Startade | Noderna i din Azure-SSIS integration Runtime har allokerats/för berett och är redo att distribuera/köra SSIS-paket. |
+| Stoppar  | Noderna i din Azure-SSIS integration runtime släpps. |
+| Stoppad | Noderna i din Azure-SSIS integration Runtime har släppts och faktureringen har stoppats. |
 
-### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Övervaka Azure-SSIS integration runtime i Azure portal
+### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Övervaka Azure-SSIS integration runtime i Azure Portal
 
-Följande skärmbilder visar hur du väljer Azure-SSIS IR att övervaka och ge ett exempel på den information som visas.
+Följande skärm bilder visar hur du väljer den Azure-SSIS IR som ska övervakas och ger ett exempel på den information som visas.
 
-![Välj Azure-SSIS integration runtime att övervaka](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
+![Välj den Azure-SSIS integration runtime som ska övervakas](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
 
 ![Visa information om Azure-SSIS integration runtime](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-powershell"></a>Övervaka Azure-SSIS integration runtime med PowerShell
 
-Använd ett skript som i följande exempel för att kontrollera status för Azure-SSIS IR.
+Använd ett skript som i följande exempel för att kontrol lera status för Azure-SSIS IR.
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
@@ -219,16 +219,16 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Mer information om Azure-SSIS integration runtime
 
-Se följande artiklar för att lära dig mer om Azure-SSIS integration runtime:
+I följande artiklar finns mer information om Azure-SSIS integration Runtime:
 
-- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln innehåller information om integreringskörningar i allmänhet, inklusive Azure-SSIS IR. 
+- [Azure-SSIS integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln innehåller konceptuell information om integrerings körningar i allmänhet, inklusive Azure-SSIS IR. 
 - [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL-databas som värd för SSIS-katalogen. 
-- [Anvisningar: Skapa en Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). Den här artikeln utökas med självstudien och innehåller instruktioner för hur du använder Azure SQL Database Managed Instance och ansluter IR till ett virtuellt nätverk. 
+- [Anvisningar: Skapa en Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). Den här artikeln är utökad i självstudien och innehåller instruktioner om hur du använder Azure SQL Database hanterade instansen och ansluter till IR till ett virtuellt nätverk. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den också visar hur du skalar ut Azure-SSIS IR genom att lägga till fler noder i IR. 
-- [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk. Det ger också steg för att konfigurera det virtuella nätverket så att Azure-SSIS IR kan ansluta till det virtuella nätverket med hjälp av Azure portal. 
+- [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk. Det innehåller också anvisningar för hur du använder Azure Portal för att konfigurera det virtuella nätverket så att Azure-SSIS IR kan ansluta till det virtuella nätverket. 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar för att övervaka pipelines på olika sätt: 
 
-- [Snabbstart: skapa en datafabrik](quickstart-create-data-factory-dot-net.md).
-- [Använda Azure Monitor för att övervaka Data Factory-pipelines](monitor-using-azure-monitor.md)
+- [Snabb start: skapa en data fabrik](quickstart-create-data-factory-dot-net.md).
+- [Använd Azure Monitor för att övervaka Data Factory pipelines](monitor-using-azure-monitor.md)

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 00cca0cbf500ea4e884a9f9334896a18fe7b0978
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c125941414c73b14138f2b2fc15e470d9ed2d905
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597864"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137546"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Självstudier: Använda Visuellt innehåll för att generera bildmetadata i Azure Storage
 
@@ -46,7 +46,8 @@ Du behöver skapa en resurs för Visuellt innehåll för ditt Azure-konto. Den h
 
 1. Gå sedan till menyn för resurs gruppen och klicka på den API för visuellt innehåll prenumeration som du nyss skapade. Kopiera URL:en under **Slutpunkt** till en plats där du enkelt kan hämta den om en stund. Klicka sedan på **Visa åtkomstnycklar**.
 
-    ![Sidan Azure Portal med URL: en för slut punkts-och åtkomst nycklar som beskrivs](../Images/copy-vision-endpoint.png)
+    ![Sidan Azure Portal med URL: en för slut punkts-och åtkomst](../Images/copy-vision-endpoint.png) nycklar som beskrivs[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 
 1. I nästa fönstret kopierar du värdet för **KEY 1** (Nyckel 1) till Urklipp.
 

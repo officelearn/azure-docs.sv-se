@@ -1,26 +1,25 @@
 ---
-title: Webhook-aktiviteten i Azure Data Factory | Microsoft Docs
-description: Webhook-aktiviteten fortsätter inte körning av pipelinen förrän den validerar anslutna datauppsättningen med vissa kriterier som användaren anger.
+title: Webhook-aktivitet i Azure Data Factory | Microsoft Docs
+description: Webhook-aktiviteten fortsätter inte att köra pipelinen förrän den validerar den bifogade data uppsättningen med vissa villkor som användaren anger.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: shlo
-ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c11fb800dba06ab5566647489f020f727860a7ff
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764313"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142413"
 ---
-# <a name="webhook-activity-in-azure-data-factory"></a>Webhook-aktiviteten i Azure Data Factory
-Du kan använda en hook webbaktivitet för att styra körningen av pipelines med hjälp av din anpassade kod. Med webhook-aktiviteten kan kan kunder anropa en slutpunkt och skicka en Motringnings-URL. Pipeline-körning väntar tills återanropet som anropas innan du fortsätter till nästa aktivitet.
+# <a name="webhook-activity-in-azure-data-factory"></a>Webhook-aktivitet i Azure Data Factory
+Du kan använda en Web Hook-aktivitet för att styra körningen av pipeliner via din anpassade kod. Med webhook-aktiviteten kan kunder anropa en slut punkt och skicka en återanrops-URL. Pipeline-körningen väntar på att återanropet ska anropas innan nästa aktivitet fortsätter.
 
 ## <a name="syntax"></a>Syntax
 
@@ -50,34 +49,34 @@ Du kan använda en hook webbaktivitet för att styra körningen av pipelines med
 ```
 
 
-## <a name="type-properties"></a>Egenskaperna för anslutningstypen
+## <a name="type-properties"></a>Typ egenskaper
 
 
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-name | Namnet på web hook-aktivitet | String | Ja |
-type | Måste vara inställt på **WebHook**. | String | Ja |
-method | REST API-metoden för mål-slutpunkten. | sträng. Typer som stöds: 'POST' | Ja |
-url | Mål-slutpunkten och sökvägen | Sträng (eller uttryck med resultType av sträng). | Ja |
-Rubriker | Rubriker som skickas till begäran. Till exempel vill ange språk och typ för en begäran: ”headers”: {”Accept-språk” ”: en-us”, ”Content-Type”: ”application/json”}. | Sträng (eller ett uttryck med resultType av sträng) | Ja, krävs Content-type-huvud. ”headers”: {”Content-Type”: ”application/json”} |
-body | Representerar den nyttolast som skickas till slutpunkten. | Texten som skickas tillbaka till anropet tillbaka URI: N ska vara en giltig JSON. Se schemat för nyttolasten i begäran i [begäran nyttolast schemat](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) avsnittet. | Ja |
-autentisering | Autentiseringsmetod som används för att anropa slutpunkten. Typer som stöds är ”Basic” eller ”ClientCertificate”. Mer information finns i [autentisering](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) avsnittet. Undanta den här egenskapen om autentisering inte krävs. | Sträng (eller ett uttryck med resultType av sträng) | Nej |
-timeout | Hur länge aktiviteten ska vänta tills den &#39;callBackUri&#39; anropas. Hur länge aktiviteten väntar på callBackUri anropas. Standardvärdet är 10mins (”00: 10:00”). Formatet är Timespan d.v.s. d.hh:mm:ss | String | Nej |
+name | Namn på Web Hook-aktiviteten | Sträng | Ja |
+type | Måste vara inställd på **webhook**. | Sträng | Ja |
+method | REST API-metod för mål slut punkten. | Nollängd. Typer som stöds: 'POST' | Ja |
+url | Mål slut punkt och sökväg | Sträng (eller uttryck med resultType för sträng). | Ja |
+sidhuvud | Huvuden som skickas till begäran. Om du till exempel vill ange språk och typ på en begäran: "huvuden": {"Accept-language": "en-US", "innehålls typ": "Application/JSON"}. | Sträng (eller uttryck med resultType för sträng) | Ja, innehålls typ rubrik krävs. "huvuden": {"Content-Type": "Application/JSON"} |
+brödtext | Representerar den nytto last som skickas till slut punkten. | Texten som skickas tillbaka till återanrops-URI måste vara en giltig JSON. Se schemat för nytto lasten för begäran i [nytto Last schema](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) avsnittet. | Ja |
+autentisering | Autentiseringsmetod som används för att anropa slut punkten. Typer som stöds är Basic eller ClientCertificate. Mer information finns i avsnittet [Authentication](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) . Om autentisering inte krävs utelämnar du den här egenskapen. | Sträng (eller uttryck med resultType för sträng) | Nej |
+timeout | Hur länge aktiviteten ska vänta på att &#39;callBackUri&#39; anropas. Hur länge aktiviteten ska vänta tills "callBackUri" anropas. Standardvärdet är 10mins ("00:10:00"). Format är TimeSpan, t. ex. d. hh: mm: SS | Sträng | Nej |
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-Azure Data Factory skickar ytterligare en egenskap ”callBackUri” i texten till url-slutpunkten och förväntas innehålla URI: n anropas innan timeout-värdet som angetts. Om URI: n inte har anropats misslyckas aktiviteten med status 'Nådde sin tidsgräns'.
+Azure Data Factory skickar ytterligare en egenskap "callBackUri" i bröd texten till URL-slutpunkten och förväntar sig att denna URI anropas innan timeout-värdet har angetts. Om URI: n inte anropas, kommer aktiviteten att Miss förväntas med status stängningsåtgärd.
 
-Web hook aktiviteten själva inte bara när anropet till den anpassa slutpunkten misslyckas. Eventuella felmeddelanden kan läggs till i brödtexten i motringningen och används i en efterföljande aktivitet.
+Webhook-aktiviteten Miss lyckas bara när anropet till den anpassade slut punkten Miss lyckas. Eventuella fel meddelanden kan läggas till i bröd texten i återanropet och användas i en efterföljande aktivitet.
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontrollflödesaktiviteter som stöds av Data Factory:
+Se andra kontroll flödes aktiviteter som stöds av Data Factory:
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 - [Lookup-aktivitet](control-flow-lookup-activity.md)
-- [Webbaktivitet](control-flow-web-activity.md)
+- [Webb aktivitet](control-flow-web-activity.md)
 - [Until-aktivitet](control-flow-until-activity.md)

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a228c0d349fd45f34923a64ef99dcfba50c4c548
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 93532b1b40dc138a234d5433591a2ba79167194e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034994"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135577"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -123,7 +123,7 @@ Följande administratörs roller är tillgängliga:
 
 * **[Enhets administratör](#device-administrators)** : Den här rollen är endast tillgänglig för tilldelning som en ytterligare lokal administratör i [enhets inställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir lokala dator administratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte möjlighet att hantera enheters objekt i Azure Active Directory. 
 
-* **[Katalog läsare](#directory-readers)** : Det här är en roll som endast ska tilldelas till äldre program som inte stöder [medgivande ramverket](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Tilldela den inte till användare.
+* **[Katalog läsare](#directory-readers)** : Det här är en roll som endast ska tilldelas till äldre program som inte stöder [medgivande ramverket](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Användare med den här rollen kan läsa grundläggande katalog information. Den här rollen ska användas för: 1) beviljar en speciell uppsättning gäst användare Läs åtkomst i stället för att ge den till alla gäst användare. 2) beviljar en särskild uppsättning användare som inte är administratörs åtkomst till Azure Portal när "begränsa åtkomst till Azure AD Portal till endast administratörer" har värdet "Ja". 3) beviljar tjänstens huvud namn åtkomst till katalogen whereDirectory. Read. all är inte ett alternativ.
 
 * **[Konton för Directory-synkronisering](#directory-synchronization-accounts)** : Använd inte. Den här rollen tilldelas automatiskt till den Azure AD Connect tjänsten och är inte avsedd eller stöds inte för någon annan användning.
 
@@ -658,7 +658,7 @@ Användare som har tilldelats den här rollen läggs till i den lokala administr
 | Microsoft. AAD. Directory/groupSettingTemplates/Basic/Read | Läsa grundläggande egenskaper för groupSettingTemplates i Azure Active Directory. |
 
 ### <a name="directory-readers"></a>Katalogläsare
-Kan läsa grundläggande katalog information. För att bevilja åtkomst till program, som inte är avsedda för användare.
+Kan läsa grundläggande katalog information. Användare med den här rollen kan läsa grundläggande katalog information. Den här rollen ska användas för: 1) beviljar en speciell uppsättning gäst användare Läs åtkomst i stället för att ge den till alla gäst användare. 2) beviljar en särskild uppsättning användare som inte är administratörs åtkomst till Azure Portal när "begränsa åtkomst till Azure AD Portal till endast administratörer" har värdet "Ja". 3) beviljar tjänstens huvud namn åtkomst till katalogen whereDirectory. Read. all är inte ett alternativ.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |

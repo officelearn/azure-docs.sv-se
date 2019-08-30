@@ -1,6 +1,6 @@
 ---
-title: Felsök Azure Data Factory-problem
-description: Lär dig mer om att felsöka problem med Azure Data Factory.
+title: Felsöka Azure Data Factory problem
+description: Lär dig hur du felsöker problem med att använda Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
@@ -9,32 +9,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
 robots: noindex
-ms.openlocfilehash: cc880885777cbca67d6fb39b90feadc889339f76
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: d729fd11f355650b1476e6864a6d70219bf37e12
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836181"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135123"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Felsök Data Factory-problem
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Azure Data Factory. 
 
-Den här artikeln innehåller felsökningstips för problem när du använder Azure Data Factory. Den här artikeln visar inte alla möjliga problem när du använder tjänsten, men omfattar vissa problem och allmänna felsökningstips.   
+Den här artikeln innehåller fel söknings tips för problem när du använder Azure Data Factory. I den här artikeln beskrivs inte alla möjliga problem när du använder tjänsten, men det finns några problem och allmänna fel söknings tips.   
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
-### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Fel: Prenumerationen har inte registrerats för användning av namnområdet 'Microsoft.DataFactory ”
+### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Fel: Prenumerationen är inte registrerad för att använda namn området Microsoft. DataFactory
 Om du får det här felmeddelandet har inte Azure Data Factory-resursprovidern registrerats på datorn. Gör följande:
 
 1. Starta Azure PowerShell.
-2. Logga in på ditt Azure-konto med följande kommando.
+2. Logga in på ditt Azure-konto med hjälp av följande kommando.
 
     ```powershell
     Connect-AzAccount
@@ -45,30 +45,30 @@ Om du får det här felmeddelandet har inte Azure Data Factory-resursprovidern r
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
-### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problem: Behörighetsfel när du kör en Data Factory-cmdlet
+### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problem: Obehörigt fel vid körning av en Data Factory-cmdlet
 Du använder förmodligen inte rätt Azure-konto eller -prenumeration med Azure PowerShell. Använd följande cmdlets för att välja rätt Azure-konto och -prenumeration för Azure PowerShell.
 
-1. Ansluta-AzAccount – Använd rätt användar-ID och lösenord
-2. Get-AzSubscription – visa alla prenumerationer för kontot.
-3. Välj AzSubscription &lt;prenumerationsnamn&gt; – Välj rätt prenumeration. Använd samma som du använder för att skapa en datafabrik i Azure-portalen.
+1. Connect-AzAccount – Använd rätt användar-ID och lösen ord
+2. Get-AzSubscription – Visa alla prenumerationer för kontot.
+3. Select-AzSubscription &lt;prenumerations&gt; namn – Välj rätt prenumeration. Använd samma som du använder för att skapa en data fabrik på Azure Portal.
 
-### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problem: Det gick inte att starta Expressinstallationen för Data Management Gateway från Azure-portalen
+### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problem: Det gick inte att starta installations programmet för Data Management Gateway Express från Azure Portal
 Expressinstallationen för Data Management Gateway kräver Internet Explorer eller en Microsoft ClickOnce-kompatibel webbläsare. Om det inte går att starta expressinstallationen, gör du något av följande:
 
 * Använd Internet Explorer eller en Microsoft ClickOnce-kompatibel webbläsare.
 
     Om du använder Chrome, går du till [Chrome Web Store](https://chrome.google.com/webstore/), söker efter nyckelordet ”ClickOnce”, väljer ett av ClickOnce-tilläggen och installerar det.
 
-    Gör likadant för Firefox (installera tillägget). Klicka på knappen Öppna menyn i verktygsfältet (tre horisontella linjer högst upp till höger), klicka på Tillägg, sök efter nyckelordet ”ClickOnce”, välj ett av ClickOnce-tilläggen och installera det.
-* Använd den **manuell installation** länken som visas på samma blad i portalen. Du kan använda den här metoden för att hämta installationsfilen och köra den manuellt. När installationen har slutförts, visas dialogrutan Data Management Gateway-konfiguration. Kopiera **nyckeln** från portalskärmen och använd den i konfigurationshanteraren för att manuellt registrera gatewayen i tjänsten.  
+    Gör samma sak för Firefox (installera tillägg). Klicka på knappen Öppna menyn i verktygsfältet (tre horisontella linjer högst upp till höger), klicka på Tillägg, sök efter nyckelordet ”ClickOnce”, välj ett av ClickOnce-tilläggen och installera det.
+* Använd den **manuella installations** länken som visas på samma blad i portalen. Du kan använda den här metoden för att ladda ned installations filen och köra den manuellt. När installationen har slutförts visas dialog rutan Data Management Gateway konfiguration. Kopiera **nyckeln** från portalskärmen och använd den i konfigurationshanteraren för att manuellt registrera gatewayen i tjänsten.  
 
-### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Problem: Det gick inte att ansluta till en lokal SQL Server
-Starta **Data Management Gateway Configuration Manager** på gatewaydatorn och Använd den **felsökning** flik för att testa anslutningen till SQL Server från gateway-datorn. Se [felsöka problem med gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) tips om hur du felsöker anslutning/gateway-relaterade problem.   
+### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Problem: Det gick inte att ansluta till den lokala SQL Server
+Starta **Data Management Gateway Configuration Manager** på gateway-datorn och Använd fliken **fel sökning** för att testa anslutningen till SQL Server från gateway-datorn. Mer information om fel sökning av problem med anslutning/Gateway finns i [Felsöka Gateway-problem](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .   
 
 ### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problem: Indatasektorer är i väntestatus länge
-Sektorer kan befinna sig i **väntar på** tillstånd på grund av olika orsaker. En vanlig orsak är att den **externa** egenskapen inte är inställt på **SANT**. Alla datauppsättningar som skapas utanför omfånget för Azure Data Factory ska markeras med **externa** egenskapen. Den här egenskapen anger att data är extern och inte backas upp av några pipelines i datafabriken. Datasektorerna markeras som **Klar** när datauppsättningen är tillgänglig i respektive lager.
+Sektorerna kan vara i **vänte** läge på grund av olika orsaker. En av de vanligaste orsakerna är att den **externa** egenskapen inte har angetts till **True**. Alla data uppsättningar som skapas utanför omfånget för Azure Data Factory ska markeras med **extern** egenskap. Den här egenskapen anger att data är externa och inte backas upp av några pipelines i data fabriken. Datasektorerna markeras som **Klar** när datauppsättningen är tillgänglig i respektive lager.
 
-I följande exempel kan du se hur egenskapen **external** används. Alternativt kan du ange **externalData*** när du ställer in external på true.
+I följande exempel kan du se hur egenskapen **external** används. Du kan också ange **extern Aldata*** när du ställer in external till true.
 
 Mer info om den här egenskapen finns i artikeln om [datauppsättningar](data-factory-create-datasets.md).
 
@@ -100,33 +100,33 @@ Mer info om den här egenskapen finns i artikeln om [datauppsättningar](data-fa
 
 Lös problemet genom att lägga till egenskapen **external** och det valfria avsnittet **externalData** i indatatabellens JSON-definition. Återskapa sedan tabellen.
 
-### <a name="problem-hybrid-copy-operation-fails"></a>Problem: Hybrid kopieringen misslyckas
-Se [felsöka problem med gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) steg för att felsöka problem med att kopiera till/från en lokal lagra i med hjälp av Data Management Gateway.
+### <a name="problem-hybrid-copy-operation-fails"></a>Problem: Hybrid kopierings åtgärden Miss lyckas
+Se [Felsök Gateway-problem](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) för steg för att felsöka problem med att kopiera till/från ett lokalt data lager med hjälp av data Management Gateway.
 
-### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problem: På begäran HDInsight etablering misslyckas
-När du använder en länkad tjänst av typen HDInsightOnDemand, måste du ange ett linkedServiceName som pekar på en Azure Blob Storage. Data Factory-tjänsten använder den här lagringen för att lagra loggar och stödfiler för HDInsight-klustret på begäran.  Ibland går det inte att etablera ett HDInsight-kluster på begäran på grund av följande fel:
+### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problem: HDInsight-etablering på begäran Miss lyckas
+När du använder en länkad tjänst av typen HDInsightOnDemand måste du ange en linkedServiceName som pekar på ett Azure-Blob Storage. Data Factory-tjänsten använder den här lagringen för att lagra loggar och stödfiler för HDInsight-klustret på begäran.  Ibland går det inte att etablera ett HDInsight-kluster på begäran på grund av följande fel:
 
 ```
 Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
 ```
 
-Det här felet innebär oftast att lagringskontots plats som anges i linkedServiceName inte är på samma datacenterplats där HDInsight-etableringen utförs. Exempel: om din data factory är i västra USA och Azure storage finns i USA, östra, etablering på begäran misslyckas i västra USA.
+Det här felet innebär oftast att lagringskontots plats som anges i linkedServiceName inte är på samma datacenterplats där HDInsight-etableringen utförs. Exempel: om din data fabrik är i västra USA och Azure Storage är i östra USA, kan etableringen på begäran Miss lyckas i västra USA.
 
-Dessutom finns det en andra JSON-egenskap, additionalLinkedServiceNames, där ytterligare lagringskonton kan anges i HDInsight på begäran. Dessa ytterligare länkade lagringskonton bör vara på samma plats som HDInsight-kluster eller misslyckas med samma fel.
+Dessutom finns det en andra JSON-egenskap, additionalLinkedServiceNames, där ytterligare lagringskonton kan anges i HDInsight på begäran. De ytterligare länkade lagrings kontona bör finnas på samma plats som HDInsight-klustret, eller så fungerar det inte med samma fel.
 
 ### <a name="problem-custom-net-activity-fails"></a>Problem: Anpassad .NET-aktivitet misslyckas
-Se [felsöka en pipeline med anpassad aktivitet](data-factory-use-custom-activities.md#troubleshoot-failures) detaljerade anvisningar.
+Se [Felsöka en pipeline med anpassad aktivitet](data-factory-use-custom-activities.md#troubleshoot-failures) för detaljerade steg.
 
-## <a name="use-azure-portal-to-troubleshoot"></a>Felsöka med hjälp av Azure portal
-### <a name="using-portal-blades"></a>Med-portalblad
-Se [övervaka pipeline](data-factory-monitor-manage-pipelines.md) anvisningar.
+## <a name="use-azure-portal-to-troubleshoot"></a>Använd Azure Portal för att felsöka
+### <a name="using-portal-blades"></a>Använda Portal-blad
+Se [övervaka pipeline](data-factory-monitor-manage-pipelines.md) för steg.
 
 ### <a name="using-monitor-and-manage-app"></a>Övervaka och hantera app
-Se [övervaka och hantera data factory-pipelines med appen övervaka och hantera](data-factory-monitor-manage-app.md) mer information.
+Se [övervaka och hantera data Factory-pipeline med övervaka och hantera app](data-factory-monitor-manage-app.md) för mer information.
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Använd Azure PowerShell för att felsöka
-### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Använd Azure PowerShell för att felsöka ett fel
-Se [övervaka Data Factory-pipelines med Azure PowerShell](data-factory-monitor-manage-pipelines.md) mer information.
+### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Felsöka ett fel med hjälp av Azure PowerShell
+Mer information finns i [övervaka Data Factory pipelines med hjälp av Azure PowerShell](data-factory-monitor-manage-pipelines.md) .
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

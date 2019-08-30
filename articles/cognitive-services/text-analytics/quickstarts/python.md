@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/28/2019
+ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 3ef7f65bbb27992278eb467f840c1443ac0db0b8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 669cd43b73bc66289a355f7fbf9c4498d8a7b99a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725901"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135029"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Använda python-REST API för att anropa tjänsten Textanalys kognitivt 
 <a name="HOLTop"></a>
@@ -49,11 +49,20 @@ import requests
 from pprint import pprint
 ```
 
-Skapa variabler för din prenumerations nyckel och slut punkten för Textanalys REST API. Kontrol lera att regionen i slut punkten motsvarar den som du använde när du registrerade dig (till exempel `westcentralus`). Om du använder en kostnads fri utvärderings nyckel behöver du inte ändra något.
+Skapa variabler för resursens Azure-slut punkt och prenumerations nyckel. Hämta de här värdena från miljövariablerna TEXT_ANALYTICS_SUBSCRIPTION_KEY och TEXT_ANALYTICS_ENDPOINT. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
     
 ```python
-subscription_key = "<ADD YOUR KEY HERE>"
-text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
+import os
+
+key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
 ```
 
 I följande avsnitt beskrivs hur du anropar var och en av API-funktionerna.
@@ -65,7 +74,7 @@ I följande avsnitt beskrivs hur du anropar var och en av API-funktionerna.
 Lägg `languages` till i textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempel: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
     
 ```python
-language_api_url = text_analytics_base_url + "languages"
+language_api_url = endpoint + "/text/analytics/v2.1/languages"
 ```
 
 Nytto lasten till API: et består av en `documents`lista över, som är tupler `id` som innehåller `text` ett och ett-attribut. Attributet lagrar texten som ska analyseras `id` och kan vara vilket värde som helst. `text` 
@@ -134,7 +143,7 @@ pprint(languages)
 Om du vill identifiera sentiment (som sträcker sig mellan positivt eller negativt) i en uppsättning dokument `sentiment` lägger du till textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempel: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
     
 ```python
-sentiment_url = text_analytics_base_url + "sentiment"
+sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
 ```
 
 Som med språk identifierings exemplet skapar du en ord lista med `documents` en nyckel som består av en lista med dokument. Varje dokument är en tuppel som består av `id`, `text` som ska analyseras och textens `language`. 
@@ -196,7 +205,7 @@ Sentiment-poängen för ett dokument är mellan 0,0 och 1,0, med en högre poän
 Extrahera nyckel fraserna från en uppsättning dokument genom att lägga `keyPhrases` till i textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempel: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
     
 ```python
-keyphrase_url = text_analytics_base_url + "keyPhrases"
+keyphrase_url = endpoint + "/text/analytics/v2.1/keyphrases"
 ```
 
 Den här samlingen av dokument är samma som används för analys exemplet sentiment.
@@ -272,7 +281,7 @@ pprint(key_phrases)
 Identifiera välkända entiteter (personer, platser och saker) i text dokument genom att lägga `entities` till i textanalys bas slut punkten för att bilda URL: en för språk identifiering. Exempel: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
     
 ```python
-entities_url = text_analytics_base_url + "entities"
+entities_url = endpoint + "/text/analytics/v2.1/entities"
 ```
 
 Skapa en samling dokument, som i de föregående exemplen. 

@@ -1,275 +1,274 @@
 ---
-title: Övervaka och hantera datapipelines – Azure | Microsoft Docs
-description: Lär dig hur du använder appen för övervakning och hantering för att övervaka och hantera Azure-datafabriker och pipelines.
+title: Övervaka och hantera data pipelines – Azure | Microsoft Docs
+description: Lär dig hur du använder appen för övervakning och hantering för att övervaka och hantera Azure-datafabriker och pipeliner.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 052ea99f0489458269adf4dca2c6713535933638
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826755"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139579"
 ---
-# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory-pipelines med hjälp av övervakning och hantering av appen
+# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av appen övervakning och hantering
 > [!div class="op_single_selector"]
-> * [Med hjälp av Azure portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-> * [Med hjälp av övervaknings- och hanteringsappen](data-factory-monitor-manage-app.md)
+> * [Använda Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+> * [Använda övervaknings-och hanterings program](data-factory-monitor-manage-app.md)
 >
 >
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [övervaka och hantera Data Factory-pipelines i](../monitor-visually.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [övervaka och hantera data Factory pipeliner i](../monitor-visually.md).
 
-Den här artikeln beskriver hur du använder appen för övervakning och hantering för att övervaka, hantera och Felsök Data Factory-pipeliner. Du kan komma igång med att använda programmet genom att titta på nedanstående video:
+Den här artikeln beskriver hur du använder appen övervakning och hantering för att övervaka, hantera och felsöka Data Factory pipelines. Du kan komma igång med att använda programmet genom att titta på följande video:
 
 > [!NOTE]
-> Användargränssnittet visas i videon kanske inte exakt matchar det som visas i portalen. Det är något äldre, men begrepp är desamma. 
+> Användar gränssnittet som visas i videon kanske inte exakt matchar det du ser i portalen. Det är något äldre, men koncepten är oförändrade. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
 
-## <a name="launch-the-monitoring-and-management-app"></a>Starta övervaknings- och hanteringsappen
-Om du vill starta appen övervaka och hantering, klickar du på den **övervaka och hantera** panel på den **Data Factory** bladet för din datafabrik.
+## <a name="launch-the-monitoring-and-management-app"></a>Starta övervaknings-och hanterings appen
+Starta appen övervakare och hantering genom att klicka på panelen **övervaka & hantera** på bladet **Data Factory** för din data fabrik.
 
-![Övervakning av panelen på startsidan Datafabrik](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
+![Panelen övervakning på Data Factory start sida](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
-Du bör se övervakning och hantering av appen öppnas i ett separat fönster.  
+Du bör se appen övervakning och hantering öppen i ett separat fönster.  
 
 ![Övervaknings- och hanteringsapp](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
 > [!NOTE]
-> Om du ser att webbläsaren har fastnat på ”auktoriserar...”, avmarkera de **blockera cookies från tredje part och platsdata** kryssrutan – eller behåll det valt skapar ett undantag för **login.microsoftonline.com**, och Försök att öppna appen igen.
+> Om du ser att webbläsaren har fastnat på "auktoriserar..." avmarkerar du kryss rutan **blockera cookies från tredje part** , eller låter den vara markerad, skapar ett undantag för **login.microsoftonline.com**och försöker sedan öppna appen igen.
 
 
-I listan aktivitet Windows i den mellersta rutan kan du se ett aktivitetsfönster för varje körning av en aktivitet. Till exempel om du har den aktivitet som schemalagts att köras varje timme i fem timmar kan se du fem aktivitetsfönster som är associerade med fem datasektorer. Om du inte ser aktivitetsfönster i listan längst ned på sidan, gör du följande:
+I listan aktivitets fönster i mitten av fönstret visas ett aktivitets fönster för varje körning av en aktivitet. Om du till exempel har schemalagt aktiviteten för att köra per timme i fem timmar visas fem aktivitets fönster som är kopplade till fem data sektorer. Om du inte ser aktivitets fönster i listan längst ned gör du följande:
  
-- Uppdatera den **starttid** och **sluttid** filter längst upp för att matcha start- och sluttider i pipelinen och klicka sedan på den **tillämpa** knappen.  
-- Aktivitet Windows listan uppdateras inte automatiskt. Klicka på den **uppdatera** i verktygsfältet i den **aktivitet Windows** lista.  
+- Uppdatera **Start** -och **slut tid** filtren överst för att matcha start-och slut tiderna för din pipeline och klicka sedan på knappen **tillämpa** .  
+- Aktivitets listan i Windows uppdateras inte automatiskt. Klicka på knappen **Uppdatera** i verktygsfältet i listan **aktivitets fönster** .  
 
-Om du inte har ett Data Factory-program för att testa de här stegen med igenom självstudien: [kopiera data från Blob Storage till SQL Database med Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Om du inte har ett Data Factory-program för att testa de här stegen med, gör du självstudierna: [Kopiera data från Blob Storage till SQL Database med Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="understand-the-monitoring-and-management-app"></a>Förstå övervakning och hantering av app
-Det finns tre flikar till vänster: **Resursläsaren**, **övervakningsvyer**, och **aviseringar**. Den första fliken (**Resursläsaren**) väljs som standard.
+## <a name="understand-the-monitoring-and-management-app"></a>Förstå övervaknings-och hanterings appen
+Det finns tre flikar till vänster: **Resursläsaren**, **övervaka vyer**och **aviseringar**. Den första fliken (**Resursläsaren**) är markerad som standard.
 
-### <a name="resource-explorer"></a>Resource Explorer
+### <a name="resource-explorer"></a>Resursläsaren
 Du ser följande:
 
-* Resursläsaren **trädvy** i den vänstra rutan.
-* Den **diagramvyn** högst upp i den mellersta rutan.
-* Den **aktivitet Windows** längst ned i den mellersta rutan.
-* Den **egenskaper**, **aktivitet fönstret Explorer**, och **skriptet** flikarna i den högra rutan.
+* Vyn Resursläsaren **träd** i det vänstra fönstret.
+* **Diagramvyn** överst i fönstret i mitten.
+* Listan **aktivitets fönster** längst ned i fönstret i mitten.
+* Fliken **Egenskaper**, **aktivitets fönstret Utforskaren**och fliken **skript** i den högra rutan.
 
-I resursutforskaren ser du alla resurser (pipelines, datauppsättningar, länkade tjänster) i data factory i en trädvy. När du väljer ett objekt i Resursläsaren:
+I Resursläsaren visas alla resurser (pipelines, data uppsättningar, länkade tjänster) i data fabriken i en trädvy. När du väljer ett objekt i Resursläsaren:
 
-* Den associerade Data Factory-posten är markerad i diagramvyn.
-* [Associerade aktivitetsfönster](data-factory-scheduling-and-execution.md) markeras i listan aktivitet Windows längst ned på sidan.  
-* Egenskaper för det markerade objektet visas i fönstret Egenskaper i den högra rutan.
-* JSON-definition för det markerade objektet visas, om tillämpligt. Till exempel: en länkad tjänst, en datauppsättning eller en pipeline.
+* Den associerade Data Factory entiteten är markerad i diagramvyn.
+* [Associerade aktivitets fönster](data-factory-scheduling-and-execution.md) markeras i listan aktivitets fönster längst ned.  
+* Egenskaperna för det valda objektet visas i Fönstret Egenskaper i den högra rutan.
+* JSON-definitionen för det valda objektet visas, om tillämpligt. Till exempel: en länkad tjänst, en data uppsättning eller en pipeline.
 
-![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+![Resursläsaren](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
-Se den [schemaläggning och körning](data-factory-scheduling-and-execution.md) artikeln för detaljerad information om aktivitetsfönster.
+I artikeln om [schemaläggning och körning](data-factory-scheduling-and-execution.md) finns detaljerad information om aktivitets fönster.
 
 ### <a name="diagram-view"></a>Diagramvy
-I diagramvyn på en data factory tillhandahåller en enda glasruta att övervaka och hantera en data factory och dess tillgångar. När du väljer en Data Factory-entitet (datauppsättning/pipeline) i diagramvyn:
+Diagramvyn för en data fabrik ger ett fönster med glas för att övervaka och hantera en data fabrik och dess till gångar. När du väljer en Data Factory entitet (data uppsättning/pipeline) i diagramvyn:
 
-* Data factory-entitet är valt i trädvyn.
-* De associerade aktivitetsfönster markeras i listan över aktivitet Windows.
-* Egenskaper för det markerade objektet visas i fönstret Egenskaper.
+* Data Factory-entiteten väljs i trädvyn.
+* De associerade aktivitets Fönstren markeras i listan aktivitets fönster.
+* Egenskaperna för det valda objektet visas i Fönstret Egenskaper.
 
-När pipelinen har aktiverats (inte i pausläge), visas den med en grön linje:
+När pipelinen är aktive rad (inte i pausat läge) visas den med en grön linje:
 
-![Pipeline som körs](./media/data-factory-monitor-manage-app/PipelineRunning.png)
+![Pipeline körs](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-Du kan pausa, återuppta eller avsluta en pipeline med att markera den i diagramvyn och med hjälp av knapparna i kommandofältet.
+Du kan pausa, återuppta eller avsluta en pipeline genom att välja den i diagramvyn och använda knapparna i kommando fältet.
 
-![Pausa/återuppta i kommandofältet](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Pausa/återuppta i kommando fältet](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
  
-Det finns tre knapparna i fältet för pipeline i diagramvyn. Du kan använda den andra knappen för att pausa pipelinen. Pausar Avsluta inte pågående aktiviteter och kan de fortsätta att slutföras. Knappen tredje pausar pipelinen och avslutar det befintliga köra aktiviteter. Den första knappen återupptas pipelinen. När din pipeline är pausad, ändras färgen för pipelinen. Till exempel en pausad pipeline ser ut som i följande bild: 
+Det finns tre kommando fälts knappar för pipelinen i diagramvyn. Du kan använda den andra knappen för att pausa pipelinen. Om du pausar avbryts inte de aktiviteter som körs för tillfället och de kan fortsätta att slutföras. Den tredje knappen pausar pipelinen och avslutar dess befintliga körnings aktiviteter. Den första knappen återupptar pipelinen. När din pipeline har pausats ändras färgen på pipelinen. En pausad pipeline ser till exempel ut i följande bild: 
 
 ![Pipelinen har pausats](./media/data-factory-monitor-manage-app/PipelinePaused.png)
 
-Du kan välja flera två eller flera pipelines med hjälp av Ctrl-tangenten. Du kan använda knapparna i kommandofältet för att pausa/återuppta flera pipelines i taget.
+Du kan välja två eller fler pipeliner genom att använda Ctrl-tangenten. Du kan använda kommando fälts knapparna för att pausa/återuppta flera pipeliner i taget.
 
 Du kan också högerklicka på en pipeline och välja alternativ för att pausa, återuppta eller avsluta en pipeline. 
 
-![Snabbmenyn för pipeline](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
+![Snabb meny för pipeline](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
 
-Klicka på den **öppna pipeline** alternativet om du vill se alla aktiviteter i pipelinen. 
+Klicka på alternativet **Öppna pipeline** om du vill visa alla aktiviteter i pipelinen. 
 
 ![Menyn Öppna pipeline](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-I vyn öppna pipeline ser du alla aktiviteter i pipelinen. I det här exemplet finns bara en aktivitet: kopieringsaktiviteten. 
+I vyn öppen pipeline visas alla aktiviteter i pipelinen. I det här exemplet finns det bara en aktivitet: kopieringsaktiviteten. 
 
-![Öppnad pipeline](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
+![Öppen pipeline](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-Om du vill gå tillbaka till den föregående vyn, klickar du på datafabrikens namn i adressfältmenyn längst upp.
+Om du vill gå tillbaka till den föregående vyn klickar du på data fabriks namnet på menyn för dynamiska länkar överst.
 
-I vyn pipeline när du väljer en utdatauppsättning eller när du flyttar musen över datauppsättningen för utdata ser du aktiviteten Windows popup-fönstret för datauppsättningen.
+När du väljer en data uppsättning för utdata i pipeline-vyn eller när du flyttar musen över data uppsättningen för utdata, visas popup-fönstret för aktivitets Fönstren för den data uppsättningen.
 
-![Aktivitet Windows popup-fönstret](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
+![Popup-fönster för aktivitets fönster](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
-Du kan klicka på ett aktivitetsfönster om du vill se information för den i den **egenskaper** fönstret i den högra rutan.
+Du kan klicka på ett aktivitets fönster om du vill se information om det i fönstret **Egenskaper** i den högra rutan.
 
-![Fönstret Aktivitetsegenskaper](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
+![Egenskaper för aktivitets fönster](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
 
-I den högra rutan, växlar du till den **aktivitet fönstret Explorer** fliken om du vill ha mer information.
+I den högra rutan växlar du till fliken **aktivitets fönstrets Utforskare** för att se mer information.
 
-![Aktivitet fönstret Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Aktivitets fönstrets Utforskare](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
-Du kan också se **löst variabler** för varje försök för en aktivitet i den **försök** avsnittet.
+Du ser också **matchade variabler** för varje körnings försök för en aktivitet i avsnittet **försök** .
 
-![Löst variabler](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
+![Matchade variabler](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
-Växla till den **skriptet** fliken för att se JSON-skript-definitionen för det valda objektet.   
+Växla till fliken **skript** för att se definitionen av JSON-skriptet för det valda objektet.   
 
 ![Fliken skript](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
-Du kan se aktivitetsfönster på tre platser:
+Du kan se aktivitets fönster på tre platser:
 
-* Aktivitet Windows popup-fönstret i diagramvyn (rutan i mitten).
-* I fönstret-Utforskaren för aktiviteten i den högra rutan.
-* Aktivitet Windows listan längst ned i fönstret.
+* Popup-fönstret aktivitets fönster i vyn diagram (i mitten).
+* Aktivitets fönstrets Utforskare i den högra rutan.
+* Listan aktivitets fönster i det nedre fönstret.
 
-I popup-fönster och aktivitet Windows och aktivitet Windows Explorer, kan du bläddra till föregående vecka och nästa vecka med hjälp av vänster och höger pilarna.
+I fönstret aktivitets fönster i popup-fönstret och aktivitets fönstret i Windows kan du bläddra till föregående vecka och nästa vecka med hjälp av vänster och höger pilar.
 
-![Aktivitet fönstret Explorer åt vänster och höger pilar](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
+![Aktivitets fönster i Utforskaren vänster-/högerpil](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-Du kan se dessa knappar längst ned i diagramvyn: Zooma In, Zooma ut, Zooma anpassa, Zooma 100 procent, Lås layout. Den **Lås layout** knappen förhindrar du oavsiktligt flyttar tabeller och pipelines i diagramvyn. Den är aktiverad som standard. Du kan stänga av den och runt entiteter i diagrammet. När du inaktiverar det, kan du använda knappen sista att automatiskt placera tabeller och pipelines. Du kan zooma in eller ut med mushjulet.
+Längst ned i diagramvyn visas följande knappar: Zooma in, zooma ut, zooma för att passa, zooma 100%, Lås layout. Med knappen **Lås layout** kan du inte flytta tabeller och pipeliner oavsiktligt i diagramvyn. Den är på som standard. Du kan inaktivera det och flytta entiteter runt i diagrammet. När du inaktiverar det kan du använda den sista knappen för att automatiskt placera tabeller och pipeliner. Du kan också zooma in eller ut med hjälp av mus hjulet.
 
-![Visa zoomning kommandon ett diagram](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
+![Zoomnings kommandon för diagramvyn](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
 ### <a name="activity-windows-list"></a>Lista med aktivitetsfönster
-Aktivitet Windows listan längst ned i den mellersta rutan visar alla aktivitetsfönster för datauppsättningar som du valde i Resursläsaren eller diagramvyn. Som standard är listan i fallande ordning, vilket innebär att du ser den senaste aktivitetsfönstret längst upp.
+Listan aktivitets fönster längst ned i fönstret i mitten visar alla aktivitets fönster för den data uppsättning som du valde i Resursläsaren eller diagramvyn. Som standard är listan i fallande ordning, vilket innebär att du ser det senaste aktivitets fönstret överst.
 
 ![Lista med aktivitetsfönster](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
-Den här listan inte uppdateras automatiskt, så Använd på uppdateringsknappen i verktygsfältet för att manuellt uppdatera det.  
+Den här listan uppdateras inte automatiskt, så Använd knappen Uppdatera i verktygsfältet för att uppdatera den manuellt.  
 
-Aktivitetsfönster kan vara i något av följande statusar:
+Aktivitets fönster kan ha någon av följande statusar:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Understatus</th><th align="left">Beskrivning</th>
+    <th align="left">State</th><th align="left">Substatus</th><th align="left">Beskrivning</th>
 </tr>
 <tr>
-    <td rowspan="8">Väntar på</td><td>ScheduleTime</td><td>Tiden har inte inne för aktivitetsfönstret att köra.</td>
+    <td rowspan="8">Väntar på</td><td>ScheduleTime</td><td>Det går inte att köra tids perioden för aktivitets fönstret.</td>
 </tr>
 <tr>
-<td>DatasetDependencies</td><td>Uppströmsberoendena är inte redo.</td>
+<td>DatasetDependencies</td><td>De överordnade beroendena är inte klara.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>Beräkningsresurserna är inte tillgängliga.</td>
+<td>ComputeResources</td><td>Beräknings resurserna är inte tillgängliga.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>Alla aktivitetsinstanserna är upptagna med att köra andra aktivitetsfönster.</td>
+<td>ConcurrencyLimit</td> <td>Alla aktivitets instanser är upptagna för att köra andra aktivitets fönster.</td>
 </tr>
 <tr>
-<td>ActivityResume</td><td>Aktiviteten har pausats och kan inte köra aktivitetsfönster förrän den har återupptagits.</td>
+<td>ActivityResume</td><td>Aktiviteten har pausats och det går inte att köra aktivitets Fönstren förrän den har återupptagits.</td>
 </tr>
 <tr>
-<td>Försök igen</td><td>Körningsmiljön för aktiviteten görs.</td>
+<td>Försök igen</td><td>Det görs ett nytt försök att köra aktiviteten.</td>
 </tr>
 <tr>
 <td>Validering</td><td>Verifieringen har inte startat ännu.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>Verifiering väntar på att skickas igen.</td>
+<td>ValidationRetry</td><td>Verifieringen väntar på att göras om.</td>
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Pågår</td><td>Verifiera</td><td>Verifiering pågår.</td>
+<td rowspan="2">Pågår</td><td>Verifierar</td><td>Verifiering pågår.</td>
 </tr>
 <td>-</td>
-<td>Aktivitetsfönstret bearbetas.</td>
+<td>Aktivitets fönstret bearbetas.</td>
 </tr>
 <tr>
-<td rowspan="4">Misslyckad</td><td>TimedOut</td><td>Körningsmiljön för aktiviteten tog längre tid än vad som är tillåtet av aktiviteten.</td>
+<td rowspan="4">Misslyckad</td><td>TimedOut</td><td>Aktivitets körningen tog längre tid än vad som tillåts av aktiviteten.</td>
 </tr>
 <tr>
-<td>Avbrutna</td><td>Aktivitetsfönstret avbröts av användaren.</td>
+<td>Avbrutna</td><td>Aktivitets fönstret avbröts av en användar åtgärd.</td>
 </tr>
 <tr>
 <td>Validering</td><td>Verifieringen misslyckades.</td>
 </tr>
 <tr>
-<td>-</td><td>Det gick inte att genereras eller Validera Aktivitetsfönstret.</td>
+<td>-</td><td>Det gick inte att skapa eller verifiera aktivitets fönstret.</td>
 </tr>
-<td>Redo</td><td>-</td><td>Aktivitetsfönstret är redo för användning.</td>
-</tr>
-<tr>
-<td>Hoppades över</td><td>-</td><td>Aktivitetsfönstret bearbetas inte.</td>
+<td>Klar</td><td>-</td><td>Aktivitets fönstret är klart för användning.</td>
 </tr>
 <tr>
-<td>Ingen</td><td>-</td><td>Ett aktivitetsfönster brukade finnas med en annan status, men har återställts.</td>
+<td>Hoppades över</td><td>-</td><td>Aktivitets fönstret behandlades inte.</td>
+</tr>
+<tr>
+<td>Inga</td><td>-</td><td>Ett aktivitets fönster som används för att finnas med en annan status, men som har återställts.</td>
 </tr>
 </table>
 
 
-När du klickar på ett aktivitetsfönster i listan visas information om den i den **aktivitet Windows Explorer** eller **egenskaper** fönstret till höger.
+När du klickar på ett aktivitets fönster i listan visas information om det i **aktivitets Utforskaren** eller fönstret **Egenskaper** till höger.
 
-![Aktivitet fönstret Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Aktivitets fönstrets Utforskare](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
-### <a name="refresh-activity-windows"></a>Uppdatera aktivitetsfönster
-Informationen uppdateras inte automatiskt, så Använd uppdateringsknappen (knapp) i kommandofältet för att manuellt uppdatera listan med windows.  
+### <a name="refresh-activity-windows"></a>Uppdatera aktivitets fönster
+Informationen uppdateras inte automatiskt, så Använd uppdaterings knappen (den andra knappen) i kommando fältet för att uppdatera aktivitets listan i Windows manuellt.  
 
-### <a name="properties-window"></a>Egenskapsfönster
-Fönstret Egenskaper är i fönstret höger appens övervakning och hantering.
+### <a name="properties-window"></a>Fönstret Egenskaper
+Fönstret Egenskaper visas i den högra rutan i övervaknings-och hanterings appen.
 
-![Egenskapsfönster](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
+![Fönstret Egenskaper](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
 
-Egenskaper för objekt som du har valt i Resource Explorer (trädvyn), diagramvyn eller aktivitet Windows listan visas.
+Den visar egenskaper för det objekt som du har valt i listan Resursläsaren (trädvy), diagramvyn eller aktivitets fönster.
 
-### <a name="activity-window-explorer"></a>Aktivitet fönstret Explorer
-Den **aktivitet fönstret Explorer** fönstret är i fönstret höger appens övervakning och hantering. Den visar information om aktivitetsfönstret som du har valt i popup-fönstret aktivitet Windows eller aktivitet Windows-lista.
+### <a name="activity-window-explorer"></a>Aktivitets fönstrets Utforskare
+Fönstret **aktivitets fönstret Utforskaren** visas i det högra fönstret i övervaknings-och hanterings appen. Den visar information om aktivitets fönstret som du valde i popup-fönstret aktivitets fönster eller i listan aktivitets fönster.
 
-![Aktivitet fönstret Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
+![Aktivitets fönstrets Utforskare](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
-Du kan växla till ett annat aktivitetsfönster i genom att klicka på kalendervyn högst upp. Du kan också använda pilknapparna vänstra HÖGERPIL längst upp för att visa aktivitetsfönster från föregående vecka eller nästa vecka.
+Du kan växla till ett annat aktivitets fönster genom att klicka på det i vyn Kalender längst upp. Du kan också använda Vänsterpil/HÖGERPIL längst upp för att se aktivitets fönster från föregående vecka eller nästa vecka.
 
-Du kan använda knapparna i verktygsfältet längst ned i fönstret för att köra ett aktivitetsfönster eller uppdatera informationen i fönstret.
+Du kan använda verktygsfälts knapparna i det nedre fönstret för att köra om aktivitets fönstret eller uppdatera informationen i fönstret.
 
 ### <a name="script"></a>Skript
-Du kan använda den **skriptet** fliken för att visa JSON-definitionen för den valda Data Factory-entiteten (länkad tjänst, datauppsättning eller pipeline).
+Du kan använda fliken **skript** för att Visa JSON-definitionen för den valda data Factory entiteten (länkad tjänst, data uppsättning eller pipeline).
 
 ![Fliken skript](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## <a name="use-system-views"></a>Använda systemvyer
-Övervakning och hantering av appen innehåller färdiga systemvyer (**senaste aktivitetsfönster**, **misslyckades aktivitetsfönster**, **pågår aktivitetsfönster**) som gör det Du kan visa de senaste/misslyckades/pågående aktivitetsfönster för din datafabrik.
+Övervaknings-och hanterings appen innehåller förskapade systemvyer (**senaste aktivitets fönster**, **misslyckad aktivitets fönster**, pågående **aktivitets**fönster) som gör att du kan visa senaste/misslyckade/pågående aktivitets fönster för dina data valda.
 
-Växla till den **övervakning vyer** fliken till vänster genom att klicka på den.
+Växla till fliken **övervakande vyer** till vänster genom att klicka på den.
 
-![Övervakning av vyer fliken](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
+![Fliken övervaka vyer](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
-Det finns för närvarande tre systemvyer som stöds. Välj ett alternativ för att se de senaste aktivitetsfönster, misslyckade aktivitetsfönster eller pågående aktivitetsfönster i listan aktivitet Windows (längst ned i den mellersta rutan).
+För närvarande finns det tre systemvyer som stöds. Välj ett alternativ för att visa senaste aktivitets fönster, misslyckad aktivitets fönster eller pågående aktivitets fönster i listan aktivitets fönster (längst ned i fönstret i mitten).
 
-När du väljer den **senaste aktivitetsfönster** alternativet kan du se alla de senaste aktivitetsfönster i fallande ordning efter den **senast försöka tid**.
+När du väljer **Windows alternativet senaste aktivitet** visas alla senaste aktivitets fönster i fallande ordning efter **senaste försök**.
 
-Du kan använda den **misslyckades aktivitetsfönster** vy för att se alla misslyckade aktivitetsfönster i listan. Välj en misslyckad aktivitetsfönster i listan om du vill se information om den i den **egenskaper** fönster eller **aktivitet fönstret Explorer**. Du kan också hämta loggar för en misslyckad aktivitetsfönster.
+Du kan använda vyn för **misslyckad aktivitet i Windows** för att se alla misslyckade aktivitets fönster i listan. Välj ett fönster för misslyckad aktivitet i listan om du vill visa information om det i fönstret **Egenskaper** eller i **fönstret aktivitets fönster Utforskaren**. Du kan också hämta loggar för ett fönster för misslyckad aktivitet.
 
-## <a name="sort-and-filter-activity-windows"></a>Sortera och filtrera aktivitetsfönster
-Ändra den **starttid** och **sluttid** inställningar i kommandofältet för att filtrera aktivitetsfönster. Klicka på knappen bredvid sluttid för att uppdatera listan med aktiviteten Windows när du har ändrat starttid och sluttid.
+## <a name="sort-and-filter-activity-windows"></a>Sortera och filtrera aktivitets fönster
+Ändra inställningarna för **Start tid** och **slut tid** i kommando fältet för att filtrera aktivitets fönster. När du har ändrat start-och slut tid klickar du på knappen bredvid slut tiden för att uppdatera listan aktivitets Windows.
 
-![Start- och sluttider](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
+![Start-och slut tider](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
 
 > [!NOTE]
-> Det finns för närvarande hela tiden i UTC-format i appen övervakning och hantering.
+> För närvarande är alla tider i UTC-format i övervaknings-och hanterings appen.
 >
 >
 
-I den **aktivitet Windows lista**, klicka på namnet på en kolumn (till exempel: Status).
+I **listan aktivitets fönster**klickar du på namnet på en kolumn (till exempel: Status).
 
-![Kolumnen standardmenyn Windows lista](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
+![Kolumn meny för aktivitets lista i Windows](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
 Du kan göra följande:
 
@@ -277,22 +276,22 @@ Du kan göra följande:
 * Sortera i fallande ordning.
 * Filtrera efter ett eller flera värden (klart, väntar och så vidare).
 
-När du anger ett filter på en kolumn kan se du filtreringsknappen aktiverat för denna kolumn, vilket betyder att värdena i kolumnen är filtrerade värdena.
+När du anger ett filter i en kolumn visas filter knappen som är aktive rad för den kolumnen, vilket indikerar att värdena i kolumnen är filtrerade värden.
 
-![Filtrera efter en kolumn av listan över aktivitet Windows](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
+![Filtrera efter en kolumn i aktivitets fönster listan](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
 
-Du kan använda samma popup-fönstret för att ta bort filter. Om du vill ta bort alla filter för aktiviteten Windows-listan, klickar du på knappen Rensa filtret i kommandofältet.
+Du kan använda samma popup-fönster för att rensa filter. Om du vill rensa alla filter för listan aktivitets fönster klickar du på knappen Rensa filter i kommando fältet.
 
-![Rensa alla filter för aktiviteten Windows-lista](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
+![Rensa alla filter för aktivitets listan i Windows](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
 
-## <a name="perform-batch-actions"></a>Utföra åtgärder för batch
-### <a name="rerun-selected-activity-windows"></a>Kör valda aktivitetsfönster
-Välj ett aktivitetsfönster, klickar du på nedpilen för första fältet kommandoknappen och välj **kör** / **kör med uppströms i pipeline**. När du väljer den **kör med uppströms i pipeline** alternativet den produktmiljö alla uppströmsaktivitet windows samt.
-    ![Kör ett aktivitetsfönster](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+## <a name="perform-batch-actions"></a>Utföra batch-åtgärder
+### <a name="rerun-selected-activity-windows"></a>Kör om valt aktivitets fönster
+Välj ett aktivitets fönster, klicka på nedpilen för det första kommando fältet och välj **Kör** / om**Kör igen med Uppström i pipeline**. När du väljer alternativet **Kör om med uppströms i pipeline, kör** den även om alla överordnade aktivitets fönster.
+    ![Kör ett aktivitets fönster igen](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Du kan också markera flera aktivitetsfönster i listan och köra dem på samma gång. Du kanske vill filtrera aktivitetsfönster baserat på status (till exempel: **Det gick inte**) – och kör sedan den underkända aktivitet windows när du har korrigerat problemet som orsakar aktivitetsfönster misslyckas. Se följande avsnitt innehåller information om hur du filtrerar aktivitetsfönster i listan.  
+Du kan också välja flera aktivitets fönster i listan och köra om dem på samma tidpunkt. Du kanske vill filtrera aktivitets fönster baserat på status (till exempel: **Misslyckades**) --och kör sedan de misslyckade aktivitets Fönstren igen efter att ha åtgärdat problemet som gör att aktivitets Fönstren Miss lyckas. I följande avsnitt finns information om filtrering av aktivitets fönster i listan.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Pausa/återuppta flera pipelines
-Du kan markera flera två eller flera pipelines med hjälp av Ctrl-tangenten. Du kan använda knapparna i kommandofältet (som är markerade på den röda rektangeln i följande bild) för att pausa/återuppta dem.
+Du kan välja två eller fler pipeliner genom att använda Ctrl-tangenten. Du kan använda kommando fälts knapparna (som är markerade i den röda rektangeln i följande bild) för att pausa/återuppta dem.
 
-![Pausa/återuppta i kommandofältet](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Pausa/återuppta i kommando fältet](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)

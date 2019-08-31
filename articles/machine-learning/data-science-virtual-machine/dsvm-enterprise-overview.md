@@ -1,27 +1,21 @@
 ---
-title: Introduktion till team Data Science Virtual Machine-baserade miljöer – Azure | Microsoft Docs
+title: Team Analytics och AI-miljö
+titleSuffix: Azure Data Science Virtual Machine
 description: Mönster för att distribuera den virtuella datorn för datavetenskap i en företagsmiljö team.
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, geospatial analys, tdsp
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/08/2018
+author: vijetajo
 ms.author: vijetaj
-ms.openlocfilehash: 5f34498fbdacf7fc6e62788913c795ab70ceef23
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.topic: overview
+ms.date: 05/08/2018
+ms.openlocfilehash: 06d05d6d410af13bfbe85f3cb66523c1d48cb77c
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991621"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195663"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine-baserade team analys och AI-miljö 
 [Data science Virtual Machine](overview.md) (DSVM) innehåller en omfattande miljö på Azure-plattformen, med fördefinierad program vara för artificiell intelligens (AI) och data analys.

@@ -3,15 +3,15 @@ title: Azure Resource Manager slutfört läge borttagning efter resurs typ
 description: Visar hur resurs typer hanterar fullständig borttagning av läge i Azure Resource Manager mallar.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7f804e61f77b745aa654852f4c1413a8f4bf53b4
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: d783ab9c12952393f0a74b245109dda58bff3927
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779952"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194392"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för komplett läges distributioner
 
@@ -204,7 +204,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | aadsupportcases | Nej |
 > | addsservices | Nej |
-> | agenter | Nej |
+> | aktörer | Nej |
 > | anonymousapiusers | Nej |
 > | konfiguration | Nej |
 > | logs | Nej |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b6c9e50334a25b505655a49a02cd98165d04740b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 269d13e0b64d2da7a21316b16c88acde46ba1722
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164955"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194639"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -130,6 +130,11 @@ Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till g
 ### <a name="multiple-assignments"></a>Flera tilldelningar
 
 Principer för gäst konfiguration stöder för närvarande bara tilldelning av samma gäst tilldelning en gång per dator, även om princip tilldelningen använder olika parametrar.
+
+## <a name="built-in-resource-modules"></a>Inbyggda resurs moduler
+
+När gäst konfigurations tillägget är installerat, ingår PowerShell-modulen "GuestConfiguration" i den senaste versionen av DSC-resurs-moduler. Den här modulen kan laddas ned från PowerShell-galleriet med hjälp av länken "manuell hämtning" från sidan för modulen [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/).
+Fil formatet '. nupkg ' kan byta namn till '. zip ' för att expandera och granska.
 
 ## <a name="client-log-files"></a>Loggfiler för klienter
 

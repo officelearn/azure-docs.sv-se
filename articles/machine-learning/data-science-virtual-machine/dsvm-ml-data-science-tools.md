@@ -1,34 +1,29 @@
 ---
-title: Machine learning och data science verktyg – Azure | Microsoft Docs
+title: Machine Learning-verktyg för & data vetenskap
+titleSuffix: Azure Data Science Virtual Machine
 description: Läs mer om de machine learning-verktyg och ramverk som redan är installerat på den virtuella datorn för datavetenskap.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vijetaj
-ms.openlocfilehash: 3b05d076a61593e8c34ce642f2fe2fd137e07109
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d823eb615f983190ee6974ee3012f069309ca753
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565254"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195637"
 ---
-# <a name="machine-learning-and-data-science-tools"></a>Machine learning och data science-verktyg
+# <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Maskin inlärnings-och data vetenskaps verktyg i Azure Data Science Virtual Machines
 Azure virtuella datorer för datavetenskap har en omfattande uppsättning verktyg och bibliotek för machine learning (ML) tillgänglig för populära språk, till exempel Python, R och Julia. 
 
 Här är några av ML-verktyg och bibliotek på virtuella datorer för datavetenskap. 
 
-## <a name="azure-machine-learninghttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) SDK
+## <a name="azure-machine-learning-sdk-for-python"></a>Azure Machine Learning SDK för python
+Se den fullständiga referensen för [Azure Machine Learning SDK för python](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml).
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   |   Azure Machine Learning är en molnbaserad tjänst som du kan använda för att utveckla och distribuera maskininlärningsmodeller. Du kan spåra dina modeller som du skapa, träna, skala och hantera dem med hjälp av Python-SDK. Distribuera modeller som behållare och köra dem i molnet, lokalt eller på Azure IoT Edge.   |

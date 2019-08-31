@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 093c5878cd2f7df63502a7aff686824af3c88078
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934698"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195083"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll
 I den här artikeln diskuterar vi en samling med metod tips för Azure Identity Management och åtkomst kontroll. De här bästa metoderna är härledda från vår erfarenhet av [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) och kundernas upplevelser som du själv.
@@ -93,7 +93,7 @@ Organisationer som inte integrerar sin lokala identitet med sin moln identitet k
 > Du måste välja vilka kataloger kritiska konton ska finnas i och om den använda admin-arbetsstationen hanteras av nya moln tjänster eller befintliga processer. Att använda befintliga hanterings-och identitets etablerings processer kan minska riskerna, men kan också skapa risken för att en angripare kan skada ett lokalt konto och pivotera till molnet. Du kanske vill använda en annan strategi för olika roller (till exempel IT-administratörer eller affär senhets administratörer). Du har två alternativ. Det första alternativet är att skapa Azure AD-konton som inte är synkroniserade med din lokala Active Directory-instans. Anslut din administratörs arbets station till Azure AD, som du kan hantera och korrigera med hjälp av Microsoft Intune. Det andra alternativet är att använda befintliga administratörs konton genom att synkronisera till den lokala Active Directory-instansen. Använd befintliga arbets stationer i din Active Directory-domän för hantering och säkerhet.
 
 ## <a name="manage-connected-tenants"></a>Hantera anslutna klienter
-Din säkerhets organisation behöver synlig insyn för att bedöma risken och för att avgöra om principerna för din organisation och alla regler som krävs, följs. Du bör se till att din säkerhets organisation har insyn i alla prenumerationer som är anslutna till din produktions miljö och nätverket (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) eller [plats-till-plats-VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). En [Global administratör/företags administratör](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) i Azure AD kan öka sin åtkomst till administratörs rollen för [användar åtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) och se alla prenumerationer och hanterade grupper som är anslutna till din miljö.
+Din säkerhets organisation behöver synlig insyn för att bedöma risken och för att avgöra om principerna för din organisation och alla regler som krävs, följs. Du bör se till att din säkerhets organisation har insyn i alla prenumerationer som är anslutna till din produktions miljö och nätverket (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) eller [plats-till-plats-VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). En [Global administratör/företags administratör](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) i Azure AD kan öka sin åtkomst till administratörs rollen för [användar åtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) och se alla prenumerationer och hanterade grupper som är anslutna till din miljö.
 
 Se [öka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper](../../role-based-access-control/elevate-access-global-admin.md) för att se till att du och din säkerhets grupp kan visa alla prenumerationer eller hanterings grupper som är anslutna till din miljö. Du bör ta bort den här utökade åtkomsten när du har bedömt riskerna.
 
@@ -139,21 +139,21 @@ Om du har flera klienter eller om du vill att användarna ska kunna [återställ
 
 Vi rekommenderar att du kräver tvåstegsverifiering för alla dina användare. Detta inkluderar administratörer och andra i din organisation som kan ha en betydande inverkan om deras konto komprometteras (t. ex. ekonomi personal).
 
-Det finns flera alternativ för att kräva tvåstegsverifiering. Det bästa alternativet för dig beror på dina mål, den Azure AD-version som du kör och ditt licensierings program. Se [hur du kräver tvåstegsverifiering för en användare](/azure/active-directory/authentication/howto-mfa-userstates) för att fastställa det bästa alternativet för dig. Se prissättnings sidorna för [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) och [Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) för mer information om licenser och priser.
+Det finns flera alternativ för att kräva tvåstegsverifiering. Det bästa alternativet för dig beror på dina mål, den Azure AD-version som du kör och ditt licensierings program. Se [hur du kräver tvåstegsverifiering för en användare](/azure/active-directory/authentication/howto-mfa-userstates) för att fastställa det bästa alternativet för dig. Mer information om licenser och priser finns på sidan med priser för [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) och [Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) .
 
 Följande är alternativ och fördelar med att aktivera tvåstegsverifiering:
 
 **Alternativ 1**: [Aktivera Multi-Factor Authentication genom att ändra användar tillstånd](../../active-directory/authentication/howto-mfa-userstates.md).   
-**Förmån**: Detta är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både [Azure Multi-Factor Authentication i molnet och Azure Multi-Factor Authentication Server](/azure/active-directory/authentication/concept-mfa-whichversion). Om du använder den här metoden måste användarna utföra tvåstegsverifiering varje gång de loggar in och åsidosätter principer för villkorlig åtkomst.
+**Förmån**: Detta är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både [Azure-Multi-Factor Authentication i molnet och Azure Multi-Factor Authentication-Server](/azure/active-directory/authentication/concept-mfa-whichversion). Om du använder den här metoden måste användarna utföra tvåstegsverifiering varje gång de loggar in och åsidosätter principer för villkorlig åtkomst.
 
-För att avgöra var Multi-Factor Authentication måste aktive ras, se [vilken version av Azure MFA som passar min organisation?](/azure/active-directory/authentication/concept-mfa-whichversion).
+För att avgöra var Multi-Factor Authentication behöver aktive ras, se [vilken version av Azure MFA som passar min organisation?](/azure/active-directory/authentication/concept-mfa-whichversion).
 
 **Alternativ 2**: [Aktivera Multi-Factor Authentication med princip för villkorlig åtkomst](/azure/active-directory/authentication/howto-mfa-getstarted).
 **Förmån**: Med det här alternativet kan du begära tvåstegsverifiering under vissa villkor genom [att använda villkorlig åtkomst](/azure/active-directory/active-directory-conditional-access-azure-portal). Vissa villkor kan vara användar inloggningar från olika platser, ej betrodda enheter eller program som du anser vara riskfyllda. Genom att definiera vissa villkor där du kräver tvåstegsverifiering kan du undvika en konstant uppskrivning för dina användare, vilket kan vara en krångligt användar upplevelse.
 
-Detta är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Att aktivera en princip för villkorlig åtkomst fungerar bara för Azure Multi-Factor Authentication i molnet och är en Premium funktion i Azure AD. Du hittar mer information om den här metoden i [distribuera molnbaserad Azure Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted).
+Detta är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Att aktivera en princip för villkorlig åtkomst fungerar bara för Azure Multi-Factor Authentication i molnet och är en Premium funktion i Azure AD. Du hittar mer information om den här metoden i [distribuera molnbaserad Azure-Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted).
 
-**Alternativ 3**: Aktivera Multi-Factor Authentication med principer för villkorlig åtkomst genom att utvärdera användare och inloggnings risker för [Azure AD Identity Protection](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa).   
+**Alternativ 3**: Aktivera Multi-Factor Authentication med principer för villkorlig åtkomst genom att utvärdera användare och inloggnings risk för [Azure AD Identity Protection](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa).   
 **Förmån**: Med det här alternativet kan du:
 
 - Identifiera potentiella sårbarheter som påverkar organisationens identiteter.
@@ -174,13 +174,13 @@ Att utse grupper eller enskilda roller som är ansvariga för specifika funktion
 
 Ditt säkerhets team behöver insyn i dina Azure-resurser för att utvärdera och åtgärda risker. Om säkerhets teamet har drift ansvar behöver de ytterligare behörigheter för att utföra sina jobb.
 
-Du kan använda [RBAC](/azure/role-based-access-control/overview) för att tilldela behörigheter till användare, grupper och program i ett visst omfång. Omfånget för en roll tilldelning kan vara en prenumeration, en resurs grupp eller en enskild resurs.
+Du kan använda [RBAC](/azure/role-based-access-control/overview) för att tilldela behörigheter till användare, grupper och program i ett visst omfång. Omfånget för en rolltilldelning kan vara en prenumeration, en resursgrupp eller en enskild resurs.
 
 **Bästa praxis**: Åtskiljer uppgifter i teamet och ge endast åtkomst till de användare som de behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter i din Azure-prenumeration eller resurser kan du bara tillåta vissa åtgärder i ett visst omfång.
 **Information**: Använd [Inbyggda RBAC-roller](/azure/role-based-access-control/built-in-roles) i Azure för att tilldela behörigheter till användare.
 
 > [!Note]
-> Vissa behörigheter skapar onödiga komplexitetar och förvirring, ackumulerar en "äldre" konfiguration som är svår att åtgärda utan att du behöver bryta något. Undvik resurs-/regionsspecifika behörigheter. Använd i stället hanterings grupper för behörigheter och resurs grupper i hela företaget för behörigheter i prenumerationer. Undvik användarspecifika behörigheter. Tilldela i stället åtkomst till grupper i Azure AD.
+> Vissa behörigheter skapar onödiga komplexitetar och förvirring, ackumulerar en "äldre" konfiguration som är svår att åtgärda utan att du behöver bryta något. Undvik resursspecifika behörigheter. Använd i stället hanterings grupper för behörigheter och resurs grupper i hela företaget för behörigheter i prenumerationer. Undvik användarspecifika behörigheter. Tilldela i stället åtkomst till grupper i Azure AD.
 
 **Bästa praxis**: Bevilja säkerhets team med Azures ansvar åtkomst för att se Azure-resurser så att de kan utvärdera och åtgärda risker.
 **Information**: Bevilja säkerhets team rollen RBAC [Security Reader](/azure/role-based-access-control/built-in-roles#security-reader) . Du kan använda rot hanterings gruppen eller segment hanterings gruppen, beroende på ansvars områdets omfattning:
@@ -239,10 +239,10 @@ Utvärdera de konton som är tilldelade eller berättigade till den globala admi
 **Bästa praxis**: Ha en "Break glas"-process på plats i händelse av en nöd situation.
 **Information**: Följ stegen för att [skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
 
-**Bästa praxis**: Kräv att alla kritiska administratörs konton är lösen ords lösa (önskade) eller kräver multifaktorautentisering.
+**Bästa praxis**: Kräv att alla kritiska administratörs konton är lösen ords lösa (önskade) eller kräver Multi-Factor Authentication.
 **Information**: Använd [Microsoft Authenticator-appen](/azure/active-directory/authentication/howto-authentication-phone-sign-in) för att logga in på ett Azure AD-konto utan att använda ett lösen ord. Precis som [Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification), använder Microsoft Authenticator nyckelbaserad autentisering för att aktivera autentiseringsuppgifter som är knutna till en enhet och använder bio metrisk autentisering eller PIN-kod.
 
-Kräv Azure Multi-Factor Authentication vid inloggning för alla enskilda användare som permanent tilldelas till en eller flera av administratörs rollerna för Azure AD: Global administratör, privilegie rad roll administratör, Exchange Online-administratör och SharePoint Online-administratör. Aktivera [Multi-Factor Authentication för dina administratörs konton](/azure/active-directory/authentication/howto-mfa-userstates) och se till att administratörs kontots användare har registrerat sig.
+Kräv Azure Multi-Factor Authentication vid inloggning för alla enskilda användare som permanent har tilldelats en eller flera av administratörs rollerna för Azure AD: Global administratör, privilegie rad roll administratör, Exchange Online-administratör och SharePoint Online-administratör. Aktivera [Multi-Factor Authentication för dina administratörs konton](/azure/active-directory/authentication/howto-mfa-userstates) och se till att administratörs kontots användare har registrerat sig.
 
 **Bästa praxis**: För kritiska administratörs konton har du en administratörs arbets station där produktions aktiviteter inte är tillåtna (till exempel bläddring och e-post). Detta skyddar dina administratörs konton mot angrepps vektorer som använder bläddring och e-post och minskar risken för en större incident.
 **Information**: Använd en administratörs arbets Station. Välj en säkerhets nivå för arbets stationen:

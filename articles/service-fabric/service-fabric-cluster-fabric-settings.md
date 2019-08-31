@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/29/2019
+ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5d6f1fcba5d93cbd4efb63cd080848258eb2a262
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 096b6a13c85d04ebeb4f2ffae72acdd8629ae886
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172892"
+ms.locfileid: "70191743"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric kluster inställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -649,6 +649,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |AADClusterApplication|sträng, standard är ""|Statisk|Webb-API-programnamn eller ID som representerar klustret |
 |AADLoginEndpoint|sträng, standard är ""|Statisk|Inloggnings slut punkt för AAD, standard Azure-kommersiell, anges för miljö som inte är standard,\/till exempel Azure Government https:/login.microsoftonline.us " |
 |AADTenantId|sträng, standard är ""|Statisk|Klient-ID (GUID) |
+|AcceptExpiredPinnedClusterCertificate|bool, standard är falskt|Dynamisk|Flagga som anger om utgångna kluster certifikat som deklarerats av tumavtryck endast ska accepteras för kluster certifikat; för att hålla klustret Alive. |
 |AdminClientCertThumbprints|sträng, standard är ""|Dynamisk|Tumavtrycken av certifikat som används av klienter i administratörs rollen. Det är en kommaavgränsad lista med namn. |
 |AADTokenEndpointFormat|sträng, standard är ""|Statisk|AAD-token-slutpunkt, standard Azure-kommersiell, anges för miljö som inte är standard,\/till exempel{0}Azure Government https:/login.microsoftonline.us/" |
 |AdminClientClaims|sträng, standard är ""|Dynamisk|Alla möjliga anspråk som förväntas från administratörs klienter; samma format som ClientClaims; den här listan läggs internt till i ClientClaims. du behöver inte heller lägga till samma poster i ClientClaims. |

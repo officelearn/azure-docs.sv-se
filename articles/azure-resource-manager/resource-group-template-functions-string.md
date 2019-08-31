@@ -3,15 +3,15 @@ title: Azure Resource Manager Template Functions-String | Microsoft Docs
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med strängar.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1db1eb9be3586f76a8d3abc48a78a1e691da9924
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c30bb47f3f35663a6ffcfc0126758eb82c9dec4e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698181"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194774"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Sträng funktioner för Azure Resource Manager mallar
 
@@ -110,7 +110,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | base64Output | Sträng | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Sträng | Ett två tre |
@@ -288,7 +288,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | concatOutput | Sträng | prefix-5yj4yjf5mbg72 |
 
@@ -329,7 +329,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | returrelaterade | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -702,7 +702,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Sträng | en |
 | stringOutput | Sträng | O |
@@ -760,7 +760,7 @@ I följande exempel mall visas hur du använder funktionen format.
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | formatTest | Sträng | Hej, användare. Formaterat tal: 8 175 133 |
 
@@ -943,7 +943,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Sträng | tre |
 | stringOutput | Sträng | e |
@@ -1134,7 +1134,7 @@ I följande exempel mall visas en parameter med en ny identifierare.
 
 Resultatet från föregående exempel varierar för varje distribution, men ser ut ungefär så här:
 
-| Namn | Typ | Value |
+| Name | Typ | Value |
 | ---- | ---- | ----- |
 | guidOutput | sträng | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1177,7 +1177,7 @@ I följande exempel används funktionen newGuid för att skapa ett unikt namn f�
 
 Resultatet från föregående exempel varierar för varje distribution, men ser ut ungefär så här:
 
-| Namn | Typ | Värde |
+| Name | Typ | Value |
 | ---- | ---- | ----- |
 | nameOutput | sträng | storagenziwvyru7uxie |
 
@@ -1228,7 +1228,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | stringOutput | Sträng | 0000000123 |
 
@@ -1469,7 +1469,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | startsTrue | Bool | Sant |
 | startsCapTrue | Bool | Sant |
@@ -1962,7 +1962,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | uriOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Sträng | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2072,7 +2072,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | uriOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Sträng | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2145,7 +2145,7 @@ I följande exempel mall visas olika format för datetime-värdet.
 
 Resultatet från föregående exempel varierar för varje distribution, men ser ut ungefär så här:
 
-| Namn | Typ | Värde |
+| Name | Typ | Value |
 | ---- | ---- | ----- |
 | utcOutput | sträng | 20190305T175318Z |
 | utcShortOutput | sträng | 03/05/2019 |

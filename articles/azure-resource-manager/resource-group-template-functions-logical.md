@@ -1,49 +1,49 @@
 ---
-title: Azure Resource Manager-Mallfunktioner - logiska | Microsoft Docs
-description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att fastställa logiska värden.
+title: Azure Resource Manager Template Functions – Logical | Microsoft Docs
+description: Beskriver de funktioner som används i en Azure Resource Manager mall för att fastställa logiska värden.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ea91798a1c0ca0aad729128ce4694a85165f3c3b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447978"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194797"
 ---
-# <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager-mallar
+# <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager mallar
 
-Resource Manager tillhandahåller flera funktioner för att göra jämförelser i dina mallar.
+Resource Manager innehåller flera funktioner för att göra jämförelser i dina mallar.
 
-* [och](#and)
-* [Bool](#bool)
-* [if](#if)
-* [not](#not)
+* [särskilt](#and)
+* [booleska](#bool)
+* [eventuella](#if)
+* [Ogiltigt](#not)
 * [eller](#or)
 
 ## <a name="and"></a>och
 
 `and(arg1, arg2, ...)`
 
-Kontrollerar om alla parametervärden är sant.
+Kontrollerar om alla parameter värden är sanna.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolean |Det första värdet för att kontrollera om är sant. |
-| arg2 |Ja |boolean |Det andra värdet att kontrollera om är sant. |
-| ytterligare argument |Nej |boolean |Ytterligare argument för att kontrollera om utvärderas som true. |
+| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
+| ytterligare argument |Nej |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **SANT** om alla värden är true, i annat fall **FALSKT**.
+Returnerar **True** om alla värden är true; annars **false**.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) visar hur du använder logiska funktioner.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) visas hur du använder logiska funktioner.
 
 ```json
 {
@@ -69,10 +69,10 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel är:
 
-| Namn | Typ | Värde |
+| Name | Typ | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
+| orExampleOutput | Bool | Sant |
 | notExampleOutput | Bool | False |
 
 ## <a name="bool"></a>bool
@@ -85,14 +85,14 @@ Konverterar parametern till ett booleskt värde.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |sträng eller int |Värdet att konvertera till ett booleskt värde. |
+| arg1 |Ja |sträng eller heltal |Värdet som ska konverteras till ett booleskt värde. |
 
 ### <a name="return-value"></a>Returvärde
-Ett booleskt värde för konverterade värdet.
+Ett booleskt värde för det konverterade värdet.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) visar hur du använder bool med en sträng eller ett heltal.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) visas hur du använder bool med en sträng eller ett heltal.
 
 ```json
 {
@@ -122,38 +122,38 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| trueString | Bool | True |
+| trueString | Bool | Sant |
 | falseString | Bool | False |
-| trueInt | Bool | True |
+| trueInt | Bool | Sant |
 | falseInt | Bool | False |
 
-## <a name="if"></a>if
+## <a name="if"></a>eventuella
 
 `if(condition, trueValue, falseValue)`
 
-Returnerar ett värde baserat på om ett villkor är SANT eller FALSKT.
+Returnerar ett värde baserat på om ett villkor är sant eller falskt.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| condition |Ja |boolean |Värde att kontrollera om det är SANT eller FALSKT. |
-| trueValue |Ja | sträng, int, objekt eller matris |Värdet som returneras när villkoret är sant. |
-| falseValue |Ja | sträng, int, objekt eller matris |Värdet som returneras om villkoret är FALSKT. |
+| condition |Ja |boolean |Värdet för att kontrol lera om det är sant eller falskt. |
+| trueValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är sant. |
+| falseValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är falskt. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar andra parameter när den första parametern är **SANT**, annars returnerar tredje parameter.
+Returnerar den andra parametern när den första parametern är **True**; annars returnerar den tredje parametern.
 
 ### <a name="remarks"></a>Kommentarer
 
-När villkoret är **SANT**, endast true värde ska utvärderas. När villkoret är **FALSKT**, endast false-värde ska utvärderas. Med den **om** -funktion som du kan inkludera uttryck som endast är villkorligt giltiga. Du kan till exempel referera till en resurs som finns under ett villkor, men inte under det andra villkoret. Ett exempel på villkorligt utvärdera uttryck visas i följande avsnitt.
+När villkoret är **Sant**utvärderas bara det sanna värdet. Om villkoret är **falskt**utvärderas bara det falska värdet. Med funktionen **IF** kan du inkludera uttryck som endast är villkorligt giltiga. Du kan till exempel referera till en resurs som finns under ett villkor, men inte med det andra villkoret. Ett exempel på villkorligt utvärdering av uttryck visas i följande avsnitt.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) visar hur du använder den `if` funktion.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) visas hur du använder `if` funktionen.
 
 ```json
 {
@@ -180,13 +180,13 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel är:
 
-| Namn | Typ | Värde |
+| Name | Typ | Value |
 | ---- | ---- | ----- |
-| yesOutput | String | ja |
-| noOutput | String | nej |
-| objectOutput | Object | {”test”: ”value1”} |
+| yesOutput | Sträng | ja |
+| noOutput | Sträng | nej |
+| objectOutput | Object | {"test": "värde1"} |
 
-Följande [exempelmall](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) visar hur du använder den här funktionen med uttryck som endast är villkorligt giltiga.
+I följande [exempel mall](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) visas hur du använder den här funktionen med uttryck som endast är villkorligt giltiga.
 
 ```json
 {
@@ -238,21 +238,21 @@ Följande [exempelmall](https://github.com/krnese/AzureDeploy/blob/master/ARM/de
 
 `not(arg1)`
 
-Konverterar booleskt värde till dess motsatt värde.
+Konverterar booleskt värde till motsatt värde.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolean |Värdet som ska konverteras. |
+| arg1 |Ja |boolean |Det värde som ska konverteras. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **SANT** när parametern är **FALSKT**. Returnerar **FALSKT** när parametern är **SANT**.
+Returnerar **True** när parametern är **false**. Returnerar **false** när parametern är **True**.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) visar hur du använder logiska funktioner.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) visas hur du använder logiska funktioner.
 
 ```json
 {
@@ -278,13 +278,13 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel är:
 
-| Namn | Typ | Värde |
+| Name | Typ | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
+| orExampleOutput | Bool | Sant |
 | notExampleOutput | Bool | False |
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder **inte** med [är lika med](resource-group-template-functions-comparison.md#equals).
+Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder **inte** [lika](resource-group-template-functions-comparison.md#equals)med.
 
 ```json
 {
@@ -302,31 +302,31 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel är:
 
-| Namn | Typ | Värde |
+| Name | Typ | Value |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True |
+| checkNotEquals | Bool | Sant |
 
 ## <a name="or"></a>eller
 
 `or(arg1, arg2, ...)`
 
-Kontrollerar om ett parametervärde är sant.
+Kontrollerar om ett parameter värde är sant.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolean |Det första värdet för att kontrollera om är sant. |
-| arg2 |Ja |boolean |Det andra värdet att kontrollera om är sant. |
-| ytterligare argument |Nej |boolean |Ytterligare argument för att kontrollera om utvärderas som true. |
+| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
+| ytterligare argument |Nej |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **SANT** om något värde är sant, i annat fall **FALSKT**.
+Returnerar **Sant** om något värde är sant; annars **false**.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) visar hur du använder logiska funktioner.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) visas hur du använder logiska funktioner.
 
 ```json
 {
@@ -352,10 +352,10 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel är:
 
-| Namn | Typ | Värde |
+| Name | Typ | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
+| orExampleOutput | Bool | Sant |
 | notExampleOutput | Bool | False |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 577bf7f157eb89da360fa6cbdd4d22c1054f234f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: daf2781113016b20c19a6b8f5365033f1ff1479b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966714"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195262"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använd aktiv inlärning för att förbättra din kunskaps bas
 
@@ -56,7 +56,7 @@ Det är viktigt att QnA Maker får uttrycklig feedback om vilka svar som var det
 
 ## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>Uppgradera din körnings version för att använda aktiv inlärning
 
-Active Learning stöds i runtime-version 4.4.0 och senare. Om din kunskaps bas har skapats på en tidigare version kan du [Uppgradera körningen](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) för att använda den här funktionen. 
+Active Learning stöds i runtime-version 4.4.0 och senare. Om din kunskaps bas har skapats på en tidigare version kan du [Uppgradera körningen](set-up-qnamaker-service-azure.md#get-latest-runtime-updates) för att använda den här funktionen. 
 
 ## <a name="turn-on-active-learning-to-see-suggestions"></a>Aktivera aktiv inlärning för att se förslag
 
@@ -181,11 +181,11 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Egenskap för HTTP-begäran|Namn|type|Syfte|
+|Egenskap för HTTP-begäran|Name|type|Syfte|
 |--|--|--|--|
 |URL-rutt parameter|Kunskaps bas-ID|sträng|Din kunskaps bas-GUID.|
 |Värd under domän|Resurs namn för QnAMaker|sträng|Värd namnet för din QnA Maker i din Azure-prenumeration. Detta är tillgängligt på sidan inställningar när du har publicerat kunskaps basen. |
-|Huvud|Innehållstyp|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är:`application/json`|
+|Huvud|Content-Type|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är:`application/json`|
 |Huvud|Authorization|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
 |Publicera brödtext|JSON-objekt|JSON|Feedback om utbildningen|
 
@@ -194,7 +194,7 @@ JSON-texten har flera inställningar:
 |JSON-Body-egenskap|type|Syfte|
 |--|--|--|--|
 |`feedbackRecords`|array|Lista över feedback.|
-|`userId`|sträng|Användar-ID för den person som godkänner de föreslagna frågorna. Formatet för användar-ID är upp till dig. En e-postadress kan till exempel vara ett giltigt användar-ID i din arkitektur. Valfri.|
+|`userId`|sträng|Användar-ID för den person som godkänner de föreslagna frågorna. Formatet för användar-ID är upp till dig. En e-postadress kan till exempel vara ett giltigt användar-ID i din arkitektur. Valfritt.|
 |`userQuestion`|sträng|Den exakta texten för användarens fråga. Obligatoriskt.|
 |`qnaID`|nummer|ID för fråga som finns i [GenerateAnswer-svaret](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 

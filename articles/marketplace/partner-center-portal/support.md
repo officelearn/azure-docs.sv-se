@@ -1,94 +1,94 @@
 ---
-title: Få support för kommersiella Marketplace-portalen i Partnercenter
-description: Läs mer om dina supportalternativ Partner Center, inklusive hur du skicka en supportbegäran om.
-author: mattwojo
+title: Få support för den kommersiella Marketplace-portalen i Partner Center
+description: Läs om dina support alternativ i Partner Center, inklusive hur du kan skicka en support förfrågan.
+author: ChJenk
 manager: evansma
 ms.author: jamwall
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: 355694f7f1d5fe0588c6f93bcbdb47f3086aec79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0f3fba389f9cb6f55ac5bf7bb81475fa8244cbf
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65958082"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195242"
 ---
-# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Stöd för kommersiella Marketplace-program i Partnercenter
+# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Stöd för programmet för kommersiella marknads platser i Partner Center
 
-Microsoft ger stöd för en mängd olika produkter och tjänster. Hitta rätt supportteamet är viktigt att se till att ett lämpligt och snabbt svar. Tänk på följande scenarier som hjälper dig att dirigera din fråga till rätt team: 
+Microsoft tillhandahåller stöd för en mängd olika produkter och tjänster. Att hitta rätt support team är viktigt för att säkerställa en lämplig och korrekt svars tid. Överväg följande scenarier, som kan hjälpa dig att dirigera din fråga till lämpligt team: 
 
-- Om du är en utgivare och har en fråga från en kund, be dina kunder för att begära support via länkarna som stöd i den [Azure-portalen](https://portal.azure.com/). 
+- Om du är utgivare och har en fråga från en kund ber du kunden att be om support med hjälp av support länkarna i [Azure Portal](https://portal.azure.com/). 
 
-- Om du är en utgivare och har en fråga som rör din app eller tjänst, kan du granska följande supportalternativ.
+- Om du är utgivare och har en fråga som rör din app eller tjänst kan du läsa följande support alternativ.
 
-## <a name="support-options-for-publishers"></a>Supportalternativ för utgivare
+## <a name="support-options-for-publishers"></a>Support alternativ för utgivare
 
-1. Logga in på den [kommersiella Marketplace-program på Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) med ditt arbetskonto. (Om du inte ännu har gjort det så, du behöver [skapa ett Partnercenter-konto](./create-account.md).)
+1. Logga in på det [kommersiella Marketplace-programmet på Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) med ditt arbets konto. (Om du ännu inte har gjort det måste du [skapa ett partner Center-konto](./create-account.md).)
 
-1. I menyn längst upp till höger på sidan väljer du den **Support** ikon. 
+1. I den övre menyn på höger sida av sidan väljer du **support** ikonen. 
  
-   ![Ikon för support](./media/commercial-marketplace-support.png)
+   ![Support ikon](./media/commercial-marketplace-support.png)
 
-1. Den **hjälp och support** fönstret visas från höger på sidan. Det blir en listruta för varje program i Partnercenter som ditt konto har registrerats för. Välj den **kommersiella Marketplace** nedrullningsbara menyn. 
+1. Rutan **Hjälp och support** visas på sidans högra sida. Det kommer att finnas en listruta för varje program i Partner Center som ditt konto har registrerats för. Välj den nedrullningsbara menyn för **handels Marketplace** . 
  
-   ![Stöd för listrutan](./media/commercial-marketplace-support-pane.png)
+   ![List menyn stöd](./media/commercial-marketplace-support-pane.png)
 
-1. Välj **[dokumentation](../index.md)** att granska omfattande svar på frågor och resurser. 
+1. Välj **[dokumentation](../index.md)** för att granska omfattande svar på frågor och resurser. 
 
-1. Välj **[Marketplace-Partner community-forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** att besvara dina frågor med hjälp av informationen om andra Microsoft-utgivare. 
+1. Välj **[Marketplace partner community-forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** för att besvara dina frågor genom att använda kunskap om andra Microsoft-utgivare. 
 
-1. Välj **[ytterligare hjälp](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** att öppna en **ny supportbegäran** biljett. 
+1. Välj **[ytterligare hjälp](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** för att öppna ett **nytt support ärende** . 
 
-## <a name="how-to-open-a-support-ticket"></a>Hur du öppnar ett supportärende
+## <a name="how-to-open-a-support-ticket"></a>Så här öppnar du ett support ärende
 
-Att välja **ytterligare hjälp** från kommersiella Marketplace-support-menyn i Partnercenter omdirigerar dig till Microsoft Support för företag. Du kan se flera listrutorna. Första några listmenyerna fylls automatiskt åt dig. Marketplace-support, identifiera produktfamiljen som **molnet och onlinetjänster**, produkten som **Marketplace Publisher**, och produktversion som **Marketplace-publicering**. Ändra inte valen i förväg nedrullningsbara menyn. 
+Om du väljer **ytterligare hjälp** från den kommersiella Marketplace-supporten i Partner Center dirigeras du till sidan Microsoft Support för företag. Flera List menyer visas. De första menyerna fylls i automatiskt. För Marketplace-support identifierar du produkt familjen som **moln-och online tjänster**, produkten som **Marketplace-utgivare**och produkt versionen som **Marketplace-publicering**. Ändra inte de här fördefinierade meny alternativen i listan. 
 
-- **Välj en kategori som bäst beskriver problemet**: Välj den kategori som bäst överensstämmer med frågan eller problemet. Att välja en kategori så medför en ytterligare listrutan visas, där du kan välja problemet som bäst beskriver problemet.
+- **Välj en kategori som bäst beskriver problemet**: Välj den kategori som bäst passar din fråga eller ditt problem. Om du väljer en kategori visas ytterligare en List Rute meny där du uppmanas att välja det problem som bäst beskriver problemet.
 
-- **Välj ett problem som bäst beskriver problemet**: Välj problemet från dessa alternativ för att bäst överensstämmer med ditt problem. Beroende på ditt problem visas ett nytt avsnitt säger ”här är lite information som kan hjälpa” med länkar som är relevant för problemet. Använd dessa länkar innan du väljer den **nästa** för att se om frågan eller problemet behandlas.
+- **Välj ett problem som bäst beskriver problemet**: Välj problemet från de listade alternativ som bäst passar ditt problem. Beroende på ditt problem kan ett nytt avsnitt visas som säger "här är lite information som kan hjälpa" med länkar som är relevanta för ditt problem. Granska dessa länkar innan du väljer **Nästa** -knappen för att se om din fråga eller ditt problem åtgärdas.
 
-Genom att välja den **nästa** knapp, omdirigeras du till den **ärendeinformation** sidan. 
+Genom att välja knappen **Nästa** kommer du till sidan **ärende information** . 
 
 #### <a name="tell-us-more-about-your-issue"></a>Berätta mer om problemet
 
-I den **ärendeinformation** avsnittet, förklarar vad du behöver hjälp med.
+I avsnittet **problem information** förklarar du vad du behöver hjälp med.
 
-- Välj ditt land.
-- Välj det språk som du vill få support.
-- Ange ett namn för ditt problem (från 3 till 200 tecken).  
+- Välj land.
+- Välj det språk som du vill få support för.
+- Ange en rubrik för ditt problem (från 3 till 200 tecken).  
 - Ange en kort beskrivning av problemet (högst 2000 tecken).
 - Välj **Nästa**.
 
 #### <a name="select-a-support-plan"></a>Välj ett supportavtal
 
-Krävs inte någon information i den **supportavtal** avsnittet. Välj **Nästa**. 
+Ingen information krävs i avsnittet **Support plan** . Välj **Nästa**. 
 
-#### <a name="select-the-severity-of-your-issue"></a>Välj hur allvarligt problemet
+#### <a name="select-the-severity-of-your-issue"></a>Välj allvarlighets grad för ditt problem
 
-Krävs inte någon information i den **allvarlighetsgrad** avsnittet. Välj **Nästa**. 
+Det krävs ingen information i avsnittet **allvarlighets grad** . Välj **Nästa**. 
 
 #### <a name="who-should-we-contact"></a>Vem ska vi kontakta
 
-I den **kontaktuppgifter** Kontrollera att din primära kontakt namn, telefonnummer och e-post är korrekt. 
-- Uppdatera informationen om du ser något som är felaktig
-- Du kan lägga till andra kontakter från ditt företag i den här supportförfrågan om du vill
+I avsnittet **kontakt information** kontrollerar du att din primära kontakts namn, telefonnummer och e-postadress är korrekt. 
+- Uppdatera den här informationen om du ser något som är felaktigt
+- Du kan lägga till andra kontakter från företaget till den här support förfrågan om du vill
 - Välj **Nästa**
 
-#### <a name="review-and-submit-your-support-request"></a>Granska och skicka din supportbegäran
+#### <a name="review-and-submit-your-support-request"></a>Granska och skicka in din support förfrågan
 
-Granska din supportinformation för begäran på den **granska** avsnittet. 
-- Om all information är korrekt, Välj **skicka**. 
-- Om all information som ska uppdateras, markerar den **ändra** knappen bredvid avsnittet behöver uppdateringar.
+Läs informationen om support förfrågan i avsnittet om **granskning** . 
+- Om all information är korrekt väljer du **Skicka**. 
+- Om informationen behöver uppdateras väljer du knappen **ändra** bredvid avsnittet som behöver uppdateras.
 
-## <a name="track-your-existing-support-requests"></a>Spåra dina befintliga supportärenden 
+## <a name="track-your-existing-support-requests"></a>Spåra dina befintliga support förfrågningar 
 
-För att spåra din supportbegäran måste besöka den [kommersiella Marketplace supportsidan](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). 
+Om du vill spåra din supportbegäran går du till [support sidan för kommersiella Marketplace](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). 
 
-I fältet blå huvudmenyn bredvid ”stöd för företag”, Välj den **supportförfrågningar** länk. 
+På den övre blå meny raden, bredvid "Support för företag", väljer du länken **support begär Anden** . 
 
-Granska alla dina öppna och stängda supportärenden i den **Microsoft Professional Support** avsnittet. 
+Granska alla dina öppna och stängda support förfrågningar i avsnittet **Microsoft Professional support** . 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Uppdatera ett befintligt erbjudande i Marketplace för kommersiella](./update-existing-offer.md)
+- [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](./update-existing-offer.md)

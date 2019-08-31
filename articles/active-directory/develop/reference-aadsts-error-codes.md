@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cfefe02b8c9325a2d501289b10b09bc153b0593
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 261fe2142fc3bc45625b5d088a46ad92c34222db
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135764"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193180"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Autentisering och felkoder vid autentisering
 
@@ -31,7 +31,12 @@ Letar du efter information om de AADSTS-felkoder som returneras från Azure Acti
 > [!NOTE]
 > Den här informationen är preliminär och kan komma att ändras. Har du en fråga eller kan du inte hitta det du söker? Skapa ett GitHub-ärende eller se [support och hjälp alternativ för utvecklare](active-directory-develop-help-support.md) och lär dig mer om andra sätt att få hjälp och support.
 >
-> Den här dokumentationen tillhandahålls för vägledning för utvecklare och administratörer, men ska aldrig användas av själva klienten. Felkoder kan ändras när som helst för att ge mer detaljerade fel meddelanden som är avsedda att hjälpa utvecklaren när programmet skapas. Appar som tar ett beroende av text-eller fel kods nummer bryts över tid.  
+> Den här dokumentationen tillhandahålls för vägledning för utvecklare och administratörer, men ska aldrig användas av själva klienten. Felkoder kan ändras när som helst för att ge mer detaljerade fel meddelanden som är avsedda att hjälpa utvecklaren när programmet skapas. Appar som tar ett beroende av text-eller fel kods nummer bryts över tid.
+
+## <a name="lookup-current-error-code-information"></a>Sök efter aktuell fel kod information
+Felkoder och meddelanden kan komma att ändras.  För den senaste informationen tar du en titt på [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) sidan för att hitta AADSTS fel beskrivningar, korrigeringar och vissa föreslagna lösningar.  
+
+Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel har fått felkoden "AADSTS16000" gör du en sökning i [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) för "16000".  Du kan också länka direkt till ett viss fel genom att lägga till fel kod numret till URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000)en:.
 
 ## <a name="aadsts-error-codes"></a>Felkoder för AADSTS
 

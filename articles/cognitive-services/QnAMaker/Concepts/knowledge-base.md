@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2b3e74f337cf8f57321c3a8d94f8191fc3ebb530
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 78b04a06b71590a79180d1ae367e7d059e1b84a3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093901"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195239"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Vad är en Maker kunskapsbaser?
 
@@ -43,6 +43,8 @@ Metadatafält består av nyckel / värde-par avgränsade med kolon **(produkt: f
 Den utbildade och [publicerade](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QNA Maker kunskaps basen tar emot en användar fråga, från en robot eller något annat klient program, i [GenerateAnswer-API: et](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Följande diagram illustrerar processen när användar frågan tas emot.
 
 ![Rangordnings processen för en användar fråga](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+
+### <a name="ranker-process"></a>Rangordnings process
 
 Processen beskrivs i följande tabell:
 

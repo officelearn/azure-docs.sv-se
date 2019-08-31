@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 611947c8c1d202cf4abf4222dfe0072aced58507
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 81b1f06238b8205e72fd989bb581fba39423f7c3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135729"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193228"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Auktorisera åtkomst till Azure Active Directory-webbprogram med beviljandeflödet för OAuth 2.0-kod
 
@@ -179,7 +179,7 @@ Ett lyckat svar kan se ut så här:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| access_token |Den begärda åtkomsttoken som signerad JSON Web Token (JWT). [](access-tokens.md) Appen kan använda denna token för att autentisera till den skyddade resursen, till exempel ett webb-API. |
+| access_token |Den begärda åtkomsttoken.  Detta är en ogenomskinlig sträng – den beror på vad resursen förväntar sig att ta emot och är inte avsedd för klienten att titta på. Appen kan använda denna token för att autentisera till den skyddade resursen, till exempel ett webb-API. |
 | token_type |Anger värdet för token-typ. Den enda typ som Azure AD stöder är Bearer. Mer information om Bearer-token finns i [OAuth 2.0 Authorization Framework: Användning av Bearer-token (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Hur länge åtkomsttoken är giltig (i sekunder). |
 | expires_on |Tiden då åtkomsttoken upphör att gälla. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC fram till förfallo tiden. Det här värdet används för att fastställa livs längden för cachelagrade token. |
@@ -283,8 +283,6 @@ RFC 6750-specifikationen definierar följande fel för resurser som använder si
 
 Uppdaterade token har inte angivna livs längder. Normalt är livs längden för uppdateringstoken relativt lång. Men i vissa fall går det inte att uppdatera token, återkallas eller saknar tillräcklig behörighet för önskad åtgärd. Ditt program måste vänta och hantera fel som returneras av slut punkten för utfärdande av token korrekt.
 
-[!NOTE] Du hittar livs längder för åtkomst-token här: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes#configurable-token-lifetime-properties Standardvärdet för åtkomsttoken är 1 timme och standardvärdet för uppdateringstoken är 90 dagar. Du kan ändra dessa livstider genom att konfigurera livs längden för token. 
-
 När du får ett svar med ett uppdaterings-token tar du bort den aktuella uppdateringstoken och begär en ny auktoriseringskod eller åtkomsttoken. I synnerhet när du använder en uppdateringstoken i flödet bevilja flöde, om du får ett svar med `interaction_required` -eller `invalid_grant` -felkoderna, tar du bort uppdateringstoken och begär en ny auktoriseringskod.
 
 En exempel förfrågan till den **klient-/regionsspecifika** slut punkten (du kan också använda den **vanliga** slut punkten) för att få en ny åtkomsttoken med hjälp av en uppdateringstoken ser ut så här:
@@ -352,3 +350,6 @@ Ett exempel fel svar kan se ut så här:
 | correlation_id |En unik identifierare för begäran som kan hjälpa dig i diagnostiken mellan komponenter. |
 
 En beskrivning av felkoderna och den rekommenderade klient åtgärden finns i felkoder för fel i [token slut punkt](#error-codes-for-token-endpoint-errors).
+
+## <a name="next-steps"></a>Nästa steg
+Mer information om Azure AD v 1.0-slutpunkten och hur du lägger till autentisering och auktorisering i dina webb program och webb-API: er finns i [exempel program](sample-v1-code.md).

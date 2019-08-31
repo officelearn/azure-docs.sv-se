@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 7/01/2019
+ms.date: 08/30/2019
 ms.author: aahi
-ms.openlocfilehash: 6604e5d5b3b77955c9e5f78df5d2a5b804bf09ef
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e857401591d45048962e9f606973dbf59dfe99c8
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883583"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194308"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Skicka Sök frågor till API för visuell sökning i Bing
 
@@ -73,7 +73,7 @@ Begäranden måste skickas som HTTP POST-begäranden.
 
 Här följer frågeparametrarna som din begäran bör ange. Du bör minst ta med `mkt` Frågeparametern:
 
-| Namn | Value | type | Obligatorisk |
+| Name | Value | type | Obligatorisk |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | En landskod med två tecken som representerar var resultatet kommer från.<br /><br /> Om du anger parametern måste du även ange huvudet [Accept-Language](#acceptlanguage). Bing använder det första språket som stöds på listan över språk och kombinerar språket med landskoden som du anger för att fastställa vilken marknad som resultatet som returneras från. Om listan över språk inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran. Eller så kan den använda en sammansatt eller standardmarknad för resultatet i stället för den angivna.<br /><br /> Du bör endast använda den här frågeparametern och `Accept-Language`-frågeparametern om du anger flera språk. I annat fall bör du använda frågeparametrarna `mkt` och `setLang`.<br /><br /> Den här parametern och [mkt](#mkt)-frågeparametern utesluter varandra&mdash;ange inte båda två. | Sträng | Nej       |
 | <a name="mkt" />mkt   | Marknaden som resultatet kommer från. <br /><br /> **Obs!** Du bör alltid ange marknaden, om det är känt. Om du anger marknaden gör det enklare för Bing att dirigera begäran och returnera ett lämpligt och optimalt svar.<br /><br /> Den här parametern och [cc](#cc)-frågeparametern utesluter varandra&mdash;ange inte båda två. | Sträng | Ja      |
@@ -242,7 +242,7 @@ Fältet `tags` innehåller ett visningsnamn och en lista med åtgärder (insikte
 
 En lista över standard insikter finns i standard insikter- [taggen](../default-insights-tag.md).
 
-Resten av taggarna innehåller andra insikter som kan vara av intresse för användaren. Om bilden exempelvis innehåller text kan en av taggarna omfatta en TextResults-insikt som innehåller den identifierade texten. Eller, om Bing känner igen en entitet (d.v.s. en person, plats eller sak) i bilden, kan en av taggarna identifiera entiteten. Visuell sökning returnerar också en mängd olika villkor (taggar) som härletts från den inmatade bilden. Taggarna gör det möjligt för användare att utforska begrepp som finns i avbildningen. Om bilden till exempel föreställer berömda idrottare kan en av taggarna vara sport, som innehåller länkar till bilder av sport.
+Resten av taggarna innehåller andra insikter som kan vara av intresse för användaren. Om bilden exempelvis innehåller text kan en av taggarna omfatta en TextResults-insikt som innehåller den identifierade texten. Eller, om Bing känner igen en entitet (d.v.s. en kulturellt välkänd/populär person, plats eller sak) i bilden, kan en av taggarna identifiera entiteten. Visuell sökning returnerar också en mängd olika villkor (taggar) som härletts från den inmatade bilden. Taggarna gör det möjligt för användare att utforska begrepp som finns i avbildningen. Om bilden till exempel föreställer berömda idrottare kan en av taggarna vara sport, som innehåller länkar till bilder av sport.
 
 Varje tagg innehåller ett visningsnamn som du kan använda för att kategorisera insikter, avgränsningsrektangel som identifierar den intressanta regionen som insikten gäller för och en miniatyrbild av bilden. Om bilden föreställer en person som har på sig en sporttröja kan en av taggarna innehålla en avgränsningsrektangel som en gräns för tröjan och inkludera VisualSearch- och ProductVisualSearch-insikter. Och en annan tagg kan innehålla ImageResults-insikter som innehåller en URL för API-begäran /images/search för att hämta bilder som är relaterade eller en Bing.com-sökwebbadress som leder användaren till bildsökningsresultat för Bing.com.
 
@@ -368,7 +368,7 @@ Textigenkänning kan också identifiera kontaktuppgifter på visitkort, till exe
     }
 ```
 
-Om bilden innehåller en känd enhet som en person, plats eller sak, kan en av taggarna omfatta en entitetsinsikt.
+Om avbildningen innehåller en erkänd entitet, till exempel en kulturellt välkänd/populär person, plats eller sak, kan en av taggarna innehålla en inblick i enheten.
 
 ```json
     {

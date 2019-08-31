@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 505a3104968e285a7fe4801db8029dc45647087a
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 2eaae9093614f1512dcd75d23c98bca871bf2850
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011354"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193327"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudier: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -63,7 +63,7 @@ Det certifikat som du begär eller skapar måste uppfylla följande krav. Din ha
 
 * **Betrodd utfärdare** – certifikatet måste utfärdas av en utfärdare som är betrodd av datorer som ansluter till den hanterade domänen med hjälp av säker LDAP. Denna myndighet kan vara en offentlig certifikat utfärdare eller en företags certifikat utfärdare som är betrodd av dessa datorer.
 * **Livs längd** -certifikatet måste vara giltigt under minst de kommande 3-6 månaderna. Säkert LDAP åtkomst till din hanterade domän avbryts när certifikatet upphör att gälla.
-* **Ämnes namn** – ämnes namnet för certifikatet måste vara din hanterade domän. Om din domän till exempel heter *contoso.com*, måste certifikatets ämnes namn vara *contoso.com*.
+* **Ämnes namn** – ämnes namnet för certifikatet måste vara din hanterade domän. Om din domän till exempel heter *contoso.com*, måste certifikatets ämnes namn vara * *. contoso.com*.
     * Det alternativa DNS-namnet eller det alternativa ämnes namnet för certifikatet måste vara ett certifikat med jokertecken för att säkerställa att det säkra LDAP fungerar korrekt med Azure AD Domain Services. Domänkontrollanter använder slumpmässiga namn och kan tas bort eller läggas till för att säkerställa att tjänsten är tillgänglig.
 * **Nyckel användning** – certifikatet måste konfigureras för *digitala signaturer* och *nyckelchiffrering*.
 * **Certifikat syfte** – certifikatet måste vara giltigt för SSL-serverautentisering.
@@ -78,7 +78,7 @@ $dnsName="contoso.com"
 $lifetime=Get-Date
 
 # Create a self-signed certificate for use with Azure AD DS
-New-SelfSignedCertificate -Subject $dnsName `
+New-SelfSignedCertificate -Subject *.$dnsName `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
   -Type SSLServerAuthentication -DnsName *.$dnsName, $dnsName
 ```
@@ -86,7 +86,7 @@ New-SelfSignedCertificate -Subject $dnsName `
 Följande exempel på utdata visar att certifikatet har skapats och är lagrat i det lokala certifikat arkivet (*LocalMachine\MY*):
 
 ```output
-PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject $dnsName `
+PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject *.$dnsName `
 >>   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
 >>   -Type SSLServerAuthentication -DnsName *.$dnsName, $dnsName.com
 

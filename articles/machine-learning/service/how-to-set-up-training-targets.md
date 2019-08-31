@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1ee18abfab2cf286ee010bd6d25dfbc5a38cebb
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c9bc9d64d7f21498acd5cb0c23447e7ff77de629
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011570"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195574"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning 
+# <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 
 Med Azure Machine Learning tjänsten kan du träna din modell på en mängd olika resurser eller miljöer, som sammankallas för beräknings [__mål__](concept-azure-machine-learning-architecture.md#compute-targets). Ett beräknings mål kan vara en lokal dator eller en moln resurs, till exempel en Azure Machine Learning beräkning, Azure HDInsight eller en virtuell dator för virtuella datorer.  Du kan också skapa beräknings mål för modell distribution enligt beskrivningen i ["var och hur du distribuerar dina modeller"](how-to-deploy-and-where.md).
 
@@ -47,33 +47,9 @@ Azure Machine Learning tjänsten har varierande stöd för olika beräknings må
 
 När det gäller utbildning är det vanligt att starta på den lokala datorn och senare köra det utbildnings skriptet på ett annat Compute-mål. Med Azure Machine Learning tjänsten kan du köra skriptet på olika beräknings mål utan att behöva ändra ditt skript. 
 
-Allt du behöver göra är att definiera miljön för varje beräknings mål med en **körnings konfiguration**.  När du sedan vill köra ditt utbildnings experiment på ett annat beräknings mål anger du körnings konfigurationen för den beräkningen.
+Allt du behöver göra är att definiera miljön för varje beräknings mål i en **körnings konfiguration**.  När du sedan vill köra ditt utbildnings experiment på ett annat beräknings mål anger du körnings konfigurationen för den beräkningen. Information om hur du anger en miljö och binder den till att köra konfigurationen finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md)
 
 Läs mer om hur du [skickar experiment](#submit) i slutet av den här artikeln.
-
-### <a name="manage-environment-and-dependencies"></a>Hantera miljöer och beroenden
-
-När du skapar en körnings konfiguration måste du bestämma hur miljön och beroenden i beräknings målet ska hanteras. 
-
-#### <a name="system-managed-environment"></a>System-hanterad miljö
-
-Använd en Systemhanterad miljö när du vill att [Conda](https://conda.io/docs/) ska hantera python-miljön och skript beroenden åt dig. En Systemhanterad miljö antas som standard och det vanligaste valet. Det är användbart för fjärrberäknings mål, särskilt när du inte kan konfigurera det målet. 
-
-Allt du behöver göra är att ange varje paket beroende med [klassen CondaDependency](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) och sedan skapar Conda en fil med namnet **conda_dependencies. yml** i katalogen **aml_config** på din arbets yta med din lista över paket beroenden och konfigurerar din python-miljö när du skickar in ditt utbildnings experiment. 
-
-Den första installationen av en ny miljö kan ta flera minuter beroende på storleken på de nödvändiga beroendena. Så länge listan över paket förblir oförändrad, sker installations tiden bara en gång.
-  
-Följande kod visar ett exempel på en Systemhanterad miljö som kräver scikit-information:
-    
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_system_managed)]
-
-#### <a name="user-managed-environment"></a>Användarhanterade miljö
-
-För en användar hanterad miljö ansvarar du för att konfigurera din miljö och installera varje paket som utbildnings skriptet behöver på beräknings målet. Om din utbildnings miljö redan har kon figurer ATS (till exempel på en lokal dator) kan du hoppa över installations steget genom `user_managed_dependencies` att ange True. Conda kommer inte att kontrol lera din miljö eller installera något åt dig.
-
-Följande kod visar ett exempel på hur du konfigurerar inlärnings körningar för en användar hanterad miljö:
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
 
 ## <a name="whats-an-estimator"></a>Vad är en uppskattning?
 
@@ -390,7 +366,7 @@ Mer information finns i [resurs hantering](reference-azure-machine-learning-cli.
 
 Du kan komma åt, skapa och hantera de beräknings mål som är kopplade till din arbets yta med [vs Code-tillägget](how-to-vscode-tools.md#create-and-manage-compute-targets) för Azure Machine Learning-tjänsten.
 
-## <a id="submit"></a>Skicka utbildnings körning
+## <a id="submit"></a>Skicka utbildnings körning med hjälp av Azure Machine Learning SDK
 
 När du har skapat en körnings konfiguration använder du den för att köra experimentet.  Kod mönstret för att skicka en tränings körning är detsamma för alla typer av beräknings mål:
 
@@ -430,8 +406,70 @@ Växla samma experiment för att köra i ett annat beräknings mål genom att an
 Eller så kan du:
 
 * Skicka experimentet med ett `Estimator` -objekt som det visas i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
-* Skicka ett experiment [med CLI-tillägget](reference-azure-machine-learning-cli.md#experiments).
+* Skicka en HyperDrive-körning för inställning av min [parameter](how-to-tune-hyperparameters.md).
 * Skicka ett experiment via [vs Code-tillägget](how-to-vscode-tools.md#train-and-tune-models).
+
+## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Skapa kör konfiguration och skicka körning med Azure Machine Learning CLI
+
+Du kan använda [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och [Machine Learning CLI-tillägget](reference-azure-machine-learning-cli.md) för att skapa kör konfigurationer och skicka körningar på olika Compute-mål. Följande exempel förutsätter att du har en befintlig Azure Machine Learning-arbetsyta och att du har loggat in på `az login` Azure med CLI-kommandot. 
+
+### <a name="create-run-configuration"></a>Skapa körnings konfiguration
+
+Det enklaste sättet att skapa kör konfiguration är att navigera i mappen som innehåller dina Python-skript för Machine Learning och använda kommandot CLI
+
+```azurecli
+az ml folder attach
+```
+
+Det här kommandot skapar en undermapp `.azureml` som innehåller mallar som kör konfigurationsfiler för olika beräknings mål. Du kan kopiera och redigera dessa filer för att anpassa konfigurationen, till exempel för att lägga till python-paket eller ändra Docker-inställningar.  
+
+### <a name="create-an-experiment"></a>Skapa ett experiment
+
+Börja med att skapa ett experiment för dina körningar
+
+```azurecli
+az ml experiment create -n <experiment>
+```
+
+### <a name="script-run"></a>Skript körning
+
+Kör ett kommando om du vill skicka en skript körning
+
+```azurecli
+az ml run submit-script -e <experiment> -c <runconfig> my_train.py
+```
+
+### <a name="hyperdrive-run"></a>HyperDrive körning
+
+Du kan använda HyperDrive med Azure CLI för att utföra parameter justerings körningar. Börja med att skapa en HyperDrive-konfigurations fil i följande format. Se [Justera egenskaper för en modell](how-to-tune-hyperparameters.md) artikel för information om parametrar för parameter justering.
+
+```yml
+# hdconfig.yml
+sampling: 
+    type: random # Supported options: Random, Grid, Bayesian
+    parameter_space: # specify a name|expression|values tuple for each parameter.
+    - name: --penalty # The name of a script parameter to generate values for.
+      expression: choice # supported options: choice, randint, uniform, quniform, loguniform, qloguniform, normal, qnormal, lognormal, qlognormal
+      values: [0.5, 1, 1.5] # The list of values, the number of values is dependent on the expression specified.
+policy: 
+    type: BanditPolicy # Supported options: BanditPolicy, MedianStoppingPolicy, TruncationSelectionPolicy, NoTerminationPolicy
+    evaluation_interval: 1 # Policy properties are policy specific. See the above link for policy specific parameter details.
+    slack_factor: 0.2
+primary_metric_name: Accuracy # The metric used when evaluating the policy
+primary_metric_goal: Maximize # Maximize|Minimize
+max_total_runs: 8 # The maximum number of runs to generate
+max_concurrent_runs: 2 # The number of runs that can run concurrently.
+max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
+```
+
+Lägg till den här filen tillsammans med konfigurationsfilerna för körning. Skicka sedan en HyperDrive-körning med:
+```azurecli
+az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
+```
+
+Observera avsnittet *argument* i runconfig och *parameter utrymme* i HyperDrive config. De innehåller kommando rads argument som ska skickas till övnings skriptet. Värdet i runconfig förblir detsamma för varje iteration, medan intervallet i HyperDrive-config upprepas. Ange inte samma argument i båda filerna.
+
+Mer information om dessa ```az ml``` CLI-kommandon och en fullständig uppsättning argument finns i [referens dokumentationen](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 

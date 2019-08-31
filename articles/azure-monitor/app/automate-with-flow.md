@@ -1,6 +1,6 @@
 ---
-title: Automatisera Azure Application Insights processer med Microsoft Flow
-description: Lär dig hur du kan använda Microsoft Flow för att automatisera snabbt upprepade processer med hjälp av Application Insights-anslutningen.
+title: Automatisera Azure Application insikter-processer med Microsoft Flow
+description: Lär dig hur du kan använda Microsoft Flow för att snabbt automatisera upprepade processer med hjälp av Application Insights-anslutningen.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,70 +9,75 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 08/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 541d5b70ee56d62831f0947e64b9522e17a07dd9
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60903655"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194917"
 ---
-# <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Application Insights processer med anslutningsappen för Microsoft Flow
+# <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Application Insights-processer med anslutnings programmet för Microsoft Flow
 
-Hittar du själv upprepade gånger köra samma frågor på dina telemetridata för att kontrollera att tjänsten fungerar korrekt? Vill du automatisera de här frågorna för att hitta trender och avvikelser och sedan skapa dina egna arbetsflöden runt dem? Azure Application Insights-anslutningsappen för Microsoft Flow är rätt verktyg för dessa ändamål.
+Kan du hitta dig upprepade gånger med samma frågor på dina telemetridata för att kontrol lera att tjänsten fungerar korrekt? Vill du automatisera de här frågorna för att hitta trender och avvikelser och sedan bygga egna arbets flöden runt dem? Azure Application Insights-anslutaren för Microsoft Flow är rätt verktyg för de här syftena.
 
-Med den här integrationen kan du nu automatisera många processer utan att behöva skriva en enda rad kod. När du har skapat ett flöde med hjälp av en Application Insights-åtgärd körs flödet automatiskt din Application Insights Analytics-fråga. 
+Med den här integreringen kan du nu automatisera flera processer utan att behöva skriva en enda rad kod. När du har skapat ett flöde med hjälp av en Application Insights åtgärd kör flödet automatiskt din Application Insights Analytics-fråga.
 
-Du kan lägga till ytterligare åtgärder samt. Microsoft Flow tillgängliggör hundratals åtgärder. Du kan till exempel använda Microsoft Flow för att automatiskt skicka ett e-postmeddelande eller skapa en bugg i Azure DevOps. Du kan också använda en av många [mallar](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) som är tillgängliga för anslutningsappen för Microsoft Flow. Dessa mallar snabba upp processen med att skapa ett flöde. 
+Du kan också lägga till ytterligare åtgärder. Microsoft Flow gör hundratals åtgärder tillgängliga. Du kan till exempel använda Microsoft Flow för att automatiskt skicka ett e-postmeddelande eller skapa en bugg i Azure-DevOps. Du kan också använda en av de många [mallar](https://ms.flow.microsoft.com/connectors/shared_applicationinsights/?slug=azure-application-insights) som är tillgängliga för anslutningen till Microsoft Flow. Dessa mallar påskyndar processen med att skapa ett flöde.
 
-<!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). --> 
+<!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). -->
 
 ## <a name="create-a-flow-for-application-insights"></a>Skapa ett flöde för Application Insights
 
-I den här självstudien får du lära dig hur du skapar ett flöde som använder algoritmen Analytics automatiskt-kluster till attributen i data för ett webbprogram. Flödet skickar automatiskt resultaten via e-post, bara ett exempel på hur du kan använda Microsoft Flow och Application Insights Analytics tillsammans. 
+I den här självstudien får du lära dig hur du skapar ett flöde som använder algoritmen för analys av automatiskt kluster för att gruppera attribut i data för ett webb program. Flödet skickar automatiskt resultaten per e-post, bara ett exempel på hur du kan använda Microsoft Flow och Application Insights Analytics tillsammans.
 
 ### <a name="step-1-create-a-flow"></a>Steg 1: Skapa ett flöde
-1. Logga in på [Microsoft Flow](https://flow.microsoft.com), och välj sedan **Mina flöden**.
-2. Klicka på **New** sedan **skapa från tom**.
 
-    ![Skapa nytt flöde från början](./media/automate-with-flow/1createflow.png)
+1. Logga in på [Microsoft Flow](https://flow.microsoft.com)och välj sedan **mina flöden**.
+2. Klicka på **nytt** och sedan **schemalagt – från Tom**.
 
-### <a name="step-2-create-a-trigger-for-your-flow"></a>Steg 2: Skapa en utlösare för flödet
-1. Fliken i Build-modulen väljer **schema**, och välj sedan **schema – återkommande**.
+    ![Skapa nytt flöde från schemalagt tomt](./media/automate-with-flow/1-create.png)
 
-    ![Välj schemalägga under build](./media/automate-with-flow/2schedule.png)
+### <a name="step-2-create-a-trigger-for-your-flow"></a>Steg 2: Skapa en utlösare för ditt flöde
 
-1. I den **intervall** anger **1**, och i den **frekvens** väljer **dag**.
-2. Klicka på **nytt steg**
+1. I popup-fönstret **skapar du ett schemalagt flöde**, fyller i namnet på ditt flöde och hur ofta du vill att flödet ska köras.
 
-    ![Ställ in schema-upprepning med att ange frekvens och intervall](./media/automate-with-flow/3schedulerecurrence.png)
+    ![Konfigurera upprepning av schema med att ange frekvens och intervall](./media/automate-with-flow/2-schedule.png)
 
+1. Klicka på **Skapa**.
 
 ### <a name="step-3-add-an-application-insights-action"></a>Steg 3: Lägg till en Application Insights-åtgärd
-1. Sök efter **Azure Application Insights**.
-2. Klicka på **Azure Application Insights - visualisera analysfråga**.
- 
-    ![Välj en åtgärd: Azure Application Insights visualisera Analytics-fråga](./media/automate-with-flow/4visualize.png)
 
-### <a name="step-4-connect-to-an-application-insights-resource"></a>Steg 4: Anslut till en Application Insights-resurs
+1. Sök efter **Application Insights**.
+2. Klicka på **Azure Application Insights-visualisera analys fråga**.
 
-För att slutföra det här steget behöver du ett program-ID och en API-nyckel för din resurs. Du kan hämta dem från Azure-portalen, enligt följande diagram:
+    ![Välj en åtgärd: Analys fråga för Azure Application Insights-visualisering](./media/automate-with-flow/3-visualize.png)
 
-![Program-ID i Azure portal](./media/automate-with-flow/5apiaccess.png)
+3. Välj **Nytt steg**.
 
-![API-nyckel i Azure portal](./media/automate-with-flow/6apikey.png)
+### <a name="step-4-connect-to-an-application-insights-resource"></a>Steg 4: Ansluta till en Application Insights-resurs
 
-- Ange ett namn för anslutningen, tillsammans med den program-ID och API-nyckeln.
+För att slutföra det här steget måste du ha ett program-ID och en API-nyckel för din resurs. Du kan hämta dem från Azure Portal, som du ser i följande diagram:
 
-    ![Fönstret för Microsoft Flow-anslutning](./media/automate-with-flow/7connection.png)
+![Program-ID i Azure Portal](./media/automate-with-flow/5apiaccess.png)
 
-### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Steg 5: Ange Analytics-fråga och diagram
-Den här exempelfråga väljer misslyckade förfrågningar under den senaste dagen och kopplar dem med undantag som inträffat som en del av åtgärden. Analytics korrelerar dem baserat på operation_Id identifierare. Frågan segment sedan resultatet med hjälp av algoritmen autocluster. 
+![API-nyckel i Azure Portal](./media/automate-with-flow/6apikey.png)
 
-När du skapar egna frågor kan du kontrollera att de fungerar korrekt i Analytics innan du lägger till den i ditt flöde.
+Ange ett namn för anslutningen, tillsammans med programmets ID och API-nyckel.
 
-- Lägg till följande Analytics-frågan och välj diagramtyp för HTML-tabell. Välj sedan **nytt steg**.
+   ![Microsoft Flow anslutnings fönster](./media/automate-with-flow/4-connection.png)
+
+Om rutan anslutning inte visas direkt och i stället går direkt till att ange frågan klickar du på ellipserna längst upp till höger i rutan. Välj sedan mina anslutningar eller Använd en befintlig.
+
+Klicka på **Skapa**.
+
+### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Steg 5: Ange analys frågan och diagram typen
+Den här exempel frågan väljer de misslyckade förfrågningarna inom den senaste dagen och korrelerar dem med undantag som inträffat som en del av åtgärden. Analysen korrelerar dem baserat på operation_Id-ID: n. Frågan delar sedan resultatet med hjälp av algoritmen för autokluster.
+
+När du skapar egna frågor måste du kontrol lera att de fungerar korrekt i Analytics innan du lägger till dem i ditt flöde.
+
+- Lägg till följande analys fråga och välj diagram typen HTML-tabell. Välj sedan **nytt steg**.
 
     ```
     requests
@@ -85,59 +90,53 @@ När du skapar egna frågor kan du kontrollera att de fungerar korrekt i Analyti
     | evaluate autocluster()
     ```
     
-    ![Konfigurationsfönstret i Analytics-fråga](./media/automate-with-flow/8query.png)
+    ![Konfigurations fönster för Analytics-fråga](./media/automate-with-flow/5-query.png)
 
 ### <a name="step-6-configure-the-flow-to-send-email"></a>Steg 6: Konfigurera flödet för att skicka e-post
 
 1. Sök efter **Office 365 Outlook**.
 2. Klicka på **Office 365 Outlook – skicka ett e-postmeddelande**.
 
-    ![Office 365 Outlook-urvalsfönstret](./media/automate-with-flow/9outlookaction.png)
+    ![Office 365 Outlook Selection-fönster](./media/automate-with-flow/6-outlook.png)
 
-1. I den **skicka ett e-postmeddelande** fönstret gör du följande:
+1. I fönstret **Skicka ett e-postmeddelande** :
 
-   a. Ange e-postadressen till mottagaren.
+   a. Ange mottagarens e-postadress.
 
    b. Ange ett ämne för e-postmeddelandet.
 
-   c. Klicka på den **brödtext** rutan och sedan på dynamiskt innehåll-menyn som öppnas till höger väljer **brödtext**.
+   c. Klicka någonstans i **text** rutan och välj sedan **brödtext**på menyn för dynamiskt innehåll som öppnas till höger.
 
-   d. Klicka på **visa avancerade alternativ**.
+   e. Välj **Visa avancerade alternativ**
 
-    ![Office 365 Outlook-konfiguration](./media/automate-with-flow/10sendemailbody.png)
+1. På menyn för dynamiskt innehåll:
 
-1. På menyn om dynamiskt innehåll, gör du följande:
+    a. Välj **namn på bifogad fil**.
 
-    a. Välj **Bilagenamn**.
-
-    b. Välj **innehåll i bifogad fil**.
+    b. Välj **innehåll för bifogad fil**.
     
-    c. I den **är HTML** väljer **Ja**.
+    c. I rutan **är HTML** väljer du **Ja**.
 
-    ![Konfigurationsfönstret i Office 365 e-post](./media/automate-with-flow/11emailattachment.png)
+    ![Office 365 Outlook-konfiguration](./media/automate-with-flow/7-email.png)
 
 ### <a name="step-7-save-and-test-your-flow"></a>Steg 7: Spara och testa ditt flöde
-- I den **flödesnamn** , lägga till ett namn för flödet och sedan på **spara**.
 
-    ![Namnge flödet och spara](./media/automate-with-flow/12nameflow.png)
+Klicka på **Spara**.
 
-Du kan vänta på att utlösaren ska köras den här åtgärden eller kan du köra flödet direkt av [köra utlösaren på begäran](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
+Du kan vänta tills utlösaren har kört den här åtgärden, eller så ![kan du klicka på](./media/automate-with-flow/testicon.png) test ikonen för bägaren överst.
 
-När flödet körs postmeddelande de mottagare som du har angett i listan över e-ett e-som ser ut som följande:
+Efter val av **test**:
 
-![E-postexempel](./media/automate-with-flow/flow9.png)
+1. Välj **jag utför utlösnings åtgärden**.
+2. Välj **Kör flöde**.
 
+När flödet körs får mottagarna som du har angett i e-postlistan ett e-postmeddelande som det som visas nedan.
+
+![Exempel på e-post](./media/automate-with-flow/flow9.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om hur du skapar [analysfrågor](../../azure-monitor/log-query/get-started-queries.md).
+- Lär dig mer om att skapa [analys frågor](../../azure-monitor/log-query/get-started-queries.md).
 - Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).
 
-
-
 <!--Link references-->
-
-
-
-
-

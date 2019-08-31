@@ -1,35 +1,29 @@
 ---
-title: Exempel och genomgångar för virtuella datorer för datavetenskap – Azure | Microsoft Docs
+title: Exempel på & genom gångar
+titleSuffix: Azure Data Science Virtual Machine
 description: I de här exemplen och genom gången lär du dig hur du hanterar vanliga uppgifter och scenarier med Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: vijetaj
-ms.openlocfilehash: 628c516553c2304739229c53d725645c799d06ce
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f3d683ffb91639db64000efa2d9791d13d84b79b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047830"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195676"
 ---
-# <a name="samples-on-data-science-virtual-machines"></a>Exempel på virtuella datorer för datavetenskap
+# <a name="samples-on-azure-data-science-virtual-machines"></a>Exempel på Azure Data Science-Virtual Machines
 
 Azure Data Science Virtual Machines (Dsvm) innehåller en omfattande uppsättning exempel kod. De här exemplen omfattar Jupyter-anteckningsböcker och skript i språk som python och R.
 > [!NOTE]
 > Mer information om hur du kör Jupyter-anteckningsböcker på dina virtuella datorer för data vetenskap finns i avsnittet [Access Jupyter](#access-jupyter) .
 
-## <a name="quick-reference-of-samples"></a>Snabbreferens exempel
+## <a name="available-samples"></a>Tillgängliga exempel
 | Exempel-kategori | Beskrivning | Platser |
 | ------------- | ------------- | ------------- |
 | R-språket  | Exempel illustrerar scenarier som hur du ansluter till Azure-baserade moln data lager och hur du jämför R-och Microsoft Machine Learning Server med öppen källkod. De förklarar också hur du operationalisera modeller på Microsoft Machine Learning Server och SQL Server. <br/> [R-språket](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|

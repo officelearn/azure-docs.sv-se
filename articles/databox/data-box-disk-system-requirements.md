@@ -8,12 +8,13 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: e17fbcebc128a7169953ed05de617efa25fc25f8
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.localizationpriority: high
+ms.openlocfilehash: 20c27a3e4e9a96a19b347e5ef57ab9fb3c047140
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172721"
+ms.locfileid: "70194442"
 ---
 ::: zone target="docs"
 
@@ -27,12 +28,13 @@ System kraven omfattar de plattformar som stöds för klienter som ansluter till
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Förutsättningar
+# <a name="review-prerequisites"></a>Granska krav
 
-Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
+1. Du måste ha ordnat Data Box Disk med hjälp av självstudierna: Beställ dina Azure Data Box Disk. Du har fått diskarna och en anslutnings kabel per disk.
+2. Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
 
-- Kör ett operativ system som stöds.
-- Ha annan nödvändig program vara installerad.
+    - Kör ett operativ system som stöds.
+    - Ha annan nödvändig program vara installerad.
 
 ::: zone-end
 

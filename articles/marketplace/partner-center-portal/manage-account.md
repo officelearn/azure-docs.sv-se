@@ -1,18 +1,18 @@
 ---
 title: Så här hanterar du ett kommersiellt marknads plats konto i Partner Center
 description: Lär dig hur du hanterar ett kommersiellt marknads plats konto i Partner Center.
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f0557f21e791dd22df16451003d5efcfc72c56b4
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.date: 08/30/2019
+ms.openlocfilehash: 99f981698daf12bf7d493159fc7fd08a98a28104
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164725"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194259"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella marknads plats konto i Partner Center 
 
@@ -305,9 +305,15 @@ Om ditt Azure AD-program läser och skriver data i Microsoft Azure AD behöver d
 Ditt företags användare kan tilldelas följande roller och behörigheter för programmet för affärs marknads platser i Partner Center. 
 
 |**Roll**|**Behörigheter**|
-|----------------------------------|:---------------------------------|
-
-| Manager | • kan komma åt alla Microsoft-konto funktioner utom skatte-och utbetalnings inställningar |      | • Kan hantera användare, roller och arbets konton (klient organisationer) | | Utvecklare | • kan hantera och publicera erbjudanden |      | • Kan visa Publisher-rapporter | | Global administratör | • inte relevant för kommersiell marknads plats | | Business Contributor | • inte relevant för kommersiell marknads plats | | Finansiell deltagare | • inte relevant för kommersiell marknads plats | | Marknads plats | • inte relevant för kommersiell marknads plats |
+|----------------------------------|---------------------------------|
+|Manager|-Kan komma åt alla Microsoft-konto funktioner utom skatte-och utbetalnings inställningar|
+|      |– Kan hantera användare, roller och arbets konton (klient organisationer)|
+|Utvecklare|– Kan hantera och publicera erbjudanden|
+|      |– Kan visa vissa Publisher-rapporter|
+|Global administratör|– Inte relevant för kommersiell marknads plats|
+|Företags deltagare|– Inte relevant för kommersiell marknads plats|
+|Finansiell bidrags givare|– Inte relevant för kommersiell marknads plats|
+|Rika marknads föraren|– Inte relevant för kommersiell marknads plats|
 
 Mer information om hur du hanterar roller och behörigheter i andra delar av Partner Center, till exempel Azure Active Directory (AD), Cloud Solution Provider (CSP), kontroll panels leverantör (CPV), gäst användare eller Microsoft Partner Network (MPN), finns i [Tilldela användar roller och behörigheter i Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 

@@ -1,27 +1,21 @@
 ---
-title: Med hjälp av Geo AI Data Science Virtual Machine – Azure | Microsoft Docs
+title: Använda geo AI
+titleSuffix: Azure Data Science Virtual Machine
 description: Lär dig hur du använder Geo AI Data Science Virtual Machine för att analysera data och skapa modeller som baseras på geospatiala data.
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, geospatial analys
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: vijetaj
-ms.openlocfilehash: 22c0d7d604ca41044d2d969d4ddbd2ae1a4d23d5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 01238885e68a39ff713bd346a9206668e16e7ee4
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170490"
+ms.locfileid: "70195278"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Med hjälp av Geo AI Data Science Virtual Machine
 
@@ -47,7 +41,7 @@ Förutom de ramverkbaserade exempel för maskin inlärning och djup inlärning f
 
 2. [Komma igång med geospatial analys med R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Ett inledande exempel som visar hur du arbetar med geospatiala data med hjälp av R-gränssnittet till ArcGIS som tillhandahålls av [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) -biblioteket. 
 
-3. [Klassificering av mark användning på pixel nivå](https://github.com/Azure/pixel_level_land_classification): En själv studie kurs som illustrerar hur du skapar en djup neurala nätverks modell som accepterar en flyg-bild som indata och returnerar en etikett för land omslag. Exempel på etiketter för land omslag är *skogs* -och *vatten*. Modellen returnerar sådana en etikett för varje bildpunkt i avbildningen. Modellen har skapats med hjälp av ramverket för djup inlärning i Microsoft CNTK (Open-Source [Cognitive Toolkit)](https://www.microsoft.com/en-us/cognitive-toolkit/) .
+3. [Klassificering av mark användning på pixel nivå](https://github.com/Azure/pixel_level_land_classification): En själv studie kurs som illustrerar hur du skapar en djup neurala nätverks modell som accepterar en flyg-bild som indata och returnerar en etikett för land omslag. Exempel på etiketter för land omslag är *skogs* -och *vatten*. Modellen returnerar sådana en etikett för varje bildpunkt i avbildningen. 
 
 
 ## <a name="next-steps"></a>Nästa steg

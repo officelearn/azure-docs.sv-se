@@ -1,48 +1,48 @@
 ---
-title: Azure Resource Manager-Mallfunktioner - numeriska | Microsoft Docs
-description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att arbeta med siffror.
+title: Azure Resource Manager Template Functions-numeric | Microsoft Docs
+description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med siffror.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: f63ce16369fd1ff58d5368b43c3c730008e63d9a
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 3ec5477ca6ea1731f18b09d6393bdde6261e0c32
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206424"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194330"
 ---
-# <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numeriska funktioner för Azure Resource Manager-mallar
+# <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numeriska funktioner för Azure Resource Manager mallar
 
-Resource Manager tillhandahåller följande funktioner för att arbeta med heltal:
+Resource Manager innehåller följande funktioner för att arbeta med heltal:
 
 * [add](#add)
 * [copyIndex](#copyindex)
 * [div](#div)
-* [flyttal](#float)
+* [flyta](#float)
 * [int](#int)
 * [max](#max)
-* [min](#min)
+* [minimum](#min)
 * [mod](#mod)
 * [mul](#mul)
-* [sub](#sub)
+* [Build](#sub)
 
 <a id="add" />
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="add"></a>add
+## <a name="add"></a>lägg till
 `add(operand1, operand2)`
 
-Returnerar summan av de två angivna heltal.
+Returnerar summan av de två angivna heltalen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- | 
-|operand1 |Ja |int |Första talet som ska läggas. |
-|operand2 |Ja |int |Andra talet att lägga till. |
+|operand1 |Ja |int |Första talet som ska läggas till. |
+|operand2 |Ja |int |Det andra numret som ska läggas till. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -50,7 +50,7 @@ Ett heltal som innehåller summan av parametrarna.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) lägger till två parametrar.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) läggs två parametrar till.
 
 ```json
 {
@@ -85,7 +85,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -106,28 +106,28 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="copyindex"></a>copyIndex
 `copyIndex(loopName, offset)`
 
-Returnerar index för en iteration loop. 
+Returnerar indexet för en upprepnings slinga. 
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| loopName | Nej | string | Namnet på slingan för att hämta iterationen. |
-| offset |Nej |int |Nummer att lägga till det nollbaserade iteration-värdet. |
+| loopName | Nej | sträng | Namnet på slingan för att hämta iterationen. |
+| redovisningsmotkonto |Nej |int |Talet som ska läggas till i det nollbaserade upprepning svärdet. |
 
 ### <a name="remarks"></a>Kommentarer
 
-Den här funktionen används alltid med en **kopia** objekt. Om inget värde har angetts för **offset**, returneras värdet för aktuell iteration. Iteration värdet börjar på noll. Du kan använda iteration slingor när du definierar resurser eller variabler.
+Den här funktionen används alltid med ett **copy** -objekt. Om inget värde anges för **förskjutning**returneras det aktuella upprepning svärdet. Upprepning svärdet börjar med noll. Du kan använda iteration slingor när du definierar antingen resurser eller variabler.
 
-Den **loopName** egenskapen kan du ange om copyIndex hänvisar till en resurs iteration eller egenskapen iteration. Om inget värde har angetts för **loopName**, den aktuella resurs typ iterationen används. Ange ett värde för **loopName** när iteration av en egenskap. 
+Med egenskapen **loopName** kan du ange om copyIndex refererar till en resurs upprepning eller egenskaps upprepning. Om inget värde anges för **loopName**används den aktuella resurs typen iteration. Ange ett värde för **loopName** när du går igenom en egenskap. 
  
-För en fullständig beskrivning av hur du använder **copyIndex**, se [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
+En fullständig beskrivning av hur du använder **copyIndex**finns i [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
 
-Ett exempel på hur du använder **copyIndex** när du definierar en variabel, se [variabler](resource-group-authoring-templates.md#variables).
+Ett exempel på hur du använder **copyIndex** när du definierar en variabel finns i [variabler](resource-group-authoring-templates.md#variables).
 
 ### <a name="example"></a>Exempel
 
-I följande exempel visas en kopia skapas och indexvärdet ingår i namnet. 
+I följande exempel visas en kopierings slinga och det index värde som ingår i namnet. 
 
 ```json
 "resources": [ 
@@ -145,21 +145,21 @@ I följande exempel visas en kopia skapas och indexvärdet ingår i namnet.
 
 ### <a name="return-value"></a>Returvärde
 
-Ett heltal som representerar det aktuella indexet i iteration.
+Ett heltal som representerar det aktuella indexet för upprepningen.
 
 <a id="div" />
 
 ## <a name="div"></a>div
 `div(operand1, operand2)`
 
-Returnerar heltalsdivisionen av två angivna heltal.
+Returnerar heltals divisionen av de två angivna heltalen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Ja |int |Hur många delade. |
-| operand2 |Ja |int |Det tal som används för att dela. Får inte vara 0. |
+| operand1 |Ja |int |Talet som delas. |
+| operand2 |Ja |int |Det tal som används för att dividera. Kan inte vara 0. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -167,7 +167,7 @@ Ett heltal som representerar divisionen.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) delar upp en parameter av en annan-parametern.
+Följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) delar upp en parameter med en annan parameter.
 
 ```json
 {
@@ -202,7 +202,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
@@ -223,20 +223,20 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="float"></a>float
 `float(arg1)`
 
-Konverterar värdet till ett flyttal peka tal. Du kan bara använda den här funktionen vid sändning av anpassade parametrar till ett program, till exempel en Logikapp.
+Konverterar värdet till ett flytt ALS nummer. Du använder bara den här funktionen när du skickar anpassade parametrar till ett program, till exempel en Logic app.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |sträng eller int |Värdet att konvertera till ett flyttal peka tal. |
+| arg1 |Ja |sträng eller heltal |Värdet som ska konverteras till ett flytt ALS nummer. |
 
 ### <a name="return-value"></a>Returvärde
-En flytande peka tal.
+Ett flytt ALS nummer.
 
 ### <a name="example"></a>Exempel
 
-I följande exempel visas hur du använder flyttal för att skicka parametrar till en Logikapp:
+I följande exempel visas hur du använder float för att skicka parametrar till en Logic app:
 
 ```json
 {
@@ -263,15 +263,15 @@ Konverterar det angivna värdet till ett heltal.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Ja |sträng eller int |Värdet att konvertera till ett heltal. |
+| valueToConvert |Ja |sträng eller heltal |Värdet som ska konverteras till ett heltal. |
 
 ### <a name="return-value"></a>Returvärde
 
-Ett heltal av det konvertera värdet.
+Ett heltal av det konverterade värdet.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) konverterar användardefinierade parametervärdet till heltal.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) konverteras det användardefinierade parametervärdet till Integer.
 
 ```json
 {
@@ -296,7 +296,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
@@ -317,21 +317,21 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="max"></a>max
 `max (arg1)`
 
-Returnerar det största värdet från en matris av heltal eller en kommaavgränsad lista med heltal.
+Returnerar det maximala värdet från en matris med heltal eller en kommaavgränsad lista med heltal.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris med heltal eller en kommaavgränsad lista med heltal |Samlingen som ska få det största värdet. |
+| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det högsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
-Ett heltal som representerar det högsta värdet från samlingen.
+Ett heltal som representerar det maximala värdet från mängden.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) visar hur du använder max med en matris och en lista med heltal:
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) visas hur du använder Max med en matris och en lista med heltal:
 
 ```json
 {
@@ -359,7 +359,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -378,24 +378,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min.
+## <a name="min"></a>min
 `min (arg1)`
 
-Returnerar det minsta värdet från en matris av heltal eller en kommaavgränsad lista med heltal.
+Returnerar det minsta värdet från en matris med heltal eller en kommaavgränsad lista med heltal.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris med heltal eller en kommaavgränsad lista med heltal |Samlingen som ska få det minsta värdet. |
+| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det lägsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
-Ett heltal som representerar minimivärdet från samlingen.
+Ett heltal som representerar det lägsta värdet från mängden.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) visar hur du använder min med en matris och en lista med heltal:
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) visas hur du använder min med en matris och en lista med heltal:
 
 ```json
 {
@@ -423,7 +423,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -442,24 +442,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="mod" />
 
-## <a name="mod"></a>MOD
+## <a name="mod"></a>rest
 `mod(operand1, operand2)`
 
-Returnerar resten av Heltalsdivision med hjälp av två angivna heltal.
+Returnerar resten av heltals divisionen med de två angivna heltalen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Ja |int |Hur många delade. |
-| operand2 |Ja |int |Talet som ska användas för att dela upp, får inte vara 0. |
+| operand1 |Ja |int |Talet som delas. |
+| operand2 |Ja |int |Talet som används för att dividera, kan inte vara 0. |
 
 ### <a name="return-value"></a>Returvärde
 Ett heltal som representerar resten.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) Returnerar återstoden av att dividera en parameter av en annan-parametern.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) returneras resten av divisionen av en parameter med en annan parameter.
 
 ```json
 {
@@ -494,7 +494,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -515,14 +515,14 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="mul"></a>mul
 `mul(operand1, operand2)`
 
-Returnerar en tillväxt av två angivna heltal.
+Returnerar multiplikationen av de två angivna heltalen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Ja |int |Första talet som multipliceras. |
-| operand2 |Ja |int |Andra talet som multipliceras. |
+| operand1 |Ja |int |Första talet som ska multipliceras. |
+| operand2 |Ja |int |Det andra talet som ska multipliceras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -530,7 +530,7 @@ Ett heltal som representerar multiplikationen.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) multiplicerar en parameter av en annan-parametern.
+Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) multiplicerar en parameter med en annan parameter.
 
 ```json
 {
@@ -565,7 +565,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
@@ -583,24 +583,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="sub" />
 
-## <a name="sub"></a>sub
+## <a name="sub"></a>Build
 `sub(operand1, operand2)`
 
-Returnerar subtraktion med två angivna heltal.
+Returnerar subtraktion av de två angivna heltalen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Ja |int |Talet som subtraheras från. |
+| operand1 |Ja |int |Det tal som subtraheras från. |
 | operand2 |Ja |int |Talet som subtraheras. |
 
 ### <a name="return-value"></a>Returvärde
-Ett heltal som representerar subtraktion.
+Ett heltal som representerar subtraktionen.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) subtraherar en parameter från en annan parameter.
+I följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) subtraheras en parameter från en annan parameter.
 
 ```json
 {
@@ -635,9 +635,9 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| subResult | Int | 4 |
+| under resultat | Int | 4 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -655,5 +655,5 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 * En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 * Om du vill slå samman flera mallar, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
 * Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
-* Om du vill se hur du distribuerar mallen som du har skapat, se [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
+* Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](resource-group-template-deploy.md).
 

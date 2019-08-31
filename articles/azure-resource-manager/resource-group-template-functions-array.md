@@ -3,15 +3,15 @@ title: Azure Resource Manager mall funktioner-matriser och objekt | Microsoft Do
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med matriser och objekt.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: ec671c8698676b237021352e963ba08e0ddfe47e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: cd4a74a9e9e9bb1c91a0a7a103a1cfb861fa7770
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698209"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194423"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matris-och objekt funktioner för Azure Resource Manager mallar
 
@@ -263,7 +263,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | returrelaterade | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -303,7 +303,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | concatOutput | Sträng | prefix-5yj4yjf5mbg72 |
 
@@ -392,7 +392,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | stringTrue | Bool | Sant |
 | stringFalse | Bool | False |
@@ -620,7 +620,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Sträng | en |
 | stringOutput | Sträng | O |
@@ -925,7 +925,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1065,7 +1065,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: c79429d1a39e975c6bcc7fce191846a6205f9a86
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: b48988c04f6b387a8124a812a836e2b92a9d3ada
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311708"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194383"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
 
@@ -479,6 +479,8 @@ done
 Även om den länkade mallen måste vara externt tillgänglig, behöver det inte att vara allmänt tillgängligt för allmänheten. Du kan lägga till mallen för ett privat storage-konto som är tillgänglig för endast lagringskontoägaren. Sedan kan skapa du en token för delad åtkomst (signatur) för att möjliggöra åtkomst under distributionen. Du kan lägga till den SAS-token till URI: N för den länkade mallen. Även om token skickas som en säker sträng, loggas URI för länkade mallen, inklusive SAS-token i distributionsåtgärder. Ange en giltighetstid för token för att begränsa exponering.
 
 Parameterfilen kan också vara begränsad till åtkomst via en SAS-token.
+
+För närvarande kan du inte länka till en mall i ett lagrings konto som ligger bakom en [Azure Storage brand vägg](../storage/common/storage-network-security.md).
 
 I följande exempel visas hur du skickar en SAS-token när du länkar till en mall:
 

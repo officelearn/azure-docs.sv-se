@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ab74b37fa8adc58f8641893b4168f71c453b0fdd
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0c617cbd17d9b9620c957eec45aadd962db34831
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972709"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194122"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>CloudSimple privata moln behörighets modell för VMware vCenter
 
@@ -24,7 +24,7 @@ CloudSimple behåller fullständig administrativ åtkomst till den privata moln 
 När du skapar ett privat moln skapas en **CloudOwner** -användare i domänen för vCenter-enkel inloggning med åtkomst till **moln ägar rollen** för att hantera objekt i det privata molnet. Den här användaren kan också konfigurera ytterligare [vCenter identitets källor](set-vcenter-identity.md)och andra användare till det privata molnet vCenter.
 
 > [!NOTE]
-> Standard användaren för ditt CloudSimple privata moln vCenter är `cloudowner@cloudsimple.local` när ett privat moln skapas utan att länka det till din lokala vCenter.
+> Standard användaren för ditt CloudSimple privata moln vCenter är cloudowner@cloudsimple.local när ett privat moln skapas.
 
 ## <a name="user-groups"></a>Användargrupper
 

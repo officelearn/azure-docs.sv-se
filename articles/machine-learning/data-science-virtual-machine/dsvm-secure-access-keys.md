@@ -1,29 +1,23 @@
 ---
-title: Store tillgång till autentiseringsuppgifterna på den virtuella datorn för datavetenskap på ett säkert sätt – Azure | Microsoft Docs
+title: Lagra autentiseringsuppgifter på ett säkert sätt
+titleSuffix: Azure Data Science Virtual Machine
 description: Lär dig mer om att på ett säkert sätt lagra autentiseringsuppgifter på den virtuella datorn för datavetenskap. Du lär dig hur du använder hanterade tjänst identiteter och Azure Key Vault för att lagra autentiseringsuppgifter för åtkomst.
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, geospatial analys, tdsp
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/08/2018
+author: vijetajo
 ms.author: vijetaj
-ms.openlocfilehash: 1374cbef41f40ea270f3c4d84c68d08e7db095bc
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.topic: conceptual
+ms.date: 05/08/2018
+ms.openlocfilehash: 17e611007d2b5400497597946159826df7aa4848
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051612"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195607"
 ---
-# <a name="store-access-credentials-securely-on-a-data-science-virtual-machine"></a>Lagra autentiseringsuppgifter på ett säkert sätt på en Data Science Virtual Machine
+# <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Lagra autentiseringsuppgifter på ett säkert sätt på en Azure-Data Science Virtual Machine
 
 Det är vanligt att koden i moln program innehåller autentiseringsuppgifter för autentisering till moln tjänster. Hur du hanterar och skyddar dessa autentiseringsuppgifter är en välkänd utmaning i att skapa moln program. Vi rekommenderar att autentiseringsuppgifterna aldrig visas på Developer-arbetsstationer eller är incheckade i käll kontrollen.
 

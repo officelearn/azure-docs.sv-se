@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/25/2019
+ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: bc5216fccd5beab0e655776c0ccda3c53332da6f
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b558384fe6bc86cd7b0ebd640407557e23f68ddd
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478612"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194578"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Självstudier: Konfigurera en Application Gateway med SSL-avslutning med hjälp av Azure Portal
 
@@ -57,6 +57,9 @@ E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
 Använd [export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) med det tumavtryck som returnerades för att exportera en PFX-fil från certifikatet:
+
+> [!NOTE]
+> Använd inte specialtecken i PFX-filens lösen ord. Endast alfanumeriska tecken stöds.
 
 ```powershell
 $pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
@@ -115,7 +118,7 @@ Export-PfxCertificate `
 
 Backend-poolen används för att dirigera begär anden till backend-servrar som hanterar begäran. Backend-pooler kan bestå av nätverkskort, skalnings uppsättningar för virtuella datorer, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade domän namn (FQDN) och backend-ändar för flera klienter som Azure App Service. I det här exemplet ska du skapa en tom backend-pool med din Application Gateway och sedan lägga till Server dels mål i backend-poolen.
 
-1. På fliken **Server** delar väljer du **+ Lägg till en backend-pool**.
+1. På fliken Server delar väljer du **+ Lägg till en backend-pool**.
 
 2. I fönstret **Lägg till en server dels grupp** som öppnas anger du följande värden för att skapa en tom backend-pool:
 
@@ -126,7 +129,7 @@ Backend-poolen används för att dirigera begär anden till backend-servrar som 
 
      ![Skapa ny Application Gateway: Server delar](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
-4. På fliken **Server** delar väljer **du nästa: Konfiguration**.
+4. På fliken Server delar väljer **du nästa: Konfiguration**.
 
 ### <a name="configuration-tab"></a>Fliken konfiguration
 
@@ -136,9 +139,9 @@ På fliken **konfiguration** ansluter du klient dels-och backend-poolen som du s
 
 2. I fönstret **Lägg till regel för routning** som öppnas anger du *myRoutingRule* som **regel namn**.
 
-3. En regel för routning kräver en lyssnare. Ange följande  värden för lyssnaren på fliken lyssnare i fönstret **Lägg till regel** för vidarebefordran:
+3. En regel för routning kräver en lyssnare. Ange följande värden för lyssnaren på fliken lyssnare i fönstret **Lägg till regel** för vidarebefordran:
 
-    - **Namn på lyssnare**: Ange  en lyssnare för namnet på lyssnaren.
+    - **Namn på lyssnare**: Ange en lyssnare för namnet på lyssnaren.
     - **Frontend-IP**: Välj **offentlig** för att välja den offentliga IP-adress som du skapade för klient delen.
     - **Protokoll**: Välj **https**.
     - **Port**: Kontrol lera att 443 har angetts för porten.

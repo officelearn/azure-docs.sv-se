@@ -1,27 +1,21 @@
 ---
-title: Dataplattformar för den virtuella datorn för datavetenskap – Azure | Microsoft Docs
-description: Läs mer om vilka Dataplattformar och verktyg som stöds på den virtuella datorn för datavetenskap.
+title: Data plattformar som stöds
+titleSuffix: Azure Data Science Virtual Machine
+description: Lär dig mer om de data plattformar och verktyg som stöds för Azure Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vijetaj
-ms.openlocfilehash: a0fe4ee33769a6d8cf14f60dcc0c4615bb00c5e8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e0ba013f7739e7ade717136cb5507af630263a18
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565300"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192205"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Dataplattformar som stöds på den virtuella datorn för datavetenskap
 

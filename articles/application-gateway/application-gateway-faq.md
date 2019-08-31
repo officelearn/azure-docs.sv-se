@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: da8142ad035eec338a3c1ba1a23be7c2be470a04
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 3fa97c5738128907b0edad40cedf582e80c33443
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891710"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194467"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -277,7 +277,11 @@ Ja, Application Gateway v2-SKU: n stöder Key Vault. Mer information finns i [SS
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Hur gör jag för att konfigurera HTTPS-lyssnare för. com-och .net-platser? 
 
-För flera domänbaserade (värdbaserade) routningar kan du skapa multisite-lyssnare, konfigurera lyssnare som använder HTTPS som protokoll och associera lyssnarna med routningsregler. Mer information finns i vara [värd för flera platser med hjälp av Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
+För flera domänbaserade (värdbaserade) routningar kan du skapa multisite-lyssnare, konfigurera lyssnare som använder HTTPS som protokoll och associera lyssnarna med routningsregler. Mer information finns i vara [värd för flera platser med hjälp av Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview).
+
+### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>Kan jag använda specialtecken i lösen ordet för PFX-filen?
+
+Nej, Använd endast alfanumeriska tecken i PFX-filens lösen ord.
 
 ## <a name="configuration---web-application-firewall-waf"></a>Konfiguration – brand vägg för webbaserade program (WAF)
 

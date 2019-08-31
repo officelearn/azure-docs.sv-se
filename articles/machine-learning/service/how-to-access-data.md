@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 545860a394c7eac953c1cbacc9dd05fc3737f6c1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7b800a7ef38624dbe89a61dd04e2bd97b02066bb
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856175"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191929"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Få åtkomst till data i Azure Storage-tjänster
 
@@ -200,6 +200,7 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
 ```
+
 ### <a name="compute-and-datastore-matrix"></a>Beräknings-och data lager mat ris
 
 Data lager har för närvarande stöd för lagring av anslutnings information till de lagrings tjänster som anges i följande matris. I den här matrisen visas tillgängliga funktioner för data åtkomst för de olika Compute-målen och data bearbetnings scenarierna. Läs mer om [beräknings målen för Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
@@ -217,6 +218,17 @@ Data lager har för närvarande stöd för lagring av anslutnings information ti
 
 > [!NOTE]
 > Det kan finnas scenarier där hög iterativa data processer körs snabbare med `as_download()` i stället för `as_mount()`; detta kan verifieras experimentellt.
+
+### <a name="accessing-source-code-during-training"></a>Åtkomst till käll kod under träning
+
+Azure Blob Storage har högre överföringshastigheter än Azure-filresursen och kommer att skalas till ett stort antal jobb som startas parallellt. Därför rekommenderar vi att du konfigurerar dina körningar för att använda blob-lagring för överföring av källfiler.
+
+I följande kod exempel anges i den körnings konfiguration som BLOB data lager ska användas för käll kods överföringar.
+
+```python 
+# workspaceblobstore is the default blob storage
+run_config.source_directory_data_store = "workspaceblobstore" 
+```
 
 ## <a name="access-data-during-scoring"></a>Åtkomst till data under Poängsättning
 

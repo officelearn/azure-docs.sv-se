@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a3a097c164628e6d4e4b7886a195901207d83a3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d3bb18f11de92680d296d747fc34e16c3264c369
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852216"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193277"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter flödet
 
@@ -66,7 +66,7 @@ Den här typen av auktorisering är vanlig för daemon-och tjänst konton som be
 I stället för att använda ACL: er kan du använda API: er för att visa en uppsättning program behörigheter. En program behörighet beviljas till ett program av en organisations administratör och kan bara användas för att komma åt data som ägs av organisationen och dess anställda. Microsoft Graph visar till exempel flera program behörigheter för att göra följande:
 
 * Läsa e-post i alla postlådor
-* Läsa och skriva e-post i alla postlådor
+* Läsa och skriva e-post i alla post lådor
 * Skicka e-post som valfri användare
 * Läsa katalogdata
 
@@ -81,7 +81,7 @@ Om du vill använda program behörigheter i appen följer du stegen som beskrivs
 3. Leta upp avsnittet **API-behörigheter** och Lägg sedan till de **program behörigheter** som din app kräver.
 4. **Spara** appens registrering.
 
-#### <a name="recommended-sign-the-user-into-your-app"></a>Rekommenderas Signera användaren till din app
+#### <a name="recommended-sign-the-user-into-your-app"></a>Rekommenderat: Signera användaren till din app
 
 När du skapar ett program som använder program behörigheter kräver appen vanligt vis en sida eller vy där administratören godkänner appens behörigheter. Den här sidan kan vara en del av appens inloggnings flöde, en del av appens inställningar, eller så kan det vara ett dedikerat "Connect"-flöde. I många fall är det meningsfullt att appen visar vyn "Anslut" bara när en användare har loggat in med ett arbets-eller skol Microsoft-konto.
 
@@ -170,7 +170,8 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ```
 
 ```
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+// Replace {tenant} with your tenant! 
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
 | Parameter | Tillstånd | Beskrivning |
@@ -250,10 +251,6 @@ Ett fel svar ser ut så här:
 | `trace_id` | En unik identifierare för begäran om att hjälpa till med diagnostik. |
 | `correlation_id` | En unik identifierare för begäran om att hjälpa till med diagnostik i komponenter. |
 
-> [!NOTE]
-> För att ditt program ska kunna ta emot v2-token kan du uppdatera manifest filen för programmet inifrån Azure Portal. Du kan lägga till attributet `accessTokenAcceptedVersion` och ange värdet till 2 som. `"accessTokenAcceptedVersion": 2` Läs artikeln [program manifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) för att få mer information om samma. Som standard är programmet recieves en v1-token. om detta inte är definierat inom programmets/webb-API-manifestet, är det värdet för det här attributet i manifestet som standardvärdet 1 och därför får programmet en v1-token.  
-
-
 ## <a name="use-a-token"></a>Använd en token
 
 Nu när du har skaffat en token kan du använda token för att göra förfrågningar till resursen. När token går ut upprepar du begäran till `/token` slut punkten för att hämta en ny åtkomsttoken.
@@ -269,7 +266,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ```
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
 ## <a name="code-samples-and-other-documentation"></a>Kod exempel och annan dokumentation

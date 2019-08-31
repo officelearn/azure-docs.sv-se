@@ -1,57 +1,57 @@
 ---
-title: Företagets arbetskonton och Partner Center
-description: Så här att kontrollera om ditt företag har ett arbetskonto ställa in med Microsoft, skapa ett nytt arbetskonto eller ställa in flera arbetskonton för användning med Partner Center.
-author: mattwojo
+title: Företagets arbets konton och partner Center
+description: Så här kontrollerar du om ditt företag har ett arbets konto som har skapats med Microsoft, skapar ett nytt arbets konto eller konfigurerar flera arbets konton för användning med partner Center.
+author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: d9326cab6cb5ed4ca76c9a84654697f9f90bcfcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 744b4e4975c5d4cec5c705e639e9cc8d252a7dd6
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619554"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194277"
 ---
-# <a name="company-work-accounts-and-partner-center"></a>Företagets arbetskonton och Partner Center
+# <a name="company-work-accounts-and-partner-center"></a>Företagets arbets konton och partner Center
 
-Partner Center använder företagets arbetskonton, även kallat Azure Active Directory (AD)-innehavare, för att hantera åtkomst för flera användare, kontrollera behörigheter, grupper och program och underhålla profildata. Genom att länka ditt företags arbetsdomän e-konto till ditt Partner Center-konto, kan anställda på företaget logga in på Partner Center att hantera marketplace-erbjudanden med sina egna arbets-användarnamn och lösenord.
+Partner Center använder företags arbets konton, även kallade Azure Active Directory (AD)-klienter, för att hantera konto åtkomst för flera användare, kontrol lera behörigheter, värd grupper och program och underhålla profil data. Genom att länka ditt företags e-postkonto till ditt partner Center-konto kan anställda på ditt företag Logga in på Partner Center för att hantera Marketplace-erbjudanden med sina egna användar namn och lösen ord för arbets kontot.
 
-## <a name="check-whether-your-company-already-has-a-work-account"></a>Kontrollera om ditt företag redan har ett arbetskonto
+## <a name="check-whether-your-company-already-has-a-work-account"></a>Kontrol lera om ditt företag redan har ett arbets konto
 
-Om företaget prenumererar på en Microsoft-molntjänst som Azure, Microsoft Intune eller Office 365, sedan har du redan en e-konto arbetsdomän (kallas även en Azure Active Directory-klient) som kan användas med Partner Center.
+Om ditt företag prenumererar på en moln tjänst från Microsoft, till exempel Azure, Microsoft Intune eller Office 365, har du redan en domän för e-postkonto för arbetet (kallas även en Azure Active Directory klient) som kan användas med partner Center.
 
-Följ dessa steg för att kontrollera:
-1. Logga in på Azure-administrationsportalen på https://portal.azure.com.
-2. Välj **Azure Active Directory** från den vänstra navigeringsmenyn och välj sedan **anpassade domännamn**.
-3. Om du redan har ett arbetskonto, visas ditt domännamn.
+Följ de här stegen för att kontrol lera:
+1. Logga in på Azure Admin Portal på https://portal.azure.com.
+2. Välj **Azure Active Directory** på menyn till vänster-navigerings och välj sedan **anpassade domän namn**.
+3. Om du redan har ett arbets konto visas ditt domän namn.
 
-Om ditt företag inte redan har ett arbetskonto kan skapas en åt dig under registreringsprocessen Partner Center.
+Om ditt företag inte redan har ett arbets konto skapas ett för dig under registreringen av Partner Center.
 
-## <a name="set-up-multiple-work-accounts"></a>Konfigurera flera arbetskonton
+## <a name="set-up-multiple-work-accounts"></a>Konfigurera flera arbets konton
 
-Innan du bestämmer dig att använda ett befintligt arbetskonto, Överväg hur många användare anger arbetskontot behöver åtkomst till Partner Center. Om du har användare anger arbetskontot som inte behöver åtkomst till Partner Center kan du överväga att skapa flera arbetskonton, så att endast de användare som behöver åtkomst till Partner Center representeras på ett visst konto.
+Innan du bestämmer dig för att använda ett befintligt arbets konto bör du fundera över hur många användare i arbets kontot som behöver komma åt Partner Center. Om du har användare i arbets kontot som inte behöver komma åt Partner Center, kan du överväga att skapa flera arbets konton så att endast de användare som behöver åtkomst till Partner Center visas på ett visst konto.
 
-## <a name="create-a-new-work-account"></a>Skapa ett nytt arbetskonto
+## <a name="create-a-new-work-account"></a>Skapa ett nytt arbets konto
 
-Följ stegen nedan om du vill skapa ett nytt arbetskonto för ditt företag. Du kan behöva begära hjälp från den som har administrativa behörigheter på Microsoft Azure-konto för ditt företag.
+Följ stegen nedan om du vill skapa ett nytt arbets konto för ditt företag. Du kan behöva be om hjälp från vem som har administratörs behörighet på ditt företags Microsoft Azure konto.
 
 1. Logga in på [Microsoft Azure Portal](https://portal.azure.com).
-2. Den vänstra menyn väljer du den **Azure Active Directory** -> **användare**.
-3. Välj **ny användare** och skapa ett nytt konto i Azure-arbetskonto genom att ange ett namn och e-postadress. Se till att den **katalogroll** är inställd på **användaren** och välj den **visa lösenord** kryssrutan längst ned för att visa och anteckna automatiskt genererade lösenordet.
-4. Välj **skapa** att spara den nya användaren.
+2. I den vänstra navigerings menyn väljer du **Azure Active Directory** -> **användare**.
+3. Välj **ny användare** och skapa ett nytt Azure-arbetskonto genom att ange ett namn och en e-postadress. Se till att **katalog rollen** har angetts till **användare** och markera kryss rutan **Visa lösen ord** längst ned för att visa och anteckna det automatiskt genererade lösen ordet.
+4. Välj **skapa** för att spara den nya användaren.
 
-E-postadressen för användarkontot måste vara ett verifierat domännamn i katalogen. Du kan lista de verifierade domänerna i din katalog genom att välja **Azure Active Directory** -> **anpassade domännamn** i den vänstra navigeringsmenyn.
+E-postadressen för användar kontot måste vara ett verifierat domän namn i din katalog. Du kan visa en lista över alla verifierade domäner i din katalog genom att välja **Azure Active Directory** -> **anpassade domän namn** i den vänstra navigerings menyn.
 
-Mer information om att lägga till anpassade domäner i Azure Active Directory finns [Lägg till eller koppla en domän i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
+Mer information om hur du lägger till anpassade domäner i Azure Active Directory finns i [lägga till eller associera en domän i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
 
-## <a name="troubleshoot-work-email-sign-in"></a>Felsöka e-post-inloggningen för arbete
+## <a name="troubleshoot-work-email-sign-in"></a>Felsöka e-postinloggning för arbete
 
-Om du har problem med att logga in på ditt arbetskonto (även kallat Azure AD-klienten), hitta scenario i diagrammet nedan som bäst matchar din situation och följ de rekommenderade stegen.
+Om du har problem med att logga in på ditt arbets konto (även kallat din Azure AD-klient) hittar du scenariot i diagrammet nedan som bäst matchar din situation och följer de rekommenderade stegen.
 
-![Diagram för att felsöka arbete kontoinloggningen](./media/onboarding-aad-flow.png)
+![Diagram för fel sökning av inloggning för arbets konto](./media/onboarding-aad-flow.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hantera ditt kommersiella Marketplace-konto i Partnercenter](./manage-account.md) 
+- [Hantera ditt kommersiella Marketplace-konto i Partner Center](./manage-account.md) 

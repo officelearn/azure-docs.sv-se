@@ -6,20 +6,20 @@ author: tfitzmac
 keywords: distributions fel, Azure-distribution, distribuera till Azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 07/28/2019
+ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 639f6b3b29b7effa12de79335d44b0193f3f9932
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: df5362028a38a86ba8df46efae2e3c3109856463
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638547"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194374"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsök vanliga problem med Azure-distribution med Azure Resource Manager
 
 Den här artikeln beskriver några vanliga problem med Azure-distribution och innehåller information om hur du löser felen. Om du inte hittar felkoden för ditt distributions fel, se [find Error code](#find-error-code).
 
-Om du letar efter information om en felkod och den informationen inte finns i den här artikeln kan du berätta för oss. Längst ned på den här sidan kan du lämna feedback. Feedbacken spåras med GitHub-problem. 
+Om du letar efter information om en felkod och informationen inte finns i den här artikeln kan du berätta för oss. Längst ned på den här sidan kan du lämna feedback. Feedbacken spåras med GitHub-problem. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,7 +41,7 @@ Om du letar efter information om en felkod och den informationen inte finns i de
 | ImageNotFound | Kontrol lera inställningarna för VM-avbildningar. |  |
 | InUseSubnetCannotBeDeleted | Du kan få det här felet när du försöker uppdatera en resurs, och begäran bearbetas genom att ta bort och skapa resursen. Se till att du anger alla värden som inte har ändrats. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Hämta åtkomsttoken för lämplig klient organisation. Du kan bara hämta token från den klient som ditt konto tillhör. | |
-| InvalidContentLink | Du har troligen försökt länka till en kapslad mall som inte är tillgänglig. Dubbelt kontrol lera den URI du angav för den kapslade mallen. Om mallen finns i ett lagrings konto kontrollerar du att URI: n är tillgänglig. Du kan behöva skicka en SAS-token. | [Länkade mallar](resource-group-linked-templates.md) |
+| InvalidContentLink | Du har troligen försökt länka till en kapslad mall som inte är tillgänglig. Dubbelt kontrol lera den URI du angav för den kapslade mallen. Om mallen finns i ett lagrings konto kontrollerar du att URI: n är tillgänglig. Du kan behöva skicka en SAS-token. För närvarande kan du inte länka till en mall som finns i ett lagrings konto bakom en [Azure Storage-brandvägg](../storage/common/storage-network-security.md). Överväg att flytta mallen till en annan lagrings plats, t. ex. GitHub. | [Länkade mallar](resource-group-linked-templates.md) |
 | InvalidParameter | Ett av de värden som du angav för en resurs stämmer inte överens med det förväntade värdet. Det här felet kan bero på flera olika villkor. Ett lösen ord kan till exempel vara otillräckligt eller också kan ett BLOB-namn vara felaktigt. Fel meddelandet ska ange vilket värde som behöver korrigeras. | |
 | InvalidRequestContent | Distributions värden innehåller antingen värden som inte känns igen eller värden som krävs saknas. Bekräfta värdena för resurs typen. | [Mallreferens](/azure/templates/) |
 | InvalidRequestFormat | Aktivera fel söknings loggning när du kör distributionen och kontrol lera innehållet i begäran. | [Fel söknings loggning](#enable-debug-logging) |

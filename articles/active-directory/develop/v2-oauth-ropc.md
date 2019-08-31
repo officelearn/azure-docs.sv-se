@@ -1,6 +1,6 @@
 ---
-title: Använd Microsoft identity-plattformen för att logga in användare med hjälp av resource ägare lösenord autentiseringsuppgifter (ROPC) bevilja | Azure
-description: Stöd för webbläsare utan autentisering flöden med resursen ägare lösenord credential grant.
+title: Använd Microsoft Identity Platform för att logga in användare som använder ROPC-beviljande (Resource Owner Password Credential) | Azure
+description: Stöd webbläsare – mindre autentiseringar flödar med hjälp av autentiseringsuppgifter för resurs ägarens lösen ord.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -12,46 +12,46 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da111311de7b873be6453862ffcbd56fe546ea7f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7d5324aba5202abb76f07d1eaf43fe214e690393
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482385"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193216"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft identity-plattformen och OAuth 2.0-resurs för resursägarlösenord
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft Identity Platform och OAuth 2,0-autentiseringsuppgifter för resurs ägar lösen ord
 
-Microsoft identity-plattformen stöder den [resource resursägarlösenord (ROPC) ge](https://tools.ietf.org/html/rfc6749#section-4.3), vilket gör att ett program för att logga in användaren genom att direkt hantera sitt lösenord. Flödet ROPC kräver en hög grad av förtroende och användaren exponering och du bör bara använda det här flödet när andra och säkrare, flöden inte kan användas.
+Microsoft Identity Platform stöder [ROPC-tilldelningen för resurs ägar lösen ord](https://tools.ietf.org/html/rfc6749#section-4.3), vilket gör att ett program kan logga in användaren genom att direkt hantera sitt lösen ord. ROPC-flödet kräver en hög grad av förtroende och användar exponering och du bör endast använda det här flödet när andra, säkrare och flöden inte kan användas.
 
 > [!IMPORTANT]
 >
-> * Microsoft identity-plattformen endpoint stöder bara ROPC för Azure AD-klienter, inte personliga konton. Det innebär att du måste använda en klientspecifik slutpunkt (`https://login.microsoftonline.com/{TenantId_or_Name}`) eller `organizations` slutpunkt.
-> * Personliga konton som är välkomna till en Azure AD-klient kan inte använda ROPC.
-> * Konton som inte har lösenord kan inte logga in via ROPC. Det här scenariot rekommenderar vi att du använder ett annat flöde för din app i stället.
-> * Om användare vill använda multifaktorautentisering (MFA) för att logga in till programmet kan kommer de att blockeras istället.
+> * Slut punkten för Microsoft Identity Platform stöder endast ROPC för Azure AD-klienter, inte personliga konton. Det innebär att du måste använda en klient-/regionsspecifika slut punkt`https://login.microsoftonline.com/{TenantId_or_Name}`() `organizations` eller slut punkten.
+> * Personliga konton som bjuds in till en Azure AD-klient kan inte använda ROPC.
+> * Konton som inte har lösen ord kan inte logga in via ROPC. I det här scenariot rekommenderar vi att du använder ett annat flöde för appen i stället.
+> * Om användarna behöver använda Multi-Factor Authentication (MFA) för att logga in i programmet kommer de att blockeras i stället.
 
-## <a name="protocol-diagram"></a>Protokollet diagram
+## <a name="protocol-diagram"></a>Protokoll diagram
 
-Följande diagram visar ROPC flödet.
+I följande diagram visas ROPC-flödet.
 
-![Diagram som visar resursägaren lösenord credential flöde](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
+![Diagram som visar autentiseringsuppgifter för resurs ägarens lösen ord](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
-## <a name="authorization-request"></a>Begäran om godkännande
+## <a name="authorization-request"></a>Begäran om auktorisering
 
-ROPC flödet är en enskild begäran&mdash;den skickar klienten identifiering och användarens autentiseringsuppgifter till IDP: N och sedan ta emot tokens i utbyte. Klienten måste begära användarens e-postadress (UPN) och lösenord innan du gör det. Omedelbart efter en lyckad begäran bör klienten på ett säkert sätt att släppa användarens autentiseringsuppgifter från minnet. Du måste spara dem aldrig.
+ROPC-flödet är en enskild begäran: den skickar klient identifieringen och användarens autentiseringsuppgifter till IDP och tar sedan emot tokens i retur. Klienten måste begära användarens e-postadress (UPN) och lösen ord innan du gör detta. Omedelbart efter en lyckad begäran bör klienten på ett säkert sätt släppa användarens autentiseringsuppgifter från minnet. Det får aldrig spara dem.
 
 > [!TIP]
-> Försök att köra den här begäran i Postman!
-> [![Försök att köra den här begäran i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Försök att köra denna begäran i Postman!
+> [![Försök att köra denna begäran i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```
-// Line breaks and spaces are for legibility only.
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -66,15 +66,18 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Obligatoriskt | Directory-klient som du vill logga in användaren i. Detta kan vara i GUID eller eget namnformat. Den här parametern kan inte anges till `common` eller `consumers`, men kan anges till `organizations`. |
-| `grant_type` | Obligatoriskt | Måste anges till `password`. |
-| `username` | Obligatoriskt | Användarens e-postadress. |
-| `password` | Obligatoriskt | Användarens lösenord. |
-| `scope` | Rekommenderas | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md), eller behörigheter som appen kräver. I en interaktiv flow, måste administratören eller användaren godkänner du dessa scope förbereds i förväg. |
+| `tenant` | Obligatorisk | Den katalog klient som du vill logga in användaren i. Detta kan vara i ett GUID eller eget namn format. Den här parametern kan inte anges `common` till `consumers`eller, men den kan vara `organizations`inställd på. |
+| `client_id` | Obligatorisk | Det program (klient)-ID som den [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. | 
+| `grant_type` | Obligatorisk | Måste anges till `password`. |
+| `username` | Obligatorisk | Användarens e-postadress. |
+| `password` | Obligatorisk | Användarens lösen ord. |
+| `scope` | Rekommenderas | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md)eller behörigheter som appen kräver. I ett interaktivt flöde måste administratören eller användaren samtycka till dessa omfattningar i förväg. |
+| `client_secret`| Krävs ibland | Om din app är en offentlig klient `client_secret` kan eller `client_assertion` inte tas med.  Om appen är en konfidentiell klient måste den tas med. | 
+| `client_assertion` | Krävs ibland | En annan form av `client_secret`, som genereras med hjälp av ett certifikat.  Se [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md) för mer information. | 
 
-### <a name="successful-authentication-response"></a>Lyckad autentiseringssvar
+### <a name="successful-authentication-response"></a>Godkänt autentiserings svar
 
-I följande exempel visas ett lyckat svar för token:
+I följande exempel visas ett lyckat svar på token:
 
 ```json
 {
@@ -89,26 +92,25 @@ I följande exempel visas ett lyckat svar för token:
 
 | Parameter | Format | Beskrivning |
 | --------- | ------ | ----------- |
-| `token_type` | String | Alltid inställt `Bearer`. |
-| `scope` | Avgränsade med blanksteg strängar | Om en åtkomsttoken returnerades listas scope åtkomsttoken är giltig för den här parametern. |
-| `expires_in`| int | Antal sekunder som den inkluderade åtkomst-token är giltig för. |
-| `access_token`| Täckande sträng | Utfärdats för den [scope](v2-permissions-and-consent.md) som begärdes. |
-| `id_token` | JWT | Utfärdade om ursprungligt `scope` parameter som ingår i `openid` omfång. |
-| `refresh_token` | Täckande sträng | Utfärdade om ursprungligt `scope` parametern ingår `offline_access`. |
+| `token_type` | Sträng | Ställ alltid in `Bearer`på. |
+| `scope` | Separerade blankstegsavgränsad strängar | Om en åtkomsttoken returnerades listar den här parametern de omfattningar som åtkomsttoken är giltig för. |
+| `expires_in`| int | Antal sekunder som den inkluderade åtkomsttoken är giltig för. |
+| `access_token`| Ogenomskinlig sträng | Utfärdat för de [omfattningar](v2-permissions-and-consent.md) som begärdes. |
+| `id_token` | JWT | Utfärdas om den ursprungliga `scope` parametern `openid` omfattade omfånget. |
+| `refresh_token` | Ogenomskinlig sträng | Utfärdas om den ursprungliga `scope` parametern ingår `offline_access`. |
 
-Du kan använda uppdateringstoken för att hämta nya åtkomsttoken och uppdatera token med samma flöde som beskrivs i den [OAuth Code flow-dokumentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
+Du kan använda uppdateringstoken för att hämta nya åtkomsttoken och uppdatera tokens med samma flöde som beskrivs i [dokumentationen för OAuth-kod flödet](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
 
-### <a name="error-response"></a>Felsvar
+### <a name="error-response"></a>Fel svar
 
-Om användaren inte har angett rätt användarnamn eller lösenord eller om klienten har inte mottagit det begärda medgivandet, misslyckas autentiseringen.
+Om användaren inte har angett rätt användar namn eller lösen ord, eller om klienten inte har fått det begärda godkännandet, kommer autentiseringen att Miss sen.
 
-| Fel | Beskrivning | Klientåtgärd |
+| Fel | Beskrivning | Klient åtgärd |
 |------ | ----------- | -------------|
-| `invalid_grant` | Autentiseringen misslyckades | Autentiseringsuppgifterna är felaktiga eller klienten har inte medgivande för de begärda omfång. Om du inte beviljats scope, en `consent_required` fel returneras. Om detta inträffar kan ska klienten skicka användaren till en interaktiv prompt med hjälp av en webbvy eller webbläsare. |
-| `invalid_request` | Begäran konstruerades felaktigt | Beviljandetypen stöds inte på den `/common` eller `/consumers` kontexter för autentisering.  Använd `/organizations` i stället. |
-| `invalid_client` | Appen konfigureras felaktigt | Detta kan inträffa om den `allowPublicClient` egenskapen är inte inställd på true i den [programmanifestet](reference-app-manifest.md). Den `allowPublicClient` egenskapen är nödvändigt eftersom det ROPC beviljandet inte har en omdirigerings-URI. Azure AD kan inte fastställa om appen är en offentlig klientprogram eller ett konfidentiellt klientprogram, såvida inte egenskapen. ROPC stöds endast för offentliga klientappar. |
+| `invalid_grant` | Autentiseringen misslyckades | Autentiseringsuppgifterna var felaktiga eller så har klienten inte tillstånd för de begärda omfattningarna. Om omfången inte beviljas returneras ett `consent_required` fel. Om detta inträffar ska klienten skicka användaren till en interaktiv prompt med en webbvy eller webbläsare. |
+| `invalid_request` | Begäran har inte konstruerats korrekt | Anslags typen stöds inte i `/common` kontexterna eller `/consumers` .  Använd `/organizations` eller ett klient-ID i stället. |
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Lär dig mer
 
-* Prova att använda ROPC själv med hjälp av den [exempelprogrammet konsolen](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [plattformsbegränsningar för Microsoft identity](active-directory-v2-limitations.md).
+* Testa ROPC för dig själv med [exempel konsol programmet](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
+* För att avgöra om du ska använda v 2.0-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](active-directory-v2-limitations.md).

@@ -1,28 +1,23 @@
 ---
-title: Verktyg för data utforskning och visualisering – Azure | Microsoft Docs
+title: Verktyg för utforskning och visualisering av data
+titleSuffix: Azure Data Science Virtual Machine
 description: Data utforsknings-och visualiserings verktyg för Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vijetaj
-ms.openlocfilehash: d60acdf483d418e458f51ef6cf31b17c43b7379f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 14c34a13440d50fcf42c2207f9933dc1de014a14
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065896"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191976"
 ---
-# <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Verktyg för data utforskning och visualisering på Data Science Virtual Machine
+# <a name="data-exploration-and-visualization-tools-on-the-azure-data-science-virtual-machine"></a>Verktyg för data utforskning och visualisering på Azure Data Science Virtual Machine
 
 I data vetenskap är nyckeln till att förstå data. Visualiserings-och data utforsknings verktyg hjälper till att påskynda data förståelsen. Följande verktyg, som finns på Data Science Virtual Machine (DSVM), gör det här viktiga steget enklare.
 

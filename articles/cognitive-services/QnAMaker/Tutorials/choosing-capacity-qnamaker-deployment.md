@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2b2879a1ebcf01a0433873e8da77c4ce55a078cd
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 2d8f0fce3cb8f1cd8fdb596cb4e238a79d6cee4c
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647002"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193500"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Välja kapacitet för QnA Maker-distribution
 
@@ -45,9 +45,9 @@ Följande tabell innehåller riktlinjer på hög nivå.
 | Miljö för utveckling/testning   | Standard-SKU         | Delad      | Basic        | Publicera upp till 14 KB-artiklar, 2 GB storlek    |
 | Produktionsmiljö | Standard-SKU         | Basic       | Standard     | Publicera upp till 49 kB-artiklar, 25 GB storlek |
 
-Uppgradera din QnA Maker-stack finns i [uppgradera QnA Maker-tjänsten](../How-To/upgrade-qnamaker-service.md).
+Uppgradera din QnA Maker-stack finns i [uppgradera QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Uppgradera din QnA Maker-tjänsten](../How-To/upgrade-qnamaker-service.md)
+> [Uppgradera din QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker)

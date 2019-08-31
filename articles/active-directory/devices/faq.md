@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57bc2ca38b5166cfba39fb20254e169ce016ea12
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 0a6b1782b9822877850f7c223dd80eed008ef706
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706316"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193184"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Vanliga frågor och svar om Azure Active Directory enhets hantering
 
@@ -194,7 +194,7 @@ Borttagna eller inaktiverade användare som inte har loggat in tidigare kan inte
 
 ---
 
-### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>F: Varför får inte några av mina användare Azure Multi-Factor Authentication-prompt på Azure AD-anslutna enheter?
+### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>F: Varför får inte några av mina användare några Azure Multi-Factor Authentication-prompter på Azure AD-anslutna enheter?
 
 **S:** En användare kan ansluta till eller registrera en enhet med Azure AD med hjälp av Multi-Factor Authentication. Sedan blir själva enheten en betrodd andra faktor för den användaren. När samma användare loggar in på enheten och använder ett program, anser Azure AD enheten som en andra faktor. Den gör det möjligt för användaren att sömlöst komma åt program utan ytterligare Multi-Factor Authentication-prompter. 
 
@@ -281,12 +281,19 @@ Hybrid Azure AD Join prioriteras över Azure AD-registrerat tillstånd. Enheten 
 
 ## <a name="azure-ad-register-faq"></a>Vanliga frågor om Azure AD-register
 
-### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>F: Hur gör jag för att ta bort en registrerad Azure AD-enhet lokalt på enheten?
+### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>F: Hur gör jag för att ta bort ett registrerat Azure AD-tillstånd för en enhet lokalt?
 
 **S:** 
 - För registrerade enheter med Windows 10 Azure AD går du till **Inställningar** > **konton** > **åtkomst till arbete eller skola**. Välj ditt konto och välj **Koppla från**. Enhets registrering är per användar profil i Windows 10.
 - För iOS och Android kan du använda Microsoft Authenticator program **Inställningar** > **enhets registrering** och välja **avregistrera enheten**.
 - För macOS kan du använda Microsoft Intune Företagsportal programmet för att avregistrera enheten från hanteringen och ta bort eventuell registrering. 
+
+---
+### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>F: Hur kan jag blockera användare från att lägga till ytterligare arbets konton (Azure AD registrerat) på mina företags Windows 10-enheter?
+
+**S:** Aktivera följande register för att hindra användarna från att lägga till ytterligare arbets konton till din företags domän, Azure AD-anslutna eller hybrid Azure AD-anslutna Windows 10-enheter. Den här principen kan även användas för att blockera domänanslutna datorer från att oavsiktligt få Azure AD registrerat med samma användar konto. 
+
+`HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
 ---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>F: Kan jag registrera Android-eller iOS BYOD-enheter?

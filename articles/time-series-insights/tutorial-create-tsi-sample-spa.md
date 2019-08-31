@@ -4,16 +4,16 @@ description: Lär dig hur du skapar ett webb program på en enskild sida som fr�
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/29/2019
+ms.date: 08/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 4d9af918c222107cfca5863309efb391b8e6d2e0
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 031e8074585426584d7ef63a103c9c2b4d90e6c3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720870"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194207"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Självstudier: Skapa en enkelsidig Azure Time Series Insights-webbapp
 
@@ -127,6 +127,10 @@ I den här självstudien används även data från exempel programmets Time Seri
 
       [![Visual Studio – fönstret publicera profil](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png#lightbox)
 
+   1. Välj att publicera en ny Azure App Service instans eller Använd en befintlig.
+
+      [![Välj en Azure App Service instans](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png#lightbox)
+
    1. Välj den prenumeration som du vill använda för att publicera programmet. Välj **TsiSpaApp** -projektet. Välj **OK**.
 
       [![Visual Studio – fönstret publicera profil App Service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png#lightbox)
@@ -137,12 +141,16 @@ I den här självstudien används även data från exempel programmets Time Seri
 
    1. En lyckad publicerings logg visas i fönstret **utdata** i Visual Studio. När distributionen är färdig öppnar Visual Studio webb programmet i en webbläsare-flik och du uppmanas att logga in. När inloggningen är klar fylls Time Series Insights kontroller med data.
 
+   1. Navigera till din webbapp och logga in för att visa de renderade Time Series Insights visuella data.
+
+      [![Granska den värdbaserade webb programmet](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png)](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png#lightbox)
+
 ## <a name="troubleshoot"></a>Felsöka  
 
 Felkod/-villkor | Beskrivning
 ---------------------| -----------
-*AADSTS50011: Ingen svarsadress har registrerats för appen.* | Azure AD-registreringen saknar egenskapen svars- **URL** . Gå till **Inställningar** > svars-**URL: er** för din Azure AD-programregistrering. Kontrol lera att omdirigerings- **URI: n** du hade möjlighet att ange i **steg 2** eller **steg 4** när du [registrerade programmet för att använda Azure AD](#register-with-azure-ad) finns.
-*AADSTS50011: Svars-URL: en som anges i begäran matchar inte svars-URL: er som har kon figurer ATS för programmet: '\<Program-ID-GUID > '.* | Den `postLogoutRedirectUri` som anges i **steg 6. b** i [build och publicera webb programmet](#build-and-publish) måste matcha värdet som anges under **Inställningar** > svars-**URL: er** i din Azure AD-programregistrering. |
+*AADSTS50011: Ingen svarsadress har registrerats för appen.* | Azure AD-registreringen saknar en omdirigerings- **URI** -egenskap. Gå till **autentisering** > omdirigerings-**URI: er** för din Azure AD-programregistrering. Kontrol lera att omdirigerings- **URI: n** du hade möjlighet att ange i **steg 2** eller **steg 4** när du [registrerade programmet för att använda Azure AD](#register-with-azure-ad) finns.
+*AADSTS50011: Svars-URL: en som anges i begäran matchar inte svars-URL: er som har kon figurer ATS för programmet: '\<Program-ID-GUID > '.* | Den `postLogoutRedirectUri` som anges > i **steg 6. b** i [build och publicera webb programmet](#build-and-publish) måste matcha det värde som anges under omdirigering av**URI: er** i din Azure AD-programregistrering. |
 Webb programmet läses in, men det har en ej formaterad, text inloggnings sida med en vit bakgrund. | Kontrol lera att Sök vägarna som beskrivs i **steg 6** i [build och publicera webb programmet](#build-and-publish) är korrekta. Om webbappen inte kan hitta CSS-filer kommer sidan inte att formateras korrekt.
 
 ## <a name="clean-up-resources"></a>Rensa resurser

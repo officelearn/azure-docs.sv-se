@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 08/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: 15abbfd8892464f3a2c21a85c07bc5b8e94e47ad
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594701"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195216"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Vad är API:et för visuell sökning i Bing?
 
-API för visuell sökning i Bing returnerar insikter för en bild. Du kan antingen ladda upp en avbildning eller ange en URL till en. Insikter är visuellt likartade bilder, shopping källor, webb sidor som innehåller avbildningen med mera. Insikter som returneras av API för visuell sökning i Bing liknar de som visas på Bing.com/images.
+API för visuell sökning i Bing returnerar insikter för en bild. Du kan antingen ladda upp en avbildning eller ange en URL till en. Insikter är visuellt likartade bilder, shopping källor, webb sidor som innehåller avbildningen med mera. Insikter som returneras av API för visuell sökning i Bing liknar de som visas på Bing.com/images. 
 
 Om du använder [API för bildsökning i Bing](../bing-image-search/overview.md)kan du använda Insight-token från det API: s Sök Resultat för din visuell sökning i Bing i stället för att ladda upp en avbildning.
 
@@ -38,6 +38,7 @@ Du kan identifiera följande insikter genom att använda Visuell sökning i Bing
 | Närliggande sökningar                     | Relaterade sökningar som har gjorts av andra eller som är baserat på innehållet i bilden.            |
 | Webb sidor som innehåller avbildningen     | Webbsidor som inkluderar den inmatade bilden.            |
 | Recept                              | Webb sidor som innehåller recept för att göra den skål som visas i indatabilden.            |
+| Entiteter                             | Välkända personer, platser och saker. |
 
 Förutom insikter returnerar Visuell sökning i Bing en rad olika villkor (dvs. taggar) som härletts från indatabilden. Taggarna gör det möjligt för användare att utforska begrepp som finns i avbildningen. Om indata-bilden till exempel är av en berömda idrottare kan en av taggarna vara namnet på idrottare, en annan tagg kan vara idrotts. Eller, om indata-bilden är av en äpple cirkel, kan taggarna vara äpple cirkel-, pajer-och desserter.
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 387865ac229acc5d16f595b96c76e7c9a014e991
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: d626a7768e7070360a6f0249486bfa83407fe998
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062128"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192063"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Förstå automatiserade maskin inlärnings resultat
 
@@ -102,7 +102,7 @@ weighted_accuracy|Viktad noggrannhet är exakthet där vikten för varje exempel
 
 En felmatris används för att beskriva resultatet av en modell för klassificering. Varje rad visar instanserna av klassen SANT och varje kolumn representerar instanser av den förväntade klassen. Felmatrisen visar korrekt klassificerade etiketter och felaktigt klassificerad etiketter för en viss modell.
 
-För klassificering, problem ger Azure Machine Learning automatiskt en felmatris för varje modell som har skapats. För varje felmatris visas automatiserade ML korrekt klassificerade etiketterna som gröna och felaktigt klassificerad etiketter rött. Storleken på cirkeln representerar antalet prov i lagerplatsen. Dessutom finns frekvens antal förväntade etiketterna och varje SANT etikett i intilliggande stapeldiagram. 
+För klassificering, problem ger Azure Machine Learning automatiskt en felmatris för varje modell som har skapats. För varje förvirrings mat ris visar automatiserad ML frekvensen för varje förväntad etikett och varje sann etikett skärnings punkt. Ju mörkare färgen, desto högre är antalet i den specifika delen av matrisen. Vi rekommenderar att de mörkaste färgerna är längs diagonalen av matrisen. 
 
 Exempel 1: En klassificerings modell med dålig ![precision för en klassificerings modell med dålig precision](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 

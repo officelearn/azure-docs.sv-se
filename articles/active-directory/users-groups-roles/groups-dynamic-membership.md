@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f529723abd449891dba845253502b78e8666199f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650228"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194605"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -27,30 +27,32 @@ I Azure Active Directory (Azure AD) kan du skapa komplexa attribut-baserade regl
 
 När alla attribut för en användare eller enhet ändras, utvärderar systemet alla dynamiska grupp regler i en katalog för att se om ändringen skulle utlösa någon grupp lägger till eller tar bort. Om en användare eller enhet uppfyller en regel i en grupp läggs de till som medlem i gruppen. Om de inte längre uppfyller regeln tas de bort. Du kan inte lägga till eller ta bort en medlem i en dynamisk grupp manuellt.
 
-* Du kan skapa en dynamisk grupp för enheter eller för användare, men du kan inte skapa en regel som innehåller både användare och enheter.
-* Du kan inte skapa en enhets grupp baserat på enhetens ägares attribut. Enhets medlemskaps regler kan bara referera till enhetens attribut.
+- Du kan skapa en dynamisk grupp för enheter eller för användare, men du kan inte skapa en regel som innehåller både användare och enheter.
+- Du kan inte skapa en enhets grupp baserat på enhetens ägares attribut. Enhets medlemskaps regler kan bara referera till enhetens attribut.
 
 > [!NOTE]
 > Den här funktionen kräver en Azure AD Premium P1-licens för varje unik användare som är medlem i en eller flera dynamiska grupper. Du behöver inte tilldela licenser till användare för att de ska vara medlemmar i dynamiska grupper, men du måste ha det minsta antalet licenser i klient organisationen för att kunna omfatta alla sådana användare. Om du till exempel har totalt 1 000 unika användare i alla dynamiska grupper i din klient organisation, behöver du minst 1 000 licenser för Azure AD Premium P1 för att uppfylla licens kravet.
 >
 
-## <a name="constructing-the-body-of-a-membership-rule"></a>Skapa bröd texten i en medlemskaps regel
+## <a name="rule-builder-in-the-azure-portal"></a>Regel verktyg i Azure Portal
 
-En medlemskaps regel som automatiskt fyller i en grupp med användare eller enheter är ett binärt uttryck som resulterar i ett sant eller falskt resultat. De tre delarna i en enkel regel är:
+Azure AD tillhandahåller ett regel verktyg för att skapa och uppdatera viktiga regler snabbare. Regel verktyget stöder konstruktion upp till fem uttryck. Regel verktyget gör det lättare att skapa en regel med några enkla uttryck, men den kan inte användas för att återskapa varje regel. Om regel verktyget inte stöder den regel som du vill skapa kan du använda text rutan.
 
-* Egenskap
-* Operator
-* Value
+Här följer några exempel på avancerade regler eller syntax som vi rekommenderar att du skapar med hjälp av text rutan:
 
-Ordningen på delarna i ett uttryck är viktiga för att undvika syntaxfel.
+- Regel med fler än fem uttryck
+- Regeln för direkt rapporter
+- Ställer in [operator prioritet](groups-dynamic-membership.md#operator-precedence)
+- [Regler med komplexa uttryck](groups-dynamic-membership.md#rules-with-complex-expressions); till exempel`(user.proxyAddresses -any (_ -contains "contoso"))`
 
-### <a name="rule-builder-in-the-azure-portal"></a>Regel verktyg i Azure Portal
+> [!NOTE]
+> Regel verktyget kanske inte kan visa vissa regler som skapats i text rutan. Ett meddelande kan visas om regel verktyget inte kan visa regeln. Regel verktyget ändrar inte den syntax, validering eller bearbetning av dynamiska grupp regler som stöds på något sätt.
 
-Azure AD tillhandahåller ett regel verktyg för att skapa och uppdatera viktiga regler snabbare. Regel verktyget stöder upp till fem regler. Om du vill lägga till en sjätte och alla efterföljande regel villkor måste du använda text rutan. Mer information om steg-för-steg-anvisningar finns i [Uppdatera en dynamisk grupp](groups-update-rule.md).
+Mer information om steg-för-steg-anvisningar finns i [Uppdatera en dynamisk grupp](groups-update-rule.md).
 
-   ![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-### <a name="rules-with-a-single-expression"></a>Regler med ett enda uttryck
+### <a name="rule-syntax-for-a-single-expression"></a>Regel-syntax för ett enskilt uttryck
 
 Ett enda uttryck är den enklaste formen av en medlemskaps regel och har bara tre delar som anges ovan. En regel med ett enda uttryck ser ut ungefär så här `Property Operator Value`:, där syntaxen för egenskapen är namnet på objektet objekt. Property.
 
@@ -62,13 +64,23 @@ user.department -eq "Sales"
 
 Parenteser är valfria för ett enda uttryck. Den totala längden för bröd texten i medlemskaps regeln får inte överstiga 2048 tecken.
 
+# <a name="constructing-the-body-of-a-membership-rule"></a>Skapa bröd texten i en medlemskaps regel
+
+En medlemskaps regel som automatiskt fyller i en grupp med användare eller enheter är ett binärt uttryck som resulterar i ett sant eller falskt resultat. De tre delarna i en enkel regel är:
+
+- Egenskap
+- Operator
+- Value
+
+Ordningen på delarna i ett uttryck är viktiga för att undvika syntaxfel.
+
 ## <a name="supported-properties"></a>Egenskaper som stöds
 
 Det finns tre typer av egenskaper som kan användas för att skapa en medlemskaps regel.
 
-* Boolesk
-* Sträng
-* Sträng samling
+- Boolesk
+- Sträng
+- Sträng samling
 
 Följande är de användar egenskaper som du kan använda för att skapa ett enda uttryck.
 
@@ -119,7 +131,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 
 Information om egenskaper som används för enhets regler finns i [regler för enheter](#rules-for-devices).
 
-## <a name="supported-operators"></a>Operatorer som stöds
+## <a name="supported-expression-operators"></a>Operatorer som stöds
 
 I följande tabell visas alla operatorer som stöds och deras syntax för ett enda uttryck. Operatorer kan användas med eller utan bindestreck (-).
 
@@ -297,10 +309,10 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 Följande tips kan hjälpa dig att använda regeln korrekt.
 
-* **Chefs-ID** : t är objekt-ID: t för chefen. Du hittar den i chefens **profil**.
-* För att regeln ska fungera kontrollerar du att egenskapen **Manager** är korrekt inställd för användare i din klient organisation. Du kan kontrol lera det aktuella värdet i användarens **profil**.
-* Den här regeln stöder endast chefens direkt rapporter. Med andra ord kan du inte skapa en grupp med chefens direkt rapporter *och* deras rapporter.
-* Den här regeln kan inte kombineras med andra medlemskaps regler.
+- **Chefs-ID** : t är objekt-ID: t för chefen. Du hittar den i chefens **profil**.
+- För att regeln ska fungera kontrollerar du att egenskapen **Manager** är korrekt inställd för användare i din klient organisation. Du kan kontrol lera det aktuella värdet i användarens **profil**.
+- Den här regeln stöder endast chefens direkt rapporter. Med andra ord kan du inte skapa en grupp med chefens direkt rapporter *och* deras rapporter.
+- Den här regeln kan inte kombineras med andra medlemskaps regler.
 
 ### <a name="create-an-all-users-rule"></a>Skapa en regel för alla användare
 
@@ -373,8 +385,8 @@ Följande enhets egenskaper kan användas.
 
 De här artiklarna innehåller ytterligare information om grupper i Azure Active Directory.
 
-* [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Skapa en ny grupp och lägga till medlemmar](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Hantera dynamiska regler för användare i en grupp](groups-create-rule.md)
+- [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Skapa en ny grupp och lägga till medlemmar](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Hantera dynamiska regler för användare i en grupp](groups-create-rule.md)

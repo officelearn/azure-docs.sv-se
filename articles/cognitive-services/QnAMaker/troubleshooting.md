@@ -8,19 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b91adc9dd5f221a6d354a98bdc0f4a7fd4483ecb
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 60a2b63c7d37440bb08c7a7f15f052cfa2607406
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982357"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193687"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
 Den granskade listan med de vanligaste frågorna om QnA Maker tjänsten hjälper dig att komma igång med tjänsten snabbare och med bättre resultat.
+
+
+## <a name="how-to-get-the-qnamaker-service-hostname"></a>Så här hämtar du värdnamnet för QnAMaker-tjänsten
+
+QnAMaker service värdnamn är användbart för felsökning när du kontaktar supporten för QnAMaker eller UserVoice. Värd namnet är en URL i det här formatet: https:// *{hostname}* . azurewebsites.net.
+    
+1. Gå till QnAMaker-tjänsten (resursgrupp) den [Azure-portalen](https://portal.azure.com)
+
+    ![QnAMaker Azure-resursgrupp i Azure-portalen](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+
+1. Välj den App Service som är kopplad till QnA Maker resursen. Normalt är namnen desamma.
+
+     ![Välj QnAMaker App Service](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+
+1. Hostname-URL: en finns i avsnittet Översikt
+
+    ![Värdnamn för QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Använd hjälp roboten i QnA Maker Portal
 
@@ -98,6 +116,14 @@ Om du har innehåll från flera språk, måste du skapa en separat tjänst för 
 
 Uppdatera din app service när på varningsikonen är bredvid versionsvärdet för kunskapsbasen i den **Endpoint nycklar** tabellen på den **användarinställningar** [sidan](https://www.qnamaker.ai/UserSettings).
 
+### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>Jag har tagit bort min befintliga search-tjänst. Hur kan jag åtgärda detta?
+
+Om du tar bort ett Azure Search-index är åtgärden slutgiltig och indexet kan inte återställas. 
+
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>Jag har tagit `testkb` bort mitt index i min search-tjänst. Hur kan jag åtgärda detta? 
+
+Dina gamla data kan inte återställas. Skapa en ny QnA Maker resurs och skapa din kunskaps bas igen.
+
 ### <a name="when-should-i-refresh-my-endpoint-keys"></a>När bör jag uppdatera Mina endpoint-nycklar?
 
 Uppdatera dina endpoint-nycklar om du misstänker att de har komprometterats.
@@ -108,7 +134,7 @@ Om du vill använda flera språk och flera kunskapsbaser, har användaren att sk
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>Hur kan jag ändra namnet på Azure Search-resurs som används av QnA Maker?
 
-Namnet på resursen för Azure Search är resursnamnet QnA Maker med vissa slumpmässiga bokstäver som tillägg i slutet. På så sätt blir det svårt att skilja mellan flera Sök efter resurser för QnA Maker. Skapa en separat Azure Search-tjänst (namngivning av det sätt som du vill) och ansluter den till din QnA Service. Stegen är liknande de steg som du behöver göra att [uppgradera ett Azure Search](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
+Namnet på resursen för Azure Search är resursnamnet QnA Maker med vissa slumpmässiga bokstäver som tillägg i slutet. På så sätt blir det svårt att skilja mellan flera Sök efter resurser för QnA Maker. Skapa en separat Azure Search-tjänst (namngivning av det sätt som du vill) och ansluter den till din QnA Service. Stegen är liknande de steg som du behöver göra att [uppgradera ett Azure Search](How-To/set-up-qnamaker-service-azure.md#upgrade-azure-search-service).
 
 ### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>När QNA Maker returnerar `Runtime core is not initialized,` jag det?
 

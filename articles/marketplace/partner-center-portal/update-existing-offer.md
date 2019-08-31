@@ -1,103 +1,103 @@
 ---
-title: Uppdatera ett befintligt kommersiella Marketplace-erbjudande
-description: Hur du gör uppdateringar i ett befintligt kommersiella Marketplace-erbjudande, inklusive redigera, ta bort ett utkast, avbryter en publiceringsbegäran stoppa sälja ett erbjudande eller en plan och synkroniserar privata målgrupper.
-author: mattwojo
+title: Uppdatera ett befintligt erbjudande för handels Marketplace
+description: Hur du gör uppdateringar av ett befintligt erbjudande för handels Marketplace, inklusive redigering, borttagning av ett utkast, avbryter en publicerings förfrågan, slutar att sälja ett erbjudande eller en plan och synkroniserar privata mål grupper.
+author: ChJenk
 manager: evansma
-ms.author: mattwoj
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: f591df0fe93336da09e9c441292c97be09f25a2e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9cefdc9354560ac5b7f3789cde2408a4c255c186
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442100"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191774"
 ---
-# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i Marketplace för kommersiella
+# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i den kommersiella Marketplace
 
-Du kan visa dina befintliga erbjudanden på den **översikt** fliken den [kommersiella Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) Partner Center.
+Du kan visa dina befintliga erbjudanden på fliken **Översikt** i den [kommersiella Marketplace-portalen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) i Partner Center.
 
-Om du vill uppdatera ett befintligt erbjudande som används för närvarande Direktmigrering i marketplace: 
+Uppdatera ett befintligt erbjudande som för närvarande är aktivt på Marketplace: 
 
-1. Välj namnet på det erbjudande som du vill uppdatera. Status för erbjudandet kan anges som **Live**, **pågående publicering**, **Draft**, **uppmärksamhet behövs**, eller **inte säljs i marketplace** (om du tidigare har valt att stoppa sälja erbjudandet). När den **erbjuder översikt** sidan för erbjudandet öppnas.
-2. Välj **uppdatera** från kortet översikt eller menyalternativ i det vänstra navigeringsfönstret för det område som du vill uppdatera. Du kanske vill uppdatera den **erbjuder installationsprogrammet**, **egenskaper**, **erbjuder lista**, **förhandsversion**, **teknisk konfiguration** , **Planera översikt**, eller **Testkör**. 
-3. Gör dina ändringar och välj sedan **spara**. Upprepa processen tills alla ändringar har slutförts.
+1. Välj namnet på erbjudandet som du vill uppdatera. Status för erbjudandet kan visas som aktiv, **publicering**pågår, **utkast**, **åtgärd krävs**eller **inte säljs på Marketplace** (om du tidigare har valt att sluta sälja erbjudandet). När du har valt så öppnas sidan **erbjudande översikt** för det erbjudandet.
+2. Välj **Uppdatera** från översikts kortet eller meny alternativet från det vänstra navigerings fältet för det fält som du vill uppdatera. Du kanske vill uppdatera **erbjudande konfiguration**, **Egenskaper**, **erbjudande lista**, för **hands version**, **teknisk konfiguration**, **planerings översikt**eller **test enhet**. 
+3. Gör ändringarna och välj sedan **Spara**. Upprepa processen tills alla ändringar har slutförts.
 
-## <a name="review-and-publish-an-updated-offer"></a>Granska och publicera ett erbjudande som är uppdaterade
+## <a name="review-and-publish-an-updated-offer"></a>Granska och publicera ett uppdaterat erbjudande
 
-När du är redo att publicera erbjudandet uppdaterade väljer **publicera** från valfri sida. Den **granskning och publicera** öppnas. På den här sidan kan du:
+När du är redo att publicera ditt uppdaterade erbjudande väljer du **publicera** från vilken sida som helst. Sidan **Granska och publicera** öppnas. På den här sidan kan du:
 
 
-- Se Slutförandestatus för delar av erbjudandet som du uppdaterade: 
-    - **Opublicerade ändringar**: Avsnittet har uppdaterats och är klar. Alla nödvändiga data har angetts och det fanns inga fel som introducerades i uppdateringarna.
-    - **Ofullständig**: Uppdateringar som görs till avsnittet introduceras fel som behöver åtgärdas eller kräver mer information anges.
-- Ange ytterligare information till testgrupp certifiering för att se till att testa går smidigt.
-- Skicka uppdaterade erbjudandet för publicering genom att välja **skicka**.  Vi mejlar dig när en förhandsversion av det uppdaterade erbjudandet är tillgängligt för dig att granska och signering.
+- Se slut för ande status för avsnitten i erbjudandet som du uppdaterade: 
+    - **Opublicerade ändringar**: Avsnittet har uppdaterats och är klart. Alla begärda data har angetts och inga fel infördes i uppdateringarna.
+    - **Ofullständig**: Uppdateringar som görs i avsnittet introducerade fel som måste åtgärdas eller som kräver mer information.
+- Ge ytterligare information till certifierings test teamet för att säkerställa att testningen går smidigt.
+- Skicka det uppdaterade erbjudandet om publicering genom att välja **Skicka**.  Vi skickar e-post när en för hands version av det uppdaterade erbjudandet är tillgänglig för granskning och utloggning.
 
-**VIKTIGT!** Du måste granska förhandsversionen av erbjudandet, när den är tillgänglig och välj **Go live** att publicera erbjudandet uppdaterade till målgruppen (offentliga eller privata).
+**VIKTIGT!** Du måste granska din för hands version av erbjudandet, när den är tillgänglig och välja **Go-Live** för att publicera ditt uppdaterade erbjudande till din avsedda mål grupp (offentlig eller privat).
 
-## <a name="update-a-plan-within-an-existing-offer"></a>Uppdatera en plan inom ett befintligt erbjudande
+## <a name="update-a-plan-within-an-existing-offer"></a>Uppdatera en plan i ett befintligt erbjudande
 
-Att göra ändringar i en plan inom ett befintligt erbjudande som du redan har publicerat:
+För att göra ändringar i en plan i ett befintligt erbjudande som du redan har publicerat:
 
-- Med den **erbjuder översikt** sidan öppen för din befintliga erbjudandet, Välj det avtal som du vill ändra. Om planen inte kan nås från den **– översikt** väljer **finns i alla prenumerationer**.
-- Du kan välja att välja planen **namn**, **prismodellen**, eller **tillgänglighet**. *Planer är för närvarande bara tillgänglig på engelska (USA)* .
-- Välj **spara** när du har gjort nödvändiga ändringar till planens namn, beskrivning, prissättning, eller målgrupp tillgänglighet. 
-- Välj **publicera** när du är redo att publicera dina uppdateringar. Den **[granskning och publicera](#review-and-publish-an-updated-offer)** sidan öppnas och ger en Slutförandestatus för dina uppdateringar. 
+- På sidan **erbjudande översikt** öppen för ditt befintliga erbjudande väljer du den plan som du vill ändra. Om planen inte är tillgänglig från listan **plan översikt** väljer du **Se alla planer**.
+- Du kan välja att välja plan **namn**, **pris modell**eller **tillgänglighet**. *För närvarande är planer bara tillgängliga på engelska (USA)* .
+- Välj **Spara** när du har gjort nödvändiga ändringar i prenumerationens namn, beskrivning, prissättning eller tillgänglighet för mål gruppen. 
+- Välj **publicera** när du är redo att publicera dina uppdateringar. Sidan **[Granska och publicera](#review-and-publish-an-updated-offer)** öppnas och du får en slut för ande status för dina uppdateringar. 
 
-## <a name="delete-a-draft-offer"></a>Ta bort ett erbjudande med draft
+## <a name="delete-a-draft-offer"></a>Ta bort ett utkast erbjudande
 
-Du kan ta bort ett utkast-erbjudande (ett som inte har publicerats) genom att välja **ta bort draft** från den **erbjuder översikt** sidan. Det här alternativet är inte tillgängliga för dig om du tidigare har publicerat erbjudandet.
+Du kan ta bort ett utkast erbjudande (ett som inte har publicerats) genom att välja **ta bort utkast** på sidan **erbjudande översikt** . Det här alternativet är inte tillgängligt för dig om du tidigare har publicerat erbjudandet.
 
-När du har bekräftat att du vill ta bort draft-erbjudandet erbjudandet kommer inte längre att visas eller komma åt i Partnercenter och **alla erbjuder** öppnas.
+När du har bekräftat att du vill ta bort utkast erbjudandet kommer erbjudandet inte längre vara synligt eller tillgängligt i Partner Center och sidan **alla erbjudanden** öppnas.
 
-## <a name="delete-a-draft-plan"></a>Ta bort en plan för utkast
+## <a name="delete-a-draft-plan"></a>Ta bort ett utkast till plan
 
-Om du vill ta bort en plan som inte har publicerats, Välj **ta bort draft** från den **– översikt** sidan. Det här alternativet kan inte tillgängliga för dig om du tidigare har publicerat erbjudandet.
+Om du vill ta bort en plan som inte har publicerats väljer du **ta bort utkast** från sidan **plan översikt** . Det här alternativet är inte tillgängligt för dig om du tidigare har publicerat erbjudandet.
 
-När du har bekräftat att du vill ta bort planen draft kommer planen inte längre att visas eller tillgängliga Partner Center.
+När du har bekräftat att du vill ta bort utkast planen kommer planen inte längre att vara synlig eller tillgänglig i Partner Center.
 
 ## <a name="cancel-publishing"></a>Avbryt publicering
 
-Annullera ett erbjudande med den **pågående publicering** status:
+Så här avbryter du ett erbjudande med status **publicering pågår** :
 
-- Välj erbjudandenamn för att öppna den **erbjuder översikt** sidan. 
-- Välj **Avbryt publicera** från det övre högra hörnet på sidan.
-- Bekräfta att du vill stoppa erbjudande publiceras. 
+- Välj namnet på erbjudandet för att öppna sidan **erbjudande översikt** . 
+- Välj **Avbryt publicera** i det övre högra hörnet på sidan.
+- Bekräfta att du vill stoppa att erbjudandet publiceras. 
 
-Om du vill publicera erbjudande vid ett senare tillfälle, behöver du publiceringsprocessen börja om från början.
+Om du vill publicera erbjudandet vid ett senare tillfälle måste du starta publicerings processen.
 
 > [!NOTE]
-> Du kan stoppa ett erbjudande publiceras bara om erbjudandet ännu inte har gått framåt till utgivaren signering steg. När du har valt **Driftsätt** du inte alternativet att avbryta publicera längre.
+> Du kan förhindra att ett erbjudande bara publiceras om erbjudandet ännu inte har gått vidare till utgivarens signerings steg. När du har valt **Go Live** har du inte möjlighet att avbryta publiceringen längre.
 
-## <a name="stop-selling-an-offer-or-plan"></a>Stoppa sälja ett erbjudande eller en plan
+## <a name="stop-selling-an-offer-or-plan"></a>Sluta sälja ett erbjudande eller en plan
 
-Om du vill stoppa sälja ett erbjudande när du redan har publicerat den, Välj **stoppa sälja** från den **erbjuder översikt** sidan. Om du vill stoppa sälja en plan, Välj **stoppa sälja** från den **– översikt** sidan. (Välja att sluta sälja en plan är endast tillgängligt om du har flera planer i erbjudandet. Du kan välja att stoppa sälja en plan utan att påverka andra planer i erbjudandet.)
+Om du vill sluta att sälja ett erbjudande när du redan har publicerat det väljer du **sluta sälja** från sidan **erbjudande översikt** . Om du vill sluta sälja en plan väljer du **sluta sälja** från sidan **plan översikt** . (Alternativet att sluta sälja en plan är bara tillgängligt om du har mer än en prenumeration på erbjudandet. Du kan välja att sluta sälja en plan utan att påverka andra planer i erbjudandet.)
 
-När du har kontrollerat att du vill stoppa sälja erbjudandet eller planerar inom några timmar den längre inte visas i marketplace och inga nya kunder kan ladda ned den. 
+När du har bekräftat att du vill sluta sälja erbjudandet eller planen inom några timmar kommer det inte längre att synas på Marketplace och inga nya kunder kan ladda ned det. 
 
-Alla kunder som tidigare har köpt erbjudandet eller planerar kan fortfarande använda den. De kan ladda ned det igen, men kommer inte att hämta uppdateringar om du uppdaterar och publicera erbjudandet eller planerar vid ett senare tillfälle. 
+Kunder som tidigare förvärvade erbjudandet eller abonnemanget kan fortfarande använda det. De kan ladda ned den igen, men kommer inte att få uppdateringar om du uppdaterar och publicerar om erbjudandet eller planen vid ett senare tillfälle. 
 
-När din begäran om att stoppa sälja erbjudandeplanen/har slutförts kan visas du fortfarande den i kommersiella Marketplace portal på Partner Center. Om du vill ta bort utkastet, Välj **ta bort draft** från antingen den **erbjuder översikt** eller **planera översikt** sidan. 
+När din begäran om att sluta sälja erbjudandet/planen har slutförts ser du fortfarande den på den kommersiella Marketplace-portalen på Partner Center. Om du vill ta bort utkastet väljer du **ta bort utkast** från någon av sidan **erbjudande översikt** eller **prenumeration** . 
 
-Om du vill lista eller sälja det här erbjudandet eller planerar igen, följ instruktionerna för att [uppdatera ett befintligt erbjudande](#update-an-existing-offer-in-the-commercial-marketplace). Glöm inte att du behöver **publicera** erbjudandet eller planerar igen när du gör några ändringar.
+Om du väljer att lista eller sälja erbjudandet eller planeraren igen följer du anvisningarna för att [Uppdatera ett befintligt erbjudande](#update-an-existing-offer-in-the-commercial-marketplace). Glöm inte att du behöver **publicera** erbjudandet eller planera igen när du har gjort några ändringar.
 
 ## <a name="remove-offers-from-existing-customers"></a>Ta bort erbjudanden från befintliga kunder
 
-Ta bort erbjudanden från befintliga kunder [loggar en supportbegäran om](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Välj specifika erbjudandetypen från den **problemtyp** listan och välj sedan **ta bort ett erbjudande för publicerade** i den **kategori** lista. Skicka din begäran. Supportteamet vägleder dig genom borttagningen erbjudandet.
+[Logga en supportbegäran](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)om du vill ta bort erbjudanden från befintliga kunder. Välj din önskade erbjudande typ i listan **problem typ** och välj sedan **ta bort ett publicerat erbjudande** i listan **kategori** . Skicka begäran. Support teamet leder dig genom borttagnings processen för erbjudandet.
 
-## <a name="sync-private-plan-audiences"></a>Synkronisera privata plan målgrupper
+## <a name="sync-private-plan-audiences"></a>Synkronisera privat planens mål grupper
 
-Om erbjudandet omfattar en eller flera planer som är konfigurerade att endast är tillgänglig för en privat begränsad publik, är det möjligt att uppdatera målgruppen som har åtkomst till den privata planen utan att publicera andra ändringar till erbjudandet. 
+Om erbjudandet innehåller en eller flera planer som är konfigurerade för att endast vara tillgängliga för en privat begränsad publik, är det möjligt att endast uppdatera den mål grupp som har åtkomst till det privata schemat utan att publicera andra ändringar i erbjudandet. 
 
-Uppdatera och synkronisera den privata målgruppen för din plan eller de planer:
+Så här uppdaterar och synkroniserar du den privata mål gruppen för dina abonnemang:
 
-- Ändra målgruppen i en eller flera privata planer med hjälp av den + **lägga till ID** eller **importera kunder (csv)** knappen och sedan spara ändringarna.
-- Välj **Synkronisera privata målgrupp** från den **planera översikt** sidan.
+- Ändra mål gruppen i ett eller flera privata planer med knappen + **Lägg till ID** eller **Importera kunder (CSV)** och spara sedan ändringarna.
+- Välj **Synkronisera privat publik** på sidan **plan översikt** .
 
-**Synkronisera privata målgrupp** publiceras bara ändringarna för ditt privata målgrupper, utan att publicera andra uppdateringar som du har gjort till draft-erbjudande.
+**Synkronisera privat publik** publicerar bara ändringar i dina privata mål grupper, utan att publicera några andra uppdateringar som du har gjort i utkastet till erbjudandet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kontrollera publiceringsstatus för ditt kommersiella Marketplace-erbjudande](./publishing-status.md)
+- [Kontrol lera publicerings statusen för ditt kommersiella Marketplace-erbjudande](./publishing-status.md)

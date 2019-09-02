@@ -1,18 +1,841 @@
-- name: Dokumentation om HDInsight
-  href: index.yml
-- name: Apache Hadoop
-  href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
+- name: HDInsight-tjänsten
+  expanded: true
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Azure HDInsight?
+          href: ./hdinsight-overview.md
+    - name: Självstudier
+      items:
+        - name: Skapa HDInsight-kluster
+          href: ./hdinsight-hadoop-provision-linux-clusters.md
+        - name: Hantera HDInsight-kluster – portalen
+          href: ./hdinsight-administer-use-portal-linux.md
+        - name: Hantera HDInsight-kluster – CLI
+          href: ./hdinsight-administer-use-command-line.md
+        - name: Hantera HDInsight-kluster – .NET SDK
+          href: ./hdinsight-administer-use-dotnet-sdk.md
+        - name: Hantera HDInsight-kluster – PowerShell
+          href: ./hdinsight-administer-use-powershell.md
+    - name: Exempel
+      items:
+        - name: .NET-exempel
+          href: ./hdinsight-sdk-dotnet-samples.md
+        - name: Java-exempel
+          href: ./hdinsight-sdk-java-samples.md
+        - name: Python-exempel
+          href: ./hdinsight-sdk-python-samples.md
+        - name: Azure-exempelutforskare
+          href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
+    - name: Begrepp
+      items:
+        - name: Apache Hadoop-komponenter på HDInsight
+          href: ./hdinsight-component-versioning.md
+        - name: Maskininlärning i HDInsight
+          href: ./hdinsight-machine-learning-overview.md
+        - name: Direktuppspelning i skala i HDInsight
+          href: ./hdinsight-streaming-at-scale-overview.md
+        - name: Apache Hadoop-arkitektur i HDInsight
+          href: ./hdinsight-hadoop-architecture.md
+        - name: Kapacitetsplanering för kluster
+          href: ./hdinsight-capacity-planning.md
+        - name: Tillgänglighet och tillförlitlighet
+          href: ./hdinsight-high-availability-linux.md
+        - name: Jämför lagringsalternativ
+          href: ./hdinsight-hadoop-compare-storage-options.md
+        - name: Förstå hanterade identiteter
+          href: ./hdinsight-managed-identities.md
+    - name: Gör så här för att
+      items:
+        - name: Skapa kluster
+          items:
+            - name: Skapa kluster i portalen
+              href: ./hdinsight-hadoop-create-linux-clusters-portal.md
+            - name: Skapa kluster med hjälp av mallar
+              href: ./hdinsight-hadoop-create-linux-clusters-arm-templates.md
+            - name: Skapa kluster med hjälp av kommandoraden
+              href: ./hdinsight-hadoop-create-linux-clusters-azure-cli.md
+            - name: Skapa kluster med hjälp av PowerShell
+              href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+            - name: Skapa kluster med hjälp av REST API
+              href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
+            - name: Skapa kluster med hjälp av .NET
+              href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
+        - name: Använda klusterlagring
+          items:
+            - name: Använda Azure Storage
+              href: hdinsight-hadoop-use-blob-storage.md
+            - name: Använda Azure Data Lake Storage Gen2
+              href: hdinsight-hadoop-use-data-lake-storage-gen2.md
+            - name: Använda Azure Data Lake Storage Gen1
+              href: hdinsight-hadoop-use-data-lake-store.md
+        - name: Utöka kluster
+          items:
+            - name: Installera HDInsight-appar
+              href: hdinsight-apps-install-applications.md
+            - name: Anpassa kluster med Bootstrap
+              href: hdinsight-hadoop-customize-cluster-bootstrap.md
+            - name: Anpassa kluster med skriptåtgärd
+              href: hdinsight-hadoop-customize-cluster-linux.md
+            - name: Utveckla skriptåtgärder
+              href: hdinsight-hadoop-script-actions-linux.md
+            - name: Lägga till Apache Hive-bibliotek
+              href: hdinsight-hadoop-add-hive-libraries.md
+            - name: Använda Apache Giraph
+              href: hdinsight-hadoop-giraph-install-linux.md
+            - name: Använd Hue
+              href: hdinsight-hadoop-hue-linux.md
+            - name: Skapa HDInsight-program
+              items:
+                - name: Installera anpassade appar
+                  href: hdinsight-apps-install-custom-applications.md
+                - name: Installera appar med hjälp av REST
+                  href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+                - name: Publicera HDInsight-appar till Azure Marketplace
+                  href: hdinsight-apps-publish-applications.md
+        - name: Skydda
+          items:
+            - name: Använda SSH med HDInsight
+              href: hdinsight-hadoop-linux-use-ssh-unix.md
+            - name: Använd SSH-tunnel
+              href: hdinsight-linux-ambari-ssh-tunnel.md
+            - name: Begränsa åtkomst till data
+              href: hdinsight-storage-sharedaccesssignature-permissions.md
+            - name: Auktorisera användare för Apache Ambari Views
+              href: hdinsight-authorize-users-to-ambari.md
+        - name: Migrera
+          items:
+            - name: Motivation och fördelar
+              href: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
+            - name: Metodtips – arkitektur
+              href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-architecture.md
+            - name: Metodtips – infrastruktur
+              href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-infrastructure.md
+            - name: Metodtips – lagring
+              href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-storage.md
+            - name: Metodtips – datamigrering
+              href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-data-migration.md
+            - name: Metodtips – säkerhet och DevOps
+              href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-security-devops.md
+        - name: Hantera
+          items:
+            - name: Hantera kluster med Apache Ambari-webbgränssnittet
+              href: ./hdinsight-hadoop-manage-ambari.md
+            - name: Optimera kluster med Apache Ambari-webbgränssnittet
+              href: ./hdinsight-changing-configs-via-ambari.md
+            - name: Använda Apache Ambari REST API
+              href: ./hdinsight-hadoop-manage-ambari-rest-api.md
+            - name: Ta bort ett kluster
+              href: ./hdinsight-delete-cluster.md
+            - name: Skala ett kluster manuellt
+              href: ./hdinsight-scaling-best-practices.md
+            - name: Skala kluster automatiskt
+              href: ./hdinsight-autoscale-clusters.md
+            - name: Använda extern metadatalagring
+              href: ./hdinsight-use-external-metadata-stores.md
+            - name: Hantera loggar för ett HDInsight-kluster
+              href: ./hdinsight-log-management.md
+            - name: Lägga till lagringskonton
+              href: ./hdinsight-hadoop-add-storage.md
+            - name: Ladda upp data för Apache Hadoop-jobb
+              href: ./hdinsight-upload-data.md
+            - name: Flera HDInsight-kluster med Data Lake Storage
+              href: ./hdinsight-multiple-clusters-data-lake-store.md
+            - name: Migrera .NET till Linux
+              href: ./hdinsight-hadoop-migrate-dotnet-to-linux.md
+            - name: Importera och exportera data med Apache Sqoop
+              items:
+                - name: Översikt – använda Apache Sqoop
+                  href: ./hadoop/hdinsight-use-sqoop.md
+                - name: Anslut med SSH
+                  href: ./hadoop/apache-hadoop-use-sqoop-mac-linux.md
+                - name: Kör med cURL
+                  href: ./hadoop/apache-hadoop-use-sqoop-curl.md
+                - name: Köra med hjälp av SDK för .NET
+                  href: ./hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
+                - name: Köra med Azure PowerShell
+                  href: ./hadoop/apache-hadoop-use-sqoop-powershell.md
+            - name: Operationalisera en pipeline för dataanalys
+              href: ./hdinsight-operationalize-data-pipeline.md
+            - name: Använda Apache Oozie för arbetsflöden
+              href: ./hdinsight-use-oozie-linux-mac.md
+            - name: 'Kluster- och tjänstportar samt URI:er'
+              href: ./hdinsight-hadoop-port-settings-for-services.md
+            - name: Migrera till Resource Managers utvecklingsverktyg
+              href: ./hdinsight-hadoop-development-using-azure-resource-manager.md
+            - name: Uppgradera HDInsight-kluster till nyare version
+              href: ./hdinsight-upgrade-cluster.md
+            - name: OS-korrigering för HDInsight-kluster
+              href: ./hdinsight-os-patching.md
+        - name: Använda HDInsight-verktyg
+          items:
+            - name: Verktyg för Visual Studio
+              href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
+            - name: Spark- och Hive-verktyg för VSCode
+              href: ./hdinsight-for-vscode.md
+            - name: HDInsight-verktyg för IntelliJ med begränsat Hortonworks-läge
+              href: ./hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md
+            - name: Data Lake-verktyg med begränsat Hortonworks-läge
+              href: ./hdinsight-hadoop-emulator-visual-studio.md
+        - name: Övervakning
+          items:
+            - name: Använda Azure Monitor-loggar
+              href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+            - name: Använda frågor med Azure Monitor-loggar
+              href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
+            - name: Övervaka klusterprestanda
+              href: ./hdinsight-key-scenarios-to-monitor.md
+            - name: Övervaka klustertillgänglighet med Ambari- och Azure Monitor-loggar
+              href: ./hdinsight-cluster-availability.md
+    - name: Referens
+      items:
+        - name: Azure PowerShell
+          href: /powershell/module/az.hdinsight
+        - name: SDK för .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet'
+        - name: SDK för Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
+        - name: SDK för Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
+        - name: SDK för Go
+          href: ./hdinsight-go-sdk-overview.md
+        - name: .NET (Apache HBase)
+          href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
+        - name: REST-API
+          href: /rest/api/hdinsight/
+        - name: REST API (Apache Spark)
+          href: /rest/api/hdinsightspark/
+        - name: Resource Manager-mall
+          href: /azure/templates/microsoft.hdinsight/allversions
+    - name: Resurser
+      items:
+        - name: Versioner
+          items:
+            - name: Nyheter i HDInsight 4.0
+              href: ./hdinsight-version-release.md
+            - name: Fullständig versionsinformation för HDInsight 4.0
+              href: ./hdinsight-release-notes.md
+            - name: Fullständig versionsinformation för HDInsight 3.6
+              href: ./hdinsight-release-notes-archive.md
+        - name: Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
+          href: ./hdinsight-migrate-granular-access-cluster-configurations.md
+        - name: Information om hur du använder HDInsight på Linux
+          href: ./hdinsight-hadoop-linux-information.md
+        - name: Minne och prestanda för Apache Hadoop
+          href: ./hdinsight-hadoop-stack-trace-error-messages.md
+        - name: Få åtkomst till Apache Hadoop YARN-programloggar på Linux
+          href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
+        - name: Aktivera heap dumps för Apache Hadoop-tjänster
+          href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
+        - name: Förstå och lösa fel med WebHCat
+          href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
+        - name: Azure-översikt
+          href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+        - name: Få hjälp i forumet
+          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight'
+        - name: Utbildningsväg
+          href: 'https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/'
+        - name: Microsoft Professional Program för stordata
+          href: 'https://academy.microsoft.com/en-us/professional-program/tracks/big-data/'
+        - name: Priskalkylator
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Windows-verktyg för HDInsight
+          href: ./hdinsight-hadoop-windows-tools.md
 - name: Apache Spark
-  href: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
-- name: Apache HBase
-  href: ./hbase/query-hbase-with-hbase-shell.md
-- name: Interaktiv fråga
-  href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Apache Spark i HDInsight?
+          href: ./spark/apache-spark-overview.md
+    - name: Snabbstarter
+      items:
+        - name: Skapa Apache Spark-kluster – portal
+          href: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
+        - name: Skapa Apache Spark-kluster – PowerShell
+          href: ./spark/apache-spark-jupyter-spark-sql-use-powershell.md
+        - name: Skapa Apache Spark-kluster – Azure CLI
+          href: ./spark/apache-spark-create-cluster-cli.md
+        - name: Skapa Apache Spark-kluster – mall
+          href: ./spark/apache-spark-jupyter-spark-sql.md
+    - name: Självstudier
+      items:
+        - name: Köra frågor på ett Apache Spark-kluster
+          href: ./spark/apache-spark-load-data-run-query.md
+        - name: Felsökning av fel i Spark-jobb i IntelliJ (förhandsversion)
+          href: ./spark/apache-spark-intellij-tool-failure-debug.md
+        - name: Analysera data med BI-verktyg
+          href: ./spark/apache-spark-use-bi-tools.md
+        - name: Köra ett direktuppspelningsjobb
+          href: ./spark/apache-spark-eventhub-streaming.md
+        - name: Skapa en maskininlärningsapp
+          href: ./spark/apache-spark-ipython-notebook-machine-learning.md
+        - name: Skapa en Apache Spark-app i IntelliJ
+          href: ./spark/apache-spark-create-standalone-application.md
+    - name: Gör så här för att
+      items:
+        - name: Använda verktyg
+          items:
+            - name: Verktyg för IntelliJ
+              href: ./spark/apache-spark-intellij-tool-plugin.md
+            - name: Verktyg för Eclipse
+              href: ./spark/apache-spark-eclipse-tool-plugin.md
+            - name: PySpark för VSCode
+              href: ./set-up-pyspark-interactive-environment.md
+        - name: Utveckla
+          items:
+            - name: Använda ett interaktivt Apache Spark-gränssnitt
+              href: ./spark/apache-spark-shell.md
+            - name: Fjärrstyra jobb med Apache Livy
+              href: ./spark/apache-spark-livy-rest-interface.md
+            - name: Felsöka Apache Spark-jobb via en fjärranslutning med IntelliJ genom VPN
+              href: ./spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
+            - name: Apache Spark-direktuppspelning
+              items:
+                - name: Översikt över direktuppspelning
+                  href: ./spark/apache-spark-streaming-overview.md
+                - name: Översikt över strukturerad direktuppspelning
+                  href: ./spark/apache-spark-structured-streaming-overview.md
+                - name: Skapa Apache Spark-direktuppspelningsjobb med hög tillgänglighet i Apache Hadoop YARN
+                  href: ./spark/apache-spark-streaming-high-availability.md
+                - name: Skapa Apache Spark-direktuppspelningsjobb med händelsebearbetning exakt en gång
+                  href: ./spark/apache-spark-streaming-exactly-once.md
+            - name: Apache Spark och Machine Learning
+              items:
+                - name: Förutse matinspektionsresultat
+                  href: ./spark/apache-spark-machine-learning-mllib-ipython.md
+                - name: Analysera webbplatsloggar
+                  href: ./spark/apache-spark-custom-library-website-log-analysis.md
+                - name: Använda Caffe för djupinlärning
+                  href: ./spark/apache-spark-deep-learning-caffe.md
+                - name: Använda med Microsoft Cognitive Toolkit
+                  href: ./spark/apache-spark-microsoft-cognitive-toolkit.md
+                - name: Skapa en Apache Spark-maskininlärningspipeline
+                  href: ./spark/apache-spark-creating-ml-pipelines.md
+            - name: Analysera stordata
+              items:
+                - name: Använda Apache Spark för att läsa och skriva Apache HBase-data
+                  href: ./hdinsight-using-spark-query-hbase.md
+                - name: Analysera loggar i Application Insights Telemetry
+                  href: ./spark/apache-spark-analyze-application-insight-logs.md
+        - name: Hantera
+          items:
+            - name: Hantera klusterresurser
+              href: ./spark/apache-spark-resource-manager.md
+            - name: Hantera Apache Spark-program med hjälp av den utökade historikservern
+              href: ./spark/apache-azure-spark-history-server.md
+            - name: Konfigurera Apache Spark-inställningar
+              href: ./spark/apache-spark-settings.md
+            - name: Optimera Apache Spark-jobb
+              href: ./spark/apache-spark-perf.md
+            - name: Aktivera cachelagring med I/O-cache
+              href: ./spark/apache-spark-improve-performance-iocache.md
+            - name: Använda anteckningsböcker med Apache Spark
+              items:
+                - name: Använda en lokal Jupyter Notebook
+                  href: ./spark/apache-spark-jupyter-notebook-install-locally.md
+                - name: Jupyter Notebook-kärnor
+                  href: ./spark/apache-spark-jupyter-notebook-kernels.md
+                - name: Använda externa paket med Jupyter med cellfunktioner
+                  href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
+                - name: Använda externa paket med Jupyter med skriptåtgärder
+                  href: ./spark/apache-spark-python-package-installation.md
+                - name: Använda Apache Zeppelin-anteckningsböcker
+                  href: ./spark/apache-spark-zeppelin-notebook.md
+            - name: Använda med andra Azure-tjänster
+              items:
+                - name: Använda med Data Lake Storage
+                  href: ./spark/apache-spark-use-with-data-lake-store.md
+                - name: Ansluta till Azure SQL-databas
+                  href: ./spark/apache-spark-connect-to-sql-database.md
+                - name: Implementera en lambda-arkitektur med Apache Spark och Cosmos DB
+                  href: ../cosmos-db/lambda-architecture.md
+                - name: Köra Azure ML-arbetsbelastningar med AutoML
+                  href: ./spark/apache-spark-run-machine-learning-automl.md
+        - name: Felsöka
+          items:
+            - name: OutOfMemoryError-undantag
+              href: ./spark/apache-spark-troubleshoot-outofmemory.md
+            - name: Apache Spark-jobbet misslyckades – NoClassDefFoundError
+              href: ./spark/apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
+            - name: Apache Spark-jobbet misslyckades – InvalidClassException
+              href: ./spark/apache-spark-troubleshoot-job-fails-invalidclassexception.md
+            - name: Långsamma Apache Spark-jobb – listStatus
+              href: ./spark/apache-spark-troubleshoot-job-slowness-liststatus.md
+            - name: Långsamma Apache Spark-jobb – lagringscontainer
+              href: ./spark/apache-spark-troubleshoot-job-slowness-container.md
+            - name: IllegalArgumentException-undantag
+              href: ./spark/apache-spark-troubleshoot-illegalargumentexception.md
+            - name: Apache Spark-direktuppspelningsprogramstopp
+              href: ./spark/apache-spark-troubleshoot-application-stops.md
+            - name: RpcTimeoutException-undantag
+              href: ./spark/apache-spark-troubleshoot-rpctimeoutexception.md
+            - name: Blockerande API för korsande ursprung
+              href: ./spark/apache-spark-troubleshoot-blocking-cross-origin.md
+            - name: Kryo-serialiseringen misslyckades
+              href: ./spark/apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
+            - name: Händelselogg för Apache Spark – RequestBodyTooLarge
+              href: ./spark/apache-spark-troubleshoot-event-log-requestbodytoolarge.md
+            - name: Felsöka Apache Spark-jobb
+              href: ./spark/apache-spark-job-debugging.md
+            - name: Använda IntelliJ för att felsöka Apache Spark-jobb
+              href: ./spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md
+            - name: Felsökning för Apache Spark
+              href: ./spark/apache-troubleshoot-spark.md
+            - name: Kända problem
+              href: ./spark/apache-spark-known-issues.md
+- name: Apache Hadoop
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Apache Hadoop i HDInsight?
+          href: ./hadoop/apache-hadoop-introduction.md
+    - name: Snabbstarter
+      items:
+        - name: Skapa Apache Hadoop-kluster – portalen
+          href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
+        - name: Skapa Apache Hadoop-kluster – mall
+          displayName: 'resource manager template, arm template, resource manager group'
+          href: ./hadoop/apache-hadoop-linux-tutorial-get-started.md
+    - name: Självstudier
+      items:
+        - name: Skapa kluster på begäran
+          href: ./hdinsight-hadoop-create-linux-clusters-adf.md
+        - name: Skicka Apache Hadoop-jobb
+          href: ./hadoop/submit-apache-hadoop-jobs-programmatically.md
+    - name: Gör så här för att
+      items:
+        - name: Använda verktyg
+          items:
+            - name: Använda sandbox-miljön för Apache Hadoop
+              href: ./hadoop/apache-hadoop-emulator-get-started.md
+        - name: Utveckla
+          items:
+            - name: Använda MapReduce med Apache Hadoop
+              items:
+                - name: Översikt över MapReduce
+                  href: ./hadoop/hdinsight-use-mapreduce.md
+                - name: Använd SSH
+                  href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md
+                - name: Använd cURL
+                  href: ./hadoop/apache-hadoop-use-mapreduce-curl.md
+                - name: Använda Azure PowerShell
+                  href: ./hadoop/apache-hadoop-use-mapreduce-powershell.md
+                - name: Använda SDK för .NET
+                  href: ./hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md
+                - name: Köra MapReduce-exemplen
+                  href: ./hadoop/apache-hadoop-run-samples-linux.md
+                - name: Köra anpassade Apache Hadoop MapReduce-program
+                  href: ./hadoop/apache-hadoop-run-custom-programs.md
+                - name: 'Utveckla strömmande C#-MapReduce-program'
+                  href: ./hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md
+                - name: Utveckla Java MapReduce-program
+                  href: ./hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
+            - name: 'Använda Apache Hive som ett verktyg för extrahering, transformering och inläsning (ETL)'
+              href: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
+            - name: 'Extrahering, transformering i inläsning i stor skala'
+              href: ./hadoop/apache-hadoop-etl-at-scale.md
+            - name: Skapa .NET HDInsight-program med icke-interaktiv autentisering
+              href: ./hdinsight-create-non-interactive-authentication-dotnet-applications.md
+            - name: Analysera stordata
+              items:
+                - name: Analysera med Power Query
+                  href: ./hadoop/apache-hadoop-connect-excel-power-query.md
+                - name: Ansluta Power BI till interaktiv fråga
+                  href: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+                - name: Ansluta Power BI till Apache Hadoop
+                  href: ./hadoop/apache-hadoop-connect-hive-power-bi.md
+                - name: Ansluta Excel till Apache Hadoop
+                  href: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
+                - name: Ansluta med Apache Hive JDBC-drivrutinen
+                  href: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
+                - name: Analysera lagrade tweets
+                  href: ./hdinsight-analyze-twitter-data-linux.md
+                - name: Skapa rekommendationer med Apache Mahout
+                  href: ./hadoop/apache-hadoop-mahout-linux-mac.md
+                - name: Avancerade analyser för HDInsight
+                  href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
+        - name: Hantera
+          items:
+            - name: Använda tomma kantnoder
+              href: ./hdinsight-apps-use-edge-node.md
+        - name: Felsöka
+          items:
+            - name: Vanliga problem
+              href: ./hdinsight-troubleshoot-guide.md
+            - name: Det gick inte att skapa kluster
+              href: ./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md
+            - name: Slut på diskutrymme
+              href: ./hadoop/hdinsight-troubleshoot-out-disk-space.md
+            - name: Mjuk låsning – CPU
+              href: ./hadoop/hdinsight-troubleshoot-soft-lockup-cpu.md
+            - name: InvalidNetworkConfigurationErrorCode – det går inte att skapa kluster
+              href: ./hadoop/troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+            - name: InvalidNetworkSecurityGroupSecurityRules – det går inte att skapa kluster
+              href: ./hadoop/hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+            - name: Det går inte att logga in i HDInsight-kluster
+              href: ./hadoop/hdinsight-troubleshoot-unable-log-in-cluster.md
+            - name: Det går inte att lägga till noder i HDInsight-kluster
+              href: ./hadoop/hdinsight-troubleshoot-unable-add-nodes.md
+            - name: Konvertera certifikat för tjänstens huvudnamn
+              href: ./hadoop/hdinsight-troubleshoot-converting-service-principal-certificate.md
+            - name: Lokal HDFS fast i felsäkert läge
+              href: ./hadoop/hdinsight-hdfs-troubleshoot-safe-mode.md
+            - name: Problem med pulsslag från Apache Ambari
+              href: ./hadoop/apache-ambari-troubleshoot-heartbeat-issues.md
+            - name: Apache Ambari-användargränssnittet – 502-fel
+              href: ./hadoop/apache-ambari-troubleshoot-fivezerotwo-error.md
+            - name: Apache Ambari visar värdar och tjänster ur funktion
+              href: ./hadoop/apache-ambari-troubleshoot-down-hosts-services.md
+            - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
+              href: ./hdinsight-troubleshoot-failed-cluster.md
+            - name: Felsökning för Hadoop Distributed File System i Apache Hadoop
+              href: ./hdinsight-troubleshoot-hdfs.md
+            - name: Felsökning för Apache Hadoop YARN
+              href: ./hdinsight-troubleshoot-yarn.md
+            - name: Analysera Apache Hadoop-loggar
+              href: ./hadoop/apache-hadoop-debug-jobs.md
+            - name: Felsöka Data Lake Store-filer
+              href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
 - name: Apache Kafka
-  href: ./kafka/apache-kafka-get-started.md
-- name: Apache Storm
-  href: ./storm/apache-storm-quickstart.md
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Apache Kafka i HDInsight?
+          href: ./kafka/apache-kafka-introduction.md
+    - name: Snabbstarter
+      items:
+        - name: Skapa Apache Kafka-kluster – portal
+          href: ./kafka/apache-kafka-get-started.md
+        - name: Skapa Apache Kafka-kluster – PowerShell
+          href: ./kafka/apache-kafka-quickstart-powershell.md
+        - name: Skapa Apache Kafka-kluster – mall
+          displayName: 'resource manager template, arm template, resource manager group'
+          href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
+    - name: Självstudier
+      items:
+        - name: 'Använda Apache Kafka-producenten och konsument-API:et'
+          href: ./kafka/apache-kafka-producer-consumer-api.md
+        - name: 'Utveckla en app med Apache Kafka Streams-API:et'
+          href: ./kafka/apache-kafka-streams-api.md
+        - name: Använda Apache Spark-strukturuppspelning
+          href: ./hdinsight-apache-kafka-spark-structured-streaming.md
+    - name: Begrepp
+      items:
+        - name: Lagring och skalbarhet
+          href: ./kafka/apache-kafka-scalability.md
+        - name: Hög tillgänglighet för data
+          href: ./kafka/apache-kafka-high-availability.md
+        - name: Prestandajustering
+          href: ./kafka/apache-kafka-performance-tuning.md
+        - name: Vanliga frågor och svar om Kafka
+          href: ./kafka/kafka-faq.md
+    - name: Gör så här för att
+      items:
+        - name: Utveckla
+          items:
+            - name: Aktivera funktionen för att skapa ämnen automatiskt
+              href: ./kafka/apache-kafka-auto-create-topics.md
+            - name: Använda Apache Kafka med IoT Hub
+              href: ./kafka/apache-kafka-connector-iot-hub.md
+            - name: Skapa strömningspipelines
+              items:
+                - name: 'Apache Spark, Apache Kafka och Azure Cosmos DB'
+                  href: ./apache-kafka-spark-structured-streaming-cosmosdb.md
+                - name: Apache Kafka och Apache Spark (DStream)
+                  href: ./hdinsight-apache-spark-with-kafka.md
+                - name: Använda Apache Kafka med Azure Container Service
+                  href: ./kafka/apache-kafka-azure-container-services.md
+        - name: Hantera
+          items:
+            - name: Använda Apache Kafka i ett virtuellt nätverk
+              href: ./kafka/apache-kafka-connect-vpn-gateway.md
+            - name: Replikera Apache Kafka-data
+              href: ./kafka/apache-kafka-mirroring.md
+            - name: Analysera Apache Kafka-loggar
+              href: ./kafka/apache-kafka-log-analytics-operations-management.md
+            - name: Bring your own key
+              href: ./kafka/apache-kafka-byok.md
+            - name: SSL-kryptering och autentisering
+              href: ./kafka/apache-kafka-ssl-encryption-authentication.md
+        - name: Felsöka
+          items:
+            - name: Otillräckliga feldomäner
+              href: ./kafka/kafka-troubleshoot-insufficient-domains.md
+- name: Apache HBase
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Apache HBase i HDInsight?
+          href: ./hbase/apache-hbase-overview.md
+    - name: Snabbstarter
+      items:
+        - name: Fråga Apache HBase – Apache Phoenix
+          href: ./hbase/apache-hbase-phoenix-squirrel-linux.md
+        - name: Fråga Apache HBase – HBase Shell
+          href: ./hbase/query-hbase-with-hbase-shell.md
+    - name: Självstudier
+      items:
+        - name: Använda Apache HBase i HDInsight
+          href: ./hbase/apache-hbase-tutorial-get-started-linux.md
+    - name: Gör så här för att
+      items:
+        - name: Utveckla
+          items:
+            - name: Använda Apache HBase SDK för .NET
+              href: ./hbase/apache-hbase-rest-sdk.md
+            - name: Utveckla Java-program
+              href: ./hbase/apache-hbase-build-java-maven-linux.md
+            - name: Apache Phoenix i HDInsight
+              href: ./hdinsight-phoenix-in-hdinsight.md
+            - name: Använda REST SDK för Apache Phoenix Query Server
+              href: ./hbase/apache-hbase-using-phoenix-query-server-rest-sdk.md
+            - name: Massinläsning av data till Apache Phoenix med psql
+              href: ./hbase/apache-hbase-phoenix-psql.md
+        - name: Hantera
+          items:
+            - name: Accelererade skrivningar
+              href: ./hbase/apache-hbase-accelerated-writes.md
+            - name: Replikering av Apache HBase-kluster i ett virtuellt Azure-nätverk
+              href: ./hbase/apache-hbase-replication.md
+            - name: Konfigurera säkerhetskopiering och replikering för Apache HBase och Apache Phoenix
+              href: ./hbase/apache-hbase-backup-replication.md
+            - name: Migrera Apache HBase-kluster till en nyare version
+              href: ./hbase/apache-hbase-migrate-new-version.md
+            - name: Metodtips för prestanda för Apache Phoenix
+              href: ./hbase/apache-hbase-phoenix-performance.md
+            - name: Skapa Apache HBase-kluster i ett virtuellt Azure-nätverk
+              href: ./hbase/apache-hbase-provision-vnet.md
+        - name: Felsöka
+          items:
+            - name: hbase hbck returnerar inkonsekvenser
+              href: ./hbase/hbase-troubleshoot-hbase-hbck-inconsistencies.md
+            - name: Lagringsundantag efter anslutningsåterställning
+              href: ./hbase/hbase-troubleshoot-storage-exception-reset.md
+            - name: Inga data i Apache Phoenix-vyer
+              href: ./hbase/hbase-troubleshoot-phoenix-no-data.md
+            - name: BindException – adressen används
+              href: ./hbase/hbase-troubleshoot-bindexception-address-use.md
+            - name: Apache HBase kunde inte startas
+              href: ./hbase/hbase-troubleshoot-start-fails.md
+            - name: Problem med regionservrar
+              href: ./hbase/hbase-troubleshoot-unassigned-regions.md
+            - name: Problem med Apache Phoenix-anslutningen
+              href: ./hbase/hbase-troubleshoot-phoenix-connectivity.md
+            - name: Apache HBase-REST svarar inte
+              href: ./hbase/hbase-troubleshoot-rest-not-spending.md
+            - name: Peggad CPU på regionsserver
+              href: ./hbase/hbase-troubleshoot-pegged-cpu-region-server.md
+            - name: Timeouter med kommandot hbase hbck
+              href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
+            - name: Felsöka Apache HBase
+              href: ./hbase/apache-troubleshoot-hbase.md
+- name: Interaktiv fråga
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Interaktiv fråga i HDInsight?
+          href: ./interactive-query/apache-interactive-query-get-started.md
+    - name: Snabbstarter
+      items:
+        - name: Köra Apache Hive-frågor – Apache Zeppelin
+          href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
+    - name: Självstudier
+      items:
+        - name: Analysera data med interaktiv fråga
+          href: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+    - name: Gör så här för att
+      items:
+        - name: Utveckla
+          items:
+            - name: Bearbeta och analysera JSON-dokument
+              href: ./hadoop/using-json-in-hive.md
+            - name: 'Använda C#-användardefinierade funktioner'
+              href: ./hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
+            - name: Använda Python med Apache Hive och Apache Pig
+              href: ./hadoop/python-udf-hdinsight.md
+            - name: Apache Hive med Apache Spark
+              href: ./interactive-query/apache-hive-warehouse-connector.md
+            - name: Apache Hive med Hadoop
+              href: ./hadoop/hdinsight-use-hive.md
+            - name: Använda Apache Hive-vyn
+              href: ./hadoop/apache-hadoop-use-hive-ambari-view.md
+            - name: Använda Apache Hive Beeline
+              href: ./hadoop/apache-hadoop-use-hive-beeline.md
+            - name: Använda Grafana
+              href: ./interactive-query/hdinsight-grafana.md
+            - name: Använda REST-API
+              href: ./hadoop/apache-hadoop-use-hive-curl.md
+            - name: Använda Azure PowerShell
+              href: ./hadoop/apache-hadoop-use-hive-powershell.md
+            - name: Använda SDK för .NET
+              href: ./hadoop/apache-hadoop-use-hive-dotnet-sdk.md
+            - name: Använd HDInsight-verktyg för Visual Studio
+              href: ./hadoop/apache-hadoop-use-hive-visual-studio.md
+            - name: Använda Java UDF med Apache Hive
+              href: ./hadoop/apache-hadoop-hive-java-udf.md
+            - name: Fråga Hive med PowerShell och ODBC
+              href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
+        - name: Hantera
+          items:
+            - name: Migrera Hive-arbetsbelastningar till HDInsight 4.0
+              href: ./interactive-query/apache-hive-migrate-workloads.md
+            - name: Optimera Apache Hive-frågor
+              href: ./hdinsight-hadoop-optimize-hive-query.md
+        - name: Felsöka
+          items:
+            - name: Apache Hive-inställningar för att lösa fel där minnet är slut
+              href: ./hdinsight-hadoop-hive-out-of-memory-error-oom.md
+            - name: Apache Tez-program låser sig
+              href: ./interactive-query/interactive-query-troubleshoot-tez-hangs.md
+            - name: Apache Hive LLAP-frågeprestanda
+              href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
+            - name: Långsam reducerare
+              href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
+            - name: Tidsgräns för Apache Hive-vyn
+              href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
+            - name: Behörighetsfel när en tabell skapas
+              href: ./interactive-query/interactive-query-troubleshoot-permission-error-create-table.md
+            - name: GC-utgiftsgränsen har överskridits
+              href: ./interactive-query/interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+            - name: Apache Ambari Tez-vyn läses in långsamt
+              href: ./interactive-query/interactive-query-troubleshoot-tez-view-slow.md
+            - name: Felmeddelande visas inte i Apache Hive-vyn
+              href: ./interactive-query/interactive-query-troubleshoot-error-message-hive-view.md
+            - name: Otillgänglig Apache Hive-vy
+              href: ./interactive-query/interactive-query-troubleshoot-inaccessible-hive-view.md
+            - name: ZooKeeperHiveClientException – HiveServer2-konfigurationer
+              href: ./interactive-query/interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
+            - name: Felsökning för Apache HIVE
+              href: ./hdinsight-troubleshoot-hive.md
 - name: ML Services
-  href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är ML Services i HDInsight?
+          href: ./r-server/r-server-overview.md
+    - name: Snabbstarter
+      items:
+        - name: Exempeljobb – RStudio Server
+          href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
+        - name: Exempeljobb – R-konsolen
+          href: ./r-server/machine-learning-services-quickstart-job-rconsole.md
+    - name: Självstudier
+      items:
+        - name: R i Spark-beräkningskontext i HDInsight
+          href: ./r-server/ml-services-tutorial-spark-compute.md
+        - name: Använda R Tools för Visual Studio
+          href: ./r-server/r-server-submit-jobs-r-tools-vs.md
+    - name: Gör så här för att
+      items:
+        - name: Utveckla
+          items:
+            - name: Beräkningskontext
+              href: ./r-server/r-server-compute-contexts.md
+            - name: ScaleR och SparkR
+              href: ./hdinsight-hadoop-r-scaler-sparkr.md
+        - name: Hantera
+          items:
+            - name: Hantera ML Services-kluster
+              href: ./r-server/r-server-hdinsight-manage.md
+            - name: Operationalisera ML Services-kluster
+              href: ./r-server/r-server-operationalize.md
+            - name: Lagringsalternativ
+              href: ./r-server/r-server-storage.md
+- name: Apache Storm
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Apache Storm i HDInsight?
+          href: ./storm/apache-storm-overview.md
+    - name: Snabbstarter
+      items:
+        - name: Skapa Apache Storm-topologi i HDInsight
+          href: ./storm/apache-storm-quickstart.md
+    - name: Självstudier
+      items:
+        - name: Använda Apache Storm för att skriva till lagring
+          href: ./storm/apache-storm-write-data-lake-store.md
+    - name: Gör så här för att
+      items:
+        - name: Utveckla
+          items:
+            - name: Topologier
+              items:
+                - name: Utveckla topologier med Java
+                  href: ./storm/apache-storm-develop-java-topology.md
+                - name: Utveckla topologier med Python
+                  href: ./storm/apache-storm-develop-python-topology.md
+                - name: 'Utveckla topologier med C#'
+                  href: ./storm/apache-storm-develop-csharp-visual-studio-topology.md
+                - name: Programmeringsguide för SCP.NET
+                  href: ./storm/apache-storm-scp-programming-guide.md
+                - name: Apache Storm-exempel
+                  href: ./storm/apache-storm-example-topology.md
+            - name: Strömningspipelines
+              items:
+                - name: Apache Kafka och Apache Storm (Java)
+                  href: ./hdinsight-apache-storm-with-kafka.md
+                - name: 'Event Hub, Storage och Data Lake Storage (Java)'
+                  href: 'https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/'
+                - name: 'Event Hub och Apache Storm (C# och Java)'
+                  href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
+        - name: Hantera
+          items:
+            - name: Övervaka topologier
+              href: ./storm/apache-storm-deploy-monitor-topology-linux.md
+        - name: Felsöka
+          items:
+            - name: Felsökning för Apache STORM
+              href: ./storm/apache-troubleshoot-storm.md
 - name: Företagsberedskap
-  href: ./domain-joined/apache-domain-joined-run-hbase.md
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är företagssäkerhet i HDInsight?
+          href: ./domain-joined/hdinsight-security-overview.md
+    - name: Självstudier
+      items:
+        - name: Använda brandväggen för att begränsa utgående trafik
+          href: ./hdinsight-restrict-outbound-traffic.md
+        - name: Apache HBase RBAC med Apache Ranger
+          href: ./domain-joined/apache-domain-joined-run-hbase.md
+        - name: Apache Hive RBAC med Apache Ranger
+          href: ./domain-joined/apache-domain-joined-run-hive.md
+        - name: Apache Kafka RBAC med Apache Ranger
+          href: ./domain-joined/apache-domain-joined-run-kafka.md
+        - name: Använda Apache Oozie i ESP-kluster
+          href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
+    - name: Begrepp
+      items:
+        - name: Planera för ESP-kluster
+          href: ./domain-joined/apache-domain-joined-architecture.md
+        - name: Arkitektur för virtuellt HDInsight-nätverk
+          href: ./hdinsight-virtual-network-architecture.md
+        - name: Planera virtuella nätverk för HDInsight
+          href: ./hdinsight-plan-virtual-network-deployment.md
+        - name: IP-adresser som krävs för nätverkssäkerhetsgrupper och användardefinierade vägar
+          href: ./hdinsight-management-ip-addresses.md
+    - name: Gör så här för att
+      items:
+        - name: Skapa ESP-kluster och synkronisera lokalt
+          href: ./domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster.md
+        - name: Skapa virtuella nätverk för HDInsight
+          href: ./hdinsight-create-virtual-network.md
+        - name: Ansluta HDInsight till det lokala nätverket
+          href: ./connect-on-premises-network.md
+        - name: Konfigurera företagssäkerhet i HDInsight
+          href: ./domain-joined/apache-domain-joined-configure.md
+        - name: Konfigurera ESP-kluster med Azure AD DS
+          href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
+        - name: Synkronisera Azure AD-användare till ett HDInsight-kluster
+          href: ./hdinsight-sync-aad-users-to-cluster.md
+        - name: Hantera kluster med företagssäkerhet
+          href: ./domain-joined/apache-domain-joined-manage.md
+        - name: Skydda data
+          href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+        - name: Felsöka
+          items:
+            - name: ESP-autentiseringsproblem
+              href: ./domain-joined/domain-joined-authentication-issues.md
+            - name: Det går inte att logga in på Zeppelin med ESP
+              href: ./domain-joined/domain-joined-zeppelin-signin.md

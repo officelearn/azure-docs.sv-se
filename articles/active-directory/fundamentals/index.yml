@@ -1,47 +1,67 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Active Directory-grunderna
+summary: Lär dig om grundläggande Azure Active Directory-begrepp (Azure AD) och -processer, bland annat hur du skapar en basmiljö, grundläggande användare och grupper för att komma igång.
 metadata:
-  document_id: null
   title: Dokumentation om Azure Active Directory-grunderna
-  description: Läs mer om de grundläggande koncepten och processerna som finns tillgängliga med Azure Active Directory.
-  services: active-directory
-  ms.subservice: fundamentals
-  author: msaburnley
+  description: Lär dig om grundläggande Azure Active Directory-begrepp (Azure AD) och -processer, bland annat hur du skapar en basmiljö, grundläggande användare och grupper för att komma igång.
   manager: daveba
-  ms.service: active-directory
-  ms.topic: landing-page
-  ms.date: 09/07/2018
   ms.author: ajburnle
-abstract:
-  description: 'Läs mer om grundläggande Azure Active Directory (Azure AD)-koncept och -processer, bland annat hur du skapar basanvändare och grupper, och hur du skapar en basmiljö för att komma igång.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Lär dig att komma igång med Azure Active Directory-portalen.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_portal.png
-            text: Öppna Azure AD om du vill skapa en klient
-            href: active-directory-access-create-new-tenant.md
-          - image:
-              src: ./media/index/i_tasks.png
-            text: Visa grupper och medlemmar
-            href: active-directory-groups-view-azure-portal.md
-  - title: Steg-för-steg-guide
-    items:
-      - type: paragraph
-        text: Lär dig att utföra grundläggande uppgifter för att konfigurera din Azure Active Directory-miljö
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Registrera dig för Azure AD Premium</a>
-          - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">Så här lägger du vill ett anpassat domännamn</a>
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">Så här skapar du en basgrupp och lägger till medlemmar</a>
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">Så här lägger du till gruppägare</a>
-          - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Så här lägger du till en ny användare</a>
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">Så här tilldelar du roller till användare</a>
-          - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Så här tilldelar du licenser till användare</a>
+  ms.collection: na
+  ms.date: 08/27/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: c0f85c065a4334f41c7f52a05e2b885f97dde25f
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70124885"
+landingContent:
+- title: Om Azure AD
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Active Directory?
+      url: active-directory-whatis.md
+    - text: Nyheter i Azure Active Directory
+      url: whats-new.md
+  - linkListType: concept
+    links:
+    - text: Azure AD-arkitekturen
+      url: active-directory-architecture.md
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Öppna portalen och skapa en klient
+      url: active-directory-access-create-new-tenant.md
+    - text: Visa grupperna med tilldelade medlemmar
+      url: active-directory-groups-view-azure-portal.md
+- title: Skapa ett Azure AD-konto
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Registrera dig för Azure Active Directory Premium
+      url: active-directory-get-started-premium.md
+    - text: Registrera dig för Azure AD som en organisation
+      url: sign-up-organization.md
+    - text: Lägga till ditt anpassade domännamn
+      url: add-custom-domain.md
+- title: Skapa en grupp i Azure AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en basgrupp och lägg till medlemmar
+      url: active-directory-groups-create-azure-portal.md
+    - text: Lägga till eller ta bort gruppägare
+      url: active-directory-accessmanagement-managing-group-owners.md
+- title: Lägga till användare och tilldela deras roller och licenser
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Lägga till eller ta bort användare
+      url: add-users-azure-active-directory.md
+    - text: Tilldela licenser till användare
+      url: license-users-groups.md

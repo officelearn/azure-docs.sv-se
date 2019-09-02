@@ -66,6 +66,8 @@
       href: fslogix-containers-azure-files.md
     - name: Partnerintegrering
       href: partners.md
+    - name: Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise
+      href: windows-10-multisession-faq.md
 - name: Felsöka
   items:
     - name: 'Översikt, feedback och support för felsökning'

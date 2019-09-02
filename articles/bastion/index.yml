@@ -1,35 +1,51 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om Azure Bastion
+### YamlMime:Landing
+title: Dokumentation om Azure Bastion (förhandsversion)
+summary: Lär dig hur du använder Azure Bastion för att ansluta till en virtuell dator. Konfigurera säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via SSL. När du ansluter via Azure Bastion behöver dina virtuella datorer inte någon offentlig IP-adress.
 metadata:
-  document_id: null
-  title: Bastion
-  meta.description: Learn how to use Azure Bastion
-  author: cherylmc
-  ms.service: Bastion
+  title: Dokumentation om Azure Bastion (förhandsversion)
+  description: Lär dig hur du använder Azure Bastion för att ansluta till en virtuell dator. Konfigurera säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via SSL.
+  services: bastion
+  ms.service: bastion
   ms.topic: landing-page
-  ms.date: 07/02/2019
+  author: cherylmc
   ms.author: cherylmc
-abstract:
-  description: Lär dig hur du använder Azure Bastion för att ansluta till en virtuell dator. Konfigurera säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via SSL. När du ansluter via Azure Bastion behöver dina virtuella datorer inte någon offentlig IP-adress.
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: 'https://go.microsoft.com/fwlink/?linkid=2095604'
-      width: 250
-    title: 'Arbeta med Azure Bastion (1:03)'
-    href: 'https://go.microsoft.com/fwlink/?linkid=2095517'
-    width: 250
-sections:
-  - title: Skapa och hantera Azure Bastion (förhandsversion)
-    items:
-      - type: paragraph
-        text: Lär dig hur du konfigurerar en Azure Bastion-värd och anslut sedan till en virtuell dator.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/bastion/bastion-create-host-portal">Skapa och ändra en Azure Bastion-värd</a>
-          - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Ansluta till en virtuell Windows-dator</a>
-          - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Ansluta till en virtuell Linux-dator</a>
-          - html: <a href="/azure/bastion/bastion-faq">Läs igenom vanliga frågor och svar om Azure Bastion</a>
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 6854e6ec4bd36ea38fa0e1f9cd46f95e11144be6
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70128126"
+landingContent:
+- title: Om Azure Bastion (förhandsversion)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Bastion?
+      url: bastion-overview.md
+  - linkListType: concept
+    links:
+    - text: Vanliga frågor och svar om Azure Bastion
+      url: bastion-faq.md
+- title: Komma igång
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en Bastion-värd
+      url: bastion-create-host-portal.md
+    - text: Ansluta till en virtuell dator (Linux)
+      url: bastion-connect-vm-ssh.md
+    - text: Ansluta till en virtuell dator (Windows)
+      url: bastion-connect-vm-rdp.md
+  - linkListType: video
+    links:
+    - text: Arbeta med Azure Bastion
+      url: https://go.microsoft.com/fwlink/?linkid=2095517
+- title: Arbeta med sessioner med virtuell dator
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Kopiera och klistra in
+      url: bastion-vm-copy-paste.md
+    - text: Helskärmsläge
+      url: bastion-vm-full-screen.md

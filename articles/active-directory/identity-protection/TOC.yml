@@ -32,11 +32,11 @@
           href: howto-sign-in-risk-policy.md
         - name: Konfigurera riskprincipen för användare
           href: howto-user-risk-policy.md
-        - name: Stäng aktiva riskhändelser
+        - name: Stänga aktiva riskidentifieringar
           href: howto-close-active-risk-events.md
         - name: Avblockera användare
           href: howto-unblock-user.md
-        - name: Simulera riskhändelser
+        - name: Simulera riskidentifieringar
           href: playbook.md
         - name: Vanliga frågor och svar
           href: faqs.md
@@ -46,9 +46,9 @@
           href: overview-v2.md
         - name: Säkerhetsöversikt
           href: security-overview.md
-        - name: Undersöka riskfyllda användare och inloggningar
-          href: howto-investigate-risky-users-signins.md
-        - name: Ge feedback om riskhändelser
+        - name: Undersöka risk
+          href: howto-investigate-risk.md
+        - name: Ge feedback om riskidentifieringar
           href: howto-provide-risk-event-feedback.md
         - name: Konfigurera riskprinciper
           href: howto-configure-risk-policies.md
@@ -58,7 +58,7 @@
   items:
     - name: Använda Microsoft Graph API
       href: graph-get-started.md
-    - name: Riskhändelser
+    - name: Riskidentifieringar
       href: risk-events-reference.md
     - name: Ordlista
       href: glossary.md

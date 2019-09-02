@@ -3,7 +3,7 @@ documentType: LandingData
 title: Dokumentation om Azure Machine Learning-tjänsten
 metadata:
   title: 'Dokumentation om Azure Machine Learning-tjänsten – självstudier, API-referens| Microsoft Docs'
-  description: 'Azure Machine Learning Service tillhandahåller SDK:er och tjänster som du kan använda för att snabbt förbereda data samt träna och distribuera maskininlärningsmodeller. Förbättra produktiviteten och minska kostnaderna med databearbetning med automatisk skalning och pipelines. Använd dessa funktioner med Python-ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn. Kom igång med våra snabbstarter och självstudier.'
+  description: 'Azure Machine Learning Service tillhandahåller SDK:er och tjänster som du kan använda för att snabbt träna och distribuera maskininlärningsmodeller. Förbättra produktiviteten och minska kostnaderna med databearbetning med automatisk skalning och pipelines. Använd dessa funktioner med Python-ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn. Kom igång med våra snabbstarter och självstudier.'
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -16,7 +16,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: 'Azure Machine Learning Service tillhandahåller SDK:er och tjänster som du kan använda för att snabbt förbereda data samt träna och distribuera maskininlärningsmodeller. Förbättra produktiviteten och minska kostnaderna med databearbetning med automatisk skalning och pipelines. Använd dessa funktioner med Python-ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn. Kom igång med våra snabbstarter och självstudier.'
+  description: 'Azure Machine Learning Service tillhandahåller SDK:er och tjänster som du kan använda för att snabbt träna och distribuera maskininlärningsmodeller. Förbättra produktiviteten och minska kostnaderna med databearbetning med automatisk skalning och pipelines. Använd dessa funktioner med Python-ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn. Kom igång med våra snabbstarter och självstudier.'
   aside:
     image:
       alt: null
@@ -30,7 +30,7 @@ sections:
   - title: Steg för steg-självstudier
     items:
       - type: paragraph
-        text: 'Lär dig hur du förbereder data, konfigurerar experiment, tränar och operationaliserar dina maskininlärningsmodeller.'
+        text: Lär dig hur du konfigurerar experiment samt tränar och operationaliserar maskininlärningsmodeller.
       - type: paragraph
         text: '<b>Använd Azure Portal</b>, ett kodlöst gränssnitt för maskininlärning som är enkelt att använda:'
       - type: list

@@ -1,65 +1,81 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om hybrididentitet
+summary: Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering till alla resurser, oavsett plats. Vi kallar det för hybrididentitet.
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
-  title: Dokumentation om hybrididentitet
-  description: Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD.
-  services: active-directory
   author: billmath
+  description: Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD.
   manager: daveba
-  ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 05/18/2018
   ms.author: billmath
-abstract:
-  description: 'Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering till alla resurser, oavsett plats. Vi kallar det för hybrididentitet.</br></br></br>Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD. I det här avsnittet beskrivs planerings-, distributions- och användningsstegen. Det är en samling länkar till avsnitt relaterade till det här området.'
-  aside:
-    image:
-      alt: kanal 9-video
-      height: 110
-      src: media/index/video2.png
-      width: 250
-    title: 'Utöka lokala kataloger till molnet (1:11:12)'
-    href: 'https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player'
-    width: 250
-sections:
-  - title: Stegvisa självstudier
-    items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
-            html: <p>Lär dig hur du kommer igång med att utöka dina identiteter till molnet med synkronisering av lösenordshash</p>
-            image:
-              alt: Hash-synkronisering för lösenord
-              src: media/index/azuread2.png
-            title: Integrera en enskild AD-skog med hjälp av synkronisering av lösenordshash (PHS)
-          - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
-            html: <p>Lär dig hur du kommer igång med att utöka dina identiteter till molnet med direktautentisering.</p>
-            image:
-              alt: Direktautentisering
-              src: media/index/manage2.png
-            title: Integrera en enskild AD-skog med hjälp av direktautentisering (PTA)
-          - href: /azure/active-directory/hybrid/tutorial-federation
-            html: <p>Få reda på hur du federerar Azure Active Directory (Azure AD) Connect med Active Directory Federation Services (AD FS) och Azure AD lokalt.</p>
-            image:
-              alt: federation
-              src: media/index/federate2.png
-            title: Integrera en enskild AD-skog med hjälp av federation
-  - title: Instruktionsguider
-    items:
-      - type: paragraph
-        text: Lär dig hur du utför olika uppgifter för hybrididentitet
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-custom">Installera Azure AD Connect i hybrididentitetsmiljön</a>
-          - html: <a href="/azure/active-directory/hybrid/how-to-connect-sso">Smidig och enkel inloggning med Azure AD Connect</a>
-          - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-prerequisites">Nödvändiga komponenter för Azure AD Connect</a>
-          - html: <a href="/azure/active-directory/hybrid/reference-connect-version-history">Versionshistorik för Azure AD Connect</a>
-          - html: <a href="/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler">Hantera synkroniseringsschemaläggaren för Azure AD Connect</a>
+  ms.collection: na
+  ms.date: 08/15/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: fa9007d0e9ad59ee0ffb29fe1c5c74c8530d84fa
+  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70162201"
+landingContent:
+- title: Om hybrididentitet
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är hybrididentitet?
+      url: whatis-hybrid-identity.md
+- title: Avgör vilken som är den bästa lösningen för att hantera livscykeln för dina användare och grupper
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure AD Connect och Connect Health?
+      url: whatis-azure-ad-connect.md
+  - linkListType: tutorial
+    links:
+    - text: Integrera en enskild AD-skog med hjälp av synkronisering av lösenordshash (PHS)
+      url: tutorial-password-hash-sync.md
+    - text: Integrera en enskild AD-skog med hjälp av direktautentisering (PTA)
+      url: tutorial-passthrough-authentication.md
+    - text: Integrera en enskild AD-skog med hjälp av federation
+      url: tutorial-federation.md
+- title: Välj den autentiseringsmetod som fungerar bäst för din organisation
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är hash-synkronisering av lösenord?
+      url: whatis-phs.md
+    - text: Vad är direktautentisering?
+      url: how-to-connect-pta.md
+    - text: Vad är federation?
+      url: whatis-fed.md
+    - text: Vad är enkel inloggning?
+      url: how-to-connect-sso.md
+  - linkListType: concept
+    links:
+    - text: Avgör vilken autentiseringsmetod som passar dig bäst
+      url: /azure/security/fundamentals/choose-ad-authn
+- title: Kom igång med hybrididentitet
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Installera Azure AD Connect med standardinställningar
+      url: how-to-connect-install-express.md
+    - text: Installera Azure AD Connect med anpassade inställningar
+      url: how-to-connect-install-custom.md
+    - text: Konfigurera AD DS Connector-kontot
+      url: how-to-connect-configure-ad-ds-connector-account.md
+    - text: Ändra lösenordet för ADSync-tjänstkontot
+      url: how-to-connect-sync-change-serviceacct-pass.md
+    - text: Ändra lösenord för Azure AD Connector-kontot
+      url: how-to-connect-azureadaccount.md
+    - text: Ändra AD DS-kontolösenordet
+      url: how-to-connect-sync-change-addsacct-pass.md
+  - linkListType: reference
+    links:
+    - text: Portar och protokoll som krävs
+      url: reference-connect-ports.md
+    - text: Konton och behörigheter
+      url: reference-connect-accounts-permissions.md
+    - text: Versionshistorik för Azure AD Connect
+      url: reference-connect-version-history.md

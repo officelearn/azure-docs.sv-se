@@ -1,40 +1,65 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Virtual WAN
+### YamlMime:Landing
+title: Dokumentation om Virtual WAN
+summary: Lär dig hur du konfigurerar, skapar och hanterar Azure Virtual WAN. Kompilera säker global skalförgreningsanslutning.
 metadata:
-  document_id: null
-  title: 'Dokumentation om Virtual WAN – Självstudier, API-referenser | Microsoft Docs'
-  meta.description: 'Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.'
+  title: Dokumentation om Virtual WAN
+  description: Lär dig om Virtual WAN
   services: virtual-wan
-  author: cherylmc
-  manager: jeconnoc
   ms.service: virtual-wan
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/01/2018
+  author: cherylmc
   ms.author: cherylmc
-abstract:
-  description: 'Lär dig hur du konfigurerar, skapar och hanterar Azure Virtual WAN. Kompilera säker global skalförgreningsanslutning.'
-sections:
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du konfigurerar, skapar och hanterar anslutningar med hjälp av Azure Virtual WAN.'
-      - type: list
-        style: unordered
-        className: spaced Bullet
-        items:
-          - html: <a href="/azure/virtual-wan/virtual-wan-site-to-site-portal">Plats-till-plats-anslutningar</a>
-          - html: <a href="/azure/virtual-wan/virtual-wan-point-to-site-portal">Punkt-till-plats-anslutningar</a>
-          - html: <a href="/azure/virtual-wan/virtual-wan-expressroute-portal">ExpressRoute-anslutningar</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: '<p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/ext/virtual-wan">Azure CLI</a></p>'
-          - title: REST
-            html: '<p><a href="https://go.microsoft.com/fwlink/p/?linkid=2005000">REST API-referens</a></p>'
+  ms.date: 08/28/2019
+  ms.openlocfilehash: a79f04f343264669bfa4366a140c6fd11b4fc7e5
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70128162"
+landingContent:
+- title: Om Virtual WAN
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Virtual WAN?
+      url: virtual-wan-about.md
+  - linkListType: concept
+    links:
+    - text: Arbeta med platser och partner
+      url: virtual-wan-locations-partners.md
+    - text: VANLIGA FRÅGOR OCH SVAR
+      url: virtual-wan-faq.md
+- title: Komma igång
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa en plats-till-plats-anslutning
+      url: virtual-wan-site-to-site-portal.md
+    - text: Skapa en ExpressRoute-association
+      url: virtual-wan-expressroute-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Dirigera trafik från en virtuell hubb till en NVA
+      url: virtual-wan-route-table-portal.md
+  - linkListType: concept
+    links:
+    - text: Standardprinciper för IPsec-anslutning
+      url: virtual-wan-ipsec.md
+- title: Arkitektur
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Global Transit Network-arkitektur
+      url: virtual-wan-global-transit-network-architecture.md
+    - text: Office 365-kontrollplan
+      url: virtual-wan-office365-overview.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/ext/virtual-wan/network
+    - text: Azure PowerShell
+      url: /powershell/module/az.network#networking
+    - text: REST
+      url: /rest/api/virtualwan

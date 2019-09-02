@@ -1,42 +1,63 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om Azure Data Catalog
+### YamlMime:Landing
+title: Dokumentation för Azure Data Catalog
+summary: Lär dig hur du konfigurerar en datakatalog så att din organisation kan hitta, förstå och använda datakällor. Självstudier, REST API-referens och annan dokumentation visar hur du planerar och konfigurerar ditt datalager, där datakonsumenterna kan identifiera tillgängliga datakällor och få kunskap av experter inom olika ämnen.
 metadata:
-  title: 'Dokumentation om Azure Data Catalog – Självstudier, API-referens'
-  meta.description: 'Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation.'
-  services: data-catalog
-  author: JasonWHowell
+  author: jasonwhowell
+  description: Lär dig hur du konfigurerar en datakatalog där din organisation kan hitta, förstå och använda datakällor. Självstudier, API-referens och annan dokumentation.
   ms.author: jasonh
+  ms.date: 08/30/2019
   ms.service: data-catalog
   ms.topic: landing-page
-  ms.date: 07/01/2019
-abstract:
-  description: 'Lär dig hur du använder Data Catalog för att hjälpa ditt team och din organisation att identifiera, förstå och använda dina datakällor. Självstudier, REST API-referens och annan dokumentation visar hur du planerar och konfigurerar ditt datalager, där datakonsumenterna kan identifiera tillgängliga datakällor och få kunskap av experter inom olika ämnen.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du distribuerar din första Azure Data Catalog:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/data-catalog.svg
-            text: Azure Portal
-            href: 'https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started'
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du registrerar, söker efter, kommenterar, hanterar och tar bort tillgångar i Azure Data Catalog:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="register-data-assets-tutorial">Registrera datatillgångar i Azure Data Catalog</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: <p><a href="/rest/api/datacatalog/">REST API-referens</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Sök i syntaxreferens</a></p>
+  ms.openlocfilehash: eb60085cd76fa9d3857b5e284b2cdd03f35fcb13
+  ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/30/2019
+  ms.locfileid: "70172680"
+landingContent:
+- title: Om Azure Data Catalog
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Data Catalog?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Lär dig hur du distribuerar din första Data Catalog
+      url: data-catalog-get-started.md
+  - linkListType: concept
+    links:
+    - text: Vanliga frågor och svar
+      url: data-catalog-frequently-asked-questions.md
+- title: Registrera datatillgångar
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Lär dig hur du registrerar, söker efter, kommenterar, hanterar och tar bort tillgångar
+      url: register-data-assets-tutorial.md
+  - linkListType: concept
+    links:
+    - text: Datakällor som stöds
+      url: data-catalog-dsr.md
+  - linkListType: how-to-guide
+    links:
+    - text: Registrera datakällor
+      url: data-catalog-how-to-register.md
+- title: REST API-programmering för Data Catalog
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Skapa en Data Catalog-app med hjälp av REST
+      url: /rest/api/datacatalog/get-started-creating-a-data-catalog-app
+  - linkListType: reference
+    links:
+    - text: Referens för REST-API
+      url: /rest/api/datacatalog/
+  - linkListType: how-to-guide
+    links:
+    - text: Så skapar du en Data Catalog-app
+      url: /rest/api/datacatalog/register-a-client-app
+  - linkListType: reference
+    links:
+    - text: Sök i syntaxreferens
+      url: /rest/api/datacatalog/data-catalog-search-syntax-reference

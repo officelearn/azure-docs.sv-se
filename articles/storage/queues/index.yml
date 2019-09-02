@@ -1,0 +1,61 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Queue Storage – Azure Storage
+summary: Azure Queue Storage är en tjänst för lagring av ett stort antal meddelanden. Kom åt meddelanden var du än befinner dig i världen via HTTP eller HTTPS.
+metadata:
+  title: Dokumentation om Azure Queue Storage – Azure Storage
+  description: Azure Queue Storage är en tjänst för lagring av ett stort antal meddelanden. Kom åt meddelanden var du än befinner dig i världen via HTTP eller HTTPS.
+  services: storage
+  ms.service: storage
+  ms.subservice: queues
+  ms.topic: landing-page
+  ms.collection: collection
+  author: mhopkins-msft
+  ms.author: mhopkins
+  ms.date: 08/27/2019
+  ms.openlocfilehash: 5de22a49dcc985ca95ee97d9de77180e2c56765b
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70129422"
+landingContent:
+- title: Om Azure-köer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure-köer?
+      url: storage-queues-introduction.md
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en kö och lägga till ett meddelande med Azure-portalen
+      url: storage-quickstart-queues-portal.md
+    - text: Använda .NET för att skapa en kö i Azure Storage
+      url: storage-quickstart-queues-dotnet.md
+- title: Utveckla med köer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Komma igång med Azure Queue Storage med hjälp av .NET
+      url: storage-dotnet-how-to-use-queues.md
+    - text: Använda Queue Storage från Java
+      url: storage-java-how-to-use-queue-storage.md
+    - text: Använda Queue Storage från Node.js
+      url: storage-nodejs-how-to-use-queues.md
+    - text: Så använder du Queue Storage från C++
+      url: storage-c-plus-plus-how-to-use-queues.md
+    - text: Använda Queue Storage från Python
+      url: storage-python-how-to-use-queue-storage.md
+- title: Hantera köer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utför Azure Queue Storage-åtgärder med Azure PowerShell
+      url: storage-powershell-how-to-use-queues.md
+- title: Självstudier
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Arbeta med Azure Storage-köer (.NET)
+      url: storage-tutorial-queues.md

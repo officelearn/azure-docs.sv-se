@@ -1,46 +1,83 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Enterprise-användarhantering – Azure Active Directory
+summary: Azure AD-tjänster för användarhantering såsom tilldelning av grupper och administratörsroller hjälper dig att utföra dina vanligaste uppgifter snabbt. Tilldela licenser, tilldela programåtkomst till grupper eller användare eller delegera behörigheter för att distribuera uppgifter för identitetshantering.
 metadata:
-  document_id: null
-  title: 'Dokumentation för användare, grupper, roller och licenser i Azure Active Directory'
-  description: 'Läs om hur du använder användare, grupper, roller och licenser för att hantera åtkomst till Azure-molntjänsterna i din klientorganisation.'
+  title: Dokumentation för användare, grupper, roller och licenser i Azure Active Directory
+  description: Läs om hur du använder användare, grupper, roller och licenser för att hantera åtkomst till Azure-molntjänsterna i din organisation.
   services: active-directory
-  ms.subservice: users-groups-roles
-  author: curtand
-  manager: mtillman
   ms.service: active-directory
+  ms.subservice: users-groups-roles
+  manager: mtillman
   ms.topic: landing-page
-  ms.date: 01/31/2019
+  ms.date: 08/28/2019
+  author: curtand
   ms.author: curtand
-abstract:
-  description: 'Användarhanteringsverktyg i Azure AD som tilldelning av grupper och administratörsroller hjälper dig att utföra dina vanligaste uppgifter snabbare och öka tillväxten. Du kan tilldela licenser eller åtkomst till SaaS-appar till grupper istället för till enskilda användare, eller delegera behörigheter för att distribuera administrationskostnaderna för identitetshanteringen i Azure AD.'
-sections:
-  - title: Snabbstarter på fem minuter
-    items:
-      - type: paragraph
-        text: Läs om hur du använder hanteringsverktyg i Azure Active Directory
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Lägga till användare i Azure AD</a>
-          - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Tilldela licenser till användare</a>
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Registrera dig för Azure AD Premium</a>
-          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Ange utgångsdatum för grupper som skapats av användare</a>
-          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Ange namnpolicy för grupper som skapats av användare</a>
-  - title: Stegvisa självstudier
-    items:
-      - type: paragraph
-        text: Läs om hur du dynamiskt uppdaterar grupper i Azure Active Directory
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Skapa en dynamiskt uppdaterad grupp</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Referenslänkar
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Azure AD PowerShell-cmdletar</a></p>'
+  ms.openlocfilehash: 4689a573bf8d58aa9734af97ea66f78ab4e5707a
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70126932"
+landingContent:
+- title: Om användare, grupper, roller och licenser
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Användare, grupper, licensiering och roller för stora organisationer
+      url: directory-overview-user-model.md
+    - text: Översikt över anpassade roller
+      url: roles-custom-overview.md
+  - linkListType: concept
+    links:
+    - text: Delegera administration
+      url: roles-concept-delegation.md
+    - text: Jämföra Azure RBAC-roller och Azure AD-administratörsroller
+      url: https://docs.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Lägga till en användare
+      url: https://review.docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - text: Ange förfalloprincip för grupper
+      url: groups-quickstart-expiration.md
+    - text: Tilldela licenser till användare
+      url: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+- title: Tilldela Azure AD-administratörsroller
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Tilldela roller med hjälp av PowerShell
+      url: roles-assign-powershell.md
+    - text: Tilldela roller med hjälp av Graph API
+      url: roles-assign-graph.md
+    - text: Delegera roller efter uppgift
+      url: roles-delegate-by-task.md
+    - text: Delegera programhantering
+      url: roles-delegate-app-roles.md
+- title: Tilldela licenser
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Licensiera en grupp med användare
+      url: licensing-groups-assign.md
+    - text: Exempel på licensiering med PowerShell
+      url: licensing-ps-examples.md
+- title: Hantera grupper
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en dynamisk grupp
+      url: groups-create-rule.md
+    - text: Gruppinställningar i PowerShell
+      url: groups-settings-v2-cmdlets.md
+    - text: Ange namngivningsprincip för grupper
+      url: groups-naming-policy.md
+- title: Lägga till domäner
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Lägg till ett anpassat domännamn
+      url: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - text: Hantera anpassade domännamn
+      url: domains-manage.md

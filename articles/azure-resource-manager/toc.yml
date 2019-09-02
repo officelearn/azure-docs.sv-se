@@ -58,6 +58,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager'
 - name: Begrepp
   items:
+    - name: Malldistributioner
+      href: template-deployment-overview.md
     - name: Filstruktur för mallar
       displayName: 'parameters,variables,resources,outputs,condition'
       href: resource-group-authoring-templates.md
@@ -83,6 +85,8 @@
   items:
     - name: Skapa mallar
       items:
+        - name: Utvecklingsverktyg – VS Code
+          href: resource-manager-tools-vs-code.md
         - name: Skapa mallen
           href: how-to-create-template.md
         - name: Underordnat resursnamn och typ

@@ -1,47 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Firewall
+summary: Lär dig att distribuera Azure Firewall, en molnbaserad tjänst för nätverkssäkerhet.
 metadata:
-  title: 'Dokumentation om Azure Firewall – Självstudier, API-referens'
-  meta.description: 'Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
+  title: Dokumentation om Azure Firewall
+  description: Lär dig att distribuera Azure Firewall, en molnbaserad tjänst för nätverkssäkerhet.
   services: firewall
-  author: vhorne
   ms.service: firewall
   ms.topic: landing-page
-  ms.date: 9/24/2018
+  author: vhorne
   ms.author: victorh
-abstract:
-  description: 'Lär dig att distribuera Azure Firewall, en molnbaserad tjänst för nätverkssäkerhet. Självstudier, API-referenser och annan dokumentation visar hur du konfigurerar principer på program- och nätverksnivå för att skydda Azure-resurser på det virtuella nätverket.'
-sections:
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig att distribuera Azure Firewall
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Distribuera och konfigurera Azure Firewall med hjälp av Azure-portalen</a>
-          - html: <a href="/azure/firewall/tutorial-hybrid-ps">Distribuera i ett hybridnätverk</a>
-          - html: <a href="/azure/firewall/tutorial-firewall-dnat">Filtrera inkommande trafik med DNAT</a>
-          - html: <a href="/azure/firewall/tutorial-diagnostics">Övervaka Azure Firewall-loggar</a>
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: Skriptexempel för vanliga åtgärder.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/firewall/sample-powershell">Azure PowerShell</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/powershell/module/az.network/new-azfirewall">Azure PowerShell</a></p><p><a href="/cli/azure/ext/azure-firewall/network/firewall">Azure CLI</a></p>
-          - title: Språk
-            html: <p><a href="/dotnet/api">NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/firewall/">Compute REST API-referens</a></p>'
+  ms.date: 08/30/2019
+  ms.openlocfilehash: aba20908401cba2c1b740570f62593b5afb92dc5
+  ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70147304"
+landingContent:
+- title: Läs mer om Azure Firewall
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Firewall?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Regelbearbetningslogik för Azure Firewall
+      url: rule-processing.md
+    - text: Vanliga frågor och svar
+      url: firewall-faq.md
+- title: Distribuera en Azure Firewall
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Distribuera med hjälp av Azure-portalen
+      url: tutorial-firewall-deploy-portal.md
+    - text: Distribuera i ett hybridnätverk
+      url: tutorial-hybrid-portal.md
+    - text: Filtrera inkommande trafik
+      url: tutorial-firewall-dnat.md
+- title: Integrera med Load Balancer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Integrera Azure Firewall med Azure Standard Load Balancer
+      url: integrate-lb.md
+- title: Övervaka Azure Firewall
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure Firewall-loggar och mått
+      url: logs-and-metrics.md
+  - linkListType: tutorial
+    links:
+    - text: Övervaka Azure Firewall-loggar och mått
+      url: tutorial-diagnostics.md

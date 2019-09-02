@@ -44,8 +44,12 @@
           href: ingest-data-event-hub.md
         - name: Event Grid
           href: ingest-data-event-grid.md
+        - name: IoT Hub
+          href: ingest-data-iot-hub.md
         - name: Datainmatning med ett klick
           href: ingest-data-one-click.md
+        - name: Strömningsinmatning
+          href: ingest-data-streaming.md
         - name: Kafka
           href: ingest-data-kafka.md
         - name: Python
@@ -90,6 +94,12 @@
               href: power-bi-imported-query.md
             - name: SQL-fråga
               href: power-bi-sql-query.md
+        - name: Excel
+          items:
+            - name: anslutningsapp
+              href: excel-connector.md
+            - name: tom fråga
+              href: excel-blank-query.md
         - name: Grafana
           href: grafana.md
         - name: ODBC-anslutningsapp

@@ -8,6 +8,9 @@
 - name: Snabbstarter
   expanded: true
   items:
+    - name: Kör din första fråga – Azure-portalen
+      displayName: 'portal, resource, graph, explorer'
+      href: first-query-portal.md
     - name: Kör din första fråga – Azure CLI
       displayName: 'extension, docker'
       href: first-query-azurecli.md

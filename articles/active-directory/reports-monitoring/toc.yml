@@ -37,10 +37,12 @@
       href: concept-usage-insights-report.md
     - name: Riskfyllda inloggningar
       href: concept-risky-sign-ins.md
-    - name: Riskhändelser
+    - name: Riskidentifieringar
       href: concept-risk-events.md
     - name: Användare i riskzonen
       href: concept-user-at-risk.md
+    - name: Etableringsloggar
+      href: concept-provisioning-logs.md
     - name: 'Reporting-API:er'
       href: concept-reporting-api.md
     - name: Azure AD-loggar i Azure Monitor

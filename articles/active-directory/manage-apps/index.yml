@@ -1,51 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om programhantering
+summary: Azure Active Directory ger säker och smidig åtkomst till både molnprogram och lokala program. Och så behöver du inte hantera lösenord. Dina slutanvändare kan logga in en gång och få åtkomst till Office 365 och tusentals andra program. Lär dig att hantera och distribuera program med våra snabbstarter, våra självstudier och vår vägledning.
 metadata:
-  title: Dokumentation om Azure Active Directory-programhantering – Azure Active Directory
-  description: Lär dig hur du hanterar och distribuerar program med Azure Active Directory.
-  services: active-directory
-  author: barbkess
-  manager: daveba
-  layout: LandingPage
-  ms.assetid: null
+  title: Dokumentation om programhantering
+  description: Azure Active Directory ger säker och smidig åtkomst till både molnprogram och lokala program. Och så behöver du inte hantera lösenord. Dina slutanvändare kan logga in en gång och få åtkomst till Office 365 och tusentals andra program. Lär dig att hantera och distribuera program med våra snabbstarter, våra självstudier och vår vägledning.
   ms.service: active-directory
+  ms.subservice: manage-apps
+  ms.workload: identity
   ms.topic: landing-page
-  ms.date: 09/14/2018
-  ms.author: barbkess
-abstract:
-  description: 'Azure Active Directory ger säker och smidig åtkomst till både molnprogram och lokala program. Och så behöver du inte hantera lösenord. Dina slutanvändare kan logga in en gång och få åtkomst till Office 365 och tusentals andra program. Lär dig att hantera och distribuera program med våra snabbstarter, våra självstudier och vår vägledning.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video.png
-      width: 250
-    title: 'Säker åtkomst till dina program med Azure AD (1:47)'
-    href: 'https://youtu.be/BSUuXXcJKCk/'
-    width: 250
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Lär dig hur du lägger till ett program så att användarna får tillgång till det genom Azure Active Directory.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
-            text: Lägga till ett program
-            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal'
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
-            text: Visa dina program
-            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal'
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du aktiverar en enkel och säker inloggningsprocess för dina program.
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Självstudier för SaaS-program</a>'
-          - html: <a href="/azure/active-directory/manage-apps/application-proxy-add-on-premises-application">Lägga till en lokal app genom programproxy</a>
+  ms.date: 08/16/2019
+  author: msmimart
+  ms.author: mimart
+  manager: celested
+  ms.openlocfilehash: acb99eab233836f46c1e1dfe4c857fb2e80ed3de
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70127551"
+landingContent:
+- title: Om programhantering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är programhantering?
+      url: what-is-application-management.md
+- title: Hantera molnappar och enkel inloggning
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Förstå enkel inloggning
+      url: what-is-single-sign-on.md
+    - text: Upplevelser för slutanvändare
+      url: end-user-experiences.md
+  - linkListType: quickstart
+    links:
+    - text: Lägga till en galleriapp
+      url: add-application-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Lägga till en icke-galleriapp
+      url: add-non-gallery-app.md
+    - text: Konfigurera enkel inloggning
+      url: configure-single-sign-on-non-gallery-applications.md
+    - text: Tilldela en användare eller grupp till en app
+      url: assign-user-or-group-access-portal.md
+- title: Etablera användare och grupper till en app
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är automatisk användaretablering?
+      url: user-provisioning.md
+  - linkListType: concept
+    links:
+    - text: Använda SCIM för att etablera användare och grupper
+      url: use-scim-to-provision-users-and-groups.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera automatisk användaretablering
+      url: configure-automatic-user-provisioning-portal.md
+    - text: Anpassa attributmappningar
+      url: customize-application-attributes.md
+    - text: Kontrollera etableringsstatus
+      url: application-provisioning-when-will-provisioning-finish-specific-user.md
+  - linkListType: reference
+    links:
+    - text: Skriva uttryck för attributmappningar
+      url: functions-for-customizing-application-data.md
+- title: Publicera lokala appar med programproxy
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Application Proxy?
+      url: what-is-application-proxy.md
+  - linkListType: concept
+    links:
+    - text: Planera för programproxy
+      url: application-proxy-deployment-plan.md
+  - linkListType: tutorial
+    links:
+    - text: Lägga till en lokal app
+      url: application-proxy-add-on-premises-application.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera anslutningsprogram med proxyservrar
+      url: application-proxy-configure-connectors-with-proxy-servers.md
+    - text: Konfigurera en anpassad startsida
+      url: application-proxy-configure-custom-home-page.md
+  - linkListType: deploy
+    links:
+    - text: Publicera Fjärrskrivbord med programproxy
+      url: application-proxy-integrate-with-remote-desktop-services.md
+    - text: Aktivera fjärråtkomst till SharePoint med Azure AD-programproxy
+      url: application-proxy-integrate-with-sharepoint-server.md

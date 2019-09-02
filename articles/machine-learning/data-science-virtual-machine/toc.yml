@@ -4,9 +4,9 @@
 - name: Översikt
   expanded: true
   items:
-    - name: Vad är en virtuell dator för datavetenskap?
+    - name: Vad är Data Science Virtual Machine?
       href: overview.md
-    - name: Vad är en virtuell Geo-AI-dator för datavetenskap?
+    - name: Vad är Geo AI DSVM?
       href: geo-ai-dsvm-overview.md
 - name: Snabbstarter
   expanded: true
@@ -17,7 +17,7 @@
       href: dsvm-ubuntu-intro.md
     - name: Skapa en CentOS-DSVM
       href: linux-dsvm-intro.md
-    - name: Skapa en virtuell Geo-AI-dator för datavetenskap
+    - name: Skapa en Geo AI-DSVM
       href: provision-geo-ai-dsvm.md
 - name: Begrepp
   items:
@@ -47,7 +47,7 @@
       href: linux-dsvm-walkthrough.md
     - name: Använda en Geo AI-DSVM
       href: use-geo-ai-dsvm.md
-    - name: Skapa en DSVM-pool med autoskalning
+    - name: Skapa en autoskalad DSVM-pool
       href: dsvm-pools.md
     - name: integrera med Active Directory
       href: dsvm-common-identity.md

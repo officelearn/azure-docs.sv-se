@@ -145,17 +145,6 @@
         - name: Lägga till och registrera datauppsättningar
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
-        - name: Förbereda med azureml.dataprep
-          items:
-            - name: Läsa in data
-              displayName: 'data, etl, data prep, dataprep'
-              href: how-to-load-data.md
-            - name: Omvandla data
-              displayName: 'data, etl, dataprep, data prep'
-              href: how-to-transform-data.md
-            - name: Skrivdata
-              displayName: 'data, etl, data prep, dataprep'
-              href: how-to-write-data.md
     - name: Inlärningsmodeller
       items:
         - name: Konfigurera miljöer för utbildning
@@ -347,6 +336,8 @@
               href: ../algorithm-module-reference/multiclass-neural-network.md
             - name: Beslutsskog med två klasser
               href: ../algorithm-module-reference/multiclass-decision-forest.md
+            - name: Förbättrat beslutsträd med flera klasser
+              href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
             - name: Genomsnittsperceptron med två klasser
               href: ../algorithm-module-reference/two-class-averaged-perceptron.md
             - name: Beslutsskog med två klasser

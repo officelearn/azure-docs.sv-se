@@ -41,7 +41,7 @@ sections:
       - items:
           - html: <a href="service/tutorial-1st-experiment-sdk-setup">Konfigurera din miljö och träna ditt första ML-experiment</a>
           - html: <a href="service/tutorial-train-models-with-aml">Träna och distribuera bildklassificeringsmodeller</a>
-          - html: <a href="service/tutorial-data-prep">Förbered data och använda automatiserad ML för att förutsäga taxipriser</a>
+          - html: <a href="service/tutorial-auto-train-models">Använda automatiserad ML för att förutsäga taxipriser</a>
         style: unordered
         type: list
       - text: 'Förbruka dina modeller:'

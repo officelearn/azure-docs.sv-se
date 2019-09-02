@@ -187,6 +187,8 @@
           href: iterative-development-debugging.md
     - name: Anslutningar
       items:
+        - name: Översikt över anslutningsprogram
+          href: connector-overview.md
         - name: Amazon Marketplace Web Service
           href: connector-amazon-marketplace-web-service.md
         - name: Amazon Redshift
@@ -382,40 +384,40 @@
     - name: Omvandla data
       href: transform-data.md
       items:
+        - name: Azure Function-aktivitet
+          href: control-flow-azure-function-activity.md
+        - name: Anpassad aktivitet
+          href: transform-data-using-dotnet-custom-activity.md
+        - name: Databricks Jar-aktivitet
+          href: transform-data-databricks-jar.md
+        - name: Databricks-anteckningsboksaktivitet
+          href: transform-data-databricks-notebook.md
+        - name: Databricks Python-aktivitet
+          href: transform-data-databricks-python.md
+        - name: Data Lake U-SQL-aktivitet
+          href: transform-data-using-data-lake-analytics.md
         - name: HDInsight Hive-aktivitet
           href: transform-data-using-hadoop-hive.md
-        - name: HDInsight-piggningsåtgärd
-          href: transform-data-using-hadoop-pig.md
         - name: HDInsight MapReduce-aktivitet
           href: transform-data-using-hadoop-map-reduce.md
-        - name: HDInsight-strömningsaktivitet
-          href: transform-data-using-hadoop-streaming.md
+        - name: HDInsight-piggningsåtgärd
+          href: transform-data-using-hadoop-pig.md
         - name: HDInsight Apache Spark-aktivitet
           href: transform-data-using-spark.md
+        - name: HDInsight-strömningsaktivitet
+          href: transform-data-using-hadoop-streaming.md
         - name: ML-batchkörningsaktivitet
           href: transform-data-using-machine-learning.md
         - name: ML-uppdateringsresursaktivitet
           href: update-machine-learning-models.md
         - name: Lagrad proceduraktivitet
           href: transform-data-using-stored-procedure.md
-        - name: Data Lake U-SQL-aktivitet
-          href: transform-data-using-data-lake-analytics.md
-        - name: Databricks-anteckningsboksaktivitet
-          href: transform-data-databricks-notebook.md
-        - name: Databricks Jar-aktivitet
-          href: transform-data-databricks-jar.md
-        - name: Databricks Python-aktivitet
-          href: transform-data-databricks-python.md
-        - name: Anpassad aktivitet
-          href: transform-data-using-dotnet-custom-activity.md
         - name: Länkade tjänster för Compute
           href: compute-linked-services.md
     - name: Kontrollflöde
       items:
         - name: Lägga till variabelaktivitet
           href: control-flow-append-variable-activity.md
-        - name: Azure Function-aktivitet
-          href: control-flow-azure-function-activity.md
         - name: Köra aktiviteter för Dataflöde
           href: control-flow-execute-data-flow-activity.md
         - name: Köra pipelineaktivitet
@@ -584,6 +586,8 @@
       items:
         - name: Aktivitetsfelsökning
           href: data-factory-troubleshoot-guide.md
+        - name: Felsökning av anslutningsprogram
+          href: connector-troubleshoot-guide.md
         - name: Felsöka Azure-SSIS IR-hantering
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Körning av felsökningspaket i Azure-SSIS IR

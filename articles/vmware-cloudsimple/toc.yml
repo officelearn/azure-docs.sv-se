@@ -60,6 +60,8 @@
           href: access-cloudsimple-portal.md
         - name: Konfiguration av lokal brandvägg
           href: on-premises-firewall-configuration.md
+        - name: Lomma åt vSphere-klienten
+          href: vcenter-access.md
         - name: Hantera noder
           items:
             - name: Etablera noder
@@ -94,23 +96,19 @@
               href: public-ips.md
             - name: Konfigurera VPN-anslutningar
               href: vpn-gateway.md
-            - name: Hämta peerinformation för virtuell nätverksanslutning till CloudSimple
+            - name: Virtuell nätverksanslutning till CloudSimple
               href: virtual-network-connection.md
-            - name: Få tillgång till VSphere-klientens åtkomstbehörigheter för eskalering för administrativa uppgifter
-              href: 'https://docs.azure.cloudsimple.com/vsphere-access/'
         - name: Hantera konton för CloudSimple-portalen
           items:
             - name: Visa sammanfattning av kontot
               href: account.md
             - name: Visa listan över användare
               href: users.md
-            - name: Konfigurera en virtuell nätverksanslutning till det privata molnet
-              href: virtual-network-connection.md
-        - name: Konfigurera virtuella VMware-datorer för det privata molnet
+        - name: Konfigurera virtuella CloudSimple-datorer
           items:
-            - name: Skapa en virtuell dator i Azure
+            - name: Skapa en virtuell CloudSimple-dator i Azure
               href: azure-create-vm.md
-            - name: Hantera virtuella datorer i Azure
+            - name: Hantera virtuella CloudSimple-datorer i Azure
               href: azure-manage-vm.md
     - name: Instruktionsguider
       items:
@@ -126,12 +124,14 @@
               href: migration-layer-2-vpn.md
         - name: Privata nätverk i molnet
           items:
-            - name: VPN-anslutning mellan lokala och privata moln
+            - name: VPN-anslutning till privat moln
               href: set-up-vpn.md
             - name: Lokal nätverksanslutning med ExpressRoute
               href: on-premises-connection.md
             - name: Virtuell nätverksanslutning i Azure med ExpressRoute
               href: azure-expressroute-connection.md
+            - name: Konfigurera DNS-namnmatchning
+              href: on-premises-dns-setup.md
         - name: VMware-plattform
           items:
             - name: Lär dig behörighetsmodellen för privat moln

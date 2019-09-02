@@ -1,48 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Rapporter och övervakning i Azure Active Directory
+### YamlMime:Landing
+title: Dokumentation om rapporter och övervakning i Azure Active Directory
+summary: Lär dig hur du använder rapporter i Azure AD.
 metadata:
-  document_id: null
-  title: 'Dokumentation om rapporter och övervakning i Azure Active Directory – självstudier, snabbstarter, begrepp | Microsoft Docs'
-  description: Se hur du konfigurerar och testar rapport- och övervakningslösningar för Azure Active Directory
+  title: Dokumentation om rapporter och övervakning i Azure Active Directory
+  description: Lär dig hur du använder rapporter och övervakning i Azure AD.
   services: active-directory
-  ms.subservice: report-monitor
-  author: priyamohanram
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: devices
   ms.topic: landing-page
-  ms.date: 08/14/2018
-  ms.author: priyamo
-abstract:
-  description: 'Se hur du visar säkerhets- och granskningsrapporter för din miljö, och övervakar dem över tid för att få insikter i användningsmönster. Med Azure Active Directory (Azure AD)-rapporter kan du få insikter i säkerhets- och användningsmönstren i din miljö. Du kan till exempel besvara följande frågor:<ul><li>Hur används programmen eller tjänsterna av användarna?</li><li>Vilka är de potentiella riskerna som påverkar hälsotillståndet för miljön?</li><li>Hur felsöker du problem som hindrar användarna från att uträtta sitt arbete?</li>'
-sections:
-  - title: Snabbstarter på fem minuter
-    items:
-      - type: paragraph
-        text: Lär dig hur du laddar ned aktivitetsrapporter och dirigerar loggarna till ett Azure Storage-konto
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Ladda ned en inloggningsrapport</a>
-          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Ladda ned en granskningsrapport</a>
-          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Installera Power BI-innehållspaketet för rapporter</a>
-          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Dirigera loggar till lagringskonto</a>
-  - title: Stegvisa självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du kommer åt dina rapporter och strömmar aktivitetsloggar till valfritt övervakningssystem
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Komma åt Reporting-API:t programmatiskt med certifikat</a>'
-          - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Strömma aktivitetsloggar till en händelsehubb</a>
-  - title: Referens
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Felkoder för inloggningar</a>
-          - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Schema för Azure AD-spårningslogg i Azure Monitor</a>
-          - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Schema för Azure AD-inloggningar i Azure Monitor</a>
+  author: MarkusVi
+  ms.author: markvi
+  ms.date: 08/29/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: 2b29aaf88f0a7659fd3ceb58ddf3b762ee7646d3
+  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70162491"
+landingContent:
+- title: Om rapporter och övervakning i Azure Active Directory
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Active Directory-övervakning?
+      url: overview-monitoring.md
+  - linkListType: concept
+    links:
+    - text: Granskningsloggar
+      url: concept-audit-logs.md
+    - text: Inloggningsloggar
+      url: concept-sign-ins.md
+    - text: Loggar med riskfyllda inloggningar
+      url: concept-risky-sign-ins.md
+    - text: Loggar med användare som har flaggats för risk
+      url: concept-user-at-risk.md
+    - text: Etableringsloggar
+      url: concept-provisioning-logs.md
+- title: Använda rapporter i Azure AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Hitta aktivitetsrapporter
+      url: howto-find-activity-reports.md
+    - text: Åtgärda användare som har flaggats för risk
+      url: howto-remediate-users-flagged-for-risk.md
+    - text: Använda Azure AD-arbetsböcker
+      url: howto-use-azure-monitor-workbooks.md
+- title: Använda övervakning i Azure AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Analysera aktivitetsloggar i Azure Monitor-loggar
+      url: howto-analyze-activity-logs-log-analytics.md
+    - text: Installera och använda logganalysvyer för Azure AD
+      url: howto-install-use-log-analytics-views.md

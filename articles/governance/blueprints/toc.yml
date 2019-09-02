@@ -156,6 +156,9 @@
     - name: Uppdatera befintliga tilldelningar via portalen
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md
+    - name: Konfigurera din miljö för en skissoperatör
+      displayName: 'rbac, user-assigned, managed, identity, management group'
+      href: ./how-to/configure-for-blueprint-operator.md
     - name: Hantera Blueprints as Code (community)
       href: 'https://github.com/Azure/azure-blueprints/blob/master/README.md'
 - name: Felsöka

@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Azure Files
+summary: Azure Files erbjuder fullständigt hanterade, plattformsoberoende filresurser i molnet som är tillgängliga via Server Message Block-protokollet (SMB).
+metadata:
+  title: Azure Files
+  description: Montera filresurser i molnet eller lokalt i Windows, Linux och macOS. Cachelagra Azure-filresurser på Windows-servrar med Azure File Sync för lokal åtkomst.
+  services: storage
+  ms.service: storage
+  ms.subservice: files
+  ms.topic: landing-page
+  ms.collection: collection
+  author: roygara
+  ms.author: rogarana
+  ms.date: 08/27/2019
+  ms.openlocfilehash: 06764b43d46dc4fee51ac58254e2d2578257f096
+  ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70143058"
+landingContent:
+- title: Om Azure Files
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Planeringsguide för Azure Files
+      url: storage-files-planning.md
+    - text: Planeringsguide för Azure File Sync
+      url: storage-sync-files-planning.md
+    - text: Vad är Azure Files?
+      url: storage-files-introduction.md
+- title: Komma igång
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Skapa/använda filresurser – Windows
+      url: storage-files-quick-create-use-windows.md
+    - text: Skapa Premium-filresurser
+      url: storage-how-to-create-premium-fileshare.md
+    - text: Hantera din server med Azure File Sync
+      url: storage-sync-files-server-registration.md
+  - linkListType: tutorial
+    links:
+    - text: Utöka Windows-filservrar med Azure File Sync
+      url: storage-sync-files-extend-servers.md
+- title: Felsöka
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Felsöka Azure Files Windows
+      url: storage-troubleshoot-windows-file-connection-problems.md
+    - text: Felsöka Azure Files Linux
+      url: storage-troubleshoot-linux-file-connection-problems.md
+    - text: Felsöka prestanda med Azure Files
+      url: storage-troubleshooting-files-performance.md
+    - text: Felsöka Azure File Sync
+      url: storage-sync-files-troubleshoot.md

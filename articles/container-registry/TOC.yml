@@ -59,6 +59,8 @@
       items:
         - name: Skicka/hämta en avbildning
           href: container-registry-get-started-docker-cli.md
+        - name: Push-överföra och hämta en OCI-artefakt
+          href: container-registry-oci-artifacts.md
         - name: Visa lagringsplatser
           href: container-registry-repositories.md
         - name: Importera containeravbildningar

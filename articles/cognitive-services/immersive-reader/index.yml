@@ -1,63 +1,55 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Avancerad läsare
+summary: Avancerad läsare är ett verktyg som implementerar beprövade tekniker för att förbättra läsförståelsen för unga läsare, personer som lär sig ett nytt språk och personer med inlärningsskillnader. Du kan använda Avancerad läsare i ditt webbprogram genom att använda SDK:t för Avancerad läsare.
 metadata:
-  title: 'Dokumentation om Avancerad läsare – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs'
-  description: Lär dig hur du använder Avancerad läsare i ditt program.
-  services: cognitive-services
-  author: metanMSFT
-  manager: nitinme
+  title: Dokumentation om Avancerad läsare
+  description: Avancerad läsare är ett verktyg som implementerar beprövade tekniker för att förbättra läsförståelsen för unga läsare, personer som lär sig ett nytt språk och personer med inlärningsskillnader. Du kan använda Avancerad läsare i ditt webbprogram genom att använda SDK:t för Avancerad läsare.
+  services: service
   ms.service: cognitive-services
   ms.subservice: immersive-reader
   ms.topic: landing-page
-  ms.date: 06/20/2019
-  ms.author: metanMSFT
-abstract:
-  description: 'Avancerad läsare är ett verktyg som implementerar beprövade tekniker för att förbättra läsförståelsen för unga läsare, personer som lär sig ett nytt språk och personer med inlärningsskillnader. Du kan använda Avancerad läsare i ditt webbprogram genom att använda SDK:t för Avancerad läsare.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/immersive-reader/overview
-            html: <p>Lär dig mer om Avancerad läsare och hur du integrerar funktionen i dina program</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Vad är Avancerad läsare?
-          - href: /azure/cognitive-services/immersive-reader/reference
-            html: <p>Lär dig mer om Javascript SDK för Avancerad läsare</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Använda SDK för Avancerad läsare
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Kom igång med Avancerad läsare:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_csharp.svg
-            text: 'C&#35;'
-            alt: 'Logotyp för C#'
-            href: quickstart
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du utvecklar program med hjälp av Avancerad läsare:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-nodejs.md">Starta Avancerad läsare med Node.js</a>
-          - html: <a href="tutorial-python.md">Starta Avancerad läsare med Node.js</a>
-          - html: <a href="tutorial-ios-picture-immersive-reader.md">Starta Avancerad läsare med Swift</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 'SDK:er'
-            html: <p><a href="reference.md">Javascript</a></p>
+  ms.collection: collection
+  author: IEvangelist
+  ms.author: dapine
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 50185a0bbfc3a9677ebc90f326b0c43ab2a2eb13
+  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70164499"
+landingContent:
+- title: Om Avancerad läsare
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Avancerad läsare?
+      url: overview.md
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: ASP.NET Core
+      url: quickstart.md
+    - text: Swift (iOS)
+      url: ios-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Node.js
+      url: tutorial-nodejs.md
+    - text: Python
+      url: tutorial-python.md
+    - text: Swift (iOS)
+      url: tutorial-ios-picture-immersive-reader.md
+- title: Utforska Avancerad läsare
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Autentisera med hjälp av Azure Active Directory
+      url: azure-active-directory-authentication.md
+  - linkListType: reference
+    links:
+    - text: JavaScript SDK
+      url: reference.md
+    - text: iOS SDK
+      url: ios-reference.md

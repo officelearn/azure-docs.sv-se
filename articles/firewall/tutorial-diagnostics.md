@@ -109,7 +109,7 @@ Du kan också ansluta till ditt lagringskonto och hämta JSON-loggposter för å
 > Om du är bekant med Visual Studio och kan grunderna i att ändra värden för konstanter och variabler i C# så kan du använda [verktygen för loggkonvertering](https://github.com/Azure-Samples/networking-dotnet-log-converter) från GitHub.
 
 ## <a name="view-metrics"></a>Visa mått
-Bläddra till en Azure-brandvägg. Under **Övervakning** klickar du på **Mått**. Om du vill visa de tillgängliga värdena väljer du listrutan **MÅTT**.
+Bläddra till en Azure Firewall. Under **Övervakning** klickar du på **Mått**. Om du vill visa de tillgängliga värdena väljer du listrutan **MÅTT**.
 
 ## <a name="next-steps"></a>Nästa steg
 

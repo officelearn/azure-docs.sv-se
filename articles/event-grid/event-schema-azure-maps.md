@@ -104,7 +104,7 @@ En händelse har följande översta data:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| subject | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
 | subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
 | eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
@@ -119,9 +119,9 @@ Dataobjektet har följande egenskaper:
 | -------- | ---- | ----------- |
 | apiCategory | string | API-kategori för händelsen. |
 | apiName | string | API-namnet på händelsen. |
-| issues | objekt | Visar en lista över problem som uppstod under bearbetning. Om eventuella problem returneras det blir inga geometrier som returneras med svaret. |
+| issues | object | Visar en lista över problem som uppstod under bearbetning. Om eventuella problem returneras det blir inga geometrier som returneras med svaret. |
 | responseCode | nummer | HTTP-svarskoden |
-| geometries | objekt | Listor Avgränsningstecken-geometrier som innehåller koordinaten placera eller överlappar searchBuffer runt positionen. |
+| geometries | object | Listor Avgränsningstecken-geometrier som innehåller koordinaten placera eller överlappar searchBuffer runt positionen. |
 
 Felobjekt returneras när ett fel uppstår i Maps-API. Felobjektet har följande egenskaper:
 

@@ -56,7 +56,7 @@ JSON-BLOB-metadata följer följande modell:
 | **parentId** | String | Den överordnade entiteten för att associera blobben med (utrymmen, enheter eller användare) |
 | **name** |String | Ett människo eget namn för blobben |
 | **type** | String | Typ av BLOB-kan inte använda *typ* och *typeId*  |
-| **typeId** | Integer | Blob-typ-ID: t kan inte använda *typ* och *typeId* |
+| **ID** | Integer | Blob-typ-ID: t kan inte använda *typ* och *typeId* |
 | **subtype** | String | BLOB-undertypen-det går inte att använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID för blobben-kan inte använda *undertyp* -och *subtypeId* |
 | **description** | String | Anpassad Beskrivning av blobben |
@@ -110,18 +110,18 @@ Individuellt returnerade blobbar följer följande JSON-schema:
 
 | Attribut | type | Description |
 | --- | --- | --- |
-| **id** | Sträng | Unikt ID för blobben |
-| **name** |Sträng | Ett människo eget namn för blobben |
-| **parentId** | Sträng | Den överordnade entiteten för att associera blobben med (utrymmen, enheter eller användare) |
-| **type** | Sträng | Typ av BLOB-kan inte använda *typ* och *typeId*  |
+| **id** | String | Unikt ID för blobben |
+| **name** |String | Ett människo eget namn för blobben |
+| **parentId** | String | Den överordnade entiteten för att associera blobben med (utrymmen, enheter eller användare) |
+| **type** | String | Typ av BLOB-kan inte använda *typ* och *typeId*  |
 | **ID** | Integer | Blob-typ-ID: t kan inte använda *typ* och *typeId* |
-| **subtype** | Sträng | BLOB-undertypen-det går inte att använda *undertyp* och *subtypeId* |
+| **subtype** | String | BLOB-undertypen-det går inte att använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID för blobben-kan inte använda *undertyp* -och *subtypeId* |
-| **sharing** | Sträng | Om blobben kan vara delad-Enum [`None`, `Tree`, `Global`] |
-| **description** | Sträng | Anpassad Beskrivning av blobben |
+| **sharing** | String | Om blobben kan vara delad-Enum [`None`, `Tree`, `Global`] |
+| **description** | String | Anpassad Beskrivning av blobben |
 | **contentInfos** | Array | Anger ostrukturerad metadatainformation, inklusive version |
-| **fullName** | Sträng | Det fullständiga namnet på blobben |
-| **spacePaths** | Sträng | Utrymmes Sök väg |
+| **fullName** | String | Det fullständiga namnet på blobben |
+| **spacePaths** | String | Utrymmes Sök väg |
 
 BLOB-metadata anges alltid som det första segmentet med **innehålls typ** `application/json` eller som en `.json` fil. Fildata anges i det andra segmentet och kan vara av alla MIME-typer som stöds.
 

@@ -49,14 +49,14 @@ Händelser skickas av IoT-objekt (till exempel enheter och sensorer) för bearbe
 
 | Attribut | type | Beskrivning |
 | --- | --- | --- |
-| id | sträng | Unikt ID för händelsen. |
-| subject | sträng | Publisher-definierad sökväg till händelsens ämne. |
+| id | string | Unikt ID för händelsen. |
+| subject | string | Publisher-definierad sökväg till händelsens ämne. |
 | data | object | Händelse data som är speciella för resurs leverantören. |
-| eventType | sträng | En av de registrerade händelse typerna för den här händelse källan. |
-| eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schema versionen. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
-| subject | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
+| eventType | string | En av de registrerade händelse typerna för den här händelse källan. |
+| eventTime | string | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schema versionen. |
+| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
+| subject | string | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 
 Mer information om händelse schema för Event Grid:
 

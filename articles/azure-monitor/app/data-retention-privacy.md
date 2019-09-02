@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 18129c625630e7e21e2139ea3967ba5152bc0b30
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: df441a55ef4a9a40fe4defcabca5f667eeddbf29
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991187"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207292"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -100,7 +100,7 @@ Den kan exporteras av dig och dina team medlemmar och kan kopieras till andra pl
 Microsoft använder endast data för att tillhandahålla tjänsten till dig.
 
 ## <a name="where-is-the-data-held"></a>Var lagras data?
-* I USA, Europa eller Sydostasien. Du kan välja plats när du skapar en ny Application Insights-resurs. 
+* Du kan välja plats när du skapar en ny Application Insights-resurs. Lär dig mer om Application Insights tillgänglighet per region [här](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Innebär det att min app måste finnas i USA, Europa eller Sydostasien?
 * Nej. Ditt program kan köras var som helst, antingen på dina egna lokala värdar eller i molnet.

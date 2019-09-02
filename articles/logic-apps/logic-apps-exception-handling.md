@@ -1,21 +1,20 @@
 ---
-title: Fel-och undantags hantering – Azure Logic Apps | Microsoft Docs
+title: Fel-och undantags hantering – Azure Logic Apps
 description: Lär dig mer om mönster för fel-och undantags hantering i Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: dereklee
 ms.author: deli
-manager: jeconnoc
+ms.reviewer: klam, estfan, LADocs
 ms.date: 01/31/2018
 ms.topic: article
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 828bea50a66b90f35843901ae2d7c703ffa58f2d
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60996612"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208186"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
 
@@ -219,13 +218,15 @@ Om du vill fånga undantag i ett **felaktigt** omfång och köra åtgärder som 
 
 Begränsningar för omfång finns i [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md).
 
+<a name="get-results-from-failures"></a>
+
 ### <a name="get-context-and-results-for-failures"></a>Få kontext och resultat för problem
 
-Även om det är praktiskt att fånga fel från ett omfång, kan du också behöva kontext för att förstå exakt vilka åtgärder som misslyckats plus eventuella fel eller status koder som returnerades. `@result()` Uttrycket innehåller en kontext om resultatet av alla åtgärder i ett omfång.
+Även om det är praktiskt att fånga fel från ett omfång, kan du också behöva kontext för att förstå exakt vilka åtgärder som misslyckats plus eventuella fel eller status koder som returnerades.
 
-`@result()` Uttrycket accepterar en enda parameter (omfångets namn) och returnerar en matris med alla åtgärds resultat inom det omfånget. Dessa åtgärds objekt innehåller samma attribut som  **\@Actions ()** -objektet, till exempel start tid, slut tid, status, indata, korrelations-ID och utdata. Om du vill skicka kontext för åtgärder som misslyckats inom ett omfång kan du enkelt para en  **\@result ()-** funktion med en **runAfter** -egenskap.
+[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) Funktionen ger kontext om resultatet från alla åtgärder i ett omfång. `result()` Funktionen accepterar en enda parameter, som är omfångets namn och returnerar en matris som innehåller alla åtgärds resultat inom det omfånget. Dessa åtgärds objekt innehåller samma attribut som `@actions()` objektet, till exempel start tid, slut tid, status, indata, korrelations-ID och utdata. Om du vill skicka kontext för åtgärder som misslyckats inom ett omfång kan du enkelt para ihop `@result()` ett uttryck `runAfter` med egenskapen.
 
-Om du vill köra en åtgärd för varje åtgärd i en omfattning som har ett misslyckat resultat, och för att filtrera matrisen med resultat nedåt till de misslyckade åtgärderna, kan du para ihop  **\@resultatet ()** med en **[filter mat ris](../connectors/connectors-native-query.md)** åtgärd och en [**for each**](../logic-apps/logic-apps-control-flow-loops.md) -slinga. Du kan ta den filtrerade resultat mat ris och utföra en åtgärd för varje haveri med hjälp av **for each** -slingan. 
+Om du vill köra en åtgärd för varje åtgärd i en omfattning som har ett misslyckat resultat, och för att filtrera matrisen med resultat nedåt till de misslyckade åtgärderna `@result()` , kan du para ihop ett uttryck med en [**filter mat ris**](../connectors/connectors-native-query.md) åtgärd och en [**for each**](../logic-apps/logic-apps-control-flow-loops.md) -loop. Du kan ta den filtrerade resultat mat ris och utföra en åtgärd för varje haveri med hjälp av **for each** -slingan.
 
 Här är ett exempel, följt av en detaljerad förklaring, som skickar en HTTP POST-begäran med svars texten för åtgärder som misslyckats inom omfånget "My_Scope":
 

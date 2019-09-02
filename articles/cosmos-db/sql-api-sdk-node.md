@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 4292b2e83c55ce62db777d846206e5857bf81ca7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: de1c1b93b813f71b321da0625bc60e0762a859c7
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142583"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207954"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node. js SDK för SQL API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -414,7 +414,7 @@ Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella S
 Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjänsten.
 
 > [!WARNING]
-> Alla versioner **1. x** av Node SDK för SQL API kommer att dras tillbaka den **30 augusti 2020**.
+> Alla versioner **1. x** av nodens klient-SDK för SQL API kommer att dras tillbaka den **30 augusti 2020**. Detta påverkar bara noden på klient sidans nod-SDK och påverkar inte skript på Server sidan (lagrade procedurer, utlösare och UDF: er).
 > 
 >
 <br/>

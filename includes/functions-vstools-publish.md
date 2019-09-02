@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a0cf557cec0f20d257c3c70290e2d74f077d881a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593804"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70197192"
 ---
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
 
@@ -25,7 +25,7 @@ ms.locfileid: "68593804"
     | ------------ |  -------------------------------------------------- |
     | **Azure Functions förbruknings plan** |   När du publicerar projektet till en Function-app som körs i en [förbruknings plan](../articles/azure-functions/functions-scale.md#consumption-plan)betalar du bara för körningar av Functions-appen. Andra värd planer ådrar sig högre kostnader. Läs mer i [Azure Functions skala och vara värd](../articles/azure-functions/functions-scale.md). | 
     | **Skapa ny** | En ny function-app med relaterade resurser skapas i Azure. När du väljer **Välj befintliga** skrivs alla filer i den befintliga funktionsappen i Azure över från det lokala projektet. Använd bara det här alternativet när du publicerar igen i en befintlig funktionsapp. |
-    | **Kör från paketfil** | Din Function-app distribueras med hjälp av [zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) med läget [Kör-från-Package](../articles/azure-functions/run-functions-from-deployment-package.md) aktiverat. Detta är det rekommenderade sättet att köra funktioner, vilket ger bättre prestanda. |
+    | **Kör från paketfil** | Din Function-app distribueras med hjälp av [zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) med läget [Kör-från-Package](../articles/azure-functions/run-functions-from-deployment-package.md) aktiverat. Detta är det rekommenderade sättet att köra funktioner, vilket ger bättre prestanda. När du inte använder det här alternativet, se till att du stoppar ditt program projekt från att köras lokalt innan du publicerar till Azure. |
 
 
 3. Välj **Publicera**. Om du inte redan har loggat in på ditt Azure-konto från Visual Studio väljer du **Logga in**. Du kan också skapa ett kostnads fritt Azure-konto.

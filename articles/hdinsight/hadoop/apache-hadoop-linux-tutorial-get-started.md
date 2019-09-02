@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa Apache Hadoop-kluster med hjälp av Resource Manager – Azure HDInsight'
-description: I den här snabbstarten skapar du Apache Hadoop-kluster i Azure HDInsight med hjälp av Resource Manager-mall
+title: 'Snabbstart: Skapa Apache Hadoop kluster med Resource Manager – Azure HDInsight'
+description: I den här snabb starten skapar du Apache Hadoop kluster i Azure HDInsight med Resource Manager-mall
 keywords: hadoop komma igång, hadoop linux, hadoop Snabbstart, komma igång, hive hive-Snabbstart
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,27 +9,27 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 89d25c9c0a45b740bfb60a71f6d85bfbf4a4686a
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 420a5bb4cec6101f3db36212a9b8fd6690e0e077
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459871"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207256"
 ---
-# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabbstart: Skapa Apache Hadoop-kluster i Azure HDInsight med hjälp av Resource Manager-mall
+# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabbstart: Skapa Apache Hadoop kluster i Azure HDInsight med Resource Manager-mall
 
-I den här snabbstarten får du lära dig hur du skapar ett Apache Hadoop-kluster i Azure HDInsight med en Resource Manager-mall.
+I den här snabb starten får du lära dig hur du skapar ett Apache Hadoop kluster i Azure HDInsight med hjälp av en Resource Manager-mall.
 
-Liknande mallar kan läsas på [Azures snabbstartsmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). Mallreferensen finns [här](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).  Du kan också skapa ett kluster som använder den [Azure-portalen](apache-hadoop-linux-create-cluster-get-started-portal.md).  
+Liknande mallar kan visas i [Azures snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). Mallreferensen finns [här](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).  Du kan också skapa ett kluster med hjälp av [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  
 
-För närvarande innehåller HDInsight [sju olika klustertyper](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Varje typ av kluster har stöd för olika komponentuppsättningar. Samtliga klustertyper stöder Hive. En lista över stödda komponenter som hanteras i HDInsight finns i [Vad är nytt i de Hadoop-klusterversioner som tillhandahålls av HDInsight?](../hdinsight-component-versioning.md)  
+För närvarande innehåller HDInsight [sju olika klustertyper](../hdinsight-overview.md#cluster-types-in-hdinsight). Varje typ av kluster har stöd för olika komponentuppsättningar. Samtliga klustertyper stöder Hive. En lista över stödda komponenter som hanteras i HDInsight finns i [Vad är nytt i de Hadoop-klusterversioner som tillhandahålls av HDInsight?](../hdinsight-component-versioning.md)  
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 <a name="create-cluster"></a>
 ## <a name="create-a-hadoop-cluster"></a>Skapa ett Hadoop-kluster
 
-1. Välj den **distribuera till Azure** knappen nedan för att logga in på Azure och öppna Resource Manager-mall i Azure-portalen.
+1. Välj knappen **distribuera till Azure** nedan för att logga in på Azure och öppna Resource Manager-mallen i Azure Portal.
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -50,21 +50,21 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
     > [!NOTE]  
     > De värden som du anger måste vara unika och bör följa riktlinjerna för namngivning. Mallen utför inte några verifieringskontroller. Om de värden som du anger redan används, eller inte följer riktlinjerna, får du ett felmeddelande när du har skickat mallen.  
 
-    ![HDInsight Linux hämtar igång Resource Manager-mall i portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "distribuera Hadoop-kluster i HDInsight med hjälp av Azure portal och en resursgrupphanterarmall")
+    ![HDInsight Linux startar Resource Manager-mall på portalen](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Distribuera Hadoop-kluster i HDInsight med hjälp av Azure Portal och en mall för resurs grupp hanteraren")
 
 3. Välj **Jag godkänner villkoren som anges ovan** och välj sedan **Köp**. Du får ett meddelande om att distributionen pågår.  Det tar cirka 20 minuter att skapa ett kluster.
 
-4. När klustret har skapats får du ett meddelande om att **distributionen har lyckats** tillsammans med en länk för att **gå till resursgruppen**.  På sidan **Resursgrupp** visas en lista över ditt nya HDInsight-kluster och standardlagringsutrymmet som är associerat till klustret. Varje kluster är beroende av ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake Storage-konto](../hdinsight-hadoop-use-data-lake-store.md). Det kallas Storage-konto av standardtyp. HDInsight-klustret och dess standardkontot för lagring måste samplaceras i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster.
+4. När klustret har skapats får du ett meddelande om att **distributionen har lyckats** tillsammans med en länk för att **gå till resursgruppen**.  På sidan **Resursgrupp** visas en lista över ditt nya HDInsight-kluster och standardlagringsutrymmet som är associerat till klustret. Varje kluster är beroende av ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake Storage-konto](../hdinsight-hadoop-use-data-lake-store.md). Det kallas Storage-konto av standardtyp. HDInsight-klustret och dess standard lagrings konto måste samplaceras i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster.
 
 > [!NOTE]  
-> Information om andra kluster metoder för att skapa och förstå de egenskaper som används i den här snabbstarten Se [skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
+> För andra metoder för att skapa kluster och förstå de egenskaper som används i den här snabb starten, se [skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört snabbstarten kan du ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
+När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
 
 > [!NOTE]  
-> Om du *omedelbart* fortsätter till nästa kurs för att lära dig hur man kör ETL-åtgärder med Hadoop på HDInsight vill du kanske låta klustret köra vidare. Det beror i självstudien måste du skapa ett Hadoop-kluster igen. Men om du inte tänker göra nästa kurs direkt måste du ta bort klustret nu.
+> Om du *omedelbart* fortsätter till nästa kurs för att lära dig hur man kör ETL-åtgärder med Hadoop på HDInsight vill du kanske låta klustret köra vidare. Detta beror på att du i självstudien måste skapa ett Hadoop-kluster igen. Men om du inte tänker göra nästa kurs direkt måste du ta bort klustret nu.
 
 **Ta bort klustret och/eller Storage-kontot av standardtyp**
 
@@ -78,7 +78,7 @@ När du har slutfört snabbstarten kan du ta bort klustret. Med HDInsight lagras
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du skapar ett Apache Hadoop-kluster i HDInsight med en Resource Manager-mall. I nästa artikel får du lära dig hur du utför en extraktions-, transformations- eller inläsningsåtgärd (ETL) med Hadoop på HDInsight.
+I den här snabb starten har du lärt dig hur du skapar ett Apache Hadoop kluster i HDInsight med hjälp av en Resource Manager-mall. I nästa artikel får du lära dig hur du utför en extraktions-, transformations- eller inläsningsåtgärd (ETL) med Hadoop på HDInsight.
 
 > [!div class="nextstepaction"]
->[Extrahera, transformera och läsa in data med hjälp av interaktiva frågor på HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+>[Extrahera, transformera och läsa in data med interaktiv fråga på HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

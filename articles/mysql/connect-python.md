@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.openlocfilehash: 5d7414d13b3fb1390b12084f0480e0549a380264
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0940d307d78236fea1a232c1e7c60a296ba46c62
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931613"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195170"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL: Använda Python för att ansluta och fråga data
 Den här snabbstarten visar hur du använder [Python](https://python.org) för att ansluta till en Azure Database för MySQL. SQL-instruktioner används för att fråga, infoga, uppdatera och ta bort data i databasen i Mac OS, Ubuntu Linux och Windows-plattformar. Det här avsnittet förutsätter att du är van att utveckla i Python och att du saknar erfarenhet av Azure Database for MySQL.
@@ -63,8 +63,8 @@ Installera [Python](https://www.python.org/downloads/) och [MySQL Connector för
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver**).
-3. Klicka på servernamnet.
+2. På den vänstra menyn i Azure Portal väljer du **alla resurser**och söker sedan efter den server som du har skapat (till exempel **mydemoserver**).
+3. Välj servernamnet.
 4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
  ![Azure Database för MySQL-servernamn](./media/connect-python/1_server-overview-name-login.png)
 

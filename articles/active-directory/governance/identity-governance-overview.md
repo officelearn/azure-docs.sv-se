@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/25/2019
+ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 74e0539095701ec104495bf5a44dec668494d444
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033330"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207169"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD Identity Governance?
 
@@ -69,6 +69,18 @@ Historiskt sett har privilegie rad åtkomst beskrivits av andra leverantörer so
 ![Livs cykel för privilegie rad åtkomst](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 Azure AD Privileged Identity Management (PIM) ger ytterligare kontroller som är anpassade för att skydda åtkomst rättigheter för resurser, i Azure AD, Azure och andra Microsoft Online Services.  Just-in-Time-åtkomst och roll ändrings aviseringar som tillhandahålls av Azure AD PIM, förutom Multi-Factor Authentication och villkorlig åtkomst, ger en omfattande uppsättning styrnings kontroller för att skydda företagets resurser (katalog, Office 365 och Azure Resource roles). Precis som med andra former av åtkomst kan organisationer använda åtkomst granskningar för att konfigurera återcertifiering av återkommande åtkomst för alla användare i administratörs roller.
+
+## <a name="least-privileged-roles"></a>Minst privilegierade roller
+
+Med hjälp av PIM kan en användares administratörs behörighet begränsas för ytterligare säkerhet. Följande är de minst privilegierade katalog rollerna för konfiguration i Azure AD Identity styrnings funktioner: 
+
+| Funktion | Minst privilegie rad roll |
+| ------- | --------------------- |
+| Berättigandehantering | Användar administratör (med undantag för att lägga till SharePoint Online-webbplatser i kataloger som kräver global administratör) |
+| Användningsvillkor | Säkerhets administratör eller administratör för villkorlig åtkomst |
+| Åtkomstgranskningar | Användar administratör (med undantag för åtkomst granskningar av Azure-eller Azure AD-roller, som kräver administratör för privilegierade roller) |
+|Privileged Identity Management | Administratör för privilegierad roll |
+
 
 ## <a name="getting-started"></a>Komma igång
 

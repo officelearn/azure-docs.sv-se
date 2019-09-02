@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 50ab3fc92fc980638547bb090c5d0d78aa20ab5f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c0de5f958c6dcbf935de4eec9557cf64620abbcf
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172277"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208015"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
@@ -97,8 +97,19 @@ ACR börjar synkronisera avbildningar mellan de konfigurerade replikerna. När d
 * Varje region i ett geo-replikerat register är oberoende när den har kon figurer ATS. Azure Container Registry service avtal gäller för varje geo-replikerad region.
 * När du push-överför eller hämtar bilder från ett geo-replikerat register skickar Azure Traffic Manager i bakgrunden begäran till registret i den region som är närmast dig.
 * När du har push-överfört en avbildning eller tagga till den närmaste regionen tar det lite tid för Azure Container Registry att replikera manifest och lager till de återstående regioner som du har valt. Större bilder tar längre tid att replikera än de mindre. Bilder och taggar synkroniseras i de replikerade regionerna med en eventuell konsekvens modell.
-* För att hantera arbets flöden som är beroende av push-uppdateringar till ett geo-replikerat register, rekommenderar [](container-registry-webhook.md) vi att du konfigurerar Webhooks så att de svarar på push-händelserna. Du kan ställa in regionala webhookar i ett geo-replikerat register för att spåra push-händelser när de är klara i de geo-replikerade regionerna.
+* Om du vill hantera arbets flöden som är beroende av push-uppdateringar till en geo-replikerad, [](container-registry-webhook.md) rekommenderar vi att du konfigurerar Webhooks så att de svarar på push-händelserna. Du kan ställa in regionala webhookar i ett geo-replikerat register för att spåra push-händelser när de är klara i de geo-replikerade regionerna.
 
+## <a name="delete-a-replica"></a>Ta bort en replik
+
+När du har konfigurerat en replik för registret kan du när som helst ta bort den om den inte längre behövs. Ta bort en replik med hjälp av Azure Portal eller andra verktyg som kommandot [AZ ACR Replication Delete](/cli/azure/acr/replication#az-acr-replication-delete) i Azure CLI.
+
+Så här tar du bort en replik i Azure Portal:
+
+1. Navigera till Azure Container Registry och välj replikeringar.
+1. Välj namnet på en replik och välj **ta bort**. Bekräfta att du vill ta bort repliken.
+
+> [!NOTE]
+> Du kan inte ta bort register repliken i *hem regionen* för registret, det vill säga den plats där du skapade registret. Du kan bara ta bort hem repliken genom att ta bort själva registret.
 
 ## <a name="geo-replication-pricing"></a>Prissättning för Geo-replikering
 

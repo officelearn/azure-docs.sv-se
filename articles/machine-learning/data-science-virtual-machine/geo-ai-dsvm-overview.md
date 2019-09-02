@@ -1,30 +1,23 @@
 ---
-title: Översikt över Geo AI Data Science Virtual Machine
-titleSuffix: Azure
-description: Geo AI Data Science Virtual Machine ger ArcGIS Pro för att arbeta med geografiska data. Den innehåller också python-, R-och data vetenskaps verktyg för att arbeta med Machine Learning och artificiell intelligens (AI).
+title: Vad är geo artificiell intelligens
+titleSuffix: Azure Data Science Virtual Machine
+description: Geo artificiell intelligens-Data Science Virtual Machine ger ArcGIS Pro för att arbeta med geografiska data samt python-, R-och data vetenskaps verktyg för att arbeta med ML och AI.
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, geospatial analys
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.author: vijetaj
-ms.openlocfilehash: 05596ea9a4456b73ec1e398e4a27ec3a49457cd9
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 3d17006b9d35f0abbcc0e9c60f38ab693c1d088d
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172876"
+ms.locfileid: "70195596"
 ---
-# <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introduktion till Geo AI Data Science Virtual Machine
+# <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Vad är Data Science Virtual Machine för geo-artificiell intelligens?
 
 Geo artificiell intelligens-Data Science Virtual Machine (kallas även geo AI Data Science VM eller geo-DSVM) levererar geospatiala analys funktioner från Azure-Data Science Virtual Machine (DSVM). Mer specifikt utökar den här virtuella datorn AI och data vetenskaps verktygen i [DSVM](overview.md) genom att lägga till marknads ledande [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) geografiskt informations system från Ersi.
 

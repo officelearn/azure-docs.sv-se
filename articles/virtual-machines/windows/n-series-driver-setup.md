@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc6e37b088c6bcbb2de4693eb50be661db869ecd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 92ebd34c20e3733971593344925dcb566a1bf912
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089191"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207364"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installera NVIDIA GPU-drivrutiner för virtuella datorer i N-serien som kör Windows 
 
@@ -40,6 +40,8 @@ Grundläggande specifikationer, lagrings kapacitet och disk information finns i 
 Efter installationen av RUTNÄTs driv rutinen på en virtuell dator krävs en omstart. Efter installationen av CUDA-drivrutinen krävs ingen omstart.
 
 ## <a name="verify-driver-installation"></a>Verifiera installation av driv rutin
+
+Observera att Nvidia-kontrollpanelen endast är tillgänglig med installationen av RUTNÄTs driv rutinen. Om du har installerat CUDA-drivrutiner visas inte Nvidia-kontrollpanelen på kontroll panelen.
 
 Du kan kontrol lera driv rutins installationen i Enhetshanteraren. I följande exempel visas lyckad konfiguration av Tesla K80-kortet på en virtuell Azure NC-dator.
 

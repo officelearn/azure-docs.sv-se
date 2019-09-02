@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 9b87e6736d37d5b03630b642fee310269e8b080a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eeda78c69c21fafcbe64071422bf7d73a4737249
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100426"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208313"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor och svar om SQL Server som körs på virtuella Windows-datorer i Azure
 
@@ -171,7 +171,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag uppgradera min SQL Server 2008/2008 R2-instans när den har registrerats med SQL Server VM Resource Provider?**
 
-   Ja. Du kan använda valfritt installations medium för att uppgradera versionen och versionen av SQL Server och sedan kan du uppgradera ditt [SQL IaaS-tillägg](virtual-machines-windows-sql-server-agent-extension.md#change-management-modes) från _ingen agent_ till _full_. På så sätt får du till gång till alla fördelar med SQL IaaS-tillägget, till exempel portal hantering, automatiserade säkerhets kopieringar och automatiserad uppdatering. 
+   Ja. Du kan använda valfritt installations medium för att uppgradera versionen och versionen av SQL Server och sedan kan du uppgradera ditt [SQL IaaS-tillägg](virtual-machines-windows-sql-register-with-resource-provider.md#change-management-modes) från _ingen agent_ till _full_. På så sätt får du till gång till alla fördelar med SQL IaaS-tillägget, till exempel portal hantering, automatiserade säkerhets kopieringar och automatiserad uppdatering. 
 
 ## <a name="general"></a>Allmänt
 

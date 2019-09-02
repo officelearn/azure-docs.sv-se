@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 16cf6704096f8c1534777ffb1958d2fa858374db
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 88d9ab0063b6cf2803332d7af50190c659b3e6fe
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170543"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207202"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -378,6 +378,8 @@ pip install -r requirements.txt
 ## <a name="publishing-to-azure"></a>Publicera till Azure
 
 När du är redo att publicera ser du till att alla beroenden visas i filen *Requirements. txt* , som finns i rot katalogen i projekt katalogen. Azure Functions kan [bygga](functions-deployment-technologies.md#remote-build) dessa beroenden på distans.
+
+Projektfiler och mappar som undantas från publicering, inklusive mappen för virtuella miljöer, visas i. funcignore-filen.  
 
 Använd följande kommando för att distribuera till Azure och utföra en fjärran sluten version:
 

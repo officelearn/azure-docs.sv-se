@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 210724e8a8b9b585a3e308b8e321d809e4e897a1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c78359920ebc5faab2e0a678a901bcb8581a4e45
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560656"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207324"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Självstudier: Använda en Web App-robot som är aktive rad med Language Understanding iC#
 
@@ -80,7 +80,7 @@ Processen för att skapa bot-tjänsten skapar också en ny LUIS-app med avsikter
 |--|--|
 |Book Flight|`Travel to Paris`|
 |Avbryt|`bye`|
-|Ingen|Vad som helst utanför appens domän.|
+|Inga|Vad som helst utanför appens domän.|
 
 ## <a name="test-the-bot-in-web-chat"></a>Testa roboten i Web Chat
 
@@ -347,7 +347,7 @@ Starta roboten i Visual Studio. Ett webbläsarfönster öppnas med webbappsrobot
 
 1. I bot-emulatorn, boka en flygning genom att ange följande uttryck: 
 
-    ```bot
+    ```console
     Book a flight from Paris to Berlin on March 22, 2020
     ```
 

@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 1b7183da84b994da8694440183e367f143722002
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be37768a5cef38ae0dc49e12f1d83ba8005ab961
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345093"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194186"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD
 
@@ -81,7 +81,7 @@ Resten av de inbyggda rollerna tillåter hantering av specifika Azure-resurser. 
 
 Endast Azure-portalen och Azure Resource Manager-API:er stöder RBAC. Användare, grupper och program som tilldelas RBAC-roller kan inte använda [API:er för Azures klassiska distributionsmodell](../azure-resource-manager/resource-manager-deployment-model.md).
 
-I Azure-portalen visas rolltilldelningar som använder RBAC på bladet **Åtkomstkontroll (IAM)**. Det här bladet finns i portalen, till exempel hanteringsgrupper, prenumerationer, resursgrupper och olika resurser.
+I Azure-portalen visas rolltilldelningar som använder RBAC på bladet **Åtkomstkontroll (IAM)** . Du hittar det här bladet i hela portalen, till exempel hanterings grupper, prenumerationer, resurs grupper och olika resurser.
 
 ![Bladet Åtkomstkontroll (IAM) i Azure-portalen](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
@@ -97,7 +97,7 @@ Azure AD-administratörsroller används för att hantera Azure AD-resurser i en 
 
 | Azure AD-administratörsroll | Behörigheter | Anteckningar |
 | --- | --- | --- |
-| [Global administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) | <ul><li>Hantera åtkomst till alla administrativa funktioner i Azure Active Directory samt tjänster som federerar till Azure Active Directory</li><li>Tilldela administratörsroller till andra</li><li>Återställa lösenordet för valfri användare och alla andra administratörer</li></ul> | Den person som registrerar sig för Azure Active Directory-klientorganisationen blir en global administratör. |
+| [Global administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) | <ul><li>Hantera åtkomst till alla administrativa funktioner i Azure Active Directory samt tjänster som federerar till Azure Active Directory</li><li>Tilldela administratörsroller till andra</li><li>Återställa lösenordet för valfri användare och alla andra administratörer</li></ul> | Den person som registrerar sig för Azure Active Directory-klientorganisationen blir en global administratör. |
 | [Användaradministratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Skapa och hantera alla aspekter av användare och grupper</li><li>Hantera supportbegäranden</li><li>Övervaka tjänstens hälsa</li><li>Ändra lösenord för användare, supportadministratörer och andra användaradministratörer</li></ul> |  |
 | [Faktureringsadministratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Genomför inköp</li><li>Hantera prenumerationer</li><li>Hantera supportbegäranden</li><li>Övervakar tjänstens hälsa</li></ul> |  |
 
@@ -114,7 +114,7 @@ På en övergripande nivå kontrollerar Azure RBAC-roller behörigheter för att
 | Hantera åtkomst till Azure-resurser | Hantera åtkomst till Azure Active Directory-resurser |
 | Stöder anpassade roller | Kan inte skapa egna roller |
 | Omfånget kan anges på flera nivåer (hanteringsgrupp, prenumeration, resursgrupp och resurs) | Omfånget är på klientorganisationsnivån |
-| Rollinformation kan nås i Azure-portalen, Azure CLI, Azure PowerShell, Azure Resource Manager-mallar samt REST API | Rollinformation kan nås i Azure portal, Microsoft 365 admin Administrationscenter, Microsoft Graph AzureAD PowerShell |
+| Rollinformation kan nås i Azure-portalen, Azure CLI, Azure PowerShell, Azure Resource Manager-mallar samt REST API | Du kan komma åt roll information i Azure Admin Portal, Microsoft 365 administrations Center, Microsoft Graph, AzureAD PowerShell |
 
 ### <a name="do-azure-rbac-roles-and--azure-ad-administrator-roles-overlap"></a>Överlappar Azure RBAC-rollerna och Azure AD-administratörsrollerna?
 

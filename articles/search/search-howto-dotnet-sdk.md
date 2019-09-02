@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: brjohnst
-ms.openlocfilehash: 42d3a4a0840e7241666f66a09e7e6b11342cbfbc
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 3f167ee082b751f6bd686c0543db6a262615e486
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182266"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208255"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Använda Azure Search från ett .NET-program
 
@@ -579,7 +579,7 @@ SDK använder JSON.NET för serialisering och avserialisering av dokument. Du ka
 * Mappa mellan egenskaps namn i kod-och fält namnen i ditt index.
 * Skapa anpassade attribut som kan användas för att mappa egenskaper till dokument fält.
 
-Du hittar exempel på hur du implementerar anpassad serialisering i enhets testerna för Azure Search .NET SDK på GitHub. En lämplig start punkt är [den här mappen](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models). Den innehåller klasser som används av anpassade serialiserings test.
+Du hittar exempel på hur du implementerar anpassad serialisering i enhets testerna för Azure Search .NET SDK på GitHub. En lämplig start punkt är [den här mappen](https://github.com/Azure/azure-sdk-for-net/tree/4f6f4e4c90200c1b0621c4cead302a91e89f2aba/sdk/search/Microsoft.Azure.Search/tests/Tests/Models). Den innehåller klasser som används av anpassade serialiserings test.
 
 ### <a name="searching-for-documents-in-the-index"></a>Söker efter dokument i indexet
 Det sista steget i exempel programmet är att söka efter vissa dokument i indexet:

@@ -4,45 +4,47 @@ description: Lär dig om säkerhet, autentisering och auktorisering standarder s
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/25/2019
+ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8aadddbc9ae13a87f89db4d7e7189ea7aa8aeef5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37d5288389c7b602eb0d13a736e289010d7e0f80
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60612035"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208202"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Säkerhetskrav för Azure IoT Edge
 
-Azure IoT Edge är utformad för att hantera risken-scenarier som ingår när du flyttar dina data och analyser till en intelligent gräns. IoT Edge-säkerhetsstandarder ger flexibilitet för olika riskprofiler och distributionsscenarier men samtidigt erbjuda det skydd som du förväntar dig från alla Azure-tjänster. 
+Azure IoT Edge åtgärdar riskerna som är när de flyttar dina data och analyser till den intelligenta kanten. Flexibiliteten i IoT Edge säkerhets standarden är flexibel för olika distributions scenarier med det skydd som du förväntar dig från alla Azure-tjänster. 
 
-Azure IoT Edge kan köras på olika maskinvara gör och modeller, stöder flera operativsystem och gäller för olika distributionsscenarier. Utvärdera risken för en distributionsscenariot beror på många överväganden inklusive lösning ägarskap, distributionens geografiska omfattning, känsliga data, sekretess, programmet lodräta och administrativa krav. I stället för att erbjuda konkreta lösningar för specifika scenarier, är IoT Edge en utökningsbar security framework baserat på väl förankrad principer som är utformade för att skala. 
+IoT Edge körs på olika modeller av maskin vara, stöder flera operativ system och gäller för olika distributions scenarier. Risken för ett distributions scenario är beroende av faktorer som innefattar lösnings ägande, distribution geografi, data känslighet, sekretess, program vertikal och regler. I stället för att erbjuda konkreta lösningar för vissa scenarier är IoT Edge ett utöknings Bart säkerhets ramverk som baseras på välgrundade principer som har utformats för skalning. 
  
-Den här artikeln innehåller en översikt över IoT Edge security framework. Mer information finns i [skydda en intelligent gräns](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
+Den här artikeln innehåller en översikt över IoT Edge Security Framework. Mer information finns i [skydda en intelligent gräns](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
 
 ## <a name="standards"></a>Standarder
 
-Standarder för enklare enkel granskning och genomförandet, som båda hallmarks säkerhet. En säkerhetslösning bör lånar ut sig själv till granskning under utvärderingen kan skapa förtroende och får inte vara ett gränsvärde till distribution. Utformning av framework att skydda Azure IoT Edge bygger på beprövade och beprövade security protokoll för kännedom om och återanvändning. 
+Standarder främjar enkel granskning och enkel implementering, som båda är Hallmarks av säkerhet. En säkerhetslösning bör lånas ut till granskning under utvärderingen för att bygga förtroende och bör inte vara en Hurdle till distribution. Designen av ramverket för att skydda Azure IoT Edge baseras på tidstestade och bransch beprövade säkerhets protokoll för att få välbekanta och återanvända. 
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
-När du distribuerar en IoT-lösning som du behöver veta att endast betrodda aktörer, enheter och moduler har åtkomst till din lösning. Kunskapen erbjuder säker redovisningen för deltagare. Azure IoT Edge uppnår den här kunskapen via autentisering. Certifikatbaserad autentisering är den primära mekanismen för autentisering för Azure IoT Edge-plattformen. Den här mekanismen härleds från en uppsättning standarder för informationssäkerhet Public Key Infrastructure (PKiX) av Internet Engineering Task Force (IETF).     
+När du distribuerar en IoT-lösning måste du veta att endast betrodda aktörer, enheter och moduler har åtkomst till din lösning. Certifikatbaserad autentisering är den primära mekanismen för autentisering för Azure IoT Edges plattformen. Den här mekanismen härleds från en uppsättning standarder som styr PKiX (Public Key Infrastructure) av IETF (Internet Engineering Task Force).     
 
-Alla enheter, moduler och aktörer interagera med Azure IoT Edge-enhet om fysiskt eller via en nätverksanslutning bör ha unika certifikat identiteter. Men inte alla scenariot eller en komponent kan låna ut sig själv till certifikatbaserad autentisering. Utökningsbarhet för security framework erbjuder säker alternativ i dessa scenarier. 
+Alla enheter, moduler och aktörer som interagerar med den Azure IoT Edge enheten, oavsett om de är fysiskt eller via en nätverks anslutning, bör ha unika certifikat identiteter. Det är inte alla scenarier eller komponenter som kan lånas ut till certifikatbaserad autentisering, så utökningen av säkerhets ramverket erbjuder säkra alternativ. 
 
-## <a name="authorization"></a>Auktorisering
+Mer information finns i [Azure IoT Edge certifikat användning](iot-edge-certs.md).
 
-Principen om lägsta behörighet säger att användare och komponenterna i ett system bör har endast åtkomst till den minsta uppsättningen resurser och data som behövs för att utföra sina roller. Enheter, moduler och aktörer ska komma åt de resurser och data inom behörighetsomfånget för deras och endast när det är arkitektoniskt tillåten. Vissa behörigheter kan konfigureras med rätt behörighet och andra tillämpas arkitektoniskt.  Till exempel tillåtas en modul via Privilegierade konfiguration att initiera en anslutning till Azure IoT Hub. Det finns dock ingen anledning varför en modul i en Azure IoT Edge-enhet ska komma åt läsningen av en modul i en annan Azure IoT Edge-enhet.
+## <a name="authorization"></a>Authorization
 
-Andra för auktorisering inkluderar certifikat för tokensignering rättigheter och rollbaserad åtkomstkontroll (RBAC). 
+Principen om minsta behörighet innebär att användare och komponenter i ett system endast ska ha åtkomst till den minsta uppsättning resurser och data som krävs för att utföra sina roller. Enheter, moduler och aktörer bör endast komma åt resurser och data inom deras behörighets omfång, och endast när de är arkitektoniskt tillåtna. Vissa behörigheter kan konfigureras med tillräckliga behörigheter och andra är arkitektoniskt framtvingade.  Vissa moduler kan till exempel ha behörighet att ansluta till Azure IoT Hub. Det finns dock ingen anledning till varför en modul på en IoT Edge enhet ska ha åtkomst till en modul i en annan IoT Edge enhet.
+
+Andra auktoriserings scheman inkluderar certifikat signerings rättigheter och rollbaserad åtkomst kontroll (RBAC). 
 
 ## <a name="attestation"></a>Attestering
 
-Attestering säkerställer integriteten hos software bits.  Det är viktigt för att upptäcka och förhindra av skadlig kod.  Azure IoT Edge security framework klassificerar attestering under tre huvudkategorier:
+Attestering säkerställer integriteten för program varu bitar, vilket är viktigt för att upptäcka och förhindra skadlig kod.  Azure IoT Edge security framework klassificerar attestering under tre huvudkategorier:
 
 * Statisk attestering
 * Runtime-attestering
@@ -50,34 +52,34 @@ Attestering säkerställer integriteten hos software bits.  Det är viktigt fö
 
 ### <a name="static-attestation"></a>Statisk attestering
 
-Statisk attestering verifieras integriteten för alla program på en enhet, inklusive operativsystemet, alla körningar och konfigurationsinformation på enheten strömkälla. Det kallas ofta för säker start. Security framework för Azure IoT Edge-enheter sträcker sig till tillverkare och införlivar säker maskinvarukapacitet som garanterar statiska attestering processer. Här ingår säker start och säker inbyggd programvara uppgradera.  Arbeta i nära samarbete med silicon leverantörer eliminerar överflödiga firmware lager, så minimerar threat ytan. 
+Med statisk attestering verifieras integriteten för all program vara på en enhet vid inaktive ring, inklusive operativ systemet, alla körningar och konfigurations information. Eftersom statisk attestering sker under uppstarten kallas den ofta för säker start. Säkerhets ramverket för IoT Edge enheter utökar till tillverkare och införlivar säkra maskin varu funktioner som garanterar statiska attesterings processer. I de här processerna ingår säker start och säker uppgradering av inbyggd program vara.  Att arbeta i nära samarbete med kisel leverantörer eliminerar överflödiga lager för inbyggd program vara, så minimerar hot ytan. 
 
 ### <a name="runtime-attestation"></a>Runtime-attestering
 
-När ett system har slutfört en process för säker start och är igång, skulle väl utformad system identifiera försök att mata in skadlig kod och vidta rätt motåtgärder. Angrepp av skadlig kod kan rikta systemets portar och gränssnitt för åtkomst till systemet. Eller, om skadliga aktörer har fysisk åtkomst till en enhet som de kan manipulera själva enheten eller använda sidokanal attacker för att få åtkomst. Sådana malcontent som kan vara i form av skadlig kod eller obehöriga konfigurationsändringar, kan inte identifieras av statiska attestering eftersom det matas in efter startprocessen. Motåtgärder erbjuds eller används av enhetens maskinvara hjälper till att undanröja sådana hot.  Explicit anropar security framework för Azure IoT Edge för tillägg som bekämpa runtime hot.  
+När ett system har slutfört en säker start process bör väl utformade system identifiera försök att injicera skadlig kod och ta rätt motåtgärder. Attacker mot skadlig kod kan rikta in sig på systemets portar och gränssnitt. Om skadliga aktörer har fysisk åtkomst till en enhet kan de manipulera själva enheten eller använda sido kanal attacker för att få åtkomst. Sådana Malcontent, om ändringar av skadlig kod eller obehörig konfiguration, inte kan identifieras av en statisk attestering eftersom den matas in efter start processen. Motåtgärder som erbjuds eller framtvingas av enhetens maskin varu hjälp för att stänga av sådana hot.  Säkerhets ramverket för IoT Edge uttryckligen anropa för tillägg som bekämpar körnings hot.  
 
 ### <a name="software-attestation"></a>Programvara attestering
 
-Alla felfritt system, inklusive intelligenta edge-system, måste godkänna korrigeringar och uppgraderingar.  Säkerhet är viktigt för processer annars de kan vara möjliga hotvektorer.  Security framework för Azure IoT Edge-anrop för uppdateringar via mäts och signerad paket för att säkerställa integritet och autentisera källan för paketen.  Den här standarden gäller för alla operativsystem och program programvara bits. 
+Alla felfria system, inklusive intelligenta Edge-system, behöver uppdateringar och uppgraderingar.  Säkerhet är viktigt för uppdaterings processer, annars kan de vara potentiella hot vektorer.  Säkerhets ramverket för IoT Edge anropar uppdateringar genom uppmätta och signerade paket för att säkerställa integriteten hos och autentisera paketens källa.  Den här standarden gäller för alla operativ system och program varu bitar för program. 
 
 ## <a name="hardware-root-of-trust"></a>Maskinvara förtroenderoten
 
-För många intelligenta edge-enheter, särskilt enheter på platser där potentiella skadliga aktörer har fysisk åtkomst till enheten, är maskinvara enhetssäkerhet senaste defense för skydd. Förvanskningstålig enhet maskinvara är avgörande för sådana distributioner. Azure IoT Edge uppmanar säker silicon maskinvaruleverantörer som erbjuder olika varianter av maskinvara förtroenderoten för hantering av olika riskprofiler och distributionsscenarier. Maskinvara förtroende kan komma från vanliga protokoll säkerhetskrav som Trusted Platform Module (ISO/IEC 11889) och Trusted Computing Group's Device identifierare Composition Engine (DICE). Skydda enklaven tekniker som TrustZones- och programvara Guard tillägg (SGX) får maskinvara förtroende. 
+För många intelligenta gräns enheter, särskilt enheter som kan nås fysiskt av potentiella skadliga aktörer, är maskin varu säkerhet det senaste skyddet. Manipulering av manipulerad maskin vara är avgörande för sådana distributioner. Azure IoT Edge uppmuntrar säkra Silicon Hardware-leverantörer att erbjuda olika varianter för att hantera olika risk profiler och distributions scenarier. Maskin varu förtroende kan komma från vanliga standarder för säkerhets protokoll som Trusted Platform Module (ISO/IEC 11889) och Trusted Computing Groups sammansättnings motor (tärning). Säkra enklaven-tekniker som TrustZones och Software Guard-tillägg (SGX) tillhandahåller också maskin varu förtroende. 
 
 ## <a name="certification"></a>Certifiering
 
-Azure IoT Edge-ramverket innehåller certifieringskraven för att hjälpa kunder att fatta välgrundade beslut vid inköp Azure IoT Edge-enheter för deras distribution.  Grundläggande att dessa krav är certifieringar som hör till säkerhetsanspråk och certifieringar som rör verifiering av hur säkerhet.  Exempelvis skulle en säkerhet anspråk certifiering informera att IoT Edge-enheten använder säker maskinvara som är kända för att motstå Start-attacker. En certifiering för verifiering kunde meddela säker maskinvara implementerades korrekt för att erbjuda detta värde i enheten.  Med beaktande av principen för enkelhetens skull försöker ramverket hålla arbetet med certifiering minimal.   
+För att hjälpa kunder att fatta välgrundade beslut när de lägger Azure IoT Edge enheter för distributionen, innehåller IoT Edge ramverket certifierings krav.  Grundläggande att dessa krav är certifieringar som hör till säkerhetsanspråk och certifieringar som rör verifiering av hur säkerhet.  En säkerhets anspråks certifiering innebär till exempel att den IoT Edge enheten använder säker maskin vara som är känd för att motstå start attacker. Ett verifierings certifikat innebär att den säkra maskin varan har implementerats korrekt för att erbjuda detta värde i enheten.  I och med principen för enkelhets skull försöker ramverket att hålla belastningen på certifieringen minimal.   
 
 ## <a name="extensibility"></a>Utökningsbarhet
 
-Det står skäl att säkerhet bör utvecklas parallellt till adressen nya scenarier med IoT-teknik som driver på olika typer av omvandlingar för företag.  Azure IoT Edge security framework börjar med en stabil grund som den bygger i utökningsbarhet i olika dimensioner som ska ingå: 
+Med IoT Technology som kör olika typer av affärs transformationer bör säkerheten utvecklas parallellt för att lösa nya scenarier.  Azure IoT Edge security framework börjar med en stabil grund som den bygger i utökningsbarhet i olika dimensioner som ska ingå: 
 
 * Säkerhet för förstapartstjänster som Device Provisioning-tjänsten för Azure IoT Hub.
-* Tjänster från tredje part som hanterade säkerhetstjänster för olika program branscher (som industriella eller hälsovård) eller teknik fokus (t.ex. säkerhetsövervakning i nät nätverk eller silicon maskinvara attestering services) via ett omfattande nätverk med partner.
+* Tjänster från tredje part som hanterade säkerhets tjänster för olika program är lodräta (t. ex. industriella eller hälso vårds) eller teknik fokus (t. ex. säkerhets övervakning i nät verks nätverk eller kisel tjänster för maskin varu attestering) genom ett omfattande nätverk av partner.
 * Äldre system att inkludera onlineåterställningspunkter med alternativa säkerhetsstrategier som använder säker teknik än certifikat för autentisering och Identitetshantering.
-* Säker maskinvara för införandet av teknik för säker maskinvara och silicon partner bidrag.
+* Säker maskin vara för att införa nya säkra maskin varu tekniker och avgifter för Silicon-partner.
 
-I slutändan högsta framgång i skydd av en intelligent gräns som resultat av samarbetsfunktioner bidrag från en öppen community drivs av det gemensamma intresset på säkra IoT.  Dessa bidrag kan vara i form av säker tekniker eller tjänster.  Azure IoT Edge security framework erbjuder en stabil grund för säkerhet som kan utökas för maximal täckning som erbjuder samma nivå av förtroende och integriteten i en intelligent gräns som med Azure-molnet.  
+I slutet kräver att du skyddar den intelligenta gränsen från en öppen community som drivs av det gemensamma intresset att skydda IoT.  Dessa bidrag kan vara i form av säker tekniker eller tjänster.  Azure IoT Edge security framework erbjuder en stabil grund för säkerhet som kan utökas för maximal täckning som erbjuder samma nivå av förtroende och integriteten i en intelligent gräns som med Azure-molnet.  
 
 ## <a name="next-steps"></a>Nästa steg
 

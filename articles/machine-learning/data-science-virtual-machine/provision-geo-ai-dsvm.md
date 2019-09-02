@@ -1,98 +1,93 @@
 ---
-title: Etablera en Geo artificiell intelligens virtuell dator på Azure – Azure | Microsoft Docs
+title: 'Snabbstart: Konfigurera en geo-artificiell intelligens'
+titleSuffix: Azure Data Science Virtual Machine
 description: Lär dig hur du skapar och konfigurerar Geo AI Data Science Virtual Machine. Geo AI Data Science Virtual Machine ger dig verktyg för att skapa AI och ML-lösningar med geografiska data.
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, Geospatial analys
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 03/05/2018
-ms.author: vijetaj
-ms.openlocfilehash: 4772bf8341196485a91b3df30801b9714a4a64a8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7afeec3f71cd1af30093801fedabf3f0357ae3d0
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591867"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208057"
 ---
-# <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Etablera en Geo artificiell intelligens virtuell dator på Azure 
+# <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Snabbstart: Konfigurera en virtuell geo-informations dator på Azure 
 
-Geo AI Data Science Virtual Machine (Geo-DSVM) är en utökning av det populära [Azure Data Science Virtual Machine](https://aka.ms/dsvm) som är speciellt konfigurerad för att kombinera AI och geospatial analys. Geospatial analys i den virtuella datorn drivs av [ArcGIS Pro](https://www.arcgis.com/features/index.html). Den virtuella datorn för datavetenskap kan snabb utbildning av machine learning-modeller och även av deep learning-modeller på data som berikats med geografisk information. Den stöds endast på Windows 2016 DSVM. 
+Geo AI-Data Science Virtual Machine (geo-DSVM) är en utökning av de populära [Azure-Data Science Virtual Machine](https://aka.ms/dsvm) som är särskilt konfigurerade för att kombinera AI och geospatial analys. Geospatial analys i den virtuella datorn drivs av [ArcGIS Pro](https://www.arcgis.com/features/index.html). Data Science Virtual Machine (DSVM) gör det möjligt att snabbt träna maskin inlärnings modeller och till och med djup inlärnings modeller. För att utveckla dessa modeller använder den data som har berikats med geografisk information. Geo-DSVM stöds endast i Windows 2016 DSVM. 
 
-Geo-DSVM innehåller flera verktyg för AI, inklusive:
+AI-verktygen som ingår i Geo-DSVM innehåller följande:
 
-- GPU-versionerna av populära deep learning-ramverk som Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer; 
-- Verktyg för att hämta och förprocess bild, textdata, 
-- Verktyg för utveckling av aktiviteter, till exempel Microsoft R Server Developer Edition, Anaconda Python, Jupyter-anteckningsböcker för Python och R IDE: er för Python och R, SQL-databaser
-- ESRIS ArcGIS Pro programvara tillsammans med Python- och R-gränssnitt som fungerar med geospatiala data från dina AI-program. 
+- GPU-versioner av populära djup inlärnings ramverk som Microsoft Cognitive Toolkit, TensorFlow, keras, Caffe2 och kedjor
+- Verktyg för att hämta och Förbearbeta bild-och text data
+- Verktyg för utvecklings aktiviteter som Microsoft Machine Learning Server Developer Edition, Anaconda python, Jupyter Notebooks för python och R, IDE: er för python och R och SQL-databaser
+- ArcGIS Pro Desktop-programvara från ESRI, tillsammans med python-och R-gränssnitt som kan arbeta med geospatiala data från dina AI-program
  
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>Skapa din Geo-spatial AI Data Science VM
 
-Här följer stegen för att skapa en instans av Geo AI Data Science VM: 
+Följ dessa steg om du vill skapa en instans av Geo AI-Data Science VM:
 
+1. Gå till listan med virtuella datorer på [Azure Portal](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
+1. Skapa en guide genom att välja **skapa** längst ned:
 
-1. Navigera till den virtuella datorn på [Azure-portalen](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
-2. Välj den **skapa** längst ned för att gå till en guide.
-![Skapa-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
-3. I guiden som används för att skapa Geo-DSVM kräver **indata** för var och en av de **fyra steg** räknas upp till höger i den här bilden. Här följer de indata som behövs för att konfigurera var och en av de här stegen:
+   ![Create-geo-AI – dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
 
+1. Guiden kräver ininformation för vart och ett av de fyra stegen. Detaljerad information om indata finns i följande avsnitt.
 
+### <a name="wizard-details"></a>Guide information ###
 
-   - **Grundläggande inställningar**
+**Grunderna**:
 
-      1. **Namn på**: Namnet på den data vetenskaps server som du skapar.
-
-      2. **Användarnamn**: Inloggnings-ID för administratörs konto.
-
-      3. **Lösenord**: Lösen ord för administratörs kontot.
-
-      4. **Prenumeration**: Om du har mer än en prenumeration väljer du det som datorn är skapas och faktureras.
-
-      5. **Resursgrupp**: Du kan skapa en ny eller använda en **Tom** befintlig Azure-resurs grupp i din prenumeration.
-
-      6. **Plats**: Välj det data Center som passar bäst. Vanligtvis är det datacenter som har de flesta av dina data eller som är närmast dina fysiska platsen för snabbaste nätverksåtkomst. Om du behöver göra deep learning på GPU, måste du välja någon av platser i Azure som har NC-serien GPU VM-instanser. För närvarande är de platser som har GPU-virtuella datorer: **Östra USA, norra centrala USA, södra centrala USA, västra USA 2, norra Europa,** Västeuropa. Den senaste listan finns i [Azure-produkter per Region sidan](https://azure.microsoft.com/regions/services/) och leta efter **NC-serien** under **Compute**. 
-
-
-   - **Inställningar för**: Välj en av de virtuella datorerna i NC-seriens virtuella dator om du planerar att köra djup inlärning på GPU på din geo-DSVM. I annat fall kan du välja någon av Processorn baserad instans.  Skapa ett lagringskonto för den virtuella datorn. 
-   
-   - **Sammanfattning av**: Kontrollera att all information du angett är korrekt.
-
-   - **Köpa**: Starta etableringen genom att klicka på **köp** . Det finns en länk till användningsvillkor. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
+- **Namn på**: Namnet på den data science-server som du skapar.
+    
+- **Användar namn**: Inloggnings-ID för administratörs konto.
+    
+- **Lösenord**: Lösen ord för administratörs kontot.
+    
+- **Prenumeration**: Om du har mer än en prenumeration väljer du det som datorn är skapas och faktureras.
+    
+- **Resursgrupp**: Du kan skapa en ny eller använda en **Tom** befintlig Azure-resurs grupp i din prenumeration.
+    
+- **Plats**: Välj det data Center som passar bäst. Vanligt vis är det en som har de flesta data eller som är närmast din fysiska plats för snabbast nätverks åtkomst. Om du planerar att köra djup inlärning på en GPU måste du välja en av de platser i Azure som har NC-seriens GPU VM-instanser. För närvarande är dessa platser: **Östra USA, norra centrala USA, södra centrala USA, västra USA 2, norra Europa,** Västeuropa. För den senaste listan, se sidan [Azure-produkter efter region](https://azure.microsoft.com/regions/services/) och leta efter **NC-serien** under **Compute**. 
+    
+    
+**Inställningar för**: Välj en av NC-seriens storlekar på virtuella GPU-datorer om du planerar att köra djup inlärning på en GPU på din geo-DSVM. Annars kan du välja en av de CPU-baserade instanserna. Skapa ett lagringskonto för den virtuella datorn. 
+       
+**Sammanfattning av**: Kontrollera att all information som du angett är korrekt.
+    
+**Köpa**: Starta etablerings processen genom att klicka på **köp**. Det finns en länk till användningsvillkor. Den virtuella datorn har inga ytterligare avgifter utöver beräknings avgifterna för den server storlek du valde i steget **storlek** . 
  
->[!NOTE]
-> Etableringen tar cirka 20 – 30 minuter. Status för etableringen visas på Azure portal.
+ >[!NOTE]
+ > Etableringen bör ta cirka 20 till 30 minuter. Status för etableringen visas på Azure portal.
 
  
 ## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Hur du kommer åt Geo AI Data Science Virtual Machine
 
- När den virtuella datorn har skapats är du redo att börja använda de verktyg som är installerade och redan har konfigurerats på den. Det finns paneler för start-menyn och ikoner på skrivbordet för många av verktygen. Du kan fjärrskrivbord till den med hjälp av autentiseringsuppgifter som administratör-konto som du konfigurerade i föregående **grunderna** avsnittet. 
+ När den virtuella datorn har skapats är du redo att börja använda de verktyg som är installerade och förkonfigurerade på den. Det finns Start meny paneler och skriv bords ikoner för många av verktygen. Du kan komma åt den virtuella datorn via fjärr skrivbord genom att använda de autentiseringsuppgifter för administratörs kontot som du konfigurerade i avsnittet **grundläggande** .
 
  
 ## <a name="using-arcgis-pro-installed-in-the-vm"></a>Med hjälp av ArcGIS Pro installerad på den virtuella datorn
 
-Geo-DSVM har redan ArcGIS Pro desktop förinstallerat och den miljö som redan har konfigurerats för att fungera med alla verktyg i DSVM. När du startar ArcGIS uppmanar dig för en inloggning på ArcGIS-konto. Om du redan har en ArcGIS-konto och har licenser för programvaran, kan du använda din befintliga autentiseringsuppgifter.  
+På Geo-DSVM är ArcGIS Pro-skrivbordet förinstallerat och miljön är förkonfigurerad för att fungera med alla verktyg i DSVM. När du startar ArcGIS uppmanas du att ange autentiseringsuppgifter för ditt ArcGIS-konto. Om du redan har en ArcGIS-konto och har licenser för programvaran, kan du använda din befintliga autentiseringsuppgifter.  
 
 ![Båge-GIS-inloggning](./media/provision-geo-ai-dsvm/ArcGISLogon.png)
 
-Annars kan du kan registrera dig för nya ArcGIS-konto och licens eller få en [kostnadsfri utvärderingsversion](https://www.arcgis.com/features/free-trial.html). 
+Annars kan du registrera dig för ett nytt ArcGIS-konto och en licens eller få en [kostnads fri utvärderings version](https://www.arcgis.com/features/free-trial.html). 
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-När du har registrerat dig för ett betalt eller kostnads fritt ArcGIS-konto kan du auktorisera ArcGIS Pro för ditt konto genom att följa anvisningarna i [komma igång med ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+När du har registrerat dig för ett standard ArcGIS-konto eller en kostnads fri utvärderings version kan du godkänna ArcGIS Pro för ditt konto genom att följa anvisningarna i [komma igång med ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf).
 
-När du loggar in på ArcGIS Pro desktop med ArcGIS-konto är du redo att börja använda data science-verktygen som installeras och konfigureras på den virtuella datorn för geospatiala analytics och machine learning-projekt.
+När du har loggat in på ArcGIS Pro-skrivbordet via ditt ArcGIS-konto är du redo att börja använda de data vetenskaps verktyg som är installerade och konfigurerade på den virtuella datorn för dina geospatiala analyser och maskin inlärnings projekt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med hjälp av Geo AI Data Science VM med vägledning från följande avsnitt:
+Börja använda geo AI-Data Science VM med vägledning från följande resurs:
 
 * [Använda Geo-spatial AI Data Science VM](use-geo-ai-dsvm.md)

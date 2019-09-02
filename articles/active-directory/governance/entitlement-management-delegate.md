@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 064724b3c6a5faa485850ecdfa3d3759d3631be0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 9b631f078240821e79513c4bd944a33b4725bc52
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124911"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207149"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegera aktiviteter i hantering av Azure AD-rättigheter (för hands version)
 
@@ -117,6 +117,7 @@ För en användare som inte är en global administratör eller en användar admi
 | [Moln program administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  |  | :heavy_check_mark: |  |
 | Användare | Katalog ägare | Endast om grupp ägare | Endast om grupp ägare | Endast om app-ägare |  |
 
+Om du vill fastställa den lägsta privilegierade rollen för en aktivitet kan du också referera till [Administratörs roller efter administratörs uppgift i Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
 ## <a name="add-a-catalog-creator"></a>Lägg till en katalog skapare
 

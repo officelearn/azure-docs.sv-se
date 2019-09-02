@@ -1,22 +1,20 @@
 ---
 title: Arbeta med Azure Functions Core Tools | Microsoft Docs
 description: Lär dig hur du kodar och testar Azure Functions från kommando tolken eller terminalen på den lokala datorn innan du kör dem på Azure Functions.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 4bad9db6af6d368c943619bc2105f3fba0b7eb7b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fc77ef6786fbd16ecfeb34397ead11be8b107176
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096163"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207277"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -414,6 +412,8 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ## <a name="publish"></a>Publicera till Azure
 
 Azure Functions Core Tools stöder två typer av distribution: Distribuera Function Project-filer direkt till din Function-app via [zip Deploy](functions-deployment-technologies.md#zip-deploy) och [distribuera en anpassad Docker-behållare](functions-deployment-technologies.md#docker-container). Du måste redan ha [skapat en Function-app i din Azure-prenumeration](functions-cli-samples.md#create), som du ska distribuera din kod till. Projekt som kräver kompilering bör skapas så att binärfilerna kan distribueras.
+
+En projektmapp kan innehålla språkspecifika filer och kataloger som inte ska publiceras. Undantagna objekt visas i en. funcignore-fil i rotmappen.     
 
 ### <a name="project-file-deployment"></a>Distribution (projektfiler)
 

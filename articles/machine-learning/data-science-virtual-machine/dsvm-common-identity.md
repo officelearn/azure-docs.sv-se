@@ -10,71 +10,71 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 5cd310dac28b999af3d21c46b108abdc6d5779b5
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 44f1f7ae3b290e1dbf01877f3881e1d95a238446
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70192247"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208138"
 ---
-# <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Konfigurera en gemensam identitet på den virtuella datorn för datavetenskap
+# <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Konfigurera en gemensam identitet på en Data Science Virtual Machine
 
-På en Azure-dator (VM), inklusive Data Science Virtual Machine (DSVM), skapa lokala användarkonton när du etablerar den virtuella datorn. Användare autentisera sedan till den virtuella datorn med hjälp av autentiseringsuppgifterna. Om du har flera virtuella datorer som du behöver komma åt snabbt den här metoden besvärlig som du hanterar autentiseringsuppgifter. Vanliga användarkonton och -hantering via en standardbaserad identitetsprovider kan du använda en enda uppsättning autentiseringsuppgifter för att komma åt flera resurser i Azure, inklusive flera Dsvm. 
+På en Microsoft Azure virtuell dator (VM), inklusive en Data Science Virtual Machine (DSVM), skapar du lokala användar konton när du konfigurerar den virtuella datorn. Användare autentisera sedan till den virtuella datorn med hjälp av autentiseringsuppgifterna. Om du har flera virtuella datorer som dina användare behöver åtkomst till kan hanteringen av autentiseringsuppgifter bli mycket besvärlig. En utmärkt lösning är att distribuera vanliga användar konton och hantering via en standardbaserad identitets leverantör. Med den här metoden kan du använda en enda uppsättning autentiseringsuppgifter för att få åtkomst till flera resurser i Azure, inklusive flera Dsvm.
 
-Active Directory är en populär identitetsprovider och stöds på Azure som en tjänst och lokalt. Du kan använda Azure Active Directory (AD Azure) eller en lokal Active Directory för att autentisera användare på en fristående DSVM eller ett Dsvm-kluster i en Azure VM-skalningsuppsättning. Du kan göra detta genom att koppla DSVM-instanser till en Active Directory-domän. 
+Active Directory är en populär identitets leverantör som stöds i Azure både som en moln tjänst och som en lokal katalog. Du kan använda Azure Active Directory (AD Azure) eller en lokal Active Directory för att autentisera användare på en fristående DSVM eller ett Dsvm-kluster i en Azure VM-skalningsuppsättning. Du kan göra detta genom att koppla DSVM-instanser till en Active Directory-domän.
 
-Om du redan har Active Directory för att hantera identiteter kan använda du den som vanliga identitetsprovider. Om du inte har Active Directory, kan du köra en hanterad Active Directory-instans på Azure via en tjänst som kallas [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS). 
+Om du redan har Active Directory kan du använda den som din gemensamma identitets leverantör. Om du inte har Active Directory kan du köra en hanterad Active Directory-instans på Azure via [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS).
 
-I dokumentationen för [Azure AD](https://docs.microsoft.com/azure/active-directory/) ger detaljerad [management instruktioner](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution), inklusive ansluter Azure AD till din lokala katalog om du har en. 
+Dokumentationen för [Azure AD](https://docs.microsoft.com/azure/active-directory/) innehåller detaljerade [hanterings anvisningar](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution), inklusive vägledning om hur du ansluter Azure AD till din lokala katalog om du har en.
 
-Den här artikeln beskriver stegen för att konfigurera en helt hanterad tjänst på Azure gäller Active Directory-domän med hjälp av Azure AD DS. Du kan sedan ansluta till din Dsvm till hanterade Active Directory-domänen för att ge användare åtkomst till en pool med Dsvm (och andra Azure-resurser) med hjälp av ett vanligt användarkonto och autentiseringsuppgifter. 
+Den här artikeln beskriver hur du konfigurerar en fullständigt hanterad Active Directory domän tjänst på Azure med hjälp av Azure AD DS. Du kan sedan ansluta din Dsvm till den hanterade Active Directorys domänen. Den här metoden gör det möjligt för användare att komma åt en pool med Dsvm (och andra Azure-resurser) via ett gemensamt användar konto och autentiseringsuppgifter.
 
 ## <a name="set-up-a-fully-managed-active-directory-domain-on-azure"></a>Konfigurera en fullständigt hanterad Active Directory-domän i Azure
 
-Azure AD DS gör det enkelt att hantera identiteter genom att tillhandahålla en fullständigt hanterad tjänst på Azure. På den här Active Directory-domän hantera användare och grupper. Stegen för att konfigurera en Azure-baserad Active Directory-domän- och användarkonton i din katalog är:
+Azure AD DS gör det enkelt att hantera identiteter genom att tillhandahålla en fullständigt hanterad tjänst på Azure. På den här Active Directory-domän hantera användare och grupper. Följ dessa steg om du vill konfigurera en Azure-värdbaserad Active Directory domän och användar konton i din katalog:
 
 1. Lägg till användaren till Active Directory i Azure-portalen: 
 
-   a. Logga in på [Azure Active Directory-administratörscentret](https://aad.portal.azure.com) med ett konto som är en global administratör för katalogen.
+   1. Logga in på [Azure Active Directory administrations Center](https://aad.portal.azure.com) genom att använda ett konto som är en global administratör för katalogen.
     
-   b. Välj **Azure Active Directory** och sedan **Användare och grupper**.
+   1. Välj **Azure Active Directory** och sedan **Användare och grupper**.
     
-   c. På **Användare och grupper** väljer du **Alla användare** och sedan **Ny användare**.
+   1. I **användare och grupper**väljer du **alla användare**och väljer sedan **ny användare**.
    
-      Den **användaren** öppnas fönstret.
+           The **User** pane opens:
       
       ![Fönstret ”användare”](./media/add-user.png)
     
-   d. Ange information för användaren, till exempel **Namn** och **Användarnamn**. Domännamndelen av användarnamnet måste vara den initiala domänen namnet ”[namn].onmicrosoft.com” eller en verifierad icke-federerade [domännamn](../../active-directory/add-custom-domain.md) , till exempel ”contoso.com”.
+   1. Ange information för användaren, till exempel **Namn** och **Användarnamn**. Domännamndelen av användarnamnet måste vara den initiala domänen namnet ”[namn].onmicrosoft.com” eller en verifierad icke-federerade [domännamn](../../active-directory/add-custom-domain.md) , till exempel ”contoso.com”.
     
-   e. Kopiera eller anteckna det genererade användarlösenordet på annat sätt så att du kan ge det till användaren när den här processen är klar.
+   1. Kopiera eller anteckna det genererade användarlösenordet på annat sätt så att du kan ge det till användaren när den här processen är klar.
     
-   f. Du kan också öppna och fylla i informationen i **Profil**, **Grupper** eller **Katalogroll** för användaren. 
+   1. Du kan också öppna och fylla i informationen i **Profil**, **Grupper** eller **Katalogroll** för användaren. 
     
-   g. På **Användare** väljer du **Skapa**.
+   1. Under **användare**väljer du **skapa**.
     
-   h. Distribuera det genererade lösenordet på ett säkert sätt till den nya användaren så att användaren kan logga in.
+   1. Distribuera det genererade lösen ordet på ett säkert sätt till den nya användaren så att de kan logga in.
 
-1. Skapa en Azure AD DS-instans. Följ instruktionerna i artikeln [aktivera Azure Active Directory Domain Services med Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (uppgifter 1 till 5). Det är viktigt att uppdatera de befintliga lösenord i Active Directory så att lösenordet i Azure AD DS har synkroniserats. Det är också viktigt att lägga till DNS i Azure AD DS, enligt beskrivningen i uppgift 4 av artikeln. 
+1. Skapa en Azure AD DS-instans. Följ anvisningarna i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (avsnittet "skapa en instans och konfigurera grundläggande inställningar"). Det är viktigt att uppdatera de befintliga lösenord i Active Directory så att lösenordet i Azure AD DS har synkroniserats. Det är också viktigt att lägga till DNS i Azure AD DS, enligt beskrivningen under "Fyll i fälten i fönstret Basics i Azure Portal för att skapa en Azure AD DS-instans" i avsnittet.
 
-1. Skapa ett separat DSVM-undernät i det virtuella nätverket som skapades i uppgift 2 i det föregående steget.
-1. Skapa en eller flera Data Science VM-instanser i DSVM-undernät. 
-1. Följ den [instruktioner](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) att lägga till DSVM i Active Directory. 
-1. Montera en Azure Files-resurs som värd för katalogen hemmet eller anteckningsboken för att aktivera montera din arbetsyta på en dator. (Om du behöver nära behörigheter måste NFS som körs på en eller flera virtuella datorer.)
+1. Skapa ett separat DSVM-undernät i det virtuella nätverk som skapats i avsnittet "skapa och konfigurera det virtuella nätverket" i föregående steg.
+1. Skapa en eller flera DSVM-instanser i DSVM-undernätet.
+1. Följ [anvisningarna](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) för att lägga till DSVM i Active Directory. 
+1. Montera en Azure Files-resurs som värd för din hem-eller Notebook-katalog så att din arbets yta kan monteras på vilken dator som helst. (Om du behöver tätt fil nivå behörigheter behöver du använda Network File System [NFS] på en eller flera virtuella datorer.)
 
-   a. [Skapa en Azure Files-resurs](../../storage/files/storage-how-to-create-file-share.md).
+   1. [Skapa en Azure Files-resurs](../../storage/files/storage-how-to-create-file-share.md).
     
-   b. Montera den på Linux DSVM. När du väljer den **Connect** knappen för Azure Files dela i ditt storage-konto i Azure-portalen, kommandot för att köra i Bash shell på Linux DSVM visas. Kommandot ser ut så här:
+   2.  Montera den här resursen på Linux-DSVM. När du väljer **Anslut** för Azure Files resursen på ditt lagrings konto i Azure Portal visas kommandot som ska köras i bash-gränssnittet på Linux-DSVM. Kommandot ser ut så här:
    
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
    ```
-1. Anta att du har monterat Azure Files-resurs i /data/workspace, till exempel. Nu skapa kataloger för var och en av användarna i resursen: /data/workspace/user1, /data/workspace/user2 och så vidare. Skapa en `notebooks` katalogen på varje användares arbetsyta. 
+1. Anta till exempel att du har monterat din Azure Files-resurs i/data/Workspace. Skapa nu kataloger för var och en av dina användare i resursen:/data/Workspace/user1,/data/Workspace/user2 och så vidare. Skapa en `notebooks` katalogen på varje användares arbetsyta. 
 1. Skapa symboliska länkar för `notebooks` i `$HOME/userx/notebooks/remote`.   
 
-Nu kan har du användare i din Active Directory-instans i Azure. Med hjälp av Active Directory-autentiseringsuppgifter, kan användare logga in på alla DSVM (SSH eller JupyterHub) som är ansluten till Azure AD DS. Eftersom användararbetsytan som är på en Azure Files-resurs, har användare åtkomst till sina bärbara datorer och annat arbete från alla DSVM när de använder JupyterHub. 
+Nu har du användare i din Active Directory-instans som finns i Azure. Genom att använda Active Directory autentiseringsuppgifter kan användare logga in på alla DSVM (SSH eller JupyterHub) som är anslutna till Azure AD DS. Eftersom användararbetsytan som är på en Azure Files-resurs, har användare åtkomst till sina bärbara datorer och annat arbete från alla DSVM när de använder JupyterHub.
 
-Du kan använda en VM-skalningsuppsättning att skapa en pool med virtuella datorer som är anslutna till domänen på detta sätt och med delad disk monterad för automatisk skalning. Användare kan logga in på alla tillgängliga datorer i virtual machine scale Sets och har åtkomst till den delade disken var sina bärbara datorer ska sparas. 
+Du kan använda en VM-skalningsuppsättning att skapa en pool med virtuella datorer som är anslutna till domänen på detta sätt och med delad disk monterad för automatisk skalning. Användare kan logga in på alla tillgängliga datorer i skalnings uppsättningen för den virtuella datorn och ha åtkomst till den delade disk där deras antecknings böcker har sparats. 
 
 ## <a name="next-steps"></a>Nästa steg
 

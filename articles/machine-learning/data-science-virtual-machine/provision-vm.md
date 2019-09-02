@@ -1,28 +1,22 @@
 ---
-title: Skapa en Windows virtuell dator för datavetenskap
-titleSuffix: Azure
+title: 'Snabbstart: Skapa ett Windows'
+titleSuffix: Azure Data Science Virtual Machine
 description: Konfigurera och skapa en virtuell dator för datavetenskap på Azure för analys och maskininlärning.
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 02/22/2019
-ms.author: vijetaj
-ms.openlocfilehash: 2b328ccf63259c7faf4debdc07313d24381313a5
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 6c0abc20775e604f9ea1c6ba882e5a9ff1d89e90
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047678"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195309"
 ---
-# <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Etablera en Windows Data Science Virtual Machine på Azure
+# <a name="quickstart-set-up-a-windows-data-science-virtual-machine-on-azure"></a>Snabbstart: Konfigurera en Windows Data Science Virtual Machine på Azure
 
 Microsoft Windows Data Science Virtual Machine (DSVM) är en Windows Server 2016 Virtual Machine-avbildning (VM) i Azure. Den är förinstallerad och konfigurerad med verktyg för data analys och maskin inlärning.
 

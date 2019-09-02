@@ -1,5 +1,5 @@
 ---
-title: MapReduce med Apache Hadoop i HDInsight
+title: MapReduce med Apache Hadoop på HDInsight
 description: Lär dig hur du kör MapReduce-jobb på Apache Hadoop i HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,59 +8,26 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9da6b6ba3ab697887e55f9077b44cf6fa100a981
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1bb7a6737115f903391997a5430c32f9a40465f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707959"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207107"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Använda MapReduce i Apache Hadoop på HDInsight
 
-Lär dig hur du kör MapReduce-jobb på HDInsight-kluster. 
+Lär dig hur du kör MapReduce-jobb på HDInsight-kluster.
 
-## <a id="whatis"></a>Vad är MapReduce
+## <a id="data"></a>Exempel data
 
-Apache Hadoop MapReduce är ett ramverk för programvara för att skriva jobb som bearbetar stora mängder data. Indata är indelat i oberoende segment. Varje segment bearbetas parallellt över noder i klustret. Ett MapReduce-jobb består av två funktioner:
-
-* **Mapper**: Förbrukar indata, analyserar dessa (vanligtvis med filter och sortering operations) och genererar tupplar (nyckel / värde-par)
-
-* **Reducer**: Förbrukar tupplar som orsakats av mappningen och utför en sammanfattning av åtgärd som skapar en mindre, kombinerade resultatet från Mapper-data
-
-Ett grundläggande word antal MapReduce-jobb exempel illustreras i följande diagram:
-
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
-
-Utdata för jobbet är en uppräkning av hur många gånger varje ord uppstod i texten.
-
-* Mappningen tar varje rad från indatatext som indata och delar upp den i orden. Den genererar en nyckel/värde-par varje gång ett ord som sker till Word följs av en 1. Resultatet sorteras innan de skickas till reducer.
-* Reducer summerar dessa enskilda antalet för varje ord och genererar ett enda nyckel/värde-par som innehåller ordet följt av summan av dess förekomster.
-
-MapReduce kan implementeras på olika språk. Java är den vanligaste implementeringen och används i demonstrationssyfte i det här dokumentet.
-
-## <a name="development-languages"></a>Utvecklingsspråk
-
-Språk eller ramverk som baseras på Java och Java Virtual Machine kan köra direkt som ett MapReduce-jobb. Exemplet i det här dokumentet är ett Java MapReduce-program. Icke-Java-språk, till exempel C#, Python eller fristående körbara filer, måste använda **Hadoop streaming**.
-
-Hadoop streaming kommunicerar med mapper och reducer via STDIN och STDOUT. Mapper och reducer läsa data till en rad i taget från STDIN och skriva utdata till STDOUT. Varje rad läsa eller orsakats av mapper och reducer måste vara i formatet av en nyckel/värde-par, avgränsat med ett tabbtecken:
-
-    [key]/t[value]
-
-Mer information finns i [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
-
-Exempel på hur du använder Hadoop-strömmande med HDInsight finns i följande dokument:
-
-* [Utveckla C#-MapReduce-jobb](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-
-## <a id="data"></a>Exempeldata
-
-HDInsight innehåller olika exempel datauppsättningar, som lagras i den `/example/data` och `/HdiSamples` directory. Dessa kataloger finns i standardlagringen för klustret. I det här dokumentet använder vi den `/example/data/gutenberg/davinci.txt` filen. Den här filen innehåller anteckningsböcker för Leonardo da Vinci.
+HDInsight innehåller olika exempel data uppsättningar, som lagras i `/example/data` -och `/HdiSamples` -katalogen. Dessa kataloger finns i standard lagrings utrymmet för klustret. I det här dokumentet använder `/example/data/gutenberg/davinci.txt` vi filen. Den här filen innehåller antecknings böckerna för Leonardo da Vinci.
 
 ## <a id="job"></a>Exempel MapReduce
 
-Ett exempel MapReduce word antal program ingår i ditt HDInsight-kluster. Det här exemplet finns på `/example/jars/hadoop-mapreduce-examples.jar` på standardlagringen för klustret.
+Ett exempel på MapReduce ord räknings program ingår i ditt HDInsight-kluster. Det här exemplet `/example/jars/hadoop-mapreduce-examples.jar` finns på standard lagrings utrymmet för klustret.
 
-Följande Java-kod är källan till MapReduce-program som ingår i den `hadoop-mapreduce-examples.jar` fil:
+Följande Java-kod är källan till det MapReduce-program som finns i `hadoop-mapreduce-examples.jar` filen:
 
 ```java
 package org.apache.hadoop.examples;
@@ -134,19 +101,19 @@ public class WordCount {
 }
 ```
 
-Anvisningar att skriva din egen MapReduce-program finns i följande dokument:
+Instruktioner för att skriva egna MapReduce-program finns i följande dokument:
 
 * [Utveckla Java MapReduce-program för HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 ## <a id="run"></a>Kör MapReduce
 
-HDInsight kan köra HiveQL jobb med hjälp av olika metoder. Använd följande tabell för att bestämma vilken metod som passar dig och klicka sedan på länken för en genomgång.
+HDInsight kan köra HiveQL-jobb med olika metoder. Använd följande tabell för att bestämma vilken metod som passar dig bäst. Följ sedan länken för en genom gång.
 
-| **Använd det här**... | **...Om du vill göra detta** | ...med detta **klustret operativsystem** | ...from detta **klientoperativsystem** |
+| **Använd detta**... | **...Om du vill göra detta** | ...med detta **klustret operativsystem** | ...from detta **klientoperativsystem** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Använd kommandot Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X eller Windows |
-| [CURL](apache-hadoop-use-mapreduce-curl.md) |Skicka jobbet via en fjärranslutning med hjälp av **REST** |Linux eller Windows |Linux, Unix, Mac OS X eller Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Skicka jobbet via en fjärranslutning med hjälp av **Windows PowerShell** |Linux eller Windows |Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Använda Hadoop-kommandot via **SSH** |Linux |Linux, UNIX, Mac OS X eller Windows |
+| [Klammerparentes](apache-hadoop-use-mapreduce-curl.md) |Skicka jobbet via en fjärr anslutning med hjälp av **rest** |Linux eller Windows |Linux, UNIX, Mac OS X eller Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Skicka jobbet via en fjärr anslutning med hjälp av **Windows PowerShell** |Linux eller Windows |Windows |
 
 ## <a id="nextsteps"></a>Nästa steg
 
@@ -156,8 +123,7 @@ Mer information om hur du arbetar med data i HDInsight finns i följande dokumen
 
 * [Använda Apache Hive med HDInsight][hdinsight-use-hive]
 
-* [Använda Apache Hive med HDInsight][hdinsight-use-pig]
-
+* [Använda Apache gris med HDInsight][hdinsight-use-pig]
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
@@ -167,5 +133,3 @@ Mer information om hur du arbetar med data i HDInsight finns i följande dokumen
 
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

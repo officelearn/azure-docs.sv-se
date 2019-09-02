@@ -1,18 +1,18 @@
 ---
-title: Snabbstart – skapa en Azure Database för PostgreSQL – enskild Server med Azure portal
-description: Snabbstartsguide för att skapa och hantera en Azure Database för PostgreSQL – enskild Server med hjälp av användargränssnittet för Azure portal.
+title: Snabb start – skapa en Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal
+description: Snabb starts guide för att skapa och hantera en Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal användar gränssnittet.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.openlocfilehash: 152e93fefecaeaab3502ad5d974ba923727f919b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f9a729376baeb03656b7b54fcb8e10a865d1f364
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443119"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195154"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snabbstart: Skapa en Azure-databas för PostgreSQL i Azure-portalen
 
@@ -28,31 +28,31 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-kont
 En Azure Database for PostgreSQL-server skapas med en konfigurerad uppsättning [beräknings- och lagringsresurser](./concepts-pricing-tiers.md). Servern skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md).
 
 Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
-1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
+1. Välj **skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
 2. Välj **Databaser** > **Azure-databas för PostgreSQL**.
 
-    ![Den ”Azure Database för PostgreSQL” på menyn](./media/quickstart-create-database-portal/1-create-database.png)
+    !["Azure Database for PostgreSQL" på menyn](./media/quickstart-create-database-portal/1-create-database.png)
 
-3. Välj den **enskild server** distributionsalternativ.
+3. Välj distributions alternativet **enskild server** .
 
-   ![Välj Azure Database för PostgreSQL – alternativ för distribution av enskild server](./media/quickstart-create-database-portal/select-deployment-option.png)
+   ![Välj Azure Database for PostgreSQL – distributions alternativ för enskild server](./media/quickstart-create-database-portal/select-deployment-option.png)
 
-4. Fyll i **grunderna** formuläret med följande information:
+4. Fyll i formuläret **grundläggande** med följande information:
 
     ![Skapa en server](./media/quickstart-create-database-portal/create-basics.png)
 
     Inställning|Föreslaget värde|Beskrivning
     ---|---|---
-    Prenumeration|Ditt prenumerationsnamn|Den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
-    Resursgrupp|*myresourcegroup*| Ett nytt resursgruppnamn eller ett befintligt namn i prenumerationen.
+    Subscription|Ditt prenumerationsnamn|Den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
+    Resource group|*myresourcegroup*| Ett nytt resursgruppnamn eller ett befintligt namn i prenumerationen.
     servernamn |*mydemoserver*|Ett unikt namn som identifierar Azure Database för PostgreSQL-servern. Domännamnet *postgres.database.azure.com* läggs till i det servernamn du anger. Servernamnet får bara innehålla gemener, siffror och bindestreck (-). Det måste innehålla minst 3 och upp till 63 tecken.
-    Datakälla | *Ingen* | Välj *ingen* att skapa en ny server från grunden. (Du väljer *Säkerhetskopiering* om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for PostgreSQL-server).
+    Datakälla | *Alternativet* | Välj *ingen* om du vill skapa en ny server från grunden. (Du väljer *Säkerhetskopiering* om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for PostgreSQL-server).
     Administratörens användarnamn |*myadmin*| Ett eget inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** eller **public**. Det får inte börja med **pg_** .
-    Lösenord |Ditt lösenord| Ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Ditt lösenord måste innehålla tecken från tre av följande kategorier: Engelska versaler, engelska gemener, siffror (0–9) och icke-alfanumeriska tecken (!, $, #, % osv.).
+    lösenordsinställning |Ditt lösenord| Ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Ditt lösenord måste innehålla tecken från tre av följande kategorier: Engelska versaler, engelska gemener, siffror (0–9) och icke-alfanumeriska tecken (!, $, #, % osv.).
     Location|Den region som är närmast dina användare| Den plats som är närmast dina användare.
     Version|Senaste huvudversion| Den senaste PostgreSQL-huvudversionen, om du inte har andra särskilda krav.
-    Beräkning och lagring | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Konfigurera server**. Sedan väljer du fliken **Generell användning**. *5: e generationen*, *4 vCores*, *100 GB*, och *7 dagar* standardvärdena för **Compute-generering**,  **vCore**, **Storage**, och **kvarhållningsperiod**. Du kan lämna dessa skjutreglage som de är eller anpassa dem. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
+    Compute + Storage | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Konfigurera Server**. Sedan väljer du fliken **Generell användning**. *Gen 5*, *4 virtuella kärnor*, *100 GB*och *7 dagar* är standardvärden för **beräknings generering**, **vCore**, **lagring**och **bevarande period för säkerhets kopior**. Du kan lämna skjutreglagen som de är eller justera dem. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
 
    > [!NOTE]
    > Överväg att använda prisnivån Basic om lätt beräkning och I/O är lämpligt för din arbetsbelastning. Observera att servrar som skapas på prisnivån Basic inte senare kan skalas till Generell användning eller Minnesoptimerad. Mer information finns på [sidan med prissättning](https://azure.microsoft.com/pricing/details/postgresql/).
@@ -60,7 +60,7 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
 
     ![Fönstret ”Prisnivå”](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-5. Välj **granska + skapa** att granska dina val. Välj **Skapa** för att etablera servern. Den här åtgärden kan ta några minuter.
+5. Välj **Granska + skapa** för att granska dina val. Välj **Skapa** för att etablera servern. Den här åtgärden kan ta några minuter.
 
 6. Välj ikonen **Aviseringar** (en bjällra) i verktygsfältet för att övervaka distributionsprocessen. När distributionen är färdig kan du välja **Fäst på instrumentpanelen**. Då skapas en panel för den här servern på instrumentpanelen i Azure Portal som fungerar som en genväg till serverns **översiktssida**. Om du väljer **Gå till resurs** öppnas serverns **översiktssida**.
 
@@ -72,7 +72,7 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
 
 Azure Database för PostgreSQL skapar en brandvägg på server-nivå. Den förhindrar att externa program och verktyg ansluter till servern eller databaser på servern, om du inte konfigurerar en regel som öppnar brandväggen för specifika IP-adresser. 
 
-1. Leta upp servern när distributionen är klar. Om det behövs kan du söka efter den. Välj exempelvis **Alla resurser** på menyn till vänster. Ange servernamnet, till exempel **mydemoserver** och sök efter den nya servern. Välj servernamnet i sökresultatlistan. **Översikt**-sidan för din server öppnas och innehåller alternativ ytterligare konfiguration.
+1. Leta upp servern när distributionen är klar. Om det behövs kan du söka efter den. Välj exempelvis **Alla resurser** på menyn till vänster. Ange Server namnet, till exempel **mydemoserver**, för att söka efter den nyligen skapade servern. Välj servernamnet i sökresultatlistan. **Översikt**-sidan för din server öppnas och innehåller alternativ ytterligare konfiguration.
  
     ![Sökning efter servernamn](./media/quickstart-create-database-portal/4-locate.png)
 
@@ -115,7 +115,7 @@ Det finns ett antal program som du kan använda för att ansluta till Azure Data
    ```
 
    > [!TIP]
-   > Om du vill använda en URL-sökväg för att ansluta till Postgres URL koda den @-tecknet användarnamn med `%40`. Exempel är anslutningssträngen för psql, 
+   > Om du föredrar att använda en URL-sökväg för att ansluta till postgres, kodar URL @-tecknet i användar `%40`namnet med. Anslutnings strängen för psql skulle exempelvis vara, 
    > ```
    > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
    > ```
@@ -136,9 +136,9 @@ Det finns ett antal program som du kan använda för att ansluta till Azure Data
    > [!TIP]
    > Om brandväggen inte är konfigurerad att tillåta IP-adressen för din klient uppstår följande fel:
    > 
-   > ”psql: Oåterkalleligt fel: ingen pg_hba.conf post för värd `<IP address>`, användaren ”myadmin” databas ”postgres”, SSL på oåterkalleligt fel: SSL-anslutning krävs. Specify SSL options and retry.
+   > ”psql: Oåterkalleligt fel: ingen pg_hba. conf- `<IP address>`post för värden, användare "Fjärråtkomsthanteraren", databas "postgres", SSL på allvarligt: SSL-anslutning krävs. Specify SSL options and retry.
    > 
-   > Bekräfta din klients IP tillåts i brandväggen regler stegen ovan.
+   > Kontrol lera att klientens IP-adress tillåts i steg ovan för brand Väggs regler.
 
 2. Skapa en tom databas med namnet "mypgsqldb" i kommandotolken genom att skriva följande kommando:
     ```bash
@@ -170,27 +170,27 @@ pgAdmin är ett verktyg med öppen källkod som används med PostgreSQL. Du kan 
 
    ![Fliken ”Anslutning”](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
 
-    pgAdmin-parameter |Värde|Beskrivning
+    pgAdmin-parameter |Value|Beskrivning
     ---|---|---
     Värdnamn/-adress | servernamn | Det värde för servernamn som du använde tidigare när du skapade Azure Database för PostgreSQL-server. Vår exempelserver är **mydemoserver.postgres.database.azure.com.** Använd det fullständiga domännamnet ( **\*.postgres.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
     Port | 5432 | Porten som ska användas när du ansluter till Azure Database för PostgreSQL-servern. 
     Underhållsdatabas | *postgres* | Systemgenererat standardnamn för databasen.
-    Användarnamn | Inloggningsnamn för serveradministratör | Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för PostgreSQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användarnamn\@servername*.
-    Lösenord | Ditt administratörslösenord | Det lösenord du angav när du skapade servern tidigare i den här snabbstarten.
+    Användarnamn | Inloggningsnamn för serveradministratören | Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för PostgreSQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användar namn\@Server*namn.
+    lösenordsinställning | Ditt administratörslösenord | Det lösenord du angav när du skapade servern tidigare i den här snabbstarten.
     Role | Lämna tomt | Du behöver inte ange ett rollnamn nu. Lämna fältet tomt.
     SSL-läge | *Kräv* | Du kan ställa in SSL-läge på SSL-fliken i pgAdmin. Som standard skapas alla Azure Database for PostgreSQL-servrar med tvingande SSL aktiverat. Om du vill inaktivera tvingande SSL kan läsa informationen om [tvingande SSL](./concepts-ssl-connection-security.md).
     
 5. Välj **Spara**.
 
-6. I fönstret **Webbläsare** till vänster expanderar du noden **Servrar**. Välj din server, till exempel **mydemoserver**. Klicka för att ansluta till den.
+6. I fönstret **Webbläsare** till vänster expanderar du noden **Servrar**. Välj din server, till exempel **mydemoserver**, för att ansluta till den.
 
 7. Expandera servernoden och expandera sedan **Databaser** under den. Listan bör innehålla din befintliga *postgres*-databas och eventuella andra databaser som du har skapat. Du kan skapa flera databaser per server med Azure Database for PostgreSQL.
 
-8. Högerklicka på **Databaser**, välj menyn **Skapa** och välj sedan **Databas**.
+8. Högerklicka på **databaser**, Välj menyn **skapa** och välj sedan **databas**.
 
-9. Ange valfritt databasnamn i fältet **Databas**, till exempel **mypgsqldb2**.
+9. Ange ett valfritt databas namn i fältet **databas** , till exempel **mypgsqldb2**.
 
-10. Välj **Ägare** för databasen från den nedrullningsbara listan. Välj ditt inloggningsnamn som serveradministratör, förslagsvis som i vårt exempel: **my admin**.
+10. Välj **Ägare** för databasen från den nedrullningsbara listan. Välj inloggnings namnet för Server administratören, till exempel **min administratör**.
 
     ![Skapa en databas i pgAdmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
@@ -208,7 +208,7 @@ Du kan rensa de resurser som du skapade i snabbstarten på något av två sätt.
 Ta bort hela resursgruppen, inklusive den nya servern:
 1. Leta reda på resursgruppen i portalen. Välj **Resursgrupper** på den vänstra menyn. Välj sedan namnet på resursgruppen, som i vårt exempel **myresourcegroup**.
 
-2. Välj **Ta bort** på din resursgruppssida. Skriv namnet på resursgruppen, som vårt exempel **myresourcegroup**, i textrutan för att bekräfta borttagning. Välj **Ta bort**.
+2. Välj **Ta bort** på din resursgruppssida. Ange namnet på resurs gruppen, till exempel **myresourcegroup**, i text rutan för att bekräfta borttagningen. Välj **Ta bort**.
 
 Ta bort bara den nyligen skapade servern:
 1. Leta upp servern i portalen om du inte har den öppen. Välj **Alla resurser** på menyn till vänster. Sök sedan efter den server som du skapade.
@@ -217,7 +217,7 @@ Ta bort bara den nyligen skapade servern:
 
     ![Knappen ”Ta bort”](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Bekräfta namnet på servern som du vill ta bort och visa de databaser under den som påverkas. Ange namnet på servern i textrutan, som vårt exempel, **mydemoserver**. Välj **Ta bort**.
+3. Bekräfta namnet på servern som du vill ta bort och visa de databaser under den som påverkas. Ange Server namnet i text rutan, till exempel **mydemoserver**. Välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

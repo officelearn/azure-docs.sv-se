@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 07/27/2019
-ms.openlocfilehash: c6fd20a2e1766a8bc9abfc92c6fc11d10dbe1bf2
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.date: 08/23/2019
+ms.openlocfilehash: 484e2776d96d9beaca703f93b22c51299ccf63a7
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516084"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208399"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Functions-referens för språk för arbets flödes definition i Azure Logic Apps och Microsoft Flow
 
@@ -23,7 +23,7 @@ För arbets flödes definitioner i [Azure Logic Apps](../logic-apps/logic-apps-o
 > [!NOTE]
 > Den här referens sidan gäller både för Azure Logic Apps och Microsoft Flow, men visas i Azure Logic Apps-dokumentationen. Även om den här sidan specifikt refererar till Logic Apps, fungerar dessa funktioner för både flöden och Logic Apps. Mer information om funktioner och uttryck i Microsoft Flow finns [i använda uttryck i villkor](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
-Du kan till exempel beräkna värden med hjälp av matematiska funktioner, till exempel [funktionen Lägg till ()](../logic-apps/workflow-definition-language-functions-reference.md#add), när du vill beräkna summan från heltal eller flyttal. Här följer några andra exempel uppgifter som du kan utföra med Functions:
+Du kan till exempel beräkna värden med hjälp av matematiska funktioner, till exempel [funktionen Lägg till ()](../logic-apps/workflow-definition-language-functions-reference.md#add), när du vill beräkna summan från heltal eller flyttal. Här följer några exempel på uppgifter som du kan utföra med Functions:
 
 | Uppgift | Syntax för funktion | Resultat |
 | ---- | --------------- | ------ |
@@ -252,6 +252,7 @@ Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-ap
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Returnera bröd texten för en viss del i en åtgärds utdata som har flera delar. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Returnera en åtgärds utdata vid körning. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Returnera värdet för en parameter som beskrivs i arbets flödes definitionen. |
+| [medför](../logic-apps/workflow-definition-language-functions-reference.md#result) | Returnera indata och utdata från alla åtgärder i den angivna omfattningen, till exempel `For_each` `Until`, och `Scope`. |
 | [utlösare](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Returnera en utlösare utdata vid körning eller från andra JSON-namn-och-värde-par. Se även [triggerOutputs](#triggerOutputs) och [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Returnera en utlösare `body` utdata vid körning. Se [](../logic-apps/workflow-definition-language-functions-reference.md#trigger)utlösare. |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Returnera ett enskilt värde som matchar ett nyckel namn i utlösare för *formulär data* eller *formulär-kodade* utlösare. |
@@ -638,7 +639,7 @@ Och returnerar följande resultat:`"2018-03-15T00:15:00.0000000Z"`
 
 ### <a name="addproperty"></a>addProperty
 
-Lägg till en egenskap och dess värde, eller namn-värde-par, till ett JSON-objekt och returnera det uppdaterade objektet. Om objektet redan finns vid körningen genererar funktionen ett fel.
+Lägg till en egenskap och dess värde, eller namn-värde-par, till ett JSON-objekt och returnera det uppdaterade objektet. Om egenskapen redan finns under körningen Miss lyckas funktionen och genererar ett fel.
 
 ```
 addProperty(<object>, '<property>', <value>)
@@ -656,13 +657,81 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | Det uppdaterade JSON-objektet med den angivna egenskapen |
 ||||
 
-*Exempel*
-
-Det här exemplet lägger `accountNumber` till egenskapen `customerProfile` till objektet, som konverteras till JSON med [JSON ()](#json) -funktionen.
-Funktionen tilldelar ett värde som genereras av funktionen [GUID ()](#guid) och returnerar det uppdaterade objektet:
+Använd följande syntax om du vill lägga till en underordnad egenskap i en befintlig egenskap:
 
 ```
-addProperty(json('customerProfile'), 'accountNumber', guid())
+addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+```
+
+| Parameter | Krävs | Typ | Beskrivning |
+| --------- | -------- | ---- | ----------- |
+| <*jobbobjektet*> | Ja | Object | JSON-objektet där du vill lägga till en egenskap |
+| <*överordnad-egenskap*> | Ja | Sträng | Namnet på den överordnade egenskapen där du vill lägga till den underordnade egenskapen |
+| <*underordnad egenskap*> | Ja | Sträng | Namnet på den underordnade egenskapen som ska läggas till |
+| <*värde*> | Ja | Any | Värdet som ska anges för den angivna egenskapen |
+|||||
+
+| Returvärde | type | Beskrivning |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Object | Det uppdaterade JSON-objektet vars egenskap du anger |
+||||
+
+*Exempel 1*
+
+I det här exemplet `middleName` läggs egenskapen till i ett JSON-objekt, som konverteras från en sträng till JSON med hjälp av funktionen [JSON ()](#json) . Objektet innehåller `firstName` redan-och `surName` -egenskaperna. Funktionen tilldelar det angivna värdet till den nya egenskapen och returnerar det uppdaterade objektet:
+
+```
+addProperty(json('{ "firstName": "Sophia", "lastName": "Owen" }'), 'middleName', 'Anne')
+```
+
+Här är det aktuella JSON-objektet:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+Här är det uppdaterade JSON-objektet:
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+*Exempel 2*
+
+Det här exemplet lägger `middleName` till den underordnade egenskapen till `customerName` den befintliga egenskapen i ett JSON-objekt, som konverteras från en sträng till JSON med hjälp av [JSON ()-](#json) funktionen. Funktionen tilldelar det angivna värdet till den nya egenskapen och returnerar det uppdaterade objektet:
+
+```
+addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+```
+
+Här är det aktuella JSON-objektet:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+Här är det uppdaterade JSON-objektet:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
 ```
 
 <a name="addSeconds"></a>
@@ -769,7 +838,7 @@ and(<expression1>, <expression2>, ...)
 
 | Returvärde | type | Beskrivning |
 | ------------ | -----| ----------- |
-| Sant eller falskt | Boolean | Returnera true när alla uttryck är sanna. Returnera falskt om minst ett uttryck är falskt. |
+| Sant eller falskt | Boolesk | Returnera true när alla uttryck är sanna. Returnera falskt om minst ett uttryck är falskt. |
 ||||
 
 *Exempel 1*
@@ -1025,7 +1094,7 @@ bool(<value>)
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolean | Den booleska versionen för det angivna värdet |
+| Sant eller falskt | Boolesk | Den booleska versionen för det angivna värdet |
 ||||
 
 *Exempel*
@@ -1136,7 +1205,7 @@ Mer specifikt fungerar den här funktionen på dessa samlings typer:
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolean | Returnera true när objektet hittas. Returnera falskt när det inte går att hitta. |
+| Sant eller falskt | Boolesk | Returnera true när objektet hittas. Returnera falskt när det inte går att hitta. |
 ||||
 
 *Exempel 1*
@@ -1683,7 +1752,7 @@ empty([<collection>])
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolean | Returnera true när samlingen är tom. Returnera falskt om det inte är tomt. |
+| Sant eller falskt | Boolesk | Returnera true när samlingen är tom. Returnera falskt om det inte är tomt. |
 ||||
 
 *Exempel*
@@ -1720,7 +1789,7 @@ endsWith('<text>', '<searchText>')
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt  | Boolean | Returnera true när slut under strängen hittas. Returnera falskt när det inte går att hitta. |
+| Sant eller falskt  | Boolesk | Returnera true när slut under strängen hittas. Returnera falskt när det inte går att hitta. |
 ||||
 
 *Exempel 1*
@@ -1761,7 +1830,7 @@ equals('<object1>', '<object2>')
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolean | Returnera true när båda är likvärdiga. Returnera falskt om det inte är motsvarande. |
+| Sant eller falskt | Boolesk | Returnera true när båda är likvärdiga. Returnera falskt om det inte är motsvarande. |
 ||||
 
 *Exempel*
@@ -2083,7 +2152,7 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolean | Returnerar sant när det första värdet är större än eller lika med det andra värdet. Returnera falskt om det första värdet är mindre än det andra värdet. |
+| Sant eller falskt | Boolesk | Returnerar sant när det första värdet är större än eller lika med det andra värdet. Returnera falskt om det första värdet är mindre än det andra värdet. |
 ||||
 
 *Exempel*
@@ -2625,7 +2694,7 @@ less('<value>', '<compareTo>')
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolean | Returnerar sant när det första värdet är mindre än det andra värdet. Returnera falskt om det första värdet är lika med eller större än det andra värdet. |
+| Sant eller falskt | Boolesk | Returnerar sant när det första värdet är mindre än det andra värdet. Returnera falskt om det första värdet är lika med eller större än det andra värdet. |
 ||||
 
 *Exempel*
@@ -2873,7 +2942,7 @@ not(<expression>)
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolean | Returnerar sant när uttrycket är falskt. Returnera falskt när uttrycket är sant. |
+| Sant eller falskt | Boolesk | Returnerar sant när uttrycket är falskt. Returnera falskt när uttrycket är sant. |
 ||||
 
 *Exempel 1*
@@ -2917,12 +2986,12 @@ or(<expression1>, <expression2>, ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*uttryck1*>, <*Uttryck2*>,... | Ja | Boolean | De uttryck som ska kontrol leras |
+| <*uttryck1*>, <*Uttryck2*>,... | Ja | Boolesk | De uttryck som ska kontrol leras |
 |||||
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolean | Returnera true när minst ett uttryck är sant. Returnera falskt när alla uttryck är falskt. |
+| Sant eller falskt | Boolesk | Returnera true när minst ett uttryck är sant. Returnera falskt när alla uttryck är falskt. |
 ||||
 
 *Exempel 1*
@@ -3152,7 +3221,7 @@ Och returnerar följande resultat:`"the new string"`
 
 ### <a name="removeproperty"></a>removeProperty
 
-Ta bort en egenskap från ett objekt och returnera det uppdaterade objektet.
+Ta bort en egenskap från ett objekt och returnera det uppdaterade objektet. Om egenskapen som du försöker ta bort inte finns, returnerar funktionen det ursprungliga objektet.
 
 ```
 removeProperty(<object>, '<property>')
@@ -3169,20 +3238,208 @@ removeProperty(<object>, '<property>')
 | <*updated-object*> | Object | Det uppdaterade JSON-objektet utan den angivna egenskapen |
 ||||
 
-*Exempel*
-
-Det här exemplet tar `"accountLocation"` bort egenskapen från `"customerProfile"` ett objekt, som konverteras till JSON med [JSON ()](#json) -funktionen och returnerar det uppdaterade objektet:
+Om du vill ta bort en underordnad egenskap från en befintlig egenskap använder du följande syntax:
 
 ```
-removeProperty(json('customerProfile'), 'accountLocation')
+removeProperty(<object>['<parent-property>'], '<child-property>')
+```
+
+| Parameter | Krävs | Typ | Beskrivning |
+| --------- | -------- | ---- | ----------- |
+| <*jobbobjektet*> | Ja | Object | JSON-objektet vars egenskap du vill ta bort |
+| <*överordnad-egenskap*> | Ja | Sträng | Namnet på överordnad egenskap med den underordnade egenskapen som du vill ta bort |
+| <*underordnad egenskap*> | Ja | Sträng | Namnet på den underordnade egenskapen som ska tas bort |
+|||||
+
+| Returvärde | type | Beskrivning |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Object | Det uppdaterade JSON-objektet vars underordnade egenskap du tog bort |
+||||
+
+*Exempel 1*
+
+Det här exemplet tar `middleName` bort egenskapen från ett JSON-objekt, som konverteras från en sträng till JSON med hjälp av [JSON ()](#json) -funktionen, och returnerar det uppdaterade objektet:
+
+```
+removeProperty(json('{ "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" }'), 'middleName')
+```
+
+Här är det aktuella JSON-objektet:
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+Här är det uppdaterade JSON-objektet:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+*Exempel 2*
+
+I det här exemplet `middleName` tas den underordnade egenskapen `customerName` bort från en överordnad egenskap i ett JSON-objekt, som konverteras från en sträng till JSON med hjälp av [JSON ()](#json) -funktionen och returnerar det uppdaterade objektet:
+
+```
+removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" } }')['customerName'], 'middleName')
+```
+
+Här är det aktuella JSON-objektet:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
+```
+
+Här är det uppdaterade JSON-objektet:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+<a name="result"></a>
+
+### <a name="result"></a>Resultatet
+
+Returnera indata och utdata från alla åtgärder som ligger inom den angivna åtgärds omfattningen, till exempel en `For_each`, `Until`eller `Scope` -åtgärd. Den här funktionen kan användas för att returnera resultaten från en misslyckad åtgärd så att du kan diagnostisera och hantera undantag. Mer information finns i [Hämta kontext och resultat för problem](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+
+```
+result('<scopedActionName>')
+```
+
+| Parameter | Krävs | Typ | Beskrivning |
+| --------- | -------- | ---- | ----------- |
+| <*scopedActionName*> | Ja | Sträng | Namnet på den begränsade åtgärd som indata och utdata från alla inre åtgärder ska returneras från |
+||||
+
+| Returvärde | type | Beskrivning |
+| ------------ | ---- | ----------- |
+| <*matris-objekt*> | Mat ris objekt | En matris som innehåller matriser med indata och utdata från varje åtgärd som visas i den angivna omfångs åtgärden |
+||||
+
+*Exempel*
+
+I det här exemplet returneras indata och utdata från varje iteration av en HTTP-åtgärd inuti en `For_each` slinga med `result()` hjälp av funktionen i `Compose` åtgärden:
+
+```json
+{
+   "actions": {
+      "Compose": {
+         "inputs": "@result('For_each')",
+         "runAfter": {
+            "For_each": [
+               "Succeeded"
+            ]
+         },
+         "type": "compose"
+      },
+      "For_each": {
+         "actions": {
+            "HTTP": {
+               "inputs": {
+                  "method": "GET",
+                  "uri": "https://httpstat.us/200"
+               },
+               "runAfter": {},
+               "type": "Http"
+            }
+         },
+         "foreach": "@triggerBody()",
+         "runAfter": {},
+         "type": "Foreach"
+      }
+   }
+}
+```
+
+Så här kan exemplet returnerade matrisen se var det yttre `outputs` objektet innehåller indata och utdata från varje iteration av åtgärderna `For_each` i åtgärden.
+
+```json
+[
+   {
+      "name": "HTTP",
+      "outputs": [
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+               "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "6bad3015-0444-4ccd-a971-cbb0c99a7.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         },
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+            "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "9987e889-981b-41c5-aa27-f3e0e59bf69.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         }
+      ]
+   }
+]
 ```
 
 <a name="setProperty"></a>
 
 ### <a name="setproperty"></a>setProperty
 
-Ange värdet för ett objekts egenskap och returnera det uppdaterade objektet.
-Om du vill lägga till en ny egenskap kan du använda den här funktionen eller funktionen [addProperty ()](#addProperty) .
+Ange värdet för JSON-objektets egenskap och returnera det uppdaterade objektet. Om den egenskap som du försöker ange inte finns läggs egenskapen till i objektet. Om du vill lägga till en ny egenskap använder du funktionen [addProperty ()](#addProperty) .
 
 ```
 setProperty(<object>, '<property>', <value>)
@@ -3195,18 +3452,79 @@ setProperty(<object>, '<property>', <value>)
 | <*värde*> | Ja | Any | Värdet som ska anges för den angivna egenskapen |
 |||||
 
+Använd ett kapslat `setProperty()` anrop i stället för att ställa in den underordnade egenskapen i ett underordnat objekt. Annars returnerar funktionen bara det underordnade objektet som utdata.
+
+```
+setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
+```
+
+| Parameter | Krävs | Typ | Beskrivning |
+| --------- | -------- | ---- | ----------- |
+| <*jobbobjektet*> | Ja | Object | JSON-objektet vars egenskap du vill ange |
+| <*överordnad-egenskap*> | Ja | Sträng | Namnet på överordnad egenskap med den underordnade egenskapen som du vill ange |
+| <*underordnad egenskap*> | Ja | Sträng | Namnet på den underordnade egenskapen som ska anges |
+| <*värde*> | Ja | Any | Värdet som ska anges för den angivna egenskapen |
+|||||
+
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-object*> | Object | Det uppdaterade JSON-objektet vars egenskap du anger |
 ||||
 
-*Exempel*
+*Exempel 1*
 
-I det här exemplet `"accountNumber"` anges egenskapen för `"customerProfile"` ett objekt, som konverteras till JSON med [JSON ()](#json) -funktionen.
-Funktionen tilldelar ett värde som genererats av [GUID ()](#guid) -funktionen och returnerar det uppdaterade JSON-objektet:
+I det här exemplet `surName` anges egenskapen i ett JSON-objekt, som konverteras från en sträng till JSON med hjälp av funktionen [JSON ()](#json) . Funktionen tilldelar det angivna värdet till egenskapen och returnerar det uppdaterade objektet:
 
 ```
-setProperty(json('customerProfile'), 'accountNumber', guid())
+setProperty(json('{ "firstName": "Sophia", "surName": "Owen" }'), 'surName', 'Hartnett')
+```
+
+Här är det aktuella JSON-objektet:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+Här är det uppdaterade JSON-objektet:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Hartnett"
+}
+```
+
+*Exempel 2*
+
+I det här exemplet `surName` anges den underordnade egenskapen `customerName` för den överordnade egenskapen i ett JSON-objekt, som konverteras från en sträng till JSON med hjälp av [JSON ()-](#json) funktionen. Funktionen tilldelar det angivna värdet till egenskapen och returnerar det uppdaterade objektet:
+
+```
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'surName', 'Hartnett'))
+```
+
+Här är det aktuella JSON-objektet:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Owen"
+   }
+}
+```
+
+Här är det uppdaterade JSON-objektet:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Hartnett"
+   }
+}
 ```
 
 <a name="skip"></a>
@@ -3384,7 +3702,7 @@ startsWith('<text>', '<searchText>')
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt  | Boolean | Returnera true när start under strängen hittas. Returnera falskt när det inte går att hitta. |
+| Sant eller falskt  | Boolesk | Returnera true när start under strängen hittas. Returnera falskt när det inte går att hitta. |
 ||||
 
 *Exempel 1*

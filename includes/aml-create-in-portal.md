@@ -9,22 +9,26 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/14/2019
-ms.openlocfilehash: 3955995ed1a7a48cfe323db5bf0e767446d89534
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: dee813cbe1da6a6300f65b7005bf4a4b0226112a
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164063"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208688"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för den Azure-prenumeration du använder. 
 
 1. I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs**.
+
+      ![Skapa en ny resurs](media/aml-create-in-portal/portal-create-resource.png)
 
 1. Använd Sök fältet för att hitta **Machine Learning service-arbetsyta**.
 
 1. Välj **Machine Learning tjänst arbets yta**.
 
 1. I fönstret **Machine Learning service-arbetsyta** väljer du **skapa** för att börja.
+
+  
 
 1. Konfigurera din nya arbets yta genom att ange arbets ytans namn, prenumeration, resurs grupp och plats.
 

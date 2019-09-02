@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 99f981698daf12bf7d493159fc7fd08a98a28104
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8c3b9523f6e6991723b0da721dbf7667ee340772
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194259"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207970"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella marknads plats konto i Partner Center 
 
@@ -151,7 +151,7 @@ Partner Center utnyttjar [Azure Active Directory](https://docs.microsoft.com/azu
 
 ## <a name="manage-users"></a>Hantera användare
 
-I avsnittet **användare** i Partner Center (under **konto inställningar**) kan du använda Azure AD för att hantera användare, grupper och Azure AD-program som har åtkomst till ditt partner Center-konto. Observera att du måste vara inloggad med ditt [arbets konto](./company-work-accounts.md) (tillhör ande Azure AD-klient) för att kunna hantera användare. Om du vill hantera användare inom ett annat arbets konto/klient organisation måste du logga ut och sedan logga in igen som en användare med **chefs** behörigheter för det arbets kontot/klient organisationen. 
+I avsnittet **användare** i Partner Center (under **konto inställningar**) kan du använda Azure AD för att hantera användare, grupper och Azure AD-program som har åtkomst till ditt partner Center-konto. För att kunna hantera användare måste du vara inloggad med ditt [arbets konto](./company-work-accounts.md) (tillhör ande Azure AD-klient). Om du vill hantera användare inom ett annat arbets konto/klient organisation måste du logga ut och sedan logga in igen som en användare med **chefs** behörigheter för det arbets kontot/klient organisationen. 
 
 När du har loggat in med ditt arbets konto (Azure AD-klient) kan du:
 - [Lägg till eller ta bort användare](#add-or-remove-users)
@@ -300,20 +300,19 @@ Om ditt Azure AD-program läser och skriver data i Microsoft Azure AD behöver d
 4.  Om du vill skapa fler nycklar väljer du **Lägg till en annan nyckel**.
 
 
-### <a name="define-user-roles-and-permissions"></a>Definiera användar roller och behörigheter
+## <a name="define-user-roles-and-permissions"></a>Definiera användar roller och behörigheter
 
-Ditt företags användare kan tilldelas följande roller och behörigheter för programmet för affärs marknads platser i Partner Center. 
+Ditt företags användare kan tilldelas följande roller och behörigheter för programmet för affärs marknads platser i Partner Center:
 
-|**Roll**|**Behörigheter**|
-|----------------------------------|---------------------------------|
-|Manager|-Kan komma åt alla Microsoft-konto funktioner utom skatte-och utbetalnings inställningar|
-|      |– Kan hantera användare, roller och arbets konton (klient organisationer)|
-|Utvecklare|– Kan hantera och publicera erbjudanden|
-|      |– Kan visa vissa Publisher-rapporter|
-|Global administratör|– Inte relevant för kommersiell marknads plats|
-|Företags deltagare|– Inte relevant för kommersiell marknads plats|
-|Finansiell bidrags givare|– Inte relevant för kommersiell marknads plats|
-|Rika marknads föraren|– Inte relevant för kommersiell marknads plats|
+- **Cachehanteraren**
+  - Kan komma åt alla Microsoft-konto funktioner utom skatte-och utbetalnings inställningar
+  - Kan hantera användare, roller och arbets konton (klient organisationer)
+- **Developer**
+  - Kan hantera och publicera erbjudanden
+  - Kan visa vissa Publisher-rapporter
+
+> [!NOTE]
+> Rollerna global admin, affärs deltagare, ekonomi bidrag och marknads deltagare används inte i programmet för kommersiella marknads platser och har inga associerade behörigheter.
 
 Mer information om hur du hanterar roller och behörigheter i andra delar av Partner Center, till exempel Azure Active Directory (AD), Cloud Solution Provider (CSP), kontroll panels leverantör (CPV), gäst användare eller Microsoft Partner Network (MPN), finns i [Tilldela användar roller och behörigheter i Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 

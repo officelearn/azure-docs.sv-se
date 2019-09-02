@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62814bb1e2934c406dc5fb1eb3b3bc3f3d2ee3b7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3799496d13259c943847625a2cf6a39a8edb1d35
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135558"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207241"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörs roller efter administratörs uppgift i Azure Active Directory
 
@@ -143,6 +143,11 @@ Uppdatera företags applikations etablering | Företags program ägare ([Se doku
 Uppdatera Self-service för företags program | Företags program ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Moln program administratör, program administratör
 Uppdatera egenskaper för enkel inloggning | Företags program ägare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Moln program administratör, program administratör
 
+## <a name="entitlement-management"></a>Berättigandehantering
+Uppgift | Minst privilegie rad roll | Ytterligare roller
+---- | --------------------- | ----------------
+Lägga till resurser i en katalog | Användaradministratör | Med rättighets hantering kan du delegera uppgiften till katalog ägaren ([Se dokumentationen](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+Lägg till SharePoint Online-webbplatser i katalogen | Global administratör
 
 
 ## <a name="groups"></a>Grupper

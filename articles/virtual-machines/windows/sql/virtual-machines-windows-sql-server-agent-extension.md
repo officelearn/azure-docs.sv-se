@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/24/2019
+ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f4dd529481a6216e43d35c76ecee734543d487f3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f0222c64b53bf9e6e8dc69da42d6e6a9c5549765
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100482"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208360"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatisera hanterings uppgifter på virtuella Azure-datorer med hjälp av tillägget SQL Server IaaS-agent
 > [!div class="op_single_selector"]
@@ -33,13 +34,6 @@ SQL Server IaaS Agent-tillägget (SqlIaasExtension) körs på virtuella Azure-da
 
 För att visa den klassiska versionen av den här artikeln, se [SQL Server IaaS agent Extension för SQL Server virtuella datorer (klassisk)](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-Det finns tre hanterbarhets lägen för SQL Server IaaS-tillägget: 
-
-- **Fullständigt** läge ger alla funktioner, men kräver omstart av SQL Server-och system administratörs behörighet. Detta är det alternativ som installeras som standard. Använd den för att hantera en SQL Server VM med en enda instans. 
-
-- **Lightweight** kräver inte omstart av SQL Server, men den stöder bara ändring av licens typ och utgåva av SQL Server. Använd det här alternativet för SQL Server virtuella datorer med flera instanser eller för deltagande i en instans av en redundanskluster (FCI). 
-
-- **Noagent** är dedikerat för SQL Server 2008 och SQL Server 2008 R2 installerat på Windows Server 2008. Information om hur du använder det här läget för Windows Server 2008-avbildningen finns i [Windows Server 2008-registrering](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms). 
 
 ## <a name="supported-services"></a>Tjänster som stöds
 Tillägget SQL Server IaaS-Agent stöder följande administrations aktiviteter:
@@ -82,123 +76,26 @@ Här följer kraven för att använda SQL Server IaaS agent Extension på den vi
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 
-## <a name="change-management-modes"></a>Ändra hanterings lägen
-
-Du kan visa det aktuella läget för SQL Server IaaS-agenten med hjälp av PowerShell: 
-
-  ```powershell-interactive
-     #Get the SqlVirtualMachine
-     $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
-     $sqlvm.Properties.sqlManagement
-  ```
-
-SQL Server virtuella datorer som har tillägget *Lightweight* IaaS installerat kan uppgradera läget till _full_ med hjälp av Azure Portal. SQL Server virtuella datorer i _no-agent-_ läge kan uppgraderas till _full_ efter att operativ systemet har uppgraderats till Windows 2008 R2 och senare. Det går inte att nedgradera – om du vill göra det måste du avinstallera SQL IaaS-tillägget fullständigt och installera det igen. 
-
-Så här uppgraderar du agentens läge till fullständigt: 
-
-
-# <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Gå till resursen för [virtuella SQL-datorer](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) . 
-1. Välj din SQL Server virtuella dator och välj **Översikt**. 
-1. För SQL Server virtuella datorer med noagent-eller Lightweight IaaS-läge väljer du de **enda licens typ-och versions uppdateringar som är tillgängliga med meddelandet SQL IaaS-tillägg** .
-
-   ![Val för att ändra läget från portalen](media/virtual-machines-windows-sql-server-agent-extension/change-sql-iaas-mode-portal.png)
-
-1. Markera kryss rutan **Jag accepterar att starta om SQL Server tjänsten på den virtuella datorn** och välj sedan **Bekräfta** för att uppgradera IaaS-läget till full. 
-
-    ![Kryss ruta för att komma överens om att starta om SQL Server tjänsten på den virtuella datorn](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
-
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
-
-Kör följande AZ CLI-kodfragment:
-
-  ```azurecli-interactive
-  # Update to full mode
-
-  az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
-  ```
-
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-
-Kör följande PowerShell-kodfragment:
-
-  ```powershell-interactive
-  # Update to full mode
-
-  $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
-  $SqlVm.Properties.sqlManagement="Full"
-  $SqlVm | Set-AzResource -Force
-  ```
-
----
-
-
 ##  <a name="installation"></a>Installation
-Tillägget SQL Server IaaS installeras när du registrerar din SQL Server VM med providern för [SQL VM-resurs](virtual-machines-windows-sql-register-with-resource-provider.md). Om det behövs kan du installera SQL Server IaaS-agenten manuellt med hjälp av läget fullständig eller förenklad. 
-
-SQL Server IaaS agent extension i fullständigt läge installeras automatiskt när du etablerar en SQL Server virtuell dator med Azure Marketplace-avbildningar med hjälp av Azure Portal. 
-
-### <a name="install-in-full-mode"></a>Installera i fullständigt läge
-Det fullständiga läget för SQL Server IaaS-tillägget ger fullständig hanterbarhet för en enskild instans på SQL Server VM. Om det finns en standard instans kommer tillägget att fungera med standard instansen och stöder inte hantering av andra instanser. Om det inte finns någon standard instans men bara en namngiven instans, kommer den att hantera den namngivna instansen. Om det inte finns någon standard instans och det finns flera namngivna instanser, kommer tillägget inte att installeras. 
-
-Installera SQL Server IaaS-agenten med fullständigt läge med hjälp av PowerShell:
+Tillägget SQL Server IaaS installeras när du registrerar din SQL Server VM med providern för [SQL VM-resurs](virtual-machines-windows-sql-register-with-resource-provider.md). Om det behövs kan du installera SQL Server IaaS-agenten manuellt med hjälp av PowerShell-kommandot nedan: 
 
   ```powershell-interactive
-     # Get the existing compute VM
-     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-          
-     # Install 'Full' SQL Server IaaS agent extension
-     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-        -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='Full'}  
-  
+    Set-AzVMExtension -ResourceGroupName "<ResourceGroupName>" -Location "<VMLocation>" -VMName "<VMName>" -Name "SqlIaasExtension" -Publisher "Microsoft.SqlServer.Management" -ExtensionType "SqlIaaSAgent" -TypeHandlerVersion "2.0";  
   ```
-
-| Parameter | Acceptabla värden                        |
-| :------------------| :-------------------------------|
-| **sqlServerLicenseType** | `AHUB` eller `PAYG`     |
-| &nbsp;             | &nbsp;                          |
-
 
 > [!NOTE]
-> Om tillägget inte redan är installerat startas den SQL Server tjänsten om du installerar det fullständiga tillägget. Undvik att starta om tjänsten SQL Server genom att installera det lätta läget med begränsad hanterbarhet i stället.
-> 
-> Uppdatering av SQL Server IaaS-tillägget startar inte om SQL Server-tjänsten. 
+> Installation av tillägget startar om tjänsten SQL Server. 
+
 
 ### <a name="install-on-a-vm-with-a-single-named-sql-server-instance"></a>Installera på en virtuell dator med en enda namngiven SQL Server-instans
 SQL Server IaaS-tillägget fungerar med en namngiven instans på SQL Server om standard instansen avinstalleras och IaaS-tillägget installeras om.
 
-Så här använder du en namngiven instans av SQL Server:
+Följ dessa steg om du vill använda en namngiven instans av SQL Server:
    1. Distribuera en SQL Server VM från Azure Marketplace. 
    1. Avinstallera IaaS-tillägget från [Azure Portal](https://portal.azure.com).
    1. Avinstallera SQL Server helt i SQL Server VM.
    1. Installera SQL Server med en namngiven instans i SQL Server VM. 
    1. Installera IaaS-tillägget från Azure Portal.  
-
-
-### <a name="install-in-lightweight-mode"></a>Installera i Lightweight-läge
-Läget för förenklad omstart kommer inte att starta om SQL Server tjänsten, men den erbjuder begränsade funktioner. 
-
-Installera SQL Server IaaS-agenten med lättviktigt läge med hjälp av PowerShell:
-
-
-  ```powershell-interactive
-     /#Get the existing  Compute VM
-     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-          
-     #Register the SQL Server VM with the 'Lightweight' SQL IaaS agent
-     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-        -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  
-  
-  ```
-
-| Parameter | Acceptabla värden                        |
-| :------------------| :-------------------------------|
-| **sqlServerLicenseType** | `AHUB` eller `PAYG`     |
-| &nbsp;             | &nbsp;                          |
 
 
 ## <a name="get-the-status-of-the-sql-server-iaas-extension"></a>Hämta status för SQL Server IaaS-tillägget
@@ -235,4 +132,3 @@ Du kan också använda PowerShell **-cmdleten Remove-AzVMSqlServerExtension** :
 Börja använda en av de tjänster som tillägget stöder. Mer information finns i artiklarna som refereras i avsnittet [tjänster som stöds](#supported-services) i den här artikeln.
 
 Mer information om hur du kör SQL Server på Azure Virtual Machines finns i [SQL Server för azure Virtual Machines?](virtual-machines-windows-sql-server-iaas-overview.md).
-

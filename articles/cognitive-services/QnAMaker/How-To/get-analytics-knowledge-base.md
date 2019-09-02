@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 58bd765b5f240f56cad0eafc4952918c9cd52c36
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ebc06057dfa4bce72821ddf807cda46270e8ff3e
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193578"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70206830"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Få analyser om din kunskapsbas
 
@@ -32,7 +32,7 @@ QnA Maker lagrar alla chatt-loggar och annan telemetri, om du har aktiverat App 
 
 3. Klistra in i följande fråga och kör den.
 
-    ```query
+    ```kusto
     requests
     | where url endswith "generateAnswer"
     | project timestamp, id, name, resultCode, duration, performanceBucket
@@ -54,7 +54,7 @@ QnA Maker lagrar alla chatt-loggar och annan telemetri, om du har aktiverat App 
 
 ### <a name="total-90-day-traffic"></a>Total trafik på 90 dagar
 
-```query
+```kusto
     //Total Traffic
     requests
     | where url endswith "generateAnswer" and name startswith "POST"
@@ -64,7 +64,7 @@ QnA Maker lagrar alla chatt-loggar och annan telemetri, om du har aktiverat App 
 
 ### <a name="total-question-traffic-in-a-given-time-period"></a>Total fråga trafik under en viss tids period
 
-```query
+```kusto
     //Total Question Traffic in a given time period
     let startDate = todatetime('2018-02-18');
     let endDate = todatetime('2018-03-12');
@@ -77,7 +77,7 @@ QnA Maker lagrar alla chatt-loggar och annan telemetri, om du har aktiverat App 
 
 ### <a name="user-traffic"></a>Användar trafik
 
-```query
+```kusto
     //User Traffic
     requests
     | where url endswith "generateAnswer"
@@ -92,7 +92,7 @@ QnA Maker lagrar alla chatt-loggar och annan telemetri, om du har aktiverat App 
 
 ### <a name="latency-distribution-of-questions"></a>Svars tids fördelning av frågor
 
-```query
+```kusto
     //Latency distribution of questions
     requests
     | where url endswith "generateAnswer" and name startswith "POST"

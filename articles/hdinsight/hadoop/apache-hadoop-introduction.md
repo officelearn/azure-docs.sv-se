@@ -1,143 +1,63 @@
 ---
-title: Vad är Apache Hadoop- och Apache Spark-teknikstacken för något? - Azure HDInsight
-description: En introduktion till HDInsight och Apache Hadoop- och Apache Spark-teknikstacken samt deras komponenter, inklusive Kafka, Hive, Storm och HBase för stordataanalys.
+title: Vad är stacken för Apache Hadoop Technology? - Azure HDInsight
+description: En introduktion till HDInsight och Apache Hadoop Technology stack och komponenter.
 keywords: Azure hadoop, hadoop azure, introduktion av hadoop, introduktion av hadoop, hadoop-teknikstacken, introduktion till hadoop, introduktion till hadoop, vad är ett hadoop-kluster, vad är hadoop-kluster, vad används hadoop för
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 06/11/2019
-ms.openlocfilehash: 0c1aaa86726465dee5e12416d999c70245ea0844
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.date: 08/15/2019
+ms.openlocfilehash: d6127d4fba3d2255dee28cd41179f16394545328
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598087"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207224"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Vad är Apache Hadoop i Azure HDInsight?
 
-Den här artikeln ger en introduktion till Apache Hadoop i Azure HDInsight. Azure HDInsight är en fullständigt hanterad analys tjänst med full spektrum och öppen källkod i molnet för företag. Du kan använda ramverk baserade på öppen källkod, till exempel Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R med flera. 
+[Apache Hadoop](https://hadoop.apache.org/) refererar till ett ekosystem av program med öppen källkod som är ett ramverk för distribuerad bearbetning och analys av stordata-uppsättningar i kluster. Hadoop-eko systemet innehåller relaterad program vara och verktyg, inklusive Apache Hive, Apache HBase, Spark, Kafka och många andra.
 
-
-## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>Vad är HDInsight och Hadoop-teknikstacken?
-
-[Apache Hadoop](https://hadoop.apache.org/) refererar till ett ekosystem av program med öppen källkod som är ett ramverk för distribuerad bearbetning och analys av stordata-uppsättningar i kluster. Hadoop-teknikstacken innehåller relaterade program och verktyg, inklusive Apache Hive, Apache HBase, Spark, Kafka och många andra.
-
-
-Azure HDInsight är en moln distribution av Hadoop-komponenter. Med Azure HDInsight kan du bearbeta stora mängder data på ett enkelt, snabbt och kostnadseffektivt sätt. Du kan använda de mest populära ramverken baserade på öppen källkod, till exempel Hadoop, Spark, Hive, LLAP, Kafka, Storm, R med flera. Med de här ramverken möjliggörs en mängd olika scenarier, t.ex. extrahering, transformering och inläsning (ETL), informationslagerhantering, maskininlärning och IoT.
+Azure HDInsight är en fullständigt hanterad analys tjänst med full spektrum och öppen källkod i molnet för företag. Med kluster typen Apache Hadoop i Azure HDInsight kan du använda HDFS, garn resurs hantering och en enkel MapReduce programmerings modell för att bearbeta och analysera batch-data parallellt.
 
 För att se tillgängliga stack-komponenter för Hadoop Technology i HDInsight, se [komponenter och versioner som är tillgängliga med HDInsight](../hdinsight-component-versioning.md). Mer information om Hadoop i HDInsight finns på [sidan om Azure-funktioner för HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
-## <a name="what-is-big-data"></a>Vad är stordata?
+## <a id="whatis"></a>Vad är MapReduce
 
-Stordata samlas in i ständigt växande volymer, med allt högre hastighet och i fler olika format än någonsin tidigare. De kan vara historiska (dvs. lagrade) eller realtidsdata (vilket innebär att de strömmas direkt från källan). Under [Scenarier för att använda HDInsight](#scenarios-for-using-hdinsight) kan du läsa mer om vanliga användningsområden för stordata.
+Apache Hadoop MapReduce är ett ramverk för program vara som används för att skriva jobb som bearbetar stora mängder data. Indata delas upp i oberoende segment. Varje segment bearbetas parallellt över noderna i klustret. Ett MapReduce-jobb består av två funktioner:
 
-## <a name="why-should-i-use-hadoop-on-hdinsight"></a>Varför ska jag använda Hadoop i HDInsight?
+* **Mapper**: Använder indata, analyserar dem (vanligt vis med filter-och sorterings åtgärder) och genererar tupler (nyckel/värde-par)
 
-Det här avsnittet visar funktionerna i Azure HDInsight.
+* **Minskning**: Använder tupel som genereras av mappningen och utför en sammanfattnings åtgärd som skapar ett mindre kombinerat resultat från Mapper-data
 
+Ett exempel på en grundläggande ord räkning för MapReduce-jobb illustreras i följande diagram:
 
-|Funktion  |Beskrivning  |
-|---------|---------|
-|Molnbaserat     |     Med Azure HDInsight kan du skapa optimerade kluster för [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [Interactive query (LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) och  [ML Services](../r-server/r-server-overview.md) i Azure. HDInsight tillhandahåller även ett serviceavtal från slutpunkt till slutpunkt för alla produktionsarbetsbelastningar.  |
-|Billigt och skalbart     | Med HDInsight kan du [skala](../hdinsight-administer-use-portal-linux.md#scale-clusters)  upp eller ned arbetsbelastningar. Du kan minska kostnaderna genom att  [skapa kluster på begäran](../hdinsight-hadoop-create-linux-clusters-adf.md) och endast betala för det som du använder. Du kan också skapa datapipelines för att operationalisera dina jobb. Frikopplad beräkning och lagring ger bättre prestanda och flexibilitet. |
-|Säkert och följer standarder    | Med HDInsight kan du skydda företagets datatillgångar med [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [kryptering](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) och integrering med [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight uppfyller också de vanligaste [efterlevnadskraven](https://azure.microsoft.com/overview/trusted-cloud) för olika branscher och myndigheter.        |
-|Övervakning    | Azure HDInsight integreras med [Azure Monitor-loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) så att du får ett enda gränssnitt som du kan använda för att övervaka alla dina kluster.        |
-|Global tillgänglighet | HDInsight är tillgängligt i fler  [regioner](https://azure.microsoft.com/regions/services/) än något annat erbjudande för stordataanalys. Azure HDInsight är också tillgängligt i Azure Government, Kina och Tyskland så att du kan uppfylla företagets behov i viktiga områden. |  
-|Produktivitet     |  Med Azure HDInsight kan du använda omfattande produktiva verktyg för Hadoop och Spark med de utvecklingsmiljöer du föredrar. Dessa utvecklingsmiljöer omfattar stöd för [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md), [VSCode](../hdinsight-for-vscode.md), [Eclipse](../spark/apache-spark-eclipse-tool-plugin.md) och [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md) för Scala, Python, R, Java och .NET. Dataexperter kan också samarbeta med vanliga anteckningsböcker som [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) och [Zeppelin](../spark/apache-spark-zeppelin-notebook.md).    |
-|Utökningsbarhet     |  Du kan utöka HDInsight-klustren genom att installera komponenter (Hue, Presto osv.) med hjälp av [skriptåtgärder](../hdinsight-hadoop-customize-cluster-linux.md), genom att [lägga till gränsnoder](../hdinsight-apps-use-edge-node.md) eller genom [integrering med andra stordatacertifierade program](../hdinsight-apps-install-applications.md). HDInsight ger enkel integrering med de vanligaste stordatalösningarna med distribution med [ett klick](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/).|
+![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
-## <a name="scenarios-for-using-hdinsight"></a>Scenarier för att använda HDInsight
+Utdata för det här jobbet är antalet hur många gånger varje ord har inträffat i texten.
 
-Azure HDInsight kan användas inom olika scenarier inom stordatabearbetning. Det kan vara historiska data (data som redan har samlats in och lagrats) eller realtidsdata (data som strömmas direkt från källan). Dessa scenarier för bearbetning av sådana data kan sammanfattas i följande kategorier: 
+* Mapper tar varje rad från inmatade text som inmatade och delar upp den i ord. Den genererar ett nyckel/värde-par varje gången ett ord inträffar för ordet följt av 1. Utdata sorteras innan de skickas till minsknings verktyget.
+* Minskningen summerar dessa enskilda antal för varje ord och avger ett nyckel/värde-par som innehåller ordet följt av summan av dess förekomster.
 
-### <a name="batch-processing-etl"></a>Batchbearbetning (ETL)
+MapReduce kan implementeras på olika språk. Java är den vanligaste implementeringen och används i demonstrations syfte i det här dokumentet.
 
-Extrahering, transformering och laddning (ETL) är en process där ostrukturerade eller strukturerade data extraheras från heterogena datakällor. De transformeras sedan till ett strukturerat format och laddas in i ett datalager. Du kan använda transformerade data för datavetenskap eller datalagerhantering.
+## <a name="development-languages"></a>Utvecklings språk
 
-### <a name="data-warehousing"></a>Datalagerhantering
+Språk eller ramverk som baseras på Java och Java Virtual Machine kan köras direkt som ett MapReduce-jobb. Exemplet som används i det här dokumentet är ett Java MapReduce-program. Andra språk än Java, till exempel C#python eller fristående körbara filer, måste använda **Hadoop-direktuppspelning**.
 
-Du kan använda HDInsight för att köra interaktiva frågor i petabyte-skala på strukturerade eller ostrukturerade data i valfritt format. Du kan också skapa modeller för att koppla dem till BI-verktyg. Om du vill ha mer information kan du [läsa den här kundberättelsen](https://customers.microsoft.com/story/milliman). 
+Hadoop-direktuppspelning kommunicerar med mapper och minskar för STDIN och STDOUT. Mapper och dereducerar Läs data en rad i taget från STDIN och skriver utdata till STDOUT. Varje rad som läses eller genereras av mapper och-minskningen måste vara i formatet för ett nyckel/värde-par, avgränsade med ett tabbtecken:
 
-![HDInsight-arkitektur: Datalagring](./media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "HDInsight-arkitektur för datalagring")
+    [key]/t[value]
 
-### <a name="internet-of-things-iot"></a>Sakernas Internet (IoT)
+Mer information finns i [Hadoop streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-Du kan använda HDInsight för att bearbeta strömmande data som tas emot i realtid från olika enheter. Om du vill ha mer information kan du [läsa det här blogginlägget från Azure som tillkännager den offentliga förhandsversionen av Apache Kafka på HDInsight med Azure Managed Disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
+Exempel på användning av Hadoop streaming med HDInsight finns i följande dokument:
 
-![HDInsight-arkitektur: Sakernas Internet](./media/apache-hadoop-introduction/hdinsight-architecture-iot.png "HDInsight IoT-arkitektur") 
-
-### <a name="data-science"></a>Data science
-
-Du kan använda HDInsight för att skapa program som utvinner viktiga insikter från data. Du kan också använda Azure Machine Learning ovanpå detta för att förutspå framtida trender för din verksamhet. Om du vill ha mer information kan du [läsa den här kundberättelsen](https://customers.microsoft.com/story/pros).
-
-![HDInsight-arkitektur: Datavetenskap](./media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "HDInsight-arkitektur för datavetenskap")
-
-### <a name="hybrid"></a>Hybrid
-
-Med HDInsight kan du utöka din befintliga lokala infrastruktur för stordata till Azure så att du kan dra nytta av avancerade analysfunktioner i molnet.
-
-![HDInsight-arkitektur: Hybrid](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "HDInsight-hybridarkitektur")
-
-## <a name="cluster-types-in-hdinsight"></a>Klustertyper i HDInsight
-
-HDInsight omfattar specifika klustertyper och anpassningsmöjligheter för klustret, till exempel funktioner för att lägga till komponenter, verktyg och språk. HDInsight erbjuder följande klustertyper:
-
-|Klustertyp | Beskrivning |
-|---|---|
-|[Apache Hadoop](https://hadoop.apache.org/)|Ett ramverk som använder HDFS, YARN-resurshantering och en enkel MapReduce-programmeringsmodell för att behandla och analysera batchdata parallellt.|
-|[Apache Spark](https://spark.apache.org/)|Ett ramverk för parallellbearbetning med öppen källkod som stöder intern bearbetning för att höja prestandan hos program för stordataanalys. Se [Vad är Apache Spark i HDInsight?](../spark/apache-spark-overview.md).|
-|[Apache HBase](https://hbase.apache.org/)|En NoSQL-databas som bygger på Hadoop och ger slumpmässig åtkomst och stark konsekvens för stora mängder ostrukturerade och delstrukturerade data – potentiellt miljarder rader gånger miljoner kolumner. Se [Vad är HBase på HDInsight?](../hbase/apache-hbase-overview.md)|
-|[ML-tjänster](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)|En server som fungerar som värd och hanterar parallella, distribuerade R-processer. Den förser på begäran dataforskare, statistiker och R-programmerare med åtkomst till skalbara och distribuerade analysmetoder på HDInsight. Se [Översikt över ML Services på HDInsight](../r-server/r-server-overview.md).|
-|[Apache Storm](https://storm.incubator.apache.org/)|Ett distribuerat system för beräkningar i realtid som ger snabb bearbetning av stora dataströmmar. Storm finns som ett hanterat kluster i HDInsight. Se [Analysera sensordata i realtid med Storm och Hadoop](../storm/apache-storm-sensor-data-analysis.md).|
-|[Apache interaktiv fråga](https://cwiki.apache.org/confluence/display/Hive/LLAP)|Minnesintern cachelagring för interaktiva och snabba Hive-frågor. Se [Använda Interactive Query i HDInsight](../interactive-query/apache-interactive-query-get-started.md).|
-|[Apache Kafka](https://kafka.apache.org/)|En öppen källkodsplattform som används för att skapa strömmande datapipelines och program. Kafka tillhandahåller även en meddelandeköfunktion med vilken du kan publicera och prenumerera på dataströmmar. Se [Introduktion till Apache Kafka på HDInsight](../kafka/apache-kafka-introduction.md).|
-
-## <a name="open-source-components-in-hdinsight"></a>Komponenter med öppen källkod i HDInsight
-
-Med Azure HDInsight kan du skapa kluster med ramverk med öppen källkod, till exempel Hadoop, Spark, Hive, LLAP, Kafka, Storm, HBase och R. Dessa kluster har som standard andra komponenter med öppen källkod som ingår i klustret, till exempel [Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), [Avro](https://avro.apache.org/docs/current/spec.html), [Apache Hive](https://hive.apache.org), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), [Apache Mahout](https://mahout.apache.org/), [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Phoenix](https://phoenix.apache.org/), [Apache Pig](https://pig.apache.org/), [Apache Sqoop](https://sqoop.apache.org/), [Apache Tez](https://tez.apache.org/), [Apache Oozie](https://oozie.apache.org/) och [Apache ZooKeeper](https://zookeeper.apache.org/).  
-
-## <a name="programming-languages-in-hdinsight"></a>Programmeringsspråk i HDInsight
-
-HDInsight-kluster, inklusive Hadoop, HBase, Kafka, Spark med flera, stöder ett antal programmeringsspråk. Vissa programmeringsspråk är inte installerade som standard. När det gäller bibliotek, moduler eller paket som inte är installerade som standard [använder du en skriptåtgärd för att installera komponenten](../hdinsight-hadoop-script-actions-linux.md).
-
-|Programmeringsspråk  |Information  |
-|---------|---------|
-|Programmeringsspråk som stöds som standard     | Som standard stöder HDInsight-kluster:<ul><li>Java</li><li>Python</li><li>.NET</li><li>Gå till</li></ul>  |
-|Java Virtual Machine-språk (JVM)     | Många andra språk än Java kan köras på en Java Virtual Machine (JVM). Om du kör vissa av dessa språk kan det dock hända att du måste installera ytterligare komponenter på klustret. Följande JVM-baserade språk stöds i HDInsight-kluster: <ul><li>Clojure</li><li>Jython (Python för Java)</li><li>Scala</li></ul>     |
-|Hadoop-specifika språk     | HDInsight-kluster stöder följande språk som är specifika för Hadoop-teknikstacken: <ul><li>Pig Latin för Pig-jobb</li><li>HiveQL för Hive-jobb och SparkSQL</li></ul>        |
-
-## <a name="development-tools-for-hdinsight"></a>Utvecklingsverktyg för HDInsight
-
-Du kan använda utvecklingsverktyg för HDInsight, inklusive IntelliJ, Eclipse, Visual Studio Code och Visual Studio för att skapa och skicka HDInsight-datafrågor och -jobb med sömlös Azure-integrering.
-
-* [Azure Toolkit för IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
-
-* [Azure Toolkit för Eclipse](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin)
-
-* [Azure HDInsight Tools för VS Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode?branch=pr-en-us-22999)
-
-* [Azure Data Lake Tools för Visual Studio](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started)
-
-## <a name="business-intelligence-on-hdinsight"></a>Business intelligence i HDInsight
-
-Välbekanta verktyg för Business Intelligence (BI) hämtar, analyserar och rapporterar data som integreras med HDInsight med antingen Power Query-tillägget eller ODBC-drivrutinen för Microsoft Hive:
-
-* [Apache Spark BI med hjälp av datavisualiseringsverktyg med Azure HDInsight](../spark/apache-spark-use-bi-tools.md)
-
-* [Visualisera Apache Hive-data med Microsoft Power BI i Azure HDInsight](apache-hadoop-connect-hive-power-bi.md)
-
-* [Visualisera Interactive Query Hive-data med Power BI i Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
-
-* [Ansluta Excel till Apache Hadoop med Power Query](apache-hadoop-connect-excel-power-query.md) (kräver Windows)
-
-* [Ansluta Excel till Apache Hadoop med Microsoft Hives ODBC-drivrutin](apache-hadoop-connect-excel-hive-odbc-driver.md) (kräver Windows)
-
-* [Använda SQL Server Analysis Services med HDInsight](https://docs.microsoft.com/previous-versions/msp-n-p/dn749857(v=pandp.10))
-
-* [Använda SQL Server Reporting Services med HDInsight](https://docs.microsoft.com/previous-versions/msp-n-p/dn749856(v=pandp.10))
+* [Utveckla C# MapReduce-jobb](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa Apache Hadoop-kluster i HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
+
+[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

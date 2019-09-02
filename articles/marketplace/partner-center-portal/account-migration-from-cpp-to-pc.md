@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: f5db715ecb7d5523f5f52a356198eb547f69d4f8
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 661adb755d076b0cc6114a287855482165ccb817
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194296"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208091"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Konto migrering från Cloud Partner Portal till Partner Center
 
@@ -26,13 +26,13 @@ Om du är en användare med ägar rollen i CPP för ett specifikt konto visas en
 
 Klicka på banderollen för att initiera processen för migrering av konto. Du förväntas ange följande objekt:
 
-### <a name="work-e-mail-address"></a>E-postadress till arbetet
+### <a name="work-email-address"></a>E-postadress till arbetet
 
 I de flesta fall loggar du in med den e-postadress som du använder för att logga in på CPP. I vissa fall måste en annan e-postadress användas:
 
-* Microsoft-konto: Om kontot CPP är ett Microsoft-konto måste du ange en giltig arbets-e-postadress som är kopplad till klienten, för vilken MPN-ID: t är registrerat. 
+* Microsoft-konto: Om kontot CPP är ett Microsoft-konto måste du ange en giltig e-postadress för arbetet som är kopplat till klienten, för vilken MPN-ID: t är registrerat.
 
-* Klient matchnings fel: Om din e-postadress för arbetet inte tillhör den klient som är associerad med det Microsoft Partner Network-ID som finns på ditt CPP-konto visas ett fel meddelande. Om du vill flytta förbi det här felet anger du en e-postadress som är kopplad till klienten. Ett fel meddelande anger namnet på klienten. 
+* Klient matchnings fel: Om din e-postadress för arbetet inte tillhör den klient som är associerad med det Microsoft Partner Network-ID som finns på ditt CPP-konto visas ett fel meddelande. Om du vill flytta förbi det här felet anger du en e-postadress som är kopplad till klienten. Ett fel meddelande anger namnet på klienten.
 
 ### <a name="sign-up-for-microsoft-partner-network-program"></a>Registrera dig för Microsoft Partner Network program
 

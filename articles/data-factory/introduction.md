@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/11/2018
-ms.openlocfilehash: 6688fa6bc3180ef878992e1e06b0ac6e90f27ee2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 985d38b75ca99e85c8b066427ecea9eb4d3e90f2
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141540"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194445"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -52,7 +52,7 @@ Det första steget när det gäller att skapa ett informationsproduktionssystem 
 
 Utan Data Factory måste företag skapa egna dataöverföringskomponenter eller skriva anpassade tjänster för att integrera dessa data- och bearbetningskällor. Det är dyrt och svårt att integrera och underhålla sådana system. De saknar dessutom ofta övervakning, varningar och de kontroller i företagsklass som en helt hanterad tjänst kan erbjuda.
 
-Med Data Factory kan du använda [kopieringsaktiviteten](copy-activity-overview.md) i en datapipeline för att flytta data från datalager lokalt och molnet till ett centralt datalager i molnet där du kan analysera dem. Du kan till exempel samla in data i en Azure Data Lake Store och sedan omvandla dessa data med en Azure Data Lake Analytics-databearbetningstjänst. Eller så kan du samla in data i en Azure Blob Storage och sedan omvandla de med ett Azure HDInsight Hadoop-kluster.
+Med Data Factory kan du använda [kopieringsaktiviteten](copy-activity-overview.md) i en datapipeline för att flytta data från datalager lokalt och molnet till ett centralt datalager i molnet där du kan analysera dem. Du kan till exempel samla in data i Azure Data Lake Storage och transformera data senare med hjälp av en Azure Data Lake Analytics Compute-tjänst. Eller så kan du samla in data i en Azure Blob Storage och sedan omvandla de med ett Azure HDInsight Hadoop-kluster.
 
 ### <a name="transform-and-enrich"></a>Omvandla och berika
 När data presenteras i ett centraliserat datalager i molnet, kan du bearbeta eller omvandla dem med beräkningstjänster som HDInsight Hadoop, Spark, Data Lake Analytics och Machine Learning. Du kan producera omvandlade data på ett tillförlitligt sätt enligt ett anpassningsbart schema och fylla på med betrodda data i produktionsmiljöer.

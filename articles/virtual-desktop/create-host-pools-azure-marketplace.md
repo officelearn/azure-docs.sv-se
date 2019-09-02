@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: 6629a612f7067394d9da83a81bdf46467a6e033a
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163732"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208378"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudier: Skapa en värdpool med Azure Marketplace
 
@@ -44,7 +44,7 @@ Så här kör du Azure Marketplace-erbjudandet för att etablera en ny adresspoo
 2. Ange **virtuellt Windows-skrivbord** i fönstret Marketplace search.
 3. Välj **Windows Virtual Desktop – etablera en adresspool**och välj sedan **skapa**.
 
-Följ anvisningarna för att ange informationen för lämpliga blad.
+Efter det följer du anvisningarna i nästa avsnitt för att ange informationen för lämpliga blad.
 
 ### <a name="basics"></a>Grundinställningar
 
@@ -56,6 +56,9 @@ Det här kan du göra på bladet **grundläggande** :
 4. Välj **Skapa nytt** och ange ett namn för den nya resurs gruppen.
 5. För **plats**väljer du samma plats som det virtuella nätverk som har anslutning till Active Directory-servern.
 6. Välj **OK**.
+
+>[!IMPORTANT]
+>Om du använder en ren Azure Active Directory Domain Services-och Azure Active Directory-lösning, se till att distribuera din värddator i samma region som din Azure Active Directory Domain Services för att undvika fel i domän anslutning och autentiseringsuppgifter.
 
 ### <a name="configure-virtual-machines"></a>Konfigurera virtuella datorer
 

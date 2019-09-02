@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: faad0a0166c1b11f51f814bb6ce3351d7a017239
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7091e2bd1ee24843299721d3c21a8546197fac6f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900028"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207586"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Översikt över Azure Resource Graph-tjänsten
 
@@ -35,7 +35,7 @@ I den här dokumentationen går vi igenom varje funktion i detalj.
 
 Azure Resource Manager stöder för närvarande frågor över grundläggande resurs fält, specifikt resurs namn, ID, typ, resurs grupp, prenumeration och plats. Resource Manager tillhandahåller också anläggningar för att anropa enskilda resurs leverantörer för detaljerade egenskaper en resurs i taget.
 
-Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider. Om du vill ha en lista över resurs typer som stöds letar du upp **Ja** i tabellen [resurser för komplett läges distribution](../../azure-resource-manager/complete-mode-deletion.md) .
+Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider. Om du vill ha en lista över resurs typer som stöds letar du upp **Ja** i tabellen [resurser för komplett läges distribution](../../azure-resource-manager/complete-mode-deletion.md) . Ett alternativt sätt att se resurs typer som stöds är via [schema läsaren i Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
 
 Med Azure Resource Graph kan du:
 
@@ -80,7 +80,13 @@ Mer information finns i [rikt linjer för begränsade begär Anden](./concepts/g
 
 ## <a name="running-your-first-query"></a>Kör din första fråga
 
-Resurs diagram stöder Azure CLI, Azure PowerShell och Azure SDK för .NET. Frågan är strukturerad samma för varje språk. Lär dig hur du aktiverar Resource Graph i [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) och [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
+Azure Resource Graph Explorer, som är en del av Azure Portal, aktiverar resurs diagram frågor direkt i Azure Portal. Fäst resultaten som dynamiska diagram för att tillhandahålla dynamisk information i real tid till ditt Portal arbets flöde. Mer information finns i [första frågan med Azure Resource Graph Explorer](first-query-portal.md).
+
+Resurs diagram stöder Azure CLI, Azure PowerShell, Azure SDK för .NET och mer. Frågan är strukturerad samma för varje språk. Lär dig hur du aktiverar resurs diagram med:
+
+- [Azure Portal och resurs diagram Utforskaren](first-query-portal.md) 
+- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
 ## <a name="next-steps"></a>Nästa steg
 

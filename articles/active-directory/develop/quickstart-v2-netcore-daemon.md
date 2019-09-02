@@ -17,12 +17,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a2b6d01802fd819471a9cfb382166e6293261ca
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a130878baa10be426072dfe79284a1d602dfb6ff
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852884"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211858"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en konsolapp med hjälp av appens identitet
 
@@ -39,9 +39,7 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> Det finns två alternativ för att starta snabbstartsprogrammet:
-> * [Express] [Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manuellt] [Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> Det finns två alternativ för att starta snabbstartsprogrammet: Express (alternativ 1 nedan) och manuell (alternativ 2)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
@@ -80,12 +78,12 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
-[Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
+[Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 
 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
-1. Öppna lösningen i Visual Studio – **daemon-console.sln** (valfritt).
+1. Öppna lösningen i Visual Studio- **1-Call-MSGraph\daemon-Console.SLN** (valfritt).
 1. Redigera **appsettings.json** och ersätt värdena för fälten `ClientId`, `Tenant` och `ClientSecret` med följande:
 
     ```json
@@ -145,7 +143,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 Om du använder Visual Studio trycker du på **F5** för att köra programmet, annars kör du programmet via kommando tolken eller konsolen:
 
 ```console
-cd {ProjectFolder}\daemon-console
+cd {ProjectFolder}\daemon-console\1-Call-Graph
 dotnet run
 ```
 
@@ -166,7 +164,7 @@ MSAL ([Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Ide
  Du kan installera MSAL.NET genom att köra följande kommando i **Package Manager-konsolen** i Visual Studio:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
 ```
 
 Om du inte använder Visual Studio kan du köra följande kommando för att lägga till MSAL i projektet:
@@ -221,8 +219,15 @@ Mer information finns i [referensdokumentationen för `AcquireTokenForClient`](h
 
 ## <a name="next-steps"></a>Nästa steg
 
+Mer information om daemon-program finns på sidan om scenario landning
+
 > [!div class="nextstepaction"]
-> [Exempel på .NET Core daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+> [Daemon-program som anropar webb-API: er](scenario-daemon-overview.md)
+
+Själv studie kurs om program för daemon finns i:
+
+> [!div class="nextstepaction"]
+> [Självstudie för daemon .NET Core-konsol](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 Lär dig mer om behörigheter och medgivande:
 
@@ -233,9 +238,6 @@ Mer information om autentiseringsflödet för det här scenariot finns i Oauth 2
 
 > [!div class="nextstepaction"]
 > [Oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)
-
-> [!div class="nextstepaction"]
-> [Flöden för klientautentiseringsuppgifter med MSAL.NET](https://aka.ms/msal-net-client-credentials)
 
 Hjälp oss att förbättra Microsoft Identity Platform. Berätta för oss vad du tycker genom att slutföra en kort enkät med två frågor.
 

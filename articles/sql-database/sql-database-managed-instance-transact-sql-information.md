@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1bba5e91e3edda41b75a96d8b55495ca5d1c092b
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644879"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209644"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -338,6 +338,10 @@ En hanterad instans kan inte komma åt fil resurser och Windows-mappar, så föl
 - `CREATE ASSEMBLY FROM FILE`stöds inte. Se [skapa sammansättning från fil](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY`Det går inte att referera till filer. Se [Alter Assembly](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
+### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
+ - `sp_send_dbmail`Det går inte att @file_attachments skicka atachments med parametern. Lokala fil system och lagrings resurser eller Azure Blob Storage är inte tillgängliga i den här proceduren.
+ - Se kända problem som `@query` rör parametrar och autentisering.
+ 
 ### <a name="dbcc"></a>DBCC
 
 Inte dokumenterade DBCC-instruktioner som är aktiverade i SQL Server stöds inte i hanterade instanser.
@@ -536,6 +540,14 @@ Den maximala fil storleken på `tempdb` får inte vara större än 24 GB per kä
 En hanterad instans placerar utförlig information i fel loggarna. Det finns många interna system händelser som loggas i fel loggen. Använd en anpassad procedur för att läsa fel loggar som filtrerar bort vissa irrelevanta poster. Mer information finns i [Managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ## <a name="Issues"></a>Kända problem
+
+### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>Det går inte att autentisering externa e-postservrar med säker anslutning (SSL)
+
+**Ikraftträdande** Aug 2019
+
+Database mail som har [kon figurer ATS med säker anslutning (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) kan inte autentiseras för vissa e-postservrar utanför Azure. Detta är ett säkerhets konfigurations problem som kommer att lösas snart.
+
+**Korrigera** Tillfällig ta bort säker anslutning (SSL) formar databasens e-postkonfiguration tills problemet har lösts. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Service Broker dialog rutor mellan databaser måste initieras igen efter uppgraderingen av service nivå
 

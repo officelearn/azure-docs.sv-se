@@ -1,6 +1,6 @@
 ---
-title: Felsöka problem med Azure AD Connect-installation | Microsoft Docs
-description: Det här avsnittet innehåller anvisningar att felsöka problem med att installera Azure AD Connect.
+title: Felsöka Azure AD Connect installations problem | Microsoft Docs
+description: Det här avsnittet innehåller anvisningar för hur du felsöker problem med att installera Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,37 +15,37 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e75ad29c5b4a76de5317991995f132c6cb53bbe3
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60454803"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211837"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>Felsökning: Installationsproblem med Azure AD Connect
 
 ## <a name="recommended-steps"></a>**Rekommenderade åtgärder**
-Kontrollera vilket [installationstyp för Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation) är lämplig för dig. Om du uppfyller villkoren för expressinstallationsfiler sedan vi rekommenderar starkt att du går med snabbinstallation. Snabbinstallation ger minimal alternativ som behövs för att slutföra installationen, det finns därför mindre sannolikheten för eventuella problem. 
+Kontrol lera vilken [Azure AD Connect Installations typ](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation) som passar dig bäst. Om du uppfyller villkoren för Express installation rekommenderar vi starkt att du fortsätter med Express installationen. Express installationen ger dig minimala alternativ som krävs för att slutföra installationen, vilket innebär att det är mindre troligt att det uppstår problem. 
 
-Om du inte uppfyller villkoren för expressinstallationsfiler och göra den anpassade installationen och sedan här följer några rekommendationer kan du följa för att undvika vanliga problem. För enkelhetens skull anges endast selektiv alternativ här:
+Om du inte uppfyller villkoren för Express installation och måste göra den anpassade installationen, är det dock några metod tips som du kan följa för att undvika vanliga problem. För enkelhetens skull är endast selektiva alternativ angivna här:
 
-* Se till att du är administratör på datorn där du installerar AAD Connect. Logga in datorn med samma autentiseringsuppgifter.
+* Se till att du är administratör på datorn där du installerar AAD Connect. Logga in på datorn med samma administratörs behörighet.
 
-* Låt alla alternativ som standard på följande sida, förutom ”Använd en befintlig SQLServer” om du vill använda befintliga SQL Server. Här följer [mer](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom) om hur du använder anpassade installationsalternativen. 
+* Låt alla alternativ vara standard på följande sida, förutom "Använd en befintlig SQL Server" om du vill använda befintliga SQL Server. Här är [Mer information](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom) om hur du använder anpassade installations alternativ. 
 
-    ![Använda befintliga SQLServer](media/tshoot-connect-install-issues/tshoot-connect-install-issues/useexistingsqlserver.png)
+    ![Använd befintlig SQL Server](media/tshoot-connect-install-issues/tshoot-connect-install-issues/useexistingsqlserver.png)
 
-* På sidan, välja alternativet ”Skapa ny AD-konto”, att undvika vilken behörighet som utfärdar med befintligt konto.
+* På följande sida väljer du alternativet "Skapa nytt AD-konto" för att undvika eventuella behörighets problem med det befintliga kontot.
 
-    ![AD-skogen konto](media/tshoot-connect-install-issues/tshoot-connect-install-issues/createnewaccount.png)
+    ![AD-skogs konto](media/tshoot-connect-install-issues/tshoot-connect-install-issues/createnewaccount.png)
 
 ### <a name="common-issues"></a>**Vanliga problem**
 
-* [Anslutningsproblem med lokalt Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
+* [Anslutnings problem med lokala Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
 
-* [Anslutningsproblem med online Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity).
+* [Anslutnings problem med online-Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity).
 
-* [Behörighetsproblem med lokala Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
+* [Behörighets problem med lokala Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
 
 ## <a name="recommended-documents"></a>**Rekommenderade dokument**
 * [Förutsättningar för Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)
@@ -57,8 +57,8 @@ Om du inte uppfyller villkoren för expressinstallationsfiler och göra den anpa
 * [Vad är PowerShell-modulen ADConnectivityTools?](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-adconnectivitytools)
 
 ## <a name="next-steps"></a>Nästa steg
-- [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md).
-- [Vad är hybrididentitet? ](whatis-hybrid-identity.md).
+- [Azure AD Connect synkronisering](how-to-connect-sync-whatis.md).
+- [Vad är hybrididentitet?](whatis-hybrid-identity.md)
 
 
 

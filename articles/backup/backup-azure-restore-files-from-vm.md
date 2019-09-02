@@ -7,14 +7,14 @@ manager: carmonm
 keywords: återställning på objekt nivå; fil återställning från virtuell Azure-säkerhetskopiering; återställa filer från virtuell Azure-dator
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/01/2019
+ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 67ba9ba9bc85213ec479a90d205ed9570c62bf8c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5ff4f1ff8a3d6143285b2842c351e1d26bd356ea
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954612"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210365"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -68,7 +68,7 @@ Om du vill återställa filer eller mappar från återställnings punkten går d
     - download.microsoft.com
     - URL: er för återställnings tjänsten (geo-Name refererar till den region där Recovery Service-valvet finns)
         - https:\//pod01-rec2.geo-Name.backup.windowsazure.com (för offentliga Azure-geografiska områden)
-        - https:\//pod01-rec2.geo-Name.backup.windowsazure.cn (för Azure Kina)
+        - https:\//pod01-rec2.geo-Name.backup.windowsazure.cn (för Azure Kina 21Vianet)
         - https:\//pod01-rec2.geo-Name.backup.windowsazure.us (för Azure amerikanska myndigheter)
         - https:\//pod01-rec2.geo-Name.backup.windowsazure.de (för Azure Germany)
     - utgående port 3260
@@ -247,7 +247,7 @@ Den här funktionen har skapats för att komma åt VM-data utan att behöva åte
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Välj återställnings punkt (som kan generera skript)
 
-Skriptet ger åtkomst till VM-data, det är viktigt att reglera vem som kan generera den på den första platsen. En måste logga in på Azure Portal och bör vara [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) -auktoriserad för att kunna generera skriptet.
+Skriptet ger åtkomst till VM-data, det är viktigt att reglera vem som kan generera den på den första platsen. En måste logga in i Azure Portal och bör vara [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) -auktoriserad för att kunna generera skriptet.
 
 Fil återställning måste ha samma behörighets nivå som krävs för återställning av virtuella datorer och diskar. Med andra ord kan endast behöriga användare se de virtuella dator data som kan generera skriptet.
 

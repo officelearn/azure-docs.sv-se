@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
 ms.openlocfilehash: 62115dd519336c728b679e4e698182a50660a464
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 09/02/2019
 ms.locfileid: "68949888"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
@@ -418,7 +418,7 @@ När du arbetar med HTTP-utlösare kan du komma åt HTTP-begäran och svars obje
 
 I följande tabell visas den Node. js-version som används av varje huvud version av Functions-körningen:
 
-| Funktions version | Node.js-version | 
+| Funktions version | Node. js-version | 
 |---|---|
 | 1.x | 6.11.2 (låst av körningen) |
 | 2x  | _Aktiva LTS_ och _Underhåll LTS_ Node. js-versioner (8.11.1 och 10.14.1 rekommenderas). Ställ in versionen med WEBSITE_NODE_DEFAULT_VERSION- [appens inställning](functions-how-to-use-azure-function-app-settings.md#settings).|

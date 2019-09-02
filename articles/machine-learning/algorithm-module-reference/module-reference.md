@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 065931140894478caee9d4ea49dac49f2415716b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 76b70c742289ac98e49338b267660a30abba9557
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128642"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210460"
 ---
 # <a name="algorithm--module-reference-overview"></a>Översikt över algoritmen & modul
 
@@ -33,7 +33,7 @@ Moduler är ordnade efter funktion:
 | --- |--- | ---- |
 | Dataformatkonverteringar | Konvertera data mellan olika fil format som används i Machine Learning, | [Konvertera till CSV](convert-to-csv.md) |
 | Data indata och utdata | Flytta data från moln källor till experimentet. Skriv resultaten eller mellanliggande data till Azure Storage, en SQL-databas eller Hive, medan du kör ett experiment eller Använd moln lagring för att utbyta data mellan experiment.  | [Importera data](import-data.md)<br/>[Exportera data](export-data.md)<br/>[Ange data manuellt](enter-data-manually.md) |
-| Datatransformering | Åtgärder för data som är unika för maskin inlärning, till exempel normaliserande eller diskretisering data, funktions val och en minskning av dimensionalitet.| [Välj kolumner i data uppsättning](select-columns-in-dataset.md) <br/> [Redigera metadata](edit-metadata.md) <br/> [Rensa saknade data](clean-missing-data.md) <br/> [Lägg till kolumner](add-columns.md) <br/> [Lägg till rader](add-rows.md) <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [Koppla data](join-data.md) <br/> [Dela data](split-data.md) <br/> [Normalisera data](normalize-data.md) <br/> [Partition och exempel](partition-and-sample.md) |
+| Datatransformering | Åtgärder för data som är unika för maskin inlärning, till exempel normaliserande eller diskretisering data, funktions val och en minskning av dimensionalitet.| [Välj kolumner i data uppsättning](select-columns-in-dataset.md) <br/> [Redigera metadata](edit-metadata.md) <br/> [Rensa saknade data](clean-missing-data.md) <br/>  [Hashing av funktioner](feature-hashing.md) <br/>  [Extrahera N g-funktioner från text](extract-n-gram-features-from-text.md) <br/> [Lägg till kolumner](add-columns.md) <br/> [Lägg till rader](add-rows.md) <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [Förbearbeta text](preprocess-text.md) <br/> [Koppla data](join-data.md) <br/> [Dela data](split-data.md) <br/> [Normalisera data](normalize-data.md) <br/> [Partition och exempel](partition-and-sample.md) |
 | Python-och R-moduler | Skriv kod och bädda in den i en modul för att integrera python och R med experimentet. | [Kör Python-skript](execute-python-script.md)   <br/> [Skapa python-modell](create-python-model.md) <br/> [Kör R-skript](execute-r-script.md)
 |  | **Machine Learning**-algoritmer: | |
 | Klassificering | Förutsäg en klass.  Välj mellan binära (två klasser) eller algoritmer för multiklasser.| [Besluts skog med flera klasser](multiclass-decision-forest.md) <br/> [Besluts träd med djup klass](multiclass-boosted-decision-tree.md) <br/> [Logistik regression med multiklass](multiclass-logistic-regression.md)  <br/> [Neurala nätverk i multiklass](multiclass-neural-network.md)  <br/>  [Logistik regression med två klasser](two-class-logistic-regression.md)  <br/>[Genomsnittlig Perceptron i två klasser](two-class-averaged-perceptron.md) <br/> [&nbsp;&nbsp;Besluts&nbsp;träd med två klasser](two-class-boosted-decision-tree.md)  <br/> [Besluts skog med två klasser](two-class-decision-forest.md)  <br/> [Neurala nätverk med två klasser](two-class-neural-network.md)  <br/> [Två&#8209;klass&nbsp;stöd&nbsp;förVector&nbsp;Machine](two-class-support-vector-machine.md) 

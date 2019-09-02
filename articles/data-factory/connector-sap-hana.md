@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: e9b024fc3c07670201cf72cf80c0b69bf68f1cc8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 8174b2e8bc63db8954e596d831eb2f9cad2ba440
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726006"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211615"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiera data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -25,6 +25,9 @@ ms.locfileid: "68726006"
 > * [Aktuell version](connector-sap-hana.md)
 
 Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en SAP HANA-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+
+>[!TIP]
+>Om du vill lära dig mer om ADF: s övergripande support i SAP data integrations scenario, se [SAP data integration med Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) med detaljerad introduktion, comparsion och vägledning.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -140,8 +143,8 @@ Följande egenskaper stöds för att kopiera data från SAP HANA:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Data uppsättningens typ-egenskap måste anges till: **SapHanaTable** | Ja |
-| schema | Namnet på schemat i SAP HANA databasen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
-| table | Namnet på tabellen i SAP HANA databasen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
+| schema | Namnet på schemat i SAP HANA databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| table | Namnet på tabellen i SAP HANA databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel:**
 

@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från SAP BW med Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från SAP Business Warehouse till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+description: Lär dig hur du kopierar data från SAP Business Warehouse till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,63 +10,66 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a0abcd70b4aeb2369604bafa924136122206e0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cd17dcb7a9f68c25617c9e6b928ddebebcdbddbe
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309121"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211719"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Aktuell version](connector-sap-business-warehouse.md)
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från en SAP Business Warehouse (BW). Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från ett SAP Business Warehouse (BW). Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+
+>[!TIP]
+>Om du vill lära dig mer om ADF: s övergripande support i SAP data integrations scenario, se [SAP data integration med Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) med detaljerad introduktion, comparsion och vägledning.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från SAP Business Warehouse till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från SAP Business Warehouse till alla mottagar data lager som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Mer specifikt stöder den här SAP Business Warehouse-anslutningen:
+Mer specifikt stöder SAP Business Warehouse Connector:
 
-- SAP Business Warehouse **version 7.x**.
-- Kopiera data från **InfoCubes och QueryCubes** (inklusive BEx frågor) med MDX-frågor.
-- Kopiera data med hjälp av grundläggande autentisering.
+- SAP Business Warehouse **version 7. x**.
+- Kopiera data från **InfoCubes och QueryCubes** (inklusive BEX-frågor) med MDX-frågor.
+- Kopiera data med grundläggande autentisering.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda denna SAP Business Warehouse-anslutning måste du:
+Om du vill använda den här SAP Business Warehouse Connector måste du:
 
-- Konfigurera en lokal Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
-- Installera den **SAP NetWeaver-biblioteket** på Integration Runtime-datorn. Du kan hämta SAP Netweaver-biblioteket från SAP-administratören eller direkt från den [SAP Software Download Center](https://support.sap.com/swdc). Sök efter den **SAP Note #1025361** att hitta hämtningsplatsen för den senaste versionen. Se till att du väljer den **64-bitars** SAP NetWeaver-biblioteket som matchar din Integration Runtime-installation. Installera sedan alla filer som ingår i SAP NetWeaver RFC-SDK enligt SAP Note. SAP NetWeaver-biblioteket ingår också i klientverktyg för SAP-installationen.
+- Konfigurera en egen värd Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
+- Installera **SAP NetWeaver-biblioteket** på den integration runtime datorn. Du kan hämta SAP NetWeaver-biblioteket från din SAP-administratör eller direkt från [SAP Software Download Center](https://support.sap.com/swdc). Sök efter SAP-anteckningen **#1025361** för att hämta hämtnings platsen för den senaste versionen. Se till att du väljer det **64-bitars** SAP NetWeaver-bibliotek som matchar din integration runtime-installation. Installera sedan alla filer som ingår i SAP NetWeaver RFC SDK enligt SAP-anteckningen. SAP NetWeaver-biblioteket ingår också i installationen av SAP-klient verktyg.
 
 >[!TIP]
->Om du vill felsöka anslutningsproblemet till SAP BW kan du se till att:
->- Alla beroende bibliotek som extraheras från NetWeaver RFC-SDK finns i mappen %windir%\system32. Vanligtvis har icudt34.dll, icuin34.dll, icuuc34.dll, libicudecnumber.dll, librfc32.dll, libsapucum.dll, sapcrypto.dll, sapcryto_old.dll, sapnwrfc.dll.
->- De nödvändiga portarna som används för att ansluta till SAP-Server är aktiverade på den lokal IR-datorn, som vanligtvis är port 3300 och 3201.
+>Kontrol lera följande för att felsöka anslutnings problem till SAP BW:
+>- Alla beroende bibliotek som extraheras från NetWeaver RFC SDK finns på plats i mappen%windir%\System32. Vanligt vis har den icudt34. dll, icuin34. dll, icuuc34. dll, libicudecnumber. dll, librfc32. dll, libsapucum. dll, sapcrypto. dll, sapcryto_old. dll, sapnwrfc. dll.
+>- De portar som krävs för att ansluta till SAP-servern har Aktiver ATS på IR-datorn med egen värd, som vanligt vis är port 3300 och 3201.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifik för SAP Business Warehouse-anslutningsappen.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är specifika för SAP Business Warehouse Connector.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för SAP Business Warehouse (BW) länkade tjänsten:
+Följande egenskaper stöds för den länkade tjänsten SAP Business Warehouse (BW):
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **SapBw** | Ja |
-| server | Namnet på den server som SAP BW-instansen finns. | Ja |
-| systemNumber | Systemnummer för SAP BW-system.<br/>Tillåtna värdet: tvåsiffrig decimaltal representeras som en sträng. | Ja |
-| clientId | Klient-ID för klienten i SAP W systemet.<br/>Tillåtna värdet: tresiffrig decimaltal representeras som en sträng. | Ja |
-| userName | Namnet på den användare som har åtkomst till SAP-server. | Ja |
+| type | Egenskapen Type måste anges till: **SapBw** | Ja |
+| server | Namnet på den server där SAP BW-instansen finns. | Ja |
+| systemNumber | System numret för det SAP BW systemet.<br/>Tillåtet värde: tvåsiffrigt decimal tal representeras som en sträng. | Ja |
+| clientId | Klient-ID för klienten i SAP W-systemet.<br/>Tillåtet värde: tre-siffrigt decimal tal representeras som en sträng. | Ja |
+| userName | Namnet på den användare som har åtkomst till SAP-servern. | Ja |
 | password | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
 
 **Exempel:**
 
@@ -95,9 +98,9 @@ Följande egenskaper har stöd för SAP Business Warehouse (BW) länkade tjänst
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW data uppsättning.
 
-Om du vill kopiera data från SAP BW, ange typegenskapen på datauppsättningen till **RelationalTable**. Det finns inga typspecifika egenskaper som stöds för SAP BW-datauppsättningen för skriver RelationalTable.
+Om du vill kopiera data från SAP BW anger du egenskapen type för data uppsättningen till **RelationalTable**. Det finns inga typ-/regionsspecifika egenskaper som stöds för SAP BW-datauppsättningen av typen RelationalTable.
 
 **Exempel:**
 
@@ -117,16 +120,16 @@ Om du vill kopiera data från SAP BW, ange typegenskapen på datauppsättningen 
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW källa.
 
 ### <a name="sap-bw-as-source"></a>SAP BW som källa
 
-Om du vill kopiera data från SAP BW, ange typ av datakälla i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+Om du vill kopiera data från SAP BW anger du käll typen i kopierings aktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
-| query | Anger MDX-fråga för att läsa data från SAP BW-instans. | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **RelationalSource** | Ja |
+| query | Anger MDX-frågan för att läsa data från SAP BW-instansen. | Ja |
 
 **Exempel:**
 
@@ -160,11 +163,11 @@ Om du vill kopiera data från SAP BW, ange typ av datakälla i kopieringsaktivit
 ]
 ```
 
-## <a name="data-type-mapping-for-sap-bw"></a>Datatypsmappningen för SAP BW
+## <a name="data-type-mapping-for-sap-bw"></a>Data typs mappning för SAP BW
 
-När du kopierar data från SAP BW, används följande mappningar från SAP BW-datatyper till Azure Data Factory tillfälliga-datatyper. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
+När du kopierar data från SAP BW används följande mappningar från SAP BW data typer för att Azure Data Factory interimistiska data typer. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
 
-| SAP BW-datatypen | Data factory tillfälliga datatyp |
+| SAP BW data typ | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | ACCP | Int |
 | CHAR | String |

@@ -1,22 +1,19 @@
 ---
 title: Skapa Azure Functions på Linux med en anpassad avbildning
 description: Lär dig hur du skapar en Azure Functions som körs på en anpassad Linux-avbildning.
-services: functions
-keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: azure-cli
-manager: jeconnoc
-ms.openlocfilehash: 525cb444ad7b1b78de867f83539ac338ddd144e9
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+manager: gwallace
+ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562928"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210175"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Skapa en funktion i Linux med en anpassad avbildning
 
@@ -56,7 +53,7 @@ Du kan också använda [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## <a name="create-the-local-function-app-project"></a>Skapa det lokala funktionsapprojektet
 
-Kör följande kommando från kommandoraden för att skapa ett funktionsapprojekt i mappen `MyFunctionProj` i den aktuella lokala katalogen.
+Kör följande kommando från kommandoraden för att skapa ett funktionsapprojekt i mappen `MyFunctionProj` i den aktuella lokala katalogen. För ett python-projekt [måste du köra i en virtuell miljö](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
 
 ```bash
 func init MyFunctionProj --docker
@@ -68,7 +65,7 @@ Vid uppmaning väljer du en arbetskörning från följande språk:
 
 * `dotnet`: skapar ett biblioteks projekt för .NET Core-klass (. CSPROJ).
 * `node`: skapar ett JavaScript-projekt.
-* `python`: skapar ett Python-projekt.
+* `python`: skapar ett Python-projekt.  
 
 När kommandot körs visas något i stil med följande utdata:
 

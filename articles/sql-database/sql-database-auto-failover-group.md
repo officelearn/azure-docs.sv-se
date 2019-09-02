@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 08/29/2019
-ms.openlocfilehash: 73aeea42cd843716c845d7712539ae5c81f03dca
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.date: 08/30/2019
+ms.openlocfilehash: 65a75bc3a2e7ab2361ee8ae53d11ba1604c1d1ef
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173078"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208355"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -92,7 +92,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
 - **Princip för skrivskyddad redundans**
 
-  Som standard är redundansväxlingen av den skrivskyddade lyssnaren inaktive rad. Det garanterar att den primära prestandan inte påverkas när den sekundära är offline. Det innebär dock också att skrivskyddade sessioner inte kan ansluta förrän den sekundära återställningen har återställts. Om du inte kan tolerera nedtid för de skrivskyddade sessionerna och är OK för att tillfälligt använda den primära för både skrivskyddad och Läs-och Skriv trafik på kostnaderna för den potentiella prestanda försämringen av den primära, kan du aktivera redundans för den skrivskyddade lyssnaren. I så fall omdirigeras den skrivskyddade trafiken automatiskt till den primära om den sekundära inte är tillgänglig.
+  Som standard är redundansväxlingen av den skrivskyddade lyssnaren inaktive rad. Det garanterar att den primära prestandan inte påverkas när den sekundära är offline. Det innebär dock också att skrivskyddade sessioner inte kan ansluta förrän den sekundära återställningen har återställts. Om du inte kan tolerera stillestånds tiden för de skrivskyddade sessionerna och är OK för att tillfälligt använda den primära för både skrivskyddad och Läs-och Skriv trafik på kostnaderna för den potentiella prestanda försämringen av den primära, kan du aktivera redundans för den skrivskyddade lyssnaren genom att `AllowReadOnlyFailoverToPrimary` konfigurera egenskapen. I så fall omdirigeras den skrivskyddade trafiken automatiskt till den primära om den sekundära inte är tillgänglig.
 
 - **Planerad redundans**
 
@@ -112,7 +112,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
 - **Respitperiod med data förlust**
 
-  Eftersom de primära och sekundära databaserna synkroniseras med hjälp av asynkron replikering kan redundansväxlingen leda till data förlust. Du kan anpassa principen för automatisk redundans så att den återspeglar programmets tolerans för data förlust. Genom att konfigurera **GracePeriodWithDataLossHours**kan du styra hur lång tid systemet väntar innan redundansväxlingen initieras som kan leda till data förlust.
+  Eftersom de primära och sekundära databaserna synkroniseras med hjälp av asynkron replikering kan redundansväxlingen leda till data förlust. Du kan anpassa principen för automatisk redundans så att den återspeglar programmets tolerans för data förlust. Genom att `GracePeriodWithDataLossHours`konfigurera kan du kontrol lera hur lång tid systemet väntar innan redundansväxlingen initieras som kan leda till data förlust.
 
 - **Flera failover-grupper**
 
@@ -155,7 +155,7 @@ När du utformar en tjänst med affärs kontinuitet i åtanke följer du dessa a
 
 - **Använd skrivskyddad lyssnare för skrivskyddad arbets belastning**
 
-  Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. För skrivskyddade sessioner använder `<fog-name>.secondary.database.windows.net` du som server-URL och anslutningen dirigeras automatiskt till den sekundära. Vi rekommenderar också att du anger i anslutnings strängens läsnings avsikt med hjälp av **ApplicationIntent = ReadOnly**.
+  Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. För skrivskyddade sessioner använder `<fog-name>.secondary.database.windows.net` du som server-URL och anslutningen dirigeras automatiskt till den sekundära. Vi rekommenderar också att du anger i anslutnings strängens läsnings avsikt med `ApplicationIntent=ReadOnly`. Om du vill kontrol lera att den skrivskyddade arbets belastningen kan återansluta efter en redundansväxling eller om den sekundära servern kopplas från, måste du konfigurera `AllowReadOnlyFailoverToPrimary` egenskapen för redundansväxlingen. 
 
 - **Förbered dig för prestanda försämring**
 
@@ -166,7 +166,7 @@ När du utformar en tjänst med affärs kontinuitet i åtanke följer du dessa a
 
 - **Förbered för data förlust**
 
-  Om ett avbrott upptäcks väntar SQL på den period som du har angett av **GracePeriodWithDataLossHours**. Standardvärdet är 1 timme. Om du inte kan erbjuda data förlust, se till att ange **GracePeriodWithDataLossHours** till ett tillräckligt stort antal, till exempel 24 timmar. Använd manuell grupp växling vid fel för att återställa från den sekundära till den primära.
+  Om ett avbrott upptäcks väntar SQL på den period som du har angett `GracePeriodWithDataLossHours`. Standardvärdet är 1 timme. Om du inte kan erbjuda data förlust, se till att `GracePeriodWithDataLossHours` ange ett tillräckligt stort antal, till exempel 24 timmar. Använd manuell grupp växling vid fel för att återställa från den sekundära till den primära.
 
   > [!IMPORTANT]
   > Elastiska pooler med 800 eller färre DTU: er och fler än 250 databaser som använder geo-replikering kan stöta på problem, inklusive längre planerade redundanser och försämrade prestanda.  De här problemen är mer sannolika för Skriv intensiva arbets belastningar när geo-replikeringens slut punkter är mycket åtskilda med geografi eller när flera sekundära slut punkter används för varje databas.  Symptom på de här problemen anges när fördröjningen för geo-replikering ökar med tiden.  Den här fördröjningen kan övervakas med hjälp av [sys. DM _geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Om dessa problem inträffar, kan du öka antalet DTU: er eller minska antalet geo-replikerade databaser i samma pool.
@@ -305,10 +305,10 @@ Den här sekvensen rekommenderas särskilt för att undvika problemet där den s
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Förhindra förlust av kritiska data
 
-På grund av den höga svars tiden för Wide Area Networks använder kontinuerlig kopiering en metod för asynkron replikering. Asynkron replikering gör att data kan gå förlorade om ett fel uppstår. Vissa program kan dock kräva ingen data förlust. För att skydda dessa viktiga uppdateringar kan en programutvecklare anropa system proceduren [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) direkt efter att transaktionen har genomförts. Anrop av **sp_wait_for_database_copy_sync** blockerar anrops tråden tills den senaste genomförda transaktionen har överförts till den sekundära databasen. Det väntar dock inte på att överförda transaktioner ska spelas upp och allokeras på den sekundära. **sp_wait_for_database_copy_sync** är begränsad till en speciell kontinuerlig kopierings länk. Alla användare med anslutnings behörighet till den primära databasen kan anropa den här proceduren.
+På grund av den höga svars tiden för Wide Area Networks använder kontinuerlig kopiering en metod för asynkron replikering. Asynkron replikering gör att data kan gå förlorade om ett fel uppstår. Vissa program kan dock kräva ingen data förlust. För att skydda dessa viktiga uppdateringar kan en programutvecklare anropa system proceduren [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) direkt efter att transaktionen har genomförts. Anrop `sp_wait_for_database_copy_sync` blockerar anrops tråden tills den senaste genomförda transaktionen har överförts till den sekundära databasen. Det väntar dock inte på att överförda transaktioner ska spelas upp och allokeras på den sekundära. `sp_wait_for_database_copy_sync`är begränsad till en bestämd kontinuerlig kopierings länk. Alla användare med anslutnings behörighet till den primära databasen kan anropa den här proceduren.
 
 > [!NOTE]
-> **sp_wait_for_database_copy_sync** förhindrar data förlust efter redundansväxlingen, men garanterar inte fullständig synkronisering för Läs behörighet. Fördröjningen som orsakas av ett **sp_wait_for_database_copy_sync** procedur anrop kan vara betydande och beror på storleken på transaktions loggen vid tidpunkten för anropet.
+> `sp_wait_for_database_copy_sync`förhindrar data förlust efter redundansväxlingen, men garanterar inte fullständig synkronisering för Läs behörighet. Fördröjningen som orsakas av `sp_wait_for_database_copy_sync` ett procedur anrop kan vara betydande och beror på storleken på transaktions loggen vid tidpunkten för anropet.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>Redundansväxla grupper och återställning av tidpunkt
 

@@ -45,7 +45,7 @@ sections:
         items:
           - html: <a href="tutorial-1st-experiment-sdk-setup">Konfigurera din miljö och träna ditt första ML-experiment.</a>
           - html: <a href="tutorial-train-models-with-aml">Träna och distribuera bildklassificeringsmodeller.</a>
-          - html: <a href="tutorial-data-prep">Förbered data och använda automatiserad ML för att förutsäga taxipriser.</b></a>
+          - html: <a href="tutorial-auto-train-models">Använda automatiserad ML för att förutsäga taxipriser.</b></a>
           - html: <a href="how-to-run-batch-predictions">Köra batchförutsägelser på stora datamängder med ML-pipelines.</b></a>
   - title: Exempel
     items:

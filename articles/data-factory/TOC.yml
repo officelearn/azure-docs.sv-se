@@ -147,6 +147,8 @@
           href: concepts-data-flow-overview.md
         - name: Felsökningsläge
           href: concepts-data-flow-debug-mode.md
+        - name: JSON-hantering
+          href: concepts-data-flow-json.md
         - name: Schemadrift
           href: concepts-data-flow-schema-drift.md
         - name: Granskningsfönster
@@ -446,6 +448,8 @@
           href: control-flow-webhook-activity.md
     - name: Dataflödesomvandlingar
       items:
+        - name: Sparats med fast bredd
+          href: how-to-fixed-width.md
         - name: Aggregera
           href: data-flow-aggregate.md
         - name: Ändra rad
@@ -600,6 +604,8 @@
           href: data-migration-guidance-overview.md
         - name: Migrera data från AWS S3 till Azure
           href: data-migration-guidance-s3-azure-storage.md
+        - name: Migrerar data från lokala Hadoop-kluster till Azure
+          href: data-migration-guidance-hdfs-azure-storage.md
 - name: Referens
   items:
     - name: .NET

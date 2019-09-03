@@ -97,8 +97,9 @@
 - name: Starta om eller ändra storlek på en virtuell dator
   href: restart-resize-error-troubleshooting.md
 - name: Seriekonsol
-  href: serial-console-overview.md
   items:
+    - name: Översikt över seriekonsol
+      href: serial-console-overview.md
     - name: Seriekonsol för Linux
       href: serial-console-linux.md
       items:

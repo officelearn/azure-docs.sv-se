@@ -15,7 +15,7 @@
       items:
         - name: Skapa ett första ML-experiment
           items:
-            - name: 1. Konfigurera arbetsytan och utvecklingsmiljön
+            - name: 1. Konfigurera arbetsyta och utvecklingsmiljö
               href: tutorial-1st-experiment-sdk-setup.md
             - name: 2. Träna din första modell
               href: tutorial-1st-experiment-sdk-train.md
@@ -33,10 +33,10 @@
               href: tutorial-auto-train-models.md
     - name: Visuellt gränssnitt
       items:
-        - name: Träna regressionsmodellen
+        - name: 1. Träna regressionsmodellen
           displayName: studio
           href: ui-tutorial-automobile-price-train-score.md
-        - name: Distribuera regressionsmodellen
+        - name: 2. Distribuera regressionsmodellen
           displayName: studio
           href: ui-tutorial-automobile-price-deploy.md
     - name: Automatiserad maskininlärning

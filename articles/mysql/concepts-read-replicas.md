@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: e0309ac70d39272bf045e49ca7ddecd258cc1f36
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 9907bf49b99f3e8a09f2924c386c1f76891a8c15
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992050"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232544"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
@@ -121,7 +121,7 @@ En Läs replik skapas som en ny Azure Database for MySQL server. Det går inte a
 
 ### <a name="replica-configuration"></a>Replik konfiguration
 
-En replik skapas med samma server konfiguration som huvud servern. När en replik har skapats kan flera inställningar ändras oberoende från huvud servern: beräknings generation, virtuella kärnor, lagring, kvarhållning av säkerhets kopior och MySQL-motor version. Pris nivån kan också ändras oberoende, förutom till eller från Basic-nivån.
+En replik skapas med samma server konfiguration som huvud servern. När en replik har skapats kan flera inställningar ändras oberoende från huvud servern: beräknings generering, virtuella kärnor, lagring och kvarhållning av säkerhets kopior. Pris nivån kan också ändras oberoende, förutom till eller från Basic-nivån.
 
 > [!IMPORTANT]
 > Uppdatera replikkonfigurationen till samma eller högre värden innan en huvudserverkonfiguration uppdateras till nya värden. På så sätt säkerställer du att repliken klarar alla ändringar som görs på huvudservern.

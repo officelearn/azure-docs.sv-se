@@ -1,137 +1,131 @@
 ---
-title: Agentbaserad migreringsarkitektur i Azure Migrate-servermigrering
-description: Översikt över agentbaserad VMware VM-migrering med Azure Migrate servermigrering.
+title: Agent-baserad migrerings arkitektur i Azure Migrate Server-migrering
+description: Innehåller en översikt över agentbaserade VMware VM-migrering med Azure Migrate Server-migrering.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: 21c779587842c976ba93d7fa592a91ee714bc55c
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f5ad3aa0fc51f47942750d3745ffef1d6e4a087d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811159"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232576"
 ---
 # <a name="agent-based-migration-architecture"></a>Agentbaserad migreringsarkitektur
 
-Den här artikeln innehåller en översikt över arkitektur och processer som används för agentbaserad replikering med verktyget Azure Migrate servermigrering.
+Den här artikeln innehåller en översikt över arkitekturen och processerna som används för agent-baserad replikering med verktyget för migrering av Azure Migrate Server.
 
-[Azure Migrate](migrate-services-overview.md) ger en central knutpunkt för att spåra identifiering, bedömning och migrering av dina lokala appar och arbetsbelastningar och AWS/GCP VM-instanser till Azure. Hubben innehåller Azure Migrate verktyg för bedömning och migrering, samt tredjepartsprogram oberoende programvaruleverantörer (ISV)-erbjudanden.
+[Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och AWS/GCP VM-instanser till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
 
 ## <a name="agent-based-replication"></a>Agent-baserad replikering
 
-Agent-baserad replikering i Azure Migrate serverreplikeringen verktyget används för att migrera lokala virtuella VMware-datorer och fysiska servrar till Azure. Det kan också användas för att migrera andra lokala virtualiserade servrar, samt privata och offentliga moln virtuella datorer, inklusive AWS-instanser och GCP virtuella datorer.
+En agent-baserad replikering i Azure Migrate Server Replication-verktyget används för att migrera lokala virtuella VMware-datorer och fysiska servrar till Azure. Den kan också användas för att migrera andra lokala virtualiserade servrar, samt privata och offentliga virtuella moln, inklusive AWS-instanser och GCP-VM: ar.
 
-Migreringsverktyget Azure Migrate Server erbjuder ett par alternativ för VMware-migrering:
+För VMware-migrering erbjuder Migreringsverktyg för Azure Migrate Server ett par alternativ:
 
-- Migrering med agentbaserad replikering, enligt beskrivningen i den här artikeln.
-- Replikering, att migrera virtuella datorer utan att behöva installera något på dem utan Agent.
+- Migrering med agent-baserad replikering enligt beskrivningen i den här artikeln.
+- Replikering utan agent, för att migrera virtuella datorer utan att behöva installera något på dem.
 
-Läs mer om [att välja en migreringsmetod för VMware](server-migrate-overview.md).
+Läs mer om hur du [väljer en migrations metod för VMware](server-migrate-overview.md).
 
-## <a name="server-migration-and-azure-site-recovery"></a>Migrering av Server och Azure Site Recovery
+## <a name="server-migration-and-azure-site-recovery"></a>Server migrering och Azure Site Recovery
 
-Azure Migrate-servermigrering är ett verktyg för att migrera lokala och offentliga molnarbetsbelastningar till Azure. Det är optimerat för migrering. Site Recovery är ett verktyg för disaster recovery. Azure-servermigrering och Site Recovery dela vissa vanliga teknik-komponenter som används för replikering av data, men har olika syften.
+Azure Migrate Server-migrering är ett verktyg för att migrera lokala och offentliga moln arbets belastningar till Azure. Den är optimerad för migrering. Site Recovery är ett haveri återställnings verktyg. Azure Server-migrering och Site Recovery dela några vanliga teknik komponenter som används för datareplikering, men fungerar på olika sätt.
 
 ## <a name="architectural-components"></a>Arkitekturkomponenter
 
 ![Arkitektur](./media/agent-based-replication-architecture/architecture.png)
 
-I tabell sammanfattas de komponenter som används för agentbaserad migrering.
+Tabellen sammanfattar de komponenter som används för agent-baserad migrering.
 
 **Komponent** | **Detaljer** | **Installation**
 --- | --- | ---
-**Installation av replikering** | Replikering installation (konfigurationsserver) är en lokal dator som fungerar som en brygga mellan den lokala miljön och Azure Migrate servermigrering tool. Installationen identifierar lokala virtuella datorn lagret, så att Azure-servermigrering kan samordna replikering och migrering. Installationen har två komponenter:<br/><br/> **Konfigurationsservern**: Ansluter till Azure Migrate servermigrering och samordnar replikering.<br/> **Processerver**: Hanterar datareplikeringen. Den tar emot data för virtuell dator, komprimerar och krypterar dem och skickar till Azure-prenumeration. Där kan skriver servermigrering data till hanterade diskar. | Som standard installeras processervern tillsammans med konfigurationsservern på replikering-installationen.
-**Mobilitetstjänsten** | Mobilitetstjänsten är en agent installeras på varje dator som du vill replikera och migrera. Den skickar replikeringsdata från datorn till processervern. Det finns ett antal olika mobilitetstjänstagenter. | Installationsfilerna för mobilitetstjänsten finns på installationen för replikering. Du kan hämta och installera agenten som du behöver, i enlighet med operativsystem och version för den datorn som du vill replikera.
+**Replikeringsfil** | Replikeringstjänsten (konfigurations Server) är en lokal dator som fungerar som en brygga mellan den lokala miljön och Migreringsverktyg för Azure Migrate Server. Installations programmet identifierar den lokala VM-inventeringen så att Azure Server-migreringen kan dirigera replikering och migrering. Enheten har två komponenter:<br/><br/> **Konfigurations Server**: Ansluter till Azure Migrate Server-migrering och samordnar replikering.<br/> **Processerver**: Hanterar datareplikering. Den tar emot VM-data, komprimerar och krypterar den och skickar dem till Azure-prenumerationen. Då skriver server-migrering data till Managed disks. | Som standard installeras processervern tillsammans med konfigurations servern på replikerings enheten.
+**Mobilitetstjänsten** | Mobilitets tjänsten är en agent som är installerad på varje dator som du vill replikera och migrera. Den skickar replikeringsdata från datorn till processervern. Det finns ett antal olika mobila tjänst agenter som är tillgängliga. | Installationsfilerna för mobilitets tjänsten finns på replikerings enheten. Du kan hämta och installera den agent du behöver, i enlighet med operativ systemet och den version av datorn som du vill replikera.
 
 ### <a name="mobility-service-installation"></a>Installation av mobilitetstjänsten
 
-Du kan distribuera Mobilitetstjänsten med följande metoder:
+Du kan distribuera mobilitets tjänsten på följande sätt:
 
-- **Push-installation**: Mobilitetstjänsten installeras av processervern när du aktiverar skydd för en dator. 
-- **Installera manuellt**: Du kan installera mobilitetstjänsten manuellt på varje dator via Användargränssnittet eller Kommandotolken.
+- **Push-installation**: Mobilitets tjänsten installeras av processervern när du aktiverar skydd för en dator. 
+- **Installera manuellt**: Du kan installera mobilitets tjänsten manuellt på varje dator via UI eller kommando tolken.
 
-Mobilitetstjänsten kommunicerar med installationen för replikering och replikerade datorer. Om du har ett antivirusprogram som körs på replikering enheten, processervrar eller datorer som replikeras, bör följande mappar undantas från genomsökning:
+Mobilitets tjänsten kommunicerar med replikerings enheten och de replikerade datorerna. Om du har antivirus program som körs på replikerings enheten, bearbetar servrar eller datorer som replikeras, ska följande mappar undantas från genomsökningen:
 
 
-- C:\Program Files\Microsoft Azure Recovery Services-agenten
+- C:\Program\Microsoft Azure Recovery Services agent
 - C:\ProgramData\ASR
 - C:\ProgramData\ASRLogs
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
 - C:\Program Files (x86) \Microsoft Azure Site Recovery
-- C:\ProgramData\ASR\agent (på Windows-datorer med mobilitetstjänsten installerad)
+- C:\ProgramData\ASR\agent (på Windows-datorer med mobilitets tjänsten installerad)
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 
-1. När du aktiverar replikering för en virtuell dator, börjar den inledande replikeringen till Azure.
-2. Under den inledande replikeringen mobilitetstjänsten läser data från datordiskar och skickar dem till processervern.
-3. Dessa data används för att dirigera en kopia av disken i Azure-prenumerationen. 
-4. När den inledande replikeringen är klar börjar replikeringen av deltaändringar till Azure. Replikering är på blocknivå och nära kontinuerlig.
-4. Mobilitetstjänsten fångar upp skrivningar till datorminnet disk genom att integrera med underlagringssystemet av operativsystemet. Den här metoden undviker disk i/o-åtgärder på den replikerande datorn för inkrementell replikering. 
-5. Spårade ändringar för en dator skickas till processervern på port HTTPS 9443 inkommande. Den här porten kan ändras. Processervern komprimerar och krypterar dem och skickar det till Azure. 
+1. När du aktiverar replikering för en virtuell dator börjar den inledande replikeringen till Azure.
+2. Under den inledande replikeringen läser mobilitets tjänsten data från dator diskarna och skickar dem till processervern.
+3. Dessa data används för att dirigera en kopia av disken i din Azure-prenumeration. 
+4. När den inledande replikeringen har slutförts börjar replikeringen av delta ändringar till Azure. Replikering är block nivå och nästan kontinuerlig.
+4. Mobilitets tjänsten fångar upp skrivningar till disk minne för virtuella datorer genom att integrera med underlag rings systemet i operativ systemet. Den här metoden undviker disk-I/O-åtgärder på den replikerande datorn för stegvis replikering. 
+5. Spårade ändringar för en dator skickas till processervern på port HTTPS 9443 inkommande. Den här porten kan ändras. Processervern komprimerar och krypterar den och skickar den till Azure. 
 
 ## <a name="ports"></a>Portar
 
-**enheten** | **anslutning**
+**Anordningar** | **anslutning**
 --- | --- 
-Virtuella datorer | Mobilitetstjänsten på virtuella datorer kommunicerar med lokala replikering installationen på port HTTPS 443 inkommande, för replikeringshantering.<br/><br/> Virtuella datorer skickar replikeringsdata till processervern (körs på enheten som replikering som standard) på port HTTPS 9443 inkommande. Den här porten kan ändras.
-Installation av replikering | Replikering installationen arrangerar replikeringen med Azure via port HTTPS 443 utgående.
-Processervern | Processervern tar emot replikeringsdata, optimerar och krypterar dem och skickar dem till Azure storage över port 443 utgående.
+Virtuella datorer | Mobilitets tjänsten som körs på virtuella datorer kommunicerar med den lokala replikeringstjänsten på port HTTPS 443 inkommande, för hantering av replikering.<br/><br/> Virtuella datorer skickar replikeringsdata till processervern (körs på replikerings enheten som standard) på port HTTPS 9443 inkommande. Den här porten kan ändras.
+Replikeringsfil | Replikeringstjänsten dirigerar replikering med Azure över Port HTTPS 443 utgående.
+Processerver | Processervern tar emot replikeringsdata, optimerar och krypterar den och skickar den till Azure Storage via port 443 utgående.
 
 
 ## <a name="performance-and-scaling"></a>Prestanda och skalning
 
-Som standard kan du distribuera en enda replikering-installation som körs både konfigurationsservern och processervern. Om du replikerar bara några få datorer, är den här distributionen tillräckligt. Men om du replikerar och migrera hundratals datorer, kanske en enda processerver inte kan hantera alla replikeringstrafiken. I det här fallet kan du distribuera ytterligare, skala ut processervrar.
+Som standard distribuerar du en enda replikeringsfil som kör både konfigurations servern och processervern. Om du bara replikerar några få datorer räcker den här distributionen. Men om du replikerar och migrerar hundratals datorer kanske en enskild processerver inte kan hantera all replikeringstrafik. I det här fallet kan du distribuera ytterligare, skalbara process servrar.
 
-### <a name="site-recovery-deployment-planner-for-vmware"></a>Distributionshanteraren för site Recovery för VMware
+### <a name="site-recovery-deployment-planner-for-vmware"></a>Site Recovery distributions planerare för VMware
 
-Om du replikerar virtuella VMware-datorer kan du använda den [Site Recovery Deployment Planner](../site-recovery/site-recovery-deployment-planner.md) för VMware för att avgöra prestandakrav, inklusive den dagliga datavolymen på ändra frekvensen och processervrar som du behöver.
+Om du replikerar virtuella VMware-datorer kan du använda den [Site Recovery distributions planeraren](../site-recovery/site-recovery-deployment-planner.md) för VMware för att fastställa prestanda krav, inklusive den dagliga data ändrings takten och de process servrar som du behöver.
 
-### <a name="replication-appliance-capacity"></a>Kapacitet för installation av replikering
+### <a name="replication-appliance-capacity"></a>Kapacitet för replikerings utrustning
 
-Värdena i den här tabellen kan användas för att ta reda på om du behöver en ytterligare processerver i distributionen.
+Värdena i den här tabellen kan användas för att avgöra om du behöver en ytterligare processerver i distributionen.
 
-- Om din dagliga förändringstakten (omsättningen pris) är över 2 TB, kan du distribuera en kompletterande processervern.
-- Om du replikerar mer än 200 datorer kan du distribuera en ytterligare replikering-installation.
+- Om din dagliga ändrings takt (omsättnings pris) är över 2 TB distribuerar du en ytterligare processerver.
+- Om du replikerar fler än 200 datorer kan du distribuera en ytterligare replikeringsfil.
 
-**CPU** | **Minne** | **Ledigt utrymme för datacachelagring av** | **Dataomsättningsfrekvensen** | **Begränsningar för replikering**
+**CPU** | **Minnesoptimerade** | **Ledigt utrymme för cachelagring av data** | **Omsättnings pris** | **Begränsningar för replikering**
 --- | --- | --- | --- | ---
-8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB eller mindre | < 100 datorer 
-12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB till 1 TB | 100-150 datorer.
-16 virtuella processorer (2 platser * 8 kärnor \@ 2,5 GHz) | 32 G1 |  1 TB | 1 TB till 2 TB | 151-200 datorer.
+8 virtuella processorer (2 Sockets * 4 kärnor \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB eller mindre | < 100-datorer 
+12 virtuella processorer (2 Sockets * 6 kärnor \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB till 1 TB | 100-150-datorer.
+16 virtuella processorer (2 Sockets * 8 kärnor \@ 2,5 GHz) | 32 G1 |  1 TB | 1 TB till 2 TB | 151-200-datorer.
 
-### <a name="scale-out-process-server-sizing"></a>Skalbara process server storlek
+### <a name="scale-out-process-server-sizing"></a>Storlek för skalnings process Server
 
-Om du vill distribuera en skalbar processerver kan kan den här tabellen hjälpa dig att ta reda på server-storlek.
+Om du behöver distribuera en skalbar processerver kan den här tabellen hjälpa dig att räkna upp Server storlek.
 
-**Processervern** | **Ledigt utrymme för datacachelagring av** | **Dataomsättningsfrekvensen** | **Begränsningar för replikering**
+**Processervern** | **Ledigt utrymme för cachelagring av data** | **Omsättnings pris** | **Begränsningar för replikering**
 --- | --- | --- | --- 
-4 virtuella processorer (2 platser * 2 kärnor \@ 2,5 GHz), 8 GB minne | 300 GB | 250 GB eller mindre | Upp till 85 datorer 
-8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz), 12 GB minne | 600 GB | 251 GB till 1 TB    | 86 150 datorer.
-12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz), 24 GB minne | 1 TB | 1-2 TB | 151 225 datorer.
+4 virtuella processorer (2 Sockets * 2 kärnor \@ 2,5 GHz), 8 GB minne | 300 GB | 250 GB eller mindre | Upp till 85 datorer 
+8 virtuella processorer (2 Sockets * 4 kärnor \@ 2,5 GHz), 12 GB minne | 600 GB | 251 GB till 1 TB    | 86-150-datorer.
+12 virtuella processorer (2 Sockets * 6 kärnor \@ 2,5 GHz), 24 GB minne | 1 TB | 1-2 TB | 151-225-datorer.
 
-## <a name="control-upload-throughput"></a>Kontrollen uppladdningsdataflödet
-
-Du kan begränsa mängden bandbredd som används för att ladda upp data till Azure på varje Hyper-V-värd. Var försiktig. Om du har angett värden för lågt påverkar negativt replikering och fördröjning migrering.
+## <a name="control-upload-throughput"></a>Styr uppladdnings data flöde
 
 
-1. Logga in på noden för Hyper-V-värden eller klustret.
-2. Kör **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**, för att öppna snapin-modulen för Windows Azure Backup MMC.
-3. I snapin-modulen, väljer **ändra egenskaper för**.
-4. I **begränsning**väljer **aktivera Användningsbegränsning för internetbandbredd för säkerhetskopieringsåtgärder**. Ange begränsningarna för arbetstid och icke-tid. Giltiga intervall är från 512 kbit/s till 1,023 Mbit/s.
-I
+ VMware-trafik som replikeras till Azure går genom en speciell processerver. Du kan begränsa uppladdnings flödet genom att begränsa bandbredden på datorerna som körs som process servrar. Du kan påverka bandbredden med hjälp av den här register nyckeln:
 
-### <a name="influence-upload-efficiency"></a>Möjlighet att påverka uppladdning effektivitet
+- Registervärdet HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure-Backup\Replication\UploadThreadsPerVM anger antalet trådar som används för data överföring (inledande eller delta-replikering) på en disk. Ett högre värde ökar nätverks bandbredden som används för replikering. Standardvärdet är fyra. Det maximala värdet är 32. Övervaka trafiken för att optimera värdet.
+- Dessutom kan du begränsa bandbredden på processervern på följande sätt:
 
-Om du har ledig bandbredd för replikering och vill utöka överföringar, kan du öka antalet trådar som allokerats för överföringsaktiviteten, enligt följande:
+    1. Öppna snapin-modulen Azure Backup MMC på processervern. Det finns en genväg på Skriv bordet eller i mappen C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 
+    2. Välj **ändra egenskaper**i snapin-modulen.
+    3. Under **begränsning**väljer du **Aktivera användnings begränsning för Internet bandbredd för säkerhets kopierings åtgärder**. Ange gränserna för arbets tid och ledig tid. Giltiga intervall är mellan 512 och 1 023 Mbit/s.
 
-1. Öppna registret med Regedit.
-2. Gå till nyckeln HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
-3. Öka värdet för antalet trådar som används för överföring av data för varje replikerande virtuella datorn. Standardvärdet är 4 och maxvärdet är 32. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa agentbaserad [VMware VM-migrering](tutorial-migrate-vmware-agent.md) med hjälp av Azure Migrate servermigrering.
+Prova agent-baserad [virtuell VMware-migrering](tutorial-migrate-vmware-agent.md) med hjälp av Azure Migrate Server-migrering.

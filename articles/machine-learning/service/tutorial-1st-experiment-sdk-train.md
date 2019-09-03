@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
-ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 09/03/2019
+ms.openlocfilehash: 8065284d65f1b0a91fc05846b451305906c74fc8
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051626"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231111"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudier: Träna din första ML-modell
 
@@ -34,6 +34,29 @@ I den här självstudien kommer du att lära dig följande:
 Den enda förutsättningen är att köra en del av den här självstudien, [installations miljön och arbets ytan](tutorial-1st-experiment-sdk-setup.md).
 
 I den här delen av självstudien kör du koden i exempel Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` som öppnades i slutet av del en. Den här artikeln vägleder dig genom samma kod som finns i antecknings boken.
+
+## <a name="launch-jupyter-web-interface"></a>Starta Jupyter-webbgränssnitt
+
+1. På arbets ytans sida i Azure Portal väljer du **Notebook VM** : ar till vänster.
+
+1. Välj **Jupyter** i **URI** -kolumnen för den virtuella dator som du skapade i del ett av den här självstudien.
+
+    ![Starta Jupyter Notebook-servern](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+
+   Länken startar din Notebook-Server och öppnar Jupyter Notebook-webbsida på en ny flik i webbläsaren.  Den här länken fungerar bara för den person som skapar den virtuella datorn. Varje användare av arbets ytan måste skapa sin egen virtuella dator.
+
+1. På webb sidan för Jupyter Notebook väljer du den översta mappnamn som innehåller ditt användar namn.  
+
+
+   Den här mappen finns i [lagrings kontot](concept-workspace.md#resources) för arbets ytan i stället för på själva Notebook-datorn.  Om du tar bort den virtuella Notebook-datorn behåller du fortfarande allt ditt arbete.  När du skapar en ny Notebook VM senare, kommer den att läsa in samma mapp. Om du delar din arbets yta med andra, kommer de att se din mapp och du ser dem.
+
+1. `samples-*` Öppna under katalogen och öppna Jupyter Notebook`tutorials/tutorial-1st-experiment-sdk-train.ipynb`
+
+   > [!Warning]
+   > Se till att du `tutorial-1st-experiment-sdk-train.ipynb` öppnar filen , inte `.yml` filen i > samma namn. 
+
+1. Resten av den här artikeln innehåller samma innehåll som du ser i antecknings boken.  Växla till antecknings boken nu om du vill köra koden.
+
 
 ## <a name="connect-workspace-and-create-experiment"></a>Anslut arbets ytan och skapa experiment
 

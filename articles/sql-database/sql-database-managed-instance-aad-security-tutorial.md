@@ -9,12 +9,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: 87bd22ec4f2cfae62d1f80284ad8346ca292d016
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 37098411f465c611dc9d2e2443f369e01d6e338c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567668"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231000"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Självstudier: Säkerhet för hanterad instans i Azure SQL Database med hjälp av Azure AD-serverhuvudkonton (inloggningar)
 
@@ -55,10 +55,12 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Begränsa åtkomsten till din hanterade instans
 
-Hanterade instanser kan endast nås via en privat IP-adress. Det finns inga tjänstslutpunkter som är tillgängliga för att ansluta till en hanterad instans utanför instansens nätverk. Ungefär som en isolerad SQL Server lokal miljö behöver program eller användare åtkomst till det virtuella nätverk som hanteras av en anslutning innan en anslutning kan upprättas. Mer information finns i artikeln [Ansluta program till en hanterad instans](sql-database-managed-instance-connect-app.md).
+Hanterade instanser kan nås via en privat IP-adress. Ungefär som en isolerad SQL Server lokal miljö behöver program eller användare åtkomst till det virtuella nätverk som hanteras av en anslutning innan en anslutning kan upprättas. Mer information finns i artikeln [Ansluta program till en hanterad instans](sql-database-managed-instance-connect-app.md).
+
+Det är också möjligt att konfigurera en tjänst slut punkt på den hanterade instansen, vilket möjliggör offentliga anslutningar på samma sätt som Azure SQL Database. Mer information finns i följande artikel, konfigurera en [offentlig slut punkt i Azure SQL Database Hanterad instans](sql-database-managed-instance-public-endpoint-configure.md).
 
 > [!NOTE] 
-> Eftersom hanterade instanser bara kan nås från sitt VNET gäller inte [SQL Database-brandväggsreglerna](sql-database-firewall-configure.md). Hanterade instanser har en egen [inbyggd brandvägg](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Även om tjänst slut punkter är aktiverade [SQL Database brand Väggs regler](sql-database-firewall-configure.md) gäller inte. Den hanterade instansen har en egen [inbyggd brand vägg](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) för att hantera anslutningen.
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Skapa ett Azure AD-serverhuvudkonto (inloggning) för en hanterad instans med hjälp av SSMS
 

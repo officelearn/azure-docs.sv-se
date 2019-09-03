@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d720f220b8903d960e7bba2a75aa5a86bd0391ce
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 10d1e2fc607df205ea8922a81a1322d4121f30f7
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226000"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232290"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuera de NHSa skiss exemplen från Storbritannien och Storbritannien
 
@@ -57,7 +57,7 @@ Din kopia av skiss exemplet har nu skapats i din miljö. Den skapas i **utkast**
 
 ## <a name="assign-the-sample-copy"></a>Tilldela exempel kopian
 
-När kopieringen av skiss exemplet har publicerats kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
+När kopieringen av skiss exemplet har publicerats kanden tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
 
 1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
 
@@ -67,7 +67,7 @@ När kopieringen av skiss exemplet har publicerats kan den tilldelas en prenumer
 
 1. Ange parameter värden för skiss tilldelningen:
 
-   - Grundläggande inställningar
+   - Grundinställningar
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
      - **Tilldelnings namn**: Namnet är ifyllt för dig baserat på namnet på skissen.
@@ -83,7 +83,7 @@ När kopieringen av skiss exemplet har publicerats kan den tilldelas en prenumer
 
      Lämna alternativet standard _tilldelade_ hanterade identiteter.
 
-   - Artefakt parametrar
+   - Artefaktparametrar
 
      De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
 
@@ -96,7 +96,7 @@ När kopieringen av skiss exemplet har publicerats kan den tilldelas en prenumer
 
 I följande tabell visas en lista över Skissernas artefakt parametrar:
 
-Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
+Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
 |-|-|-|-|
 |Skiss initiativ för NHS Storbritannien eller Storbritannien|Principtilldelning |Resurs typer för att granska diagnostikloggar (princip: Skiss initiativ för de officiella eller brittiska NHS i Storbritannien |Lista över resurs typer som ska granskas om diagnostisk logg inställning är antecknings aktive rad.  För acceptabla värden, se [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
 |\[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i området (princip: \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
@@ -112,7 +112,7 @@ Nu när du har granskat stegen för att distribuera NHS-skisserna från Storbrit
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Lär dig mer om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Lär dig mer om [skiss livs cykeln](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).

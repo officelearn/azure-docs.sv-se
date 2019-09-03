@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3a2702abd39ecdf506d58b6bd8884f12607e29e8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: d8a9963edd689a32ae0642ac6fa4a622c248bc5b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615298"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232375"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Diagnostisk loggning i Azure Cosmos DB 
 
@@ -436,7 +436,7 @@ Läs om betydelsen av de data som returneras av varje loggsökning i [tolka Azur
 * Fråga som åtgärder tar längre tid än 3 millisekunder:
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 30000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * Fråga för vilken agent kör åtgärder:
@@ -448,7 +448,7 @@ Läs om betydelsen av de data som returneras av varje loggsökning i [tolka Azur
 * Fråga efter när de långvariga åtgärderna utfördes:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
     ```
 
 Mer information om hur du använder det nya logg Sök språket finns i [förstå loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-search-new.md). 
@@ -474,7 +474,7 @@ I följande tabell beskrivs innehållet i varje loggpost.
 | **clientIpAddress** | **clientIpAddress_s** | Klientens IP-adress. |
 | **requestCharge** | **requestCharge_s** | Antalet enheter för programbegäran som används av åtgärden |
 | **collectionRid** | **collectionId_s** | Unikt ID för samlingen.|
-| **Varaktighet** | **duration_s** | Varaktighet för åtgärden, i ticken. |
+| **Varaktighet** | **duration_s** | Åtgärdens varaktighet i millisekunder. |
 | **requestLength** | **requestLength_s** | Längden på begäran, i byte. |
 | **responseLength** | **responseLength_s** | Längden på svaret, i byte.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Det här värdet är inte tom när [resurstokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) används för autentisering. Värdet som pekar på resurs-ID för användaren. |

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325115"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231484"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Konfigurera katastrof återställning för ett SharePoint-program med flera nivåer för haveri beredskap med hjälp av Azure Site Recovery
 
@@ -56,7 +56,7 @@ SharePoint kan distribueras på en eller flera servrar med hjälp av nivåbasera
 
 ## <a name="site-recovery-support"></a>Site Recovery-stöd
 
-För att skapa den här artikeln användes virtuella VMware-datorer med Windows Server 2012 R2 Enterprise. SharePoint 2013 Enterprise Edition och SQL Server 2014 Enterprise Edition användes. Eftersom Site Recovery replikeringen är Application oberoende, förväntas de rekommendationer som anges här även i följande scenarier.
+Site Recovery är program-oberoende och bör fungera med alla versioner av SharePoint som körs på en dator som stöds. För att skapa den här artikeln användes virtuella VMware-datorer med Windows Server 2012 R2 Enterprise. SharePoint 2013 Enterprise Edition och SQL Server 2014 Enterprise Edition användes.
 
 ### <a name="source-and-target"></a>Källa och mål
 
@@ -67,13 +67,6 @@ För att skapa den här artikeln användes virtuella VMware-datorer med Windows 
 **Fysisk server** | Ja | Ja
 **Azure** | Ej tillämpligt | Ja
 
-### <a name="sharepoint-versions"></a>SharePoint-versioner
-Följande SharePoint Server-versioner stöds.
-
-* SharePoint Server 2013 standard
-* SharePoint Server 2013 Enterprise
-* SharePoint Server 2016 standard
-* SharePoint Server 2016 Enterprise
 
 ### <a name="things-to-keep-in-mind"></a>Saker att tänka på
 
@@ -93,7 +86,7 @@ Följ [den här vägledningen](site-recovery-vmware-to-azure.md) för att påbö
 
 ## <a name="networking-configuration"></a>Nätverks konfiguration
 
-### <a name="network-properties"></a>Nätverks egenskaper
+### <a name="network-properties"></a>Nätverksegenskaper
 
 * Konfigurera nätverks inställningar i Azure Portal så att de virtuella datorerna blir anslutna till rätt DR-nätverk efter redundansväxlingen.
 
@@ -109,7 +102,7 @@ Följ [den här vägledningen](site-recovery-vmware-to-azure.md) för att påbö
 För webbplatser som riktas mot Internet [skapar du en Traffic Manager profil med prioritets typ](../traffic-manager/traffic-manager-create-profile.md) i Azure-prenumerationen. Och konfigurera sedan din DNS-och Traffic Manager-profil på följande sätt.
 
 
-| **Vilken** | **Källa** | **Fokusera**|
+| **Vilken** | **Källa** | **Mål**|
 | --- | --- | --- |
 | Offentligt DNS | Offentlig DNS för SharePoint-webbplatser <br/><br/> Till exempel: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
 | Lokal DNS | sharepointonprem.contoso.com | Offentlig IP-adress i den lokala gruppen |

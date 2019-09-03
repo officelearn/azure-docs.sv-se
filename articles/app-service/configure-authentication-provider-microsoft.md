@@ -1,6 +1,6 @@
 ---
 title: Konfigurera autentisering av Microsoft-konto – Azure App Service
-description: Lär dig hur du konfigurerar autentisering med Microsoft-konto för ditt App Services-program.
+description: Lär dig hur du konfigurerar autentisering med Microsoft-konto för din App Service-app.
 author: mattchenderson
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cb2da26fcc00d1daf4b2dd0faf8bde8b743b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0832c1e5f10cdb8e1d7a2edbb88162230ab13401
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098523"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233081"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Så här konfigurerar du ditt App Service program för att använda inloggning med Microsoft-konto
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -61,7 +61,7 @@ Det här avsnittet visar hur du konfigurerar Azure App Service att använda Micr
 
 4. Valfritt Om du vill begränsa åtkomsten till Microsoft-konto användare anger du **åtgärd som ska vidtas när begäran inte autentiseras** att **Logga in med Microsoft-konto**. Detta kräver att alla begär Anden autentiseras och att alla oautentiserade begär Anden omdirigeras till Microsoft-konto för autentisering.
 
-> [!CAUTION]
+> [!NOTE]
 > Att begränsa åtkomsten på det här sättet gäller alla anrop till appen, vilket kanske inte är önskvärt för appar som vill ha en offentligt tillgänglig start sida, som i många program med en enda sida. För sådana program kan du **tillåta anonyma begär Anden (ingen åtgärd)** , med appen manuellt startar inloggningen, enligt beskrivningen [här](overview-authentication-authorization.md#authentication-flow).
 
 5. Klicka på **Spara**.

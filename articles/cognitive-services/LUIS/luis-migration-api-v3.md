@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: diberry
-ms.openlocfilehash: 82285b27822b6c93f8efc24579bb99c308649ac0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5b0516f3d610c0a518d6afc461dddebfb68a7c5d
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932679"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213510"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Förhandsversion: Migrera till API version 3. x för LUIS-appar
 
@@ -164,7 +164,7 @@ const score = intents[topIntentName];
 Ändringarna i svars-JSON-schemat tillåter:
 
 * Ta bort distinktionen mellan ursprunglig `query`uttryck, och returnerade `prediction`förutsägelser.
-* Enklare programmerings åtkomst till förväntade data. I stället för att räkna upp genom en matris i v2 kan du komma åt värden genom att **namnge** både avsikter och entiteter. För förväntade enhets roller returneras roll namnet eftersom det är unikt i hela appen.
+* Enklare programmerings åtkomst till förväntade data. I stället för att räkna upp genom en matris i v2 kan du komma åt värden efter **namn** för både avsikter och entiteter. För förväntade enhets roller returneras roll namnet eftersom det är unikt i hela appen.
 * Data typer, om de fastställs, är uppfyllda. Numeriska värden returneras inte längre som strängar.
 * Skillnaden mellan den första prioriterade förutsägelse informationen och ytterligare metadata som returneras i `$instance` objektet. 
 
@@ -223,7 +223,7 @@ I v2 identifieras entiteten av _entitetsnamnet_ med rollen som en egenskap för 
 ]
 ```
 
-I v3 refereras entiteten av entitets _rollen_ , om förutsägelsen är för rollen:
+I v3 refereras entiteten av entitets _rollen_, om förutsägelsen är för rollen:
 
 ```JSON
 "entities":{
@@ -418,7 +418,7 @@ Skicka i följande JSON-brödtext för att lägga till en ny under lista med syn
     },
     "dynamicLists": [
         {
-            "listEntityName":"ProductList",
+            "listEntity*":"ProductList",
             "requestLists":[
                 {
                     "name": "Azure Cognitive Services",

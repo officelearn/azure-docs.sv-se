@@ -1,37 +1,37 @@
 ---
-title: Så här hanterar du tilldelningar med PowerShell
-description: Lär dig hur du hanterar skissen tilldelningar med officiella Azure skisser PowerShell-modulen, Az.Blueprint.
+title: Hantera tilldelningar med PowerShell
+description: Lär dig hur du hanterar skiss tilldelningar med den officiella Azure-ritningen PowerShell-modul, AZ. skiss.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d8eacffe4b792eda5d81051f6aa65caa3292c896
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: beaa3f4c5ab272592e7fae5a95b40a9b586aaf65
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60682851"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232882"
 ---
-# <a name="how-to-manage-assignments-with-powershell"></a>Så här hanterar du tilldelningar med PowerShell
+# <a name="how-to-manage-assignments-with-powershell"></a>Hantera tilldelningar med PowerShell
 
-En tilldelning av skissen kan hanteras med den **Az.Blueprint** Azure PowerShell-modulen. Har stöd för modulen hämtar, skapa, uppdatera och ta bort tilldelningar. Modulen kan också hämta information i befintliga skissdefinitioner. Den här artikeln beskriver hur du installerar modulen och börja använda den.
+En skiss tilldelning kan hanteras med hjälp av modulen **AZ. skiss** Azure PowerShell. Modulen har stöd för att hämta, skapa, uppdatera och ta bort tilldelningar. Modulen kan också hämta information om befintliga skiss definitioner. Den här artikeln beskriver hur du installerar modulen och börjar använda den.
 
-## <a name="add-the-azblueprint-module"></a>Lägg till modulen Az.Blueprint
+## <a name="add-the-azblueprint-module"></a>Lägg till modulen AZ. skiss
 
-Om du vill aktivera Azure PowerShell för att hantera tilldelningar för skissen måste modulen läggas till. Den här modulen kan användas med lokalt installerat PowerShell, med [Azure Cloud Shell](https://shell.azure.com) eller med [Azure PowerShell Docker-avbildningen](https://hub.docker.com/r/azuresdk/azure-powershell/).
+Om du vill aktivera Azure PowerShell hantera skiss tilldelningar måste modulen läggas till. Den här modulen kan användas med lokalt installerat PowerShell, med [Azure Cloud Shell](https://shell.azure.com) eller med [Azure PowerShell Docker-avbildningen](https://hub.docker.com/r/azuresdk/azure-powershell/).
 
 ### <a name="base-requirements"></a>Grundläggande krav
 
-Modulen Azure skisser måste ha följande programvara:
+Modulen Azure-modeller kräver följande program vara:
 
 - Azure PowerShell 1.5.0 eller högre. Om den ännu inte är installerad följer du [de här instruktionerna](/powershell/azure/install-az-ps).
 - PowerShellGet 2.0.1 eller högre. Om den inte är installerad eller uppdaterad följer du [de här instruktionerna](/powershell/gallery/installing-psget).
 
 ### <a name="install-the-module"></a>Installera modulen
 
-Skisser-modulen för PowerShell är **Az.Blueprint**.
+Modulen modeller för PowerShell är **AZ. skissa**.
 
 1. Från en **administrativ** PowerShell-prompt kör du följande kommando:
 
@@ -41,21 +41,21 @@ Skisser-modulen för PowerShell är **Az.Blueprint**.
    ```
 
    > [!NOTE]
-   > Om **Az.Accounts** är redan installerad kan det vara nödvändigt att använda `-AllowClobber` att verkställa installation.
+   > Om **AZ. Accounts** redan är installerat kan du behöva använda `-AllowClobber` för att framtvinga installationen.
 
-1. Verifiera att modulen har importerats och är rätt version (0.1.0):
+1. Kontrol lera att modulen har importer ATS och att den är rätt version (0.1.0):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.Blueprint module
    Get-Command -Module 'Az.Blueprint' -CommandType 'Cmdlet'
    ```
 
-## <a name="get-blueprint-definitions"></a>Hämta skissdefinitioner
+## <a name="get-blueprint-definitions"></a>Hämta skiss definitioner
 
-Det första steget för att arbeta med en tilldelning är ofta hämtar en referens till en skissdefinitionen.
-Den `Get-AzBlueprint` cmdlet hämtar en eller flera skissdefinitioner. Cmdlet: en kan hämta skissdefinitioner från en hanteringsgrupp med `-ManagementGroupId {mgId}` eller en prenumeration med `-SubscriptionId {subId}`. Den **namn** parametern hämtar en skissdefinitionen, men måste användas med **ManagementGroupId** eller **SubscriptionId**. **Version** kan användas med **namn** kan vara mer explicit om vilka skissdefinitionen returneras. I stället för **Version**, växeln `-LatestPublished` grabs de senast publicerade versionen.
+Det första steget för att arbeta med en tilldelning får ofta en referens till en skiss definition.
+`Get-AzBlueprint` Cmdleten hämtar en eller flera skiss definitioner. Cmdleten kan hämta skiss definitioner från en hanterings grupp `-ManagementGroupId {mgId}` med eller en prenumeration `-SubscriptionId {subId}`med. Parametern **Name** hämtar en skiss definition, men den måste användas med **ManagementGroupId** eller **SubscriptionId**. **Version** kan användas med **ett namn** för att vara mer utförlig om vilken skiss definition som returneras. I stället för **version**tar växeln `-LatestPublished` den senast publicerade versionen.
 
-I följande exempel används `Get-AzBlueprint` att hämta alla versioner av en skissdefinitionen med namnet ”101-skisser-definition-prenumeration” från en specifik prenumeration visas som `{subId}`:
+I följande exempel används `Get-AzBlueprint` för att hämta alla versioner av en skiss definition med namnet "101-skisser-definition-Subscription" från en speciell `{subId}`prenumeration som visas som:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -67,7 +67,7 @@ $blueprints = Get-AzBlueprint -SubscriptionId '{subId}' -Name '101-blueprints-de
 $blueprints
 ```
 
-Exempelutdata för ett skissdefinitionen med flera versioner ser ut så här:
+Exempel resultatet för en skiss definition med flera versioner ser ut så här:
 
 ```output
 Name                 : 101-blueprints-definition-subscription
@@ -82,7 +82,7 @@ Parameters           : {storageAccount_storageAccountType, storageAccount_locati
 ResourceGroups       : ResourceGroup
 ```
 
-Den [skiss parametrar](../concepts/parameters.md#blueprint-parameters) på skissen definition kan utökas för att ge mer information.
+[Skiss parametrarna](../concepts/parameters.md#blueprint-parameters) i skiss definitionen kan utökas för att ge mer information.
 
 ```azurepowershell-interactive
 $blueprints.Parameters
@@ -97,11 +97,11 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 [Usergrouporapplicationname]:Reader_RoleAssignmentName Microsoft.Azure.Commands.Blueprint.Models.PSParameterDefinition
 ```
 
-## <a name="get-blueprint-assignments"></a>Hämta tilldelningar för skissen
+## <a name="get-blueprint-assignments"></a>Hämta skiss uppgifter
 
-Om skisstilldelningen redan finns, kan du hämta en referens till den med den `Get-AzBlueprintAssignment` cmdlet. Cmdlet: en tar **SubscriptionId** och **namn** som valfria parametrar. Om **SubscriptionId** inte anges används den aktuella prenumerationskontexten.
+Om skiss tilldelningen redan finns kan du hämta en referens till den med `Get-AzBlueprintAssignment` cmdleten. Cmdleten använder **SubscriptionId** och **namnet** som valfria parametrar. Om **SubscriptionId** inte anges används den aktuella prenumerations kontexten.
 
-I följande exempel används `Get-AzBlueprintAssignment` att hämta en enda skisstilldelningen med namnet ”tilldelning-Lås-resource-groups” från en viss prenumeration visas som `{subId}`:
+I följande exempel används `Get-AzBlueprintAssignment` för att hämta en enda skiss tilldelning med namnet "tilldelning-lås-resurs-grupper" från en viss prenumeration `{subId}`som visas som:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -113,7 +113,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -SubscriptionId '{subId}' -Name
 $blueprintAssignment
 ```
 
-Exempelutdata för ett skisstilldelningen ser ut så här:
+Exempel resultatet för en skiss tilldelning ser ut så här:
 
 ```output
 Name              : Assignment-lock-resource-groups
@@ -129,45 +129,45 @@ ResourceGroups    : ResourceGroup
 
 ## <a name="create-blueprint-assignments"></a>Skapa skiss tilldelningar
 
-Om skisstilldelningen ännu inte finns, kan du skapa den med den `New-AzBlueprintAssignment` cmdlet. Den här cmdleten använder följande parametrar:
+Om skiss tilldelningen inte finns ännu kan du skapa den med `New-AzBlueprintAssignment` cmdleten. Denna cmdlet använder följande parametrar:
 
-- **Namn på** [krävs]
-  - Anger namnet på skisstilldelningen
-  - Måste vara unikt och inte redan finns i **prenumerations-ID**
-- **Skissen** [krävs]
-  - Anger skissdefinitionen att tilldela
-  - Använd `Get-AzBlueprint` att hämta referensobjektet
-- **Plats** [krävs]
-  - Anger regionen för systemtilldelade hanterade identitets- och prenumeration distributionsobjektet skapas i
-- **Prenumeration** (valfritt)
+- **Namn** kunna
+  - Anger namnet på skiss tilldelningen
+  - Måste vara unikt och finns inte redan i **SubscriptionId**
+- **Skiss** kunna
+  - Anger den skiss definition som ska tilldelas
+  - Används `Get-AzBlueprint` för att hämta referens objekt
+- **Plats** kunna
+  - Anger regionen för den systemtilldelade distributions objekt för hanterad identitet och prenumeration som ska skapas i
+- **Prenumeration** valfritt
   - Anger den prenumeration som tilldelningen har distribuerats till
-  - Om du inte som standard den aktuella prenumerationskontexten
-- **Lås** (valfritt)
-  - Definierar den [skiss resource låsning](../concepts/resource-locking.md) för distribuerade resurser
+  - Om inget värde anges används den aktuella prenumerations kontexten som standard
+- **Lås** valfritt
+  - Definierar den [skiss resurs låsning](../concepts/resource-locking.md) som ska användas för distribuerade resurser
   - Alternativ som stöds: _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
-  - Om du inte har angetts som standard _None_
-- **SystemAssignedIdentity** (valfritt)
-  - Välj att skapa en automatiskt genererad hanterad identitet för tilldelningen och distribuera resurser
-  - Standardvärdet för parametern ”identitet”
+  - Om inget värde anges används _ingen_
+- **SystemAssignedIdentity** valfritt
+  - Välj om du vill skapa en systemtilldelad hanterad identitet för tilldelningen och distribuera resurserna
+  - Standardvärdet för parametern "identitet" har angetts
   - Kan inte användas med **UserAssignedIdentity**
-- **UserAssignedIdentity** (valfritt)
-  - Anger användartilldelade hanterade identiteten för tilldelningen och distribuera resurser
-  - En del av parameteruppsättningen ”identitet”
+- **UserAssignedIdentity** valfritt
+  - Anger den användare som tilldelats den hanterade identitet som ska användas för tilldelningen och för att distribuera resurserna
+  - En del av parametern "identitet" har angetts
   - Kan inte användas med **SystemAssignedIdentity**
-- **Parametern** (valfritt)
-  - En [hashtabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) av nyckel/värde-par för inställningen [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) på skiss tilldelning
-  - Standardvärde för en dynamisk parameter är den **defaultValue** i definitionen
-  - Om en parameter har angetts inte och har någon **defaultValue**, parametern inte är valfritt
+- **Parameter** valfritt
+  - En [hash-tabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) med nyckel/värde-par för att ange [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) för skiss tilldelningen
+  - Standardvärdet för en dynamisk parameter är **DefaultValue** i definitionen
+  - Om en parameter inte anges och saknar **Standardvärde**, är parametern inte valfri
 
     > [!NOTE]
     > **Parametern** stöder inte secureStrings.
 
-- **ResourceGroupParameter** (valfritt)
-  - En [hash-tabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) resource group artefakter
-  - Varje resurs grupp artefakt platshållare har en nyckel/värde-par för att ställa in dynamiskt **namn** och/eller **plats** på resurs grupp artefakt
-  - Om en resurs grupp-parameter har angetts och inte har någon **defaultValue**, gruppen resursparametern inte är valfritt
+- **ResourceGroupParameter** valfritt
+  - En [hash-tabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) för resurs grupps artefakter
+  - Varje resurs grupps plats hållare för artefakter har ett nyckel/värde-par för dynamisk inställning av **namn** och/eller **plats** för den här resurs grupps artefakten
+  - Om ingen resurs grupps parameter har angetts och saknar **DefaultValue**, är resurs grupps parametern inte valfri
 
-I följande exempel skapas en ny tilldelning av versionen '1.1' av 'Mina skissen' skissdefinitionen som hämtas med `Get-AzBlueprint`, ställs hanterade identitets- och tilldelning objekt platsen till 'westus2', låser resurser med  _AllResourcesReadOnly_, och anger hash-tabeller för både **parametern** och **ResourceGroupParameter** på specifik prenumeration visas som `{subId}`:
+I följande exempel skapas en ny tilldelning av version "1,1" av skiss definitionen "min-skiss" som hämtades med `Get-AzBlueprint`, anger den hanterade identitets-och tilldelnings objekt platsen till "westus2" och låser resurserna med _AllResourcesReadOnly_ , och anger hash-tabeller för både **parameter** -och **ResourceGroupParameter** för en speciell prenumeration `{subId}`som representeras som:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -188,7 +188,7 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Bluep
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 ```
 
-Exempelutdata för att skapa en tilldelning av skissen ser ut så här:
+Exempel på utdata för att skapa en skiss tilldelning ser ut så här:
 
 ```output
 Name              : my-blueprint-assignment
@@ -202,50 +202,50 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="update-blueprint-assignments"></a>Uppdatera tilldelningar för skissen
+## <a name="update-blueprint-assignments"></a>Uppdatera skiss tilldelningar
 
-Ibland är det nödvändigt att uppdatera en skisstilldelningen som redan har skapats. Den `Set-AzBlueprintAssignment` cmdleten hanterar den här åtgärden. Cmdlet: en tar de flesta av samma parametrar som den `New-AzBlueprintAssignment` cmdlet gör det, så att allt som har ställts in på tilldelning som ska uppdateras. Undantag till detta är den _namn_, _skissen_, och _SubscriptionId_. De värden som anges uppdateras.
+Ibland är det nödvändigt att uppdatera en skiss tilldelning som redan har skapats. `Set-AzBlueprintAssignment` Cmdleten hanterar den här åtgärden. Cmdlet: en tar de flesta av samma parametrar som `New-AzBlueprintAssignment` cmdleten gör, vilket gör att det går att uppdatera allt som har angetts för tilldelningen. Undantagen till detta är _namn_, _skiss_och _SubscriptionId_. Endast de angivna värdena uppdateras.
 
-Information om vad som händer när du uppdaterar en skisstilldelningen finns i [regler för uppdatering av tilldelningar](./update-existing-assignments.md#rules-for-updating-assignments).
+Information om vad som händer när du uppdaterar en skiss tilldelning finns i [regler för uppdatering av tilldelningar](./update-existing-assignments.md#rules-for-updating-assignments).
 
-- **Namn på** [krävs]
-  - Anger namnet på skisstilldelningen att uppdatera
-  - Används för att hitta tilldelningen att uppdatera, inte att ändra tilldelningen
-- **Skissen** [krävs]
-  - Anger skissdefinitionen för skisstilldelningen
-  - Använd `Get-AzBlueprint` att hämta referensobjektet
-  - Används för att hitta tilldelningen att uppdatera, inte att ändra tilldelningen
-- **Plats** (valfritt)
-  - Anger regionen för systemtilldelade hanterade identitets- och prenumeration distributionsobjektet skapas i
-- **Prenumeration** (valfritt)
+- **Namn** kunna
+  - Anger namnet på den skiss tilldelning som ska uppdateras
+  - Används för att hitta tilldelningen att uppdatera och inte ändra tilldelningen
+- **Skiss** kunna
+  - Anger skiss definitionen för skiss tilldelningen
+  - Används `Get-AzBlueprint` för att hämta referens objekt
+  - Används för att hitta tilldelningen att uppdatera och inte ändra tilldelningen
+- **Plats** valfritt
+  - Anger regionen för den systemtilldelade distributions objekt för hanterad identitet och prenumeration som ska skapas i
+- **Prenumeration** valfritt
   - Anger den prenumeration som tilldelningen har distribuerats till
-  - Om du inte som standard den aktuella prenumerationskontexten
-  - Används för att hitta tilldelningen att uppdatera, inte att ändra tilldelningen
-- **Lås** (valfritt)
-  - Definierar den [skiss resource låsning](../concepts/resource-locking.md) för distribuerade resurser
+  - Om inget värde anges används den aktuella prenumerations kontexten som standard
+  - Används för att hitta tilldelningen att uppdatera och inte ändra tilldelningen
+- **Lås** valfritt
+  - Definierar den [skiss resurs låsning](../concepts/resource-locking.md) som ska användas för distribuerade resurser
   - Alternativ som stöds: _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
-- **SystemAssignedIdentity** (valfritt)
-  - Välj att skapa en automatiskt genererad hanterad identitet för tilldelningen och distribuera resurser
-  - Standardvärdet för parametern ”identitet”
+- **SystemAssignedIdentity** valfritt
+  - Välj om du vill skapa en systemtilldelad hanterad identitet för tilldelningen och distribuera resurserna
+  - Standardvärdet för parametern "identitet" har angetts
   - Kan inte användas med **UserAssignedIdentity**
-- **UserAssignedIdentity** (valfritt)
-  - Anger användartilldelade hanterade identiteten för tilldelningen och distribuera resurser
-  - En del av parameteruppsättningen ”identitet”
+- **UserAssignedIdentity** valfritt
+  - Anger den användare som tilldelats den hanterade identitet som ska användas för tilldelningen och för att distribuera resurserna
+  - En del av parametern "identitet" har angetts
   - Kan inte användas med **SystemAssignedIdentity**
-- **Parametern** (valfritt)
-  - En [hashtabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) av nyckel/värde-par för inställningen [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) på skiss tilldelning
-  - Standardvärde för en dynamisk parameter är den **defaultValue** i definitionen
-  - Om en parameter har angetts inte och har någon **defaultValue**, parametern inte är valfritt
+- **Parameter** valfritt
+  - En [hash-tabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) med nyckel/värde-par för att ange [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) för skiss tilldelningen
+  - Standardvärdet för en dynamisk parameter är **DefaultValue** i definitionen
+  - Om en parameter inte anges och saknar **Standardvärde**, är parametern inte valfri
 
     > [!NOTE]
     > **Parametern** stöder inte secureStrings.
 
-- **ResourceGroupParameter** (valfritt)
-  - En [hash-tabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) resource group artefakter
-  - Varje resurs grupp artefakt platshållare har en nyckel/värde-par för att ställa in dynamiskt **namn** och/eller **plats** på resurs grupp artefakt
-  - Om en resurs grupp-parameter har angetts och inte har någon **defaultValue**, gruppen resursparametern inte är valfritt
+- **ResourceGroupParameter** valfritt
+  - En [hash-tabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) för resurs grupps artefakter
+  - Varje resurs grupps plats hållare för artefakter har ett nyckel/värde-par för dynamisk inställning av **namn** och/eller **plats** för den här resurs grupps artefakten
+  - Om ingen resurs grupps parameter har angetts och saknar **DefaultValue**, är resurs grupps parametern inte valfri
 
-I följande exempel uppdateras tilldelningen av version '1.1' av 'Mina skissen' skissdefinitionen som hämtas med `Get-AzBlueprint` genom att ändra lock-läge:
+I följande exempel uppdateras tilldelningen av version 1,1 av skiss definitionen My-skiss med `Get-AzBlueprint` genom att ändra lås läget:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -258,7 +258,7 @@ $bpAssignment = Set-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Bluep
     -SubscriptionId '{subId}' -Lock AllResourcesDoNotDelete
 ```
 
-Exempelutdata för att skapa en tilldelning av skissen ser ut så här:
+Exempel på utdata för att skapa en skiss tilldelning ser ut så här:
 
 ```output
 Name              : my-blueprint-assignment
@@ -272,11 +272,11 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="remove-blueprint-assignments"></a>Ta bort skissen tilldelningar
+## <a name="remove-blueprint-assignments"></a>Ta bort skiss tilldelningar
 
-När det är dags för en skisstilldelningen som ska tas bort, den `Remove-AzBlueprintAssignment` cmdleten hanterar den här åtgärden. Cmdlet: en tar antingen **namn** eller **InputObject** att ange vilka skiss tilldelning för att ta bort. **SubscriptionId** är _krävs_ och måste anges i samtliga fall.
+När det är dags för en skiss tilldelning som ska tas bort, `Remove-AzBlueprintAssignment` hanterar cmdleten den här åtgärden. Cmdlet: en tar antingen **namn** eller **InputObject** för att ange vilken skiss tilldelning som ska tas bort. **SubscriptionId** _krävs_ och måste tillhandahållas i samtliga fall.
 
-I följande exempel hämtar en befintlig skisstilldelningen med `Get-AzBlueprintAssignment` och tar sedan bort den från den specifika prenumerationen som `{subId}`:
+Följande exempel hämtar en befintlig skiss tilldelning med `Get-AzBlueprintAssignment` och tar sedan bort den från den aktuella prenumerationen som visas som: `{subId}`
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -288,9 +288,9 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>Kodexempel från slutpunkt till slutpunkt
+## <a name="end-to-end-code-example"></a>Kod exempel från slut punkt till slut punkt
 
-Sammanför alla steg i följande exempel hämtar skissdefinitionen, sedan skapar, uppdaterar och tar bort en tilldelning av skissen i den specifika prenumerationen som `{subId}`:
+Genom att samla alla steg tillsammans hämtar du skiss definitionen och skapar, uppdaterar och tar bort en skiss tilldelning i den angivna prenumerationen som visas som `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -332,7 +332,7 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [livscykeln för en skiss](../concepts/lifecycle.md).
+- Lär dig mer om [skiss livs cykeln](../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](../concepts/resource-locking.md).

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 08/14/2019
-ms.openlocfilehash: a02709ffde144e7bd5e4d05fcd0e07c5d84a15fb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 09/03/2019
+ms.openlocfilehash: e81ae2fc563300402339fc40893fbbdbbd326dcd
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035832"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233236"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tids zoner i Azure SQL Database Hanterad instans
 
@@ -83,37 +83,19 @@ Du kan återställa en säkerhets kopia eller importera data till en hanterad in
 
 ### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
-<del>När du utför en tidpunkts återställning, tolkas tiden för att återställa till UTC-tid. På så sätt kan eventuella tvetydigheter på grund av sommar tid och eventuella ändringar undvikas.<del>
-
- >[!WARNING]
-  > Det aktuella beteendet är inte i linje med instruktionen ovan och tiden att återställa till tolkas enligt tids zonen för den hanterade käll instans där automatiska databas säkerhets kopior tas från. Vi arbetar på att korrigera det här beteendet för att tolka den aktuella tidpunkten som UTC-tid.
+När du utför en tidpunkts återställning, tolkas tiden för att återställa till UTC-tid. På så sätt kan eventuella tvetydigheter på grund av sommar tid och eventuella ändringar undvikas.
 
 ### <a name="auto-failover-groups"></a>Automatiska redundansgrupper
 
 Att använda samma tidszon i en primär och sekundär instans i en grupp för växling vid fel är inte tvingande, men vi rekommenderar starkt.
 
   >[!WARNING]
-  > Vi rekommenderar starkt att du använder samma tidszon för den primära och sekundära instansen i en grupp för växling vid fel. På grund av vissa sällsynta scenarier tillämpas inte samma tidszon på primära och sekundära instanser. Det är viktigt att förstå att om du använder manuell eller automatisk redundans behåller den sekundära instansen den ursprungliga tids zonen.
+  > Vi rekommenderar starkt att du använder samma tidszon för den primära och sekundära instansen i en grupp för växling vid fel. På grund av vissa ovanliga användnings fall är det inte tvingande att behålla samma tidszon mellan primära och sekundära instanser. Det är viktigt att förstå att om du använder manuell eller automatisk redundans behåller den sekundära instansen den ursprungliga tids zonen.
 
 ## <a name="limitations"></a>Begränsningar
 
 - Det går inte att ändra tids zonen för den befintliga hanterade instansen.
 - Externa processer som startas från SQL Server Agent jobben observerar inte tids zonen för instansen.
-
-## <a name="known-issues"></a>Kända problem
-
-När en PITR-åtgärd (Point-in-Time Restore) utförs tolkas tiden för att återställa till enligt tids zonen på den hanterade instansen där automatiska databas säkerhets kopieringar tas från, även om Portal sidan för PITR antyder att tiden tolkas som UTC.
-
-Exempel:
-
-Anta att den här instansen där automatiska säkerhets kopieringar tas från har standard tids zon uppsättningen (UTC-5).
-Portal sida för återställning vid tidpunkt föreslår att tiden du väljer att återställa till är UTC-tid:
-
-![PITR med lokal tid med hjälp av portalen](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
-
-Tiden för att återställa till tolkas dock som Eastern, normal tid, och i det här exemplet kommer databasen att återställas till tillstånds nivån 9 AM Eastern, normal tid och inte UTC-tid.
-
-Om du vill göra en tidpunkts återställning till en viss tidpunkt i UTC-tid, beräknar du först motsvarande tid i tids zonen för käll instansen och använder den tiden i portalen eller PowerShell/CLI-skriptet.
 
 ## <a name="list-of-supported-time-zones"></a>Lista över tids zoner som stöds
 
@@ -125,25 +107,25 @@ Om du vill göra en tidpunkts återställning till en viss tidpunkt i UTC-tid, b
 | Hawaii, normaltid | (UTC-10:00) Hawaii |
 | Marquesas, normaltid | (UTC-09:30) Marquesasöarna |
 | Alaska, normaltid | (UTC-09:00) Alaska |
-| UTC-09 | (UTC-09:00) Koordinerad universell tid-09 |
-| Pacific, normaltid (Mexiko) | (UTC-08:00) Baja California |
-| UTC-08 | (UTC-08:00) Koordinerad universaltid-08 |
+| UTC-09 | (UTC-09:00) Coordinated Universal Time-09 |
+| Pacific, normal tid (Mexiko) | (UTC-08:00) Baja California |
+| UTC-08 | (UTC-08:00) Coordinated Universal Time-08 |
 | Pacific, normaltid | (UTC-08:00) Pacific Time (USA och Kanada) |
 | US Mountain, normaltid | (UTC-07:00) Arizona |
-| Mountain, normaltid (Mexiko) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
+| Mountain, normal tid (Mexiko) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
 | Mountain, normaltid | (UTC-07:00) Mountain Time (USA och Kanada) |
 | Centralamerika, normaltid | (UTC-06:00) Centralamerika |
 | Central, normaltid | (UTC-06:00) Central Time (USA och Kanada) |
 | Påskön, normaltid | (UTC-06:00) Påskön |
-| Central normaltid (Mexiko) | (UTC-06:00) Guadalajara, Mexico City, Monterrey |
+| Central normal tid (Mexiko) | (UTC-06:00) Guadalajara, Mexico City, Monterrey |
 | Kanada, centrala, normaltid | (UTC-06:00) Saskatchewan |
 | SA Pacific, normaltid | (UTC-05:00) Bogota, Lima, Quito, Rio Branco |
-| Normaltid, östra (Mexiko) | (UTC-05:00) Chetumal |
+| Eastern, normal tid (Mexiko) | (UTC-05:00) Chetumal |
 | Eastern, normaltid | (UTC-05:00) Eastern Time (USA och Kanada) |
 | Haiti, normaltid | (UTC-05:00) Haiti |
 | Kuba, normaltid | (UTC-05:00) Havanna |
 | US Eastern, normaltid | (UTC-05:00) Indiana (östra) |
-| Turks-och Caicosöarna, normal tid | (UTC – 05:00) Turks- och Caicosöarna |
+| Turks-och Caicosöarna, normal tid | (UTC-05:00) Turks-och Caicosöarna |
 | Paraguay, normaltid | (UTC-04:00) Asunción |
 | Atlantic, normaltid | (UTC-04:00) Atlantic Time (Kanada) |
 | Venezuela, normaltid | (UTC-04:00) Caracas |
@@ -158,10 +140,10 @@ Om du vill göra en tidpunkts återställning till en viss tidpunkt i UTC-tid, b
 | Grönland, normaltid | (UTC-03:00) Grönland |
 | Montevideo, normaltid | (UTC-03:00) Montevideo |
 | Magallanes, normaltid | (UTC-03:00) Punta Arenas |
-| Saint Pierre, normaltid | (UTC-03:00) Saint-Pierre and Miquelon |
+| Saint Pierre, normaltid | (UTC-03:00) Saint Pierre och Miquelon |
 | Bahia, normaltid | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Coordinated Universal Time-02 |
-| Mid-Atlantic, normaltid | (UTC-02:00) Mid-Atlantic - gammal |
+| Mid-Atlantic, normal tid | (UTC-02:00) Mid-Atlantic - gammal |
 | Azorerna, normaltid | (UTC-01:00) Azorerna |
 | Kap Verde, normal tid | (UTC-01:00) Cabo Verde |
 | UTC | (UTC) Coordinated Universal Time |
@@ -170,8 +152,8 @@ Om du vill göra en tidpunkts återställning till en viss tidpunkt i UTC-tid, b
 | W. Europa, normal tid | (UTC+01:00) Amsterdam, Berlin, Bern, Rom, Stockholm, Wien |
 | Centraleuropa, normaltid | (UTC+01:00) Belgrad, Bratislava, Budapest, Ljubljana, Prag |
 | Paris, Madrid, normaltid | (UTC+01:00) Bryssel, Köpenhamn, Madrid, Paris |
-| Marocko, normaltid | (UTC+01:00) Casablanca |
-| São Tomé, normaltid | (UTC+01:00) São Tomé |
+| Marocko, normaltid | (UTC + 01:00) Casablanca |
+| São Tomé, normaltid | (UTC + 01:00) Sao Tome |
 | Centraleuropeisk normaltid | (UTC+01:00) Sarajevo, Skopje, Warszawa, Zagreb |
 | W. Central Afrika, normal tid | (UTC+01:00) Västra Centralafrika |
 | Jordanien, normaltid | (UTC+02:00) Amman |
@@ -192,7 +174,7 @@ Om du vill göra en tidpunkts återställning till en viss tidpunkt i UTC-tid, b
 | Turkiet, normaltid | (UTC+03:00) Istanbul |
 | Arabien, normaltid | (UTC+03:00) Kuwait, Riyad |
 | Vitryssland, normaltid | (UTC+03:00) Minsk |
-| Ryssland, normal tid | (UTC+03:00) Moskva, St. Petersburg |
+| Ryssland, normal tid | (UTC + 03:00) Moskva, St. Petersburg |
 | E. Afrika, normal tid | (UTC+03:00) Nairobi |
 | Iran, normaltid | (UTC+03:30) Teheran |
 | Arabisk normaltid | (UTC+04:00) Abu Dhabi, Muskat |
@@ -202,7 +184,7 @@ Om du vill göra en tidpunkts återställning till en viss tidpunkt i UTC-tid, b
 | Mauritius, normaltid | (UTC+04:00) Port Louis |
 | Saratov, normaltid | (UTC+04:00) Saratov |
 | Georgien, normaltid | (UTC+04:00) Tbilisi |
-| Volgograd standardtid | (UTC+04:00) Volgograd |
+| Volgograd standardtid | (UTC + 04:00) Volgograd |
 | Kaukasus, normaltid | (UTC+04:00) Jerevan |
 | Afghanistan, normaltid | (UTC+04:30) Kabul |
 | Västra Asien, normaltid | (UTC+05:00) Asjchabad, Tasjkent |
@@ -219,15 +201,15 @@ Om du vill göra en tidpunkts återställning till en viss tidpunkt i UTC-tid, b
 | Altaj, normaltid | (UTC+07:00) Barnaul, Gorno-Altaysk |
 | W. Mongoliet, normal tid | (UTC+07:00) Hovd |
 | Nord Asien, normal tid | (UTC+07:00) Krasnoyarsk |
-| N. Centralasien, normaltid | (UTC+07:00) Novosibirsk |
+| N. Centralasien, normaltid | (UTC + 07:00) Novosibirsk |
 | Tomsk, normaltid | (UTC+07:00) Tomsk |
-| Kina, normaltid | (UTC+08:00) Beijing, Chongqing, Hongkong, Urumqi |
+| Kina, normaltid | (UTC+08:00) Beijing, Chongqing, Hongkong SAR, Urumqi |
 | Östra Nord Asien, normal tid | (UTC+08:00) Irkutsk |
 | Singapore, normal tid | (UTC+08:00) Kuala Lumpur, Singapore |
 | W. Australien, normal tid | (UTC+08:00) Perth |
 | Taipei, normaltid | (UTC+08:00) Taipei |
 | Ulan Bator, normaltid | (UTC+08:00) Ulan Bator |
-| Centr. v. Australien, normaltid | (UTC+08:45) Eucla |
+| Centrala Australien, normal tid | (UTC+08:45) Eucla |
 | Transbajkal, normaltid | (UTC+09:00) Chita |
 | Tokyo, normaltid | (UTC+09:00) Osaka, Sapporo, Tokyo |
 | Nordkorea, normaltid | (UTC + 09:00) Pyongyang |
@@ -244,7 +226,7 @@ Om du vill göra en tidpunkts återställning till en viss tidpunkt i UTC-tid, b
 | Bougainville, normaltid | (UTC+11:00) Bougainville |
 | Ryssland-tidszon 10 | (UTC+11:00) Chokurdakh |
 | Magadan, normaltid | (UTC+11:00) Magadan |
-| Norfolk, normaltid | (UTC+11:00) Norfolköarna |
+| Norfolk, normaltid | (UTC+11:00) Norfolkön |
 | Sachalin, normaltid | (UTC+11:00) Sakhalin |
 | Central Pacific, normaltid | (UTC+11:00) Salomonöarna, Nya Kaledonien |
 | Ryssland-tidszon 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky |

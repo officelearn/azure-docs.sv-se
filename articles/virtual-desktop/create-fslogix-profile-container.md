@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: 05289b8e3aa0e083dd948a2d43f3af92418bc5d2
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 078a29fc1ab66151aa41c3901bb6a3af6479a0ba
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052003"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233266"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Skapa en FSLogix profil behållare för en värd-pool med hjälp av Azure NetApp Files
 
@@ -218,7 +218,7 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 
 6. Anslut direkt till en virtuell dator del av den värdbaserade poolen med hjälp av fjärr skrivbord och öppna **Utforskaren.** Navigera sedan till **monterings Sök vägen** (i följande exempel är \\ \\monterings Sök vägen ANF-SMB-3863.gt1107.onmicrosoft.com\\ANF-VOL).
 
-   I den här mappen bör det finnas en profil-VHD som den som finns i följande exempel.
+   I den här mappen bör det finnas en profil-VHD (eller VHDX) som den som finns i följande exempel.
 
    ![En skärm bild av innehållet i mappen i monterings Sök vägen. Inuti är en enda VHD-fil med namnet "Profile_ssbb".](media/mount-path-folder.png)
 

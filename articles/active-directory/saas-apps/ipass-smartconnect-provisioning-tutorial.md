@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 09ef80742c931c9b7e8f8c2e2cf0b9e373ad6184
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 3141a32437e56bcefe830bc94109e93208e0258d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015734"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232151"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Självstudier: Konfigurera iPass-SmartConnect för automatisk användar etablering
 
@@ -57,7 +57,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 Innan du konfigurerar iPass-SmartConnect för automatisk användar etablering med Azure AD måste du hämta konfigurations information från administratörs konsolen för iPass-SmartConnect:
 
 1. För att hämta Bearer-token som behövs för att autentisera mot din iPass SmartConnect-SCIM-slutpunkt, se första gången du konfigurerar iPass SmartConnect eftersom det här värdet endast anges. 
-2. Om du inte har Bearer-token når du [iPass SmartConnect s support team] (mailto:help@ipass.com) för att hämta en ny.
+2. Om du inte har en Bearer-token kan du kontakta [IPass SmartConnect s support team](mailto:help@ipass.com) för att hämta en ny.
 
 ## <a name="add-ipass-smartconnect-from-the-gallery"></a>Lägg till iPass SmartConnect från galleriet
 

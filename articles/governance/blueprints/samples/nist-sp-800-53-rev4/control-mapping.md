@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7f55599c917011180ebb140d53defc0aca3acbb2
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 8c19e2fbe929fcc7084399ec17298f04875ba45c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983108"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231690"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Kontroll mappning av NIST SP 800-53 R4 skiss exempel
 
@@ -338,7 +338,7 @@ Nu när du har granskat kontroll mappningen av NIST SP 800-53 R4-skissen kan du 
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Lär dig mer om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Lär dig mer om [skiss livs cykeln](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).

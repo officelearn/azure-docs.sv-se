@@ -1,88 +1,87 @@
 ---
-title: Använda parametrar för att skapa dynamiska skisser
-description: Läs mer om statiska och dynamiska parametrar och hur använder dem skapar dynamiska skisser.
+title: Använda parametrar för att skapa dynamiska modeller
+description: Lär dig mer om statiska och dynamiska parametrar och hur du använder dem för att skapa dynamiska modeller.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9670433284ae963783b655322c4b18f748df52c5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356986"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231951"
 ---
-# <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska skisser genom parametrar
+# <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska modeller via parametrar
 
-En skiss som är fullständigt definierat med olika artefakter (till exempel resursgrupper, Resource Manager-mallar, principer eller rolltilldelningar) erbjuder att snabbt kunna skapa och konsekvent skapa för objekt inom Azure. Om du vill aktivera flexibel användning av dessa återanvändbara designmönster och behållare, stöder Azure skisser parametrar. Parametern skapar flexibilitet, både under definition och tilldelning för att ändra egenskaperna på artefakter som distribueras av skissen.
+En fullständigt definierad skiss med olika artefakter (till exempel resurs grupper, Resource Manager-mallar, principer eller roll tilldelningar) erbjuder snabb skapande och konsekvent skapande av objekt i Azure. För att möjliggöra flexibel användning av dessa återanvändbara design mönster och behållare stöder Azure-ritningar parametrar. Parametern skapar flexibilitet, både under definition och tilldelning, för att ändra egenskaperna för de artefakter som distribueras av skissen.
 
-Ett enkelt exempel är resource group artefakten. När det skapas en resursgrupp, har två värden som krävs som måste anges: namn och plats. När du lägger till en resursgrupp din skiss om parametrar inte fanns, skulle du definiera den namn och plats för varje användning av skissen. Repetition skulle orsaka varje användning av skissen att skapa artefakter i samma resursgrupp. Resurser i resursgruppen skulle bli en dubblett och orsaka en konflikt.
+Ett enkelt exempel är resurs gruppens artefakt. När en resurs grupp skapas, har den två nödvändiga värden som måste anges: namn och plats. När du lägger till en resurs grupp i din skiss, om det inte finns några parametrar, definierar du namnet och platsen för varje användning av skissen. Den här upprepningen skulle orsaka att varje användning av skissen skapar artefakter i samma resurs grupp. Resurser i den resurs gruppen skulle bli duplicerade och orsaka en konflikt.
 
 > [!NOTE]
-> Det är inte ett problem för två olika skisser att inkludera en resursgrupp med samma namn.
-> Om en resursgrupp som ingår i en skiss redan finns, fortsätter skissen att skapa relaterade artefakter i den resursgruppen. Detta kan orsaka en konflikt som två resurser med samma namn och resurstypen kan inte finnas inom en prenumeration.
+> Det är inte ett problem för två olika skisser att inkludera en resurs grupp med samma namn.
+> Om det redan finns en resurs grupp som ingår i en skiss fortsätter skissen att skapa relaterade artefakter i den resurs gruppen. Detta kan orsaka en konflikt som två resurser med samma namn och resurs typ får inte finnas i en prenumeration.
 
-Lösningen på det här problemet är parametrar. Skisser kan du definiera värdet för varje egenskap för artefakten under tilldelning till en prenumeration. Parametern gör det möjligt att återanvända en skiss som skapar en resursgrupp och andra resurser i en enskild prenumeration utan konflikter.
+Lösningen på det här problemet är parametrar. Med hjälp av ritningar kan du definiera värdet för varje egenskap för artefakten under tilldelning till en prenumeration. Parametern gör det möjligt att återanvända en skiss som skapar en resurs grupp och andra resurser inom en enda prenumeration utan att ha någon konflikt.
 
 ## <a name="blueprint-parameters"></a>Skissparametrar
 
-Parametrar kan skapas på skissen själva via REST-API. Dessa parametrar skiljer sig från parametrarna på var och en av artefakterna som stöds. När en parameter skapas i skissen, kan du använda den med artefakter i den skissen. Ett exempel kan vara prefixet för namngivning av resursgruppen. Artefakten kan använda skissparametern för att skapa en ”huvudsakligen dynamisk” parameter. Eftersom parametern kan också definieras under tilldelning, kan det här mönstret för en konsekvens som kan följa regler för namngivning. Anvisningar finns i [inställningen statisk parametrar – skiss nivåparametern](#blueprint-level-parameter).
+Med hjälp av REST API kan parametrar skapas i själva skissen. Parametrarna skiljer sig från parametrarna för var och en av de artefakter som stöds. När en parameter skapas i skissen kan den användas av artefakterna i den ritningen. Ett exempel kan vara prefixet för namngivning av resurs gruppen. Artefakten kan använda skiss parametern för att skapa en "mest dynamisk" parameter. Eftersom parametern även kan definieras under tilldelningen, så ger det här mönstret en konsekvens som kan följa namngivnings regler. Anvisningar finns i [Konfigurera statiska parametrar-parameter för skiss nivå](#blueprint-level-parameter).
 
-### <a name="using-securestring-and-secureobject-parameters"></a>Med hjälp av parametrarna secureString och secureObject
+### <a name="using-securestring-and-secureobject-parameters"></a>Använda secureString-och secureObject-parametrar
 
-När en Resource Manager-mall _artefakt_ har stöd för parametrarna för den **secureString** och **secureObject** typer, Azure skisser kräver var och en vara ansluten med ett Azure Key Vault.
-Den här säkerhetsåtgärd förhindrar den osäkra metoden för att lagra hemligheter tillsammans med skissen och uppmuntrar anställning av säker mönster. Azure skisser stöder denna säkerhetsåtgärd identifierar inkludering av antingen säker parameter i en Resource Manager-mall _artefakt_. Tjänsten sedan uppmanas under tilldelning för följande egenskaper för Key Vault per identifierade säker parameter:
+En _artefakt_ i en Resource Manager-mall stöder parametrar av typerna **secureString** och **SecureObject** , men Azure-ritningar kräver att var och en är ansluten till en Azure Key Vault.
+Det här säkerhets måttet förhindrar den osäkra metoden att lagra hemligheter tillsammans med skissen och uppmuntrar sysselsättning av säkra mönster. Azure-ritningar har stöd för det här säkerhets måttet och identifierar inkluderingen av antingen en säker parameter i en Resource Manager-mall _artefakt_. Tjänsten meddelar sedan under tilldelningen för följande Key Vault egenskaper per identifierad säker parameter:
 
 - Resurs-ID för Key Vault
-- Namn på hemlighet för Key Vault
-- Version av hemlighet för Key Vault
+- Key Vault hemligt namn
+- Key Vault hemlig version
 
-Om skisstilldelningen använder en **systemtilldelade hanterad identitet**, referera till Key Vault _måste_ finns i samma prenumeration som skissdefinitionen har tilldelats.
+Om en tilldelad **hanterad identitet**används för skiss tilldelningen _måste_ den refererade Key Vault finnas i samma prenumeration som skiss definitionen är tilldelad.
 
-Om skisstilldelningen använder en **användartilldelade hanterad identitet**, referera till Key Vault _kan_ finns i en centraliserad prenumeration. Den hanterade identitet måste beviljas behörighet för Key Vault före skisstilldelningen.
+Om en **användardefinierad hanterad identitet**används för skiss tilldelningen _kan_ det finnas referenser till Key Vault i en centraliserad prenumeration. Den hanterade identiteten måste beviljas lämpliga rättigheter på Key Vault innan skiss tilldelningen.
 
 > [!IMPORTANT]
-> I båda fallen Key Vault måste ha **Aktivera åtkomst till Azure Resource Manager för malldistribution** konfigurerats på den **åtkomstprinciper** sidan. Läs anvisningarna om hur du aktiverar den här funktionen [Key Vault - aktivera malldistributionen](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> I båda fallen måste Key Vault ha **åtkomst till Azure Resource Manager för att mallar ska** kunna distribueras på sidan **åtkomst principer** . Instruktioner för hur du aktiverar den här funktionen finns i [Key Vault-aktivera mall distribution](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
-Läs mer om Azure Key Vault, [översikt över Key Vault](../../../key-vault/key-vault-overview.md).
+Mer information om Azure Key Vault finns i [Key Vault översikt](../../../key-vault/key-vault-overview.md).
 
-## <a name="parameter-types"></a>Parametertyper
+## <a name="parameter-types"></a>Parameter typer
 
-### <a name="static-parameters"></a>Statisk parametrar
+### <a name="static-parameters"></a>Statiska parametrar
 
-Ett parametervärde som definierats i definitionen av en skiss kallas en **Statiska parametern**, eftersom varje användning av skissen distribuerar artefakten med hjälp av det statiska värdet. I exemplet resource group även om det inte meningsfullt för namnet på resursgruppen och kan det vara klokt för platsen. Sedan varje tilldelning av skissen skulle skapa resursgruppen, oavsett den anropas under tilldelningen på samma plats. Den här flexibiliteten gör att du ska vara selektiv i vad du definierar som krävs vs vad kan ändras under tilldelning.
+Ett parameter värde som definieras i definitionen av en skiss kallas en **statisk parameter**, eftersom varje användning av skissen distribuerar artefakten med det statiska värdet. I resurs grupp exemplet, men det inte är meningsfullt för namnet på resurs gruppen, kan det vara bra för platsen. Sedan skapar varje tilldelning av skissen resurs gruppen, oavsett om den anropas under tilldelningen, på samma plats. Den här flexibiliteten gör att du kan vara selektiv i vad du definierar som krävs jämfört med vad som kan ändras under tilldelningen.
 
-#### <a name="setting-static-parameters-in-the-portal"></a>Ställa in statisk parametrar i portalen
+#### <a name="setting-static-parameters-in-the-portal"></a>Ange statiska parametrar i portalen
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. Klicka på en befintlig skissen och klicka sedan på **redigera skiss** eller klicka på **+ skapa skiss** och Fyll i informationen på den **grunderna** fliken.
+1. Klicka på en befintlig skiss och klicka sedan på **Redigera skiss** eller klicka på **+ skapa skiss** och fyll i informationen på fliken **grundläggande** .
 
-1. Klicka på **Nästa: Artefakter** eller klicka på den **artefakter** fliken.
+1. Klicka på **Nästa: Artefakter eller klicka på fliken **artefakter.****
 
-1. Artefakter som lagts till i skissen och som har parameteralternativ visa **X Y parametrar har fyllts i** i den **parametrar** kolumn. Klicka på raden artefakt som ska redigera artefakt-parametrar.
+1. Artefakter som läggs till i skissen med parameter alternativ visar **X av Y-parametrar** som är ifyllda i kolumnen **parametrar** . Klicka på artefakt raden för att redigera artefakt parametrarna.
 
-   ![Skissparametrar på en skissdefinition](../media/parameters/parameter-column.png)
+   ![Skiss parametrar i en skiss definition](../media/parameters/parameter-column.png)
 
-1. Den **redigera artefakt** sidan visar värdealternativ som är lämpligt att artefakten klickat på. Varje parameter på artefakten har en rubrik och en värderuta en kryssruta. Inställd rutan avmarkerad så att de blir en **Statiska parametern**. I exemplet nedan, endast _plats_ är en **statiska parametern** eftersom den har alternativet är avmarkerat och _resursgruppens namn_ kontrolleras.
+1. Sidan **Redigera artefakt** visar värde alternativ som är lämpliga för den artefakt som klickas på. Varje parameter i artefakten har en rubrik, ett värde-ruta och en kryss ruta. Ange att rutan ska avmarkeras för att göra den till en **statisk parameter**. I exemplet nedan är endast _plats_ en **statisk parameter** eftersom den är omarkerad och _resurs gruppens namn_ är markerat.
 
-   ![Statisk skissparametrar på en skissartefakten](../media/parameters/static-parameter.png)
+   ![Skissa statiska parametrar på en skiss artefakt](../media/parameters/static-parameter.png)
 
-#### <a name="setting-static-parameters-from-rest-api"></a>Ställa in statisk parametrar från REST API
+#### <a name="setting-static-parameters-from-rest-api"></a>Ange statiska parametrar från REST API
 
 I varje REST API-URI finns det variabler som används och som du måste ersätta med egna värden:
 
 - `{YourMG}` – Ersätt med namnet på din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
-##### <a name="blueprint-level-parameter"></a>Nivån skissparametern
+##### <a name="blueprint-level-parameter"></a>Skiss nivå parameter
 
-När du skapar en skiss via REST-API, det är möjligt att skapa [skiss parametrar](#blueprint-parameters). Använd följande format för REST API-URI och brödtexten gör du:
+När du skapar en skiss genom REST API är det möjligt att skapa [skiss parametrar](#blueprint-parameters). Det gör du genom att använda följande REST API URI-och Body-format:
 
 - REST API-URI
 
@@ -90,7 +89,7 @@ När du skapar en skiss via REST-API, det är möjligt att skapa [skiss parametr
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Begärandetext
+- Brödtext i förfrågan
 
   ```json
   {
@@ -114,8 +113,8 @@ När du skapar en skiss via REST-API, det är möjligt att skapa [skiss parametr
   }
   ```
 
-När en nivå skissparametern har skapats kan den användas på artefakter som lagts till i den skissen.
-I följande REST API-exempel skapar en rolltilldelningsartefakten på skissen och använder parametern för skissen.
+När du har skapat en parameter på skiss nivå kan den användas för artefakter som läggs till i den ritningen.
+Följande REST API exempel skapar en roll tilldelnings artefakt på skissen och använder parametern skiss nivå.
 
 - REST API-URI
 
@@ -123,7 +122,7 @@ I följande REST API-exempel skapar en rolltilldelningsartefakten på skissen oc
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
   ```
 
-- Begärandetext
+- Brödtext i förfrågan
 
   ```json
   {
@@ -136,11 +135,11 @@ I följande REST API-exempel skapar en rolltilldelningsartefakten på skissen oc
   }
   ```
 
-I det här exemplet på **principalIds** egenskapen använder den **ägare** skiss nivåparametern med hjälp av värdet `[parameters('owners')]`. Ange en parameter för en artefakt som använder en skiss nivåparametern är fortfarande ett exempel på en **Statiska parametern**. Parametern för skissen kan inte anges under skisstilldelningen och kommer att samma värde för varje tilldelning.
+I det här exemplet använder **principalIds** -egenskapen parametern **Owners** skiss nivå med värdet `[parameters('owners')]`. Att ange en parameter i en artefakt med en skiss nivå parameter är fortfarande ett exempel på en **statisk parameter**. Det går inte att ange parametern skiss nivå under skiss tilldelningen och får samma värde för varje tilldelning.
 
-##### <a name="artifact-level-parameter"></a>Artefakten nivåparametern
+##### <a name="artifact-level-parameter"></a>Parameter för artefakt nivå
 
-Skapa **Statiska parametrar** på en artefakt är liknande, men tar en rak värde istället för att använda den `parameters()` funktion. I följande exempel skapas två statiska parametrar, **tagName** och **matchning**. Värdet på varje ges direkt och använder inte ett funktionsanrop.
+Att`parameters()` skapa **statiska parametrar** i en artefakt liknar varandra, men tar ett rakt värde i stället för att använda funktionen. I följande exempel skapas två statiska parametrar, **TagName** och **tagValue**. Värdet för varje anges direkt och använder inte ett funktions anrop.
 
 - REST API-URI
 
@@ -148,7 +147,7 @@ Skapa **Statiska parametrar** på en artefakt är liknande, men tar en rak värd
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
   ```
 
-- Begärandetext
+- Brödtext i förfrågan
 
   ```json
   {
@@ -170,7 +169,7 @@ Skapa **Statiska parametrar** på en artefakt är liknande, men tar en rak värd
 
 ### <a name="dynamic-parameters"></a>Dynamiska parametrar
 
-Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här parametern inte är definierad i skissen, men i stället definieras under varje tilldelning av skissen. I exemplet resource group användning av en **dynamisk parameter** passar för resursgruppens namn. Det ger ett annat namn för varje tilldelning av skissen. En lista över skissen funktioner finns i den [skiss funktioner](../reference/blueprint-functions.md) referens.
+Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här parametern är inte definierad i skissen, utan definieras i stället vid varje tilldelning av skissen. I resurs grupps exemplet är användningen av en **dynamisk parameter** begriplig för resurs gruppens namn. Det ger ett annat namn för varje tilldelning av skissen. En lista över skiss funktioner finns i referensen till [skiss funktioner](../reference/blueprint-functions.md) .
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Ange dynamiska parametrar i portalen
 
@@ -178,15 +177,15 @@ Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här para
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. Högerklicka på det som du vill tilldela. Välj **tilldela skissen** eller klicka på den modell som du vill tilldela och sedan klicka på den **tilldela skissen** knappen.
+1. Högerklicka på den skiss som du vill tilldela. Välj **tilldela skiss** eller klicka på den skiss som du vill tilldela och klicka sedan på knappen **tilldela skiss** .
 
-1. På den **tilldela skissen** sidan, hitta den **artefakt parametrar** avsnittet. Varje artefakt med minst en **dynamisk parameter** visar artefakten och konfigurationsalternativen. Ange obligatoriska värden för parametrarna innan du tilldelar skissen. I exemplet nedan, _namn_ är en **dynamisk parameter** som måste definieras för att slutföra skisstilldelningen.
+1. På sidan **tilldela skiss** hittar du avsnittet **artefakt parametrar** . Varje artefakt med minst en **dynamisk parameter** visar artefakten och konfigurations alternativen. Ange de värden som krävs för parametrarna innan du tilldelar skissen. I exemplet nedan är _namn_ en **dynamisk parameter** som måste definieras för fullständig skiss tilldelning.
 
-   ![Dynamisk skissparametern under skisstilldelningen](../media/parameters/dynamic-parameter.png)
+   ![Dynamisk skiss parameter under skiss tilldelningen](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Ange dynamiska parametrar från REST API
 
-Ange **dynamiska parametrar** under tilldelningen utförs genom att ange värdet direkt. Istället för att använda en funktion som [parameters()](../reference/blueprint-functions.md#parameters), det tillhandahållna värdet är en lämplig sträng. Artefakter för en resursgrupp definieras med ett ”mallnamn”, **namn**, och **plats** egenskaper. Alla andra parametrar för inkluderade artefakten definieras under **parametrar** med en **\<namn\>** och **värdet** nyckelpar. Om skissen har konfigurerats för en dynamisk parameter som inte är tillgängliga under tilldelning, misslyckas tilldelningen.
+Att ange **dynamiska parametrar** under tilldelningen görs genom att ange värdet direkt. I stället för att använda en funktion, t. ex. [parametrar ()](../reference/blueprint-functions.md#parameters), är det angivna värdet en lämplig sträng. Artefakter för en resurs grupp definieras med egenskaperna "Mallnamn", **namn**och **plats** . Alla andra parametrar för den inkluderade artefakten definieras under **parametrar** med ett **\<\>** nyckel par för namn och **värde** . Om skissen har kon figurer ATS för en dynamisk parameter som inte anges under tilldelningen kommer tilldelningen att Miss förväntas.
 
 - REST API-URI
 
@@ -194,7 +193,7 @@ Ange **dynamiska parametrar** under tilldelningen utförs genom att ange värdet
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Begärandetext
+- Brödtext i förfrågan
 
   ```json
   {
@@ -239,8 +238,8 @@ Ange **dynamiska parametrar** under tilldelningen utförs genom att ange värdet
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se en lista över [skiss funktioner](../reference/blueprint-functions.md).
-- Lär dig mer om [livscykeln för en skiss](lifecycle.md).
+- Se listan över [skiss funktioner](../reference/blueprint-functions.md).
+- Lär dig mer om [skiss livs cykeln](lifecycle.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).

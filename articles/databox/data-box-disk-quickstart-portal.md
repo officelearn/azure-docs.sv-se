@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 7623244d8b7de012d80e7e4844a9b3693ccdd662
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: b07adc955b7904c6e6a3278480cec5a2be91ec35
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186686"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232906"
 ---
 ::: zone target="docs"
 
@@ -67,7 +67,7 @@ Logga in på Azure Portal på [https://aka.ms/azuredataboxfromdiskdocs](https://
 > - **Anslut och lås upp**: Anslut enheten och lås upp disken för att kopiera data.
 > - **Kopiera data till disken och verifiera**: Kopiera data till diskarna till de förskapade mapparna.
 > - **Returnera diskarna**: Returnera diskarna till Azure-datacentret där data överförs till ditt lagrings konto.
-> - **Verifiera data i Azure**: Kontrol lera att dina data har laddats upp till ditt lagrings konto innan du tar bort det från käll datum servern.
+> - **Verifiera data i Azure**: Kontrol lera att dina data har laddats upp till ditt lagrings konto innan du tar bort det från käll data servern.
 
 ::: zone-end
 

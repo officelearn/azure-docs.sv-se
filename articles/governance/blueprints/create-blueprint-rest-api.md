@@ -7,13 +7,12 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 83133629d92abb50d9fd7509cf182282503fc041
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 54a4da8e6d2720086b86c3573623f9dac2469ea4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799218"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232920"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabbstart: Definiera och tilldela en Azure-skiss med REST API
 
@@ -73,7 +72,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 > [!NOTE]
-> Skisser kan även skapas på prenumerationsnivå. Ett exempel finns i [skapa skiss på prenumerationen exempel](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
+> Ritningar kan också skapas på prenumerations nivå. Ett exempel finns i [skapa skiss vid prenumerations exempel](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Skapa det första _skissobjektet_. **Begärandetexten** innehåller egenskaper för skissen, de resursgrupper som ska skapas och alla parametrar på skissnivå. Parametrarna anges vid tilldelning och används av artefakterna som lagts till i senare steg.
 
@@ -83,7 +82,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
      ```
 
-   - Begärandetext
+   - Brödtext i förfrågan
 
      ```json
      {
@@ -142,7 +141,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2018-11-01-preview
      ```
 
-   - Begärandetext
+   - Brödtext i förfrågan
 
      ```json
      {
@@ -162,7 +161,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2018-11-01-preview
      ```
 
-   - Begärandetext
+   - Brödtext i förfrågan
 
      ```json
      {
@@ -190,7 +189,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
      ```
 
-   - Begärandetext
+   - Brödtext i förfrågan
 
      ```json
      {
@@ -218,7 +217,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2018-11-01-preview
      ```
 
-   - Begärandetext
+   - Brödtext i förfrågan
 
      ```json
      {
@@ -304,7 +303,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
      ```
 
-   - Begärandetext
+   - Brödtext i förfrågan
 
      ```json
      {
@@ -339,7 +338,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{YourMG}` – Ersätt med ID för din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
-1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är statiska (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men ID för tjänstens huvudnamn varierar beroende på klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
+1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men tjänstens huvud namns-ID varierar av klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
 
    - REST API-URI
 
@@ -355,7 +354,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
      ```
 
-   - Begärandetext
+   - Brödtext i förfrågan
 
      ```json
      {
@@ -439,7 +438,7 @@ Om du vill ta bort själva skissen använder du följande REST API-åtgärd:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [livscykeln för en skiss](./concepts/lifecycle.md).
+- Lär dig mer om [skiss livs cykeln](./concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](./concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](./concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](./concepts/resource-locking.md).

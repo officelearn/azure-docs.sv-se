@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/28/2019
-ms.openlocfilehash: df74d2d07937634e2b656746c0a9fc9cd86b8c93
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: b1da94a2644c299447271b447f51ae4f7750774c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182615"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231069"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>Självstudier: Kom igång med att skapa ditt första ML-experiment
 
@@ -24,16 +24,14 @@ I den här självstudien slutför du stegen från slut punkt till slut punkt fö
 I den här kursen för du göra följande:
 
 > [!div class="checklist"]
-> * Skapa en Machine Learning-arbetsyta som ska användas i nästa självstudie.
+> * Skapa en [Azure Machine Learning-arbetsyta](concept-workspace.md) som ska användas i nästa självstudie.
 > * Skapa en molnbaserad Jupyter Notebook-baserad virtuell dator med Azure Machine Learning python SDK installerat och förkonfigurerat.
 
-## <a name="prerequisites"></a>Förutsättningar
-
-Den enda förutsättningen för den här självstudien är en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) idag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) idag.
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-En arbets yta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskin inlärnings modeller. Den binder din Azure-prenumeration och resurs grupp till ett enkelt förbrukat objekt i SDK: n. Om du redan har en Azure Machine Learning service-arbetsyta går du vidare till [Nästa avsnitt](#azure). Annars skapar du en nu.
+En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskin inlärnings modeller. Den binder din Azure-prenumeration och resurs grupp till ett enkelt förbrukat objekt i SDK: n. Om du redan har en Azure Machine Learning service-arbetsyta går du vidare till [Nästa avsnitt](#azure). Annars skapar du en nu.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -58,10 +56,7 @@ Från din arbets yta skapar du en moln resurs för att komma igång med Jupyter-
 1. Välj sedan **Skapa**. Det kan ta en stund att konfigurera den virtuella datorn.
 
 1. Vänta tills statusen ändras till **körs**.
-
-### <a name="launch-jupyter-web-interface"></a>Starta Jupyter-webbgränssnitt
-
-När den virtuella datorn har körts använder du avsnittet **Notebook VM** : ar för att starta Jupyter-webbgränssnittet.
+   När den virtuella datorn har körts använder du avsnittet **Notebook VM** : ar för att starta Jupyter-webbgränssnittet.
 
 1. Välj **Jupyter** i **URI** -kolumnen för den virtuella datorn.
 
@@ -69,14 +64,6 @@ När den virtuella datorn har körts använder du avsnittet **Notebook VM** : ar
 
    Länken startar din Notebook-Server och öppnar Jupyter Notebook-webbsida på en ny flik i webbläsaren.  Den här länken fungerar bara för den person som skapar den virtuella datorn. Varje användare av arbets ytan måste skapa sin egen virtuella dator.
 
-1. På webb sidan för Jupyter Notebook väljer du den översta mappnamn som innehåller ditt användar namn.  
-
-   Den här mappen finns i [lagrings kontot](concept-workspace.md#resources) för arbets ytan i stället för på själva Notebook-datorn.  Om du tar bort den virtuella Notebook-datorn behåller du fortfarande allt ditt arbete.  När du skapar en ny Notebook VM senare, kommer den att läsa in samma mapp. Om du delar din arbets yta med andra, kommer de att se din mapp och du ser dem.
-
-1. `samples-*` Öppna under katalogen och öppna Jupyter Notebook`tutorials/tutorial-1st-experiment-sdk-train.ipynb`
-
-   > [!Warning]
-   > Se till att du `tutorial-1st-experiment-sdk-train.ipynb` öppnar filen , inte `.yml` filen i > samma namn. 
 
 ## <a name="next-steps"></a>Nästa steg
 

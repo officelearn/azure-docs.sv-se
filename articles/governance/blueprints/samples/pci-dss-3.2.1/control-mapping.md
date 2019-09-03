@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c2dbfa5f6c9d679582a1834f2ff645c5ff79c51e
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: d7d62770bc0e2683fc7bc1554493954c0e98758b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515701"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232688"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Kontroll mappning för PCI-DSS v 3.2.1-skiss exemplet
 
@@ -25,7 +25,7 @@ Följande mappningar är till **PCI-DSS v 3.2.1:2018-** kontrollerna. Använd na
 
 Den här skissen hjälper dig att hantera och styra nätverk genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar nätverks säkerhets grupper med tillåtande regler. Regler som är för tillåtelse kan tillåta oönskad nätverks åtkomst och bör granskas. Den här skissen tilldelar en Azure Policy-definition som övervakar oskyddade slut punkter, program och lagrings konton. Slut punkter och program som inte skyddas av en brand vägg och lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet.
 
-- Granska obegränsad nätverksåtkomst till lagringskonton
+- Granska obegränsad nätverks åtkomst till lagrings konton
 - Åtkomst via slut punkt mot Internet bör vara begränsad
 
 ## <a name="34a-41-41g-41h-and-653-cryptographic-protection"></a>3.4. a, 4,1, 4.1. g, 4.1. h och 6.5.3 kryptografiskt skydd
@@ -34,22 +34,22 @@ Den här skissen hjälper dig att genomdriva principen med hjälp av kryptografi
 
 - Funktionen App bör enbart vara åtkomliga via HTTPS
 - Webbprogram bör enbart vara åtkomliga via HTTPS
-- API-appen bör endast vara åtkomlig via HTTPS
+- API-appen bör bara vara tillgänglig via HTTPS
 - transparent datakryptering på SQL-databaser ska aktive ras
 - Disk kryptering bör tillämpas på virtuella datorer
-- Automationskontovariabler ska krypteras
+- Variabler för Automation-konton ska vara krypterade
 - Endast säkra anslutningar till din Redis Cache ska vara aktiverade
 - Säker överföring till lagrings konton ska vara aktiverat
 - Service Fabric-kluster ska ha egenskapen ClusterProtectionLevel inställd på EncryptAndSign
 - transparent datakryptering på SQL-databaser ska aktive ras
-- Distribuera transparent datakryptering för SQL DB
+- Distribuera transparent data kryptering för SQL DB
 
 ## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5,1, 6,2, 6,6 och 11.2.1 sårbarhets-genomsökning och system uppdateringar
 
 Den här skissen hjälper dig att hantera problem med informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar saknade system uppdateringar, sårbarheter för operativ system, sårbarheter i SQL och virtuella dator sårbarheter i Azure Security Center. Azure Security Center tillhandahåller rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser.
 
-- Övervaka avsaknad av slutpunktsskydd i Azure Security Center
-- Distribuera Microsofts IaaSAntimalware-standardtillägg för Windows Server
+- Övervaka saknade Endpoint Protection i Azure Security Center
+- Distribuera standard Microsoft IaaSAntimalware-tillägget för Windows Server
 - Distribuera hot identifiering på SQL-servrar
 - System uppdateringar bör installeras på dina datorer
 - Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
@@ -75,7 +75,7 @@ Terminal.
 - MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
 - MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration
 - En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
-- Granska användning av anpassade RBAC-regler
+- Granska användningen av anpassade RBAC-regler
 
 ## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>8.1.5, lägsta behörighet och granskning av användar behörighet
 
@@ -112,7 +112,7 @@ Diagnostikloggar ger inblick i åtgärder som utfördes i Azure-resurser. Azure-
 
 - Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 - Granska diagnostikinställning
-- Granska granskningsinställningar på SQL-servernivå
+- Granska gransknings inställningar för SQL Server-nivå
 - Distribuera Granskning på SQL-servrar
 - Lagrings konton ska migreras till nya Azure Resource Manager resurser
 - Virtuella datorer ska migreras till nya Azure Resource Manager-resurser
@@ -134,7 +134,7 @@ Nu när du har granskat kontroll mappningen av PCI-DSS v 3.2.1-skissen kan du g�
 
 ## <a name="addition-articles-about-blueprints-and-how-to-use-them"></a>Ytterligare artiklar om skisser och hur de används:
 
-- Lär dig mer om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Lär dig mer om [skiss livs cykeln](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).

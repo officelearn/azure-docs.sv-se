@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 625515223da12751b7765baa795bc68d2a7b46b4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899694"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233247"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
@@ -154,7 +154,7 @@ För att kunna visa hälso tillståndet för virtuella datorer måste du aktiver
 
 Distribuera Azures resurs hanterings mall för diagnostikverktyget:
 
-1.  Gå till sidan GitHub Azure RDS – templates.
+1.  Gå till [sidan GitHub Azure RDS – templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy).
 2.  Distribuera mallen till Azure och följ instruktionerna i mallen. Se till att du har följande tillgängliga information:
 
     -   Klient-ID

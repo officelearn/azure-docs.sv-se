@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e76abcac94a877e6bc7ea5c417c77c8c2febff
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 70e3267792f27a170efa26cc4267d1b25045a099
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032699"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231232"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Uppgifter efter konfiguration för Hybrid Azure AD-anslutning
 
@@ -31,12 +31,12 @@ När du har kört Azure AD Connect för att konfigurera din organisation för Hy
 Alla domänanslutna enheter som kör Windows 10 och Windows Server 2016 registreras automatiskt med Azure AD när alla konfigurations steg har slutförts. Om du föredrar en kontrollerad distribution i stället för den här automatiska registreringen kan du använda grup principer för att selektivt aktivera eller inaktivera automatisk distribution.  Du måste ange den här grup principen innan du startar de andra konfigurations stegen:
 * Skapa ett grup princip objekt i din Active Directory.
 * Ge den namnet (till exempel hybrid Azure AD Join).
-* Redigera & gå till:  Dator konfiguration > principer > Administrativa mallar > Windows-komponenter > enhets registrering.
+* Redigera och gå till:  Dator konfiguration > principer > Administrativa mallar > Windows-komponenter > enhets registrering.
 
 >[!NOTE]
 >För 2012R2 finns princip inställningarna i **dator konfiguration > principer > Administrativa mallar > Windows-komponenter > Workplace Join > automatiskt ansluta klient datorer på arbets plats**
 
-* Inaktivera den här inställningen:  Registrera domänanslutna datorer som enheter.
+* Aktivera den här inställningen:  Registrera domänanslutna datorer som enheter.
 * Verkställ och klicka på OK.
 * Länka GRUPPRINCIPOBJEKTet till valfri plats (organisationsenhet, säkerhets grupp eller domän för alla enheter).
 

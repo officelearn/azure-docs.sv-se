@@ -1,5 +1,5 @@
 ---
-title: Förstå hur effekterna fungerar
+title: Förstå hur effekter fungerar
 description: Azure principdefinitionen har olika effekter som bestämmer hur kompatibilitet hanteras och rapporteras.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,31 +7,30 @@ ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c2bf19a2599d59b9ff2b3d189b26134f1528a878
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1ac0e70700b4b093fad09b4d10c6bdcf2e06adac
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448575"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231521"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå effekterna av Azure Policy
 
 Varje princip i Azure Policy har en enda effekt. Denna påverkan anger vad som händer när principregeln utvärderas så att de matchar. Effekterna beter sig annorlunda om de är för en ny resurs, en uppdaterad resurs eller en befintlig resurs.
 
-Dessa effekter stöds för närvarande i en definition av principen:
+Dessa effekter stöds för närvarande i en princip definition:
 
-- [Lägg till](#append)
+- [Slå](#append)
 - [Granska](#audit)
 - [AuditIfNotExists](#auditifnotexists)
-- [Neka](#deny)
+- [Autentiseringsregel](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Inaktiverad](#disabled)
-- [EnforceRegoPolicy](#enforceregopolicy) (förhandsversion)
+- [EnforceRegoPolicy](#enforceregopolicy) förhandsgranskningsvyn
 
 ## <a name="order-of-evaluation"></a>Ordningen för utvärdering
 
-Begäranden om att skapa eller uppdatera en resurs via Azure Resource Manager utvärderas först av Azure Policy. Azure Policy skapar en lista över alla tilldelningar som tillämpas på resursen och sedan utvärderar resursen mot varje definition. Azure Policy bearbetar flera effekterna innan du skickar begäran till lämplig Resursprovidern. Detta förhindrar onödig bearbetning av en Resursprovider när en resurs inte uppfyller utformade styrning kontroller av Azure Policy.
+Begär Anden om att skapa eller uppdatera en resurs via Azure Resource Manager utvärderas av Azure Policy först. Azure Policy skapar en lista med alla tilldelningar som gäller för resursen och utvärderar sedan resursen mot varje definition. Azure Policy bearbetar flera av effekterna innan du skickar begäran till rätt resurs leverantör. Detta förhindrar onödig bearbetning av en resurs leverantör när en resurs inte uppfyller de design kontroller som Azure Policy.
 
 - **Inaktiverad** kontrolleras först för att fastställa om principregeln bör utvärderas.
 - **Lägg till** utvärderas sedan. Lägg sedan till kunde ändra begäran, ändringar av Lägg till kan förhindra en granskningslogg eller neka effekt utlöser.
@@ -40,7 +39,7 @@ Begäranden om att skapa eller uppdatera en resurs via Azure Resource Manager ut
 
 När Resursprovidern returnerar en framgångskod **AuditIfNotExists** och **DeployIfNotExists** utvärdera för att fastställa om ytterligare kompatibilitet loggning eller åtgärd krävs.
 
-Det finns för närvarande inte alla utvärderingsordningen för den **EnforceRegoPolicy** effekt.
+Det finns för närvarande ingen utvärderings ordning för **EnforceRegoPolicy** -påverkan.
 
 ## <a name="disabled"></a>Inaktiverad
 
@@ -52,7 +51,7 @@ Lägg till används för att lägga till fler fält till den begärda resursen u
 
 ### <a name="append-evaluation"></a>Lägga till utvärderingen
 
-Lägg till utvärderar innan begäran bearbetas av en Resursprovider under skapandet eller uppdatering av en resurs. Lägg till lägger till fält i resursen när den **om** villkoret för principregeln är uppfyllt. Om Lägg till effekten skulle åsidosätter ett värde i den ursprungliga begäran med ett annat värde kan sedan den fungerar som en nekandeeffekt och avvisar begäran. Om du vill lägga till ett nytt värde i en befintlig matris, använda den **[\*]** version av alias.
+Lägg till utvärderar innan begäran bearbetas av en Resursprovider under skapandet eller uppdatering av en resurs. Lägg till lägger till fält i resursen när den **om** villkoret för principregeln är uppfyllt. Om Lägg till effekten skulle åsidosätter ett värde i den ursprungliga begäran med ett annat värde kan sedan den fungerar som en nekandeeffekt och avvisar begäran. Om du vill lägga till ett nytt värde i en befintlig matris använder du **[\*]** -versionen av aliaset.
 
 När en principdefinition med effekten append körs som en del av en utvärderingscykel, göra den inte ändringar i resurser som redan finns. Istället markeras alla resurser som uppfyller den **om** villkoret som icke-kompatibel.
 
@@ -62,7 +61,7 @@ Lägg till påverkar endast har en **information** matris som krävs. Som **info
 
 ### <a name="append-examples"></a>Lägg till exempel
 
-Exempel 1: Enkel **fält/värde** par att lägga till en tagg.
+Exempel 1: Enkelt **fält/värde-** par för att lägga till en tagg.
 
 ```json
 "then": {
@@ -74,7 +73,7 @@ Exempel 1: Enkel **fält/värde** par att lägga till en tagg.
 }
 ```
 
-Exempel 2: Två **fält/värde** par att lägga till en uppsättning taggar.
+Exempel 2: Två **fält/värde-** par för att lägga till en uppsättning taggar.
 
 ```json
 "then": {
@@ -91,7 +90,7 @@ Exempel 2: Två **fält/värde** par att lägga till en uppsättning taggar.
 }
 ```
 
-Exempel 3: Enkel **fält/värde** parkopplas med en icke - **[\*]** [alias](definition-structure.md#aliases) med en matris **värdet** att ange IP-regler för ett lagringskonto. När den icke - **[\*]** alias är en matris, effekten lägger till den **värdet** som hela matrisen. Om matrisen redan finns inträffar en neka-händelse från konflikten.
+Exempel 3: Ett **fält/värde** -par med ett icke **-\*[]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** som anger IP-regler för ett lagrings konto. När ett icke- **[\*]** -alias är en matris lägger effekterna till **värdet** som hela matrisen. Om matrisen redan finns inträffar en Deny-händelse från konflikten.
 
 ```json
 "then": {
@@ -106,7 +105,7 @@ Exempel 3: Enkel **fält/värde** parkopplas med en icke - **[\*]** [alias](defi
 }
 ```
 
-Exempel 4: Enkel **fält/värde** parkopplas med en **[\*]** [alias](definition-structure.md#aliases) med en matris **värdet** att ange IP-regler för ett lagringskonto. Med hjälp av den **[\*]** alias, effekten lägger till den **värdet** till en potentiellt befintliga. Om matrisen inte än finns, skapas den.
+Exempel 4: Ett **fält/värde** -par med **ett\*[]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** som anger IP-regler för ett lagrings konto. Genom att använda **[\*]** -aliaset lägger du till **värdet** i en befintlig matris som kan användas. Om matrisen ännu inte finns kommer den att skapas.
 
 ```json
 "then": {
@@ -137,7 +136,7 @@ Nekandeeffekt har inte några ytterligare egenskaper för användning i den **se
 
 ### <a name="deny-example"></a>Neka exempel
 
-Exempel: Med hjälp av nekandeeffekt.
+Exempel: Med hjälp av neka-påverkan.
 
 ```json
 "then": {
@@ -151,7 +150,7 @@ Granska används för att skapa en varning-händelse i aktivitetsloggen vid utv�
 
 ### <a name="audit-evaluation"></a>Granska utvärdering
 
-Granskning är den sista effekten som kontrolleras av Azure Policy under generering och uppdatering av en resurs. Azure Policy skickar sedan resursen till Resursprovidern. Granskning fungerar på samma sätt för en resursbegäran och en utvärderingscykel för datorprincip. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action` åtgärden aktivitetsloggen och markerar resursen som icke-kompatibel.
+Audit är den senaste effekterna som kontrol leras av Azure Policy när en resurs skapas eller uppdateras. Azure Policy skickar sedan resursen till resurs leverantören. Granskning fungerar på samma sätt för en resursbegäran och en utvärderingscykel för datorprincip. Azure policy lägger till `Microsoft.Authorization/policies/audit/action` en åtgärd i aktivitets loggen och markerar resursen som icke-kompatibel.
 
 ### <a name="audit-properties"></a>Egenskaper för granskning
 
@@ -159,7 +158,7 @@ Granska effekten har inte några ytterligare egenskaper för användning i den *
 
 ### <a name="audit-example"></a>Granska exempel
 
-Exempel: Med effekten granskning.
+Exempel: Använda gransknings effekterna.
 
 ```json
 "then": {
@@ -173,7 +172,7 @@ AuditIfNotExists aktiverar granskning på resurser som matchar den **om** villko
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists utvärdering
 
-AuditIfNotExists körs när en Resursprovider hanterat en skapa eller uppdatera resursbegäran och returnerade statuskoden lyckades. Granskningen uppstår om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action` åtgärden till aktiviteten logga på samma sätt som spårningsseffekt. När det utlöses, den resurs som uppfyller den **om** villkoret är den resurs som markeras som icke-kompatibla.
+AuditIfNotExists körs när en Resursprovider hanterat en skapa eller uppdatera resursbegäran och returnerade statuskoden lyckades. Granskningen uppstår om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT. Azure policy lägger till `Microsoft.Authorization/policies/audit/action` en åtgärd i aktivitets loggen på samma sätt som gransknings resultatet. När det utlöses, den resurs som uppfyller den **om** villkoret är den resurs som markeras som icke-kompatibla.
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists egenskaper
 
@@ -181,10 +180,10 @@ Den **information** egenskapen om AuditIfNotExists effekterna har alla subegensk
 
 - **Typ** [krävs]
   - Anger typ av relaterade resurs så att de matchar.
-  - Om **details.type** är en resurstyp under den **om** villkoret resurs, principen frågar efter resurser på detta **typ** inom omfånget för den utvärderade resursen. Annars, princip-frågor i samma resursgrupp som den utvärderade resursen.
+  - Om **information. Type** är en resurs typ under **IF** -villkor-resursen, frågar principen efter resurser av den här **typen** inom omfånget för den utvärderade resursen. I annat fall är princip frågorna inom samma resurs grupp som den utvärderade resursen.
 - **Namn på** (valfritt)
   - Anger det exakta namnet på resursen som ska matcha och gör principen att hämta en specifik resurs i stället för alla resurser av den angivna typen.
-  - När villkoret värden för **if.field.type** och **then.details.type** matchar sedan **namn** blir _krävs_ och måste vara `[field('name')]`. Men en [granska](#audit) effekt bör övervägas i stället.
+  - När villkors värden för **IF. Field. Type** och **then.** details. Type match, blir **namnet** _obligatoriskt_ och måste `[field('name')]`vara. En gransknings [](#audit) funktion bör dock beaktas i stället.
 - **ResourceGroupName** (valfritt)
   - Tillåter matchningen av relaterade resursen komma från en annan resursgrupp.
   - Gäller inte om **typ** är en resurs som är under den **om** villkoret resurs.
@@ -205,7 +204,7 @@ Den **information** egenskapen om AuditIfNotExists effekterna har alla subegensk
 
 ### <a name="auditifnotexists-example"></a>AuditIfNotExists exempel
 
-Exempel: Utvärderar virtuella datorer för att avgöra om tillägg för program mot skadlig kod finns, så granskar om det saknas.
+Exempel: Utvärderar Virtual Machines för att avgöra om tillägget för program mot skadlig kod finns, granskas när de saknas.
 
 ```json
 {
@@ -255,7 +254,7 @@ Den **information** egenskapen för DeployIfNotExists effekterna har alla subege
   - Startar genom att hämta en resurs under den **om** villkor resurs och frågor inom samma resursgrupp som den **om** villkoret resurs.
 - **Namn på** (valfritt)
   - Anger det exakta namnet på resursen som ska matcha och gör principen att hämta en specifik resurs i stället för alla resurser av den angivna typen.
-  - När villkoret värden för **if.field.type** och **then.details.type** matchar sedan **namn** blir _krävs_ och måste vara `[field('name')]`.
+  - När villkors värden för **IF. Field. Type** och **then.** details. Type match, blir **namnet** _obligatoriskt_ och måste `[field('name')]`vara.
 - **ResourceGroupName** (valfritt)
   - Tillåter matchningen av relaterade resursen komma från en annan resursgrupp.
   - Gäller inte om **typ** är en resurs som är under den **om** villkoret resurs.
@@ -276,10 +275,10 @@ Den **information** egenskapen för DeployIfNotExists effekterna har alla subege
   - Exempelvis kan användas för att kontrollera att den överordnade resursen (i den **om** villkor) är i samma resursplats som den matchande relaterad resursen.
 - **roleDefinitionIds** [krävs]
   - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomstkontroll roll-ID nås av prenumerationen. Mer information finns i [reparation – konfigurera principdefinitionen](../how-to/remediate-resources.md#configure-policy-definition).
-- **DeploymentScope** (valfritt)
+- **DeploymentScope** valfritt
   - Tillåtna värden är _prenumeration_ och _ResourceGroup_.
-  - Anger typ av distribution ska utlösas. _Prenumeration_ anger en [distribution på abonnemangsnivå](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ anger en distribution till en resursgrupp.
-  - En _plats_ egenskapen måste anges i den _distribution_ när du använder prenumeration på distributioner.
+  - Anger vilken typ av distribution som ska utlösas. _Prenumerationen_ anger en [distribution på prenumerations nivå](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ anger en distribution till en resurs grupp.
+  - En _plats_ egenskap måste anges i _distributionen_ när du använder distributioner på prenumerations nivå.
   - Standardvärdet är _ResourceGroup_.
 - **Distribution** [krävs]
   - Den här egenskapen ska inkludera fullständig malldistributionen som den skulle skickas till den `Microsoft.Resources/deployments` PLACERA API. Mer information finns i den [distributioner REST API](/rest/api/resources/deployments).
@@ -289,7 +288,7 @@ Den **information** egenskapen för DeployIfNotExists effekterna har alla subege
 
 ### <a name="deployifnotexists-example"></a>DeployIfNotExists-exempel
 
-Exempel: Utvärderar SQL Server-databaser för att avgöra om transparentDataEncryption är aktiverad. Annars kan du sedan en distribution för att aktivera körs.
+Exempel: Utvärderar SQL Server databaser för att avgöra om transparentDataEncryption har Aktiver ATS. Annars körs en distribution som ska aktive ras.
 
 ```json
 "if": {
@@ -342,30 +341,30 @@ Exempel: Utvärderar SQL Server-databaser för att avgöra om transparentDataEnc
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-Den här effekten används med en principdefinition *läge* av `Microsoft.ContainerService.Data`. Används för att skicka kontrollregler för åtkomst som definierats med [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) till [öppna Principagent](https://www.openpolicyagent.org/) (OPA) på [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+Den här inställningen används med ett princip definitions *läge* för `Microsoft.ContainerService.Data`. Den används för att skicka regler för åtkomst kontroll som definierats med [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) för att [Öppna princip agenten](https://www.openpolicyagent.org/) (OPA) på [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Azure Policy för Kubernetes](rego-for-aks.md) finns i offentlig förhandsversion och endast har stöd för inbyggda principdefinitioner.
+> [Azure policy för Kubernetes](rego-for-aks.md) finns i en offentlig för hands version och stöder bara inbyggda princip definitioner.
 
-### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy utvärdering
+### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy-utvärdering
 
-Öppna Principagent åtkomst controller utvärderar varje ny begäran på klustret i realtid.
-Var femte minut, en fullständig skanning av klustret har slutförts och resultatet rapporteras till Azure Policy.
+Den öppna princip agentens åtkomst kontroll utvärderar alla nya begär anden i klustret i real tid.
+Var 5: e minut slutförs en fullständig genomsökning av klustret och resultaten rapporteras till Azure Policy.
 
-### <a name="enforceregopolicy-properties"></a>EnforceRegoPolicy egenskaper
+### <a name="enforceregopolicy-properties"></a>Egenskaper för EnforceRegoPolicy
 
-Den **information** egenskapen på EnforceRegoPolicy effekten har subegenskaperna som beskriver Kontrollregel för Rego åtkomst.
+Egenskapen **information** för EnforceRegoPolicy-effekter har de subegenskaper som beskriver reglerna för Rego-åtkomstkontroll.
 
-- **policyId** [krävs]
-  - Ett unikt namn som skickas som en parameter för Kontrollregel för Rego åtkomst.
-- **principen** [krävs]
-  - Anger URI för Kontrollregel för Rego åtkomst.
-- **policyParameters** [valfritt]
-  - Definierar alla parametrar och värden ska skickas till rego principen.
+- **policyId** kunna
+  - Ett unikt namn som skickas som en parameter till Rego-åtkomstkontroll.
+- **princip** kunna
+  - Anger URI för Rego-åtkomstkontroll.
+- **policyParameters** valfritt
+  - Definierar alla parametrar och värden som ska skickas till Rego-principen.
 
-### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy exempel
+### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy-exempel
 
-Exempel: Rego åtkomstkontroll regel för att tillåta endast de angivna behållaravbildningarna i AKS.
+Exempel: Rego-åtkomstkontroll för att endast tillåta de angivna behållar avbildningarna i AKS.
 
 ```json
 "if": {
@@ -423,9 +422,9 @@ Varje tilldelning utvärderas individuellt. Därför det är inte en möjlighet 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska exempel i [Azure policy exempel](../samples/index.md).
 - Granska [Azure Policy-definitionsstrukturen](definition-structure.md).
-- Förstå hur du [skapa principer programmässigt](../how-to/programmatically-create.md).
-- Lär dig hur du [hämta kompatibilitetsdata](../how-to/getting-compliance-data.md).
-- Lär dig hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md).
-- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).
+- Lär dig att [program mässigt skapa principer](../how-to/programmatically-create.md).
+- Lär dig hur du [hämtar efterlevnadsprinciper](../how-to/getting-compliance-data.md).
+- Lär dig hur du [åtgärdar icke-kompatibla resurser](../how-to/remediate-resources.md).
+- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).

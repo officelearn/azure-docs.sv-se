@@ -1,22 +1,22 @@
 ---
-title: Exempel – ISO 27001 delade tjänster skiss – distribuera steg
-description: Distribuera stegen för delade tjänster för ISO 27001 skissen exemplet.
+title: Exempel – ISO 27001-skiss för delade tjänster – distribuera steg
+description: Distribuera steg av skiss exemplet för delade tjänster i ISO 27001.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 88d5cfbbcb29cacc2e8c1c6a226367c5f23e8231
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 04285ace1713a03a812f1c79895da64e6dac42a8
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926308"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231713"
 ---
-# <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Distribuera exemplet ISO 27001 delade tjänster skiss
+# <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Distribuera skiss exemplet för delade tjänster i ISO 27001
 
-Följande steg måste vidtas för att distribuera Azure skisser ISO 27001 delade tjänster skissen exemplet:
+För att distribuera Azure-skisser ISO 27001-skissen för delade tjänster måste följande steg vidtas:
 
 > [!div class="checklist"]
 > - Skapa en ny skiss från exemplet
@@ -27,146 +27,146 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 
-Först måste implementera skissen exemplet genom att skapa en ny skiss i din miljö med exemplet som en starter.
+Börja med att implementera skiss exemplet genom att skapa en ny skiss i din miljö med hjälp av exemplet som ett start verktyg.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i den vänstra rutan. På den **princip** väljer **skisser**.
+1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
 
-1. Från den **komma igång** sidan till vänster, Välj den **skapa** knappen _skapa en skiss_.
+1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
 
-1. Hitta den **ISO 27001: Delade tjänster** skissen exemplet under _andra exempel_ och välj **använda det här exemplet**.
+1. **Hitta ISO 27001: Skiss exempel** för delade tjänster under _andra exempel_ och välj **Använd det här exemplet**.
 
-1. Ange den _grunderna_ av skiss exemplet:
+1. Ange _grunderna_ för skiss exemplet:
 
-   - **Namn på skiss**: Ange ett namn för din kopia av exemplet för delade tjänster för ISO 27001-skissen.
-   - **Definitionens plats**: Använd de tre punkterna och välj hanteringsgruppen för att spara din kopia av exemplet för att.
+   - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet för delade tjänster i ISO 27001.
+   - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
-1. Välj den _artefakter_ fliken högst upp på sidan eller **nästa: Artefakter** längst ned på sidan.
+1. Välj fliken _artefakter_ högst upp på sidan eller **nästa: Artefakter** längst ned på sidan.
 
-1. Granska listan över artefakter som utgör skissen exemplet. Många av artefakter har parametrar som ska vi definiera senare. Välj **spara utkast** när du har granskat skissen exemplet.
+1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
 
-## <a name="publish-the-sample-copy"></a>Publicera exempel-kopia
+## <a name="publish-the-sample-copy"></a>Publicera exempel kopian
 
-Din kopia av exemplet skissen har skapats i din miljö. Den skapas i **Draft** läge och måste vara **publicerad** innan den kan tilldelas och distribueras. Kopia av exemplet skissen kan anpassas till din miljö och behov, utan att ändringar kan flytta dem från standarden ISO 27001.
+Din kopia av skiss exemplet har nu skapats i din miljö. Den skapas i **utkast** läge och måste **publiceras** innan den kan tilldelas och distribueras. Kopian av skiss exemplet kan anpassas efter din miljö och dina behov, men ändringen kan flyttas bort från ISO 27001-standarden.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i den vänstra rutan. På den **princip** väljer **skisser**.
+1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
 
-1. Välj den **skiss definitioner** sidan till vänster. Använd filtren för att hitta din kopia av exemplet skissen och markera den.
+1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
 
-1. Välj **publicera skiss** överst på sidan. I den nya sidan till höger, tillhandahåller en **Version** för din kopia av exemplet skissen. Den här egenskapen är användbar för om du gör en ändring av senare. Ange **ändra anteckningar** som ”första versionen publicerade från ISO 27001 skissen provet”. Välj sedan **publicera** längst ned på sidan.
+1. Välj **publicera skiss** överst på sidan. På den nya sidan till höger anger du en **version** för din kopia av skiss exemplet. Den här egenskapen är användbar för om du gör en ändring senare. Ange **ändrings anteckningar** som "första versionen som publicerats från ISO 27001-skiss exemplet". Välj sedan **publicera** längst ned på sidan.
 
-## <a name="assign-the-sample-copy"></a>Tilldela exempel-kopia
+## <a name="assign-the-sample-copy"></a>Tilldela exempel kopian
 
-När kopian av exemplet skissen har installerats utan **publicerad**, så kan de tilldelas en prenumeration inom den sparades till hanteringsgruppen. Det här steget är där parametrar har angetts så att varje distribution av kopian av exemplet skissen unikt.
+När kopieringen av skiss exemplet har publicerats kanden tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i den vänstra rutan. På den **princip** väljer **skisser**.
+1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
 
-1. Välj den **skiss definitioner** sidan till vänster. Använd filtren för att hitta din kopia av exemplet skissen och markera den.
+1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
 
-1. Välj **tilldela skissen** överst på sidan för skissen definition.
+1. Välj **tilldela skiss** överst på skiss definitions sidan.
 
-1. Ange parametervärden för skisstilldelningen:
+1. Ange parameter värden för skiss tilldelningen:
 
-   - Grundläggande inställningar
+   - Grundinställningar
 
-     - **Prenumerationer**: Välj en eller flera av de prenumerationer som är i hanteringsgruppen som du sparade din kopia av exemplet skissen till. Om du väljer mer än en prenumeration skapas en tilldelning för att använda de parametrar som anges.
-     - **Tilldelningsnamn**: Namnet är förifyllda baserat på namnet på skissen.
-       Ändra vid behov eller lämna skick.
-     - **Plats**: Välj en region för den hanterade identitet som ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Definitionsversion för skissen**: Välj en **publicerad** version av din kopia av exemplet skissen.
+     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
+     - **Tilldelnings namn**: Namnet är ifyllt för dig baserat på namnet på skissen.
+       Ändra vid behov eller lämna det som är.
+     - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Ritnings definitions version**: Välj en **publicerad** version av din kopia av skiss exemplet.
 
    - Lås tilldelning
 
-     Markera skiss Lås för din miljö. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
+     Välj skiss lås inställningen för din miljö. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
 
    - Hanterad identitet
 
-     Låt standardvärdet _systemtilldelad_ hanterad identitet alternativet.
+     Lämna alternativet standard _tilldelade_ hanterade identiteter.
 
    - Skissparametrar
 
-     De parametrar som definierats i det här avsnittet används av många av artefakter i skissdefinitionen för att tillhandahålla konsekvens.
+     De parametrar som definieras i det här avsnittet används av många av artefakterna i skiss definitionen för att ge konsekvens.
 
-     - **Organisationsnamn**: Ange ett kort-namn för din organisation. Den här egenskapen används främst för namngivning av resurser.
-     - **Adressprefix för delade tjänster undernät**: Ange värdet för CIDR-notation för nätverk distribuerade resurser tillsammans.
-     - **Delade tjänster plats**: Anger vilken plats som artefakterna distribueras till. Inte alla tjänster som är tillgängliga på alla platser. Artefakter som distribuerar tjänster erbjuder alternativ för parametern att distribuera den artefakten som plats.
-     - **Tillåtna plats (princip: Skiss initiativ för ISO 27001)**: Värde som anger tillåtna platser för resursgrupper och resurser.
-     - **Log Analytics-arbetsyta för VM-agenter (princip: Skiss initiativ för ISO 27001)**: Anger resurs-ID för en arbetsyta. Den här parametern använder en `concat` funktionen för att konstruera resurs-ID.
+     - **Organisations namn**: Ange ett kort namn för din organisation. Den här egenskapen används främst för att namnge resurser.
+     - **Adressprefix för Shared Services-undernät**: Ange värdet för CIDR-notering för nätverk de distribuerade resurserna tillsammans.
+     - **Plats för delade tjänster**: Bestämmer vilken plats artefakterna distribueras till. Alla tjänster är inte tillgängliga på alla platser. Artefakter som distribuerar sådana tjänster tillhandahåller ett parameter alternativ för platsen som artefakten ska distribueras till.
+     - **Tillåten plats (princip: Skiss initiativ för ISO 27001)** : Värde som anger tillåtna platser för resurs grupper och resurser.
+     - **Log Analytics arbets yta för VM-agenter (princip: Skiss initiativ för ISO 27001)** : Anger resurs-ID för en arbets yta. Den här parametern använder `concat` en funktion för att konstruera resurs-ID: t.
 
    - Artefaktparametrar
 
-     De parametrar som definierats i det här avsnittet gäller för artefakten som den definieras. De här parametrarna kan [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definierades vid tilldelning av skissen. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [artefakt parametrar tabell](#artifact-parameters-table).
+     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
 
-1. När alla parametrar har angetts, väljer **tilldela** längst ned på sidan. Skisstilldelningen har skapats och distribution av artefakt påbörjas. Distributionen tar ungefär en timme. Öppna skisstilldelningen för att kontrollera statusen för distributionen.
+1. När alla parametrar har angetts väljer du **tilldela** längst ned på sidan. Skiss tilldelningen skapas och artefakt distributionen påbörjas. Distributionen tar ungefär en timme. Du kan kontrol lera statusen för distributionen genom att öppna skiss tilldelningen.
 
 > [!WARNING]
-> Tjänsten Azure skisser och inbyggda skissen exemplen är **kostar**. Azure-resurser är [prissätts per produkt](https://azure.microsoft.com/pricing/). Använd den [priskalkylator](https://azure.microsoft.com/pricing/calculator/) att uppskatta kostnaden för att köra resurser som har distribuerats av den här skissen-exemplet.
+> Tjänsten Azure-ritningar och de inbyggda skiss exemplen är **kostnads fria**. Azure-resurser [priss ätts per produkt](https://azure.microsoft.com/pricing/). Använd [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att beräkna kostnaden för att köra resurser som distribuerats i skiss exemplet.
 
-## <a name="artifact-parameters-table"></a>Artefakten parametrar tabell
+## <a name="artifact-parameters-table"></a>Tabellen artefakt parametrar
 
-Följande tabell innehåller en lista över skissen artefakt parametrar:
+I följande tabell visas en lista över Skissernas artefakt parametrar:
 
 |Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
 |-|-|-|-|
-|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Linux-operativsystem att lägga till i omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
-|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Linux-datorer|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Linux-operativsystem att lägga till i omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
-|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Windows-operativsystem för att lägga till omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
-|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Windows-datorer|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Windows-operativsystem för att lägga till omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
-|Tillåtna resurstyper|Principtilldelning|Tillåtna resurstyper|Lista över resurstyper som kan distribueras. Den här listan består av alla resurstyper som distribueras i delade tjänster.|
-|Tillåtna SKU:er för lagringskonto|Principtilldelning|Tillåtna lagringsutrymmet SKU: er|Lista över diagnostik loggar storage konto SKU: er tillåts. Standardvärdet är _[”Standard_LRS”]_.|
-|Tillåtna SKU:er för virtuella datorer|Principtilldelning|Lista över SKU: er för virtuell dator har tillåtelse för att distribueras. Default value is _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
-|Skissinitiativ för ISO 27001|Principtilldelning|Resurstyper granska diagnostikloggar|Lista över resurstyper granska om diagnostiklogg inställningen inte är aktiverad. Godkända värden finns på [scheman för diagnostikloggar för Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
-|Resursgrupp för log Analytics|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-sharedsvsc-log-rg` så att resursgruppen som är unikt.|
-|Resursgrupp för log Analytics|Resursgrupp|Location|**Låst** -parametern skissen.|
-|Log Analytics-mall|Resource Manager-mall|Tjänstenivå|Anger nivån av Log Analytics-arbetsytan. Standardvärdet är _PerNode_.|
-|Log Analytics-mall|Resource Manager-mall|Loggkvarhållning i dagar|Datalagring i dagar. Standardvärdet är _365_.|
-|Log Analytics-mall|Resource Manager-mall|Location|Regionen som används för att skapa Log Analytics-arbetsytan. Standardvärdet är _USA, västra 2_.|
-|Resursgrupp för nätverk|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-sharedsvcs-net-rg` så att resursgruppen som är unikt.|
-|Resursgrupp för nätverk|Resursgrupp|Location|**Låst** -parametern skissen.|
-|Azure Firewall-mall|Resource Manager-mall|Privat IP för Azure Firewall|Konfigurerar privata IP-Adressen för den [Azure brandväggen](../../../../firewall/overview.md). Det här värdet används också som standardvägtabellen på undernät för delade tjänster. Bör vara en del i CIDR-format som definierats i **adressprefix för Azure-brandvägg undernät**. Standardvärdet är _10.0.4.4_.|
-|Azure Firewall-mall|Resource Manager-mall|Loggkvarhållning i dagar|Datalagring i dagar. Standardvärdet är _365_.|
-|Nätverkssäkerhetsgrupp-mall|Resource Manager-mall|Loggkvarhållning i dagar|Datalagring i dagar. Standardvärdet är _365_.|
-|Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Adressprefix för virtuellt nätverk|CIDR-format för det virtuella nätverket. Standardvärdet är _10.0.0.0/16_.|
-|Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Aktivera DDoS-skydd för virtuellt nätverk|Konfigurerar DDoS-skydd för det virtuella nätverket. Standardvärdet är _SANT_.|
-|Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Delade tjänster adressprefix för undernät|CIDR-notation för delade tjänster-undernätet. Standardvärdet är _10.0.0.0/24_.|
-|Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Adressprefix för DMZ-undernät|CIDR-notation för DMZ-undernätet. Standardvärdet är _10.0.1.0/24_.|
-|Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Undernätsadressprefix för programgateway|CIDR-notation för application gateway-undernätet. Standardvärdet är _10.0.2.0/24_.|
-|Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Undernätsadressprefix för virtuell nätverksgateway|CIDR-format för virtuella nätverkets gateway-undernät. Standardvärdet är _10.0.3.0/24_.|
-|Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Adressprefix för Azure Firewall-undernät|CIDR-notation för den [Azure brandväggen](../../../../firewall/overview.md) undernät. Bör innehålla den **Azure brandväggs-IP för privat** parametern.|
-|Key Vault-resursgrupp|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-sharedsvcs-kv-rg` så att resursgruppen som är unikt.|
-|Key Vault-resursgrupp|Resursgrupp|Location|**Låst** -parametern skissen.|
-|Key Vault-mall|Resource Manager-mall|Jumpbox-administratörens användarnamn|Användarnamnet för jumpboxen. Måste matcha samma egenskapsvärdet i **Jumpbox mallen**. Standardvärdet är _jb administratörsanvändare_.|
-|Key Vault-mall|Resource Manager-mall|Jumpbox-administratörens SSH-nyckel eller lösenord|Nyckeln eller lösenordet för kontot för jumpboxen. Måste matcha samma egenskapsvärdet i **Jumpbox mallen**. Inget standardvärde värde och får inte vara tomt.|
-|Key Vault-mall|Resource Manager-mall|Domänadministratörens användarnamn|Användarnamnet som används för att få åtkomst till Active Directory-VM och ansluta till andra virtuella datorer till en domän. Måste matcha **Domain admin-användare** egenskapsvärdet i **Active Directory Domain Services mall**. Standardvärdet är _domän administratörsanvändare_.|
-|Key Vault-mall|Resource Manager-mall|Domänens administratörslösenord|Domain admin användarens lösenord. Inget standardvärde värde och får inte vara tomt.|
-|Key Vault-mall|Resource Manager-mall|Objekt-ID för AAD|AAD-objektidentifierare för det konto som kräver åtkomst till Key Vault-instansen. Inget standardvärde värde och får inte vara tomt. Om du vill hitta det här värdet från Azure-portalen, Sök efter och Välj ”användare” _Services_. Använd den _namn_ om du vill filtrera på kontonamnet och välja det kontot. På den _användarprofil_ väljer ”Klicka för att kopiera”-ikonen bredvid den _objekt-ID_.  |
-|Key Vault-mall|Resource Manager-mall|Loggkvarhållning i dagar|Datalagring i dagar. Standardvärdet är _365_.|
-|Key Vault-mall|Resource Manager-mall|Key Vault-SKU|Anger SKU: N för Nyckelvalvet som har skapats. Standardvärdet är _Premium_.|
-|Jumpbox resursgrupp|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-sharedsvcs-jb-rg` så att resursgruppen som är unikt.|
-|Jumpbox resursgrupp|Resursgrupp|Location|**Låst** -parametern skissen.|
-|Jumpbox-mall|Resource Manager-mall|Jumpbox-administratörens användarnamn|Användarnamnet som används för att få åtkomst till jumpboxen virtuella datorer. Måste matcha samma egenskapsvärdet i **Key Vault mallen**. Standardvärdet är _jb administratörsanvändare_.|
-|Jumpbox-mall|Resource Manager-mall|Administratörslösenord för Jumpbox (resurs-ID för Key Vault)|Resurs-ID för Nyckelvalvet. Använd ”/ subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv” och Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{orgName}` med den  **Organisationsnamn** skiss parametern.|
-|Jumpbox-mall|Resource Manager-mall|Administratörslösenord för Jumpbox (hemligt namn på Key Vault)|Användarnamnet för jumpbox-administratören. Måste matcha värdet i **Key Vault mallen** egenskapen **Jumpbox administratörsanvändarnamnet**.|
-|Jumpbox-mall|Resource Manager-mall|Jumpbox-operativsystem|Fastställer operativsystemet på den virtuella jumpboxen-datorn. Standardvärdet är _Windows_.|
-|Active Directory Domain Services-resursgrupp|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-sharedsvcs-adds-rg` så att resursgruppen som är unikt.|
-|Active Directory Domain Services-resursgrupp|Resursgrupp|Location|**Låst** -parametern skissen.|
-|Active Directory Domain Services-mall|Resource Manager-mall|Domänadministratörens användarnamn|Användarnamn för ADDS jumpbox. Måste matcha samma egenskapsvärdet i **Key Vault mallen**. Standardvärdet är _lägger till administratörsanvändare_.|
-|Active Directory Domain Services-mall|Resource Manager-mall|Administratörslösenord för domänen (resurs-ID för Key Vault)|Resurs-ID för Nyckelvalvet. Använd ”/ subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv” och Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{orgName}` med den  **Organisationsnamn** skiss parametern.|
-|Active Directory Domain Services-mall|Resource Manager-mall|Administratörslösenord för domänen (hemligt namn på Key Vault)|Användarnamnet för domänen administratören. Måste matcha värdet i **Key Vault mallen** egenskapen **domän administratörsanvändarnamnet**.|
-|Active Directory Domain Services-mall|Resource Manager-mall|Domännamn|Namnet på den Active Directory som skapats av exemplet. Standardvärdet är _contoso.com_.|
-|Active Directory Domain Services-mall|Resource Manager-mall|Domain admin-användare|Användarnamnet för administratörskontot AD och för att ansluta enheter till AD-domänen. Måste matcha **AD administratörsanvändarnamnet** egenskapsvärdet i **Key Vault mallen**. Standardvärdet är _domän administratörsanvändare_.|
-|Active Directory Domain Services-mall|Resource Manager-mall|Domänens administratörslösenord|Ställa in Key Vault-information för att lagra lösenordet. Inget standardvärde värde och får inte vara tomt.|
+|\[För\]hands version: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfång|Valfritt Standardvärdet är _["none"]_ .|
+|\[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfång|Valfritt Standardvärdet är _["none"]_ .|
+|\[För\]hands version: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
+|\[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
+|Tillåtna resurstyper|Principtilldelning|Tillåtna resurstyper|Lista över resurs typer som får distribueras. Den här listan består av alla resurs typer som distribueras i delade tjänster.|
+|Tillåtna SKU:er för lagringskonto|Principtilldelning|Tillåtna lagrings-SKU: er|Lista över diagnostiska loggar lagrings konto SKU: er tillåts. Standardvärdet är _["Standard_LRS"]_ .|
+|Tillåtna SKU:er för virtuella datorer|Principtilldelning|Lista över virtuella dator-SKU: er som kan distribueras. Standardvärdet är _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
+|Skissinitiativ för ISO 27001|Principtilldelning|Resurs typer för att granska diagnostikloggar|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Log Analytics resurs grupp|Resource group|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvsc-log-rg` för att göra resurs gruppen unik.|
+|Log Analytics resurs grupp|Resource group|Location|**Locked** – använder skiss parametern.|
+|Log Analytics-mall|Resource Manager-mall|Tjänstnivå|Anger nivån för Log Analytics arbets ytan. Standardvärdet är _PerNode_.|
+|Log Analytics-mall|Resource Manager-mall|Loggkvarhållning i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
+|Log Analytics-mall|Resource Manager-mall|Location|Region som används för att skapa Log Analytics-arbetsytan. Standardvärdet är _USA, västra 2_.|
+|Nätverks resurs grupp|Resource group|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvcs-net-rg` för att göra resurs gruppen unik.|
+|Nätverks resurs grupp|Resource group|Location|**Locked** – använder skiss parametern.|
+|Azure Firewall-mall|Resource Manager-mall|Privat IP för Azure Firewall|Konfigurerar den privata IP-adressen för [Azure-brandväggen](../../../../firewall/overview.md). Det här värdet används också som standard väg tabell på under nätet för delade tjänster. Ska ingå i CIDR-notationen som definieras i adressprefix för **Azure Firewall-undernätet**. Standardvärdet är _10.0.4.4_.|
+|Azure Firewall-mall|Resource Manager-mall|Loggkvarhållning i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
+|Nätverkssäkerhetsgrupp-mall|Resource Manager-mall|Loggkvarhållning i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
+|Mall för Virtual Network och route-tabell|Resource Manager-mall|Adressprefix för virtuellt nätverk|CIDR-notering för det virtuella nätverket. Standardvärdet är _10.0.0.0/16_.|
+|Mall för Virtual Network och route-tabell|Resource Manager-mall|Aktivera DDoS-skydd för virtuellt nätverk|Konfigurerar DDoS-skydd för det virtuella nätverket. Standardvärdet är _True_.|
+|Mall för Virtual Network och route-tabell|Resource Manager-mall|Adressprefix för Shared Services-undernät|CIDR-notering för under nätet för delade tjänster. Standardvärdet är _10.0.0.0/24_.|
+|Mall för Virtual Network och route-tabell|Resource Manager-mall|Adressprefix för DMZ-undernät|CIDR-notering för DMZ-undernätet. Standardvärdet är _10.0.1.0/24_.|
+|Mall för Virtual Network och route-tabell|Resource Manager-mall|Undernätsadressprefix för programgateway|CIDR-notering för Application Gateway-undernätet. Standardvärdet är _10.0.2.0/24_.|
+|Mall för Virtual Network och route-tabell|Resource Manager-mall|Adressprefix för Virtual Network Gateway-undernät|CIDR-notering för det virtuella nätverkets gateway-undernät. Standardvärdet är _10.0.3.0/24_.|
+|Mall för Virtual Network och route-tabell|Resource Manager-mall|Adressprefix för Azure Firewall-undernät|CIDR-notering för [Azure Firewall](../../../../firewall/overview.md) -undernätet. Ska inkludera **Azure firewalls privata IP-** parameter.|
+|Key Vault resurs grupp|Resource group|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvcs-kv-rg` för att göra resurs gruppen unik.|
+|Key Vault resurs grupp|Resource group|Location|**Locked** – använder skiss parametern.|
+|Key Vault-mall|Resource Manager-mall|Jumpbox-administratörens användarnamn|Användar namn för hopp rutan. Måste matcha samma egenskaps värde i **hopp mal len**. Standardvärdet är _JB-admin-user_.|
+|Key Vault-mall|Resource Manager-mall|SSH-nyckel eller lösen ord för bygel-administratör|Nyckel eller lösen ord för kontot i hoppet. Måste matcha samma egenskaps värde i **hopp mal len**. Inget standardvärde och får inte vara tomt.|
+|Key Vault-mall|Resource Manager-mall|Domänadministratörens användarnamn|Användar namn som används för att komma åt Active Directory VM och för att ansluta till andra virtuella datorer till en domän. Måste matcha användar egenskap svärdet för **domän administratör** i **Active Directory Domain Services mall**. Standardvärdet är _domän administratör – användare_.|
+|Key Vault-mall|Resource Manager-mall|Domänens administratörslösenord|Användarens lösen ord för domän administratör. Inget standardvärde och får inte vara tomt.|
+|Key Vault-mall|Resource Manager-mall|Objekt-ID för AAD|AAD-objektmodellen för det konto som kräver åtkomst till Key Vault-instansen. Inget standardvärde och får inte vara tomt. Du hittar det här värdet från Azure Portal genom att söka efter och välja "användare" under _tjänster_. Använd rutan _namn_ om du vill filtrera efter konto namnet och välj det kontot. På sidan _användar profil_ väljer du ikonen "Klicka för att kopiera" bredvid _objekt-ID_.  |
+|Key Vault-mall|Resource Manager-mall|Loggkvarhållning i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
+|Key Vault-mall|Resource Manager-mall|Key Vault-SKU|Anger SKU: n för den Key Vault som skapas. Standardvärdet är _Premium_.|
+|Resurs grupp för hopp|Resource group|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvcs-jb-rg` för att göra resurs gruppen unik.|
+|Resurs grupp för hopp|Resource group|Location|**Locked** – använder skiss parametern.|
+|Jumpbox-mall|Resource Manager-mall|Jumpbox-administratörens användarnamn|Det användar namn som används för att komma åt de virtuella datorerna i bygel. Måste matcha samma egenskaps värde i **Key Vault-mallen**. Standardvärdet är _JB-admin-user_.|
+|Jumpbox-mall|Resource Manager-mall|Lösen ord för hopp i administratör (Key Vault resurs-ID)|Resurs-ID för Key Vault. Använd "/Subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-RG/providers/Microsoft.KeyVault/Vaults/{orgName}-sharedsvcs-kv" och Ersätt `{subscriptionId}` med ditt prenumerations- `{orgName}` ID och med **organisationen namn** skiss parameter.|
+|Jumpbox-mall|Resource Manager-mall|Lösen ord för bygel (Key Vault hemligt namn)|Användar namn för hopp administratören. Måste matcha värdet i **Key Vault Template** - **administratörens användar namn**.|
+|Jumpbox-mall|Resource Manager-mall|Jumpbox-operativsystem|Fastställer operativ systemet för den virtuella datorn i hoppet. Standardvärdet är _Windows_.|
+|Active Directory Domain Services resurs grupp|Resource group|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvcs-adds-rg` för att göra resurs gruppen unik.|
+|Active Directory Domain Services resurs grupp|Resource group|Location|**Locked** – använder skiss parametern.|
+|Active Directory Domain Services-mall|Resource Manager-mall|Domänadministratörens användarnamn|Användar namn för Lägg till hopp. Måste matcha samma egenskaps värde i **Key Vault-mallen**. Standardvärdet _läggs till-admin-user_.|
+|Active Directory Domain Services-mall|Resource Manager-mall|Lösen ord för domän administratör (Key Vault resurs-ID)|Resurs-ID för Key Vault. Använd "/Subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-RG/providers/Microsoft.KeyVault/Vaults/{orgName}-sharedsvcs-kv" och Ersätt `{subscriptionId}` med ditt prenumerations- `{orgName}` ID och med **organisationen namn** skiss parameter.|
+|Active Directory Domain Services-mall|Resource Manager-mall|Domän administratörs lösen ord (Key Vault hemligt namn)|Användar namnet för domän administratören. Måste matcha värdet i **Key Vault mall** **domän administratör användar namn**.|
+|Active Directory Domain Services-mall|Resource Manager-mall|Domännamn|Namnet på Active Directory som skapats av exemplet. Standardvärdet är _contoso.com_.|
+|Active Directory Domain Services-mall|Resource Manager-mall|Domän administratörs användare|Användar namn för admin AD-konto och för att ansluta enheter till AD-domänen. Måste matcha egenskap svärdet för **AD admin-användarnamn** i **Key Vault-mallen**. Standardvärdet är _domän administratör – användare_.|
+|Active Directory Domain Services-mall|Resource Manager-mall|Domänens administratörslösenord|Ange Key Vault information för att lagra lösen ordet. Inget standardvärde och får inte vara tomt.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har gått igenom stegen för att distribuera delade tjänster för ISO 27001 skissen exemplet finns i följande artiklar om du vill veta mer om arkitekturen och kontroll mappning:
+Nu när du har granskat stegen för att distribuera ISO 27001-skissen för delade tjänster kan du gå till följande artiklar om du vill veta mer om arkitektur och kontroll mappning:
 
 > [!div class="nextstepaction"]
-> [Delade tjänster för ISO 27001 skissen - översikt](./index.md)
-> [ISO 27001 delade tjänster skissen - kontroll mappning](./control-mapping.md)
+> [ISO 27001 delade tjänster skiss – översikt](./index.md)
+> [ISO 27001 delade tjänster skiss-kontroll mappning](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Lär dig mer om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Lär dig mer om [skiss livs cykeln](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).

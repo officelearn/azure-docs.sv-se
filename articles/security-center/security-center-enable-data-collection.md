@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2019
+ms.date: 06/10/2019
 ms.author: v-mohabe
-ms.openlocfilehash: e87ea5f6d8a92f18fc1b289ebf9ffd1cc0326812
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 12739bf230eb7a2d5afa4edd57dbc2761907ec4e
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845909"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231344"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Log Analytics agenten kopierar även krasch dum par till din arbets yta.
@@ -41,7 +41,7 @@ Om du vill samla in data från datorerna bör du ha Log Analytics-agenten instal
 > Automatisk etablering är inaktiverat som standard. Om du vill ange Security Center för att installera Automatisk etablering som standard, ange den till **på**.
 >
 
-När automatisk etablering är aktiverat etablerar Security Center Log Analytics agent på alla virtuella Azure-datorer som stöds och eventuella nya som skapas. Automatisk försörjning rekommenderas starkt men manuell agentinstallation är också tillgängliga. [Lär dig hur du installerar Log Analytics agent-tillägget](#manualagent).
+När automatisk etablering är aktiverat etablerar Security Center Log Analytics agent på alla virtuella Azure-datorer som stöds och eventuella nya som skapas. Automatisk försörjning rekommenderas starkt men manuell agentinstallation är också tillgängliga. [Lär dig hur du installerar Log Analytics agent-tillägget](#manual-agent).
 
 
 
@@ -59,7 +59,7 @@ Så här aktiverar du automatisk etablering av Log Analytics agent:
 
 >[!NOTE]
 > - Anvisningar för hur du etablerar en befintlig installation finns i [Automatisk etablering i händelse av en befintlig agentinstallation](#preexisting).
-> - Anvisningar om manuell etablering finns i [installera Log Analytics agent-tillägget manuellt](#manualagent).
+> - Anvisningar om manuell etablering finns i [installera Log Analytics agent-tillägget manuellt](#manual-agent).
 > - Anvisningar för att stänga av Automatisk etablering, se [inaktivera automatisk etablering](#offprovisioning).
 > - Mer information om hur du integrera Security Center med hjälp av PowerShell, se [automatisera onboarding av Azure Security Center med hjälp av PowerShell](security-center-powershell-onboarding.md).
 >
@@ -240,7 +240,7 @@ Om du byter ut automatiskt etablera efter tidigare på:
 >  Om du inaktiverar automatisk etablering tas inte Log Analytics agenten bort från virtuella Azure-datorer där agenten etablerades. Mer information om hur du tar bort OMS-tillägget finns i [hur tar jag bort OMS-tillägg installeras av Security Center](security-center-faq.md#remove-oms).
 >
     
-## Manuell agentetablering <a name="manualagent"></a>
+## Manuell agentetablering <a name="manual-agent"></a>
  
 Det finns flera sätt att installera Log Analytics-agenten manuellt. När du installerar manuellt, kontrollera att du inaktiverar automatisk etablering.
 

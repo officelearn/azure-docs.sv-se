@@ -5,18 +5,18 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 6/27/2019
+ms.date: 09/03/2019
 ms.author: raynew
-ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491747"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232187"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
 
-Den här artikeln beskriver arbetsbelastningar och program som du kan skydda för haveriberedskap med det [Azure Site Recovery](site-recovery-overview.md) service.
+Den här artikeln beskriver arbets belastningar och program som du kan skydda för haveri beredskap med [Azure Site Recovery](site-recovery-overview.md) -tjänsten.
 
 
 
@@ -35,27 +35,27 @@ Site Recovery erbjuder skydd och återställning på programnivå enligt följan
 * App-oberoende replikering för alla arbetsbelastningar som körs på en dator som stöds.
 * Nästintill synkron replikering med RPO:er så låga som 30 sekunder, för att uppfylla kraven för de mest kritiska affärsapparna.
 * Appkonsekventa ögonblicksbilder för program med en eller flera nivåer.
-* Integrering med SQL Server AlwaysOn och samverkan med andra på programnivå replikeringstekniker på AD-replikering, SQL AlwaysOn, Exchange Database Availability Groups (dag).
+* Integrering med SQL Server AlwaysOn och partnerskap med andra tekniker på program nivå, inklusive AD-replikering, SQL AlwaysOn, Exchange databas tillgänglighets grupper (dag).
 * Flexibla återställningsplaner som gör att du kan återställa en hel programstack med ett enda klick och ta med externa skript och manuella åtgärder i planen.
 * Avancerad nätverkshantering i Site Recovery och Azure för att förenkla nätverkskraven för appar, inklusive möjligheten att reservera IP-adresser, konfigurera belastningsutjämning och integrera med Azure Traffic Manager för låga RTO-nätverksväxlingar.
 * Ett omfattande automationsbibliotek som ger tillgång till produktionsklara, programspecifika skript som kan ladas ned och integreras med återställningsplaner.
 
 ## <a name="workload-summary"></a>Översikt över arbetsbelastningar
-Site Recovery kan replikera alla appar som körs på en dator som stöds. Dessutom samarbetar vi med produktteam för att utföra ytterligare appspecifika tester.
+Site Recovery kan replikera alla appar som körs på en dator som stöds. Dessutom samarbetar vi med produkt team för att utföra ytterligare tester för de appar som anges i tabellen.
 
 | **Arbetsbelastning** |**Replikera virtuella Azure-datorer till Azure** |**Replikera Hyper-V-VM:ar till en sekundär plats** | **Replikera Hyper-V-VM:ar till Azure** | **Replikera VMware-VM:ar till en sekundär plats** | **Replikera VMware-VM:ar till Azure** |
 | --- | --- | --- | --- | --- |---|
-| Active Directory, DNS |Y |Y |Y |Y |Y|
-| Webbappar (IIS, SQL) |Y |Y |Y |Y |Y|
-| System Center Operations Manager |Y |Y |Y |Y |Y|
-| SharePoint |Y |Y |Y |Y |Y|
+| Active Directory, DNS |J |J |J |J |J|
+| Webbappar (IIS, SQL) |J |J |J |J |J|
+| System Center Operations Manager |J |J |J |J |J|
+| SharePoint |J |J |J |J |J|
 | SAP<br/><br/>Replikera en SAP-plats till Azure för icke-kluster |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft)|
-| Exchange (icke-DAG) |Y |Y |Y |Y |Y|
-| Fjärrskrivbord/VDI |Y |Y |Y |Y |Y|
+| Exchange (icke-DAG) |J |J |J |J |J|
+| Fjärrskrivbord/VDI |J |J |J |J |J|
 | Linux (operativsystem och appar) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft)|
-| Dynamics AX |Y |Y |Y |Y |Y|
-| Windows-filserver |Y |Y |Y |Y |Y|
-| Citrix XenApp och XenDesktop |Y|Gäller inte |Y |Gäller inte |Y |
+| Dynamics AX |J |J |J |J |J|
+| Windows-filserver |J |J |J |J |J|
+| Citrix XenApp och XenDesktop |J|Gäller inte |J |Gäller inte |J |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replikera Active Directory och DNS
 En Active Directory- och DNS-infrastruktur är fundamentalt för de flesta företagsappar. Vid haveriberedskap, behöver du skydda och återställa de här infrastrukturkomponenterna innan du återställer dina arbetsbelastningar och appar.

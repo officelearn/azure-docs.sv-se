@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 16dd40a521a9b0a240574c2f177f896c31508a37
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 2bdec0c70e9f11ca40e0ff9e1aa87898c94e119c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211700"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232986"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -32,7 +32,6 @@ Du kan kopiera data från DB2-databasen till alla mottagar data lager som stöds
 
 I synnerhet stöder denna DB2-anslutning följande IBM DB2-plattformar och versioner med Distributed Relations databas arkitektur (SQLAM), version 9, 10 och 11:
 
-* IBM DB2 för z/OS 12
 * IBM DB2 för z/OS 11,1
 * IBM DB2 för z/OS 10,1
 * IBM DB2 för i 7,3

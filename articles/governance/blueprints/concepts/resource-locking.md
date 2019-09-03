@@ -1,73 +1,72 @@
 ---
-title: Förstå resource låsning
-description: Läs mer om låsning alternativen för att skydda resurser när du tilldelar en skiss.
+title: Förstå resurs låsning
+description: Lär dig mer om låsnings alternativen för att skydda resurser när du tilldelar en skiss.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d3cee73d8614c4aea2d2883cdcf2f049b1b8f67
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719745"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232948"
 ---
-# <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resource låsning i Azure skisser
+# <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
-Skapandet av enhetliga testmiljöer i stor skala är endast verkligen användbart om det finns en mekanism för att underhålla den konsekvensen. Den här artikeln förklarar hur du låser resurs i Azure skisser. Se ett exempel på resurslåsning och tillämpning av _neka tilldelningar_, finns i den [skydda nya resurser](../tutorials/protect-new-resources.md) självstudien.
+Att skapa konsekventa miljöer i skala är bara riktigt värdefullt om det finns en mekanism för att upprätthålla denna konsekvens. Den här artikeln förklarar hur resurs låsning fungerar i Azure-ritningar. Om du vill se ett exempel på resurs låsning och tillämpning av _neka_-tilldelningar, se själv studie kursen [skydda nya resurser](../tutorials/protect-new-resources.md) .
 
-## <a name="locking-modes-and-states"></a>Låsning lägen och tillstånd
+## <a name="locking-modes-and-states"></a>Lås lägen och tillstånd
 
-Låsning läge gäller skisstilldelningen och det finns tre alternativ: **Lås**, **skrivskyddad**, eller **ta inte bort**. Låsning läget konfigureras under distributionen av artefakt under en skisstilldelningen. Ett annat låsning läge kan ställas in genom att uppdatera skisstilldelningen.
-Låsning lägen, men kan inte ändras utanför skisser.
+Låsnings läget gäller för skiss tilldelningen och har tre alternativ: **Lås inte**, **skrivskyddad**eller **Ta inte bort**. Lås läget konfigureras under en artefakt distribution under en skiss tilldelning. Du kan ställa in ett annat lås läge genom att uppdatera skiss tilldelningen.
+Lås lägen kan dock inte ändras utanför ritningar.
 
-Resurser som skapas av artefakter i en skisstilldelningen har fyra lägen: **Inte låst**, **skrivskyddad**, **det går inte att redigera / ta bort**, eller **kan inte ta bort**. Varje typ av artefakt som kan finnas i den **inte låst** tillstånd. I följande tabell kan användas för att bestämma tillståndet för en resurs:
+Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstånd: **Inte låst**, **skrivskyddad**, **kan inte redigera/ta bort**eller **kan inte ta bort**. Varje artefakt typ kan vara i **låst** läge. Följande tabell kan användas för att fastställa en resurs status:
 
-|Läge|Artefakten resurstyp|Status|Beskrivning|
+|Läge|Artefakt resurs typ|State|Beskrivning|
 |-|-|-|-|
-|Lås|*|Inte låst|Resurser som skyddas inte av skisser. Det här tillståndet används också för resurser som har lagts till i en **skrivskyddad** eller **ta inte bort** resource group artefakt från utanför en skisstilldelningen.|
-|Skrivskyddad|Resursgrupp|Det går inte att redigera / ta bort|Resursgruppen är skrivskyddad och går inte att ändra taggar på resursgruppen. **Inte låst** resurser kan vara har lagts till, flyttas, ändras eller tas bort från den här resursgruppen.|
-|Skrivskyddad|Icke-resursgrupp|Skrivskyddad|Resursen kan inte ändras på något sätt – inga ändringar och den kan inte tas bort.|
-|Ta inte bort|*|Det går inte att ta bort|Resurserna kan ändras, men kan inte tas bort. **Inte låst** resurser kan vara har lagts till, flyttas, ändras eller tas bort från den här resursgruppen.|
+|Lås inte|*|Inte låst|Resurser skyddas inte av ritningar. Det här läget används också för resurser som läggs till i en skrivskyddad eller **inte tar bort** artefakten för resurs gruppen utanför en skiss tilldelning.|
+|Skrivskyddad|Resource group|Det går inte att redigera/ta bort|Resurs gruppen är skrivskyddad och taggarna i resurs gruppen kan inte ändras. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
+|Skrivskyddad|Icke-resurs grupp|Skrivskyddad|Resursen kan inte ändras på något sätt: inga ändringar och det går inte att ta bort den.|
+|Ta inte bort|*|Kan inte ta bort|Resurserna kan ändras, men de kan inte tas bort. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
 
-## <a name="overriding-locking-states"></a>Åsidosätta låsning tillstånd
+## <a name="overriding-locking-states"></a>Åsidosätter lås tillstånd
 
-Det är vanligtvis möjligt för någon med lämpliga [rollbaserad åtkomstkontroll](../../../role-based-access-control/overview.md) (RBAC) i prenumerationen, till exempel rollen ”ägare” ska kunna ändra eller ta bort alla resurser. Den här åtkomsten inte är fallet när skisser gäller låsning som en del av en tilldelning av distribuerade. Om tilldelningen har angetts med den **skrivskyddad** eller **ta inte bort** alternativet och ännu inte prenumerationen ägare kan utföra den blockerade åtgärden på den skyddade resursen.
+Det är vanligt vis möjligt för någon med lämplig [rollbaserad åtkomst kontroll](../../../role-based-access-control/overview.md) (RBAC) för prenumerationen, t. ex. ägar rollen, att tillåtas att ändra eller ta bort resurser. Den här åtkomsten är inte fallet när ritningar använder lås som en del av en distribuerad tilldelning. Om tilldelningen har angetts med alternativet **skrivskyddad** eller **Ta inte bort** , inte ens prenumerations ägaren kan utföra den blockerade åtgärden på den skyddade resursen.
 
-Den här säkerhetsåtgärd skyddar konsekvens definierade skissen och den miljö som den har utformats för att skapa från oavsiktliga eller programmässiga borttagning eller ändring.
+Detta säkerhets mått skyddar konsekvensen för den definierade skissen och miljön som den har utformats för att skapa från oavsiktlig eller program mässig borttagning eller ändring.
 
-## <a name="removing-locking-states"></a>Ta bort låsning tillstånd
+## <a name="removing-locking-states"></a>Tar bort lås tillstånd
 
-Om det blir nödvändigt att ändra eller ta bort en resurs som skyddas av en tilldelning, finns det två sätt att göra detta.
+Om det blir nödvändigt att ändra eller ta bort en resurs som skyddas av en tilldelning, finns det två sätt att göra det.
 
-- Uppdaterar skisstilldelningen till ett låsning **inte Lås**
-- Ta bort tilldelning av skiss
+- Uppdatera skiss tilldelningen till låsnings läge med **Lås inte**
+- Ta bort skiss tilldelningen
 
-När tilldelningen tas bort, tas lås som skapats av skisser bort. Resursen är kvar och måste tas bort på vanligt sätt.
+När tilldelningen tas bort tas låsen som skapats av ritningar bort. Resursen är dock kvar bakom och måste tas bort på vanligt sätt.
 
-## <a name="how-blueprint-locks-work"></a>Hur skissen låser arbete
+## <a name="how-blueprint-locks-work"></a>Hur skissen låser sig
 
-En RBAC [neka tilldelningar](../../../role-based-access-control/deny-assignments.md) neka åtgärd tillämpas på artefakt resurser under tilldelningen av en skiss om tilldelningen har valt den **skrivskyddad** eller **ta inte bort** alternativet. Neka-åtgärden läggs till av hanterade identiteten för skisstilldelningen och kan bara tas bort från artefakt resurser av samma hanterad identitet. Den här säkerhetsåtgärd tillämpar mekanismen för låsning och förhindrar att ta bort skissen låset utanför skisser.
+Åtgärden för [](../../../role-based-access-control/deny-assignments.md) att neka en RBAC-åtgärd tillämpas på artefakt resurser under tilldelningen av en skiss om tilldelningen har valt alternativet **skrivskyddad** eller **Ta inte bort** . Neka-åtgärden läggs till av den hanterade identiteten för skiss tilldelningen och kan bara tas bort från artefakt resurserna av samma hanterade identitet. Det här säkerhets måttet tillämpar låsnings funktionen och förhindrar borttagning av skiss låset utanför ritningar.
 
-![Skissen neka tilldelning på resursgrupp](../media/resource-locking/blueprint-deny-assignment.png)
+![Skissen neka tilldelning för resurs gruppen](../media/resource-locking/blueprint-deny-assignment.png)
 
-Den [neka rolltilldelningens egenskaper](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) i varje läge är följande:
+[Egenskaperna för neka tilldelning](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) för varje läge är följande:
 
-|Läge |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|Läge |Behörigheter. åtgärder |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Skrivskyddad |**\*** |**\*/ Läs** |SystemDefined (alla) |skiss tilldelning och användardefinierade i **excludedPrincipals** |Resursgrupp – _SANT_; Resurs - _FALSKT_ |
-|Ta inte bort |**\*/ delete** | |SystemDefined (alla) |skiss tilldelning och användardefinierade i **excludedPrincipals** |Resursgrupp – _SANT_; Resurs - _FALSKT_ |
+|Skrivskyddad |**\*** |**\*/read** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
+|Ta inte bort |**\*/Delete** | |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
 
 > [!IMPORTANT]
-> Azure Resource Manager cachelagrar rollen tilldelningsinformation för upp till 30 minuter. Därför kan neka tilldelningar neka åtgärdens på skiss resurser inte kanske omedelbart i fulla effekten. Under denna tidsperiod kan det vara möjligt att ta bort en resurs som ska skyddas av skiss Lås.
+> Azure Resource Manager cachelagrar roll tilldelnings information i upp till 30 minuter. Till följd av detta kan neka-tilldelningar neka åtgärder på skiss resurser inte omedelbart tillämpas fullständigt. Under den här tids perioden kan det vara möjligt att ta bort en resurs som är avsedd att skyddas av skiss lås.
 
-## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exkludera ett huvudnamn för från en neka-tilldelning
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Undanta ett huvud konto från en neka-tilldelning
 
-I vissa scenarier för design eller security, kan det vara nödvändigt att utesluta ett huvudnamn för från den [neka tilldelning](../../../role-based-access-control/deny-assignments.md) skisstilldelningen skapar. Detta görs i REST-API genom att lägga till upp till fem värden till den **excludedPrincipals** matrisen i den **Lås** egenskapen när [skapa tilldelningen](/rest/api/blueprints/assignments/createorupdate).
-Det här är ett exempel på en brödtext i begäran som innehåller **excludedPrincipals**:
+I vissa design-eller säkerhets scenarier kan det vara nödvändigt att undanta ett huvud konto från den [neka-tilldelning](../../../role-based-access-control/deny-assignments.md) som skiss tilldelningen skapar. Detta görs i REST API genom att lägga till upp till fem värden i **excludedPrincipals** -matrisen i **Lås** -egenskapen när [tilldelningen skapas](/rest/api/blueprints/assignments/createorupdate).
+Detta är ett exempel på en begär ande text som innehåller **excludedPrincipals**:
 
 ```json
 {
@@ -111,8 +110,8 @@ Det här är ett exempel på en brödtext i begäran som innehåller **excludedP
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Följ den [skydda nya resurser](../tutorials/protect-new-resources.md) självstudien.
-- Lär dig mer om [livscykeln för en skiss](lifecycle.md).
+- Följ själv studie kursen [skydda nya resurser](../tutorials/protect-new-resources.md) .
+- Lär dig mer om [skiss livs cykeln](lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4274b3684a2e9e79385a561b1cad426b4ffd954e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 58a220192d6a02c6ad66094e8421405578a82a01
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609937"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231316"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Hantera problem med slut punkts skydd med Azure Security Center
 Azure Security Center övervakar status för skydd mot skadlig kod och rapporterar detta under bladet problem med slut punkts skydd. Security Center fokuserar på problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra att dina virtuella datorer (VM) och datorer är utsatta för hot mot skadlig kod. Genom att använda informationen under **problem med slut punkts skydd**kan du identifiera en plan för att åtgärda eventuella problem som identifieras.
@@ -31,12 +31,12 @@ Security Center rapporterar följande problem med slut punkts skydd:
 - Endpoint Protection-hälsa:
 
   - Inaktuell signatur – en lösning för program mot skadlig kod installeras på de virtuella datorerna och datorerna, men lösningen har inte de senaste signaturerna för program mot skadlig kod.
-  - Inget real tids skydd – en lösning för program mot skadlig kod installeras på de virtuella datorerna och datorerna, men har inte kon figurer ATS för real tids skydd.   Tjänsten kan vara inaktive rad eller Security Center kanske inte kan hämta status eftersom lösningen inte stöds. Se [partner integration](security-center-os-coverage.md#supported-endpoint-protection-solutions) för en lista över lösningar som stöds.
+  - Inget real tids skydd – en lösning för program mot skadlig kod installeras på de virtuella datorerna och datorerna, men har inte kon figurer ATS för real tids skydd.   Tjänsten kan vara inaktive rad eller Security Center kanske inte kan hämta status eftersom lösningen inte stöds. Se [partner integration](security-center-services.md#endpoint-supported) för en lista över lösningar som stöds.
   - Ej rapportering – en lösning för program mot skadlig kod installeras men rapporterar inte data.
   - Okänd – en lösning för program mot skadlig kod har installerats men dess status är okänd eller rapporterar ett okänt fel.
 
     > [!NOTE]
-    > Se [integrera](security-center-os-coverage.md#supported-endpoint-protection-solutions) säkerhetslösningar för en lista över säkerhets lösningar för Endpoint Protection som är integrerade med Security Center.
+    > Se [integrera](security-center-services.md#endpoint-supported) säkerhetslösningar för en lista över säkerhets lösningar för Endpoint Protection som är integrerade med Security Center.
     >
     >
 

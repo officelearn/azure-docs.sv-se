@@ -1,10 +1,10 @@
 ---
-title: Funktioner och plattformar som stöds av Azure Security Center | Microsoft Docs
-description: Det här dokumentet innehåller en lista över funktioner och plattformar som stöds av Azure Security Center.
+title: Plattformar som stöds av Azure Security Center | Microsoft Docs
+description: Det här dokumentet innehåller en lista över plattformar som stöds av Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
@@ -12,28 +12,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/03/2019
+ms.date: 8/29/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 1f5a144728614ee13bf4f08bb594f0546d446880
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c094ef5f3e7c7bfa96f95264e137fd8938296bb4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640785"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232217"
 ---
-# <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
+# <a name="supported-platforms"></a>Plattformar som stöds 
 
-Övervakning och rekommendationer för säkerhets tillstånd är tillgängliga för virtuella datorer (VM) som skapats med hjälp av både klassiska distributions modeller för och Resource Manager och datorer.
+## Virtuella datorer/servrar<a name="vm-server"></a>
+
+Security Center stöder virtuella datorer/servrar på olika typer av hybrid miljöer:
+
+* Endast Azure
+* Azure och lokalt
+* Azure och andra moln
+* Azure, andra moln och lokalt
+
+För en Azure-miljö aktive rad på en Azure-prenumeration identifierar Azure Security Center automatiskt IaaS-resurser som distribueras i prenumerationen.
 
 > [!NOTE]
-> Läs mer om de [klassiska distributions modellerna för och Resource Manager](../azure-classic-rm.md) för Azure-resurser.
->
+> För att få en fullständig uppsättning säkerhetsfunktioner måste du ha Log Analytics- [agenten](../azure-monitor/platform/agents-overview.md#log-analytics-agent), som används av Azure Security Center, installerad och [korrekt konfigurerad för att skicka data till Azure Security Center](security-center-enable-data-collection.md#manual-agent).
 
-## <a name="platforms-that-support-the-data-collection-agent"></a>Plattformar som stöder data insamlings agenten 
-I det här avsnittet visas de plattformar där Log Analytics-agenten, som används av Azure Security Center, kan köras.
 
-### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plattformar som stöds för Windows-datorer och virtuella datorer
-Följande Windows-operativ system stöds:
+I följande avsnitt listas de serveroperativ system som stöds och som [Log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent)-agenten, som används av Azure Security Center, kan köras.
+
+### Windows Server-operativsystem<a name="os-windows"></a>
 
 * Windows Server 2019
 * Windows Server 2016
@@ -43,16 +50,14 @@ Följande Windows-operativ system stöds:
 * Windows Server 2008
 
 > [!NOTE]
-> Integrering med Windows Defender ATP stöder endast Windows Server 2012 R2 och Windows Server 2016.
+> Integrering med Microsoft Defender ATP stöder endast Windows Server 2012 R2 och Windows Server 2016.
 
-### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plattformar som stöds för Linux-datorer och virtuella datorer
+Mer information om vilka funktioner som stöds för Windows-operativsystem som anges ovan finns i [funktioner för virtuell dator/server som stöds](security-center-services.md##vm-server-features).
 
-Följande Linux-operativ system stöds:
-
-> [!NOTE]
-> Eftersom listan över Linux-operativsystem som stöds ständigt ändras kan du klicka [här](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) om du vill visa den senaste listan över versioner som stöds, om det har gjorts ändringar sedan det här avsnittet publicerades senast.
+### Linux-operativsystem<a name="os-linux"></a>
 
 64-bitars
+
 * CentOS 6 och 7
 * Amazon Linux 2017,09
 * Oracle Linux 6 och 7
@@ -68,103 +73,57 @@ Följande Linux-operativ system stöds:
 * Debian GNU/Linux 8 och 9
 * Ubuntu Linux 14,04 LTS och 16,04 LTS
 
-## <a name="vms-and-cloud-services"></a>Virtuella datorer och Cloud Services
+> [!NOTE]
+> Eftersom listan över Linux-operativsystem som stöds ständigt ändras kan du klicka [här](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) om du vill visa den senaste listan över versioner som stöds, om det har gjorts ändringar sedan det här avsnittet publicerades senast.
+
+Mer information om vilka funktioner som stöds för Linux-operativsystem som anges ovan finns i [funktioner för virtuella datorer/server som stöds](security-center-services.md##vm-server-features).
+
+### Hanterade virtuella maskin tjänster<a name="virtual-machine"></a>
+
+Virtuella datorer skapas också i en kund prenumeration som en del av vissa Azure-hanterade tjänster, till exempel Azure Kubernetes (AKS), Azure Databricks med mera. De här virtuella datorerna identifieras också av Azure Security Center och Log Analytics-agenten kan installeras och konfigureras enligt de [Windows/Linux-operativsystem](#os-windows)som stöds, som anges ovan.
+
+### Cloud Services<a name="cloud-services"></a>
+
 Virtuella datorer som körs i en moln tjänst stöds också. Endast webb-och arbets roller för moln tjänster som körs i produktions platser övervakas. Mer information om moln tjänster finns i [Översikt över Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
+## PaaS-tjänster<a name="paas-services"></a>
 
-## <a name="supported-iaas-features"></a>IaaS funktioner som stöds
+Följande Azure PaaS-resurser stöds av Azure Security Center:
 
-> [!div class="mx-tableFixed"]
-> 
+* SQL
+* PostGreSQL
+* MySQL
+* CosmosDB
+* Lagringskonto
+* Apptjänst
+* Funktion
+* Molntjänst
+* Virtuellt nätverk
+* Subnet
+* Nätverkskort
+* NSG
+* Batch-konto
+* Service Fabric-konto
+* Automation-konto
+* Lastbalanserare
+* Search
+* service bus namnrymd
+* Stream Analytics
+* Namnrymd för händelshubb
+* Logikappar
+* Redis
+* Data Lake Analytics
+* Data Lake Store
+* Nyckelvalv
 
-|Server|Windows|||Linux|||Prissättning|
-|----|----|----|----|----|----|----|----|
-|**Miljö**|**Azure**||**Icke-Azure**|**Azure**||**Icke-Azure**||
-||**Virtuell dator**|**Skalnings uppsättning för virtuell dator**||**Virtuell dator**|**Skalnings uppsättning för virtuell dator**|
-|Aviseringar om VMBA hot identifiering|✔|✔|✔|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
-|Nätverksbaserade hot identifierings aviseringar|✔|✔|X|✔|✔|X|Standard|
-|Windows Defender ATP-integrering|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|X|X|X|Standard|
-|Korrigeringar som saknas|✔|✔|✔|✔|✔|✔|Lediga|
-|Säkerhetskonfigurationer|✔|✔|✔|✔|✔|✔|Lediga|
-|Endpoint Protection-utvärdering|✔|✔|✔|X|X|X|Lediga|
-|JIT VM-åtkomst|✔|X|X|✔|X|X|Standard|
-|Anpassningsbara programkontroller|✔|X|✔|✔|X|✔|Standard|
-|TJÄNSTDATABASEN|✔|✔|✔|✔|✔|✔|Standard|
-|Disk krypterings bedömning|✔|✔|X|✔|✔|X|Lediga|
-|Distribution från tredje part|✔|X|X|✔|X|X|Lediga|
-|NSG-utvärdering|✔|✔|X|✔|✔|X|Lediga|
-|Filbaserad hot identifiering|✔|✔|✔|X|X|X|Standard|
-|Nätverks karta|✔|✔|X|✔|✔|X|Standard|
-|Anpassningsbara nätverks kontroller|✔|✔|X|✔|✔|X|Standard|
-|Instrument panel för regelefterlevnad & rapporter|✔|✔|✔|✔|✔|✔|Standard|
-|Rekommendationer och hot identifiering på Docker-värdbaserade IaaS behållare|X|X|X|✔|✔|✔|Standard|
-
-### <a name="supported-endpoint-protection-solutions"></a>Slut punkts skydds lösningar som stöds
-
-Följande tabell innehåller en matris med:
- - Om du kan använda Azure Security Center för att installera varje lösning åt dig.
- - Vilka lösningar för slut punkts skydd Security Center kan identifiera. Om någon av dessa slut punkts skydds lösningar upptäcks rekommenderar Security Center inte att installera en.
-
-Information om när rekommendationer genereras för vart och ett av dessa skydd finns i [Endpoint Protection utvärdering och rekommendationer](security-center-endpoint-protection.md).
-
-| Endpoint Protection| Plattformar | Installation av Security Center | Security Center Discovery |
-|------|------|-----|-----|
-| Windows Defender (Microsoft-programvara mot skadlig kod)| Windows Server 2016| Nej, inbyggd i OS| Ja |
-| System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
-| Trend Micro – alla versioner * | Windows Server-familjen  | Nej | Ja |
-| Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
-| McAfee v10 + | Windows Server-familjen  | Nej | Ja |
-| McAfee v10 + | Linux Server-serien  | Nej | Ja **\*** |
-| Sophos v9 +| Linux Server-serien  | Nej | Ja **\***  |
-
- **\*** Täcknings tillstånd och kompletterande data är för närvarande endast tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer och återspeglas inte i Azure Security Center Portal.
-
-> [!NOTE]
-> - Identifiering av System Center Endpoint Protection (SCEP) på en virtuell dator med Windows Server 2008 R2 kräver SCEP för att installeras efter PowerShell 3,0 (eller en övre version).
-> - Identifiering av Trend Micro Protection stöds för djup säkerhets agenter.  OfficeScan-agenter stöds inte.
-
-## <a name="supported-paas-features"></a>PaaS funktioner som stöds
-
-
-|Tjänsten|Rekommendationer (kostnads fri)|Hot identifiering (standard)|
-|----|----|----|
-|SQL|✔| ✔|
-|PostGreSQL*|✔| ✔|
-|MySQL*|✔| ✔|
-|Azure Blob Storage-konton|✔| ✔|
-|App Services|✔| ✔|
-|Cloud Services|✔| X|
-|VNets|✔| Ej tillämpligt|
-|Undernät|✔| Ej tillämpligt|
-|Nätverkskort|✔| Ej tillämpligt|
-|Nätverkssäkerhetsgrupper (NSG)|✔| Ej tillämpligt|
-|Subscription|✔ * *| ✔|
-|Batch|✔| Ej tillämpligt|
-|Service fabric|✔| Ej tillämpligt|
-|Automation-konto|✔| Ej tillämpligt|
-|Lastbalanserare|✔| Ej tillämpligt|
-|Search|✔| Ej tillämpligt|
-|Service Bus|✔| Ej tillämpligt|
-|Stream Analytics|✔| Ej tillämpligt|
-|Händelsehub|✔| Ej tillämpligt|
-|Logikappar|✔| Ej tillämpligt|
-|Lagringskonto|✔| Ej tillämpligt|
-|Redis|✔| Ej tillämpligt|
-|Data Lake Analytics|✔| Ej tillämpligt|
-|Nyckelvalv|✔| Ej tillämpligt|
-
-
-
-
-\*Dessa funktioner stöds för närvarande i offentlig för hands version.
-
-\*\*AAD-rekommendationer är bara tillgängliga för standard prenumerationer
-
-
+Mer information om vilka funktioner som stöds för ovanstående lista över PaaS-resurser finns i [PaaS Services-funktioner som stöds](security-center-services.md#paas-services).
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Lär dig hur [Security Center samlar in data och Log Analytics agenten](security-center-enable-data-collection.md).
+- Lär dig hur [Security Center hanterar och skyddar data](security-center-data-security.md).
 - Lär dig att [planera och förstå design överväganden för att anta Azure Security Center](security-center-planning-and-operations-guide.md).
+- Lär dig mer om [funktioner som är tillgängliga för de olika moln miljöerna](security-center-services.md).
 - Lär dig mer om [hot identifiering för virtuella datorer & servrar i Azure Security Center](security-center-alerts-iaas.md).
 - Hitta [vanliga frågor om hur du använder Azure Security Center](security-center-faq.md).
 - Hitta [blogg inlägg om säkerhet och efterlevnad i Azure](https://blogs.msdn.com/b/azuresecurity/).

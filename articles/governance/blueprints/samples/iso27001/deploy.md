@@ -7,12 +7,12 @@ ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 00e60d41b34531462a4e85623a19f1dd22c6e4e6
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4fd162020fc7acf6c005302a1cb8038e8de424d7
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816813"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231699"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Distribuera exempel på ISO 27001-skissen
 
@@ -111,9 +111,9 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |\[För\]hands version: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget|En tom matris kan användas för att ange inga valfria parametrar:\[\]|
 |\[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Log Analytics arbets yta för virtuella Windows-datorer|Om den här arbets ytan ligger utanför tilldelnings omfånget måste du manuellt bevilja behörigheten Log Analytics deltagare (eller liknande) till princip tilldelningens huvud-ID.|
 |\[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget|En tom matris kan användas för att ange inga valfria parametrar:\[\]|
-|Tillåtna SKU:er för lagringskonto|Principtilldelning|Lista över tillåtna lagrings-SKU: er|Lista över SKU:er som kan anges för lagringskonton.|
-|Tillåtna SKU:er för virtuella datorer|Principtilldelning|Lista över tillåtna SKU: er för virtuella datorer|Lista över SKU:er som kan anges för virtuella datorer.|
-|Skissinitiativ för ISO 27001|Principtilldelning|Lista över resurstyper som bör ha aktiverade diagnostikloggar|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Tillåtna SKU:er för lagringskonto|Principtilldelning|Lista över tillåtna lagrings-SKU: er|Listan över SKU: er som kan anges för lagrings konton.|
+|Tillåtna SKU:er för virtuella datorer|Principtilldelning|Lista över tillåtna SKU: er för virtuella datorer|Listan över SKU: er som kan anges för virtuella datorer.|
+|Skissinitiativ för ISO 27001|Principtilldelning|Lista över resurs typer som ska ha diagnostiska loggar aktiverade|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -125,7 +125,7 @@ Nu när du har granskat stegen för att distribuera ISO 27001 skiss exemplet kan
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Lär dig mer om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Lär dig mer om [skiss livs cykeln](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).

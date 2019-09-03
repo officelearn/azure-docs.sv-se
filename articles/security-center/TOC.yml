@@ -4,8 +4,10 @@
   items:
     - name: Om Security Center
       href: security-center-intro.md
-    - name: Plattformar och funktioner som stöds av Security Center
+    - name: Plattformar som stöds
       href: security-center-os-coverage.md
+    - name: Funktioner som stöds
+      href: security-center-services.md
 - name: Snabbstarter
   expanded: true
   items:

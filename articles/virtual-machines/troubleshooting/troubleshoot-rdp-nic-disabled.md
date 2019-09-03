@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 9038bdb79504289c3aa149868d8a02e74c11fdb7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bb4583c88f2e867c619a2163d91bff1d48b6a7a3
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103434"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230702"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Det går inte att fjärrskrivbord till en virtuell dator eftersom nätverksgränssnittet har inaktiverats
 
@@ -52,8 +52,7 @@ Om du vill aktivera gränssnittet för den virtuella datorn använder Serial kon
 
     Till exempel gränssnittet interwork heter ”Ethernet 2”, kör du följande kommando:
 
-        netsh interface set interface name=""Ethernet 2" admin=enabled
-
+        netsh interface set interface name="Ethernet 2" admin=enabled
 
 4.  Kontrollera tillståndet för nätverksgränssnittet igen för att se till att nätverksgränssnittet är aktiverad.
 

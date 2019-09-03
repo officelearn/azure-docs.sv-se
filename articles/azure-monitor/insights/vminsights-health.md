@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: magoedte
-ms.openlocfilehash: 18297410842b432af0093a71406df71f7e03db9d
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 311db544a119d4b9bee7d31cfdfac33aa3c4ed79
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602046"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233222"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Förstå hälso tillståndet för dina virtuella Azure-datorer
 
@@ -277,7 +277,7 @@ De tre kolumnerna är sammanlänkade med varandra. När du väljer en instans i 
 
 ![Exempel på att välja övervakad instans och resultat](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-Om du till exempel väljer *disk-1 D:* från listan under **komponent modell** **filter filter** till *disk-1d:* och **tillstånds ändringar** , visar tillstånds ändringen baserat på tillgängligheten för *disk-1 D:* .
+Om du till exempel väljer *disk-1 D:* från listan under **komponent modell**filter filter till *disk-1d:* och **tillstånds ändringar** , visar tillstånds ändringen baserat på tillgängligheten för *disk-1 D:* .
 
 Om du vill se ett uppdaterat hälso tillstånd kan du uppdatera sidan hälso diagnos genom att välja länken **Uppdatera** . Om det finns en uppdatering av hälso kriteriets hälso tillstånd baserat på det fördefinierade avsöknings intervallet kan du undvika att vänta och återspegla det senaste hälso tillståndet. **Tillståndet för hälso** tillstånd är ett filter som du kan använda för att begränsa resultatet baserat på det valda hälso tillståndet: Felfri, varning, kritisk, okänd och allt. **Senast uppdaterad** tid i det övre högra hörnet motsvarar den senaste gången sidan för hälsodiagnostik uppdaterades.
 
@@ -285,7 +285,7 @@ Om du vill se ett uppdaterat hälso tillstånd kan du uppdatera sidan hälso dia
 
 Azure Monitor for VMs hälsa integreras med [Azure](../../azure-monitor/platform/alerts-overview.md)-aviseringar. Den genererar en avisering när fördefinierade villkor, vid identifiering, ändras från ett felfritt tillstånd till ett ohälsosamt tillstånd. Aviseringar kategoriseras efter allvarlighets grad, från allvarlighets grad 0 till allvarlighets grad 4, med allvarlighets grad 0 som den högsta nivån.
 
-Aviseringar är inte associerade med en åtgärds grupp för att meddela dig när aviseringen har utlösts. Prenumerationens ägare måste konfigurera meddelanden genom att följa stegen i avsnittet [Konfigurera aviseringar](#configure-alerts) .
+Aviseringar är inte associerade med en åtgärds grupp för att meddela dig när aviseringen har utlösts. En användare med ägar rollen i prenumerations omfånget måste konfigurera meddelanden genom att följa stegen i avsnittet [Konfigurera aviseringar](#configure-alerts) .
 
 Det totala antalet aviseringar om virtuella hälso tillstånd kategoriserade efter allvarlighets grad finns på **hälso** instrument panelen i avsnittet **aviseringar** . När du väljer antingen det totala antalet aviseringar eller numret som motsvarar allvarlighets graden öppnas sidan aviseringar och alla aviseringar som matchar ditt val visas.
 

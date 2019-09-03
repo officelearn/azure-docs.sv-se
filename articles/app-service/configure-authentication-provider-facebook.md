@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Facebook-autentisering – Azure App Service
-description: Lär dig hur du konfigurerar Facebook-autentisering för ditt App Services-program.
+description: Lär dig hur du konfigurerar Facebook-autentisering för din App Service-app.
 services: app-service
 documentationcenter: ''
 author: mattchenderson
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f4d26572dc21e2c7454fb739cb4b5fb5665bd1db
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 410d769d0d9abe3a0a0f9c45e3cf67bb94ec9f4d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098570"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232073"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Så här konfigurerar du App Service-programmet för att använda Facebook-inloggning
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -30,19 +30,19 @@ För att slutföra proceduren i det här avsnittet måste du ha ett Facebook-kon
 
 ## <a name="register"> </a>Registrera ditt program med Facebook
 1. Navigera till [Facebook-utvecklare] -utvecklarens webbplats och logga in med dina Facebook-kontoautentiseringsuppgifter.
-3. Valfritt Om du inte har ett Facebook för utvecklare-konto klickar du på **Kom igång** och följer registrerings stegen.
+3. Valfritt Om du inte har ett Facebook för utvecklare-konto klickar du på **Kom igång**och följer registrerings stegen.
 4. Klicka på **Mina appar** > **Lägg till ny app**.
-5. I **visnings namn**, ange ett unikt namn för din app. Ange också **e-** postadressen och klicka sedan på **skapa app-ID** och slutför säkerhets kontrollen. Det tar dig till Developer-instrumentpanelen för din nya Facebook-app.
+5. I **visnings namn**, ange ett unikt namn för din app. Ange också **e-** postadressen och klicka sedan på **skapa app-ID** och slutför säkerhets kontrollen. Developer-instrumentpanelen för din nya Facebook-app öppnas.
 6. Klicka på **instrument panel** > **Facebook-inloggning** > **Konfigurera** > **webb**.
 1. Klicka på **Inställningar**i den vänstra navigeringen under **Facebook-inloggning**.
 1. I **giltiga OAuth**-omdirigerings `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` -URI skriver och ersätter  *\<du App-Name->* med namnet på din Azure App Service-app. Klicka på **Spara ändringar**.
-8. Klicka på **Inställningar** > **Basic**i det vänstra navigerings fältet. I fältet **app Secret** klickar du på **Visa**. Kopiera värdena för **app-ID** och **app Secret**. Du använder dessa senare för att konfigurera din App Service-app i Azure.
+8. Klicka på **Inställningar** > **Basic**i det vänstra navigerings fältet. I fältet **app Secret** klickar du på **Visa**. Kopiera värdena för **app-ID** och **app Secret**. Du kan använda dem senare för att konfigurera din App Service-app i Azure.
    
    > [!IMPORTANT]
    > Appens hemlighet är en viktig säkerhets autentiseringsuppgift. Dela inte den här hemligheten med någon eller distribuera den i ett klient program.
    > 
    > 
-9. Det Facebook-konto som användes för att registrera programmet är en administratör av appen. I det här läget kan endast administratörer logga in till det här programmet. Om du vill autentisera andra Facebook-konton klickar du på **program granskning** och  **\<gör ditt-App-Name > Public** för att aktivera allmän offentlig åtkomst med Facebook-autentisering.
+9. Det Facebook-konto som du använde för att registrera programmet är en administratör för appen. I det här läget kan endast administratörer logga in till det här programmet. Om du vill autentisera andra Facebook-konton klickar du på **program granskning** och  **\<gör ditt-App-Name > Public** för att aktivera allmän offentlig åtkomst med Facebook-autentisering.
 
 ## <a name="secrets"> </a>Lägga till Facebook-information i ditt program
 1. Logga in på [Azure Portal] och navigera till din app service-app. Klicka på **Inställningar** > **autentisering/auktorisering**och kontrol lera att **App Service autentisering** är **aktiverat**.

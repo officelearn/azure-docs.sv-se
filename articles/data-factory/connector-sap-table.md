@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: faae9ae335e391afac4ed2ef75472f1fecdaca86
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 94bdeebcecdf924468f022ac95867bd82df5a793
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211673"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231330"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiera data från en SAP-tabell med hjälp av Azure Data Factory
 
@@ -35,9 +35,9 @@ Mer specifikt stöder SAP Table Connector:
 - Kopiera data från en SAP-tabell i:
 
   - SAP ERP Central Component (SAP ECC) version 7,01 eller senare (i en senaste SAP-support paket stack som publicerats efter 2015).
-  - SAP Business Warehouse (SAP BW) version 7,01 eller senare.
+  - SAP Business Warehouse (SAP BW) version 7,01 eller senare (i en senaste SAP-support paket stack som släppts efter 2015).
   - SAP S/4HANA.
-  - Andra produkter i SAP Business Suite version 7,01 eller senare.
+  - Andra produkter i SAP Business Suite version 7,01 eller senare (i en senaste SAP-support paket stack som släppts efter 2015).
 
 - Kopiera data från både en transparent SAP-tabell, en sammanställd tabell, en klustrad tabell och en vy.
 - Kopiera data med hjälp av grundläggande autentisering eller säker nätverkskommunikation (SNC), om SNC har kon figurer ATS.

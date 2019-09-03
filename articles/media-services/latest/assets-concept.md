@@ -1,5 +1,5 @@
 ---
-title: Tillgångar i Azure Media Services | Microsoft Docs
+title: Till gångar i Azure Media Services | Microsoft Docs
 description: Den här artikeln innehåller en förklaring av vad tillgångar är och hur de används av Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,30 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d0a81d5d7ce8e7569b77007b6ad9c322cf626f16
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 2f2dea922b7a3ba45ad6493ce94f0c52649dfa68
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670705"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230989"
 ---
 # <a name="assets"></a>Tillgångar
 
-I Azure Media Services, en [tillgången](https://docs.microsoft.com/rest/api/media/assets) innehåller information om digitala filer som lagras i Azure Storage (inklusive video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning). 
+I Azure Media Services innehåller en [till gång](https://docs.microsoft.com/rest/api/media/assets) information om digitala filer som lagras i Azure Storage (inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning). 
 
-En tillgång är mappad till en blobbehållare i den [Azure Storage-konto](storage-account-concept.md) och filer i tillgången lagras som blockblobar i den behållaren. Media Services stöder Blob nivåerna när kontot använder för generell användning v2 (GPv2) lagring. Med GPv2, kan du flytta filer till [lågfrekvent lagring eller Arkivlagring](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). **Arkivera** lagring är lämplig för arkivering av källfilerna när det inte längre behövs (till exempel när de har kodats).
+En till gång mappas till en BLOB-behållare i [Azure Storage-kontot](storage-account-concept.md) och filerna i till gången lagras som block-blobbar i den behållaren. Media Services stöder BLOB-nivåer när kontot använder General-Purpose v2-lagring (GPv2). Med GPv2 kan du flytta filer till låg frekvent [lagring eller Arkiv lag](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)ring. **Arkiv** lag ring är lämpligt för att arkivera källfiler när de inte längre behövs (till exempel efter att de har kodats).
 
-Den **Arkiv** lagringsnivå rekommenderas endast för mycket stora källfiler som redan har kodats och kodning jobbutdata placerades i en utdata-blob-behållare. Blobar i behållaren för utdata som du vill associera med en tillgång och Använd för att strömma eller analysera ditt innehåll måste finnas i en **frekvent** eller **lågfrekvent** lagringsnivå.
+**Arkiv** lag rings nivån rekommenderas endast för mycket stora källfiler som redan har kodats och kodnings jobbets utdata lades till i en utgående BLOB-behållare. Blobarna i behållaren för utdata som du vill associera med en till gång och använder för att strömma eller analysera innehållet måste finnas på en frekvent eller låg frekvent lagrings nivå.
 
-## <a name="upload-digital-files-into-assets"></a>Ladda upp digitala filer till tillgångar
+### <a name="naming-blobs"></a>Namnge blobbar
 
-När de digitala filerna har överförts till lagring och som är associerade med en tillgång, kan de användas i Media Services encoding, strömning, analysera innehållet arbetsflöden. En av de vanliga arbetsflödena för Media Services är att överföra, koda och överföra en fil. Det här avsnittet beskrivs de allmänna stegen.
+Namnen på filer/blobbar i en till gång måste följa både BLOB- [namnets krav](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) och [kraven för NTFS-namn](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Orsaken till dessa krav är att filerna kan kopieras från Blob Storage till en lokal NTFS-disk för bearbetning.
+
+## <a name="upload-digital-files-into-assets"></a>Överför digitala filer till till gångar
+
+När de digitala filerna har överförts till lagring och associerats med en till gång, kan de användas i Media Services kodning, strömning, analys av innehålls arbets flöden. En av vanliga Media Services arbets flöden är att ladda upp, koda och strömma en fil. Det här avsnittet beskriver de allmänna stegen.
 
 > [!TIP]
-> Innan du börjar utveckla granska [utveckla med API: er för Media Services v3](media-services-apis-overview.md) (innehåller information om hur du använder API: er, namngivningskonventioner, osv.)
+> Innan du börjar utveckla bör du läsa [utveckla med Media Services v3-API: er](media-services-apis-overview.md) (innehåller information om hur du kommer åt API: er, namngivnings konventioner osv.)
 
 1. Använd Media Services v3 API för att skapa en ny ”indataresurs”. Den här åtgärden skapar en container i det lagringskonto som associeras med ditt Media Services-konto. API: et returnerar behållarens namn (till exempel `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    
@@ -46,14 +50,14 @@ När de digitala filerna har överförts till lagring och som är associerade me
 2. Hämta en SAS-URL med läs- och skrivbehörigheter som används för att ladda upp digitala filer till tillgångscontainern. Du kan använda Media Services API för att [lista URL:er för tillgångscontainern](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
 3. Använd Azure Storage-API:er eller -SDK:er (till exempel [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) för att ladda upp filer till tillgångscontainern. 
 4. Använd Media Services v3-API:er för att skapa en transformering och ett jobb för att bearbeta din ”indatatillgång”. Mer information finns i [Transformeringar och jobb](transform-concept.md).
-5. Stream innehållet från ”utdatatillgången”.
+5. Strömma innehållet från "output"-till gången.
 
-För en fullständig .NET-exempel som visar hur du: skapa tillgången, få en skrivbar SAS-URL till den tillgången behållare i storage, ladda upp filen till behållaren i storage med SAS-Webbadressen, se [skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md).
+För ett fullständigt .NET-exempel som visar hur du skapar till gången, hämtar en skrivbar SAS-URL till till gångens behållare i Storage, laddar upp filen till behållaren i lagring med SAS-URL: en, se [skapa ett jobb indata från en lokal fil](job-input-from-local-file-how-to.md).
 
-### <a name="create-a-new-asset"></a>Skapa en ny tillgång
+### <a name="create-a-new-asset"></a>Skapa en ny till gång
 
 > [!NOTE]
-> Tillgångs-egenskaper av typen Datetime är alltid i UTC-format.
+> Till gångens egenskaper för datetime-typen är alltid i UTC-format.
 
 #### <a name="rest"></a>REST
 
@@ -61,7 +65,7 @@ För en fullständig .NET-exempel som visar hur du: skapa tillgången, få en sk
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
 ```
 
-En REST-exempel finns i den [skapa en tillgång med REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) exempel.
+Ett REST-exempel finns i exemplet [skapa en till gång med rest](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) .
 
 Exemplet visar hur du skapar **begärandetexten**, där du kan ange användbar information såsom beskrivning, containernamn, lagringskonto och annat.
 
@@ -85,20 +89,20 @@ curl -X PUT \
  Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
 ```
 
-Ett fullständigt exempel se [skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md). I Media Services v3, en jobbindata kan även skapa från HTTPS-URL: er (se [skapa en jobbindata från en HTTPS-URL](job-input-from-http-how-to.md)).
+Ett fullständigt exempel finns i [skapa ett jobb indata från en lokal fil](job-input-from-local-file-how-to.md). I Media Services v3 kan du också skapa ett jobbs inmatare från HTTPS-URL: er (se [skapa ett jobb inmatat från en HTTPS-URL](job-input-from-http-how-to.md)).
 
-## <a name="map-v3-asset-properties-to-v2"></a>Kartegenskaper på v3-tillgång till v2
+## <a name="map-v3-asset-properties-to-v2"></a>Mappa v3 till gångs egenskaper till v2
 
-I följande tabell visas hur [tillgången](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)'s egenskaper i v3 mappa till tillgångens egenskaper i v2.
+Följande tabell visar hur [till gångens](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)egenskaper i v3 mappar till till gångens egenskaper i v2.
 
 |v3-egenskaper|v2-egenskaper|
 |---|---|
-|ID - (unika) den fullständiga sökvägen i Azure Resource Manager, se exemplen i [tillgången](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
-|namn – (unika) finns i [namngivningskonventioner](media-services-apis-overview.md#naming-conventions) ||
+|ID – (unik) fullständig Azure Resource Manager Sök väg, se exempel i [till gång](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|namn – (unik) se [namn konventioner](media-services-apis-overview.md#naming-conventions) ||
 |alternateId|AlternateId|
-|assetId|ID - värdet (unika) börjar med den `nb:cid:UUID:` prefix.|
-|Skapat|Skapad|
-|description|Namn|
+|assetId|ID – (unikt) värde börjar med `nb:cid:UUID:` prefixet.|
+|skapad|Skapad|
+|description|Name|
 |lastModified|senast ändrad|
 |storageAccountName|StorageAccountName|
 |storageEncryptionFormat| Alternativ (alternativ för att skapa)|
@@ -120,7 +124,7 @@ Resurserna som ska krypteras av kryptering för lagring på serversidan för att
 
 ## <a name="filtering-ordering-paging"></a>Filtrering, skrivordning, växling
 
-Se [filtrering, sortering, växling av Media Services entiteter](entities-overview.md).
+Se [filtrering, sortering, sid indelning för Media Services entiteter](entities-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

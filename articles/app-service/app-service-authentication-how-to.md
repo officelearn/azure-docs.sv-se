@@ -4,21 +4,21 @@ description: Visar hur du anpassar autentisering och auktorisering i App Service
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 09/02/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ee8d8c54bd618780e00d9975f2fc6950cd795d44
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 105728bdab9c70bb807f38e4a09d5be863694c16
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098548"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231968"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -130,7 +130,7 @@ När du använder fullständigt kvalificerade URL: er måste URL: en antingen fi
 GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
 ```
 
-Du måste köra följande kommando i [Azure Cloud Shell](../cloud-shell/quickstart.md):
+Kör följande kommando i [Azure Cloud Shell](../cloud-shell/quickstart.md):
 
 ```azurecli-interactive
 az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
@@ -197,7 +197,7 @@ När din leverantörs åtkomsttoken (inte [sessionstoken](#extend-session-token-
 
 När din provider har kon figurer ATS [hittar du uppdateringstoken och förfallo tid för](#retrieve-tokens-in-app-code) åtkomsttoken i tokenarkivet. 
 
-Om du vill uppdatera din åtkomsttoken när som helst, `/.auth/refresh` behöver du bara anropa ett språk. I följande kodfragment används jQuery för att uppdatera åtkomsttoken från en JavaScript-klient.
+Om du vill uppdatera din åtkomsttoken när som helst, behöver `/.auth/refresh` du bara anropa ett språk. I följande kodfragment används jQuery för att uppdatera åtkomsttoken från en JavaScript-klient.
 
 ```JavaScript
 function refreshTokens() {
@@ -230,7 +230,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Begränsa domänen för inloggnings konton
 
-Med både Microsoft-konto och Azure Active Directory kan du logga in från flera domäner. Till exempel kan Microsoft-konto tillåta _Outlook.com_-, _live.com_-och _hotmail.com_ -konton. Azure Active Directory tillåter ett obegränsat antal anpassade domäner för inloggnings kontona. Det här beteendet kan vara olämpligt för en intern app, som du inte vill att någon med ett _Outlook.com_ -konto får åtkomst till. Följ dessa steg om du vill begränsa domän namnet för inloggnings kontona.
+Med både Microsoft-konto och Azure Active Directory kan du logga in från flera domäner. Till exempel kan Microsoft-konto tillåta _Outlook.com_-, _live.com_-och _hotmail.com_ -konton. Azure AD tillåter valfritt antal anpassade domäner för inloggnings kontona. Men du kanske vill påskynda dina användare direkt till din egen anpassade Azure AD-inloggnings sida (till exempel `contoso.com`). Följ dessa steg om du vill föreslå domän namnet för inloggnings kontona.
 
 I [https://resources.azure.com](https://resources.azure.com)navigerar >  dutillprenumerations **_\_ namnförprenumerationerresourceGroupsResource\<_**  >  >  **_\<\_ grupp\_ namn >_**  > **leverantörer Microsoft. Web**Sites >  - **_appensnamn\_ >\<_**  >  >  >  **konfiguration**  >  **authsettings**. 
 
@@ -239,6 +239,54 @@ Klicka på **Redigera**, ändra följande egenskap och klicka sedan på **Lägg*
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
+
+Den här inställningen lägger `domain_hint` till frågesträngparametern i URL: en för inloggnings omdirigering. 
+
+> [!IMPORTANT]
+> Det är möjligt för klienten att ta bort `domain_hint` parametern efter att ha tagit emot omdirigerings-URL: en och sedan logga in med en annan domän. När den här funktionen är praktisk är den inte en säkerhetsfunktion.
+>
+
+## <a name="authorize-or-deny-users"></a>Auktorisera eller neka användare
+
+Medan App Service tar hand om det enklaste auktoriserings fallet (dvs. neka oautentiserade begär Anden) kan din app kräva mer detaljerade funktioner för auktorisering, till exempel begränsa åtkomsten till endast en speciell användar grupp. I vissa fall måste du skriva anpassad program kod för att tillåta eller neka åtkomst till den inloggade användaren. I andra fall kan App Service eller identitets leverantören eventuellt hjälpa dig utan att behöva ändra kod.
+
+- [Server nivå](#server-level-windows-apps-only)
+- [Identitets leverantörs nivå](#identity-provider-level)
+- [Program nivå](#application-level)
+
+### <a name="server-level-windows-apps-only"></a>Server nivå (endast Windows-appar)
+
+För alla Windows-appar kan du definiera auktoriserings beteendet för IIS-webbservern genom att redigera filen *Web. config* . Linux-appar använder inte IIS och kan inte konfigureras via *Web. config*.
+
+1. Navigera till`https://<app-name>.scm.azurewebsites.net/DebugConsole`
+
+1. I webbläsarens Utforskaren för dina App Service-filer navigerar du till *plats/wwwroot*. Om det inte finns någon *Web. config* , skapar du den **+** genom att välja  >  **ny fil**. 
+
+1. Välj blyertspennan för *Web. config* för att redigera den. Lägg till följande konfigurations kod och klicka på **Spara**. Om *Web. config* redan finns, lägger du `<authorization>` bara till elementet med allt i det. Lägg till de konton som du vill tillåta i `<allow>` elementet.
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+       <system.web>
+          <authorization>
+            <allow users="user1@contoso.com,user2@contoso.com"/>
+            <deny users="*"/>
+          </authorization>
+       </system.web>
+    </configuration>
+    ```
+
+### <a name="identity-provider-level"></a>Identitets leverantörs nivå
+
+Identitets leverantören kan ge viss behörighet för att aktivera nycklar. Exempel:
+
+- För [Azure App Service](configure-authentication-provider-aad.md)kan du [Hantera åtkomst på företags nivå](../active-directory/manage-apps/what-is-access-management.md) direkt i Azure AD. Instruktioner finns i [så här tar du bort en användares åtkomst till ett program](../active-directory/manage-apps/methods-for-removing-user-access.md).
+- Google [](configure-authentication-provider-google.md)-API-projekt som tillhör en [organisation](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) kan konfigureras så att de endast tillåter åtkomst till användare i din organisation (se [Google ' **Setting Up The OAuth 2,0** support Page](https://support.google.com/cloud/answer/6158849?hl=en)).
+
+### <a name="application-level"></a>Program nivå
+
+Om någon av de andra nivåerna inte ger dig den auktorisering du behöver, eller om din plattform eller identitets leverantör inte stöds, måste du skriva anpassad kod för att auktorisera användare baserat på [användar anspråk](#access-user-claims).
+
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]

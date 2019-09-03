@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: 75bbcfa831ba7ef0b3dd0da629cfa94768d6ae9d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b96779a0a37602b6d114c9baf517df2637f734a2
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873334"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231119"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera scaler och Sparkr i HDInsight
 
@@ -193,7 +193,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importera flyg-och väder data till Spark DataFrames
 
-Nu använder vi Spark-funktionen [Read. DF ()](http://spark.apache.org/docs/latest/api/R/read.df.html) för att importera väder-och flyg data till Spark-DataFrames. Den här funktionen, precis som många andra Spark-metoder, körs Lazy, vilket innebär att de står i kö för körning men inte körs förrän de krävs.
+Nu använder vi Spark-funktionen [Read. DF ()](https://spark.apache.org/docs/latest/api/R/read.df.html) för att importera väder-och flyg data till Spark-DataFrames. Den här funktionen, precis som många andra Spark-metoder, körs Lazy, vilket innebär att de står i kö för körning men inte körs förrän de krävs.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -266,7 +266,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>Ansluta till väder-och flyg data
 
-Vi använder nu funktionen Spark [JOIN ()](http://spark.apache.org/docs/latest/api/R/join.html) för att göra en yttre yttre koppling av flyg-och väder data efter avgångs-AirportID och DateTime. Med den yttre kopplingen kan vi behålla alla flyg data poster även om det inte finns några matchande väder data. Efter kopplingen tar vi bort några överflödiga kolumner och byter namn på de sparade kolumnerna för att ta bort det inkommande DataFrame-prefixet som introducerades av kopplingen.
+Vi använder nu funktionen Spark [JOIN ()](https://spark.apache.org/docs/latest/api/R/join.html) för att göra en yttre yttre koppling av flyg-och väder data efter avgångs-AirportID och DateTime. Med den yttre kopplingen kan vi behålla alla flyg data poster även om det inte finns några matchande väder data. Efter kopplingen tar vi bort några överflödiga kolumner och byter namn på de sparade kolumnerna för att ta bort det inkommande DataFrame-prefixet som introducerades av kopplingen.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')

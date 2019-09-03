@@ -7,13 +7,12 @@ ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 291152b46f97c9b6dd10b67c7ce812fcc791ce09
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 805f9178cb77241b8332fb78687a8409206e5c05
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979594"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231588"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Snabbstart: Skapa en principtilldelning för att identifiera icke-kompatibla resurser
 
@@ -34,11 +33,11 @@ I den här snabbstarten skapar du en principtilldelning och tilldelar policydefi
 
 1. Välj **Tilldelningar** till vänster på sidan Azure Policy. En tilldelning är en princip som tilldelats ett specifikt område.
 
-   ![Välj tilldelningar sidan principöversikt](./media/assign-policy-portal/select-assignments.png)
+   ![Sidan Välj tilldelningar från sidan princip översikt](./media/assign-policy-portal/select-assignments.png)
 
 1. Välj **Tilldela princip** längst upp på sidan **Princip – Tilldelningar**.
 
-   ![Tilldela en principdefinition från sidan tilldelningar](./media/assign-policy-portal/select-assign-policy.png)
+   ![Tilldela en princip definition från sidan tilldelningar](./media/assign-policy-portal/select-assign-policy.png)
 
 1. På sidan **Tilldela princip** väljer du **Omfång** genom att klicka på ellipsen och antingen välja en hanteringsgrupp eller en prenumeration. Du kan även välja en resursgrupp. En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Klicka sedan på **Välj** längst ned på sidan **Omfång**.
 
@@ -52,7 +51,7 @@ I den här snabbstarten skapar du en principtilldelning och tilldelar policydefi
    - Använd tagg och dess värde
    - Kräv SQL Server version 12.0
 
-   En lista över tillgängliga inbyggda principer, se [Azure Policy-exempel](./samples/index.md).
+   En lista över tillgängliga inbyggda principer finns i [Azure policy exempel](./samples/index.md).
 
 1. Sök igenom listan med principdefinitioner för att hitta definitionen *Granska virtuella datorer som inte använder hanterade diskar*. Klicka på principen och sedan på **Välj**.
 
@@ -71,7 +70,7 @@ Du är nu redo att identifiera icke-kompatibla resurser för att förstå miljö
 
 Välj **Efterlevnad** till vänster på sidan. Leta sedan upp principtilldelningen **Granska virtuella datorer som inte använder hanterade diskar** som du skapade.
 
-![Information om kompatibilitet på sidan Policy för efterlevnad](./media/assign-policy-portal/policy-compliance.png)
+![Information om efterlevnad på sidan efterlevnadsprincip](./media/assign-policy-portal/policy-compliance.png)
 
 Om det finns befintliga resurser som inte är kompatibla med denna nya tilldelning visas de under **Icke-kompatibla resurser**.
 
@@ -79,9 +78,9 @@ När ett villkor utvärderas mot de befintliga resurserna och visas vara korrekt
 
 | **Resurstillstånd** | **Effekt** | **Principutvärdering** | **Kompatibilitetstillstånd** |
 | --- | --- | --- | --- |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Inkompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Sant | Icke-kompatibel |
 | Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
-| Ny | Audit, AuditIfNotExist\* | True | Inkompatibel |
+| Ny | Audit, AuditIfNotExist\* | Sant | Icke-kompatibel |
 | Ny | Audit, AuditIfNotExist\* | False | Kompatibel |
 
 \* För åtgärderna Append, DeployIfNotExist och AuditIfNotExist måste IF-instruktionen är TRUE.
@@ -95,7 +94,7 @@ Följ dessa steg för att ta bort tilldelningen som skapades:
 
 1. Högerklicka på principtilldelningen **Granska virtuella datorer som inte använder hanterade diskar** och välj **Ta bort tilldelning**
 
-   ![Ta bort en uppgift från sidan för enhetskompatibilitet](./media/assign-policy-portal/delete-assignment.png)
+   ![Ta bort en tilldelning från sidan efterlevnad](./media/assign-policy-portal/delete-assignment.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

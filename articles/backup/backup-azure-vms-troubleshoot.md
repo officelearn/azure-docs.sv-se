@@ -8,18 +8,40 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2f645d290175db9692649d825323313fc207a014
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 69d75f9050560eb4a9e394241316c0474fffe7cc
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210280"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232462"
 ---
-# <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
+# <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
+
 Du kan felsöka fel som uppstår när du använder Azure Backup med informationen i listan nedan:
 
 ## <a name="backup"></a>Säkerhetskopiera
+
 Det här avsnittet beskriver felet vid säkerhets kopiering av virtuella Azure-datorer.
+
+### <a name="basic-troubleshooting"></a>Grundläggande felsökning
+
+* Se till att VM-agenten (WA-agenten) är den [senaste versionen](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+* Se till att Windows eller Linux VM OS-versionen stöds, se [IaaS VM backup support Matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
+* Kontrol lera att ingen annan säkerhets kopierings tjänst körs.
+   * För att se till att det inte finns några ögonblicks bilds tillägg måste [du avinstallera tillägg för att framtvinga inläsning och sedan försöka säkerhetskopiera igen](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+* Kontrol lera att den virtuella datorn är ansluten till Internet.
+   * Kontrol lera att ingen annan säkerhets kopierings tjänst körs.
+* Från `Services.msc`, se till att tjänsten **Windows Azure gästa Gent** **körs**. Om tjänsten **Windows Azure gästa Gent** saknas installerar du den från [säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* **Händelse loggen** kan visa säkerhets kopierings problem som kommer från andra säkerhets kopierings produkter, t. ex. Windows Server Backup, och inte på grund av Azure Backup. Använd följande steg för att fastställa om problemet är med Azure Backup:
+   * Om det uppstår ett fel med en post **säkerhets kopia** i händelse källan eller meddelandet kontrollerar du om säkerhets kopieringen av Azure IaaS VM-säkerhetskopiering lyckades och om en återställnings punkt skapades med den önskade ögonblicks bild typen.
+    * Om Azure Backup fungerar är problemet troligt vis en annan lösning för säkerhets kopiering. 
+    * Här är ett exempel på ett fel i logg boken där Azure Backup fungerade men "Windows Server Backup" misslyckades:<br>
+    ![Windows Server Backup att fungera](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+    * Om Azure Backup inte fungerar söker du efter motsvarande felkod i avsnittet Vanliga fel vid säkerhets kopiering av virtuella datorer i den här artikeln. 
+
+## <a name="common-issues"></a>Vanliga problem
+
+Följande är vanliga problem med säkerhets kopierings fel på virtuella Azure-datorer.
 
 ## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>Tids gränsen nåddes under CopyingVHDsFromBackUpVaultTakingLongTime av säkerhetskopierade data från valvet
 
@@ -36,7 +58,7 @@ Felmeddelande: Den virtuella datorn är inte i ett tillstånd som tillåter säk
 Säkerhets kopierings åtgärden misslyckades eftersom den virtuella datorn är i ett felaktigt tillstånd. För lyckad säkerhets kopiering ska VM-tillstånd köras, stoppas eller stoppas (frigörs).
 
 * Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga**av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet.
-*  Om den virtuella datorn är en virtuell Linux-dator och använder den säkerhetsförbättrade Linux-modulen för Linux, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.
+* Om den virtuella datorn är en virtuell Linux-dator och använder den säkerhetsförbättrade Linux-modulen för Linux, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.
 
 ## <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed – det gick inte att låsa en eller flera monterings punkter för den virtuella datorn för att ta en konsekvent fil system ögonblicks bild
 

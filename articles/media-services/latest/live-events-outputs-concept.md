@@ -1,6 +1,6 @@
 ---
-title: Liveuppspelning begrepp i Azure Media Services - Live-händelser och Live utdata | Microsoft Docs
-description: Den här artikeln ger en översikt över direktsänd strömning begrepp i Azure Media Services v3.
+title: Live streaming-koncept i Azure Media Services-Live-händelser och Live-utdata | Microsoft Docs
+description: Den här artikeln ger en översikt över Live streaming-koncept i Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,39 +11,39 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/19/2019
+ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: a951ebd46335ad4639b8499283ddd30f13edd64e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c81c2de180a2c5734f3896d4b6843f2ccccdf45f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605653"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231207"
 ---
 # <a name="live-events-and-live-outputs"></a>Livehändelser och liveresultat
 
-Azure Media Services kan du leverera händelser till dina kunder på Azure-molnet. Om du vill konfigurera din strömmade direktsändningar av evenemang i Media Services v3, måste du förstå begrepp som diskuteras i den här artikeln.
+Med Azure Media Services kan du leverera Live-händelser till dina kunder i Azure-molnet. Om du vill konfigurera direkt uppspelnings händelser i Media Services v3 måste du förstå koncepten som beskrivs i den här artikeln.
 
 > [!TIP]
-> För kunder som migrerar från Media Services v2 API: er, den **direktsänd händelse** entitet ersätter **kanal** i v2 och **Live utdata** ersätter **programmet**.
+> För kunder som migrerar från Media Services v2-API: er ersätter **Live Event** -enheten **kanal** i v2 och **Live output** ersätter **program**.
 
 ## <a name="live-events"></a>Livehändelser
 
-[Livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. När du skapar en Live-händelse skapas en primär och sekundär slutpunkt för indata som du kan använda för att skicka en direktsänd signal från en fjärransluten kodare. Remote livekodare skickar bidraget till som indata slutpunkten med hjälp av antingen den [RTMP](https://www.adobe.com/devnet/rtmp.html) eller [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmenterad MP4) Ange protokollet. För RTMP-infogningsprotokollet, innehållet kan skickas i klartext (`rtmp://`) eller på ett säkert sätt krypterad under överföringen (`rtmps://`). För Smooth Streaming-inmatningsprotokollet, URL-scheman som stöds är `http://` eller `https://`.  
+[Livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. När du skapar en Live-händelse skapas en slut punkt för primär och sekundär ingång som du kan använda för att skicka en Live-signal från en fjär kodare. Remote Live Encoder skickar bidrags flödet till den angivna slut punkten med hjälp av antingen [RTMP](https://www.adobe.com/devnet/rtmp.html) -eller [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) -protokollet (fragmenterad-MP4). I RTMP-inmatnings protokollet kan innehållet skickas i klartext (`rtmp://`) eller säkert krypterat i kabeln (`rtmps://`). För det Smooth Streaming inmatnings protokollet är de URL- `http://` scheman `https://`som stöds eller.  
 
-## <a name="live-event-types"></a>Live händelsetyper
+## <a name="live-event-types"></a>Direktsända händelse typer
 
-En [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents) kan vara något av två typer: direkt och live encoding. Typerna anges under skapas med hjälp av [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+En [Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents) kan vara en av två typer: direkt kodning och Live-kodning. Typerna anges när du skapar med [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None** -en lokal livekodare skickar flera bithastighet. De infogade strömmarna passerar genom Live-händelsen utan vidare bearbetning. 
-* **LiveEventEncodingType.Standard** – med en lokal livekodare skickar en enda bithastighet till direktsänd händelse och Media Services skapar strömmar med flera bithastigheter. Om flödet bidrag är av 720p eller högre upplösning på **Default720p** förinställning kommer koda av 6 lösning/bithastighet värdepar.
-* **LiveEventEncodingType.Premium1080p** – med en lokal livekodare skickar en enda bithastighet till direktsänd händelse och Media Services skapar strömmar med flera bithastigheter. Förinställningen Default1080p anger utdata uppsättning lösning/bithastigheter för utdata-par. 
+* **LiveEventEncodingType. None** – en lokal Live-kodare skickar en data ström med flera bit hastigheter. De inmatade strömmarna passerar genom Live-händelsen utan ytterligare bearbetning. 
+* **LiveEventEncodingType. standard** – en lokal Live-kodare skickar en data ström med en bit hastighet till Live-händelsen och Media Services skapar flera bit hastighets strömmar. Om bidrags flödet är av 720p eller högre, kommer **Default720p** att koda en uppsättning med 6 lösnings-/bit hastighets par.
+* **LiveEventEncodingType. Premium1080p** – en lokal Live-kodare skickar en data ström med en bit hastighet till Live-händelsen och Media Services skapar flera bit hastighets strömmar. Default1080p för för inställning anger utdata för paren resolution/bit hastighet. 
 
 ### <a name="pass-through"></a>Direkt
 
 ![direkt](./media/live-streaming/pass-through.svg)
 
-När du använder en genomströmning av en **livehändelse** förlitar du dig på din lokala livekodare för att generera en videoström för flera bithastigheter och skicka den som bidragsflöde till livehändelsen (med RTMP eller fragmenterat MP4-protokoll). Livehändelsen passerar sedan via inkommande videoströmmar utan vidare bearbetning. Sådana en direkt direktsänd händelse är optimerad för tidskrävande direktsändningar eller 24 x 365 linjär liveuppspelning. När du skapar den här typen av livehändelse kan du ange Ingen (LiveEventEncodingType.None).
+När du använder en genomströmning av en **livehändelse** förlitar du dig på din lokala livekodare för att generera en videoström för flera bithastigheter och skicka den som bidragsflöde till livehändelsen (med RTMP eller fragmenterat MP4-protokoll). Livehändelsen passerar sedan via inkommande videoströmmar utan vidare bearbetning. En sådan direkt sändnings händelse är optimerad för långvariga Live-händelser eller linjär direkt uppspelning med 24x365. När du skapar den här typen av livehändelse kan du ange Ingen (LiveEventEncodingType.None).
 
 Du kan skicka bidragsflödet med upplösningar på upp till 4K och i en bildfrekvens på 60 bilder/sekund, med antingen videocodecen H.264/AVC eller H.265/HEVC och ljudcodecen AAC (AAC-LC, HE-AACv1 eller HE-AACv2).  Mer information finns i artikeln med en [jämförelse av livehändelser](live-event-types-comparison.md).
 
@@ -51,66 +51,66 @@ Du kan skicka bidragsflödet med upplösningar på upp till 4K och i en bildfrek
 > Genomströmningsmetoden är det mest ekonomiska sättet för liveuppspelning när du utför flera händelser under en längre tid och du redan har investerat i lokala kodare. Se [prisuppgifter](https://azure.microsoft.com/pricing/details/media-services/).
 > 
 
-Se ett .NET-kodexempel i [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
+Se ett .NET-kod exempel i [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
 ### <a name="live-encoding"></a>Live Encoding  
 
 ![livekodning](./media/live-streaming/live-encoding.svg)
 
-När du använder livekodning med Media Services konfigurerar du din lokala livekodare till att skicka en video med enkel bithastighet som bidragsflöde livehändelsen (med hjälp av RTMP eller protokollet Fragmented-Mp4). Du skulle ställa in en direktsänd händelse så att den kodar den inkommande, enkel bithastigheten, strömma till en [flera video bithastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), och tillgängliggör utdata för leverans till enheter via protokoll, till exempel MPEG-DASH, HLS eller spela upp och jämna ut Direktuppspelning.
+När du använder livekodning med Media Services konfigurerar du din lokala livekodare till att skicka en video med enkel bithastighet som bidragsflöde livehändelsen (med hjälp av RTMP eller protokollet Fragmented-Mp4). Sedan ställer du in en direkt händelse så att den kodar data strömmen med en bit bit hastighet till en [video ström med flera bit](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)hastigheter och gör utdata tillgängligt för leverans för att spela upp enheter via protokoll som MPEG-streck, HLS och Smooth Streaming.
 
-När du använder direktsänd kodning, du kan skicka bidraget feed endast på lösningar till 1080p-lösning på en bildfrekvens av 30 bilder/sekund, med H.264/AVC video-codec och AAC (AAC-LC, HE-AACv1 eller HE-AACv2) ljudcodec. Observera att direkt Live-händelser har stöd för lösningar upp till 4 K på 60 bildrutor per sekund. Mer information finns i artikeln med en [jämförelse av livehändelser](live-event-types-comparison.md).
+När du använder Live encoding kan du bara skicka bidrags flödet vid upplösningar upp till 1080p-resolution med en bild Rute hastighet på 30 bild rutor per sekund, med H. 264/AVC video-codec och AAC (AAC-LC, HE-AACv1 eller HE-AACv2) ljud-codec. Observera att direkt sändnings händelser kan stödja lösningar upp till 4K med 60 bild rutor per sekund. Mer information finns i artikeln med en [jämförelse av livehändelser](live-event-types-comparison.md).
 
-Upplösningar och bithastigheter för utdata i utdata från livekodaren bestäms av förinställningen. Om du använder en **Standard** live encoder (LiveEventEncodingType.Standard), kommer *Default720p* förinställning anger en uppsättning med 6 lösning/bitars rate-par, som kommer från 720 p på 3.5Mbps ned 192 p med 200 kbit/s. Annars, om du använder en **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), kommer *Default1080p* förinställning anger en uppsättning med 6 lösning/bitars rate-par, som kommer från 1080 p på 3.5Mbps ned 180 p med 200 kbit/s. Mer information finns i [Systemförinställningar](live-event-types-comparison.md#system-presets).
+Lösningarna och bit hastigheterna i utdata från Live-kodaren bestäms av för inställningen. Om du använder en **vanlig** Live-kodare (LiveEventEncodingType. standard) anger *Default720p* -förvalet en uppsättning med 6 lösnings-/bit hastighets par, som går från 720p till 3,5 Mbit/s till 192p vid 200 kbit/s. Annars, om du använder en **Premium1080p** Live-kodare (LiveEventEncodingType. Premium1080p), anger *Default1080p* -förvalet en uppsättning med 6 lösnings-/bit hastighets par, från 1080p till 3,5 Mbit/s till 180p vid 200 kbit/s. Mer information finns i [Systemförinställningar](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
-> Om du vill anpassa live förinställningen för kodningen kan öppna ett supportärende via Azure-portalen. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrollera att det finns ett lager på 720p (om du begär en förinställning för en Standard live-kodare) eller på 1080p (om du begär en förinställning för en Premium1080p live-kodare) och högst 6 lager.
+> Om du behöver anpassa för hands kodning av direktsänd kodning öppnar du ett support ärende via Azure Portal. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrol lera att det bara finns ett lager vid 720p (om du begär en för inställning för en vanlig Live-kodare) eller på 1080p (om du begär en för inställning för en Premium1080p Live-kodare) och högst 6 lager.
 
-## <a name="live-event-creation-options"></a>Live-alternativ för skapande av händelse
+## <a name="live-event-creation-options"></a>Alternativ för att skapa Live-händelse
 
-När du skapar en Live-händelse, kan du ange följande alternativ:
+När du skapar en Live-händelse kan du ange följande alternativ:
 
 * Strömningsprotokollet för livehändelsen (för närvarande stöds protokollen RTMP och Smooth Streaming).<br/>Du kan inte ändra protokollalternativ när livehändelsen eller dess associerade liveutdata körs. Om du behöver olika protokoll får du skapa separata livehändelser för varje strömningsprotokoll.  
 * IP-begränsningar på infogning och förhandsgranskning. Du kan definiera de IP-adresser som får mata in en video till den här livehändelsen. Tillåtna IP-adresser kan anges som en enskild IP-adress (till exempel 10.0.0.1), ett IP-intervall med IP-adress och en CIDR-nätmask (till exempel 10.0.0.1/22) eller ett IP-intervall med en IP-adress och en prickad decimalnätmask (till exempel 10.0.0.1(255.255.252.0)).<br/>Om inga IP-adresser har angetts och det saknas regeldefinitioner, kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.<br/>IP-adresserna måste vara i något av följande format: IpV4-adress med 4 siffror, CIDR-adressintervall.
-* När du skapar händelsen, kan du ange att den ska startas automatiskt. <br/>När autostart är angett till true (sant) startas live-händelsen efter skapandet. Faktureringen startar när Live-händelsen börjar köras. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering. Du kan också starta händelsen när du är redo att börja direktuppspelning. 
+* När du skapar händelsen, kan du ange att den ska startas automatiskt. <br/>När autostart är angett till true (sant) startas live-händelsen efter skapandet. Faktureringen börjar så snart direkt händelsen börjar köras. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering. Du kan också starta händelsen när du är redo att börja strömma. 
 
     Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
 
-## <a name="live-event-ingest-urls"></a>Live-händelse mata in URL: er
+## <a name="live-event-ingest-urls"></a>Hämtnings webb adresser för live event
 
-När livehändelsen har skapats kan du få infognings-URL:er som du tillhandahåller till den lokala livekodaren. Livekodaren använder dessa URL:er för att mata in en direktsänd dataström. Mer information finns i [rekommenderas en lokal livekodare](recommended-on-premises-live-encoders.md). 
+När livehändelsen har skapats kan du få infognings-URL:er som du tillhandahåller till den lokala livekodaren. Livekodaren använder dessa URL:er för att mata in en direktsänd dataström. Mer information finns i [rekommenderade lokala direkt kodare](recommended-on-premises-live-encoders.md). 
 
 Du kan antingen använda icke-anpassade eller anpassade URL:er. 
 
 > [!NOTE] 
-> För en inmatning ange URL: en ska vara förutsägande, ”anpassad”-läge.
+> Ange "anpassad"-läget för att kunna förutsäga en URL.
 
 * Icke-anpassad URL
 
-    Icke-anpassad URL är standardläget i Media Services v3. Du eventuellt hämta livehändelsen snabbt, men inmatnings-URL är endast känd när livehändelsen startas. URL:en ändras om du stoppar/startar livehändelsen. <br/>Icke-anpassad är användbart i situationer när en slutanvändare vill strömma med en app där appen vill göra en livehändelse omedelbart, och det inte är något problem att ha en dynamisk inmatnings-URL.
+    Icke-anpassad URL är standard läget i Media Services v3. Du eventuellt hämta livehändelsen snabbt, men inmatnings-URL är endast känd när livehändelsen startas. URL:en ändras om du stoppar/startar livehändelsen. <br/>Icke-anpassad är användbart i situationer när en slutanvändare vill strömma med en app där appen vill göra en livehändelse omedelbart, och det inte är något problem att ha en dynamisk inmatnings-URL.
     
-    Om ett klientprogram inte behöver förväg Generera en inmatning URL innan Live-händelse skapas, kan bara Media Services för att automatiskt skapa åtkomst-Token för live-händelse.
-* Anpassad URL
+    Om ett klient program inte behöver förgenerera en inmatnings-URL innan Live-händelsen skapas, kan du bara låta Media Services generera åtkomsttoken automatiskt för Live-händelsen.
+* Anpassad-URL
 
     Anpassat läge föredras av stora mediesändningsföretag som använder maskinvarusändningskodare och inte vill konfigurera om sina kodare när de startar livehändelsen. De vill ha en förutsägande infognings-URL som inte ändras med tiden.
     
-    Om du vill ange det här läget du ställer in `vanityUrl` till `true` vid tidpunkten för skapandet (standardvärdet är `false`). Du måste också skicka din egen åtkomst-token (`LiveEventInput.accessToken`) vid tidpunkten för skapandet. Du kan ange token värde för att undvika en slumpmässig token i URL: en. Åtkomst-token måste vara en giltig GUID-sträng (med eller utan bindestrecken). När läget har angetts kan inte uppdateras.
+    Om du vill ange det här läget `vanityUrl` ställer `true` du in på vid skapande tid `false`(standard är). Du måste också skicka din egen åtkomsttoken (`LiveEventInput.accessToken`) vid skapande tillfället. Du anger värdet för token för att undvika en slumpmässig token i URL: en. Åtkomsttoken måste vara en giltig GUID-sträng (med eller utan bindestreck). När läget är inställt kan det inte uppdateras.
 
-    Åtkomst-token måste vara unikt i ditt datacenter. Om programmet behöver för att använda en anpassad URL, bör du alltid vill skapa en ny GUID-instans för ditt åtkomst-token (istället för att alla befintliga GUID). 
+    Åtkomsttoken måste vara unik i ditt data Center. Om ditt program behöver använda en anpassad-URL, rekommenderar vi att alltid skapa en ny GUID-instans för din åtkomsttoken (i stället för att återanvända befintliga GUID). 
 
-    Använd följande API: er för att aktivera anpassad URL och ange åtkomst-token till ett giltigt GUID (till exempel `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
+    Använd följande API: er för att aktivera anpassad-URL: en och ange åtkomsttoken till ett giltigt GUID ( `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`till exempel).  
     
-    |Språk|Aktivera anpassad URL|Ange åtkomst-token|
+    |Språk|Aktivera anpassad-URL|Ange åtkomst-token|
     |---|---|---|
-    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
     
-### <a name="live-ingest-url-naming-rules"></a>Liveinmatning regler för namngivning av URL: en
+### <a name="live-ingest-url-naming-rules"></a>Namn regler för Live-inmatnings-URL
 
 * Den *slumpmässiga* strängen nedan är ett 128-bitars hexadecimalt tal (som består av 32 tecken mellan 0 och 9 och a–f).
-* *din åtkomsttoken* -giltiga GUID-strängen som du anger när du använder läget för anpassad. Till exempel `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
-* *Livesända* -anger stream-namnet för en viss anslutning. Stream namn-värde läggs vanligtvis av livekodaren som du använder. Du kan konfigurera livekodaren för att använda ett namn som beskriver anslutningen, till exempel: ”video1_audio1”, ”video2_audio1”, ”strömma”.
+* *din* åtkomsttoken – den giltiga GUID-sträng som du anger när du använder anpassad-läget. Till exempel `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *data ström namn* – anger data Ströms namnet för en speciell anslutning. Data ström namn svärdet läggs vanligt vis till av den Live-kodare som du använder. Du kan konfigurera Live-kodaren att använda ett namn som beskriver anslutningen, till exempel: "video1_audio1", "video2_audio1", "Stream".
 
 #### <a name="non-vanity-url"></a>Icke-anpassad URL
 
@@ -126,7 +126,7 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
 `http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 `https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
-#### <a name="vanity-url"></a>Anpassad URL
+#### <a name="vanity-url"></a>Anpassad-URL
 
 ##### <a name="rtmp"></a>RTMP
 
@@ -140,36 +140,27 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
 `http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 `https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 
-## <a name="live-event-preview-url"></a>Live-händelse förhandsgransknings-URL
+## <a name="live-event-preview-url"></a>URL för förhands granskning av live event
 
-När Live-händelsen börjar ta emot bidrag feed, kan du använda dess förhandsgranskningsslutpunkten att förhandsgranska och validera att du får den direktsända dataströmmen innan du publicerar ytterligare. När du har kontrollerat att förhandsgranska dataströmmen är bra, kan du använda Live-händelse så att den direktsända dataströmmen analysleverans via en eller flera (förinställda)-slutpunkter för direktuppspelning. För att åstadkomma detta måste du skapa ett nytt [Live utdata](https://docs.microsoft.com/rest/api/media/liveoutputs) på Live-händelse. 
+När Live-händelsen börjar ta emot mottagar flödet kan du använda dess förhands gransknings slut punkt för att förhandsgranska och kontrol lera att du tar emot den aktiva strömmen innan du publicerar den. När du har kontrollerat att förhands gransknings strömmen är korrekt kan du använda direkt sändningen för att göra en Live-dataström tillgänglig för leverans via en eller flera slut punkter för direkt uppspelning. För att åstadkomma detta skapar du en ny [Live-utgång](https://docs.microsoft.com/rest/api/media/liveoutputs) på Live-evenemanget. 
 
 > [!IMPORTANT]
-> Kontrollera att videon flödar till förhandsgransknings-URL innan du fortsätter!
+> Se till att videon flödar till förhands gransknings-URL: en innan du fortsätter!
 
-## <a name="live-event-long-running-operations"></a>Live-händelse långvariga åtgärder
+## <a name="live-event-long-running-operations"></a>Tids krävande åtgärder för live event
 
-Mer information finns i [långvariga åtgärder](media-services-apis-overview.md#long-running-operations)
+Mer information finns i [tids krävande åtgärder](media-services-apis-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>Liveutdata
 
-När du har dataströmmen väl flödar till Live-händelse, kan du påbörja strömningshändelsen genom att skapa en [tillgången](https://docs.microsoft.com/rest/api/media/assets), [Live utdata](https://docs.microsoft.com/rest/api/media/liveoutputs), och [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators). Live utdata kommer arkiverar dataströmmen och gör den tillgänglig för visning via den [Strömningsslutpunkt](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
+När strömmen flödar in i Live-evenemanget kan du starta den strömmande händelsen genom att skapa en [till gång](https://docs.microsoft.com/rest/api/media/assets), en [Live-utgång](https://docs.microsoft.com/rest/api/media/liveoutputs)och en [strömmande positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators). Live-utdata kommer att arkivera strömmen och göra den tillgänglig för användare via [slut punkten för direkt uppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
 
-> [!NOTE]
-> Liveutdata startar när de skapas och avbryts när de tas bort. När du tar bort liveutdata tar du inte bort den underliggande tillgången och innehållet i tillgången. 
+Detaljerad information om direktsända utdata finns i [använda en moln-DVR](live-event-cloud-dvr.md).
 
-Förhållandet mellan en **direktsänd händelse** och dess **Live utdata** liknar traditionella TV broadcast, där en kanal (Live-händelse) representerar en konstant ström av video och en inspelning (Live Utdata) är begränsad till en viss tidpunkt-segment (till exempel kvällar nyheter från 18:30:00 till 19:00:00). Du kan spela TV med hjälp av en Digital Video Recorder (DVR) – den motsvarande funktionen i Live-händelser hanteras via den **archiveWindowLength** egenskapen. Det är en ISO 8601-timespan varaktighet (till exempel PTHH:MM:SS) som anger kapaciteten för DVR och kan anges från minst 3 minuter till högst 25 timmar.
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
-Det Live objektet är som en inspelningar som ska fånga upp och registrera den direktsända dataströmmen till en tillgång i Media Services-kontot. Inspelat innehåll ska behållas i Azure Storage-kontot som hör till ditt konto till den behållare som definieras av tillgången resursen. Live-utdata kan du styra vissa egenskaper för den utgående direktsända dataströmmen, till exempel hur mycket av dataströmmen som sparas i arkivet inspelningen (till exempel kapaciteten för moln DVR) och om huruvida användarna kan börjar titta på live stream. Arkivet på disken är en cirkulär Arkiv ”fönster” som innehåller endast mängden innehåll som har angetts i egenskapen archiveWindowLength för Live-utdata. Innehållet som ligger utanför det här fönstret tas automatiskt bort från storage-behållare och kan inte återställas. Du kan skapa flera Live utdata (upp till tre maximalt) på en Live-händelse med olika Arkiv längd och inställningar.  
-
-Om du har publicerat utdata för Live **tillgången** med hjälp av en **Strömningspositionerare**, Live-händelse (upp till DVR fönstret längd) fortsätter att vara synliga tills positionerare för direktuppspelning slutar att gälla eller tas bort, beroende på vilket som inträffar först.
-
-Mer information finns i [med molnbaserade DVR](live-event-cloud-dvr.md).
-
-## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
-
-Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Live direktuppspelning självstudien](stream-live-tutorial-with-api.md)
+[Själv studie kurs om Live-direktuppspelning](stream-live-tutorial-with-api.md)

@@ -1,5 +1,5 @@
 ---
-title: Konfigurera din miljö för en skiss operatör
+title: Konfigurera din miljö för en skissoperatör
 description: Lär dig hur du konfigurerar din Azure-miljö för användning med den inbyggda rollbaserade rollen för rollbaserad åtkomst kontroll (RBAC) för skiss operatören.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,14 +7,14 @@ ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8c39eadc6f1448e19ffee6d741cc50a7b6e09475
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 27f7c747dfd39fed7a67924da71b9293979e0f94
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70148614"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231894"
 ---
-# <a name="configure-your-environment-for-a-blueprint-operator"></a>Konfigurera din miljö för en skiss operatör
+# <a name="configure-your-environment-for-a-blueprint-operator"></a>Konfigurera din miljö för en skissoperatör
 
 Hanteringen av dina skiss-och skiss uppgifter kan tilldelas olika team. Det är vanligt att en arkitekt eller styrnings grupp ansvarar för livs cykel hanteringen av dina skiss definitioner medan en drifts grupp ansvarar för att hantera tilldelningar av de centralt kontrollerade skiss definitionerna.
 
@@ -40,7 +40,7 @@ En skiss definition kan använda antingen systemtilldelade eller användarspecif
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [livscykeln för en skiss](../concepts/lifecycle.md).
+- Lär dig mer om [skiss livs cykeln](../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](../concepts/resource-locking.md).

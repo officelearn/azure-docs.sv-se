@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9bc9d64d7f21498acd5cb0c23447e7ff77de629
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195574"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231079"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 
@@ -422,6 +422,19 @@ az ml folder attach
 ```
 
 Det här kommandot skapar en undermapp `.azureml` som innehåller mallar som kör konfigurationsfiler för olika beräknings mål. Du kan kopiera och redigera dessa filer för att anpassa konfigurationen, till exempel för att lägga till python-paket eller ändra Docker-inställningar.  
+
+### <a name="structure-of-run-configuration-file"></a>Struktur för körnings konfigurations filen
+
+Kör konfigurations filen är YAML formaterad, med följande avsnitt
+ * Skriptet som ska köras och dess argument
+ * Compute Target Name, antingen "Local" eller namnet på en beräkning under arbets ytan.
+ * Parametrar för att köra körning: Framework, Communicator för distribuerade körningar, maximal varaktighet och antal datornoder.
+ * Miljö avsnitt. Mer information om fälten i det här avsnittet finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md) .
+   * Om du vill ange python-paket som ska installeras för kör, skapa [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)-miljöfilen och ange __condaDependenciesFile__ -fältet.
+ * Kör historik information för att ange loggmappen och aktivera eller inaktivera insamlingen av utdata och kör historik ögonblicks bilder.
+ * Konfigurations information som är speciell för det valda ramverket.
+ * Data referens och data lager information.
+ * Konfigurations information som är speciell för Machine Learning-beräkning för att skapa ett nytt kluster.
 
 ### <a name="create-an-experiment"></a>Skapa ett experiment
 

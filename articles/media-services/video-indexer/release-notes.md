@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/29/2019
 ms.author: juliako
-ms.openlocfilehash: b627a78edef1c0b0fe6b3ed011678145aea397ae
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a7d178972a8c8b413e3c6336c403348f1eb78abb
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845879"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232609"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
@@ -27,6 +27,43 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 * Kända problem
 * Felkorrigeringar
 * Inaktuell funktion
+
+## <a name="august-2019"></a>2019 augusti
+ 
+### <a name="video-indexer-deployed-in-uk-south"></a>Video Indexer distribuerat i Storbritannien, södra
+
+Nu kan du skapa ett Video Indexer betalt konto i regionen Storbritannien, södra.
+
+### <a name="new-editorial-shot-type-insights-available"></a>Nya insikter för text insikter tillgängliga
+
+Nya taggar som läggs till i videoklipp innehåller redaktionella "tagnings typer" för att identifiera dem med vanliga redaktionella fraser som används i arbets flödet för innehålls skapande, till exempel: Extreme närbild, närbild, wide, medium, två bilder, Utomhus, inomhus, vänster och höger (tillgänglig i JSON).
+
+### <a name="new-people-and-locations-entities-extraction-available"></a>Extrahering av enheter för nya personer och platser tillgängliga
+
+Video Indexer identifierar namngivna platser och personer via naturlig språk bearbetning (NLP) från videons OCR och avskrift. Video Indexer använder Machine Learning-algoritmen för att identifiera när vissa platser (till exempel Eiffel Tower) eller personer (till exempel John berg) anropas i en video.
+
+### <a name="keyframes-extraction-in-native-resolution"></a>Extrahering av nyckel rutor i intern upplösning
+
+Nyckel rutor som extraheras av Video Indexer är tillgängliga i den ursprungliga upplösningen av videon.
+ 
+### <a name="ga-for-training-custom-face-models-from-images"></a>GA för att träna anpassade ansikts modeller från bilder
+
+Träna från bilder som flyttats från förhands gransknings läge till GA (tillgängligt via API och i portalen).
+
+> [!NOTE]
+> Ingen prissättnings påverkan är relaterad till över gången "för hands version till GA".
+
+### <a name="hide-gallery-toggle-option"></a>Göm alternativ för Galleri växling
+
+Användaren kan välja att dölja fliken Galleri från portalen (liknar fliken exempel).
+ 
+### <a name="maximum-url-size-increased"></a>Maximal URL-storlek ökad
+
+Stöd för URL-frågesträngen 4096 (i stället för 2048) vid indexering av en video.
+ 
+### <a name="support-for-multi-lingual-projects"></a>Stöd för flerspråkiga projekt
+
+Nu kan du skapa projekt baserat på videor som indexerats på olika språk (endast API).
 
 ## <a name="july-2019"></a>Juli 2019
 

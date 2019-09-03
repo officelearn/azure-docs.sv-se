@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 3158ebddf6ffe5594c9daf0fd9f3e3fe980c0b24
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b4f9c0ab3ca50b0ce8c9ba27d8773c58a72dcfa9
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845663"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230962"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -31,7 +31,7 @@ Hyper-V utan Virtual Machine Manager | Du kan utföra haveri beredskap till Azur
 
 ## <a name="on-premises-servers"></a>Lokala servrar
 
-**Server** | **Signaturkrav** | **Detaljer**
+**Server** | **Krav** | **Detaljer**
 --- | --- | ---
 Hyper-V (körs utan Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (inklusive Server Core-installation), Windows Server 2012 R2 med senaste uppdateringar | Om du redan har konfigurerat Windows Server 2012 R2 med/eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera operativ systemet, följer du vägledningen [.](upgrade-2012R2-to-2016.md) 
 Hyper-V (körs med Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Om Virtual Machine Manager används bör Windows Server 2019-värdar hanteras i Virtual Machine Manager 2019. På samma sätt bör Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.<br/><br/>
@@ -148,10 +148,10 @@ Hanterade diskar | Ja, för redundans.<br/><br/> Det finns inte stöd för åter
 
 Lokala virtuella datorer som du replikerar till Azure måste uppfylla de krav på Azure VM som sammanfattas i den här tabellen.
 
-**Komponent** | **Signaturkrav** | **Detaljer**
+**Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
 Gäst operativ system | Site Recovery stöder alla operativ system som [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Krav kontrollen Miss lyckas om den inte stöds.
-Gäst operativ systemets arkitektur | 64-bitars | Krav kontrollen Miss lyckas om den inte stöds.
+Gäst operativ systemets arkitektur | 32-bitars (Windows Server 2008)/64-bit | Krav kontrollen Miss lyckas om den inte stöds.
 Storlek på operativ system disk | Upp till 2 048 GB för virtuella datorer i generation 1.<br/><br/> Upp till 300 GB för virtuella datorer i generation 2.  | Krav kontrollen Miss lyckas om den inte stöds.
 Antal operativ system diskar | 1 | Krav kontrollen Miss lyckas om den inte stöds.
 Antal data diskar | 16 eller mindre  | Krav kontrollen Miss lyckas om den inte stöds.
@@ -166,13 +166,13 @@ Typ av virtuell dator | Generation 1<br/><br/> Generation 2--Windows | Generatio
 
 ## <a name="recovery-services-vault-actions"></a>Recovery Services valv åtgärder
 
-**Åtgärd** |  **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
+**Åtgärd** |  **Hyper-V med VMM** | **Hyper-V utan VMM**
 --- | --- | ---
 Flytta valv över resurs grupper<br/><br/> Inom och över prenumerationer | Nej | Nej
 Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper<br/><br/> Inom och över prenumerationer | Nej | Nej
 
 > [!NOTE]
-> När du replikerar virtuella Hyper-VM (hanterade med/utan SCVMM) från lokala datorer till Azure, kan du bara replikera till en AD-klient från en särskild miljö – Hyper-V-plats eller SCVMM som tillämpligt.
+> När du replikerar virtuella Hyper-VM: ar från lokala datorer till Azure kan du bara replikera till en AD-klient från en särskild miljö – Hyper-V-plats eller Hyper-V med VMM som tillämpligt.
 
 
 ## <a name="provider-and-agent"></a>Provider och agent

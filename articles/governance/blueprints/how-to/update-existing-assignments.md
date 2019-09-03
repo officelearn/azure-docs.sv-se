@@ -1,74 +1,73 @@
 ---
-title: Hur du uppdaterar en befintlig tilldelning från portalen
-description: Läs mer om mekanism för att uppdatera en befintlig tilldelning från portalen i Azure skisser.
+title: Så här uppdaterar du en befintlig tilldelning från portalen
+description: Lär dig mer om mekanismen för att uppdatera en befintlig tilldelning från portalen i Azure-ritningar.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c75bd8c3831bad0c8217f16315843cbe3824fe4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5697d00c2b0a869667d74e93c3ccae593bf200b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63766564"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231943"
 ---
-# <a name="how-to-update-an-existing-blueprint-assignment"></a>Hur du uppdaterar en befintlig tilldelning av skiss
+# <a name="how-to-update-an-existing-blueprint-assignment"></a>Så här uppdaterar du en befintlig skiss tilldelning
 
-När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera orsaker till att uppdatera en befintlig tilldelning, inklusive:
+När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera anledningar till att uppdatera en befintlig tilldelning, inklusive:
 
-- Lägg till eller ta bort [resource låsning](../concepts/resource-locking.md)
+- Lägg till eller ta bort [resurs låsning](../concepts/resource-locking.md)
 - Ändra värdet för [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters)
-- Uppgradera tilldelning till en nyare **publicerad** version av skissen
+- Uppgradera tilldelningen till en nyare **publicerad** version av skissen
 
-## <a name="updating-assignments"></a>Uppdatering av tilldelningar
+## <a name="updating-assignments"></a>Uppdaterar tilldelningar
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
 1. Välj **Tilldelade skisser** på sidan till vänster.
 
-1. I listan över skisser, klickar du på skisstilldelningen. Klicka sedan på den **uppdatera tilldelning** eller högerklicka på skisstilldelningen och välj **uppdatera tilldelning**.
+1. I listan över skisser vänsterklickar du på skiss tilldelningen. Klicka sedan på knappen **Uppdatera tilldelning** eller högerklicka på skiss tilldelningen och välj **Uppdatera tilldelning**.
 
-   ![Uppdatera en befintlig tilldelning av skiss](../media/update-existing-assignments/update-assignment.png)
+   ![Uppdatera en befintlig skiss tilldelning](../media/update-existing-assignments/update-assignment.png)
 
-1. Den **tilldela skissen** sidan läses in fylls i automatiskt med alla värden från den ursprungliga tilldelningen. Du kan ändra den **skissen definitionsversion**, **Lås tilldelning** tillstånd och någon av de dynamiska parametrar som finns på skissdefinitionen. Klicka på **tilldela** när gjort önskade ändringar.
+1. Sidan **tilldela skiss** kommer att läsas in i förväg med alla värden från den ursprungliga tilldelningen. Du kan ändra **skiss definitions versionen**, **Lås tilldelnings** status och alla dynamiska parametrar som finns i skiss definitionen. Klicka på **tilldela** när du är klar med ändringarna.
 
-1. Se den nya statusen på informationssidan uppdaterade tilldelning. I det här exemplet vi har lagt till **Locking** att tilldelningen.
+1. På sidan uppdaterad tilldelnings information, se den nya statusen. I det här exemplet har vi lagt till **låsning** till tilldelningen.
 
-   ![Uppdatera en befintlig skisstilldelningen - låsläge har ändrats](../media/update-existing-assignments/updated-assignment.png)
+   ![Uppdaterat en befintlig skiss tilldelning-lås läge har ändrats](../media/update-existing-assignments/updated-assignment.png)
 
-1. Ta reda på information om andra **tilldelningsåtgärden** med hjälp av listrutan. Tabellen med **hanterade resurser** uppdateringar av valda tilldelning åtgärd.
+1. Utforska information om andra **tilldelnings åtgärder** med hjälp av list rutan. Tabellen med **hanterade resurser** uppdateringar per vald tilldelnings åtgärd.
 
-   ![Tilldelning av driften av en tilldelning av skiss](../media/update-existing-assignments/assignment-operations.png)
+   ![Tilldelnings åtgärder för en skiss tilldelning](../media/update-existing-assignments/assignment-operations.png)
 
-## <a name="rules-for-updating-assignments"></a>Regler för uppdatering av tilldelningar
+## <a name="rules-for-updating-assignments"></a>Regler för att uppdatera tilldelningar
 
-Distributionen av de uppdaterade tilldelningarna följer några viktiga regler. Reglerna avgör vad som händer med redan distribuerade resurser. Den begärda ändringen och typ av artefakt resurs att distribueras eller uppdateras bestämmer du vilka åtgärder vidtas.
+Distributionen av de uppdaterade tilldelningarna följer några viktiga regler. De här reglerna avgör vad som händer med redan distribuerade resurser. Den begärda ändringen och typen av artefakt resurs som distribueras eller uppdateras avgör vilka åtgärder som vidtas.
 
 - Rolltilldelningar
-  - Om rollen eller rollen tilldelad person (användare, grupp eller app) ändras, skapas en ny rolltilldelning. Rolltilldelningar som tidigare har distribuerat lämnas kvar.
+  - Om rollen eller rollen som tilldelas av rollen (användare, grupp eller app) ändras, skapas en ny roll tilldelning. Roll tilldelningar som tidigare har distribuerats är kvar på plats.
 - Principtilldelningar
-  - Om parametrarna för principtilldelningen ändras, uppdateras den befintliga tilldelningen.
-  - Om definitionen av principtilldelningen har ändrats, skapas en ny principtilldelning. Principtilldelningar som tidigare har distribuerat lämnas kvar.
-  - Om principen tilldelning artefakten tas bort från skissen, distribuerat principen tilldelningar lämnas kvar.
+  - Om parametrarna för princip tilldelningen ändras, uppdateras den befintliga tilldelningen.
+  - Om definitionen av princip tilldelningen ändras skapas en ny princip tilldelning. Princip tilldelningar som tidigare har distribuerats är kvar på plats.
+  - Om principen tilldelnings artefakt tas bort från skissen, lämnas distribuerade princip tilldelningar kvar.
 - Azure Resource Manager-mallar
-  - Mallen har bearbetats via Resource Manager som en **PLACERA**. Eftersom varje resurstyp hanteras annorlunda i den här åtgärden, granska dokumentationen för varje resurs som ingår för att kontrollera effekten av den här åtgärden när kör av skisser.
+  - Mallen bearbetas via Resource Manager som en **placering**. När varje resurs typ hanterar den här åtgärden på olika sätt kan du läsa igenom dokumentationen för varje resurs som ingår för att fastställa effekten av den här åtgärden när den körs av ritningar.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Möjliga fel vid uppdatering av tilldelningar
 
-När du uppdaterar tilldelningar, är det möjligt att göra ändringar som dela när den körs. Ett exempel ändrar platsen för en resursgrupp när det redan har distribuerats. Ändringar som stöds av [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) kan göras, men någon ändra det skulle resultera i ett fel via Azure Resource Manager leder också fel på tilldelningen.
+När du uppdaterar tilldelningar är det möjligt att göra ändringar som bryts när de körs. Ett exempel är att ändra platsen för en resurs grupp när den redan har distribuerats. Alla ändringar som stöds av [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) kan göras, men eventuella ändringar som skulle resultera i ett fel via Azure Resource Manager kommer också att resultera i att tilldelningen Miss lyckas.
 
-Det finns ingen gräns för hur många gånger en tilldelning kan uppdateras. Om ett fel inträffar felberäkningen och gör en annan uppdatering för tilldelning.  Exempelscenarier för fel:
+Det finns ingen gräns för hur många gånger en tilldelning kan uppdateras. Om ett fel inträffar bestämmer du felet och gör en annan uppdatering av tilldelningen.  Exempel på fel scenarier:
 
-- En ogiltig parameter
-- Ett befintligt objekt
+- En felaktig parameter
+- Ett befintligt objekt som redan finns
 - En ändring som inte stöds av Azure Resource Manager
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [livscykeln för en skiss](../concepts/lifecycle.md).
+- Lär dig mer om [skiss livs cykeln](../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](../concepts/resource-locking.md).

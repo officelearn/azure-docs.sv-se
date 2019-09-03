@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 599b0c8f45f91f9ecff210264a813e302f18059e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488880"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213627"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Självstudier: Integrera anpassningsbara insikter med Azure Active Directory
 
@@ -54,7 +54,7 @@ Om du vill konfigurera integrering av anpassningsbara insikter i Azure AD måste
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. Skriv adaptiva insikter i sökrutan  i avsnittet **Lägg till från galleriet** .
+1. Skriv adaptiva insikter i sökrutan i avsnittet **Lägg till från galleriet** .
 1. Välj **adaptiva** insikter från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
@@ -81,7 +81,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** utför du följande steg:
+1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 

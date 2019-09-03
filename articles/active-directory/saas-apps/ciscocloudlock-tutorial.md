@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af98633e1dfdbe6392199ade282a918c6134a033
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c0b1471abd7e057af919ed274547daf94d356c2b
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347399"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213603"
 ---
 # <a name="tutorial-integrate-the-cloud-security-fabric-with-azure-active-directory"></a>Självstudier: Integrera moln säkerhets infrastruktur med Azure Active Directory
 
@@ -104,7 +104,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-5. Om du vill  ändra signerings alternativen enligt ditt krav klickar du på knappen **Redigera** för att öppna dialog rutan **certifikat** för SAML-signering.
+5. Om du vill ändra signerings alternativen enligt ditt krav klickar du på knappen **Redigera** för att öppna dialog rutan **certifikat för SAML-signering** .
 
     ![SAML-svar](./media/ciscocloudlock-tutorial/saml.png)
 
@@ -153,7 +153,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="create-the-cloud-security-fabric-test-user"></a>Skapa test användaren för Cloud Security Fabric
 
-I det här avsnittet skapar du en användare som heter B. Simon i Cloud Security Fabric. Arbeta med [Cloud Security Fabric support team](mailto:support@cloudlock.com) för att lägga till användare i Cloud Security Fabric-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i Cloud Security Fabric. Arbeta med [Cloud Security Fabric support team](mailto:support@cloudlock.com) för att lägga till användare i Cloud Security Fabric-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-sso"></a>Testa SSO 
 

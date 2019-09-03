@@ -56,7 +56,7 @@ JSON-BLOB-metadata följer följande modell:
 | **parentId** | String | Den överordnade entiteten för att associera blobben med (utrymmen, enheter eller användare) |
 | **name** |String | Ett människo eget namn för blobben |
 | **type** | String | Typ av BLOB-kan inte använda *typ* och *typeId*  |
-| **ID** | Integer | Blob-typ-ID: t kan inte använda *typ* och *typeId* |
+| **typeId** | Integer | Blob-typ-ID: t kan inte använda *typ* och *typeId* |
 | **subtype** | String | BLOB-undertypen-det går inte att använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID för blobben-kan inte använda *undertyp* -och *subtypeId* |
 | **description** | String | Anpassad Beskrivning av blobben |
@@ -114,7 +114,7 @@ Individuellt returnerade blobbar följer följande JSON-schema:
 | **name** |String | Ett människo eget namn för blobben |
 | **parentId** | String | Den överordnade entiteten för att associera blobben med (utrymmen, enheter eller användare) |
 | **type** | String | Typ av BLOB-kan inte använda *typ* och *typeId*  |
-| **ID** | Integer | Blob-typ-ID: t kan inte använda *typ* och *typeId* |
+| **typeId** | Integer | Blob-typ-ID: t kan inte använda *typ* och *typeId* |
 | **subtype** | String | BLOB-undertypen-det går inte att använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID för blobben-kan inte använda *undertyp* -och *subtypeId* |
 | **sharing** | String | Om blobben kan vara delad-Enum [`None`, `Tree`, `Global`] |

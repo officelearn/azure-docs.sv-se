@@ -290,12 +290,18 @@
               href: ../algorithm-module-reference/edit-metadata.md
             - name: Rensa data som saknas
               href: ../algorithm-module-reference/clean-missing-data.md
+            - name: Funktions-hash
+              href: ../algorithm-module-reference/feature-hashing.md
+            - name: Extrahera N-Gram-funktioner från text
+              href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
             - name: Lägga till kolumner
               href: ../algorithm-module-reference/add-columns.md
             - name: Lägga till rader
               href: ../algorithm-module-reference/add-rows.md
             - name: Ta bort dubblettrader
               href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: Förbearbeta text
+              href: ../algorithm-module-reference/preprocess-text.md
             - name: Koppla data
               href: ../algorithm-module-reference/join-data.md
             - name: Dela data

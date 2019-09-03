@@ -144,7 +144,7 @@ Med Azure Front Door Service kan du definiera, hantera och övervaka global rout
 
 ### <a name="trafficmanager"></a>Traffic Manager
 
-Azure Traffic Manager är en belastningsutjämnare för DNS-baserad trafik som hjälper dig att distribuera trafiken optimalt till tjänster i globala Azure-regioner, med hög tillgänglighet och korta svarstider. Traffic Manager tillhandahåller en mängd metoder för trafik cirkulation för att distribuera trafik som prioritet, viktat, prestanda, geografiskt, flera värden eller undernät. Mer information om metoder för trafikroutning finns i [Traffic Manager metoder för routning](../traffic-manager/traffic-manager-routing-methods.md).
+Azure Traffic Manager är en lastbalanserare för DNS-baserad trafik som hjälper dig att distribuera trafiken optimalt till tjänster i globala Azure-regioner, med hög tillgänglighet och korta svarstider. Traffic Manager tillhandahåller en mängd metoder för trafik cirkulation för att distribuera trafik som prioritet, viktat, prestanda, geografiskt, flera värden eller undernät. Mer information om metoder för trafikroutning finns i [Traffic Manager metoder för routning](../traffic-manager/traffic-manager-routing-methods.md).
 
 Följande diagram visar den slut punkts prioritetbaserade routningen med Traffic Manager:
 

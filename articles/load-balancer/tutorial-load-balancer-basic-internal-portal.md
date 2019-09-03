@@ -164,7 +164,7 @@ Om du vill att lastbalanseraren ska övervaka VM-status använder du en hälsoav
 
 En lastbalanseringsregel definierar hur trafiken ska distribueras till de virtuella datorerna. Regeln definierar IP-konfigurationen på klientdelen för inkommande trafik, serverdels-IP-poolen för att ta emot trafik samt nödvändiga käll- och målportar. 
 
-Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln skickar nätverkstrafik till serverdelsadresspoolen **MyBackendPool**, även det med port 80. 
+Lastbalanserarregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln skickar nätverkstrafik till serverdelsadresspoolen **MyBackendPool**, även det med port 80. 
 
 **Så här skapar du belastningsutjämningsregeln:**
 
@@ -184,7 +184,7 @@ Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80
    
 1. Välj **OK**.
    
-   ![Lägga till en belastningsutjämningsregel](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
+   ![Lägga till en lastbalanserarregel](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 

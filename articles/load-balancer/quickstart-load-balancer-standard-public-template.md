@@ -28,7 +28,7 @@ Med belastningsutjämning får du högre tillgänglighet och skala genom att ink
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="create-a-standard-load-balancer"></a>Skapa en standardbelastningsutjämnare
+## <a name="create-a-standard-load-balancer"></a>Skapa en standardlastbalanserare
 
 Standard Load Balancer stöder endast en offentlig standard-IP-adress. När du skapar en standard belastningsutjämnare måste du också skapa en ny offentlig IP-adress som är konfigurerad som klient del för standard belastnings utjämningen.
 

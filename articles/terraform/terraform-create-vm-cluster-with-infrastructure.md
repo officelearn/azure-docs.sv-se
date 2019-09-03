@@ -1,6 +1,6 @@
 ---
 title: Skapa ett VM-kluster med Terraform och HCL
-description: Använd Terraform och HashiCorp Configuration Language (HCL) för att skapa ett Linux VM-kluster med en belastningsutjämnare i Azure
+description: Använd Terraform och HashiCorp Configuration Language (HCL) för att skapa ett Linux VM-kluster med en lastbalanserare i Azure
 services: terraform
 ms.service: azure
 keywords: terraform, devops, virtuell dator, nätverk, moduler
@@ -18,7 +18,7 @@ ms.locfileid: "68854489"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Skapa ett VM-kluster med Terraform och HCL
 
-I den här självstudien visas hur du skapar ett litet beräkningskluster med [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). Konfigurationen skapar en belastningsutjämnare, två virtuella Linux-datorer i en [tillgänglighetsuppsättning](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) och alla nödvändiga nätverksresurser.
+I den här självstudien visas hur du skapar ett litet beräkningskluster med [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). Konfigurationen skapar en lastbalanserare, två virtuella Linux-datorer i en [tillgänglighetsuppsättning](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) och alla nödvändiga nätverksresurser.
 
 I den här kursen för du göra följande:
 

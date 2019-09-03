@@ -261,7 +261,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 ```
 
 > [!Note]
-> Frontwebbtjänsten är konfigurerad för att lyssna efter inkommande trafik på port 80. Som standard är port 80 öppen på dina virtuella klusterdatorer och Azure-belastningsutjämnaren.
+> Frontwebbtjänsten är konfigurerad för att lyssna efter inkommande trafik på port 80. Som standard är port 80 öppen på dina virtuella klusterdatorer och Azure-lastbalanseraren.
 >
 
 Mer information om hur du skapar ett eget kluster finns i [Skapa ett Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).

@@ -186,7 +186,7 @@ Om du vill att lastbalanseraren ska övervaka VM-status använder du en hälsoav
 
 En lastbalanseringsregel definierar hur trafiken ska distribueras till de virtuella datorerna. Regeln definierar IP-konfigurationen på klientdelen för inkommande trafik, serverdels-IP-poolen för att ta emot trafik samt nödvändiga käll- och målportar. 
 
-Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln skickar nätverkstrafik till serverdelsadresspoolen **MyBackEndPool**, även det med port 80. 
+Lastbalanserarregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln skickar nätverkstrafik till serverdelsadresspoolen **MyBackEndPool**, även det med port 80. 
 
 **Så här skapar du belastningsutjämningsregeln:**
 
@@ -207,7 +207,7 @@ Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80
    
 1. Välj **OK**.
    
-   ![Lägga till en belastningsutjämningsregel](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Lägga till en lastbalanserarregel](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 
@@ -272,7 +272,7 @@ Om du vill ta bort lastbalanseraren och alla relaterade resurser när du inte l�
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du en belastningsutjämnare på nivån Grundläggande. Du skapade och konfigurerade en resursgrupp, nätverksresurser, serverdelsservrar, en hälsoavsökning och regler för att använda med lastbalanseraren. Du installerade IIS på de virtuella datorerna och använde det för att testa lastbalanseraren. 
+I den här snabbstarten skapade du en lastbalanserare på nivån Grundläggande. Du skapade och konfigurerade en resursgrupp, nätverksresurser, serverdelsservrar, en hälsoavsökning och regler för att använda med lastbalanseraren. Du installerade IIS på de virtuella datorerna och använde det för att testa lastbalanseraren. 
 
 Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna.
 

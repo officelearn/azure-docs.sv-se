@@ -63,7 +63,7 @@ I resursen **Microsoft.ServiceFabric/clusters** distribueras ett Linux-kluster m
 
 ### <a name="azure-load-balancer"></a>Azure-lastbalanserare
 
-I resursen **Microsoft.Network/loadBalancers** har en belastningsutjämnare konfigurerats och avsökningar samt regler har konfigurerats för följande portar:
+I resursen **Microsoft.Network/loadBalancers** har en lastbalanserare konfigurerats och avsökningar samt regler har konfigurerats för följande portar:
 
 * klientanslutningsslutpunkt: 19000
 * HTTP-gatewayslutpunkt: 19080

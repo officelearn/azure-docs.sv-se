@@ -146,7 +146,7 @@ En intern lastbalanserare möjliggör följande typer av belastningsutjämning:
 * **Inom ett virtuellt nätverk**: Belastningsutjämning från virtuella datorer i det virtuella nätverket, till en uppsättning virtuella datorer som finns i samma virtuella nätverk.
 * **För ett virtuellt nätverk mellan olika platser**: Belastningsutjämning från lokala datorer till en uppsättning virtuella datorer som finns i samma virtuella nätverk. 
 * **För flernivåprogram**: Belastningsutjämning för flernivåprogram på Internet när serverdelsnivåerna inte är Internetanslutna. Serverdelsnivåerna kräver belastningsutjämning av trafik från Internetansluten nivå (se nästa bild).
-* **För verksamhetsspecifika appar**: Belastningsutjämning för verksamhetsspecifika appar som finns i Azure utan ytterligare maskin- eller programvara för belastningsutjämning. Det här scenariot innehåller lokala servrar som finns i uppsättningen datorer vars trafik är belastningsutjämnad.
+* **För verksamhetsspecifika appar**: Lastbalansering för verksamhetsspecifika appar som finns i Azure utan ytterligare maskin- eller programvara för lastbalanserare. Det här scenariot innehåller lokala servrar som finns i uppsättningen datorer vars trafik är belastningsutjämnad.
 
 ![Exempel på intern lastbalanserare](./media/load-balancer-overview/IC744147.png)
 

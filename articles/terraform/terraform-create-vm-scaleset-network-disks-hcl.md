@@ -143,7 +143,7 @@ I det här avsnittet skapar du följande nätverksinfrastruktur i en ny Azure-re
 
   - Ett virtuellt nätverk (VNET) med adressutrymmet 10.0.0.0/16
   - Ett undernät med adressutrymmet 10.0.2.0/24
-  - Två offentliga IP-adresser. En används av belastningsutjämnaren för VM-skalningsuppsättningen, och den andra används för att ansluta till SSH-jumpboxen.
+  - Två offentliga IP-adresser. En används av lastbalanseraren för VM-skalningsuppsättningen, och den andra används för att ansluta till SSH-jumpboxen.
 
 I Azure Cloud Shell utför du följande steg:
 
@@ -234,10 +234,10 @@ Använd Azure Cloud Shell i katalogen där du skapade konfigurationsfilerna (.tf
 
 I det här avsnittet lär du dig hur du lägger till följande resurser i mallen:
 
-- En Azure-belastningsutjämnare och regler för att hantera programmet och koppla det till den offentliga IP-adress som konfigurerades tidigare i den här artikeln
-- En adresspool för Azure-serverdelen och tilldela den till belastningsutjämnaren
-- En avsökningsport för hälsotillstånd som används av programmet och konfigureras i belastningsutjämnaren
-- En VM-skalningsuppsättning som finns bakom belastningsutjämnaren och körs på det virtuella nätverket som distribuerades tidigare i den här artikeln
+- En Azure-lastbalanserare och regler för att hantera programmet och koppla det till den offentliga IP-adress som konfigurerades tidigare i den här artikeln
+- En adresspool för Azure-serverdelen och tilldela den till lastbalanseraren
+- En avsökningsport för hälsotillstånd som används av programmet och konfigureras i lastbalanseraren
+- En VM-skalningsuppsättning som finns bakom lastbalanseraren och körs på det virtuella nätverket som distribuerades tidigare i den här artikeln
 - [Nginx](https://nginx.org/) på noderna i VM-skalningsuppsättningen som installerats med [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
 
 I Cloud Shell utför du följande steg:

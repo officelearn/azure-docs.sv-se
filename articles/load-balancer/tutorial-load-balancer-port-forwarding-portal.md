@@ -29,20 +29,20 @@ Med portvidarebefordran kan du ansluta till virtuella datorer (VM) i Azure-nätv
 I den här självstudien får du ställa in portvidarebefordran i Azure Load Balancer. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en offentlig Standard Load Balancer (belastningsutjämnare) för att belastningsutjämna nätverkstrafik över virtuella datorer. 
+> * Skapa en offentlig Standard-lastbalanserare för att balansera nätverkstrafik över virtuella datorer. 
 > * Skapa ett virtuellt nätverk och virtuella datorer med en nätverkssäkerhetsgruppregel. 
-> * Lägg till de virtuella datorerna i belastningsutjämnarens adresspool för serverdelen.
-> * Skapa en hälsoavsökning och trafikregler för belastningsutjämnaren.
-> * Skapa inkommande NAT-portvidarebefordringsregler för en belastningsutjämnare.
+> * Lägg till de virtuella datorerna i lastbalanserarens adresspool för serverdelen.
+> * Skapa en hälsoavsökning och trafikregler för lastbalanseraren.
+> * Skapa inkommande NAT-portvidarebefordringsregler för en lastbalanserare.
 > * Installera och konfigurera IIS på de virtuella datorerna för att visa belastningsutjämning och portvidarebefordran i praktiken.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 Om du vill utföra stegen med den här självstudien loggar du in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-standard-load-balancer"></a>Skapa en standardbelastningsutjämnare
+## <a name="create-a-standard-load-balancer"></a>Skapa en standardlastbalanserare
 
-Börja med att skapa en offentlig standardbelastningsutjämnare som kan belastningsutjämna trafik över virtuella datorer. En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en Standard Load Balancer, och även måste skapa en ny offentlig IP-standardadress som är konfigurerad som klientdelen med namnet **LoadBalancerFrontend** som standard. 
+Börja med att skapa en offentlig standardlastbalanserare som kan balansera trafik över virtuella datorer. En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en Standard Load Balancer, och även måste skapa en ny offentlig IP-standardadress som är konfigurerad som klientdelen med namnet **LoadBalancerFrontend** som standard. 
 
 1. Längst upp till vänster på skärmen klickar du på **Skapa en resurs** > **Nätverk** > **Lastbalanserare**.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
@@ -60,13 +60,13 @@ Börja med att skapa en offentlig standardbelastningsutjämnare som kan belastni
     |Tillgänglighetszon| Välj **Zonredundant**.    |
      
     >[!NOTE]
-     >Se till att skapa en belastningsutjämnare och alla resurser för den på en plats som har stöd för tillgänglighetszoner. Mer information finns i [regioner som har stöd för tillgänglighetszoner](../availability-zones/az-overview.md#services-support-by-region). 
+     >Se till att skapa en Load Balancer och alla resurser för den på en plats som har stöd för tillgänglighetszoner. Mer information finns i [regioner som har stöd för tillgänglighetszoner](../availability-zones/az-overview.md#services-support-by-region). 
 
 3. På fliken **Granska + skapa** klickar du på **Skapa**.  
   
 ## <a name="create-and-configure-back-end-servers"></a>Skapa och konfigurera serverdelsservrar
 
-Skapa ett virtuellt nätverk med två virtuella datorer för serverdelspoolen för din belastningsutjämnare. 
+Skapa ett virtuellt nätverk med två virtuella datorer för serverdelspoolen för din lastbalanserare. 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -109,11 +109,11 @@ Skapa ett virtuellt nätverk med två virtuella datorer för serverdelspoolen f�
    >[!NOTE]
    >Observera att som standard har NSG redan en inkommande regel för att öppna port 3389, fjärrporten för fjärrskrivbordet.
    
-1. Lägg till den virtuella datorn till en belastningsutjämnares serverdelpool som du har skapat:
+1. Lägg till den virtuella datorn till en lastbalanserares serverdelpool som du har skapat:
    
    1. Under **BELASTNINGSUTJÄMNING** > **Placera den virtuella datorn bakom en befintlig belastningsutjämningslösning?** väljer du **Ja**. 
-   1. Välj **Azure-belastningsutjämnare** i listrutan för **Belastningsutjämningsalternativ**. 
-   1. För **Välj belastningsutjämnare** väljer du **MyLoadBalancer** i listrutan. 
+   1. Välj **Azure-lastbalanserare** i listrutan för **lastbalanseringsalternativ**. 
+   1. För **Välj lastbalanserare** väljer du **MyLoadBalancer** i listrutan. 
    1. Under **Välj en serverdelspool** väljer du **Skapa nytt** och skriver *MyBackendPool*. Välj **Skapa**. 
    
    ![Skapa ett virtuellt nätverk](./media/tutorial-load-balancer-port-forwarding-portal/create-vm-networking.png)
@@ -158,13 +158,13 @@ Skapa en nätverkssäkerhetsgruppregel för de virtuella datorerna så att inkom
    
 ## <a name="create-load-balancer-resources"></a>Skapa resurser för lastbalansering
 
-I det här avsnittet inspekterar du serverdelpoolen för belastningsutjämnaren och konfigurerar trafikregler och en hälsoavsökning för belastningsutjämnaren.
+I det här avsnittet inspekterar du serverdelpoolen för lastbalanseraren och konfigurerar trafikregler och en hälsoavsökning för lastbalanseraren.
 
 ### <a name="view-the-back-end-address-pool"></a>Visa serverdelsadresspoolen
 
 För att distribuera trafik till de virtuella datorerna använder belastningsutjämnaren en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till lastbalanseraren. 
 
-Du skapade din serverdelspool för belastningsutjämnaren och lade till virtuella datorer i den när du skapade de virtuella datorerna. Du kan också skapa serverdelsadresspooler och lägga till eller ta bort virtuella datorer från belastningsutjämnaren på sidan **Serverdelspooler**. 
+Du skapade din serverdelspool för lastbalanseraren och lade till virtuella datorer i den när du skapade de virtuella datorerna. Du kan också skapa serverdelsadresspooler och lägga till eller ta bort virtuella datorer från lastbalanseraren på sidan **Serverdelspooler**. 
 
 1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
    
@@ -203,7 +203,7 @@ Om du vill att lastbalanseraren ska övervaka VM-status använder du en hälsoav
 
 En lastbalanseringsregel definierar hur trafiken ska distribueras till de virtuella datorerna. Regeln definierar IP-konfigurationen på klientdelen för inkommande trafik, serverdels-IP-poolen för att ta emot trafik samt nödvändiga käll- och målportar. 
 
-Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln skickar nätverkstrafik till serverdelsadresspoolen **MyBackendPool**, även det med port 80. 
+Lastbalanserarregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln skickar nätverkstrafik till serverdelsadresspoolen **MyBackendPool**, även det med port 80. 
 
 1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
    
@@ -220,11 +220,11 @@ Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80
    
 1. Välj **OK**.
    
-   ![Lägga till en belastningsutjämningsregel](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
+   ![Lägga till en lastbalanserarregel](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
 ## <a name="create-an-inbound-nat-port-forwarding-rule"></a>Skapa inkommande NAT-portvidarebefordringsregel
 
-Skapa en inkommande NAT-regel för belastningsutjämnaren för att vidarebefordra trafik från en viss port på klientdelens IP-adress till en specifik port för en virtuell serverdelsdator.
+Skapa en inkommande NAT-regel för lastbalanseraren för att vidarebefordra trafik från en viss port på klientdelens IP-adress till en specifik port för en virtuell serverdelsdator.
 
 1. Välj **Alla resurser** i den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
    

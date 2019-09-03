@@ -19,10 +19,10 @@ ms.locfileid: "70018991"
 # <a name="service-fabric-releases"></a>Service Fabric versioner
 
 | <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Fel söknings guider</a> 
-|  
-| <a href="https://github.com/Azure/service-fabric-issues" target="blank">problem med</a><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">versioner</a><a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank"></a> <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank"></a>som 
-| stöds kod exempel 
-| 
+| <a href="https://github.com/Azure/service-fabric-issues" target="blank">problem med</a> 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">support alternativ</a> 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">versioner</a> 
+| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">somstöds kod exempel</a>
 
 Den här artikeln innehåller mer information om de senaste versionerna och uppdateringarna av Service Fabric Runtime och SDK: er.
 

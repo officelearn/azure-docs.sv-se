@@ -48,7 +48,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   31 seconds ago      Up 9 seconds        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-Du kan nu komma åt programmet som körs i den här containern via det offentliga DNS-namnet på Swarm-agentens belastningsutjämnare. Du hittar den här informationen i Azure Portal:  
+Du kan nu komma åt programmet som körs i den här containern via det offentliga DNS-namnet på Swarm-agentens lastbalanserare. Du hittar den här informationen i Azure Portal:  
 
 ![Verklighetstrogna besöksresultat](./media/container-service-docker-swarm/real-visit.jpg)  
 

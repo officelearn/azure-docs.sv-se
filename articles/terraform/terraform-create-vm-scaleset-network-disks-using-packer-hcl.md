@@ -85,7 +85,7 @@ output "vmss_public_ip" {
 I det här steget skapar du följande nätverksinfrastruktur i en ny Azure-resursgrupp: 
   - Ett virtuellt nätverk med adressutrymmet 10.0.0.0/16 
   - Ett undernät med adressutrymmet 10.0.2.0/24
-  - Två offentliga IP-adresser. En används av belastningsutjämnaren för VM-skalningsuppsättningen, och den andra används för att ansluta till SSH-jumpboxen
+  - Två offentliga IP-adresser. En används av lastbalanseraren för VM-skalningsuppsättningen, och den andra används för att ansluta till SSH-jumpboxen
 
 Du behöver även en resursgrupp där alla resurser skapas. 
 
@@ -176,7 +176,7 @@ Följ självstudien för att skapa en avetablerad Ubuntu-avbildning med NGINX in
 
 I det här steget skapar du följande resurser i nätverket som distribuerades tidigare:
 - Azure Load Balancer för att betjäna programmet och koppla det till den offentliga IP-adress som distribuerats tidigare.
-- En Azure-belastningsutjämnare och regler för att hantera programmet och koppla det till den offentliga IP-adress som konfigurerades tidigare.
+- En Azure-lastbalanserare och regler för att hantera programmet och koppla det till den offentliga IP-adress som konfigurerades tidigare.
 - Azure-backend-adresspool och tilldela den till belastningsutjämnaren.
 - En hälso avsöknings port som används av programmet och som är konfigurerad på belastningsutjämnaren.
 - En skalnings uppsättning för virtuella datorer som finns bakom belastningsutjämnaren, körs på det virtuella nätverk som distribuerats tidigare.

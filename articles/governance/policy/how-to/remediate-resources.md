@@ -7,24 +7,23 @@ ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: ba015a1d5183fcf27cfcc05ef1d0cd838201e91e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f88ecb782598cabacc29f97ee3225a5abf280a84
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077124"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232325"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
-Resurser som är icke-kompatibla till en **deployIfNotExists** princip kan placeras i ett kompatibelt tillstånd via **reparation**. Reparation åstadkoms genom att uppmana Azure Policy för att köra den **deployIfNotExists** tilldelade policyns effekt på dina befintliga resurser. Den här artikeln visar de steg som krävs för att förstå och utföra åtgärder med Azure Policy.
+Resurser som är icke-kompatibla till en **deployIfNotExists** princip kan placeras i ett kompatibelt tillstånd via **reparation**. Reparationen utförs genom att instruera Azure Policy att köra **deployIfNotExists** -resultatet av den tilldelade principen på dina befintliga resurser. Den här artikeln visar de steg som krävs för att förstå och utföra reparation med Azure Policy.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Hur fungerar säkerheten för reparation
 
-När Azure Policy körs mallen i den **deployIfNotExists** principdefinition som den gör det med hjälp av en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy skapar en hanterad identitet för varje uppgift, men måste ha information om vilka roller att bevilja den hanterade identitet. Om den hanterade identitet saknas roller, visas det här felet under tilldelningen av principen eller ett initiativ. När du använder portalen, kommer Azure Policy automatiskt ge hanterad identitet listade rollerna när tilldelningen har startats.
+När Azure Policy kör mallen i **deployIfNotExists** -princip definitionen används en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md).
+Azure Policy skapar en hanterad identitet för varje tilldelning, men du måste ha information om vilka roller som ska bevilja den hanterade identiteten. Om den hanterade identitet saknas roller, visas det här felet under tilldelningen av principen eller ett initiativ. När du använder portalen beviljas Azure Policy automatiskt den hanterade identitet som listade roller när tilldelningen startas.
 
 ![Hanterad identitet - saknas roll](../media/remediate-resources/missing-role.png)
 
@@ -53,7 +52,7 @@ az role definition list --name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Konfigurera manuellt hanterad identitet
 
-När du skapar en uppgift med hjälp av portalen, Azure Policy både genererar den hanterade identitet och beviljar de roller som definierats i **roleDefinitionIds**. Steg för att skapa den hanterade identitet och tilldela den behörigheter måste göras manuellt under följande förhållanden:
+När du skapar en tilldelning med hjälp av portalen genererar Azure Policy båda den hanterade identiteten och ger den roller som definierats i **roleDefinitionIds**. Steg för att skapa den hanterade identitet och tilldela den behörigheter måste göras manuellt under följande förhållanden:
 
 - När du använder SDK: N (till exempel Azure PowerShell)
 - När en resurs utanför tilldelningsomfånget ändras av mallen
@@ -83,7 +82,7 @@ Den `$assignment` variabeln innehåller nu ägar-ID för den hanterade identitet
 
 ### <a name="grant-defined-roles-with-powershell"></a>Bevilja definierat roller med PowerShell
 
-Den nya hantera identiteten måste slutföra replikering via Azure Active Directory innan den kan beviljas de nödvändiga rollerna. När replikeringen är klar, i följande exempel itererar principdefinitionen i `$policyDef` för den **roleDefinitionIds** och använder [New AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) att ge den nya hantera identiteten den roller.
+Den nya hantera identiteten måste slutföra replikering via Azure Active Directory innan den kan beviljas de nödvändiga rollerna. När replikeringen är klar itererar följande exempel princip definitionen i `$policyDef` för **roleDefinitionIds** och använder [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) för att ge den nya hanterade identiteten roller.
 
 ```azurepowershell-interactive
 # Use the $policyDef to get to the roleDefinitionIds array
@@ -127,7 +126,7 @@ Följ dessa steg om du vill lägga till en roll i tilldelningens hanterad identi
 
 ## <a name="create-a-remediation-task"></a>Skapa en uppgift för reparation
 
-### <a name="create-a-remediation-task-through-portal"></a>Skapa en reparation uppgift via portalen
+### <a name="create-a-remediation-task-through-portal"></a>Skapa en reparations uppgift via portalen
 
 Under utvärderingen, principtilldelning med **deployIfNotExists** effekt avgör om det finns inkompatibla resurser. När icke-kompatibla resurser finns informationen tillhandahålls på den **reparation** sidan. Tillsammans med i listan över principer som har icke-kompatibla resurser är alternativet för att utlösa en **reparation uppgift**. Det här alternativet är det skapar en distribution från den **deployIfNotExists** mall.
 
@@ -139,7 +138,7 @@ Skapa en **reparation uppgiften**, Följ dessa steg:
 
 1. Välj **reparation** till vänster på sidan för Azure Policy.
 
-   ![Välj reparation på sidan för principer](../media/remediate-resources/select-remediation.png)
+   ![Välj reparation på princip Sidan](../media/remediate-resources/select-remediation.png)
 
 1. Alla **deployIfNotExists** principtilldelningar med icke-kompatibla resurser ingår i den **principer för att åtgärda** fliken och en datatabell. Klicka på en princip med resurser som är icke-kompatibla. Den **ny reparation uppgift** öppnas.
 
@@ -148,11 +147,11 @@ Skapa en **reparation uppgiften**, Följ dessa steg:
 
 1. På den **ny reparation uppgift** sidan, filtrera resurser för att åtgärda problemet med hjälp av den **omfång** ellipserna att välja underordnade resurser från där principen tilldelas (inklusive till enskild resurs objekt). Dessutom kan använda den **platser** listrutan filtreras ytterligare resurser. Endast de resurser som anges i tabellen ska åtgärdas.
 
-   ![Åtgärda – Välj vilka resurser behöver uppdateras](../media/remediate-resources/select-resources.png)
+   ![Åtgärda – Välj vilka resurser som ska åtgärdas](../media/remediate-resources/select-resources.png)
 
 1. Starta reparation aktiviteten när resurserna som har filtrerats genom att klicka på **reparera**. Öppnar sidan principer för efterlevnad för den **reparation uppgifter** flik för att visa tillståndet för uppgifter förloppet.
 
-   ![Åtgärda - status för reparation aktiviteter](../media/remediate-resources/task-progress.png)
+   ![Åtgärds förlopp för reparations åtgärder](../media/remediate-resources/task-progress.png)
 
 1. Klicka på den **reparation uppgift** från sidan princip för efterlevnad för att få information om förloppet. Filtrering som används för aktiviteten visas tillsammans med en lista över de resurser som åtgärdas.
 
@@ -162,9 +161,9 @@ Skapa en **reparation uppgiften**, Följ dessa steg:
 
 Resurser som distribueras via en **reparation uppgift** läggs till i **distribuerade resurser** fliken på policysidan för efterlevnad.
 
-### <a name="create-a-remediation-task-through-azure-cli"></a>Skapa en reparation uppgift via Azure CLI
+### <a name="create-a-remediation-task-through-azure-cli"></a>Skapa en reparations uppgift via Azure CLI
 
-Skapa en **reparation uppgift** med Azure CLI, använder de `az policy remediation` kommandon. Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{myAssignmentId}` med din **deployIfNotExists** princip tilldelning-ID.
+Använd`az policy remediation` kommandona om du vill skapa en **reparations uppgift** med Azure CLI. Ersätt `{subscriptionId}` med ditt prenumerations- `{myAssignmentId}` ID och med ditt tilldelnings-ID för **deployIfNotExists** -principen.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -173,11 +172,11 @@ Skapa en **reparation uppgift** med Azure CLI, använder de `az policy remediati
 az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
-Andra åtgärder kommandon och exempel finns i den [az princip reparation](/cli/azure/policy/remediation) kommandon.
+Andra reparations kommandon och exempel finns i kommandona för att [Reparera AZ-principer](/cli/azure/policy/remediation) .
 
-### <a name="create-a-remediation-task-through-azure-powershell"></a>Skapa en reparation uppgift via Azure PowerShell
+### <a name="create-a-remediation-task-through-azure-powershell"></a>Skapa en reparations uppgift via Azure PowerShell
 
-Skapa en **reparation uppgift** med Azure PowerShell kan använda den `Start-AzPolicyRemediation` kommandon. Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{myAssignmentId}` med din **deployIfNotExists** princip tilldelning-ID.
+Om du vill skapa en **reparations uppgift** med Azure PowerShell använder `Start-AzPolicyRemediation` du kommandona. Ersätt `{subscriptionId}` med ditt prenumerations- `{myAssignmentId}` ID och med ditt tilldelnings-ID för **deployIfNotExists** -principen.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -186,13 +185,13 @@ Skapa en **reparation uppgift** med Azure PowerShell kan använda den `Start-AzP
 Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
-Andra åtgärder cmdletar och exempel finns i den [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) modulen.
+Andra reparations-cmdletar och exempel finns i modulen [AZ. PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) .
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska exempel i [Azure policy exempel](../samples/index.md).
 - Granska [Azure Policy-definitionsstrukturen](../concepts/definition-structure.md).
 - Granska [Förstå policy-effekter](../concepts/effects.md).
-- Förstå hur du [skapa principer programmässigt](programmatically-create.md).
-- Lär dig hur du [hämta kompatibilitetsdata](getting-compliance-data.md).
-- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).
+- Lär dig att [program mässigt skapa principer](programmatically-create.md).
+- Lär dig hur du [hämtar efterlevnadsprinciper](getting-compliance-data.md).
+- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).

@@ -8,14 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640122"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231185"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudier: Skydda en enkel databas eller en pooldatabas
 
@@ -58,7 +58,7 @@ Om du vill utföra stegen med den här självstudien loggar du in på [Azure-por
 
 ## <a name="create-firewall-rules"></a>Skapa brandväggsregler
 
-SQL-databaser skyddas av brandväggar i Azure. Som standard avvisas alla anslutningar till servern och databaserna, med undantag för anslutningar från andra Azure-tjänster. Om du vill veta mer läser du [Azure SQL Database-brandväggsregler på servernivå och databasnivå](sql-database-firewall-configure.md).
+SQL-databaser skyddas av brandväggar i Azure. Som standard avvisas alla anslutningar till servern och databasen. Om du vill veta mer läser du [Azure SQL Database-brandväggsregler på servernivå och databasnivå](sql-database-firewall-configure.md).
 
 Ställ in **Tillåt åtkomst till Azure-tjänster** på **AV** för den säkraste konfigurationen. Skapa sedan en [reserverad IP (klassisk distribution)](../virtual-network/virtual-networks-reserved-public-ip.md) för resursen som behöver anslutas, till exempel en virtuell Azure-dator eller molntjänst, och tillåt endast att den IP-adressen får åtkomst via brandväggen. Om du använder distributionsmodellen [resurshanteraren](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) krävs en dedikerad offentlig IP-adress för varje resurs.
 
@@ -87,9 +87,6 @@ Konfigurera en brandväggsregel på servernivå:
    1. Välj **OK** och stäng sidan **Brandväggsinställningar**.
 
 Nu kan du ansluta till valfri databas på servern med IP-adressen eller IP-adressintervallet som angetts.
-
-> [!IMPORTANT]
-> Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster under **Tillåt åtkomst till Azure-tjänster**. Välj **AV** om du vill inaktivera åtkomsten för alla Azure-tjänster.
 
 ### <a name="setup-database-firewall-rules"></a>Konfigurera brandväggsregler för databaser
 

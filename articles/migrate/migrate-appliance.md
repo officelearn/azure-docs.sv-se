@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e2faa47a58283623747ae569de22e1c57df1a51f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827333"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231140"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -72,6 +72,9 @@ NÄTVERKSKORT Skriv data flöde (MB per sekund) | net.transmitted.average  |Ber�
 
 ## <a name="collected-metadata-vmware"></a>Insamlade metadata – VMware
 
+> [!NOTE]
+> Metadata som upptäckts av Azure Migrate-installationen används för att hjälpa dig att ge dina program rätt storlek när du migrerar dem till Azure, utför Azures analys av lämplighet, program beroende analys och kostnads planering. Microsoft använder inte dessa data i förhållande till någon granskning av licens efterlevnad.
+
 Här är en fullständig lista över de virtuella VMware-metadata som enheten samlar in och skickar till Azure.
 
 **Data** | **Medelvärde**
@@ -109,7 +112,7 @@ IPv6-adresser | vm.Guest.Net
 Läs data flöde (MB per sekund) | net.received.average
 Skriv data flöde (MB per sekund) | net.transmitted.average
 **Information om lager Sök väg** | 
-Namn | container.GetType().Name
+Name | container.GetType().Name
 Typ av underordnat objekt | fönster. ChildType
 Referens information | container.MoRef
 Överordnad information | Container. parent
@@ -122,6 +125,9 @@ Värd information per virtuell dator | ((HostSystem) container). DATORN
 
 
 ## <a name="collected-performance-data-hyper-v"></a>Insamlade prestanda data – Hyper-V
+
+> [!NOTE]
+> Metadata som upptäckts av Azure Migrate-installationen används för att hjälpa dig att ge dina program rätt storlek när du migrerar dem till Azure, utför Azures analys av lämplighet, program beroende analys och kostnads planering. Microsoft använder inte dessa data i förhållande till någon granskning av licens efterlevnad.
 
 Här är de prestanda data för VMware VM som enheten samlar in och skickar till Azure.
 

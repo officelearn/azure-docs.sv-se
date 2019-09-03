@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 4f5c10536992f51ac61815507a3869e521520299
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 43fee2ce25e358bbcff915d2fbef96bf4b7c1a0c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170716"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233116"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Distribuera python till Azure Functions med Visual Studio Code
 
@@ -56,7 +56,7 @@ Följ instruktionerna för ditt operativ system på [arbetet med Azure Functions
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-När Functions-tillägget har installerats loggar du in på ditt Azure-konto genom att **gå till Azure: Funktions** Utforskaren, Välj **Logga in på Azure**och följ anvisningarna.
+När Functions-tillägget har installerats loggar du in på ditt Azure-konto genom **att gå till Azure: Funktions** Utforskaren, Välj **Logga in på Azure**och följ anvisningarna.
 
 ![Logga in på Azure via Visual Studio Code](media/tutorial-vs-code-serverless-python/azure-sign-in.png)
 
@@ -207,7 +207,7 @@ De viktiga delarna i koden är följande:
 
 ## <a name="debug-locally"></a>Felsök lokalt
 
-1. När du skapar Functions-projektet skapar Visual Studio Code-tillägget även en start konfiguration i `.vscode/launch.json` som innehåller en enda konfiguration med namnet **Attach to python Functions**. Den här konfigurationen innebär att du bara kan trycka på F5 eller använda fel söknings Utforskaren för att starta projektet:
+1. När du skapar Functions-projektet skapar Visual Studio Code-tillägget även en start konfiguration i `.vscode/launch.json` som innehåller en enda konfiguration med namnet **Attach to python Functions**. Den här konfigurationen innebär att du bara kan välja **F5** eller att starta projektet med fel söknings Utforskaren:
 
     ![Fel söknings Utforskaren visar konfiguration av Functions-start](media/tutorial-vs-code-serverless-python/launch-configuration.png)
 
@@ -393,7 +393,7 @@ Efter din första distribution kan du göra ändringar i koden, till exempel lä
     }
     ```
 
-1. Starta fel söknings programmet genom att trycka på F5 eller Välj Meny kommandot **fel sökning** > **Starta fel sökning** . I fönstret **utdata** visas nu båda slut punkterna i projektet:
+1. Starta fel söknings programmet genom att välja **F5** eller genom att välja Meny kommandot **fel sökning** > **Starta fel sökning** . I fönstret **utdata** visas nu båda slut punkterna i projektet:
 
     ```output
     Http Functions:
@@ -479,15 +479,15 @@ I det här avsnittet lägger du till en lagrings bindning till HttpExample-funkt
             )
     ```
 
-1. Om du vill testa ändringarna lokalt startar du fel söknings programmet igen i Visual Studio Code genom att trycka på F5 eller välja kommandot **fel sökning** > **Starta** fel söknings meny. Som innan fönstret **utdata** ska Visa slut punkterna i projektet.
+1. Om du vill testa ändringarna lokalt startar du fel söknings programmet igen i Visual Studio Code genom att välja **F5** eller välja kommandot **fel sökning starta fel** > **söknings** meny. Som innan fönstret **utdata** ska Visa slut punkterna i projektet.
 
 1. I en webbläsare går du till URL `http://localhost:7071/api/HttpExample?name=VS%20Code` : en för att skapa en begäran till HttpExample-slutpunkten, som även ska skriva ett meddelande till kön.
 
 1. För att verifiera att meddelandet skrevs till kön "kön" (som namngetts i bindningen) kan du använda en av tre metoder:
 
-    1. Logga in på [Azure Portal](https://portal.azure.com)och navigera till resurs gruppen som innehåller ditt Functions-projekt. I den resurs gruppen, lokalt och navigera till lagrings kontot för projektet, går du till **köer**. På sidan navigerar du till "kön", som visar alla loggade meddelanden.
+    1. Logga in på [Azure Portal](https://portal.azure.com)och gå till resurs gruppen som innehåller ditt Functions-projekt. Leta upp och öppna lagrings kontot för projektet i resurs gruppen och gå sedan till **köer**. På sidan går du till "kön", som visar alla loggade meddelanden.
 
-    1. Navigera och granska kön med antingen Azure Storage Explorer, som integreras med Visual Studio, enligt beskrivningen i [Connect Functions för att Azure Storage med hjälp av Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md), i synnerhet avsnittet [Granska kön utdata](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) .
+    1. Öppna och granska kön med antingen Azure Storage Explorer, som integreras med Visual Studio, enligt beskrivningen i [Connect Functions för att Azure Storage med hjälp av Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md), i synnerhet avsnittet [Granska kön utdata](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) .
 
     1. Använd Azure CLI för att fråga lagrings kön, enligt beskrivningen i [fråga lagrings kön](functions-add-output-binding-storage-queue-python.md#query-the-storage-queue).
     

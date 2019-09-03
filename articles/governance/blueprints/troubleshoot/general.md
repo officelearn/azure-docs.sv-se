@@ -1,75 +1,74 @@
 ---
 title: Felsöka vanliga fel
-description: Lär dig hur du felsöker problem skapa, tilldela och ta bort skisser.
+description: Lär dig hur du felsöker problem med att skapa, tilldela och ta bort ritningar.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 42fdd6645a7a0e7cd9a2f0a7bc969e8eee62758c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cbefcbadc14c1249d2783f1539e40c99c3be66c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60874968"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231564"
 ---
-# <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka med hjälp av Azure skisser
+# <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka fel med Azure-ritningar
 
-Du kanske stöter på fel när du skapar eller tilldelar skisser. Den här artikeln beskrivs olika fel som kan uppstå och hur du löser dem.
+Du kan stöta på fel när du skapar eller tilldelar ritningar. I den här artikeln beskrivs olika fel som kan uppstå och hur du löser dem.
 
-## <a name="finding-error-details"></a>Hitta information om fel
+## <a name="finding-error-details"></a>Hitta fel information
 
-Många fel blir resultatet av att tilldela en skiss till ett omfång. När en uppgift misslyckas, innehåller information om den misslyckade distributionen i skissen. Den här informationen anger problemet så att det kan åtgärdas och nästa distributionen är klar.
+Många fel är resultatet av att tilldela en skiss till ett omfång. När en tilldelning Miss lyckas innehåller skissen information om den misslyckade distributionen. Den här informationen anger problemet så att det kan åtgärdas och nästa distribution lyckas.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj **tilldelade skisser** från sidan till vänster och Använd sökningen för att filtrera skissen tilldelningar för att hitta den misslyckade tilldelningen. Du kan också sortera tabellen med tilldelningar efter den **Etableringsstatus** kolumn att se alla misslyckade tilldelningar grupperas tillsammans.
+1. Välj **tilldelade skisser** från sidan till vänster och Använd sökrutan för att filtrera skiss tilldelningarna för att hitta den misslyckade tilldelningen. Du kan också sortera tilldelnings tabellen i kolumnen **etablerings tillstånd** för att se alla misslyckade tilldelningar grupperade tillsammans.
 
-1. Vänsterklicka på skissen med den _misslyckades_ status eller högerklicka och välj **visa tilldelningsinformation**.
+1. Vänsterklicka på skissen med statusen _misslyckad_ eller högerklicka och välj **Visa tilldelnings information**.
 
-1. En röd banderoll varning att tilldelningen misslyckades är högst upp på sidan för tilldelning av skissen. Klicka någonstans på banderollen för att få mer information.
+1. En röd banderoll-varning om att tilldelningen misslyckades visas överst på sidan skiss tilldelning. Klicka var som helst på banderollen för att få mer information.
 
-Det är vanligt att felet kan orsakas av en artefakt och inte skissen som helhet. Om en artefakt skapar ett Key Vault och Azure Policy förhindrar skapande av Key Vault, misslyckas hela tilldelningen.
+Det är vanligt att felet orsakas av en artefakt och inte skissen som helhet. Om en artefakt skapar ett Key Vault och Azure Policy förhindrar att Key Vault skapas, kommer hela tilldelningen att Miss förfalla.
 
-## <a name="general-errors"></a>Allmänt fel
+## <a name="general-errors"></a>Allmänna fel
 
-### <a name="policy-violation"></a>Scenario: Principöverträdelse
-
-#### <a name="issue"></a>Problem
-
-Malldistributionen misslyckades på grund av principöverträdelse.
-
-#### <a name="cause"></a>Orsak
-
-En princip orsaka en konflikt med distributionen för en rad orsaker:
-
-- Resursen håller på att skapas är begränsad av principen (vanligtvis SKU eller plats-begränsningar)
-- Distributionen kan du ställa fält som konfigurerats av principen (vanliga med taggar)
-
-#### <a name="resolution"></a>Lösning
-
-Ändra skissen så att det inte står i konflikt med principerna i felinformationen. Om den här ändringen inte är möjligt, är ett alternativ att ha omfånget för principtilldelningen ändras så skissen inte längre är i konflikt med principen.
-
-### <a name="escape-function-parameter"></a>Scenario: Skissparametern är en funktion
+### <a name="policy-violation"></a>Situationen Princip överträdelse
 
 #### <a name="issue"></a>Problem
 
-Skissparametrar som är funktioner bearbetas innan de skickas till artefakter.
+Mallen kunde inte distribueras på grund av en princip överträdelse.
 
 #### <a name="cause"></a>Orsak
 
-Skicka en skissparametern som använder en funktion som `[resourceGroup().tags.myTag]`, i en artefakt resulterar i bearbetade resultatet av funktionen som anges på artefakten i stället för funktionen dynamiskt.
+En princip kan vara i konflikt med distributionen av ett antal orsaker:
+
+- Den resurs som skapas begränsas av en princip (ofta SKU eller plats begränsningar)
+- Distributionen anger fält som har kon figurer ATS av en princip (common med taggar)
 
 #### <a name="resolution"></a>Lösning
 
-Om du vill skicka en funktion via som en parameter, escape-hela strängen med `[` så att skissparametern ser ut som `[[resourceGroup().tags.myTag]`. Escape-tecknet orsakar skisser värdet ska behandlas som en sträng vid bearbetning av skissen. Skisser placerar funktionen på den artefakt så att den kan vara dynamiska som förväntat. Mer information finns i [mall filstruktur - syntax](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
+Ändra skissen så att den inte hamnar i konflikt med principerna i fel informationen. Om den här ändringen inte är möjlig, är ett alternativt alternativ att omfånget för princip tilldelningen har ändrats, så att skissen inte längre strider mot principen.
+
+### <a name="escape-function-parameter"></a>Situationen Skiss parametern är en funktion
+
+#### <a name="issue"></a>Problem
+
+Skiss parametrar som är funktioner bearbetas innan de skickas till artefakter.
+
+#### <a name="cause"></a>Orsak
+
+Att skicka en skiss parameter som använder en funktion, till `[resourceGroup().tags.myTag]`exempel, till en artefakt resulterar i att det behandlade resultatet av funktionen som anges i artefakten i stället för den dynamiska funktionen.
+
+#### <a name="resolution"></a>Lösning
+
+Om du vill skicka en funktion via som en parameter, kan du undanta `[` hela strängen med så att skiss parametern `[[resourceGroup().tags.myTag]`ser ut som. Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns i [mall filens struktur-syntax](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser ditt problem eller inte kan lösa problemet besöker du någon av följande kanaler för ytterligare support:
+Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
-- Få svar från Azure-experter via [Azure-forumen](https://azure.microsoft.com/support/forums/).
+- Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure-kontot för att förbättra kundtjänstupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-- Om du behöver mer hjälp kan öppna du en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **hämta stöder**.
+- Om du behöver mer hjälp kan du skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.

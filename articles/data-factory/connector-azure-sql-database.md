@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 2b4d636737dbd75829c9555e340f79c3c867910d
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a8ab2039cde11876d853b411ca09a51e96e2ca0a
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967567"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233041"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till eller från Azure SQL Database med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
@@ -380,6 +380,7 @@ För att kopiera data till Azure SQL Database, stöds följande egenskaper i avs
 | storedProcedureTableTypeParameterName |Parameter namnet för den tabell typ som anges i den lagrade proceduren.  |Nej |
 | sqlWriterTableType |Det tabell typs namn som ska användas i den lagrade proceduren. Kopierings aktiviteten gör data som flyttas tillgängliga i en temporär tabell med den här tabell typen. Den lagrade procedur koden kan sedan sammanfoga de data som kopieras med befintliga data. |Nej |
 | storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-och värdepar. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. | Nej |
+| disableMetricsCollection | Data Factory samlar in mått som Azure SQL Database DTU: er för att kopiera prestanda optimering och rekommendationer. Om du är orolig för det här beteendet `true` anger du för att inaktivera det. | Nej (standard är `false`) |
 
 **Exempel 1: Lägg till data**
 

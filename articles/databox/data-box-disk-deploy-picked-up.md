@@ -10,12 +10,12 @@ ms.date: 09/03/2019
 ms.localizationpriority: high
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 259c20aead3bbe7b44c59efe031a079ba80e2905
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232965"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240198"
 ---
 ::: zone target="chromeless"
 
@@ -128,12 +128,12 @@ Vid behov kan du kontakta Quantium Solution support (japanska språk) med följa
 1. Se till att inkludera retur frakt sedeln.
 2. Så här begär du hämtning av frakt sedel:
     1. Ring *Quantium Solutions International* hotline vid 070-8231-1418 under kontors tid (10-till-5 PM, måndag till fredag). Offert *Microsoft Azure upphämtning* och service förfrågnings numret för att ordna för en samling.  
-    2. Om Hotline är upptagen, e- `microsoft@rocketparcel.com`post med e-postmeddelandets ämnesrad *Microsoft Azure* upphämtningen och service förfrågnings numret som referens.
+    2. Om Hotline är upptagen, e- `microsoft@rocketparcel.com`post med e-postmeddelandets ämnesrad *Microsoft Azure upphämtningen* och service förfrågnings numret som referens.
     3. Om courier inte tar emot insamling kan du anropa *Quantium Solutions International* Hotline för alternativa arrangemang. 
     4. Du får en bekräftelse via e-post för upphämtnings schema.
 3. Utför bara det här steget om frakt sedeln inte finns. Så här begär du hämtning:
     1. Ring *Quantium Solutions International* hotline vid 070-8231-1418 under kontors tid (10-till-5 PM, måndag till fredag). Offert *Microsoft Azure upphämtning* och service förfrågnings numret för att ordna för en samling. Ange att du behöver en ny frakt anteckning för att ordna för en samling. Ange avsändare (kund), mottagar information (Azure-datacenter) och referens nummer (service förfrågnings nummer). 
-    2. Om Hotline är upptagen, e- `microsoft@rocketparcel.com`post med e-postmeddelandets ämnesrad *Microsoft Azure* upphämtningen och service förfrågnings numret som referens.
+    2. Om Hotline är upptagen, e- `microsoft@rocketparcel.com`post med e-postmeddelandets ämnesrad *Microsoft Azure upphämtningen* och service förfrågnings numret som referens.
     3. Om courier inte tar emot insamling kan du anropa *Quantium Solutions International* Hotline för alternativa arrangemang. 
     4. Du får en muntlig bekräftelse om begäran görs via telefon.
 

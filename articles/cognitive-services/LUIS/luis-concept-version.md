@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2e13efa70d0344defeb306a92ac405439635e929
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: c519b030aaee58397766ecb8658e7af08b5986e1
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619697"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256881"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Förstå hur och när du ska använda en LUIS-version
 
@@ -48,7 +48,7 @@ Du kan importera en version på App-nivå. Den versionen blir den aktiva version
 
 Du kan exportera en version på App-nivå eller så kan du exportera en version på versions nivå. Den enda skillnaden är att den version som exporter ATS på program nivå är den för närvarande aktiva versionen på versions nivå. du kan välja vilken version du vill exportera på sidan **[Inställningar](luis-how-to-manage-versions.md)** . 
 
-Den exporterade filen innehåller ingen information som är känd för datorn eftersom appen omtränas när den har importer ATS. Den exporterade filen innehåller inga samarbets partners – du måste lägga till dem igen när versionen har importer ATS till den nya appen.
+Den exporterade filen innehåller ingen information som är känd för datorn eftersom appen omtränas när den har importer ATS. Den exporterade filen innehåller ingen deltagar information.
 
 ## <a name="export-each-version-as-app-backup"></a>Exportera varje version som säkerhets kopiering av app
 För att kunna säkerhetskopiera LUIS-appen exporterar du varje version på sidan **[Inställningar](luis-how-to-manage-versions.md)** .
@@ -59,11 +59,26 @@ Du kan ta bort alla versioner utom den aktiva versionen från listan versioner p
 ## <a name="version-availability-at-the-endpoint"></a>Versions tillgänglighet vid slut punkten
 Utbildade versioner är inte automatiskt tillgängliga i din app- [slutpunkt](luis-glossary.md#endpoint). Du måste [publicera](luis-how-to-publish-app.md) eller publicera om en version för att den ska vara tillgänglig på din app-slutpunkt. Du kan publicera till **mellanlagring** och **produktion**, vilket ger dig upp till två versioner av appen som är tillgängliga vid slut punkten. Om du behöver fler versioner av appen tillgänglig vid en slut punkt bör du exportera versionen och importera den till en ny app. Den nya appen har ett annat app-ID.
 
-## <a name="collaborators"></a>Medarbetare
-Ägaren och alla [medarbetare](luis-how-to-collaborate.md) har fullständig åtkomst till alla versioner av appen.
+## <a name="manage-multiple-versions-inside-the-same-app"></a>Hantera flera versioner i samma app
+Börja med att [kloning](luis-how-to-manage-versions.md#clone-a-version), från en grundläggande version för varje författare. 
+
+Varje författare gör ändringar i sin egen version av appen. När var och är nöjd med modellen kan du exportera de nya versionerna till JSON-filer.  
+
+Exporterade appar är JSON-formaterade filer som kan jämföras för ändringar. Kombinera filer för att skapa en JSON-fil för den nya versionen. Ändra den **versionId** egenskap i JSON för att ange den nya sammanfogade versionen att. Importera den här versionen till den ursprungliga appen. 
+
+Den här metoden låter dig ha en aktiv version, en steg-version och en publicerad version. Du kan jämföra resultatet av den aktiva versionen med en publicerad version (fas eller produktion) i fönstret för [interaktiv testning](luis-interactive-test.md).
+
+## <a name="manage-multiple-versions-as-apps"></a>Hantera flera versioner som appar
+[Exportera](luis-how-to-manage-versions.md#export-version) basversionen. Var och importerar versionen. Den person som importerar appen är ägare av versionen. När de är klar ändra appen, exportera versionen. 
+
+Exporterade appar är JSON-formaterade filer som kan jämföras med den grundläggande exporten av ändringar. Kombinera filer för att skapa en JSON-fil för den nya versionen. Ändra den **versionId** egenskap i JSON för att ange den nya sammanfogade versionen att. Importera den här versionen till den ursprungliga appen.
+
+## <a name="contributions-from-collaborators"></a>Bidrag från medarbetare
+
+Läs mer om hur du redigerar bidrag från [medarbetare](luis-how-to-collaborate.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Se hur du lägger till [versions hantering](luis-how-to-manage-versions.md) på sidan appinställningar. 
 
-Lär dig hur du [](luis-concept-intent.md) utformar avsikter i modellen.
+Lär dig hur du utformar [avsikter](luis-concept-intent.md) i modellen.

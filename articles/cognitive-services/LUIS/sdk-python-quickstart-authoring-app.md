@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: f5756c479d47e905e0110c9919cf4b5be4e75099
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f8149372e0a96cda81ef38558ee0bcf87eb53bb3
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932133"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258767"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Snabbstart: Language Understanding (LUIS) redigerings klient bibliotek för python
 
@@ -37,9 +37,9 @@ Använd det Language Understanding (LUIS) redigerings klient biblioteket för py
 
 ## <a name="setting-up"></a>Konfigurera
 
-### <a name="get-your-language-understanding-luis-authoring-key"></a>Hämta din Language Understanding (LUIS) redigerings nyckel
+### <a name="get-your-language-understanding-luis-starter-key"></a>Hämta din Language Understandings start nyckel (LUIS)
 
-Hämta din [redigerings nyckel](luis-how-to-account-settings.md)och [skapa en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `LUIS_AUTHORING_KEY` och en miljö variabel för nyckelns `LUIS_REGION`region.
+Hämta din [Start nyckel](luis-how-to-azure-subscription.md#starter-key)och [skapa en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `LUIS_AUTHORING_KEY` och en miljö variabel för nyckelns `LUIS_REGION`region.
 
 ### <a name="install-the-python-library-for-luis"></a>Installera python-biblioteket för LUIS
 
@@ -101,7 +101,7 @@ Skapa ett [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/m
 
 
 ## <a name="create-intent-for-the-app"></a>Skapa avsikt för appen
-Det primära objektet i en LUIS-Apps modell är avsikten. Avsikten med en gruppering av användarens uttryck. En användare kan ställa en fråga eller göra en instruktion som söker efter ett särskilt _avsett_ svar från en robot (eller något annat klient program). Exempel på avsikt är att boka en flygning och fråga om väder i en destinations ort och fråga om kontakt information för kund tjänst.   
+Det primära objektet i en LUIS-Apps modell är avsikten. Avsikten med en gruppering av användarens _uttryck._ En användare kan ställa en fråga eller göra en instruktion som söker efter ett särskilt _avsett_ svar från en robot (eller något annat klient program). Exempel på avsikt är att boka en flygning och fråga om väder i en destinations ort och fråga om kontakt information för kund tjänst.   
 
 Använd metoden [Model. Add _intent](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-intent-app-id--version-id--name-none--custom-headers-none--raw-false----operation-config-) med namnet på den unika avsikten och skicka sedan appens ID, VERSIONS-ID och nytt namn för avsikten. 
 

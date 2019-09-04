@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 14a360e7dc672266e8445a5ae5eb2168ae766af8
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 7708133fcba0d594ecd420afd8da1b2881055aa7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741866"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241023"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installera och kör tal tjänst behållare
 
@@ -25,8 +25,8 @@ De två tal behållarna är **tal till text** och **text till tal**.
 
 |Funktion|Funktioner|Senaste|
 |-|-|--|
-|Tal till text| <li>Beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar i text med mellanliggande resultat.|1.1.3|
-|Text till tal| <li>Konverterar text till naturligt tal. med oformaterad text eller tal Syntess språk (SSML). |1.1.0|
+|Tal till text| <li>Beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar i text med mellanliggande resultat.|1.2.0|
+|Text till tal| <li>Konverterar text till naturligt tal. med oformaterad text eller tal Syntess språk (SSML). |1.2.0|
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -101,10 +101,10 @@ Alla Taggar, förutom `latest` i, är i följande format, `<culture>` där anger
 Följande tagg är ett exempel på formatet:
 
 ```
-1.1.3-amd64-en-us-preview
+1.2.0-amd64-en-us-preview
 ```
 
-I följande tabell visas de språk som stöds för **tal till text** i 1.1.3-versionen av behållaren:
+I följande tabell visas de språk som stöds för **tal till text** i 1.2.0-versionen av behållaren:
 
 |Språk språk|Tags|
 |--|--|
@@ -129,10 +129,10 @@ Alla Taggar, förutom `latest` i, är i följande format, `<culture>` där `<voi
 Följande tagg är ett exempel på formatet:
 
 ```
-1.1.0-amd64-en-us-jessarus-preview
+1.2.0-amd64-en-us-jessarus-preview
 ```
 
-I följande tabell visas de språk som stöds för **text till tal** i 1.1.0-versionen av behållaren:
+I följande tabell visas de språk som stöds för **text till tal** i 1.2.0-versionen av behållaren:
 
 |Språk språk|Tags|Röster som stöds|
 |--|--|--|
@@ -167,7 +167,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 ## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren är på värddatorn [](#the-host-computer)använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
 1. [Kör behållaren](#run-the-container-with-docker-run)med de fakturerings inställningar som krävs. Fler [exempel](speech-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint).

@@ -7,12 +7,12 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 54a4da8e6d2720086b86c3573623f9dac2469ea4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f5c2b58fc6877bc196eb98faab88712f474523cb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232920"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241329"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabbstart: Definiera och tilldela en Azure-skiss med REST API
 
@@ -27,8 +27,6 @@ När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveck
 > - Ta bort en skiss som en prenumeration har tilldelats
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Komma igång med REST API
 
@@ -438,7 +436,7 @@ Om du vill ta bort själva skissen använder du följande REST API-åtgärd:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [skiss livs cykeln](./concepts/lifecycle.md).
+- Mer information om [livscykeln för en skiss](./concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](./concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](./concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](./concepts/resource-locking.md).

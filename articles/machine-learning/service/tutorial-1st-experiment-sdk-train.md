@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: 8065284d65f1b0a91fc05846b451305906c74fc8
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 989775916454b6710aef6c2c5be6792920622dab
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231111"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241300"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudier: Träna din första ML-modell
 
@@ -47,25 +47,21 @@ I den här delen av självstudien kör du koden i exempel Jupyter Notebook `tuto
 
 1. På webb sidan för Jupyter Notebook väljer du den översta mappnamn som innehåller ditt användar namn.  
 
-
    Den här mappen finns i [lagrings kontot](concept-workspace.md#resources) för arbets ytan i stället för på själva Notebook-datorn.  Om du tar bort den virtuella Notebook-datorn behåller du fortfarande allt ditt arbete.  När du skapar en ny Notebook VM senare, kommer den att läsa in samma mapp. Om du delar din arbets yta med andra, kommer de att se din mapp och du ser dem.
 
-1. `samples-*` Öppna under katalogen och öppna Jupyter Notebook`tutorials/tutorial-1st-experiment-sdk-train.ipynb`
-
-   > [!Warning]
-   > Se till att du `tutorial-1st-experiment-sdk-train.ipynb` öppnar filen , inte `.yml` filen i > samma namn. 
-
-1. Resten av den här artikeln innehåller samma innehåll som du ser i antecknings boken.  Växla till antecknings boken nu om du vill köra koden.
-
+1. Öppna under katalogen och öppna Jupyter-anteckningsboken `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **inte** `.yml` filen med samma namn. `samples-*` 
 
 ## <a name="connect-workspace-and-create-experiment"></a>Anslut arbets ytan och skapa experiment
+
+> [!Important]
+> Resten av den här artikeln innehåller samma innehåll som du ser i antecknings boken.  
+>
+> Växla till antecknings boken för Jupyter nu om du vill läsa den samtidigt som du kör koden. 
+> Om du vill köra en enda kod cell i en bärbar dator klickar du på cellen kod och trycker på **SKIFT + RETUR**. Du kan också köra hela antecknings boken genom att välja **Cell > kör alla** på den översta menyn.
 
 Importera- `config.json` `from_config().` klassen och Läs in din prenumerations information från filen med funktionen som söker efter JSON-filen i den aktuella katalogen som standard, men du kan också ange en Sök vägs parameter för att peka på filen `Workspace` använda `from_config(path="your/file/path")`. I en molnbaserad Notebook-Server är filen automatiskt i rot katalogen.
 
 Om följande kod frågar efter ytterligare autentisering, klistrar du bara in länken i en webbläsare och anger autentiseringstoken.
-
-> [!TIP]
-> Om du inte har använt Jupyter notebook-datorer, kör du Code genom att klicka på en kod cell och trycka på **SKIFT + RETUR** för att köra cellerna en i taget. Du kan också köra hela antecknings boken på en gång genom att klicka på **cell** i det övre meny fältet och sedan klicka på **Kör alla**.
 
 ```python
 from azureml.core import Workspace
@@ -149,7 +145,7 @@ När utbildnings modeller skalas över hundratals och tusentals separata körnin
 
 ![Huvud experiment sidan i portalen](./media/tutorial-quickstart/experiment-main.png)
 
-Om du klickar på en körnings nummer `RUN NUMBER` länk i kolumnen går du till sidan för varje enskild körning. På fliken standard visas mer detaljerad information om varje körning. Navigera till fliken **utdata** och se `.pkl` filen för den modell som överfördes till körningen under varje inlärnings upprepning. Här kan du ladda ned modell filen i stället för att behöva träna den manuellt.
+Om du klickar på en körnings nummer `RUN NUMBER` länk i kolumnen går du till sidan för varje enskild körning. På fliken standard visas mer **detaljerad information om** varje körning. Navigera till fliken **utdata** och se `.pkl` filen för den modell som överfördes till körningen under varje inlärnings upprepning. Här kan du ladda ned modell filen i stället för att behöva träna den manuellt.
 
 ![Sidan kör information i portalen](./media/tutorial-quickstart/model-download.png)
 

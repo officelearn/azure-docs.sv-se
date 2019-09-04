@@ -7,13 +7,13 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: cc28cf590a1fd2c3fdfe8651f136526188801c04
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.date: 09/01/2019
+ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615632"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241243"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB API för Cassandra från Spark
 
@@ -29,7 +29,7 @@ Den här artikeln är en serie artiklar om Azure Cosmos DB API för Cassandra-in
 
 * **Azure Cosmos DB hjälp bibliotek för API för Cassandra:** Förutom Spark-anslutningsprogrammet behöver du ett annat bibliotek som kallas [Azure-Cosmos-Cassandra-Spark-Helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) från Azure Cosmos dB. Det här biblioteket innehåller en anpassad anslutnings fabrik och återförsöks princip klasser.
 
-  Principen för återförsök i Azure Cosmos DB har kon figurer ATS för att hantera HTTP-statuskoden 429-undantag ("begär ande frekvens Large"). Azure Cosmos DB API för Cassandra översätter dessa undantag till överlagrade fel på det inbyggda Cassandra-protokollet och du kan försöka igen med backend. Eftersom Azure Cosmos DB använder etablerade data flödes modeller, uppstår begränsning av begär ande undantag när ingångs-/utgångs frekvensen ökar. Principen för återförsök skyddar dina Spark-jobb mot data toppar som tillfälligt överskrider det data flöde som allokerats för din samling.
+  Principen för återförsök i Azure Cosmos DB har kon figurer ATS för att hantera HTTP-statuskoden 429-undantag ("begär ande frekvens Large"). Azure Cosmos DB API för Cassandra översätter dessa undantag till överlagrade fel på det inbyggda Cassandra-protokollet och du kan försöka igen med backend. Eftersom Azure Cosmos DB använder etablerade data flödes modeller, uppstår begränsning av begär ande undantag när ingångs-/utgångs frekvensen ökar. Principen för återförsök skyddar dina Spark-jobb mot data toppar som tillfälligt överskrider det data flöde som allokerats för din behållare.
 
   > [!NOTE] 
   > Principen för återförsök kan skydda dina Spark-jobb mot tillfälliga toppar. Om du inte har konfigurerat tillräckligt många ru: er som krävs för att köra arbets belastningen, är inte återförsöks principen tillämpbar och princip klassen för återförsök återutlöser undantaget.

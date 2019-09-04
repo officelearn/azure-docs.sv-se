@@ -1,23 +1,23 @@
 ---
-title: Självstudie för att kopiera data från virtuella hårddiskar till hanterade diskar med Azure Data Box | Microsoft Docs
-description: Lär dig hur du kopierar data från virtuella hårddiskar från en lokal VM-arbetsbelastningar till Azure Data Box
+title: Självstudie för att kopiera data från virtuella hård diskar till hanterade diskar med Azure Data Box | Microsoft Docs
+description: Lär dig hur du kopierar data från virtuella hård diskar från lokala VM-arbetsbelastningar till din Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 3284821e0ec65a76b29d5195315136639304e411
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4b7182d1fa70a146da1c01273ffe1032f2982546
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925462"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240468"
 ---
-# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Självstudier: Använd Data Box för att importera data som hanterade diskar i Azure
+# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Självstudier: Använd Data Box-enhet för att importera data som Managed disks i Azure
 
-Den här självstudien beskrivs hur du använder Azure Data Box för att migrera lokala virtuella hårddiskar till managed disks i Azure. De virtuella hårddiskarna från lokala virtuella datorer ska kopieras till Data Box som sidblobar och överförs till Azure som hanterade diskar. Dessa hanterade diskar kan sedan kopplas till virtuella Azure-datorer.
+I den här självstudien beskrivs hur du använder Azure Data Box för att migrera lokala virtuella hård diskar till hanterade diskar i Azure. Virtuella hård diskar från lokala virtuella datorer kopieras till Data Box-enhet som Page blobbar och överförs till Azure som hanterade diskar. Dessa hanterade diskar kan sedan anslutas till virtuella Azure-datorer.
 
 I den här guiden får du lära dig att:
 
@@ -27,63 +27,63 @@ I den här guiden får du lära dig att:
 > * Kopiera data till Data Box
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
 1. Du har slutfört självstudien [: Konfigurera Azure Data Box](data-box-deploy-set-up.md).
 2. Du har fått din Data Box-enhet och orderstatusen i portalen är **Levererad**.
-3. Du har anslutning till ett höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om det inte finns en 10 GbE-anslutning, använda en 1 GbE-datalänk men kopia hastighet som påverkas.
-4. Du har granskat den:
+3. Du har anslutning till ett höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10-GbE-anslutning inte är tillgänglig kan du använda en 1-GbE-datalänk men kopierings hastigheten påverkas.
+4. Du har granskat:
 
-    - Stöds [hanterade diskar som är i Azure-objekt storleksgränser](data-box-limits.md#azure-object-size-limits).
-    - [Introduktion till Azure hanterade diskar](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Hanterade disk storlekar som stöds i storleks gränser för Azure-objekt](data-box-limits.md#azure-object-size-limits).
+    - [Introduktion till Azure Managed disks](/azure/virtual-machines/windows/managed-disks-overview). 
 
 ## <a name="connect-to-data-box"></a>Ansluta till Data Box
 
-Baserat på resursgrupperna angetts, skapa Data kan du en resurs för varje tillhörande resursgrupp. Till exempel om `mydbmdrg1` och `mydbmdrg2` skapades när beställning, skapas följande resurser:
+Baserat på de angivna resurs grupperna skapar Data Box-enhet en resurs för varje associerad resurs grupp. Om `mydbmdrg1` och`mydbmdrg2` till exempel skapades när ordern placerades, skapas följande resurser:
 
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
-Inom varje resurs skapas följande tre mappar som motsvarar en behållare i ditt storage-konto.
+I varje resurs skapas följande tre mappar som motsvarar behållare i ditt lagrings konto.
 
 - Premium SSD
 - Standard HDD
 - Standard SSD
 
-I följande tabell visas UNC-sökvägar till filresurser på din Data Box.
+I följande tabell visas UNC-sökvägar till resurserna på din Data Box-enhet.
  
-|        Anslutningsprotokoll           |             UNC-sökvägen till resursen                                               |
+|        Anslutnings protokoll           |             UNC-sökväg till resursen                                               |
 |-------------------|--------------------------------------------------------------------------------|
-| SMB |`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Premium SSD>\file1.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard HDD>\file2.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard SSD>\file3.vhd` |  
-| NFS |`//<DeviceIPAddress>/<ResourceGroup1_MDisk>/<Premium SSD>/file1.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard HDD>/file2.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard SSD>/file3.vhd` |
+| SMB |`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<PremiumSSD>\file1.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<StandardHDD>\file2.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<StandardSSD>\file3.vhd` |  
+| NFS |`//<DeviceIPAddress>/<ResourceGroup1_MDisk>/<PremiumSSD>/file1.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<StandardHDD>/file2.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<StandardSSD>/file3.vhd` |
 
-Baserat på om du använder SMB- eller NFS för att ansluta till Data Box-resurser, är stegen för att ansluta olika.
+Beroende på om du använder SMB eller NFS för att ansluta till Data Box-enhet-resurser skiljer sig stegen för att ansluta.
 
 > [!NOTE]
-> Ansluta via REST stöds inte för den här funktionen.
+> Anslutning via REST stöds inte för den här funktionen.
 
-### <a name="connect-to-data-box-via-smb"></a>Anslut till Data Box via SMB
+### <a name="connect-to-data-box-via-smb"></a>Ansluta till Data Box-enhet via SMB
 
 Om du använder en Windows Server-värddator följer du stegen nedan för att ansluta till Data Box.
 
-1. Det första steget är att autentisera och starta en session. Gå till **Anslut och kopiera**. Klicka på **hämta autentiseringsuppgifter för** att hämta autentiseringsuppgifterna för de filresurser som är associerade med resursgruppen. Du kan också hämta autentiseringsuppgifterna från den **enhetsinformation** i Azure-portalen.
+1. Det första steget är att autentisera och starta en session. Gå till **Anslut och kopiera**. Klicka på **Hämta autentiseringsuppgifter** för att få autentiseringsuppgifter för de resurser som är kopplade till din resurs grupp. Du kan också få åtkomst behörigheterna från **enhets informationen** i Azure Portal.
 
     > [!NOTE]
     > Autentiseringsuppgifterna för alla resurser för hanterade diskar är identiska.
 
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
-2. Från åtkomst till resursen och kopiera data i dialogrutan som visas, kopiera den **användarnamn** och **lösenord** för resursen. Klicka på **OK**.
+2. I dialog rutan åtkomst resurs och kopiera data kopierar du **användar namnet** och **lösen ordet** för resursen. Klicka på **OK**.
     
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
-3. Komma åt resurser som är associerade med din resurs (*mydbmdrg1* i följande exempel) från värddatorn, öppna ett kommandofönster. Skriv följande i kommandotolken:
+3. Öppna ett kommando fönster för att få åtkomst till de resurser som är associerade med din resurs (*mydbmdrg1* i följande exempel) från värddatorn. Skriv följande i kommandotolken:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-    Din UNC-sökvägar för resursen i det här exemplet är följande:
+    Dina UNC-delnings Sök vägar i det här exemplet är följande:
 
     - `\\169.254.250.200\mydbmdrg1_MDisk`
     - `\\169.254.250.200\mydbmdrg2_MDisk`
@@ -101,12 +101,12 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
     
     ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
-    Du bör nu se följande införande mapparna varje resursen.
+    Nu bör du se följande förskapade mappar i varje resurs.
     
     ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
 
 
-### <a name="connect-to-data-box-via-nfs"></a>Anslut till Data Box via NFS
+### <a name="connect-to-data-box-via-nfs"></a>Ansluta till Data Box-enhet via NFS
 
 Om du använder en Linux-värddator utför du stegen nedan för att konfigurera Data Box att tillåta åtkomst till NFS-klienter.
 
@@ -131,33 +131,33 @@ Om du använder en Linux-värddator utför du stegen nedan för att konfigurera 
 
 ## <a name="copy-data-to-data-box"></a>Kopiera data till Data Box
 
-När du är ansluten till data-server, är nästa steg att kopiera data. VHD-filen kopieras till mellanlagringskontot som sidblobb. Sidans blob är sedan konverteras till en hanterad disk och flyttas till en resursgrupp.
+När du är ansluten till data servern är nästa steg att kopiera data. VHD-filen kopieras till mellanlagrings kontot som Page blob. Sid-bloben konverteras sedan till en hanterad disk och flyttas till en resurs grupp.
 
-Granska följande innan du börjar kopiering av data:
+Granska följande överväganden innan du börjar kopiera data:
 
-- Kopiera alltid de virtuella hårddiskarna till någon av mapparna införande. Om du kopierar de virtuella hårddiskarna utanför dessa mappar eller i en mapp som du skapade de virtuella hårddiskarna ska överföras till Azure Storage-konto som sidblobar och hanterade inte diskar.
-- Endast de fasta virtuella hårddiskarna kan laddas upp för att skapa hanterade diskar. VHDX-filer eller dynamiska och Differentierande virtuella hårddiskar stöds inte.
-- Du kan bara ha en hanterad disk med ett givet namn i en resursgrupp i alla införande mappar. Detta innebär att de virtuella hårddiskarna som överförts till mapparna införande bör ha unika namn. Kontrollera att det angivna namnet inte matchar en redan befintlig hanterad disk i en resursgrupp.
-- Granska hanterad disk begränsningar i [storleksbegränsningar för Azure-objekt](data-box-limits.md#azure-object-size-limits).
+- Kopiera alltid de virtuella hård diskarna till en av de förskapade mapparna. Om du kopierar de virtuella hård diskarna utanför dessa mappar eller i en mapp som du har skapat, kommer de virtuella hård diskarna att överföras till Azure Storage-konto som sid-blobar och inte hanterade diskar.
+- Endast fasta virtuella hård diskar kan laddas upp för att skapa hanterade diskar. VHDX-filer eller dynamiska och differentierande virtuella hård diskar stöds inte.
+- Du kan bara ha en hanterad disk med ett angivet namn i en resurs grupp i alla förskapade mappar. Detta innebär att de virtuella hård diskarna som laddats upp till de förskapade mapparna ska ha unika namn. Kontrol lera att namnet inte matchar en redan befintlig hanterad disk i en resurs grupp.
+- Granska begränsningar för hanterade diskar i [storleks gränser för Azure-objekt](data-box-limits.md#azure-object-size-limits).
 
-Beroende på om du ansluter via SMB- eller NFS, kan du använda:
+Beroende på om du ansluter via SMB eller NFS kan du använda:
 
-- [Kopieringsdata via SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
-- [Kopieringsdata via NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
+- [Kopiera data via SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
+- [Kopiera data via NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
 
-Vänta tills kopieringsjobben är klara. Se till att kopiera jobb har slutförts utan fel innan du går vidare till nästa steg.
+Vänta tills kopieringsjobben är klara. Se till att kopierings jobben har avslut ATS utan fel innan du går vidare till nästa steg.
 
 ![Inga fel på sidan **Anslut och kopiera**](media/data-box-deploy-copy-data-from-vhds/verify-no-errors-connect-and-copy.png)
 
-Om det uppstår fel under kopieringen kan hämta loggar från den **Anslut och kopiera** sidan.
+Om det uppstår fel under kopierings processen kan du hämta loggarna från sidan **Anslut och kopiera** .
 
-- Om du har kopierat en fil som är inte justerad för 512 byte överföra inte filen som sidblobb till mellanlagring storage-kontot. Ett fel i loggarna visas. Ta bort filen och kopiera en fil som är 512 byte justerad.
+- Om du kopierade en fil som inte är 512 bytes, laddas inte filen upp som en sid-blob till ditt lagrings konto för lagring. Du kommer att se ett fel i loggarna. Ta bort filen och kopiera en fil som är 512 byte-justerad.
 
-- Om du har kopierat en VHDX (dessa filer inte stöds) med ett långt namn, visas ett fel i loggarna.
+- Om du har kopierat en VHDX (dessa filer stöds inte) med ett långt namn visas ett fel i loggarna.
 
-    ![Fel i loggarna från ** sidan Anslut och kopiera **](media/data-box-deploy-copy-data-from-vhds/errors-connect-and-copy.png)
+    ![Fel i loggarna från * * Connect och kopiera * * Sidan](media/data-box-deploy-copy-data-from-vhds/errors-connect-and-copy.png)
 
-    Åtgärda felen innan du fortsätter till nästa steg.
+    Lös felen innan du fortsätter till nästa steg.
 
 För att säkerställa dataintegriteten beräknas kontrollsumman infogat när data kopieras. När kopieringen är klar kontrollerar du det använda utrymmet och det lediga utrymmet på enheten.
     

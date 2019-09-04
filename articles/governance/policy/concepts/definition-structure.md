@@ -7,12 +7,12 @@ ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 988fc124a68ef07981c0f36334778be326fff3a2
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 1999a47d18fd3ce6388d6177be85c7debd3c1e97
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232272"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239192"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -67,8 +67,6 @@ Följande JSON visar exempelvis en princip som begränsar där resurser har dist
 
 Alla Azure Policys exempel finns på [Azure policy exempel](../samples/index.md).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## <a name="mode"></a>Läge
 
 **Läge** konfigureras beroende på om principen är riktad mot en Azure Resource Manager-egenskap eller en resurs leverantörs egenskap.
@@ -104,7 +102,7 @@ Parametrar fungerar på samma sätt som när du skapar principer. Du kan återan
 En parameter har följande egenskaper som används i princip definitionen:
 
 - **name**: Parameterns namn. Används av `parameters` distributions funktionen i princip regeln. Mer information finns i [använda ett parameter värde](#using-a-parameter-value).
-- `type`: Anger om parametern är en **sträng**, en **matris**, ett **objekt**, ett **booleskt värde**, ett **flyttal**eller en **datetime**.
+- `type`: Anger om parametern är en **sträng**, en **matris**, ett **objekt**, ett **booleskt värde** **, ett** **flyttal**eller en **datetime**.
 - `metadata`: Definierar under egenskaper som främst används av Azure Portal för att Visa användarvänlig information:
   - `description`: En förklaring av vad parametern används för. Kan användas för att ge exempel på acceptabla värden.
   - `displayName`: Det egna namnet som visas i portalen för-parametern.
@@ -285,7 +283,7 @@ Följande fält stöds:
 
 Ett parameter värde kan skickas till ett tagg-fält. Att skicka en parameter till ett taggnamn ökar flexibiliteten i princip definitionen under princip tilldelning.
 
-I följande exempel `concat` används för att skapa ett fält uppslag för taggen som heter värdet för **TagName** -parametern. Om taggen inte finns används Lägg till -resultatet för att lägga till taggen med värdet för samma namngivna tagg uppsättning på den överordnade resurs gruppen granskade resurser med hjälp `resourcegroup()` av funktionen lookup.
+I följande exempel `concat` används för att skapa ett fält uppslag för taggen som heter värdet för **TagName** -parametern. Om taggen inte finns **används Lägg till-resultatet för** att lägga till taggen med värdet för samma namngivna tagg uppsättning på den överordnade resurs gruppen granskade resurser med hjälp `resourcegroup()` av funktionen lookup.
 
 ```json
 {
@@ -309,7 +307,7 @@ Villkor kan även skapas med hjälp av **värde**. **värde** kontrollerar villk
 **värdet** kombineras med alla [villkor](#conditions)som stöds.
 
 > [!WARNING]
-> Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är enimplicit nekande. Mer information finns i [undvika mall](#avoiding-template-failures)-haverier.
+> Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är en implicit **nekande**. Mer information finns i [undvika mall-haverier](#avoiding-template-failures).
 
 #### <a name="value-examples"></a>Värde exempel
 
@@ -353,7 +351,7 @@ Den här princip regel exemplet använder **värdet** för att kontrol lera om r
 
 #### <a name="avoiding-template-failures"></a>Undvika synkroniseringsfel
 
-Användningen av _Template Functions_ i **Value** tillåter många komplexa kapslade funktioner. Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är enimplicit nekande. Ett exempel på ett **värde** som inte fungerar i vissa scenarier:
+Användningen av _Template Functions_ i **Value** tillåter många komplexa kapslade funktioner. Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är en implicit **nekande**. Ett exempel på ett **värde** som inte fungerar i vissa scenarier:
 
 ```json
 {
@@ -538,7 +536,7 @@ Med aliaset **[\*]** kan du jämföra med värdet för varje element i matrisen 
 }
 ```
 
-Mer information finns i [utvärdera\*[]](../how-to/author-policies-for-arrays.md#evaluating-the--alias)-aliaset.
+Mer information finns i [utvärdera [\*]-aliaset](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Initiativ
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 79cb276f121c351a9954994038d9d826819edf5d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e6d3b78887c9d195fdf0137553860c141bdaaba
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087457"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241064"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontroll punkter och uppspelning i Durable Functions (Azure Functions)
 
@@ -60,7 +60,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-I varje `await` (C#)- `yield` eller (JavaScript)-instruktion, kontroll ramverket för det varaktiga aktivitets ramverket körnings status för funktionen i Table Storage. Det här är det tillstånd som kallas för *Orchestration*-historiken.
+I varje `await` (C#)- `yield` eller (JavaScript)-instruktion, kontroll ramverket för det varaktiga aktivitets ramverket körnings status för funktionen i Table Storage. Det här är det tillstånd som kallas för *Orchestration-historiken*.
 
 ## <a name="history-table"></a>Historik tabell
 
@@ -112,7 +112,7 @@ Några anmärkningar om kolumn värden:
   * **ExecutionCompleted**: Orchestrator-funktionen kördes (eller misslyckades). Utdata från funktionen eller fel informationen lagras i `Result` kolumnen.
 * **Tidsstämpel**: UTC-tidsstämpeln för historik händelsen.
 * **Namn på**: Namnet på den funktion som anropades.
-* Inmatade: Den JSON-formaterade indatamängden för funktionen.
+* **Inmatade**: Den JSON-formaterade indatamängden för funktionen.
 * **Resultat**: Resultatet av funktionen. det vill säga dess retur värde.
 
 > [!WARNING]
@@ -145,6 +145,9 @@ Uppspelnings beteendet skapar begränsningar för den typ av kod som kan skrivas
   Om en Orchestrator behöver fördröjning kan den använda API: et för [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.net) `createTimer` eller (Java Script).
 
 * Orchestrator-kod får **aldrig initiera en asynkron åtgärd** förutom att använda API: et `context.df` för [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) eller Object. Till `Task.Run`exempel Nej `HttpClient.SendAsync` `setInterval()` eller i .net, eller `setTimeout()` och `Task.Delay` i Java Script. Det tåliga aktivitets ramverket Kör Orchestrator-kod på en enskild tråd och kan inte samverka med andra trådar som kan schemaläggas av andra asynkrona API: er. Detta inträffar om detta `InvalidOperationException` inträffar, genereras ett undantag.
+
+> [!NOTE]
+> [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) -API: et utför asynkron i/O, vilket inte tillåts i en Orchestrator-funktion och bara kan användas i icke-Orchestrator-funktioner.
 
 * **Oändliga slingor bör undvikas** i Orchestrator-kod. Eftersom den varaktiga aktivitets ramverket sparar körnings historiken när Orchestration-funktionen fortskrider, kan en oändlig loop orsaka att en Orchestrator-instans tar slut på minne. För oändliga upprepnings scenarier använder du API: er som [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.net `continueAsNew` ) eller (Java Script) för att starta om funktionen och ta bort tidigare körnings historik.
 

@@ -4,14 +4,14 @@ description: Lär dig att skapa en container i Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/01/2019
 ms.author: mjbrown
-ms.openlocfilehash: a88d8f33624278ac6e70b918cec7cef133fe4b34
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 876e35e320e37081cf6e6f89fda4f31af8713571
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093480"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240750"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Skapa en Azure Cosmos-container
 
@@ -25,15 +25,15 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account)eller Välj ett befintligt konto.
 
-1. Öppna fönsterrutan **Data Explorer** och välj **Ny samling**. Ange därefter följande information:
+1. Öppna fönstret **datautforskaren** och välj **ny behållare**. Ange därefter följande information:
 
-   * Ange om du skapar en ny databas eller använder en befintlig.
-   * Ange ett samlings-ID.
+   * Ange huruvida du skapar en ny databas eller använder en befintlig.
+   * Ange ett container-ID.
    * Ange en partitionsnyckel.
    * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
    * Välj **OK**.
 
-![Skärmbild av Data Explorer-fönstret med Ny samling markerat](./media/how-to-create-container/partitioned-collection-create-sql.png)
+![Skärm bild av Datautforskaren fönstret med en ny behållare markerad](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
 ### <a id="portal-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
@@ -41,15 +41,15 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-mongodb-dotnet.md#create-a-database-account)eller Välj ett befintligt konto.
 
-1. Öppna fönsterrutan **Data Explorer** och välj **Ny samling**. Ange därefter följande information:
+1. Öppna fönstret **datautforskaren** och välj **ny behållare**. Ange därefter följande information:
 
-   * Ange om du skapar en ny databas eller använder en befintlig.
-   * Ange ett samlings-ID.
+   * Ange huruvida du skapar en ny databas eller använder en befintlig.
+   * Ange ett container-ID.
    * Ange en shardnyckel.
    * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
    * Välj **OK**.
 
-![Skärmbild av API för Azure Cosmos DB för MongoDB, dialogrutan Lägg till samling](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![Skärm bild av dialog rutan Azure Cosmos DB-API för MongoDB, Lägg till behållare](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>API för Cassandra
 

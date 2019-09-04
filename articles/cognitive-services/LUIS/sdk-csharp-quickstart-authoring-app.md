@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: d186d0477fd05f4948bd0280ee9ce677ad1b7542
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: d7668f49df1caca6b4261424b0d2c025a640d572
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207318"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258771"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Snabbstart: Language Understanding (LUIS) redigerings klient bibliotek för .NET
 
@@ -37,9 +37,9 @@ Använd det Language Understanding (LUIS) som redigerar klient biblioteket för 
 
 ## <a name="setting-up"></a>Konfigurera
 
-### <a name="get-your-language-understanding-luis-authoring-key"></a>Hämta din Language Understanding (LUIS) redigerings nyckel
+### <a name="get-your-language-understanding-luis-starter-key"></a>Hämta din Language Understandings start nyckel (LUIS)
 
-Hämta din [redigerings nyckel](luis-how-to-account-settings.md)och [skapa en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `COGNITIVESERVICE_AUTHORING_KEY`.
+Hämta din [Start nyckel](luis-how-to-azure-subscription.md#starter-key)och [skapa en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `COGNITIVESERVICE_AUTHORING_KEY`.
 
 ### <a name="create-a-new-c-application"></a>Skapa ett nytt C# program
 
@@ -140,7 +140,7 @@ Från projekt katalogen öppnar du **program.cs** -filen i önskat redigerings p
     [!code-csharp[Create a LUIS app](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringCreateApplication)]
 
 ## <a name="create-intent-for-the-app"></a>Skapa avsikt för appen
-Det primära objektet i en LUIS-Apps modell är avsikten. Avsikten med en gruppering av användarens uttryck. En användare kan ställa en fråga eller göra en instruktion som söker efter ett särskilt _avsett_ svar från en robot (eller något annat klient program). Exempel på avsikt är att boka en flygning och fråga om väder i en destinations ort och fråga om kontakt information för kund tjänst.   
+Det primära objektet i en LUIS-Apps modell är avsikten. Avsikten med en gruppering av användarens _uttryck._ En användare kan ställa en fråga eller göra en instruktion som söker efter ett särskilt _avsett_ svar från en robot (eller något annat klient program). Exempel på avsikt är att boka en flygning och fråga om väder i en destinations ort och fråga om kontakt information för kund tjänst.   
 
 Skapa en [ModelCreateObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.modelcreateobject?view=azure-dotnet) med namnet på den unika avsikten och skicka sedan app-ID, VERSIONS-ID och ModelCreateObject till metoden [Model. AddIntentAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addintentasync?view=azure-dotnet) . Svaret är det ID för avsikten.
 

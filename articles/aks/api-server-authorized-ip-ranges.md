@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: fe0c9d7e870b56bf83b70845af9159ea0703c4ab
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 487940bfb5d6e7c5eebf99f804f57c3e17709377
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533623"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276489"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>För hands version – säker åtkomst till API-servern med behöriga IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -27,6 +27,8 @@ Den här artikeln visar hur du använder tillåtna IP-adressintervall för API-S
 > * [Vanliga frågor och svar om support för Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
+Den här artikeln förutsätter att du arbetar med kluster som använder [Kubernetes] [Kubernetes].  Med [Azure Container Network Interface (CNI)] [cni-Networking]-baserade kluster, kommer du inte att ha den nödvändiga routningstabellen som krävs för att skydda åtkomsten.  Du måste skapa routningstabellen manuellt.  Mer information finns i [Hantera](https://docs.microsoft.com/azure/virtual-network/manage-route-table) routningstabeller.
 
 API-serverns auktoriserade IP-intervall fungerar bara för nya AKS-kluster som du skapar. Den här artikeln visar hur du skapar ett AKS-kluster med hjälp av Azure CLI.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 09de2919b22ebb088b23c1ab59f60d182657a2f1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0ee573f26f717c0ed8ad36f1a06fe557d423e3c1
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720414"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274713"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Kopiera data från en webb tabell med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -80,9 +80,9 @@ Följande egenskaper stöds för länkad webb tabell tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av webb tabell data uppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av webb tabell data uppsättning.
 
-Om du vill kopiera data från en webb tabell anger du egenskapen type för datauppsättningen till webtable. Följande egenskaper stöds:
+Om du vill kopiera data från en webb tabell anger du egenskapen type för data uppsättningen till **webtable**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -116,7 +116,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="web-table-as-source"></a>Webb tabell som källa
 
-Om du vill kopiera data från en webb tabell anger du käll typen i kopieringsaktiviteten till Websource. inga ytterligare egenskaper stöds.
+Om du vill kopiera data från en webb tabell anger du käll typen i kopierings aktiviteten till **Websource**. inga ytterligare egenskaper stöds.
 
 **Exempel:**
 

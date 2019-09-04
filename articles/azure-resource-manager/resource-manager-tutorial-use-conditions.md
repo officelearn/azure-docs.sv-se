@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b997451a25f8a093491a322376db95ea53165893
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 50c6c2a1f8be979d10b77793adb168e6bd276e49
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989165"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258869"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Självstudier: Använda villkor i Azure Resource Manager-mallar
 
@@ -38,7 +38,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Den här kursen täcker bara ett grundläggande scenario med att använda villkor. Mer information finns i:
 
-* [Mallens fil struktur: Villkor](./resource-group-authoring-templates.md#condition).
+* [Mallens fil struktur: Villkor](conditional-resource-deployment.md).
 * [Distribuera en resurs villkorligt i en Azure Resource Manager-mall](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Mall-funktion: IF](./resource-group-template-functions-logical.md#if).
 * [Jämförelse funktioner för Azure Resource Manager mallar](./resource-group-template-functions-comparison.md)

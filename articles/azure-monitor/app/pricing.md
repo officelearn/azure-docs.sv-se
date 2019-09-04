@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/29/2019
+ms.date: 09/04/2019
 ms.author: dalek
-ms.openlocfilehash: f2ea87f237fa5cca8a4b1f6773d2b47729cfb5b0
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147555"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277000"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -30,7 +30,7 @@ Om du har frågor om hur prissättningen fungerar för Application Insights kan 
 
 ## <a name="pricing-model"></a>Prismodell
 
-Prissättningen för [Azure Application][start] insikter baseras på data volymen. Varje Application Insights resurs debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration.
+Prissättningen för [Azure Application insikter][start] baseras på data volymen. Varje Application Insights resurs debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration.
 
 ### <a name="data-volume-details"></a>Information om data volym
 
@@ -54,7 +54,7 @@ Application Insights är det enkelt att förstå vad dina kostnader sannolikt ko
 ![Välj prissättning](./media/pricing/pricing-001.png)
 
 A. Granska din data volym för månaden. Detta omfattar alla data som tas emot och bevaras (efter alla [samplingar](../../azure-monitor/app/sampling.md)) från Server-och klient program och från tillgänglighets test.  
-B. En separat avgift görs för webbtester [med flera steg](../../azure-monitor/app/availability-multistep.md). (Detta omfattar inte test av enkel tillgänglighet, som ingår i data volym avgiften.)  
+B. En separat avgift görs för [webbtester med flera steg](../../azure-monitor/app/availability-multistep.md). (Detta omfattar inte test av enkel tillgänglighet, som ingår i data volym avgiften.)  
 C. Visa data volym trender för den senaste månaden.  
 D. Aktivera [sampling](../../azure-monitor/app/sampling.md)av data inmatning.   
 E. Ange daglig data volyms kap.  
@@ -120,6 +120,8 @@ Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera*
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-003.png)
 
+Om du vill [ändra den dagliga gränsen via Azure Resource Manager](../../azure-monitor/app/powershell.md)är `dailyQuota`egenskapen som ska ändras.  Via Azure Resource Manager kan du också ställa in `dailyQuotaResetTime` och använda det dagliga `warningThreshold`taket. 
+
 ## <a name="sampling"></a>Samling
 [Sampling](../../azure-monitor/app/sampling.md) är en metod för att minska den hastighet som telemetri skickas till din app, samtidigt som du behåller möjligheten att hitta relaterade händelser under diagnostiska sökningar. Du behåller också korrekta antal händelser.
 
@@ -179,7 +181,7 @@ Nivån per nod (tidigare företag) har en avgift per nod och varje nod får en d
 För aktuella priser i din valuta och region, se [Application Insights priser](https://azure.microsoft.com/pricing/details/application-insights/).
 
 > [!NOTE]
-> I april 2018 introducerade [](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) vi en ny pris sättnings modell för Azure-övervakning. Den här modellen antar en enkel "betala per användning"-modell i hela portföljen av övervaknings tjänster. Lär dig mer om den [nya pris sättnings modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), hur du kan [bedöma effekten av att flytta till den här modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) baserat på dina användnings mönster och [hur du kan välja den nya modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
+> I april 2018 [introducerade](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) vi en ny pris sättnings modell för Azure-övervakning. Den här modellen antar en enkel "betala per användning"-modell i hela portföljen av övervaknings tjänster. Lär dig mer om den [nya pris sättnings modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), hur du kan [bedöma effekten av att flytta till den här modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) baserat på dina användnings mönster och [hur du kan välja den nya modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Per nod-och Operations Management Suite-prenumerations rättigheter
 

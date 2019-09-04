@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 60a2b63c7d37440bb08c7a7f15f052cfa2607406
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 95b4978b66accce0182e58493cb9d600dbe5e35f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193687"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277491"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
@@ -42,7 +42,7 @@ QnAMaker service värdnamn är användbart för felsökning när du kontaktar su
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Använd hjälp roboten i QnA Maker Portal
 
-QnA Maker ger en **Hjälp** robot på QNA Maker portal som hjälp. Hjälp roboten är tillgänglig på alla webb sidor. Roboten använder QNA Maker för att ge svar och ger [ C# bot Framework](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) -kodfragmentet till roboten så att du snabbt kan komma igång med din egen svars robot. 
+QnA Maker ger en **Hjälp** robot på QNA Maker portal som hjälp. Hjälp roboten är tillgänglig på alla webb sidor. Roboten använder QNA Maker för att ge svar och ger [ C# bot Framework-kodfragmentet](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) till roboten så att du snabbt kan komma igång med din egen svars robot. 
 
 ![! [QnA Maker innehåller en * *-hjälp * * bot i QnA Maker portalen som hjälp.] (./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
@@ -134,7 +134,7 @@ Om du vill använda flera språk och flera kunskapsbaser, har användaren att sk
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>Hur kan jag ändra namnet på Azure Search-resurs som används av QnA Maker?
 
-Namnet på resursen för Azure Search är resursnamnet QnA Maker med vissa slumpmässiga bokstäver som tillägg i slutet. På så sätt blir det svårt att skilja mellan flera Sök efter resurser för QnA Maker. Skapa en separat Azure Search-tjänst (namngivning av det sätt som du vill) och ansluter den till din QnA Service. Stegen är liknande de steg som du behöver göra att [uppgradera ett Azure Search](How-To/set-up-qnamaker-service-azure.md#upgrade-azure-search-service).
+Namnet på resursen för Azure Search är resursnamnet QnA Maker med vissa slumpmässiga bokstäver som tillägg i slutet. På så sätt blir det svårt att skilja mellan flera Sök efter resurser för QnA Maker. Skapa en separat Azure Search-tjänst (namngivning av det sätt som du vill) och ansluter den till din QnA Service. Stegen liknar de steg du behöver utföra för att [uppgradera en Azure-sökning](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service).
 
 ### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>När QNA Maker returnerar `Runtime core is not initialized,` jag det?
 
@@ -172,7 +172,7 @@ Du måste ha följande information om din kunskaps bas:
 
 * Kunskaps bas-ID.
 * Namnet på den publicerade slut punkten för kunskaps basen hittades på sidan **Inställningar** när du har publicerat.
-* Kunskaps basens publicerade slut punkts nyckel finns på inställnings sidan när du har publicerat. 
+* Kunskaps basens publicerade slut punkts nyckel finns på **inställnings** sidan när du har publicerat. 
 
 Med den här informationen går du till appens robots App Service i Azure Portal. Under **Inställningar-> konfiguration – inställningar för > program**, ändra dessa värden.  
 

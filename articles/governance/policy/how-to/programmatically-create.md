@@ -7,20 +7,18 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: d158950749a9704276a666b58101bb5ad9dcbc42
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 1039073aaaf9d1a6b7bd9ac21a95c73871ce3ba3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232633"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239024"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
 
 Den här artikeln beskriver hur du programmässigt kan skapa och hantera principer. Azure Policy definitioner tillämpar olika regler och effekter över dina resurser. Tvingande ser till att resurserna kompatibla med företagets standarder och serviceavtal.
 
 Information om efterlevnad finns i [komma kompatibilitetsdata](getting-compliance-data.md).
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -101,7 +99,7 @@ Det första steget mot bättre överblick över dina resurser är att skapa och 
    - Prenumeration – `/subscriptions/{subId}/`
    - Hanteringsgrupp- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Mer information om hur du hanterar resurs principer med hjälp av Azure Resource Manager PowerShell-modulen finns i [AZ.](/powershell/module/az.resources/#policies)Resources.
+Mer information om hur du hanterar resurs principer med hjälp av Azure Resource Manager PowerShell-modulen finns i [AZ. Resources](/powershell/module/az.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Skapa och tilldela en principdefinition med ARMClient
 

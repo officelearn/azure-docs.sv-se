@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 09/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: dbacec6e8f91480996150e73f2a81dbcde67550b
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: b349576f5e9f5410afc29f48e40c38e12168252d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494794"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258903"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Resurs, egenskap eller variabel iteration i Azure Resource Manager mallar
 
@@ -43,13 +43,13 @@ När det används med en variabel eller egenskap, har objektet Copy följande fo
 
 Båda användningarna beskrivs mer ingående i den här artikeln. En själv studie kurs finns i [Självstudier: skapa flera resurs instanser med Resource Manager-mallar](./resource-manager-tutorial-create-multiple-instances.md).
 
-Om du behöver ange om en resurs har distribuerats alls, se villkors [element](resource-group-authoring-templates.md#condition).
+Om du behöver ange om en resurs har distribuerats alls, se [villkors element](conditional-resource-deployment.md).
 
 ## <a name="copy-limits"></a>Kopierings gränser
 
 Om du vill ange antalet iterationer anger du ett värde för egenskapen Count. Antalet får inte överskrida 800.
 
-Antalet får inte vara ett negativt tal. Om du distribuerar en mall med REST API version **2019-05-10** eller senare kan du ange antal till noll. Tidigare versioner av REST API stöder inte noll för Count. För närvarande stöder inte Azure CLI eller PowerShell noll för Count, men det kommer att läggas till i en framtida version.
+Antalet får inte vara ett negativt tal. Om du distribuerar en mall med Azure PowerShell 2,6 eller senare, eller REST API version **2019-05-10** eller senare, kan du ange antal till noll. Tidigare versioner av PowerShell och REST API stöder inte noll för Count. För närvarande stöder inte Azure CLI noll för Count, men det kommer att läggas till i en framtida version.
 
 Var försiktig med att använda [fullständig läges distribution](deployment-modes.md) med Copy. Om du omdistribuerar med slutfört läge till en resurs grupp raderas alla resurser som inte är angivna i mallen när du har löst kopierings slingen.
 

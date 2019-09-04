@@ -7,12 +7,12 @@ ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 869be11639fd4e957a991cadb44f2714875ddf7e
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d9aadc477c3f39cfbb108d2f3eece0c9e0b06264
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232718"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239151"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser
 
@@ -28,11 +28,9 @@ Innan du tittar på metoder för att rapportera om efterlevnad, låt oss titta p
 > [!WARNING]
 > Om kompatibilitetstillstånd rapporteras som **ej registrerat**, verifierar du att **Microsoft. PolicyInsights** Resource Provider är registrerad och att användaren har rätt ROLLBASERAD åtkomst kontroll (RBAC) behörighet enligt beskrivningen i [RBAC i Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
-
 ## <a name="evaluation-triggers"></a>Utvärderingen utlösare
 
-Resultatet av en slutförd utvärderingscykel är tillgängliga i den `Microsoft.PolicyInsights` Resource Provider via `PolicyStates` och `PolicyEvents` åtgärder. Mer information om åtgärder för Azure Policy insikter REST API finns i [Azure policy](/rest/api/policy-insights/)insikter.
+Resultatet av en slutförd utvärderingscykel är tillgängliga i den `Microsoft.PolicyInsights` Resource Provider via `PolicyStates` och `PolicyEvents` åtgärder. Mer information om åtgärder för Azure Policy insikter REST API finns i [Azure policy insikter](/rest/api/policy-insights/).
 
 Utvärderingar av tilldelade principer och initiativ inträffa till följd av olika händelser:
 

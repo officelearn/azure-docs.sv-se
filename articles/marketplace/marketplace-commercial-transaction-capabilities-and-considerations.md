@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 6991ebfa58099a42b09e482d11c0d3c3983decce
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535052"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279745"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funktioner och överväganden för kommersiella Marketplace-transaktioner
 
@@ -75,7 +75,7 @@ När du publicerar ett kostnads fritt eller kostnads fritt transaktions erbjudan
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Betala per användning och prenumeration (baserad på plats)
 
-Priserna för WPay och prenumerationen när du publicerar ett erbjudande för betalning per användning eller prenumerations transaktion tillhandahåller Microsoft teknik och tjänster för att bearbeta inköp av program varu licenser, returer och åter betalningar. I det här scenariot godkänner utgivaren att Microsoft agerar som en agent i detta syfte. Utgivaren gör det möjligt för Microsoft att under lätta för program licens transaktionen, samtidigt som säljaren, leverantören, distributören och licens givaren behålls.
+När du publicerar ett erbjudande enligt principen betala per användning eller prenumerations transaktion tillhandahåller Microsoft teknik och tjänster för att bearbeta inköp av program varu licenser, returer och åter betalningar. I det här scenariot godkänner utgivaren att Microsoft agerar som en agent i detta syfte. Utgivaren gör det möjligt för Microsoft att under lätta för program licens transaktionen, samtidigt som säljaren, leverantören, distributören och licens givaren behålls.
 
 Microsoft gör det möjligt för kunder att beställa, licensiera och använda program vara för utgivare, som omfattas av de allmänna villkoren för både Microsofts kommersiella marknads plats och utgivarens licens avtal för användare. Utgivare måste ange sitt licens avtal för slutanvändare eller välja [standard kontraktet](https://docs.microsoft.com/azure/marketplace/standard-contract) när erbjudandet skapas.
 
@@ -209,9 +209,9 @@ När du har valt prenumerations modell eller pris sättning enligt principen bet
 
 #### <a name="billing-questions-and-support"></a>Fakturerings frågor och support
 
-Mer information och juridiska principer finns i utgivar [avtalet](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (tillgängligt i Cloud Partner Portal).
+Mer information och juridiska principer finns i [utgivar avtalet](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (tillgängligt i Cloud Partner Portal).
 
-Om du vill ha hjälp med fakturerings frågor kan du kontakta supporten för [marknads plats utgivare](https://aka.ms/marketplacepublishersupport).
+Om du vill ha hjälp med fakturerings frågor kan du kontakta [supporten för marknads plats utgivare](https://aka.ms/marketplacepublishersupport).
 
 ## <a name="transact-requirements"></a>Transact-krav
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 2bfb094994bcc6f41044a08aab6eb0155967638e
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d3365f0a893c80043c93091c3e4e91382bdcd67e
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231421"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275859"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -234,7 +234,9 @@ Följande egenskaper stöds för att kopiera data från eller till Azure SQL Dat
 | Egenskap  | Beskrivning                                                  | Krävs                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | Den **typ** egenskap måste anges till **AzureSqlDWTable**. | Ja                         |
-| tableName | Namnet på tabellen eller vyn i Azure SQL Data Warehouse-instans som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
+| schema | Schemats namn. |Nej för källa, Ja för mottagare  |
+| table | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
+| tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och`table`för ny arbets belastning. | Nej för källa, Ja för mottagare |
 
 #### <a name="dataset-properties-example"></a>Exempel med datauppsättningen egenskaper
 
@@ -250,7 +252,8 @@ Följande egenskaper stöds för att kopiera data från eller till Azure SQL Dat
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -429,7 +432,7 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
     >[!IMPORTANT]
     >Om din Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitets autentisering – Se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig mer om de konfigurationer som krävs i Data Factory från [Azure Blob-hanterad identitets verifiering](connector-azure-blob-storage.md#managed-identity) och [Azure Data Lake Storage Gen2-hanterad identitets verifiering](connector-azure-data-lake-storage.md#managed-identity) .
 
-2. **Käll data formatet** är av **Parquet**, **Orc**eller avgränsad **text**, med följande konfigurationer:
+2. **Käll data formatet** är av **Parquet**, **Orc**eller **avgränsad text**, med följande konfigurationer:
 
    1. Mappsökvägen innehåller inte något filter för jokertecken.
    2. Fil namnet är tomt eller pekar på en enskild fil. Om du anger jokertecken som fil namn i kopierings aktiviteten, kan `*` det `*.*`bara vara eller.

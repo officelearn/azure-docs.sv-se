@@ -1,6 +1,6 @@
 ---
-title: Översikt över Microsoft Azure Security code Analysis-dokumentation
-description: Den här artikeln är en översikt över tillägget för säkerhets kod analys
+title: Dokumentations översikt över Microsoft Security code Analysis
+description: Den här artikeln är en översikt över tillägget Microsoft Security code Analysis
 author: vharindra
 manager: sukhans
 ms.author: terrylan
@@ -12,93 +12,106 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 283d63bafc583f2ac9da3294644aaebd17d7c950
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a7ab908673f60a651db48ae0485592a362741b6d
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718293"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242323"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Om Microsofts säkerhets kod analys
 
-**Tillägget Microsoft Security code Analysis** ger team möjlighet att sömlöst integrera säkerhets kod analyser i sina Azure DevOps CI/CD-pipelines som rekommenderas av [sdl-experter (Secure Development Lifecycle)](https://www.microsoft.com/securityengineering/sdl/practices) på Microsoft. Säkerheten är förenklad genom ett konsekvent UX som sammanfattar komplexiteten med att köra olika verktyg. Med en NuGet-baserad leverans av verktygen behöver team inte längre hantera installationen eller uppdateringen av verktyget. Med kommando rad och grundläggande verktyg för att bygga uppgifter kan alla användare, från ett gurus-verktyg till de vardagliga utvecklarna, ha så lite eller lika mycket kontroll över verktygen som de vill. Team kan också dra nytta av kraftfulla funktioner för post bearbetning, till exempel publicerings loggar för kvarhållning, vilket ger möjlighet till användbara rapporter för utvecklare som prioriterar & att konfigurera Bygg brytningar vid regressioner.
+Med tillägget Microsoft Security code Analysis kan teamen lägga till säkerhets kod analyser till sina pipeliner för Azure DevOps-kontinuerlig integrering och leverans (CI/CD). Den här analysen rekommenderas av [sdl-experter (Secure Development Lifecycle)](https://www.microsoft.com/securityengineering/sdl/practices) på Microsoft.
 
-## <a name="why-microsoft-security-code-analysis"></a>Varför Microsofts säkerhets kod analys
+Ett konsekvent UX fören klar säkerheten genom att dölja komplexiteten med att köra verktyg. Med NuGet-baserad leverans av verktygen behöver team inte längre hantera installationen eller uppdateringen av verktyg. Med både kommando rads-och Basic-gränssnitt för att bygga uppgifter kan alla användare ha så mycket kontroll över verktygen som de vill.
+
+Team kan också använda kraftfulla postprocessing-funktioner som:
+
+- Publicerings loggar för kvarhållning.
+- Skapa åtgärds bara rapporter som fokuserar på utvecklare.
+- Konfigurera Bygg raster vid Regressions test.
+
+## <a name="why-should-i-use-microsoft-security-code-analysis"></a>Varför ska jag använda Microsoft Security code Analysis?
 
 ### <a name="security-simplified"></a>Förenklad säkerhet
 
-Att lägga till säkerhets kod analys verktyg i din Azure DevOps-pipeline är lika enkelt som att lägga till nya aktiviteter. Anpassa dem eller gå till standardvärdena. Aktiviteterna körs som en del av din DevOps-pipeline och genererar loggar som beskriver alla typer av resultat.
+Att lägga till Microsofts säkerhets kod analys verktyg i din Azure DevOps-pipeline är lika enkelt som att lägga till nya aktiviteter. Anpassa uppgifterna eller använd deras standard beteende. Aktiviteterna körs som en del av din Azure DevOps-pipeline och genererar loggar som beskriver många typer av resultat.
 
 ### <a name="clean-builds"></a>Rensa versioner
 
-När du har åtgärdat de första problemen som har rapporter ATS av verktygen kan du konfigurera tillägget att avbryta versioner vid nya problem. Att ställa in kontinuerlig integrerings version på varje pull-begäran har aldrig varit detta enkelt!
+När du har åtgärdat de första problemen som har rapporter ATS av verktygen kan du konfigurera tillägget att avbryta versioner vid nya problem. Det är enkelt att konfigurera kontinuerliga integrerings versioner på varje pull-begäran.
 
 ### <a name="set-it-and-forget-it"></a>Ange den och Glöm den
 
-Build-aktiviteter och-verktyg kan ställas in så att de hålls uppdaterade (och är som standard). Om det finns en uppdaterad version av verktyget behöver du inte hämta och installera det. Det här tillägget tar hand om det åt dig. 
+Som standard är build-aktiviteterna och verktygen aktuella. Om det finns en uppdaterad version av ett verktyg behöver du inte ladda ned och installera det. Tillägget tar hand om uppdateringen.
 
->>>
 ### <a name="under-the-hood"></a>Under huven
 
-Bygg aktiviteterna för Microsoft Security code Analysis-tillägget sammanfattar de komplexa funktionerna i:
-  - Kör verktyg för säkerhets statisk analys och
+Tilläggets build-uppgifter döljer de komplexa funktionerna i:
+  - Kör verktyg för statisk analys av säkerhet.
   - Bearbetning av resultaten från loggfiler för att skapa en sammanfattnings rapport eller bryta skapandet.
->>>
 
-## <a name="security-code-analysis-toolset"></a>Analys verktyg för säkerhets kod
+## <a name="microsoft-security-code-analysis-tool-set"></a>Microsoft Security code Analysis Tool-uppsättning
 
-Tillägget Microsoft Security code Analysis är enkelt att komma åt dig, de senaste versionerna av viktiga analys verktyg. Tillägget innehåller både Microsoft-verktyg för intern och öppen källkod. Verktygen hämtas automatiskt på den molnbaserade agenten när du har konfigurerat & köra pipelinen med motsvarande build-uppgift. Nedan visas en uppsättning verktyg som är tillgängliga i tillägget idag. Håll koll på mer och skicka förslag på verktyg som kan läggas till.
+Med tillägget Microsoft Security code Analysis kan du enkelt komma åt de senaste versionerna av viktiga analys verktyg. Tillägget innehåller både Microsoft-hanterade verktyg och verktyg med öppen källkod.
+
+De här verktygen laddas ned automatiskt till den molnbaserade agenten efter att du har använt motsvarande build-uppgift för att konfigurera och köra pipelinen.
+
+I det här avsnittet visas en uppsättning verktyg som för närvarande är tillgängliga i tillägget. Titta efter ytterligare verktyg. Skicka även förslag på de verktyg som vi vill lägga till.
 
 ### <a name="anti-malware-scanner"></a>Skanner mot skadlig kod
 
-Den program vara som skapas av program vara mot skadlig kod ingår nu i tillägget Microsoft Security code analysis. Den måste köras på en build-agent där Windows Defender redan är installerat. Mer information finns på [webbplatsen för Defender](https://aka.ms/defender) 
+Den program vara som skapas av program vara mot skadlig kod ingår nu i tillägget Microsoft Security code analysis. Den här uppgiften måste köras på en build-agent där Windows Defender redan är installerat. Mer information finns på webbplatsen för [Windows Defender](https://aka.ms/defender).
 
 ### <a name="binskim"></a>BinSkim
 
-BinSkim är en portabel körbar fil (PE) som validerar kompilator/länkar-inställningar och andra säkerhetsrelaterade binära egenskaper. Bygg uppgiften tillhandahåller ett kommando rads gränssnitt runt programmet BinSkim. exe. BinSkim är ett verktyg med öppen källkod och mer information finns [på BinSkim på GitHub](https://github.com/Microsoft/binskim)
+BinSkim är en förenklad körbar fil (PE) som validerar kompilator inställningar, länkar inställningar och andra säkerhetsrelaterade egenskaper för binära filer. Den här build-uppgiften tillhandahåller ett kommando rads gränssnitt runt konsol programmet binskim. exe. BinSkim är ett verktyg med öppen källkod. Mer information finns i [BinSkim på GitHub](https://github.com/Microsoft/binskim).
 
 ### <a name="credential-scanner"></a>Skanner för autentiseringsuppgifter
 
-Lösen ord och andra hemligheter som lagras i käll koden är för närvarande ett betydande problem. För att läsa in autentiseringsuppgifter är ett eget statiskt analys verktyg som identifierar autentiseringsuppgifter, hemligheter, certifikat och annat känsligt innehåll i din källkod och dina build-utdata.
+Lösen ord och andra hemligheter lagrade i käll koden är ett betydande problem. Autentisering av autentiseringsuppgifter är ett eget statiskt analys verktyg som hjälper dig att lösa det här problemet. Verktyget identifierar autentiseringsuppgifter, hemligheter, certifikat och annat känsligt innehåll i din käll kod och dina build-utdata.
 
 ### <a name="microsoft-security-risk-detection"></a>Microsofts säkerhets risk identifiering
 
-Identifiering av säkerhets risker är Microsofts unika molnbaserade fuzzly testing-tjänst för att identifiera sårbarhets skydds fel i program vara. Den här tjänsten kräver en separat onboarding-process. Mer information finns [på MSRD på docs.Microsoft.com](https://docs.microsoft.com/security-risk-detection/)
+Microsofts säkerhets risk identifiering (MSRD) är en molnbaserad tjänst för fuzz-tester. Den identifierar säkerhets buggar som går att utnyttja i program varan. Den här tjänsten kräver en separat onboarding-process. Mer information finns i [MSRD Developer Center](https://docs.microsoft.com/security-risk-detection/).
 
 ### <a name="roslyn-analyzers"></a>Roslyn-analyser
 
-Microsofts kompilator-integrerade verktyg för statisk analys för analys av hanterad kodC# (och VB). Mer information finns [i Roslyn-analyser på docs.Microsoft.com](https://docs.microsoft.com/dotnet/standard/analyzers/)
+Roslyn-analyser är Microsofts Compilation-integrerade verktyg för statisk analys av hanterad C# och Visual Basic kod. Mer information finns i [Roslyn-baserade analyser](https://docs.microsoft.com/dotnet/standard/analyzers/).
 
 ### <a name="tslint"></a>TSLint
 
-TSLint är ett utöknings Bart statiskt analys verktyg som kontrollerar TypeScript-kod för läsbarhet, hanterbarhet och funktions fel. Det är mycket enkelt att använda moderna redigerings program och build-system och kan anpassas med dina egna luddfria regler, konfigurationer och formaterade versioner. TSLint är ett verktyg med öppen källkod och mer information finns [på TSLint på GitHub](https://github.com/palantir/tslint)
+TSLint är ett utöknings Bart verktyg för statisk analys som kontrollerar TypeScript kod för läsbarhet, hanterbarhet och fel i funktioner. Det stöds i stor utsträckning av moderna redigerare och build-system. Du kan anpassa den med dina egna luddfria regler, konfigurationer och formaterade. TSLint är ett verktyg med öppen källkod. Mer information finns i [TSLint på GitHub](https://github.com/palantir/tslint).
 
 ## <a name="analysis-and-post-processing-of-results"></a>Analys och efter bearbetning av resultat
 
-Microsoft Security code Analysis-tillägget har också tre användbara uppgifter efter bearbetning för att hjälpa dig att bearbeta och analysera resultaten som finns i säkerhets verktygs aktiviteterna. De läggs vanligt vis till i pipelinen efter alla andra verktygs uppgifter.
+Microsoft Security code Analysis-tillägget innehåller också tre postprocessing-uppgifter. Dessa uppgifter hjälper dig att analysera resultaten som finns i säkerhets verktygets aktiviteter. När de läggs till i en pipeline följer dessa uppgifter vanligt vis alla andra verktygs uppgifter.
 
 ### <a name="publish-security-analysis-logs"></a>Publicera säkerhets analys loggar
-Med build-aktiviteten publicera säkerhets analys loggar bevaras loggfilerna för säkerhets verktygen som körs under versionen för undersökning och uppföljning.
 
-De kan publiceras till Azure-serverns artefakter (som en zip-fil) eller kopior till en tillgänglig fil resurs från din privata build-agent.
+Med build-aktiviteten publicera säkerhets analys loggar bevaras loggfilerna för de säkerhets verktyg som körs under bygget. Du kan läsa dessa loggar för undersökning och uppföljning.
+
+Du kan publicera loggfilerna till Azure-artefakter som en. zip-fil. Du kan också kopiera dem till en tillgänglig fil resurs från din privata build-agent.
 
 ### <a name="security-report"></a>Säkerhets rapport
-Säkerhets rapportens build-aktivitet tolkar de loggfiler som skapats av säkerhets verktygen som körs under skapandet och skapar en enda sammanfattande rapport fil med alla problem som har påträffats av analys verktygen.
 
-Uppgiften kan konfigureras för att rapportera resultat för specifika verktyg eller för alla verktyg, och du kan också välja vilken nivå av problem (fel eller fel och varningar) som ska rapporteras.
+Säkerhets rapportens Bygg-aktivitet tolkar loggfilerna. De här filerna skapas av de säkerhets verktyg som körs under bygget. Bygg aktiviteten skapar sedan en enda sammanfattande rapport fil. Den här filen visar alla problem som hittats av analys verktygen.
+
+Du kan konfigurera den här uppgiften för att rapportera resultat för vissa verktyg eller för alla verktyg. Du kan också välja vilken ärende nivå som ska rapporteras, som endast fel eller både fel och varningar.
 
 ### <a name="post-analysis-build-break"></a>Efter analys (Bygg rast)
-Med Bygg aktiviteten efter analys kan kunden mata in en versions rast och inte bygga om en eller flera analys verktyg rapporterar om resultat eller problem i koden.
 
-Uppgiften kan konfigureras för att bryta ned build för problem som upptäckts av specifika verktyg eller för alla verktyg, och som även baseras på allvarlighets graden för problem som upptäckts (fel eller varningar).
+Med bygge-aktiviteten efter analys kan du mata in en Bygg rast som gör att en version av en version inte kan köras. Du matar in en Bygg rast om ett eller flera analys verktyg rapporterar problem i koden.
+
+Du kan konfigurera den här uppgiften för att avbryta skapandet av problem som upptäckts av specifika verktyg eller alla verktyg. Du kan också konfigurera det baserat på allvarlighets graden för problem som hittas, till exempel fel eller varningar.
 
 >[!NOTE]
->Enskilda Bygg aktiviteter lyckas, efter design, så länge verktyget har slutförts, oavsett om det finns några brister eller inte så att versionen kan köras för att slutföras, vilket gör att alla verktyg kan köras.
+>Enligt design slutförs varje versions uppgift om uppgiften har slutförts. Detta är sant om ett verktyg hittar problem, så att versionen kan köras för att slutföras genom att tillåta att alla verktyg körs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Instruktioner om hur du registrerar och installerar säkerhets kod analys finns i vår onboarding- [och installations guide](security-code-analysis-onboard.md)
+Instruktioner för hur du installerar och installerar Microsofts säkerhets kod analys finns i vår [onboarding-och installations guide](security-code-analysis-onboard.md).
 
-Mer information om hur du konfigurerar build-aktiviteter finns i vår [konfigurations guide](security-code-analysis-customize.md)
+Mer information om hur du konfigurerar build-aktiviteter finns i vår [konfigurations guide](security-code-analysis-customize.md).
 
-Om du har fler frågor om tillägget och de verktyg som erbjuds [kontrollerar du sidan med vanliga frågor och svar.](security-code-analysis-faq.md)
+Om du har fler frågor om tillägget och de verktyg som finns kan du kolla in vår [FAQ-sida](security-code-analysis-faq.md).

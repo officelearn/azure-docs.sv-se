@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: df5362028a38a86ba8df46efae2e3c3109856463
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fc6fdde4daa2d671b9d93673c2a78c2d9d85963c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194374"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275743"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsök vanliga problem med Azure-distribution med Azure Resource Manager
 
@@ -32,7 +32,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | AllocationFailed | Det finns inga tillgängliga resurser för klustret eller regionen eller så stöds inte den begärda virtuella dator storleken. Försök igen vid ett senare tillfälle eller begär en annan VM-storlek. | [Etablerings-och tilldelnings problem för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [etablering och tilldelning av Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) och [fel sökning av allokeringsfel](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Vänta tills den samtidiga åtgärden har slutförts. | |
 | AuthorizationFailed | Ditt konto eller tjänstens huvud namn har inte tillräcklig åtkomst för att slutföra distributionen. Kontrol lera vilken roll ditt konto tillhör och dess åtkomst till distributions omfånget.<br><br>Du kan få det här felet när en resurs leverantör som krävs inte är registrerad. | [Rollbaserad Access Control i Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Lös registrering](resource-manager-register-provider-errors.md) |
-| BadRequest | Du skickade distributions värden som inte matchar det som förväntas av Resource Manager. Kontrol lera meddelandet om inre status för att få hjälp med fel sökning. | [Referera till mallar](/azure/templates/) och [platser som stöds](resource-group-authoring-templates.md#resource-location) |
+| BadRequest | Du skickade distributions värden som inte matchar det som förväntas av Resource Manager. Kontrol lera meddelandet om inre status för att få hjälp med fel sökning. | [Referera till mallar](/azure/templates/) och [platser som stöds](resource-location.md) |
 | Konflikt | Du begär en åtgärd som inte är tillåten i resursens aktuella tillstånd. Till exempel tillåts disk storleks ändring bara när du skapar en virtuell dator eller när den virtuella datorn frigörs. | |
 | DeploymentActive | Vänta tills en samtidig distribution till den här resurs gruppen har slutförts. | |
 | DeploymentFailed | DeploymentFailed-felet är ett allmänt fel som inte innehåller den information du behöver för att lösa problemet. Se fel informationen för en felkod som innehåller mer information. | [Hitta felkod](#find-error-code) |
@@ -53,7 +53,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | InvalidTemplateCircularDependency | Ta bort onödiga beroenden. | [Lös cirkulära beroenden](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Kontrol lera om ditt konto tillhör samma klient organisation som den resurs grupp som du distribuerar till. | |
 | LinkedInvalidPropertyId | Resurs-ID: t för en resurs löses inte korrekt. Kontrol lera att du anger alla obligatoriska värden för resurs-ID, inklusive prenumerations-ID, resurs gruppens namn, resurs typ, överordnat resurs namn (vid behov) och resurs namn. | |
-| LocationRequired | Ange en plats för resursen. | [Ange en plats](resource-group-authoring-templates.md#resource-location) |
+| LocationRequired | Ange en plats för resursen. | [Ange en plats](resource-location.md) |
 | MismatchingResourceSegments | Kontrol lera att den kapslade resursen har rätt antal segment i namn och typ. | [Lösa resurs segment](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Kontrol lera registrerings status för resurs leverantör och platser som stöds. | [Lös registrering](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registrera din prenumeration med resurs leverantören. | [Lös registrering](resource-manager-register-provider-errors.md) |

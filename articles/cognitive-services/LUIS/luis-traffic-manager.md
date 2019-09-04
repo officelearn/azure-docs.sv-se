@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 85f6be7a897908ef9198ac71ada809efb7c033bc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: c4ea9c5663755a4feb1693dd925d99b10c466140
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650540"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256610"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Använd Microsoft Azure Traffic Manager för att hantera endpoint kvot över nycklar
 Språkförståelse (LUIS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver en enda nyckel kvot. Detta görs genom att skapa flera nycklar för LUIS och lägga till dem i LUIS-programmet på den **publicera** sidan i den **resurser och nycklar** avsnittet. 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Skärmbild av Azure-portalen med två LUIS-nycklar i luis trafikhantering resursgrupp](./media/traffic-manager/luis-keys.png)
 
-2. På [Luis][LUIS] -webbplatsen går du till avsnittet **Hantera** , på sidan **nycklar och slut punkter** , tilldelar nycklar till appen och publicerar appen igen genom att välja knappen **publicera** på menyn längst upp till höger. 
+2. På webbplatsen för [Luis][LUIS] , i avsnittet **Hantera** , på sidan **Azure-resurser** , tilldela du nycklar till appen och publicera appen igen genom att välja knappen **publicera** på menyn längst upp till höger. 
 
     Exempel-URL: en i den **endpoint** kolumnen använder en GET-begäran med slutpunktsnyckeln som en frågeparameter. Kopiera URL: er för de två nya nycklar-slutpunkt. De används som en del av Traffic Manager konfigurationen senare i den här artikeln.
 

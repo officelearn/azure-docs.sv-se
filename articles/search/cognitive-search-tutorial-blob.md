@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: bb37c9106149397f50e84b340b1be1189e0de7d1
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 726fdd6aeebac970142fa9225381af77114bfe42
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186261"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274118"
 ---
 # <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>Självstudier: Lägg till strukturen i "ostrukturerat innehåll" med kognitiv sökning
 
@@ -22,10 +22,10 @@ Om du har ostrukturerad text-eller bild innehåll kan du med hjälp av funktione
 
 > [!div class="checklist"]
 > * Börja med hela dokument (ostrukturerad text) som PDF, MD, DOCX och PPTX i Azure Blob Storage.
-> * Skapa en pipeline som extraherar text, identifierar språk, identifierar entiteter och identifierar viktiga fraser.
+> * Definiera en pipeline som extraherar text, identifierar språk, identifierar entiteter och identifierar viktiga fraser.
 > * Definiera ett index för att lagra utdata (RAW-innehåll, plus pipeline-genererade namn-värdepar).
-> * Kör pipelinen för att skapa och läsa in indexet.
-> * Utforska innehåll med fullständig texts ökning och en omfattande frågesyntax.
+> * Kör pipelinen för att starta omvandlingar och analys och för att skapa och läsa in indexet.
+> * Utforska resultat med fullständig texts ökning och en omfattande frågesyntax.
 
 Du behöver flera tjänster för att slutföra den här genom gången, plus [appen Postman Desktop](https://www.getpostman.com/) eller något annat webbtest-verktyg för att göra REST API samtal. 
 
@@ -63,7 +63,7 @@ Den här genom gången använder Azure Search för indexering och frågor, Cogni
 
 1. När den har skapats klickar **du på gå till resursen** för att öppna översikts sidan.
 
-1. Klicka på blobs-tjänsten.
+1. Klicka på **blobs** -tjänsten.
 
 1. Klicka på **+ container** för att skapa en behållare och ge den namnet *kugg hjuls-search-demo*.
 
@@ -117,7 +117,7 @@ De metoder för begäran som används i den här självstudien är **post**, **p
 
 I sidhuvud anger du "Content-Type" till `application/json` och anger `api-key` Admin API-nyckeln för din Azure Search-tjänst. När du har angett rubrikerna kan du använda dem för varje begäran i den här övningen.
 
-  ![URL och rubrik] för Postman-begäran (media/search-get-started-postman/postman-url.png "URL och rubrik") för Postman-begäran
+  ![URL och rubrik för Postman-begäran](media/search-get-started-postman/postman-url.png "URL och rubrik för Postman-begäran")
 
 ## <a name="3---create-the-pipeline"></a>3 – skapa pipelinen
 

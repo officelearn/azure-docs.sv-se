@@ -1,7 +1,7 @@
 ---
-title: Prenumerations nycklar – LUIS
+title: Använda redigerings-och körnings nycklar – LUIS
 titleSuffix: Azure Cognitive Services
-description: Du behöver inte skapa prenumerations nycklar för att använda dina kostnads fria första-1000-slut punkts frågor. Om du får ett fel _av kvoten_ i form av en HTTP 403 eller 429 måste du skapa en nyckel och tilldela den till din app.
+description: Första gången du använder Language Understanding (LUIS) behöver du inte skapa någon redigerings nyckel. När du tänker publicera appen måste du använda din runtime-slutpunkt för att skapa och tilldela appen körnings nyckel.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,133 +9,106 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 1f8b84722c881cee1fe196e5a614b58cf3c19031
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 36d03e20c9a56d7b317b867f01c1c0b5767c802c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932860"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257016"
 ---
-# <a name="using-subscription-keys-with-your-luis-app"></a>Använda prenumerationsnycklar med LUIS-appen
+# <a name="using-authoring-and-runtime-resource-keys"></a>Använda resurs nycklar för redigering och körning
 
-När du först använder Language Understanding (LUIS) behöver du inte skapa prenumerations nycklar. Du får 1000 slut punkts frågor att börja med. 
-
-Testning och prototyper endast kan du använda den kostnadsfria nivån av (F0). Produktionssystem, använda en [betald](https://aka.ms/luis-price-tier) nivå. Använd inte den [redigering nyckeln](luis-concept-keys.md#authoring-key) för slutpunkten frågor i produktion.
-
+Redigerings-och körnings resurser ger autentisering till din LUIS-app och förutsägelse slut punkt.
 
 <a name="create-luis-service"></a>
-<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
 
-## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Skapa en resurs för förutsägelse slut punkts körning i Azure Portal
+När du loggar in på LUIS-portalen kan du välja att fortsätta med:
 
-Du skapar en [förutsägelse slut punkts resurs](get-started-portal-deploy-app.md#create-the-endpoint-resource) i Azure Portal. Den här resursen bör endast användas för slut punkts förutsägelse frågor. Använd inte den här resursen för att redigera ändringar i appen.
+* en kostnads fri [utvärderings nyckel](#trial-key) – som tillhandahåller redigering och några förutsägelse slut punkts frågor.
+* en ny Azure LUIS Authoring-resurs – skapa en ny resurs. Detta är inte samma som en förutsägelse slut punkt resurs. 
 
-Du kan skapa en Language Understanding resurs eller en Cognitive Services resurs. Om du skapar en Language Understanding resurs är det en bra idé att postpend resurs typen till resurs namnet. 
 
-<a name="programmatic-key" ></a>
-<a name="authoring-key" ></a>
-<a name="endpoint-key" ></a>
-<a name="use-endpoint-key-in-query" ></a>
-<a name="api-usage-of-ocp-apim-subscription-key" ></a>
-<a name="key-limits" ></a>
-<a name="key-limit-errors" ></a>
-<a name="key-concepts"></a>
-<a name="authoring-key"></a>
-<a name="create-and-use-an-endpoint-key"></a>
-<a name="assign-endpoint-key"></a>
-<a name="assign-resource"></a>
+<a name="starter-key"></a>
 
-### <a name="using-resource-from-luis-portal"></a>Använda resurser från LUIS-portalen
+## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Logga in på LUIS-portalen och börja redigera
 
-Om du använder resursen från LUIS-portalen behöver du inte känna till din nyckel och plats. I stället måste du känna till resursens klient organisation, prenumeration och resurs namn.
+1. Logga in på [Luis-portalen](https://www.luis.ai) och godkänn användnings villkoren.
+1. Starta LUIS-appen genom att välja vilken typ av LUIS redigerings nyckel som du vill använda: kostnads fri utvärderings nyckel eller ny LUIS redigerings nyckel för Azure. 
 
-När du [](#assign-resource-key-to-luis-app-in-luis-portal) har tilldelat din resurs till din Luis-app i Luis-portalen tillhandahålls nyckeln och platsen som en del av slut punkten för fråge förutsägelsens slut punkt på sidan Hantera avsnitts **nycklar och slut punkts inställningar** .
- 
-### <a name="using-resource-from-rest-api-or-sdk"></a>Använda resurser från REST API eller SDK
+    ![Välj en typ av Language Understanding redigering av resurs](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
-Om du använder resursen från REST APIen eller SDK: n måste du känna till din nyckel och plats. Den här informationen finns som en del av slut punkts-URL: en för fråge förutsägelse på sidan Hantera avsnittets **nycklar och slut punkts inställningar** , samt i Azure Portal på resursens översikts-och nyckel sidor.
+1. När du är färdig med din resurs urvals process [skapar du en ny app](luis-how-to-start-new-app.md#create-new-app-in-luis). 
 
-## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Tilldela resurs nyckeln till LUIS-appen i LUIS-portalen
+## <a name="trial-key"></a>Utvärderings nyckel
 
-Varje gång du skapar en ny resurs för LUIS måste du [tilldela resursen till Luis-appen](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). När du har tilldelat dig behöver du inte göra detta steg igen om du inte skapar en ny resurs. Du kan skapa en ny resurs för att expandera regionerna i appen eller för att stödja ett större antal förutsägelse frågor.
+Du har fått nyckeln för utvärderings versionen (starter). Den används som autentiseringsnyckel för att fråga efter körningen av förutsägelse slut punkten, upp till 1000 frågor per månad. 
 
-<!-- content moved to luis-reference-regions.md, need replacement links-->
-<a name="regions-and-keys"></a>
-<a name="publishing-to-europe"></a>
-<a name="publishing-to-australia"></a>
+Den visas både på sidan **användar inställningar** och på **hanterings > Azure-resurser** på Luis-portalen. 
 
-### <a name="unassign-resource"></a>Ta bort resurs
-När du frigör slutpunktsnyckeln bort den inte från Azure. Det är bara avlänkas från LUIS. 
+När du är redo att publicera din förutsägelse slut punkt skapar du och tilldelar redigerings-och förutsägelse körnings nycklar för att ersätta start nyckel funktionen. 
 
-När en slutpunktsnyckeln otilldelade, eller inte har tilldelats appen, ett begärande till slutpunkten URL returnerar ett fel: `401 This application cannot be accessed with the current subscription`. 
+## <a name="create-resources-in-the-azure-portal"></a>Skapa resurser i Azure Portal
 
-### <a name="include-all-predicted-intent-scores"></a>Inkludera alla avsikt förutsägelsepoängen
-Den **inkludera alla förutse avsikt poäng** kryssrutan tillåter frågesvaret slutpunkten att inkludera förutsägelse poängen för varje avsikt. 
+1. Logga in på [Azure Portal](https://azure.microsoft.com/free/). 
+1. Välj **+ Skapa en resurs**.
+1. Skriv `Language understanding` i sökrutan.
+1. Välj **Skapa** för att påbörja skapandeprocessen. 
+1. Skapa **både** för att skapa en redigerare och en körnings nyckel för förutsägelse slut punkten. 
+1. Ange informationen som krävs för att skapa resursen och välj sedan **skapa** för att slutföra processen.
 
-Den här inställningen kan din chattrobot eller LUIS-anropa program kan besluta programmässiga baserat på poäng för returnerade avsikter. I allmänhet är de främsta två avsikterna mest intressanta. Om den översta poängen är avsiktlig, din chattrobot kan du ställa en fråga för uppföljning som gör en slutgiltig val mellan avsikt ingen och andra flest poäng avsikten ingen. 
+    ![Skapa en språk förståelse resurs](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-Avsikter och deras resultat är också inkluderat endpoint-loggarna. Du kan [exportera](luis-how-to-start-new-app.md#export-app) dessa loggar och analysera poängen. 
+    |Name|Syfte|
+    |--|--|
+    |Resursnamn| Ett anpassat namn som du väljer, används som en del av URL: en för dina redigerings-och förutsägelse slut punkts frågor.|
+    |Prenumerationsnamn| den prenumeration som ska faktureras för resursen.|
+    |Resource group| Ett namn på en anpassad resurs grupp som du väljer eller skapar. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering i samma region.|
+    |Redigerings plats|Den region som är associerad med din modell.|
+    |Redigera pris nivå|Pris nivån avgör den högsta transaktionen per sekund och månad.|
+    |Körnings plats|Den region som är kopplad till den publicerade slut punkts körningen för förutsägelse.|
+    |Pris nivå för körning|Pris nivån avgör den högsta transaktionen per sekund och månad.|
 
-```JSON
-{
-  "query": "book a flight to Cairo",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.5223427
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.5223427
-    },
-    {
-      "intent": "BookFlight",
-      "score": 0.372391433
-    }
-  ],
-  "entities": []
-}
-```
+    När båda resurserna har skapats tilldelar du resurserna i LUIS-portalen.
 
-### <a name="enable-bing-spell-checker"></a>Aktivera Bing-stavningskontroll 
-I den **slutpunkts-url-inställningar**, **Bing-stavningskontroll** växlingen möjliggör LUIS för att korrigera felstavade ord. innan förutsägelse. Skapa en  **[stavningskontroll i Bing nyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** . 
+## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Tilldela en Authoring-resurs i LUIS-portalen för alla appar
 
-Lägg till parametern stavnings kontroll **= True** QueryString och **Bing-stavning-check-Subscription-Key = {YOUR_BING_KEY_HERE}** . Ersätt den `{YOUR_BING_KEY_HERE}` med din nyckel för Bing stavningskontroll för installation.
+Du kan tilldela en redigerings resurs för en enskild app eller för alla appar i LUIS. Följande procedur tilldelar alla appar till en enda redigerings resurs.
 
-```JSON
-{
-  "query": "Book a flite to London?",
-  "alteredQuery": "Book a flight to London?",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.780123
-  },
-  "entities": []
-}
-```
+1. Logga in på [Luis-portalen](https://www.luis.ai).
+1. I det övre navigerings fältet längst till höger väljer du ditt användar konto och väljer sedan **Inställningar**.
+1. På sidan **användar inställningar** väljer du **Lägg till Authoring-resurs** och väljer sedan en befintlig redigerings resurs. Välj **Spara**. 
 
-### <a name="publishing-regions"></a>Publicera regioner
+## <a name="assign-a-resource-to-an-app"></a>Tilldela en resurs till en app
 
-Läs mer om hur du publicerar [regioner](luis-reference-regions.md) inklusive publicering i [Europa](luis-reference-regions.md#publishing-to-europe), och [Australien](luis-reference-regions.md#publishing-to-australia). Publicera regioner skiljer sig från redigering regioner. Skapa en app i regionen redigering som motsvarar regionen publicerar du vill använda för frågan slutpunkten.
+Du kan tilldela en enskild resurs, redigering eller förutsägelse slut punkt körning till en app med följande procedur.
 
-## <a name="assign-resource-without-luis-portal"></a>Tilldela resurs utan LUIS-portalen
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj sedan en app från listan **Mina appar** .
+1. Gå till sidan för att **hantera > Azure-resurser** .
 
-För automation, till exempel en CI/CD-pipeline, kanske du vill automatisera tilldelningen av en LUIS-resurs till en LUIS-app. Du måste utföra följande steg för att göra det:
+    ![Välj hanterings > Azure-resurser i LUIS-portalen för att tilldela en resurs till appen.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
+
+1. Välj fliken förutsägelse eller redigering av resurs och välj sedan knappen **Lägg till förutsägelse resurs** eller **Lägg till redigering resurs** . 
+1. Välj fälten i formuläret för att hitta rätt resurs och välj sedan **Spara**.  
+
+### <a name="assign-runtime-resource-without-using-luis-portal"></a>Tilldela körnings resurser utan att använda LUIS-portalen
+
+I automatiserings syfte, till exempel en CI/CD-pipeline, kanske du vill automatisera tilldelningen av en LUIS runtime-resurs till en LUIS-app. Du måste utföra följande steg för att göra det:
 
 1. Skaffa en Azure Resource Manager-token från detta [webbplats](https://resources.azure.com/api/token?plaintext=true). Denna token upphör så Använd den omedelbart. Begäran returnerar en Azure Resource Manager-token.
 
     ![Begär Azure Resource Manager-token och ta emot Azure Resource Manager token](./media/luis-manage-keys/get-arm-token.png)
 
-1. Använd token för att begära LUIS-resurser mellan prenumerationer, från den [hämta LUIS azure konton API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), ditt användarkonto har åtkomst till. 
+1. Använd token för att begära LUIS runtime-resurser mellan prenumerationer, från [Get Luis Azure-konton API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c)som ditt användar konto har åtkomst till. 
 
     Det här INLÄGGET API kräver följande inställningar:
 
     |Huvud|Värde|
     |--|--|
     |`Authorization`|Värdet för `Authorization` är `Bearer {token}`. Observera att token-värde måste föregås av ordet `Bearer` eller ett blanksteg.| 
-    |`Ocp-Apim-Subscription-Key`|Din [redigering nyckeln](luis-how-to-account-settings.md).|
+    |`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
 
     Den här API: T returnerar en matris av JSON-objekt LUIS prenumerationer, inklusive prenumerations-ID, resursgrupp och resursnamn, returneras som kontonamn. Hitta ett objekt i matrisen med LUIS resursen ska tilldelas LUIS-app. 
 
@@ -146,12 +119,34 @@ För automation, till exempel en CI/CD-pipeline, kanske du vill automatisera til
     |Typ|Inställning|Värde|
     |--|--|--|
     |Huvud|`Authorization`|Värdet för `Authorization` är `Bearer {token}`. Observera att token-värde måste föregås av ordet `Bearer` eller ett blanksteg.|
-    |Huvud|`Ocp-Apim-Subscription-Key`|Din [redigering nyckeln](luis-how-to-account-settings.md).|
+    |Huvud|`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
     |Huvud|`Content-type`|`application/json`|
     |QueryString|`appid`|LUIS-app-ID. 
     |Innehåll||{”AzureSubscriptionId”: ”ddda2925-af7f-4b05-9ba1-2155c5fe8a8e”<br>”ResourceGroup”: ”resourcegroup-2”,<br>”AccountName”: ”luis-uswest-S0-2”}|
 
     När detta API lyckas returnerar 201 - skapade status. 
+
+## <a name="unassign-resource"></a>Ta bort resurs
+
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj sedan en app från listan **Mina appar** .
+1. Gå till sidan för att **hantera > Azure-resurser** .
+1. Välj fliken förutsägelse eller redigering av resurs och välj sedan knappen **ta bort tilldelning av resurs** för resursen. 
+
+När du tar bort tilldelningen av en resurs tas den inte bort från Azure. Det är bara avlänkas från LUIS. 
+
+## <a name="reset-authoring-key"></a>Återställ redigering nyckel
+
+**För [redigering av resurs migrerade](luis-migration-authoring.md) appar**: om redigerings nyckeln har komprometterats, återställer du nyckeln i Azure Portal på sidan **nycklar** för den redigerings resursen. 
+
+**För appar som inte har migrerats än**: nyckeln återställs på alla dina appar i Luis-portalen. Om du redigerar dina appar via redigerings-API: erna måste du ändra värdet för OCP-APIM-Subscription-Key till den nya nyckeln.
+
+## <a name="regenerate-azure-key"></a>Återskapa Azure-nyckel
+
+Återskapa Azure-nycklarna från Azure Portal på sidan **nycklar** .
+
+## <a name="delete-account"></a>Ta bort konto
+
+Se [datalagring och borttagning av](luis-concept-data-storage.md#accounts) information om vilka data tas bort när du tar bort ditt konto.
 
 ## <a name="change-pricing-tier"></a>Ändra prisnivå
 
@@ -163,39 +158,16 @@ För automation, till exempel en CI/CD-pipeline, kanske du vill automatisera til
     ![Ändra LUIS betalning nivå](./media/luis-usage-tiers/plans.png)
 1.  När prissättningsändringen är klar, kontrollerar den nya prisnivån i ett popup-fönster. 
     ![Kontrollera din betalning LUIS-nivå](./media/luis-usage-tiers/updated.png)
-1. Kom ihåg att [tilldela den här slutpunktsnyckeln](#assign-endpoint-key) på den **publicera** sidan och använda det på alla endpoint-frågor. 
+1. Kom ihåg att [tilldela den här slutpunktsnyckeln](#assign-a-resource-to-an-app) på den **publicera** sidan och använda det på alla endpoint-frågor. 
 
-## <a name="fix-http-status-code-403-and-429"></a>Korrigera HTTP-statuskod 403 och 429
+## <a name="viewing-azure-resource-metrics"></a>Visa Azures resurs mått
 
-Du får status koderna 403 och 429 när du överskrider transaktionerna per sekund eller transaktioner per månad för din pris nivå.
-
-### <a name="when-you-receive-an-http-403-error-status-code"></a>När du får en HTTP 403-fel status kod
-
-När du använder alla de kostnads fria 1000-slutpunkts frågorna eller om du överskrider din pris nivås kvot för månads transaktioner får du en HTTP 403-fel status kod. 
-
-För att åtgärda det här felet måste du antingen [ändra pris nivån](luis-how-to-azure-subscription.md#change-pricing-tier) till en högre nivå eller [skapa en ny resurs](get-started-portal-deploy-app.md#create-the-endpoint-resource) och [tilldela den till din app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
-
-Lösningar för det här felet är:
-
-* I [Azure Portal](https://portal.azure.com)i language Understanding resurs, på **pris nivån resurs hantering->** , ändrar du pris nivån till en högre TPS-nivå. Du behöver inte göra något i Language Understanding portal om din resurs redan har tilldelats till din Language Understanding-app.
-*  Om din användning överskrider den högsta pris nivån lägger du till fler Language Understanding resurser med en belastningsutjämnare framför dem. [Language Understanding containern](luis-container-howto.md) med Kubernetes eller Docker Compose kan hjälpa dig med detta.
-
-### <a name="when-you-receive-an-http-429-error-status-code"></a>När du får en HTTP 429-fel status kod
-
-Den här status koden returneras när transaktionerna per sekund överskrider pris nivån.  
-
-Lösningarna omfattar:
-
-* Du kan [öka pris nivån](#change-pricing-tier)om du inte är på den högsta nivån.
-* Om din användning överskrider den högsta pris nivån lägger du till fler Language Understanding resurser med en belastningsutjämnare framför dem. [Language Understanding containern](luis-container-howto.md) med Kubernetes eller Docker Compose kan hjälpa dig med detta.
-* Du kan Grinda klient program begär Anden med en [princip](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) för återförsök som du implementerar själv när du får den här status koden. 
-
-## <a name="viewing-summary-usage"></a>Visa sammanfattning av användning
+### <a name="viewing-azure-resource-summary-usage"></a>Visa användning av Azure-resurs Sammanfattning
 Du kan visa information om LUIS användning i Azure. Den **översikt** visar senaste sammanfattningsinformation inklusive anrop och fel. Om du gör en LUIS-slutpunktsförfrågan, sedan omedelbart titta på den **översiktssidan**, vänta fem minuter för användningen visas.
 
 ![Visa sammanfattning av användning](./media/luis-usage-tiers/overview.png)
 
-## <a name="customizing-usage-charts"></a>Anpassa diagram för användning
+### <a name="customizing-azure-resource-usage-charts"></a>Anpassa användnings diagram för Azure-resursanvändning
 Mått ger en mer detaljerad översikt över data.
 
 ![Standard-mått](./media/luis-usage-tiers/metrics-default.png)
@@ -204,7 +176,7 @@ Du kan konfigurera din måttdiagram för lång tid och Måttyp.
 
 ![Anpassade mått](./media/luis-usage-tiers/metrics-custom.png)
 
-## <a name="total-transactions-threshold-alert"></a>Totalt antal transaktioner tröskelvärde för avisering
+### <a name="total-transactions-threshold-alert"></a>Totalt antal transaktioner tröskelvärde för avisering
 Om du vill veta när du har nått ett visst transaktion tröskelvärde, till exempel 10 000 transaktioner, kan du skapa en avisering. 
 
 ![Standard-aviseringar](./media/luis-usage-tiers/alert-default.png)
@@ -213,4 +185,7 @@ Lägg till en måttavisering för den **Totalt antal anrop** mått för en viss 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du använder [versioner](luis-how-to-manage-versions.md) att hantera ändringar i LUIS-appen.
+* Lär dig [hur du använder versioner](luis-how-to-manage-versions.md) för att kontrol lera appens livs cykel.
+* Förstå begreppen, inklusive [redigering av resurser](/luis-concept-keys.md#authoring-key) och [deltagare](luis-concept-keys.md#contributions-from-other-authors) på den resursen.
+* Lär dig [hur du skapar](luis-how-to-azure-subscription.md) redigerings-och körnings resurser
+* Migrera till den nya [redigerings resursen](luis-migration-authoring.md) 

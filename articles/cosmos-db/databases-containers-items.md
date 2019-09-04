@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur du skapar och använder databaser, 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 9c8460380755c6057f7507443d0b564e85c2ff86
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: de9b0a372d04b40a24b6dc0a8952722129f4a55f
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598493"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241212"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Arbeta med databaser, behållare och objekt i Azure Cosmos DB
 
@@ -74,7 +74,7 @@ En Azure Cosmos-behållare är specialiserad i API-specifika entiteter som visas
 
 | Azure Cosmos-entitet | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-behållare | Collection | Tabell | Samling | Graph | Tabell |
+|Azure Cosmos-behållare | Container | Tabell | Samling | Graph | Tabell |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Egenskaperna för en Azure Cosmos-behållare
 

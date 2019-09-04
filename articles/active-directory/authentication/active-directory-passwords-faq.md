@@ -1,6 +1,6 @@
 ---
-title: Lösenordsåterställning via självbetjäning vanliga frågor och svar – Azure Active Directory
-description: Vanliga frågor och svar om Azure AD-självbetjäning lösenord återställa
+title: Vanliga frågor och svar om lösen ords återställning via självbetjäning – Azure Active Directory
+description: Vanliga frågor om återställning av lösen ord för självbetjäning i Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,269 +11,269 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98b72d9b5e59155bb7215181fd1ecd336126ee6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4001f3c88b676a2786159946a8981823e18ea5f6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440975"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274419"
 ---
-# <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
+# <a name="password-management-frequently-asked-questions"></a>Vanliga frågor och svar om lösen ords hantering
 
-Här följer några vanliga frågor (och svar FAQ) för allt som är relaterade till återställning av lösenord.
+Här följer några vanliga frågor och svar (FAQ) för alla saker som rör lösen ords återställning.
 
-Om du har en allmän fråga om Azure Active Directory (Azure AD) och lösenordsåterställning via självbetjäning (SSPR) som inte besvaras här, kan du be communityn för att få hjälp på den [Azure AD-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Medlemmar i communityn omfattar tekniker, produktchefer, MVP: er och andra IT-proffs.
+Om du har en allmän fråga om Azure Active Directory (Azure AD) och lösen ords återställning via självbetjäning (SSPR) som inte besvaras här kan du be communityn om hjälp i [Azure AD-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Medlemmar i communityn är tekniker, produkt chefer, MVP: er och andra IT-proffs.
 
-Den här vanliga frågor och svar är uppdelat i följande avsnitt:
+Vanliga frågor och svar är indelade i följande avsnitt:
 
-* [Registrering av återställning av frågor om lösenord](#password-reset-registration)
-* [Frågor om lösenordsåterställning](#password-reset)
-* [Frågor om lösenordsändring](#password-change)
-* [Frågor om lösenordshanteringsrapporter](#password-management-reports)
-* [Frågor om tillbakaskrivning av lösenord](#password-writeback)
+* [Frågor om registrering av lösen ords återställning](#password-reset-registration)
+* [Frågor om lösen ords återställning](#password-reset)
+* [Frågor om lösen ords ändring](#password-change)
+* [Frågor om lösen ords hanterings rapporter](#password-management-reports)
+* [Frågor om tillbakaskrivning av lösen ord](#password-writeback)
 
-## <a name="password-reset-registration"></a>Registrering av lösenordsåterställning
+## <a name="password-reset-registration"></a>Registrering av återställning av lösenord
 
-* **F:  Mina användare kan registrera sina egna data för återställning av lösenord?**
+* **F:  Kan mina användare registrera sina egna lösen ords återställnings data?**
 
-  > **S:** Ja. Så länge återställning av lösenord är aktiverat och de är licensierade användare kan gå till registreringsportalen för lösenordsåterställning (https://aka.ms/ssprsetup) att registrera sin autentiseringsinformation. Användare kan också registrera via åtkomstpanelen (https://myapps.microsoft.com). Om du vill registrera via åtkomstpanelen, de behöver för att väljer sina profilbild **profil**, och välj sedan den **registrera för återställning av lösenord** alternativet.
+  > **S:** Ja. Så länge lösen ords återställning är aktiverat och de är licensierade kan användare gå till registrerings portalen för lösen ords återställning https://aka.ms/ssprsetup) (för att registrera deras autentiseringsinformation). Användare kan även registrera sig via åtkomst panelen (https://myapps.microsoft.com). Om du vill registrera dig via åtkomst panelen måste du välja profil bilden, välja **profil**och sedan välja alternativet **Registrera för lösen ords återställning** .
   >
   >
-* **F:  Om jag aktiverar lösenord återställa för en grupp och sedan väljer att aktivera det för alla mina användare krävs Omregistrera?**
+* **F:  Om jag aktiverar lösen ords återställning för en grupp och sedan bestämmer dig för att aktivera den för alla, måste mina användare omregistrera sig?**
 
-  > **S:** Nej. Användare som måste fylla i autentiseringsdata krävs inte för att registrera igen.
+  > **S:** Nej. Användare som har fyllt i diagnostikdata behöver inte registreras igen.
   >
   >
-* **F:  Kan jag definierar data om återställning av lösenord för Mina användare?**
+* **F:  Kan jag definiera lösen ords återställnings data för mina användares räkning?**
 
-  > **S:** Ja, du kan göra det med Azure AD Connect, PowerShell, den [Azure-portalen](https://portal.azure.com), eller [Microsoft 365 Administrationscenter](https://admin.microsoft.com). Mer information finns i [återställning av Data som används av Azure AD-självbetjäning lösenord](howto-sspr-authenticationdata.md).
+  > **S:** Ja, du kan göra det med Azure AD Connect, PowerShell, [Azure Portal](https://portal.azure.com)eller [Microsoft 365 administrations centret](https://admin.microsoft.com). Mer information finns i [data som används av lösen ords återställning via](howto-sspr-authenticationdata.md)självbetjäning i Azure AD.
   >
   >
-* **F:  Kan jag synkroniserar data om säkerhetsfrågor från en lokal plats?**
+* **F:  Kan jag synkronisera data för säkerhets frågor från lokala platser?**
 
-  > **S:** Nej, detta är inte möjligt i dag.
+  > **S:** Nej, det är inte möjligt idag.
   >
   >
-* **F:  Mina användare kan registrera data så att andra användare inte kan se dessa data?**
+* **F:  Kan mina användare registrera data på ett sådant sätt att andra användare inte kan se dessa data?**
 
-  > **S:** Ja. När användare registrerar data med hjälp av lösenordet återställa portalen för registrering, data sparas i privata autentisering fält som endast är synliga för globala administratörer och användaren.
+  > **S:** Ja. När användarna registrerar data med hjälp av registrerings portalen för lösen ords återställning, sparas data i fält för privata autentisering som endast är synliga för globala administratörer och användare.
   >
   >
-* **F:  Har Mina användare registreras innan de kan använda för återställning av lösenord?**
+* **F:  Måste mina användare registreras innan de kan använda lösen ords återställning?**
 
-  > **S:** Nej. Om du definierar tillräckligt med autentiseringsinformation för deras räkning kan inte användare att registrera. Fungerar lösenordsåterställning så länge som du har korrekt formaterade data som lagras i lämpliga fält i katalogen.
+  > **S:** Nej. Om du definierar tillräckligt autentiseringsinformation för deras räkning behöver användarna inte registrera sig. Lösen ords återställning fungerar så länge du har formaterat data som lagras i lämpliga fält i katalogen.
   >
   >
-* **F:  Kan jag synkronisera eller telefon för autentisering, e-post för autentisering och alternativa autentisering phone fälten åt mina användare?**
+* **F:  Kan jag synkronisera eller ställa in telefon för autentisering, e-postadress eller alternativa autentiseringar för mina användares räkning?**
 
-  > **S:** De fält som kan ställas in av en Global administratör har definierats i artikeln [SSPR-datakrav](howto-sspr-authenticationdata.md).
+  > **S:** De fält som kan ställas in av en global administratör definieras i artikeln [SSPR data krav](howto-sspr-authenticationdata.md).
   >
   >
-* **F:  Hur avgör vilka alternativ du ska visa mina användare i portalen för registrering av?**
+* **F:  Hur avgör registrerings portalen vilka alternativ som ska visa mina användare?**
 
-  > **S:** Registreringsportalen för lösenordsåterställning visar bara alternativ du har aktiverat för dina användare. Dessa alternativ finns den **princip för lösenordsåterställning för användare** för din katalog **konfigurera** fliken. Till exempel om du inte aktiverar säkerhetsfrågor, kan sedan användare inte registrera för det valda alternativet.
+  > **S:** Registrerings portalen för lösen ords återställning visar bara de alternativ som du har aktiverat för dina användare. De här alternativen finns i avsnittet **princip för lösen ords återställning för användare** på fliken **Konfigurera** . Om du till exempel inte aktiverar säkerhets frågor kan användarna inte registrera sig för det alternativet.
   >
   >
-* **F:  När en användare anses vara registrerad?**
+* **F:  När anses en användare vara registrerad?**
 
-  > **S:** En användare anses vara registrerad för SSPR när de har registrerat minst **antal metoder som krävs för att återställa** ett lösenord som du har angett i den [Azure-portalen](https://portal.azure.com).
+  > **S:** En användare anses vara registrerad för SSPR när de har registrerat minst det **antal metoder som krävs för att återställa** ett lösen ord som du har angett i [Azure Portal](https://portal.azure.com).
   >
   >
 
-## <a name="password-reset"></a>Lösenordsåterställning
+## <a name="password-reset"></a>Återställ lösenord
 
-* **F:  Hindrar användare från flera försök att återställa ett lösenord i en kort tidsperiod?**
+* **F:  Hindrar du användare från att använda flera försök att återställa ett lösen ord under en kort tids period?**
 
-  > **S:** Ja, det finns säkerhetsfunktioner som är inbyggda i lösenordsåterställning för att skydda dem från missbruk. 
+  > **S:** Ja, det finns säkerhetsfunktioner som är inbyggda i lösen ords återställning för att skydda dem från missbruk. 
   >
-  > Du kan testa endast fem återställning lösenordsförsök inom 24 timmar innan de har låsts ute i 24 timmar. 
+  > Användare kan bara prova fem försök att återställa lösen ord inom en 24-timmarsperiod innan de är låsta i 24 timmar. 
   >
-  > Användare kan försöka att validera ett telefonnummer, skicka ett SMS eller verifiera säkerhetsfrågor och svar bara fem gånger inom en timme innan de har låsts ute i 24 timmar. 
+  > Användare kan försöka verifiera ett telefonnummer, skicka ett SMS eller verifiera säkerhets frågor och svara bara fem gånger inom en timme innan de är låsta i 24 timmar. 
   >
-  > Användarna kan skicka ett e-postmeddelande högst 10 gånger inom 10 minuter innan de har låsts ute i 24 timmar.
+  > Användare kan skicka ett e-postmeddelande högst 10 gånger inom en 10-minuters period innan de är låsta i 24 timmar.
   >
-  > Räknarna återställs när en användare återställer sitt lösenord.
+  > Räknarna återställs när en användare återställer sitt lösen ord.
   >
   >
-* **F:  Hur länge ska vänta tar emot ett e-post, SMS eller telefonsamtal från återställning av lösenord?**
+* **F:  Hur lång tid ska jag vänta på att få ett e-postmeddelande, SMS eller telefonsamtal från återställning av lösen ord?**
 
-  > **S:** E-post, SMS-meddelanden och samtal ska tas emot i mindre än en minut. I normala fall är 5 till 20 sekunder.
-  > Om du inte får meddelandet i det här tidsintervallet:
-  > * Kontrollera skräpposten.
-  > * Kontrollera att talet eller e-post som kontaktas är det du förväntar dig.
-  > * Kontrollera att autentiseringsdata i katalogen är korrekt formaterad exempelvis + 1 4255551234 eller *användaren\@contoso.com*. 
-* **F:  Vilka språk stöds vid återställning av lösenord?**
+  > **S:** E-postmeddelanden, SMS-meddelanden och telefonsamtal ska komma in under en minut. Det normala fallet är 5 till 20 sekunder.
+  > Om du inte får meddelandet inom denna tidsram:
+  > * Kontrol lera mappen skräp post.
+  > * Kontrol lera att det nummer eller den e-postadress som du kontaktar är det du förväntar dig.
+  > * Kontrol lera att autentiseringsdata i katalogen är korrekt formaterat, till exempel + 1 4255551234 eller *User\@contoso.com*. 
+* **F:  Vilka språk stöds av lösen ords återställning?**
 
-  > **S:** Användargränssnittet för lösenordsåterställning SMS-meddelanden och röstsamtal är lokaliserade på samma språk som stöds i Office 365.
+  > **S:** Användar gränssnittet för lösen ords återställning, SMS-meddelanden och röst samtal lokaliseras på samma språk som stöds i Office 365.
   >
   >
-* **F:  Vilka delar av lösenordsåterställningen hämta märkesprodukter när jag har angett i organisationens företagsanpassning objekt i min katalog är konfigurera fliken?**
+* **F:  Vilka delar av lösen ords återställningen visas när jag anger objekt för organisations anpassning på fliken Konfigurera i min katalog?**
 
-  > **S:** Portalen för återställning av lösenord visar organisationens logotyp och låter dig konfigurera länken ”Kontakta administratören” så att den pekar till en anpassad e-post eller URL. Alla e-postmeddelanden som skickas av lösenordsåterställning innehåller organisationens logotyp, färger och namn i brödtexten i e-postmeddelandet och har anpassats från inställningarna för det specifika namnet.
+  > **S:** Portalen för lösen ords återställning visar din organisations logo typ och gör att du kan konfigurera länken "kontakta administratören" så att den pekar på en anpassad e-postadress eller URL. Alla e-postmeddelanden som skickas med återställning av lösen ord innehåller din organisations logo typ, färger och namn i e-postmeddelandets brödtext och är anpassad från inställningarna för det aktuella namnet.
   >
   >
-* **F:  Hur kan jag för att informera användarna om vart du ska gå att återställa sina lösenord?**
+* **F:  Hur kan jag utbilda mina användare om var man ska återställa sina lösen ord?**
 
-  > **S:** Prova några förslag på vår [SSPR distribution](howto-sspr-deployment.md#communications-plan) artikeln.
+  > **S:** Prova några av förslagen i vår [SSPR-distributions](howto-sspr-deployment.md#communications-plan) artikel.
   >
   >
 * **F:  Kan jag använda den här sidan från en mobil enhet?**
 
-  > **S:** Ja, fungerar den här sidan på mobila enheter.
+  > **S:** Ja, den här sidan fungerar på mobila enheter.
   >
   >
-* **F:  Det stöd för att låsa upp lokala Active Directory-konton när användare återställa sina lösenord?**
+* **F:  Har du stöd för att låsa upp lokala Active Directory konton när användarna återställer sina lösen ord?**
 
-  > **S:** Ja. När en användare återställer sina lösenord, om tillbakaskrivning av lösenord har distribuerats via Azure AD Connect, låses användarens konto automatiskt när de återställer sina lösenord.
+  > **S:** Ja. När en användare återställer sitt lösen ord, om tillbakaskrivning av lösen ord har distribuerats via Azure AD Connect låses användarens konto automatiskt när lösen ordet återställs.
   >
   >
-* **F:  Hur kan jag integrera direkt till min användarens inloggning Skrivbordsmiljö för återställning av lösenord?**
+* **F:  Hur kan jag integrera lösen ords återställning direkt i min användares inloggnings upplevelse?**
 
-  > **S:** Om du är en Azure AD Premium-kund kan du installera Microsoft Identity Manager utan extra kostnad och distribuerar den lokala lösenordsåterställning av lösningen.
+  > **S:** Om du är Azure AD Premium kund kan du installera Microsoft Identity Manager utan extra kostnad och distribuera den lokala lösningen för återställning av lösen ord.
   >
   >
-* **F:  Kan jag ställa in olika säkerhetsfrågor för olika språk?**
+* **F:  Kan jag ange olika säkerhets frågor för olika språk?**
 
-  > **S:** Nej, detta är inte möjligt i dag.
+  > **S:** Nej, det är inte möjligt idag.
   >
   >
-* **F:  Hur många frågor kan jag konfigurera för säkerhetsalternativ för autentisering av frågor?**
+* **F:  Hur många frågor kan jag konfigurera för autentisering med säkerhets frågor?**
 
-  > **S:** Du kan konfigurera upp till 20 anpassade säkerhetsfrågor i den [Azure-portalen](https://portal.azure.com).
+  > **S:** Du kan konfigurera upp till 20 anpassade säkerhets frågor i [Azure Portal](https://portal.azure.com).
   >
   >
-* **F:  Hur lång tid kan säkerhetsfrågor vara?**
+* **F:  Hur länge kan säkerhets frågor vara?**
 
-  > **S:** Säkerhetsfrågor kan innehålla 3 till 200 tecken.
+  > **S:** Säkerhets frågor kan vara mellan 3 och 200 tecken långa.
   >
   >
-* **F:  Hur lång tid kan svar på säkerhetsfrågor vara?**
+* **F:  Hur länge kan svaren på säkerhets frågorna vara?**
 
-  > **S:** Svar kan innehålla 3 till 40 tecken.
+  > **S:** Svar kan vara mellan 3 och 40 tecken långt.
   >
   >
-* **F:  Är duplicerade svar på säkerhetsfrågor som avvisade?**
+* **F:  Avvisas dubbla svar på säkerhets frågor?**
 
-  > **S:** Ja, vi avvisa duplicerade svar på säkerhetsfrågor.
+  > **S:** Ja, vi avvisar dubbla svar på säkerhets frågor.
   >
   >
-* **F:  Kan en användare registrera samma säkerhetsfråga mer än en gång?**
+* **F:  Kan en användare registrera samma säkerhets fråga mer än en gång?**
 
-  > **S:** Nej. När en användare registrerar en viss fråga, kan de registrera sig för frågan en gång.
+  > **S:** Nej. När en användare registrerar en viss fråga kan de inte registrera sig för den frågan en gång i sekunden.
   >
   >
-* **F:  Är det möjligt att ange en lägsta gräns på säkerhetsfrågor för registrering och återställa?**
+* **F:  Är det möjligt att ange en minsta gräns för säkerhets frågor för registrering och återställning?**
 
-  > **S:** Ja, kan du ange en gräns för registrering och en annan för återställning. Tre till fem säkerhetsfrågor kan krävas för registrering, och tre till fem frågor kan krävas för återställning.
+  > **S:** Ja, en gräns kan ställas in för registrering och en annan för återställning. Tre till fem säkerhets frågor kan krävas för registrering och tre till fem frågor kan krävas för återställning.
   >
   >
-* **F:  Jag har konfigurerat min principen så att användarna kan använda säkerhetsfrågor för återställning, men Azure-administratörer verkar konfigureras på olika sätt.**
+* **F:  Jag konfigurerade min princip för att kräva att användare använder säkerhets frågor för återställning, men Azure-administratörer verkar vara konfigurerade på olika sätt.**
 
-  > **S:** Detta är förväntat beteende. Microsoft tillämpar en stark standardprincip med två gates för lösenordsåterställning för alla Azure-administratörsroller. Detta förhindrar att administratörer med säkerhetsfrågor. Du hittar mer information om den här principen i den [lösenordsprinciper och begränsningar i Azure Active Directory](concept-sspr-policy.md) artikeln.
+  > **S:** Detta är det förväntade beteendet. Microsoft tillämpar en stark standardprincip med två gates för lösenordsåterställning för alla Azure-administratörsroller. Detta förhindrar administratörer från att använda säkerhets frågor. Du hittar mer information om den här principen i [lösen ords principer och begränsningar i Azure Active Directory](concept-sspr-policy.md) artikel.
   >
   >
-* **F:  Om en användare har registrerat mer än det maximala antalet frågor som krävs för återställning, hur säkerhetsfrågorna väljs under återställning?**
+* **F:  Om en användare har registrerat fler än det högsta antalet frågor som krävs för att återställa, hur ska säkerhets frågorna väljas vid återställning?**
 
-  > **S:** *N* antalet säkerhetsfrågor väljs slumpmässigt från det totala antalet frågor en användare har registrerat för var *N* är den mängd som har angetts för den **antalet frågor som krävs för att återställa** alternativet. Till exempel om en användare har registrerat fem säkerhetsfrågor, men bara tre krävs för att återställa ett lösenord, tre av de fem frågorna väljs slumpmässigt och presenteras vid återställning. För att förhindra att fråga till, om användaren får svar på frågorna fel urvalsprocessen startar.
+  > **S:** *N* antal säkerhets frågor väljs slumpmässigt ut från det totala antalet frågor som en användare har registrerat sig för, där *N* är den mängd som anges för det **antal frågor som krävs för att återställa** alternativet. Om en användare exempelvis har registrerat fem säkerhets frågor, men bara tre krävs för att återställa ett lösen ord, väljs tre av de fem frågorna slumpmässigt och visas vid återställning. Om användaren får svar på frågor som är inaktive rad börjar urvals processen för att förhindra frågans hammare.
   >
   >
-* **F:  Hur lång tid är e-post och SMS enstaka lösenord giltig?**
+* **F:  Hur länge är e-post och lösen ord för eng ång slö sen ord giltiga?**
 
-  > **S:** Sessioners livstid för återställning av lösenord är 15 minuter. Användaren har 15 minuter att återställa sina lösenord från början av åtgärden för lösenordsåterställning. E-post och SMS engångskod är ogiltiga när den här tidsperioden har gått ut.
+  > **S:** Sessionens livs längd för lösen ords återställning är 15 minuter. Från början av åtgärden för lösen ords återställning har användaren 15 minuter på sig att återställa sitt lösen ord. Lösen ordet för e-post och SMS-eng ång slö sen ord är giltiga i 5 minuter under sessionen för lösen ords återställning.
   >
   >
-* **F:  Kan jag hindra användare från att återställa sina lösenord?**
+* **F:  Kan jag blockera användare från att återställa sitt lösen ord?**
 
-  > **S:** Om du använder en grupp för att aktivera SSPR, kan du Ja, ta bort en enskild användare från gruppen där användarna kan återställa sina lösenord. Om användaren är en Global administratör de behåller möjligheten att återställa sina lösenord, och det går inte att inaktivera.
-  >
-  >
-
-## <a name="password-change"></a>Lösenordsändring
-
-* **F:  Var ska Mina användare gå för att ändra sina lösenord?**
-
-  > **S:** Användare kan ändra sina lösenord överallt där de ser sina profilbild eller ikonen, som i det övre högra hörnet av deras [Office 365](https://portal.office.com) portal eller [åtkomstpanelen](https://myapps.microsoft.com) inträffar. Användare kan ändra sina lösenord från den [Åtkomstpanelsprofil sidan](https://account.activedirectory.windowsazure.com/r#/profile). Användare kan också behöva ändra sina lösenord automatiskt på inloggningssidan för Azure AD om deras lösenord har upphört att gälla. Slutligen användare kan bläddra till den [portal Azure AD-lösenordsändring](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) direkt om de vill ändra sina lösenord.
-  >
-  >
-* **F:  Kan Mina användare meddelas i Office-portalen när deras lokala lösenord upphör att gälla?**
-
-  > **S:** Ja, det är möjligt i dag om du använder Active Directory Federation Services (AD FS). Om du använder AD FS följer du anvisningarna i den [skicka lösenord princip anspråk med AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) artikeln. Om du använder synkronisering av lösenordshash kan är det inte möjligt i dag. Vi Synkronisera inte lösenordsprinciper från lokala kataloger, så det inte är möjligt för oss upphör att gälla aviseringar till molnet upplevelser. I båda fallen är det också möjligt att [meddela användare vars lösenord ska upphöra att gälla via PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
-  >
-  >
-* **F:  Kan jag hindra användare från att ändra sina lösenord?**
-
-  > **S:** Ändringar av lösenord för molnexklusiva användare kan inte blockeras. För lokala användare, kan du ange den **användaren kan inte ändra lösenordet** alternativet för att du har valt. De valda användarna kan inte ändra sina lösenord.
+  > **S:** Ja, om du använder en grupp för att aktivera SSPR kan du ta bort en enskild användare från gruppen som gör det möjligt för användare att återställa sina lösen ord. Om användaren är global administratör behåller de möjligheten att återställa sitt lösen ord och kan inte inaktive ras.
   >
   >
 
-## <a name="password-management-reports"></a>Lösenordshanteringsrapporter
+## <a name="password-change"></a>Ändring av lösenord
 
-* **F:  Hur lång tid tar det för de data som visas på lösenordshanteringsrapporter?**
+* **F:  Var ska mina användare ändra sina lösen ord?**
 
-  > **S:** Data bör visas på lösenordshanteringsrapporter i 5-10 minuter. I vissa fall kan det ta upp till en timme visas.
+  > **S:** Användare kan ändra sina lösen ord var de än befinner sig i sin profil bild eller ikon, som i det övre högra hörnet av [Office 365](https://portal.office.com) -portalen eller [åtkomst panels](https://myapps.microsoft.com) upplevelser. Användare kan ändra sina lösen ord från [åtkomst panelens profil sida](https://account.activedirectory.windowsazure.com/r#/profile). Användare kan också uppmanas att ändra sina lösen ord automatiskt på inloggnings sidan för Azure AD om deras lösen ord har upphört att gälla. Slutligen kan användarna Bläddra till [Azure AD-portalen för ändring av lösen ord](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) direkt om de vill ändra sina lösen ord.
   >
   >
-* **F:  Hur kan jag för att filtrera lösenordshanteringsrapporter?**
+* **F:  Kan mina användare meddelas i Office-portalen när deras lokala lösen ord upphör att gälla?**
 
-  > **S:** Välj små förstoringsglaset till extrema höger om kolumnetiketterna längst upp i rapporten för att filtrera lösenordshanteringsrapporter. Om du vill göra mer omfattande filtrering kan du ladda ned rapporten till Excel och skapa en pivottabell.
+  > **S:** Ja, det här är möjligt idag om du använder Active Directory Federation Services (AD FS) (AD FS). Om du använder AD FS följer du anvisningarna i artikeln [skicka anspråk för lösen ords princip med AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) . Om du använder hash-synkronisering av lösen ord är detta inte möjligt idag. Vi synkroniserar inte lösen ords principer från lokala kataloger, så det är inte möjligt för oss att skicka meddelanden om förfallo datum till moln upplevelser. I båda fallen är det också möjligt att [meddela användare vars lösen ord håller på att gå ut från PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
-* **F: Vad är det maximala antalet händelser som lagras i lösenordshanteringsrapporter?**
+* **F:  Kan jag blockera användare från att ändra sina lösen ord?**
 
-  > **S:** Upp till 75 000 återställning av lösenord eller ett lösenord lagras registreringshändelser för lösenordsåterställning i lösenordshanteringsrapporter, utsträckning tillbaka så långt det är 30 dagar. Vi arbetar för att expandera det här talet med fler händelser.
+  > **S:** Det går inte att blockera lösen ords ändringar för enbart moln användare. För lokala användare kan du ange att alternativet **användare inte kan ändra lösen ordet** till är markerat. De valda användarna kan inte ändra sina lösen ord.
   >
   >
-* **F:  Hur långt tillbaka går lösenordshanteringsrapporter?**
 
-  > **S:** Lösenordshanteringsrapporter visar åtgärder som inträffat under de senaste 30 dagarna. För tillfället, om du vill arkivera dessa data, kan du hämta rapporter med jämna mellanrum och spara dem i en annan plats.
-  >
-  >
-* **F:  Finns det ett maximalt antal rader som kan visas på lösenordshanteringsrapporter?**
+## <a name="password-management-reports"></a>Rapporter för lösen ords hantering
 
-  > **S:** Ja. Upp till 75 000 rader kan visas på något av lösenordshanteringsrapporter, oavsett om de visas i Användargränssnittet eller laddas ned.
-  >
-  >
-* **F:  Finns det en API för att få åtkomst till återställning av lösenord eller registrering som rapporterar data?**
+* **F:  Hur lång tid tar det för data att visas i rapporterna för lösen ords hantering?**
 
-  > **S:** Ja. Läs hur du kan komma åt lösenordsåterställning reporting dataströmmen i [kan få tillgång till återställning av lösenord rapporteringshändelser programmässigt](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **S:** Data ska visas i rapporterna för lösen ords hantering i 5 till 10 minuter. I vissa fall kan det ta upp till en timme innan det visas.
+  >
+  >
+* **F:  Hur kan jag filtrera rapporterna för lösen ords hantering?**
+
+  > **S:** Filtrera rapporterna för lösen ords hantering genom att välja det små förstorings glaset i den yttersta högerkanten av kolumn etiketterna, längst upp i rapporten. Om du vill göra bättre filtrering kan du ladda ned rapporten till Excel och skapa en pivot-tabell.
+  >
+  >
+* **F: Vilket är det maximala antalet händelser som lagras i rapporterna för lösen ords hantering?**
+
+  > **S:** Upp till 75 000 lösen ords återställning eller registrerings händelser för lösen ords återställning lagras i rapporterna för lösen ords hantering, som sträcker sig tillbaka så långt som 30 dagar. Vi arbetar för att expandera det här talet för att inkludera fler händelser.
+  >
+  >
+* **F:  Hur långt tillbaka går det att använda rapporterna för lösen ords hantering?**
+
+  > **S:** Rapporter för lösen ords hantering visar åtgärder som inträffat under de senaste 30 dagarna. För tillfället kan du hämta rapporterna regelbundet och spara dem på en annan plats om du behöver arkivera dessa data.
+  >
+  >
+* **F:  Finns det ett maximalt antal rader som kan visas i rapporterna för lösen ords hantering?**
+
+  > **S:** Ja. Högst 75 000 rader kan visas i någon av rapporterna för lösen ords hantering, oavsett om de visas i användar gränssnittet eller hämtas.
+  >
+  >
+* **F:  Finns det ett API för att få åtkomst till återställnings data för lösen ords återställning eller registrering?**
+
+  > **S:** Ja. Information om hur du kan komma åt rapporterings data strömmen för lösen ords återställning finns i [Lär dig hur du kommer åt rapporterings händelser för lösen ords återställning program mässigt](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
   >
   >
 
 ## <a name="password-writeback"></a>Tillbakaskrivning av lösenord
 
-* **F:  Hur fungerar tillbakaskrivning av lösenord i bakgrunden?**
+* **F:  Hur fungerar tillbakaskrivning av lösen ord bakom bakgrunden?**
 
-  > **S:** Finns i artikeln [hur tillbakaskrivning av lösenord fungerar](howto-sspr-writeback.md) för en förklaring av vad som händer när du aktiverar tillbakaskrivning av lösenord och hur data flödar genom systemet tillbaka till din lokala miljö.
+  > **S:** Se artikeln [så här fungerar tillbakaskrivning av lösen ord](howto-sspr-writeback.md) för att få en förklaring av vad som händer när du aktiverar tillbakaskrivning av lösen ord och hur data flödar genom systemet tillbaka till din lokala miljö.
   >
   >
-* **F:  Hur lång tid tillbakaskrivning av lösenord tar ska fungera? Är det en synkronisering fördröjning har uppstått med hash-synkronisering av lösenord?**
+* **F:  Hur lång tid tar det att använda tillbakaskrivning av lösen ord? Finns det en fördröjning av lösen ordets hash-synkronisering?**
 
-  > **S:** Tillbakaskrivning av lösenord är direkt. Det är en synkron pipeline som fungerar grunden annorlunda än synkronisering av lösenordshash. Tillbakaskrivning av lösenord kan du få i realtid feedback om deras återställning av lösenord eller ändra åtgärden. Genomsnittlig tid för en lyckad tillbakaskrivning av lösenord är under 500 ms.
+  > **S:** Tillbakaskrivning av lösen ord är direkt. Det är en synkron pipeline som fungerar på ett annat sätt än hash-synkronisering av lösen ord. Med tillbakaskrivning av lösen ord kan användarna få feedback i real tid om resultatet av återställningen av lösen ordet eller ändrings åtgärden. Genomsnittlig tid för en lyckad tillbakaskrivning av lösen ord är under 500 ms.
   >
   >
-* **F:  Om mitt lokala konto inaktiveras, hur är min molnkonto och åtkomst påverkas?**
+* **F:  Om mitt lokala konto är inaktiverat, hur fungerar mitt moln konto och åtkomst?**
 
-  > **S:** Om ditt lokala-ID har inaktiverats kan kommer dina moln-ID och åtkomst också att inaktiveras när nästa synkroniseringsintervall via Azure AD Connect. Den här synkroniseringen har som standard var 30: e minut.
+  > **S:** Om ditt lokala ID är inaktiverat inaktive ras även ditt moln-ID och åtkomst vid nästa synkroniseringstillstånd genom att Azure AD Connect. Som standard är den här synkroniseringen var 30: e minut.
   >
   >
-* **F:  Om mitt lokala konto är begränsad av en lokal Active Directory-lösenordsprincip, SSPR lyder under den här principen om jag ändrar mitt lösenord?**
+* **F:  Om mitt lokala konto begränsas av en lokal Active Directory lösen ords princip, följer SSPR den här principen när jag ändrar mitt lösen ord?**
 
-  > **S:** Ja, förlitar sig på SSPR och följer av den lokala Active Directory-lösenordsprincip. Den här principen innehåller lösenordsprinciper för för vanliga Active Directory-domän, samt några definierade, detaljerade lösenordsprinciper som är riktade till en användare.
+  > **S:** Ja, SSPR förlitar sig på och följer den lokala Active Directory lösen ords principen. Den här principen omfattar den typiska Active Directory domän lösen ords principen, samt eventuella definierade, detaljerade lösen ords principer som är riktade till en användare.
   >
   >
-* **F:  Vilka typer av konton fungerar tillbakaskrivning av lösenord fungerar för?**
+* **F:  Vilka typer av konton fungerar tillbakaskrivning av lösen ord?**
 
-  > **S:** Tillbakaskrivning av lösenord fungerar för användarkonton som synkroniseras från en lokal Active Directory till Azure AD, inklusive federerad, lösenord hash-synkroniserade och anslutningsdiskar Autentication-användare.
+  > **S:** Tillbakaskrivning av lösen ord fungerar för användar konton som synkroniseras från lokala Active Directory till Azure AD, inklusive federerad, hash-synkronisering av lösen ord och genom strömning av autentication-användare.
   >
   >
-* **F:  Påtvingar tillbakaskrivning av lösenord min domän lösenordsprinciper?**
+* **F:  Tillämpar tillbakaskrivning av lösen ord min domäns lösen ords principer?**
 
-  > **S:** Ja. Tillbakaskrivning av lösenord framtvingar ålder för lösenord, historik, komplexitet, filter och andra begränsningar som du kan utsätta på plats för lösenord i den lokala domänen.
+  > **S:** Ja. Tillbakaskrivning av lösen ord tvingar lösen ordets ålder, historik, komplexitet, filter och annan begränsning som du kan lägga på på lösen ord i din lokala domän.
   >
   >
-* **F:  Är tillbakaskrivning av lösenord säker?  Hur vet jag att jag inte kommer över ditt konto?**
+* **F:  Är tillbakaskrivning av lösen ord säkert?  Hur kan jag vara säker på att jag inte blir hackad?**
 
-  > **S:** Ja, tillbakaskrivning av lösenord är säker. Om du vill läsa mer om flera säkerhetslager implementeras av tjänsten för tillbakaskrivning av lösenord, Kolla in den [säkerhet för tillbakaskrivning av lösenord](concept-sspr-writeback.md#password-writeback-security) i avsnittet den [översikt för tillbakaskrivning av lösenord](howto-sspr-writeback.md) artikeln.
+  > **S:** Ja, tillbakaskrivning av lösen ord är säker. Om du vill läsa mer om flera säkerhets nivåer som implementeras av tjänsten för tillbakaskrivning av lösen ord, kan du titta på avsnittet om [tillbakaskrivning](concept-sspr-writeback.md#password-writeback-security) av lösen ord i artikeln [Översikt över tillbakaskrivning av lösen](howto-sspr-writeback.md) ord.
   >
   >
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: cb783630b32b4cc28d4e4f1cfb33027da3b8d2e0
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 3325cb7170ebe42962c403d25d04c9fe2bae3b45
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966566"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276030"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Kopiera data från Azure Database for MariaDB med Azure Data Factory 
 
@@ -41,7 +41,7 @@ Följande egenskaper stöds för Azure Database for MariaDB länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Egenskapen Type måste anges till: **MariaDB** | Ja |
+| type | Egenskapen Type måste anges till: **AzureMariaDB** | Ja |
 | connectionString | En anslutnings sträng för att ansluta till Azure Database for MariaDB. Du kan hitta den från Azure Portal-> dina Azure Database for MariaDB->-anslutningssträngar – > ADO.NET One. <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ställa in lösen ord i Azure Key Vault och `pwd` Hämta konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -51,7 +51,7 @@ Följande egenskaper stöds för Azure Database for MariaDB länkade tjänsten:
 {
     "name": "AzureDatabaseForMariaDBLinkedService",
     "properties": {
-        "type": "MariaDB",
+        "type": "AzureMariaDB",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
@@ -72,7 +72,7 @@ Följande egenskaper stöds för Azure Database for MariaDB länkade tjänsten:
 {
     "name": "AzureDatabaseForMariaDBLinkedService",
     "properties": {
-        "type": "MariaDB",
+        "type": "AzureMariaDB",
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
@@ -99,11 +99,11 @@ Följande egenskaper stöds för Azure Database for MariaDB länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Database for MariaDB data uppsättning.
 
-Om du vill kopiera data från Azure Database for MariaDB anger du egenskapen type för data uppsättningen till **MariaDBTable**. Följande egenskaper stöds:
+Följande egenskaper stöds för att kopiera data från Azure Database for MariaDB:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Data uppsättningens typ-egenskap måste anges till: **MariaDBTable** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **AzureMariaDBTable** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -112,12 +112,13 @@ Om du vill kopiera data från Azure Database for MariaDB anger du egenskapen typ
 {
     "name": "AzureDatabaseForMariaDBDataset",
     "properties": {
-        "type": "MariaDBTable",
+        "type": "AzureMariaDBTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Database for MariaDB linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -128,11 +129,11 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="azure-database-for-mariadb-as-source"></a>Azure Database for MariaDB som källa
 
-Om du vill kopiera data från Azure Database for MariaDB anger du käll typen i kopierings aktiviteten till **MariaDBSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+För att kopiera data från Azure Database for MariaDB, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **MariaDBSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **AzureMariaDBSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
@@ -156,7 +157,7 @@ Om du vill kopiera data från Azure Database for MariaDB anger du käll typen i 
         ],
         "typeProperties": {
             "source": {
-                "type": "MariaDBSource",
+                "type": "AzureMariaDBSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {

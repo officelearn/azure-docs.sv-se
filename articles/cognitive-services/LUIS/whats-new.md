@@ -9,20 +9,26 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: a7f64a07378b5ef0085fe77018d6b202984bc1a3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: b29fdf4e5b3f2719865820695f659df7e75e19b5
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945827"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256432"
 ---
 # <a name="whats-new-in-language-understanding"></a>Vad är nytt i Language Understanding
 
 Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig för anteckningar, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.  
 
 ## <a name="release-notes"></a>Viktig information 
+
+### <a name="september-3-2019"></a>3 september 2019
+
+* Azure Authoring-resurs – [migrera nu](luis-migration-authoring.md).
+* Turkiskt stöd för fördefinierade entiteter
+* Italiensk support för datetimeV2
 
 ### <a name="july-23-2019"></a>23 juli 2019
 
@@ -37,7 +43,7 @@ Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig för anteckni
 
 ### <a name="june-24-2019"></a>24 juni 2019
 
-* [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md) -fördefinierad entitet som stöd för sortering, till exempel nästa, föregående och sista. Endast engelsk kultur.
+* [OrdinalV2-fördefinierad entitet](luis-reference-prebuilt-ordinal-v2.md) som stöd för sortering, till exempel nästa, föregående och sista. Endast engelsk kultur.
 
 ### <a name="may-6-2019---build-conference"></a>6 maj 2019-build-konferens
 

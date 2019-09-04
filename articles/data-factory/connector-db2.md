@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 2bdec0c70e9f11ca40e0ff9e1aa87898c94e119c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: c774725d4a4db4f624cd3980041b2974dfc8ed28
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232986"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275555"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -32,6 +32,7 @@ Du kan kopiera data från DB2-databasen till alla mottagar data lager som stöds
 
 I synnerhet stöder denna DB2-anslutning följande IBM DB2-plattformar och versioner med Distributed Relations databas arkitektur (SQLAM), version 9, 10 och 11:
 
+* IBM DB2 för z/OS 12,1
 * IBM DB2 för z/OS 11,1
 * IBM DB2 för z/OS 10,1
 * IBM DB2 för i 7,3
@@ -99,14 +100,16 @@ Följande egenskaper stöds för DB2-länkad tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av DB2-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av DB2-datauppsättningen.
 
-Om du vill kopiera data från DB2 anger du egenskapen type för data uppsättningen till **RelationalTable**. Följande egenskaper stöds:
+Följande egenskaper stöds för att kopiera data från DB2:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Data uppsättningens typ-egenskap måste anges till: **RelationalTable** | Ja |
-| tableName | Namnet på tabellen i DB2-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| type | Data uppsättningens typ-egenskap måste anges till: **Db2Table** | Ja |
+| schema | Schemats namn. |Nej (om ”query” i aktivitetskälla har angetts)  |
+| table | Namnet på tabellen. |Nej (om ”query” i aktivitetskälla har angetts)  |
+| tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och`table` för nya arbets belastningar. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -115,15 +118,18 @@ Om du vill kopiera data från DB2 anger du egenskapen type för data uppsättnin
     "name": "DB2Dataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "Db2Table",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<DB2 linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+Om du använder typ `RelationalTable` av data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya som går framåt.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
@@ -131,11 +137,11 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="db2-as-source"></a>DB2 som källa
 
-Om du vill kopiera data från DB2 anger du käll typen i kopierings aktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från DB2:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **RelationalSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **Db2Source** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
@@ -159,7 +165,7 @@ Om du vill kopiera data från DB2 anger du käll typen i kopierings aktiviteten 
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "Db2Source",
                 "query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""
             },
             "sink": {
@@ -169,6 +175,8 @@ Om du vill kopiera data från DB2 anger du käll typen i kopierings aktiviteten 
     }
 ]
 ```
+
+Om du använder typ `RelationalSource` av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
 
 ## <a name="data-type-mapping-for-db2"></a>Data typs mappning för DB2
 

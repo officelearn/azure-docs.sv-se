@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf6a5b07dd72c4e2364281b755e77e642f8fe167
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 161539aaec4d3b7162405f437b7fb3dd1f6a00e6
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542984"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258847"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Metod tips för Azure Resource Manager mall
 
@@ -169,13 +169,13 @@ Följande information kan vara till hjälp när du arbetar med [variabler](resou
 
 ## <a name="resource-dependencies"></a>Resursberoenden
 
-När du bestämmer [](resource-group-define-dependencies.md) vilka beroenden som ska anges använder du följande rikt linjer:
+När du bestämmer vilka [beroenden](resource-group-define-dependencies.md) som ska anges använder du följande rikt linjer:
 
 * Använd funktionen **Reference** och skicka in resurs namnet för att ange ett implicit beroende mellan resurser som behöver dela en egenskap. Lägg inte till ett `dependsOn` explicit element när du redan har definierat ett implicit beroende. Den här metoden minskar risken för onödiga beroenden.
 
 * Ange en underordnad resurs som beroende av dess överordnade resurs.
 
-* Resurser med [villkors elementet](resource-group-authoring-templates.md#condition) inställt på false tas automatiskt bort från beroende ordningen. Ange beroenden som om resursen alltid har distribuerats.
+* Resurser med [villkors elementet](conditional-resource-deployment.md) inställt på false tas automatiskt bort från beroende ordningen. Ange beroenden som om resursen alltid har distribuerats.
 
 * Låt beroenden överlappa utan att ange dem explicit. Den virtuella datorn är till exempel beroende av ett virtuellt nätverks gränssnitt och det virtuella nätverks gränssnittet är beroende av ett virtuellt nätverk och offentliga IP-adresser. Den virtuella datorn distribueras därför efter alla tre resurser, men anger inte uttryckligen den virtuella datorn som beroende av alla tre resurserna. Den här metoden klargör beroende ordningen och gör det lättare att ändra mallen senare.
 

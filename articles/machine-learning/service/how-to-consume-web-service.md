@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03579d75ad9cbaceca1a5d42913ff546088f6cfe
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 5f57be9a1fc5d260ce580b969c8f92c87aea17a8
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982796"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279117"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
 Distribuera en Azure Machine Learning-modell som en webbtjänst skapas ett REST-API. Du kan skicka data till den här API: et och få förutsägelser som returneras av modellen. I det här dokumentet lär du dig hur du skapar klienter för webb tjänsten med C#hjälp av, go, Java och python.
 
-Du skapar en webb tjänst när du distribuerar en avbildning till Azure Container Instances, Azure Kubernetes service eller Field-programmerbara grind mat ris (FPGA). Du skapar bilder från registrerade modeller och poängsättnings-filer. Du hämtar den URI som används för att få åtkomst till en webb tjänst med hjälp av [Azure Machine Learning SDK](https://aka.ms/aml-sdk). Om autentisering är aktive rad kan du också använda SDK: n för att hämta nycklar eller tokens för autentisering.
+Du skapar en webb tjänst när du distribuerar en avbildning till Azure Container Instances, Azure Kubernetes service eller Field-programmerbara grind mat ris (FPGA). Du skapar bilder från registrerade modeller och poängsättnings-filer. Du hämtar den URI som används för att få åtkomst till en webb tjänst med hjälp av [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Om autentisering är aktive rad kan du också använda SDK: n för att hämta nycklar eller tokens för autentisering.
 
 Det allmänna arbets flödet för att skapa en klient som använder en Machine Learning-webbtjänst är:
 

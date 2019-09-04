@@ -6,19 +6,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 0b74c7b178ee4512067de4b8decba0c3c565ccd4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 26e4c4edbcfc282fffd0d43673d3585cfe973848
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616971"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241269"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd Mass utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB
 
-Den här självstudien innehåller instruktioner om hur du använder Azure Cosmos DBs .NET-bibliotek för Mass utförar för att importera och uppdatera dokument till Azure Cosmos-behållaren. Om du vill lära dig mer om bulk utförar Library och hur det hjälper dig att använda massivt data flöde och lagring, se översikts artikel för [utförar-bibliotek](bulk-executor-overview.md) . I den här självstudien får du se ett exempel på en .NET-app som Mass importer genererar slumpmässigt genererade dokument till en Azure Cosmos-behållare. När du har importerat visar det hur du kan massredigera importerade data genom att ange korrigeringar som åtgärder att utföra på vissa dokument fält. 
+Den här självstudien innehåller instruktioner om hur du använder Azure Cosmos DBs .NET-bibliotek för Mass utförar för att importera och uppdatera dokument till Azure Cosmos-behållaren. Om du vill lära dig mer om bulk utförar Library och hur det hjälper dig att använda massivt data flöde och lagring, se [översikts](bulk-executor-overview.md) artikel för utförar-bibliotek. I den här självstudien får du se ett exempel på en .NET-app som Mass importer genererar slumpmässigt genererade dokument till en Azure Cosmos-behållare. När du har importerat visar det hur du kan massredigera importerade data genom att ange korrigeringar som åtgärder att utföra på vissa dokument fält. 
 
 Massinläsning executor biblioteket är för närvarande stöds av Azure Cosmos DB SQL API och Gremlin-API-konton. Den här artikeln beskriver hur du använder bulk utförar .NET-bibliotek med SQL API-konton. Läs om hur du använder .NET-biblioteket för bulk-executor med Gremlin-API i [utföra massåtgärder i Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md). 
 
@@ -58,7 +58,7 @@ Programmet "BulkImportSample" genererar slumpmässiga dokument och Mass importer
    private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
    ```
 
-   Massinläsning importören skapar en ny databas och en samling med databasens namn, samlingsnamn och dataflöde värdena som anges i filen App.config. 
+   Mass import programmet skapar en ny databas och en behållare med databas namnet, behållar namnet och data flödes värden som anges i filen app. config. 
 
 3. Nästa DocumentClient-objekt initieras med direkt TCP-anslutnings läge:  
 

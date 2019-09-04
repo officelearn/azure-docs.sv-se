@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 8c3b9523f6e6991723b0da721dbf7667ee340772
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207970"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259179"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella marknads plats konto i Partner Center 
 
@@ -65,7 +65,7 @@ I avsnittet Publisher-ID kan du se ditt **säljar-ID**, **MPN-ID**och **utgivar-
 
 ### <a name="contact-info"></a>Kontaktinformation
 
-I avsnittet kontakt information ser du **visnings namnet**för utgivaren, säljarens **kontakt uppgifter** (kontakt namn, e-post, telefonnummer och adress för företags säljaren) och **företagets god kännare** (namn, e-postadress och telefonnummer till person som har behörighet att godkänna beslut för företaget). 
+I avsnittet kontakt information ser du **visnings namnet för utgivaren**, **säljarens kontakt uppgifter** (kontakt namn, e-post, telefonnummer och adress för företags säljaren) och **företagets god kännare** (namn, e-postadress och telefonnummer till person som har behörighet att godkänna beslut för företaget). 
 
 ### <a name="financial-details"></a>Finansiell information
 
@@ -113,14 +113,14 @@ Om du befinner dig utanför USA kanske du kan dra nytta av fördelarna med moms 
 
 #### <a name="payout-hold-status"></a>Status för utbetalning
 
-Som standard skickar Microsoft betalningar per månad. Du kan dock välja att spärra dina inbetalningar, vilket innebär att du inte kan skicka betalningar till ditt konto. Om du väljer att spärra dina inbetalningar kommer vi att fortsätta att registrera alla intäkter som du får och ange informationen i din utbetalnings **Sammanfattning**. Vi kommer dock inte att skicka några betalningar till ditt konto förrän du tar bort spärren. 
+Som standard skickar Microsoft betalningar per månad. Du kan dock välja att spärra dina inbetalningar, vilket innebär att du inte kan skicka betalningar till ditt konto. Om du väljer att spärra dina inbetalningar kommer vi att fortsätta att registrera alla intäkter som du får och ange informationen i din **utbetalnings Sammanfattning**. Vi kommer dock inte att skicka några betalningar till ditt konto förrän du tar bort spärren. 
 
-Om du vill spärra dina betalningar går du till **konto inställningar**. Under **finansiell information**går du till avsnittet Retail **Hold status** och växlar skjutreglaget till **på**. Du kan ändra din utbetalnings status när som helst, men tänk på att ditt beslut påverkar nästa månads utbetalning. Om du till exempel vill ha en utbetalning av april, se till att ställa in din utbetalnings status till före slutet av mars.
+Om du vill spärra dina betalningar går du till **konto inställningar**. Under **finansiell information**går du till avsnittet Retail **Hold status** och växlar skjutreglaget till **på**. Du kan ändra din utbetalnings status när som helst, men tänk på att ditt beslut påverkar nästa månads utbetalning. Om du till exempel vill ha en utbetalning av april, se till att ställa in din utbetalnings status **till före slutet** av mars.
 
-När du har angett statusen för din utbetalnings spärr till **på**, kommer alla utbetalningar att hållas kvar tills du växlar skjutreglaget tillbaka till **av**. När du gör det kommer du att inkluderas under nästa månads utbetalnings cykel (förutsatt att alla tillämpliga betalnings trösklar har uppfyllts). Om du till exempel har haft dina utbetalningar som är spärrade, men vill ha en utbetalning som genererats i juni, ser du till att växla över-statusen för utbetalningen är intill innan slutet av maj.
+När du har angett statusen för din utbetalnings spärr till **på**, kommer alla utbetalningar att hållas kvar tills du växlar skjutreglaget tillbaka till **av**. När du gör det kommer du att inkluderas under nästa månads utbetalnings cykel (förutsatt att alla tillämpliga betalnings trösklar har uppfyllts). Om du till exempel har haft dina utbetalningar som är spärrade, men vill ha en utbetalning som genererats i juni, **ser du till** att växla över-statusen för utbetalningen är intill innan slutet av maj.
 
 > [!NOTE]
-> Ditt val av utbetalnings **status** gäller för **alla** intäkts källor som betalas via Microsoft Partner Center, inklusive Azure Marketplace, AppSource, Microsoft Store, annonsering osv.). Du kan inte välja olika spärr status för varje intäkts källa.
+> Ditt val av **utbetalnings status** gäller för **alla** intäkts källor som betalas via Microsoft Partner Center, inklusive Azure Marketplace, AppSource, Microsoft Store, annonsering osv.). Du kan inte välja olika spärr status för varje intäkts källa.
 
 ### <a name="devices"></a>Enheter
 
@@ -278,7 +278,7 @@ Om du vill bevilja åtkomst till Partner Center till ett helt nytt Azure AD-prog
 
 1.  Från sidan **användare** (under **konto inställningar**) väljer du **Lägg till Azure AD-program**.
 2.  På nästa sida väljer du **nytt Azure AD-program**.
-3.  Ange svars- **URL** för det nya Azure AD-programmet. Detta är URL: en där användarna kan logga in och använda ditt Azure AD-program (kallas ibland också appens URL eller inloggnings-URL). Svars- **URL: en** får inte vara längre än 256 tecken och måste vara unik i din katalog.
+3.  Ange **svars-URL** för det nya Azure AD-programmet. Detta är URL: en där användarna kan logga in och använda ditt Azure AD-program (kallas ibland också appens URL eller inloggnings-URL). **Svars-URL: en** får inte vara längre än 256 tecken och måste vara unik i din katalog.
 4.  Ange **app-ID-URI** för det nya Azure AD-programmet. Detta är en logisk identifierare för Azure AD-programmet som presenteras när en begäran om enkel inloggning skickas till Azure AD. Observera att **app-ID-URI: n** måste vara unik för varje Azure AD-program i din katalog. Detta ID får inte vara längre än 256 tecken. Mer information om app-ID-URI: n finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5.  I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för Azure AD-programmet.
 6.  Välj **Spara**.
@@ -312,7 +312,7 @@ Ditt företags användare kan tilldelas följande roller och behörigheter för 
   - Kan visa vissa Publisher-rapporter
 
 > [!NOTE]
-> Rollerna global admin, affärs deltagare, ekonomi bidrag och marknads deltagare används inte i programmet för kommersiella marknads platser och har inga associerade behörigheter.
+> För programmet för kommersiella marknads platser används inte rollerna global administratör, affärs deltagare, ekonomi bidrag och marknads deltagare. Att tilldela dessa roller till användare har ingen påverkan. Endast chefs-och utvecklare-rollerna beviljar behörigheter till användare.
 
 Mer information om hur du hanterar roller och behörigheter i andra delar av Partner Center, till exempel Azure Active Directory (AD), Cloud Solution Provider (CSP), kontroll panels leverantör (CPV), gäst användare eller Microsoft Partner Network (MPN), finns i [Tilldela användar roller och behörigheter i Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 

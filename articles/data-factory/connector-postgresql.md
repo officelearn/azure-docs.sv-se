@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0efb884de9deaa2784e160785c26d78179da6567
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 84a82e5fae7c56a13aeb4603079e9378b38785cb
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966879"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277566"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Kopiera data från PostgreSQL med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -36,7 +36,7 @@ Mer specifikt stöder denna PostgreSQL-anslutning PostgreSQL **version 7,4 och s
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-För den lokala IR-versionen som är lägre än 3,7 måste du installera Ngpsql-dataprovidern [för postgresql](https://go.microsoft.com/fwlink/?linkid=282716) med version mellan 2.0.12 och 3.1.9 på den integration runtime datorn.
+För den lokala IR-versionen som är lägre än 3,7 måste du installera [Ngpsql-dataprovidern för postgresql](https://go.microsoft.com/fwlink/?linkid=282716) med version mellan 2.0.12 och 3.1.9 på den integration runtime datorn.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -139,14 +139,16 @@ Om du använder PostgreSQL-länkad tjänst med följande nytto Last, stöds den 
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av PostgreSQL DataSet.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av PostgreSQL DataSet.
 
-Om du vill kopiera data från PostgreSQL anger du egenskapen type för data uppsättningen till **RelationalTable**. Följande egenskaper stöds:
+Följande egenskaper stöds för att kopiera data från PostgreSQL:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Data uppsättningens typ-egenskap måste anges till: **RelationalTable** | Ja |
-| tableName | Namnet på tabellen i PostgreSQL-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| type | Data uppsättningens typ-egenskap måste anges till: **PostgreSqlTable** | Ja |
+| schema | Schemats namn. |Nej (om ”query” i aktivitetskälla har angetts)  |
+| table | Namnet på tabellen. |Nej (om ”query” i aktivitetskälla har angetts)  |
+| tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och`table` för nya arbets belastningar. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -155,15 +157,18 @@ Om du vill kopiera data från PostgreSQL anger du egenskapen type för data upps
     "name": "PostgreSQLDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "PostgreSqlTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<PostgreSQL linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+Om du använder typ `RelationalTable` av data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya som går framåt.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
@@ -171,11 +176,11 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="postgresql-as-source"></a>PostgreSQL som källa
 
-Om du vill kopiera data från PostgreSQL anger du käll typen i kopierings aktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+Om du vill kopiera data från PostgreSQL stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **RelationalSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **PostgreSqlSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 > [!NOTE]
@@ -202,7 +207,7 @@ Om du vill kopiera data från PostgreSQL anger du käll typen i kopierings aktiv
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "PostgreSqlSource",
                 "query": "SELECT * FROM \"MySchema\".\"MyTable\""
             },
             "sink": {
@@ -212,6 +217,8 @@ Om du vill kopiera data från PostgreSQL anger du käll typen i kopierings aktiv
     }
 ]
 ```
+
+Om du använder typ `RelationalSource` av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: cd17dcb7a9f68c25617c9e6b928ddebebcdbddbe
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 4ee9048202a5953ff27ea83cfb39cb1af0739e7a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211719"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277510"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -44,7 +44,7 @@ Mer specifikt stöder SAP Business Warehouse Connector:
 Om du vill använda den här SAP Business Warehouse Connector måste du:
 
 - Konfigurera en egen värd Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
-- Installera **SAP NetWeaver-biblioteket** på den integration runtime datorn. Du kan hämta SAP NetWeaver-biblioteket från din SAP-administratör eller direkt från [SAP Software Download Center](https://support.sap.com/swdc). Sök efter SAP-anteckningen **#1025361** för att hämta hämtnings platsen för den senaste versionen. Se till att du väljer det **64-bitars** SAP NetWeaver-bibliotek som matchar din integration runtime-installation. Installera sedan alla filer som ingår i SAP NetWeaver RFC SDK enligt SAP-anteckningen. SAP NetWeaver-biblioteket ingår också i installationen av SAP-klient verktyg.
+- Installera **SAP NetWeaver-biblioteket** på den integration runtime datorn. Du kan hämta SAP NetWeaver-biblioteket från din SAP-administratör eller direkt från [SAP Software Download Center](https://support.sap.com/swdc). Sök efter **SAP-Anteckningen #1025361** för att hämta hämtnings platsen för den senaste versionen. Se till att du väljer det **64-bitars** SAP NetWeaver-bibliotek som matchar din integration runtime-installation. Installera sedan alla filer som ingår i SAP NetWeaver RFC SDK enligt SAP-anteckningen. SAP NetWeaver-biblioteket ingår också i installationen av SAP-klient verktyg.
 
 >[!TIP]
 >Kontrol lera följande för att felsöka anslutnings problem till SAP BW:
@@ -98,9 +98,9 @@ Följande egenskaper stöds för den länkade tjänsten SAP Business Warehouse (
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW data uppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW data uppsättning.
 
-Om du vill kopiera data från SAP BW anger du egenskapen type för data uppsättningen till **RelationalTable**. Det finns inga typ-/regionsspecifika egenskaper som stöds för SAP BW-datauppsättningen av typen RelationalTable.
+Om du vill kopiera data från SAP BW anger du egenskapen type för data uppsättningen till **SapBwCube**. Det finns inga typ-/regionsspecifika egenskaper som stöds för SAP BW-datauppsättningen av typen RelationalTable.
 
 **Exempel:**
 
@@ -108,15 +108,18 @@ Om du vill kopiera data från SAP BW anger du egenskapen type för data uppsätt
 {
     "name": "SAPBWDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "SapBwCube",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+Om du använder typ `RelationalTable` av data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya som går framåt.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
@@ -124,11 +127,11 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="sap-bw-as-source"></a>SAP BW som källa
 
-Om du vill kopiera data från SAP BW anger du käll typen i kopierings aktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+För att kopiera data från SAP BW, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **RelationalSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **SapBwSource** | Ja |
 | query | Anger MDX-frågan för att läsa data från SAP BW-instansen. | Ja |
 
 **Exempel:**
@@ -152,7 +155,7 @@ Om du vill kopiera data från SAP BW anger du käll typen i kopierings aktivitet
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SapBwSource",
                 "query": "<MDX query for SAP BW>"
             },
             "sink": {
@@ -162,6 +165,8 @@ Om du vill kopiera data från SAP BW anger du käll typen i kopierings aktivitet
     }
 ]
 ```
+
+Om du använder typ `RelationalSource` av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
 
 ## <a name="data-type-mapping-for-sap-bw"></a>Data typs mappning för SAP BW
 

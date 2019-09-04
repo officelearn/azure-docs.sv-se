@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: eaf689ecb8fd64dca15570179733b7d7539a352e
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d05f98ae695dd428a28ce49934e05c60de6328bc
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050076"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257047"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS Docker-behållare
  
@@ -79,13 +79,13 @@ En fullständig beskrivning av tillgängliga taggar, till exempel som `latest` a
 
 ## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren är på värddatorn [](#the-host-computer)använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
 ![Process för att använda Language Understanding-behållare (LUIS)](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
 1. [Exportera paket](#export-packaged-app-from-luis) för container från Luis-portalen eller Luis-API: er.
-1. Flytta paket filen till den nödvändiga indatafilen på [värddatorn](#the-host-computer). Byt inte namn på, ändra, Skriv över eller expandera LUIS-paketfil.
-1. [Kör behållaren](##run-the-container-with-docker-run)med nödvändiga inställningar för _montering_ och fakturering av indatakälla. Fler [exempel](luis-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga. 
+1. Flytta paket filen till den nödvändiga **indatafilen** på [värddatorn](#the-host-computer). Byt inte namn på, ändra, Skriv över eller expandera LUIS-paketfil.
+1. [Kör behållaren](##run-the-container-with-docker-run)med nödvändiga inställningar för montering och fakturering av _indatakälla_ . Fler [exempel](luis-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga. 
 1. [Fråga efter behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint). 
 1. När du är färdig med behållaren importerar du [slut punkts loggarna](#import-the-endpoint-logs-for-active-learning) från utmatnings monteringen i Luis-portalen och [stoppar](#stop-the-container) behållaren.
 1. Använd LUIS-portalens [aktiva utbildning](luis-how-to-review-endpoint-utterances.md) på sidan **Granska slut punkt yttranden** för att förbättra appen.
@@ -104,7 +104,7 @@ Placera paket filen i en katalog och referera till den här katalogen som indata
 
 ### <a name="package-types"></a>Paket typer
 
-Monterings katalogen för indatakälla kan innehålla **produktions**-, mellanlagrings-och **utbildade** versioner av appen samtidigt. Alla paket är monterade. 
+Monterings katalogen för indatakälla kan innehålla **produktions**-, **mellanlagrings**-och **utbildade** versioner av appen samtidigt. Alla paket är monterade. 
 
 |Typ av paket|API för frågans slut punkt|Tillgänglighet för fråga|Paketets fil namns format|
 |--|--|--|--|
@@ -123,7 +123,7 @@ Innan du packar ett LUIS-program måste du ha följande:
 |--|--|
 |Resurs instans för Azure _Cognitive Services_|Regioner som stöds är<br><br>USA, västra```westus```()<br>Västeuropa (```westeurope```)<br>Östra Australien (```australiaeast```)|
 |Tränad eller publicerad LUIS-app|Utan [stödda beroenden](#unsupported-dependencies). |
-|Åtkomst till [värd datorns](#the-host-computer)fil system |Värddatorn måste tillåta en indata- [montering](luis-container-configuration.md#mount-settings).|
+|Åtkomst till [värd datorns](#the-host-computer)fil system |Värddatorn måste tillåta en [indata-montering](luis-container-configuration.md#mount-settings).|
   
 ### <a name="export-app-package-from-luis-portal"></a>Exportera appaket från LUIS-portalen
 
@@ -137,7 +137,7 @@ Den publicerade appens paket är tillgängligt från List sidan **Mina appar** .
 1. Markera kryss rutan till vänster om appens namn i listan. 
 1. Välj **Exportera** objekt från kontext verktygsfältet ovanför listan.
 1. Välj **export for container (gzip)** .
-1. Välj miljö för **produktions plats** eller mellanlagringsplats.
+1. Välj miljö för **produktions plats** eller **mellanlagringsplats**.
 1. Paketet laddas ned från webbläsaren.
 
 ![Exportera det publicerade paketet för behållaren från App-sidans export meny](./media/luis-container-how-to/export-published-package-for-container.png)
@@ -236,7 +236,7 @@ Fler [exempel](luis-container-configuration.md#example-docker-run-commands) på 
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](#billing).
-> ApiKey-värdet är **nyckeln** på sidan nycklar och slut punkter i Luis-portalen och finns också på sidan med Azures `Cognitive Services` resurs nycklar.  
+> ApiKey-värdet är **nyckeln** från sidan **Azure-resurser** på Luis-portalen och finns också på sidan med Azures `Cognitive Services` resurs nycklar.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -274,7 +274,7 @@ curl -X GET \
 "http://localhost:5000/luis/v2.0/apps/{APPLICATION_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
 -H "accept: application/json"
 ```
-Om du vill göra frågor till mellanlagrings miljön ändrar du värdet för mellanlagringsplatsen för frågesträngen till sant: 
+Om du vill göra frågor till **mellanlagrings** miljön ändrar du värdet för **mellanlagringsplatsen** för frågesträngen till sant: 
 
 `staging=true`
 
@@ -328,7 +328,7 @@ Mer information om alternativen finns i [konfigurera behållare](luis-container-
 
 Den senaste behållaren, som släpptes på 2019 build, stöder:
 
-* Stavnings kontroll i Bing: begär anden till slut punkten för `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` frågans förutsägelse med parametrarna för frågesträngen. Använd självstudierna [stavningskontroll i Bing v7](luis-tutorial-bing-spellcheck.md) för att lära dig mer. Om den här funktionen används skickar behållaren uttryck till din Stavningskontroll i Bing v7-resurs.
+* Stavnings kontroll i Bing: begär anden till slut punkten för `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` frågans förutsägelse med parametrarna för frågesträngen. Använd [självstudierna stavningskontroll i Bing v7](luis-tutorial-bing-spellcheck.md) för att lära dig mer. Om den här funktionen används skickar behållaren uttryck till din Stavningskontroll i Bing v7-resurs.
 * [Nya fördefinierade domäner](luis-reference-prebuilt-domains.md): de här företags fokuserade domänerna omfattar entiteter, exempel yttranden och mönster. Utöka dessa domäner för eget bruk. 
 
 <a name="unsupported-dependencies"></a>

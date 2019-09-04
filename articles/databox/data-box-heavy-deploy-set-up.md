@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: b6b353e0e01f3f598048e5fbb2682603045b1037
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.localizationpriority: high
+ms.openlocfilehash: f5473ae7bd9ac1615d59d18c996e01902e1adbd6
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164465"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241416"
 ---
 ::: zone target = "docs"
 
@@ -50,7 +51,7 @@ Den här guiden innehåller anvisningar om hur du granskar krav, kablar och ansl
 Innan du börjar ska du kontrollera att:
 
 1. Du har slutfört självstudien [: Beställ Azure Data Box Heavy](data-box-heavy-deploy-ordered.md).
-2. Du har fått din Data Box Heavy och order statusen i portalen har levererats.
+2. Du har fått din Data Box Heavy och order statusen i portalen har **levererats**.
 3. Du har granskat [rikt linjerna för data Box Heavy säkerhet](data-box-safety.md).
 4. Du måste ha åtkomst till en platt plats i data centret med närhet till en tillgänglig nätverks anslutning som kan hantera en enhet med det här utrymmet. Den här enheten kan inte monteras på en rack.
 5. Du har fått fyra jord-och likströms kablar som du kan använda med lagrings enheten.
@@ -86,7 +87,7 @@ Utför följande steg för att kabelansluta enheten.
 
     ![Data Box Heavy ström sladdar i facket](media/data-box-heavy-deploy-set-up/data-box-heavy-power-cords-tray.png)
 
-6. Nästa steg är att identifiera de olika portarna på bak sidan av enheten. Det finns två enhetsspecifika, **Nod1** och **NOD2**. Varje nod har fyra nätverks gränssnitt, **MGMT**, **fil1**, **data2**, **DATA3**. **MGMT** används för att konfigurera hantering under den inledande konfigurationen av enheten. DATA1-**DATA3** är data portar. **Hanterings** -och **DATA3** -portar är 1 Gbit/ s, men **fil1**kan fungera som 40 Gbit/s-portar eller 10 Gbit/s-portar. Längst ned på de två enhets noderna är fyra strömförsörjnings enheter (PSUs) som delas mellan de två enhets noderna. När du möter den här enheten är **PSUs** **PSU1**, **PSU2**, **PSU3**och **PSU4** från vänster till höger.
+6. Nästa steg är att identifiera de olika portarna på bak sidan av enheten. Det finns två enhetsspecifika, **Nod1** och **NOD2**. Varje nod har fyra nätverks gränssnitt, **MGMT**, **fil1**, **data2**, **DATA3**. **MGMT** används för att konfigurera hantering under den inledande konfigurationen av enheten. DATA1-**DATA3** är data portar. **Hanterings** -och **DATA3** -portar är 1 Gbit/s, men **fil1** **kan fungera** som 40 Gbit/s-portar eller 10 Gbit/s-portar. Längst ned på de två enhets noderna är fyra strömförsörjnings enheter (PSUs) som delas mellan de två enhets noderna. När du möter den här enheten är **PSUs** **PSU1**, **PSU2**, **PSU3**och **PSU4** från vänster till höger.
 
     ![Data Box Heavy portar](media/data-box-heavy-deploy-set-up/data-box-heavy-ports.png)
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 912a063a5a831f2eade4678719723a56548b57ee
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a20c6e90f38e6443597fdf50edd3d4766dc71096
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967534"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275279"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Kopiera data från FTP-servern med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -38,7 +38,7 @@ Denna FTP-anslutning stöds för följande aktiviteter:
 Mer specifikt stöder FTP-anslutningen:
 
 - Kopiera filer med **Basic** eller **Anonym** autentisering.
-- Kopiera filer som-är eller parsa filer med de [fil format och komprimerings](supported-file-formats-and-compression-codecs.md)-codecar som stöds.
+- Kopiera filer som-är eller parsa filer med de [fil format och komprimerings-codecar som stöds](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -122,12 +122,12 @@ Följande egenskaper stöds för den länkade FTP-tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. 
 
-- För **Parquet, avgränsad text och binärt format**, se avsnittet [Parquet, avgränsad text och binära format](#format-based-dataset) .
-- Andra format som **Orc/Avro/JSON-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
+- För **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, delimited text, Avro och Binary format data uppsättning](#format-based-dataset) .
+- Andra format som **Orc/JSON-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Parquet, avgränsad text och binärt format data uppsättning
+### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, Avro och binärt format
 
-Om du vill kopiera data från **Parquet, avgränsade text-eller binärformat**, kan du läsa mer i [Parquet format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) -artikel på formatbaserade data uppsättningar och inställningar som stöds. Följande egenskaper stöds för FTP under `location` inställningar i format-baserad data mängd:
+Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel i format-baserad data uppsättning och inställningar som stöds. Följande egenskaper stöds för FTP under `location` inställningar i format-baserad data mängd:
 
 | Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -166,7 +166,7 @@ Om du vill kopiera data från **Parquet, avgränsade text-eller binärformat**, 
 
 ### <a name="other-format-dataset"></a>Data uppsättning för andra format
 
-Följande egenskaper stöds för att kopiera data från FTP i **Orc/Avro/JSON-format**:
+Följande egenskaper stöds för att kopiera data från FTP i **Orc/JSON-format**:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -174,7 +174,7 @@ Följande egenskaper stöds för att kopiera data från FTP i **Orc/Avro/JSON-fo
 | folderPath | Sökvägen till mappen. Wildcard-filtret stöds, tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). `^` Använd om du vill använda Escape om det faktiska mappnamnet har jokertecken eller detta escape-tecken inuti. <br/><br/>Exempel: RootFolder/undermapp/, se fler exempel i [mapp-och fil filter exempel](#folder-and-file-filter-examples). |Ja |
 | fileName | **Namn eller jokertecken-filtret** för den eller filerna under den angivna ”folderPath”. Om du inte anger ett värde för den här egenskapen datauppsättningen pekar på alla filer i mappen. <br/><br/>För filter tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>– Exempel 1: `"fileName": "*.csv"`<br/>– Exempel 2: `"fileName": "???20180427.txt"`<br/>Använd `^` att undvika om din faktiska filnamnet har jokertecken eller den här escape-tecken i. |Nej |
 | format | Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia).<br/><br/>Om du vill parsa filer med ett speciellt format stöds följande fil format typer: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-Format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binär kopia scenario) |
-| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 | useBinaryTransfer | Ange om du vill använda binärt överförings läge. Värdena är true för binärt läge (standard) och falskt för ASCII. |Nej |
 
 >[!TIP]
@@ -217,12 +217,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="ftp-as-source"></a>FTP som källa
 
-- Om du vill kopiera från **Parquet, avgränsad text och binärt format**, se avsnittet [Parquet, avgränsad text och binärt format](#format-based-source) .
-- Om du vill kopiera från andra format som **Orc/Avro/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
+- Om du vill kopiera från **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, avgränsad text, Avro och binärt format](#format-based-source) .
+- Om du vill kopiera från andra format som **Orc/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, avgränsad text-och binär format källa
+#### <a name="format-based-source"></a>Parquet, avgränsad text, Avro och binär format källa
 
-Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**, referera till [Parquet-format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) -artikel med formatbaserade kopierings aktivitets källor och inställningar som stöds. Följande egenskaper stöds för FTP under `storeSettings` inställningar i format-baserad kopierings Källa:
+Om du vill kopiera data från **Parquet, avgränsad text, Avro eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binärt format](format-binary.md) artikel med format-baserad kopierings aktivitets källa och inställningar som stöds . Följande egenskaper stöds för FTP under `storeSettings` inställningar i format-baserad kopierings Källa:
 
 | Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -281,7 +281,7 @@ Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**,
 
 #### <a name="other-format-source"></a>Annan format källa
 
-Om du vill kopiera data från FTP i **Orc/Avro/JSON-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från FTP i **Orc/JSON-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |

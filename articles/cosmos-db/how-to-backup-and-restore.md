@@ -1,63 +1,63 @@
 ---
-title: Hur du återställer Azure Cosmos DB-data från en säkerhetskopia
-description: Den här artikeln beskrivs hur du återställer Azure Cosmos DB-data från en säkerhetskopia, så kontakta Azure-supporten om du vill återställa data, steg för att ta när data har återställts.
+title: Återställa Azure Cosmos DB data från en säkerhets kopia
+description: Den här artikeln beskriver hur du återställer Azure Cosmos DB data från en säkerhets kopia, hur du kontaktar Azure-supporten för att återställa data, steg som ska vidtas när data har återställts.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/01/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: c32c333de94d1ed0089323e00e6dbbaaebb36488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19ca835ca8211202cd358ac2ec3695675183a372
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241053"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240771"
 ---
-# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Återställa data från en säkerhetskopia i Azure Cosmos DB 
+# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Återställa data från en säkerhets kopia i Azure Cosmos DB 
 
-Om du råkar ta bort din databas eller en behållare kan du [öppna ett supportärende]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) eller [anropa Azure-supporten]( https://azure.microsoft.com/support/options/) att återställa data från automatiska säkerhetskopior online. Azure-support är tillgängligt för planerna i de valda endast som **Standard**, **Developer**, och planer som är högre än dem. Azure-support är inte tillgänglig med **grundläggande** plan. Läs mer om olika supportplaner, i den [supportavtal](https://azure.microsoft.com/support/plans/) sidan. 
+Om du av misstag tar bort databasen eller en behållare kan du välja [ett support ärende]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) eller [kontakta Azure-supporten]( https://azure.microsoft.com/support/options/) för att återställa data från automatiska säkerhets kopieringar online. Support för Azure är tillgängligt för valda planer, till exempel **standard**, **utvecklare**och planer som är högre än dem. Azure-supporten är inte tillgänglig med **Basic** -planen. Mer information om olika support avtal finns på sidan [support](https://azure.microsoft.com/support/plans/) avtal för Azure. 
 
-Om du vill återställa en specifik ögonblicksbild av säkerhetskopian, kräver Azure Cosmos DB att data är tillgängliga under hela säkerhetskopieringscykel för denna ögonblicksbild.
+För att återställa en speciell ögonblicks bild av säkerhets kopieringen kräver Azure Cosmos DB att data är tillgängliga under tiden för säkerhets kopierings cykeln för ögonblicks bilden.
 
 ## <a name="request-a-restore"></a>Begär en återställning
 
 Du bör ha följande information innan du begär en återställning:
 
-* Har prenumerations-ID är redo.
+* Ha ditt prenumerations-ID klart.
 
-* Baserat på hur dina data råkar ta bort eller ändras, bör du förbereda ha ytterligare information. Det rekommenderas att du har uppgifterna vidare att minimera den fram och tillbaka som kan vara skadligt ibland tiden känslig.
+* Utifrån hur dina data har tagits bort eller ändrats av misstag bör du förbereda dig för att ha ytterligare information. Vi rekommenderar att du har den information som är tillgänglig i förväg för att minimera den säkerhets kopiering som kan skadas i vissa tids känsliga fall.
 
-* Om hela Azure Cosmos DB-kontot tas bort, måste du ange namnet på kontot. Om du skapar ett annat konto med samma namn som kontot kan du dela som med supporten eftersom det hjälper dig för att fastställa rätt typ av konto du väljer. Det rekommenderas att filen olika supportärenden för varje konto som har tagits bort eftersom den minimerar förvirring av tillståndet för återställningen.
+* Om hela Azure Cosmos DBs kontot tas bort måste du ange namnet på det borttagna kontot. Om du skapar ett annat konto med samma namn som det borttagna kontot, kan du dela det med support teamet, eftersom det hjälper till att fastställa rätt konto för att välja. Vi rekommenderar att du skiljer olika support biljetter för varje borttaget konto eftersom det minimerar förvirringen i status för återställningen.
 
-* Om en eller flera databaser tas bort, bör du tillhandahåller Azure Cosmos-konto, samt Azure Cosmos-databasnamn och anger om det finns en ny databas med samma namn.
+* Om en eller flera databaser tas bort bör du ange ett Azure Cosmos-konto, samt databas namnen för Azure Cosmos och ange om det finns en ny databas med samma namn.
 
-* Om en eller flera behållare är borttagna kan bör du ange namnet på Azure Cosmos-kontot, databasnamn och behållare namnen. Och ange om det finns en behållare med samma namn.
+* Om en eller flera behållare tas bort bör du ange konto namnet för Azure-Cosmos, databas namn och behållar namnen. Och ange om det finns en behållare med samma namn.
 
-* Om du har eller förstörs dina data, bör du kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) inom åtta timmar så att Azure Cosmos DB-teamet kan du återställa data från säkerhetskopior.
+* Om du av misstag har tagit bort eller skadat dina data bör du kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) inom 8 timmar så att Azure Cosmos DB-teamet kan hjälpa dig att återställa data från säkerhets kopiorna.
   
-  * Om du har råkat ta bort din databas eller behållare, öppnar du ett supportärende Sev B eller Sev C Azure. 
-  * Om du av misstag har tagits bort eller skadad några dokument i behållaren kan du öppna ett supportärende för Sev A. 
+  * Om du av misstag har tagit bort din databas eller behållare öppnar du ett support ärende för allvarlighets grad B eller allvarlighets grad C Azure. 
+  * Om du av misstag har tagit bort eller skadat vissa dokument i behållaren öppnar du en allvarlighets grad som ett support ärende. 
 
-När data skadas och om dokumenten i en behållare har ändrats eller tagits bort, **ta bort behållaren så snart som möjligt**. Du kan undvika Azure Cosmos DB skriver över säkerhetskopiorna genom att ta bort behållaren. Om du av någon anledning att borttagningen inte är möjligt, du bör registrera en supportbegäran så snart som möjligt. Utöver Azure Cosmos-kontonamn, databasnamn, samlingsnamn, bör du ange punkten i tiden som data kan återställas till. Det är viktigt att vara så exakt som möjligt för att hjälpa oss att avgöra de bästa tillgängliga säkerhetskopiorna vid den tidpunkten. Det är också viktigt att ange hur lång tid i UTC. 
+När datafel uppstår och dokumenten i en behållare ändras eller tas bort, **tar du bort behållaren så snart som möjligt**. Genom att ta bort behållaren kan du undvika Azure Cosmos DB att skriva över säkerhets kopiorna. Om det av någon anledning inte går att ta bort filen bör du ha en biljett så snart som möjligt. Förutom namnet på Azure Cosmos-kontot, databas namn, behållar namn, bör du ange den tidpunkt som data kan återställas till. Det är viktigt att vara så exakt som möjligt för att hjälpa oss att fastställa de bästa tillgängliga säkerhets kopiorna. Det är också viktigt att ange tiden i UTC. 
 
-Följande skärmbild illustrerar hur du skapar en begäran om en container(collection/graph/table) återställa data med hjälp av Azure-portalen. Ange ytterligare information, till exempel typ av data, syftet med återställningen tid när data skedde som hjälper oss att prioritera begäran.
+Följande skärm bild visar hur du skapar en support förfrågan för en behållare (samling/graf/tabell) för att återställa data med hjälp av Azure Portal. Ange ytterligare information, till exempel typ av data, syftet med återställningen, tid när data togs bort för att prioritera begäran.
 
-![Skapa en säkerhetskopiering supportbegäran med hjälp av Azure portal](./media/how-to-backup-and-restore/backup-support-request-portal.png)
+![Skapa en support förfrågan för säkerhets kopiering med Azure Portal](./media/how-to-backup-and-restore/backup-support-request-portal.png)
 
-## <a name="post-restore-actions"></a>Efter återställning åtgärder
+## <a name="post-restore-actions"></a>Åtgärder efter återställning
 
-När du återställer data kan du få ett meddelande om namnet på det nya kontot (det är vanligtvis i formatet `<original-name>-restored1`) och hur lång tid när kontot har återställts till. Återställda kontot har samma etablerat dataflöde indexeringsprinciper och den är i samma region som det ursprungliga kontot. En användare som är prenumerationsadministratör eller en coadmin kan se det återställda kontot.
+När du har återställt data får du ett meddelande om namnet på det nya kontot (vanligt vis i formatet `<original-name>-restored1`) och tiden då kontot återställdes till. Det återställda kontot kommer att ha samma allokerade data flöde, indexerings principer och finns i samma region som det ursprungliga kontot. En användare som är prenumerations administratör eller en administratör kan se det återställda kontot.
 
-När data har återställts, bör du granska och verifiera data i det återställda kontot och kontrollera att den innehåller den version som du förväntar dig. Om allt ser bra ut, bör du migrera data tillbaka till din ursprungliga kontot med [Azure Cosmos DB-ändringsflödet](change-feed.md) eller [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
+När data har återställts bör du kontrol lera och verifiera data i det återställda kontot och se till att det innehåller den version som du förväntar dig. Om allting ser bra ut bör du migrera tillbaka data till det ursprungliga kontot med hjälp av [Azure Cosmos DB ändra feed](change-feed.md) eller [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
-Det rekommenderas att du tar bort behållare eller databasen omedelbart när du har migrerat data. Om du inte tar bort den återställda databaser eller behållare, kommer de resultera i kostnader för programbegäran, lagring och utgående trafik.
+Vi rekommenderar att du tar bort behållaren eller databasen direkt efter att ha migrerat data. Om du inte tar bort de återställda databaserna eller behållarna kommer de att debiteras för enheter för programbegäran, lagring och utgående trafik.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Därefter kan du lära dig om hur du migrerar data tillbaka till ditt ursprungliga konto med följande artiklar:
+Nu kan du lära dig hur du migrerar data tillbaka till det ursprungliga kontot med hjälp av följande artiklar:
 
-* Att göra en återställning för begäran, kontakta Azure-supporten [lämna in en biljett från Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
-* [Använd Cosmos DB-ändringsflödet](change-feed.md) att flytta data till Azure Cosmos DB.
+* Om du vill göra en återställnings förfrågan kontaktar du Azure-supporten, [File a Ticket från Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+* [Använd Cosmos DB ändra feed](change-feed.md) för att flytta data till Azure Cosmos dB.
 
-* [Använda Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) att flytta data till Azure Cosmos DB.
+* [Använd Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) för att flytta Data till Azure Cosmos dB.

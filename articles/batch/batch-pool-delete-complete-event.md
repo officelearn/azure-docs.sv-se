@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 3ad48fdba298a10d94a32e31e432c0c88b35b658
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9bf50bd19ca3f4316c4c2ddbcdd3333745ebefd7
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094843"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258551"
 ---
 # <a name="pool-delete-complete-event"></a>Sluthändelse för borttagning av pool
 
@@ -34,9 +34,9 @@ ms.locfileid: "70094843"
 
 |Element|type|Anteckningar|
 |-------------|----------|-----------|
-|id|Sträng|Poolens ID.|
-|startTime|DateTime|Tiden då poolen börjar tas bort.|
-|endTime|DateTime|Tiden då poolen togs bort.|
+|`id`|Sträng|Poolens ID.|
+|`startTime`|DateTime|Tiden då poolen börjar tas bort.|
+|`endTime`|DateTime|Tiden då poolen togs bort.|
 
 ## <a name="remarks"></a>Kommentarer
 Mer information om tillstånd och felkoder för att ändra storlek på pooler finns i [ta bort en pool från ett konto](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).

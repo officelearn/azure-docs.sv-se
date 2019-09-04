@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9d8ae3a95262b1554e7e97fac8375a44743bf4df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb792034e49b0f8f663eb9ee968ea6fac1372373
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344673"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278617"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Köra datavetenskapsaktiviteter: utforskning, modellering och distribution
 
 Vanliga datavetenskapsuppgifter inkludera datautforskning, modellering och distribution. Den här artikeln visar hur du använder den **interaktiv Datagranskning, analys och rapportering (IDEAR)** och **automatiserad modellering och rapportering (AMAR)** verktyg för att slutföra flera vanliga datavetenskapsuppgifter till exempel interaktiv datagranskning, dataanalys, rapportering och skapa en modell. Här beskrivs också alternativ för att distribuera en modell till en produktionsmiljö med hjälp av en rad olika verktyg och data plattformar, till exempel följande:
 
-- [Azure Machine Learning](../service/index.yml)
+- [Azure Machine Learning](../index.yml)
 - [SQL-Server med ML-tjänster](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -73,7 +73,7 @@ Mer information finns i [automatiserad modellering och rapportering Utility i TD
 ### <a name="model-management"></a>Modellhantering
 När flera modeller har skapats, måste vanligtvis du ha ett system för att registrera och hantera modeller. Vanligtvis behöver du en kombination av skript eller API: er och ett serverdelsystem för databasen eller versionshantering. Ett par alternativ som du kan tänka på för dessa hanteringsaktiviteter finns:
 
-1. [Azure Machine Learning - modell management-tjänsten](../service/index.yml)
+1. [Azure Machine Learning - modell management-tjänsten](../index.yml)
 2. [ModelDB från MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL-server som ett hanteringssystem för modellen](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)

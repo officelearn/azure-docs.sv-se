@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a47bb70ef87783d9b275329452c94526c67a2c3
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: d82f843cb5cdd7b910c734f26a93144374061b74
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211748"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274502"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse via öppen hubb med Azure Data Factory
 
@@ -56,7 +56,7 @@ Som helhet består extraheringen från SAP InfoProviders till Azure Data Factory
 
 1. **SAP BW dataöverföring process (DTP)** I det här steget kopieras data från en SAP BW InfoProvider till en SAP BW öppen Hub-tabell 
 
-1. **ADF** -datakopia I det här steget läses öppna Hub-tabellen av ADF-kopplingen 
+1. **ADF-datakopia** I det här steget läses öppna Hub-tabellen av ADF-kopplingen 
 
 ![Flöde för delta extrahering](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
 
@@ -145,11 +145,8 @@ Om du vill kopiera data från och till SAP BW öppna hubben, anger du egenskapen
 |:--- |:--- |:--- |
 | type | Egenskapen Type måste anges till **SapOpenHubTable**.  | Ja |
 | openHubDestinationName | Namnet på det öppna hubb målet att kopiera data från. | Ja |
-| excludeLastRequest | Om posterna för den senaste begäran ska uteslutas. | Nej (standard är **true**) |
-| baseRequestId | ID för begäran om delta inläsning. När den har angetts hämtas endast data med requestId som är **större än** värdet för den här egenskapen.  | Nej |
 
->[!TIP]
->Om den öppna Hub-tabellen bara innehåller de data som genereras av ID: t för en enskild begäran, till exempel, gör du alltid fullständig belastning och skriver över befintliga data i tabellen, eller så kör du bara DTP en gång för test, kom ihåg att avmarkera alternativet "excludeLastRequest" för att kopiera d ATA ut.
+Om du har `excludeLastRequest` angett `baseRequestId` och i data uppsättning stöds det fortfarande som det är, medan du föreslås att använda den nya modellen i aktivitets källan som går framåt.
 
 **Exempel:**
 
@@ -158,12 +155,13 @@ Om du vill kopiera data från och till SAP BW öppna hubben, anger du egenskapen
     "name": "SAPBWOpenHubDataset",
     "properties": {
         "type": "SapOpenHubTable",
+        "typeProperties": {
+            "openHubDestinationName": "<open hub destination name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW Open Hub linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "openHubDestinationName": "<open hub destination name>"
         }
     }
 }
@@ -175,7 +173,16 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW öppna hubben som källa
 
-Om du vill kopiera data från SAP BW öppna hubb, anger du käll typen i kopierings aktiviteten till **SapOpenHubSource**. Det krävs inga ytterligare typ-/regionsspecifika egenskaper i avsnittet för kopierings aktivitetens **källa** .
+Om du vill kopiera data från SAP BW öppna hubben, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
+
+| Egenskap | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| type | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SapOpenHubSource**. | Ja |
+| excludeLastRequest | Om posterna för den senaste begäran ska uteslutas. | Nej (standard är **true**) |
+| baseRequestId | ID för begäran om delta inläsning. När den har angetts hämtas endast data med requestId som är **större än** värdet för den här egenskapen.  | Nej |
+
+>[!TIP]
+>Om den öppna Hub-tabellen bara innehåller de data som genereras av ID: t för en enskild begäran, till exempel, gör du alltid fullständig belastning och skriver över befintliga data i tabellen, eller så kör du bara DTP en gång för test, kom ihåg att avmarkera alternativet "excludeLastRequest" för att kopiera d ATA ut.
 
 För att påskynda data inläsningen kan du ställa [`parallelCopies`](copy-activity-performance.md#parallel-copy) in på kopierings aktiviteten för att läsa in data från SAP BW öppen hubb parallellt. Om du till exempel ställer in `parallelCopies` till fyra kör Data Factory samtidigt fyra RFC-anrop, och varje RFC-anrop hämtar en del av data från SAP BW öppna Hub-tabellen partitionerad med ID för DTP-begäran och paket-ID. Detta gäller när antalet unika ID för DTP-begäran och paket-ID är större än värdet för `parallelCopies`. När du kopierar data till ett filbaserat data lager, skrivs det också om att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 
@@ -200,7 +207,8 @@ För att påskynda data inläsningen kan du ställa [`parallelCopies`](copy-acti
         ],
         "typeProperties": {
             "source": {
-                "type": "SapOpenHubSource"
+                "type": "SapOpenHubSource",
+                "excludeLastRequest": true
             },
             "sink": {
                 "type": "<sink type>"

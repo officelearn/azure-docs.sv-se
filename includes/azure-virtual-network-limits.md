@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: e55b191e937b6c9f8183b3878b264eb50401b3f1
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a37280fddf34221a9d08501ef55c6b069cd877a4
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69903884"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242777"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Nätverks gränser – Azure Resource Manager följande begränsningar gäller endast för nätverks resurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visar din aktuella resursanvändning mot dina prenumerations gränser](../articles/networking/check-usage-against-limits.md).
 
@@ -51,7 +51,7 @@ ms.locfileid: "69903884"
 | --- | --- | --- |
 | Offentliga IP-adresser – dynamiska | 1 000 för Basic. |Kontakta supporten. |
 | Offentliga IP-adresser – statiska | 1 000 för Basic. |Kontakta supporten. |
-| Offentliga IP-adresser – statiska | 200 för standard.|Kontakta supporten. |
+| Offentliga IP-adresser – statiska | 1 000 för standard.|Kontakta supporten. |
 | Prefixlängd för offentlig IP | /28 | Kontakta supporten. |
 
 #### <a name="load-balancer"></a>Gränser för belastnings utjämning

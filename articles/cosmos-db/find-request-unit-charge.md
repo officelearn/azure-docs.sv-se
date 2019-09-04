@@ -4,14 +4,14 @@ description: Lär dig hur du hittar avgiften för begär ande enheten (RU) för 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: 682273524269682f62cd386de1c9161888747f16
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093714"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240788"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Hitta enhets avgiften för begäran i Azure Cosmos DB
 
@@ -176,7 +176,7 @@ För närvarande kan du bara hitta begär ande avgiften i Azure Portal för en f
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-mongodb-dotnet.md#create-a-database-account) och mata in det med data, eller Välj ett befintligt konto som redan innehåller data.
 
-1. Gå till fönstret **datautforskaren** och välj den samling som du vill arbeta med.
+1. Gå till fönstret **datautforskaren** och välj den behållare som du vill arbeta med.
 
 1. Välj **ny fråga**.
 

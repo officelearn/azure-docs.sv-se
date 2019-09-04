@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: e5d5d36e82914f1d6d03299db0ed1427ac5a389a
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 2ce64df5eeb8aa44ef714d6b465b7f2e1819635d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147575"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259282"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Skapa och få åtkomst till data uppsättningar (för hands version) i Azure Machine Learning
 
@@ -47,7 +47,7 @@ Om du vill skapa och arbeta med data uppsättningar behöver du:
 
 Data uppsättningar kategoriseras i olika typer baserat på hur användarna använder dem i utbildningen. Lista över data uppsättnings typer:
 * [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Det ger dig möjlighet att materialisera data till en Pandas-DataFrame. Ett `TabularDataset` objekt kan skapas från CSV-, TSV-, Parquet-filer, SQL-frågeresultat osv. En fullständig lista finns i vår [dokumentation](https://aka.ms/tabulardataset-api-reference).
-* FileDataset refererar till en eller flera filer i dina data lager eller offentliga URL: er. Det ger dig möjlighet att ladda ned eller montera filerna i din beräkning. Filerna kan vara i valfritt format, vilket möjliggör en större mängd maskin inlärnings scenarier, inklusive djup inlärning.
+* [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refererar till en eller flera filer i dina data lager eller offentliga URL: er. Det ger dig möjlighet att ladda ned eller montera filerna i din beräkning. Filerna kan vara i valfritt format, vilket möjliggör en större mängd maskin inlärnings scenarier, inklusive djup inlärning.
 
 Läs mer om kommande API-ändringar i [här](https://aka.ms/tabular-dataset).
 
@@ -55,9 +55,9 @@ Läs mer om kommande API-ändringar i [här](https://aka.ms/tabular-dataset).
 
 Genom att skapa en data uppsättning skapar du en referens till data käll platsen, tillsammans med en kopia av dess metadata. Data behålls på den befintliga platsen, så ingen extra lagrings kostnad uppstår.
 
-För att data ska vara tillgängliga via Azure Machine Learning-tjänsten måste data uppsättningar skapas från sökvägar i [Azure](how-to-access-data.md) -datalager eller offentliga webb-URL: er.
+För att data ska vara tillgängliga via Azure Machine Learning-tjänsten måste data uppsättningar skapas från sökvägar i [Azure-datalager](how-to-access-data.md) eller offentliga webb-URL: er.
 
-Skapa data uppsättningar från ett [Azure](how-to-access-data.md)-datalager:
+Skapa data uppsättningar från ett [Azure-datalager](how-to-access-data.md):
 
 * Kontrol lera att `contributor` du `owner` har eller åtkomst till registrerade Azure-datalager.
 

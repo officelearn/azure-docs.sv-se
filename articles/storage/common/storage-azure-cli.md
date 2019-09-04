@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: d259ea02824937f0c496bb253fa4b6c1f5cea412
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015637"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259392"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Använda Azure CLI med Azure Storage
 
@@ -25,9 +25,9 @@ I den här guiden visar vi hur du använder [Azure CLI](https://docs.microsoft.c
 
 I exemplen i guiden förutsätts användningen av bash-gränssnittet på Ubuntu, men andra plattformar bör utföras på samma sätt. 
 
-[!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
-
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
+[!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 Den här guiden förutsätter att du förstår de grundläggande begreppen i Azure Storage. Det förutsätter också att du kan uppfylla de krav för att skapa konton som anges nedan för Azure och lagrings tjänsten.
@@ -267,7 +267,7 @@ Ersätt `--name <blob_name>` med`--name <folder/blob_name>`om du vill överföra
 
  Som standard `blob upload` laddar kommandot upp *. VHD-filer till Page blobbar eller block-blobar på annat sätt. Om du vill ange en annan typ när du laddar upp en BLOB kan `--type` du använda argument--tillåtna `append`värden `block`, och `page`.
 
- Mer information om olika BLOB-typer finns i [förstå block-blobar, lägga till blobbar och sid](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)-blobar.
+ Mer information om olika BLOB-typer finns i [förstå block-blobar, lägga till blobbar och sid-blobar](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 
 ### <a name="download-a-blob-from-a-container"></a>Hämta en blob från en container
@@ -344,7 +344,7 @@ az storage blob update
 Azure Files erbjuder delad lagring för program som använder SMB-protokollet (Server Message Block). Microsoft Azure virtuella datorer och moln tjänster, samt lokala program, kan dela fildata via monterade resurser. Du kan hantera fil resurser och fildata via Azure CLI. Mer information om Azure Files finns i [Introduktion till Azure Files](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Skapa en filresurs
-En Azure-filresurs är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en fil resurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till lagrings kontots kapacitets gränser. I följande exempel skapas en fil resurs mednamnet Unshare.
+En Azure-filresurs är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en fil resurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till lagrings kontots kapacitets gränser. I följande exempel skapas en fil resurs med namnet **Unshare**.
 
 ```azurecli
 az storage share create --name myshare

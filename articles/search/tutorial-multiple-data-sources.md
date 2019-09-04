@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.author: heidist
-ms.openlocfilehash: 71fa4b590b41324536d740da5205977c0cefc448
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d55a586d3dfb22b5dad377ff656b8d6a6c940bdb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186500"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241843"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C#Gång Kombinera data från flera data källor i ett Azure Search-index
 
@@ -70,7 +70,7 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
 1. [Logga](https://portal.azure.com)in på Azure Portal och navigera sedan till översikts sidan för Azure Cosmos DB konto.
 
-1. Klicka på Lägg till behållare i meny raden. Ange "Skapa ny databas" och Använd namnet **hotell-rum-DB**. Ange **hotell rum** för samlings namnet och **/HotelId** för partitionsnyckel. Skapa databasen och behållaren genom att klicka på **OK** .
+1. Klicka på Lägg till behållare i meny raden. Ange "Skapa ny databas" och Använd namnet **hotell-rum-DB**. Ange **hotell** för samlings namnet och **/HotelId** för partitionsnyckel. Skapa databasen och behållaren genom att klicka på **OK** .
 
    ![Lägg till Azure Cosmos DB container](media/tutorial-multiple-data-sources/cosmos-add-container.png "Lägg till en Azure Cosmos DB behållare")
 
@@ -334,7 +334,7 @@ Eftersom indexet redan har fyllts med hotell data från Azure Cosmos DB database
 
 Du kan utforska det ifyllda Sök indexet när programmet har körts, med hjälp av [**Sök Utforskaren**](search-explorer.md) i portalen.
 
-I Azure Portal öppnar du översikts sidan Sök tjänst och letar upp **hotell-rum-exempel** index i listan **index** .
+I Azure Portal öppnar du **översikts** sidan Sök tjänst och letar upp **hotell-rum-exempel** index i listan **index** .
 
   ![Lista över Azure Search index](media/tutorial-multiple-data-sources/index-list.png "Lista över Azure Search index")
 

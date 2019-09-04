@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: daf2781113016b20c19a6b8f5365033f1ff1479b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ae186209395078ed56a046aafdbe01bb513fc3a0
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195262"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277435"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använd aktiv inlärning för att förbättra din kunskaps bas
 
@@ -56,7 +56,7 @@ Det är viktigt att QnA Maker får uttrycklig feedback om vilka svar som var det
 
 ## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>Uppgradera din körnings version för att använda aktiv inlärning
 
-Active Learning stöds i runtime-version 4.4.0 och senare. Om din kunskaps bas har skapats på en tidigare version kan du [Uppgradera körningen](set-up-qnamaker-service-azure.md#get-latest-runtime-updates) för att använda den här funktionen. 
+Active Learning stöds i runtime-version 4.4.0 och senare. Om din kunskaps bas har skapats på en tidigare version kan du [Uppgradera körningen](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) för att använda den här funktionen. 
 
 ## <a name="turn-on-active-learning-to-see-suggestions"></a>Aktivera aktiv inlärning för att se förslag
 

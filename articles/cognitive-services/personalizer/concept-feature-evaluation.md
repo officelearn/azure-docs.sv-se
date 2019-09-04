@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: d03c5f66f760a2bea9f99501cec478831a347c5d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 31243b5e9da55aafbc376fa416c1b00a4499c116
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668728"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242417"
 ---
-# <a name="feature-evaluation"></a>Funktions utvärdering
+# <a name="feature-evaluation"></a>Funktionsutvärdering
 
 När du kör en utvärdering i din personanpassa resurs från [Azure Portal](https://portal.azure.com), ger personanpassaren information om vilka funktioner i kontexten och åtgärder som påverkar modellen. 
 
@@ -32,9 +32,9 @@ De viktigaste funktionerna har starkare vikter i modellen. Eftersom de här funk
 
 ## <a name="getting-feature-importance-evaluation"></a>Få utvärdering av funktions prioritet
 
-Om du vill visa funktions resultat måste du köra en utvärdering. Den resulterande informationen om funktions prioritet representerar den aktuella personanpassa online-modellen. Utvärderingen analyserar funktions vikten för modellen som sparats vid slutdatumet för utvärderings perioden. 
+Om du vill visa funktions resultat måste du köra en utvärdering. Utvärderingen skapar välläsbara funktions etiketter baserat på de funktions namn som observerats under utvärderings perioden.
 
-Utvärderingen skapar välläsbara funktions etiketter baserat på de funktions namn som observerats under utvärderings perioden.
+Den resulterande informationen om funktions prioritet representerar den aktuella personanpassa online-modellen. I utvärderingen analyseras funktions vikten för modellen som sparades vid slutdatumet för utvärderings perioden, efter att du har genomgått all utbildning som gjorts under utvärderingen, med den aktuella utbildnings principen online. 
 
 Resultatet av funktions prioriteten representerar inte andra principer och modeller som testas eller skapas under utvärderingen.  Utvärderingen innehåller inte funktioner som skickats till en egen användare efter utvärderings periodens slut.
 

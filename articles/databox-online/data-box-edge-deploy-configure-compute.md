@@ -1,26 +1,26 @@
 ---
-title: Självstudie för att filtrera och analysera data med beräkning på Azure Data Box Edge | Microsoft Docs
+title: Självstudie för att filtrera, analysera data med beräknings Azure Data Box Edge | Microsoft Docs
 description: Lär dig hur du konfigurerar en beräkningsroll på Data Box Edge och använder den för att transformera data innan de skickas till Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 7b3d725eb05c811d3fdd44516c1bde9a8dfbaaac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924346"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277234"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Självstudier: Transformera data med Azure Data Box Edge
 
 I den här självstudien beskrivs hur du konfigurerar en beräkningsroll på din Azure Data Box Edge-enhet. Efter att du konfigurerat beräkningsrollen så kan Data Box Edge transformera data innan de skickas till Azure.
 
-Den här proceduren kan ta upp till 10 – 15 minuter för att slutföra.
+Den här proceduren kan ta cirka 10 till 15 minuter att slutföra.
 
 I den här guiden får du lära dig att:
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Verifiera datatransformering och överföring
 
  
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du konfigurerar en beräkningsroll på din Data Box Edge-enhet, ser du till att:
 
@@ -40,41 +40,44 @@ Innan du konfigurerar en beräkningsroll på din Data Box Edge-enhet, ser du til
 
 ## <a name="configure-compute"></a>Konfigurera beräkning
 
-Om du vill konfigurera beräkning på din Data Box-Edge, ska du skapa en IoT Hub-resurs.
+Om du vill konfigurera beräkning på Data Box Edge skapar du en IoT Hub resurs.
 
-1. Gå till Översikt i Azure-portalen för din Data Box Edge-resurs. I den högra rutan på den **Compute** panelen, väljer **börjar**.
+1. I Azure Portal av din Data Box Edge-resurs går du till översikt. Välj **Kom igång**i den högra rutan på **beräknings** panelen.
 
-    ![Kom igång med beräkning](./media/data-box-edge-deploy-configure-compute/configure-compute-1.png)
+    ![Kom igång med Compute](./media/data-box-edge-deploy-configure-compute/configure-compute-1.png)
 
-2. På den **konfigurera Edge-beräkning** panelen, väljer **konfigurera beräkna**.
-3. På den **konfigurera Edge-beräkning** bladet, ange följande:
+2. På panelen **Konfigurera Edge Compute** väljer du **Konfigurera beräkning**.
+3. Ange följande på bladet **Konfigurera Edge Compute** :
 
    
-    |Fält  |Värde  |
+    |Fält  |Value  |
     |---------|---------|
-    |IoT Hub     | Välj bland **nya** eller **befintliga**. <br> Som standard används en Standard-nivå (S1) för att skapa en IoT-resurs. Om du vill använda en kostnadsfri nivå IoT-resurs, skapa en och välj sedan den befintliga resursen. <br> I båda fallen använder IoT Hub-resurs i samma prenumeration och resursgrupp som används av Data Box Edge-resursen.     |
-    |Namn     |Ange ett namn för din IoT Hub-resurs.         |
+    |IoT-hubb     | Välj från **ny** eller **befintlig**. <br> Som standard används en standard-nivå (S1) för att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnads fri nivå skapar du en och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Data Box Edge resursen.     |
+    |Name     |Ange ett namn för din IoT Hub-resurs.         |
 
-    ![Kom igång med beräkning](./media/data-box-edge-deploy-configure-compute/configure-compute-2.png)
+    ![Kom igång med Compute](./media/data-box-edge-deploy-configure-compute/configure-compute-2.png)
 
-4. Välj **Skapa**. Resursskapande IoT-hubb tar ett par minuter. När IoT Hub-resursen har skapats kan den **konfigurera beräkna** panelen uppdateringar att visa att beräkningskonfigurationen. För att bekräfta att rollen Edge-beräkning har konfigurerats, Välj **visa Compute** på den **konfigurera beräkna** panelen.
+4. Välj **Skapa**. Det tar några minuter att skapa en IoT Hub-resurs. När IoT Hub resursen har skapats kan du **Konfigurera** Compute-panelen för att Visa beräknings konfigurationen. Bekräfta att Edge Compute-rollen har kon figurer ATS genom att välja **Visa beräkning** på panelen **Konfigurera beräkning** .
     
-    ![Kom igång med beräkning](./media/data-box-edge-deploy-configure-compute/configure-compute-3.png)
+    ![Kom igång med Compute](./media/data-box-edge-deploy-configure-compute/configure-compute-3.png)
 
-    När Edge-beräkningsrollen har konfigurerats på Edge-enheten så skapas två enheter: en IoT-enhet och en IoT Edge-enhet. Bägge enheter kan visas i IoT Hub-resursen. En IoT Edge-körningen körs även på den här IoT Edge-enhet. För tillfället är det bara Linux-plattformen tillgänglig för din IoT Edge-enhet.
+    > [!NOTE]
+    > Om dialog rutan **Konfigurera beräkning** stängs innan IoT Hub är kopplad till data Box Edge enheten, skapas IoT Hub men visas inte i beräknings konfigurationen. 
+    
+    När Edge-beräkningsrollen har konfigurerats på Edge-enheten så skapas två enheter: en IoT-enhet och en IoT Edge-enhet. Bägge enheter kan visas i IoT Hub-resursen. En IoT Edge runtime körs också på den här IoT Edge enheten. För tillfället är det bara Linux-plattformen tillgänglig för din IoT Edge-enhet.
 
 
 ## <a name="add-shares"></a>Lägg till resurser
 
-För enkel distribution i den här självstudien, behöver du två resurser: en Edge-resurs och en annan lokal Edge-resursen.
+För den enkla distributionen i den här självstudien behöver du två resurser: en Edge-resurs och en annan Edge-lokal resurs.
 
-1. Lägg till en Edge-resurs på enheten genom att göra följande:
+1. Lägg till en Edge-resurs på enheten genom att utföra följande steg:
 
-    1. I din Data Box Edge-resurs går du till **Edge-beräkning > Kom igång**.
-    2. På den **Lägg till resurs/er** panelen, väljer **Lägg till**.
-    3. På den **Lägg till resurs** bladet ange resursnamnet och välj resurstypen.
-    4. Om du vill montera filresursen Edge, markerar du kryssrutan för **använder resursen med Edge-beräkning**.
-    5. Välj den **lagringskonto**, **lagringstjänst**, en befintlig användare och välj sedan **skapa**.
+    1. I din Data Box Edge-resurs går du till **Edge compute > kom igång**.
+    2. Välj **Lägg till**på panelen **Lägg till resurs (er)** .
+    3. På bladet **Lägg till resurs** anger du resurs namnet och väljer resurs typ.
+    4. Om du vill montera Edge-resursen markerar du kryss rutan för att **använda resurs med Edge Compute**.
+    5. Välj **lagrings kontot**, **lagrings tjänsten**, en befintlig användare och välj sedan **skapa**.
 
         ![Lägg till en Edge-resurs](./media/data-box-edge-deploy-configure-compute/add-edge-share-1.png) 
 
@@ -84,44 +87,44 @@ För enkel distribution i den här självstudien, behöver du två resurser: en 
 
     Mer information om rsync-kommandot finns i [Rsync-dokumentationen](https://www.computerhope.com/unix/rsync.htm).
 
-    Edge-resursen har skapats och du får ett meddelande har skapats. Resurslistan kan vara uppdaterad men du måste vänta tills resursen har skapats.
+    Edge-resursen skapas och du får ett meddelande om att det har skapats. Resurslistan kan vara uppdaterad men du måste vänta tills resursen har skapats.
 
-2. Lägg till en lokal resurs Edge på Edge-enheten genom att upprepa alla stegen i föregående steg och markera kryssrutan för **konfigurera som Edge lokal nätverksresurs**. Data i den lokala resursen kvar på enheten.
+2. Lägg till en lokal Edge-resurs på gräns enheten genom att upprepa alla steg i föregående steg och markera kryss rutan för att **Konfigurera som Edge-lokal resurs**. Data i den lokala resursen förblir på enheten.
 
-    ![Lägg till en lokal resurs Edge](./media/data-box-edge-deploy-configure-compute/add-edge-share-2.png)
+    ![Lägg till en lokal Edge-resurs](./media/data-box-edge-deploy-configure-compute/add-edge-share-2.png)
 
   
-3. Välj **Lägg till resurs/er** att se den uppdaterade listan med resurser.
+3. Välj **Lägg till resurs (er)** om du vill se den uppdaterade listan över resurser.
 
     ![Uppdaterad lista över resurser](./media/data-box-edge-deploy-configure-compute/add-edge-share-3.png) 
  
 
-## <a name="add-a-module"></a>Lägga till en modul
+## <a name="add-a-module"></a>Lägg till en modul
 
-Du kan lägga till en anpassad eller en färdiga modul. Det finns inga anpassade moduler på den här Edge-enhet. Om du vill veta hur du skapar en anpassad modul går du till [Utveckla en C#-modul för din Data Box Edge-enhet](data-box-edge-create-iot-edge-module.md).
+Du kan lägga till en anpassad eller en fördefinierad modul. Det finns inga anpassade moduler på den här Edge-enheten. Om du vill veta hur du skapar en anpassad modul går du till [Utveckla en C#-modul för din Data Box Edge-enhet](data-box-edge-create-iot-edge-module.md).
 
-I det här avsnittet så lägger du till en anpassad modul till den IoT Edge-enhet som du skapade i [Utveckla en C#-modul för din Data Box Edge](data-box-edge-create-iot-edge-module.md). Den här anpassade modulen tar filer från en lokal filresurs Edge på en Edge-enhet och flyttar dem till en filresurs för Edge (moln) på enheten. Molnresursen pushar sedan filerna till det Azure-lagringskonto som är associerat med molnresursen.
+I det här avsnittet så lägger du till en anpassad modul till den IoT Edge-enhet som du skapade i [Utveckla en C#-modul för din Data Box Edge](data-box-edge-create-iot-edge-module.md). Den här anpassade modulen tar filer från en lokal Edge-resurs på gräns enheten och flyttar dem till en gräns (moln) resurs på enheten. Molnresursen pushar sedan filerna till det Azure-lagringskonto som är associerat med molnresursen.
 
-1. Gå till **Edge-beräkning > Kom igång**. På den **Lägg till moduler** panelen, Välj scenariotyp som **enkel**. Välj **Lägg till**.
-2. I den **konfigurera och Lägg till modulen** bladet, ange följande värden:
+1. Gå till **Edge compute > kom igång**. På panelen **Lägg till moduler** väljer du scenario typen **enkel**. Välj **Lägg till**.
+2. Ange följande värden i bladet **Konfigurera och Lägg till modul** :
 
     
-    |Fält  |Värde  |
+    |Fält  |Value  |
     |---------|---------|
-    |Namn     | Ett unikt namn för modulen. Denna modul är en docker-behållare som du kan distribuera till IoT Edge-enheten som är associerat med din Data Box-Edge.        |
-    |URI för avbildning     | Du bildens URI för motsvarande behållaravbildningen för modulen.        |
-    |Autentiseringsuppgifter som krävs     | Om alternativet är markerat används användarnamn och lösenord för att hämta moduler med en matchande URL.        |
-    |Inkommande resurs     | Välj en filresurs som indata. Den lokala Edge-resursen är inkommande resursen i det här fallet. Modulen som används här flyttar filer från den lokala Edge-resursen till en Edge-filresurs med där de överförs till molnet.        |
-    |Utdata-resurs     | Välj en filresurs för utdata. Edge-resursen är utdata-resursen i det här fallet.        |
-    |Utlösartyp     | Välj ett värde från **filen** eller **schema**. En fil-utlösaren utlöses när en fil-händelse inträffar, till exempel när en fil skrivs till inkommande resursen. En schemalagd utlösaren utlöses dig enligt ett schema som du definierar.         |
+    |Name     | Ett unikt namn för modulen. Den här modulen är en Docker-behållare som du kan distribuera till den IoT Edge enhet som är kopplad till din Data Box Edge.        |
+    |URI för avbildning     | Avbildnings-URI för motsvarande behållar avbildning för modulen.        |
+    |Autentiseringsuppgifter krävs     | Om det här alternativet markeras används användar namn och lösen ord för att hämta moduler med en matchande URL.        |
+    |Inmatad resurs     | Välj en inmatad resurs. Den lokala Edge-resursen är den ingående resursen i det här fallet. Modulen som används här flyttar filer från den lokala Edge-resursen till en Edge-resurs där de överförs till molnet.        |
+    |Utgående resurs     | Välj en utgående resurs. Edge-resursen är den utgående resursen i det här fallet.        |
+    |Utlösartyp     | Välj från **fil** eller **schema**. En fil utlösare utlöses när en fil händelse inträffar, till exempel att en fil skrivs till den angivna resursen. En schemalagd utlösare aktive ras baserat på ett schema som definierats av dig.         |
     |Namn på utlösare     | Ett unikt namn för utlösaren.         |
-    |Miljövariabler| Valfri information som hjälper dig att definiera den miljö som din modul ska köras.   |
+    |Miljövariabler| Valfri information som hjälper dig att definiera miljön där modulen ska köras.   |
 
-    ![Lägga till och konfigurera modulen](./media/data-box-edge-deploy-configure-compute/add-module-1.png)
+    ![Lägg till och konfigurera modul](./media/data-box-edge-deploy-configure-compute/add-module-1.png)
 
-3. Välj **Lägg till**. Modulen hämtar har lagts till. Den **Lägg till modulen** panelen uppdateras för att visa att modulen distribueras. 
+3. Välj **Lägg till**. Modulen läggs till. Panelen **Lägg till modul** uppdateras för att indikera att modulen har distribuerats. 
 
-    ![Modulen som distribuerats](./media/data-box-edge-deploy-configure-compute/add-module-2.png)
+    ![Modulen har distribuerats](./media/data-box-edge-deploy-configure-compute/add-module-2.png)
 
 ### <a name="verify-data-transform-and-transfer"></a>Verifiera datatransformering och överföring
 
@@ -129,11 +132,11 @@ Det slutliga steget är att se till att modulen är ansluten och körs som förv
 
 Verifiera att modulen körs genom att göra följande:
 
-1. Välj den **Lägg till modulen** panelen. Då kommer du till den **moduler** bladet. Identifiera den modul som du distribuerat i listan över moduler. Körningsstatus för modulen som du har lagt till ska vara *kör*.
+1. Välj panelen **Lägg till modul** . Då går du till bladet **moduler** . Identifiera den modul som du har distribuerat i listan över moduler. Körnings status för modulen som du har lagt till ska *köras*.
 
     ![Verifiera datatransformering](./media/data-box-edge-deploy-configure-compute/verify-data-1.png)
  
-1.  Anslut till både lokala Edge och Edge-resurser som du skapade tidigare i Utforskaren.
+1.  I Utforskaren ansluter du till både de lokala resurserna och kant resurserna som du skapade tidigare.
 
     ![Verifiera datatransformering](./media/data-box-edge-deploy-configure-compute/verify-data-2.png) 
  

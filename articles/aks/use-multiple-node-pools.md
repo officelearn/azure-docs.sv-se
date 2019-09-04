@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: b08ce504e96d09b7406f3d8fb1b2afc2c1925e90
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 675d3e2f0dc27e70af497284ce273e87d005a2e1
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164153"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241075"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>För hands version – skapa och hantera flera resurspooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -173,7 +173,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > Uppgraderings-och skalnings åtgärder i ett kluster eller en Node-pool kan inte anges samtidigt. Det går inte att ha ett kluster eller en Node-pool samtidigt för uppgradering och skalning. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Läs mer om detta i vår [fel söknings guide](https://aka.ms/aks-pending-upgrade).
 
-När ditt AKS-kluster skapades i det första steget angavs `--kubernetes-version` en av *1.13.10* . Detta anger Kubernetes-versionen för både kontroll planet och den första noden. Det finns olika kommandon för att uppgradera Kubernetes-versionen av kontroll planet och Node-poolen. Kommandot används för att uppgradera kontroll planet, `az aks nodepool upgrade` medan används för att uppgradera en enskild Node-pool. `az aks upgrade`
+När ditt AKS-kluster skapades i det första steget angavs `--kubernetes-version` en av *1.13.10* . Detta anger Kubernetes-versionen för både kontroll planet och den första noden. Det finns olika kommandon för att uppgradera Kubernetes-versionen av kontroll planet och Node-poolen som beskrivs [nedan](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > Operativ system avbildnings versionen för Node-poolen är kopplad till Kubernetes-versionen av klustret. Du kan bara hämta uppgraderingar av operativ Systems avbildningar efter en kluster uppgradering.
@@ -190,7 +190,7 @@ az aks nodepool upgrade \
 ```
 
 > [!Tip]
-> Om du vill uppgradera kontroll planet till *1.14.6*kör `az aks upgrade -k 1.14.6`du.
+> Om du vill uppgradera kontroll planet till *1.14.6*kör `az aks upgrade -k 1.14.6`du. Lär dig mer om [kontroll Plans uppgraderingar med flera Node-pooler här](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 Ange status för dina nodkonfigurationer igen med kommandot [AZ AKS Node pool List][az-aks-nodepool-list] . I följande exempel visas att *mynodepool* är i *uppgraderings* läge till *1.13.10*:
 
@@ -229,14 +229,32 @@ Det tar några minuter att uppgradera noderna till den angivna versionen.
 
 Som bästa praxis bör du uppgradera alla resurspooler i ett AKS-kluster till samma Kubernetes-version. Möjligheten att uppgradera enskilda noder i pooler gör att du kan utföra en löpande uppgradering och schemalägga poddar mellan noder för att upprätthålla drift tiden för programmet inom ovannämnda begränsningar.
 
+## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Uppgradera ett kluster kontroll plan med flera noder i pooler
+
 > [!NOTE]
 > Kubernetes använder standard versions schema för [semantisk versions hantering](https://semver.org/) . Versions numret uttrycks som *x. y. z*, där *x* är huvud versionen, *y* är den lägre versionen och *z* är korrigerings versionen. I version *1.12.6*1 är till exempel den högre versionen, 12 är den lägre versionen och 6 är korrigerings versionen. Kubernetes-versionen av kontroll planet samt den första nodens resurspool anges när klustret skapas. Alla ytterligare noder i pooler har Kubernetes-versionen när de läggs till i klustret. Kubernetes-versionerna kan variera mellan olika resurspooler samt mellan en Node-pool och kontroll planet, men följande begränsningar gäller:
 > 
 > * Node-versionen måste ha samma huvud version som kontroll planet.
 > * Node-versionen kan vara en lägre version som är mindre än kontroll Plans versionen.
 > * En version av Node-poolen kan vara en korrigerings version så länge de andra två begränsningarna följs.
-> 
-> Om du vill uppgradera Kubernetes-versionen av kontroll planet använder `az aks upgrade`du. Om klustret bara har en adresspool, kommer `az aks upgrade` kommandot också att uppgradera Kubernetes-versionen för Node-poolen.
+
+Ett AKS-kluster har två kluster resurs objekt. Det första är en kontroll Plans Kubernetes-version. Den andra är en agent-pool med en Kubernetes-version. Ett kontroll plan mappar till en eller flera nodkonfigurationer och var och en har sina egna Kubernetes-versioner. Beteendet för en uppgraderings åtgärd beror på vilken resurs som är mål och vilken version av underliggande API som anropas.
+
+1. Att uppgradera kontroll planet kräver att du använder`az aks upgrade`
+   * Om klustret har en enda agent, uppgraderas både kontroll planet och en pool med en agent tillsammans
+   * Om klustret har flera agenter, kommer endast kontroll planet att uppgraderas
+1. Uppgradera med`az aks nodepool upgrade`
+   * Detta kommer endast att uppgradera målnoden med den angivna Kubernetes-versionen
+
+Relationen mellan Kubernetes-versioner som innehas av Node-pooler måste också följa en uppsättning regler.
+
+1. Du kan inte nedgradera antingen kontroll planet eller Kubernetes-versionen för Node-poolen.
+1. Om inget kontroll Plans Kubernetes-version anges används den aktuella befintliga kontroll Plans versionen som standard.
+1. Om ingen Kubernetes-version för Node-poolen har angetts används kontroll Plans versionen som standard.
+1. Du kan antingen uppgradera eller skala ett kontroll plan eller en Node-pool vid en specifik tidpunkt, men du kan inte skicka båda åtgärderna samtidigt.
+1. En Kubernetes version av Node-pool måste ha samma huvud version som kontroll planet.
+1. En Kubernetes version av Node-pool kan vara högst två (2) mindre versioner som är mindre än kontroll planet, aldrig större.
+1. En Node-pool kan vara vilken Kubernetes korrigerings version som helst som är mindre än eller lika med kontroll planet, aldrig större.
 
 ## <a name="scale-a-node-pool-manually"></a>Skala en adresspool manuellt
 
@@ -292,7 +310,7 @@ Det tar några minuter för skalnings åtgärden att slutföras.
 
 ## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>Skala en speciell Node-pool automatiskt genom att aktivera kluster autoskalning
 
-AKS erbjuder en separat funktion i för hands versionen för att automatiskt skala nodkonfigurationer med en funktion som kallas för [kluster](cluster-autoscaler.md)autoskalning. Den här funktionen är ett AKS-tillägg som kan aktive ras per Node-pool med unika minimi-och Max skalnings antal per Node-pool. Lär dig hur du [använder kluster autoskalning per Node-pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
+AKS erbjuder en separat funktion i för hands versionen för att automatiskt skala nodkonfigurationer med en funktion som kallas för [kluster autoskalning](cluster-autoscaler.md). Den här funktionen är ett AKS-tillägg som kan aktive ras per Node-pool med unika minimi-och Max skalnings antal per Node-pool. Lär dig hur du [använder kluster autoskalning per Node-pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
 ## <a name="delete-a-node-pool"></a>Ta bort en Node-pool
 

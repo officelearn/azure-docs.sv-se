@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 90adacffd947be38b447117bfe64242bed3a90af
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 28c7ca6470e15f4ff1f5e80df2ab63fa19da1544
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231353"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277799"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -170,7 +170,9 @@ Om du vill kopiera data från och till Oracle anger du egenskapen type för data
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen Type för data mängden måste anges till `OracleTable`. | Ja |
-| tableName |Namnet på tabellen i Oracle-databasen som den länkade tjänsten refererar till. | Ja |
+| schema | Schemats namn. |Nej för källa, Ja för mottagare  |
+| table | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
+| tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och`table`för ny arbets belastning. | Nej för källa, Ja för mottagare |
 
 **Exempel:**
 
@@ -180,12 +182,14 @@ Om du vill kopiera data från och till Oracle anger du egenskapen type för data
     "properties":
     {
         "type": "OracleTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "<schema_name>",
+            "table": "<table_name>"
+        },
         "linkedServiceName": {
             "referenceName": "<Oracle linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "MyTable"
         }
     }
 }
@@ -193,7 +197,7 @@ Om du vill kopiera data från och till Oracle anger du egenskapen type för data
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-källan och mottagare. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter [](concepts-pipelines-activities.md)finns i pipelines. 
+Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-källan och mottagare. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="oracle-as-source"></a>Oracle som källa
 

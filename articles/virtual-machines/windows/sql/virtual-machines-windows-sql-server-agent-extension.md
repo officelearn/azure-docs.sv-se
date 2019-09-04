@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f0222c64b53bf9e6e8dc69da42d6e6a9c5549765
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 3240bb689447c16de8c62e9e8118b0b0df2b1ea3
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208360"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259431"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatisera hanterings uppgifter på virtuella Azure-datorer med hjälp av tillägget SQL Server IaaS-agent
 > [!div class="op_single_selector"]
@@ -77,10 +77,13 @@ Här följer kraven för att använda SQL Server IaaS agent Extension på den vi
 
 
 ##  <a name="installation"></a>Installation
-Tillägget SQL Server IaaS installeras när du registrerar din SQL Server VM med providern för [SQL VM-resurs](virtual-machines-windows-sql-register-with-resource-provider.md). Om det behövs kan du installera SQL Server IaaS-agenten manuellt med hjälp av PowerShell-kommandot nedan: 
+Tillägget SQL Server IaaS installeras när du registrerar din SQL Server VM med [providern för SQL VM-resurs](virtual-machines-windows-sql-register-with-resource-provider.md). Om det behövs kan du installera SQL Server IaaS-agenten manuellt med hjälp av PowerShell-kommandot nedan: 
 
   ```powershell-interactive
-    Set-AzVMExtension -ResourceGroupName "<ResourceGroupName>" -Location "<VMLocation>" -VMName "<VMName>" -Name "SqlIaasExtension" -Publisher "Microsoft.SqlServer.Management" -ExtensionType "SqlIaaSAgent" -TypeHandlerVersion "2.0";  
+    Set-AzVMExtension -ResourceGroupName "<ResourceGroupName>" `
+    -Location "<VMLocation>" -VMName "<VMName>" `
+    -Name "SqlIaasExtension" -Publisher "Microsoft.SqlServer.Management" `
+    -ExtensionType "SqlIaaSAgent" -TypeHandlerVersion "2.0";  
   ```
 
 > [!NOTE]

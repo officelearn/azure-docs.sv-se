@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: b80c32fea0d62bb5800a677ff30cb0787e83afa2
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7874a2bad63a4c5b47545c06a91228e64d523849
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945848"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258799"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -68,9 +68,9 @@ Cortana färdiga appar tagits bort 2017. De stöds inte längre.
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Hur jag för att överföra ägarskapet för en LUIS-app?
 Exportera en LUIS-app för att överföra en LUIS-app till Azure-prenumeration, och importera det med ett nytt konto. Uppdatera LUIS-app-ID i klientprogram som anropar den. Den nya appen kan returnera något annorlunda LUIS poäng från den ursprungliga appen.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>En fördefinierad entitet är taggad i ett exempel-uttryck i stället för min anpassade entitet. Hur åtgärdar jag detta? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>En fördefinierad entitet är taggad i ett exempel-uttryck i stället för min anpassade entitet. Hur gör jag för att åtgärda detta? 
 
-Se [fel sökning av](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)förbyggda entiteter.
+Se [fel sökning av förbyggda entiteter](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Jag försökte importera en app-eller versions fil, men jag fick ett fel meddelande, vad hände? 
 
@@ -78,7 +78,7 @@ Läs mer om [versions import fel](luis-how-to-manage-versions.md#import-errors) 
 
 <a name="luis-collaborating"></a>
 
-## <a name="collaborating"></a>Samar beta
+## <a name="collaborating-and-contributing"></a>Samar beta och bidrag
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Hur gör jag för att ge medarbetarna åtkomst till LUIS med Azure Active Directory (Azure AD) eller rollbaserad åtkomst kontroll (RBAC)?
 
@@ -87,6 +87,31 @@ Se [Azure Active Directory resurser](luis-how-to-collaborate.md#azure-active-dir
 <a name="luis-endpoint"></a>
 
 ## <a name="endpoint"></a>Slutpunkt
+
+### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Jag har fått en HTTP 403-fel status kod. Hur jag för att åtgärda det?
+
+Du får status koderna 403 och 429 när du överskrider transaktionerna per sekund eller transaktioner per månad för din pris nivå. Öka pris nivån eller Använd Language Understanding [behållare](luis-container-howto.md).
+
+När du använder alla de kostnads fria 1000-slutpunkts frågorna eller om du överskrider din pris nivås kvot för månads transaktioner får du en HTTP 403-fel status kod. 
+
+För att åtgärda det här felet måste du antingen [ändra pris nivån](luis-how-to-azure-subscription.md#change-pricing-tier) till en högre nivå eller [skapa en ny resurs](get-started-portal-deploy-app.md#create-the-endpoint-resource) och [tilldela den till din app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Lösningar för det här felet är:
+
+* I [Azure Portal](https://portal.azure.com)i language Understanding resurs, på **pris nivån resurs hantering->** , ändrar du pris nivån till en högre TPS-nivå. Du behöver inte göra något i Language Understanding portal om din resurs redan har tilldelats till din Language Understanding-app.
+*  Om din användning överskrider den högsta pris nivån lägger du till fler Language Understanding resurser med en belastningsutjämnare framför dem. [Language Understanding containern](luis-container-howto.md) med Kubernetes eller Docker Compose kan hjälpa dig med detta.
+
+### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>Jag har fått en HTTP 429-fel status kod. Hur jag för att åtgärda det?
+
+Du får status koderna 403 och 429 när du överskrider transaktionerna per sekund eller transaktioner per månad för din pris nivå. Öka pris nivån eller Använd Language Understanding [behållare](luis-container-howto.md).
+
+Den här status koden returneras när transaktionerna per sekund överskrider pris nivån.  
+
+Lösningarna omfattar:
+
+* Du kan [öka pris nivån](luis-how-to-azure-subscription.md#change-pricing-tier)om du inte är på den högsta nivån.
+* Om din användning överskrider den högsta pris nivån lägger du till fler Language Understanding resurser med en belastningsutjämnare framför dem. [Language Understanding containern](luis-container-howto.md) med Kubernetes eller Docker Compose kan hjälpa dig med detta.
+* Du kan Grinda klient program begär Anden med en [princip för återförsök](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) som du implementerar själv när du får den här status koden. 
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Min endpoint-frågan returnerade ett oväntat resultat. Vad ska jag göra?
 
@@ -102,7 +127,7 @@ Granska den [bästa praxis](luis-concept-best-practices.md) andra tips.
 LUIS [tokenizes](luis-glossary.md#token) i uttryck baserat på den [kultur](luis-language-support.md#tokenization). Både det ursprungliga värdet och principfilerna värdet är tillgängliga för [dataextrahering](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Hur jag för att skapa och tilldela en LUIS slutpunktsnyckeln?
-[Skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md) i Azure för dina [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nivå. [Tilldela nyckeln](luis-how-to-azure-subscription.md) på den **[nycklar och slutpunkter](luis-how-to-azure-subscription.md)** sidan. Det finns inga motsvarande API: et för den här åtgärden. Du måste ändra HTTP-begäran till slutpunkten till [använder den nya slutpunktsnyckeln](luis-concept-keys.md#use-endpoint-key-in-query).
+[Skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md) i Azure för dina [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nivå. [Tilldela nyckeln](luis-how-to-azure-subscription.md) på sidan **[Azure-resurser](luis-how-to-azure-subscription.md)** . Det finns inga motsvarande API: et för den här åtgärden. Du måste ändra HTTP-begäran till slutpunkten till [använder den nya slutpunktsnyckeln](luis-concept-keys.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Hur tolkar LUIS poäng?
 Systemet bör använda högsta bedömnings avsikten oavsett dess värde. Till exempel en poäng under 0,5 (mindre än 50%) inte nödvändigtvis att LUIS har låg förtroende. Ger mer utbildning kan öka den [poäng](luis-concept-prediction-score.md) av den mest sannolika avsikten.
@@ -123,10 +148,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Min LUIS-app fungerar igår men idag jag får 403-fel. Appen ändras inte. Hur jag för att åtgärda det?
-Följ de här [anvisningarna](#how-do-i-create-and-assign-a-luis-endpoint-key) för att skapa en Luis-slutpunkt-nyckel och tilldela den till appen. Sedan måste du ändra klient programmets HTTP-begäran till slut punkten för att kunna [använda den nya slut punkts nyckeln](luis-concept-keys.md#use-endpoint-key-in-query). Om du har skapat en ny resurs i en annan region, ändrar du även HTTP-klientbegärans region.
+Följ de här [anvisningarna](#how-do-i-create-and-assign-a-luis-endpoint-key) för att skapa en Luis-slutpunkt-nyckel och tilldela den till appen. Sedan måste du ändra klient programmets HTTP-begäran till slut punkten för att kunna [använda den nya slut punkts nyckeln](luis-concept-keys.md). Om du har skapat en ny resurs i en annan region, ändrar du även HTTP-klientbegärans region.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Hur skyddar jag min LUIS-slutpunkt
-Se [skydda slutpunkten](luis-concept-security.md#securing-the-endpoint).
+Se [skydda slutpunkten](luis-concept-keys.md#securing-the-endpoint).
 
 ## <a name="working-within-luis-limits"></a>Arbeta inom gränserna för LUIS
 
@@ -185,17 +210,15 @@ Om din app fanns innan LUIS var allmänt tillgänglig (GA), tilldelas LUIS endpo
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Hur gör jag för att vet du vilken nyckel jag behöver, var jag får den och vad jag gör med det? 
 
-Se [Redigera och fråga efter slut punkts nycklar i Luis](luis-concept-keys.md) för att lära dig mer om skillnaderna mellan [redigerings nyckeln](luis-how-to-account-settings.md) och [nyckeln för slut punkts förutsägelse](luis-how-to-azure-subscription.md). 
+Se [Redigera och fråga efter slut punkts nycklar i Luis](luis-concept-keys.md) för att lära dig mer om skillnaderna mellan redigerings nyckeln och den förutsägelse körnings nyckeln. 
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Jag har fått ett fel meddelande om att kvoten är felaktig. Hur jag för att åtgärda det? 
 
-Se, [korrigera HTTP-statuskod 403 och 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) för mer information.
+Se, korrigera HTTP-statuskod [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) och [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) för mer information.
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Jag behöver hantera fler slut punkts frågor. Hur gör jag för att? 
 
-Se, [korrigera HTTP-statuskod 403 och 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) för mer information.
-
-
+Se, korrigera HTTP-statuskod [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) och [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) för mer information.
 
 ## <a name="app-management"></a>Apphantering
 
@@ -242,7 +265,7 @@ Din nyckel för redigering/starter får bara 1000 endpoint frågar en månad. Sk
 Det första problemet är att isolera om problemet är relaterat till LUIS eller sker utanför LUIS mellan. 
 
 #### <a name="resolve-issue-in-luis"></a>Lös problem i LUIS
-Skicka samma uttryck till LUIS från [Luis](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)-slutpunkten. Om du får ett fel meddelande kan du lösa problemet i LUIS tills felet inte längre returneras. Vanliga fel är:
+Skicka samma uttryck till LUIS från Luis- [slutpunkten](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). Om du får ett fel meddelande kan du lösa problemet i LUIS tills felet inte längre returneras. Vanliga fel är:
 
 * `Out of call volume quota. Quota will be replenished in <time>.`– Det här problemet indikerar att du antingen måste ändra från en redigerings nyckel till en [slut punkts nyckel](luis-how-to-azure-subscription.md) eller ändra [tjänst nivåerna](luis-how-to-azure-subscription.md#change-pricing-tier). 
 
@@ -254,7 +277,7 @@ Om du använder Azure bot service och problemet är att **testet i Web Chat** re
 1. Öppna kod redigeraren online. 
 1. I det övre, blå navigerings fältet väljer du namnet på bot (det andra objektet till höger).
 1. I den resulterande List rutan väljer du **Öppna kudu-konsolen**.
-1. Välj **loggfiler**och välj sedan **program**. Granska alla loggfiler. Om du inte ser felet i programmappen granskar du alla loggfiler under loggfiler. 
+1. Välj **loggfiler**och välj sedan **program**. Granska alla loggfiler. Om du inte ser felet i programmappen granskar du alla loggfiler under **loggfiler**. 
 1. Kom ihåg att återskapa projektet om du använder ett kompilerat språk som C#.
 
 > [!Tip] 

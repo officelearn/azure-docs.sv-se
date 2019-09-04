@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 5c310c1943eaf23423be873c6172e27c621fe109
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e9ecdad0fb4d02f160977fa28a484b2a3a5bb30
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564064"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257083"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabbstart: Distribuera en app i LUIS-portalen
 
@@ -38,9 +38,9 @@ Du skapar en förutsägelse slut punkts resurs i Azure Portal. Den här resursen
 
 1. Konfigurera prenumerationen med följande inställningar:
 
-   |Inställning|Värde|Syfte|
+   |Inställning|Value|Syfte|
    |--|--|--|
-   |Namn|`my-cognitive-service-resource`|Namnet på Azure-resursen. Du behöver det här namnet när du tilldelar resursen till appen i LUIS-portalen.|
+   |Name|`my-cognitive-service-resource`|Namnet på Azure-resursen. Du behöver det här namnet när du tilldelar resursen till appen i LUIS-portalen.|
    |Subscription|Din prenumeration|Välj en av prenumerationerna som är kopplade till ditt konto.|
    |Location|**USA, västra**|Azure-regionen för den här resursen.|
    |Prisnivå|**S0**|Standard pris nivån för den här resursen.|
@@ -59,11 +59,11 @@ Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LU
 
 1. Logga in på [Luis-portalen](https://www.luis.ai) och välj **myEnglishApp** -appen från listan appar.
 
-1. Välj **Hantera** på menyn längst upp till höger och välj sedan **nycklar och slut punkter**.
+1. Välj **Hantera** på menyn längst upp till höger och välj sedan **Azure-resurser**.
 
-1. Om du vill lägga till LUIS väljer du **tilldela resurs +** .
+1. Om du vill lägga till LUIS väljer du **Lägg till förutsägelse resurs**.
 
-   [![Tilldela en resurs till din app](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
+    <!-- TBD: get screenshot-->
 
 1. Välj klient, prenumeration och resurs namn. Välj **Tilldela resurs**.
 
@@ -87,7 +87,7 @@ Träna appen när du är redo att testa den. Publicera appen när du vill att de
 
 1. Välj slut punkts-URL: en som är kopplad till ditt nya resurs namn. Den här åtgärden öppnar en webbläsare med en korrekt konstruerad URL för att `GET` göra en begäran till förutsägelse slut punkts körningen.
 
-1. I slutet av URL: en är kort för fråga och är där användarens uttryck läggs till i get-begäran.  `q=` Efter anger du samma användar -uttrycksomanvändesislutetavföregåendesnabbstart:`q=`
+1. I slutet av URL: en är kort för fråga och är där användarens uttryck läggs till i get-begäran. `q=` Efter anger du samma användar -uttrycksomanvändesislutetavföregåendesnabbstart:`q=`
 
     ```Is there a form named hrf-234098```
 

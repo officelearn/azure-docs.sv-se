@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0cc7313531e92aa0f57b09a9252902848297bdbf
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: f664e0419396eaf60c037c2adfde70df0034cc5b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996652"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276001"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database Hanterad instans med Azure Data Factory
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data till och från Azure SQL Database Hanterad instans. Den bygger på översikts artikeln om [kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data till och från Azure SQL Database Hanterad instans. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -239,7 +239,9 @@ Följande egenskaper stöds för att kopiera data till och från Azure SQL Datab
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Data uppsättningens typ-egenskap måste anges till **AzureSqlMITable**. | Ja |
-| tableName |Den här egenskapen är namnet på tabellen eller vyn i databas instansen som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
+| schema | Schemats namn. |Nej för källa, Ja för mottagare  |
+| table | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
+| tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och`table`för ny arbets belastning. | Nej för källa, Ja för mottagare |
 
 **Exempel**
 
@@ -255,7 +257,8 @@ Följande egenskaper stöds för att kopiera data till och från Azure SQL Datab
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -263,7 +266,7 @@ Följande egenskaper stöds för att kopiera data till och från Azure SQL Datab
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som kan användas för att definiera aktiviteter finns i artikeln [](concepts-pipelines-activities.md) om pipeliner. Det här avsnittet innehåller en lista över egenskaper som stöds av den Azure SQL Database hanterade instans källan och mottagaren.
+En fullständig lista över avsnitt och egenskaper som kan användas för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av den Azure SQL Database hanterade instans källan och mottagaren.
 
 ### <a name="azure-sql-database-managed-instance-as-a-source"></a>Azure SQL Database Hanterad instans som källa
 
@@ -484,7 +487,7 @@ I Azure Data Factory kan du till exempel skapa en pipeline med en **kopierings a
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-I databasen definierar du en lagrad procedur med SAMMANSLAGNINGs logik, som i följande exempel, som pekas från föregående lagrade procedur aktivitet. Anta att målet är marknadsförings tabellen med tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** .
+I databasen definierar du en lagrad procedur med SAMMANSLAGNINGs logik, som i följande exempel, som pekas från föregående lagrade procedur aktivitet. Anta att målet är **marknadsförings** tabellen med tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** .
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -525,7 +528,7 @@ När du kopierar data till Azure SQL Database Hanterad instans kan du också kon
 
 Du kan använda en lagrad procedur när inbyggda kopierings metoder inte fungerar. Ett exempel är när du vill använda extra bearbetning före den slutliga infogningen av käll data i mål tabellen. Några extra bearbetnings exempel är när du vill slå samman kolumner, leta upp ytterligare värden och infoga data i mer än en tabell.
 
-Följande exempel visar hur du använder en lagrad procedur för att göra en upsert till en tabell i den SQL Server databasen. Anta att indata och marknadsförings tabellen för mottagare har tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** och Använd den bara för en viss kategori som kallas "ProduktA".
+Följande exempel visar hur du använder en lagrad procedur för att göra en upsert till en tabell i den SQL Server databasen. Anta att indata och **marknadsförings** tabellen för mottagare har tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** och Använd den bara för en viss kategori som kallas "ProduktA".
 
 1. I databasen definierar du tabell typen med samma namn som **sqlWriterTableType**. Schemat för tabell typen är detsamma som det schema som returnerades av indata.
 
@@ -572,7 +575,7 @@ Följande exempel visar hur du använder en lagrad procedur för att göra en up
 
 ## <a name="data-type-mapping-for-azure-sql-database-managed-instance"></a>Data typs mappning för Azure SQL Database Hanterad instans
 
-När data kopieras till och från Azure SQL Database Hanterad instans används följande mappningar från Azure SQL Database hanterade instans data typer för att Azure Data Factory tillfälliga data typer. Information om hur kopierings aktiviteten mappar från käll schema och data typ till mottagaren finns i mappningar för [scheman och data typer](copy-activity-schema-and-type-mapping.md).
+När data kopieras till och från Azure SQL Database Hanterad instans används följande mappningar från Azure SQL Database hanterade instans data typer för att Azure Data Factory tillfälliga data typer. Information om hur kopierings aktiviteten mappar från käll schema och data typ till mottagaren finns i [mappningar för scheman och data typer](copy-activity-schema-and-type-mapping.md).
 
 | Data typen Azure SQL Database Hanterad instans | Azure Data Factory data typen Interim |
 |:--- |:--- |

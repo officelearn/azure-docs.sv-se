@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 64bd71d89446a19d2afe56a32b0c7124e897cb48
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8d7346bb61fad09e3f7c9098809463285ef57e93
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072420"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242486"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>IP-adresser för Azure API Management
 
@@ -27,7 +27,9 @@ Du kan använda IP-adresser för att skapa brand Väggs regler, filtrera inkomma
 
 ## <a name="ip-addresses-of-api-management-service"></a>IP-adresser för API Management-tjänsten
 
-Om din API Management-tjänst är en tjänst för utvecklare, Basic, standard eller Premium kan du hämta IP-adresserna från översikts instrument panelen för resursen i Azure Portal.
+Varje API Management tjänst instans i Developer-, Basic-, standard-eller Premium-nivån har offentliga IP-adresser som endast är exklusivt för den tjänst instansen (de delas inte med andra resurser). 
+
+Du kan hämta IP-adresserna från översikts instrument panelen för resursen i Azure Portal.
 
 ![API Management IP-adress](media/api-management-howto-ip-addresses/public-ip.png)
 
@@ -98,7 +100,7 @@ I trafik begränsnings syfte kan du använda intervallet av IP-adresser för Azu
 På nivåerna Developer, Basic, standard och Premium för API Management är de offentliga IP-adresserna (VIP) statiska för en tjänsts livs längd, med följande undantag:
 
 * Tjänsten tas bort och återskapas sedan igen.
-* Tjänst prenumerationen inaktive ras eller [varnas](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (till exempel för inbetalning) och återställs sedan. [](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)
+* Tjänst prenumerationen [inaktive](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) ras eller [varnas](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (till exempel för inbetalning) och återställs sedan.
 * Azure Virtual Network läggs till eller tas bort från tjänsten.
 
 I [flera regionala distributioner](api-management-howto-deploy-multi-region.md)ändras den regionala IP-adressen om en region är vacated och sedan återställs.

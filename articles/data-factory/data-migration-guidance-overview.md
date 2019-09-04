@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.openlocfilehash: 6b13eab0824307ef42f25d52a293f0f22818c1aa
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 937a076b3e0e3c5170779d3449776f0aa1cf5b49
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210035"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259007"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Använd Azure Data Factory för att migrera data från data Lake eller data lager till Azure 
 
@@ -61,3 +61,4 @@ Om du vill slutföra datamigreringen inom två veckor (migreringstabellen) kan d
 
 - [Migrera data från AWS S3 till Azure](data-migration-guidance-s3-azure-storage.md)
 - [Migrera data från ett lokalt Hadoop-kluster till Azure](data-migration-guidance-hdfs-azure-storage.md)
+- [Migrera data från den lokala Netezza-servern till Azure](data-migration-guidance-netezza-azure-sqldw.md)

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 9ee0f4ccfcd75504be6bb636e7ee54a845a10280
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a20a901d5fde251fdc1a044795615acdc1d61c5b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966923"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277633"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopiera data från och till ODBC-datalager med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -114,13 +114,13 @@ Följande egenskaper stöds för ODBC-länkad tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av ODBC-datauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av ODBC-datauppsättning.
 
-Om du vill kopiera data från/till ODBC-kompatibelt data lager anger du egenskapen type för data uppsättningen till **RelationalTable**. Följande egenskaper stöds:
+Följande egenskaper stöds för att kopiera data från/till ODBC-kompatibelt data lager:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Data uppsättningens typ-egenskap måste anges till: **RelationalTable** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **OdbcTable** | Ja |
 | tableName | Namnet på tabellen i ODBC-datalagret. | Nej för källa (om "fråga" i aktivitets källan har angetts);<br/>Ja för mottagare |
 
 **Exempel**
@@ -129,7 +129,8 @@ Om du vill kopiera data från/till ODBC-kompatibelt data lager anger du egenskap
 {
     "name": "ODBCDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "OdbcTable",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<ODBC linked service name>",
             "type": "LinkedServiceReference"
@@ -141,17 +142,19 @@ Om du vill kopiera data från/till ODBC-kompatibelt data lager anger du egenskap
 }
 ```
 
+Om du använder typ `RelationalTable` av data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya som går framåt.
+
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av ODBC-källa.
 
 ### <a name="odbc-as-source"></a>ODBC som källa
 
-Om du vill kopiera data från ODBC-kompatibelt data lager anger du käll typen i kopierings aktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+För att kopiera data från ODBC-kompatibelt data lager, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **RelationalSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **OdbcSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
@@ -175,7 +178,7 @@ Om du vill kopiera data från ODBC-kompatibelt data lager anger du käll typen i
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "OdbcSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -185,6 +188,8 @@ Om du vill kopiera data från ODBC-kompatibelt data lager anger du käll typen i
     }
 ]
 ```
+
+Om du använder typ `RelationalSource` av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
 
 ### <a name="odbc-as-sink"></a>ODBC som mottagare
 
@@ -280,7 +285,7 @@ Använd fliken **diagnostik** i **integration runtime Configuration Manager**fö
 1. Starta **Integration Runtime Configuration Manager**.
 2. Växla till fliken **diagnostik** .
 3. Under avsnittet "Testa anslutning" väljer du **typ** av data lager (länkad tjänst).
-4. Ange **anslutnings strängen** som används för att ansluta till data lagret, Välj autentiseringen och ange **användar namn**, **lösen ord**och/eller **autentiseringsuppgifter**.
+4. Ange **anslutnings strängen** som används för att ansluta till data lagret, Välj **autentiseringen** och ange **användar namn**, **lösen ord**och/eller **autentiseringsuppgifter**.
 5. Klicka på **Testa anslutning** för att testa anslutningen till data lagret.
 
 ## <a name="next-steps"></a>Nästa steg

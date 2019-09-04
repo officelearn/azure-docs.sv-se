@@ -7,30 +7,28 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 054f9ed21ee0d7ef725c2b7eee8174c53374b5bc
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 06a767af71f457273e0e20d1248d64c22b3563e7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232253"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274952"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
 Förutom att granska och [Reparera](../how-to/remediate-resources.md) Azure-resurser kan Azure policy granska inställningarna i en dator. Verifieringen utförs av gäst-konfiguration-tillägget och klienten. Tillägget med klienten, verifierar inställningar, till exempel konfigurationen av operativsystemet, programkonfigurationen eller närvaro, miljöinställningar och mer.
 
-För tillfället utför Azure Policy-gäst konfigurationen bara en granskning av inställningarna i datorn.
+För tillfället utför Azure Policy-gäst konfigurationen bara en granskning av inställningarna på datorn.
 Det går inte att använda konfigurationer än.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="extension-and-client"></a>Tillägget och klient
 
 Om du vill granska inställningarna i en dator är ett [tillägg för virtuell dator](../../../virtual-machines/extensions/overview.md) aktiverat. Tillägget hämtar tillämpliga principtilldelning och motsvarande-konfigurationsdefinition.
 
-### <a name="limits-set-on-the-exension"></a>Begränsningar som angetts för exension
+### <a name="limits-set-on-the-extension"></a>Begränsningar som angetts för tillägget
 
 För att begränsa tillägget från att påverka program som körs på datorn får gäst konfigurationen inte överstiga mer än 5% processor belastning.
-Detta är sant BOH för konfigurationer från Microsoft som "inbyggda" och för anpassade konfigurationer som skapats av kunder.
+Detta gäller både för konfigurationer som tillhandahålls av Microsoft som "inbyggda" och för anpassade konfigurationer som skapats av kunder.
 
 ## <a name="register-guest-configuration-resource-provider"></a>Registrera resursprovidern för gäst-konfiguration
 
@@ -70,7 +68,7 @@ I följande tabell visas en lista över de lokala verktyg som används på varje
 
 ### <a name="validation-frequency"></a>Validerings frekvens
 
-Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. När en gäst tilldelning tas emot kontrol leras inställningarna på 15-minuters intervall. Resultat skickas till resurs leverantören för gäst konfigurationen så snart granskningen är klar. När en utlösare för princip [utvärdering](../how-to/get-compliance-data.md#evaluation-triggers) inträffar skrivs datorns tillstånd till resurs leverantören för gäst konfiguration. Detta gör att Azure Policy utvärdera Azure Resource Manager egenskaper. En utvärdering på begäran Azure Policy hämtar det senaste värdet från resurs leverantören för gäst konfigurationen. Den utlöser dock inte en ny granskning av konfigurationen på datorn.
+Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. När en gäst tilldelning tas emot kontrol leras inställningarna på 15-minuters intervall. Resultat skickas till resurs leverantören för gäst konfigurationen så snart granskningen är klar. När en [utlösare](../how-to/get-compliance-data.md#evaluation-triggers) för princip utvärdering inträffar skrivs datorns tillstånd till resurs leverantören för gäst konfiguration. Detta gör att Azure Policy utvärdera Azure Resource Manager egenskaper. En utvärdering på begäran Azure Policy hämtar det senaste värdet från resurs leverantören för gäst konfigurationen. Den utlöser dock inte en ny granskning av konfigurationen på datorn.
 
 ## <a name="supported-client-types"></a>Stöds klienttyper
 
@@ -109,7 +107,7 @@ Varje konfiguration för gransknings körning av gäst kräver två princip defi
 Den **DeployIfNotExists** principdefinitionen kontrollerar och korrigerar följande objekt:
 
 - Verifiera att datorn har tilldelats en konfiguration som ska utvärderas. Om ingen tilldelning för närvarande finns kan du hämta tilldelningen och förbereda datorn genom att:
-  - Autentisera till datorn med en hanterad [identitet](../../../active-directory/managed-identities-azure-resources/overview.md)
+  - Autentisera till datorn med en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md)
   - Installera den senaste versionen av den **Microsoft.GuestConfiguration** tillägg
   - Installera [verifieringsverktyg](#validation-tools) och beroenden, om det behövs
 
@@ -144,6 +142,32 @@ Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindo
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
 Där `<version>` refererar till det aktuella versions numret.
+
+### <a name="collecting-logs-remotely"></a>Samla in loggar via fjärr anslutning
+
+Det första steget i Felsöka konfigurationer av gäst konfiguration eller moduler bör vara att använda `Test-GuestConfigurationPackage` cmdleten genom att följa stegen i [testa ett gäst konfigurations paket](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).  Om detta inte lyckas kan insamling av klient loggar hjälpa till att diagnostisera problem.
+
+#### <a name="windows"></a>Windows
+
+Om du vill använda funktionen för körning av virtuella Azure-datorer för att avbilda information från loggfiler i Windows-datorer kan du använda PowerShell-skriptet i följande exempel. Information om hur du kör skriptet från Azure-portalen eller använder Azure PowerShell finns i [köra PowerShell-skript i din virtuella Windows-dator med kommandot kör](../../../virtual-machines/windows/run-command.md).
+
+```powershell
+$linesToIncludeBeforeMatch = 0
+$linesToIncludeAfterMatch = 10
+$latestVersion = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\' | ForEach-Object {$_.FullName} | Sort-Object -Descending | Select-Object -First 1
+Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
+```
+
+#### <a name="linux"></a>Linux
+
+Om du vill använda funktionen för körning av virtuella Azure-datorer för att avbilda information från loggfiler på Linux-datorer kan du använda följande exempel på bash-skript. Information om hur du kör skriptet från Azure-portalen eller med Azure CLI finns i [köra gränssnitts skript i din virtuella Linux-dator med kommandot kör](../../../virtual-machines/linux/run-command.md)
+
+```Bash
+linesToIncludeBeforeMatch=0
+linesToIncludeAfterMatch=10
+latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
+egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log" | tail
+```
 
 ## <a name="guest-configuration-samples"></a>Exempel på gäst konfiguration
 

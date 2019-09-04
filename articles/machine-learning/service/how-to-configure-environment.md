@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33ee006a704cec1fb0d75a953629aec68461a4f4
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 8bf83f483bb7680b71bf928430858240deb3d603
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165193"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278813"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -61,7 +61,7 @@ Den virtuella Notebook-datorn är:
 
 + **Säker**. Eftersom VM-och Notebook-åtkomst skyddas med HTTPS och Azure Active Directory som standard kan IT-proffs enkelt använda enkel inloggning och andra säkerhetsfunktioner, till exempel Multi-Factor Authentication.
 
-+ Förkonfigurerad. Den här fullständigt beredda python ML-miljön ritar sin härstamning från populära IaaS-Data Science VM och inkluderar:
++ **Förkonfigurerad**. Den här fullständigt beredda python ML-miljön ritar sin härstamning från populära IaaS-Data Science VM och inkluderar:
   + Azure ML python SDK (senaste)
   + Automatisk konfiguration som fungerar med din arbets yta
   + En Jupyter Notebook-Server
@@ -229,7 +229,7 @@ Proceduren i avsnittet [lokal dator](#local) installerar nödvändiga komponente
     conda activate myenv
     ```
     
-1. Klona [GitHub](https://aka.ms/aml-notebooks) -lagringsplatsen för en uppsättning exempel antecknings böcker.
+1. Klona [GitHub-lagringsplatsen](https://aka.ms/aml-notebooks) för en uppsättning exempel antecknings böcker.
 
     ```CLI
     git clone https://github.com/Azure/MachineLearningNotebooks.git
@@ -360,7 +360,7 @@ Prova:
 * Azure Machine Learning SDK är redan installerat.
 * När du har skapat en Azure Machine Learning tjänst arbets yta i Azure Portal kan du klicka på en knapp för att automatiskt konfigurera din Azure Notebook-miljö så att den fungerar med arbets ytan.
 
-Använd [Azure Portal](https://portal.azure.com) för att komma igång med Azure Notebooks.  Öppna din arbets yta och välj **kom igång i Azure Notebooks**i översikts avsnittet.
+Använd [Azure Portal](https://portal.azure.com) för att komma igång med Azure Notebooks.  Öppna din arbets yta och välj **Kom igång i Azure Notebooks**i **översikts** avsnittet.
 
 Som standard använder Azure Notebooks en kostnads fri tjänst nivå som är begränsad till 4 GB minne och 1 GB data. Du kan dock ta bort dessa begränsningar genom att bifoga en Data Science Virtual Machine instans till Azure Notebooks projektet. Mer information finns i [Hantera och konfigurera Azure Notebooks projekt – beräknings nivå](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
@@ -384,7 +384,7 @@ Du kan skapa konfigurations filen på tre sätt:
 
 * **Använd [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** : för att skriva en *config. JSON* -fil. Filen innehåller konfigurations informationen för din arbets yta. Du kan ladda ned eller kopiera *config. JSON* till andra utvecklings miljöer.
 
-* **Hämta filen**: I [Azure Portal](https://ms.portal.azure.com)väljer du **Hämta config. JSON** från översikts avsnittet på arbets ytan.
+* **Hämta filen**: I [Azure Portal](https://ms.portal.azure.com)väljer du **Hämta config. JSON** från **översikts** avsnittet på arbets ytan.
 
      ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
@@ -411,5 +411,4 @@ Du kan skapa konfigurations filen på tre sätt:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Träna en modell](tutorial-train-models-with-aml.md) på Azure Machine Learning med MNIST-datauppsättningen
-- Visa [Azure Machine Learning SDK för python](https://aka.ms/aml-sdk) -referens
-- Lär dig mer om [data förberedelse paketet för Azure Machine Learning](https://aka.ms/data-prep-sdk)
+- Visa [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens

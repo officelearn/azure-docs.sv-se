@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 8e39318dcaa31a111908c6be1ae7a51d73eb7478
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 36c0f02202c738ac96d26b748b741cd8eee27380
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623819"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241823"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Vad är Service Fabric-programmets resurs modell?
 Vi rekommenderar att Service Fabric-program distribueras till ditt Service Fabric-kluster via Azure Resource Manager. Den här metoden gör det möjligt att beskriva program och tjänster i JSON och distribuera dem i samma Resource Manager-mall som klustret. I stället för att distribuera och hantera program via PowerShell eller Azure CLI behöver du inte vänta tills klustret är klart. Programregistrering, etablering och distribution sker i ett enda steg. Detta är den bästa metoden för att hantera programmets livscykel i ditt kluster. Mer information finns i [metod tips](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -154,6 +154,10 @@ Hämta information om program resurs modellen:
 
 * [Modellera ett program i Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model)
 * [Service Fabric program-och tjänst manifest](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests)
+
+## <a name="see-also"></a>Se även
+* [Bästa praxis](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [Hantera program och tjänster som Azure-resurser](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
 
 <!--Image references-->
 [CreateStorageAccount]: ./media/service-fabric-application-model/create-storage-account.png

@@ -16,12 +16,12 @@ ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74e0539095701ec104495bf5a44dec668494d444
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: a17b64cbfffbe9cabd909bccb16d55c07bba8bb0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207169"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241454"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD Identity Governance?
 
@@ -42,11 +42,11 @@ Särskilt är det avsett att hjälpa organisationer att lösa dessa fyra viktiga
 
 ## <a name="identity-lifecycle"></a>Identitets livs cykel
 
-Identitets styrning hjälper organisationer att få en balans mellan produktiviteten – hur snabbt kan en person ha åtkomst till de resurser som de behöver, till exempel när de ansluter till min organisation? Och *säkerhet* – hur ska deras åtkomst ändras över tid, till exempel på grund av ändringar i personens anställnings status?  Hantering av identitets livs cykeln är grunden för identitets styrning, och effektiva styrningar i skalan kräver att infrastrukturen för identitets livs cykels hantering används för program.
+Identitets styrning hjälper organisationer att få en balans mellan *produktiviteten* – hur snabbt kan en person ha åtkomst till de resurser som de behöver, till exempel när de ansluter till min organisation? Och *säkerhet* – hur ska deras åtkomst ändras över tid, till exempel på grund av ändringar i personens anställnings status?  Hantering av identitets livs cykeln är grunden för identitets styrning, och effektiva styrningar i skalan kräver att infrastrukturen för identitets livs cykels hantering används för program.
 
 ![Identitets livs cykel](./media/identity-governance-overview/identity-lifecycle.png)
 
-För många organisationer är identitets livs cykeln för anställda knuten till åter givning av användaren i ett HCM-system (Human kapitalet Management).  Azure AD Premium hanterar automatiskt användar identiteter för personer som representeras i Workday i både Active Directory och Azure Active Directory, enligt beskrivningen i självstudien för [arbets dag för inkommande insikter (för hands version)](../saas-apps/workday-inbound-tutorial.md).  Azure AD Premium innehåller även [Microsoft Identity Manager](/microsoft-identity-manager/), som kan importera poster från lokala HCM-system som SAP, Oracle eBusiness och Oracle, Oracle.
+För många organisationer är identitets livs cykeln för anställda knuten till åter givning av användaren i ett HCM-system (Human kapitalet Management).  Azure AD Premium hanterar automatiskt användar identiteter för personer som representeras i Workday i både Active Directory och Azure Active Directory, enligt beskrivningen i [självstudien för arbets dag för inkommande insikter (för hands version)](../saas-apps/workday-inbound-tutorial.md).  Azure AD Premium innehåller även [Microsoft Identity Manager](/microsoft-identity-manager/), som kan importera poster från lokala HCM-system som SAP, Oracle eBusiness och Oracle, Oracle.
 
 I allt större utsträckning kräver scenarier samarbete med personer utanför organisationen. Med [Azure AD B2B](/azure/active-directory/b2b/) -samarbete kan du på ett säkert sätt dela din organisations program och tjänster med gäst användare och externa partner från vilken organisation som helst, samtidigt som du behåller kontrollen över dina egna företags data.
 
@@ -58,7 +58,7 @@ Organisationer behöver en process för att hantera åtkomst utöver vad som urs
 
 Vanligt vis delegerar den åtkomst till godkännande beslut till besluts fattare i företaget.  Dessutom kan de involvera själva användarna.  Till exempel behöver användare som har åtkomst till konfidentiell kund information i ett företags marknadsförings program i Europa känna till företagets principer. Gäst användare kan vara medvetna om hanterings kraven för data i en organisation som de har bjudits in till.
 
-Organisationer kan automatisera livs cykel processen för Access genom tekniker som [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md), tillsammans med användar etablering till [SaaS appar](../saas-apps/tutorial-list.md) eller appar som är [integrerade med scim](../manage-apps/use-scim-to-provision-users-and-groups.md).  Organisationer kan också styra vilka [gäst användare som har åtkomst till lokala program](../b2b/hybrid-cloud-to-on-premises.md).  Dessa behörigheter kan sedan regelbundet granskas med hjälp av återkommande granskningar av [Azure AD-åtkomst](access-reviews-overview.md).
+Organisationer kan automatisera livs cykel processen för Access genom tekniker som [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md), tillsammans med användar etablering till [SaaS appar](../saas-apps/tutorial-list.md) eller appar som är [integrerade med scim](../manage-apps/use-scim-to-provision-users-and-groups.md).  Organisationer kan också styra vilka [gäst användare som har åtkomst till lokala program](../b2b/hybrid-cloud-to-on-premises.md).  Dessa behörigheter kan sedan regelbundet granskas med hjälp av återkommande [granskningar av Azure AD-åtkomst](access-reviews-overview.md).
 
 När en användare försöker få åtkomst till program tvingar Azure AD sig att tillämpa principer för [villkorlig åtkomst](/azure/active-directory/conditional-access/) . Principer för villkorlig åtkomst kan till exempel innehålla ett [antal användnings villkor](../conditional-access/terms-of-use.md) och [Se till att användaren har godkänt dessa villkor innan de](../conditional-access/require-tou.md) kan komma åt ett program.
 
@@ -72,7 +72,7 @@ Azure AD Privileged Identity Management (PIM) ger ytterligare kontroller som är
 
 ## <a name="least-privileged-roles"></a>Minst privilegierade roller
 
-Med hjälp av PIM kan en användares administratörs behörighet begränsas för ytterligare säkerhet. Följande är de minst privilegierade katalog rollerna för konfiguration i Azure AD Identity styrnings funktioner: 
+Vi rekommenderar att du använder den minst privilegierade rollen för att utföra administrativa uppgifter i identitets styrning. Vi rekommenderar att du använder Azure AD PIM för att aktivera en roll vid behov för att utföra dessa uppgifter. Följande är de minst privilegierade katalog rollerna för att konfigurera identitets styrnings funktioner: 
 
 | Funktion | Minst privilegie rad roll |
 | ------- | --------------------- |

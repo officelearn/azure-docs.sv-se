@@ -4,15 +4,15 @@ description: Få svar på vanliga frågor och svar om Azure Cosmos DB, en global
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cb2b3246264d04ce97c45dff58979079a731998e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 30530f445941747c659f584d279261148b08825e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066083"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240808"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -119,7 +119,7 @@ När du ställer in en region, Tänk på att Azure Cosmos DB respekterar suverä
 
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>Är det möjligt att växla från nivå av dataflöden i behållare på dataflöde Databasetableringen etablering? Eller tvärtom
 
-Behållare och nivån dataflöde Databasetableringen är två separata erbjudanden och växla mellan något av dessa kräver att migrera data från källa till mål. Vilket innebär att du behöver skapa en ny databas eller en ny samling och sedan migrera data med hjälp av [bulk executor biblioteket](bulk-executor-overview.md) eller [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
+Behållare och nivån dataflöde Databasetableringen är två separata erbjudanden och växla mellan något av dessa kräver att migrera data från källa till mål. Det innebär att du måste skapa en ny databas eller en ny behållare och sedan migrera data med hjälp av [utförar-bibliotek](bulk-executor-overview.md) eller [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure cosmos DB har stöd för analys av tidsserier?
 
@@ -149,7 +149,8 @@ Ja, SQL-API: et stöder transaktioner mellan dokument uttryckta som JavaScript-l
 
 En behållare är en uppsättning dokument och deras associerade JavaScript-programlogik. En behållare är en fakturerbar enhet där den [kostnaden](performance-levels.md) bestäms av dataflödet och används för lagring. Behållare kan sträcka sig över en eller flera partitioner eller servrar och kan skalas för att hantera praktiskt taget obegränsade volymer av lagring eller dataflöde.
 
-* För SQL API och Cosmos DB s API för MongoDB-konton mappar en behållare till en samling.
+* För SQL API mappar en behållare till en behållare.
+* För Cosmos DB s API för MongoDB-konton mappar en behållare till en samling.
 * För Cassandra och tabell-API-konton mappar en behållare till en tabell.
 * För Gremlin-API-konton mappar en behållare till ett diagram.
 
@@ -157,7 +158,7 @@ Behållare är också faktureringsenheterna för Azure Cosmos DB. Varje behålla
 
 ### <a name="how-do-i-create-a-database"></a>Hur skapar jag en databas?
 
-Du kan skapa databaser med hjälp av den [Azure-portalen](https://portal.azure.com), enligt beskrivningen i [Lägg till en samling](create-sql-api-java.md#add-a-container), någon av de [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md), eller [REST API: er](/rest/api/cosmos-db/).
+Du kan skapa databaser med hjälp av [Azure Portal](https://portal.azure.com), enligt beskrivningen i [Lägg till en behållare](create-sql-api-java.md#add-a-container), en av [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md): er eller [REST-API: er](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Hur ställer jag in användare och behörigheter?
 
@@ -179,7 +180,7 @@ Om du vill använda Optimistisk samtidighet i .NET, använda den [AccessConditio
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Hur gör jag transaktioner i SQL-API: et?
 
-SQL-API: et stöder språkintegrerade transaktioner via JavaScript-lagrade procedurer och utlösare. Alla databasåtgärder i skript körs under ögonblicksbildisolering. Om det är en samling för en partition är körningen begränsad till samlingen. Om samlingen är partitionerad är körningen begränsad till dokument med samma partitionsnyckel värde i samlingen. En ögonblicksbild av dokumentversionerna (ETags) tas i början av transaktionen och verkställs endast om skriptet lyckas. Om JavaScript genererar ett fel återställs transaktionen. Mer information finns i [programmering av serversidan JavaScript för Azure Cosmos DB](stored-procedures-triggers-udfs.md).
+SQL-API: et stöder språkintegrerade transaktioner via JavaScript-lagrade procedurer och utlösare. Alla databasåtgärder i skript körs under ögonblicksbildisolering. Om det är en behållare för en enda partition, är körningen begränsad till behållaren. Om behållaren är partitionerad, begränsas körningen till dokument med samma partitions nyckel värde i behållaren. En ögonblicksbild av dokumentversionerna (ETags) tas i början av transaktionen och verkställs endast om skriptet lyckas. Om JavaScript genererar ett fel återställs transaktionen. Mer information finns i [programmering av serversidan JavaScript för Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Hur kan jag-massinfogning dokument till Cosmos DB?
 
@@ -191,7 +192,7 @@ Du kan-massinfogning dokument till Azure Cosmos DB på något av följande sätt
 
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>Stöder de SQL API stöd för cachelagring av resurslänkar?
 
-Ja, eftersom Azure Cosmos DB är en RESTful-tjänst, resurslänkar är oföränderliga och kan cachelagras. SQL API-klienter kan ange en ”If-None-Match”-rubrik för läsning mot valfri resurs-liknande dokument eller en samling och sedan uppdaterar sina lokala kopior när serverversionen har ändrats.
+Ja, eftersom Azure Cosmos DB är en RESTful-tjänst, resurslänkar är oföränderliga och kan cachelagras. SQL-API-klienter kan ange ett "If-None-Match"-huvud för läsningar mot resurs-liknande dokument eller behållare och sedan uppdatera sina lokala kopior när Server versionen har ändrats.
 
 ### <a name="is-a-local-instance-of-sql-api-available"></a>Är en lokal instans av SQL API tillgängligt?
 
@@ -225,7 +226,7 @@ Tillsammans med de vanliga fel koderna för MongoDB har Azure Cosmos DBs API fö
 
 | Fel               | Kod  | Beskrivning  | Lösning  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | Det totala antalet enheter för programbegäran som används är högre än den etablerade begäransenhet för samlingen och har begränsats. | Överväg att skala dataflöde som tilldelats till en behållare eller en uppsättning behållare från Azure portal eller omförsök igen. |
+| TooManyRequests     | 16500 | Det totala antalet förbrukade enheter för förbrukad enhet är mer än den etablerade enhets enhets frekvensen för behållaren och har begränsats. | Överväg att skala dataflöde som tilldelats till en behållare eller en uppsättning behållare från Azure portal eller omförsök igen. |
 | ExceededMemoryLimit | 16501 | Åtgärden har gått över klientens minne mängd som en tjänst med flera klienter. | Minska omfånget för åtgärd via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel: <em> &nbsp; db.&nbsp;getCollection (' Users '). Aggregation ([ &nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {Name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {Age:-1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>Finns Simba-drivrutinen för MongoDB som stöds för användning med Azure Cosmos DB s API för MongoDB?
@@ -523,7 +524,7 @@ RU-kostnad är baserad på data arbetsminnet för övergången och för resultat
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Vad är maximal skala som en grafdatabas kan ha i Azure Cosmos DB Gremlin API?
 
-Azure Cosmos DB använder [horisontell partitionering](partition-data.md) automatiskt adress ökning krav för lagring och dataflöde. Maxkapacitet för dataflöde och lagring på en arbetsbelastning bestäms av antalet partitioner som är associerade med en viss samling. En samling med Gremlin-API har dock en specifik uppsättning riktlinjer för att säkerställa en korrekt prestandaupplevelse i stor skala. Mer information om partitionering och bästa praxis finns [partitionering i Azure Cosmos DB](partition-data.md) artikeln.
+Azure Cosmos DB använder [horisontell partitionering](partition-data.md) automatiskt adress ökning krav för lagring och dataflöde. Högsta data flöde och lagrings kapacitet för en arbets belastning bestäms av antalet partitioner som associeras med en specifik behållare. En Gremlin API-behållare har dock en uppsättning rikt linjer för att säkerställa en korrekt prestanda upplevelse i stor skala. Mer information om partitionering och bästa praxis finns [partitionering i Azure Cosmos DB](partition-data.md) artikeln.
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Hur kan jag skydda mot inmatningsattacker med hjälp av Gremlin drivrutiner?
 

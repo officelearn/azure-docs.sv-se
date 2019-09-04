@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a8ab2039cde11876d853b411ca09a51e96e2ca0a
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: c9192a6d6b8cf122092963f2352af8bb6e5a6c21
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233041"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275912"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till eller från Azure SQL Database med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
@@ -234,7 +234,9 @@ Följande egenskaper stöds för att kopiera data från eller till Azure SQL Dat
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Data uppsättningens **typ** -egenskap måste anges till **AzureSqlTable**. | Ja |
-| tableName | Namnet på tabellen eller vyn i Azure SQL Database-instansen som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
+| schema | Schemats namn. |Nej för källa, Ja för mottagare  |
+| table | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
+| tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och`table`för ny arbets belastning. | Nej för källa, Ja för mottagare |
 
 #### <a name="dataset-properties-example"></a>Exempel med datauppsättningen egenskaper
 
@@ -250,7 +252,8 @@ Följande egenskaper stöds för att kopiera data från eller till Azure SQL Dat
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -258,7 +261,7 @@ Följande egenskaper stöds för att kopiera data från eller till Azure SQL Dat
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter [](concepts-pipelines-activities.md)finns i pipelines. Det här avsnittet innehåller en lista över egenskaper som stöds av Azure SQL Database källa och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md). Det här avsnittet innehåller en lista över egenskaper som stöds av Azure SQL Database källa och mottagare.
 
 ### <a name="azure-sql-database-as-the-source"></a>Azure SQL Database som källa
 
@@ -480,7 +483,7 @@ I Azure Data Factory kan du till exempel skapa en pipeline med en **kopierings a
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-I databasen definierar du en lagrad procedur med SAMMANSLAGNINGs logik, som i följande exempel, som pekas från föregående lagrade procedur aktivitet. Anta att målet är marknadsförings tabellen med tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** .
+I databasen definierar du en lagrad procedur med SAMMANSLAGNINGs logik, som i följande exempel, som pekas från föregående lagrade procedur aktivitet. Anta att målet är **marknadsförings** tabellen med tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** .
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -521,7 +524,7 @@ När du kopierar data till Azure SQL Database kan du också konfigurera och anro
 
 Du kan använda en lagrad procedur när inbyggda kopierings metoder inte fungerar. Ett exempel är när du vill använda extra bearbetning före den slutliga infogningen av käll data i mål tabellen. Några extra bearbetnings exempel är när du vill slå samman kolumner, leta upp ytterligare värden och infoga i mer än en tabell.
 
-Följande exempel visar hur du använder en lagrad procedur för att göra en upsert till en tabell i Azure SQL Database. Anta att indata och marknadsförings tabellen för mottagare har tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** och Använd den bara för en viss kategori som kallas "ProduktA".
+Följande exempel visar hur du använder en lagrad procedur för att göra en upsert till en tabell i Azure SQL Database. Anta att indata och **marknadsförings** tabellen för mottagare har tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** och Använd den bara för en viss kategori som kallas "ProduktA".
 
 1. I databasen definierar du tabell typen med samma namn som **sqlWriterTableType**. Schemat för tabell typen är detsamma som det schema som returnerades av indata.
 

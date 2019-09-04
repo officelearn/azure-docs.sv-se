@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f2ffd88b21d8cf331435a030199b562e6b5b979f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b9d853cc0de08b64f2e0f5530e153724d9eeddda
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840263"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277084"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-enheter i Azure Data Factory
 
@@ -35,7 +35,7 @@ Om du vill **kopiera filer som – är** hoppa över avsnittet format i både in
 ## <a name="text-format"></a>Textformat
 
 >[!NOTE]
->Data Factory introducerade ett nytt avgränsat text format datset, se artikeln med avgränsat [text format](format-delimited-text.md) med information. Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
+>Data Factory introducerade en ny avgränsad text formats data uppsättning, se [avgränsad text format](format-delimited-text.md) artikel med information. Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
 
 Om du vill läsa från en textfil eller skriva till en textfil, anger den `type` -egenskapen i den `format` avsnittet på datauppsättningen till **TextFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [TextFormat-exempel](#textformat-example).
 
@@ -97,7 +97,7 @@ Om du vill parsa JSON-filerna eller skriva data i JSON-format anger den `type` -
 | filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |Nej |
 | jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data **från** JSON-filer. | Nej |
 | jsonPathDefinition | Ange JSON-sökvägsuttrycket för varje kolumnmappning med ett anpassat kolumnnamn (inled med liten bokstav). Den här egenskapen stöds endast när du kopierar data **från** JSON-filer och du kan extrahera data från objekt eller matris. <br/><br/> För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `jsonNodeReference` börjar du från matriselementet. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example). | Nej |
-| encodingName |Ange kodningsnamnet. En lista över giltiga kodnings namn finns i: [Encoding. EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) -egenskapen. Exempel: windows-1250 or shift_jis. Standardvärdet är: **UTF-8**. |Nej |
+| encodingName |Ange kodningsnamnet. En lista över giltiga kodnings namn finns i: [Encoding. EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) -egenskapen. Exempel: windows-1250 or shift_jis. **Standardvärdet** är: **UTF-8**. |Nej |
 | nestingSeparator |Tecken som används för att avgränsa kapslingsnivåer. Standardvärdet är ”.” (punkt). |Nej |
 
 >[!NOTE]
@@ -413,7 +413,7 @@ Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell def
 ## <a name="parquet-format"></a>Parquet-format
 
 >[!NOTE]
->Data Factory introducerade nya Parquet format datset, se [Parquet format](format-parquet.md) -artikel med information. Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
+>Data Factory introducerade en ny Parquet format-datauppsättning, se [Parquet format](format-parquet.md) artikel med information. Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
 
 Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egenskapen `format` `type` till **ParquetFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
 
@@ -485,7 +485,7 @@ Observera följande punkter:
 
 * Komplexa data typer stöds inte (STRUCT, MAP, LIST, UNION).
 * Tomt utrymme i kolumn namnet stöds inte.
-* ORC-filen har tre komprimerings bara [alternativ](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): INGEN, ZLIB, FÄSTNING. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en ORC-fil väljer Data Factory ZLIB, som är standard för ORC. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
+* ORC-filen har tre [komprimerings bara alternativ](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): INGEN, ZLIB, FÄSTNING. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en ORC-fil väljer Data Factory ZLIB, som är standard för ORC. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
 
 > [!IMPORTANT]
 > Om du inte kopierar ORC-filer i **befintligt skick som är som är**integration runtime behöriga för den lokala datorn och data lager i molnet, måste du installera **64-bitars JRE 8 (Java Runtime Environment) eller OPENJDK** på din IR-dator. Se följande stycke med mer information.
@@ -520,6 +520,9 @@ För kopiering som körs på egen värd-IR med Orc-filserialisering/deserialiser
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>AVRO-format
+
+>[!NOTE]
+>Data Factory introducerade en ny Avro format-datauppsättning, se [Avri format](format-avro.md) artikel med information. Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
 
 Om du vill parsa Avro-filerna eller skriva data i Avro-format anger du egenskapen `format` `type` till **AvroFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
 

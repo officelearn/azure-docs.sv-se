@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 116ffa31fb540897f9a769b73c3a6474dda45b88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101923"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70280180"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Pris vägledning för SQL Server virtuella Azure-datorer
 
@@ -35,7 +35,7 @@ Den här artikeln innehåller pris vägledning för [SQL Server virtuella datore
 
 ## <a name="free-licensed-sql-server-editions"></a>Gratis licensierade SQL Server-versioner
 
-Om du vill utveckla, testa eller bygga ett koncept bevis kan du använda den fritt licensierade SQL Server Developers **versionen**. Den här versionen har alla funktioner i SQL Server Enterprise Edition, så att du kan bygga och testa alla typer av program. Du kan dock inte köra Developer Edition i produktion. En SQL Server Developer version av virtuella datorer debiteras bara för kostnaden för den virtuella datorn eftersom det inte finns några associerade SQL Server licens kostnader.
+Om du vill utveckla, testa eller bygga ett koncept bevis kan du använda den fritt licensierade **SQL Server Developers versionen**. Den här versionen har alla funktioner i SQL Server Enterprise Edition, så att du kan bygga och testa alla typer av program. Du kan dock inte köra Developer Edition i produktion. En SQL Server Developer version av virtuella datorer debiteras bara för kostnaden för den virtuella datorn eftersom det inte finns några associerade SQL Server licens kostnader.
 
 Om du vill köra en förenklad arbets belastning i produktion (< 4 kärnor < 1 GB minne, < 10 GB/databas), använder du den fritt licensierade **SQL Server Express versionen**. En SQL Server Express version av VM debiteras också för kostnaden för den virtuella datorn.
 
@@ -113,7 +113,7 @@ Om du vill använda BYOL med en SQL Server VM måste du ha en licens för SQL Se
 
 | BYOL-förmån | Beskrivning |
 |-----|-----|
-| **Kostnads besparingar** | [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) erbjuder upp till 55% besparingar. Mer information finns i [Switch Licensing Model] (Virtual-Machines-Windows-SQL-ahb.md |
+| **Kostnads besparingar** | [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) erbjuder upp till 55% besparingar. Mer information finns i [switch Licensing Model](virtual-machines-windows-sql-ahb.md) |
 | **Fri passiv sekundär replik** | En annan fördel med att använda din egen licens är den [kostnads fria licensieringen för en passiv sekundär replik](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server för hög tillgänglighet. Detta klipper på hälften av licens kostnaden för en hög tillgänglig SQL Server distribution (till exempel med Always on Availability groups). Rättigheterna för att köra passiv sekundär tillhandahålls via server förmånen för redundans. |
 
 Om du vill skapa en SQL Server 2017 virtuell Azure-dator med någon av dessa skrivskyddade licens avbildningar, se de virtuella datorerna som har åtgärd ATS med {BYOL}:

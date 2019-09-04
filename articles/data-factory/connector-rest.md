@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 8c7c8faad70022ba985a4041fd578becbaf70078
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0bd97a6b1636d4b540c616958e5531c86362f597
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966868"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276629"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiera data från en REST-slutpunkt genom att använda Azure Data Factory
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data F
 
 Skillnaden mellan den här REST-anslutningen, [http-kopplingen](connector-http.md) och [webb tabell anslutningen](connector-web-table.md) är:
 
-- **Rest Connector** har stöd för att kopiera data från RESTful-API: er; 
+- **Rest Connector** stöder särskilt kopiering av data från RESTful-API: er; 
 - **Http-anslutningen** är generisk för att hämta data från alla http-slutpunkter, t. ex. för att hämta filen. Innan den här REST-anslutningen blir tillgänglig kan du välja att använda HTTP-anslutning för att kopiera data från RESTful-API, som stöds men mindre funktions jämförelser till REST Connector.
 - **Webb tabells koppling** extraherar tabell innehåll från en HTML-webbsida.
 
@@ -175,50 +175,23 @@ Följande egenskaper stöds för att kopiera data från REST:
 |:--- |:--- |:--- |
 | type | Data uppsättningens **typ** -egenskap måste anges till **RestResource**. | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. | Nej |
-| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Nej |
-| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
-| requestBody | Bröd texten för HTTP-begäran. | Nej |
-| paginationRules | Sid brytnings regler för att skapa nästa sida begär Anden. Mer information finns i avsnittet om [sid brytnings stöd](#pagination-support) . | Nej |
 
-**Exempel 1: Använda Get-metoden med sid brytning**
+`requestMethod`Om du har angett `additionalHeaders` `requestBody` , och `paginationRules` i data uppsättning, stöds den fortfarande som den är, men du rekommenderas att använda den nya modellen i aktivitets källan.
+
+**Exempel:**
 
 ```json
 {
     "name": "RESTDataset",
     "properties": {
         "type": "RestResource",
+        "typeProperties": {
+            "relativeUrl": "<relative url>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<REST linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "additionalHeaders": {
-                "x-user-defined": "helloworld"
-            },
-            "paginationRules": {
-                "AbsoluteUrl": "$.paging.next"
-            }
-        }
-    }
-}
-```
-
-**Exempel 2: Använda post-metoden**
-
-```json
-{
-    "name": "RESTDataset",
-    "properties": {
-        "type": "RestResource",
-        "linkedServiceName": {
-            "referenceName": "<REST linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "requestMethod": "Post",
-            "requestBody": "<body for POST REST request>"
         }
     }
 }
@@ -237,10 +210,14 @@ Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | **Typ** egenskapen för kopierings aktivitets källan måste anges till **RestSource**. | Ja |
+| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Nej |
+| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
+| requestBody | Bröd texten för HTTP-begäran. | Nej |
+| paginationRules | Sid brytnings regler för att skapa nästa sida begär Anden. Mer information finns i avsnittet om [sid brytnings stöd](#pagination-support) . | Nej |
 | httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | Nej |
 | requestInterval | Vänte tiden innan begäran skickas för nästa sida. Standardvärdet är **00:00:01** |  Nej |
 
-**Exempel**
+**Exempel 1: Använda Get-metoden med sid brytning**
 
 ```json
 "activities":[
@@ -262,6 +239,46 @@ Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
         "typeProperties": {
             "source": {
                 "type": "RestSource",
+                "additionalHeaders": {
+                    "x-user-defined": "helloworld"
+                },
+                "paginationRules": {
+                    "AbsoluteUrl": "$.paging.next"
+                },
+                "httpRequestTimeout": "00:01:00"
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+**Exempel 2: Använda post-metoden**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromREST",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<REST input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "RestSource",
+                "requestMethod": "Post",
+                "requestBody": "<body for POST REST request>",
                 "httpRequestTimeout": "00:01:00"
             },
             "sink": {
@@ -274,7 +291,7 @@ Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 
 ## <a name="pagination-support"></a>Stöd för sid brytning
 
-Normalt REST API begränsa dess svars nytto Last storlek för en enskild begäran under ett rimligt antal. När stora mängder data skulle returneras delas resultatet in på flera sidor och det krävs att anropare skickar efterföljande begär Anden för att hämta nästa sida i resultatet. Vanligt vis är begäran för en sida dynamisk och består av den information som returneras från svars sidan föregående.
+Normalt begränsar REST API dess svars nytto Last storlek för en enskild begäran under ett rimligt antal. När stora mängder data skulle returneras delas resultatet in på flera sidor och det krävs att anropare skickar efterföljande begär Anden för att hämta nästa sida i resultatet. Vanligt vis är begäran för en sida dynamisk och består av den information som returneras från svars sidan föregående.
 
 Denna generiska REST-anslutning har stöd för följande sid brytnings mönster: 
 
@@ -285,7 +302,7 @@ Denna generiska REST-anslutning har stöd för följande sid brytnings mönster:
 * Nästa begär ande rubrik = egenskaps värde i den aktuella svars texten
 * Nästa begär ande rubrik = huvud värde i aktuella svarshuvuden
 
-**Sid brytnings regler** definieras som en ord lista i data uppsättningen som innehåller ett eller flera Skift läges känsliga nyckel/värde-par. Konfigurationen kommer att användas för att generera begäran från den andra sidan. Kopplingen slutar att gå igenom när den får HTTP-statuskod 204 (inget innehåll) eller något av JSONPath-uttrycket i "paginationRules" returnerar null.
+**Sid brytnings regler** definieras som en ord lista i dataset som innehåller ett eller flera Skift läges känsliga nyckel/värde-par. Konfigurationen kommer att användas för att generera begäran från den andra sidan. Kopplingen slutar att gå igenom när den får HTTP-statuskod 204 (inget innehåll) eller något av JSONPath-uttrycken i "paginationRules" returnerar null.
 
 **Nycklar som stöds** i sid brytnings regler:
 
@@ -336,23 +353,19 @@ Facebook Graph API returnerar svar i följande struktur, i vilket fall visas nä
 }
 ```
 
-Motsvarande konfiguration av rest-dataset särskilt `paginationRules` är följande:
+Motsvarande käll konfiguration för rest kopierings aktivitet `paginationRules` är i synnerhet följande:
 
 ```json
-{
-    "name": "MyFacebookAlbums",
-    "properties": {
-            "type": "RestResource",
-            "typeProperties": {
-                "relativeUrl": "albums",
-                "paginationRules": {
-                    "AbsoluteUrl": "$.paging.next"
-                }
-            },
-            "linkedServiceName": {
-                "referenceName": "MyRestService",
-                "type": "LinkedServiceReference"
-            }
+"typeProperties": {
+    "source": {
+        "type": "RestSource",
+        "paginationRules": {
+            "AbsoluteUrl": "$.paging.next"
+        },
+        ...
+    },
+    "sink": {
+        "type": "<sink type>"
     }
 }
 ```

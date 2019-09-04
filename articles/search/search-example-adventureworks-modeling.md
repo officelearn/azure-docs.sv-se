@@ -1,27 +1,27 @@
 ---
 title: 'Exempel: Modellera AdventureWorks Inventory Database – Azure Search'
 description: Lär dig att modellera Relations data, omvandla dem till en förenklad data uppsättning för indexering och fullständig texts ökning i Azure Search.
-author: cstone
+author: HeidiSteen
 manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: chstone
-ms.openlocfilehash: 52ccf3edfca5b3481b038bd5d3449c1dd6354179
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/05/2019
+ms.author: heidist
+ms.openlocfilehash: c25dd34460e7e92bb20913f5b812044623dd38e3
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649908"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274040"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Exempel: Modellera AdventureWorks Inventory Database för Azure Search
 
-Att modellera strukturerat databas innehåll till ett effektivt sökindex är sällan en enkel övning. Schemaläggning och ändrings hantering tas bort, det finns en utmaning för att avnormalisera käll rader från deras tabell anslutna tillstånd till sökvänliga entiteter. Den här artikeln använder exempel data från AdventureWorks, tillgängliga online, för att markera vanliga upplevelser i över gången från databasen att söka. 
+Azure Search accepterar en utplattad rad uppsättning som indata till [pipeline för indexering (data inmatning)](search-what-is-an-index.md). Om dina källdata härstammar från en SQL Server Relations databas, visar den här artikeln en metod för att skapa en utplattad rad uppsättning före indexering, med hjälp av AdventureWorks-exempel databasen som exempel.
 
 ## <a name="about-adventureworks"></a>Om AdventureWorks
 
-Om du har en SQL Server-instans kan du bekanta dig med AdventureWorks-exempel databasen. Bland tabellerna som ingår i databasen finns fem tabeller som visar produkt information.
+Om du har en SQL Server-instans kan du bekanta dig med [AdventureWorks-exempel databasen](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017). Bland tabellerna som ingår i databasen finns fem tabeller som visar produkt information.
 
 + **ProductModel**: namn
 + **Produkt**: namn, färg, kostnad, storlek, vikt, bild, kategori (varje rad kopplas till en viss ProductModel)
@@ -29,7 +29,7 @@ Om du har en SQL Server-instans kan du bekanta dig med AdventureWorks-exempel da
 + **ProductModelProductDescription**: locale (varje rad kopplar en ProductModel till en specifik ProductDescription för ett speciellt språk)
 + **ProductCategory**: namn, överordnad kategori
 
-Att kombinera alla dessa data till en utplattad rad uppsättning som kan matas in i ett sökindex är den uppgift som är i handen. 
+Syftet med det här exemplet är att kombinera alla dessa data till en utplattad rad uppsättning som kan matas in i ett Sök index. 
 
 ## <a name="considering-our-options"></a>Överväg våra alternativ
 
@@ -43,7 +43,7 @@ Att lösa det här problemet är inte lika enkelt som att flytta mål indexet ti
 
 ## <a name="use-a-collection-data-type"></a>Använd en samlings data typ
 
-"Rätt metod" är att använda en Sök schema funktion som inte har en direkt parallell i databas modellen: **Collection(Edm.String)** . En samlings data typ används när du har en lista med enskilda strängar, i stället för en mycket lång (enkel) sträng. Om du har taggar eller nyckelord använder du en samlings data typ för det här fältet.
+"Rätt metod" är att använda en Sök schema funktion som inte har en direkt parallell i databas modellen: **Collection(Edm.String)** . Den här konstruktionen definieras i Azure Search index schema. En samlings data typ används när du behöver representera en lista med enskilda strängar, i stället för en mycket lång (enkel) sträng. Om du har taggar eller nyckelord använder du en samlings data typ för det här fältet.
 
 Genom att definiera flera värde index fält för **samling (EDM. String)** för "Color", "size" och "image", bevaras hjälp informationen för fasettering och filtrering utan att det förorenar indexet med dubbla poster. På samma sätt använder du mängd funktioner för de numeriska produkt fälten och indexerar **minListPrice** i stället för varje enskild produkt **listPrice**.
 
@@ -164,5 +164,3 @@ WHERE
 
 > [!div class="nextstepaction"]
 > [Exempel: Fasett-taxonomier på flera nivåer i Azure Search](search-example-adventureworks-multilevel-faceting.md)
-
-

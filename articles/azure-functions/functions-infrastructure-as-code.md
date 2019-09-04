@@ -12,16 +12,16 @@ ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 3d60e5e4aae3457ae04cd7e4ecfe4f9253a04751
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 976121e2fd7af280ccc959ba2a93aceb4ae2bdea
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085389"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276834"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
-Du kan använda en Azure Resource Manager-mall för att distribuera en Function-app. Den här artikeln beskriver de resurser och parametrar som krävs för att göra detta. Du kan behöva distribuera ytterligare resurser, beroende på utlösare [och bindningar](functions-triggers-bindings.md) i din Function-app.
+Du kan använda en Azure Resource Manager-mall för att distribuera en Function-app. Den här artikeln beskriver de resurser och parametrar som krävs för att göra detta. Du kan behöva distribuera ytterligare resurser, beroende på [utlösare och bindningar](functions-triggers-bindings.md) i din Function-app.
 
 Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -195,16 +195,22 @@ En förbruknings plan behöver inte definieras. Den ena skapas eller väljs auto
 Förbruknings planen är en särskild typ av "Server klustret"-resurs. För Windows kan du ange det med hjälp `Dynamic` av värdet `computeMode` för egenskaperna och `sku` :
 
 ```json
-{
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2015-04-01",
-    "name": "[variables('hostingPlanName')]",
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "computeMode": "Dynamic",
-        "sku": "Dynamic"
-    }
+{  
+   "type":"Microsoft.Web/serverfarms",
+   "apiVersion":"2016-09-01",
+   "name":"[variables('hostingPlanName')]",
+   "location":"[resourceGroup().location]",
+   "properties":{  
+      "name":"[variables('hostingPlanName')]",
+      "computeMode":"Dynamic"
+   },
+   "sku":{  
+      "name":"Y1",
+      "tier":"Dynamic",
+      "size":"Y1",
+      "family":"Y",
+      "capacity":0
+   }
 }
 ```
 

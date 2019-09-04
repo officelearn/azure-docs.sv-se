@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 110040592474ec432912e7f545abad19ca3ae1ff
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: bc0455b34ebdcb080e0cd702e58d8163228b60ff
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991981"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278072"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Hantera och begära kvoter för Azure-resurser
 
@@ -78,7 +78,7 @@ Tillgängliga resurser:
 ### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning pipelines
 För Azure Machine Learning pipeliner finns en kvot gräns för antalet steg i en pipeline och antalet schemabaserade körningar av publicerade pipelines per region i en prenumeration.
 - Maximalt antal steg som tillåts i en pipeline är 30 000
-- Maximalt antal schemabaserade körningar av publicerade pipelines per prenumeration per månad är 100 000
+- Högsta antalet schemabaserade körningar och blob-hämtningar för blogg utlösta scheman över publicerade pipelines per prenumeration är 100 000
 
 > [!NOTE]
 > Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du vill öka den här gränsen.
@@ -92,7 +92,7 @@ Det finns också en gräns för antalet behållarinstanser som kan sätta upp i 
 En mer utförlig och aktuell lista över kvotgränser, hittar du i Azure hela kvoten artikeln [här](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Storage
-Det finns en gräns för antalet storage-konton per region samt i en viss prenumeration. Standardgränsen är 200 och inkluderar både Standard och Premium Storage-konton. Om du behöver fler än 200 lagrings konton i en specifik region gör du en begäran via supporten för [Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Azure Storage-teamet granskar ditt affärsfall och kan godkänna upp till 250 lagringskonton för en viss region.
+Det finns en gräns för antalet storage-konton per region samt i en viss prenumeration. Standardgränsen är 200 och inkluderar både Standard och Premium Storage-konton. Om du behöver fler än 200 lagrings konton i en specifik region gör du en begäran via [supporten för Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Azure Storage-teamet granskar ditt affärsfall och kan godkänna upp till 250 lagringskonton för en viss region.
 
 
 ## <a name="find-your-quotas"></a>Hitta dina kvoter

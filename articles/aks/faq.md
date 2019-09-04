@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 6d122b3ac1504db0a2d22fea749c6c94174e4ff9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 54a95186a297cf3604858341fb8f5aba3702bf5a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233156"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241783"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes service (AKS)
 
@@ -25,7 +25,7 @@ En fullständig lista över tillgängliga regioner finns i [AKS regioner och til
 
 ## <a name="does-aks-support-node-autoscaling"></a>Stöder AKS autoskalning av noder?
 
-Ja, möjligheten att automatiskt skala agent noder vågrätt i AKS är för närvarande tillgänglig i för hands versionen. Se [automatisk skalning av ett kluster för att uppfylla program kraven i AKS][aks-cluster-autoscaler] för instruktioner. AKS autoskalning baseras på [Kubernetes][auto-scaler]autoskalning.
+Ja, möjligheten att automatiskt skala agent noder vågrätt i AKS är för närvarande tillgänglig i för hands versionen. Se [automatisk skalning av ett kluster för att uppfylla program kraven i AKS][aks-cluster-autoscaler] för instruktioner. AKS autoskalning baseras på [Kubernetes autoskalning][auto-scaler].
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Kan jag distribuera AKS till mitt befintliga virtuella nätverk?
 
@@ -87,7 +87,7 @@ Om du ändrar eller tar bort Azure-skapade Taggar och andra resurs egenskaper i 
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Vilka Kubernetes-kontrollanter stöder AKS? Kan åtkomst kontrol Lanterna läggas till eller tas bort?
 
-AKS stöder följande styrenheter för [åtkomst][admission-controllers]kontroll:
+AKS stöder följande [styrenheter för åtkomst][admission-controllers]kontroll:
 
 - *NamespaceLifecycle*
 - *LimitRanger*
@@ -115,6 +115,8 @@ Windows Server-stöd för Node-pool innehåller vissa begränsningar som ingår 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Erbjuder AKS ett service nivå avtal?
 
 I ett service avtal (SLA) accepterar providern att återbetala kunden till kostnaden för tjänsten om den publicerade Service nivån inte är uppfylld. Eftersom AKS är kostnads fritt är ingen kostnad tillgänglig för åter betalning, så AKS har inget formellt service avtal. Men AKS strävar efter att behålla tillgänglighet för minst 99,5 procent för Kubernetes API-servern.
+
+Det är viktigt att känna till skillnaden mellan AKS-tjänstens tillgänglighet som avser drift tid av Kubernetes-kontroll planet och tillgängligheten för din speciella arbets belastning som körs på Azure Virtual Machines. Kontroll planet kan vara otillgängligt om kontroll planet inte är klart, men dina kluster arbets belastningar som körs på virtuella Azure-datorer kan fortfarande fungera. De virtuella Azure-datorerna är betalda resurser som de backas upp av ett finansiellt service avtal. Läs [här om du vill ha mer information](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) om service avtalet för Azure VM och hur du ökar tillgängligheten med funktioner som [Tillgänglighetszoner][availability-zones].
 
 ## <a name="why-cant-i-set-maxpods-below-30"></a>Varför kan jag inte ange maxPods under 30?
 
@@ -204,6 +206,7 @@ Ingen AKS är en hanterad tjänst och manipulering av IaaS-resurser stöds inte.
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
+[availability-zones]: ./availability-zones.md
 
 <!-- LINKS - external -->
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 48b38e88ea6d0d99a0734aa36716020ced6e3d78
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 14339a61e48866d51089db9a0008a3de982b1710
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193613"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277112"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Förtroendepoäng för en kunskapsbas med QnA Maker
 När en användarfråga matchas mot en kunskapsbas, returnerar QnA Maker relevanta svar, tillsammans med ett förtroenderesultat. Det här resultatet indikerar var säker på att svaret är rätt matchning för den angivna användarfrågan. 
@@ -55,7 +55,7 @@ När du väljer tröskeln för ditt, Kom ihåg balans mellan precision och täck
 - Om **täckning** (eller återkallande) är fler viktigt – och du vill att besvara så många frågor som möjligt, även om det finns bara en partiell relation till användarens fråga - sedan SÄNKA tröskelvärdet. Det innebär att det kan vara mer fall där svaret svarar inte användarens faktiska frågan, men ger andra relaterade något svar. *Exempel:* om du gör tröskelvärdet **30**kan du ge svar på frågor som "var kan jag redigera mitt KB?".
 
 > [!NOTE]
-> Nyare versioner av QnA Maker är förbättringar av bedömnings logik och kan påverka din tröskelvärdet. När du uppdaterar tjänsten, se till att testa och justera tröskelvärdet om det behövs. Du kan kontrollera QnA Service-version [här](https://www.qnamaker.ai/UserSettings), och se hur du kan få de senaste uppdateringarna [här](../How-To/set-up-qnamaker-service-azure.md#get-latest-runtime-updates).
+> Nyare versioner av QnA Maker är förbättringar av bedömnings logik och kan påverka din tröskelvärdet. När du uppdaterar tjänsten, se till att testa och justera tröskelvärdet om det behövs. Du kan kontrollera QnA Service-version [här](https://www.qnamaker.ai/UserSettings), och se hur du kan få de senaste uppdateringarna [här](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
 
 ## <a name="set-threshold"></a>Ange tröskel 
 
@@ -78,7 +78,7 @@ Om du har en kunskaps bas i olika regioner använder varje region sitt eget Azur
 
 
 ## <a name="no-match-found"></a>Ingen matchning hittades
-När ingen bra matchning hittas av rankningen, förtroendepoäng 0,0 eller ”None” returneras och Standardsvaret är ”bra att hitta någon matchning i KB”. Du kan åsidosätta [](#change-default-answer) standardsvaret i robot-eller program koden som anropar slut punkten. Alternativt kan du kan också ange åsidosättning svaret i Azure och detta ändrar standardvärdet för alla kunskapsbaser som distribueras i en viss QnA Maker-tjänsten.
+När ingen bra matchning hittas av rankningen, förtroendepoäng 0,0 eller ”None” returneras och Standardsvaret är ”bra att hitta någon matchning i KB”. Du kan åsidosätta [standardsvaret](#change-default-answer) i robot-eller program koden som anropar slut punkten. Alternativt kan du kan också ange åsidosättning svaret i Azure och detta ändrar standardvärdet för alla kunskapsbaser som distribueras i en viss QnA Maker-tjänsten.
 
 ## <a name="change-default-answer"></a>Ändra Standardsvar
 

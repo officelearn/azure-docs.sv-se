@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
-ms.openlocfilehash: 57dc9c05778563bc0c5df1a8ac8895b51008b01f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 5032762c1275d3f1c8d1a020a54d20555f8ba3fe
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657078"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242441"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Felsöka Azure-registrering
 
@@ -102,11 +102,11 @@ Kontrol lera att du använder rätt inloggnings uppgifter. Kontrol lera sedan f�
   - Om du inte kan verifiera din status kan du få hjälp i [forumen Microsoft for startups](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
 - MPN 
   - Logga in på [MPN-portalen](https://mspartner.microsoft.com/Pages/Locale.aspx) för att verifiera din status. Om du har rätt [moln plattforms kompetens](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx)kan du vara berättigad till ytterligare förmåner.
-  - Kontakta [MPN](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx)-supporten om du inte kan verifiera din status.
+  - Kontakta [MPN-supporten](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx)om du inte kan verifiera din status.
 
 ### <a name="cant-activate-new-azure-in-open-subscription"></a>Det går inte att aktivera ny Azure i Open-prenumeration
 
-Om du vill skapa en Azure i Open-prenumeration måste du ha en giltig nyckel för aktivering av online tjänst (OSA) som har minst en Azure i Open-token kopplad till sig. Om du inte har en OSA-nyckel kontaktar du en av de Microsoft-partner som finns i [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
+Om du vill skapa en Azure i Open-prenumeration måste du ha en giltig nyckel för aktivering av online tjänst (OSA) som har minst en Azure i Open-token kopplad till sig. Om du inte har en OSA-nyckel kontaktar du en av de Microsoft-partner som finns i [Microsoft Pinpoint](https://pinpoint.microsoft.com/).
 
 ### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>Fel: *Du är inte berättigad till en Azure-prenumeration*
 

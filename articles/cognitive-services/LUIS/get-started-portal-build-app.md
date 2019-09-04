@@ -10,22 +10,22 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f54643883028d93b56c7e122f43db95bb6d0b8c1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3bdada262df3778ab8781f967fdbd64a780009b2
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560870"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258292"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabbstart: Skapa en ny app i LUIS-portalen
 
-I den här snabb starten skapar du en ny app i [Luis-portalen](https://www.luis.ai). Först skapar du grundläggande delar av en app, **avsikter**och entiteter. Sedan testar du appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten.
+I den här snabb starten skapar du en ny app i [Luis-portalen](https://www.luis.ai). Först skapar du grundläggande delar av en app, **avsikter**och **entiteter**. Sedan testar du appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten.
 
 Att skapa en app är kostnads fritt och kräver inte en Azure-prenumeration. När du är redo att distribuera din app kan du läsa [snabb starten för att distribuera en app](get-started-portal-deploy-app.md). Den visar hur du skapar en Azure-tjänst resurs för en Azure-tjänst och tilldelar den till appen.
 
-## <a name="create-an-app"></a>Skapa en app
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
-1. Öppna [Luis-portalen](https://www.luis.ai) i en webbläsare och logga in. Om det är första gången du loggar in måste du skapa ett kostnads fritt LUIS-Portal-användarkonto.
+## <a name="create-an-app"></a>Skapa en app
 
 1. Välj **Skapa ny app** från kontext verktygsfältet.
 
@@ -35,7 +35,7 @@ Att skapa en app är kostnads fritt och kräver inte en Azure-prenumeration. Nä
 
    |Inställningsnamn| Value | Syfte|
    |--|--|--|
-   |Namn|`myEnglishApp`|Unikt namn på LUIS-app<br>obligatorisk|
+   |Name|`myEnglishApp`|Unikt namn på LUIS-app<br>obligatorisk|
    |Kultur|**Engelska**|Språk för yttranden från användare, **en-US**<br>obligatorisk|
    |Beskrivning|`App made with LUIS Portal`|Beskrivning av app<br>valfri|
    | | | |

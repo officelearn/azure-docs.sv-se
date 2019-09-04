@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a6fa08596f5778b2c188fe3402801cf487b32ae4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: cdd7cfcb9d835c2ccac1dc367b9a1b34b509e8cf
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966990"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276434"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
@@ -166,12 +166,12 @@ Om du använder **certThumbprint** för autentisering och certifikatet är insta
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. 
 
-- För **Parquet, avgränsad text och binärt format**, se avsnittet [Parquet, avgränsad text och binära format](#format-based-dataset) .
+- För **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, delimited text, Avro och Binary format data uppsättning](#format-based-dataset) .
 - Andra format som **Orc/Avro/JSON-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Parquet, avgränsad text och binärt format data uppsättning
+### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, Avro och binärt format
 
-Om du vill kopiera data till och från **Parquet, avgränsade text-eller binärformat**, kan du läsa mer i [Parquet format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) i artikeln format-baserad data uppsättning och inställningar som stöds. Följande egenskaper stöds för http under `location` inställningar i format-baserad data mängd:
+Om du vill kopiera data till och från **Parquet, avgränsad text eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel i format-baserad data uppsättning och inställningar som stöds. Följande egenskaper stöds för http under `location` inställningar i format-baserad data mängd:
 
 | Egenskap    | Beskrivning                                                  | Krävs |
 | ----------- | ------------------------------------------------------------ | -------- |
@@ -212,7 +212,7 @@ Om du vill kopiera data till och från **Parquet, avgränsade text-eller binärf
 
 ### <a name="other-format-dataset"></a>Data uppsättning för andra format
 
-Följande egenskaper stöds för att kopiera data från HTTP i **Orc/Avro/JSON-format**:
+Följande egenskaper stöds för att kopiera data från HTTP i **Orc/JSON-format**:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -221,8 +221,8 @@ Följande egenskaper stöds för att kopiera data från HTTP i **Orc/Avro/JSON-f
 | requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Nej |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
 | requestBody | Bröd texten för HTTP-begäran. | Nej |
-| format | Om du vill hämta data från HTTP-slutpunkten i befintligt skick utan att parsa den, och sedan kopiera data till en filbaserad lagring, hoppar du över avsnittet **format** i både indata och utdata-datauppsättnings definitioner.<br/><br/>Om du vill parsa innehållet i HTTP-svar under kopieringen, stöds följande fil format typer:Text Forms, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Under **format**anger du egenskapen **Type** till något av dessa värden. Mer information finns i [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [text format](supported-file-formats-and-compression-codecs.md#text-format), [Avro](supported-file-formats-and-compression-codecs.md#avro-format)-format, Orc- [format](supported-file-formats-and-compression-codecs.md#orc-format)och [Parquet-format](supported-file-formats-and-compression-codecs.md#parquet-format). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds:  **Optimal** och **snabbast**. |Nej |
+| format | Om du vill hämta data från HTTP-slutpunkten i befintligt skick utan att parsa den, och sedan kopiera data till en filbaserad lagring, hoppar du över avsnittet **format** i både indata och utdata-datauppsättnings definitioner.<br/><br/>Om du vill parsa innehållet i HTTP-svar under kopieringen, stöds följande fil format typer: Text **Forms**, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Under **format**anger du egenskapen **Type** till något av dessa värden. Mer information finns i [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [text format](supported-file-formats-and-compression-codecs.md#text-format), [Avro](supported-file-formats-and-compression-codecs.md#avro-format)-format, Orc- [format](supported-file-formats-and-compression-codecs.md#orc-format)och [Parquet-format](supported-file-formats-and-compression-codecs.md#parquet-format). |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds:  **Optimal** och **snabbast**. |Nej |
 
 > [!NOTE]
 > Den begärda nytto Last storleken för HTTP-begäran är cirka 500 KB. Om den nytto Last storlek som du vill skicka till webb slut punkten är större än 500 KB bör du överväga att lägga till nytto lasten i mindre segment.
@@ -274,12 +274,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="http-as-source"></a>HTTP som källa
 
-- Om du vill kopiera från **Parquet, avgränsad text och binärt format**, se avsnittet [Parquet, avgränsad text och binärt format](#format-based-source) .
+- Om du vill kopiera från **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, avgränsad text, Avro och binärt format](#format-based-source) .
 - Om du vill kopiera från andra format som **Orc/Avro/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, avgränsad text-och binär format källa
+#### <a name="format-based-source"></a>Parquet, avgränsad text, Avro och binär format källa
 
-Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**, referera till [Parquet-format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) -artikel med formatbaserade kopierings aktivitets källor och inställningar som stöds. Följande egenskaper stöds för http under `storeSettings` inställningar i format-baserad kopierings Källa:
+Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel om formatbaserade kopierings aktivitets källor och inställningar som stöds. Följande egenskaper stöds för http under `storeSettings` inställningar i format-baserad kopierings Källa:
 
 | Egenskap                 | Beskrivning                                                  | Krävs |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -336,7 +336,7 @@ Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**,
 
 #### <a name="other-format-source"></a>Annan format källa
 
-Om du vill kopiera data från HTTP i **Orc/Avro/JSON-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från HTTP i **Orc/JSON-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |

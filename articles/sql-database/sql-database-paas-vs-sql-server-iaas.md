@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/22/2019
-ms.openlocfilehash: f303e6ba30b8b68f1bed4c5bcacd746932cbe156
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 998318ad1418c1076676725af03bd7f33c963b3a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873815"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279922"
 ---
 # <a name="choose-the-right-deployment-option-in-azure-sql"></a>Välj rätt distributions alternativ i Azure SQL
 
@@ -33,7 +33,7 @@ En av de första sakerna man ska förstå när det gäller Azure kontra lokala S
 
 Som det visas i diagrammet kan varje erbjudande karakteriseras av den hanterings nivå som du har över infrastrukturen och i takt med kostnads effektiviteten.
 
-I Azure kan du ha SQL Server arbets belastningar som körs som en värdbaserad tjänst ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) eller en värdbaserad infrastruktur ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)). I PaaS har du flera distributions alternativ och tjänst nivåer inom varje distributions alternativ. Den viktiga fråga som du behöver fråga när du väljer mellan PaaS eller IaaS är att du vill hantera din databas, använda korrigeringar, göra säkerhets kopior eller vill delegera dessa åtgärder till Azure?
+I Azure kan du ha SQL Server arbets belastningar som körs som en värdbaserad tjänst ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) eller en värdbaserad infrastruktur ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)). I PaaS har du flera distributions alternativ och tjänst nivåer inom varje distributions alternativ. Den viktiga fråga som du behöver fråga när du väljer mellan PaaS eller IaaS är att du vill hantera din databas, tillämpa korrigeringar och göra säkerhets kopior, eller vill du delegera dessa åtgärder till Azure?
 
 Beroende på svaret har du följande alternativ:
 
@@ -41,7 +41,7 @@ Beroende på svaret har du följande alternativ:
 
 
   Databaser erbjuder följande distributions alternativ:
-  - Som en [***enskild databas***](sql-database-single-database.md) med en egen uppsättning resurser som hanteras via en databas server. En enda databas liknar en innesluten [databas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) i SQL Server. Det här alternativet är optimerat för modern program utveckling av nya molnbaserade program. Alternativen för [storskalig](sql-database-service-tier-hyperscale.md) och [Server](sql-database-serverless.md) lös är tillgängliga.
+  - Som en [***enskild databas***](sql-database-single-database.md) med en egen uppsättning resurser som hanteras via en databas server. En enda databas liknar en [innesluten databas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) i SQL Server. Det här alternativet är optimerat för modern program utveckling av nya molnbaserade program. Alternativen för [storskalig](sql-database-service-tier-hyperscale.md) och [Server](sql-database-serverless.md) lös är tillgängliga.
   - En [***elastisk pool***](sql-database-elastic-pool.md), som är en samling databaser med en delad uppsättning resurser som hanteras via en databas server. Enskilda databaser kan flyttas till och från en elastisk pool. Det här alternativet är optimerat för modern program utveckling av nya molnbaserade program med hjälp av SaaS program mönster för flera innehavare. Elastiska pooler ger en kostnads effektiv lösning för att hantera prestanda för flera databaser som har varierande användnings mönster.
   - En [***databas server***](sql-database-servers.md)som används för att hantera grupper av enskilda databaser och elastiska pooler. Databas servrar fungerar som en central administrativ punkt för flera databaser i en enda databas, [inloggningar](sql-database-manage-logins.md), [brand Väggs regler](sql-database-firewall-configure.md), [gransknings regler](sql-database-auditing.md), [principer för hot identifiering](sql-database-threat-detection.md)och [failover-grupper](sql-database-auto-failover-group.md).
 

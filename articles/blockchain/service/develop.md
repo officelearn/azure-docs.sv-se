@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Service utvecklingsöversikt
-description: Introduktion om hur du utvecklar lösningar på Azure Blockchain-tjänsten.
+title: Översikt över Azure blockchain service-utveckling
+description: Introduktion till utveckling av lösningar i Azure blockchain-tjänsten.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,60 +10,60 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 388a5d8c80c3e2462602959e9d5cbc1452974d1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f27dd199cc054d128a4f46b222c7207d5975efb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65027907"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241012"
 ---
-# <a name="azure-blockchain-service-development-overview"></a>Azure Blockchain Service utvecklingsöversikt
+# <a name="azure-blockchain-service-development-overview"></a>Översikt över Azure blockchain service-utveckling
 
-Du kan skapa blockchain-nätverk för att aktivera enterprise-scenarier som spåra tillgångar, digitala token, lojalitet och trafik, finansiella leveranskedja och sändande consortium med Azure Blockchain-tjänsten. Den här artikeln är en introduktion till utveckling av Azure Blockchain tjänstöversikt och viktiga avsnitt för att implementera blockchain för företag.
+Med Azure blockchain-tjänsten kan du skapa konsortier blockchain-nätverk för att möjliggöra företags scenarier som till gångs spårning, digital token, lojalitet och belöning, försörjnings kedjans ekonomi och härkomst. Den här artikeln är en introduktion till Azure blockchain service-utveckling och viktiga ämnen för att implementera blockchain for Enterprise.
 
-## <a name="client-connection-to-azure-blockchain-service"></a>Klientanslutningen till Azure Blockchain Service
+## <a name="client-connection-to-azure-blockchain-service"></a>Klient anslutning till Azure blockchain-tjänsten
 
-Det finns olika typer av klienter för blockchain nätverk, inklusive fullständig noder, ljus noder och fjärrklienter. Azure Blockchain Service skapar en blockchain-nätverk som omfattar noder. Du kan använda olika klienter som din gateway på Azure Blockchain-tjänsten för utveckling av blockkedjor. Azure Blockchain Service erbjuder grundläggande autentisering eller åtkomstnyckel som en slutpunkt för utveckling. Följande är de populära klienter som du kan använda ansluta.
+Det finns olika typer av klienter för blockchain-nätverk, inklusive fullständiga noder, lätta noder och fjärrklienter. Azure blockchain service skapar ett blockchain-nätverk som innehåller noder. Du kan använda olika klienter som din gateway till Azure blockchain-tjänsten för blockchain-utveckling. Azure blockchain-tjänsten erbjuder grundläggande autentisering eller åtkomst nyckel som en utvecklings slut punkt. Följande är populära klienter som du kan använda Connect.
 
 ### <a name="metamask"></a>MetaMask
 
-MetaMask är en webbläsarbaserad wallet (fjärrklient), RPC-klienten och grundläggande kontrakt explorer. Till skillnad från andra webbläsare plånböcker MetaMask lägger in en web3-instans till samma kontext som webbläsaren JavaScript, fungerar som en RPC-klient som ansluter till en mängd olika Ethereum blockchains (*mainnet*, *Ropsten testnet*, *Kovan testnet*, lokala RPC-noden, osv.). Du kan ställa in anpassade RPC enkelt att ansluta till Azure Blockchain-tjänsten och starta utveckling av blockkedjor med Remix.
+MetaMask är en webbläsarbaserad plån boks tjänst (fjärrklient), RPC-klient och grundläggande kontrakts Utforskare. Till skillnad från andra webb läsar-plåner, infogar MetaMask en Web3-instans i webbläsarens JavaScript-kontext, som fungerar som en RPC-klient som ansluter till en rad olika Ethereum Blockchains (*mainnet*, *Ropsten*testnet, *Kovan testnet*, Local RPC Node, osv.). Du kan enkelt konfigurera anpassade RPC för att ansluta till Azure blockchain-tjänsten och starta blockchain-utveckling med Remix.
 
 ### <a name="geth"></a>Geth
 
-Geth är kommandoradsgränssnittet för att köra en fullständig Ethereum-nod som implementerats i går. Du behöver inte köra fullständig noden men kan starta den interaktiva konsolen som ger en JavaScript-körningsmiljö exponera en JavaScript-API för att interagera med Azure Blockchain-tjänsten.
+Geth är kommando rads gränssnittet för att köra en fullständig Ethereum-nod som implementerats i go. Du behöver inte köra fullständig nod, men kan starta den interaktiva konsolen som tillhandahåller en Java Script runtime-miljö som visar ett JavaScript-API för att interagera med Azure blockchain-tjänsten.
 
-## <a name="development-framework-configuration"></a>Utveckling konfigurationer
+## <a name="development-framework-configuration"></a>Konfiguration av utvecklings ramverk
 
-Om du vill utveckla sofistikerade företagslösningar för blockchain, behövs ett utvecklingsramverk för att ansluta till olika blockchain nätverk, hantera livscykeln för smarta kontrakt, automatisera testning, distribuera smarta kontrakt med skript och utrusta en interaktiv konsol.
+För att utveckla avancerade lösningar för företags blockchain krävs ett utvecklings ramverk för att ansluta till olika blockchain-nätverk, hantera livs cykel för smart kontrakt, automatisera testning, distribuera Smart kontrakt med skript och utrusta en interaktiv konsol.
 
-Truffle är ett ramverk för utveckling av populära blockchain att skriva, kompilera, distribuera och testa decentraliserad program på Ethereum blockkedjor. Du kan också tänka på Truffle som ett ramverk som försöker integrera sömlöst smarta kontrakt utvecklings- och traditionella webbutveckling.
+Truffle är ett populärt blockchain Development Framework för att skriva, kompilera, distribuera och testa decentraliserade program på Ethereum Blockchains. Du kan också tänka på Truffle som ett ramverk som försöker sömlöst integrera Smart kontrakt utveckling och traditionell webb utveckling.
 
-Även minsta projektet interagerar med minst två blockchain-noder: En på utvecklarens dator och den andra som representerar det nätverket där utvecklare distribuerar sina program. Till exempel den huvudsakliga offentligt Ethereum-nätverk eller Azure Blockchain-tjänsten. Truffle tillhandahåller ett system för att hantera artefakter för kompilering och distribution för varje nätverk och sker på ett sätt som förenklar sista programdistribution. Mer information finns i [ Snabbstart: Använd Truffle för att ansluta till en ett nätverk med Azure Blockchain Service](connect-truffle.md).
+Även det minsta projektet interagerar med minst två blockchain-noder: En på utvecklarens dator och den andra som representerar nätverket där utvecklaren distribuerar sitt program. Till exempel det huvudsakliga offentliga Ethereum-nätverket eller Azure blockchain-tjänsten. Truffle tillhandahåller ett system för hantering av kompilator-och distributions artefakter för varje nätverk och gör det på ett sätt som fören klar den slutliga program distributionen. Mer information finns i [ Snabbstart: Använd Truffle för att ansluta till ett Azure blockchain service-](connect-truffle.md)nätverk.
 
-## <a name="ethereum-quorum-private-transaction"></a>Ethereum kvorum privata transaktion
+## <a name="ethereum-quorum-private-transaction"></a>Privat transaktion för Ethereum-kvorum
 
-Kvorum är ett protokoll för Ethereum-baserade distribuerat transaktionsregister med transaktionen plus kontrakt sekretess- och nya konsensus-mekanismer. Viktiga förbättringar över Go-Ethereum är:
+Kvorum är ett Ethereum distribuerat redovisnings protokoll med transaktion plus avtals sekretess och nya enighets metoder. Viktiga förbättringar för go-Ethereum inkluderar:
 
-* Sekretess - kvorum har stöd för privata transaktioner och privata kontrakt via offentliga och privata tillstånd separation och använder peer-to-peer krypterade meddelandeutbyten för dirigerad överföring av privata data till nätverket deltagare.
-* Alternativa konsensus mekanismer - med inget behov av bevis för arbets- eller bevis på spel konsensus i ett permissioned nätverk. Kvorum erbjuder flera konsensus mekanismer som är utformade för consortium kedjor, till exempel RADDA och IBFT.  Azure Blockchain-tjänster använder IBFT konsensus-mekanism.
+* Sekretess-kvorum stöder privata transaktioner och privata kontrakt via offentlig och privat delstats delning och använder sig av peer-to-peer-krypterade meddelande utbyten för riktad överföring av privata data till nätverks deltagare.
+* Alternativa vedertagna mekanismer – utan behov av bevis på arbete eller bevis på ändringar i ett beviljat nätverk. Kvorum har flera sammanställda mekanismer som är utformade för konsortier som RAFT och IBFT.  Azure blockchain Services använder sig av IBFT enighet-mekanismen.
 
-* Peer-ge behörighet till - nod och peer ge behörighet till som med hjälp av smarta kontrakt, att se till att endast kända parter kan anslutas till nätverket
-* Högre prestanda - kvorum ger högre prestanda än offentliga Geth
+* Peer-behörighet – nod-och peer-behörighet med smarta kontrakt, vilket garanterar att endast kända parter kan ansluta till nätverket
+* Högre prestanda – kvorum ger högre prestanda än offentliga Geth
 
-Se [självstudien: Skicka en transaktion med Azure Blockchain Service](send-transaction.md) ett exempel på privat transaktion.
+Se [Självstudier: Skicka en transaktion med Azure blockchain-](send-transaction.md) tjänsten för ett exempel på en privat transaktion.
 
-## <a name="block-explorers"></a>Blockera Utforskare
+## <a name="block-explorers"></a>Blockera Explorer
 
-Blockera Utforskare är online blockchain webbläsare som visar enskilda blockera innehåll, adress transaktionsdata och historik. Grundläggande block information är tillgänglig via Azure Monitor i Azure Blockchain-tjänsten, men om du behöver mer detaljerad information under utvecklingen, blockera Utforskare kan användas.  Det finns populära öppen källkod block Utforskare som du kan använda. Här följer en lista över block Utforskare som fungerar med Azure Blockchain-tjänsten:
+Blockera Explorer är online blockchain webbläsare som visar enskilda block innehåll, transaktions adress data och historik. Grundläggande block information är tillgänglig via Azure Monitor i Azure blockchain-tjänsten, men om du behöver mer detaljerad information under utvecklingen kan det vara praktiskt att blockera Explorer.  Det finns populära block Explorer med öppen källkod som du kan använda. Följande är en lista över blockerade Utforskare som fungerar med Azure blockchain-tjänsten:
 
-* [Azure Blockchain-tjänsten Explorer](https://web3labs.com/azure-offer) från Web3 Labs
+* [Azure blockchain service Explorer](https://web3labs.com/azure-offer) från Web3 Labs
 * [BlockScout](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
 
-## <a name="tps-measurement"></a>TPS mätning
+## <a name="tps-measurement"></a>TPS-mått
 
-När blockkedjor används i fler scenarier för enterprise transaktioner per sekund (TPS) hastighet är viktigt att undvika flaskhalsar och ineffektivitet i systemet. Hög transaktioner kan vara svårt att upprätthålla inom en decentraliserad blockchain. En korrekt TPS mätning kan påverkas av olika faktorer, till exempel server tråd, transaktion köstorlek, svarstid för nätverk och säkerhet. Om du vill mäta TPS hastighet under utvecklingen, ett populärt verktyg för öppen källkod är [ChainHammer](https://github.com/drandreaskrueger/chainhammer).
+Eftersom blockchain används i fler företags scenarier är det viktigt att du använder TPS-hastighet för att undvika Flask halsar och system ineffektivitet. Hög transaktions taxa kan vara svårt att underhålla inom en decentraliserad blockchain. En korrekt TPS-mätning kan påverkas av olika faktorer, till exempel Server tråd, storlek på transaktionskö, nätverks fördröjning och säkerhet. Om du behöver mäta TPS-hastigheten under utvecklingen är ett populärt verktyg för öppen källkod [ChainHammer](https://github.com/drandreaskrueger/chainhammer).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Snabbstart: Använd Truffle för att ansluta till en tjänstnätverk Azure Blockchain](connect-truffle.md)
+[Snabbstart: Använda Truffle för att ansluta till ett Azure blockchain service-nätverk](connect-truffle.md)

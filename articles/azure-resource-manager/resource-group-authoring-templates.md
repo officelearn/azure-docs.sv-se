@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9858e8a52888304edd48893db02faa992b356b3b
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 53b2f9783b33c859ca2c5de5f35353b8482ea5c7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774908"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275125"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager mallar
 
@@ -48,57 +48,6 @@ I sin enklaste struktur har en mall följande element:
 | [outputs](#outputs) |Nej |Värden som returneras efter distribution. |
 
 Varje element har egenskaper som du kan ange. I den här artikeln beskrivs mallens avsnitt mer detaljerat.
-
-## <a name="syntax"></a>Syntax
-
-Den grundläggande syntaxen för mallen är JSON. Du kan dock använda uttryck för att utöka de JSON-värden som är tillgängliga i mallen.  Uttryck börjar och slutar med hakparenteser: `[` `]`respektive. Värdet för uttrycket utvärderas när mallen distribueras. Ett uttryck kan returnera en sträng, ett heltal, ett booleskt värde, en matris eller ett objekt. I följande exempel visas ett uttryck i standardvärdet för en parameter:
-
-```json
-"parameters": {
-  "location": {
-    "type": "string",
-    "defaultValue": "[resourceGroup().location]"
-  }
-},
-```
-
-I uttrycket anropar syntaxen `resourceGroup()` en av de funktioner som Resource Manager tillhandahåller för användning i en mall. Precis som i Java Script är funktions anrop formaterade `functionName(arg1,arg2,arg3)`som. Syntaxen `.location` hämtar en egenskap från det objekt som returnerades av funktionen.
-
-Mallens funktioner och deras parametrar är Skift läges känsliga. Resource Manager matchar till exempel **variabler (' var1 ')** och **variabler (' var1 ')** som samma. När den utvärderas, om inte funktionen uttryckligen ändrar Skift läge (t. ex. toUpper eller toLower), bevarar funktionen det fallet. Vissa resurs typer kan ha fall krav oavsett hur funktionerna utvärderas.
-
-Om du vill att en litteral sträng ska börja med `[` en vänster hak paren tes `]`och sluta med en högerparentes, men inte ha den tolkas som ett uttryck, lägger du till en `[[`extra parentes för att starta strängen med. Till exempel variabeln:
-
-```json
-"demoVar1": "[[test value]"
-```
-
-Matchar `[test value]`.
-
-Om den litterala strängen inte slutar med en hak paren tes, ska du inte undanta den första parentesen. Till exempel variabeln:
-
-```json
-"demoVar2": "[test] value"
-```
-
-Matchar `[test] value`.
-
-Om du vill skicka ett sträng värde som en parameter till en funktion använder du enkla citat tecken.
-
-```json
-"name": "[concat('storage', uniqueString(resourceGroup().id))]"
-```
-
-Om du vill undanta dubbla citat tecken i ett uttryck, till exempel lägga till ett JSON-objekt i mallen, använder du omvänt snedstreck.
-
-```json
-"tags": {
-    "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
-},
-```
-
-Ett mall uttryck får inte överstiga 24 576 tecken.
-
-En fullständig lista över mall funktioner finns i [Azure Resource Manager Template Functions](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parametrar
 
@@ -501,11 +450,11 @@ Du definierar resurser med följande struktur:
 
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
-| condition | Nej | Booleskt värde som anger om resursen ska tillhandahållas under distributionen. När `true`skapas resursen under distributionen. När `false`hoppas resursen över för den här distributionen. Se [villkor](#condition). |
+| condition | Nej | Booleskt värde som anger om resursen ska tillhandahållas under distributionen. När `true`skapas resursen under distributionen. När `false`hoppas resursen över för den här distributionen. Se [villkorlig distribution](conditional-resource-deployment.md). |
 | apiVersion |Ja |Den version av REST API som ska användas för att skapa resursen. Information om vilka värden som är tillgängliga finns i [referens för mallar](/azure/templates/). |
 | type |Ja |Typ av resurs. Det här värdet är en kombination av resurs leverantörens namn område och resurs typ (till exempel **Microsoft. Storage/storageAccounts**). Information om vilka värden som är tillgängliga finns i [referens för mallar](/azure/templates/). För en underordnad resurs är formatet för typen beroende av om den är kapslad i den överordnade resursen eller definieras utanför den överordnade resursen. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md). |
 | name |Ja |Namnet på resursen. Namnet måste följa de URI-komponentparametrar som definierats i RFC3986. Dessutom verifierar Azure-tjänster som visar resurs namnet till utomstående parter namnet för att kontrol lera att det inte är ett försök att använda en annan identitet. För en underordnad resurs är formatet på namnet beroende av om det är kapslat i den överordnade resursen eller definierats utanför den överordnade resursen. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md). |
-| location |Varierar |Geo-platser som stöds för den angivna resursen. Du kan välja någon av de tillgängliga platserna, men vanligt vis är det bra att välja en som är nära dina användare. Vanligt vis är det också bra att placera resurser som interagerar med varandra i samma region. De flesta resurs typer kräver en plats, men vissa typer (till exempel en roll tilldelning) kräver ingen plats. |
+| location |Varierar |Geo-platser som stöds för den angivna resursen. Du kan välja någon av de tillgängliga platserna, men vanligt vis är det bra att välja en som är nära dina användare. Vanligt vis är det också bra att placera resurser som interagerar med varandra i samma region. De flesta resurs typer kräver en plats, men vissa typer (till exempel en roll tilldelning) kräver ingen plats. Se [Ange resurs plats](resource-location.md) |
 | taggar |Nej |Taggar som är associerade med resursen. Använd taggar för att logiskt organisera resurser i din prenumeration. |
 | Comment |Nej |Dina anteckningar om att dokumentera resurserna i mallen. Mer information finns i [kommentarer i mallar](resource-group-authoring-templates.md#comments). |
 | kopiera |Nej |Om fler än en instans behövs, antalet resurser som ska skapas. Standard läget är parallellt. Ange serie läge när du inte vill att alla eller resurserna ska distribueras samtidigt. Mer information finns i [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
@@ -515,31 +464,6 @@ Du definierar resurser med följande struktur:
 | type | Nej | Vissa resurser tillåter ett värde som definierar vilken typ av resurs du distribuerar. Du kan till exempel ange vilken typ av Cosmos DB som ska skapas. |
 | projektplan | Nej | Vissa resurser tillåter värden som definierar den plan som ska distribueras. Du kan till exempel ange Marketplace-avbildningen för en virtuell dator. | 
 | resurser |Nej |Underordnade resurser som är beroende av den resurs som definieras. Ange endast resurs typer som tillåts av schemat för den överordnade resursen. Beroendet av den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md). |
-
-### <a name="condition"></a>Tillstånd
-
-Använd `condition` -elementet när du måste bestämma om du vill skapa en resurs. Värdet för det här elementet matchas till true eller false. När värdet är true skapas resursen. När värdet är false skapas inte resursen. Värdet kan bara användas för hela resursen.
-
-Normalt använder du det här värdet när du vill skapa en ny resurs eller använda en befintlig. Om du till exempel vill ange om ett nytt lagrings konto ska distribueras eller om ett befintligt lagrings konto används, använder du:
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
-
-En fullständig exempel mall som använder `condition` -elementet finns i [VM med en ny eller befintlig Virtual Network, lagring och offentlig IP-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
-
-Om du använder en [referens](resource-group-template-functions-resource.md#reference) -eller [list](resource-group-template-functions-resource.md#list) funktion med en resurs som är villkorligt distribuerad utvärderas funktionen även om resursen inte har distribuerats. Du får ett fel meddelande om funktionen hänvisar till en resurs som inte finns. Använd funktionen [IF](resource-group-template-functions-logical.md#if) för att se till att funktionen bara utvärderas för villkor när resursen distribueras. Se [funktionen IF](resource-group-template-functions-logical.md#if) för en exempel mall som använder IF och Reference med en villkorligt distribuerad resurs.
 
 ### <a name="resource-names"></a>Resurs namn
 
@@ -592,65 +516,6 @@ För resurs typer som du främst har åtkomst till via en annan resurs kan du an
   "type": "firewallrules",
   "name": "AllowAllWindowsAzureIps",
   ...
-}
-```
-
-### <a name="resource-location"></a>Resursplats
-
-När du distribuerar en mall måste du ange en plats för varje resurs. Olika resurs typer stöds på olika platser. Information om vilka platser som stöds för en resurs typ finns i [Azure Resource providers och-typer](resource-manager-supported-services.md).
-
-Använd en parameter för att ange plats för resurser och ange standardvärdet till `resourceGroup().location`.
-
-I följande exempel visas ett lagrings konto som har distribuerats till en plats som anges som en parameter:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
-      ],
-      "metadata": {
-        "description": "Storage Account type"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {}
-    }
-  ],
-  "outputs": {
-    "storageAccountName": {
-      "type": "string",
-      "value": "[variables('storageAccountName')]"
-    }
-  }
 }
 ```
 

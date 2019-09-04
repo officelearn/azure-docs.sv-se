@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 096b6a13c85d04ebeb4f2ffae72acdd8629ae886
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: cdbb545e981e50e23bbbb011dc54577acf7974f7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191743"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241757"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric kluster inställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -28,7 +28,7 @@ Det finns tre olika uppgraderings principer:
 
 - **Dynamisk** – ändringar i en dynamisk konfiguration innebär inte att processen startas om antingen Service Fabric processer eller värd processer för tjänsten. 
 - **Statisk** – ändringar i en statisk konfiguration kommer att medföra att Service Fabric-noden startas om för att kunna använda ändringen. Tjänsterna på noderna kommer att startas om.
-- Notalged – de här inställningarna kan inte ändras. Om du ändrar inställningarna måste klustret förstöras och ett nytt kluster skapas. 
+- **Notalged** – de här inställningarna kan inte ändras. Om du ändrar inställningarna måste klustret förstöras och ett nytt kluster skapas. 
 
 Följande är en lista över infrastruktur inställningar som du kan anpassa, ordnade efter avsnitt.
 
@@ -311,7 +311,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, standard är falskt |Statisk|Utvärderings princip för kluster hälsa: Aktivera utvärdering av hälso tillstånd per program typ. |
-|MaxSuggestedNumberOfEntityHealthReports|Int, standard är 500 |Dynamisk|Det maximala antalet hälso rapporter som en entitet kan ha innan du får problem med övervaknings logiken för hälso rapporter. Varje hälsoentitet ska ha ett relativt litet antal hälso rapporter. Om antalet rapporter hamnar ovanför det här talet. Det kan finnas problem med övervaknings enhetens implementering. En entitet med för många rapporter flaggas via en varnings hälso rapport när entiteten utvärderas. |
+|MaxSuggestedNumberOfEntityHealthReports|Int, standard är 100 |Dynamisk|Det maximala antalet hälso rapporter som en entitet kan ha innan du får problem med övervaknings logiken för hälso rapporter. Varje hälsoentitet ska ha ett relativt litet antal hälso rapporter. Om antalet rapporter hamnar ovanför det här talet. Det kan finnas problem med övervaknings enhetens implementering. En entitet med för många rapporter flaggas via en varnings hälso rapport när entiteten utvärderas. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 

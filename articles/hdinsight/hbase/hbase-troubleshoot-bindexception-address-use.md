@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/08/2019
-ms.openlocfilehash: 8851a4dfb7deafab7ad77ef80619dd49ca46ed71
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.date: 08/16/2019
+ms.openlocfilehash: c2f7575dca5432d90bf421afa5a39a4a4cd79744
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947856"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983043"
 ---
 # <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>Scenario: BindException-adressen används redan i Azure HDInsight
 
@@ -31,23 +31,23 @@ Caused by: java.net.BindException: Address already in use
 
 ## <a name="cause"></a>Orsak
 
-Starta om HBase regions servrar under tung arbets belastnings aktivitet. Nedan visas vad som händer i bakgrunden när en användare startar omstarten på HBase regions serverns Ambari-gränssnitt:
+Starta om Apache HBase regions servrar under tung arbets belastnings aktivitet. Nedan visas vad som händer i bakgrunden när en användare startar omstarts åtgärden på HBase-regions serverns från Apache Ambari UI:
 
-1. Ambari-agenten kommer att skicka en stoppbegäran till region servern.
+1. Ambari-agenten skickar en stoppbegäran till region servern.
 
-1. Ambari-agenten väntar sedan i 30 sekunder för region servern att stängas av på ett smidigt sätt.
+1. Ambari-agenten väntar i 30 sekunder på att region servern ska stängas av på ett smidigt sätt
 
-1. Om programmet fortsätter att ansluta till region servern stängs det inte direkt och tids gränsen på 30 sekunder upphör snart att gälla.
+1. Om programmet fortsätter att ansluta till region servern stängs servern inte av direkt. Tids gränsen på 30 sekunder upphör att gälla innan avstängning sker.
 
-1. Efter den 30 sekundernas utgång kommer Ambari-agenten att skicka ett tvångs stopp (kill-9) till region servern.
+1. Efter 30 sekunder skickar Ambari-agenten ett Force-Kill (`kill -9`)-kommando till region servern.
 
 1. På grund av den här avstängningen kan den port som är associerad med processen inte frigöras, även om region Server processen avslutas, vilket `AddressBindException`slutligen leder till.
 
 ## <a name="resolution"></a>Lösning
 
-Minska belastningen på HBase regions servrar innan du påbörjar en omstart.
+Minska belastningen på HBase regions servrar innan du påbörjar en omstart. Det är också en bra idé att först tömma alla tabeller. En referens för hur du tömmer tabeller finns i [HDInsight HBase: Så här förbättrar du Start tiden för kluster för Apache-HBase genom](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)att tömma tabeller.
 
-Du kan också försöka med att starta om region servrar manuellt på arbetsnoderna med följande kommandon:
+Du kan också försöka att starta om region servrar manuellt på arbetsnoderna med hjälp av följande kommandon:
 
 ```bash
 sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"

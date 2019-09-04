@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 841c55e9aa05e6b627716b084ad7685683f9faec
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 45eebe5bce819fa59f2ed6779e845afa6b3efaa5
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498357"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276847"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights .NET SDK
 
@@ -318,7 +318,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     {
         // Update status code and success as appropriate.
         telemetry.Stop();
-        telemetryClient.Track(telemetry);
+        telemetryClient.TrackDependency(telemetry);
     }
 
     return null;
@@ -442,7 +442,7 @@ public async Task RunMyTaskAsync()
 
 Åtgärden stoppas om åtgärden stoppas, så du kan göra det i stället för att `StopOperation`anropa.
 
-*Varning*: ett undantag som inte är behållet [](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` kan förhindras att anropas så att åtgärder inte kan spåras.
+*Varning*: ett undantag som inte är behållet kan [förhindras](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` att anropas så att åtgärder inte kan spåras.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Bearbetning och spårning av parallella åtgärder
 
@@ -464,7 +464,7 @@ telemetryClient.StopOperation(firstOperation);
 await secondTask;
 ```
 
-Se till att du alltid `StartOperation` anropar och bearbetar åtgärder i  samma asynkrona metod för att isolera åtgärder som körs parallellt. Om åtgärden är synkron (eller inte asynkron), Radbryt processen och spåra med `Task.Run`:
+Se till att du alltid `StartOperation` anropar och bearbetar åtgärder i samma **asynkrona** metod för att isolera åtgärder som körs parallellt. Om åtgärden är synkron (eller inte asynkron), Radbryt processen och spåra med `Task.Run`:
 
 ```csharp
 public void RunMyTask(string name)

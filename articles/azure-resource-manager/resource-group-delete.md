@@ -4,19 +4,58 @@ description: Beskriver hur du tar bort resurs grupper och resurser. Det beskrive
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 09/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 75cdeb88a68dece59d6b037592f7212fa895e821
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 30a394fd33ed5d928175fc27e003661c2b53de9a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991703"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275076"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager resurs grupp och borttagning av resurs
 
 Den här artikeln visar hur du tar bort resurs grupper och resurser. Det beskriver hur Azure Resource Manager beställer borttagningen av resurser när du tar bort en resurs grupp.
+
+## <a name="how-order-of-deletion-is-determined"></a>Hur borttagnings ordningen bestäms
+
+När du tar bort en resursgrupp, anger Resource Manager den för att ta bort resurser. Den använder följande ordning:
+
+1. Alla underordnade (kapslade) resurser tas bort.
+
+2. Resurser som hanterar andra resurser tas bort nästa. En resurs kan ha den `managedBy` egenskapen in för att ange att en annan resurs hanterar den. När den här egenskapen anges tas den resurs som hanterar andra resursen bort innan de övriga resurserna.
+
+3. De återstående resurserna tas bort efter de föregående två kategorierna.
+
+När ordningen bestäms utfärdar en borttagningsåtgärd för varje resurs i Resource Manager. Det väntar några beroenden som ska slutföras innan du fortsätter.
+
+För synkrona åtgärder är förväntade lyckat svar koderna:
+
+* 200
+* 204
+* 404
+
+För asynkrona åtgärder är det förväntade lyckat svaret 202. Resource Manager spårar location-huvudet eller azure-asynkrona åtgärden huvudet att bestämma status för asynkron borttagningen.
+  
+### <a name="deletion-errors"></a>Fel vid borttagning
+
+När en borttagningsåtgärd returnerar ett fel, försöker Resource Manager ta bort anropet. Återförsök sker för 5xx, 429 och 408 statuskoder. Som standard är tidsperioden för återförsök 15 minuter.
+
+## <a name="after-deletion"></a>Efter borttagningen
+
+Resource Manager skickar en GET-anrop för varje resurs som den försökte ta bort. Svaret på GET-anrop anses vara 404. När Resource Manager hämtar 404, som de anser att borttagningen har slutförts. Resource Manager tar bort resursen från sin cache.
+
+Om GET-anrop på resursen returnerar 200 eller 201, återskapas Resource Manager resursen.
+
+Om åtgärden GET returnerar ett fel, försöker Resource Manager GET för följande felkod:
+
+* Mindre än 100
+* 408
+* 429
+* Större än 500
+
+För andra felkoder inte Resource Manager borttagningen av resursen.
 
 ## <a name="delete-resource-group"></a>Ta bort resursgrupp
 
@@ -25,13 +64,13 @@ Använd någon av följande metoder för att ta bort resurs gruppen.
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name <resource-group-name>
+Remove-AzResourceGroup -Name ExampleResourceGroup
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az group delete --name <resource-group-name>
+az group delete --name ExampleResourceGroup
 ```
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
@@ -80,46 +119,6 @@ az resource delete \
 
 ---
 
-## <a name="how-order-of-deletion-is-determined"></a>Hur borttagnings ordningen bestäms
-
-När du tar bort en resursgrupp, anger Resource Manager den för att ta bort resurser. Den använder följande ordning:
-
-1. Alla underordnade (kapslade) resurser tas bort.
-
-2. Resurser som hanterar andra resurser tas bort nästa. En resurs kan ha den `managedBy` egenskapen in för att ange att en annan resurs hanterar den. När den här egenskapen anges tas den resurs som hanterar andra resursen bort innan de övriga resurserna.
-
-3. De återstående resurserna tas bort efter de föregående två kategorierna.
-
-När ordningen bestäms utfärdar en borttagningsåtgärd för varje resurs i Resource Manager. Det väntar några beroenden som ska slutföras innan du fortsätter.
-
-För synkrona åtgärder är förväntade lyckat svar koderna:
-
-* 200
-* 204
-* 404
-
-För asynkrona åtgärder är det förväntade lyckat svaret 202. Resource Manager spårar location-huvudet eller azure-asynkrona åtgärden huvudet att bestämma status för asynkron borttagningen.
-  
-### <a name="errors"></a>Fel
-
-När en borttagningsåtgärd returnerar ett fel, försöker Resource Manager ta bort anropet. Återförsök sker för 5xx, 429 och 408 statuskoder. Som standard är tidsperioden för återförsök 15 minuter.
-
-## <a name="after-deletion"></a>Efter borttagningen
-
-Resource Manager skickar en GET-anrop för varje resurs som den försökte ta bort. Svaret på GET-anrop anses vara 404. När Resource Manager hämtar 404, som de anser att borttagningen har slutförts. Resource Manager tar bort resursen från sin cache.
-
-Om GET-anrop på resursen returnerar 200 eller 201, återskapas Resource Manager resursen.
-
-### <a name="errors"></a>Fel
-
-Om åtgärden GET returnerar ett fel, försöker Resource Manager GET för följande felkod:
-
-* Mindre än 100
-* 408
-* 429
-* Större än 500
-
-För andra felkoder inte Resource Manager borttagningen av resursen.
 
 ## <a name="next-steps"></a>Nästa steg
 

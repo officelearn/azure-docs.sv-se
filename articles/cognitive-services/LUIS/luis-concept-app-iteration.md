@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 2a540606a6f9cfa790a2244628e7f0b7bef35986
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4356d9e1cd3d6f1a924603f7405d612814d35859
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639253"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256918"
 ---
 # <a name="authoring-cycle-for-your-luis-app"></a>Redigerings cykel för LUIS-appen
 LUIS lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor. 
@@ -38,14 +38,14 @@ Du instruera LUIS för att ignorera yttranden som inte är relevanta för din ap
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
 När du har 15 till 30 olika yttranden i varje avsikt, med de entiteter som krävs, måste du [träna](luis-how-to-train.md) och sedan [publicera](luis-how-to-publish-app.md). Använd länken från publicera lyckade meddelande, för att hämta dina slutpunkter. Se till att du skapar och publicerar din app så att den är tillgänglig i de [slut punkts regioner](luis-reference-regions.md) du behöver. 
 
-## <a name="https-endpoint-testing"></a>Testa HTTPS-slutpunkt
-Du kan testa LUIS-appen från HTTPS-slutpunkten. Genom att testa från slut punkten kan LUIS välja valfri yttranden med låg exakthet för [granskning](luis-how-to-review-endpoint-utterances.md).  
+## <a name="https-prediction-endpoint-testing"></a>Slut punkts testning för HTTPS förutsägelse
+Du kan testa din LUIS-app från HTTPS förutsägelse-slutpunkten. Om du testar från förutsägelse slut punkten kan LUIS välja valfri yttranden med låg exakthet för [granskning](luis-how-to-review-endpoint-utterances.md).  
 
 ## <a name="recycle"></a>Papperskorgen
 
-När du är klar med en cykel av redigeringen av kan börja du igen. Börja med att [Granska Endpoint yttranden](luis-how-to-review-endpoint-utterances.md) -Luis markerat med låg exakthet. Kontrollera dessa yttranden för både avsikten och entiteten. När du har läst yttranden, får granska listan vara tomt.  
+När du är klar med en cykel av redigeringen av kan börja du igen. Börja med att [Granska förutsägelse slut punkt yttranden](luis-how-to-review-endpoint-utterances.md) Luis markerad med låg exakthet. Kontrollera dessa yttranden för både avsikten och entiteten. När du har läst yttranden, får granska listan vara tomt.  
 
-Överväg [](luis-concept-version.md#clone-a-version) att klona den aktuella versionen till en ny version och börja sedan redigerings ändringarna i den nya versionen. 
+Överväg att [klona](luis-concept-version.md#clone-a-version) den aktuella versionen till en ny version och börja sedan redigerings ändringarna i den nya versionen. 
 
 ## <a name="batch-testing"></a>Batch-testning
 
@@ -53,4 +53,4 @@ När du är klar med en cykel av redigeringen av kan börja du igen. Börja med 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp [samarbete](luis-concept-collaborator.md).
+Lär dig begrepp [samarbete](luis-concept-keys.md).

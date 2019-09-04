@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: nolachar
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5443b97febd6bf3831690531bceb540181e7676c
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 429570d81f7e15758d8ea60951bb4d01b96f8f2c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706982"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256491"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>När du ska använda ENUM-entiteter och ange ENHETs åtgärder
 
@@ -46,14 +46,14 @@ Föreställ dig att du overhear en del av en konversation mellan personer i när
 Nu ska vi klargöra följande exempel:
 
 Bot Vill du använda Azure Cognitive Services?
-Användare: Ja-robot: Gillar du Ice-grädde?
-Användare: Ja
+Användarvänlig Ja-robot: Gillar du Ice-grädde?
+Användarvänlig Ja
 
-I tidigare självstudier tittar vi på [anpassade](04-introduction-to-entities.md) intränade entiteter och din första tanke kan vara att skapa en entitet med namnet "likesCogServices" och etiketten första "Ja" som den här entiteten.  Systemet skulle dock också märka det andra "Ja". När vi försökte korrigera etiketten för det andra "Ja" till "likesIceCream" skulle vi då skapa en konflikt mellan två samma indata, "Ja", vilket innebär olika saker och skulle fastna.
+I tidigare självstudier tittar vi på [anpassade intränade](04-introduction-to-entities.md) entiteter och din första tanke kan vara att skapa en entitet med namnet "likesCogServices" och etiketten första "Ja" som den här entiteten.  Systemet skulle dock också märka det andra "Ja". När vi försökte korrigera etiketten för det andra "Ja" till "likesIceCream" skulle vi då skapa en konflikt mellan två samma indata, "Ja", vilket innebär olika saker och skulle fastna.
 
 I dessa fall måste du använda ENUM-entiteter och SET_ENTITY-åtgärder.
 
-## <a name="when-to-use-enums-or-setentity-actions"></a>När du ska använda ENUMs eller SET_ENTITY-åtgärder
+## <a name="when-to-use-enums-or-set_entity-actions"></a>När du ska använda ENUMs eller SET_ENTITY-åtgärder
 
 Använd följande regler för att veta när du ska använda ENUM-entiteter och SET_ENTITY-åtgärder:
 
@@ -66,13 +66,13 @@ Med andra ord använder du dessa för stängnings bara frågor, till exempel bek
 > Vi har för närvarande en begränsning på upp till 5 värden per uppräknings enhet. Varje värde använder en av platserna i den aktuella 64-gränsen. Se [cl-Values-och-gränser](../cl-values-and-boundaries.md)
 
 Exempel: Bot Är din beställning korrekt?
-Användare: Ja
+Användarvänlig Ja
 
-När de möjliga värdena för entiteten är öppna-avslutade och inte åtgärdade, skulle du behöva använda en alternativ funktion, till exempel förväntad [entitet](05-expected-entity.md).
+När de möjliga värdena för entiteten är öppna-avslutade och inte åtgärdade, skulle du behöva använda en alternativ funktion, till exempel [förväntad entitet](05-expected-entity.md).
 
 Exempel: Bot Vad heter du?
-Användare: Matt bot: Vad är din favorit färg?
-Användare: Silver
+Användarvänlig Matt bot: Vad är din favorit färg?
+Användarvänlig Silver
 
 Dessa frågor betraktas som öppna-avslutade eftersom de kan besvaras med valfria värden.
 

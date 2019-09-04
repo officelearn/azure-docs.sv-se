@@ -5,23 +5,26 @@ services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: article
-ms.date: 07/09/2019
+ms.topic: overview
+ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: 9b57775040251312c8afbff5983a52ae9d14e6c6
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 1c4846414036e86d460d9abe0bd93e785e710395
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172498"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258481"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>Containerinstansloggning med Azure Monitor-loggar
 
-Log Analytics-arbetsytor är en central plats för att lagra och skicka frågor till loggdata från inte bara Azure-resurser, utan även lokala resurser och resurser i andra moln. Azure Container Instances innehåller inbyggt stöd för att skicka data till Azure Monitor-loggar.
+Log Analytics-arbetsytor är en central plats för att lagra och skicka frågor till loggdata från inte bara Azure-resurser, utan även lokala resurser och resurser i andra moln. Azure Container Instances innehåller inbyggt stöd för att skicka loggar och händelse data till Azure Monitor loggar.
 
-Om du vill skicka behållar instans data till Azure Monitor loggar måste du ange ett ID och Log Analytics en nyckel för arbets ytan när du skapar en behållar grupp. I följande avsnitt beskrivs hur du skapar loggaktiverad containergrupp och frågning av loggar.
+Om du vill skicka logg-och händelse data för container gruppen till Azure Monitor loggar måste du ange ett ID för Log Analytics-arbetsyte och en arbets yta när du skapar en behållar grupp. I följande avsnitt beskrivs hur du skapar loggaktiverad containergrupp och frågning av loggar.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+> För närvarande kan du bara skicka händelse data från Linux container instances till Log Analytics.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -99,30 +102,43 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Du bör få ett svar från Azure som innehåller distributionsinformation strax efter kommandot utfärdats.
 
-## <a name="view-logs-in-azure-monitor-logs"></a>Visa loggar i Azure Monitor-loggar
+## <a name="view-logs"></a>Visa loggar
 
-När du har distribuerat containergruppen, kan det ta flera minuter (upp till 10) för de första loggposterna att visas i Azure-portalen. Så här visar du behållar gruppens loggar:
+När du har distribuerat containergruppen, kan det ta flera minuter (upp till 10) för de första loggposterna att visas i Azure-portalen. Så här visar du behållar gruppens `ContainerInstanceLog_CL` loggar i tabellen:
 
 1. Navigera till Log Analytics-arbetsytan i Azure-portalen
 1. Under **Allmänt**väljer du **loggar**  
-1. Skriv följande fråga:`search *`
+1. Skriv följande fråga:`ContainerInstanceLog_CL | limit 50`
 1. Välj **Kör**
 
-Du bör se flera resultat som visas av `search *`-frågan. Om du inte ser några resultat i första hand väntar du några minuter och väljer sedan **Kör** -knappen för att köra frågan igen. Som standard visas logg poster i **tabell** format. Du kan därefter expandera en rad för att visa innehållet i en enskild loggpost.
+Du bör se flera resultat som visas av frågan. Om du inte ser några resultat i första hand väntar du några minuter och väljer sedan **Kör** -knappen för att köra frågan igen. Som standard visas logg poster i **tabell** format. Du kan därefter expandera en rad för att visa innehållet i en enskild loggpost.
 
 ![Logga sökresultat i Azure-portalen][log-search-01]
+
+## <a name="view-events"></a>Visa händelser
+
+Du kan också visa händelser för behållar instanser i Azure Portal. Händelser inkluderar tiden då instansen skapas och när den startas. Så här visar du händelse data i `ContainerEvent_CL` tabellen:
+
+1. Navigera till Log Analytics-arbetsytan i Azure-portalen
+1. Under **Allmänt**väljer du **loggar**  
+1. Skriv följande fråga:`ContainerEvent_CL | limit 50`
+1. Välj **Kör**
+
+Du bör se flera resultat som visas av frågan. Om du inte ser några resultat i första hand väntar du några minuter och väljer sedan **Kör** -knappen för att köra frågan igen. Poster visas som standard i **tabell** format. Sedan kan du expandera en rad för att se innehållet i en enskild post.
+
+![Händelse Sök resultat i Azure Portal][log-search-02]
 
 ## <a name="query-container-logs"></a>Fråga containerloggar
 
 Azure Monitor loggar innehåller ett omfattande [frågespråk][query_lang] för att hämta information från potentiellt tusentals rader med logg data.
 
-Azure Container Instances-loggningsagenten skickar poster till `ContainerInstanceLog_CL`-tabellen i din Log Analytics-arbetsyta. Den grundläggande strukturen i en fråga är källtabellen (`ContainerInstanceLog_CL`) följt av en serie operatorer avgränsade av vertikalstrecket (`|`). Du kan länka flera operatorer för att förfina resultatet och utför avancerade funktioner.
+Den grundläggande strukturen i en fråga är käll tabellen (i den här artikeln, `ContainerInstanceLog_CL` eller `ContainerEvent_CL`) följt av en serie operatorer avgränsade med pipe-`|`tecknet (). Du kan länka flera operatorer för att förfina resultatet och utför avancerade funktioner.
 
-Om du vill se exempel på frågeresultat klistrar du in följande fråga i frågetextrutan (under Visa äldre språkkonverteraren) och välj knappen **Kör** för att köra frågan. Den här frågan visar alla loggposter vars Meddelande-fält innehåller ordet varning:
+Om du vill se resultatet av frågan klistrar du in följande fråga i text rutan fråga och väljer **Kör** -knappen för att köra frågan. Den här frågan visar alla loggposter vars Meddelande-fält innehåller ordet varning:
 
 ```query
 ContainerInstanceLog_CL
-| where Message contains("warn")
+| where Message contains "warn"
 ```
 
 Mer komplexa frågor stöds också. Den här frågan visar till exempel bara de loggposter för behållargruppen mycontainergroup001 som skapats den senaste timmen:
@@ -151,6 +167,7 @@ Information om övervakning av containerinstansens CPU- och minnesresurser finns
 
 <!-- IMAGES -->
 [log-search-01]: ./media/container-instances-log-analytics/portal-query-01.png
+[log-search-02]: ./media/container-instances-log-analytics/portal-query-02.png
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7c4af8346b5da20c662b5549284a3540d08908f8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4ebdf1d14b1f8721a3709a7e8c90f2a1db76b6fc
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072926"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259134"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Använda Apache Beeline-klienten med Apache Hive
 
@@ -44,9 +44,9 @@ Ersätt `<headnode-FQDN>` med det fullständigt kvalificerade domän namnet för
 
 ---
 
-### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>Till HDInsight Enterprise Security Package-kluster (ESP)
+### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Till HDInsight Enterprise Security Package-kluster (ESP) med Kerberos
 
-När du ansluter från en klient till ett Enterprise Security Package-kluster (ESP) som är anslutet till Azure Active Directory (AAD) på en dator i samma sfär i klustret, måste du också `<AAD-Domain>` ange domän namnet och namnet på ett domän användar konto med behörighet att åtkomst till klustret `<username>`:
+När du ansluter från en klient till ett Enterprise Security Package-kluster (ESP) som är anslutet till Azure Active Directory (AAD)-DS på en dator i samma sfär i klustret, måste du också `<AAD-Domain>` ange domän namnet och namnet på ett domän användar konto med behörigheter för åtkomst till klustret `<username>`:
 
 ```bash
 kinit <username>
@@ -57,12 +57,18 @@ Ersätt `<username>` med namnet på ett konto i domänen med behörighet att kom
 
 ---
 
-### <a name="over-public-internet"></a>Över offentligt Internet
+### <a name="over-public-or-private-endpoints"></a>Över offentliga eller privata slut punkter
 
-När du ansluter till ett icke-ESP eller Azure Active Directory (AAD) anslutna ESP-kluster via det offentliga Internet måste du ange konto namnet för kluster inloggning ( `admin`standard) och lösen ord. Du kan till exempel använda Beeline från ett klient system för att ansluta `<clustername>.azurehdinsight.net` till adressen. Den här anslutningen görs via port `443`och krypteras med SSL:
+När du ansluter till ett kluster med hjälp av offentliga eller privata slut punkter måste du ange konto namnet för kluster inloggning ( `admin`standard) och lösen ord. Du kan till exempel använda Beeline från ett klient system för att ansluta `<clustername>.azurehdinsight.net` till adressen. Den här anslutningen görs via port `443`och krypteras med SSL:
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+```
+
+eller för privat slut punkt:
+
+```bash
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
 ```
 
 Ersätt `clustername` med namnet på HDInsight-klustret. Ersätt `admin` med kluster inloggnings kontot för klustret. Ersätt `password` med lösen ordet för klustrets inloggnings konto.
@@ -73,13 +79,21 @@ Ersätt `clustername` med namnet på HDInsight-klustret. Ersätt `admin` med klu
 
 Apache Spark tillhandahåller en egen implementering av HiveServer2, som ibland kallas Spark Thrift-servern. Den här tjänsten använder Spark SQL för att matcha frågor i stället för Hive, och kan ge bättre prestanda beroende på din fråga.
 
-#### <a name="over-public-internet-with-apache-spark"></a>Över offentligt Internet med Apache Spark
+#### <a name="through-public-or-private-endpoints"></a>Via offentliga eller privata slut punkter
 
-Anslutnings strängen som används vid anslutning via Internet skiljer sig något åt. I stället för `httpPath=/hive2` att innehålla `httpPath/sparkhive2`det är:
+Den anslutnings sträng som används skiljer sig något åt. I stället för `httpPath=/hive2` att innehålla `httpPath/sparkhive2`det är:
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
 ```
+
+eller för privat slut punkt:
+
+```bash 
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+Ersätt `clustername` med namnet på HDInsight-klustret. Ersätt `admin` med kluster inloggnings kontot för klustret. Ersätt `password` med lösen ordet för klustrets inloggnings konto.
 
 ---
 

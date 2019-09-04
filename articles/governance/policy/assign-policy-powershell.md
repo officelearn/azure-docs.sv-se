@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5962db75fdd640822feb06ddb93bf7d4f2acd4d5
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: bcdac2635c9d40bcd0f7605fad7479d5b8cdddba
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232318"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239218"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Snabbstart: Skapa en policytilldelning som identifierar icke-kompatibla resurser med hjälp av Azure PowerShell
 
@@ -22,8 +22,6 @@ Azure PowerShell-modulen används för att hantera Azure-resurser från kommando
 Den här guiden förklarar hur du använder AZ-modulen för att skapa en princip tilldelning.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
-
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 

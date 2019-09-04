@@ -13,16 +13,16 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 96f65ef17f25e1ff6ee3847507b33492642af5e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2856a52f8739b393139c437374be4846e9c67887
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067473"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276659"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Snabbstart: Skapa en Azure -datafabrik och pipeline med REST API
 
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Aktuell version](quickstart-create-data-factory-rest-api.md)
 
@@ -32,7 +32,7 @@ Den här snabbstarten beskriver hur du använder REST API till att skapa en Azur
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 * **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** och **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln om att [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
 * Skapa en **blobcontainer** i Blob Storage, skapa en **indatamapp** i containern och ladda upp några filer till mappen. Du kan använda verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ansluta till Azure Blob Storage, skapa en blobcontainer, ladda upp en indatafil och verifiera utdatafilen.
 * **Installera Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-Az-ps). I den här snabbstarten används PowerShell för att göra REST API-anrop.
-* **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Notera följande värden som du använder i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela appen rollen **Deltagare**.
+* **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Anteckna följande värden som du använder i senare steg: **program-ID**, **clientSecrets**och **klient-ID**. Tilldela appen rollen **Deltagare**.
 
 ## <a name="set-global-variables"></a>Ange globala variabler
 
@@ -66,10 +66,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     ```powershell
     $tenantID = "<your tenant ID>"
     $appId = "<your application ID>"
-    $authKey = "<your authentication key for the application>"
-    $subsId = "<your subscription ID to create the factory>"
-    $resourceGroup = "<your resource group to create the factory>"
-    $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
+    $clientSecrets = "<your clientSecrets for the application>"
+    $subscriptionId = "<your subscription ID to create the factory>"
+    $resourceGroupName = "<your resource group to create the factory>"
+    $factoryName = "<specify the name of data factory to create. It must be globally unique.>"
     $apiVersion = "2018-06-01"
     ```
 
@@ -79,7 +79,7 @@ Kör följande kommandon för att autentisera med Azure Active Directory (AAD):
 
 ```powershell
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]"https://login.microsoftonline.com/${tenantId}"
-$cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($appId, $authKey)
+$cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($appId, $clientSecrets)
 $result = $AuthContext.AcquireTokenAsync("https://management.core.windows.net/", $cred).GetAwaiter().GetResult()
 $authHeader = @{
 'Content-Type'='application/json'
@@ -93,7 +93,7 @@ $authHeader = @{
 Skapa en datafabrik genom att köra följande kommandon:
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}?api-version=${apiVersion}"
+$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}?api-version=${apiVersion}"
 $body = @"
 {
     "name": "$dataFactoryName",
@@ -120,27 +120,27 @@ Observera följande punkter:
 Här är exempelsvaret:
 
 ```json
-{
-    "name": "<dataFactoryName>",
-    "tags": {
+{  
+    "name":"<dataFactoryName>",
+    "identity":{  
+        "type":"SystemAssigned",
+        "principalId":"<service principal ID>",
+        "tenantId":"<tenant ID>"
     },
-    "properties":  {
-        "provisioningState":  "Succeeded",
-        "loggingStorageAccountKey":  "**********",
-        "createTime":  "2017-09-14T06:22:59.9106216Z",
-        "version":  "2018-06-01"
+    "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
+    "type":"Microsoft.DataFactory/factories",
+    "properties":{  
+        "provisioningState":"Succeeded",
+        "createTime":"2019-09-03T02:10:27.056273Z",
+        "version":"2018-06-01"
     },
-    "identity":  {
-        "type":  "SystemAssigned",
-        "principalId":  "<service principal ID>",
-        "tenantId":  "<tenant ID>"
-    },
-    "id":  "dataFactoryName",
-    "type":  "Microsoft.DataFactory/factories",
-    "location":  "East US"
+    "eTag":"\"0200c876-0000-0100-0000-5d6dcb930000\"",
+    "location":"East US",
+    "tags":{  
+
+    }
 }
 ```
-
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 
 Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här snabbstarten behöver du bara skapa en Azure Storage-länkad tjänst som både kopia på källa och mottagarlagring, med namnet "AzureStorageLinkedService" i exemplet.
@@ -150,17 +150,17 @@ Kör följande kommandon för att skapa en länkad tjänst med namnet **AzureSto
 Ersätt &lt;accountName&gt; och &lt;accountKey&gt; med namnet och nyckeln för ditt Azure-lagringskonto innan du kör kommandona.
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/linkedservices/AzureStorageLinkedService?api-version=${apiVersion}"
+$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/linkedservices/AzureStorageLinkedService?api-version=${apiVersion}"
 $body = @"
-{
-    "name": "AzureStorageLinkedService",
-    "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
-                "type": "SecureString"
-            }
+{  
+    "name":"AzureStorageLinkedService",
+    "properties":{  
+        "annotations":[  
+
+        ],
+        "type":"AzureBlobStorage",
+        "typeProperties":{  
+            "connectionString":"DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
         }
     }
 }
@@ -172,43 +172,48 @@ $response | ConvertTo-Json
 Här är exempel på utdata:
 
 ```json
-{
-    "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/linkedservices/AzureStorageLinkedService",
-    "name":  "AzureStorageLinkedService",
-    "properties":  {
-        "type":  "AzureStorage",
-        "typeProperties":  {
-            "connectionString":  "@{value=**********; type=SecureString}"
+{  
+    "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/linkedservices/AzureStorageLinkedService",
+    "name":"AzureStorageLinkedService",
+    "type":"Microsoft.DataFactory/factories/linkedservices",
+    "properties":{  
+        "annotations":[  
+
+        ],
+        "type":"AzureBlobStorage",
+        "typeProperties":{  
+            "connectionString":"DefaultEndpointsProtocol=https;AccountName=<accountName>;"
         }
     },
-    "etag":  "0000c552-0000-0000-0000-59b1459c0000"
+    "etag":"07011a57-0000-0100-0000-5d6e14a20000"
 }
 ```
-
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 
-Du definierar en datauppsättning som representerar data som ska kopieras från en källa till en mottagare. I det här exemplet refererar denna blob-datauppsättning till den Azure Storage-länkade tjänst som du skapar i föregående steg. Datauppsättningen tar en parameter vars värde anges i en aktivitet som förbrukar datauppsättningen. Parametern används för att konstruera "folderPath" som pekar mot där data finns/lagras.
+Du definierar en datauppsättning som representerar data som ska kopieras från en källa till en mottagare. I det här exemplet skapar du två data uppsättningar: InputDataset och OutputDataset. De refererar till den länkade Azure Storage-tjänst du skapade i föregående avsnitt. Datauppsättningen för indata representerar källdata i indatamappen. I definition av data uppsättning för data uppsättning anger du Blob-containern (adftutorial), mappen (indata) och filen (EMP. txt) som innehåller källdata. Datauppsättningen för utdata representerar de data som kopieras till målet. I definitionen av data uppsättningen för utdata anger du Blob-containern (adftutorial), mappen (output) och filen som data kopieras till.
+
+**Skapa InputDataset**
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/datasets/BlobDataset?api-version=${apiVersion}"
+$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/InputDataset?api-version=${apiVersion}"
 $body = @"
-{
-    "name": "BlobDataset",
-    "properties": {
-        "type": "AzureBlob",
-        "typeProperties": {
-            "folderPath": {
-                "value": "@{dataset().path}",
-                "type": "Expression"
-            }
+{  
+    "name":"InputDataset",
+    "properties":{  
+        "linkedServiceName":{  
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
         },
-        "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
-        },
-        "parameters": {
-            "path": {
-                "type": "String"
+        "annotations":[  
+
+        ],
+        "type":"Binary",
+        "typeProperties":{  
+            "location":{  
+                "type":"AzureBlobStorageLocation",
+                "fileName":"emp.txt",
+                "folderPath":"input",
+                "container":"adftutorial"
             }
         }
     }
@@ -221,26 +226,79 @@ $response | ConvertTo-Json
 Här är exempel på utdata:
 
 ```json
-{
-    "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/datasets/BlobDataset",
-    "name":  "BlobDataset",
-    "properties":  {
-        "type":  "AzureBlob",
-        "typeProperties":  {
-            "folderPath":  "@{value=@{dataset().path}; type=Expression}"
+{  
+    "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/datasets/InputDataset",
+    "name":"InputDataset",
+    "type":"Microsoft.DataFactory/factories/datasets",
+    "properties":{  
+        "linkedServiceName":{  
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
         },
-        "linkedServiceName":  {
-            "referenceName":  "AzureStorageLinkedService",
-            "type":  "LinkedServiceReference"
-        },
-        "parameters":  {
-            "path":  "@{type=String}"
+        "annotations":[  
+
+        ],
+        "type":"Binary",
+        "typeProperties":{  
+            "location":"@{type=AzureBlobStorageLocation; fileName=emp.txt; folderPath=input; container=adftutorial}"
         }
     },
-    "etag":  "0000c752-0000-0000-0000-59b1459d0000"
+    "etag":"07011c57-0000-0100-0000-5d6e14b40000"
 }
 ```
+**Skapa OutputDataset**
 
+```powershell
+$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/OutputDataset?api-version=${apiVersion}"
+$body = @"
+{  
+    "name":"OutputDataset",
+    "properties":{  
+        "linkedServiceName":{  
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
+        },
+        "annotations":[  
+
+        ],
+        "type":"Binary",
+        "typeProperties":{  
+            "location":{  
+                "type":"AzureBlobStorageLocation",
+                "folderPath":"output",
+                "container":"adftutorial"
+            }
+        }
+    }
+}
+"@
+$response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Body $body
+$response | ConvertTo-Json
+```
+
+Här är exempel på utdata:
+
+```json
+{  
+    "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/datasets/OutputDataset",
+    "name":"OutputDataset",
+    "type":"Microsoft.DataFactory/factories/datasets",
+    "properties":{  
+        "linkedServiceName":{  
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
+        },
+        "annotations":[  
+
+        ],
+        "type":"Binary",
+        "typeProperties":{  
+            "location":"@{type=AzureBlobStorageLocation; folderPath=output; container=adftutorial}"
+        }
+    },
+    "etag":"07013257-0000-0100-0000-5d6e18920000"
+}
+```
 ## <a name="create-pipeline"></a>Skapa pipeline
 
 I det här exemplet innehåller denna pipeline en aktivitet och tar två parametrar – sökvägen till indata-blob och sökvägen till utdata-blob. Värdena för dessa parametrar anges när pipeline utlöses/körs. Kopieringsaktiviteten refererar till samma blobdatauppsättning som skapats i föregående steg som indata och utdata. När datauppsättningen används som indatauppsättning anges indatasökvägen. Och när datauppsättningen används som utdatauppsättning anges utdatasökvägen.
@@ -255,42 +313,46 @@ $body = @"
             {
                 "name": "CopyFromBlobToBlob",
                 "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "BinarySource",
+                        "storeSettings": {
+                            "type": "AzureBlobStorageReadSettings",
+                            "recursive": true
+                        }
+                    },
+                    "sink": {
+                        "type": "BinarySink",
+                        "storeSettings": {
+                            "type": "AzureBlobStorageWriteSettings"
+                        }
+                    },
+                    "enableStaging": false
+                },
                 "inputs": [
                     {
-                        "referenceName": "BlobDataset",
-                        "parameters": {
-                            "path": "@pipeline().parameters.inputPath"
-                        },
-                    "type": "DatasetReference"
+                        "referenceName": "InputDataset",
+                        "type": "DatasetReference"
                     }
                 ],
                 "outputs": [
                     {
-                        "referenceName": "BlobDataset",
-                        "parameters": {
-                            "path": "@pipeline().parameters.outputPath"
-                        },
+                        "referenceName": "OutputDataset",
                         "type": "DatasetReference"
                     }
-                ],
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource"
-                    },
-                    "sink": {
-                        "type": "BlobSink"
-                    }
-                }
+                ]
             }
         ],
-        "parameters": {
-            "inputPath": {
-                "type": "String"
-            },
-            "outputPath": {
-                "type": "String"
-            }
-        }
+        "annotations": []
     }
 }
 "@
@@ -301,19 +363,19 @@ $response | ConvertTo-Json
 Här är exempel på utdata:
 
 ```json
-{
-    "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/pipelines/Adfv2QuickStartPipeline",
-    "name":  "Adfv2QuickStartPipeline",
-    "properties":  {
-        "activities":  [
-            "@{name=CopyFromBlobToBlob; type=Copy; inputs=System.Object[]; outputs=System.Object[]; typeProperties=}"
+{  
+    "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/pipelines/Adfv2QuickStartPipeline",
+    "name":"Adfv2QuickStartPipeline",
+    "type":"Microsoft.DataFactory/factories/pipelines",
+    "properties":{  
+        "activities":[  
+            "@{name=CopyFromBlobToBlob; type=Copy; dependsOn=System.Object[]; policy=; userProperties=System.Object[]; typeProperties=; inputs=System.Object[]; outputs=System.Object[]}"
         ],
-        "parameters":  {
-            "inputPath":  "@{type=String}",
-            "outputPath":  "@{type=String}"
-        }
+        "annotations":[  
+
+        ]
     },
-    "etag":  "0000c852-0000-0000-0000-59b1459e0000"
+    "etag":"07012057-0000-0100-0000-5d6e14c00000"
 }
 ```
 
@@ -325,13 +387,7 @@ Ersätt värdet för **inputPath** med **outputPath** med din sökväg till käl
 
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline/createRun?api-version=${apiVersion}"
-$body = @"
-{
-    "inputPath": "<the path to existing blob(s) to copy data from, e.g. containername/path>",
-    "outputPath": "<the blob path to copy data to, e.g. containername/path>"
-}
-"@
+$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline/createRun?api-version=${apiVersion}"
 $response = Invoke-RestMethod -Method POST -Uri $request -Header $authHeader -Body $body
 $response | ConvertTo-Json
 $runId = $response.runId
@@ -340,8 +396,8 @@ $runId = $response.runId
 Här är exempel på utdata:
 
 ```json
-{
-    "runId":  "2f26be35-c112-43fa-9eaa-8ba93ea57881"
+{  
+    "runId":"04a2bb9a-71ea-4c31-b46e-75276b61bafc"
 }
 ```
 
@@ -350,7 +406,7 @@ Här är exempel på utdata:
 1. Kör följande skript för att kontinuerligt kontrollera pipelinekörningens status tills kopieringen av data är klar.
 
     ```powershell
-    $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelineruns/${runId}?api-version=${apiVersion}"
+    $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelineruns/${runId}?api-version=${apiVersion}"
     while ($True) {
         $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
         Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
@@ -368,72 +424,72 @@ Här är exempel på utdata:
     Här är exempel på utdata:
 
     ```json
-    {
-        "key":  "000000000-0000-0000-0000-00000000000",
-        "timestamp":  "2017-09-07T13:12:39.5561795Z",
-        "runId":  "000000000-0000-0000-0000-000000000000",
-        "dataFactoryName":  "<dataFactoryName>",
-        "pipelineName":  "Adfv2QuickStartPipeline",
-        "parameters":  [
-            "inputPath: <inputBlobPath>",
-            "outputPath: <outputBlobPath>"
+    {  
+        "runId":"04a2bb9a-71ea-4c31-b46e-75276b61bafc",
+        "debugRunId":null,
+        "runGroupId":"04a2bb9a-71ea-4c31-b46e-75276b61bafc",
+        "pipelineName":"Adfv2QuickStartPipeline",
+        "parameters":{  
+    
+        },
+        "invokedBy":{  
+            "id":"2bb3938176ee43439752475aa12b2251",
+            "name":"Manual",
+            "invokedByType":"Manual"
+        },
+        "runStart":"2019-09-03T07:22:47.0075159Z",
+        "runEnd":"2019-09-03T07:22:57.8862692Z",
+        "durationInMs":10878,
+        "status":"Succeeded",
+        "message":"",
+        "lastUpdated":"2019-09-03T07:22:57.8862692Z",
+        "annotations":[  
+    
         ],
-        "parametersCount":  2,
-        "parameterNames":  [
-            "inputPath",
-            "outputPath"
-        ],
-        "parameterNamesCount":  2,
-        "parameterValues":  [
-            "<inputBlobPath>",
-            "<outputBlobPath>"
-        ],
-        "parameterValuesCount":  2,
-        "runStart":  "2017-09-07T13:12:00.3710792Z",
-        "runEnd":  "2017-09-07T13:12:39.5561795Z",
-        "durationInMs":  39185,
-        "status":  "Succeeded",
-        "message":  ""
+        "runDimension":{  
+    
+        },
+        "isLatest":true
     }
-    ```
-
-2. Kör följande skript för att hämta körningsinformation för kopieringsaktiviteten, till exempel storleken på data som lästs/skrivits.
+2. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell
-    $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelineruns/${runId}/activityruns?api-version=${apiVersion}&startTime="+(Get-Date).ToString('yyyy-MM-dd')+"&endTime="+(Get-Date).AddDays(1).ToString('yyyy-MM-dd')+"&pipelineName=Adfv2QuickStartPipeline"
-    $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
+    $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelineruns/${runId}/queryActivityruns?api-version=${apiVersion}&startTime="+(Get-Date).ToString('yyyy-MM-dd')+"&endTime="+(Get-Date).AddDays(1).ToString('yyyy-MM-dd')+"&pipelineName=Adfv2QuickStartPipeline"
+    $response = Invoke-RestMethod -Method POST -Uri $request -Header $authHeader
     $response | ConvertTo-Json
     ```
-
     Här är exempel på utdata:
 
     ```json
-    {
-        "value":  [
-            {
-                "id":  "000000000-0000-0000-0000-00000000000",
-                "timestamp":  "2017-09-07T13:12:38.4780542Z",
-                "pipelineRunId":  "000000000-0000-00000-0000-0000000000000",
-                "pipelineName":  "Adfv2QuickStartPipeline",
-                "status":  "Succeeded",
-                "failureType":  "",
-                "linkedServiceName":  "",
-                "activityName":  "CopyFromBlobToBlob",
-                "activityType":  "Copy",
-                "activityStart":  "2017-09-07T13:12:02.3299261Z",
-                "activityEnd":  "2017-09-07T13:12:38.4780542Z",
-                "duration":  36148,
-                "input":  "@{source=; sink=}",
-                "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (West US); usedDataIntegrationUnits=2; billedDuration=22}",
-                "error":  "@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}"
+    {  
+        "value":[  
+            {  
+                "activityRunEnd":"2019-09-03T07:22:56.6498704Z",
+                "activityName":"CopyFromBlobToBlob",
+                "activityRunStart":"2019-09-03T07:22:49.0719311Z",
+                "activityType":"Copy",
+                "durationInMs":7577,
+                "retryAttempt":null,
+                "error":"@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}",
+                "activityRunId":"32951886-814a-4d6b-b82b-505936e227cc",
+                "iterationHash":"",
+                "input":"@{source=; sink=; enableStaging=False}",
+                "linkedServiceName":"",
+                "output":"@{dataRead=20; dataWritten=20; filesRead=1; filesWritten=1; sourcePeakConnections=1; sinkPeakConnections=1; copyDuration=4; throughput=0.01; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (Central US); usedDataIntegrationUnits=4; usedParallelCopies=1; executionDetails=System.Object[]}",
+                "userProperties":"",
+                "pipelineName":"Adfv2QuickStartPipeline",
+                "pipelineRunId":"04a2bb9a-71ea-4c31-b46e-75276b61bafc",
+                "status":"Succeeded",
+                "recoveryStatus":"None",
+                "integrationRuntimeNames":"defaultintegrationruntime",
+                "executionDetails":"@{integrationRuntime=System.Object[]}"
             }
         ]
     }
     ```
-
 ## <a name="verify-the-output"></a>Verifiera utdata
 
-Använd Azure Storage Explorer till att kontrollera att bloben/blobarna kopieras till "outputBlobPath" från "inputBlobPath" som du angav när du skapade en pipelinekörning.
+Använd Azure Storage Explorer för att kontrol lera att filen kopieras till "outputPath" från "inputPath" som du angav när du skapade en pipeline-körning.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Du kan rensa de resurser som du skapade i snabbstarten på två sätt. Du kan ta bort den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som innehåller alla resurser i resursgruppen. Om du vill behålla de andra resurserna intakta ska du bara ta bort den datafabrik du har skapat i den här självstudiekursen.

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/23/2019
+ms.date: 09/4/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: f65b1d62a9c0e6835421c2ae796f9ea390407c9a
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c685b2314d15e431ccac3470fd337ca92697e1a5
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971605"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241167"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -93,6 +93,12 @@ Detta möjliggör följande scenarier:
 ## <a name="azure-monitor-logging"></a>Azure Monitor-loggning
 
 Alla händelser är integrerade med Azure Monitor, vilket gör att du kan arkivera loggar till ett lagringskonto, strömma händelser till din händelsehubb eller skicka dem till Azure Monitor-loggar.
+
+## <a name="pci-soc-and-iso-compliant"></a>PCI, SOC och ISO-kompatibel
+
+Azure Firewall är ett PCI-kort (Payment Card Industry), SOC (Service Organization Controls) och Internationella standardiseringsorganisationen (ISO). För närvarande stöds SOC 1 typ 2, SOC 2, SOC 3, PCI DSS och ISO 27001, 27018, 20000-1, 22301, 9001, 27017.
+
+Mer information finns i [Microsoft Compliance guide](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 
 ## <a name="known-issues"></a>Kända problem
 

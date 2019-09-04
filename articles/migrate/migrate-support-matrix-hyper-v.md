@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 00f222472a9b41c7f95ae90bdca57f13175b2b5d
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 26b7f185a05bcf50db3af6bd3b75d5e61d6ec84b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952128"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279561"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av Hyper-V
 
@@ -37,7 +37,7 @@ Migrering av Hyper-V-servrar som hanteras med System Center Virtual Machine Mana
 --- | ---
 Azure-behörigheter | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
 Hyper-V:s virtuella datorer | Utvärdera upp till 35 000 virtuella Hyper-V-datorer i ett enda projekt. Du kan ha flera projekt i en Azure-prenumeration. Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
-Geografi | Du kan skapa Azure Migrate projekt i ett antal geografiska områden. Även om du kan skapa projekt i specifika ographies kan du utvärdera eller migrera datorer för andra mål platser. Projektets geografi används bara för att lagra identifierade metadata.
+Geografi | Du kan skapa Azure Migrate projekt i ett antal geografiska områden. Även om du kan skapa projekt i specifika geografiska områden kan du utvärdera eller migrera datorer för andra mål platser. Projektets geografi används bara för att lagra identifierade metadata.
 
   **Geografi** | **Lagrings plats för metadata**
   --- | ---
@@ -82,8 +82,13 @@ Vid utvärdering kör Azure Migrate en förenklad installation för att identifi
 
 | **Support**                | **Detaljer**               
 | :-------------------       | :------------------- |
-| **Azure Migrate projekt**  |  En apparat kan associeras med ett enda projekt.<br/> Du kan identifiera upp till 5000 virtuella Hyper-V-datorer med en enda apparat.
-| **Hyper-V**    |  Du distribuerar installationen som en virtuell Hyper-V-dator.<br/> Den virtuella dator som tillhandahålls är Hyper-V VM version 5,0.<br/> Den virtuella datorns värd måste köra Windows Server 2012 R2 eller senare.<br/> Det behöver tillräckligt med utrymme för att allokera 16 GB RAM, 8 virtuella processorer och 1 extern växel för den virtuella datorn.<br/> Enheten kräver en statisk eller dynamisk IP-adress och Internet åtkomst.
+| **Distribution av utrustning**   |  Du distribuerar installationen som en virtuell Hyper-V-dator.<br/> Den virtuella dator som tillhandahålls av Azure Migrate är Hyper-V VM version 5,0.<br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare.<br/> Värden behöver tillräckligt med utrymme för att allokera 16 GB RAM, 8 virtuella processorer och 1 extern växel för den virtuella datorn.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
+| **Azure Migrate projekt**  |  En apparat kan associeras med ett enda projekt.<br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> Du kan utvärdera upp till 35 000 virtuella datorer i ett projekt.
+| **Hyper-V-värdar**          | En apparat kan ansluta till upp till 300 Hyper-V-värdar.
+| **Identifikation**              | En enda apparat kan identifiera upp till 5000 virtuella datorer.
+| **Utvärderings grupp**       | Du kan lägga till upp till 35 000 datorer i en enda grupp.
+| **Beskrivningar**             | Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
+
 
 
 ## <a name="assessment-appliance-url-access"></a>URL-åtkomst för utvärderings utrustning
@@ -116,6 +121,9 @@ I följande tabell sammanfattas port kraven för utvärdering.
 --- | ---
 **Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en:``` https://<appliance-ip-or-name>:44368 ```<br/> Utgående anslutningar på portarna 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
 **Hyper-V-värd/-kluster** | Inkommande anslutningar på WinRM-portar 5985 (HTTP) och 5986 (HTTPS) för att hämta konfigurations-och prestanda-metadata för virtuella Hyper-V-datorer med en Common Information Model CIM-session.
+
+## <a name="migration-limitations"></a>Migration-begränsningar
+Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du vill migrera fler datorer kan du replikera i grupper om 10.
 
 ## <a name="migration-hyper-v-host-requirements"></a>Migration-krav för Hyper-V-värd
 

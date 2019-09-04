@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8e19c89cec00bba05eb74e752268e1da43a1ac0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 822bbd004035d9745535942c508cae6702e5b99b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035861"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278116"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
@@ -35,9 +35,12 @@ Utforska och Förbered data, träna och testa modeller och distribuera dem med h
 + [Jupyter-anteckningsböcker](https://jupyter.org) där du använder [SDK](https://docs.microsoft.com/azure/machine-learning/service/#reference) : er för att skriva din egen kod, till exempel [de här exempel antecknings böckerna](https://aka.ms/aml-notebooks)
 + [Visual Studio Code-tillägg](how-to-vscode-tools.md)
 
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
+
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Vad kan jag göra med tjänsten Azure Machine Learning?
 
-Använd <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning python SDK</a> med python-paket med öppen källkod, eller Använd [Visual Interface (för hands version)](ui-tutorial-automobile-price-train-score.md) för att skapa och träna bättre maskin inlärnings-och djup inlärnings modeller själv i en Azure Machine Learning tjänst Platsen.
+Använd <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning python SDK</a> med python-paket med öppen källkod, eller Använd [Visual Interface (för hands version)](ui-tutorial-automobile-price-train-score.md) för att skapa och träna bättre maskin inlärnings-och djup inlärnings modeller själv i en Azure Machine Learning tjänst Platsen.
 
 Du kan välja bland flera Machine Learning-komponenter som är tillgängliga i python-paket med öppen källkod, till exempel <a href="https://scikit-learn.org/stable/" target="_blank">Scikit – lära</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>och <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -45,7 +48,7 @@ Oavsett om du skriver kod eller använder det visuella gränssnittet kan du spå
 
 ### <a name="code-first-experience"></a>Kod-första upplevelse
 
-Starta utbildningen på den lokala datorn med <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning python SDK</a> och skala sedan ut till molnet. Tack vare de många tillgängliga [beräkningsmålen](how-to-set-up-training-targets.md), däribland Azure Machine Learning Compute och [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), och med [tjänster för finjustering av avancerade hyperparametrar](how-to-tune-hyperparameters.md) kan du skapa bättre modeller snabbare genom att använda hela styrkan från molnet.
+Starta utbildningen på den lokala datorn med <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning python SDK</a> och skala sedan ut till molnet. Tack vare de många tillgängliga [beräkningsmålen](how-to-set-up-training-targets.md), däribland Azure Machine Learning Compute och [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), och med [tjänster för finjustering av avancerade hyperparametrar](how-to-tune-hyperparameters.md) kan du skapa bättre modeller snabbare genom att använda hela styrkan från molnet.
 
 Du kan också [Automatisera modell träning och-justering](tutorial-auto-train-models.md) med hjälp av SDK.
 
@@ -63,7 +66,7 @@ Prova följande för kod fri utbildning:
 
 När du har rätt modell kan du enkelt använda den i en webb tjänst, på en IoT-enhet eller från Power BI. Mer information finns i artikeln om [hur och var man distribuerar](how-to-deploy-and-where.md).
 
-Du kan sedan hantera dina distribuerade modeller med hjälp av [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) eller [Azure-portalen](https://portal.azure.com/).
+Du kan sedan hantera dina distribuerade modeller med hjälp av [Azure Machine Learning SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) eller [Azure-portalen](https://portal.azure.com/).
 
 Dessa modeller kan förbrukas och returnera förutsägelser i [real tid](how-to-consume-web-service.md) eller [asynkront](how-to-run-batch-predictions.md) på stora mängder data.
 

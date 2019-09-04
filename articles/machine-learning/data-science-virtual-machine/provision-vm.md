@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 02/22/2019
-ms.openlocfilehash: 6c0abc20775e604f9ea1c6ba882e5a9ff1d89e90
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ac4b9b4d32d05083ceabd41207243eb483648baa
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195309"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278601"
 ---
 # <a name="quickstart-set-up-a-windows-data-science-virtual-machine-on-azure"></a>Snabbstart: Konfigurera en Windows Data Science Virtual Machine på Azure
 
@@ -24,7 +24,7 @@ Microsoft Windows Data Science Virtual Machine (DSVM) är en Windows Server 2016
 
 Följande verktyg ingår i en DSVM:
 
-* Python SDK för [Azure Machine learnings tjänsten](../service/index.yml).
+* Python SDK för [Azure Machine learnings tjänsten](../index.yml).
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer edition.
 * Anaconda Python-distribution.
 * Jupyter-anteckningsbok med R, Python och PySpark-kärnor.
@@ -228,7 +228,7 @@ Du kan använda [installations programmet för Microsoft Web Platform](https://w
 ## <a name="next-steps"></a>Nästa steg
 
 * Utforska verktygen på DSVM genom att öppna **Start** -menyn.
-* Lär dig mer om Azure Machine Learning tjänsten genom att läsa [Vad är Azure Machine Learning tjänst?](../service/overview-what-is-azure-ml.md) och testa [snabb starter och självstudier](../service/index.yml).
+* Lär dig mer om tjänsten Azure Machine Learning genom att läsa [Vad är Azure Machine Learning tjänsten?](../service/overview-what-is-azure-ml.md) och prova [själv studie kurserna](../index.yml).
 * I Utforskaren bläddrar du till C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts for samples som använder RevoScaleR-biblioteket i R som stöder data analys i företags skala. 
 * Läs artikeln [tio saker du kan göra på data science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](../team-data-science-process/index.yml).

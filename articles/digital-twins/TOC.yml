@@ -73,32 +73,6 @@
   items:
     - name: Användardefinierade funktioner – klientbibliotek
       href: reference-user-defined-functions-client-library.md
-- name: Relaterat
-  items:
-    - name: Lösningar
-      items:
-        - name: IoT-lösningsacceleratorer
-          href: /azure/iot-accelerators
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: Plattformstjänster
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: 'SDK:er för IoT-tjänster'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Kartor
-          href: /azure/azure-maps
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: 'SDK:er för IoT-enheter'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
     - name: 'Azure Digital Twins-exempel för C# (.NET)'

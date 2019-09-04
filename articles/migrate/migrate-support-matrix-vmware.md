@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: c351ee8290b60c81add173bb927b0c12e37f5c7c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7fe2c39871f1cd512da7f9a2c5146e79abbe74a6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018133"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279606"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av VMware
 
@@ -35,8 +35,7 @@ Tabellen sammanfattar scenarier som stöds för virtuella VMware-datorer.
 **Support** | **Detaljer**
 --- | ---
 **Azure-behörigheter** | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
-**VMware-begränsningar**  | Utvärdera upp till 35 000 virtuella VMware-datorer i ett enda projekt. Du kan skapa flera projekt i en Azure-prenumeration.
-**Projekt gränser** | Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
+**VMware-begränsningar**  | Utvärdera upp till 35 000 virtuella VMware-datorer i ett enda projekt. Du kan skapa flera projekt i en Azure-prenumeration. Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
 **Geografi** | Du kan skapa ett Azure Migrate-projekt i ett antal geografiska områden. Även om du bara kan skapa projekt i dessa geografiska områden kan du utvärdera eller migrera datorer för andra mål platser. Projektets geografi används bara för att lagra identifierade metadata.
 
 **Geografi** | **Lagrings plats för metadata**
@@ -70,14 +69,15 @@ För utvärdering behöver du ett skrivskyddat konto för vCenter Server.
 
 ## <a name="assessment-appliance-requirements"></a>Bedömnings krav
 
-Azure Migrate-installationen för VMware distribueras med hjälp av en beredskaps mall som importeras till vCenter Server.
+Azure Migrate kör en förenklad installation för att identifiera virtuella VMware-datorer och skicka VM-metadata och prestanda data till Azure Migrate. Installation av VMware distribueras med hjälp av en områdesmall som importer ATS till vCenter Server. I följande tabell sammanfattas kraven på installationen.
 
 **Support** | **Detaljer**
 --- | ---
-**vCenter Server** | Du behöver tillräckligt med resurser på vCenter Server för att allokera en virtuell dator med 32 GB RAM, 8 virtuella processorer och en extern virtuell växel.<br/><br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.
-**ESXi** | Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare.
-**Azure Migrate projekt** | En apparat kan associeras med ett enda projekt.
-**vCenter Server** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En installation kan ansluta till en vCenter Server.
+**Distribution av utrustning** | Du distribuerar installationen som en virtuell VMware-dator. Du behöver tillräckligt med resurser på vCenter Server för att allokera en virtuell dator med 32 GB RAM, 8 virtuella processorer och en extern virtuell växel.<br/><br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/> Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare. 
+**Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> Du kan utvärdera upp till 35 000 virtuella datorer i ett projekt.
+**Identifikation** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till en enda vCenter Server.
+**Utvärderings grupp** | Du kan lägga till upp till 35 000 datorer i en enda grupp.
+**Beskrivningar** | Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
 
 
 ## <a name="assessment-url-access-requirements"></a>Bedömnings krav för URL-åtkomst
@@ -107,6 +107,8 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 Installation | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en:```https://<appliance-ip-or-name>:44368``` <br/><br/>Utgående anslutningar på port 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
 vCenter Server | Inkommande anslutningar på TCP-port 443 för att tillåta att installationen samlar in konfigurations-och prestanda-metadata för utvärderingar. <br/><br/> Enheten ansluter som standard till vCenter på port 443. Om vCenter-servern lyssnar på en annan port kan du ändra porten när du konfigurerar identifiering.
 
+## <a name="migration---limitations"></a>Migration-begränsningar
+Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du vill migrera fler datorer kan du replikera i grupper om 10. För VMware-agent lös migrering kan du köra upp till 100 replikeringar samtidigt.
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>Agent lös migrering – krav för VMware-servrar
 
@@ -279,7 +281,7 @@ Hämta och installera i Azure Migrate | När du installerar installationen och t
 --- | ---
 **Dator arbets belastning** | Azure Migrate stöder migrering av arbets belastningar (t. ex. Active Directory, SQL Server osv.) som körs på en dator som stöds.
 **Operativ system** | Du hittar den senaste informationen i [operativ systemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för Site Recovery. Azure Migrate tillhandahåller identiskt stöd för virtuella dator operativ system.
-**Linux-filsystem/gäst lagring** | Du hittar den senaste informationen i Linux-filsystemets [stöd](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) för Site Recovery. Azure Migrate har samma stöd för Linux-filsystem.
+**Linux-filsystem/gäst lagring** | Du hittar den senaste informationen i [Linux-filsystemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) för Site Recovery. Azure Migrate har samma stöd för Linux-filsystem.
 **Nätverk/lagring** | För den senaste informationen granskar du kraven för [nätverk](../site-recovery/vmware-physical-azure-support-matrix.md#network) och [lagring](../site-recovery/vmware-physical-azure-support-matrix.md#storage) för Site Recovery. Azure Migrate tillhandahåller identiska nätverks-/lagrings krav.
 **Krav för Azure** | Du hittar den senaste informationen i [Azure-nätverket](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [lagrings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)-och [beräknings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) kraven för Site Recovery. Azure Migrate har identiska krav för VMware-migrering.
 **Mobilitetstjänsten** | Mobilitets tjänst agenten måste vara installerad på varje virtuell dator som du vill migrera.

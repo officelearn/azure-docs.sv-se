@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/22/2019
+ms.date: 09/03/2019
 ms.author: jgao
-ms.openlocfilehash: b27caa3d91d67ad63bfbf5e7c549d690980cdd7b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 13ac8b9f6d82cc8b0060f87237ef3140cb245379
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934444"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259211"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Resource Manager-mall
 
@@ -101,7 +101,9 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Startsida för Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-* [Dokumentation om Azure Key Vault](index.yml)
-* [Azure SDK för Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
-* [Azure REST API-referens](https://docs.microsoft.com/rest/api/keyvault/)
+I den här snabb starten skapade du ett nyckel valv och en hemlighet med hjälp av en Azure Resource Manager-mall och validerade distributionen. Om du vill veta mer om Key Vault och Azure Resource Manager fortsätter du till artiklarna nedan.
+
+- Läs en [Översikt över Azure Key Vault](key-vault-overview.md)
+- Läs mer om [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- Få mer information om [nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
+- Granska [Azure Key Vault bästa praxis](key-vault-best-practices.md)

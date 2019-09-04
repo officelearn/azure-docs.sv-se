@@ -4,14 +4,14 @@ description: Läs om Azure Cosmos DB. Den här globalt distribuerade databasen m
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 07/23/2019
+ms.date: 09/01/2019
 ms.author: rimman
-ms.openlocfilehash: 5e53a671c866b9482296622d19d4ad6bec46829d
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: f7396a747852e98b15c8c85e9b0d9a46326e6b25
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905296"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240693"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -53,7 +53,7 @@ Med Cosmos DB kan du skapa mycket responsiva och världsomfattande program. Med 
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Ett flertal exakt definierade konsekvensval
 
-När du skapar globalt distribuerade program i Cosmos DB behöver du inte längre göra extrema [kompromisser mellan konsekvens, tillgänglighet, svars tid och data flöde](consistency-levels-tradeoffs.md). Cosmos DBS protokollet för multi-master-replikering är omsorgsfullt utformat för att erbjuda [fem väldefinierade konsekvens alternativ](consistency-levels.md) - *stark*, *gräns*för föråldrad, *session*, *konsekvent prefix*och *eventuell* – för en intuitiv programmerings modell med låg latens och hög tillgänglighet för ditt globalt distribuerade program.
+När du skapar globalt distribuerade program i Cosmos DB behöver du inte längre göra extrema [kompromisser mellan konsekvens, tillgänglighet, svars tid och data flöde](consistency-levels-tradeoffs.md). Cosmos DBS protokollet för multi-master-replikering är omsorgsfullt utformat för att erbjuda [fem väldefinierade konsekvens alternativ](consistency-levels.md) - *stark*, *gräns för föråldrad*, *session*, *konsekvent prefix*och *eventuell* – för en intuitiv programmerings modell med låg latens och hög tillgänglighet för ditt globalt distribuerade program.
 
 ### <a name="no-schema-or-index-management"></a>Ingen hantering av schema eller index
 
@@ -98,7 +98,7 @@ Alla [webb-, mobil-, spel-och IoT-program](use-cases.md) som behöver hantera st
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om grundläggande begrepp för Cosmos DB [global distribution](distribute-data-globally.md) och [partitionering](partitioning-overview.md) och allokerat [data flöde](request-units.md).
+Läs mer om grundläggande begrepp för Cosmos DB [global distribution](distribute-data-globally.md) och [partitionering](partitioning-overview.md) och [allokerat data flöde](request-units.md).
 
 Kom igång med Azure Cosmos DB med någon av våra snabbstarter:
 

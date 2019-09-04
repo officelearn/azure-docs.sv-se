@@ -2,20 +2,20 @@
 title: Azure-snabbstart – Ställ in och hämta en hemlighet från Key Vault med hjälp av Azure-portalen | Microsoft Docs
 description: Snabbstart som visar hur du ställer in och hämtar en hemlighet från Azure Key Vault med hjälp av Azure-portalen
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/14/2019
-ms.author: barclayn
-ms.openlocfilehash: e9b86a5fb0d9e24618cafffb5ca12e22d5394294
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 09/03/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 3c0b9ad774d336da9bc60d2ef9f7ff2645602b6c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730178"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259226"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure-portalen
 
@@ -36,7 +36,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 3. Välj **Key Vault** i listan med resultat.
 4. Välj **Skapa** i avsnittet Key Vault.
 5. Ange följande information i avsnittet **Skapa nyckelvalv** avsnittet Ange följande information:
-    - **Namn**: Ett unikt namn krävs. I den här snabbstarten använder vi **Contoso-vault2**. 
+    - **Namn på**: Ett unikt namn krävs. I den här snabbstarten använder vi **Contoso-vault2**. 
     - **Prenumeration**: Välj en prenumeration.
     - Under **Resursgrupp** väljer du **Skapa ny** och anger ett resursgruppsnamn.
     - Välj en plats i listrutan **Plats**.
@@ -60,7 +60,7 @@ När du ska lägga till en hemlighet i valvet behöver du bara utföra några yt
 2. Klicka på **Generera/importera**.
 3. Välj följande värden på skärmen **Skapa en hemlighet**:
     - **Uppladdningsalternativ**: Manuell.
-    - **Namn**: ExamplePassword.
+    - **Namn på**: ExamplePassword.
     - **Värde**: hVFkk965BuUv
     - Lämna standardvärdena för de andra alternativen. Klicka på **Skapa**.
 
@@ -68,9 +68,9 @@ När du får ett meddelande om att hemligheten har skapats kan du klicka på den
 
 ![Egenskaper för hemlighet](./media/quick-create-portal/current-version-hidden.png)
 
-Du kan se det dolda värdet genom att klicka på ”Visa hemligt värde”-knappen i den högra rutan. 
+Genom att klicka på knappen "Visa hemligt värde" i den högra rutan kan du se det dolda värdet. 
 
-![Hemligt värde visas](./media/quick-create-portal/current-version-shown.png)
+![Hemligt värde visades](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -84,7 +84,9 @@ När du inte behöver resursgruppen längre så tar du bort den. Då tas även n
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat ett nyckelvalv och lagrat en hemlighet. Om du vill lära dig mer om Key Vault och hur du kan använda det med dina program fortsätter du till självstudien om att använda webbprogram med Key Vault.
+I den här snabb starten skapade du en Key Vault och sparade en hemlighet. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
-> [!div class="nextstepaction"]
-> Om du vill lära dig att läsa en hemlighet från Key Vault via en webbapp genom att använda hanterade identiteter för Azure-resurser fortsätter du med självstudierna [Konfigurera en Azure-webbapp att läsa en hemlighet från Key Vault](quick-create-net.md).
+- Läs en [Översikt över Azure Key Vault](key-vault-overview.md)
+- Se [Azure Key Vault Developer ' s guide](key-vault-developers-guide.md)
+- Lär dig mer om [nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
+- Granska [Azure Key Vault bästa praxis](key-vault-best-practices.md)

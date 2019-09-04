@@ -8,15 +8,15 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 30bd7c68ae1c88aba288b515d0ec32581f90b868
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b33f0dec9e6ec685b19e01ce82cfe4adec88b575
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088191"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258602"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använda Key Vault referenser för App Service och Azure Functions (förhands granskning)
 
@@ -184,3 +184,27 @@ Ett exempel på en psuedo-mall för en Function-app kan se ut så här:
 
 > [!NOTE] 
 > I det här exemplet är käll kontroll distributionen beroende av program inställningarna. Detta är vanligt vis ett osäkert beteende eftersom uppdaterings inställningen för appen har asynkront. Men eftersom vi har inkluderat `WEBSITE_ENABLE_SYNC_UPDATE_SITE` program inställningen är uppdateringen synkron. Det innebär att käll kontroll distributionen endast startar när program inställningarna har uppdaterats fullständigt.
+
+## <a name="troubleshooting-key-vault-references"></a>Felsöka Key Vault referenser
+
+Om en referens inte löses korrekt, används referensvärdet i stället. Det innebär att en miljö variabel skapas vars värde har `@Microsoft.KeyVault(...)` syntaxen för program inställningar. Detta kan orsaka att programmet returnerar fel, eftersom det förväntar sig en hemlighet för en viss struktur.
+
+Oftast beror det på en felaktig konfiguration av [Key Vaults åtkomst princip](#granting-your-app-access-to-key-vault). Det kan dock också bero på en hemlighet som inte längre är befintlig eller syntaxfel i själva referensen.
+
+Om syntaxen är korrekt kan du Visa andra orsaker till felet genom att kontrol lera den aktuella lösnings statusen med hjälp av en inbyggd detektor.
+
+### <a name="using-the-detector-for-app-service"></a>Använda detektorn för App Service
+
+1. I portalen navigerar du till din app.
+2. Välj **diagnostisera och lös prolems**.
+3. Välj **tillgänglighet och prestanda** och välj sedan **webbapp.**
+4. Hitta **Key Vault diagnostik för program inställningar** och klicka på **Mer information**.
+
+
+### <a name="using-the-detector-for-azure-functions"></a>Använda detektorn för Azure Functions
+
+1. I portalen navigerar du till din app.
+2. Navigera till **plattforms funktioner.**
+3. Välj **diagnostisera och lös prolems**.
+4. Välj **tillgänglighet och prestanda** och välj **Function app-Down eller rapportera fel.**
+5. Klicka på **Key Vault diagnostik för program inställningar.**

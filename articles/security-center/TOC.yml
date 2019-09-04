@@ -131,24 +131,16 @@
           href: security-center-vulnerability-assessment-recommendations.md
         - name: Hotrapporter
           href: security-center-threat-report.md
-        - name: Anpassade aviseringar
-          href: security-center-custom-alert.md
         - name: Förtroendepoäng för avisering
           href: security-center-confidence-score.md
-        - name: Säkerhetsvarningsmappning och hotinformation
-          href: security-center-threat-intel.md
         - name: Undersökning
           href: security-center-investigation.md
         - name: Hantera användardata för undersökning
           href: security-center-investigation-user-data.md
         - name: Logic Apps-spelböcker
           href: security-center-playbooks.md
-        - name: Search
-          href: security-center-search.md
         - name: Planering och drift
           href: security-center-planning-and-operations-guide.md
-        - name: Åtgärda säkerhetskonfigurationer
-          href: security-center-customize-os-security-config.md
 - name: Referens
   items:
     - name: 'REST API:er'

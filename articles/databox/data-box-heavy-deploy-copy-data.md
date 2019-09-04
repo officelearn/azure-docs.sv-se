@@ -8,12 +8,13 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cb763766ebb151ad1c59b63a33a63493a4f0069
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.localizationpriority: high
+ms.openlocfilehash: 4267b8299e13f1705b218e65b268c45bd5a658e2
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164374"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240302"
 ---
 ::: zone target = "docs"
 
@@ -54,7 +55,7 @@ I varje fall kontrollerar du att resurs-och mappnamn och data storleken följer 
 Innan du börjar ska du kontrollera att:
 
 1. Du har slutfört självstudien [: Konfigurera Azure Data Box Heavy](data-box-deploy-set-up.md).
-2. Du har fått din Data Box Heavy och order statusen i portalen har levererats.
+2. Du har fått din Data Box Heavy och order statusen i portalen har **levererats**.
 3. Du har en värddator som har de data som du vill kopiera till Data Box Heavy. Värddatorn måste
     - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
     - Vara ansluten till en höghastighetsnätverk. För snabbaste kopierings hastigheter kan 2 40-GbE-anslutningar (en per nod) användas parallellt. Om du inte har 40-GbE-anslutning, rekommenderar vi att du har minst 2 10-GbE-anslutningar (en per nod).

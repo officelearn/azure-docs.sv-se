@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ae8f6854241240249cb3b7494872cbbd8fd41e6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fc633780d8b816d8fc2e313bb1955a5719979efe
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823751"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240875"
 ---
-# <a name="what-is-passwordless"></a>Vad är lösen ord?
+# <a name="what-is-passwordless"></a>Vad är lösenordsfritt?
 
 Multi-Factor Authentication (MFA) är ett bra sätt att skydda din organisation, men användarna kan bli frustrerade med det extra lagret ovanpå att de behöver komma ihåg sina lösen ord. Metoder för lösen ords kryptering är bekvämare eftersom lösen ordet tas bort och ersätts med något som du har, samt något du känner till.
 
@@ -26,7 +26,7 @@ Multi-Factor Authentication (MFA) är ett bra sätt att skydda din organisation,
 | --- | --- | --- |
 | Lösenordsfri | Telefon-eller säkerhets nyckel | Bio metrisk eller PIN-kod |
 
-Varje organisation har olika behov när den kommer till autentiseringen. Microsoft erbjuder för närvarande Windows Hello, våra för Windows-datorer. Vi lägger till Microsoft Authenticator-appen och FIDO2-säkerhetsnycklarna i den lösenordsskyddade familjen.
+Varje organisation har olika behov när den kommer till autentiseringen. Microsoft erbjuder för närvarande Windows Hello för våra Windows-datorer. Vi lägger till Microsoft Authenticator-appen och FIDO2-säkerhetsnycklarna i den lösenordsskyddade familjen.
 
 ## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator-appen
 

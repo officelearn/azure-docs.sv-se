@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/12/2019
-ms.openlocfilehash: 41670b74cdc6205ed7e02431dd10de8bea2d2858
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.date: 09/01/2019
+ms.openlocfilehash: e0a9f4fa6ca5ff7447d2ffaef3eab2f3c54fdeae
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68001200"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241268"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-container-and-items-with-the-azure-portal"></a>Snabbstart: Skapa ett Azure Cosmos-konto, behållare och objekt med Azure Portal
 
@@ -28,7 +28,7 @@ ms.locfileid: "68001200"
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan använda Azure Cosmos DB för att snabbt skapa och fråga nyckel/värde-databaser, dokument databaser och Graf-databaser, som alla drar nytta av den globala distributionen och den horisontella skalnings kapaciteten i kärnan av Azure Cosmos DB. 
 
-Den här snabb starten visar hur du använder Azure Portal för att skapa ett Azure Cosmos DB [SQL API](sql-api-introduction.md) -konto, skapa en dokument databas och samling och lägga till data i samlingen. 
+Den här snabb starten visar hur du använder Azure Portal för att skapa ett Azure Cosmos DB [SQL API](sql-api-introduction.md) -konto, skapa en dokument databas och behållare och lägga till data i behållaren. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -42,24 +42,24 @@ En Azure-prenumeration eller ett kostnads fritt Azure Cosmos DB utvärderings ko
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="create-collection-database"></a>
-## <a name="add-a-database-and-a-collection"></a>Lägg till en databas och en samling 
+<a id="create-container-database"></a>
+## <a name="add-a-database-and-a-container"></a>Lägg till en databas och en behållare 
 
-Du kan använda Datautforskaren i Azure Portal för att skapa en databas och en samling. 
+Du kan använda Datautforskaren i Azure Portal för att skapa en databas och behållare. 
 
 1.  Välj **datautforskaren** i det vänstra navigerings fältet på ditt Azure Cosmos DB konto och välj sedan **ny behållare**. 
     
     Du kan behöva rulla åt höger för att se fönstret **Lägg till behållare** .
     
-    ![Datautforskaren i Azure-portalen, fönstret Lägg till samling](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+    ![Fönstret Azure Portal Datautforskaren, Lägg till behållare](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
-1.  I fönstret **Lägg till behållare** anger du inställningarna för den nya samlingen.
+1.  I fönstret **Lägg till behållare** anger du inställningarna för den nya behållaren.
     
     |Inställning|Föreslaget värde|Beskrivning
     |---|---|---|
     |**Databas-ID**|ToDoList|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
     |**Dataflöde**|400|Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
-    |**Container-ID**|Objekt|Ange *Objekt* som namnet på din nya samling. Samlings-ID: n har samma teckenuppsättnings krav som databas namn.|
+    |**Container-ID**|Objekt|Ange *objekt* som namn på den nya behållaren. Container-ID: n har samma teckenuppsättnings krav som databas namn.|
     |**Partitionsnyckel**| /category| Exemplet som beskrivs i den här artikeln använder */Category* som partitionsnyckel.|
 
     

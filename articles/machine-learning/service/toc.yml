@@ -1,5 +1,5 @@
 - name: Dokumentation om Azure Machine Learning-tjänsten
-  href: index.yml
+  href: ../index.yml
 - name: Översikt
   expanded: true
   items:

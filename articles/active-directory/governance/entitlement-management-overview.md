@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032542"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241699"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är berättigandehantering i Azure AD? (Förhandsgranskning)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är berättigandehantering i Azure AD? (Förhandsversion)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
@@ -139,6 +139,18 @@ För att bättre förstå hantering av rättigheter och dess dokumentation bör 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 Specialiserade moln, till exempel Azure Government, Azure Germany och Azure Kina 21Vianet, är inte tillgängliga för användning i den här för hands versionen.
+
+### <a name="which-users-must-have-licenses"></a>Vilka användare måste ha licenser?
+
+Klienten måste ha minst så många Azure AD Premium P2-licenser som du har aktiva medlems användare. Aktiva medlems användare i hantering av rättigheter är:
+
+- En användare som initierar eller godkänner en begäran om ett Access-paket.
+- En användare som har tilldelats ett Access-paket. 
+- En användare som hanterar åtkomst paket.
+
+Som en del av licenserna för medlems användare kan du också tillåta att ett antal gäst användare interagerar med rättighets hantering. Information om hur du beräknar antalet gäst användare som du kan ta med finns i [rikt linjer för Azure Active Directory B2B-samarbets licensiering](../b2b/licensing-guidance.md).
+
+Information om hur du tilldelar licenser till dina användare finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

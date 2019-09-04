@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 03651ecb073d02a373c434b8cb55bdafec6d142a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142208"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279506"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Vanliga frågor och svar (FAQ)
 
@@ -27,7 +27,7 @@ Se [listan för VMware](https://docs.microsoft.com/azure/migrate/migrate-support
 
 Azure Migrate tillhandahåller en central hubb för att starta migreringen, köra och spåra identifiering och utvärdering av datorer och arbets belastningar, samt utföra och spåra migrering av datorer och arbets belastningar till Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) är en katastrof återställnings lösning. Azure Migrate Server-migreringen använder Azure Site Recovery på Server delen för att aktivera migrering för att migrera lokala datorer.
 
-## <a name="azure-migrate-appliance-vmwarephysical-servers"></a>Azure Migrates utrustning (VMware/fysiska servrar)
+## <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
 ### <a name="how-does-the-azure-migrate-appliance-connect-to-azure"></a>Hur ansluter Azure Migrate-enheten till Azure?
 
@@ -87,6 +87,9 @@ För Hyper-V använder identifieringen autentiseringsuppgifter för Hyper-V-vär
 ### <a name="how-many-vms-can-i-discover-with-a-single-migration-appliance"></a>Hur många virtuella datorer kan jag identifiera med en enda migrations enhet?
 
 Du kan identifiera upp till 10 000 virtuella VMware-datorer och upp till 5 000 virtuella Hyper-V-datorer med en enda migreringstjänster. Om du har fler datorer i din lokala miljö kan du läsa om hur du skalar [Hyper-V-](scale-hyper-v-assessment.md) och [VMware](scale-vmware-assessment.md) -utvärderingen.
+
+### <a name="can-i-delete-the-azure-migrate-appliance-from-the-project"></a>Kan jag ta bort Azure Migrate-apparaten från projektet?
+Det finns inte stöd för att ta bort den här enheten från projektet. Det enda sättet att ta bort installationen är att ta bort resurs gruppen som har Azure Migrate projektet, som är associerat med installationen, men som även tar bort andra registrerade enheter, den identifierade inventeringen, utvärderingarna och alla andra Azure-artefakter kopplad till projektet i resurs gruppen.
 
 ## <a name="azure-migrate-server-assessment"></a>Utvärdering av Azure Migrate Server
 

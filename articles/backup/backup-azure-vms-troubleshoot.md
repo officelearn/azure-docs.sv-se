@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 69d75f9050560eb4a9e394241316c0474fffe7cc
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f053cc9bf6b08b9cf76b6e992c3d8cbdf5f759da
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232462"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258985"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -34,10 +34,10 @@ Det här avsnittet beskriver felet vid säkerhets kopiering av virtuella Azure-d
 * Från `Services.msc`, se till att tjänsten **Windows Azure gästa Gent** **körs**. Om tjänsten **Windows Azure gästa Gent** saknas installerar du den från [säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * **Händelse loggen** kan visa säkerhets kopierings problem som kommer från andra säkerhets kopierings produkter, t. ex. Windows Server Backup, och inte på grund av Azure Backup. Använd följande steg för att fastställa om problemet är med Azure Backup:
    * Om det uppstår ett fel med en post **säkerhets kopia** i händelse källan eller meddelandet kontrollerar du om säkerhets kopieringen av Azure IaaS VM-säkerhetskopiering lyckades och om en återställnings punkt skapades med den önskade ögonblicks bild typen.
-    * Om Azure Backup fungerar är problemet troligt vis en annan lösning för säkerhets kopiering. 
+    * Om Azure Backup fungerar är problemet troligt vis en annan lösning för säkerhets kopiering.
     * Här är ett exempel på ett fel i logg boken där Azure Backup fungerade men "Windows Server Backup" misslyckades:<br>
     ![Windows Server Backup att fungera](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-    * Om Azure Backup inte fungerar söker du efter motsvarande felkod i avsnittet Vanliga fel vid säkerhets kopiering av virtuella datorer i den här artikeln. 
+    * Om Azure Backup inte fungerar söker du efter motsvarande felkod i avsnittet Vanliga fel vid säkerhets kopiering av virtuella datorer i den här artikeln.
 
 ## <a name="common-issues"></a>Vanliga problem
 
@@ -83,7 +83,7 @@ Felmeddelande: Tilläggs installationen misslyckades med felet "COM+ kunde inte 
 
 Säkerhets kopieringen misslyckades på grund av ett problem med Windows-tjänstens **com+-system** program.  Följ dessa anvisningar för att lösa problemet:
 
-* Försök starta/starta om Windows-tjänsten **com+** -systemprogram (från en upphöjd kommando tolk **-net start COMSysApp**).
+* Försök starta/starta om Windows-tjänsten **com+-systemprogram** (från en upphöjd kommando tolk **-net start COMSysApp**).
 * Se till att **koordinator för distribuerad transaktion** -tjänster körs som **nätverks tjänst** konto. Om inte, ändrar du den så att den körs som **nätverks tjänst** konto och startar om **com+-system programmet**.
 * Om du inte kan starta om tjänsten installerar du om **koordinator för distribuerad transaktion** tjänsten genom att följa stegen nedan:
     * Stoppa MSDTC-tjänsten
@@ -191,9 +191,9 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 | **Felkod: 380008** <br/> **Fel meddelande**: Det gick inte att installera Microsoft Recovery Services-tillägget eftersom den virtuella datorn inte körs | VM-agenten är en förutsättning för Azure Recovery Services-tillägget. Installera agenten för den virtuella Azure-datorn och starta om registrerings åtgärden. <br> <ol> <li>Kontrol lera att den virtuella dator agenten är korrekt installerad. <li>Kontrol lera att flaggan på VM-konfigurationen är korrekt inställd.</ol> Läs mer om hur du installerar VM-agenten och hur du verifierar installationen av VM-agenten. |
 | **Felkod**: ExtensionSnapshotBitlockerError <br/> **Fel meddelande**: Ögonblicks bild åtgärden misslyckades med den tjänsten Volume Shadow Copy (VSS) åtgärds fel **enheten är låst av BitLocker-diskkryptering. Du måste låsa upp den här enheten från kontroll panelen.** |Inaktivera BitLocker för alla enheter på den virtuella datorn och kontrol lera om problemet med VSS är löst. |
 | **Felkod**: VmNotInDesirableState <br/> **Fel meddelande**:  Den virtuella datorn är inte i ett tillstånd som tillåter säkerhets kopieringar. |<ul><li>Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga**av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet. <li> Om den virtuella datorn är en virtuell Linux-dator och använder den säkerhetsförbättrade Linux-modulen för Linux, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.  |
-| VM-agenten finns inte på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. |Läs mer om [installation av VM-agenten och hur du verifierar installationen av VM](#vm-agent)-agenten. |
+| VM-agenten finns inte på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. |Läs mer om [installation av VM-agenten och hur du verifierar installationen av VM-agenten](#vm-agent). |
 | **Felkod**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Fel meddelande**: Ögonblicks bild åtgärden misslyckades på grund av att det inte gick att skapa en säker kanal för nätverkskommunikation. | <ol><li> Öppna Registereditorn genom att köra **regedit. exe** i förhöjd läge. <li> Identifiera alla versioner av .NET Framework som finns i systemet. De finns under hierarkin för register nyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Lägg till följande nyckel för varje .NET Framework som finns i register nyckeln: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
-| **Felkod**: ExtensionVCRedistInstallationFailure <br/> **Fel meddelande**: Ögonblicks bild åtgärden misslyckades på grund av att det C++ inte gick att installera Visual Redistributable för visual Studio 2012. | Gå till C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion och installera vcredist2012_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga Ange startvärdet i **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk.  |
+| **Felkod**: ExtensionVCRedistInstallationFailure <br/> **Fel meddelande**: Ögonblicks bild åtgärden misslyckades på grund av att det C++ inte gick att installera Visual Redistributable för visual Studio 2012. | Gå till C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion och installera vcredist2013_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga ange **startvärdet** i **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk.  |
 
 
 ## <a name="jobs"></a>Jobb
@@ -209,7 +209,7 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 
 | Felinformation | Lösning: |
 | --- | --- |
-| Återställningen misslyckades med ett internt moln fel. |<ol><li>Den moln tjänst som du försöker återställa till har kon figurer ATS med DNS-inställningar. Du kan kontrol lera följande: <br>**$Deployment = get-AzureDeployment-ServiceName "ServiceName"-fack "produktion" Get-AzureDns-DnsSettings $Deployment. DnsSettings**.<br>Om **adress** har kon figurer ATS konfigureras DNS-inställningarna.<br> <li>Den moln tjänst som du försöker återställa till har kon figurer ATS med **reservedip**och befintliga virtuella datorer i moln tjänsten är i stoppat läge. Du kan kontrol lera att en moln tjänst har reserverat en IP-adress med hjälp av följande PowerShell-cmdletar: **$Deployment = get-AzureDeployment-ServiceName "ServiceName"-plats "produktion" $DEP. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma moln tjänst: <ul><li>Virtuella datorer under belastnings Utjämnings konfiguration, intern och extern.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny moln tjänst i användar gränssnittet eller se [](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) återställnings överväganden för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
+| Återställningen misslyckades med ett internt moln fel. |<ol><li>Den moln tjänst som du försöker återställa till har kon figurer ATS med DNS-inställningar. Du kan kontrol lera följande: <br>**$Deployment = get-AzureDeployment-ServiceName "ServiceName"-fack "produktion" Get-AzureDns-DnsSettings $Deployment. DnsSettings**.<br>Om **adress** har kon figurer ATS konfigureras DNS-inställningarna.<br> <li>Den moln tjänst som du försöker återställa till har kon figurer ATS med **reservedip**och befintliga virtuella datorer i moln tjänsten är i stoppat läge. Du kan kontrol lera att en moln tjänst har reserverat en IP-adress med hjälp av följande PowerShell-cmdletar: **$Deployment = get-AzureDeployment-ServiceName "ServiceName"-plats "produktion" $DEP. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma moln tjänst: <ul><li>Virtuella datorer under belastnings Utjämnings konfiguration, intern och extern.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny moln tjänst i användar gränssnittet eller se [återställnings överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
 | Det valda DNS-namnet har redan tagits: <br>Ange ett annat DNS-namn och försök igen. |Det här DNS-namnet refererar till moln tjänstens namn, vanligt vis slutar med **. cloudapp.net**. Det här namnet måste vara unikt. Om du får det här felet måste du välja ett annat namn för virtuell dator under återställningen. <br><br> Det här felet visas endast för användare av Azure Portal. Återställnings åtgärden via PowerShell slutförs eftersom den återställer endast diskarna och inte skapar den virtuella datorn. Felet kommer att visas när den virtuella datorn skapas explicit av dig efter disk återställnings åtgärden. |
 | Den angivna konfigurationen för virtuellt nätverk är felaktig: <br>Ange en annan konfiguration för virtuellt nätverk och försök igen. |Inga |
 | Den angivna moln tjänsten använder en reserverad IP-adress som inte matchar konfigurationen för den virtuella dator som återställs: <br>Ange en annan moln tjänst som inte använder en reserverad IP-adress. Eller Välj en annan återställnings punkt att återställa från. |Inga |
@@ -241,16 +241,16 @@ Normalt finns VM-agenten redan i virtuella datorer som skapas från Azure-galler
 ### <a name="update-the-vm-agent"></a>Uppdatera VM-agenten
 #### <a name="windows-vms"></a>Virtuella Windows-datorer
 
-* Om du vill uppdatera VM-agenten installerar du om binärfilerna för [VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)-agenten. Innan du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder sker under uppdateringen av VM-agenten.
+* Om du vill uppdatera VM-agenten installerar du om [binärfilerna för VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Innan du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder sker under uppdateringen av VM-agenten.
 
 #### <a name="linux-vms"></a>Virtuella Linux-datorer
 
-* Uppdatera Linux VM-agenten genom att följa anvisningarna i artikeln [Uppdatera Linux VM](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)-agenten.
+* Uppdatera Linux VM-agenten genom att följa anvisningarna i artikeln [Uppdatera Linux VM-agenten](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
     > [!NOTE]
     > Använd alltid distributions platsen för att uppdatera agenten.
 
-    Hämta inte agent koden från GitHub. Om den senaste agenten inte är tillgänglig för din distribution kan du kontakta distributions supporten för instruktioner om hur du hämtar den senaste agenten. Du kan också kontrol lera den senaste informationen om [Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) -agenten i GitHub-lagringsplatsen.
+    Hämta inte agent koden från GitHub. Om den senaste agenten inte är tillgänglig för din distribution kan du kontakta distributions supporten för instruktioner om hur du hämtar den senaste agenten. Du kan också kontrol lera den senaste informationen om [Windows Azure Linux-agenten](https://github.com/Azure/WALinuxAgent/releases) i GitHub-lagringsplatsen.
 
 ### <a name="validate-vm-agent-installation"></a>Verifiera installation av VM-agent
 

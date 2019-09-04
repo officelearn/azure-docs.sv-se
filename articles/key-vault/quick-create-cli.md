@@ -2,20 +2,20 @@
 title: Azure-snabbstart – Ställ in och hämta en hemlighet från Key Vault med hjälp av Azure CLI | Microsoft Docs
 description: Snabbstart som visar hur du ställer in och hämtar en hemlighet från Azure Key Vault med hjälp av Azure CLI
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/08/2019
-ms.author: barclayn
-ms.openlocfilehash: e9537c158afad2877bb2df2650500ab218de676f
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.date: 09/03/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 37fc4003ba19e9e8f3d156a7fcb9bb84001d2e90
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726745"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259323"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av Azure CLI
 
@@ -33,7 +33,7 @@ Du kan logga in i Azure via CLI genom att skriva:
 az login
 ```
 
-Mer information om inloggningsalternativen via CLI finns i [Logga in med Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Mer information om inloggningsalternativen via CLI finns i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -93,7 +93,9 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat ett nyckelvalv och lagrat en hemlighet i det. Om du vill lära dig mer om Key Vault och hur du kan använda det med dina program fortsätter du till självstudien om att använda webbprogram med Key Vault.
+I den här snabb starten skapade du en Key Vault och sparade en hemlighet. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
-> [!div class="nextstepaction"]
-> Om du vill lära dig att läsa en hemlighet från Key Vault via en webbapp genom att använda hanterade identiteter för Azure-resurser fortsätter du med självstudierna [Konfigurera en Azure-webbapp att läsa en hemlighet från Key Vault](quick-create-net.md)
+- Läs en [Översikt över Azure Key Vault](key-vault-overview.md)
+- Se referensen för [kommandon för Azure CLI-AZ](/cli/azure/keyvault?view=azure-cli-latest)
+- Lär dig mer om [nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
+- Granska [Azure Key Vault bästa praxis](key-vault-best-practices.md)

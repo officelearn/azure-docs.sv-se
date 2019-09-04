@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 65b6eb07a866db405af3e5bc609a540c36f148a8
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 84109cf04588a5de6fb3fd946a89b5dfee4baa1b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186446"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259155"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Så här bearbetar och extraherar du information från bilder i kognitiva Sök scenarier
 
@@ -34,18 +34,17 @@ Du kan inte inaktivera avbildnings-normalisering. De färdigheter som itereras �
 | Konfigurations parameter | Beskrivning |
 |--------------------|-------------|
 | imageAction   | Ange till "ingen" om ingen åtgärd ska vidtas när inbäddade bilder eller bildfiler påträffas. <br/>Ange till "generateNormalizedImages" om du vill generera en matris med normaliserade avbildningar som en del av dokument sprickor.<br/>Ange till "generateNormalizedImagePerPage" om du vill generera en matris med normaliserade avbildningar där för PDF-filer i data källan återges varje sida till en utgående bild.  Funktionen är samma som "generateNormalizedImages" för filtyper som inte är PDF-filer.<br/>För alla alternativ som inte är "ingen" visas bilderna i fältet *normalized_images* . <br/>Standardvärdet är "ingen". Den här konfigurationen är bara relevant för BLOB-datakällor, när "dataToExtract" är inställt på "contentAndMetadata". <br/>Högst 1000 avbildningar kommer att extraheras från ett givet dokument. Om det finns fler än 1000 avbildningar i ett dokument kommer den första 1000 att extraheras och en varning genereras. |
-|  normalizedImageMaxWidth | Den maximala bredden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2000.|
-|  normalizedImageMaxHeight | Den maximala höjden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2000.|
+|  normalizedImageMaxWidth | Den maximala bredden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2000. Det högsta tillåtna värdet är 10000. | 
+|  normalizedImageMaxHeight | Den maximala höjden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2000. Det högsta tillåtna värdet är 10000.|
 
 > [!NOTE]
 > Om du anger egenskapen *imageAction* till något annat än "ingen", kommer du inte att kunna ange egenskapen *parsingMode* till något annat än "default".  Du kan bara ange en av dessa två egenskaper till ett värde som inte är standardvärdet i din indexerare-konfiguration.
 
 Ange parametern **parsingMode** till `json` (för att indexera varje blob som ett enskilt dokument) eller `jsonArray` (om Blobbarna innehåller JSON-matriser och du behöver varje element i en matris för att behandlas som ett separat dokument).
 
-Standardvärdet på 2000 bild punkter för de normaliserade bildernas maximala bredd och höjd baseras på de maximala storlekar som stöds av [OCR](cognitive-search-skill-ocr.md) -kompetensen och [bild analysens färdighet](cognitive-search-skill-image-analysis.md). Om du ökar Max gränsen kan bearbetningen av de större bilderna gå sönder.
+Standardvärdet på 2000 bild punkter för de normaliserade bildernas maximala bredd och höjd baseras på de maximala storlekar som stöds av [OCR-kompetensen](cognitive-search-skill-ocr.md) och [bild analysens färdighet](cognitive-search-skill-image-analysis.md). [OCR-kunskaper](cognitive-search-skill-ocr.md) stöder maximal bredd och höjd på 4200 för andra språk än engelska och 10000 för engelska.  Om du ökar Max gränsen kan bearbetningen av större avbildningar gå sönder beroende på din färdigheter-definition och dokumentets språk. 
 
-
-Du anger imageAction i Indexer- [definitionen](https://docs.microsoft.com/rest/api/searchservice/create-indexer) enligt följande:
+Du anger imageAction i [Indexer-definitionen](https://docs.microsoft.com/rest/api/searchservice/create-indexer) enligt följande:
 
 ```json
 {
@@ -102,7 +101,7 @@ I [bild analysens kunskap](cognitive-search-skill-image-analysis.md) extraheras 
 
 ### <a name="ocr-skill"></a>OCR-kunskaper
 
-[OCR](cognitive-search-skill-ocr.md) -kompetensen extraherar text från bildfiler som JPGs, PNGs och bitmappar. Den kan extrahera text samt layoutinformation. I layoutinformation visas avgränsnings rutor för var och en av de angivna strängarna.
+[OCR-kompetensen](cognitive-search-skill-ocr.md) extraherar text från bildfiler som JPGs, PNGs och bitmappar. Den kan extrahera text samt layoutinformation. I layoutinformation visas avgränsnings rutor för var och en av de angivna strängarna.
 
 ## <a name="embedded-image-scenario"></a>Scenario för inbäddad bild
 

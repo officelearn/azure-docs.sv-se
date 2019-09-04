@@ -10,21 +10,21 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 04/12/2019
+ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 791017fffe96455157388fb43e0c1d65faba8933
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 230ff96aaf2c78827c7c4da92abe0f356cc2643e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071527"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241916"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Köra en anpassad Windows-container i Azure (förhandsversion)
 
-[Azure App Service](overview.md) har fördefinierade programstackar i Windows som ASP.NET eller Node.js, som körs i IIS. Den förkonfigurerade Windows-miljön låser operativsystemet från administrativ åtkomst, programinstallationer, ändringar av den globala sammansättningscachen och så vidare (se [Operativsystemfunktioner i Azure App Service](operating-system-functionality.md)). Om programmet kräver mer åtkomst än den förkonfigurerade miljön tillåter kan du istället distribuera en anpassad Windows-container. Den här snabbstarten visar hur du distribuerar en ASP.NET-app i en Windows-avbildning till [Docker Hub](https://hub.docker.com/) från Visual Studio och kör den i en anpassad container i Azure App Service.
+[Azure App Service](overview.md) har fördefinierade programstackar i Windows som ASP.NET eller Node.js, som körs i IIS. Den förkonfigurerade Windows-miljön låser ned operativ systemet från administrativ åtkomst, program varu installationer, ändringar i den globala sammansättningscachen och så vidare. Mer information finns i [operativ systemets funktioner på Azure App Service](operating-system-functionality.md). Om programmet kräver mer åtkomst än den förkonfigurerade miljön tillåter kan du istället distribuera en anpassad Windows-container.
 
-![](media/app-service-web-get-started-windows-container/app-running-vs.png)
+Den här snabb starten visar hur du distribuerar en ASP.NET-app i en Windows-avbildning till [Docker Hub](https://hub.docker.com/) från Visual Studio. Du kör appen i en anpassad behållare i Azure App Service.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -33,101 +33,98 @@ För att slutföra den här självstudien behöver du:
 - <a href="https://hub.docker.com/" target="_blank">Registrera dig för ett Docker Hub-konto</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installera Docker för Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2017</a> med arbetsbelastningarna **ASP.NET och webbutveckling** och **Azure-utveckling**. Om du redan har installerat Visual Studio 2017:
-    - Installera de senaste uppdateringarna i Visual Studio genom att klicka på **Hjälp** > **Sök efter uppdateringar**.
-    - Lägg till arbetsbelastningarna i Visual Studio genom att klicka på **Verktyg** > **Hämta verktyg och funktioner**.
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2019</a> med arbets belastningarna **ASP.net och webb utveckling** och **Azure Development** . Om du redan har installerat Visual Studio 2019:
+
+    - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp** > **sökning efter uppdateringar**.
+    - Lägg till arbets belastningarna i Visual Studio genom att välja **verktyg** > **Hämta verktyg och funktioner**.
 
 ## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
 
-Skapa ett nytt projekt i Visual Studio genom att välja **Arkiv > Nytt > Projekt**. 
+Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
-I dialogrutan **Nytt projekt** väljer du **Visual C# > Webb > ASP.NET-webbtillämpningsprogram (.NET Framework)** .
+1. Öppna Visual Studio och välj sedan **skapa ett nytt projekt**.
 
-Ge programmet namnet _myFirstAzureWebApp_ och välj **OK**.
-   
-![Dialogrutan Nytt projekt](./media/app-service-web-get-started-windows-container/new-project.png)
+1. I **skapa ett nytt projekt**, leta upp och välj **ASP.NET-webbprogram (.NET Framework)** för C#och välj sedan **Nästa**.
 
-Du kan distribuera alla typer av ASP.NET-webbappar till Azure. I den här snabbstarten väljer du **MVC**-mallen och ser till att autentiseringen är inställd på **Ingen autentisering**.
+1. I **Konfigurera ditt nya projekt**namnger du programmet _myFirstAzureWebApp_och väljer sedan **skapa**.
 
-Välj **Enable Docker Compose support** (Aktivera stöd för Docker Compose).
+   ![Konfigurera ditt webbapp](./media/app-service-web-get-started-windows-container/configure-web-app-project-container.png)
 
-Välj **OK**.
+1. Du kan distribuera alla typer av ASP.NET-webbappar till Azure. I den här snabb starten väljer du **MVC** -mallen.
 
-![Dialogrutan Nytt ASP.NET-projekt](./media/app-service-web-get-started-windows-container/select-mvc-template.png)
+1. Välj **Docker-support**och se till att autentiseringen är inställd på **Ingen autentisering**. Välj **Skapa**.
 
-Om filen _Dockerfile_ inte öppnas automatiskt öppnar du den från **Solution Explorer**.
+   ![Skapa ASP.NET-webbprogram](./media/app-service-web-get-started-windows-container/select-mvc-template-for-container.png)
 
-Du måste använda en [överordnad avbildning som stöds](#use-a-different-parent-image). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod och spara filen:
+1. Om filen _Dockerfile_ inte öppnas automatiskt öppnar du den från **Solution Explorer**.
 
-```Dockerfile
-FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
-```
+1. Du behöver en [överordnad avbildning som stöds](#use-a-different-parent-image). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod och spara filen:
 
-På menyn väljer du **Felsöka > Starta utan felsökning** för att köra webbappen lokalt.
+   ```Dockerfile
+   FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
+   ```
 
-![Kör appen lokalt](./media/app-service-web-get-started-windows-container/local-web-app.png)
+1. Från Visual Studio-menyn väljer du **Felsök** > **Start utan fel sökning** för att köra webbappen lokalt.
+
+   ![Kör appen lokalt](./media/app-service-web-get-started-windows-container/local-web-app.png)
 
 ## <a name="publish-to-docker-hub"></a>Publicera till Docker Hub
 
-Högerklicka på projektet **myFirstAzureWebApp** i **Solution Explorer** och välj **Publicera**.
+1. I **Solution Explorer**högerklickar du på projektet **MyFirstAzureWebApp** och väljer **publicera**.
 
-![Publicera från Solution Explorer](./media/app-service-web-get-started-windows-container/solution-explorer-publish.png)
+1. Välj **App Service** och välj sedan **publicera**.
 
-Publiceringsguiden startas automatiskt. Välj **Container Registry** > **Docker Hub** > **Publicera**.
+1. I Välj ett **publicerings mål**väljer du **container Registry** och **Docker Hub**och klickar sedan på **publicera**.
 
-![Publicera från projektöversiktssidan](./media/app-service-web-get-started-windows-container/publish-to-docker.png)
+   ![Publicera från projektöversiktssidan](./media/app-service-web-get-started-windows-container/publish-to-docker-vs2019.png)
 
-Ange autentiseringsuppgifterna för ditt Docker Hub-konto och klicka på **Spara**. 
+1. Ange dina autentiseringsuppgifter för Docker Hub-kontot och välj **Spara**.
 
-Vänta tills distributionen har slutförts. Sidan **Publicera** visar nu namnet på lagringsplatsen som du ska använda senare i App Service.
+   Vänta tills distributionen har slutförts. Sidan **publicera** visar nu det databas namn som ska användas senare.
 
-![Publicera från projektöversiktssidan](./media/app-service-web-get-started-windows-container/published-docker-repository.png)
+   ![Publicera från projektöversiktssidan](./media/app-service-web-get-started-windows-container/published-docker-repository-vs2019.png)
 
-Kopiera namnet på lagringsplatsen för senare bruk.
-
-## <a name="sign-in-to-azure"></a>Logga in på Azure
-
-Logga in på Azure Portal på https://portal.azure.com.
+1. Kopiera namnet på lagringsplatsen för senare bruk.
 
 ## <a name="create-a-windows-container-app"></a>Skapa en Windows-containerapp
 
+1. Logga in på [Azure Portal]( https://portal.azure.com).
+
 1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
 
-2. I sökrutan ovanför listan över resurser i Azure Marketplace söker du efter och väljer **Web App for Containers**.
+1. Sök efter **Web App for containers**i sökrutan ovanför Azure Marketplace-resurser och välj **skapa**.
 
-3. Ange ett namn på appen, till exempel *win-container-demo*, acceptera standardinställningarna för att skapa en ny resursgrupp och klicka på **Windows (förhandsversion)** i rutan **OS**.
+1. I **webbapp skapar**väljer du din prenumeration och en **resurs grupp**. Du kan skapa en ny resurs grupp om det behövs.
 
-    ![](media/app-service-web-get-started-windows-container/portal-create-page.png)
+1. Ange ett namn på appen, till exempel *Win-container-demo* och välj **Windows** för **operativ system**. Välj **Nästa: Docker** för att fortsätta.
 
-4. Skapa en App Service-plan genom att klicka på **App Service-plan/Plats** > **Skapa ny**. Namnge den nya planen, acceptera standardinställningarna och klicka på **OK**.
+   ![Skapa en Web App for Containers](media/app-service-web-get-started-windows-container/create-web-app-continer.png)
 
-    ![](media/app-service-web-get-started-windows-container/portal-create-plan.png)
+1. För **avbildnings källa**väljer du **Docker Hub** och för **bild och tagg**anger du det databas namn som du kopierade i [Publicera till Docker Hub](#publish-to-docker-hub).
 
-5. Klicka på **Konfigurera container**. I **Image and optional tag** (Avbildning och valfri tagg) använder du namnet på lagringsplatsen som du kopierade i [Publicera till Docker Hub](#publish-to-docker-hub) och klickar sedan på **OK**.
-
-    ![](media/app-service-web-get-started-windows-container/portal-configure-container-vs.png)
+   ![Konfigurera du är Web App for Containers](media/app-service-web-get-started-windows-container/configure-web-app-continer.png)
 
     Om du har en anpassad avbildning någon annanstans för ditt webbprogram, till exempel i [Azure Container Registry](/azure/container-registry/) eller på en annan privat lagringsplats, kan du konfigurera den här.
 
-6. Klicka på **Skapa** och vänta på att Azure skapar resurserna som krävs.
+1. Välj **Granska och skapa** och **skapa** och vänta sedan på att Azure ska skapa de nödvändiga resurserna.
 
 ## <a name="browse-to-the-container-app"></a>Bläddra till containerappen
 
 När Azure-åtgärden är klar visas ett meddelande.
 
-![](media/app-service-web-get-started-windows-container/portal-create-finished.png)
+![Distribueringen lyckades](media/app-service-web-get-started-windows-container/portal-create-finished.png)
 
 1. Klicka på **Gå till resurs**.
 
-2. På appsidan klickar du på länken under **URL**.
+1. I översikten över den här resursen följer du länken bredvid **URL**.
 
-En ny webbläsarsida öppnas på följande sida:
+En ny webb sida öppnas på följande sida:
 
-![](media/app-service-web-get-started-windows-container/app-starting.png)
+![Windows container app startar](media/app-service-web-get-started-windows-container/app-starting.png)
 
 Vänta några minuter och försök igen, tills du kommer till standardvälkomstsidan för ASP.NET:
 
-![](media/app-service-web-get-started-windows-container/app-running-vs.png)
+![Windows container App körs](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
 **Grattis!** Du kör din första anpassade Windows-container i Azure App Service.
 
@@ -150,24 +147,24 @@ De strömmade loggarna ser ut så här:
 
 ## <a name="update-locally-and-redeploy"></a>Uppdatera lokalt och omdistribuera
 
-Öppna _Views\Home\Index.cshtml_ från **Solution Explorer**.
+1. Öppna **vyer** **Start index. cshtml**i Solution Explorer i Visual Studio. >  > 
 
-Leta reda på HTML-taggen `<div class="jumbotron">` längst upp på sidan och ersätt hela elementet med följande kod:
+1. Leta reda på HTML-taggen `<div class="jumbotron">` längst upp på sidan och ersätt hela elementet med följande kod:
 
-```HTML
-<div class="jumbotron">
-    <h1>ASP.NET in Azure!</h1>
-    <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
-</div>
-```
+   ```HTML
+   <div class="jumbotron">
+       <h1>ASP.NET in Azure!</h1>
+       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+   </div>
+   ```
 
-Högerklicka på projektet **myFirstAzureWebApp** i **Solution Explorer** och välj **Publicera** för att distribuera om appen till Azure.
+1. Om du vill distribuera om till Azure högerklickar du på projektet **myFirstAzureWebApp** i **Solution Explorer** och väljer **publicera**.
 
-På publiceringssidan väljer du **Publicera** och väntar tills publiceringen ska slutföras.
+1. På publiceringssidan väljer du **Publicera** och väntar tills publiceringen ska slutföras.
 
-Om du vill uppmana App Service att hämta den nya avbildningen från Docker Hub startar du om appen. På appsidan i portalen klickar du på **Starta om** > **Ja**.
+1. Om du vill uppmana App Service att hämta den nya avbildningen från Docker Hub startar du om appen. På appsidan i portalen klickar du på **Starta om** > **Ja**.
 
-![Starta om webbapp i Azure](./media/app-service-web-get-started-windows-container/portal-restart-app.png)
+   ![Starta om webbapp i Azure](./media/app-service-web-get-started-windows-container/portal-restart-app.png)
 
 [Bläddra till container](#browse-to-the-container-app) igen. När du uppdaterar webbsidan ska appen återgå till sidan ”Startar” först och sedan visa den uppdaterade igen efter några minuter.
 
@@ -175,7 +172,7 @@ Om du vill uppmana App Service att hämta den nya avbildningen från Docker Hub 
 
 ## <a name="use-a-different-parent-image"></a>Använd en annan överordnad avbildning
 
-Du kan använda en annan anpassad Docker-avbildning för att köra appen. Men du måste välja rätt [överordnad avbildning](https://docs.docker.com/develop/develop-images/baseimages/) för det ramverk du vill använda: 
+Du kan använda en annan anpassad Docker-avbildning för att köra din app. Men du måste välja rätt [överordnad avbildning](https://docs.docker.com/develop/develop-images/baseimages/) för det ramverk du vill använda:
 
 - Om du vill distribuera .NET Framework appar använder du en överordnad avbildning som baseras på Windows Server Core 2019 [långsiktig LTSC-version (långsiktig service Channel)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . 
 - Om du vill distribuera .NET Core-appar använder du en överordnad avbildning som baseras på Windows Server nano 1809-versionen från [halvårs kanal (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) . 
@@ -183,7 +180,7 @@ Du kan använda en annan anpassad Docker-avbildning för att köra appen. Men du
 Det tar lite tid att ladda ned en överordnad avbildning när appen startas. Men du kan minska starttiden genom att använda någon av följande överordnade avbildningar som redan har cachelagrats i Azure App Service:
 
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [MCR.Microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809 – det här är den bas behållare som används i Microsoft [ASP.net Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) Nano Server-avbildningar från Microsoft Windows.
+- [MCR.Microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809 – den här avbildningen är bas behållaren som används i Microsoft [ASP.net Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) Nano Server-avbildningar från Microsoft Windows.
 
 ## <a name="next-steps"></a>Nästa steg
 

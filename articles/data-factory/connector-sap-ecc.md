@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: a419bdcda3507dd82ec92f621e7405c87f0cb98f
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 3f51ad3d0a75ab1f0662ea0b747852fcb98e5026
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211631"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259049"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Kopiera data från SAP ECC med hjälp av Azure Data Factory
 
@@ -131,7 +131,7 @@ Följande egenskaper stöds:
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över de avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter [](concepts-pipelines-activities.md)finns i pipelines. Följande avsnitt innehåller en lista över de egenskaper som stöds av SAP ECC-källan.
+En fullständig lista över de avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md). Följande avsnitt innehåller en lista över de egenskaper som stöds av SAP ECC-källan.
 
 ### <a name="sap-ecc-as-a-source"></a>SAP ECC som källa
 

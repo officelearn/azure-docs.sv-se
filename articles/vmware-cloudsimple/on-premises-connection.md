@@ -8,18 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ee359b76072da3caee9ae1f5fab3d0fc28d25c0e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c06cd53e408ebcae24de487fe1d4d25e14aae11b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972692"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240713"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Ansluta från den lokala platsen till CloudSimple med ExpressRoute
 
 Om du redan har en Azure ExpressRoute-anslutning från en extern plats (till exempel lokalt) till Azure kan du ansluta den till din CloudSimple-miljö. Du kan göra det via en Azure-funktion som gör att två ExpressRoute-kretsar kan ansluta till varandra. Den här metoden upprättar en säker, privat, hög bandbredds anslutning med låg latens mellan de två miljöerna.
 
 [![Anslutning till lokalt ExpressRoute – Global Reach](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+Ett **/29** nätverks adress block krävs för att upprätta Global Reach anslutning lokalt.  Adress utrymmet/29 används för överförings nätverk mellan ExpressRoute-kretsar.  Överförings nätverket bör inte överlappa någon av dina virtuella Azure-nätverk, lokala nätverk eller CloudSimple privata moln nätverk.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -63,5 +67,10 @@ För att upprätta ExpressRoute-anslutningen måste du skapa en auktorisering p�
     * Prenumeration: **Prenumeration där CloudSimple-tjänsten har distribuerats**
     * Tjänst: **VMware-lösning av CloudSimple**
     * Problem typ: **Tjänstbegäran**
-    * Problem under typ: **Skapa ExpressRoute-anslutning till lokalt**
+    * Undergrupp av problem: **Skapa ExpressRoute-anslutning till lokalt**
     * Ange resurs-ID och den auktoriseringskod som du kopierade och sparade i informations fönstret.
+    * Ange ett/29 nätverks adress utrymme för överförings nätverket.
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Läs mer om Azures nätverks anslutningar](cloudsimple-azure-network-connection.md)  

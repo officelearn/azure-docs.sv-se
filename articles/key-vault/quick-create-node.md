@@ -3,18 +3,18 @@ title: Snabb start – ange och hämta en hemlighet från Azure Key Vault med hj
 description: I den här snabb starten ställer du in och hämtar en hemlighet från Azure Key Vault med hjälp av en Node-webbapp
 services: key-vault
 author: msmbaldwin
-manager: sumedhb
+manager: rkarlin
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/05/2018
-ms.author: barclayn
+ms.date: 09/03/2010
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 5ca6289b1af02a54d8c66d5a9835e24f61c58559
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4bea46e62f90a41b566781457a39718849ee0e15
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934462"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259232"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp 
 
@@ -196,5 +196,9 @@ När du bläddrar till `https://<app_name>.azurewebsites.net`kan du se det hemli
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Azure SDK för Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+I den här snabb starten skapade du en Key Vault och sparade en hemlighet. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
+
+- Läs en [Översikt över Azure Key Vault](key-vault-overview.md)
+- Se [Azure Key Vault Developer ' s guide](key-vault-developers-guide.md)
+- Lär dig mer om [nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
+- Granska [Azure Key Vault bästa praxis](key-vault-best-practices.md)

@@ -3,21 +3,20 @@ title: Snabbstart – Skapa en Service Bus-kö i Azure-portalen | Microsoft Docs
 description: I den här snabbstarten lär du dig hur du skapar en Service Bus-kö med hjälp av Azure-portalen. Sedan använder du ett exempelklientprogram för att skicka meddelanden till och ta emot meddelanden från kön.
 services: service-bus-messaging
 author: spelluru
-manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 09/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 315f8d30b7c7559947c599edd0e18eaa5a99ac22
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67513633"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242382"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Snabbstart: Skapa en Service Bus-kö i Azure-portalen
-Den här snabbstarten beskriver hur du skickar och tar emot meddelanden till och från en Service Bus-kö med hjälp av den [Azure-portalen][Azure portal] att skapa ett namnområde för meddelanden och en kö i namnområdet och för att hämta autentiseringsuppgifterna på som namnområde. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
+I den här snabb starten beskrivs hur du skickar och tar emot meddelanden till och från en Service Bus kö med hjälp av [Azure Portal][Azure portal] för att skapa ett meddelande namn område och en kö inom denna namnrymd och för att hämta autentiseringsuppgifter för det namn området. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -26,7 +25,7 @@ Den här snabbstarten beskriver hur du skickar och tar emot meddelanden till och
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare. Du kan använda Visual Studio för att skapa ett exempel som skickar meddelanden till och tar emot meddelanden från en kö. I exemplet är att testa kön som du skapade med hjälp av PowerShell. 
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare. Du kan använda Visual Studio för att bygga ett exempel som skickar meddelanden till och tar emot meddelanden från en kö. Exemplet är att testa kön som du skapade med PowerShell. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
@@ -34,6 +33,18 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="send-and-receive-messages"></a>Skicka och ta emot meddelanden
+
+> [!NOTE]
+> Exemplet som används i det här avsnittet för att skicka och ta emot meddelanden är ett .NET-exempel. Exempel för att skicka och ta emot meddelanden med andra programmeringsspråk finns [Service Bus exempel](service-bus-samples.md). 
+> 
+> Stegvisa instruktioner för att skicka och ta emot meddelanden med olika programmeringsspråk finns i följande snabb starter:
+> - [NET](service-bus-dotnet-get-started-with-queues.md)
+> - [Java](service-bus-java-how-to-use-queues.md)
+> - [Node. js med Azure/Service-Bus-paket](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [Node. js med Azure-SB-paket](service-bus-nodejs-how-to-use-queues.md)
+> - [PHP](service-bus-php-how-to-use-queues.md)
+> - [Python](service-bus-python-how-to-use-queues.md)
+> - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 Efter att namnområdet och kön har etablerats och du har de behörigheter som krävs, är du redo att skicka och ta emot meddelanden. Du kan granska koden i [den här GitHub-exempelmappen](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
 
@@ -71,7 +82,7 @@ Det här avsnittet innehåller mer information om vad exempelkoden gör.
 
 ### <a name="get-connection-string-and-queue"></a>Hämta anslutningssträngen och kön
 
-Anslutningsnamn för sträng- och kö har skickats till den `Main()` metod som kommandoradsargument. `Main()` deklarerar två strängvariabler för att hålla dessa värden:
+Anslutnings strängen och könamnet skickas till `Main()` metoden som kommando rads argument. `Main()` deklarerar två strängvariabler för att hålla dessa värden:
 
 ```csharp
 static void Main(string[] args)
@@ -108,7 +119,7 @@ static void Main(string[] args)
 
 ### <a name="message-loop"></a>Meddelandeloop
 
-Metoden MainAsync() skapar en kö-klient med kommandoradsargument, anropar en mottagande meddelandehanterare som heter `RegisterOnMessageHandlerAndReceiveMessages()`, och skickar uppsättningen av meddelanden:
+Metoden MainAsync () skapar en Queue-klient med kommando rads argumenten, anropar en mottagar meddelande hanterare `RegisterOnMessageHandlerAndReceiveMessages()`med namnet och skickar en uppsättning meddelanden:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -198,11 +209,11 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 }
 ```
 > [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Mer information om hur du skriver kod för att skicka och ta emot meddelanden, gå vidare till självstudiekurserna i den **skicka och ta emot meddelanden** avsnittet. 
+I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Om du vill veta mer om hur du skriver kod för att skicka och ta emot meddelanden kan du fortsätta till självstudierna i avsnittet **skicka och ta emot meddelanden** . 
 
 > [!div class="nextstepaction"]
 > [Skicka och ta emot meddelanden](service-bus-dotnet-get-started-with-queues.md)

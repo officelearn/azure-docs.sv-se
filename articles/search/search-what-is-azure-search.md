@@ -6,18 +6,18 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: heidist
-ms.openlocfilehash: 204951f725c2885fe9f8bf33fffe83e55628dd34
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 3b0647c3a71e6ce242e7cbd0eedcca3d0fa30ded
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899690"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274055"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
 
-Azure Search är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program. Din anpassade kod anropar data inmatning (indexering) för att skapa och läsa in ett index. På den andra sidan utfärdar din program kod frågor om begär Anden och hanterar svar. Sök funktionen definieras i-klienten med hjälp av funktioner från Azure Search, med frågekörningen över ett beständigt index som du skapar, äger och lagrar på Azure Search.
+Azure Search är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program. Din anpassade kod anropar data inmatning (indexering) för att skapa och läsa in ett index. På den andra sidan utfärdar din program kod frågor om begär Anden och hanterar svar. Sök funktionen definieras i klienten med hjälp av funktioner från Azure Search, med frågekörningen över ett beständigt index som du skapar, äger och lagrar i din tjänst.
 
 ![Azure Search arkitektur](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search arkitektur")
 
@@ -27,7 +27,7 @@ Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [
 
 Azure Search passar bra för följande program scenarier:
 
-+ Konsolidering av heterogena innehålls typer i ett privat, enskilt, sökbart index. Frågor är alltid över ett index som du skapar och läser in med dokument, och indexet finns alltid i molnet på din Azure Search-tjänst. Du kan fylla i ett index med strömmar av JSON-dokument från valfri källa eller plattform. Du kan också använda en indexerare för att hämta data till ett index för innehåll som har ursprung på Azure. Index definition och hantering/ägarskap är en viktig orsak till att använda Azure Search.
++ Konsolidering av heterogena innehålls typer i ett privat, enskilt, sökbart index. Frågor är alltid över ett index som du skapar och läser in med dokument, och indexet finns alltid i molnet på din Azure Search-tjänst. Du kan fylla i ett index med strömmar av JSON-dokument från valfri källa eller plattform. Du kan också använda en *indexerare* för att hämta data till ett index för innehåll som har ursprung på Azure. Index definition och hantering/ägarskap är en viktig orsak till att använda Azure Search.
 
 + Enkel implementering av sökrelaterade funktioner. Azure Search-API: er fören klar frågornas konstruktion, fasett navigering, filter (inklusive geo-spatial sökning), synonym mappning, typeahead-frågor och relevans-justering. Med hjälp av inbyggda funktioner kan du tillgodose förväntningar på slutanvändare för en Sök upplevelse som liknar de kommersiella sökmotorer för Webbs ökning.
 
@@ -63,7 +63,7 @@ Azure Search passar bra för följande program scenarier:
 |-------------------|----------|
 | Verktyg för prototyper och inspektion | I portalen kan du använda [**guiden Importera data**](search-import-data-portal.md) för att konfigurera indexerare, indexdesignern för att sätta upp ett index och [**Sökutforskaren**](search-explorer.md) för att testa frågor och förfina bedömningsprofiler. Du kan också öppna ett index om du vill visa dess schema. |
 | Övervakning och diagnostik | [**Aktivera övervakningsfunktionerna**](search-monitor-usage.md) för att gå bortom måtten – vid en snabb skärm som alltid är synliga i portalen. Mått för frågor per sekund, svarstid och begränsning fångas in och rapporteras på portalsidor utan att ytterligare konfiguration krävs. <br/><br/>[**Sök trafik analys**](search-traffic-analytics.md) är ett annat övervaknings alternativ, där data från Server sidan och klient sidan samlas in och analyseras för att låsa upp insikter om vad användarna skriver i sökrutan. |
-| Kryptering på serversidan | [**Microsoft-Managed Encrypted Encryption-at-rest**](search-security-overview.md#encrypted-transmission-and-storage) är inbyggt i det interna lagrings lagret och är oåterkalleligt. Alternativt kan du komplettera standard kryptering med Kundhanterade [**krypterings nycklar (för hands version)** ](search-security-manage-encryption-keys.md). Nycklar som du skapar och hanterar i Azure Key Vault används för att kryptera index och synonymer Maps i Azure Search. |
+| Kryptering på serversidan | [**Microsoft-Managed Encrypted Encryption-at-rest**](search-security-overview.md#encrypted-transmission-and-storage) är inbyggt i det interna lagrings lagret och är oåterkalleligt. Alternativt kan du komplettera standard kryptering med [**Kundhanterade krypterings nycklar (för hands version)** ](search-security-manage-encryption-keys.md). Nycklar som du skapar och hanterar i Azure Key Vault används för att kryptera index och synonymer Maps i Azure Search. |
 | Infrastruktur | **Plattformen med hög tillgänglighet** ger en mycket tillförlitlig söktjänst. När det skalas korrekt [erbjuder Azure Search ett serviceavtal på 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> Azure Search är **fullständigt hanterat och skalbart** som en komplett lösning, och kräver ingen som helst infrastrukturhantering. Tjänsten kan skräddarsys efter dina behov genom att skala i två dimensioner för att hantera mer dokumentlagring, högre frågebelastningar eller båda.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Använda Azure Search

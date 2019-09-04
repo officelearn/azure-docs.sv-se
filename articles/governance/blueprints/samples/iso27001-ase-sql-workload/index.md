@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b17b07124cf4491a6c58e9be2b10f958e29217ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8877c29341c95d5cd0fe8e35887c44594e0b6d41
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60876098"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231763"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning
 
@@ -37,7 +37,7 @@ Den här miljön består av flera Azure-tjänster ger en säker, fullständigt �
 - Ett virtuellt nätverk som innehåller ett enskilt undernät som är peerkopplat tillbaka till en redan befintlig miljö för [delade tjänster](../iso27001-shared/index.md) och som tvingar all trafik att gå via brandväggen för [delade tjänster](../iso27001-shared/index.md). Det virtuella nätverket är värd för följande resurser:
   - En [Azure App Service-miljön](../../../../app-service/environment/intro.md) som kan användas som värd för en eller flera webbappar, webb-API:er eller funktioner
   - En [Azure Key Vault](../../../../key-vault/key-vault-whatis.md)-instans med en tjänstslutpunkt för virtuellt nätverk för att lagra hemligheter som används av appar som körs i arbetsbelastningsmiljön
-  - En [Azure SQL Database](../../../../sql-database/sql-database-technical-overview.md)-instans med en tjänstslutpunkt för virtuellt nätverk för att lagra databaser som används för appar i arbetsbelastningsmiljön
+  - En [Azure SQL Database](../../../../sql-database/sql-database-technical-overview.md)-serverinstans med en tjänstslutpunkt för virtuellt nätverk för att lagra databaser som används för appar i arbetsbelastningsmiljön
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -49,7 +49,7 @@ Du har läst översikten och arkitekturen för skissexemplet ISO 27001 App Servi
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Lär dig mer om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).

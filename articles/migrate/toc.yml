@@ -76,6 +76,8 @@
       href: how-to-create-group-machine-dependencies.md
     - name: Skapa en utvärdering
       href: how-to-create-assessment.md
+    - name: Utvärdera en SQL Server-databas
+      href: 'https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json&view=sql-server-2017'
     - name: Anpassa en utvärdering
       href: how-to-modify-assessment.md
     - name: Lägga till migreringsverktyg

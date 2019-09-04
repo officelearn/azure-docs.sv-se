@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 1261f90910891fa4cae6ff915fbb3f9a9b714c9c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 390d07a473cff86d8870a7ec8229c6343f62c4e7
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451197"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232647"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>Översikt över PCI-DSS v3.2.1-skissexemplet
 
@@ -36,7 +36,7 @@ Du har granskat översikten över PCI-DSS v3.2.1-skissexemplet. Nu kan du gå vi
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Lär dig mer om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).

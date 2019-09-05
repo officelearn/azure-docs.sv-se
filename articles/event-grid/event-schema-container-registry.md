@@ -162,7 +162,7 @@ En händelse har följande översta data:
 | eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |
-| data | objekt | Händelsedata för BLOB storage. |
+| data | object | Händelsedata för BLOB storage. |
 | dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
@@ -173,8 +173,8 @@ Dataobjektet har följande egenskaper:
 | id | string | Händelse-ID. |
 | timestamp | string | Den tid då händelsen inträffade. |
 | action | string | Den åtgärd som omfattar den angivna händelsen. |
-| target | objekt | Målet för händelsen. |
-| request | objekt | Den begäran som skapade händelsen. |
+| target | object | Målet för händelsen. |
+| request | object | Den begäran som skapade händelsen. |
 
 Målobjektet har följande egenskaper:
 
